@@ -1,6 +1,5 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 DESCRIPTION="Themes for CLD"
 HOMEPAGE="http://www.calculate-linux.ru/calcualte-cld-themes"
