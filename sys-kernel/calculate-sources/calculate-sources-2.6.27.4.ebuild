@@ -5,7 +5,7 @@ ETYPE="sources"
 
 CALC_VER=""
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 HOMEPAGE="http://www.calculate-linux.ru"
 
 inherit kernel-2
