@@ -7,6 +7,7 @@ SRC_URI="ftp://ftp.local.calculate.ru/pub/${PN}/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0"
+KEYWORDS=""
 IUSE=""
 
 DEPEND=""
