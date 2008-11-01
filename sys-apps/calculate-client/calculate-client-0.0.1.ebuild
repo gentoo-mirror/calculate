@@ -1,7 +1,7 @@
 # Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
 # Distributed under the terms of the GNU General Public License v2
 
-inherit distutils subversion
+inherit distutils
 
 SRC_URI="ftp://ftp.local.calculate.ru/pub/calculate2/${PN}/${P}.tar.bz2"
 
