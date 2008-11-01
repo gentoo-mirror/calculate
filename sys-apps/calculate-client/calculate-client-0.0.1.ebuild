@@ -3,7 +3,7 @@
 
 inherit distutils subversion
 
-ESVN_REPO_URI="http://svn.calculate.ru/calculate2/calculate-client/tags/0.0.1/"
+SRC_URI="ftp://ftp.local.calculate.ru/pub/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The program adjusts the user account"
 HOMEPAGE="http://www.calculate-linux.ru/Calculate_2"
