@@ -23,6 +23,12 @@ RDEPEND=">=x11-libs/gtk+-2.6
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.4.8"
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"             
+	epatch "${FILESDIR}"/${P}.patch                
+}
+
 src_compile() {
 	mkdir -p "${S}/build" && cd "${S}/build"
 	cmake \
