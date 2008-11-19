@@ -15,5 +15,5 @@ DEPEND="=sys-apps/calculate-lib-0.0.2
         >=dev-python/python-ldap-2.0
         >=sys-auth/pam_ldap-180
         >=sys-auth/nss_ldap-239
-		>=kde-misk/kgtk-0.9.5
+		>=kde-misc/kgtk-0.9.5
 		>=kde-misc/gtk-kde4-0.8.0"
