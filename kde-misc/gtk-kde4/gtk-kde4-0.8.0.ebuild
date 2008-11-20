@@ -23,6 +23,13 @@ RDEPEND=">=x11-libs/gtk+-2.6
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.6.1"
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+	# заменяем изображения взплывающего меню
+	cp "${FILESDIR}"/menu.png "${S}"/qt4/gtk-2.0/Menu-Menubar/menu.png
+}
+
 src_compile() {
 	cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr . || die "cmake (configure) failed"
 	emake || die "emake failed"
