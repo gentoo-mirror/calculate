@@ -21,9 +21,8 @@ for x in ${LANGS} ; do
 done
 
 DEPEND="dev-lang/perl
-		dev-perl/Archive-Tar
+		perl-core/Archive-Tar
 		dev-perl/Archive-Zip
-		dev-perl/Compress-Zlib
 		dev-perl/gtk2-perl
 		dev-perl/HTML-Parser
 		dev-perl/libwww-perl
@@ -31,9 +30,8 @@ DEPEND="dev-lang/perl
 		dev-perl/XML-LibXML
 		dev-perl/XML-Parser
 		dev-perl/XML-Simple
-		dev-perl/Archive-Tar
-		dev-perl/Compress-Zlib
-		dev-perl/Time-Piece
+		perl-core/Compress-Zlib
+		perl-core/Time-Piece
 		virtual/perl-File-Spec
 		virtual/perl-File-Temp
 		virtual/perl-libnet
