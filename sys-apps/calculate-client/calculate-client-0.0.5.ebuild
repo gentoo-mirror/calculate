@@ -5,11 +5,15 @@ inherit distutils
 
 SRC_URI="ftp://ftp.local.calculate.ru/pub/calculate2/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The library for Calculate 2"
+DESCRIPTION="The program adjusts the user account"
 HOMEPAGE="http://www.calculate-linux.ru/Calculate_2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-DEPEND=">=dev-python/python-ldap-2.0
-        >=dev-python/pyxml-0.8"
+
+DEPEND="=sys-apps/calculate-lib-0.0.3
+        >=dev-python/python-ldap-2.0
+        >=sys-auth/pam_ldap-180
+        >=sys-auth/nss_ldap-239
+        >=kde-misc/kgtk-0.9.5
+        >=kde-misc/gtk-kde4-0.8.0"
