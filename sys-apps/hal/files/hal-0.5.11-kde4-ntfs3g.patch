@@ -1,0 +1,31 @@
+diff -ru hal-0.5.11.orig/fdi/policy/10osvendor/20-storage-methods.fdi hal-0.5.11/fdi/policy/10osvendor/20-storage-methods.fdi
+--- hal-0.5.11.orig/fdi/policy/10osvendor/20-storage-methods.fdi	2008-05-08 03:21:16.000000000 +0400
++++ hal-0.5.11/fdi/policy/10osvendor/20-storage-methods.fdi	2008-12-10 20:11:16.000000000 +0300
+@@ -246,6 +246,8 @@
+ 	  <append key="volume.mount.valid_options" type="strlist">uid=</append>
+ 	  <append key="volume.mount.valid_options" type="strlist">gid=</append>
+ 	  <append key="volume.mount.valid_options" type="strlist">umask=</append>
++	  <append key="volume.mount.valid_options" type="strlist">dmask=</append>
++	  <append key="volume.mount.valid_options" type="strlist">fmask=</append>
+ 	  <append key="volume.mount.valid_options" type="strlist">locale=</append>
+ 	  <append key="volume.mount.valid_options" type="strlist">utf8</append>
+ 	</match>
+diff -ru hal-0.5.11.orig/tools/hal-storage-mount.c hal-0.5.11/tools/hal-storage-mount.c
+--- hal-0.5.11.orig/tools/hal-storage-mount.c	2008-05-08 03:24:23.000000000 +0400
++++ hal-0.5.11/tools/hal-storage-mount.c	2008-12-10 20:08:45.000000000 +0300
+@@ -763,13 +763,13 @@
+ 
+ 	if (pol_is_fixed) {
+ 		if (pol_change_uid) {
+-			action = NULL; /* "hal-storage-mount-fixed-extra-options"; TODO: rethink */
++			action = "hal-storage-mount-fixed-extra-options";
+ 		} else {
+ 			action = "org.freedesktop.hal.storage.mount-fixed";
+ 		}
+ 	} else {
+ 		if (pol_change_uid) {
+-			action = NULL; /* "hal-storage-mount-removable-extra-options"; TODO: rethink "extra-options" */
++			action = "hal-storage-mount-removable-extra-options";
+ 		} else {
+ 			action = "org.freedesktop.hal.storage.mount-removable";
+ 		}
