@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="=sys-apps/calculate-lib-2.0.6
-        >=net-nds/openldap-2.4
+        >=net-nds/openldap-2.3
         >=sys-auth/pam_ldap-180[ssl]
         >=sys-auth/nss_ldap-239
         >=net-fs/samba-3.0[acl,cups,kernel_linux,ldap,pam]
