@@ -1,0 +1,16 @@
+diff -uNr kdelibs-4.1.4.orig/kdecore/io/klockfile_unix.cpp kdelibs-4.1.4/kdecore/io/klockfile_unix.cpp
+--- kdelibs-4.1.4.orig/kdecore/io/klockfile_unix.cpp	2009-01-07 02:37:47.000000000 +0300
++++ kdelibs-4.1.4/kdecore/io/klockfile_unix.cpp	2009-01-20 11:51:42.000000000 +0300
+@@ -173,8 +174,11 @@
+   if (st_buf != st_buf2 || S_ISLNK(st_buf.st_mode) || S_ISLNK(st_buf2.st_mode))
+   {
+      // SMBFS supports hardlinks by copying the file, as a result the above test will always fail
+-     if ((st_buf.st_nlink == 1) && (st_buf2.st_nlink == 1) && (st_buf.st_ino != st_buf2.st_ino))
++     if ( (((st_buf.st_nlink == 1) && (st_buf2.st_nlink == 1)) ||
++	   ((st_buf.st_nlink == 2) && (st_buf2.st_nlink == 2))) // DF: for #156759, but no idea why
++	     && (st_buf.st_ino != st_buf2.st_ino))
+      {
++
+         linkCountSupport = testLinkCountSupport(uniqueName);
+         if (!linkCountSupport)
+            return KLockFile::LockOK; // Link count support is missing... assume everything is OK.
