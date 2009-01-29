@@ -10,7 +10,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 DEPEND=">=sys-apps/keyutils-1.1
 	>=sys-auth/pam_keystore-0.1
-	kde-base/kdelibs:4.1"
+	>=kde-base/kdelibs-4.1.0"
 
 #RDEPEND=""
 
