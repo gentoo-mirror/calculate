@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="qt4"
 
 RDEPEND=">=x11-libs/gtk+-2.6
-	kde-base/kdelibs:4.1
+	>=kde-base/kdelibs-4.1.0
 	qt4? ( || ( x11-libs/qt-gui:4 x11-libs/qt:4 ) )"
 
 DEPEND="${RDEPEND}

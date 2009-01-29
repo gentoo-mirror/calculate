@@ -20,7 +20,7 @@ RDEPEND=">=dev-util/subversion-1.4
 	"
 
 DEPEND="${RDEPEND}
-	kde-base/kdelibs:4.1
+	>=kde-base/kdelibs-4.1.0
 	>=dev-util/cmake-2.4"
 
 src_unpack() {

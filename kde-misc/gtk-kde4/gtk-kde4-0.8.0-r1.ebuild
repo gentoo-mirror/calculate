@@ -16,7 +16,7 @@ SLOT="4.1"
 KEYWORDS="~amd64 ~ppc ~x86"
 
 RDEPEND=">=x11-libs/gtk+-2.6
-	kde-base/kdelibs:4.1
+	>=kde-base/kdelibs-4.1.0
 	x11-themes/gtk-engines-qtpixmap
 	|| ( x11-libs/qt-gui:4 x11-libs/qt:4 )"
 
