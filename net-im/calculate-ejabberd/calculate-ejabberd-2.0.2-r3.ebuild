@@ -123,7 +123,7 @@ src_install() {
 	dodir /var/lib/ejabberd
 
 
-	newinitd "${FILESDIR}/${MY_P}-r2.initd" ${JABBER_NAME}
+	newinitd "${FILESDIR}/${MY_P}-r3.initd" ${JABBER_NAME}
 	newconfd "${FILESDIR}/${MY_P}-r1.confd" ${JABBER_NAME}
 
 	# fix up the ssl cert paths in /etc/jabber/ejabberd.cfg to use the cert
