@@ -27,9 +27,9 @@ RDEPEND="dbus? ( sys-apps/dbus )
 		!kernel_linux? ( net-libs/libpcap )
 		qt4? ( 
 			|| ( ( x11-libs/qt-core:4
-			        >=x11-libs/qt-qt3support-4.4.2
-			        x11-libs/qt-gui:4 )
-					<x11-libs/qt-4.4:4
+			       x11-libs/qt-qt3support:4
+			       x11-libs/qt-gui:4 )
+			   <x11-libs/qt-4.4:4
 			)
 		)
 		!qt4? ( qt3? ( =x11-libs/qt-3* ) )
