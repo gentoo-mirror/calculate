@@ -7,8 +7,8 @@ inherit distutils
 
 SRC_URI="ftp://ftp.local.calculate.ru/pub/calculate2/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The program adjusts the user account"
-HOMEPAGE="http://www.calculate-linux.ru/Calculate_2"
+DESCRIPTION="The program of setting and storing the user account in the domain"
+HOMEPAGE="http://www.calculate-linux.ru/Calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
