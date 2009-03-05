@@ -5,7 +5,9 @@ EAPI="2"
 
 inherit distutils
 
-SRC_URI="ftp://ftp.local.calculate.ru/pub/calculate2/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://mirror.yandex.ru/calculate/calculate2/${PN}/${P}.tar.bz2
+         http://mirror.yandex.ru/calculate/calculate2/${PN}/${P}.tar.bz2
+         ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.ru/Calculate2"

@@ -5,15 +5,17 @@ EAPI="2"
 
 inherit distutils
 
-SRC_URI="ftp://ftp.local.calculate.ru/pub/calculate2/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://mirror.yandex.ru/calculate/calculate2/${PN}/${P}.tar.bz2
+         http://mirror.yandex.ru/calculate/calculate2/${PN}/${P}.tar.bz2
+         ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.ru/Calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-DEPEND="=sys-apps/calculate-lib-2.0.9
+DEPEND="=sys-apps/calculate-lib-2.0.10
         >=dev-python/python-ldap-2.0[ssl]
         >=sys-auth/pam_ldap-180[ssl]
         >=sys-auth/nss_ldap-239
