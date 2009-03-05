@@ -15,7 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="=sys-apps/calculate-lib-2.0.6
+DEPEND="=sys-apps/calculate-lib-2.0.6-r1
         >=net-nds/openldap-2.3[-minimal]
         >=sys-auth/pam_ldap-180[ssl]
         >=sys-auth/nss_ldap-239
