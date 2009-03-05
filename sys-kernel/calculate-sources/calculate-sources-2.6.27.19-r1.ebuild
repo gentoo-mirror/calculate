@@ -23,7 +23,9 @@ KV_FULL="2.6.${CALC_SUBV}-calculate${CALC_VER}"
 EXTRAVERSION=".${CALC_K_SUBV}-calculate${CALC_VER}"
 UNIPATCH_STRICTORDER=1
 
-CALC_URI="ftp://ftp.local.calculate.ru/pub/${PN}/${PN}-${CKV}.tar.bz2"
+CALC_URI="ftp://mirror.yandex.ru/calculate/${PN}/${PN}-${CKV}.tar.bz2
+         http://mirror.yandex.ru/calculate/${PN}/${PN}-${CKV}.tar.bz2
+         ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${PN}-${CKV}.tar.bz2"
 
 DESCRIPTION="Full sources including the Calculate patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
 
