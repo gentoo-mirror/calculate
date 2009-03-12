@@ -13,7 +13,7 @@ DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.ru/Calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS=""
 
 DEPEND="=sys-apps/calculate-lib-2.0.10
         >=dev-python/python-ldap-2.0[ssl]
