@@ -6,7 +6,7 @@ inherit distutils subversion
 ESVN_REPO_URI="http://svn.calculate.ru/calculate2/calculate-lib/trunk/"
 
 DESCRIPTION="The library for Calculate 2"
-HOMEPAGE="http://www.calculate-linux.ru/Calculate_2"
+HOMEPAGE="http://www.calculate-linux.ru/Calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
