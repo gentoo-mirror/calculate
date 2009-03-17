@@ -18,13 +18,13 @@ RDEPEND=""
 src_install() {
 		insinto /
 		dosym ../CalculateSplash/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashRu/400x300
-		dosym /usr/share/icons/Calculate/40x40/apps/1c.png /usr/share/pixmap/1c.png
-		dosym /usr/share/icons/Calculate/40x40/apps/autocad.png /usr/share/pixmap/autocad.png
-		dosym /usr/share/icons/Calculate/40x40/apps/corel.png /usr/share/pixmap/corel.png
-		dosym /usr/share/icons/Calculate/40x40/apps/illustrator.png /usr/share/pixmap/illustrator.png
-		dosym /usr/share/icons/Calculate/40x40/apps/photoshop.png /usr/share/pixmap/photoshop.png
-		dosym /usr/share/icons/Calculate/40x40/apps/topplan.png /usr/share/pixmap/topplan.png
-		dosym /usr/share/icons/Calculate/40x40/apps/windows.png /usr/share/pixmap/windows.png
-		dosym /usr/share/icons/Calculate/40x40/apps/yellow.png /usr/share/pixmap/yellow.png
+		dosym ../icons/Calculate/40x40/apps/1c.png /usr/share/pixmaps/1c.png
+		dosym ../icons/Calculate/40x40/apps/autocad.png /usr/share/pixmaps/autocad.png
+		dosym ../icons/Calculate/40x40/apps/corel.png /usr/share/pixmaps/corel.png
+		dosym ../icons/Calculate/40x40/apps/illustrator.png /usr/share/pixmaps/illustrator.png
+		dosym ../icons/Calculate/40x40/apps/photoshop.png /usr/share/pixmaps/photoshop.png
+		dosym ../icons/Calculate/40x40/apps/topplan.png /usr/share/pixmaps/topplan.png
+		dosym ../icons/Calculate/40x40/apps/windows.png /usr/share/pixmaps/windows.png
+		dosym ../icons/Calculate/40x40/apps/yellow.png /usr/share/pixmaps/yellow.png
 		doins -r .
 }
