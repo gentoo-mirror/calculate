@@ -1,7 +1,7 @@
 # Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
 # Distributed under the terms of the GNU General Public License v2
 
-DESCRIPTION="Themes for CLD"
+DESCRIPTION="Theme for Calculate Linux Desktop"
 HOMEPAGE="http://www.calculate-linux.ru/calcualte-cld-themes"
 SRC_URI="ftp://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
          http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
