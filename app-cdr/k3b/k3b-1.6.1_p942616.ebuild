@@ -20,6 +20,7 @@ IUSE=""
 
 DEPEND=">=x11-libs/qt-core-4.3.0
         >=kde-base/kdelibs-4.2.0
+		kde-base/libkcddb
         sys-apps/hal
         media-libs/taglib                          
         >=media-sound/cdparanoia-3.9.8             
