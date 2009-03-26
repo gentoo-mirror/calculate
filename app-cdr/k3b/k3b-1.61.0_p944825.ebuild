@@ -54,3 +54,9 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
 }
+
+pkg_postinst() {
+	cp -a ${FILESDIR}/ru /usr/share/locale/
+	cp -a ${FILESDIR}/uk /usr/share/locale/
+}
+
