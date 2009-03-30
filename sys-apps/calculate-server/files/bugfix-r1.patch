@@ -1,0 +1,303 @@
+diff -ruN calculate-server-2.0.8.orig/pym/cl_ldap.py calculate-server-2.0.8/pym/cl_ldap.py
+--- calculate-server-2.0.8.orig/pym/cl_ldap.py	2009-03-17 14:29:08.000000000 +0300
++++ calculate-server-2.0.8/pym/cl_ldap.py	2009-03-30 17:44:42.000000000 +0400
+@@ -393,8 +393,9 @@
+ 
+     def runLdapServer(self):
+         """Запускает LDAP сервер"""
+-        textLine = self.execProg("/etc/init.d/slapd start")
+-        if "ok" in textLine:
++        textLines = self.execProg("/etc/init.d/slapd start", False, False)
++        if textLines and type(textLines) == types.ListType and\
++            "ok" in textLines[-1] or textLines and "ok" in textLines:
+             return True
+         else:
+             self.printNotOK(_("Starting LDAP")+ " ...")
+@@ -402,8 +403,9 @@
+ 
+     def restartLdapServer(self):
+         """Запускает LDAP сервер"""
+-        textLine = self.execProg("/etc/init.d/slapd restart")
+-        if "ok" in textLine:
++        textLines = self.execProg("/etc/init.d/slapd restart", False, False)
++        if textLines and type(textLines) == types.ListType and\
++            "ok" in textLines[-1] or textLines and "ok" in textLines:
+             return True
+         else:
+             self.printNotOK(_("Restarting LDAP")+ " ...")
+@@ -411,8 +413,9 @@
+ 
+     def stopLdapServer(self):
+         """Останавливает LDAP сервер"""
+-        textLine = self.execProg("/etc/init.d/slapd stop")
+-        if "ok" in textLine:
++        textLines = self.execProg("/etc/init.d/slapd stop", False, False)
++        if textLines and type(textLines) == types.ListType and\
++            "ok" in textLines[-1] or textLines and "ok" in textLines:
+             #self.printOK(_("LDAP stop")+ " ...")
+             return True
+         else:
+@@ -498,8 +501,10 @@
+         flagError = False
+         for daemon in daemons:
+             if not self.getRunDaemons([daemon]):
+-                textLine = self.execProg("/etc/init.d/%s start" %(daemon))
+-                if not ("ok" in textLine):
++                textLines = self.execProg("/etc/init.d/%s start" %(daemon),
++                                          False, False)
++                if not (textLines and type(textLines) == types.ListType and\
++                    "ok" in textLines[-1] or textLines and "ok" in textLines):
+                     self.printERROR( _("Daemon %s was not started") %daemon)
+                     flagError = True
+                     break
+@@ -581,23 +586,32 @@
+                 flagLdap = True
+             elif service == "mail":
+                 if self.getRunDaemons(["postfix"]):
+-                    textLine = self.execProg("/etc/init.d/postfix stop")
+-                    if not ("ok" in textLine):
++                    textLines = self.execProg("/etc/init.d/postfix stop", False,
++                                             False)
++                    if not (textLines and type(textLines) == types.ListType\
++                        and "ok" in textLines[-1] or textLines and\
++                        "ok" in textLines):
+                         self.printERROR( "Postfix" + " " +
+                                 _("service is not stopped"))
+                         flagError = True
+                         break
+                 if self.getRunDaemons(["dovecot"]):
+-                    textLine = self.execProg("/etc/init.d/dovecot stop")
+-                    if not ("ok" in textLine):
++                    textLines = self.execProg("/etc/init.d/dovecot stop", False,
++                                              False)
++                    if not (textLines and type(textLines) == types.ListType and\
++                        "ok" in textLines[-1] or textLines and\
++                        "ok" in textLines):
+                         self.printERROR(str("Dovecot") + " " +
+                                 _("service is not stopped"))
+                         flagError = True
+                         break
+             elif service == "jabber":
+                 if self.getRunService("jabber"):
+-                    textLine = self.execProg("/etc/init.d/ejabberd stop")
+-                    if not ("ok" in textLine):
++                    textLines = self.execProg("/etc/init.d/ejabberd stop",False,
++                                             False)
++                    if not (textLines and type(textLines) == types.ListType and\
++                        "ok" in textLines[-1] or textLines and\
++                        "ok" in textLines):
+                         self.printERROR( "Ejabberd" + " " +
+                                 _("service is not stopped"))
+                         flagError = True
+@@ -616,24 +630,30 @@
+                             break
+             elif service == "ftp":
+                 if self.getRunDaemons(["proftpd"]):
+-                    textLine = self.execProg("/etc/init.d/proftpd stop")
+-                    if not ("ok" in textLine):
++                    textLines = self.execProg("/etc/init.d/proftpd stop",False,
++                                              False)
++                    if not (textLines and type(textLines) == types.ListType and\
++                        "ok" in textLines[-1] or textLines and\
++                        "ok" in textLines):
+                         self.printERROR( "Proftpd" + " " +
+                                 _("service is not stopped"))
+                         flagError = True
+                         break
+             elif self.getRunService(service):
+                 stopService = service
+-                textLine = self.execProg("/etc/init.d/%s stop" %(stopService))
+-                if not ("ok" in textLine):
++                textLines = self.execProg("/etc/init.d/%s stop" %(stopService),
++                                          False, False)
++                if not (textLines and type(textLines) == types.ListType and\
++                    "ok" in textLines[-1] or textLines and "ok" in textLines):
+                     self.printERROR( str(service) + " " +
+                                 _("service is not stopped"))
+                     flagError = True
+                     break
+         if flagLdap:
+             if self.getRunService('ldap'):
+-                textLine = self.execProg("/etc/init.d/slapd stop")
+-                if not ("ok" in textLine):
++                textLines = self.execProg("/etc/init.d/slapd stop",False,False)
++                if not (textLines and type(textLines) == types.ListType and\
++                    "ok" in textLines[-1] or textLines and "ok" in textLines):
+                     self.printERROR( "LDAP" + " " +
+                                 _("service is not stopped"))
+                     flagError = True
+@@ -3558,12 +3578,12 @@
+                _("input 'yes'") +", "+ _("if not 'no'")
+             if not self.dialogYesNo(messDialog):
+                 return True
+-            if options.has_key("allow"):
++            if options.has_key("a"):
+                 # Получаем от пользователя доверительные сети
+                 if not self.getAllowNet():
+                     return False
+         else:
+-            if options.has_key("allow"):
++            if options.has_key("a"):
+                 # Получаем от пользователя доверительные сети
+                 if not self.getAllowNet():
+                     return False
+@@ -3660,14 +3680,16 @@
+         if not (textLine == None):
+             self.printERROR(_("Can not create Postfix aliases") + " ...")
+             return False
+-        textLine = self.execProg("/etc/init.d/postfix start")
+-        if "ok" in textLine:
++        textLines = self.execProg("/etc/init.d/postfix start",False,False)
++        if textLines and type(textLines) == types.ListType and\
++            "ok" in textLines[-1] or textLines and "ok" in textLines:
+             self.printOK(_("Starting") + " " + "Postfix" + " ...")
+         else:
+             self.printNotOK(_("Starting") + " " + "Postfix" + " ...")
+             return False
+-        textLine = self.execProg("/etc/init.d/dovecot start")
+-        if "ok" in textLine:
++        textLines = self.execProg("/etc/init.d/dovecot start", False, False)
++        if textLines and type(textLines) == types.ListType and\
++            "ok" in textLines[-1] or textLines and "ok" in textLines:
+             self.printOK(_("Starting") + " " + "Dovecot" + " ...")
+         else:
+             self.printNotOK(_("Starting") + " " + "Dovecot" + " ...")
+@@ -4332,8 +4354,9 @@
+         if not os.path.exists("/etc/jabber/ssl.pem"):
+             self.printERROR(_("Can not create Jabber certificate") + " ...")
+             return False
+-        textLine = self.execProg("/etc/init.d/ejabberd start")
+-        if "ok" in textLine:
++        textLines = self.execProg("/etc/init.d/ejabberd start", False, False)
++        if textLines and type(textLines) == types.ListType and\
++            "ok" in textLines[-1] or textLines and "ok" in textLines:
+             self.printOK(_("Starting") + " " + "Ejabberd" + " ...")
+         else:
+             self.printNotOK(_("Starting") + " " + "Ejabberd" + " ...")
+@@ -4825,12 +4848,12 @@
+                _("input 'yes'") +", "+ _("if not 'no'")
+             if not self.dialogYesNo(messDialog):
+                 return True
+-            if options.has_key("allow"):
++            if options.has_key("a"):
+                 # Получаем от пользователя доверительные сети
+                 if not self.getAllowNet():
+                     return False
+         else:
+-            if options.has_key("allow"):
++            if options.has_key("a"):
+                 # Получаем от пользователя доверительные сети
+                 if not self.getAllowNet():
+                     return False
+@@ -4888,8 +4911,9 @@
+             self.printERROR(_("ERROR") + ": " +\
+                 _("Can not add Samba admin password"))
+             return False
+-        textLine = self.execProg("/etc/init.d/slapd restart")
+-        if not "ok" in textLine:
++        textLines = self.execProg("/etc/init.d/slapd restart", False, False)
++        if not (textLines and type(textLines) == types.ListType and\
++            "ok" in textLines[-1] or textLines and "ok" in textLines):
+             self.printNotOK(_("LDAP restart") + " ...")
+             return False
+         #Cоединение с Ldap (администратор)
+@@ -4915,8 +4939,9 @@
+             print _("LDAP Error") + ": " + self.ldapObj.getError().strip()
+             return False
+         self.printOK(_("Added ldif file") +" ...")
+-        textLine = self.execProg("/etc/init.d/samba start")
+-        if "ok" in textLine:
++        textLines = self.execProg("/etc/init.d/samba start", False, False)
++        if textLines and type(textLines) == types.ListType and\
++            "ok" in textLines[-1] or textLines and "ok" in textLines:
+             self.printOK(_("Starting") + " Samba ...")
+         else:
+             self.printNotOK(_("Starting") + " Samba ...")
+@@ -5268,8 +5293,8 @@
+         opt = {}
+         if options.has_key("v"):
+             opt['v'] = ''
+-        if options.has_key("allow"):
+-            opt['allow'] = ''
++        if options.has_key("a"):
++            opt['a'] = ''
+         # Сервисы для которых не будет задаваться вопрос о доступных сетях
+         # при включенной опции allow
+         noInputAllowNetServices = []
+@@ -5370,7 +5395,7 @@
+                 if service == "samba":
+                     # Получаем от пользователя доверительные сети
+                     # для сервиса Samba
+-                    if options.has_key("allow") and\
++                    if options.has_key("a") and\
+                         not service in noInputAllowNetServices:
+                         self.servSambaObj.clVars = self.clVars
+                         if not self.servSambaObj.getAllowNet():
+@@ -5411,7 +5436,7 @@
+                 if service == "mail":
+                     # Получаем от пользователя доверительные сети
+                     # для сервиса Mail
+-                    if options.has_key("allow") and\
++                    if options.has_key("a") and\
+                         not service in noInputAllowNetServices:
+                         self.servMailObj.clVars = self.clVars
+                         if not self.servMailObj.getAllowNet():
+@@ -7021,6 +7046,7 @@
+  (on/off)")
+         },
+         {'progAccess':(9,),
++         'shortOption':"a",
+          'longOption':"allow",
+          'helpChapter':_("Mail service options"),
+          'help':_("enter the allowed ip addresses and network")
+@@ -7040,11 +7066,13 @@
+          'help':_("encryption type - 'none', 'tls'")
+         },
+         {'progAccess':(9,),
++         'shortOption':"a",
+          'longOption':"allow",
+          'helpChapter':_("Samba service options"),
+          'help':_("enter the allowed ip addresses and network")
+         },
+         {'progAccess':(10,),
++         'shortOption':"a",
+          'longOption':"allow",
+          'helpChapter':_("Common options"),
+          'help':_("enter the allowed ip addresses and network\
+@@ -7556,13 +7584,15 @@
+         if self.clVars.Get("sr_samba_set") == "on":
+             if self.getRunService('samba'):
+                 textLines = self.execProg("/etc/init.d/samba restart",
+-                                          False,False)
+-                if not "ok" in textLines[-1]:
++                                          False, False)
++                if not (textLines and type(textLines) == types.ListType and\
++                    "ok" in textLines[-1] or textLines and "ok" in textLines):
+                     self.printNotOK(_("Restarting") + " Samba ...")
+                     return False
+             else:
+-                textLine = self.execProg("/etc/init.d/samba start")
+-                if not "ok" in textLine:
++                textLines = self.execProg("/etc/init.d/samba start",False,False)
++                if not (textLines and type(textLines) == types.ListType and\
++                    "ok" in textLines[-1] or textLines and "ok" in textLines):
+                     self.printNotOK(_("Starting") + " Samba ...")
+                     return False
+         # Подключаемся к LDAP cерверу
+@@ -7595,12 +7625,13 @@
+             {"DN":self.clVars.Get("ld_ftp_dn"),
+              "PASS":self.clVars.Get("ld_ftp_pw")})
+         self.printOK(_("Added ldif file") +" ...")
++        textLines = []
+         if self.getRunService('ftp'):
+             textLines = self.execProg("/etc/init.d/proftpd restart",False,False)
+-            textLine =  textLines[0]
+         else:
+-             textLine = self.execProg("/etc/init.d/proftpd start")
+-        if "ok" in textLine:
++            textLines = self.execProg("/etc/init.d/proftpd start",False,False)
++        if textLines and type(textLines) == types.ListType and\
++            "ok" in textLines[-1] or textLines and "ok" in textLines:
+             self.printOK(_("Starting") + " " + "Proftpd" + " ...")
+         else:
+             self.printNotOK(_("Starting") + " " + "Proftpd" + " ...")
