@@ -20,7 +20,6 @@ DEPEND="=sys-apps/calculate-lib-2.0.12
         >=sys-auth/pam_ldap-180[ssl]
         >=sys-auth/nss_ldap-239
         >=kde-misc/kgtk-0.9.5[qt4]
-        >=kde-misc/gtk-kde4-0.8.0
         >=sys-apps/keyexec-0.1.2
         >=sys-apps/hal-0.5.9
         sys-apps/keyutils
