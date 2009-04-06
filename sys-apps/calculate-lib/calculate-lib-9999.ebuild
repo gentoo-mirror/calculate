@@ -11,5 +11,6 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-DEPEND=">=dev-python/python-ldap-2.0
+
+DEPEND=">=dev-python/python-ldap-2.0[ssl]
         >=dev-python/pyxml-0.8"
