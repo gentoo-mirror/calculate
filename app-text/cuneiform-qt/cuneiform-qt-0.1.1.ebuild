@@ -8,7 +8,8 @@ EAPI="1"
 
 DESCRIPTION="Graphical interface to Cuneiform"
 HOMEPAGE="http://www.altlinux.org/Cuneiform-Qt"
-SRC_URI="ftp://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
+SRC_URI="ftp://ftp.local.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2
+         ftp://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
          http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
 		 ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${P}.tar.bz2"
 
