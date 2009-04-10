@@ -150,15 +150,4 @@ pkg_postinst() {
 	if ! useq web ; then
 		elog "The web USE flag is off, this has disabled the web admin interface."
 	fi
-	elog "===================================================================="
-	elog 'Quick Start Guide:'
-	elog '1) Add output of `hostname -f` to /etc/jabber/ejabberd.cfg line 89'
-	elog '   {hosts, ["localhost", "thehost"]}.'
-	elog '2) Add an admin user to /etc/jabber/ejabberd.cfg line 324'
-	elog '   {acl, admin, {user, "theadmin", "thehost"}}.'
-	elog '3) Start the server'
-	elog '   # /etc/init.d/ejabberd start'
-	elog '4) Register the admin user'
-	elog '   # /usr/sbin/ejabberdctl register theadmin thehost thepassword'
-	elog '5) Log in with your favourite jabber client or using the web admin'
 }
