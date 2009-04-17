@@ -1,0 +1,2023 @@
+diff -NPur genkernel-3.4.10.903/arch/sparc64/config.sh new_genkernel/arch/sparc64/config.sh
+--- genkernel-3.4.10.903/arch/sparc64/config.sh	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/arch/sparc64/config.sh	2009-04-17 10:47:09.000000000 +0400
+@@ -5,7 +5,7 @@
+ #
+ KERNEL_MAKE_DIRECTIVE="vmlinux"
+ KERNEL_MAKE_DIRECTIVE_2="image"
+-KERNEL_BINARY="arch/sparc64/boot/image"
++KERNEL_BINARY="arch/sparc64/boot/image arch/sparc/boot/image"
+ 
+ COMPRESS_INITRD=yes
+ USECOLOR="no"
+diff -NPur genkernel-3.4.10.903/arch/um/busy-config new_genkernel/arch/um/busy-config
+--- genkernel-3.4.10.903/arch/um/busy-config	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/arch/um/busy-config	1970-01-01 03:00:00.000000000 +0300
+@@ -1,401 +0,0 @@
+-#
+-# Automatically generated make config: don't edit
+-#
+-HAVE_DOT_CONFIG=y
+-
+-#
+-# General Configuration
+-#
+-# CONFIG_FEATURE_BUFFERS_USE_MALLOC is not set
+-CONFIG_FEATURE_BUFFERS_GO_ON_STACK=y
+-# CONFIG_FEATURE_BUFFERS_GO_IN_BSS is not set
+-# CONFIG_FEATURE_VERBOSE_USAGE is not set
+-# CONFIG_FEATURE_INSTALLER is not set
+-# CONFIG_LOCALE_SUPPORT is not set
+-# CONFIG_FEATURE_DEVFS is not set
+-CONFIG_FEATURE_DEVPTS=y
+-# CONFIG_FEATURE_CLEAN_UP is not set
+-# CONFIG_FEATURE_SUID is not set
+-# CONFIG_SELINUX is not set
+-
+-#
+-# Build Options
+-#
+-CONFIG_STATIC=y
+-CONFIG_LFS=y
+-# USING_CROSS_COMPILER is not set
+-EXTRA_CFLAGS_OPTIONS=""
+-
+-#
+-# Installation Options
+-#
+-# CONFIG_INSTALL_NO_USR is not set
+-PREFIX="./_install"
+-
+-#
+-# Archival Utilities
+-#
+-# CONFIG_AR is not set
+-# CONFIG_BUNZIP2 is not set
+-# CONFIG_CPIO is not set
+-# CONFIG_DPKG is not set
+-# CONFIG_DPKG_DEB is not set
+-CONFIG_GUNZIP=y
+-# CONFIG_FEATURE_GUNZIP_UNCOMPRESS is not set
+-CONFIG_GZIP=y
+-# CONFIG_RPM2CPIO is not set
+-# CONFIG_RPM is not set
+-CONFIG_TAR=y
+-CONFIG_FEATURE_TAR_CREATE=y
+-CONFIG_FEATURE_TAR_BZIP2=y
+-# CONFIG_FEATURE_TAR_EXCLUDE is not set
+-CONFIG_FEATURE_TAR_GZIP=y
+-CONFIG_FEATURE_TAR_OLDGNU_COMPATABILITY=y
+-CONFIG_FEATURE_TAR_GNU_EXTENSIONS=y
+-# CONFIG_FEATURE_UNARCHIVE_TAPE is not set
+-# CONFIG_UNCOMPRESS is not set
+-# CONFIG_UNZIP is not set
+-
+-#
+-# Coreutils
+-#
+-CONFIG_BASENAME=y
+-# CONFIG_CAL is not set
+-CONFIG_CAT=y
+-CONFIG_CHGRP=y
+-CONFIG_CHMOD=y
+-CONFIG_CHOWN=y
+-CONFIG_CHROOT=y
+-# CONFIG_CMP is not set
+-CONFIG_CP=y
+-CONFIG_CUT=y
+-CONFIG_DATE=y
+-CONFIG_FEATURE_DATE_ISOFMT=y
+-CONFIG_DD=y
+-CONFIG_DF=y
+-CONFIG_DIRNAME=y
+-# CONFIG_DOS2UNIX is not set
+-CONFIG_DU=y
+-CONFIG_FEATURE_DU_DEFALT_BLOCKSIZE_1K=y
+-CONFIG_ECHO=y
+-CONFIG_FEATURE_FANCY_ECHO=y
+-CONFIG_ENV=y
+-# CONFIG_EXPR is not set
+-CONFIG_FALSE=y
+-# CONFIG_FOLD is not set
+-CONFIG_HEAD=y
+-# CONFIG_FEATURE_FANCY_HEAD is not set
+-# CONFIG_HOSTID is not set
+-CONFIG_ID=y
+-# CONFIG_LENGTH is not set
+-CONFIG_LN=y
+-# CONFIG_LOGNAME is not set
+-CONFIG_LS=y
+-CONFIG_FEATURE_LS_FILETYPES=y
+-CONFIG_FEATURE_LS_FOLLOWLINKS=y
+-# CONFIG_FEATURE_LS_RECURSIVE is not set
+-CONFIG_FEATURE_LS_SORTFILES=y
+-CONFIG_FEATURE_LS_TIMESTAMPS=y
+-CONFIG_FEATURE_LS_USERNAME=y
+-CONFIG_FEATURE_LS_COLOR=y
+-# CONFIG_MD5SUM is not set
+-CONFIG_MKDIR=y
+-# CONFIG_MKFIFO is not set
+-CONFIG_MKNOD=y
+-CONFIG_MV=y
+-# CONFIG_OD is not set
+-# CONFIG_PRINTF is not set
+-CONFIG_PWD=y
+-# CONFIG_REALPATH is not set
+-CONFIG_RM=y
+-CONFIG_RMDIR=y
+-# CONFIG_SHA1SUM is not set
+-CONFIG_SLEEP=y
+-# CONFIG_FEATURE_FANCY_SLEEP is not set
+-CONFIG_SORT=y
+-# CONFIG_FEATURE_SORT_REVERSE is not set
+-# CONFIG_FEATURE_SORT_UNIQUE is not set
+-CONFIG_STTY=y
+-CONFIG_SYNC=y
+-CONFIG_TAIL=y
+-# CONFIG_FEATURE_FANCY_TAIL is not set
+-# CONFIG_TEE is not set
+-CONFIG_TEST=y
+-
+-#
+-# test (forced enabled for use with shell)
+-#
+-CONFIG_TOUCH=y
+-# CONFIG_TR is not set
+-CONFIG_TRUE=y
+-CONFIG_TTY=y
+-CONFIG_UNAME=y
+-CONFIG_UNIQ=y
+-# CONFIG_USLEEP is not set
+-# CONFIG_UUDECODE is not set
+-# CONFIG_UUENCODE is not set
+-# CONFIG_WATCH is not set
+-# CONFIG_WC is not set
+-# CONFIG_WHO is not set
+-CONFIG_WHOAMI=y
+-CONFIG_YES=y
+-
+-#
+-# Common options for cp and mv
+-#
+-# CONFIG_FEATURE_PRESERVE_HARDLINKS is not set
+-
+-#
+-# Common options for ls and more
+-#
+-CONFIG_FEATURE_AUTOWIDTH=y
+-
+-#
+-# Common options for df, du, ls
+-#
+-CONFIG_FEATURE_HUMAN_READABLE=y
+-
+-#
+-# Console Utilities
+-#
+-CONFIG_CHVT=y
+-CONFIG_CLEAR=y
+-# CONFIG_DEALLOCVT is not set
+-CONFIG_DUMPKMAP=y
+-# CONFIG_LOADACM is not set
+-CONFIG_LOADFONT=y
+-CONFIG_LOADKMAP=y
+-# CONFIG_OPENVT is not set
+-CONFIG_RESET=y
+-# CONFIG_SETKEYCODES is not set
+-
+-#
+-# Debian Utilities
+-#
+-CONFIG_MKTEMP=y
+-CONFIG_READLINK=y
+-# CONFIG_RUN_PARTS is not set
+-# CONFIG_START_STOP_DAEMON is not set
+-CONFIG_WHICH=y
+-
+-#
+-# Editors
+-#
+-# CONFIG_AWK is not set
+-# CONFIG_PATCH is not set
+-CONFIG_SED=y
+-# CONFIG_FEATURE_SED_EMBEDED_NEWLINE is not set
+-# CONFIG_VI is not set
+-
+-#
+-# Finding Utilities
+-#
+-CONFIG_FIND=y
+-# CONFIG_FEATURE_FIND_MTIME is not set
+-# CONFIG_FEATURE_FIND_PERM is not set
+-CONFIG_FEATURE_FIND_TYPE=y
+-CONFIG_FEATURE_FIND_XDEV=y
+-CONFIG_FEATURE_FIND_NEWER=y
+-CONFIG_FEATURE_FIND_INUM=y
+-CONFIG_GREP=y
+-# CONFIG_FEATURE_GREP_EGREP_ALIAS is not set
+-CONFIG_FEATURE_GREP_FGREP_ALIAS=y
+-# CONFIG_FEATURE_GREP_CONTEXT is not set
+-CONFIG_XARGS=y
+-
+-#
+-# Init Utilities
+-#
+-CONFIG_INIT=y
+-CONFIG_FEATURE_USE_INITTAB=y
+-CONFIG_FEATURE_INITRD=y
+-# CONFIG_FEATURE_INIT_COREDUMPS is not set
+-# CONFIG_FEATURE_EXTRA_QUIET is not set
+-CONFIG_HALT=y
+-CONFIG_POWEROFF=y
+-CONFIG_REBOOT=y
+-CONFIG_MESG=y
+-
+-#
+-# Login/Password Management Utilities
+-#
+-# CONFIG_USE_BB_PWD_GRP is not set
+-# CONFIG_ADDGROUP is not set
+-# CONFIG_DELGROUP is not set
+-# CONFIG_ADDUSER is not set
+-# CONFIG_DELUSER is not set
+-# CONFIG_GETTY is not set
+-# CONFIG_LOGIN is not set
+-# CONFIG_PASSWD is not set
+-# CONFIG_SU is not set
+-# CONFIG_SULOGIN is not set
+-# CONFIG_VLOCK is not set
+-
+-#
+-# Miscellaneous Utilities
+-#
+-# CONFIG_ADJTIMEX is not set
+-# CONFIG_CROND is not set
+-# CONFIG_CRONTAB is not set
+-# CONFIG_DC is not set
+-# CONFIG_LAST is not set
+-# CONFIG_HDPARM is not set
+-CONFIG_MAKEDEVS=y
+-# CONFIG_MT is not set
+-# CONFIG_STRINGS is not set
+-# CONFIG_TIME is not set
+-# CONFIG_WATCHDOG is not set
+-
+-#
+-# Linux Module Utilities
+-#
+-CONFIG_INSMOD=n
+-# CONFIG_FEATURE_OLD_MODULE_INTERFACE is not set
+-CONFIG_FEATURE_NEW_MODULE_INTERFACE=y
+-
+-#
+-#   Support new (post 2.1) Linux kernels (Forced enabled)
+-#
+-# CONFIG_FEATURE_INSMOD_VERSION_CHECKING is not set
+-# CONFIG_FEATURE_INSMOD_KSYMOOPS_SYMBOLS is not set
+-# CONFIG_FEATURE_INSMOD_LOADINKMEM is not set
+-# CONFIG_FEATURE_INSMOD_LOAD_MAP is not set
+-CONFIG_LSMOD=y
+-CONFIG_FEATURE_QUERY_MODULE_INTERFACE=y
+-CONFIG_MODPROBE=y
+-CONFIG_RMMOD=y
+-CONFIG_FEATURE_CHECK_TAINTED_MODULE=y
+-
+-#
+-# Networking Utilities
+-#
+-# CONFIG_FEATURE_IPV6 is not set
+-# CONFIG_ARPING is not set
+-# CONFIG_FTPGET is not set
+-# CONFIG_FTPPUT is not set
+-CONFIG_HOSTNAME=y
+-# CONFIG_HTTPD is not set
+-# CONFIG_IFCONFIG is not set
+-# CONFIG_IFUPDOWN is not set
+-# CONFIG_INETD is not set
+-# CONFIG_IP is not set
+-# CONFIG_IPCALC is not set
+-# CONFIG_IPADDR is not set
+-# CONFIG_IPLINK is not set
+-# CONFIG_IPROUTE is not set
+-# CONFIG_IPTUNNEL is not set
+-# CONFIG_NAMEIF is not set
+-# CONFIG_NC is not set
+-# CONFIG_NETSTAT is not set
+-# CONFIG_NSLOOKUP is not set
+-# CONFIG_PING is not set
+-CONFIG_ROUTE=y
+-# CONFIG_TELNET is not set
+-# CONFIG_TELNETD is not set
+-# CONFIG_TFTP is not set
+-# CONFIG_TRACEROUTE is not set
+-# CONFIG_VCONFIG is not set
+-CONFIG_WGET=y
+-
+-#
+-# udhcp Server/Client
+-#
+-# CONFIG_UDHCPD is not set
+-# CONFIG_UDHCPC is not set
+-
+-#
+-# Process Utilities
+-#
+-CONFIG_FREE=y
+-CONFIG_KILL=y
+-CONFIG_KILLALL=y
+-# CONFIG_PIDOF is not set
+-CONFIG_PS=y
+-# CONFIG_RENICE is not set
+-# CONFIG_TOP is not set
+-CONFIG_UPTIME=y
+-
+-#
+-# Another Bourne-like Shell
+-#
+-CONFIG_FEATURE_SH_IS_ASH=y
+-# CONFIG_FEATURE_SH_IS_HUSH is not set
+-# CONFIG_FEATURE_SH_IS_LASH is not set
+-# CONFIG_FEATURE_SH_IS_MSH is not set
+-# CONFIG_FEATURE_SH_IS_NONE is not set
+-CONFIG_ASH=y
+-
+-#
+-# Ash Shell Options
+-#
+-CONFIG_ASH_TIMEOUT=y
+-CONFIG_ASH_JOB_CONTROL=y
+-CONFIG_ASH_ALIAS=y
+-CONFIG_ASH_MATH_SUPPORT=y
+-# CONFIG_ASH_GETOPTS is not set
+-# CONFIG_ASH_CMDCMD is not set
+-CONFIG_ASH_MAIL=y
+-CONFIG_ASH_OPTIMIZE_FOR_SIZE=y
+-# CONFIG_HUSH is not set
+-# CONFIG_LASH is not set
+-# CONFIG_MSH is not set
+-
+-#
+-# Bourne Shell Options
+-#
+-CONFIG_FEATURE_COMMAND_EDITING=y
+-# CONFIG_FEATURE_COMMAND_SAVEHISTORY is not set
+-CONFIG_FEATURE_COMMAND_TAB_COMPLETION=y
+-# CONFIG_FEATURE_COMMAND_USERNAME_COMPLETION is not set
+-CONFIG_FEATURE_COMMAND_HISTORY=15
+-# CONFIG_FEATURE_SH_STANDALONE_SHELL is not set
+-CONFIG_FEATURE_SH_FANCY_PROMPT=y
+-# CONFIG_FEATURE_SH_EXTRA_QUIET is not set
+-
+-#
+-# System Logging Utilities
+-#
+-# CONFIG_SYSLOGD is not set
+-# CONFIG_LOGGER is not set
+-
+-#
+-# Linux System Utilities
+-#
+-CONFIG_DMESG=y
+-# CONFIG_FBSET is not set
+-# CONFIG_FDFLUSH is not set
+-# CONFIG_FDFORMAT is not set
+-# CONFIG_FDISK is not set
+-CONFIG_FREERAMDISK=y
+-# CONFIG_FSCK_MINIX is not set
+-# CONFIG_MKFS_MINIX is not set
+-# CONFIG_GETOPT is not set
+-CONFIG_HEXDUMP=y
+-# CONFIG_HWCLOCK is not set
+-CONFIG_LOSETUP=y
+-CONFIG_MDADM=y
+-CONFIG_MDEV=y
+-CONFIG_MDSTART=y
+-# CONFIG_MKSWAP is not set
+-CONFIG_MORE=y
+-CONFIG_FEATURE_USE_TERMIOS=y
+-CONFIG_PIVOT_ROOT=y
+-CONFIG_SWITCH_ROOT=y
+-CONFIG_RDATE=y
+-CONFIG_SWAPONOFF=y
+-CONFIG_MOUNT=y
+-CONFIG_NFSMOUNT=y
+-CONFIG_UMOUNT=y
+-# CONFIG_FEATURE_MOUNT_FORCE is not set
+-
+-#
+-# Common options for mount/umount
+-#
+-CONFIG_FEATURE_MOUNT_LOOP=y
+-CONFIG_FEATURE_MTAB_SUPPORT=y
+-
+-#
+-# Debugging Options
+-#
+-# CONFIG_DEBUG is not set
+-CONFIG_ASH_READ_TIMEOUT=y
+diff -NPur genkernel-3.4.10.903/arch/um/config.sh new_genkernel/arch/um/config.sh
+--- genkernel-3.4.10.903/arch/um/config.sh	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/arch/um/config.sh	1970-01-01 03:00:00.000000000 +0300
+@@ -1,28 +0,0 @@
+-#!/bin/bash
+-
+-#
+-# Arch-specific options that normally shouldn't be changed.
+-#
+-KERNEL_MAKE_DIRECTIVE="linux"
+-KERNEL_MAKE_DIRECTIVE_2=""
+-KERNEL_BINARY="linux"
+-
+-COMPRESS_INITRD=yes
+-ARCH_HAVENOPREPARE=yes
+-
+-#
+-# Arch-specific defaults that can be overridden in the config file or on the
+-# command line.
+-#
+-DEFAULT_MAKEOPTS="-j2"
+-
+-DEFAULT_KERNEL_MAKE="make ARCH=um"
+-DEFAULT_UTILS_MAKE=make
+-
+-DEFAULT_KERNEL_CC=gcc
+-DEFAULT_KERNEL_AS=as
+-DEFAULT_KERNEL_LD=ld
+-
+-DEFAULT_UTILS_CC=gcc
+-DEFAULT_UTILS_AS=as
+-DEFAULT_UTILS_LD=ld
+diff -NPur genkernel-3.4.10.903/arch/um/kernel-config new_genkernel/arch/um/kernel-config
+--- genkernel-3.4.10.903/arch/um/kernel-config	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/arch/um/kernel-config	1970-01-01 03:00:00.000000000 +0300
+@@ -1,470 +0,0 @@
+-#
+-# Automatically generated make config: don't edit
+-# Linux kernel version: 2.6.9-umlbb2-r1-bb2
+-# Tue Jan  4 22:55:51 2005
+-#
+-CONFIG_USERMODE=y
+-CONFIG_MMU=y
+-CONFIG_UID16=y
+-CONFIG_RWSEM_GENERIC_SPINLOCK=y
+-
+-#
+-# UML-specific options
+-#
+-CONFIG_MODE_TT=y
+-CONFIG_MODE_SKAS=y
+-CONFIG_NET=y
+-CONFIG_BINFMT_ELF=y
+-CONFIG_BINFMT_MISC=y
+-CONFIG_HOSTFS=y
+-CONFIG_MCONSOLE=y
+-# CONFIG_HOST_2G_2G is not set
+-# CONFIG_SMP is not set
+-CONFIG_NEST_LEVEL=0
+-CONFIG_KERNEL_HALF_GIGS=1
+-CONFIG_KERNEL_STACK_ORDER=2
+-CONFIG_UML_REAL_TIME_CLOCK=y
+-
+-#
+-# Code maturity level options
+-#
+-CONFIG_EXPERIMENTAL=y
+-CONFIG_CLEAN_COMPILE=y
+-CONFIG_BROKEN_ON_SMP=y
+-
+-#
+-# General setup
+-#
+-CONFIG_LOCALVERSION=""
+-CONFIG_SWAP=y
+-CONFIG_SYSVIPC=y
+-# CONFIG_POSIX_MQUEUE is not set
+-# CONFIG_BSD_PROCESS_ACCT is not set
+-CONFIG_SYSCTL=y
+-# CONFIG_AUDIT is not set
+-CONFIG_LOG_BUF_SHIFT=14
+-CONFIG_HOTPLUG=y
+-CONFIG_IKCONFIG=y
+-CONFIG_IKCONFIG_PROC=y
+-# CONFIG_EMBEDDED is not set
+-CONFIG_KALLSYMS=y
+-# CONFIG_KALLSYMS_EXTRA_PASS is not set
+-CONFIG_FUTEX=y
+-CONFIG_EPOLL=y
+-CONFIG_IOSCHED_NOOP=y
+-CONFIG_IOSCHED_AS=y
+-CONFIG_IOSCHED_DEADLINE=y
+-CONFIG_IOSCHED_CFQ=y
+-# CONFIG_CC_OPTIMIZE_FOR_SIZE is not set
+-CONFIG_SHMEM=y
+-# CONFIG_TINY_SHMEM is not set
+-
+-#
+-# Loadable module support
+-#
+-CONFIG_MODULES=y
+-CONFIG_MODULE_UNLOAD=y
+-CONFIG_MODULE_FORCE_UNLOAD=y
+-CONFIG_OBSOLETE_MODPARM=y
+-# CONFIG_MODVERSIONS is not set
+-CONFIG_KMOD=y
+-
+-#
+-# Generic Driver Options
+-#
+-CONFIG_STANDALONE=y
+-CONFIG_PREVENT_FIRMWARE_BUILD=y
+-CONFIG_FW_LOADER=m
+-
+-#
+-# Character Devices
+-#
+-CONFIG_STDIO_CONSOLE=y
+-CONFIG_SSL=y
+-CONFIG_FD_CHAN=y
+-CONFIG_NULL_CHAN=y
+-CONFIG_PORT_CHAN=y
+-CONFIG_PTY_CHAN=y
+-CONFIG_TTY_CHAN=y
+-CONFIG_XTERM_CHAN=y
+-# CONFIG_NOCONFIG_CHAN is not set
+-CONFIG_CON_ZERO_CHAN="fd:0,fd:1"
+-CONFIG_CON_CHAN="xterm"
+-CONFIG_SSL_CHAN="pty"
+-CONFIG_UNIX98_PTYS=y
+-CONFIG_LEGACY_PTYS=y
+-CONFIG_LEGACY_PTY_COUNT=256
+-CONFIG_WATCHDOG=y
+-# CONFIG_WATCHDOG_NOWAYOUT is not set
+-CONFIG_SOFT_WATCHDOG=y
+-CONFIG_UML_WATCHDOG=y
+-CONFIG_UML_SOUND=y
+-CONFIG_SOUND=y
+-CONFIG_HOSTAUDIO=y
+-
+-#
+-# Block Devices
+-#
+-CONFIG_BLK_DEV_UBD=y
+-CONFIG_BLK_DEV_UBD_SYNC=y
+-CONFIG_BLK_DEV_COW_COMMON=y
+-CONFIG_BLK_DEV_LOOP=y
+-# CONFIG_BLK_DEV_NBD is not set
+-CONFIG_BLK_DEV_RAM=y
+-CONFIG_BLK_DEV_RAM_SIZE=8192
+-CONFIG_BLK_DEV_INITRD=y
+-CONFIG_NETDEVICES=y
+-
+-#
+-# UML Network Devices
+-#
+-CONFIG_UML_NET=y
+-CONFIG_UML_NET_ETHERTAP=y
+-CONFIG_UML_NET_TUNTAP=y
+-CONFIG_UML_NET_SLIP=y
+-CONFIG_UML_NET_DAEMON=y
+-CONFIG_UML_NET_MCAST=y
+-CONFIG_UML_NET_SLIRP=y
+-
+-#
+-# Networking support
+-#
+-
+-#
+-# Networking options
+-#
+-CONFIG_PACKET=y
+-# CONFIG_PACKET_MMAP is not set
+-# CONFIG_NETLINK_DEV is not set
+-CONFIG_UNIX=y
+-# CONFIG_NET_KEY is not set
+-CONFIG_INET=y
+-CONFIG_IP_MULTICAST=y
+-# CONFIG_IP_ADVANCED_ROUTER is not set
+-# CONFIG_IP_PNP is not set
+-# CONFIG_NET_IPIP is not set
+-# CONFIG_NET_IPGRE is not set
+-# CONFIG_IP_MROUTE is not set
+-# CONFIG_ARPD is not set
+-# CONFIG_SYN_COOKIES is not set
+-# CONFIG_INET_AH is not set
+-# CONFIG_INET_ESP is not set
+-# CONFIG_INET_IPCOMP is not set
+-# CONFIG_INET_TUNNEL is not set
+-# CONFIG_IPV6 is not set
+-# CONFIG_NETFILTER is not set
+-
+-#
+-# SCTP Configuration (EXPERIMENTAL)
+-#
+-# CONFIG_IP_SCTP is not set
+-# CONFIG_ATM is not set
+-# CONFIG_BRIDGE is not set
+-# CONFIG_VLAN_8021Q is not set
+-# CONFIG_DECNET is not set
+-# CONFIG_LLC2 is not set
+-# CONFIG_IPX is not set
+-# CONFIG_ATALK is not set
+-# CONFIG_X25 is not set
+-# CONFIG_LAPB is not set
+-# CONFIG_NET_DIVERT is not set
+-# CONFIG_ECONET is not set
+-# CONFIG_WAN_ROUTER is not set
+-# CONFIG_NET_HW_FLOWCONTROL is not set
+-
+-#
+-# QoS and/or fair queueing
+-#
+-# CONFIG_NET_SCHED is not set
+-# CONFIG_NET_CLS_ROUTE is not set
+-
+-#
+-# Network testing
+-#
+-# CONFIG_NET_PKTGEN is not set
+-# CONFIG_NETPOLL is not set
+-# CONFIG_NET_POLL_CONTROLLER is not set
+-# CONFIG_HAMRADIO is not set
+-# CONFIG_IRDA is not set
+-# CONFIG_BT is not set
+-CONFIG_DUMMY=m
+-# CONFIG_BONDING is not set
+-# CONFIG_EQUALIZER is not set
+-# CONFIG_TUN is not set
+-
+-#
+-# Ethernet (10 or 100Mbit)
+-#
+-CONFIG_NET_ETHERNET=y
+-CONFIG_MII=m
+-
+-#
+-# Ethernet (1000 Mbit)
+-#
+-
+-#
+-# Ethernet (10000 Mbit)
+-#
+-
+-#
+-# Token Ring devices
+-#
+-
+-#
+-# Wireless LAN (non-hamradio)
+-#
+-CONFIG_NET_RADIO=y
+-
+-#
+-# Obsolete Wireless cards support (pre-802.11)
+-#
+-# CONFIG_STRIP is not set
+-# CONFIG_ATMEL is not set
+-
+-#
+-# PCMCIA network device support
+-#
+-# CONFIG_NET_PCMCIA is not set
+-
+-#
+-# Wan interfaces
+-#
+-# CONFIG_WAN is not set
+-CONFIG_PPP=m
+-# CONFIG_PPP_MULTILINK is not set
+-# CONFIG_PPP_FILTER is not set
+-CONFIG_PPP_ASYNC=m
+-CONFIG_PPP_SYNC_TTY=m
+-CONFIG_PPP_DEFLATE=m
+-CONFIG_PPP_BSDCOMP=m
+-CONFIG_PPPOE=m
+-# CONFIG_SLIP is not set
+-# CONFIG_SHAPER is not set
+-# CONFIG_NETCONSOLE is not set
+-
+-#
+-# File systems
+-#
+-CONFIG_EXT2_FS=y
+-# CONFIG_EXT2_FS_XATTR is not set
+-CONFIG_EXT3_FS=y
+-CONFIG_EXT3_FS_XATTR=y
+-# CONFIG_EXT3_FS_POSIX_ACL is not set
+-# CONFIG_EXT3_FS_SECURITY is not set
+-CONFIG_JBD=y
+-# CONFIG_JBD_DEBUG is not set
+-CONFIG_FS_MBCACHE=y
+-CONFIG_REISERFS_FS=y
+-# CONFIG_REISERFS_CHECK is not set
+-CONFIG_REISERFS_PROC_INFO=y
+-# CONFIG_REISERFS_FS_XATTR is not set
+-CONFIG_JFS_FS=y
+-# CONFIG_JFS_POSIX_ACL is not set
+-# CONFIG_JFS_DEBUG is not set
+-# CONFIG_JFS_STATISTICS is not set
+-CONFIG_XFS_FS=y
+-# CONFIG_XFS_RT is not set
+-# CONFIG_XFS_QUOTA is not set
+-# CONFIG_XFS_SECURITY is not set
+-# CONFIG_XFS_POSIX_ACL is not set
+-# CONFIG_MINIX_FS is not set
+-CONFIG_ROMFS_FS=y
+-# CONFIG_QUOTA is not set
+-# CONFIG_AUTOFS_FS is not set
+-# CONFIG_AUTOFS4_FS is not set
+-
+-#
+-# CD-ROM/DVD Filesystems
+-#
+-CONFIG_ISO9660_FS=y
+-CONFIG_JOLIET=y
+-CONFIG_ZISOFS=y
+-CONFIG_ZISOFS_FS=y
+-CONFIG_UDF_FS=y
+-CONFIG_UDF_NLS=y
+-
+-#
+-# DOS/FAT/NT Filesystems
+-#
+-CONFIG_FAT_FS=m
+-CONFIG_MSDOS_FS=m
+-CONFIG_VFAT_FS=m
+-CONFIG_FAT_DEFAULT_CODEPAGE=437
+-CONFIG_FAT_DEFAULT_IOCHARSET="iso8859-1"
+-CONFIG_NTFS_FS=m
+-# CONFIG_NTFS_DEBUG is not set
+-# CONFIG_NTFS_RW is not set
+-
+-#
+-# Pseudo filesystems
+-#
+-CONFIG_PROC_FS=y
+-CONFIG_PROC_KCORE=y
+-CONFIG_SYSFS=y
+-CONFIG_DEVFS_FS=y
+-# CONFIG_DEVFS_MOUNT is not set
+-# CONFIG_DEVFS_DEBUG is not set
+-# CONFIG_DEVPTS_FS_XATTR is not set
+-CONFIG_TMPFS=y
+-# CONFIG_HUGETLB_PAGE is not set
+-CONFIG_RAMFS=y
+-
+-#
+-# Miscellaneous filesystems
+-#
+-# CONFIG_ADFS_FS is not set
+-# CONFIG_AFFS_FS is not set
+-# CONFIG_HFS_FS is not set
+-# CONFIG_HFSPLUS_FS is not set
+-# CONFIG_BEFS_FS is not set
+-# CONFIG_BFS_FS is not set
+-# CONFIG_EFS_FS is not set
+-CONFIG_CRAMFS=y
+-# CONFIG_VXFS_FS is not set
+-# CONFIG_HPFS_FS is not set
+-# CONFIG_QNX4FS_FS is not set
+-# CONFIG_SYSV_FS is not set
+-CONFIG_UFS_FS=m
+-# CONFIG_UFS_FS_WRITE is not set
+-
+-#
+-# Network File Systems
+-#
+-CONFIG_NFS_FS=y
+-CONFIG_NFS_V3=y
+-# CONFIG_NFS_V4 is not set
+-# CONFIG_NFS_DIRECTIO is not set
+-CONFIG_NFSD=y
+-CONFIG_NFSD_V3=y
+-# CONFIG_NFSD_V4 is not set
+-# CONFIG_NFSD_TCP is not set
+-CONFIG_LOCKD=y
+-CONFIG_LOCKD_V4=y
+-CONFIG_EXPORTFS=y
+-CONFIG_SUNRPC=y
+-# CONFIG_RPCSEC_GSS_KRB5 is not set
+-# CONFIG_RPCSEC_GSS_SPKM3 is not set
+-CONFIG_SMB_FS=m
+-# CONFIG_SMB_NLS_DEFAULT is not set
+-CONFIG_CIFS=m
+-# CONFIG_CIFS_STATS is not set
+-# CONFIG_CIFS_XATTR is not set
+-# CONFIG_CIFS_POSIX is not set
+-# CONFIG_NCP_FS is not set
+-# CONFIG_CODA_FS is not set
+-# CONFIG_AFS_FS is not set
+-
+-#
+-# Partition Types
+-#
+-# CONFIG_PARTITION_ADVANCED is not set
+-CONFIG_MSDOS_PARTITION=y
+-
+-#
+-# Native Language Support
+-#
+-CONFIG_NLS=y
+-CONFIG_NLS_DEFAULT="iso8859-1"
+-CONFIG_NLS_CODEPAGE_437=y
+-# CONFIG_NLS_CODEPAGE_737 is not set
+-# CONFIG_NLS_CODEPAGE_775 is not set
+-# CONFIG_NLS_CODEPAGE_850 is not set
+-# CONFIG_NLS_CODEPAGE_852 is not set
+-# CONFIG_NLS_CODEPAGE_855 is not set
+-# CONFIG_NLS_CODEPAGE_857 is not set
+-# CONFIG_NLS_CODEPAGE_860 is not set
+-# CONFIG_NLS_CODEPAGE_861 is not set
+-# CONFIG_NLS_CODEPAGE_862 is not set
+-# CONFIG_NLS_CODEPAGE_863 is not set
+-# CONFIG_NLS_CODEPAGE_864 is not set
+-# CONFIG_NLS_CODEPAGE_865 is not set
+-# CONFIG_NLS_CODEPAGE_866 is not set
+-# CONFIG_NLS_CODEPAGE_869 is not set
+-# CONFIG_NLS_CODEPAGE_936 is not set
+-# CONFIG_NLS_CODEPAGE_950 is not set
+-# CONFIG_NLS_CODEPAGE_932 is not set
+-# CONFIG_NLS_CODEPAGE_949 is not set
+-# CONFIG_NLS_CODEPAGE_874 is not set
+-# CONFIG_NLS_ISO8859_8 is not set
+-# CONFIG_NLS_CODEPAGE_1250 is not set
+-# CONFIG_NLS_CODEPAGE_1251 is not set
+-# CONFIG_NLS_ASCII is not set
+-CONFIG_NLS_ISO8859_1=y
+-# CONFIG_NLS_ISO8859_2 is not set
+-# CONFIG_NLS_ISO8859_3 is not set
+-# CONFIG_NLS_ISO8859_4 is not set
+-# CONFIG_NLS_ISO8859_5 is not set
+-# CONFIG_NLS_ISO8859_6 is not set
+-# CONFIG_NLS_ISO8859_7 is not set
+-# CONFIG_NLS_ISO8859_9 is not set
+-# CONFIG_NLS_ISO8859_13 is not set
+-# CONFIG_NLS_ISO8859_14 is not set
+-# CONFIG_NLS_ISO8859_15 is not set
+-# CONFIG_NLS_KOI8_R is not set
+-# CONFIG_NLS_KOI8_U is not set
+-# CONFIG_NLS_UTF8 is not set
+-
+-#
+-# Security options
+-#
+-# CONFIG_SECURITY is not set
+-
+-#
+-# Cryptographic options
+-#
+-CONFIG_CRYPTO=y
+-# CONFIG_CRYPTO_HMAC is not set
+-# CONFIG_CRYPTO_NULL is not set
+-# CONFIG_CRYPTO_MD4 is not set
+-CONFIG_CRYPTO_MD5=m
+-CONFIG_CRYPTO_SHA1=m
+-# CONFIG_CRYPTO_SHA256 is not set
+-# CONFIG_CRYPTO_SHA512 is not set
+-# CONFIG_CRYPTO_WP512 is not set
+-CONFIG_CRYPTO_DES=m
+-CONFIG_CRYPTO_BLOWFISH=m
+-CONFIG_CRYPTO_TWOFISH=m
+-# CONFIG_CRYPTO_SERPENT is not set
+-CONFIG_CRYPTO_AES=m
+-# CONFIG_CRYPTO_CAST5 is not set
+-# CONFIG_CRYPTO_CAST6 is not set
+-# CONFIG_CRYPTO_TEA is not set
+-CONFIG_CRYPTO_ARC4=m
+-# CONFIG_CRYPTO_KHAZAD is not set
+-CONFIG_CRYPTO_DEFLATE=y
+-# CONFIG_CRYPTO_MICHAEL_MIC is not set
+-# CONFIG_CRYPTO_CRC32C is not set
+-# CONFIG_CRYPTO_TEST is not set
+-
+-#
+-# Library routines
+-#
+-CONFIG_CRC_CCITT=m
+-CONFIG_CRC32=y
+-# CONFIG_LIBCRC32C is not set
+-CONFIG_ZLIB_INFLATE=y
+-CONFIG_ZLIB_DEFLATE=y
+-
+-#
+-# Multi-device support (RAID and LVM)
+-#
+-CONFIG_MD=y
+-CONFIG_BLK_DEV_MD=m
+-CONFIG_MD_LINEAR=m
+-CONFIG_MD_RAID0=m
+-CONFIG_MD_RAID1=m
+-# CONFIG_MD_RAID10 is not set
+-CONFIG_MD_RAID5=m
+-# CONFIG_MD_RAID6 is not set
+-CONFIG_MD_MULTIPATH=m
+-CONFIG_BLK_DEV_DM=m
+-# CONFIG_DM_CRYPT is not set
+-# CONFIG_DM_SNAPSHOT is not set
+-# CONFIG_DM_MIRROR is not set
+-# CONFIG_DM_ZERO is not set
+-# CONFIG_INPUT is not set
+-
+-#
+-# Kernel hacking
+-#
+-# CONFIG_DEBUG_KERNEL is not set
+diff -NPur genkernel-3.4.10.903/arch/um/modules_load new_genkernel/arch/um/modules_load
+--- genkernel-3.4.10.903/arch/um/modules_load	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/arch/um/modules_load	1970-01-01 03:00:00.000000000 +0300
+@@ -1,26 +0,0 @@
+-# Module groups for genkernel initrd/initramfs auto-loading
+-
+-# RAID
+-MODULES_ATARAID="ataraid pdcraid hptraid"
+-MODULES_DMRAID="dm-mod dm-mirror"
+-MODULES_EVMS="dm-mod dm-snapshot dm-mirror dm-bbr raid0 raid1 raid456 raid5 raid6 raid10"
+-MODULES_LVM="dm-mod dm-snapshot dm-mirror dm-bbr"
+-MODULES_MDADM="dm-mod dm-snapshot dm-mirror dm-bbr raid0 raid1 raid456 raid5 raid6 raid10"
+-
+-# Hardware (IDE/SCSI/SATA)
+-MODULES_PATA="pata_mpiix pata_pdc2027x pata_radisys pata_sil680 pata_rz1000 pata_efar pata_cmd64x pata_hpt366 pata_hpt37x pata_hpt3x3 pata_hpt3x2n pata_optidma pata_it821x pata_artop pata_oldpiix pata_cypress pata_platform pata_serverworks pata_legacy pata_ns87410 pata_ns87415 pata_pcmcia pata_isapnp pata_it8213 pata_ali pata_amd pata_opti pata_atiixp pata_triflex pata_pdc202xx_old pata_sc1200 pata_qdi pata_netcell pata_sis pata_hpt3x2n pata_marvell pata_jmicron pata_via pata_cs5520 pata_cs5530 pata_cs5535 pata_sl82c105 libata"
+-MODULES_SATA="sata_promise sata_sil sata_sil24 sata_svw sata_via sata_nv sata_sx4 sata_sis sata_uli sata_vsc sata_qstor ahci libata ata_piix sata_mv sata_inic162x pdc_adma"
+-MODULES_SCSI="sd_mod sg sr_mod aic79xx aic7xxx aic7xxx_old arcmsr BusLogic ncr53c8xx NCR53c406a initio advansys aha1740 aha1542 aha152x dtc fdomain gdth pas16 pci2220i pci2000 psi240i qlogicfas qlogicfc qlogicisp qlogicpti seagate t128 u14-34f ultrastor wd7000 NCR53c406a sym53c8xx dmx3191d imm in2000 ips qla1280 sim710 sym53c416 dc395x atp870u mptbase mptscsih mptspi mptfc mptsas 3w-xxxx 3w-9xxx cpqarray cciss DAC960 sx8 aacraid megaraid megaraid_mbox megaraid_mm megaraid_sas qla2xxx lpfc scsi_transport_fc"
+-MODULES_WAITSCAN="scsi_wait_scan"
+-
+-# Hardware (Network)
+-MODULES_NET="e1000 tg3"
+-
+-# Hardware (Pluggable)
+-MODULES_FIREWIRE="ieee1394 ohci1394 sbp2"
+-MODULES_PCMCIA="pcmcia pcmcia_core yenta_socket pd6729 i82092 i82365 tcic ds ide-cs firmware_class"
+-MODULES_USB="ehci-hcd uhci usb-ohci hid usb-storage uhci-hcd ohci-hcd usbhid sl811-hcd"
+-
+-# Filesystems
+-MODULES_FS="ext2 ext3 reiserfs jfs nfs xfs fuse"
+-
+diff -NPur genkernel-3.4.10.903/AUTHORS new_genkernel/AUTHORS
+--- genkernel-3.4.10.903/AUTHORS	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/AUTHORS	2009-04-17 10:47:09.000000000 +0400
+@@ -1,3 +1,11 @@
++This list is split into two alphabetical lists.  The first is a listing of the
++authors of the original Gentoo package.  The copyrights for all of those code
++contributions belong to the Gentoo Foundation.  The second list is the authors
++whom have contributed significant code to the new project.  All code added to
++the new project is copyrighted by the respective authors.
++
++Gentoo Foundation authors:
++------
+ Luca Barbato <lu_zero@gentoo.org>
+ Eric Edgar <rocket@gentoo.org>
+ Mike Frysinger <vapier@gentoo.org>
+@@ -15,3 +23,9 @@
+ Pieter van den Abeele <pvdabeel@gentoo.org>
+ Jason Wever <weeve@gentoo.org>
+ Tim Yamin <plasmaroo@gentoo.org>
++
++Copyright authors:
++------
++Andrew Gaffney <agaffney@gentoo.org>
++Chris Gianelloni <wolf31o2@wolf31o2.org>
++
+diff -NPur genkernel-3.4.10.903/ChangeLog new_genkernel/ChangeLog
+--- genkernel-3.4.10.903/ChangeLog	2009-01-06 01:22:05.000000000 +0300
++++ new_genkernel/ChangeLog	2009-04-17 10:47:09.000000000 +0400
+@@ -1,7 +1,65 @@
+ # ChangeLog for genkernel
+-# Copyright 1999-2009 Gentoo Foundation; 2008 Chris Gianelloni, Andrew Gaffney
++# Copyright 1999-2009 Gentoo Foundation; 2008-2009 Various authors (see AUTHORS)
+ # Distributed under the GPL v2
+ 
++  17 Apr 2009; Andrew Gaffney <agaffney@gentoo.org> netboot/busy-config:
++  Apply patch from gentoo bug #266373 for additional options in the netboot
++  busy-config
++
++  06 Mar 2009; Andrew Gaffney <agaffney@gentoo.org> gen_initramfs.sh:
++  Clean up append_multipath() code to copy files in a loop and report file
++  that failed to copy
++
++  06 Mar 2009; Andrew Gaffney <agaffney@gentoo.org> gen_initramfs.sh:
++  Apply patch from robbat2 to fix whitespace breakage in multipath code
++
++  06 Mar 2009; Andrew Gaffney <agaffney@gentoo.org> gen_determineargs.sh,
++  genkernel.conf:
++  Apply patch from robbat2 to finish wiring up multipath support
++
++  06 Mar 2009; Andrew Gaffney <agaffney@gentoo.org> gen_initramfs.sh:
++  Modify append_data to die on 0 arguments and check arg 2 with isTrue().
++  Based on a patch from robbat2
++
++  20 Feb 2009; Andrew Gaffney <agaffney@gentoo.org> arch/sparc64/config.sh,
++  gen_compile.sh, gen_funcs.sh, gen_package.sh:
++  Add support for multiple possible kernel binary paths for gentoo bug
++  #255085
++
++  04 Feb 2009; Andrew Gaffney <agaffney@gentoo.org> defaults/linuxrc:
++  Comment out the exec line for console=*, since it seems to blow up when
++  the param isn't a true device node, such as ttyS0,115200n8
++
++  19 Jan 2009; Andrew Gaffney <agaffney@gentoo.org> defaults/initrd.scripts,
++  defaults/linuxrc:
++  Remove detect_sbp2_devices() for gentoo bug #239474
++
++  16 Jan 2009; Andrew Gaffney <agaffney@gentoo.org> genkernel.conf:
++  Add commented out DISKLABEL=yes option for gentoo bug #229847
++
++  08 Jan 2009; Chris Gianelloni <wolf31o2@wolf31o2.org> TODO:
++  Added more verbosity to the auto-detection section.
++
++  08 Jan 2009; Chris Gianelloni <wolf31o2@wolf31o2.org> AUTHORS:
++  Updated the AUTHORS section and the header for the ChangeLog, to reflect
++  that individual authors now retain their copyright to code they submit.
++
++  08 Jan 2009; Chris Gianelloni <wolf31o2@wolf31o2.org> TODO:
++  Added a note about Security Tokens, cleaned up the block device section, and
++  added a section about autodetection.
++
++  08 Jan 2009; Chris Gianelloni <wolf31o2@wolf31o2.org> HACKING:
++  Adding a note about contacting me to HACKING.
++
++  08 Jan 2009; Chris Gianelloni <wolf31o2@wolf31o2.org> TODO:
++  Adding multipath support is really two different functions, so split them.
++
++  08 Jan 2009; Chris Gianelloni <wolf31o2@wolf31o2.org> TODO:
++  Adding a note about documenting the code paths.
++
++  08 Jan 2009; Chris Gianelloni <wolf31o2@wolf31o2.org> TODO:
++  Adding new boot support information to the TODO.
++
+   05 Jan 2009; Chris Gianelloni <wolf31o2@wolf31o2.org> TODO, genkernel:
+   Version bump to 3.4.10.903 to resolve bug #250330.
+ 
+diff -NPur genkernel-3.4.10.903/defaults/initrd.scripts new_genkernel/defaults/initrd.scripts
+--- genkernel-3.4.10.903/defaults/initrd.scripts	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/defaults/initrd.scripts	2009-04-17 10:47:09.000000000 +0400
+@@ -459,30 +459,6 @@
+ 	fi
+ }
+ 
+-detect_sbp2_devices() {
+-	# http://www.linux1394.org/sbp2.php
+-	
+-	# /proc
+-	# /proc/scsi/sbp2/0, /proc/scsi/sbp2/1, etc.
+-	#
+-	# You may manually add/remove SBP-2 devices via the procfs with:
+-	# add-single-device <h> <b> <t> <l> or remove-single-device <h> <b> <t> <l>,
+-	# where:
+-	#
+-	# <h> = host (starting at zero for first SCSI adapter)
+-	# <b> = bus (normally zero)
+-	# <t> = target (starting at zero for first SBP-2 device)
+-	# <l> - lun (normally zero) 
+-	# e.g. To manually add/detect a new SBP-2 device
+-	# echo "scsi add-single-device 0 0 0 0" > /proc/scsi/scsi
+-	# e.g. To manually remove a SBP-2 device after it's been unplugged
+-	# echo "scsi remove-single-device 0 0 0 0" > /proc/scsi/scsi
+-	# e.g. To check to see which SBP-2/SCSI devices are currently registered
+-	# cat /proc/scsi/scsi 
+-
+-	[ -e /proc/scsi/scsi ] && echo 'scsi add-single-device 0 0 0 0' > /proc/scsi/scsi
+-}
+-
+ setup_keymap() {
+ 	if [ "${DO_keymap}" ]
+ 	then
+@@ -1000,7 +976,7 @@
+ #		mkdir -p $CHANGES
+ #		mount -t unionfs -o dirs=$CHANGES=rw unionfs ${UNION}
+ 		good_msg "Creating union mount"
+-		unionfs -o allow_other,cow,noinitgroups,suid,dev ${rw_dir}=RW:${ro_dir}=RO ${UNION} 2>/dev/null
++		unionfs -o allow_other,cow,noinitgroups,suid,dev,default_permissions,use_ino ${rw_dir}=RW:${ro_dir}=RO ${UNION} 2>/dev/null
+ 		ret=$?
+ 		if [ "${ret}" -ne 0 ]
+ 		then
+diff -NPur genkernel-3.4.10.903/defaults/linuxrc new_genkernel/defaults/linuxrc
+--- genkernel-3.4.10.903/defaults/linuxrc	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/defaults/linuxrc	2009-04-17 10:47:09.000000000 +0400
+@@ -132,7 +132,7 @@
+ 		# Redirect output to a specific tty
+ 		CONSOLE\=*|console\=*)
+ 			CONSOLE=`parse_opt "${x}"`
+-			exec >${CONSOLE} <${CONSOLE} 2>&1
++#			exec >${CONSOLE} <${CONSOLE} 2>&1
+ 		;;
+ 		# /dev/md
+ 		lvmraid\=*)
+@@ -222,7 +222,6 @@
+ 
+ splash 'init'
+ 
+-detect_sbp2_devices
+ cmdline_hwopts
+ 
+ # Mount sysfs
+diff -NPur genkernel-3.4.10.903/gen_cmdline.sh new_genkernel/gen_cmdline.sh
+--- genkernel-3.4.10.903/gen_cmdline.sh	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/gen_cmdline.sh	2009-04-17 10:47:09.000000000 +0400
+@@ -83,6 +83,7 @@
+   echo "	--lvm2			Include LVM support"
+   echo "	--mdadm			Copy /etc/mdadm.conf to initramfs"
+   echo "	--dmraid		Include DMRAID support"
++  echo "	--multipath		Include Multipath support"
+   echo "	--slowusb		Enables extra pauses for slow USB CD boots"
+   echo "	--bootloader=grub	Add new kernel to GRUB configuration"
+   echo "	--linuxrc=<file>	Specifies a user created linuxrc"
+@@ -275,6 +276,16 @@
+ 			CMD_DMRAID=1
+ 			print_info 2 "CMD_DMRAID: ${CMD_DMRAID}"
+ 			;;
++		--multipath)
++			if [ ! -e /usr/include/libdevmapper.h ]
++			then
++				echo 'Error: --multipath requires device-mapper to be installed'
++				echo '		 on the host;system; try "emerge device-mapper".'
++				exit 1
++			fi
++			CMD_MULTIPATH=1
++			print_info 2 "CMD_MULTIPATH: ${CMD_MULTIPATH}"
++			;;
+ 		--bootloader=*)
+ 			CMD_BOOTLOADER=`parse_opt "$*"`
+ 			print_info 2 "CMD_BOOTLOADER: ${CMD_BOOTLOADER}"
+diff -NPur genkernel-3.4.10.903/gen_compile.sh new_genkernel/gen_compile.sh
+--- genkernel-3.4.10.903/gen_compile.sh	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/gen_compile.sh	2009-04-17 10:47:09.000000000 +0400
+@@ -298,10 +298,18 @@
+ 		print_info 1 "        >> Starting supplimental compile of ${KV}: ${KERNEL_MAKE_DIRECTIVE_2}..."
+ 		compile_generic "${KERNEL_MAKE_DIRECTIVE_2}" kernel
+ 	fi
++
++	local tmp_kernel_binary=$(find_kernel_binary ${KERNEL_BINARY})
++	local tmp_kernel_binary2=$(find_kernel_binary ${KERNEL_BINARY_2})
++	if [ -z "${tmp_kernel_binary}" ]
++	then
++		gen_die "Cannot locate kernel binary"
++	fi
++
+ 	if ! isTrue "${CMD_NOINSTALL}"
+ 	then
+ 		copy_image_with_preserve "kernel" \
+-			"${KERNEL_BINARY}" \
++			"${tmp_kernel_binary}" \
+ 			"kernel-${KNAME}-${ARCH}-${KV}"
+ 
+ 		copy_image_with_preserve "System.map" \
+@@ -311,17 +319,17 @@
+ 		if isTrue "${GENZIMAGE}"
+ 		then
+ 			copy_image_with_preserve "kernelz" \
+-				"${KERNEL_BINARY_2}" \
++				"${tmp_kernel_binary2}" \
+ 				"kernelz-${KV}"
+ 		fi
+ 	else
+-		cp "${KERNEL_BINARY}" "${TMPDIR}/kernel-${KNAME}-${ARCH}-${KV}" ||
++		cp "${tmp_kernel_binary}" "${TMPDIR}/kernel-${KNAME}-${ARCH}-${KV}" ||
+ 			gen_die "Could not copy the kernel binary to ${TMPDIR}!"
+ 		cp "System.map" "${TMPDIR}/System.map-${KNAME}-${ARCH}-${KV}" ||
+ 			gen_die "Could not copy System.map to ${TMPDIR}!"
+ 		if isTrue "${GENZIMAGE}"
+ 		then
+-			cp "${KERNEL_BINARY_2}" "${TMPDIR}/kernelz-${KV}" ||
++			cp "${tmp_kernel_binary2}" "${TMPDIR}/kernelz-${KV}" ||
+ 				gen_die "Could not copy the kernelz binary to ${TMPDIR}!"
+ 		fi
+ 	fi
+diff -NPur genkernel-3.4.10.903/gen_determineargs.sh new_genkernel/gen_determineargs.sh
+--- genkernel-3.4.10.903/gen_determineargs.sh	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/gen_determineargs.sh	2009-04-17 10:47:09.000000000 +0400
+@@ -109,6 +109,7 @@
+ 	set_config_with_override 1 DISKLABEL            CMD_DISKLABEL
+ 	set_config_with_override 1 LUKS                 CMD_LUKS
+ 	set_config_with_override 1 MDADM                CMD_MDADM
++	set_config_with_override 1 MULTIPATH            CMD_MULTIPATH
+ 	set_config_with_override 1 FIRMWARE             CMD_FIRMWARE
+ 	set_config_with_override 2 FIRMWARE_DIR         CMD_FIRMWARE_DIR         "/lib/firmware"
+ 	set_config_with_override 2 FIRMWARE_FILES       CMD_FIRMWARE_FILES
+diff -NPur genkernel-3.4.10.903/gen_funcs.sh new_genkernel/gen_funcs.sh
+--- genkernel-3.4.10.903/gen_funcs.sh	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/gen_funcs.sh	2009-04-17 10:47:09.000000000 +0400
+@@ -516,7 +516,7 @@
+ }
+ 
+ check_distfiles() {
+-	for i in $BUSYBOX_SRCTAR $DEVICE_MAPPER_SRCTAR $LVM_SRCTAR $DMRAID_SRCTAR $E2FSPROGS_SRCTAR
++	for i in $BUSYBOX_SRCTAR $DEVICE_MAPPER_SRCTAR $MULTIPATH_SRCTAR $LVM_SRCTAR $DMRAID_SRCTAR $E2FSPROGS_SRCTAR
+ 	do
+ 		if [ ! -f "${i}" ]
+ 		then
+@@ -524,3 +524,24 @@
+ 		fi
+ 	done
+ }
++
++find_kernel_binary() {
++	local kernel_binary=$*
++	local curdir=$(pwd)
++
++	cd "${KERNEL_DIR}"
++	for i in ${kernel_binary}
++	do
++		if [ -e "${i}" ]
++		then
++			tmp_kernel_binary=$i
++			break
++		fi
++	done
++#	if [ -z "${tmp_kernel_binary}" ]
++#	then
++#		gen_die "Cannot locate kernel binary!"
++#	fi
++	cd "${curdir}"
++	echo "${tmp_kernel_binary}"
++}
+diff -NPur genkernel-3.4.10.903/gen_initramfs.sh new_genkernel/gen_initramfs.sh
+--- genkernel-3.4.10.903/gen_initramfs.sh	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/gen_initramfs.sh	2009-04-17 10:47:09.000000000 +0400
+@@ -125,6 +125,51 @@
+ #	rm -r "${TEMP}/initramfs-suspend-temp/"
+ #}
+ 
++append_multipath(){
++	if [ -d "${TEMP}/initramfs-multipath-temp" ]
++	then
++		rm -r "${TEMP}/initramfs-multipath-temp"
++	fi
++	print_info 1 '	Multipath support being added'
++	mkdir -p "${TEMP}/initramfs-multipath-temp/bin/"
++	mkdir -p "${TEMP}/initramfs-multipath-temp/etc/" 
++	mkdir -p "${TEMP}/initramfs-multipath-temp/sbin/"
++	mkdir -p "${TEMP}/initramfs-multipath-temp/lib/"
++
++	# Copy files to /lib
++	for i in /lib/{ld-*,libc-*,libc.*,libdl-*,libdl.*,libsysfs*so*,libdevmapper*so*}
++	do
++		cp -a "${i}" "${TEMP}/initramfs-multipath-temp/lib" \
++			|| gen_die "Could not copy file ${i} for MULTIPATH"
++	done
++
++	# Copy files to /sbin
++	for i in /sbin/{multipath,kpartx,mpath_prio_*,devmap_name,dmsetup} /lib64/udev/scsi_id
++	do
++		cp -a "${i}" "${TEMP}/initramfs-multipath-temp/sbin" \
++			|| gen_die "Could not copy file ${i} for MULTIPATH"
++	done
++
++	# Copy files to /bin
++	for i in /bin/mountpoint
++	do
++		cp -a "${i}" "${TEMP}/initramfs-multipath-temp/bin" \
++			|| gen_die "Could not copy file ${i} for MULTIPATH"
++	done
++
++	if [ -x /sbin/multipath ] 
++	then
++		cp /etc/multipath.conf "${TEMP}/initramfs-multipath-temp/etc/" || gen_die 'could not copy /etc/multipath.conf please check this'
++	fi
++	if [ -x /sbin/scsi_id ]
++	then
++		cp /etc/scsi_id.config "${TEMP}/initramfs-multipath-temp/etc/" || gen_die 'could not copy scsi_id.config'
++	fi
++	cd "${TEMP/initramfs-multipath-temp/}"
++	find . -print | cpio ${CPIO_ARGS} --append -F "${CPIO}"
++	rm -r "${TEMP}/initramfs-multipath-temp/"
++}
++
+ append_dmraid(){
+ 	if [ -d "${TEMP}/initramfs-dmraid-temp" ]
+ 	then
+@@ -512,7 +557,8 @@
+ 	local name=$1 var=$2
+ 	local func="append_${name}"
+ 
+-	if [ $# -eq 1 ] || [ ${var} -eq 1 ]
++	[ $# -eq 0 ] && gen_die "append_data() called with zero arguments"
++	if [ $# -eq 1 ] || isTrue ${var}
+ 	then
+ 	    print_info 1 "        >> Appending ${name} cpio data..."
+ 	    ${func}
+@@ -535,7 +581,8 @@
+ 	append_data 'evms' "${EVMS}"
+ 	append_data 'mdadm' "${MDADM}"
+ 	append_data 'luks' "${LUKS}"
+-	
++	append_data 'multipath' "${MULTIPATH}"
++
+ 	if [ "${NORAMDISKMODULES}" -eq '0' ]
+ 	then
+ 		append_data 'modules'
+diff -NPur genkernel-3.4.10.903/genkernel new_genkernel/genkernel
+--- genkernel-3.4.10.903/genkernel	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/genkernel	2009-04-17 10:47:09.000000000 +0400
+@@ -1,7 +1,7 @@
+ #!/bin/bash
+ 
+ PATH="${PATH}:/sbin:/usr/sbin"
+-GK_V='3.4.10.903'
++GK_V='3.4.10.902'
+ 
+ # Set the default for TMPDIR.  May be modified by genkernel.conf or the
+ # --tempdir command line option.
+diff -NPur genkernel-3.4.10.903/genkernel.conf new_genkernel/genkernel.conf
+--- genkernel-3.4.10.903/genkernel.conf	2009-01-06 01:22:05.000000000 +0300
++++ new_genkernel/genkernel.conf	2009-04-17 10:47:09.000000000 +0400
+@@ -66,6 +66,9 @@
+ # Copy /etc/mdadm.conf to initramfs.
+ # MDADM="no"
+ 
++# Add Multipath support.
++# MULTIPATH="no"
++
+ # Enable copying of firmware into initramfs
+ # FIRMWARE="no"
+ # Specify directory to pull from
+@@ -73,6 +76,9 @@
+ # Specify specific firmware files to include. This overrides FIRMWARE_DIR
+ # FIRMWARE_FILES=""
+ 
++# Enable disklabel support (copies blkid to initrd)
++# DISKLABEL="yes"
++
+ # =========Low Level Compile Settings=========
+ #
+ # GNU Make to use for kernel.  See also the --kernel-make command line option.
+diff -NPur genkernel-3.4.10.903/gen_package.sh new_genkernel/gen_package.sh
+--- genkernel-3.4.10.903/gen_package.sh	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/gen_package.sh	2009-04-17 10:47:09.000000000 +0400
+@@ -13,12 +13,18 @@
+ 			/bin/tar -xj -C ${TEMP}/minkernpackage -f ${KERNCACHE} kernelz-${ARCH}-${KV}
+ 		fi
+ 	else
++		local tmp_kernel_binary=$(find_kernel_binary ${KERNEL_BINARY})
++		local tmp_kernel_binary2=$(find_kernel_binary ${KERNEL_BINARY_2})
++		if [ -z "${tmp_kernel_binary}" ]
++		then
++			gen_die "Cannot locate kernel binary"
++		fi
+ 		cd "${KERNEL_DIR}"
+-		cp "${KERNEL_BINARY}" "${TEMP}/minkernpackage/kernel-${KV}" || gen_die 'Could not the copy kernel for the min kernel package!'
++		cp "${tmp_kernel_binary}" "${TEMP}/minkernpackage/kernel-${KV}" || gen_die 'Could not the copy kernel for the min kernel package!'
+ 		cp ".config" "${TEMP}/minkernpackage/config-${ARCH}-${KV}" || gen_die 'Could not the copy kernel config for the min kernel package!'
+ 		if isTrue "${GENZIMAGE}"
+ 		then
+-			cp "${KERNEL_BINARY_2}" "${TEMP}/minkernpackage/kernelz-${KV}" || gen_die "Could not copy the kernelz for the min kernel package"
++			cp "${tmp_kernel_binary2}" "${TEMP}/minkernpackage/kernelz-${KV}" || gen_die "Could not copy the kernelz for the min kernel package"
+ 		fi
+ 	fi
+ 	
+@@ -60,15 +66,23 @@
+ 	print_info 1 'Creating kernel cache'
+ 	rm -rf "${TEMP}/kerncache" > /dev/null 2>&1
+ 	mkdir "${TEMP}/kerncache" || gen_die 'Could not make a directory for the kernel cache!'
++
++	local tmp_kernel_binary=$(find_kernel_binary ${KERNEL_BINARY})
++	local tmp_kernel_binary2=$(find_kernel_binary ${KERNEL_BINARY_2})
++	if [ -z "${tmp_kernel_binary}" ]
++	then
++		gen_die "Cannot locate kernel binary"
++	fi
++
+ 	cd "${KERNEL_DIR}"
+-	cp "${KERNEL_BINARY}" "${TEMP}/kerncache/kernel-${ARCH}-${KV}" || gen_die 'Could not the copy kernel for the kernel package!'
++	cp "${tmp_kernel_binary}" "${TEMP}/kerncache/kernel-${ARCH}-${KV}" || gen_die 'Could not the copy kernel for the kernel package!'
+ 	cp "${KERNEL_DIR}/.config" "${TEMP}/kerncache/config-${ARCH}-${KV}"
+ 	cp "${KERNEL_CONFIG}" "${TEMP}/kerncache/config-${ARCH}-${KV}.orig"
+ 	cp "${KERNEL_DIR}/System.map" "${TEMP}/kerncache/System.map-${ARCH}-${KV}"
+ 	if isTrue "${GENZIMAGE}"
+-        then
+-        	cp "${KERNEL_BINARY_2}" "${TEMP}/kerncache/kernelz-${ARCH}-${KV}" || gen_die "Could not copy the kernelz for the kernel package"
+-        fi
++	then
++		cp "${tmp_kernel_binary2}" "${TEMP}/kerncache/kernelz-${ARCH}-${KV}" || gen_die "Could not copy the kernelz for the kernel package"
++	fi
+ 	
+ 	echo "VERSION = ${VER}" > "${TEMP}/kerncache/kerncache.config"
+ 	echo "PATCHLEVEL = ${PAT}" >> "${TEMP}/kerncache/kerncache.config"
+diff -NPur genkernel-3.4.10.903/HACKING new_genkernel/HACKING
+--- genkernel-3.4.10.903/HACKING	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/HACKING	2009-04-17 10:47:09.000000000 +0400
+@@ -1,5 +1,7 @@
+ This document is a work-in-progress to describe the workflow through the various
+-parts of genkernel so we can split the code into modular chunks.
++parts of genkernel so that we can split the code into modular chunks.  If you
++are interested in helping with genkernel development, contact Chris Gianelloni
++at wolf31o2@wolf31o2.org for access.
+ 
+ Phases:
+ 
+diff -NPur genkernel-3.4.10.903/netboot/busy-config new_genkernel/netboot/busy-config
+--- genkernel-3.4.10.903/netboot/busy-config	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/netboot/busy-config	2009-04-17 10:47:09.000000000 +0400
+@@ -1,7 +1,7 @@
+ #
+ # Automatically generated make config: don't edit
+ # Busybox version: 1.7.4
+-# Tue Mar 11 13:29:47 2008
++# Thu Apr 16 15:04:31 2009
+ #
+ CONFIG_HAVE_DOT_CONFIG=y
+ 
+@@ -12,13 +12,13 @@
+ #
+ # General Configuration
+ #
+-# CONFIG_NITPICK is not set
++CONFIG_NITPICK=y
+ # CONFIG_DESKTOP is not set
+ # CONFIG_FEATURE_BUFFERS_USE_MALLOC is not set
+-# CONFIG_FEATURE_BUFFERS_GO_ON_STACK is not set
++CONFIG_FEATURE_BUFFERS_GO_ON_STACK=y
+ # CONFIG_FEATURE_BUFFERS_GO_IN_BSS is not set
+ CONFIG_SHOW_USAGE=y
+-# CONFIG_FEATURE_VERBOSE_USAGE is not set
++CONFIG_FEATURE_VERBOSE_USAGE=y
+ CONFIG_FEATURE_COMPRESS_USAGE=y
+ CONFIG_FEATURE_INSTALLER=y
+ # CONFIG_LOCALE_SUPPORT is not set
+@@ -26,7 +26,7 @@
+ CONFIG_FEATURE_DEVPTS=y
+ # CONFIG_FEATURE_CLEAN_UP is not set
+ # CONFIG_FEATURE_PIDFILE is not set
+-# CONFIG_FEATURE_SUID is not set
++CONFIG_FEATURE_SUID=y
+ # CONFIG_FEATURE_SUID_CONFIG is not set
+ # CONFIG_FEATURE_SUID_CONFIG_QUIET is not set
+ # CONFIG_SELINUX is not set
+@@ -79,7 +79,7 @@
+ # CONFIG_FEATURE_EDITING_SAVEHISTORY is not set
+ CONFIG_FEATURE_TAB_COMPLETION=y
+ # CONFIG_FEATURE_USERNAME_COMPLETION is not set
+-# CONFIG_FEATURE_EDITING_FANCY_PROMPT is not set
++CONFIG_FEATURE_EDITING_FANCY_PROMPT=y
+ CONFIG_MONOTONIC_SYSCALL=y
+ CONFIG_IOCTL_HEX2STR_ERROR=y
+ 
+@@ -90,40 +90,44 @@
+ #
+ # Archival Utilities
+ #
+-# CONFIG_AR is not set
+-# CONFIG_FEATURE_AR_LONG_FILENAMES is not set
+-# CONFIG_BUNZIP2 is not set
+-# CONFIG_CPIO is not set
+-# CONFIG_DPKG is not set
++CONFIG_AR=y
++CONFIG_FEATURE_AR_LONG_FILENAMES=y
++CONFIG_BUNZIP2=y
++CONFIG_CPIO=y
++CONFIG_DPKG=y
+ # CONFIG_DPKG_DEB is not set
+ # CONFIG_FEATURE_DPKG_DEB_EXTRACT_ONLY is not set
+ CONFIG_GUNZIP=y
+-# CONFIG_FEATURE_GUNZIP_UNCOMPRESS is not set
++CONFIG_FEATURE_GUNZIP_UNCOMPRESS=y
+ CONFIG_GZIP=y
+-# CONFIG_RPM2CPIO is not set
+-# CONFIG_RPM is not set
++CONFIG_RPM2CPIO=y
++CONFIG_RPM=y
+ # CONFIG_FEATURE_RPM_BZ2 is not set
+ CONFIG_TAR=y
+ CONFIG_FEATURE_TAR_CREATE=y
+ CONFIG_FEATURE_TAR_BZIP2=y
+-# CONFIG_FEATURE_TAR_LZMA is not set
+-# CONFIG_FEATURE_TAR_FROM is not set
++CONFIG_FEATURE_TAR_LZMA=y
++CONFIG_FEATURE_TAR_FROM=y
+ CONFIG_FEATURE_TAR_GZIP=y
+-# CONFIG_FEATURE_TAR_COMPRESS is not set
+-# CONFIG_FEATURE_TAR_OLDGNU_COMPATIBILITY is not set
++CONFIG_FEATURE_TAR_COMPRESS=y
++CONFIG_FEATURE_TAR_OLDGNU_COMPATIBILITY=y
+ # CONFIG_FEATURE_TAR_OLDSUN_COMPATIBILITY is not set
+ CONFIG_FEATURE_TAR_GNU_EXTENSIONS=y
+-# CONFIG_FEATURE_TAR_LONG_OPTIONS is not set
+-# CONFIG_UNCOMPRESS is not set
+-# CONFIG_UNLZMA is not set
+-# CONFIG_FEATURE_LZMA_FAST is not set
+-# CONFIG_UNZIP is not set
++CONFIG_FEATURE_TAR_LONG_OPTIONS=y
++CONFIG_UNCOMPRESS=y
++CONFIG_UNLZMA=y
++CONFIG_FEATURE_LZMA_FAST=y
++CONFIG_UNZIP=y
+ 
+ #
+ # Common options for cpio and tar
+ #
+-# CONFIG_FEATURE_UNARCHIVE_TAPE is not set
+-# CONFIG_FEATURE_DEB_TAR_GZ is not set
++CONFIG_FEATURE_UNARCHIVE_TAPE=y
++
++#
++# Common options for dpkg and dpkg_deb
++#
++CONFIG_FEATURE_DEB_TAR_GZ=y
+ # CONFIG_FEATURE_DEB_TAR_BZ2 is not set
+ # CONFIG_FEATURE_DEB_TAR_LZMA is not set
+ 
+@@ -149,8 +153,8 @@
+ # CONFIG_FEATURE_DD_IBS_OBS is not set
+ CONFIG_DF=y
+ CONFIG_DIRNAME=y
+-# CONFIG_DOS2UNIX is not set
+-# CONFIG_UNIX2DOS is not set
++CONFIG_DOS2UNIX=y
++CONFIG_UNIX2DOS=y
+ CONFIG_DU=y
+ CONFIG_FEATURE_DU_DEFAULT_BLOCKSIZE_1K=y
+ CONFIG_ECHO=y
+@@ -159,39 +163,39 @@
+ # CONFIG_FEATURE_ENV_LONG_OPTIONS is not set
+ # CONFIG_EXPAND is not set
+ # CONFIG_FEATURE_EXPAND_LONG_OPTIONS is not set
+-# CONFIG_EXPR is not set
++CONFIG_EXPR=y
+ # CONFIG_EXPR_MATH_SUPPORT_64 is not set
+ CONFIG_FALSE=y
+ # CONFIG_FOLD is not set
+ CONFIG_HEAD=y
+-# CONFIG_FEATURE_FANCY_HEAD is not set
++CONFIG_FEATURE_FANCY_HEAD=y
+ # CONFIG_HOSTID is not set
+ CONFIG_ID=y
+-# CONFIG_INSTALL is not set
++CONFIG_INSTALL=y
+ # CONFIG_FEATURE_INSTALL_LONG_OPTIONS is not set
+-# CONFIG_LENGTH is not set
++CONFIG_LENGTH=y
+ CONFIG_LN=y
+ # CONFIG_LOGNAME is not set
+ CONFIG_LS=y
+ CONFIG_FEATURE_LS_FILETYPES=y
+ CONFIG_FEATURE_LS_FOLLOWLINKS=y
+-# CONFIG_FEATURE_LS_RECURSIVE is not set
++CONFIG_FEATURE_LS_RECURSIVE=y
+ CONFIG_FEATURE_LS_SORTFILES=y
+ CONFIG_FEATURE_LS_TIMESTAMPS=y
+ CONFIG_FEATURE_LS_USERNAME=y
+ CONFIG_FEATURE_LS_COLOR=y
+ # CONFIG_FEATURE_LS_COLOR_IS_DEFAULT is not set
+-# CONFIG_MD5SUM is not set
++CONFIG_MD5SUM=y
+ CONFIG_MKDIR=y
+ # CONFIG_FEATURE_MKDIR_LONG_OPTIONS is not set
+-# CONFIG_MKFIFO is not set
++CONFIG_MKFIFO=y
+ CONFIG_MKNOD=y
+ CONFIG_MV=y
+ # CONFIG_FEATURE_MV_LONG_OPTIONS is not set
+-# CONFIG_NICE is not set
++CONFIG_NICE=y
+ # CONFIG_NOHUP is not set
+ # CONFIG_OD is not set
+-# CONFIG_PRINTENV is not set
++CONFIG_PRINTENV=y
+ # CONFIG_PRINTF is not set
+ CONFIG_PWD=y
+ CONFIG_READLINK=y
+@@ -199,39 +203,39 @@
+ # CONFIG_REALPATH is not set
+ CONFIG_RM=y
+ CONFIG_RMDIR=y
+-# CONFIG_SEQ is not set
+-# CONFIG_SHA1SUM is not set
++CONFIG_SEQ=y
++CONFIG_SHA1SUM=y
+ CONFIG_SLEEP=y
+ # CONFIG_FEATURE_FANCY_SLEEP is not set
+ CONFIG_SORT=y
+ CONFIG_FEATURE_SORT_BIG=y
+ # CONFIG_SPLIT is not set
+ # CONFIG_FEATURE_SPLIT_FANCY is not set
+-# CONFIG_STAT is not set
++CONFIG_STAT=y
+ # CONFIG_FEATURE_STAT_FORMAT is not set
+ CONFIG_STTY=y
+ # CONFIG_SUM is not set
+ CONFIG_SYNC=y
+ CONFIG_TAIL=y
+-# CONFIG_FEATURE_FANCY_TAIL is not set
+-# CONFIG_TEE is not set
+-# CONFIG_FEATURE_TEE_USE_BLOCK_IO is not set
++CONFIG_FEATURE_FANCY_TAIL=y
++CONFIG_TEE=y
++CONFIG_FEATURE_TEE_USE_BLOCK_IO=y
+ CONFIG_TEST=y
+ # CONFIG_FEATURE_TEST_64 is not set
+ CONFIG_TOUCH=y
+-# CONFIG_TR is not set
+-# CONFIG_FEATURE_TR_CLASSES is not set
+-# CONFIG_FEATURE_TR_EQUIV is not set
++CONFIG_TR=y
++CONFIG_FEATURE_TR_CLASSES=y
++CONFIG_FEATURE_TR_EQUIV=y
+ CONFIG_TRUE=y
+ CONFIG_TTY=y
+ CONFIG_UNAME=y
+ # CONFIG_UNEXPAND is not set
+ # CONFIG_FEATURE_UNEXPAND_LONG_OPTIONS is not set
+ CONFIG_UNIQ=y
+-# CONFIG_USLEEP is not set
++CONFIG_USLEEP=y
+ # CONFIG_UUDECODE is not set
+ # CONFIG_UUENCODE is not set
+-# CONFIG_WC is not set
++CONFIG_WC=y
+ # CONFIG_FEATURE_WC_LARGE is not set
+ # CONFIG_WHO is not set
+ CONFIG_WHOAMI=y
+@@ -240,7 +244,7 @@
+ #
+ # Common options for cp and mv
+ #
+-# CONFIG_FEATURE_PRESERVE_HARDLINKS is not set
++CONFIG_FEATURE_PRESERVE_HARDLINKS=y
+ 
+ #
+ # Common options for ls, more and telnet
+@@ -251,24 +255,28 @@
+ # Common options for df, du, ls
+ #
+ CONFIG_FEATURE_HUMAN_READABLE=y
+-# CONFIG_FEATURE_MD5_SHA1_SUM_CHECK is not set
++
++#
++# Common options for md5sum, sha1sum
++#
++CONFIG_FEATURE_MD5_SHA1_SUM_CHECK=y
+ 
+ #
+ # Console Utilities
+ #
+ CONFIG_CHVT=y
+ CONFIG_CLEAR=y
+-# CONFIG_DEALLOCVT is not set
++CONFIG_DEALLOCVT=y
+ CONFIG_DUMPKMAP=y
+ CONFIG_LOADFONT=y
+ CONFIG_LOADKMAP=y
+-# CONFIG_OPENVT is not set
++CONFIG_OPENVT=y
+ CONFIG_RESET=y
+ # CONFIG_RESIZE is not set
+ # CONFIG_FEATURE_RESIZE_PRINT is not set
+-# CONFIG_SETCONSOLE is not set
++CONFIG_SETCONSOLE=y
+ # CONFIG_FEATURE_SETCONSOLE_LONG_OPTIONS is not set
+-# CONFIG_SETKEYCODES is not set
++CONFIG_SETKEYCODES=y
+ # CONFIG_SETLOGCONS is not set
+ 
+ #
+@@ -287,12 +295,12 @@
+ #
+ # Editors
+ #
+-CONFIG_AWK=y
++# CONFIG_AWK is not set
+ # CONFIG_FEATURE_AWK_MATH is not set
+-# CONFIG_CMP is not set
++CONFIG_CMP=y
+ CONFIG_DIFF=y
+-# CONFIG_FEATURE_DIFF_BINARY is not set
+-# CONFIG_FEATURE_DIFF_DIR is not set
++CONFIG_FEATURE_DIFF_BINARY=y
++CONFIG_FEATURE_DIFF_DIR=y
+ # CONFIG_FEATURE_DIFF_MINIMAL is not set
+ # CONFIG_ED is not set
+ # CONFIG_PATCH is not set
+@@ -316,9 +324,9 @@
+ #
+ CONFIG_FIND=y
+ CONFIG_FEATURE_FIND_PRINT0=y
+-# CONFIG_FEATURE_FIND_MTIME is not set
++CONFIG_FEATURE_FIND_MTIME=y
+ CONFIG_FEATURE_FIND_MMIN=y
+-# CONFIG_FEATURE_FIND_PERM is not set
++CONFIG_FEATURE_FIND_PERM=y
+ CONFIG_FEATURE_FIND_TYPE=y
+ CONFIG_FEATURE_FIND_XDEV=y
+ CONFIG_FEATURE_FIND_MAXDEPTH=y
+@@ -331,20 +339,20 @@
+ CONFIG_FEATURE_FIND_DEPTH=y
+ CONFIG_FEATURE_FIND_PAREN=y
+ CONFIG_FEATURE_FIND_SIZE=y
+-# CONFIG_FEATURE_FIND_PRUNE is not set
++CONFIG_FEATURE_FIND_PRUNE=y
+ # CONFIG_FEATURE_FIND_DELETE is not set
+-# CONFIG_FEATURE_FIND_PATH is not set
+-# CONFIG_FEATURE_FIND_REGEX is not set
++CONFIG_FEATURE_FIND_PATH=y
++CONFIG_FEATURE_FIND_REGEX=y
+ # CONFIG_FEATURE_FIND_CONTEXT is not set
+ CONFIG_GREP=y
+-# CONFIG_FEATURE_GREP_EGREP_ALIAS is not set
++CONFIG_FEATURE_GREP_EGREP_ALIAS=y
+ CONFIG_FEATURE_GREP_FGREP_ALIAS=y
+-# CONFIG_FEATURE_GREP_CONTEXT is not set
++CONFIG_FEATURE_GREP_CONTEXT=y
+ CONFIG_XARGS=y
+ # CONFIG_FEATURE_XARGS_SUPPORT_CONFIRMATION is not set
+-# CONFIG_FEATURE_XARGS_SUPPORT_QUOTES is not set
+-# CONFIG_FEATURE_XARGS_SUPPORT_TERMOPT is not set
+-# CONFIG_FEATURE_XARGS_SUPPORT_ZERO_TERM is not set
++CONFIG_FEATURE_XARGS_SUPPORT_QUOTES=y
++CONFIG_FEATURE_XARGS_SUPPORT_TERMOPT=y
++CONFIG_FEATURE_XARGS_SUPPORT_ZERO_TERM=y
+ 
+ #
+ # Init Utilities
+@@ -354,7 +362,7 @@
+ CONFIG_FEATURE_USE_INITTAB=y
+ # CONFIG_FEATURE_INIT_SCTTY is not set
+ # CONFIG_FEATURE_INIT_SYSLOG is not set
+-# CONFIG_FEATURE_EXTRA_QUIET is not set
++CONFIG_FEATURE_EXTRA_QUIET=y
+ # CONFIG_FEATURE_INIT_COREDUMPS is not set
+ CONFIG_FEATURE_INITRD=y
+ CONFIG_HALT=y
+@@ -363,7 +371,7 @@
+ #
+ # Login/Password Management Utilities
+ #
+-# CONFIG_FEATURE_SHADOWPASSWDS is not set
++CONFIG_FEATURE_SHADOWPASSWDS=y
+ # CONFIG_USE_BB_SHADOW is not set
+ # CONFIG_USE_BB_PWD_GRP is not set
+ # CONFIG_ADDGROUP is not set
+@@ -375,13 +383,13 @@
+ CONFIG_GETTY=y
+ # CONFIG_FEATURE_UTMP is not set
+ # CONFIG_FEATURE_WTMP is not set
+-# CONFIG_LOGIN is not set
++CONFIG_LOGIN=y
+ # CONFIG_PAM is not set
+ # CONFIG_LOGIN_SCRIPTS is not set
+-# CONFIG_FEATURE_NOLOGIN is not set
++CONFIG_FEATURE_NOLOGIN=y
+ # CONFIG_FEATURE_SECURETTY is not set
+-# CONFIG_PASSWD is not set
+-# CONFIG_FEATURE_PASSWD_WEAK_CHECK is not set
++CONFIG_PASSWD=y
++CONFIG_FEATURE_PASSWD_WEAK_CHECK=y
+ # CONFIG_CRYPTPW is not set
+ CONFIG_CHPASSWD=y
+ # CONFIG_SU is not set
+@@ -398,6 +406,11 @@
+ # CONFIG_LSATTR is not set
+ 
+ #
++# Linux mdadm Utilities
++#
++CONFIG_MDADM=y
++
++#
+ # Linux Module Utilities
+ #
+ CONFIG_INSMOD=y
+@@ -408,7 +421,7 @@
+ # CONFIG_FEATURE_INSMOD_LOAD_MAP_FULL is not set
+ CONFIG_RMMOD=y
+ CONFIG_LSMOD=y
+-# CONFIG_FEATURE_LSMOD_PRETTY_2_6_OUTPUT is not set
++CONFIG_FEATURE_LSMOD_PRETTY_2_6_OUTPUT=y
+ CONFIG_MODPROBE=y
+ CONFIG_FEATURE_MODPROBE_MULTIPLE_OPTIONS=y
+ CONFIG_FEATURE_MODPROBE_FANCY_ALIAS=y
+@@ -451,10 +464,9 @@
+ # CONFIG_IPCRM is not set
+ # CONFIG_IPCS is not set
+ CONFIG_LOSETUP=y
+-CONFIG_MDADM=y
+ CONFIG_MDEV=y
+-# CONFIG_FEATURE_MDEV_CONF is not set
+-# CONFIG_FEATURE_MDEV_EXEC is not set
++CONFIG_FEATURE_MDEV_CONF=y
++CONFIG_FEATURE_MDEV_EXEC=y
+ CONFIG_FEATURE_MDEV_LOAD_FIRMWARE=y
+ CONFIG_MDSTART=y
+ CONFIG_MKSWAP=y
+@@ -463,7 +475,7 @@
+ CONFIG_FEATURE_USE_TERMIOS=y
+ CONFIG_MOUNT=y
+ CONFIG_FEATURE_MOUNT_NFS=y
+-# CONFIG_FEATURE_MOUNT_CIFS is not set
++CONFIG_FEATURE_MOUNT_CIFS=y
+ CONFIG_FEATURE_MOUNT_FLAGS=y
+ CONFIG_FEATURE_MOUNT_FSTAB=y
+ CONFIG_PIVOT_ROOT=y
+@@ -473,7 +485,7 @@
+ CONFIG_SWAPONOFF=y
+ CONFIG_SWITCH_ROOT=y
+ CONFIG_UMOUNT=y
+-# CONFIG_FEATURE_UMOUNT_ALL is not set
++CONFIG_FEATURE_UMOUNT_ALL=y
+ 
+ #
+ # Common options for mount/umount
+@@ -485,13 +497,13 @@
+ # Miscellaneous Utilities
+ #
+ # CONFIG_ADJTIMEX is not set
+-# CONFIG_BBCONFIG is not set
++CONFIG_BBCONFIG=y
+ # CONFIG_CHRT is not set
+ # CONFIG_CROND is not set
+ # CONFIG_DEBUG_CROND_OPTION is not set
+ # CONFIG_FEATURE_CROND_CALL_SENDMAIL is not set
+ # CONFIG_CRONTAB is not set
+-# CONFIG_DC is not set
++CONFIG_DC=y
+ # CONFIG_DEVFSD is not set
+ # CONFIG_DEVFSD_MODLOAD is not set
+ # CONFIG_DEVFSD_FG_NP is not set
+@@ -516,17 +528,17 @@
+ CONFIG_MAKEDEVS=y
+ CONFIG_FEATURE_MAKEDEVS_LEAF=y
+ # CONFIG_FEATURE_MAKEDEVS_TABLE is not set
+-# CONFIG_MOUNTPOINT is not set
+-# CONFIG_MT is not set
++CONFIG_MOUNTPOINT=y
++CONFIG_MT=y
+ # CONFIG_RAIDAUTORUN is not set
+ # CONFIG_READAHEAD is not set
+ # CONFIG_RUNLEVEL is not set
+ # CONFIG_RX is not set
+-# CONFIG_STRINGS is not set
++CONFIG_STRINGS=y
+ # CONFIG_SETSID is not set
+ # CONFIG_TASKSET is not set
+ # CONFIG_FEATURE_TASKSET_FANCY is not set
+-# CONFIG_TIME is not set
++CONFIG_TIME=y
+ # CONFIG_TTYSIZE is not set
+ # CONFIG_WATCHDOG is not set
+ 
+@@ -540,8 +552,8 @@
+ # CONFIG_DNSD is not set
+ # CONFIG_ETHER_WAKE is not set
+ # CONFIG_FAKEIDENTD is not set
+-# CONFIG_FTPGET is not set
+-# CONFIG_FTPPUT is not set
++CONFIG_FTPGET=y
++CONFIG_FTPPUT=y
+ # CONFIG_FEATURE_FTPGETPUT_LONG_OPTIONS is not set
+ CONFIG_HOSTNAME=y
+ # CONFIG_HTTPD is not set
+@@ -559,9 +571,9 @@
+ CONFIG_IFCONFIG=y
+ CONFIG_FEATURE_IFCONFIG_STATUS=y
+ # CONFIG_FEATURE_IFCONFIG_SLIP is not set
+-# CONFIG_FEATURE_IFCONFIG_MEMSTART_IOADDR_IRQ is not set
++CONFIG_FEATURE_IFCONFIG_MEMSTART_IOADDR_IRQ=y
+ CONFIG_FEATURE_IFCONFIG_HW=y
+-# CONFIG_FEATURE_IFCONFIG_BROADCAST_PLUS is not set
++CONFIG_FEATURE_IFCONFIG_BROADCAST_PLUS=y
+ # CONFIG_IFUPDOWN is not set
+ CONFIG_IFUPDOWN_IFSTATE_PATH="/var/run/ifstate"
+ # CONFIG_FEATURE_IFUPDOWN_IP is not set
+@@ -590,14 +602,14 @@
+ # CONFIG_IPROUTE is not set
+ # CONFIG_IPTUNNEL is not set
+ # CONFIG_IPRULE is not set
+-# CONFIG_IPCALC is not set
+-# CONFIG_FEATURE_IPCALC_FANCY is not set
++CONFIG_IPCALC=y
++CONFIG_FEATURE_IPCALC_FANCY=y
+ # CONFIG_FEATURE_IPCALC_LONG_OPTIONS is not set
+ # CONFIG_NAMEIF is not set
+ CONFIG_NC=y
+ CONFIG_NC_SERVER=y
+ # CONFIG_NC_EXTRA is not set
+-# CONFIG_NETSTAT is not set
++CONFIG_NETSTAT=y
+ # CONFIG_FEATURE_NETSTAT_WIDE is not set
+ CONFIG_NSLOOKUP=y
+ CONFIG_PING=y
+@@ -617,9 +629,9 @@
+ # CONFIG_FEATURE_TFTP_BLOCKSIZE is not set
+ # CONFIG_DEBUG_TFTP is not set
+ CONFIG_TRACEROUTE=y
+-# CONFIG_FEATURE_TRACEROUTE_VERBOSE is not set
+-# CONFIG_FEATURE_TRACEROUTE_SOURCE_ROUTE is not set
+-# CONFIG_FEATURE_TRACEROUTE_USE_ICMP is not set
++CONFIG_FEATURE_TRACEROUTE_VERBOSE=y
++CONFIG_FEATURE_TRACEROUTE_SOURCE_ROUTE=y
++CONFIG_FEATURE_TRACEROUTE_USE_ICMP=y
+ # CONFIG_APP_UDHCPD is not set
+ # CONFIG_APP_DHCPRELAY is not set
+ # CONFIG_APP_DUMPLEASES is not set
+@@ -627,7 +639,7 @@
+ CONFIG_APP_UDHCPC=y
+ # CONFIG_FEATURE_UDHCP_DEBUG is not set
+ # CONFIG_FEATURE_RFC3397 is not set
+-# CONFIG_VCONFIG is not set
++CONFIG_VCONFIG=y
+ CONFIG_WGET=y
+ CONFIG_FEATURE_WGET_STATUSBAR=y
+ CONFIG_FEATURE_WGET_AUTHENTICATION=y
+@@ -643,16 +655,16 @@
+ CONFIG_KILLALL=y
+ # CONFIG_KILLALL5 is not set
+ # CONFIG_NMETER is not set
+-# CONFIG_PIDOF is not set
+-# CONFIG_FEATURE_PIDOF_SINGLE is not set
+-# CONFIG_FEATURE_PIDOF_OMIT is not set
++CONFIG_PIDOF=y
++CONFIG_FEATURE_PIDOF_SINGLE=y
++CONFIG_FEATURE_PIDOF_OMIT=y
+ CONFIG_PS=y
+-# CONFIG_FEATURE_PS_WIDE is not set
+-# CONFIG_RENICE is not set
++CONFIG_FEATURE_PS_WIDE=y
++CONFIG_RENICE=y
+ # CONFIG_BB_SYSCTL is not set
+-# CONFIG_TOP is not set
+-# CONFIG_FEATURE_TOP_CPU_USAGE_PERCENTAGE is not set
+-# CONFIG_FEATURE_TOP_CPU_GLOBAL_PERCENTS is not set
++CONFIG_TOP=y
++CONFIG_FEATURE_TOP_CPU_USAGE_PERCENTAGE=y
++CONFIG_FEATURE_TOP_CPU_GLOBAL_PERCENTS=y
+ # CONFIG_FEATURE_TOP_DECIMALS is not set
+ CONFIG_UPTIME=y
+ # CONFIG_WATCH is not set
+@@ -671,18 +683,18 @@
+ # Ash Shell Options
+ #
+ CONFIG_ASH_JOB_CONTROL=y
+-# CONFIG_ASH_READ_NCHARS is not set
++CONFIG_ASH_READ_NCHARS=y
+ CONFIG_ASH_READ_TIMEOUT=y
+ CONFIG_ASH_ALIAS=y
+ CONFIG_ASH_MATH_SUPPORT=y
+ # CONFIG_ASH_MATH_SUPPORT_64 is not set
+ # CONFIG_ASH_GETOPTS is not set
+-# CONFIG_ASH_BUILTIN_ECHO is not set
++CONFIG_ASH_BUILTIN_ECHO=y
+ CONFIG_ASH_BUILTIN_TEST=y
+ # CONFIG_ASH_CMDCMD is not set
+-CONFIG_ASH_MAIL=y
++# CONFIG_ASH_MAIL is not set
+ CONFIG_ASH_OPTIMIZE_FOR_SIZE=y
+-# CONFIG_ASH_RANDOM_SUPPORT is not set
++CONFIG_ASH_RANDOM_SUPPORT=y
+ # CONFIG_ASH_EXPAND_PRMT is not set
+ # CONFIG_HUSH is not set
+ # CONFIG_HUSH_HELP is not set
+@@ -707,12 +719,12 @@
+ CONFIG_SYSLOGD=y
+ # CONFIG_FEATURE_ROTATE_LOGFILE is not set
+ # CONFIG_FEATURE_REMOTE_LOG is not set
+-# CONFIG_FEATURE_IPC_SYSLOG is not set
+-CONFIG_FEATURE_IPC_SYSLOG_BUFFER_SIZE=
++CONFIG_FEATURE_IPC_SYSLOG=y
++CONFIG_FEATURE_IPC_SYSLOG_BUFFER_SIZE=16
+ CONFIG_LOGREAD=y
+ # CONFIG_FEATURE_LOGREAD_REDUCED_LOCKING is not set
+ CONFIG_KLOGD=y
+-# CONFIG_LOGGER is not set
++CONFIG_LOGGER=y
+ 
+ #
+ # Runit Utilities
+diff -NPur genkernel-3.4.10.903/TODO new_genkernel/TODO
+--- genkernel-3.4.10.903/TODO	2009-01-06 01:22:10.000000000 +0300
++++ new_genkernel/TODO	2009-04-17 10:47:09.000000000 +0400
+@@ -8,9 +8,33 @@
+ - Add "include" options to genkernel.conf
+ - Allow for architecture-specific or module-specific files to override defaults
+ - Create hooks for various points in the build/install phases for modules
+-- Add initramfs/boot support for:
+-  - ATA-over-Ethernet
+-  - iSCSI
+-  - FCP
+-  - Infiniband
++- Add new boot support for the following:
++  - Hardware
++    - Infiniband
++	- FCP
++	- Security Tokens (TPM, Smart Cards, etc)
++  - Software
++    - Block protocols over Ethernet/IP
++	  - iSCSI
++	  - ATA over Ethernet
++	  - FCP over Ethernet
++	  - Infiniband over IP
++	- Multipath support
++	  - Block devices (WIP: tsunam)
++	    - Updates/Notification via multipathd (WIP: tsunam)
++	  - Network
++	- Security Tokens for encrypted block devices
++- Document the different code paths and hooks for external modules
++- Add support for Hardware auto-detection
++  - Fully automatic
++    - Verify required kernel support for detected hardware used at boot
++	- Automatically enable missing options
++	- All supported modules copied to initramfs via default modules_load
++	- Enable all "hot pluggable" devices (USB, PCMCIA, etc)
++  - Partially automatic
++    - Verify required kernel support for detected hardware used at boot
++	- Automatically enable missing options
++    - Copy only required modules to initramfs via modules_load
++  - Interactive
++    - Ask user what to do
+ 
