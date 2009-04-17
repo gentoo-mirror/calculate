@@ -1048,7 +1048,7 @@ diff -NPur genkernel-3.4.10.903/ChangeLog new_genkernel/ChangeLog
  
 diff -NPur genkernel-3.4.10.903/defaults/initrd.scripts new_genkernel/defaults/initrd.scripts
 --- genkernel-3.4.10.903/defaults/initrd.scripts	2009-01-06 01:22:10.000000000 +0300
-+++ new_genkernel/defaults/initrd.scripts	2009-04-17 10:47:09.000000000 +0400
++++ new_genkernel/defaults/initrd.scripts	2009-04-17 13:12:48.000000000 +0400
 @@ -459,30 +459,6 @@
  	fi
  }
@@ -1080,7 +1080,13 @@ diff -NPur genkernel-3.4.10.903/defaults/initrd.scripts new_genkernel/defaults/i
  setup_keymap() {
  	if [ "${DO_keymap}" ]
  	then
-@@ -1000,7 +976,7 @@
+@@ -995,12 +971,12 @@
+ #                         mount -t tmpfs tmpfs $MEMORY 	 
+ #                 fi 	 
+   	 
+-		mkdir /tmp
++#		mkdir /tmp
+ 		mkdir -p ${UNION}
  #		mkdir -p $CHANGES
  #		mount -t unionfs -o dirs=$CHANGES=rw unionfs ${UNION}
  		good_msg "Creating union mount"
