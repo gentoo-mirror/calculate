@@ -15,8 +15,7 @@ VERSION_FUSE='2.7.4'
 VERSION_UNIONFS_FUSE='0.22'
 
 MY_P=gen${P/#calc}
-MY_S=${WORKDIR}/${MY_P}
-# MY_T="${PORTAGE_TMPDIR}/portage/${CATEGORY}/gen${PN/#calc}-${PVR}/temp"
+S=${WORKDIR}/${MY_P}
 
 MY_HOME="http://wolf31o2.org"
 RH_HOME="ftp://sources.redhat.com/pub"
@@ -71,7 +70,7 @@ src_unpack() {
 	else
 		unpack ${MY_P}.tar.bz2
 	fi
-	use selinux && sed -i 's/###//g' "${MY_S}"/gen_compile.sh
+	use selinux && sed -i 's/###//g' "${S}"/gen_compile.sh
 	epatch "${FILESDIR}"/${P}.patch
 }
 
@@ -84,7 +83,7 @@ src_install() {
 		-e "s:VERSION_BUSYBOX:$VERSION_BUSYBOX:" \
 		-e "s:VERSION_FUSE:$VERSION_FUSE:" \
 		-e "s:VERSION_UNIONFS_FUSE:$VERSION_UNIONFS_FUSE:" \
-		"${MY_S}"/genkernel.conf > "${T}"/genkernel.conf \
+		"${S}"/genkernel.conf > "${T}"/genkernel.conf \
 		|| die "Could not adjust versions"
 	insinto /etc
 	doins "${T}"/genkernel.conf || die "doins genkernel.conf"
@@ -97,9 +96,9 @@ src_install() {
 	rm -f genkernel genkernel.8 AUTHORS ChangeLog README TODO genkernel.conf
 
 	insinto /usr/share/genkernel
-	doins -r "${MY_S}"/* || die "doins"
-	use ibm && cp "${MY_S}"/ppc64/kernel-2.6-pSeries "${MY_S}"/ppc64/kernel-2.6 || \
-		cp "${MY_S}"/arch/ppc64/kernel-2.6.g5 "${MY_S}"/arch/ppc64/kernel-2.6
+	doins -r "${S}"/* || die "doins"
+	use ibm && cp "${S}"/ppc64/kernel-2.6-pSeries "${S}"/ppc64/kernel-2.6 || \
+		cp "${S}"/arch/ppc64/kernel-2.6.g5 "${S}"/arch/ppc64/kernel-2.6
 
 	# Copy files to /var/cache/genkernel/src
 	elog "Copying files to /var/cache/genkernel/src..."
