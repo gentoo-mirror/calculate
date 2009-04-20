@@ -16,7 +16,7 @@ VERSION_UNIONFS_FUSE='0.22'
 
 MY_P=gen${P/#calc}
 MY_S=${WORKDIR}/${MY_P}
-MY_T="${PORTAGE_TMPDIR}/portage/${CATEGORY}/gen${PN/#calc}-${PVR}/temp"
+# MY_T="${PORTAGE_TMPDIR}/portage/${CATEGORY}/gen${PN/#calc}-${PVR}/temp"
 
 MY_HOME="http://wolf31o2.org"
 RH_HOME="ftp://sources.redhat.com/pub"
@@ -84,10 +84,10 @@ src_install() {
 		-e "s:VERSION_BUSYBOX:$VERSION_BUSYBOX:" \
 		-e "s:VERSION_FUSE:$VERSION_FUSE:" \
 		-e "s:VERSION_UNIONFS_FUSE:$VERSION_UNIONFS_FUSE:" \
-		"${MY_S}"/genkernel.conf > "${MY_T}"/genkernel.conf \
+		"${MY_S}"/genkernel.conf > "${T}"/genkernel.conf \
 		|| die "Could not adjust versions"
 	insinto /etc
-	doins "${MY_T}"/genkernel.conf || die "doins genkernel.conf"
+	doins "${T}"/genkernel.conf || die "doins genkernel.conf"
 
 	doman genkernel.8 || die "doman"
 	dodoc AUTHORS ChangeLog README TODO || die "dodoc"
