@@ -15,12 +15,12 @@ RDEPEND=""
 
 src_install() {
 		insinto /
-		dosym ../CalculateSplash/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashBr/400x300
-		dosym ../CalculateSplash/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashDe/400x300
-		dosym ../CalculateSplash/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashEs/400x300
-		dosym ../CalculateSplash/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashFr/400x300
-		dosym ../CalculateSplash/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashRu/400x300
-		dosym ../CalculateSplash/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashUa/400x300
+		dosym ../CalculateSplashEn/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashPt/400x300
+		dosym ../CalculateSplashEn/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashDe/400x300
+		dosym ../CalculateSplashEn/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashEs/400x300
+		dosym ../CalculateSplashEn/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashFr/400x300
+		dosym ../CalculateSplashEn/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashRu/400x300
+		dosym ../CalculateSplashEn/400x300 /usr/share/apps/ksplash/Themes/CalculateSplashUk/400x300
 		dosym ../icons/Calculate/40x40/apps/1c.png /usr/share/pixmaps/1c.png
 		dosym ../icons/Calculate/40x40/apps/autocad.png /usr/share/pixmaps/autocad.png
 		dosym ../icons/Calculate/40x40/apps/corel.png /usr/share/pixmaps/corel.png
