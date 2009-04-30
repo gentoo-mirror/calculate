@@ -1,0 +1,31 @@
+#!/sbin/runscript
+
+
+FS="binfmt_misc"
+PROCBIN="/proc/sys/fs/${FS}"
+
+checkconfig(){
+	 grep -wq "^${FS} ${PROCBIN}" /proc/mounts || \
+	mount ${FS} -t ${FS} ${PROCBIN} || \
+	return 1
+}
+
+start(){
+	if ! checkconfig; then
+		eerror "Cannot load${FS}"
+		return 1
+	fi
+	ebegin "Starting wine"
+		echo -e ':windows:M::MZ::/usr/bin/wine:\n:windowsPE:M::PE::/usr/bin/wine:' >"${PROCBIN}/register"
+	eend $?
+}
+
+stop(){
+	ebegin "Stopping wine"
+	if [ -f ${PROCBIN}/windows -a -f ${PROCBIN}/windowsPE ]; then
+		echo '-1' >$PROCBIN/windows && echo '-1' >$PROCBIN/windowsPE
+	else
+		ewarn "Wine was stopped"
+	fi
+	eend $?
+}
