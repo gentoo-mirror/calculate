@@ -9,14 +9,18 @@ LZMA_PV="lzma457"
 SQ_PV=${SQUASH_PV/#squashfs}
 SQLZMA_PV="sqlzma${SQ_PV}-${LZMA_PV/#lzma}"
 
-[[ ${PV} =~ ([0-9]+)\.([0-9]+)\.([0-9]+)\.?([0-9]+)? ]]
-# version kernel
-KV_MAJOR=${BASH_REMATCH[1]}
-KV_MINOR=${BASH_REMATCH[2]}
-KV_PATCH=${BASH_REMATCH[3]}
-KV_TYPE=${BASH_REMATCH[4]}
-OKV="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}"
-KV_LOCAL="-calculate"
+get_kernel_version_from_pv() {
+	[[ ${PV} =~ ([0-9]+)\.([0-9]+)\.([0-9]+)\.?([0-9]+)? ]]
+	# version kernel
+	KV_MAJOR=${BASH_REMATCH[1]}
+	KV_MINOR=${BASH_REMATCH[2]}
+	KV_PATCH=${BASH_REMATCH[3]}
+	KV_TYPE=${BASH_REMATCH[4]}
+	OKV="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}"
+	KV_LOCAL="-calculate"
+}
+
+get_kernel_version_from_pv
 
 DESCRIPTION="Tool for creating compressed filesystem type squashfs" 
 HOMEPAGE="http://squashfs.sourceforge.net http://www.squashfs-lzma.org"
@@ -48,6 +52,7 @@ pkg_setup() {
 	fi
 	linux-mod_pkg_setup
 	
+	get_kernel_version_from_pv
 	KV_FULL="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}.${KV_TYPE}${KV_LOCAL}"
 	append-ldflags -Wl,--no-as-needed
 }
