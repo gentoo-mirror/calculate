@@ -16,6 +16,7 @@ KV_MINOR=${BASH_REMATCH[2]}
 KV_PATCH=${BASH_REMATCH[3]}
 KV_TYPE=${BASH_REMATCH[4]}
 OKV="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}"
+KV_LOCAL="-calculate"
 
 DESCRIPTION="Tool for creating compressed filesystem type squashfs" 
 HOMEPAGE="http://squashfs.sourceforge.net http://www.squashfs-lzma.org"
@@ -31,7 +32,6 @@ DEPEND="=sys-kernel/calculate-sources-${OKV}.${KV_TYPE}"
 RDEPEND="!sys-fs/squashfs-tools"
 
 LICENSE="GPL-2 LGPL-2.1"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
 BUILD_TARGETS="all"
 [[ ${ARCH} == "amd64" ]] && ARCH="x86_64"
@@ -39,13 +39,15 @@ BUILD_TARGET_ARCH="${ARCH}"
 MODULE_NAMES="sqlzma(kernel/fs/squashfs:.) squashfs(kernel/fs/squashfs:.) unlzma(kernel/fs/squashfs:.)"
 
 pkg_setup() {
-	if kernel_is lt 2 6 24; then
+	if kernel_is lt 2 6 28; then
 		eerror
-		eerror "${P} needs kernel 2.6.24 or above."
+		eerror "${P} needs kernel 2.6.28 or above."
 		eerror
 		die "Upgrade kernel"
 	fi
 	linux-mod_pkg_setup
+	
+	KV_FULL="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}.${KV_TYPE}${KV_LOCAL}"
 	append-ldflags -Wl,--no-as-needed
 }
 
@@ -64,7 +66,7 @@ src_unpack() {
 	epatch ../sqlzma2k-${SQ_PV}.patch  || die
 	if kernel_is ge 2 6 28; then
 		epatch "${FILESDIR}"/squashfs-linux-${OKV}.patch || die
-		sed -i "s:EXTRAVERSION = .9:EXTRAVERSION = .${KV_TYPE}-calculate:" Makefile|| die
+		sed -i "s:EXTRAVERSION = .${KV_TYPE}:EXTRAVERSION = .${KV_TYPE}${KV_LOCAL}:" Makefile|| die
  		sed -i "s:KVer = linux-2.6.27.4:KVer = linux-${OKV}:" ../Makefile|| die
 	fi
 	cd ../${SQUASH_PV}
@@ -91,18 +93,33 @@ src_unpack() {
 } 
 #
 src_compile() {
-        emake CC="$(tc-getCC)" || die
+	emake CC="$(tc-getCC)" || die
 	mkdir BUILD
 	cp ./linux-${OKV}/fs/squashfs/squashfs.ko BUILD
 	cp ./${LZMA_PV}/C/Compress/Lzma/kmod/sqlzma.ko BUILD
 	cp ./${LZMA_PV}/C/Compress/Lzma/kmod/unlzma.ko BUILD
-	cp ./${SQUASH_PV}/squashfs-tools/unsquashfs BUILD
-	cp ./${SQUASH_PV}/squashfs-tools/mksquashfs BUILD
-	strip --strip-unneeded BUILD/mksquashfs BUILD/unsquashfs
+	cp ./${SQUASH_PV}/squashfs-tools/unsquashfs BUILD/unsquashfs-${PV}
+	cp ./${SQUASH_PV}/squashfs-tools/mksquashfs BUILD/mksquashfs-${PV}
+	strip --strip-unneeded BUILD/mksquashfs-${PV} BUILD/unsquashfs-${PV}
 }
 # 
 src_install() {
 	cd BUILD
-	dobin mksquashfs unsquashfs || die
+	dobin mksquashfs-${PV} unsquashfs-${PV} || die
 	linux-mod_src_install
+}
+
+pkg_postinst() {
+	KV_FULL=""
+	get_version
+	if [[ -f /usr/bin/mksquashfs-${KV_FULL/-calculate} ]];
+	then
+		rm /usr/bin/mksquashfs
+		ln -sf /usr/bin/mksquashfs-${KV_FULL/-calculate} /usr/bin/mksquashfs
+	fi
+	if [[ -f /usr/bin/unsquashfs${KV_FULL/-calculate} ]];
+	then
+		rm /usr/bin/unsquashfs
+		ln -sf /usr/bin/unsquashfs-${KV_FULL/-calculate} /usr/bin/unsquashfs
+	fi
 }
