@@ -61,7 +61,8 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
 IUSE="ibm selinux"
 
 DEPEND="sys-fs/e2fsprogs
-	selinux? ( sys-libs/libselinux )"
+	selinux? ( sys-libs/libselinux )
+	!sys-kernel/genkernel"
 RDEPEND="${DEPEND} app-arch/cpio"
 
 src_unpack() {

@@ -40,7 +40,7 @@ IUSE="ibm selinux"
 
 DEPEND="sys-fs/e2fsprogs
 	selinux? ( sys-libs/libselinux )
-	!sys-kernel/genkernel*"
+	!sys-kernel/genkernel"
 
 RDEPEND="${DEPEND} app-arch/cpio"
 
