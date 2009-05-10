@@ -36,7 +36,7 @@ DEPEND="=sys-kernel/calculate-sources-${OKV}.${KV_TYPE}"
 RDEPEND="!sys-fs/squashfs-tools"
 
 LICENSE="GPL-2 LGPL-2.1"
-SLOT="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}.${KV_TYPE}"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 BUILD_TARGETS="all"
 [[ ${ARCH} == "amd64" ]] && ARCH="x86_64"
@@ -120,12 +120,12 @@ pkg_postinst() {
 	get_version
 	if [[ -f /usr/bin/mksquashfs-${KV_FULL/-calculate} ]];
 	then
-		rm /usr/bin/mksquashfs
+		rm -f /usr/bin/mksquashfs
 		ln -sf /usr/bin/mksquashfs-${KV_FULL/-calculate} /usr/bin/mksquashfs
 	fi
-	if [[ -f /usr/bin/unsquashfs${KV_FULL/-calculate} ]];
+	if [[ -f /usr/bin/unsquashfs-${KV_FULL/-calculate} ]];
 	then
-		rm /usr/bin/unsquashfs
+		rm -f /usr/bin/unsquashfs
 		ln -sf /usr/bin/unsquashfs-${KV_FULL/-calculate} /usr/bin/unsquashfs
 	fi
 }

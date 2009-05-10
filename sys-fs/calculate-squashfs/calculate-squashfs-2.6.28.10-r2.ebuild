@@ -120,12 +120,12 @@ pkg_postinst() {
 	get_version
 	if [[ -f /usr/bin/mksquashfs-${KV_FULL/-calculate} ]];
 	then
-		rm /usr/bin/mksquashfs
+		rm -f /usr/bin/mksquashfs
 		ln -sf /usr/bin/mksquashfs-${KV_FULL/-calculate} /usr/bin/mksquashfs
 	fi
-	if [[ -f /usr/bin/unsquashfs${KV_FULL/-calculate} ]];
+	if [[ -f /usr/bin/unsquashfs-${KV_FULL/-calculate} ]];
 	then
-		rm /usr/bin/unsquashfs
+		rm -f /usr/bin/unsquashfs
 		ln -sf /usr/bin/unsquashfs-${KV_FULL/-calculate} /usr/bin/unsquashfs
 	fi
 }
