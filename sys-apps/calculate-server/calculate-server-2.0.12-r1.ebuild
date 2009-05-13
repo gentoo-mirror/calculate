@@ -143,7 +143,8 @@ pkg_postinst() {
 		ewarn "\tcl-update samba"
 	fi
 
-	ewarn "WARNING!!! If you use samba and jabber services, then need update them"
+	ewarn
+	ewarn "WARNING!!! If you use samba or jabber services, then need update them"
 	ewarn "by commands:"
 	ewarn "\tcl-update samba"
 	ewarn "\tcl-update jabber"
