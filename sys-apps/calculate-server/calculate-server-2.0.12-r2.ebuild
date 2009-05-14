@@ -24,6 +24,14 @@ DEPEND="=sys-apps/calculate-lib-2.0.14
         >=net-ftp/proftpd-1.3.1[-acl,ldap,ncurses,nls,pam,radius,ssl,tcpd]
         >=mail-filter/procmail-3.22"
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+
+	# Fixed bug - when adding a user with an indication of jabber ID
+	epatch "${FILESDIR}/bugfix-${PVR}.patch"
+}
+
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \
 		[ -d /var/calculate/server-data/samba/win/profiles ] || \
