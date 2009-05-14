@@ -1,0 +1,39 @@
+diff -ruN calculate-server-2.0.12.orig/ldif/jabber_user.ldif calculate-server-2.0.12/ldif/jabber_user.ldif
+--- calculate-server-2.0.12.orig/ldif/jabber_user.ldif	2009-05-08 18:58:37.000000000 +0400
++++ calculate-server-2.0.12/ldif/jabber_user.ldif	2009-05-14 11:18:45.000000000 +0400
+@@ -2,7 +2,7 @@
+ dn: uid=#-ur_name-#,ou=Users,#-ld_jabber_dn-#
+ objectClass: inetOrgPerson
+ uid: #-ur_name-#
+-cn: #-ur_name-#
++cn: #-sr_jabber_user_name-#
+ sn: #-ur_fio-#
+ mail: #-sr_jabber_user_id-#
+ initials: Yes
+diff -ruN calculate-server-2.0.12.orig/pym/cl_fill_server.py calculate-server-2.0.12/pym/cl_fill_server.py
+--- calculate-server-2.0.12.orig/pym/cl_fill_server.py	2009-05-08 17:47:18.000000000 +0400
++++ calculate-server-2.0.12/pym/cl_fill_server.py	2009-05-14 11:18:45.000000000 +0400
+@@ -509,3 +509,10 @@
+         if jabberHosts:
+             return ", ".join(map(lambda x: '"'+x+'"', jabberHosts.split(",")))
+         return ""
++
++    def get_sr_jabber_user_name(self):
++        """Имя jabber пользователя (левая часть jabber id)"""
++        userJid = self.Get("sr_jabber_user_id")
++        if userJid:
++            return userJid.partition('@')[0]
++        return ""
+diff -ruN calculate-server-2.0.12.orig/pym/cl_vars_server.py calculate-server-2.0.12/pym/cl_vars_server.py
+--- calculate-server-2.0.12.orig/pym/cl_vars_server.py	2009-05-08 17:47:18.000000000 +0400
++++ calculate-server-2.0.12/pym/cl_vars_server.py	2009-05-14 13:07:55.000000000 +0400
+@@ -154,6 +154,9 @@
+     # jabber id пользователя
+     sr_jabber_user_id = {'mode':"w"}
+ 
++    # имя jabber пользователя (левая часть jabber id)
++    sr_jabber_user_name = {'mode':"w"}
++
+     # шифрование при получении - ''/ssl
+     sr_jabber_crypt = {'mode':"w",'value':'ssl'}
+ 
