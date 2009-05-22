@@ -1,7 +1,7 @@
 # Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
 # Distributed under the terms of the GNU General Public License v2
 
-DESCRIPTION="Theme for Calculate Linux Desktop XFCE"
+DESCRIPTION="The theme for Calculate Linux Desktop XFCE"
 HOMEPAGE="http://www.calculate-linux.ru/calcualte-cldx-themes"
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
 
@@ -10,8 +10,9 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND=""
-RDEPEND=""
+RDEPEND="!media-gfx/calculate-cld-themes
+         !media-gfx/calculate-cds-themes"
+DEPEND="${RDEPEND}"
 
 src_install() {
 		insinto /

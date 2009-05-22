@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-DESCRIPTION="Theme for CDS"
+DESCRIPTION="The theme for Calculate Directory Server"
 HOMEPAGE="http://www.calculate-linux.ru/calcualte-cds-themes"
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
 
@@ -11,8 +11,10 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND=""
-RDEPEND=""
+RDEPEND="!media-gfx/calculate-cld-themes
+         !media-gfx/calculate-cldx-themes"
+
+DEPEND="${RDEPEND}"
 
 src_install() {
 		insinto /
