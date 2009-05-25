@@ -32,6 +32,7 @@ ISUPDATE=${T}/${PN}.update
 
 pkg_preinst() {
 	touch ${ISUPDATE}
+	rm -f /etc/init.d/client
 }
 
 pkg_postinst() {
