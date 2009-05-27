@@ -23,7 +23,7 @@ DEPEND="=sys-apps/calculate-lib-9999
         sys-apps/keyutils
         sys-auth/pam_keystore
         kde? ( >=kde-misc/kgtk-0.9.5[qt4]
-		       >=kde-base/kdm-4.2.0 )
+		       >=kde-base/kdm-4.2.0[-kdeprefix] )
 		xfce? ( x11-misc/slim )"
 
 RDEPEND="${DEPEND}"
