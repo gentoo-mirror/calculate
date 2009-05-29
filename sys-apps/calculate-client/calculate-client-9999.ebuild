@@ -28,7 +28,7 @@ DEPEND="=sys-apps/calculate-lib-9999
 
 RDEPEND="${DEPEND}"
 
-ISUPDATE=${T}/${PN}.update
+ISUPDATE=/tmp/${PN}.ebuild.update
 
 pkg_preinst() {
 	touch ${ISUPDATE}
