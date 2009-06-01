@@ -23,28 +23,38 @@ DEPEND="=sys-apps/calculate-lib-9999
         sys-apps/keyutils
         sys-auth/pam_keystore
         kde? ( >=kde-misc/kgtk-0.9.5[qt4]
-		       >=kde-base/kdm-4.2.0[-kdeprefix] )
-		xfce? ( x11-misc/slim )"
+	       >=kde-base/kdm-4.2.0[-kdeprefix] )
+	xfce? ( x11-misc/slim )"
 
 RDEPEND="${DEPEND}"
 
 ISUPDATE=/tmp/${PN}.ebuild.update
 
+# for fixing bug of ebuild calculate-client-2.0.17
+OLDISUPDATEPATH="${PORTAGE_TMPDIR}/portage/${CATEGORY}/${PN}-2.0.17/temp/"
+OLDISUPDATE="${OLDISUPDATEPATH}/${PN}.update"
+
 pkg_preinst() {
 	touch ${ISUPDATE}
 	rm -f /etc/init.d/client
+
+	# for fixing bug of ebuild calculate-client-2.0.17
+	mkdir -p ${OLDISUPDATEPATH}
+	touch ${OLDISUPDATE}
 }
 
 pkg_postinst() {
-	if use kde || use xfce;
-	then
-		cl-client --install
-	fi
+	cl-client --install
 	rm ${ISUPDATE}
+
+	# for fixing bug of ebuild calculate-client-2.0.17
+	rm -rf ${PORTAGE_TMPDIR}/portage/${CATEGORY}/${PN}-2.0.17
+	rmdir ${PORTAGE_TMPDIR}/portage/${CATEGORY} &>/dev/null
 }
 
 pkg_prerm() {
-	if ! [[ -e ${ISUPDATE} ]];
+	# for fixing bug of ebuild calculate-client-2.0.17 (|| -e ${OLDISUPDATE} )
+	if ! [[ -e ${ISUPDATE} || -e ${OLDISUPDATE} ]];
 	then
 		cl-client --uninstall
 	fi

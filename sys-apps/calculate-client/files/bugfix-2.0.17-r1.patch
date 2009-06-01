@@ -1,0 +1,436 @@
+diff -ruN calculate-client-2.0.17.orig/data/login calculate-client-2.0.17/data/login
+--- calculate-client-2.0.17.orig/data/login	2009-06-01 10:22:53.000000000 +0400
++++ calculate-client-2.0.17/data/login	2009-06-01 10:34:09.000000000 +0400
+@@ -1,5 +1,11 @@
+ #! /bin/sh
+ 
++
++xmes() {
++    echo "$1:
++$2" | iconv -f utf8 -t koi8-r - | xargs xmessage -buttons OK:0 -default OK
++}
++
+ env-update
+ source /etc/profile
+ 
+@@ -20,8 +26,7 @@
+   if [ "$?" -gt "0" ];
+   then
+     echo $ERRORLOG >> $FILE_LOG
+-    xmessage -buttons OK:0 -default OK "cl-sync:
+-$ERRORLOG"
++        xmes cl-sync "$ERRORLOG"
+     exit 1
+   fi
+ fi
+@@ -36,11 +41,9 @@
+     ERRORLOG2=`/usr/bin/cl-sync --color=never --logout --nosync $USER`
+     if [ "$?" -gt "0" ];
+     then
+-	xmessage -buttons OK:0 -default OK "cl-sync:
+-$ERRORLOG2"
++        xmes cl-sync "$ERRORLOG2"
+     fi
+-    xmessage -buttons OK:0 -default OK "cl-createhome:
+-$ERRORLOG"
++        xmes cl-createhome "$ERRORLOG"
+     exit 1
+   fi
+ fi
+diff -ruN calculate-client-2.0.17.orig/pym/cl_client.py calculate-client-2.0.17/pym/cl_client.py
+--- calculate-client-2.0.17.orig/pym/cl_client.py	2009-06-01 10:22:53.000000000 +0400
++++ calculate-client-2.0.17/pym/cl_client.py	2009-06-01 10:32:33.000000000 +0400
+@@ -289,15 +289,15 @@
+         {
+          'progAccess':(2,),
+          'helpChapter':"Function",
+-         'help':_("Mounting directories and synchronize the user preferences")
++         'help':_("Mounting resources and synchronize the user preferences")
+         },
+         # Examples
+         {
+          'progAccess':(0,),
+          'helpChapter':_("Examples"),
+          'help':pcs( "  cl-client 192.168.0.1", self.column_width,
+-             "# " + _("Adds settings for connecting to domain \
+-(ip 192.168.0.1)"),
++             "# " + _("Adds settings for connecting to domain") + \
++                    " (ip 192.168.0.1)",
+              self.consolewidth-self.column_width )
+         },
+         # Options
+@@ -314,18 +314,18 @@
+         {'progAccess':(0,),
+          'shortOption':"r",
+          'helpChapter':_("Common options"),
+-         'help':_("Removes the settings for connecting to a domain")
++         'help':_("remove the settings for connecting to a domain")
+         },
+         {'progAccess':(2,),
+          'longOption':'progress',
+          'helpChapter':_("Common options"),
+-         'help':_("Show progress bar for kde startup (works only with options \
++         'help':_("show progress bar for kde startup (works only with options \
+ --login)")
+         },
+         {'progAccess':(1,),
+          'longOption':'progress',
+          'helpChapter':_("Common options"),
+-         'help':_("Show progress bar for kde startup")
++         'help':_("show progress bar for kde startup")
+         },
+         {'progAccess':(0,1,2),
+          'longOption':"vars",
+@@ -337,7 +337,7 @@
+          'longOption':"color",
+          'optVal':_("WHEN"),
+          'helpChapter':_("Common options"),
+-         'help':_("control whether color is used to distinguish file types. \
++         'help':_("control whether color is used. \
+ WHEN may be 'never', 'always', or 'auto'")
+         },
+         {'progAccess':(1,),
+@@ -349,13 +349,13 @@
+         {'progAccess':(0,),
+          'longOption':"install",
+          'helpChapter':_("Common options"),
+-         'help':_("Adds use of scripts this package for window manager")
++         'help':_("add use of scripts this package for window manager")
+         },
+         {'progAccess':(0,),
+          'longOption':"uninstall",
+          'helpChapter':_("Common options"),
+-         'help':_("Remove use of scripts this package for window manager and, \
+-if necessary, disconnects domain")
++         'help':_("remove use of scripts this package for window manager and, \
++if necessary, removes from domain")
+         },
+         {'progAccess':(0,),
+          'longOption':"mount",
+@@ -459,7 +459,7 @@
+         if os.getuid() == 0 and os.getgid() == 0:
+             return True
+         else:
+-            self.printERROR("The user is not root")
++            self.printERROR(_("The user is not root"))
+             return False
+ 
+ 
+@@ -496,7 +496,11 @@
+ 
+     def searchPrevHost(self, userName):
+         """Находит сервер к которому был подключен пользователь"""
+-        resSearch = self.searchLdapDN(userName, self.replHostsDN, "uid")
++        # Короткое имя системы
++        osLinuxShort = self.clVars.Get("os_linux_shortname")
++        # Имя для поиска в служебной ветке репликации
++        userLogin = "%s@%s"%(userName,osLinuxShort)
++        resSearch = self.searchLdapDN(userLogin, self.replHostsDN, "uid")
+         return resSearch
+ 
+     def searchUnixUser(self, userName):
+@@ -760,7 +764,7 @@
+             return True
+         else:
+             self.printERROR(_("ERROR") + ": " + execStr)
+-            self.printERROR(_("Not deleted from default runlevel"))
++            self.printERROR(_("Can not delete from default runlevel"))
+             return False
+ 
+     def createHome(self, userName, applyAlways=False, progress=False):
+@@ -829,7 +833,7 @@
+         if not dirsAndFiles:
+             # Отмонтируем пользовательские ресурсы в случае ошибки
+             self.errorAndUnmountUserRes = True
+-            self.printERROR(_("Not apply user profile"))
++            self.printERROR(_("Can not apply user profile"))
+             return False
+         self.chownR(homeDir, uid, gid, dirsAndFiles)
+         if not homeExists:
+@@ -844,7 +848,7 @@
+         foundMountHome =self.isMount("/var/calculate/client-home","none",False)
+         if not (self.clVars.Get("cl_remote_host") and foundMountRemote and\
+         foundMountHome):
+-            self.printERROR("The computer is not in domain")
++            self.printERROR(_("The computer is not in domain"))
+             return False
+         return (foundMountRemote,foundMountHome)
+ 
+@@ -930,12 +934,12 @@
+             # Наложим профили
+             dirsAndFiles = self.applyProfilesFromSystem()
+             if not dirsAndFiles:
+-                self.printERROR(_("Not apply 'install/domain' profiles"))
++                self.printERROR(_("Can not apply 'install/domain' profiles"))
+                 return False
+             if hostAuth == "local":
+-                self.printOK(_("Set profiles in local mode"))
++                self.printOK(_("Set profiles of local mode"))
+             else:
+-                    self.printOK(_("Set profiles in network mode"))
++                    self.printOK(_("Set profiles of network mode"))
+             currentVersion = self.clVars.Get("cl_ver")
+             self.clVars.Write("os_remote_client", currentVersion)
+             self.clVars.Write("os_remote_auth", hostAuth)
+@@ -963,7 +967,7 @@
+             return True
+         pathHome = "/var/calculate/client-home"
+         if foundMountRemote:
+-            self.printWARNING(_("Samba resource [remote] is mount") + \
++            self.printWARNING(_("Samba resource [%s] is mount")%"remote" + \
+                             " ...")
+         if foundMountHome:
+             self.printWARNING(str(pathHome) + " " +_("is mount")+
+@@ -980,7 +984,8 @@
+             pathRemote = "/var/calculate/remote"
+             pwdRemote = self.clVars.Get("cl_remote_pw")
+             if not (domain and pwdRemote):
+-                self.printERROR(_("Not found vaiable: cl_remote_pw") + " ...")
++                self.printERROR(_("Not found variable")+\
++                        ": cl_remote_pw ...")
+                 return False
+             if not os.path.exists(pathRemote):
+                 os.makedirs(pathRemote)
+@@ -990,8 +995,8 @@
+ //%s/remote %s" %(escPwdRemote,domain,pathRemote)
+             textLine = self.execProg(mountStr)
+             if not (textLine == None):
+-                self.printWARNING(_("Can not mount Samba resource [remote]") +\
+-                                " ...")
++                self.printWARNING(_("Can not mount Samba resource [%s]")%\
++                                    "remote" + " ...")
+                 flagLocalProfile = True
+                 # Если профили не актуальны накладываем новую версию профилей
+                 if not self.applyRelevanceProfiles("local"):
+@@ -1003,8 +1008,8 @@
+                         self.printERROR(_("Can not unmount") + " /home")
+                         return False
+                 return True
+-            self.printSUCCESS(_("Mount Samba resource [remote]") +\
+-                                    " ...")
++            self.printSUCCESS(_("Mount Samba resource [%s]") % "remote" +\
++                                " ...")
+         if (not foundMountHome) and (not flagLocalProfile):
+             if not os.path.exists(pathHome):
+                 os.makedirs(pathHome)
+@@ -1036,7 +1041,7 @@
+         foundMountHome = self.isMount(pathHome ,"none",False)
+         domain = self.clVars.Get("cl_remote_host")
+         if not domain:
+-            self.printWARNING("The computer is not in domain")
++            self.printWARNING(_("The computer is not in domain"))
+             return True
+         if foundMountRemote:
+             textLineUmount = self.umountSleepPath(pathRemote)
+@@ -1062,7 +1067,7 @@
+         # Наложим профили
+         dirsAndFiles = self.applyProfilesFromSystem()
+         if not dirsAndFiles:
+-            self.printERROR(_("Not apply 'install/domain' profiles"))
++            self.printERROR(_("Can not apply 'install/domain' profiles"))
+             return False
+         if not self.delDaemonAutostart("client"):
+             return False
+@@ -1100,7 +1105,7 @@
+         # Наложим профили
+         dirsAndFiles = self.applyProfilesFromSystem()
+         if not dirsAndFiles:
+-            self.printERROR(_("Not apply 'install/client' profiles"))
++            self.printERROR(_("Can not apply 'install/client' profiles"))
+             return False
+         remoteHost = clVars.Get("cl_remote_host")
+         if remoteHost:
+@@ -1132,7 +1137,7 @@
+         # Наложим профили
+         dirsAndFiles = self.applyProfilesFromSystem()
+         if not dirsAndFiles:
+-            self.printERROR(_("Not apply 'install/client' profiles"))
++            self.printERROR(_("Can not apply 'install/client' profiles"))
+             return False
+         if printSuccess:
+             self.printOK(messageOk)
+@@ -1187,13 +1192,14 @@
+         foundMountRemote =self.isMount("/var/calculate/remote" ,"cifs")
+         foundMountHome =self.isMount("/var/calculate/client-home","none",False)
+         if foundMountRemote:
+-                self.printWARNING(_("Samba resource [remote] mount") + \
+-                                    " ...")
++                self.printWARNING(_("Samba resource [%s] is mount")%\
++                                "remote" + " ...")
+         else:
+             if pwd:
+                 userPwd = pwd
+             else:
+-                userPwd=self.getUserPassword("Domain password for the desktop")
++                userPwd=self.getUserPassword(\
++                        _("Domain password for the desktop"))
+             pathRemote = "/var/calculate/remote"
+             pwdRemote = userPwd
+             if not os.path.exists(pathRemote):
+@@ -1204,11 +1210,11 @@
+ //%s/remote %s" %(escPwdRemote,domain,pathRemote)
+             textLine = self.execProg(mountStr)
+             if not (textLine == None):
+-                self.printERROR(_("Can not mount Samba resource [remote]") + \
+-                                  " ...")
++                self.printERROR(_("Can not mount Samba resource [%s]")%\
++                                    "remote" + " ...")
+                 return False
+             else:
+-                self.printSUCCESS(_("Mount Samba resource [remote]") + \
++                self.printSUCCESS(_("Mount Samba resource [%s]")%"remote" + \
+                                     " ...")
+             self.clVars.Write("cl_remote_host", domain, False, "local")
+             self.clVars.Write("cl_remote_pw", userPwd, False, "local")
+@@ -1235,7 +1241,7 @@
+         bindPw = self.clVars.Get("ld_bind_pw")
+         # запишем их
+         if not (servDn and unixDN and bindDn and bindPw):
+-            self.printERROR(_("Not found variables:"))
++            self.printERROR(_("Not found variables") + ":")
+             self.printERROR("ld_services_dn or ld_unix_dn \
+ or ld_bind_dn or ld_bind_pw")
+             return False
+@@ -1252,7 +1258,7 @@
+         # Наложим профили
+         dirsAndFiles = self.applyProfilesFromSystem()
+         if not dirsAndFiles:
+-            self.printERROR(_("Not apply 'install/domain' profiles"))
++            self.printERROR(_("Can not apply 'install/domain' profiles"))
+             return False
+         # Рестартуем dbus
+         self.restartDBus()
+@@ -1312,7 +1318,7 @@
+         self.createClVars()
+         # В случае компьютера вне домена
+         if not self.clVars.Get("cl_remote_host"):
+-            self.printSUCCESS(_("To be used by local profile."))
++            self.printSUCCESS(_("To be used local profile."))
+             return True
+         connectDomain = self.isDomain()
+         if not connectDomain:
+@@ -1320,7 +1326,7 @@
+             self.errorAndUnmountUserRes = True
+             return False
+         elif not connectDomain[0]:
+-            self.printERROR(_("Can not mount Samba resource [remote]") + \
++            self.printERROR(_("Can not mount Samba resource [%s]")%"remote"+\
+                                 " ...")
+             # Отмонтируем пользовательские ресурсы в случае ошибки
+             self.errorAndUnmountUserRes = True
+@@ -1404,9 +1410,9 @@
+         # необходима ли синхронизация с локальным сервером
+         needSync = False
+         try:
+-            # если актуальный профиль хранистся не на локальном сервер
++            # если актуальный профиль хранится не на локальном сервере
+             # то на локальный сервер закачиваем профиль
+-            # так как даже если он будет поврежденные на другом серевер
++            # так как даже если он будет поврежден на другом сервере
+             # остаётся правильная копия
+             if not self.isCorrectProfileOnLocalServer(userName):
+                 needSync = True
+@@ -1459,10 +1465,10 @@
+         if flagError:
+             # Отмонтируем пользовательские ресурсы в случае ошибки
+             self.errorAndUnmountUserRes = True
+-            self.printERROR(_("Can not keep a user profile in the domain"))
++            self.printERROR(_("Can not save a user profile in the domain"))
+             return False
+-        self.printSUCCESS(_("Keep a user profile in the domain"))
+-        self.printOK(_("Umount user resource in domain") + " ...")
++        self.printSUCCESS(_("Saved a user profile in the domain"))
++        self.printOK(_("Umounted user resource in domain") + " ...")
+         return True
+ 
+     def umountUserResNoSync(self, userName, printError=True, printSuccess=True,
+@@ -1481,7 +1487,7 @@
+         # В случае компьютера вне домена
+         if not self.clVars.Get("cl_remote_host"):
+             if printSuccess:
+-                self.printSUCCESS(_("To be used by local profile."))
++                self.printSUCCESS(_("To be used local profile."))
+             return True
+         # Подсоединяемся к серверу
+         domain = self.clVars.Get("cl_remote_host")
+@@ -1536,7 +1542,7 @@
+                 self.printERROR(_("Can not unmount user %s resource")%userName)
+             return False
+         if printSuccess:
+-            self.printOK(_("Umount user %s resources") %userName + " ...")
++            self.printOK(_("Umounted user %s resources") %userName + " ...")
+         return True
+ 
+     def isSessionUser(self, userName):
+@@ -1652,7 +1658,7 @@
+         self.createClVars()
+         # В случае компьютера вне домена
+         if not self.clVars.Get("cl_remote_host"):
+-            self.printSUCCESS(_("To be used by local profile."))
++            self.printSUCCESS(_("To be used local profile."))
+             return True
+         # Проверим что компьютер в домене и смонтирован [remote]
+         connectDomain = self.isDomain()
+@@ -1661,7 +1667,7 @@
+             self.errorAndUnmountUserRes = True
+             return False
+         elif not connectDomain[0]:
+-            self.printERROR(_("Can not mount Samba resource [remote]") + \
++            self.printERROR(_("Can not mount Samba resource [%s]")%"remote"+ \
+                                 " ...")
+             # Отмонтируем пользовательские ресурсы в случае ошибки
+             self.errorAndUnmountUserRes = True
+@@ -1712,7 +1718,7 @@
+         pathReplRun = ""
+         # Путь к профилю пользователя по умолчанию
+         defaultPath = ""
+-        # Ност пользователя по умолчанию
++        # Хост пользователя по умолчанию
+         defaultHost = self.clVars.Get("cl_remote_host")
+         for path, res in pathRemote:
+             # Создаем директории для монтирования
+@@ -1930,8 +1936,8 @@
+         else:
+             self.createUserFile(logOutFile,"SUCCESS", uid, gid)
+ 
+-        self.printSUCCESS(_("Mount user resource in domain"))
+-        self.printOK(_("Get a user profile in the domain") + " ...")
++        self.printSUCCESS(_("Mounted user resource of the domain"))
++        self.printOK(_("Get a user profile from the domain") + " ...")
+         return True
+ 
+     def mountSleepRes(self,userName,userPwd,uid,gid,res,path):
+@@ -2000,13 +2006,13 @@
+             execStr = "cp -r '%s' '%s'" %(fd, movedPath)
+             textLine = self.execProg(execStr)
+             if not (textLine == None):
+-                self.printERROR(_("Can not exec ") + " " + str(execStr) +\
++                self.printERROR(_("Can not exec") + " " + str(execStr) +\
+                             " ...")
+                 return False
+             execStr = "rm -rf '%s'" %fd
+             textLine = self.execProg(execStr)
+             if not (textLine == None):
+-                self.printERROR(_("Can not exec ") + " " + str(execStr) +\
++                self.printERROR(_("Can not exec") + " " + str(execStr) +\
+                             " ...")
+                 return False
+         os.chdir(pathProg)
+@@ -2027,7 +2033,7 @@
+         if not os.path.exists(userDir):
+             self.printERROR(_("Path %s not exists") %userDir)
+             return False
+-        fd = os.open(fileName, os.O_CREAT)
++        fd = os.open(fileName, os.O_CREAT|os.O_TRUNC)
+         os.close(fd)
+         os.chmod(fileName, mode)
+         os.chown(fileName,uid,gid)
+@@ -2230,7 +2236,7 @@
+                         os.chown(configFileName,uid,gid)
+                 except:
+                     pass
+-                self.printERROR(_("Can not rsync") + " " + str(sync) +\
++                self.printERROR(_("Can not execute rsync") + " " + str(sync) +\
+                                 " ...")
+                 flagError = True
+         else:
