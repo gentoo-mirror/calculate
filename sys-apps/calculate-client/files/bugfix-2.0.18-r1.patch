@@ -1,0 +1,33 @@
+diff -ruN calculate-client-2.0.18.orig/README calculate-client-2.0.18/README
+--- calculate-client-2.0.18.orig/README	2009-03-13 13:53:40.844361000 +0300
++++ calculate-client-2.0.18/README	2009-06-05 09:14:45.476897000 +0400
+@@ -7,7 +7,7 @@
+     Python >= 2.3
+     python-ldap >= 2.0.0
+     pyxml >= 0.8
+-    calculate-lib >= 2.0.12
++    calculate-lib >= 2.0.16
+ 
+ To install calculate-client , just execute the install script 'setup.py'.
+ Example:
+diff -ruN calculate-client-2.0.18.orig/profile/CLD/single/.kde4/share/config/plasma-appletsrc calculate-client-2.0.18/profile/CLD/single/.kde4/share/config/plasma-appletsrc
+--- calculate-client-2.0.18.orig/profile/CLD/single/.kde4/share/config/plasma-appletsrc	2009-06-01 09:31:24.688354000 +0400
++++ calculate-client-2.0.18/profile/CLD/single/.kde4/share/config/plasma-appletsrc	2009-06-05 10:21:35.715200000 +0400
+@@ -75,7 +75,7 @@
+ [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][Configuration]
+ Url=file:///home/#-ur_login-#/FTP
+ #cl_remote_host#
+-#?cl_remote_ftp=#
++#?cl_remote_ftp==#
+ [Containments][#-sum(cont,cont)-#][Applets][!#-sum(app,app+1)-#]
+ #cl_remote_ftp#
+ 
+@@ -176,7 +176,7 @@
+ [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][Configuration]
+ Url=file:///home/#-ur_login-#/FTP
+ #cl_remote_host#
+-#?cl_remote_ftp=#
++#?cl_remote_ftp==#
+ [Containments][#-sum(cont,cont)-#][Applets][!#-sum(app,app+1)-#]
+ #cl_remote_ftp#
+ 
