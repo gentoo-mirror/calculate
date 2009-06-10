@@ -12,32 +12,32 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
-DEPEND="sys-apps/util-linux
-	dev-lang/perl
-	sys-apps/grep
-	sys-apps/which
-	net-misc/wget
-	net-dns/bind-tools
-	sys-apps/net-tools
-	sys-apps/hal
-	sys-apps/findutils
-	sys-apps/pciutils
-	sys-boot/grub
-	sys-fs/udev
-	net-nds/openldap
-	sys-apps/usbutils
-	sys-devel/gettext
-	sys-apps/file
-	sys-kernel/calckernel
-	dev-libs/openssl
-	app-arch/tar
-	sys-apps/module-init-tools
-	app-arch/gzip
-	app-arch/bzip2
-	app-arch/p7zip
+DEPEND="app-arch/bzip2
 	app-arch/cpio
+	app-arch/gzip
+	app-arch/p7zip
+	app-arch/tar
+	app-portage/layman
 	app-shells/bash
-	app-portage/layman"
+	dev-lang/perl
+	dev-libs/openssl
+	net-dns/bind-tools
+	net-misc/wget
+	net-nds/openldap
+	sys-apps/file
+	sys-apps/findutils
+	sys-apps/grep
+	sys-apps/hal
+	sys-apps/module-init-tools
+	sys-apps/net-tools
+	sys-apps/pciutils
+	sys-apps/usbutils
+	sys-apps/util-linux
+	sys-apps/which
+	sys-boot/grub
+	sys-devel/gettext
+	sys-fs/udev
+	sys-kernel/calckernel"
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
@@ -58,4 +58,7 @@ src_install() {
 
 pkg_postinst() {
 	ln -sf /usr/calculate/install/calculate /usr/sbin/calculate
+	mkdir -p /usr/calculate/share/addition
+	mkdir -p /usr/calculate/share/linux
+	mkdir -p /usr/calculate/share/distfiles	
 }
