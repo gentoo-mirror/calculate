@@ -10,7 +10,7 @@ HOMEPAGE="http://www.calculate-linux.org/Calculate"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86 ~amd64c"
+KEYWORDS="~x86 ~amd64"
 IUSE="nmap"
 DEPEND="sys-apps/util-linux
 	dev-lang/perl
