@@ -35,5 +35,9 @@ pkg_postinst() {
 	ln -sf /usr/calculate/install/calculate /usr/sbin/calculate
 	mkdir -p /usr/calculate/share/addition
 	mkdir -p /usr/calculate/share/linux
-	mkdir -p /usr/calculate/share/distfiles	
+	if ! [ -e /usr/calculate/share/distfiles ];
+	then
+		mkdir -p -m 2775 /usr/calculate/share/distfiles	
+		chgrp portage /usr/calculate/share/distfiles	
+	fi
 }
