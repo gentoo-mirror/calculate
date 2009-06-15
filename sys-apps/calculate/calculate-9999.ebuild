@@ -33,8 +33,14 @@ src_install() {
 
 pkg_postinst() {
 	ln -sf /usr/calculate/install/calculate /usr/sbin/calculate
-	mkdir -p /usr/calculate/share/addition
-	mkdir -p /usr/calculate/share/linux
+	if ! [ -e /usr/calculate/share/addition ];
+	then
+		mkdir -p /usr/calculate/share/addition
+	fi
+	if ! [ -e /usr/calculate/share/linux ];
+	then
+		mkdir -p /usr/calculate/share/linux
+	fi
 	if ! [ -e /usr/calculate/share/distfiles ];
 	then
 		mkdir -p -m 2775 /usr/calculate/share/distfiles	
