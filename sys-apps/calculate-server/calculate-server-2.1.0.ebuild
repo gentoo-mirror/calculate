@@ -145,7 +145,7 @@ pkg_postinst() {
 
 	ewarn
 	ewarn "WARNING!!! If you are updating calculate-server from version"
-	ewarn "less 2.0.9, you need update samba and jabber services by commands:"
+	ewarn "less 2.0.12, you need update samba and jabber services by commands:"
 	ewarn "\tcl-update samba"
 	ewarn "\tcl-update jabber"
 }
