@@ -116,6 +116,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	linux-mod_pkg_postinst
 	KV_FULL=""
 	get_version
 	if [[ -f /usr/bin/mksquashfs-${KV_FULL/-calculate} ]];
