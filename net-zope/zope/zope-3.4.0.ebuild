@@ -13,7 +13,8 @@ SLOT="${PV}"
 KEYWORDS="~alpha ~amd64 ~ppc ~sparc ~x86"
 IUSE=""
 
-RDEPEND="=dev-lang/python-2.4*"
+RDEPEND=">=dev-lang/python-2.4.6
+         <dev-lang/python-2.6.0"
 DEPEND="${RDEPEND}
 	>=app-shells/bash-2.0
 	>=sys-apps/sed-4.0.5"
@@ -30,7 +31,7 @@ ZINSTDIR=/var/lib/zope/${P}
 
 src_compile() {
 
-	./configure --prefix="${D}"${ZSERVDIR} --with-python=/usr/bin/python2.4 || die "Failed to configure."
+	./configure --prefix="${D}"${ZSERVDIR} --with-python=/usr/bin/python || die "Failed to configure."
 	emake || die "Failed to compile."
 }
 
