@@ -11,7 +11,7 @@ DESCRIPTION="The library for Calculate 2"
 HOMEPAGE="http://www.calculate-linux.ru/Calculate_2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 DEPEND="!<sys-apps/calculate-client-2.1.1
         !<sys-apps/calculate-server-2.1.2
