@@ -20,7 +20,7 @@ CALC_K_SUBV=$(get_version_component_range 4)
 
 KV_FULL="2.6.${CALC_SUBV}-calculate${CALC_VER}"
 
-EXTRAVERSION=".${CALC_K_SUBV}-calculate${CALC_VER}"
+[ -z ${CALC_K_SUBV} ] && EXTRAVERSION="-calculate${CALC_VER}" || EXTRAVERSION=".${CALC_K_SUBV}-calculate${CALC_VER}"
 UNIPATCH_STRICTORDER=1
 
 CALC_URI="ftp://mirror.yandex.ru/calculate/${PN}/${PN}-${CKV}.tar.bz2
