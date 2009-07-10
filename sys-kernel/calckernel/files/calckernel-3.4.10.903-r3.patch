@@ -90,8 +90,8 @@ diff -ruN genkernel.orig/defaults/linuxrc genkernel-3.4.10.903/defaults/linuxrc
 +				if [ -e ${NEW_ROOT}/livecd.squashfs -a -d ${NEW_ROOT}/builder -a -d ${NEW_ROOT}/workspace ];
 +				then
 +					good_msg 'Found scratch data...'
-+					modprobe unionfs &>/dev/null
-+					modprobe squashfs &>/dev/null
++					modprobe unionfs >/dev/null
++					modprobe squashfs >/dev/null
 +					if mount -o remount,rw ${NEW_ROOT};
 +					then
 +						mkdir -p ${NEW_ROOT}/scratch && mkdir -p /union && mkdir -p ${NEW_ROOT}/workspace/mnt/builder && mkdir -p ${NEW_ROOT}/workspace/mnt/calculate
