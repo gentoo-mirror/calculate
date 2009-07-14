@@ -87,7 +87,7 @@ diff -ruN genkernel.orig/defaults/linuxrc genkernel-3.4.10.903/defaults/linuxrc
 -				got_good_root=0
 -				REAL_ROOT=''
 +				# check for scratch
-+				if [ -e ${NEW_ROOT}/livecd.squashfs -a -d ${NEW_ROOT}/diff -a -d ${NEW_ROOT}/workspace ];
++				if [ -e ${NEW_ROOT}/livecd.squashfs -a -d ${NEW_ROOT}/delta -a -d ${NEW_ROOT}/workspace ];
 +				then
 +					good_msg 'Found scratch data...'
 +					modprobe unionfs >/dev/null
@@ -97,9 +97,9 @@ diff -ruN genkernel.orig/defaults/linuxrc genkernel-3.4.10.903/defaults/linuxrc
 +						mkdir -p ${NEW_ROOT}/scratch && mkdir -p /union && mkdir -p ${NEW_ROOT}/workspace/mnt/builder && mkdir -p ${NEW_ROOT}/workspace/mnt/calculate
 +						if mount -o loop,ro -t squashfs ${NEW_ROOT}/livecd.squashfs ${NEW_ROOT}/scratch;
 +						then
-+							if mount -t unionfs -o ro,dirs=${NEW_ROOT}/workspace:${NEW_ROOT}/diff=ro:${NEW_ROOT}/scratch=ro unionfs /union;
++							if mount -t unionfs -o ro,dirs=${NEW_ROOT}/workspace:${NEW_ROOT}/delta=ro:${NEW_ROOT}/scratch=ro unionfs /union;
 +							then
-+								mount -t unionfs -o ro,dirs=${NEW_ROOT}/diff:${NEW_ROOT}/scratch=ro unionfs /union/mnt/builder
++								mount -t unionfs -o ro,dirs=${NEW_ROOT}/delta:${NEW_ROOT}/scratch=ro unionfs /union/mnt/builder
 +								CHROOT=/union
 +								break;
 +							else
