@@ -20,6 +20,7 @@ DEPEND="app-arch/bzip2
 	dev-lang/perl
 	dev-libs/openssl
 	net-dns/bind-tools
+	app-cdr/cdrkit
 	net-misc/wget
 	net-nds/openldap
 	sys-apps/file
