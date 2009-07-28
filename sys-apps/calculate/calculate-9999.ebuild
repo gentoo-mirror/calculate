@@ -32,8 +32,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	ln -sf /usr/calculate/install/calculate /usr/bin/calculate
-	ln -sf /usr/calculate/install/emerge-scratch /usr/bin/emerge-scratch
 	if ! [ -e /usr/calculate/share/addition ];
 	then
 		mkdir -p /usr/calculate/share/addition
