@@ -1,6 +1,6 @@
 diff -ruN genkernel-3.4.10.903.orig/arch/x86/modules_load genkernel-3.4.10.903/arch/x86/modules_load
---- genkernel-3.4.10.903.orig/arch/x86/modules_load	2009-07-30 14:52:43.000000000 +0400
-+++ genkernel-3.4.10.903/arch/x86/modules_load	2009-07-30 14:51:31.000000000 +0400
+--- genkernel-3.4.10.903.orig/arch/x86/modules_load	2009-07-30 13:57:46.062048319 +0000
++++ genkernel-3.4.10.903/arch/x86/modules_load	2009-07-30 13:56:56.690520959 +0000
 @@ -22,5 +22,5 @@
  MODULES_USB="ehci-hcd uhci usb-ohci hid usb-storage uhci-hcd ohci-hcd usbhid sl811-hcd"
  
@@ -9,8 +9,8 @@ diff -ruN genkernel-3.4.10.903.orig/arch/x86/modules_load genkernel-3.4.10.903/a
 +MODULES_FS="ext2 ext3 ext4 reiserfs jfs nfs xfs fuse"
  
 diff -ruN genkernel-3.4.10.903.orig/arch/x86_64/modules_load genkernel-3.4.10.903/arch/x86_64/modules_load
---- genkernel-3.4.10.903.orig/arch/x86_64/modules_load	2009-07-30 14:52:43.000000000 +0400
-+++ genkernel-3.4.10.903/arch/x86_64/modules_load	2009-07-30 14:51:31.000000000 +0400
+--- genkernel-3.4.10.903.orig/arch/x86_64/modules_load	2009-07-30 13:57:46.062048319 +0000
++++ genkernel-3.4.10.903/arch/x86_64/modules_load	2009-07-30 13:56:56.690520959 +0000
 @@ -22,4 +22,4 @@
  MODULES_USB="ehci-hcd uhci usb-ohci hid usb-storage uhci-hcd ohci-hcd usbhid sl811-hcd"
  
@@ -18,8 +18,8 @@ diff -ruN genkernel-3.4.10.903.orig/arch/x86_64/modules_load genkernel-3.4.10.90
 -MODULES_FS="ext2 ext3 reiserfs jfs nfs xfs fuse"
 +MODULES_FS="ext2 ext3 ext4 reiserfs jfs nfs xfs fuse"
 diff -ruN genkernel-3.4.10.903.orig/defaults/initrd.defaults genkernel-3.4.10.903/defaults/initrd.defaults
---- genkernel-3.4.10.903.orig/defaults/initrd.defaults	2009-07-30 14:52:43.000000000 +0400
-+++ genkernel-3.4.10.903/defaults/initrd.defaults	2009-07-30 14:51:31.000000000 +0400
+--- genkernel-3.4.10.903.orig/defaults/initrd.defaults	2009-07-30 13:57:46.062048319 +0000
++++ genkernel-3.4.10.903/defaults/initrd.defaults	2009-07-30 13:56:56.691520879 +0000
 @@ -68,6 +68,7 @@
  
  REAL_ROOT=''
@@ -29,8 +29,8 @@ diff -ruN genkernel-3.4.10.903.orig/defaults/initrd.defaults genkernel-3.4.10.90
  CDROOT_TYPE='auto'
  NEW_ROOT='/newroot'
 diff -ruN genkernel-3.4.10.903.orig/defaults/initrd.scripts genkernel-3.4.10.903/defaults/initrd.scripts
---- genkernel-3.4.10.903.orig/defaults/initrd.scripts	2009-07-30 14:52:43.000000000 +0400
-+++ genkernel-3.4.10.903/defaults/initrd.scripts	2009-07-30 15:01:13.000000000 +0400
+--- genkernel-3.4.10.903.orig/defaults/initrd.scripts	2009-07-30 13:57:46.063049079 +0000
++++ genkernel-3.4.10.903/defaults/initrd.scripts	2009-07-30 14:00:38.737523577 +0000
 @@ -169,11 +169,24 @@
  			# TODO: Check the size of the image versus the size of our tmpfs
  			# along with the amount of available RAM and increase tmpfs size
@@ -70,7 +70,7 @@ diff -ruN genkernel-3.4.10.903.orig/defaults/initrd.scripts genkernel-3.4.10.903
  			fi
  		fi
  	fi
-@@ -998,10 +1013,40 @@
+@@ -998,10 +1013,45 @@
  		mkdir /tmp
  		mkdir -p ${UNION}
  #		mkdir -p $CHANGES
@@ -90,15 +90,20 @@ diff -ruN genkernel-3.4.10.903.orig/defaults/initrd.scripts genkernel-3.4.10.903
 +			mkdir -p ${WORKSPACEDIR}
 +			mount -t unionfs -o dirs=${WORKSPACEDIR}=rw:${DELTADIR}=ro:${rw_dir}/mnt/livecd=ro unionfs ${UNION}
 +			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
-+			mkdir -p ${SCRATCHDIR}
-+			mount -o bind ${rw_dir}/mnt ${SCRATCHDIR}
++			mkdir -p ${SCRATCHDIR}/flash
++			mkdir -p ${SCRATCHDIR}/calculate
++			mkdir -p ${SCRATCHDIR}/delta
++			mkdir -p ${SCRATCHDIR}/workspace
++			mount -o bind ${rw_dir}/mnt/delta ${SCRATCHDIR}/delta
++			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
++			mount -o bind ${rw_dir}/mnt/workspace ${SCRATCHDIR}/workspace
 +			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
 +			mkdir -p ${BUILDERDIR}
 +			mount -t unionfs -o dirs=${DELTADIR}=rw:${rw_dir}/mnt/livecd=ro unionfs ${BUILDERDIR}
 +			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
-+			mount -o bind ${rw_dir}/mnt/livecd ${UNION}/mnt/scratch/livecd
++			mount -o bind ${rw_dir}/mnt/livecd ${SCRATCHDIR}/calculate
 +			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
-+			mount -o bind ${rw_dir}/mnt/cdrom ${UNION}/mnt/scratch/cdrom
++			mount -o bind ${rw_dir}/mnt/cdrom ${SCRATCHDIR}/flash
 +			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
 +		else
 +			mount -t unionfs -o dirs=${rw_dir}:${ro_dir}=ro unionfs ${UNION}
@@ -115,8 +120,8 @@ diff -ruN genkernel-3.4.10.903.orig/defaults/initrd.scripts genkernel-3.4.10.903
  		then
  			bad_msg "Can't setup union mount!"
 diff -ruN genkernel-3.4.10.903.orig/defaults/linuxrc genkernel-3.4.10.903/defaults/linuxrc
---- genkernel-3.4.10.903.orig/defaults/linuxrc	2009-07-30 14:52:43.000000000 +0400
-+++ genkernel-3.4.10.903/defaults/linuxrc	2009-07-30 14:51:31.000000000 +0400
+--- genkernel-3.4.10.903.orig/defaults/linuxrc	2009-07-30 13:57:46.063049079 +0000
++++ genkernel-3.4.10.903/defaults/linuxrc	2009-07-30 13:56:56.692520759 +0000
 @@ -62,6 +62,10 @@
  		init_opts\=*)
  			INIT_OPTS=`parse_opt "${x}"`
