@@ -1,6 +1,6 @@
-diff -urN genkernel-3.4.10.903.orig/arch/x86/modules_load genkernel-3.4.10.903/arch/x86/modules_load
---- genkernel-3.4.10.903.orig/arch/x86/modules_load	2009-07-31 15:09:48.000000000 +0400
-+++ genkernel-3.4.10.903/arch/x86/modules_load	2009-07-31 15:08:37.000000000 +0400
+diff -ruN genkernel-3.4.10.903.orig/arch/x86/modules_load genkernel-3.4.10.903/arch/x86/modules_load
+--- genkernel-3.4.10.903.orig/arch/x86/modules_load	2009-07-31 16:25:38.000000000 +0400
++++ genkernel-3.4.10.903/arch/x86/modules_load	2009-07-31 16:24:15.000000000 +0400
 @@ -22,5 +22,5 @@
  MODULES_USB="ehci-hcd uhci usb-ohci hid usb-storage uhci-hcd ohci-hcd usbhid sl811-hcd"
  
@@ -8,18 +8,18 @@ diff -urN genkernel-3.4.10.903.orig/arch/x86/modules_load genkernel-3.4.10.903/a
 -MODULES_FS="ext2 ext3 reiserfs jfs nfs xfs fuse"
 +MODULES_FS="ext2 ext3 ext4 reiserfs jfs nfs xfs fuse"
  
-diff -urN genkernel-3.4.10.903.orig/arch/x86_64/modules_load genkernel-3.4.10.903/arch/x86_64/modules_load
---- genkernel-3.4.10.903.orig/arch/x86_64/modules_load	2009-07-31 15:09:48.000000000 +0400
-+++ genkernel-3.4.10.903/arch/x86_64/modules_load	2009-07-31 15:08:37.000000000 +0400
+diff -ruN genkernel-3.4.10.903.orig/arch/x86_64/modules_load genkernel-3.4.10.903/arch/x86_64/modules_load
+--- genkernel-3.4.10.903.orig/arch/x86_64/modules_load	2009-07-31 16:25:38.000000000 +0400
++++ genkernel-3.4.10.903/arch/x86_64/modules_load	2009-07-31 16:24:15.000000000 +0400
 @@ -22,4 +22,4 @@
  MODULES_USB="ehci-hcd uhci usb-ohci hid usb-storage uhci-hcd ohci-hcd usbhid sl811-hcd"
  
  # Filesystems
 -MODULES_FS="ext2 ext3 reiserfs jfs nfs xfs fuse"
 +MODULES_FS="ext2 ext3 ext4 reiserfs jfs nfs xfs fuse"
-diff -urN genkernel-3.4.10.903.orig/defaults/initrd.defaults genkernel-3.4.10.903/defaults/initrd.defaults
---- genkernel-3.4.10.903.orig/defaults/initrd.defaults	2009-07-31 15:09:48.000000000 +0400
-+++ genkernel-3.4.10.903/defaults/initrd.defaults	2009-07-31 15:08:37.000000000 +0400
+diff -ruN genkernel-3.4.10.903.orig/defaults/initrd.defaults genkernel-3.4.10.903/defaults/initrd.defaults
+--- genkernel-3.4.10.903.orig/defaults/initrd.defaults	2009-07-31 16:25:38.000000000 +0400
++++ genkernel-3.4.10.903/defaults/initrd.defaults	2009-07-31 16:24:15.000000000 +0400
 @@ -68,6 +68,7 @@
  
  REAL_ROOT=''
@@ -28,9 +28,9 @@ diff -urN genkernel-3.4.10.903.orig/defaults/initrd.defaults genkernel-3.4.10.90
  CDROOT_DEV=''
  CDROOT_TYPE='auto'
  NEW_ROOT='/newroot'
-diff -urN genkernel-3.4.10.903.orig/defaults/initrd.scripts genkernel-3.4.10.903/defaults/initrd.scripts
---- genkernel-3.4.10.903.orig/defaults/initrd.scripts	2009-07-31 15:09:48.000000000 +0400
-+++ genkernel-3.4.10.903/defaults/initrd.scripts	2009-07-31 15:41:13.000000000 +0400
+diff -ruN genkernel-3.4.10.903.orig/defaults/initrd.scripts genkernel-3.4.10.903/defaults/initrd.scripts
+--- genkernel-3.4.10.903.orig/defaults/initrd.scripts	2009-07-31 16:25:38.000000000 +0400
++++ genkernel-3.4.10.903/defaults/initrd.scripts	2009-07-31 16:27:13.000000000 +0400
 @@ -169,11 +169,24 @@
  			# TODO: Check the size of the image versus the size of our tmpfs
  			# along with the amount of available RAM and increase tmpfs size
@@ -70,7 +70,7 @@ diff -urN genkernel-3.4.10.903.orig/defaults/initrd.scripts genkernel-3.4.10.903
  			fi
  		fi
  	fi
-@@ -998,10 +1013,58 @@
+@@ -998,10 +1013,59 @@
  		mkdir /tmp
  		mkdir -p ${UNION}
  #		mkdir -p $CHANGES
@@ -85,6 +85,7 @@ diff -urN genkernel-3.4.10.903.orig/defaults/initrd.scripts genkernel-3.4.10.903
 +			DELTADIR=${rw_dir}/mnt/delta
 +			WORKSPACEDIR=${rw_dir}/mnt/workspace
 +			mount -o remount,rw ${rw_dir}/mnt/cdrom >/dev/null 2>&1
++			touch ${rw_dir}/mnt/cdrom/livecd >/dev/null 2>&1
 +			if [ "$?" -ne 0 ];
 +			then
 +				ISRW=0
@@ -132,9 +133,9 @@ diff -urN genkernel-3.4.10.903.orig/defaults/initrd.scripts genkernel-3.4.10.903
  		if [ "${ret}" -ne 0 ]
  		then
  			bad_msg "Can't setup union mount!"
-diff -urN genkernel-3.4.10.903.orig/defaults/linuxrc genkernel-3.4.10.903/defaults/linuxrc
---- genkernel-3.4.10.903.orig/defaults/linuxrc	2009-07-31 15:09:48.000000000 +0400
-+++ genkernel-3.4.10.903/defaults/linuxrc	2009-07-31 15:08:37.000000000 +0400
+diff -ruN genkernel-3.4.10.903.orig/defaults/linuxrc genkernel-3.4.10.903/defaults/linuxrc
+--- genkernel-3.4.10.903.orig/defaults/linuxrc	2009-07-31 16:25:38.000000000 +0400
++++ genkernel-3.4.10.903/defaults/linuxrc	2009-07-31 16:24:15.000000000 +0400
 @@ -62,6 +62,10 @@
  		init_opts\=*)
  			INIT_OPTS=`parse_opt "${x}"`
