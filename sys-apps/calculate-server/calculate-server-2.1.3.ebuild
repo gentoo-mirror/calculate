@@ -1,5 +1,8 @@
-# Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# Copyright 2008-2009 Calculate Pack, http://www.calculate-linux.ru
 
 EAPI="2"
 
@@ -11,18 +14,22 @@ DESCRIPTION="The program for configuring services Linux"
 HOMEPAGE="http://www.calculate-linux.ru/Calculate_2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
+
+IUSE=""
 
 DEPEND="=sys-apps/calculate-lib-2.1.1
-        >=net-nds/openldap-2.3[-minimal]
-        >=sys-auth/pam_ldap-180[ssl]
-        >=sys-auth/nss_ldap-239
-        =net-fs/samba-3.0*[acl,cups,kernel_linux,ldap,pam]
-        >=net-mail/dovecot-1.0[pop3d,ldap,pam,ssl]
-        >=net-im/calculate-ejabberd-2.0.2[ldap,pam,ssl,zlib]
-        >=mail-mta/postfix-2.2[ldap,pam,ssl]
-        >=net-ftp/proftpd-1.3.1[-acl,ldap,ncurses,nls,pam,radius,ssl,tcpd]
-        >=mail-filter/procmail-3.22"
+		>=net-nds/openldap-2.3[-minimal]
+		>=sys-auth/pam_ldap-180[ssl]
+		>=sys-auth/nss_ldap-239
+		=net-fs/samba-3.0*[acl,cups,kernel_linux,ldap,pam]
+		>=net-mail/dovecot-1.0[pop3d,ldap,pam,ssl]
+		>=net-im/calculate-ejabberd-2.0.2[ldap,pam,ssl,zlib]
+		>=mail-mta/postfix-2.2[ldap,pam,ssl]
+		>=net-ftp/proftpd-1.3.1[-acl,ldap,ncurses,nls,pam,radius,ssl,tcpd]
+		>=mail-filter/procmail-3.22"
+
+RDEPEND="${DEPEND}"
 
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \
@@ -32,7 +39,7 @@ pkg_postinst() {
 	then
 		ewarn "Data found in directories of previous version calculate-server"
 	fi
-	
+
 	if [ -d /var/calculate/server-data/mail/imap ];
 	then
 		if ! [ -d /var/calculate/server-data/mail~ ];
@@ -56,7 +63,7 @@ pkg_postinst() {
 			eerror "to /var/calculate/server-data/mail"
 		fi
 	fi
-	
+
 	if [ -d /var/calculate/server-data/samba/win/profiles ];
 	then
 		SAMBAUPDATE=""
@@ -80,7 +87,7 @@ pkg_postinst() {
 			eerror "to /var/calculate/server-data/samba/profiles/win"
 		fi
 	fi
-	
+
 	if [ -d /var/calculate/server-data/samba/unix/profiles ]; \
 	then
 		SAMBAUPDATE=""
@@ -105,7 +112,7 @@ pkg_postinst() {
 			eerror "to /var/calculate/server-data/samba/profiles/unix"
 		fi
 	fi
-	
+
 	if [ -d /var/calculate/server-data/samba/win/netlogon ];
 	then
 		SAMBAUPDATE=""
