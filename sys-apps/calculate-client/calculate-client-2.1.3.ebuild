@@ -1,5 +1,8 @@
-# Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# Copyright 2008-2009 Calculate Pack, http://www.calculate-linux.ru
 
 EAPI="2"
 
@@ -11,20 +14,20 @@ DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.ru/Calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce"
 
 DEPEND="=sys-apps/calculate-lib-2.1.1
-        >=dev-python/python-ldap-2.0[ssl]
-        >=sys-auth/pam_ldap-180[ssl]
-        >=sys-auth/nss_ldap-239
-        >=sys-apps/keyexec-0.1.2
-        >=sys-apps/hal-0.5.9
-        sys-apps/keyutils
-        sys-auth/pam_keystore
-        kde? ( >=kde-misc/kgtk-0.9.5[qt4]
-               >=kde-base/kdm-4.2.0[-kdeprefix] )
-        xfce? ( x11-misc/slim )"
+		>=dev-python/python-ldap-2.0[ssl]
+		>=sys-auth/pam_ldap-180[ssl]
+		>=sys-auth/nss_ldap-239
+		>=sys-apps/keyexec-0.1.2
+		>=sys-apps/hal-0.5.9
+		sys-apps/keyutils
+		sys-auth/pam_keystore
+		kde? ( >=kde-misc/kgtk-0.9.5[qt4]
+			>=kde-base/kdm-4.2.0[-kdeprefix] )
+		xfce? ( x11-misc/slim )"
 
 RDEPEND="${DEPEND}"
 
@@ -63,4 +66,3 @@ pkg_prerm() {
 		cl-client --uninstall
 	fi
 }
-
