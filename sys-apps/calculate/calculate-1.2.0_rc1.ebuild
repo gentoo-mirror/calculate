@@ -38,7 +38,7 @@ DEPEND="app-arch/bzip2
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
-	if [ -e /usr/calculate/install ] && \
+	if [ `ls /usr/calculate/install | grep -c ""` -gt 0  ] && \
 		! [ -e /var/db/pkg/sys-apps/calculate-[0-9]* ];
 	then
 		eerror "Finding other copy of calculate in target directory"
