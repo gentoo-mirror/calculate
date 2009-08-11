@@ -21,7 +21,7 @@ DEPEND="=sys-apps/calculate-lib-9999
 		>=dev-python/python-ldap-2.0[ssl]
 		>=sys-auth/pam_ldap-180[ssl]
 		>=sys-auth/nss_ldap-239
-		>=sys-apps/keyexec-0.1.3
+		>=sys-apps/keyexec-0.1.2
 		>=sys-apps/hal-0.5.9
 		sys-apps/keyutils
 		sys-auth/pam_keystore
