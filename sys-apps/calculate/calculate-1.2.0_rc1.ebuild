@@ -8,7 +8,7 @@ SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 IUSE=""
 DEPEND="app-arch/bzip2
 	app-arch/cpio
@@ -19,9 +19,8 @@ DEPEND="app-arch/bzip2
 	app-shells/bash
 	dev-lang/perl
 	dev-libs/openssl
-	net-dns/bind-tools
+	app-cdr/cdrkit
 	net-misc/wget
-	net-nds/openldap
 	sys-apps/file
 	sys-apps/findutils
 	sys-apps/grep
@@ -55,7 +54,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	ln -sf /usr/calculate/install/calculate /usr/sbin/calculate
 	if ! [ -e /usr/calculate/share/addition ];
 	then
 		mkdir -p /usr/calculate/share/addition
