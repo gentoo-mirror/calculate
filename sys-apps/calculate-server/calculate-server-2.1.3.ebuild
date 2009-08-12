@@ -11,7 +11,7 @@ inherit distutils
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The program for configuring services Linux"
-HOMEPAGE="http://www.calculate-linux.ru/Calculate_2"
+HOMEPAGE="http://www.calculate-linux.ru/Calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
