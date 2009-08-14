@@ -11,7 +11,7 @@ MY_PN="plasma-applet-daisy"
 DESCRIPTION="An icon launcher for Plasma, inspired by Nature."
 HOMEPAGE="http://daisyplasma.freehostia.com"
 SRC_URI="http://daisyplasma.freehostia.com/downloads/${MY_PN}-${PV}.tar.gz"
-LICENSE="GPL3"
+LICENSE="GPL-3"
 SLOT="4.2"
 
 KEYWORDS="amd64 x86"
