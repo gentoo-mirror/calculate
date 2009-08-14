@@ -1,13 +1,11 @@
 # Live svn ebuilds
-=kde-misc/kgtk-0.10.0
 =sys-apps/calculate-9999
 =sys-apps/calculate-client-9999
 =sys-apps/calculate-lib-9999
 =sys-apps/calculate-server-9999
-=sys-apps/calculate-client-2.0.13
 >=app-cdr/k3b-1.67.1
 
-
+# masking ebuild without patches
 <net-im/ejabberd-2.0.2
 >=net-im/ejabberd-2.0.6
 >=sys-kernel/gentoo-sources-2.6.31
