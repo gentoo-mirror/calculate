@@ -7,6 +7,8 @@
 # Ed Catmur added support autoreconf calls then pva rewritten everything...
 # Added interval check for version and run .sh hooks by Calculate
 
+PATCH_OVERLAY="/usr/local/portage/layman/calculate/patches"
+
 pkg_checkver() {
 	PATCH_PV=( `echo $1 | sed 's/[._]/ /g' | sed -r 's/([a-z]+)/ \1 /g'` )
 	EBUILD_PV=( `echo $2 | sed 's/[._]/ /g' | sed -r 's/([a-z]+)/ \1 /g'` )
