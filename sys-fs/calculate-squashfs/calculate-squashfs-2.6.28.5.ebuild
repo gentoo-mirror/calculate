@@ -31,11 +31,11 @@ SRC_URI="mirror://kernel/linux/kernel/v${KV_MAJOR}.${KV_MINOR}/patch-${OKV}.${KV
 	 ftp://ftp.slax.org/source/slax/sqlzma/${SQUASH_PV}.tar.gz
 	 ftp://ftp.slax.org/source/slax/sqlzma/${SQLZMA_PV}.tar.bz2"
 
-DEPEND="=sys-kernel/gentoo-sources-${OKV}-r${KV_TYPE}"
-
-RDEPEND="${DEPEND}
+DEPEND="=sys-kernel/gentoo-sources-${OKV}-r${KV_TYPE}
 		!sys-fs/squashfs-tools
 		!sys-kernel/calculate-sources"
+
+RDEPEND="${DEPEND}"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
