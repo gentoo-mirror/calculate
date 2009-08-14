@@ -33,7 +33,9 @@ SRC_URI="mirror://kernel/linux/kernel/v${KV_MAJOR}.${KV_MINOR}/patch-${OKV}.${KV
 
 DEPEND="=sys-kernel/gentoo-sources-${OKV}-r${KV_TYPE}"
 
-RDEPEND="!sys-fs/squashfs-tools"
+RDEPEND="${DEPEND}
+		!sys-kernel/calculate-sources
+		!sys-fs/squashfs-tools"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}.${KV_TYPE}"

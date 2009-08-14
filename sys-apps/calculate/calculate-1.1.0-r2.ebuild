@@ -36,6 +36,7 @@ DEPEND="app-arch/bzip2
 	sys-boot/grub
 	sys-devel/gettext
 	sys-fs/udev
+	!sys-kernel/calckernel
 	sys-kernel/genkernel"
 RDEPEND="${DEPEND}"
 
