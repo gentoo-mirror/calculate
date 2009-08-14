@@ -33,9 +33,7 @@ DEPEND="app-arch/bzip2
 	sys-apps/which
 	sys-boot/grub
 	sys-devel/gettext
-	sys-fs/udev
-	!sys-kernel/calckernel
-	sys-kernel/genkernel"
+	sys-fs/udev"
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
