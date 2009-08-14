@@ -5,10 +5,3 @@
 =sys-apps/calculate-server-9999
 >=app-cdr/k3b-1.67.1
 
-# masking ebuild without patches
-<net-im/ejabberd-2.0.2
->=net-im/ejabberd-2.0.6
->=sys-kernel/gentoo-sources-2.6.31
-<sys-kernel/gentoo-sources-2.6.28
-<sys-kernel/genkernel-3.4.10.904
->=sys-kernel/genkernel-3.4.10.907
