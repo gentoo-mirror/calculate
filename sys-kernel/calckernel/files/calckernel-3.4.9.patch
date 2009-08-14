@@ -1,0 +1,102 @@
+--- genkernel-3.4.9.orig/generic/initrd.defaults	2008-01-12 02:44:19.000000000 +0300
++++ genkernel-3.4.9/generic/initrd.defaults	2008-02-13 00:50:27.000000000 +0300
+@@ -60,8 +60,12 @@
+ fi
+ 
+ QUIET=1
+-ROOT_LINKS='bin sbin lib lib32 lib64 boot usr opt emul'
+-ROOT_TREES='etc root home var'
++#-----------------------------------------------------------------------------
++# Calculate hack - перенесем копируемые директории из ROOT_TREES в ROOT_LINKS
++# плюс добавим media
++ROOT_LINKS='bin sbin lib lib32 lib64 boot usr opt emul etc root home var media'
++ROOT_TREES=''
++#-----------------------------------------------------------------------------
+ INSMOD='insmod'
+ if [ "${KMINOR}" -gt '4' ]
+ then
+--- genkernel-3.4.9.orig/generic/initrd.scripts	2008-01-12 02:44:19.000000000 +0300
++++ genkernel-3.4.9/generic/initrd.scripts	2008-01-24 17:25:05.000000000 +0300
+@@ -99,7 +99,12 @@
+ #				else
+ #					mount -r -t auto ${x} ${mntdir} &>/dev/null
+ #				fi
+-				mount -r -t ${CDROOT_TYPE} ${x} ${mntdir} &>/dev/null
++
++#-----------------------------------------------------------------------------
++# Calculate hack - удалим вывод в null устройство приводящий к ошибке на экране
++#				mount -r -t ${CDROOT_TYPE} ${x} ${mntdir} &>/dev/null
++				mount -r -t ${CDROOT_TYPE} ${x} ${mntdir}
++#-----------------------------------------------------------------------------
+ 				if [ "$?" = '0' ]
+ 				then
+ 					# Check for the media
+--- genkernel-3.4.9.orig/generic/linuxrc	2008-01-12 02:44:19.000000000 +0300
++++ genkernel-3.4.9/generic/linuxrc	2008-01-24 17:22:47.000000000 +0300
+@@ -634,9 +634,12 @@
+ 	
+ 	if [ "${USE_UNIONFS_NORMAL}" != '1' ]
+ 	then
+-		good_msg "Copying read-write image contents to tmpfs"
++#-----------------------------------------------------------------------------
++# Calculate hack - закомментируем перенос директорий настроек на RAM-диск
++#		good_msg "Copying read-write image contents to tmpfs"
+ 		# Copy over stuff that should be writable
+-		(cd ${NEW_ROOT}/${FS_LOCATION}; cp -a ${ROOT_TREES} ${NEW_ROOT})
++#		(cd ${NEW_ROOT}/${FS_LOCATION}; cp -a ${ROOT_TREES} ${NEW_ROOT})
++#-----------------------------------------------------------------------------
+ 
+ 		# Now we do the links.
+ 		for x in ${ROOT_LINKS}
+@@ -684,7 +687,14 @@
+ 		mkdir initrd proc tmp sys 2>/dev/null
+ 		chmod 1777 tmp
+ 	fi
+-	
++
++#-----------------------------------------------------------------------------
++# Calculate hack - подмонтируем образ через unionfs для возможности записи
++echo "mkdir unionfs && mount unionfs..."
++mkdir mnt/unionfs
++mount -t unionfs -o dirs=mnt/unionfs=rw:mnt/livecd=ro null mnt/livecd
++#-----------------------------------------------------------------------------
++
+ 	#UML=`cat /proc/cpuinfo|grep UML|sed -e 's|model name.*: ||'`
+ 	#if [ "${UML}" = 'UML' ]
+ 	#then
+--- genkernel-3.4.9.orig/x86/modules_load	2008-01-12 02:44:18.000000000 +0300
++++ genkernel-3.4.9/x86/modules_load	2008-01-24 17:23:17.000000000 +0300
+@@ -39,4 +39,8 @@
+ ohci-hcd usbhid sl811-hcd"
+ 
+ # Filesystems
+-MODULES_FS="ext2 ext3 reiserfs jfs nfs xfs"
++#-----------------------------------------------------------------------------
++# Calculate hack - добавим unionfs в список импортируемых в initrd модулей
++MODULES_FS="ext2 ext3 reiserfs jfs nfs xfs unionfs"
++#-----------------------------------------------------------------------------
++
+--- genkernel-3.4.9.orig/x86_64/modules_load	2008-01-12 02:44:17.000000000 +0300
++++ genkernel-3.4.9/x86_64/modules_load	2008-01-24 17:23:28.000000000 +0300
+@@ -39,4 +39,8 @@
+ ohci-hcd usbhid sl811-hcd"
+ 
+ # Filesystems
+-MODULES_FS="ext2 ext3 reiserfs jfs nfs xfs"
++#-----------------------------------------------------------------------------
++# Calculate hack - добавим unionfs в список импортируемых в initrd модулей
++MODULES_FS="ext2 ext3 reiserfs jfs nfs xfs unionfs"
++#-----------------------------------------------------------------------------
++
+--- genkernel-3.4.9.orig/gen_initramfs.sh	2008-10-27 14:21:08.000000000 +0300
++++ genkernel-3.4.9/gen_initramfs.sh	2008-10-27 14:22:16.000000000 +0300
+@@ -242,7 +242,8 @@
+ }
+ 
+ append_splash(){
+-	if [ -x /usr/bin/splash_geninitramfs ] || [ -x /sbin/splash_geninitramfs ]
++	splash_geninitramfs=`which splash_geninitramfs 2>/dev/null`
++	if [ -x "${splash_geninitramfs}" ]
+ 	then
+ 		[ -z "${SPLASH_THEME}" ] && [ -e /etc/conf.d/splash ] && source /etc/conf.d/splash
+ 		[ -z "${SPLASH_THEME}" ] && SPLASH_THEME=default

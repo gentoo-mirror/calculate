@@ -1,0 +1,39 @@
+diff -NPur genkernel-3.4.10.903/arch/x86/modules_load genkernel_patch/arch/x86/modules_load
+--- genkernel-3.4.10.903/arch/x86/modules_load	2009-01-06 01:22:10.000000000 +0300
++++ genkernel_patch/arch/x86/modules_load	2009-04-20 19:04:51.000000000 +0400
+@@ -22,5 +22,5 @@
+ MODULES_USB="ehci-hcd uhci usb-ohci hid usb-storage uhci-hcd ohci-hcd usbhid sl811-hcd"
+ 
+ # Filesystems
+-MODULES_FS="ext2 ext3 reiserfs jfs nfs xfs fuse"
++MODULES_FS="ext2 ext3 ext4 reiserfs jfs nfs xfs fuse"
+ 
+diff -NPur genkernel-3.4.10.903/arch/x86_64/modules_load genkernel_patch/arch/x86_64/modules_load
+--- genkernel-3.4.10.903/arch/x86_64/modules_load	2009-01-06 01:22:10.000000000 +0300
++++ genkernel_patch/arch/x86_64/modules_load	2009-04-20 19:04:28.000000000 +0400
+@@ -22,4 +22,4 @@
+ MODULES_USB="ehci-hcd uhci usb-ohci hid usb-storage uhci-hcd ohci-hcd usbhid sl811-hcd"
+ 
+ # Filesystems
+-MODULES_FS="ext2 ext3 reiserfs jfs nfs xfs fuse"
++MODULES_FS="ext2 ext3 ext4 reiserfs jfs nfs xfs fuse"
+diff -NPur genkernel-3.4.10.903/defaults/initrd.scripts genkernel_patch/defaults/initrd.scripts
+--- genkernel-3.4.10.903/defaults/initrd.scripts	2009-01-06 01:22:10.000000000 +0300
++++ genkernel_patch/defaults/initrd.scripts	2009-04-20 19:00:37.000000000 +0400
+@@ -998,10 +998,13 @@
+ 		mkdir /tmp
+ 		mkdir -p ${UNION}
+ #		mkdir -p $CHANGES
+-#		mount -t unionfs -o dirs=$CHANGES=rw unionfs ${UNION}
+-		good_msg "Creating union mount"
+-		unionfs -o allow_other,cow,noinitgroups,suid,dev ${rw_dir}=RW:${ro_dir}=RO ${UNION} 2>/dev/null
++##		mount -t unionfs -o dirs=$CHANGES=rw unionfs ${UNION}
++		mount -t unionfs -o dirs=${rw_dir}:${ro_dir}=ro unionfs ${UNION}
+ 		ret=$?
++		chmod 1777 ${UNION}/tmp
++		good_msg "Creating union mount"
++#		unionfs -o allow_other,cow,noinitgroups,suid,dev,default_permissions,use_ino ${rw_dir}=RW:${ro_dir}=RO ${UNION} 2>/dev/null
++#		ret=$?
+ 		if [ "${ret}" -ne 0 ]
+ 		then
+ 			bad_msg "Can't setup union mount!"
