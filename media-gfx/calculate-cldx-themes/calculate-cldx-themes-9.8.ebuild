@@ -1,5 +1,8 @@
-# Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
 
 DESCRIPTION="The theme for Calculate Linux Desktop XFCE"
 HOMEPAGE="http://www.calculate-linux.ru/calcualte-cldx-themes"
