@@ -1,5 +1,8 @@
-# Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# Copyright 2008-2009 Calculate Pack, http://www.calculate-linux.ru
 
 EAPI="2"
 
@@ -14,7 +17,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 DEPEND="!<sys-apps/calculate-client-2.1.2
-        !<sys-apps/calculate-server-2.1.3
-        >=dev-lang/python-2.5.2
-        >=dev-python/python-ldap-2.0[ssl]
-        >=dev-python/pyxml-0.8"
+		!<sys-apps/calculate-server-2.1.3
+		>=dev-lang/python-2.5.2
+		>=dev-python/python-ldap-2.0[ssl]
+		>=dev-python/pyxml-0.8"
+RDEPEND="${DEPEND}"
