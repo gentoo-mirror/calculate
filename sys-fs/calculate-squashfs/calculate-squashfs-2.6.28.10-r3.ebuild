@@ -1,5 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 inherit eutils flag-o-matic linux-info toolchain-funcs linux-mod
 
@@ -22,7 +23,7 @@ get_kernel_version_from_pv() {
 
 get_kernel_version_from_pv
 
-DESCRIPTION="Tool for creating compressed filesystem type squashfs" 
+DESCRIPTION="Tool for creating compressed filesystem type squashfs"
 HOMEPAGE="http://squashfs.sourceforge.net http://www.squashfs-lzma.org"
 SRC_URI="mirror://kernel/linux/kernel/v${KV_MAJOR}.${KV_MINOR}/patch-${OKV}.${KV_TYPE}.bz2
 	 mirror://kernel/linux/kernel/v${KV_MAJOR}.${KV_MINOR}/linux-${OKV}.tar.bz2
@@ -30,6 +31,8 @@ SRC_URI="mirror://kernel/linux/kernel/v${KV_MAJOR}.${KV_MINOR}/patch-${OKV}.${KV
 	 mirror://sourceforge/sevenzip/${LZMA_PV}.tar.bz2
 	 ftp://ftp.slax.org/source/slax/sqlzma/${SQUASH_PV}.tar.gz
 	 ftp://ftp.slax.org/source/slax/sqlzma/${SQLZMA_PV}.tar.bz2"
+
+IUSE=""
 
 DEPEND="=sys-kernel/calculate-sources-${OKV}.${KV_TYPE}"
 
@@ -51,14 +54,14 @@ pkg_setup() {
 		die "Upgrade kernel"
 	fi
 	linux-mod_pkg_setup
-	
+
 	get_kernel_version_from_pv
 	KV_FULL="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}.${KV_TYPE}${KV_LOCAL}"
 	append-ldflags -Wl,--no-as-needed
 }
 
 src_unpack() {
-	cd ${WORKDIR}
+	cd "${WORKDIR}"
 	unpack ${SQLZMA_PV}.tar.bz2 || die
 	unpack ${SQUASH_PV}.tar.gz || die
 	unpack linux-${OKV}.tar.bz2 || die
@@ -73,10 +76,10 @@ src_unpack() {
 	if kernel_is ge 2 6 28; then
 		epatch "${FILESDIR}"/squashfs-linux-${OKV}.patch || die
 		sed -i "s:EXTRAVERSION = .${KV_TYPE}:EXTRAVERSION = .${KV_TYPE}${KV_LOCAL}:" Makefile|| die
- 		sed -i "s:KVer = linux-2.6.27.4:KVer = linux-${OKV}:" ../Makefile|| die
+		sed -i "s:KVer = linux-2.6.27.4:KVer = linux-${OKV}:" ../Makefile|| die
 	fi
 	cd ../${SQUASH_PV}
-	epatch ../sqlzma2u-${SQ_PV}.patch || die	
+	epatch ../sqlzma2u-${SQ_PV}.patch || die
 	cd ..
 	epatch sqlzma1-${LZMA_PV/#lzma}.patch || die
 	ln -s ../../linux-${OKV} ${SQUASH_PV}/kernel-patches
@@ -96,7 +99,7 @@ src_unpack() {
 	make oldconfig
 	make prepare
 	make scripts
-} 
+}
 #
 src_compile() {
 	emake CC="$(tc-getCC)" || die
