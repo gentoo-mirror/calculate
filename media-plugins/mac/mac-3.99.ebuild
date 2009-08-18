@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,11 +17,12 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc x86"
 IUSE=""
 
 DEPEND=""
+RDEPEND="${DEPEND}"
 
 src_unpack() {
 	unpack ${MY_F}.tar.gz || die "unpacking failed"
-	cd ${WORKDIR}
-	mv ${MY_F} ${P} 
+	cd "${WORKDIR}"
+	mv ${MY_F} ${P}
 }
 
 src_compile() {
