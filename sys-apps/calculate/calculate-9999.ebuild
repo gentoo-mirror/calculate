@@ -1,6 +1,6 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mtop/mtop-0.6.6.ebuild,v 1.9 2007/07/13 06:38:59 mr_bones_ Exp $
+# $Header: $
 
 inherit subversion
 
@@ -29,7 +29,7 @@ pkg_setup() {
 
 src_install() {
 	emake install DESTDIR="${D}" || die "Calculate installation failed."
-	dodoc Change.log COPYING LICENSE
+	dodoc Change.log
 }
 
 pkg_postinst() {
@@ -43,7 +43,7 @@ pkg_postinst() {
 	fi
 	if ! [ -e /usr/calculate/share/distfiles ];
 	then
-		mkdir -p -m 2775 /usr/calculate/share/distfiles	
-		chgrp portage /usr/calculate/share/distfiles	
+		mkdir -p -m 2775 /usr/calculate/share/distfiles
+		chgrp portage /usr/calculate/share/distfiles
 	fi
 }
