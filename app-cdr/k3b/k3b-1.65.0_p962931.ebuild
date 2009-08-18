@@ -1,5 +1,6 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 EAPI="2"
 
@@ -13,7 +14,7 @@ DESCRIPTION="K3b, KDE CD Writing Software"
 HOMEPAGE="http://www.k3b.org/"
 LICENSE="GPL-2"
 
-SLOT="0"
+SLOT="2"
 KEYWORDS="~x86 ~amd64"
 
 IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz musepack sndfile sox taglib vorbis +wav"

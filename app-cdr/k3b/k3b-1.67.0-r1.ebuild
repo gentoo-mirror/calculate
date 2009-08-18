@@ -1,5 +1,6 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 EAPI="2"
 
@@ -10,7 +11,7 @@ SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PF}.tar.bz2"
 HOMEPAGE="http://www.k3b.org/"
 LICENSE="GPL-2"
 
-SLOT="0"
+SLOT="2"
 KEYWORDS="~x86 ~amd64"
 
 IUSE="debug dvd emovix encode ffmpeg flac mad lame musicbrainz musepack sndfile sox taglib vorbis +wav"
@@ -57,7 +58,7 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 
-	mkdir po 
+	mkdir po
 	echo 'find_package(Gettext REQUIRED)
 if (NOT GETTEXT_MSGMERGE_EXECUTABLE)
 MESSAGE(FATAL_ERROR "Please install msgmerge binary")
@@ -76,7 +77,7 @@ endif (NOT GETTEXT_MSGFMT_EXECUTABLE)' >${S}/po/CMakeLists.txt
 			echo "file(GLOB _po_files *.po)
 GETTEXT_PROCESS_PO_FILES(${lg} ALL INSTALL_DESTINATION \${LOCALE_INSTALL_DIR} \${_po_files} )">>${S}/po/${lg}/CMakeLists.txt
 			echo "add_subdirectory(${lg})" >>${S}/po/CMakeLists.txt
-		fi	
+		fi
 	done
 	echo 'include(MacroOptionalAddSubdirectory)
 macro_optional_add_subdirectory( po )' >>${S}/CMakeLists.txt
