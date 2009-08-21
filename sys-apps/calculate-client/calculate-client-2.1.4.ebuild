@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="=sys-apps/calculate-lib-2.1.1
+DEPEND="=sys-apps/calculate-lib-2.1.2
 		>=dev-python/python-ldap-2.0[ssl]
 		>=sys-auth/pam_ldap-180[ssl]
 		>=sys-auth/nss_ldap-239
