@@ -2,8 +2,8 @@
 <layman>
   <overlay name = "calculate"  status = "official"
   contact = "support@calculate.ru"
-  src = "http://svn.calculate.ru/overlay" type = "svn">
-    <link>http://svn.calculate.ru/overlay</link>
+  src = "git://git.calculate.ru/overlay" type = "git">
+    <link>git://git.calculate.ru/overlay</link>
     <description>Calculate Linux Overlay</description>
   </overlay>
 </layman>
