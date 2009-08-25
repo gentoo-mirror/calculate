@@ -6,9 +6,9 @@
 
 EAPI="2"
 
-inherit distutils subversion
+inherit distutils git
 
-ESVN_REPO_URI="http://svn.calculate.ru/calculate2/calculate-client/trunk/"
+EGIT_REPO_URI="git://git.calculate.ru/dev/calculate2/calculate-client.git"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.ru/Calculate2"

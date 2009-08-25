@@ -6,9 +6,9 @@
 
 EAPI="2"
 
-inherit distutils subversion
+inherit distutils git
 
-ESVN_REPO_URI="http://svn.calculate.ru/calculate2/calculate-server/trunk/"
+EGIT_REPO_URI="git://git.calculate.ru/dev/calculate2/calculate-server.git"
 
 DESCRIPTION="The program for configuring services Linux"
 HOMEPAGE="http://www.calculate-linux.ru/Calculate2"

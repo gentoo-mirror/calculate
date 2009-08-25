@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
+inherit git
 
-ESVN_REPO_URI="http://svn.calculate.ru/calculate/trunk/"
+EGIT_REPO_URI="git://git.calculate.ru/dev/calculate.git"
 DESCRIPTION="Program for installation, building and upgrading system"
 HOMEPAGE="http://www.calculate-linux.org/Calculate"
 
