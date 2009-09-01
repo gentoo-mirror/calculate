@@ -25,9 +25,9 @@ src_unpack() {
 
 	# deleting compiling of unnecessary translation
 	for LG in $LANGS;do
-		if ! has $LG ${LANGS};
+		if ! has $LG ${LINGUAS};
 		then
-			sed -i '/($LG)/d' CMakeLists.txt
+			sed -i "/($LG)/d" CMakeLists.txt
 		fi
 	done
 }
