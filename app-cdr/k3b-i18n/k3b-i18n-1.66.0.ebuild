@@ -19,35 +19,17 @@ LANGS="ru uk fr de pt_BR es pl it"
 DEPEND="app-cdr/k3b:4"
 RDEPEND="${DEPEND}"
 
-#S="${WORKDIR}"/"${PF}"/"${PN}"
-
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
 
-#	mkdir po 
-#	echo 'find_package(Gettext REQUIRED)
-#if (NOT GETTEXT_MSGMERGE_EXECUTABLE)
-#MESSAGE(FATAL_ERROR "Please install msgmerge binary")
-#endif (NOT GETTEXT_MSGMERGE_EXECUTABLE)
-#if (NOT GETTEXT_MSGFMT_EXECUTABLE)
-#MESSAGE(FATAL_ERROR "Please install msgmerge binary")
-#endif (NOT GETTEXT_MSGFMT_EXECUTABLE)' >${S}/po/CMakeLists.txt
-#
-#	for lg in ${LINGUAS};
-#	do
-#		if has $lg ${LANGS};
-#		then
-#			mkdir -p "${S}"/po/${lg}
-#			ESVN_PROJECT="${PN}-${lg}.l10n"
-#			cp -a ../${ESVN_PROJECT}/extragear-multimedia/* po/${lg}
-#			echo "file(GLOB _po_files *.po)
-#GETTEXT_PROCESS_PO_FILES(${lg} ALL INSTALL_DESTINATION \${LOCALE_INSTALL_DIR} \${_po_files} )">>${S}/po/${lg}/CMakeLists.txt
-#			echo "add_subdirectory(${lg})" >>${S}/po/CMakeLists.txt
-#		fi	
-#	done
-#	echo 'include(MacroOptionalAddSubdirectory)
-#macro_optional_add_subdirectory( po )' >>${S}/CMakeLists.txt
+	# deleting compiling of unnecessary translation
+	for LG in $LANGS;do
+		if ! has $LG ${LANGS};
+		then
+			sed -i '/($LG)/d' CMakeLists.txt
+		fi
+	done
 }
 
 src_configure() {
