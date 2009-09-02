@@ -6,7 +6,7 @@
 
 DESCRIPTION="The theme for Calculate Linux Desktop KDE"
 HOMEPAGE="http://www.calculate-linux.ru/calcualte-cld-themes"
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PF}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -51,5 +51,7 @@ src_install() {
 			/usr/share/pixmaps/windows.png
 		dosym ../icons/Calculate/40x40/apps/yellow.png \
 			/usr/share/pixmaps/yellow.png
+		dosym ../icons/Calculate/scalable/places/start-here-kde.svgz \
+			../icons/Calculate/scalable/places/kde.svgz \
 		doins -r .
 }
