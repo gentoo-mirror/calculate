@@ -51,7 +51,7 @@ src_install() {
 			/usr/share/pixmaps/windows.png
 		dosym ../icons/Calculate/40x40/apps/yellow.png \
 			/usr/share/pixmaps/yellow.png
-		dosym ../icons/Calculate/scalable/places/start-here-kde.svgz \
-			../icons/Calculate/scalable/places/kde.svgz \
+		dosym start-here-kde.svgz \
+			/usr/share/icons/Calculate/scalable/places/kde.svgz
 		doins -r .
 }
