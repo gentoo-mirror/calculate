@@ -39,7 +39,7 @@ DEPEND="=sys-kernel/calculate-sources-${OKV}.${KV_TYPE}"
 RDEPEND="!sys-fs/squashfs-tools"
 
 LICENSE="GPL-2 LGPL-2.1"
-SLOT="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}.${KV_TYPE}"
+SLOT="2.6.28.10"
 KEYWORDS="~amd64 ~x86"
 BUILD_TARGETS="all"
 [[ ${ARCH} == "amd64" ]] && ARCH="x86_64"
