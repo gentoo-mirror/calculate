@@ -32,7 +32,7 @@ index a417144..92e9d2d 100755
  CDROOT_TYPE='auto'
  NEW_ROOT='/newroot'
 diff --git a/defaults/initrd.scripts b/defaults/initrd.scripts
-index beec6de..016e146 100755
+index beec6de..cc4c081 100755
 --- a/defaults/initrd.scripts
 +++ b/defaults/initrd.scripts
 @@ -169,11 +169,24 @@ cache_cd_contents() {
@@ -142,9 +142,9 @@ index beec6de..016e146 100755
 +			mkdir -p ${WORKSPACEDIR}
 +			if [[ ${UNIONTYPE} = aufs ]]
 +			then
-+				if ! mount -t aufs -o udba=inotify,br:${WORKSPACEDIR}=rw:${DELTADIR}=ro+wh:${rw_dir}/mnt/livecd=ro none ${UNION}
++				if ! mount -t aufs -o udba=reval,br:${WORKSPACEDIR}=rw:${DELTADIR}=ro+wh:${rw_dir}/mnt/livecd=ro none ${UNION}
 +				then
-+					bad_msg "Can't setup union mount! Probably aufs compiled without inotify."
++					bad_msg "Can't setup union mount!"
 +				 	run_shell
 +				fi
 +			else
@@ -161,7 +161,7 @@ index beec6de..016e146 100755
 +			mkdir -p ${BUILDERDIR}
 +			if [[ ${UNIONTYPE} = aufs ]]
 +			then
-+				if ! mount -t aufs -o udba=inotify,br:${DELTADIR}=rw:${rw_dir}/mnt/livecd=ro none ${BUILDERDIR}
++				if ! mount -t aufs -o udba=reval,br:${DELTADIR}=rw:${rw_dir}/mnt/livecd=ro none ${BUILDERDIR}
 +				then
 +					bad_msg "Can't setup union mount!"
 +				 	run_shell
@@ -190,9 +190,9 @@ index beec6de..016e146 100755
 +
 +			if [[ ${UNIONTYPE} = aufs ]]
 +			then
-+				if ! mount -t aufs -o udba=inotify,br:${rw_dir}:${ro_dir}=ro none ${UNION}
++				if ! mount -t aufs -o udba=reval,br:${rw_dir}:${ro_dir}=ro none ${UNION}
 +				then
-+					bad_msg "Can't setup union mount! Probably aufs compiled without inotify."
++					bad_msg "Can't setup union mount!"
 +				 	run_shell
 +				fi
 +			else
@@ -213,7 +213,7 @@ index beec6de..016e146 100755
  		then
  			bad_msg "Can't setup union mount!"
 diff --git a/defaults/linuxrc b/defaults/linuxrc
-index d506f83..616d9e8 100755
+index d506f83..538b29b 100755
 --- a/defaults/linuxrc
 +++ b/defaults/linuxrc
 @@ -62,6 +62,10 @@ do
@@ -247,13 +247,13 @@ index d506f83..616d9e8 100755
 +						then
 +							if [[ ${UNIONTYPE} = aufs ]]
 +							then
-+								if mount -t aufs -o ro,udba=inotify,br:${NEW_ROOT}/workspace=rw:${NEW_ROOT}/delta=ro+wh:${NEW_ROOT}/calculate=ro none /union;
++								if mount -t aufs -o ro,udba=reval,br:${NEW_ROOT}/workspace=rw:${NEW_ROOT}/delta=ro+wh:${NEW_ROOT}/calculate=ro none /union;
 +								then
-+									mount -t aufs -o ro,udba=inotify,br:${NEW_ROOT}/delta=rw:${NEW_ROOT}/calculate=ro none /union/mnt/builder
++									mount -t aufs -o ro,udba=reval,br:${NEW_ROOT}/delta=rw:${NEW_ROOT}/calculate=ro none /union/mnt/builder
 +									CHROOT=/union
 +									break;
 +								else
-+									bad_msg 'Could not merge scratch layers! Probably aufs compiled without inotify.'
++									bad_msg 'Could not merge scratch layers!'
 +									run_shell
 +								fi
 +							else
