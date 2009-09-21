@@ -11,11 +11,11 @@ inherit distutils
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
-HOMEPAGE="http://www.calculate-linux.ru/Calculate2"
+HOMEPAGE="http://www.calculate-linux.org/Calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="kde xfce"
 
 DEPEND="=sys-apps/calculate-lib-2.1.2
 		>=dev-python/python-ldap-2.0[ssl]
@@ -24,7 +24,9 @@ DEPEND="=sys-apps/calculate-lib-2.1.2
 		>=sys-apps/keyexec-0.1.2
 		>=sys-apps/hal-0.5.9
 		sys-apps/keyutils
-		sys-auth/pam_keystore"
+		sys-auth/pam_keystore
+		xfce? ( x11-misc/slim )
+		kde? ( kde-base/kdm )"
 
 RDEPEND="${DEPEND}"
 
