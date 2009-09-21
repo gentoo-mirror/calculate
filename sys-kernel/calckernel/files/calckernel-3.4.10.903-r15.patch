@@ -32,7 +32,7 @@ index a417144..92e9d2d 100755
  CDROOT_TYPE='auto'
  NEW_ROOT='/newroot'
 diff --git a/defaults/initrd.scripts b/defaults/initrd.scripts
-index beec6de..cc4c081 100755
+index beec6de..317eb99 100755
 --- a/defaults/initrd.scripts
 +++ b/defaults/initrd.scripts
 @@ -169,11 +169,24 @@ cache_cd_contents() {
@@ -115,7 +115,7 @@ index beec6de..cc4c081 100755
  #                 if [ -n "${UNIONFS}" ] 	 
  #                 then 	 
  #                         CHANGESDEV=${UNIONFS} 	 
-@@ -998,10 +1040,93 @@ setup_unionfs() {
+@@ -998,10 +1040,94 @@ setup_unionfs() {
  		mkdir /tmp
  		mkdir -p ${UNION}
  #		mkdir -p $CHANGES
@@ -198,6 +198,7 @@ index beec6de..cc4c081 100755
 +			else
 +				mount -t unionfs -o dirs=${rw_dir}:${ro_dir}=ro unionfs ${UNION}
 +			fi
++			chmod 0755 ${UNION}
 +			mount -o bind ${rw_dir}/mnt/cdrom ${CDROMDIR}
 +			mount -o bind ${rw_dir}/mnt/livecd ${LIVECDDIR}
 +			ret=$?
