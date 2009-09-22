@@ -44,6 +44,7 @@ else
 	inherit bash-completion eutils
 	SRC_URI="mirror://gentoo/${MY_P}.tar.bz2
 		${MY_HOME}/sources/genkernel/${MY_P}.tar.bz2
+		ftp://ftp.calculate.ru/pub/calculate/calckernel/${MY_P}.tar.bz2
 		${COMMON_URI}"
 fi
 
