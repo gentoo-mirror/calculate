@@ -36,7 +36,10 @@ DEPEND="app-arch/bzip2
 	sys-fs/udev"
 RDEPEND="${DEPEND}"
 
+need_repair_manconf=0
+
 pkg_setup() {
+	[ -e /var/db/pkg/sys-apps/calculate-1.2.7* ] && need_repair_manconf=1
 	if [ -e /usr/calculate/install ] && \
 		[ `ls /usr/calculate/install | grep -c ""` -gt 0  ] && \
 		! [ -e /var/db/pkg/sys-apps/calculate-[0-9]* ];
@@ -67,4 +70,6 @@ pkg_postinst() {
 		mkdir -p -m 2775 /usr/calculate/share/distfiles
 		chgrp portage /usr/calculate/share/distfiles
 	fi
+	[[ $need_repair_manconf -eq 1 ]] && \
+		sed -ri 's#/usr/bin/python.*manrc \| ##' /etc/man.conf
 }
