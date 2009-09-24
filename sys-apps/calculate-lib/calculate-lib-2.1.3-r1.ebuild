@@ -16,7 +16,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
-DEPEND="!<sys-apps/calculate-client-2.1.4
+DEPEND="!<sys-apps/calculate-client-2.1.6
 		!<sys-apps/calculate-server-2.1.3
 		>=dev-lang/python-2.5.2
 		>=dev-python/python-ldap-2.0[ssl]
