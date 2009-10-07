@@ -2,8 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# Copyright 2008-2009 Calculate Pack, http://www.calculate-linux.ru
-
 EAPI="2"
 
 inherit distutils
@@ -11,7 +9,7 @@ inherit distutils
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The program for configuring services Linux"
-HOMEPAGE="http://www.calculate-linux.ru/Calculate2"
+HOMEPAGE="http://www.calculate-linux.org/Calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"

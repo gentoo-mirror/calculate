@@ -2,8 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# Copyright 2008-2009 Calculate Pack, http://www.calculate-linux.ru
-
 EAPI="2"
 
 inherit distutils

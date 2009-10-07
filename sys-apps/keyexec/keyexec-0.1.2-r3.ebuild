@@ -2,10 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# Copyright 2007-2009 Calculate Pack, http://www.calculate-linux.ru
-
 DESCRIPTION="Starts other program using the password of the user kept in the kernel"
-HOMEPAGE="http://www.calculate-linux.ru/keyexec"
+HOMEPAGE="http://www.calculate-linux.org/keyexec"
 SRC_URI="ftp://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
 		http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
 		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${P}.tar.bz2"
