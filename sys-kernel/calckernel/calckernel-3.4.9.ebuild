@@ -15,7 +15,7 @@ VERSION_PKG='3.4-r3'
 VERSION_UNIONFS='1.5pre-cvs200701042308'
 
 DESCRIPTION="Calculate automatic kernel building scripts"
-HOMEPAGE="http://www.calculate-linux.ru/Calckernel"
+HOMEPAGE="http://www.calculate-linux.org/Calckernel"
 SRC_URI="mirror://gentoo/${MY_P}.tar.bz2
 	mirror://gentoo/${MY_PN}-pkg-${VERSION_PKG}.tar.bz2
 	http://dev.gentoo.org/~wolf31o2/sources/${MY_PN}/${MY_P}.tar.bz2

@@ -2,10 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
-
 DESCRIPTION="The theme for Calculate Linux Desktop KDE"
-HOMEPAGE="http://www.calculate-linux.ru/calcualte-cld-themes"
+HOMEPAGE="http://www.calculate-linux.org/calcualte-cld-themes"
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"

@@ -2,14 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
-
 inherit eutils flag-o-matic multilib toolchain-funcs versionator
 
 MY_PV="${PV/_rc/RC}"
 
 DESCRIPTION="Cyrillic fonts for htmldoc"
-HOMEPAGE="http://www.calculate-linux.ru/htmldoccyr"
+HOMEPAGE="http://www.calculate-linux.org/htmldoccyr"
 SRC_URI="ftp://ftp.local.calculate.ru/pub/${PN}/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"

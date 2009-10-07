@@ -2,10 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# Copyright 2008 Calculate Pack, http://www.calculate-linux.ru
-
 DESCRIPTION="Sending fax or voice files using modem ZyXELOmni 56K"
-HOMEPAGE="http://www.calculate-linux.ru/faxsend"
+HOMEPAGE="http://www.calculate-linux.org/faxsend"
 SRC_URI="ftp://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
 		http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
 		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${P}.tar.bz2"

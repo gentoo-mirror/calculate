@@ -1,12 +1,13 @@
-# Copyright 2007 Calculate Pack, http://www.calculate-linux.ru
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 ETYPE="sources"
 
 CALC_VER=""
 
 KEYWORDS="amd64 x86"
-HOMEPAGE="http://www.calculate-linux.ru"
+HOMEPAGE="http://www.calculate-linux.org"
 
 inherit kernel-2
 detect_version

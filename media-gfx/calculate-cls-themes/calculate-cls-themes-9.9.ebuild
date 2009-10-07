@@ -3,7 +3,7 @@
 # $Header: $
 
 DESCRIPTION="The theme for Calculate Linux Scratch"
-HOMEPAGE="http://www.calculate-linux.ru/calcualte-cls-themes"
+HOMEPAGE="http://www.calculate-linux.org/calcualte-cls-themes"
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
