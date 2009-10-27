@@ -1,0 +1,41 @@
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+--- pym/cl_ldap.py
++++ pym/cl_ldap.py
+@@ -1819,8 +1819,9 @@ class servUnix(shareLdap):
+                 return True
+             for dirCreate in scanObjs[0].dirs:
+                 #создаем в домашней директории директории из /etc/skel
+-                fileObj.createDir(skelDir, dirCreate, homeDir)
+                 dirName = homeDir + dirCreate.split(skelDir)[1]
++                mode,tmpUid,tmpGid = fileObj.getModeFile(dirCreate)
++                os.mkdir(dirName,mode)
+                 os.chown(dirName, uid,gid)
+             for fileCopy in scanObjs[0].files:
+                 oldFile = homeDir + fileCopy.split(skelDir)[1]
+@@ -8266,8 +8267,11 @@ for running replication")%bFile)
+             return False
+         # Создаем объект переменных clVars
+         self.createClVars()
+-        # останавливаем все сервисы
+-        if not self.stopServices(self.getALLServices()):
++        # останавливаем все настроенные сервисы и удаляем их демонов из
++        # автозапуска
++        insServices = self.getServiceSetup()
++        if not self.stopServices(insServices) or \
++            not self.delServicesAutostart(insServices):
+             return False
+         # Проверяем архив на содержание в нем LDAP
+         flagArchLdap = self.isLdapArchive(bFile)
+@@ -8387,6 +8391,12 @@ for running replication")%bFile)
+         self.removeTmpFiles()
+         # считаем переменные из ini файлов
+         self.clVars.flIniFile()
++        # останавливаем все инсталлируемые сервисы и удаляем их демонов из
++        # автозапуска
++        insServices = self.getServiceSetup()
++        if not self.stopServices(insServices) or \
++            not self.delServicesAutostart(insServices):
++            return False
+         if startServices:
+             # Стартуем все сервисы и прописываем в автозагрузку
+             if not self.startAllSetupServices():
