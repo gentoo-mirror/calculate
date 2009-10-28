@@ -1,0 +1,29 @@
+diff --git a/pym/cl_client.py b/pym/cl_client.py
+--- pym/cl_client.py
++++ pym/cl_client.py
+@@ -350,11 +350,6 @@ class cl_client(imp_cl_err, imp_cl_xml, imp_cl_help, imp_cl_smcon):
+          'helpChapter':_("Common options"),
+          'help':_("display this help and exit")
+         },
+-        {'shortOption':"h",
+-         'longOption':"help",
+-         'helpChapter':_("Common options"),
+-         'help':_("display this help and exit")
+-        },
+         {'progAccess':(0,),
+          'shortOption':"r",
+          'helpChapter':_("Common options"),
+@@ -1648,11 +1643,11 @@ or ld_bind_dn or ld_bind_pw")
+         return foundTwoSession
+ 
+     def mountSambaRes(self,userName,userPwd,uid,gid,res,path,
+-                      mountUidList=['ftp','share']):
++                      mountUidList=['ftp','home','share']):
+         """Монтирует Samba ресурсы"""
+         if res in mountUidList:
+             # Монтируем директории c uid
+-            mountStr="mount -t cifs -o user=%s,uid=%s,gid=%s"\
++            mountStr="mount -t cifs -o user=%s,uid=%s,gid=%s,noperm"\
+                     %(userName,uid,gid) +\
+                     " //%s/%s %s" %(self.clVars.Get("cl_remote_host"),
+                                                 res, path)
