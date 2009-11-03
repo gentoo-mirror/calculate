@@ -33,14 +33,6 @@ DEPEND=">=sys-apps/calculate-lib-2.1.3-r1
 
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-
-	# Fixed bug - when adding a user with an indication of jabber ID
-	epatch "${FILESDIR}/calculate-server-${PVR}.patch"
-}
-
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \
 		[ -d /var/calculate/server-data/samba/win/profiles ] || \
