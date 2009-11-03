@@ -22,7 +22,6 @@ DEPEND=">=sys-apps/calculate-lib-2.1.3-r1
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
 	=net-fs/samba-3.0*[acl,cups,kernel_linux,ldap,pam]
-	>=net-mail/dovecot-1.0
 	|| ( <net-mail/dovecot-1.2.0[pop3d,ldap,pam,ssl]
 	     >=net-mail/dovecot-1.2.0[ldap,pam,ssl] )
 	>=mail-mta/postfix-2.2[ldap,pam,ssl]
