@@ -1,0 +1,26 @@
+#activate default security enhancements for toolchain (gcc, glibc, binutils)
+#USE="${USE} hardened"
+#Adds kerberos support
+#USE="${USE} kerberos"
+#Adds support for the Simple Authentication and Security Layer
+#USE="${USE} sasl"
+
+#Adds support for reading EXIF headers from JPEG and TIFF images
+USE="${USE} exif"
+#Adds GIF image support
+USE="${USE} gif"
+#Adds JPEG image support
+USE="${USE} jpeg"
+#Support for JPEG 2000, a wavelet-based image compression format
+USE="${USE} jpeg2k"
+#Adds support for libpng (PNG images)
+USE="${USE} png"
+#Adds support for the tiff image format
+USE="${USE} tiff"
+
+#Adds support for IMAP (Internet Mail Application Protocol)
+USE="${USE} imap"
+#Adds support for maildir (~/.maildir) style mail spools
+USE="${USE} maildir"
+USE="${USE} -gnome -gtk -kde -qt3 -qt4 -qt3support -X"
+

@@ -1,0 +1,30 @@
+app-antivirus/clamav gmp
+app-crypt/pinentry gtk
+app-emulation/wine xml
+app-text/djvu -nsplugin
+app-text/poppler-bindings gtk
+dev-db/mysql embedded
+media-fonts/terminus-font -X
+media-libs/mlt melt xml
+media-libs/svgalib no-helper
+media-libs/xine-lib xcb
+media-video/avidemux lame libsamplerate
+media-video/dvdrip subtitles
+media-video/mplayer amrnb cpudetection dga dts dvdnav md5sum mmxext radio sse2 ssse3 vdpau x264
+media-video/realplayer -X
+media-video/transcode mjpeg
+media-video/vlc stream httpd
+media-video/xine-ui -X
+net-analyzer/nmap -gtk
+www-client/mozilla-firefox iceweasel
+net-print/foo2zjs -foomaticdb
+net-print/hplip -X -qt3 -qt4 gtk ppds
+net-wireless/wpa_supplicant -qt4
+sys-apps/pciutils -zlib
+sys-fs/mtools -X
+www-client/links -X
+x11-drivers/nvidia-drivers -gtk
+x11-libs/cairo glitz svg
+x11-libs/libX11 xcb
+x11-libs/pixman -sse2
+x11-misc/xscreensaver -opengl -jpeg

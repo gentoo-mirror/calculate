@@ -1,0 +1,4 @@
+#Adds LDAP support (Lightweight Directory Access Protocol)
+USE="ldap"
+#Adds support for RADIUS authentication
+USE="${USE} radius"
