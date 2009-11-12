@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.5-r1.ebuild, +files/calculate-server-2.1.5-r1.patch:
+  Added patch, which fixed changing comments of samba users
+
   03 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
   +calculate-server-2.1.5.ebuild:
   Fixed different bugs, added support dovecot 1.2
