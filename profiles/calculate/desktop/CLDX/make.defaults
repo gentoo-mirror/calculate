@@ -1,2 +1,5 @@
-# Disable support for Evolution-Data-Server(eds),GNOME, K Desktop Enviroment
-USE="-eds -gnome -kde"
+# Network protocols
+USE="ldap rdesktop"
+
+# Window manager and specialities
+USE="${USE} -eds -gnome -kde"

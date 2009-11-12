@@ -1,49 +1,20 @@
-# Enable support for Microsoft Compiled HTML Help files
-USE="chm"
-# support DjVu, a PDF-like document format esp. suited for scanned documents
-USE="${USE} djvu"
-# Add E-Book suppport
-USE="${USE} ebook"
+# Documentation format
+USE="chm djvu ebook"
 
-# Adds support for FreeType and/or FreeType2 fonts
-USE="${USE} truetype"
-# Adds Native Language Support (using gettext - GNU locale utilities)
-USE="${USE} nls"
-# Adds support for the slang text display library
-# (it's like ncurses, but different)
-USE="${USE} slang"
-# Adds support for Unicode
-USE="${USE} unicode"
-# build only the locales specified in /etc/locales.build
-USE="${USE} userlocales"
+# Locale and Fonts
+USE="${USE} truetype nls slang unicode userlocales"
 
-# Adds mailwrapper support to allow multiple MTAs to be installed
+# Mail
 USE="${USE} -mailwrapper"
 
-# Enable embedded bittorrent transport plugin
-USE="${USE} bittorrent"
-# Adds FTP (File Transfer Protocol) support
-USE="${USE} ftp"
-# Adds support for IP version 6
-USE="${USE} ipv6"
-# Adds support for NFS file system
-USE="${USE} nfs"
-# Adds support for SAMBA
-USE="${USE} samba"
+# Net protocols
+USE="${USE} bittorrent ftp ipv6 nfs samba"
 
-# Add support for CUPS (Common Unix Printing System)
-USE="${USE} cups"
-# Adds support for the foomatic printing driver database
-USE="${USE} foomaticdb"
+# Printing
+USE="${USE} cups foomaticdb" 
 
-# Install support files for logrotate
-USE="${USE} logrotate"
-# Enable support for Native POSIX Threads Library, the new threading module
-# (requires linux-2.6 or better usually)
-USE="${USE} nptl"
-# Disables building the linuxthreads fallback in glibc ebuilds that support
-# building both linuxthreads and nptl
-USE="${USE} nptlonly"
+# System
+USE="${USE} logrotate nptl nptlonly"
 
 CXXFLAGS="${CFLAGS}"
 ALSA_CARDS="ca0106 emu10k1 hda-intel intel8x0 intel8x0m pcsp via82xx"
@@ -53,6 +24,5 @@ FEATURES="parallel-fetch -unmerge-orphans"
 FOO2ZJS_DEVICES="*"
 INPUT_DEVICES="keyboard mouse evdev synaptics"
 LDFLAGS="-Wl,--as-needed"
-PORTAGE_NICENESS=19
 VIDEO_CARDS="fbdev glint i810 intel mach64 mga neomagic nv radeon savage tdfx trident vesa vga via vmware"
 

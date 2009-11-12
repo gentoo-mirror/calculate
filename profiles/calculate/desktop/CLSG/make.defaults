@@ -1,4 +1,2 @@
-# Adds GNOME support
-USE="gnome"
-# Disable support for kde-base/kde (K Desktop Enviroment)
-USE="${USE} -kde"
+# Window manager and speciality
+USE="gnome -kde"

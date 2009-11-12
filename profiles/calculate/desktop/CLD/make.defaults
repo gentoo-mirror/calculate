@@ -1,24 +1,14 @@
-# Adds support for lirc (Linux's Infra-Red Remote Control)
+# Hardware
 USE="lirc"
-# Adds LDAP support (Lightweight Directory Access Protocol)
-USE="${USE} ldap"
-# support for the remote desktop protocol
-USE="${USE} rdesktop"
-# Adds mySQL Database support
+
+# Network protocols
+USE="${USE} ldap rdesktop"
+# Sql support
 USE="${USE} mysql"
-# Adds support for the postgresql database
 #USE="${USE} postgres"
-# enable WebKit support
+
+# Web
 USE="${USE} webkit"
-# Enables support for Evolution-Data-Server(eds)
-USE="${USE} -eds"
-# Adds GNOME support
-USE="${USE} -gnome"
-# Adds support for kde-base/kde (K Desktop Enviroment)
-USE="${USE} kde"
-# Adds support for the Qt GUI/Application Toolkit version 4.x
-USE="${USE} qt4"
-# Enable the Qt3Support libraries for Qt4
-USE="${USE} qt3support"
-# Adds support for the Qt GUI/Application Toolkit version 3.x
-USE="${USE} -qt3"
+
+# Window manager and speciality
+USE="${USE} -eds -gnome kde qt4 qt3support -qt3"

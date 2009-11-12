@@ -1,17 +1,20 @@
 diff --git a/modules/profile.eselect b/modules/profile.eselect
-index 813fea2..3d7da7f 100644
+index 813fea2..313491a 100644
 --- a/modules/profile.eselect
 +++ b/modules/profile.eselect
-@@ -11,6 +11,8 @@ MAINTAINER="eselect@gentoo.org"
+@@ -11,6 +11,11 @@ MAINTAINER="eselect@gentoo.org"
  SVN_DATE='$Date: 2009-09-20 22:26:07 +0200 (Sun, 20 Sep 2009) $'
  VERSION=$(svn_date_to_version "${SVN_DATE}")
  
 +CALCULATE_OVERLAY="/usr/local/portage/layman/calculate"
++CALCULATE_SHORTNAME=""
++[[ -f /etc/calculate/calculate.ini ]] && \
++	CALCULATE_SHORTNAME="/\/`cat /etc/calculate/calculate.ini | sed -rn '/calculate/ s/.*=(.+)/\1/p'`\// "
 +
  # get a list of valid profiles
  find_targets() {
  	local arch p portdir=${1}
-@@ -19,6 +21,17 @@ find_targets() {
+@@ -19,6 +24,17 @@ find_targets() {
  	arch=$(arch)
  	[[ -z ${arch} ]] && return 1
  
@@ -19,7 +22,7 @@ index 813fea2..3d7da7f 100644
 +	if [[ -f "${ROOT}${CALCULATE_OVERLAY}/profiles/profiles.desc" ]]
 +	then
 +		for p in $(sed -n -e \
-+			"s|^${arch}[[:space:]]\+\([^[:space:]]\+\).*$|\1|p" \
++			"${CALCULATE_SHORTNAME}s|^${arch}[[:space:]]\+\([^[:space:]]\+\).*$|\1|p" \
 +			"${ROOT}${CALCULATE_OVERLAY}/profiles/profiles.desc")
 +		do
 +			echo ${p}
@@ -29,7 +32,7 @@ index 813fea2..3d7da7f 100644
  	for p in $(sed -n -e "s|^${arch}[[:space:]]\+\([^[:space:]]\+\).*$|\1|p" \
  		"${ROOT}${portdir}/profiles/profiles.desc")
  	do
-@@ -55,6 +68,24 @@ set_symlink() {
+@@ -55,6 +71,24 @@ set_symlink() {
  		if [[ ${arch} != ${parch} && ${2} != "--force" ]] ; then
  			die -q "${target} is not a valid profile for ${arch}"
  		fi
@@ -45,7 +48,7 @@ index 813fea2..3d7da7f 100644
 +
 +		# do a reverse lookup and find the arch associated with ${target}
 +		parch=$(sed -n -e \
-+			"s|^\([[:alnum:]]\+\)[[:space:]].*${target}[[:space:]].*$|\1|p" \
++			"${CALCULATE_SHORTNAME}s|^\([[:alnum:]]\+\)[[:space:]].*${target}[[:space:]].*$|\1|p" \
 +			"${ROOT}${CALCULATE_OVERLAY}/profiles/profiles.desc")
 +
 +		if [[ ${arch} != ${parch} && ${2} != "--force" ]] ; then
@@ -54,7 +57,7 @@ index 813fea2..3d7da7f 100644
  	fi
  
  	if [[ -z ${target} ]] ; then
-@@ -69,6 +100,17 @@ set_symlink() {
+@@ -69,6 +103,17 @@ set_symlink() {
  		fi
  		ln -s "..${portdir#"${EPREFIX}"}/profiles/${target}" \
  			"${EROOT}/etc/make.profile"
@@ -72,7 +75,7 @@ index 813fea2..3d7da7f 100644
  	else
  		die -q "Target \"${1}\" doesn't appear to be valid!"
  	fi
-@@ -87,6 +129,10 @@ do_show() {
+@@ -87,6 +132,10 @@ do_show() {
  		local portdir=$(portageq portdir)
  		local profiledir=$(canonicalise "${ROOT}${portdir}/profiles")
  		link=${link##${profiledir}/}
@@ -83,7 +86,7 @@ index 813fea2..3d7da7f 100644
  		write_kv_list_entry "${link}" ""
  	else
  		write_kv_list_entry "(unset)" ""
-@@ -109,6 +155,10 @@ do_list() {
+@@ -109,6 +158,10 @@ do_list() {
  	profiledir=$(canonicalise "${ROOT}${portdir}/profiles")
  	active=$(canonicalise "${EROOT}/etc/make.profile")
  	active=${active##${profiledir}/}

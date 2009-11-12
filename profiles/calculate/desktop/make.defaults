@@ -1,240 +1,49 @@
-# support for the XScreenSaver extension
+# Artwork
 #USE="${USE} xscreensaver"
-# Adds support for media-libs/alsa-lib (Advanced Linux Sound Architecture)
-USE="${USE} alsa"
-# Adds support for aRts: the KDE sound daemon
-USE="${USE} -arts"
-# Adds support for libaudiofile where applicable
-USE="${USE} audiofile"
-# Enables ID3 tagging with id3tag library
-USE="${USE} id3tag"
-# Adds support for the flac audio codec
-USE="${USE} flac"
-# Adds support for mad (high-quality mp3 decoder library and cli frontend)
-USE="${USE} mad"
-# Add support for reading mp3 files
-USE="${USE} mp3"
-# Adds libmpeg3 support to various packages
-USE="${USE} mpeg"
-# Adds support for network audio sound
-USE="${USE} nas"
-# Adds support for the Ogg container format
-#(commonly used by Vorbis, Theora and flac)
-USE="${USE} ogg"
-# Adds support for the OggVorbis audio encoding - DEPRECATED useflag
-USE="${USE} oggvorbis"
-# Adds support for the Open Audio Library
-USE="${USE} openal"
-# Adds support for the crossplatform portaudio audio API
-USE="${USE} portaudio"
-# Adds support for the OggVorbis audio codec
-USE="${USE} vorbis"
-# Adds libmikmod support to allow playing of SoundTracker-style music files
-USE="${USE} mikmod"
-# Enables cdparanoia support
-USE="${USE} cdparanoia"
-# Adds support for CD writer hardware
-USE="${USE} cdr"
-# Adds support for DVDs
-USE="${USE} dvd"
-# Adds support for DVD writer hardware (e.g. in xcdroast)
-USE="${USE} dvdr"
-# Enables usage of Ogle's libdvdread for DVD playback
-USE="${USE} dvdread"
-# Video CD support
-USE="${USE} vcd"
-# Adds support for Clam AntiVirus software (usually with a plugin)
-USE="${USE} clamav"
-# Add support for encryption -- using mcrypt or gpg where applicable
-USE="${USE} crypt"
-# Adds support for Secure Socket Layer connections
-USE="${USE} ssl"
-# Adds support for 3dnow multimedia processor instructions
-USE="${USE} 3dnow"
-# Adds support for Advanced Configuration and Power Interface
-USE="${USE} acpi"
-# Adds APM (Advanced Power Management) support
-#USE="${USE} apm"
-# Enables Bluetooth Support
-#USE="${USE} bluetooth"
-# adds cairo support
-USE="${USE} cairo"
-# Enable dbus support for anything that needs it (gpsd, gnomemeeting, etc)
-USE="${USE} dbus"
-# Enable direct rendering: used for accelerated 3D and some 2D, like DMA
-USE="${USE} dri"
-# Enable Hardware Abstraction Layer (HAL) support
-USE="${USE} hal"
-# Enable FireWire/iLink IEEE1394 support (dv, camera, ...)
-USE="${USE} ieee1394"
-# Adds support for optimizations for Pentium MMX and Athlon class processors
-USE="${USE} mmx"
-# Enables mmx2 support
-USE="${USE} mmxext"
-# Enable binary Nvidia driver support
-USE="${USE} nvidia"
-# Adds support for OpenGL
-USE="${USE} opengl"
-# Adds support for scanner hardware (e.g. build the sane frontend in kdegraphics)
-USE="${USE} scanner"
-# Enable support for multiprocessors
-USE="${USE} smp"
-# fast floating point optimization for PentiumIII+ class chips
-USE="${USE} sse"
-# faster floating point optimization for SS[2E2 capable chips
-USE="${USE} sse2"
-# Enable SSE3 support
-USE="${USE} sse3"
-# Enable SSE4.1 support
-USE="${USE} sse4"
-# Enable SSE4.2 support
-USE="${USE} sse4"
-# Enable SSE4a support
-USE="${USE} sse4a"
-# Enable SSE5 support
-USE="${USE} sse5"
-# faster floating point optimization for SSSE3 capable chips
-#(Intel Core 2 and later chips)
-USE="${USE} ssse3"
-# Adds USB support to applications that have optional USB support (e.g. cups)
-USE="${USE} usb"
-# Enable support for the Xorg composite extension
-USE="${USE} xcomposite"
-# Enable support for the IRC protocol
-USE="${USE} irc"
-# Enable jabber IM protocol support
-USE="${USE} jabber"
-# Enables voice calls for jabber
-USE="${USE} jingle"
-# Enable Oscar (AIM/ICQ) IM protocol support
-USE="${USE} oscar"
-# Enable Yahoo Messenger IM protocol support
-USE="${USE} yahoo"
-# Adds support for X11
-USE="${USE} X"
-# Adds support for reading EXIF headers from JPEG and TIFF images
-USE="${USE} exif"
-# Add supports for Adobe's FDF toolkit
-USE="${USE} fdftk"
-# Adds support for media-libs/gd (to generate graphics on the fly)
-USE="${USE} gd"
-# Adds GIF image support
-USE="${USE} gif"
-# Enables support for Imagemagick (image converter)
-USE="${USE} imagemagick"
-# Adds JPEG image support
-USE="${USE} jpeg"
-# Support for JPEG 2000, a wavelet-based image compression format
-USE="${USE} jpeg2k"
-# Adds support for libmng (MNG images)
-USE="${USE} mng"
-# Adds general support for PDF, this replaces the pdflib and cpdflib flags
-USE="${USE} pdf"
-# Adds support for libpng (PNG images)
-USE="${USE} png"
-# Adds support for SVG.
-USE="${USE} svg"
-# Adds support for the tiff image format
-USE="${USE} tiff"
-# Adds support for the wmf vector image format
-USE="${USE} wmf"
-# Adds support for wxWidgets/wxGTK GUI toolkit
-USE="${USE} wxwindows"
-# Support for XPM graphics format
-USE="${USE} xpm"
-# Adds support for Java
+
+# Audio
+USE="${USE} alsa -arts audiofile id3tag flac mad mp3 mpeg nas ogg oggvorbis openal portaudio vorbis mikmod"
+
+# CD and DVD
+USE="${USE} cdparanoia cdr dvd dvdr dvdread vcd"
+
+# Guard and security
+USE="${USE} clamav crypt ssl"
+
+# Hardware
+USE="${USE} 3dnow acpi cairo dbus dri hal ieee1394 mmx mmxext nvidia opengl scanner smp sse sse2 sse3 sse4.1 sse4.2 sse4a sse5 ssse3 usb xcomposite"
+
+#USE="${USE} apm bluetooth"
+
+# Internet Messager
+USE="${USE} irc jabber jingle oscar yahoo"
+
+# Image support
+USE="${USE} X exif fdftk gd gif imagemagick jpeg jpeg2k mng pdf png svg tiff wmf wxwindows xpm" 
+# Languages support
 USE="${USE} -java"
-# Adds dictionary support
+
+# Locale and Fonts
 USE="${USE} spell"
-# Adds support for mbox (/var/spool/mail) style mail spools
+
+# Mail
 USE="${USE} mbox"
-# Adds digital camera support
+
+# Photo
 USE="${USE} gphoto2"
-# Builds plugins for Netscape compatible browsers
+
+# System
 USE="${USE} nsplugin"
-# Enables support for decoding ATSC A/52 streams used in DVD
-USE="${USE} a52"
-# Enables support for MPEG-4 AAC Audio
-USE="${USE} aac"
-# Adds support for media-libs/aalib (ASCII-Graphics Library)
-USE="${USE} aalib"
-# Adds avifile (Library for avi) support
-USE="${USE} avi"
-# Access cddb servers to retrieve and submit information about compact disks
-USE="${USE} cddb"
-# Enables support for a codec used by many camcorders
-USE="${USE} dv"
-# Adds support for encoding of audio or video files
-USE="${USE} encode"
-# Adds framebuffer support for the console, via the kernel
-USE="${USE} fbcon"
-# Enable ffmpeg support
-USE="${USE} ffmpeg"
-# Adds support for creating flash files using Ming
-USE="${USE} flash"
-# Adds support for media-libs/libggi (non-X video api/drivers)
-USE="${USE} ggi"
-# Add support for colored ASCII-art graphics
-USE="${USE} libcaca"
-# Enables support for lzo compression
-USE="${USE} lzo"
-# Adds support for the matroska container format
-USE="${USE} matroska"
-# Enable mplayer support
-USE="${USE} mplayer"
-# Enable support for the musepack audio codec
-USE="${USE} musepack"
-# Installs the real video codecs
-USE="${USE} real"
-# Adds support for Simple Direct Layer (media library)
-USE="${USE} sdl"
-# Adds support for the speex audio codec
-USE="${USE} speex"
-# Support for SRT subtitle format
-USE="${USE} srt"
-# Adds support for SVGAlib (graphics library)
-USE="${USE} svga"
-# Enables Targa video output
-USE="${USE} tga"
-# Adds support for OpenQuickTime
-USE="${USE} quicktime"
-# Adds support for the Theora Video Compression Codec
-USE="${USE} theora"
-# Enables video4linux support
-USE="${USE} v4l"
-# Enable video4linux2 support
-USE="${USE} v4l2"
-# Support for vidix video output
-USE="${USE} vidix"
-# use win32codecs package for dll avi decoding support (wmv and what not)
-USE="${USE} win32codecs"
-# Enables support for xanim based codecs
-USE="${USE} xanim"
-# Enable h264 encoding using x264
-USE="${USE} x264"
-# Add support for the XINE movie libraries
-USE="${USE} xine"
-# Add support for the xinerama X11 extension, which allows you to stretch your
-#display across multiple monitors
-USE="${USE} xinerama"
-# Adds in optional support for the Xvideo extension (an X API for video playback)
-USE="${USE} xv"
-# Adds support for xvid.org's open-source mpeg-4 codec
-USE="${USE} xvid"
-# Support for XVideo Motion Compensation (accelerated mpeg playback)
-USE="${USE} xvmc"
-# Chooses Apache1 support when a package optionally supports Apache1
-#-apache
-# Chooses Apache2 support when a package supports both Apache1 and Apache2
-#apache2
-# Adds libwww support (General purpose WEB API)
-USE="${USE} libwww"
-# Adds support for installing web-based applications into a virtual-hosting
-#environment
-USE="${USE} vhosts"
-# enable javascript support
-#USE="${USE} javascript"
-# Enables Bluetooth Support
+
+# Video
+USE="${USE} a52 aac aalib avi cddb dv encode fbcon ffmpeg flash ggi libcaca lzo matroska mplayer musepack real sdl speex srt svga tga quicktime theora v4l v4l2 vidix win32codecs xanim x264 xine xinerama xv xvid xvmc"
+
+# Web
+#USE="${USE} -apache apache2 javascript"
+USE="${USE} libwww vhosts"
+
+# Wireless
 USE="${USE} bluetooth"
-# Adds support for x11-libs/gtk+ (The GIMP Toolkit)
+
+# Window manager and speciality
 USE="${USE} gtk"
