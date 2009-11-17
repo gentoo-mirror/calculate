@@ -21,11 +21,12 @@ ALSA_CARDS="ca0106 emu10k1 hda-intel intel8x0 intel8x0m pcsp via82xx"
 AUTOCLEAN="yes"
 CAMERAS="*"
 DISTDIR="/usr/calculate/share/distfiles"
-FEATURES="parallel-fetch -unmerge-orphans"
+FEATURES="parallel-fetch"
 FOO2ZJS_DEVICES="*"
 INPUT_DEVICES="keyboard mouse evdev synaptics"
 LINGUAS="en de es fr it pl pt_BR ru uk"
 LDFLAGS="-Wl,--as-needed"
+PORTAGE_NICENESS=19
 PORTAGE_TMPDIR="/var/calculate/tmp"
 VIDEO_CARDS="fbdev glint i810 intel mach64 mga neomagic nv radeon savage tdfx trident vesa vga via vmware"
 
