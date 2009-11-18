@@ -7,11 +7,14 @@ USE="${USE} alsa -arts audiofile id3tag flac mad mp3 mpeg nas ogg oggvorbis open
 # CD and DVD
 USE="${USE} cdparanoia cdr dvd dvdr dvdread vcd"
 
+# Documentation format
+USE="chm djvu ebook"
+
 # Guard and security
 USE="${USE} clamav crypt ssl"
 
 # Hardware
-USE="${USE} 3dnow acpi cairo dbus dri hal ieee1394 mmx mmxext nvidia opengl scanner smp sse sse2 sse3 sse4.1 sse4.2 sse4a sse5 ssse3 usb xcomposite"
+USE="${USE} 3dnow acpi cairo dbus dri hal ieee1394 mmxext nvidia opengl scanner smp sse3 sse4.1 sse4.2 sse4a sse5 usb xcomposite"
 
 #USE="${USE} apm bluetooth"
 

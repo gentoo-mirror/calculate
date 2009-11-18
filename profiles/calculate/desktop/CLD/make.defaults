@@ -3,6 +3,7 @@ USE="lirc"
 
 # Network protocols
 USE="${USE} ldap rdesktop"
+
 # Sql support
 USE="${USE} mysql"
 #USE="${USE} postgres"
