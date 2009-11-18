@@ -1,5 +1,5 @@
 # Hardware
-USE="lirc"
+USE="${USE} lirc"
 
 # Network protocols
 USE="${USE} ldap rdesktop"

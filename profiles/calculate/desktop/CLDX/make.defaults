@@ -1,5 +1,5 @@
 # Network protocols
-USE="ldap rdesktop"
+USE="${USE} ldap rdesktop"
 
 # Window manager and specialities
 USE="${USE} -eds -gnome -kde"

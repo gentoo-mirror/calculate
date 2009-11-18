@@ -8,7 +8,7 @@ USE="${USE} alsa -arts audiofile id3tag flac mad mp3 mpeg nas ogg oggvorbis open
 USE="${USE} cdparanoia cdr dvd dvdr dvdread vcd"
 
 # Documentation format
-USE="chm djvu ebook"
+USE="${USE} chm djvu ebook"
 
 # Guard and security
 USE="${USE} clamav crypt ssl"
