@@ -1,12 +1,11 @@
-sys-apps/openrc amd64 x86
-=sys-apps/openrc-9999 -amd64 -x86
-sys-apps/baselayout amd64 x86
-sys-apps/sysvinit amd64 x86
-=sys-apps/util-linux-2.16.1 amd64 x86
-sys-fs/aufs2 amd64 x86
+~sys-apps/openrc-0.5.2 amd64 x86
+~sys-apps/baselayout-2.0.1 amd64 x86
+~sys-apps/sysvinit-2.87 amd64 x86
+~sys-apps/util-linux-2.16.1 amd64 x86
+~sys-fs/aufs2-0_p20090916 amd64 x86
 ~sys-fs/udev-146 amd64 x86
-=sys-kernel/gentoo-sources-2.6.31-r4 amd64 x86
-x11-drivers/nvidia-drivers amd64 x86
+=sys-kernel/gentoo-sources-2.6.31-r6 amd64 x86
+~x11-drivers/nvidia-drivers-190.42 amd64 x86
 
 ~sys-fs/e2fsprogs-1.41.9 amd64 x86
 ~sys-libs/e2fsprogs-libs-1.41.9 amd64 x86
