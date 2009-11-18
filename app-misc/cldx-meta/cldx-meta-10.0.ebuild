@@ -47,6 +47,7 @@ RDEPEND="~app-misc/cls-meta-${PV}
 	net-dialup/xl2tpd
 	net-dns/bind-tools
 	net-fs/fusesmb
+	net-fs/samba
 	net-im/pidgin
 	net-irc/xchat
 	net-misc/ifenslave
