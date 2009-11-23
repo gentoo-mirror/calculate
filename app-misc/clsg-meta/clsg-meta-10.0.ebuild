@@ -17,6 +17,6 @@ RDEPEND="~app-misc/cls-meta-${PV}
 	gnome-base/gdm
 	gnome-base/gnome-applets
 	gnome-base/gnome-light
-	media-gfx/calculate-clsg-themes
+	~media-gfx/calculate-clsg-themes-${PV}
 	media-sound/sox
 	net-misc/wicd"
