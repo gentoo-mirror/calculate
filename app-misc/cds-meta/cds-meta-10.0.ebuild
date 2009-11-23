@@ -54,7 +54,7 @@ RDEPEND="app-admin/hddtemp
 	mail-filter/spamassassin
 	mail-mta/postfix
 	media-fonts/terminus-font
-	media-gfx/calculate-cds-themes
+	~media-gfx/calculate-cds-themes-${PV}
 	media-gfx/splashutils
 	net-analyzer/fail2ban
 	net-analyzer/ipcad
