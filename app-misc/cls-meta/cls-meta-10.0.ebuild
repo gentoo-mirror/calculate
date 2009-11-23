@@ -45,7 +45,7 @@ RDEPEND="app-admin/logrotate
 	media-fonts/corefonts
 	media-fonts/droid
 	media-fonts/terminus-font
-	media-gfx/calculate-cls-themes
+	~media-gfx/calculate-cls-themes-${PV}
 	media-gfx/splashutils
 	media-sound/alsa-utils
 	net-analyzer/iptraf
