@@ -46,7 +46,7 @@ RDEPEND="
 	dev-python/ipython
 	dev-python/psycopg
 	dev-tcltk/expect
-    media-gfx/calculate-cld-themes
+    ~media-gfx/calculate-cld-themes-${PV}
     media-gfx/digikam
     media-gfx/gimp
     media-gfx/xsane
