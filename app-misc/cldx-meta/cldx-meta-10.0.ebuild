@@ -32,7 +32,7 @@ RDEPEND="~app-misc/cls-meta-${PV}
 	mail-client/claws-mail
 	mail-client/claws-mail-gtkhtml
 	mail-client/claws-mail-rssyl
-	media-gfx/calculate-cldx-themes
+	~media-gfx/calculate-cldx-themes-${PV}
 	media-gfx/gimp
 	media-gfx/gqview
 	media-gfx/gtkam
