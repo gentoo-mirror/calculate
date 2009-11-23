@@ -11,7 +11,9 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-RDEPEND="!media-gfx/calculate-cld-themes"
+RDEPEND="!media-gfx/calculate-cldx-themes
+		!media-gfx/calculate-cld-themes
+		!media-gfx/cldx-themes"
 DEPEND="${RDEPEND}"
 
 src_install() {
