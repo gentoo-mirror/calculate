@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="=sys-boot/${SYSLINUX_PF}"
+RDEPEND="~sys-boot/${SYSLINUX_P}"
 DEPEND="${RDEPEND}"
 
 # This ebuild is a departure from the old way of rebuilding everything in syslinux
