@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="~app-misc/cls-meta-${PV}
+RDEPEND="
 	app-admin/sudo
 	app-arch/rar
 	app-cdr/xfburn
@@ -27,12 +27,13 @@ RDEPEND="~app-misc/cls-meta-${PV}
 	app-dicts/myspell-ru
 	app-dicts/myspell-uk
 	app-dicts/stardict
+	~app-misc/cls-meta-${PV}
 	app-office/openoffice
 	app-text/epdfview
 	mail-client/claws-mail
 	mail-client/claws-mail-gtkhtml
 	mail-client/claws-mail-rssyl
-	~media-gfx/calculate-cldx-themes-${PV}
+	~media-gfx/cldx-themes-${PV}
 	media-gfx/gimp
 	media-gfx/gqview
 	media-gfx/gtkam

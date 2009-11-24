@@ -14,7 +14,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	~app-misc/cls-meta-${PV}
 	app-admin/sudo
 	app-antivirus/clamav
 	app-arch/rar
@@ -41,12 +40,13 @@ RDEPEND="
 	app-dicts/myspell-ru
 	app-dicts/myspell-uk
 	app-emulation/wine
+	~app-misc/cls-meta-${PV}
 	app-office/openoffice
 	dev-db/pgadmin3
 	dev-python/ipython
 	dev-python/psycopg
 	dev-tcltk/expect
-    ~media-gfx/calculate-cld-themes-${PV}
+    ~media-gfx/cld-themes-${PV}
     media-gfx/digikam
     media-gfx/gimp
     media-gfx/xsane

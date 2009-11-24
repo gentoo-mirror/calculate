@@ -13,7 +13,8 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-RDEPEND="app-admin/hddtemp
+RDEPEND="
+	app-admin/hddtemp
 	app-admin/logrotate
 	app-admin/syslog-ng
 	app-admin/testdisk
@@ -54,7 +55,7 @@ RDEPEND="app-admin/hddtemp
 	mail-filter/spamassassin
 	mail-mta/postfix
 	media-fonts/terminus-font
-	~media-gfx/calculate-cds-themes-${PV}
+	~media-gfx/cds-themes-${PV}
 	media-gfx/splashutils
 	net-analyzer/fail2ban
 	net-analyzer/ipcad
@@ -145,4 +146,5 @@ RDEPEND="app-admin/hddtemp
 	sys-process/htop
 	sys-process/lsof
 	sys-process/vixie-cron
-	www-client/links"
+	www-client/links
+"

@@ -13,10 +13,12 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-RDEPEND="~app-misc/cls-meta-${PV}
+RDEPEND="
+	~app-misc/cls-meta-${PV}
 	gnome-base/gdm
 	gnome-base/gnome-applets
 	gnome-base/gnome-light
-	~media-gfx/calculate-clsg-themes-${PV}
+	~media-gfx/clsg-themes-${PV}
 	media-sound/sox
-	net-misc/wicd"
+	net-misc/wicd
+"
