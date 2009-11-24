@@ -72,6 +72,7 @@ RDEPEND="
     net-misc/rdesktop
     net-misc/wicd
     net-misc/wol
+	net-p2p/eiskaltdc
     net-p2p/ktorrent
     sys-apps/calculate-client
     sys-apps/ethtool
