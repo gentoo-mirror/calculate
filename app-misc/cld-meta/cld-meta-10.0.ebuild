@@ -288,6 +288,7 @@ RDEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
     kde-base/kate
 	kde-base/kdeplasma-addons
+	kde-misc/kgtk
 	kde-misc/konq-plugins
 	net-wireless/kbluetooth
 "
