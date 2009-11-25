@@ -30,3 +30,7 @@ x11-misc/xscreensaver -opengl -jpeg
 
 #for compile with sys-auth/pambase
 net-wireless/bluez -consolekit
+
+#for compile with gnome-base/gdm
+sys-auth/pambase consolekit
+
