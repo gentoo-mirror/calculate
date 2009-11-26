@@ -77,7 +77,6 @@ RDEPEND="
 	net-dns/bind-tools
 	net-dns/ddclient
 	net-firewall/iptables
-	net-fs/mount-cifs
 	net-fs/nfs-utils
 	net-fs/samba
 	net-ftp/ftp
