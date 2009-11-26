@@ -139,6 +139,7 @@ RDEPEND="
 	sys-fs/ntfs3g
 	sys-fs/reiserfsprogs
 	sys-fs/squashfs-tools
+	sys-fs/xfsdump
 	sys-fs/xfsprogs
 	sys-kernel/calckernel
 	sys-kernel/module-rebuild
