@@ -11,7 +11,7 @@ SYSLINUX_PN=syslinux
 SYSLINUX_P=${SYSLINUX_PN}-${SYSLINUX_PV}
 SYSLINUX_PF=${SYSLINUX_P}
 
-DESCRIPTION="SysLinux with calcboot module calcmenu.c32"
+DESCRIPTION="Module calcmenu.c32 for syslinux"
 HOMEPAGE="http://www.calculate-linux.org/calcboot"
 SRC_URI="mirror://kernel/linux/utils/boot/syslinux/${SYSLINUX_P}.tar.bz2
 		ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
