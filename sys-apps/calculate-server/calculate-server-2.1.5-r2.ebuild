@@ -21,7 +21,7 @@ DEPEND=">=sys-apps/calculate-lib-2.1.3-r1
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
-	!>=net-fs/samba-3.4.0
+	!>=net-fs/samba-3.5.0
 	|| (
 			(
 				>=net-fs/samba-3.3.0[server,client]
