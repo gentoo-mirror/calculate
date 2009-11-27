@@ -3,6 +3,12 @@
 # $Header: $
 
   27 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.3-r1.ebuild, -calculate-server-2.1.4.ebuild,
+  -calculate-server-2.1.4-r1.ebuild, -calculate-server-2.1.5.ebuild,
+  calculate-server-2.1.5-r2.ebuild, calculate-server-9999.ebuild:
+  Deleted older calcualte-server and fix samba dependence.
+
+  27 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
   calculate-server-9999.ebuild:
   Fix samba depends for live ebuild of calculate-server
 
