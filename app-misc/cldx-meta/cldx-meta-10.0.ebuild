@@ -41,6 +41,7 @@ RDEPEND="
 	media-libs/win32codecs
 	media-sound/audacious
 	media-sound/sox
+	media-video/gnome-mplayer
 	media-video/mplayer
 	net-analyzer/macchanger
 	net-dialup/gnome-ppp
