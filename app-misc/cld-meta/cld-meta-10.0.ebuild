@@ -91,6 +91,7 @@ RDEPEND="
     sys-power/cpufreqd
     sys-power/powernowd
     sys-process/htop
+	www-plugins/adblock-mozilla-plugin
     www-plugins/adobe-flash
     x11-apps/mesa-progs
     x11-apps/xdpyinfo

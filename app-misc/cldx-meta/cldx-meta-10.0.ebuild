@@ -75,6 +75,7 @@ RDEPEND="
 	sys-power/cpufreqd
 	sys-power/powernowd
 	sys-process/htop
+	www-plugins/adblock-mozilla-plugin
 	www-plugins/adobe-flash
 	x11-apps/ccsm
 	x11-apps/fusion-icon
