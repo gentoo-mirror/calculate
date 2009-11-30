@@ -110,4 +110,6 @@ RDEPEND="app-admin/logrotate
 	x11-base/xorg-x11
 	x11-drivers/xf86-video-ati
 	x11-drivers/xf86-video-intel
-	x11-drivers/xf86-video-radeonhd"
+	x11-drivers/xf86-video-radeonhd
+	x11-wm/openbox
+"
