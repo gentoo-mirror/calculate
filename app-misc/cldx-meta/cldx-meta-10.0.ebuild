@@ -86,6 +86,7 @@ RDEPEND="
 	x11-misc/xbindkeys
 	x11-misc/xfce4-notifyd
 	x11-plugins/pidgin-libnotify
+	x11-terms/terminal
 	x11-themes/emerald-themes
 	x11-themes/tango-icon-theme
 	x11-wm/compiz-fusion
