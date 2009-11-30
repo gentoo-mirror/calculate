@@ -3,3 +3,6 @@ USE="${USE} ldap rdesktop"
 
 # Window manager and specialities
 USE="${USE} -eds -gnome -kde"
+
+VIDEO_CARDS="${VIDEO_CARDS} nvidia radeonhd"
+
