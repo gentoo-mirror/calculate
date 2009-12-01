@@ -16,8 +16,7 @@ KEYWORDS="amd64 x86"
 
 IUSE=""
 
-DEPEND=">=sys-apps/calculate-lib-2.1.4
-	<sys-apps/calculate-lib-2.1.4
+DEPEND="~sys-apps/calculate-lib-2.1.4
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
