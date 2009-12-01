@@ -110,6 +110,7 @@ RDEPEND="
 	sci-libs/fftw
 	sys-apps/acl
 	sys-apps/bar
+	sys-apps/calculate
 	sys-apps/calculate-server
 	sys-apps/ethtool
 	sys-apps/hal

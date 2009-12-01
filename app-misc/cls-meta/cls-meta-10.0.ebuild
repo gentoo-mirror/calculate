@@ -79,6 +79,7 @@ RDEPEND="app-admin/logrotate
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
 	sys-apps/bar
+	sys-apps/calculate
 	sys-apps/hal
 	sys-apps/hotplug
 	sys-apps/ifplugd
