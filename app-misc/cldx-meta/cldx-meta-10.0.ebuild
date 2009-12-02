@@ -101,6 +101,7 @@ RDEPEND="
 	xfce-extra/xfce4-cpugraph-plugin
 	xfce-extra/xfce4-datetime-plugin
 	xfce-extra/xfce4-mailwatch-plugin
+	xfce-extra/xfce4-mixer
 	xfce-extra/xfce4-notes-plugin
 	xfce-extra/xfce4-power-manager
 	xfce-extra/xfce4-screenshooter
