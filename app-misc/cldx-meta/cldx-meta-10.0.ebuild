@@ -27,6 +27,7 @@ RDEPEND="
 	app-dicts/myspell-ru
 	app-dicts/myspell-uk
 	app-dicts/stardict
+	app-editors/mousepad
 	~app-misc/cls-meta-${PV}
 	app-office/openoffice
 	app-text/epdfview
