@@ -11,7 +11,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-RDEPEND="!media-gfx/cls-themes"
+RDEPEND="!media-gfx/calculate-cls-themes"
 
 DEPEND="${RDEPEND}"
 

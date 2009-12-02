@@ -13,7 +13,7 @@ IUSE=""
 
 RDEPEND="!media-gfx/calculate-cldx-themes
 		!media-gfx/calculate-cld-themes
-		!media-gfx/cld-themes"
+		!media-gfx/cldx-themes"
 
 DEPEND="${RDEPEND}"
 
