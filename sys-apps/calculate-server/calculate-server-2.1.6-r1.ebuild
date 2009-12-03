@@ -41,6 +41,7 @@ DEPEND="~sys-apps/calculate-lib-2.1.4
 	>=net-misc/dhcp-3.1.2_p1"
 
 RDEPEND="${DEPEND}"
+S="${WORKDIR}/${PF}"
 
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \
