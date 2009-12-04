@@ -16,6 +16,6 @@ IUSE=""
 RDEPEND="
 	~app-misc/cls-meta-${PV}
 	gnome-base/gnome
-	~media-gfx/clsg-themes-${PV}
+	~media-gfx/cldg-themes-${PV}
 	net-misc/wicd
 "
