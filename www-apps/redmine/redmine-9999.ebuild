@@ -64,7 +64,7 @@ src_install() {
 	doins -r . || die
 	keepdir "${REDMINE_DIR}/files"
 
-	if use specopenid ; then
+	if use openid ; then
 		einfo "Install packs special OpenID and Simple Captcha:"
 		bash ${FILESDIR}/install.sh || die
 	fi
@@ -77,7 +77,7 @@ src_install() {
 		dodir "${REDMINE_DIR}/tmp/pids" || die
 		dosym "${REDMINE_DIR}/config/mongrel_cluster.yml" /etc/mongrel_cluster/redmine.yml || die
 		doinitd /usr/lib/ruby/gems/1.8/gems/mongrel_cluster-1.0.5/resources/mongrel_cluster || die
-		rc-update add mongrel_cluster defaults
+		rc-update add mongrel_cluster default
 		fowners -R mongrel:mongrel \
 			"${REDMINE_DIR}/config/environment.rb" \
 			"${REDMINE_DIR}/files" \
