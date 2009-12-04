@@ -64,11 +64,6 @@ src_install() {
 	doins -r . || die
 	keepdir "${REDMINE_DIR}/files"
 
-	if use openid ; then
-		einfo "Install packs special OpenID and Simple Captcha:"
-		bash ${FILESDIR}/install.sh || die
-	fi
-
 	if use mongrel ; then
 		has_apache
 		insinto "${APACHE_VHOSTS_CONFDIR}"
@@ -77,7 +72,6 @@ src_install() {
 		dodir "${REDMINE_DIR}/tmp/pids" || die
 		dosym "${REDMINE_DIR}/config/mongrel_cluster.yml" /etc/mongrel_cluster/redmine.yml || die
 		doinitd /usr/lib/ruby/gems/1.8/gems/mongrel_cluster-1.0.5/resources/mongrel_cluster || die
-		rc-update add mongrel_cluster default
 		fowners -R mongrel:mongrel \
 			"${REDMINE_DIR}/config/environment.rb" \
 			"${REDMINE_DIR}/files" \
@@ -90,6 +84,11 @@ src_install() {
 }
 
 pkg_postinst() {
+
+	if use openid ; then
+		cp ${FILESDIR}/simple_captcha.patch ${REDMINE_DIR}
+		cp ${FILESDIR}/openid.patch ${REDMINE_DIR}
+	fi
 
 	einfo
 	elog "Execute the following command to initlize environment:"
@@ -119,7 +118,19 @@ pkg_config() {
 
 	local RAILS_ENV=${RAILS_ENV:-production}
 
+	pwd
+	echo ${FILESDIR}
+
 	cd "${REDMINE_DIR}"
+
+	if use openid ; then
+		einfo "Install packs special OpenID and Simple Captcha:"
+		ruby script/plugin install svn://rubyforge.org/var/svn/expressica/plugins/simple_captcha || die
+		rake simple_captcha:setup || die
+		patch -p0 -i simple_captcha.patch || die
+		patch -p0 -i openid.patch || die
+	fi
+
 	if [ -e "${REDMINE_DIR}/config/initializers/session_store.rb" ] ; then
 		einfo
 		einfo "Upgrade database."
@@ -146,6 +157,12 @@ pkg_config() {
 		RAILS_ENV="${RAILS_ENV}" rake redmine:load_default_data || die
 	fi
 	if use mongrel ; then
-		einfo "Configure mongrel rails." mongrel_rails cluster::configure -e production -p 8000 -N 3 -c $REDMINE_DIR --user mongrel --group mongrel
+		einfo "Configure mongrel rails."
+		mongrel_rails cluster::configure -e production -p 8000 -N 3 -c $REDMINE_DIR --user mongrel --group mongrel
+		einfo
+		einfo "Execute the following command to start Redmine:"
+		einfo "# /etc/init.d/mongrel_cluster start"
+		einfo "# /etc/init.d/apache start"
+		einfo
 	fi
 }
