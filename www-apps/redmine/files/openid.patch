@@ -214,7 +214,7 @@
  
      def authenticate_with_open_id(identity_url = nil, options = {}, &block) #:doc:
 --- /dev/null
-+++ b/app/views/account/openid_login.rhtml
++++ app/views/account/openid_login.rhtml
 @@ -0,0 +1,52 @@
 +<div id="login-form">
 +<% form_tag({:action=> "openid_login"}) do %>

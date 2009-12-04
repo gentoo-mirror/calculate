@@ -124,6 +124,7 @@ pkg_config() {
 	cd "${REDMINE_DIR}"
 
 	if use openid ; then
+		einfo
 		einfo "Install packs special OpenID and Simple Captcha:"
 		ruby script/plugin install svn://rubyforge.org/var/svn/expressica/plugins/simple_captcha || die
 		rake simple_captcha:setup || die
@@ -160,9 +161,13 @@ pkg_config() {
 		einfo "Configure mongrel rails."
 		mongrel_rails cluster::configure -e production -p 8000 -N 3 -c $REDMINE_DIR --user mongrel --group mongrel
 		einfo
+		einfo "You need to edit your /etc/conf.d/apache2 file and"
+	    einfo "add '-D PROXY' to APACHE2_OPTS."
+		einfo
 		einfo "Execute the following command to start Redmine:"
+		einfo "# ${EDITOR:-/usr/bin/nano} /etc/apache2/vhosts.d/10_redmine_vhost.conf"
 		einfo "# /etc/init.d/mongrel_cluster start"
-		einfo "# /etc/init.d/apache start"
+		einfo "# /etc/init.d/apache2 start"
 		einfo
 	fi
 }
