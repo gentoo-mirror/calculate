@@ -64,6 +64,11 @@ src_install() {
 	doins -r . || die
 	keepdir "${REDMINE_DIR}/files"
 
+	if use specopenid ; then
+		einfo "Install packs special OpenID and Simple Captcha:"
+		bash ${FILESDIR}/install.sh || die
+	fi
+
 	if use mongrel ; then
 		has_apache
 		insinto "${APACHE_VHOSTS_CONFDIR}"

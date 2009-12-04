@@ -1,0 +1,30 @@
+--- app/controllers/application_controller.rb
++++ app/controllers/application_controller.rb
+@@ -19,6 +19,7 @@ require 'uri'
+ require 'cgi'
+ 
+ class ApplicationController < ActionController::Base
++  include SimpleCaptcha::ControllerHelpers
+   include Redmine::I18n
+ 
+   layout 'base'
+--- config/routes.rb
++++ config/routes.rb
+@@ -269,4 +269,6 @@ ActionController::Routing::Routes.draw do |map|
+   map.connect 'robots.txt', :controller => 'welcome', :action => 'robots'
+   # Used for OpenID
+   map.root :controller => 'account', :action => 'login'
++  # Captcha
++  map.simple_captcha '/simple_captcha/:action', :controller => 'simple_captcha'
+ end
+--- vendor/plugins/simple_captcha/lib/simple_captcha_config.rb
++++ vendor/plugins/simple_captcha/lib/simple_captcha_config.rb
+@@ -12,7 +12,7 @@ module SimpleCaptcha #:nodoc
+     end
+     
+     def simple_captcha_key #:nodoc
+-      session[:simple_captcha] ||= Digest::SHA1.hexdigest(Time.now.to_s + session.session_id.to_s)
++      session[:simple_captcha] ||= Digest::SHA1.hexdigest(Time.now.to_s)
+     end
+         
+     def simple_captcha_value(key = simple_captcha_key) #:nodoc
