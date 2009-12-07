@@ -4,5 +4,8 @@
 <net-wireless/madwifi-ng-0.9.4.4030.20090529
 <net-wireless/madwifi-ng-tools-0.9.4.4030.20090529
 
+# mask all device-mapper for using lvm2
+sys-fs/device-mapper
+
 # hasn't patch for Calculate profiles
 >=app-admin/eselect-1.2.9
