@@ -128,8 +128,15 @@ pkg_config() {
 		einfo "Install packs special OpenID and Simple Captcha:"
 		ruby script/plugin install svn://rubyforge.org/var/svn/expressica/plugins/simple_captcha || die
 		rake simple_captcha:setup || die
-		patch -p0 -i simple_captcha.patch || die
-		patch -p0 -i openid.patch || die
+
+		patch --dry-run -p0 >/dev/null < simple_captcha.patch
+		if [ $? = 0 ] ; then
+			patch -p0 -N -i simple_captcha.patch || die
+		fi
+		patch --dry-run -p0 >/dev/null < openid.patch
+		if [ $? = 0 ] ; then
+			patch -p0 -N -i openid.patch || die
+		fi
 	fi
 
 	if [ -e "${REDMINE_DIR}/config/initializers/session_store.rb" ] ; then
@@ -140,7 +147,7 @@ pkg_config() {
 		einfo "Migrate database."
 		RAILS_ENV="${RAILS_ENV}" rake db:migrate || die
 		einfo "Upgrade the plugin migrations."
-		RAILS_ENV="${RAILS_ENV}" rake db:migrate:upgrade_plugin_migrations || die
+		#RAILS_ENV="${RAILS_ENV}" rake db:migrate:upgrade_plugin_migrations || die
 		RAILS_ENV="${RAILS_ENV}" rake db:migrate_plugins || die
 		einfo "Clear the cache and the existing sessions."
 		rake tmp:cache:clear || die

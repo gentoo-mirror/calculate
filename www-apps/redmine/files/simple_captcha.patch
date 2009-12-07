@@ -28,3 +28,28 @@
      end
          
      def simple_captcha_value(key = simple_captcha_key) #:nodoc
+--- app/controllers/account_controller.rb
++++ app/controllers/account_controller.rb
+@@ -92,7 +92,9 @@ class AccountController < ApplicationController
+       @user = User.new(params[:user])
+       @user.admin = false
+       @user.status = User::STATUS_REGISTERED
+-      if session[:auth_source_registration]
++      if !simple_captcha_valid?
++        flash.now[:error] = l(:notice_account_invalid_captcha)
++      elsif session[:auth_source_registration]
+         @user.status = User::STATUS_ACTIVE
+         @user.login = session[:auth_source_registration][:login]
+         @user.auth_source_id = session[:auth_source_registration][:auth_source_id]
+--- app/views/account/register.rhtml
++++ app/views/account/register.rhtml
+@@ -37,6 +37,9 @@
+ <% @user.custom_field_values.select {|v| v.editable? || v.required?}.each do |value| %>
+        <p><%= custom_field_tag_with_label :user, value %></p>
+ <% end %>
++
++<p><span><label for="captcha"><%=l(:field_captcha_valid)%> <span class="required">*</span></label>
++<%= show_simple_captcha(:label => '') %></span></p>
+ <!--[eoform:user]-->
+ </div>
+ 
