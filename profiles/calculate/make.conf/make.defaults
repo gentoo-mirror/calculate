@@ -13,7 +13,6 @@ USE="${USE} foomaticdb"
 # System
 USE="${USE} logrotate"
 
-CXXFLAGS="${CFLAGS}"
 AUTOCLEAN="yes"
 CAMERAS="*"
 DISTDIR="/usr/calculate/share/distfiles"

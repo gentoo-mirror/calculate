@@ -1,2 +1,3 @@
 CFLAGS="-O2 -march=k8 -pipe"
+CXXFLAGS="${CFLAGS}"
 CHOST="x86_64-pc-linux-gnu"
