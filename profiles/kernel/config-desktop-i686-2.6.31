@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
-# Linux kernel version: 2.6.31-mike
-# Sat Dec 12 00:42:51 2009
+# Linux kernel version: 2.6.31-calculate
+# Sun Dec 13 22:22:39 2009
 #
 # CONFIG_64BIT is not set
 CONFIG_X86_32=y
@@ -1032,7 +1032,16 @@ CONFIG_MD_RAID456=m
 CONFIG_MD_RAID6_PQ=m
 # CONFIG_MD_MULTIPATH is not set
 # CONFIG_MD_FAULTY is not set
-# CONFIG_BLK_DEV_DM is not set
+CONFIG_BLK_DEV_DM=m
+# CONFIG_DM_DEBUG is not set
+# CONFIG_DM_CRYPT is not set
+# CONFIG_DM_SNAPSHOT is not set
+# CONFIG_DM_MIRROR is not set
+# CONFIG_DM_ZERO is not set
+# CONFIG_DM_MULTIPATH is not set
+# CONFIG_DM_DELAY is not set
+# CONFIG_DM_UEVENT is not set
+# CONFIG_BLK_DEV_DM_BBR is not set
 CONFIG_FUSION=y
 CONFIG_FUSION_SPI=m
 CONFIG_FUSION_FC=m
