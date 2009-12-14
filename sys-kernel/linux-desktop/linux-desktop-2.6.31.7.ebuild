@@ -56,6 +56,16 @@ src_install() {
 		fi
 
 	done
+	addwrite "/usr/src/${SRC_NAME}"
+	for fwfile in `find "${D}/usr/src/${SRC_NAME}" -type f`; do
+		sysfile="${ROOT}/${fwfile/${D}}"
+		if [ -f "${sysfile}" ]; then
+			ewarn "Removing duplicated: ${sysfile}"
+			rm ${sysfile} || die "failed to remove ${sysfile}"
+		fi
+	done
+		
+	doins -r usr
 }
 
 pkg_postinst() {

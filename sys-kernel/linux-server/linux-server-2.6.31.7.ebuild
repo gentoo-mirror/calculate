@@ -13,7 +13,7 @@ GENTOO_SOURCES_PV="2.6.31"
 GENTOO_SOURCES_PR="r7"
 GENTOO_SOURCES_PVR="${GENTOO_SOURCES_PV}-${GENTOO_SOURCES_PR}"
 SRC_NAME=linux-${GENTOO_SOURCES_PV}-gentoo-${GENTOO_SOURCES_PR}
-SYSTEM="desktop"
+SYSTEM="server"
 
 LICENSE="GPL-2"
 SLOT="2.6.31"
@@ -56,6 +56,16 @@ src_install() {
 		fi
 
 	done
+	addwrite "/usr/src/${SRC_NAME}"
+	for fwfile in `find "${D}/usr/src/${SRC_NAME}" -type f`; do
+		sysfile="${ROOT}/${fwfile/${D}}"
+		if [ -f "${sysfile}" ]; then
+			ewarn "Removing duplicated: ${sysfile}"
+			rm ${sysfile} || die "failed to remove ${sysfile}"
+		fi
+	done
+		
+	doins -r usr
 }
 
 pkg_postinst() {
