@@ -110,8 +110,5 @@ RDEPEND="app-admin/logrotate
 	sys-process/vixie-cron
 	www-client/mozilla-firefox
 	x11-base/xorg-x11
-	x11-drivers/xf86-video-ati
-	x11-drivers/xf86-video-intel
-	x11-drivers/xf86-video-radeonhd
 	x11-wm/openbox
 "
