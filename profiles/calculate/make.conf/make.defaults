@@ -11,7 +11,7 @@ USE="${USE} bittorrent ftp nfs samba"
 USE="${USE} foomaticdb" 
 
 # System
-USE="${USE} logrotate"
+USE="${USE} bash-completion logrotate"
 
 AUTOCLEAN="yes"
 CAMERAS="*"
