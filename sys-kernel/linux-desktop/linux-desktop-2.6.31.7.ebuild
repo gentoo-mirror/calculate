@@ -71,6 +71,7 @@ src_install() {
 pkg_postinst() {
 	calculate_update_splash /boot/initramfs-${SYSTEM}-${SLOT}-calculate
 	calculate_update_kernel ${SYSTEM} ${SLOT} /boot
+	KV_OUT_DIR=/usr/src/${SRC_NAME}
 
 	kernel-2_pkg_postinst
 	linux-mod_pkg_postinst
