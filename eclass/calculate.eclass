@@ -24,6 +24,8 @@ calculate_update_kernel() {
 	[ -f ${dir}/System.map ] && rm -f ${dir}/System.map.old &&
 		mv ${dir}/System.map ${dir}/System.map.old
 	ln -sf System.map-${kname}-${kversion}-calculate ${dir}/System.map
+	ebegin "Trying to optimize initramfs"
+	( which calculate &>/dev/null && calculate ) && eend 0 || eend 1
 }
 
 is_broken_link() {
