@@ -29,7 +29,8 @@ calculate_update_kernel() {
 }
 
 is_broken_link() {
-	return [[ -n $( file $1 | grep "broken symbolic link" ) ]]
+	fname=$1
+	return [[ -n $( file $fname | grep "broken symbolic link" ) ]]
 }
 
 # @FUNCTION: calculate_restore_kernel
