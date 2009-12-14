@@ -19,15 +19,69 @@ calculate_update_kernel() {
 	# update initrd
 	[ -f ${dir}/initrd ] && rm -f ${dir}/initrd.old &&
 		mv ${dir}/initrd ${dir}/initrd.old
-	cp ${dir}/initramfs-${kname}-${kversion}-calculate ${dir}/initrd
-	# update initrd-install
-	[ -f ${dir}/initrd-install ] && rm -f ${dir}/initrd-install.old &&
-		mv ${dir}/initrd-install ${dir}/initrd-install.old
-	cp ${dir}/initramfs-${kname}-${kversion}-calculate ${dir}/initrd-install
+	ln -sf initramfs-${kname}-${kversion}-calculate ${dir}/initrd
+	# update System.map
+	[ -f ${dir}/System.map ] && rm -f ${dir}/System.map.old &&
+		mv ${dir}/System.map ${dir}/System.map.old
+	ln -sf System.map-${kname}-${kversion}-calculate ${dir}/System.map
+}
+
+is_broken_link() {
+	return [[ -n $( file $1 | grep "broken symbolic link" ) ]]
+}
+
+# @FUNCTION: calculate_restore_kernel
+# @USAGE: [destination]
+# @DESCRIPTION:
+# Restore vmlinux.old and initrd.old in destination
+calculate_restore_kernel() {
+	dir=$1
+
+	# restore vmlinuz
+	is_broken_link ${dir}/vmlinuz && [ -f ${dir}/vmlinuz.old ] &&
+		mv ${dir}/vmlinuz.old ${dir}/vmlinuz
+
+	# resotre initrd
+	is_broken_link ${dir}/initrd && [ -f ${dir}/initrd.old ] &&
+		mv ${dir}/initrd.old ${dir}/initrd
+
+	# restore System.map
+	is_broken_link ${dir}/System.map && [ -f ${dir}/System.map.old ] &&
+		mv ${dir}/System.map.old ${dir}/System.map
 }
 
 TMP_INITRAMFS=${T}/initramfs
 SPLASH_DESCRIPTOR=/etc/splash/tty1/1024x768.cfg
+
+# @FUNCTION: calculate_rm_modules_dir
+# @USAGE: [CONTENTS]
+# @DESCRIPTION:
+# Remove installed files from lib/modules specified by CONTENTS file.
+# For work need specify and create SLOT_T directory for .alreadydel flag file,
+# which determined was or not file removing.
+calculate_rm_modules_dir() {
+	PKG_CONTENTS=$1
+	[[ -f ${SLOT_T}/.alreadydel ]] && return 0 || 
+		touch ${SLOT_T}/.alreadydel &>/dev/null
+	addwrite "/lib/modules"
+	DIRRM=$( sed -rn '/^dir.*lib\/modules/ s/^\S+\s+(\S+)\s*.*$/\1/p' \
+		${PKG_CONTENTS} | sort -r)
+	FILERM=$( sed -rn '/^(obj|sym).*lib\/modules/ s/^\S+\s+(\S+)\s+.*$/\1/p' ${PKG_CONTENTS} )
+	if [[ -n ${FILERM} ]]
+	then
+		for f in ${FILERM}
+		do
+			rm -f $f 
+		done
+	fi
+	if [[ -n ${DIRRM} ]]
+	then
+		for f in ${DIRRM}
+		do
+			rmdir $f &>/dev/null
+		done
+	fi
+}
 
 initramfs_unpack() {
 	mkdir -p ${TMP_INITRAMFS}
@@ -82,4 +136,21 @@ calculate_update_splash() {
 	einfo "Update splash screen"
 	initramfs_unpack $1 &&
 	initramfs_change_spalsh && initramfs_pack $1
+}
+
+# @FUNCTION: calculate_set_kernelversion
+# @USAGE: KERNEL_DIR
+# @DESCRIPTION:
+# Change version in Makefile of kernel sources on version specified by
+# variables KV_MAJOR KV_MINOR KV_PATCH KV_TYPE
+calculate_set_kernelversion() {
+	KERNEL_DIR=$1
+	sed -ri "s/^VERSION = .*$/VERSION = $KV_MAJOR/" \
+		${KERNEL_DIR}/Makefile
+	sed -ri "s/^PATCHLEVEL = .*$/PATCHLEVEL = $KV_MINOR/" \
+		${KERNEL_DIR}/Makefile
+	sed -ri "s/^SUBLEVEL = .*$/SUBLEVEL = $KV_PATCH/" \
+		${KERNEL_DIR}/Makefile
+	sed -ri "s/^EXTRAVERSION = .*$/EXTRAVERSION = $KV_TYPE/" \
+		${KERNEL_DIR}/Makefile
 }
