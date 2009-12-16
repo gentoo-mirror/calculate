@@ -1,0 +1,46 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 05500f3..a82b463 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -46,4 +46,3 @@ install(FILES translatoid.db DESTINATION ${DATA_INSTALL_DIR}/translatoid)
+ 
+ add_subdirectory(icons)
+ add_subdirectory(kbflags)
+-add_subdirectory(cmake)
+diff --git a/ktranslatoid.cpp b/ktranslatoid.cpp
+index e0fd7ca..2a60548 100644
+--- a/ktranslatoid.cpp
++++ b/ktranslatoid.cpp
+@@ -26,6 +26,8 @@
+ #include <QTextCodec>
+ #include <QToolButton>
+ #include <QTreeView>
++#include <QApplication>
++#include <QTextEdit>
+ 
+ #include <KConfigDialog>
+ #include <KDebug>
+@@ -429,12 +431,13 @@ void KTranslatoid::copy()
+ {
+     m_destText->nativeWidget()->selectAll();
+     m_destText->nativeWidget()->copy();
++    QApplication::clipboard()->setText(m_destText->nativeWidget()->toPlainText(),QClipboard::Selection);
+ }
+ //=========================================================================================
+ void KTranslatoid::paste()
+ {
+     m_sourceText->nativeWidget()->clear();
+-    m_sourceText->nativeWidget()->paste();
++    m_sourceText->nativeWidget()->setText(QApplication::clipboard()->text(QClipboard::Selection));
+ }
+ 
+ //==============================================================================================
+@@ -550,7 +553,7 @@ void KTranslatoid::readConfig()
+ {
+     KConfigGroup cg = config();
+ 
+-    QString a = cg.readEntry("lsource", QString("fr"));
++    QString a = cg.readEntry("lsource", QString("ru"));
+     QString b = cg.readEntry("lresult", QString("en"));
+     m_autoPaste = cg.readEntry("autoPaste", true);
+     m_autoTranslate = cg.readEntry("autoTranslate", true);
