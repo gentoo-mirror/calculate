@@ -21,4 +21,4 @@ DEPEND=">=kde-base/kdelibs-4.3.0
 
 S="${WORKDIR}/${PN}-1.1"
 
-PATCHES=("${FILESDIR}/paste-${PV}.patch")
+PATCHES=("${FILESDIR}/compilefix-1.1.0.patch")
