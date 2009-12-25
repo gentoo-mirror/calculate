@@ -70,6 +70,7 @@ RDEPEND="app-admin/logrotate
 	net-print/gutenprint
 	net-print/hplip
 	net-wireless/b43-fwcutter
+	net-wireless/broadcom-sta
 	net-wireless/ipw2100-firmware
 	net-wireless/ipw2200-firmware
 	net-wireless/iwl3945-ucode
