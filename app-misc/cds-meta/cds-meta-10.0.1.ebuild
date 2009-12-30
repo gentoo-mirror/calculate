@@ -150,3 +150,17 @@ RDEPEND="kernel? ( sys-kernel/linux-server )
 	sys-process/vixie-cron
 	www-client/links
 "
+
+cxxflags_present_in() {
+	grep CXXFLAGS $1 &>/dev/null
+	return $?
+}
+
+append_cxxflags_to() {
+	sed -i '$aCXXFLAGS="\${CFLAGS}"' $1
+}
+
+
+pkg_postinst() {
+	cxxflags_present_in /etc/make.conf || append_cxxflags_to /etc/make.conf
+}

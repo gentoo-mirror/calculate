@@ -296,3 +296,16 @@ RDEPEND="${RDEPEND}
 	net-wireless/kbluetooth
 "
 
+cxxflags_present_in() {
+	grep CXXFLAGS $1 &>/dev/null
+	return $?
+}
+
+append_cxxflags_to() {
+	sed -i '$aCXXFLAGS="\${CFLAGS}"' $1
+}
+
+
+pkg_postinst() {
+	cxxflags_present_in /etc/make.conf || append_cxxflags_to /etc/make.conf
+}
