@@ -64,7 +64,6 @@ calculate_update_kernel() {
 	kname=$1
 	kversion=$2
 	dir=$3
-	ls -la /boot
 
 	# update vmlinuz
 	update_file ${dir}/linux-${kname}-${kversion}-calculate ${dir}/vmlinuz
