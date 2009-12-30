@@ -91,6 +91,7 @@ pkg_postinst() {
 	KV_OUT_DIR=/usr/src/${SRC_NAME}
 
 	kernel-2_pkg_postinst
+	UPDATE_MODULEDB=false
 	linux-mod_pkg_postinst
 }
 

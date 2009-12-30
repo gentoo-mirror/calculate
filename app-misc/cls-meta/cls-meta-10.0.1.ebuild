@@ -13,6 +13,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="kernel"
 
+#net-wireless/broadcom-sta
 RDEPEND="kernel? ( sys-kernel/linux-desktop )
     app-admin/logrotate
 	app-admin/syslog-ng
@@ -71,7 +72,6 @@ RDEPEND="kernel? ( sys-kernel/linux-desktop )
 	net-print/gutenprint
 	net-print/hplip
 	net-wireless/b43-fwcutter
-	net-wireless/broadcom-sta
 	net-wireless/ipw2100-firmware
 	net-wireless/ipw2200-firmware
 	net-wireless/iwl3945-ucode
@@ -127,4 +127,6 @@ append_cxxflags_to() {
 
 pkg_postinst() {
 	cxxflags_present_in /etc/make.conf || append_cxxflags_to /etc/make.conf
+	ewarn "Please rebuild modules by command:"
+	ewarn "  module-rebuild rebuild"
 }
