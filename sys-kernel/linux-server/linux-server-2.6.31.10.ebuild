@@ -10,7 +10,7 @@ HOMEPAGE="http://www.calculate-linux.org/linux-desktop"
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-`arch`-${PV}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 IUSE=""
 
 KV_MAJOR=2

@@ -11,9 +11,9 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
+IUSE="kernel"
 
-RDEPEND="
+RDEPEND="kernel? ( sys-kernel/linux-server )
 	app-admin/hddtemp
 	app-admin/logrotate
 	app-admin/syslog-ng

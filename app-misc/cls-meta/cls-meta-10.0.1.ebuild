@@ -11,9 +11,10 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
+IUSE="kernel"
 
-RDEPEND="app-admin/logrotate
+RDEPEND="kernel? ( sys-kernel/linux-desktop )
+    app-admin/logrotate
 	app-admin/syslog-ng
 	app-admin/testdisk
 	app-arch/arj
@@ -96,7 +97,6 @@ RDEPEND="app-admin/logrotate
 	sys-boot/calcboot
 	sys-boot/grub
 	sys-devel/prelink
-	sys-fs/aufs2
 	sys-fs/dmraid
 	sys-fs/dosfstools
 	sys-fs/e2fsprogs
