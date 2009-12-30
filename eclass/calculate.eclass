@@ -2,6 +2,59 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header:
 
+# @FUNCTION: rm_link_with_file
+# @USING: rm_link_with_file filename
+# @DESCRIPTION:
+# delete the file, and if it is symbolic then delete the file,
+# which point out a link
+rm_link_with_file() {
+	[[ -L $1 ]] && rm -f `readlink -f $1`
+	rm -f $1
+}
+
+# @FUNCTION: cp_link_with_file
+# @USING: cp_link_with_file filename suffix
+# @DESCRIPTION:
+# copy the file with the same name with the suffix, and if it is a symbolic
+# link, then also copy the target file with the addition of the suffix
+cp_link_with_file() {
+	if [[ -L $1 ]]
+	then
+		rm -f `readlink -f ${1}`$2
+		cp -aH ${1} `readlink -f ${1}`$2
+		ln -sf `readlink ${1}`${2} ${1}${2}
+	else
+		rm -f ${1}${2}
+		cp -aH ${1} ${1}${2}
+	fi
+}
+
+# @FUNCTION: make_old_file
+# @USAGE: make_old_file filename 
+# @DESCRIPTION:
+# wear out a file, copy the file, adding its name suffix ". old"
+# support symbolic link
+make_old_file() {
+	if [[ -e $1 ]]
+	then
+		rm_link_with_file $1.old
+		cp_link_with_file $1 .old
+	fi
+	rm_link_with_file $1
+}
+
+# @FUNCTION: update_file
+# @USAGE: wear_out_file filename link
+# @DESCRIPTION:
+# update a file, and make old file if need
+update_file() {
+	if [[ `readlink -f $2` != `readlink -f $1` ]]
+	then
+	    make_old_file $2
+		ln -sf `basename $1` $2
+	fi
+}
+
 # @FUNCTION: calculate_update_kernel
 # @USAGE: [kernelname] [kernelversion] [destination]
 # @DESCRIPTION:
@@ -11,19 +64,14 @@ calculate_update_kernel() {
 	kname=$1
 	kversion=$2
 	dir=$3
+	ls -la /boot
 
 	# update vmlinuz
-	[ -f ${dir}/vmlinuz ] && rm -f ${dir}/vmlinuz.old && 
-		mv ${dir}/vmlinuz	${dir}/vmlinuz.old
-	ln -sf "linux-${kname}-${kversion}-calculate" ${dir}/vmlinuz
+	update_file ${dir}/linux-${kname}-${kversion}-calculate ${dir}/vmlinuz
 	# update initrd
-	[ -f ${dir}/initrd ] && rm -f ${dir}/initrd.old &&
-		mv ${dir}/initrd ${dir}/initrd.old
-	ln -sf initramfs-${kname}-${kversion}-calculate ${dir}/initrd
+	update_file ${dir}/initramfs-${kname}-${kversion}-calculate ${dir}/initrd
 	# update System.map
-	[ -f ${dir}/System.map ] && rm -f ${dir}/System.map.old &&
-		mv ${dir}/System.map ${dir}/System.map.old
-	ln -sf System.map-${kname}-${kversion}-calculate ${dir}/System.map
+	update_file ${dir}/System.map-${kname}-${kversion}-calculate ${dir}/System.map
 	ebegin "Trying to optimize initramfs"
 	( which calculate &>/dev/null && calculate --initrd ) && eend 0 || eend 1
 }
