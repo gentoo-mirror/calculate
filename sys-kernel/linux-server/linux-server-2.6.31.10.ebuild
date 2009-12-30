@@ -26,7 +26,8 @@ SYSTEM="server"
 KV_FULL="${SLOT}${KV_TYPE}"
 SLOT_T="${PORTAGE_TMPDIR}/portage/${CATEGORY}/${PN}-${SLOT}/temp"
 
-DEPEND="=sys-kernel/gentoo-sources-${GENTOO_SOURCES_PVR}"
+DEPEND="=sys-kernel/gentoo-sources-${GENTOO_SOURCES_PVR}
+		>=sys-apps/calculate-1.3.3"
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
