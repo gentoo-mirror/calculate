@@ -92,9 +92,9 @@ pkg_postinst() {
 
 	kernel-2_pkg_postinst
 	UPDATE_MODULEDB=false
+	linux-mod_pkg_postinst
 	cd $KV_OUT_DIR
 	make modules_prepare
-	linux-mod_pkg_postinst
 }
 
 pkg_postrm() {
