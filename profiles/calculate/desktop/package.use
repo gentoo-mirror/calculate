@@ -34,3 +34,7 @@ net-wireless/bluez -consolekit
 #for compile with gnome-base/gdm
 sys-auth/pambase consolekit
 app-misc/cls-meta kernel
+
+#for media-video/openshot-1.0.0
+media-libs/mlt frei0r
+
