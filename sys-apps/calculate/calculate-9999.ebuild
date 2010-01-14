@@ -6,7 +6,7 @@ inherit git
 
 EGIT_REPO_URI="git://git.calculate.ru/dev/calculate.git"
 DESCRIPTION="Program for installation, building and upgrading system"
-HOMEPAGE="http://www.calculate-linux.org/Calculate"
+HOMEPAGE="http://www.calculate-linux.org/main/en/calculate"
 
 LICENSE="GPL-3"
 SLOT="0"
