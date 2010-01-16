@@ -71,6 +71,7 @@ RDEPEND="
 	net-im/kopete-facebook
     net-irc/konversation
     net-misc/ifenslave
+	net-misc/kvpnc
     net-misc/rdesktop
     net-misc/wicd
     net-misc/wol
