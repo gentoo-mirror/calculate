@@ -2,6 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header:
 
+inherit eutils linux-info
+
+# @FUNCTION: last_arg
+# @USING: last_arg manyarguments
+# @DESCRIPTION:
+# print last argument
+last_arg() {
+	shift $(( $# - 1 ))
+	echo $1
+}
+
 # @FUNCTION: rm_link_with_file
 # @USING: rm_link_with_file filename
 # @DESCRIPTION:
@@ -46,13 +57,26 @@ make_old_file() {
 # @FUNCTION: update_file
 # @USAGE: wear_out_file filename link
 # @DESCRIPTION:
-# update a file, and make old file if need
+# update a file from filename-installed, and make old file if need
 update_file() {
-	if [[ `readlink -f $2` != `readlink -f $1` ]]
+	# if newest file is absent
+	[[ -e $1-installed ]] || return 1
+	# link and filename exist
+	if [[ `readlink -f $2` == `readlink -f $1` ]]
 	then
-	    make_old_file $2
-		ln -sf `basename $1` $2
+		make_old_file $2
+	else
+		# rename link to link.old
+		mv $2 $2.old &>/dev/null
+		# make old filename
+		make_old_file $1
+		# fix link pointed to previous filename
+		find -lname "$1" -exec ln -sf $1.old {} \;
 	fi
+	# make link to filename
+	ln -sf `basename $1` $2
+	# rename installed
+	mv $1-installed $1
 }
 
 # @FUNCTION: calculate_update_kernel
@@ -61,16 +85,15 @@ update_file() {
 # Make symbolic link to vmlinuz, preserve old vmlinuz
 # Copy initramfs to initrd and initrd-install
 calculate_update_kernel() {
-	kname=$1
-	kversion=$2
-	dir=$3
+	kversion=$1
+	dir=$2
 
 	# update vmlinuz
-	update_file ${dir}/linux-${kname}-${kversion}-calculate ${dir}/vmlinuz
+	update_file ${dir}/vmlinuz-${kversion} ${dir}/vmlinuz
 	# update initrd
-	update_file ${dir}/initramfs-${kname}-${kversion}-calculate ${dir}/initrd
+	update_file ${dir}/initramfs-${kversion} ${dir}/initrd
 	# update System.map
-	update_file ${dir}/System.map-${kname}-${kversion}-calculate ${dir}/System.map
+	update_file ${dir}/System.map-${kversion} ${dir}/System.map
 	ebegin "Trying to optimize initramfs"
 	( which calculate &>/dev/null && calculate --initrd ) && eend 0 || eend 1
 }
@@ -204,4 +227,57 @@ calculate_set_kernelversion() {
 		${KERNEL_DIR}/Makefile
 	sed -ri "s/^EXTRAVERSION = .*$/EXTRAVERSION = $KV_TYPE/" \
 		${KERNEL_DIR}/Makefile
+}
+
+# FUNCTION: calculate_update_modules
+# DESCRIPTION:
+# It calls the update-modules utility. Get from linux-mod.
+calculate_update_modules() {
+	if [ -x /sbin/update-modules ] && \
+		grep -v -e "^#" -e "^$" "${D}"/etc/modules.d/* >/dev/null 2>&1; then
+		ebegin "Updating modules.conf"
+		/sbin/update-modules
+		eend $?
+	elif [ -x /sbin/update-modules ] && \
+		grep -v -e "^#" -e "^$" "${D}"/etc/modules.d/* >/dev/null 2>&1; then
+		ebegin "Updating modules.conf"
+		/sbin/update-modules
+		eend $?
+	fi
+}
+
+# FUNCTION: calculate_update_depmod
+# DESCRIPTION:
+# It updates the modules.dep file for the current kernel.
+# Get from linux-mod.
+calculate_update_depmod() {
+	# if we haven't determined the version yet, we need too.
+	get_version;
+
+	ebegin "Updating module dependencies for ${KV_FULL}"
+	if [ -r "${KV_OUT_DIR}"/System.map ]
+	then
+		depmod -ae -F "${KV_OUT_DIR}"/System.map -b "${ROOT}" -r ${KV_FULL}
+		eend $?
+	else
+		ewarn
+		ewarn "${KV_OUT_DIR}/System.map not found."
+		ewarn "You must manually update the kernel module dependencies using depmod."
+		eend 1
+		ewarn
+	fi
+}
+
+# FUNCTION: calculate_clean_firmwares
+# DESCRIPTION:
+# Workaround kernel issue with collising
+# firmwares across different kernel versions
+calculate_clean_firmwares() {
+	for fwfile in `find "${ROOT}/tmp/firmware" -type f`; do
+		sysfile="${ROOT}/lib/${fwfile/${ROOT}/tmp/}"
+		if [ -f "${sysfile}" ]; then
+			#ewarn "Removing duplicated: ${sysfile}"
+			rm ${sysfile} || die "failed to remove ${sysfile}"
+		fi
+	done
 }

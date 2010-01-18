@@ -7,92 +7,115 @@
 # Purpose: Installing linux-desktop, linux-server. 
 # Build the kernel from source.
 
-inherit calculate eutils kernel-2 linux-mod
-EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst pkg_postrm pkg_prerm
+inherit calculate eutils kernel-2
+EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_preinst pkg_postinst pkg_postrm
 
-SRC_URI="x86? 
-		( ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-i686-${PV}.tar.bz2 )
-		amd64?
-		( ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-x86_64-${PV}.tar.bz2	)"
-SLOT="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}"
-GENTOO_SOURCES_PV="${SLOT}"
-GENTOO_SOURCES_PVR="${GENTOO_SOURCES_PV}-${GENTOO_SOURCES_PR}"
-SRC_NAME=linux-${GENTOO_SOURCES_PV}-gentoo-${GENTOO_SOURCES_PR}
-KV_FULL="${SLOT}${KV_TYPE}"
+detect_version
+detect_arch
+
+CKV=$(get_version_component_range 1-3)
+SLOT=$CKV
+KV_FULL="${PV}-calculate"
+CKV_FULL="${CKV}-calculate"
+
+S="${WORKDIR}/linux-${KV_FULL}"
+EXTRAVERSION="-calculate"
+
+UNIPATCH_STRICTORDER=1
+
+CALC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-${CKV}.tar.bz2
+        ftp://mirror.yandex.ru/calculate/${PN}/${PN}-${CKV}.tar.bz2
+		http://mirror.yandex.ru/calculate/${PN}/${PN}-${CKV}.tar.bz2
+		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${PN}-${CKV}.tar.bz2"
+
+#KERNEL_URI=`last_arg $KERNEL_URI`
+#UNIPATCH_LIST_DEFAULT=""
+
 SLOT_T="${PORTAGE_TMPDIR}/portage/${CATEGORY}/${PN}-${SLOT}/temp"
 
-DEPEND="=sys-kernel/gentoo-sources-${GENTOO_SOURCES_PVR}"
-RDEPEND="${DEPEND}"
+CALCULATE_OVERLAY="usr/local/portage/layman/calculate"
+
+CARCH=`arch`
+
+KERNEL_CONFIG=
 
 calculate-kernel_pkg_setup() {
 	mkdir -p ${SLOT_T}
+	kernel-2_pkg_setup
+	[[ -e /etc/calculate/calculate.ini ]] && \
+		SYSTEM=$( cat /etc/calculate/calculate.ini | sed -rn 's/system\=(.*)/\1/p' )
+	[[ -n "$SYSTEM" ]] || SYSTEM=desktop
+	[[ -n "$KERNEL_CONFIG" ]] || KERNEL_CONFIG="config-${SYSTEM}-${CARCH}-${CKV}"
 }
 
 calculate-kernel_src_unpack() {
-	unpack ${PN}-`arch`-${PV}.tar.bz2
-
-	#unpack ${A}
+	kernel-2_src_unpack
 }
 
 calculate-kernel_src_compile() {
-	cd ${WORKDIR}
-	addwrite "/usr/src/"
-	cp -Rpt ${ROOT}/usr/src/ usr/src/*
+	export LDFLAGS=""
+	mkdir -p ${WORKDIR}/boot
+	cd ${S}
+	cp ${ROOT}/${CALCULATE_OVERLAY}/profiles/kernel/${KERNEL_CONFIG} \
+		${WORKDIR}/config || die "cannot copy kernel config"
+	cp ${WORKDIR}/config ${S}/.config
 
-	calculate_set_kernelversion ${ROOT}/usr/src/${SRC_NAME}
-	rm ${ROOT}/usr/src/linux
-	ln -sf ${SRC_NAME} ${ROOT}/usr/src/linux
-	cd ${ROOT}/usr/src/linux
 	local GENTOOARCH="${ARCH}"
 	[[ ${ARCH} = x86 ]] && ARCH=i686 || unset ARCH
-	make modules_prepare
-	ARCH="${GENTOOARCH}"
 
-	cd ${WORKDIR}
+	DEFAULT_KERNEL_SOURCE="${S}" CMD_KERNEL_DIR="${S}" genkernel \
+		--kerneldir=${S} \
+		--kernel-config=${WORKDIR}/config \
+		--cachedir=${WORKDIR}/cache \
+		--makeopts=${MAKEOPTS} \
+		--tempdir=${S}/temp \
+		--logfile=${WORKDIR}/genkernel.log \
+		--bootdir=${WORKDIR}/boot \
+		--no-save-config \
+		--kernname=${SYSTEM} \
+		--disklabel \
+		--slowusb \
+		--splash=tty1 \
+		--module-prefix=${WORKDIR} \
+		all || die "genkernel failed"
+	
+	make clean || die "cannot modules prepare"
+	ARCH="${GENTOOARCH}"
+	mv ${WORKDIR}/boot/kernel-${SYSTEM}-${CARCH}-${CKV_FULL} \
+		${WORKDIR}/boot/vmlinuz-${KV_FULL}-installed
+	mv ${WORKDIR}/boot/initramfs-${SYSTEM}-${CARCH}-${CKV_FULL} \
+		${WORKDIR}/boot/initramfs-${KV_FULL}-installed
+	mv ${WORKDIR}/boot/System.map-${SYSTEM}-${CARCH}-${CKV_FULL} \
+		${WORKDIR}/boot/System.map-${KV_FULL}-installed
+	cp ${WORKDIR}/boot/System.map-${KV_FULL}-installed ${S}/System.map
+	rm ${WORKDIR}/lib/modules/${CKV_FULL}/build
+	rm ${WORKDIR}/lib/modules/${CKV_FULL}/source
 }
 
 calculate-kernel_src_install() {
-	dodir /usr/src/${SRC_NAME}
+	cd ${WORKDIR}
 	insinto /
 	doins -r boot
-	doins -r lib
+	insinto /usr/src
+	kernel-2_src_install
+	cd ${WORKDIR}/lib
+	insinto /lib
+	doins -r modules
+	insinto /tmp
+	doins -r firmware
+	cd ${WORKDIR}
 	
-	dosym /usr/src/${SRC_NAME} \
-		"/lib/modules/${GENTOO_SOURCES_PV}-calculate/source" ||
+	dosym /usr/src/linux-${KV_FULL} \
+		"/lib/modules/${KV_FULL}/source" ||
 		die "cannot install source symlink"
-	dosym /usr/src/${SRC_NAME} \
-		"/lib/modules/${GENTOO_SOURCES_PV}-calculate/build" || 
+	dosym /usr/src/linux-${KV_FULL} \
+		"/lib/modules/${KV_FULL}/build" || 
 		die "cannot install build symlink"
+}
 
-	addwrite "/lib/firmware"
-	# Workaround kernel issue with colliding
-	# firmwares across different kernel versions
-	for fwfile in `find "${D}/lib/firmware" -type f`; do
-
-		sysfile="${ROOT}/${fwfile/${D}}"
-		if [ -f "${sysfile}" ]; then
-			#ewarn "Removing duplicated: ${sysfile}"
-			rm ${sysfile} || die "failed to remove ${sysfile}"
-		fi
-
-	done
-		
-	PKG_CONTENTS=${ROOT}/var/db/pkg/${CATEGORY}/${PN}-${SLOT}*/CONTENTS
+calculate-kernel_pkg_preinst() {
+	PKG_CONTENTS=${ROOT}/var/db/pkg/${CATEGORY}/${PN}-${CKV}*/CONTENTS
 	test -f ${PKG_CONTENTS} && calculate_rm_modules_dir ${PKG_CONTENTS}
-}
-
-calculate-kernel_pkg_prerm() {
-	calculate_rm_modules_dir ${ROOT}/var/db/pkg/${CATEGORY}/${PF}/CONTENTS
-}
-
-calculate-kernel_pkg_postinst() {
-	calculate_update_splash ${ROOT}/boot/initramfs-${SYSTEM}-${SLOT}-calculate
-	calculate_update_kernel ${SYSTEM} ${SLOT} ${ROOT}/boot
-	KV_OUT_DIR=/usr/src/${SRC_NAME}
-
-	kernel-2_pkg_postinst
-	UPDATE_MODULEDB=false
-	linux-mod_pkg_postinst
 }
 
 calculate-kernel_pkg_postrm() {
@@ -101,3 +124,22 @@ calculate-kernel_pkg_postrm() {
 	calculate_restore_kernel ${ROOT}/boot
 }
 
+calculate-kernel_pkg_postinst() {
+	#calculate_update_splash ${ROOT}/boot/initramfs-${SYSTEM}-${KV_FULL}
+	calculate_update_kernel ${KV_FULL} ${ROOT}/boot
+	cp -a /tmp/firmware/* /lib/firmware/
+	rm -rf /tmp/firmware
+
+	KV_OUT_DIR=/usr/src/linux-${KV_FULL}
+
+	cd ${KV_OUT_DIR}
+	local GENTOOARCH="${ARCH}"
+	[[ ${ARCH} = x86 ]] && ARCH=i686 || unset ARCH
+	make modules_prepare || die "cannot modules prepare"
+	ARCH="${GENTOOARCH}"
+
+	kernel-2_pkg_postinst
+
+	calculate_update_depmod
+	calculate_update_modules
+}
