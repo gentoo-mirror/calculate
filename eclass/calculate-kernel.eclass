@@ -76,6 +76,8 @@ calculate-kernel_src_compile() {
 		--disklabel \
 		--slowusb \
 		--splash=tty1 \
+		--all-ramdisk-modules \
+		--unionfs \
 		--module-prefix=${WORKDIR} \
 		all || die "genkernel failed"
 	
