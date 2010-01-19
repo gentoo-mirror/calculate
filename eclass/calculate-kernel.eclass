@@ -106,10 +106,10 @@ calculate-kernel_src_install() {
 	cd ${WORKDIR}
 	
 	dosym /usr/src/linux-${KV_FULL} \
-		"/lib/modules/${KV_FULL}/source" ||
+		"/lib/modules/${CKV_FULL}/source" ||
 		die "cannot install source symlink"
 	dosym /usr/src/linux-${KV_FULL} \
-		"/lib/modules/${KV_FULL}/build" || 
+		"/lib/modules/${CKV_FULL}/build" || 
 		die "cannot install build symlink"
 }
 
