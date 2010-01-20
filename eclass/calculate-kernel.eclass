@@ -136,7 +136,7 @@ calculate-kernel_pkg_postinst() {
 
 	cd ${KV_OUT_DIR}
 	local GENTOOARCH="${ARCH}"
-	[[ ${ARCH} = x86 ]] && ARCH=i686 || unset ARCH
+	unset ARCH
 	make modules_prepare || die "cannot modules prepare"
 	ARCH="${GENTOOARCH}"
 
