@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="kernel"
 
-RDEPEND="kernel? ( sys-kernel/linux-desktop )
+RDEPEND="kernel? ( sys-kernel/calculate-sources )
     app-admin/logrotate
 	app-admin/syslog-ng
 	app-admin/testdisk
