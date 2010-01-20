@@ -61,7 +61,7 @@ calculate-kernel_src_compile() {
 	cp ${WORKDIR}/config ${S}/.config
 
 	local GENTOOARCH="${ARCH}"
-	[[ ${ARCH} = x86 ]] && ARCH=i686 || unset ARCH
+	unset ARCH
 
 	DEFAULT_KERNEL_SOURCE="${S}" CMD_KERNEL_DIR="${S}" genkernel \
 		--kerneldir=${S} \
