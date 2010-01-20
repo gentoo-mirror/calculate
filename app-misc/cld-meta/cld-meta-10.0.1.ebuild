@@ -294,6 +294,7 @@ RDEPEND="${RDEPEND}
 	kde-base/kdeplasma-addons
 	kde-misc/kgtk
 	kde-misc/konq-plugins
+	kde-misc/openofficeorg-thumbnail
 	net-wireless/kbluetooth
 "
 
