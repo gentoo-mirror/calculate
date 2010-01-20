@@ -48,6 +48,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	dev-libs/klibc
 	dev-python/psycopg
 	dev-python/pyserial
+	dev-ruby/libxml
 	dev-util/git
 	mail-filter/clamsmtp
 	mail-filter/postgrey
