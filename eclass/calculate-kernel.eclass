@@ -83,11 +83,11 @@ calculate-kernel_src_compile() {
 	
 	make clean || die "cannot modules prepare"
 	ARCH="${GENTOOARCH}"
-	mv ${WORKDIR}/boot/kernel-${SYSTEM}-${CARCH}-${CKV_FULL} \
+	mv ${WORKDIR}/boot/kernel-${SYSTEM}-*-${CKV_FULL} \
 		${WORKDIR}/boot/vmlinuz-${KV_FULL}-installed
-	mv ${WORKDIR}/boot/initramfs-${SYSTEM}-${CARCH}-${CKV_FULL} \
+	mv ${WORKDIR}/boot/initramfs-${SYSTEM}-*-${CKV_FULL} \
 		${WORKDIR}/boot/initramfs-${KV_FULL}-installed
-	mv ${WORKDIR}/boot/System.map-${SYSTEM}-${CARCH}-${CKV_FULL} \
+	mv ${WORKDIR}/boot/System.map-${SYSTEM}-*-${CKV_FULL} \
 		${WORKDIR}/boot/System.map-${KV_FULL}-installed
 	cp ${WORKDIR}/boot/System.map-${KV_FULL}-installed ${S}/System.map
 	rm ${WORKDIR}/lib/modules/${CKV_FULL}/build
