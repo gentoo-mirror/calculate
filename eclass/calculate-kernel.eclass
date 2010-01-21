@@ -38,6 +38,7 @@ CALCULATE_OVERLAY="usr/local/portage/layman/calculate"
 CARCH=`arch`
 
 KERNEL_CONFIG=
+MODULESDBFILE=${ROOT}/var/lib/module-rebuild/moduledb
 
 calculate-kernel_pkg_setup() {
 	mkdir -p ${SLOT_T}
@@ -146,4 +147,6 @@ calculate-kernel_pkg_postinst() {
 
 	calculate_update_depmod
 	calculate_update_modules
+
+	sed -ri 's/a:1:sys-fs\/aufs2/a:0:sys-fs\/aufs2/' $MODULESDBFILE
 }
