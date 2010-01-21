@@ -96,10 +96,10 @@ calculate_update_kernel() {
 	update_file ${dir}/System.map-${kversion} ${dir}/System.map
 	# update config-{CKV} (CKV 2.6.31, KV 2.6.31.4)
 	make_old_file ${dir}/config-${CKV_FULL}
-	cp ${dir}/config-${CKV_FULL}-installed ${dir}/config-${CKV_FULL}
+	mv ${dir}/config-${CKV_FULL}-installed ${dir}/config-${CKV_FULL}
 	# update config-{KV}
 	make_old_file ${dir}/config-${KV_FULL}
-	cp ${dir}/config-${KV_FULL}-installed ${dir}/config-${KV_FULL}
+	mv ${dir}/config-${KV_FULL}-installed ${dir}/config-${KV_FULL}
 	kbegin "Trying to optimize initramfs"
 	( which calculate &>/dev/null && calculate --initrd ) && eend 0 || eend 1
 }
