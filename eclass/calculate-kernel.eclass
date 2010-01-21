@@ -89,6 +89,8 @@ calculate-kernel_src_compile() {
 		${WORKDIR}/boot/initramfs-${KV_FULL}-installed
 	mv ${WORKDIR}/boot/System.map-${SYSTEM}-*-${CKV_FULL} \
 		${WORKDIR}/boot/System.map-${KV_FULL}-installed
+	cp ${S}/.config ${WORKDIR}/boot/config-${CKV_FULL}-installed
+	cp ${S}/.config ${WORKDIR}/boot/config-${KV_FULL}-installed
 	cp ${WORKDIR}/boot/System.map-${KV_FULL}-installed ${S}/System.map
 	rm ${WORKDIR}/lib/modules/${CKV_FULL}/build
 	rm ${WORKDIR}/lib/modules/${CKV_FULL}/source
