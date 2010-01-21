@@ -100,7 +100,7 @@ calculate_update_kernel() {
 	# update config-{KV}
 	make_old_file ${dir}/config-${KV_FULL}
 	mv ${dir}/config-${KV_FULL}-installed ${dir}/config-${KV_FULL}
-	kbegin "Trying to optimize initramfs"
+	ebegin "Trying to optimize initramfs"
 	( which calculate &>/dev/null && calculate --initrd ) && eend 0 || eend 1
 }
 
