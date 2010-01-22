@@ -43,10 +43,14 @@ MODULESDBFILE=${ROOT}/var/lib/module-rebuild/moduledb
 calculate-kernel_pkg_setup() {
 	mkdir -p ${SLOT_T}
 	kernel-2_pkg_setup
-	[[ -e /etc/calculate/calculate.ini ]] && \
-		SYSTEM=$( cat /etc/calculate/calculate.ini | sed -rn 's/system\=(.*)/\1/p' )
+	local calculate_ini=${ROOT}/etc/calculate/calculate.ini
+	[[ -e $calculate_ini ]] && \
+		SYSTEM=$( cat $calculate_ini | sed -rn 's/system\=(.*)/\1/p' )
 	[[ -n "$SYSTEM" ]] || SYSTEM=desktop
 	[[ -n "$KERNEL_CONFIG" ]] || KERNEL_CONFIG="config-${SYSTEM}-${CARCH}-${CKV}"
+	#detect current kernel dir
+	[[ -e ${ROOT}/usr/src/linux ]] && 
+		SRCLINUXLINK=$( readlink ${ROOT}/usr/src/linux )
 }
 
 calculate-kernel_src_unpack() {
@@ -82,7 +86,8 @@ calculate-kernel_src_compile() {
 		--module-prefix=${WORKDIR} \
 		all || die "genkernel failed"
 	
-	make clean || die "cannot modules prepare"
+	einfo "kernel: >> Cleaning..."
+	make clean &>/dev/null || die "cannot perform clean"
 	ARCH="${GENTOOARCH}"
 	mv ${WORKDIR}/boot/kernel-${SYSTEM}-*-${CKV_FULL} \
 		${WORKDIR}/boot/vmlinuz-${KV_FULL}-installed
@@ -132,15 +137,17 @@ calculate-kernel_pkg_postrm() {
 calculate-kernel_pkg_postinst() {
 	#calculate_update_splash ${ROOT}/boot/initramfs-${SYSTEM}-${KV_FULL}
 	calculate_update_kernel ${KV_FULL} ${ROOT}/boot
-	cp -a /tmp/firmware/* /lib/firmware/
-	rm -rf /tmp/firmware
+	cp -a ${ROOT}/tmp/firmware/* ${ROOT}/lib/firmware/
+	rm -rf ${ROOT}/tmp/firmware
 
-	KV_OUT_DIR=/usr/src/linux-${KV_FULL}
+	KV_OUT_DIR=${ROOT}/usr/src/linux-${KV_FULL}
 
 	cd ${KV_OUT_DIR}
 	local GENTOOARCH="${ARCH}"
 	unset ARCH
-	make modules_prepare || die "cannot modules prepare"
+	ebegin "kernel: >> Running modules_prepare..."
+	make modules_prepare &>/dev/null
+	eend $? "Failed modules prepare"
 	ARCH="${GENTOOARCH}"
 
 	kernel-2_pkg_postinst
@@ -149,4 +156,9 @@ calculate-kernel_pkg_postinst() {
 	calculate_update_modules
 
 	sed -ri 's/a:1:sys-fs\/aufs2/a:0:sys-fs\/aufs2/' $MODULESDBFILE
+	if [[ $SRCLINUXLINK != linux-2.6.32*calcualte ]]
+	then
+		ewarn "Perform command for update modules:"
+		ewarn "  module_rebuild -X rebuild"
+	fi
 }

@@ -288,3 +288,16 @@ index d506f83..538b29b 100755
  			fi
  		else
  			bad_msg "Could not mount specified ROOT, try again"
+diff --git a/genkernel b/genkernel
+index f74846e..518f206 100755
+--- a/genkernel
++++ b/genkernel
+@@ -55,7 +55,7 @@ trap_cleanup(){
+ 
+ cleanup(){
+     if [ -n "$TEMP" -a -d "$TEMP" ]; then
+-	rm -rf "$TEMP"
++	rm -rf "$TEMP" &>/dev/null
+     fi
+ 
+     if isTrue ${POSTCLEAR}
