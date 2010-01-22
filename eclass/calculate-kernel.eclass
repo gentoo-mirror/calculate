@@ -159,6 +159,6 @@ calculate-kernel_pkg_postinst() {
 	if [[ $SRCLINUXLINK != linux-2.6.32*calcualte ]]
 	then
 		ewarn "Perform command for update modules:"
-		ewarn "  module_rebuild -X rebuild"
+		ewarn "  module-rebuild -X rebuild"
 	fi
 }
