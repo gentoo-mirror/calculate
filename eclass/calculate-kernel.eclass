@@ -79,6 +79,8 @@ calculate-kernel_src_compile() {
 		--no-save-config \
 		--kernname=${SYSTEM} \
 		--no-menuconfig \
+		--clean \
+		--mrproper \
 		--disklabel \
 		--slowusb \
 		--splash=tty1 \
