@@ -81,6 +81,7 @@ calculate-kernel_src_compile() {
 		--no-menuconfig \
 		--clean \
 		--mrproper \
+		--no-cleartmp \
 		--disklabel \
 		--slowusb \
 		--splash=tty1 \

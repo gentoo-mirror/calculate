@@ -288,16 +288,47 @@ index d506f83..538b29b 100755
  			fi
  		else
  			bad_msg "Could not mount specified ROOT, try again"
+diff --git a/gen_cmdline.sh b/gen_cmdline.sh
+index a1ca537..66b2462 100755
+--- a/gen_cmdline.sh
++++ b/gen_cmdline.sh
+@@ -19,6 +19,7 @@ longusage() {
+   echo "	--logfile=<outfile>	Output file for debug info"
+   echo "	--color			Output debug in color"
+   echo "	--no-color		Do not output debug in color"
++  echo "	--no-cleartmp		Do not clear temp directory"
+   echo "  Kernel Configuration settings"
+   echo "	--menuconfig		Run menuconfig after oldconfig"
+   echo "	--no-menuconfig		Do not run menuconfig after oldconfig"
+@@ -426,6 +427,10 @@ parse_cmdline() {
+ 			print_info 2 "USECOLOR: ${USECOLOR}"
+ 			setColorVars
+ 			;;
++		--no-cleartmp)
++			NOCLEARTMP=1
++			print_info 2 "NOCLEARTMP: ${NOCLEARTMP}"
++			;;
+ 		--logfile=*)
+ 			CMD_LOGFILE=`parse_opt "$*"`
+ 			LOGFILE=`parse_opt "$*"`
 diff --git a/genkernel b/genkernel
-index f74846e..518f206 100755
+index f74846e..502aa1a 100755
 --- a/genkernel
 +++ b/genkernel
-@@ -55,7 +55,7 @@ trap_cleanup(){
+@@ -8,6 +8,7 @@ GK_V='3.4.10.902'
+ TMPDIR='/var/tmp/genkernel'
+ 
+ TODEBUGCACHE=1 # Until an error occurs or LOGFILE is fully qualified.
++NOCLEARTMP=0
+ 
+ small_die() {
+   echo $1
+@@ -55,7 +56,7 @@ trap_cleanup(){
  
  cleanup(){
      if [ -n "$TEMP" -a -d "$TEMP" ]; then
 -	rm -rf "$TEMP"
-+	rm -rf "$TEMP" &>/dev/null
++	[[ ${NOCLEARTMP} -ne 0 ]] && rm -rf "$TEMP" &>/dev/null
      fi
  
      if isTrue ${POSTCLEAR}
