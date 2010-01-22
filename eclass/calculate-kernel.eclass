@@ -78,6 +78,7 @@ calculate-kernel_src_compile() {
 		--bootdir=${WORKDIR}/boot \
 		--no-save-config \
 		--kernname=${SYSTEM} \
+		--no-menuconfig \
 		--disklabel \
 		--slowusb \
 		--splash=tty1 \
@@ -156,7 +157,7 @@ calculate-kernel_pkg_postinst() {
 	calculate_update_modules
 
 	sed -ri 's/a:1:sys-fs\/aufs2/a:0:sys-fs\/aufs2/' $MODULESDBFILE
-	if [[ $SRCLINUXLINK != linux-2.6.32*calcualte ]]
+	if [[ $SRCLINUXLINK != linux-${CKV}*calculate ]]
 	then
 		ewarn "Perform command for update modules:"
 		ewarn "  module-rebuild -X rebuild"
