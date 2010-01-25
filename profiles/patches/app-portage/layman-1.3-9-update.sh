@@ -14,4 +14,13 @@ then
 		ln -s /var/lib/layman ${ROOT}/usr/local/portage/layman || res=1
 		eend $res
 	fi
+	MAKEPROFILELINK=$( readlink ${ROOT}/etc/make.profile )
+	if [[ "$MAKEPROFILELINK" =~ usr/local/portage/layman ]] 
+	then
+		ebegin "Fix make.profile link"
+		rm -f /etc/make.profile &&
+		ln -sf ${MAKEPROFILELINK/usr\/local\/portage\/layman/var\/lib\/layman} \
+			/etc/make.profile
+		eend $? "Cann't fix make.profile link"
+	fi
 fi
