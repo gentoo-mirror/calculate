@@ -35,7 +35,10 @@ CALC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-${CKV}.tar.bz2
 
 SLOT_T="${PORTAGE_TMPDIR}/portage/${CATEGORY}/${PN}-${SLOT}/temp"
 
-CALCULATE_OVERLAY="usr/local/portage/layman/calculate"
+NEW_CALCULATE_OVERLAY="/var/lib/layman/calculate"
+[[ -d ${ROOT}/${NEW_CALCULATE_OVERLAY} ]] &&
+	CALCULATE_OVERLAY=${NEW_CALCULATE_OVERLAY} ||
+	CALCULATE_OVERLAY="/usr/local/portage/layman/calculate"
 
 CARCH=`arch`
 
