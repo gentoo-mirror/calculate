@@ -26,7 +26,7 @@ IUSE="amd64
 	mp540
 	mp630"
 
-DEPEND="virtual/ghostscript
+DEPEND="app-text/ghostscript-gnu
 	>=net-print/cups-1.1.14
 	!amd64? ( sys-libs/glibc
 		>=dev-libs/popt-1.6
