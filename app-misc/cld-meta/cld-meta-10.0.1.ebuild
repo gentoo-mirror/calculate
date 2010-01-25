@@ -5,7 +5,7 @@
 EAPI=2
 
 DESCRIPTION="Calculate Linux Desktop KDE (meta package)"
-HOMEPAGE="http://www.calculate-linux.org/"
+HOMEPAGE="http://www.calculate-linux.org/main/en/cld"
 SRC_URI=""
 
 LICENSE="GPL-2"
