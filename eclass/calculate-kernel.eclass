@@ -60,13 +60,6 @@ calculate-kernel_src_unpack() {
 }
 
 vmlinuz_src_compile() {
-	export LDFLAGS=""
-	mkdir -p ${WORKDIR}/boot
-	cd ${S}
-	cp ${ROOT}/${CALCULATE_OVERLAY}/profiles/kernel/${KERNEL_CONFIG} \
-		${WORKDIR}/config || die "cannot copy kernel config"
-	cp ${WORKDIR}/config ${S}/.config
-
 	local GENTOOARCH="${ARCH}"
 	unset ARCH
 
@@ -109,6 +102,13 @@ vmlinuz_src_compile() {
 }
 
 calculate-kernel_src_compile() {
+	export LDFLAGS=""
+	mkdir -p ${WORKDIR}/boot
+	cd ${S}
+	cp ${ROOT}/${CALCULATE_OVERLAY}/profiles/kernel/${KERNEL_CONFIG} \
+		${WORKDIR}/config || die "cannot copy kernel config"
+	cp ${WORKDIR}/config ${S}/.config
+
 	use vmlinuz && vmlinuz_src_compile
 }
 
@@ -133,6 +133,7 @@ vmlinuz_src_install() {
 }
 
 calculate-kernel_src_install() {
+	mv ${S}/.config ${WORKDIR}/config
 	kernel-2_src_install
 	use vmlinuz && vmlinuz_src_install
 }
@@ -152,17 +153,6 @@ vmlinuz_pkg_postinst() {
 	calculate_update_kernel ${KV_FULL} ${ROOT}/boot
 	cp -a ${ROOT}/tmp/firmware/* ${ROOT}/lib/firmware/
 	rm -rf ${ROOT}/tmp/firmware
-
-	KV_OUT_DIR=${ROOT}/usr/src/linux-${KV_FULL}
-
-	cd ${KV_OUT_DIR}
-	local GENTOOARCH="${ARCH}"
-	unset ARCH
-	ebegin "kernel: >> Running modules_prepare..."
-	make modules_prepare &>/dev/null
-	eend $? "Failed modules prepare"
-	ARCH="${GENTOOARCH}"
-
 	calculate_update_depmod
 	calculate_update_modules
 
@@ -177,5 +167,17 @@ vmlinuz_pkg_postinst() {
 calculate-kernel_pkg_postinst() {
 	#calculate_update_splash ${ROOT}/boot/initramfs-${SYSTEM}-${KV_FULL}
 	kernel-2_pkg_postinst
+
+	KV_OUT_DIR=${ROOT}/usr/src/linux-${KV_FULL}
+	cp ${WORKDIR}/config ${KV_OUT_DIR}/.config
+
+	cd ${KV_OUT_DIR}
+	local GENTOOARCH="${ARCH}"
+	unset ARCH
+	ebegin "kernel: >> Running modules_prepare..."
+	make modules_prepare &>/dev/null
+	eend $? "Failed modules prepare"
+	ARCH="${GENTOOARCH}"
+
 	use vmlinuz && vmlinuz_pkg_postinst
 }
