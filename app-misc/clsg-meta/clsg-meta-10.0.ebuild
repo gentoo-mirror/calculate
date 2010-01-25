@@ -5,7 +5,7 @@
 EAPI=2
 
 DESCRIPTION="Calculate Linux Scratch GNOME (meta package)"
-HOMEPAGE="http://www.calculate-linux.org/"
+HOMEPAGE="http://www.calculate-linux.org/main/en/cls"
 SRC_URI=""
 
 LICENSE="GPL-2"
