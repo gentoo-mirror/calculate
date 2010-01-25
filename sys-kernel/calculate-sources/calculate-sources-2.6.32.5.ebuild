@@ -14,8 +14,8 @@ SRC_URI="${KERNEL_URI} ${ARCH_URI} ${CALC_URI}"
 
 UNIPATCH_LIST="${DISTDIR}/${PN}-${CKV}.tar.bz2"
 
-DEPEND=">=sys-kernel/calckernel-3.4.10.903-r19
-		>=sys-apps/calculate-1.3.3"
+DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.10.903-r19
+					>=sys-apps/calculate-1.3.3 )"
 
 pkg_postinst() {
 	calculate-kernel_pkg_postinst

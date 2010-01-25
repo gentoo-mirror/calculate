@@ -10,6 +10,8 @@
 inherit calculate eutils kernel-2
 EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_preinst pkg_postinst pkg_postrm
 
+IUSE="vmlinuz"
+
 detect_version
 detect_arch
 
@@ -57,7 +59,7 @@ calculate-kernel_src_unpack() {
 	kernel-2_src_unpack
 }
 
-calculate-kernel_src_compile() {
+vmlinuz_src_compile() {
 	export LDFLAGS=""
 	mkdir -p ${WORKDIR}/boot
 	cd ${S}
@@ -106,12 +108,15 @@ calculate-kernel_src_compile() {
 	rm ${WORKDIR}/lib/modules/${CKV_FULL}/source
 }
 
-calculate-kernel_src_install() {
+calculate-kernel_src_compile() {
+	use vmlinuz && vmlinuz_src_compile
+}
+
+vmlinuz_src_install() {
 	cd ${WORKDIR}
 	insinto /
 	doins -r boot
 	insinto /usr/src
-	kernel-2_src_install
 	cd ${WORKDIR}/lib
 	insinto /lib
 	doins -r modules
@@ -127,19 +132,23 @@ calculate-kernel_src_install() {
 		die "cannot install build symlink"
 }
 
+calculate-kernel_src_install() {
+	kernel-2_src_install
+	use vmlinuz && vmlinuz_src_install
+}
+
 calculate-kernel_pkg_preinst() {
 	PKG_CONTENTS=${ROOT}/var/db/pkg/${CATEGORY}/${PN}-${CKV}*/CONTENTS
-	test -f ${PKG_CONTENTS} && calculate_rm_modules_dir ${PKG_CONTENTS}
+	use vmlinuz && test -f ${PKG_CONTENTS} && calculate_rm_modules_dir ${PKG_CONTENTS}
 }
 
 calculate-kernel_pkg_postrm() {
 	rm -f ${SLOT_T}/.alreadydel
 	rmdir ${SLOT_T} &>/dev/null
-	calculate_restore_kernel ${ROOT}/boot
+	use vmlinuz && calculate_restore_kernel ${ROOT}/boot
 }
 
-calculate-kernel_pkg_postinst() {
-	#calculate_update_splash ${ROOT}/boot/initramfs-${SYSTEM}-${KV_FULL}
+vmlinuz_pkg_postinst() {
 	calculate_update_kernel ${KV_FULL} ${ROOT}/boot
 	cp -a ${ROOT}/tmp/firmware/* ${ROOT}/lib/firmware/
 	rm -rf ${ROOT}/tmp/firmware
@@ -154,8 +163,6 @@ calculate-kernel_pkg_postinst() {
 	eend $? "Failed modules prepare"
 	ARCH="${GENTOOARCH}"
 
-	kernel-2_pkg_postinst
-
 	calculate_update_depmod
 	calculate_update_modules
 
@@ -165,4 +172,10 @@ calculate-kernel_pkg_postinst() {
 		ewarn "Perform command for update modules:"
 		ewarn "  module-rebuild -X rebuild"
 	fi
+}
+
+calculate-kernel_pkg_postinst() {
+	#calculate_update_splash ${ROOT}/boot/initramfs-${SYSTEM}-${KV_FULL}
+	kernel-2_pkg_postinst
+	use vmlinuz && vmlinuz_pkg_postinst
 }
