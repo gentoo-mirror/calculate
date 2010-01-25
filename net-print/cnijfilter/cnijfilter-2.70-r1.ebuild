@@ -29,7 +29,7 @@ IUSE="amd64
 	ip2500
 	ip3300
 	ip4300"
-DEPEND="app-text/ghostscript-gnu
+DEPEND="app-text/ghostscript-gpl
 	>=net-print/cups-1.1.14
 	!amd64? ( sys-libs/glibc
 		>=dev-libs/popt-1.6
