@@ -1,12 +1,12 @@
 diff --git a/modules/profile.eselect b/modules/profile.eselect
-index 5e18178..2cd43a6 100644
+index 93824c1..2cd43a6 100644
 --- a/modules/profile.eselect
 +++ b/modules/profile.eselect
 @@ -1,16 +1,21 @@
  # -*-eselect-*-  vim: ft=eselect
  # Copyright 1999-2009 Gentoo Foundation
  # Distributed under the terms of the GNU General Public License v2
--# $Id: profile.eselect 736 2009-11-20 19:36:14Z ulm $
+-# $Id: profile.eselect 750 2009-12-31 00:02:52Z ulm $
 +# $Id: profile.eselect 727 2009-11-14 18:08:51Z ulm $
  
  # This is a portage-only module.
@@ -14,7 +14,7 @@ index 5e18178..2cd43a6 100644
  
  DESCRIPTION="Manage the /etc/make.profile symlink"
  MAINTAINER="eselect@gentoo.org"
--SVN_DATE='$Date: 2009-11-20 20:36:14 +0100 (Fri, 20 Nov 2009) $'
+-SVN_DATE='$Date: 2009-12-31 01:02:52 +0100 (Thu, 31 Dec 2009) $'
 +SVN_DATE='$Date: 2009-11-14 19:08:51 +0100 (Sat, 14 Nov 2009) $'
  VERSION=$(svn_date_to_version "${SVN_DATE}")
  
