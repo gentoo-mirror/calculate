@@ -50,7 +50,7 @@ calculate-kernel_pkg_setup() {
 	kernel-2_pkg_setup
 	local calculate_ini=${ROOT}/etc/calculate/calculate.ini
 	[[ -e $calculate_ini ]] && \
-		SYSTEM=$( cat $calculate_ini | sed -rn 's/system\=(.*)/\1/p' )
+		SYSTEM=$( cat $calculate_ini | sed -rn 's/^system\=(.*)/\1/p' )
 	[[ -n "$SYSTEM" ]] || SYSTEM=desktop
 	[[ -n "$KERNEL_CONFIG" ]] || KERNEL_CONFIG="config-${SYSTEM}-${CARCH}-${CKV}"
 	#detect current kernel dir
