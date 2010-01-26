@@ -113,6 +113,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	sys-process/vixie-cron
 	www-client/mozilla-firefox
 	x11-base/xorg-x11
+	x11-terms/rxvt-unicode
 	x11-wm/openbox
 "
 
