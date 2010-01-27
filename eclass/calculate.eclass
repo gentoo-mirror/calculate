@@ -92,14 +92,13 @@ calculate_update_kernel() {
 	update_file ${dir}/vmlinuz-${kversion} ${dir}/vmlinuz
 	# update initrd
 	update_file ${dir}/initramfs-${kversion} ${dir}/initrd
+	# update initrd-install
+	update_file ${dir}/initramfs-${kversion}-install ${dir}/initrd-install
 	# update System.map
 	update_file ${dir}/System.map-${kversion} ${dir}/System.map
 	# update config-{CKV} (CKV 2.6.31, KV 2.6.31.4)
 	make_old_file ${dir}/config-${CKV_FULL}
 	mv ${dir}/config-${CKV_FULL}-installed ${dir}/config-${CKV_FULL}
-	# update config-{KV}
-	make_old_file ${dir}/config-${KV_FULL}
-	mv ${dir}/config-${KV_FULL}-installed ${dir}/config-${KV_FULL}
 	ebegin "Trying to optimize initramfs"
 	( which calculate &>/dev/null && calculate --initrd ) && eend 0 || eend 1
 }

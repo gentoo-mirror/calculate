@@ -8,7 +8,7 @@
 # Build the kernel from source.
 
 inherit calculate eutils kernel-2
-EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_preinst pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst pkg_postrm
 
 IUSE="vmlinuz"
 
@@ -16,12 +16,17 @@ detect_version
 detect_arch
 
 CKV=$(get_version_component_range 1-3)
-SLOT=$CKV
+SLOT=$(get_version_component_range 1-4)
 KV_FULL="${PV}-calculate"
-CKV_FULL="${CKV}-calculate"
+#CKV_FULL="${CKV}-calculate"
+CKV_FULL=${KV_FULL}
 
 S="${WORKDIR}/linux-${KV_FULL}"
 EXTRAVERSION="-calculate"
+
+CALC_K_SUBV=$(get_version_component_range 4)
+
+EXTRAVERSION=".${CALC_K_SUBV}-calculate"
 
 UNIPATCH_STRICTORDER=1
 
@@ -42,7 +47,6 @@ NEW_CALCULATE_OVERLAY="/var/lib/layman/calculate"
 
 CARCH=`arch`
 
-KERNEL_CONFIG=
 MODULESDBFILE=${ROOT}/var/lib/module-rebuild/moduledb
 
 calculate-kernel_pkg_setup() {
@@ -52,7 +56,11 @@ calculate-kernel_pkg_setup() {
 	[[ -e $calculate_ini ]] && \
 		SYSTEM=$( cat $calculate_ini | sed -rn 's/^system\=(.*)/\1/p' )
 	[[ -n "$SYSTEM" ]] || SYSTEM=desktop
-	[[ -n "$KERNEL_CONFIG" ]] || KERNEL_CONFIG="config-${SYSTEM}-${CARCH}-${CKV}"
+	if [[ -z "${KERNEL_CONFIG}" ]] || [[ ! -f "${KERNEL_CONFIG}" ]]
+	then
+		KERNEL_CONFIG="${ROOT}/${CALCULATE_OVERLAY}/profiles/kernel"
+		KERNEL_CONFIG="${KERNEL_CONFIG}/config-${SYSTEM}-${CARCH}-${CKV}"
+	fi
 	#detect current kernel dir
 	[[ -e ${ROOT}/usr/src/linux ]] && 
 		SRCLINUXLINK=$( readlink ${ROOT}/usr/src/linux )
@@ -63,6 +71,9 @@ calculate-kernel_src_unpack() {
 }
 
 vmlinuz_src_compile() {
+	# disable sandbox
+	export SANDBOX_ON=0
+
 	local GENTOOARCH="${ARCH}"
 	unset ARCH
 
@@ -88,8 +99,9 @@ vmlinuz_src_compile() {
 		--module-prefix=${WORKDIR} \
 		all || die "genkernel failed"
 	
-	einfo "kernel: >> Cleaning..."
-	make clean &>/dev/null || die "cannot perform clean"
+	cp ${S}/.config ${WORKDIR}/boot/config-${KV_FULL}-installed
+	einfo "kernel: >> Distclean..."
+	make distclean &>/dev/null || die "cannot perform distclean"
 	ARCH="${GENTOOARCH}"
 	mv ${WORKDIR}/boot/kernel-${SYSTEM}-*-${CKV_FULL} \
 		${WORKDIR}/boot/vmlinuz-${KV_FULL}-installed
@@ -97,8 +109,6 @@ vmlinuz_src_compile() {
 		${WORKDIR}/boot/initramfs-${KV_FULL}-installed
 	mv ${WORKDIR}/boot/System.map-${SYSTEM}-*-${CKV_FULL} \
 		${WORKDIR}/boot/System.map-${KV_FULL}-installed
-	cp ${S}/.config ${WORKDIR}/boot/config-${CKV_FULL}-installed
-	cp ${S}/.config ${WORKDIR}/boot/config-${KV_FULL}-installed
 	cp ${WORKDIR}/boot/System.map-${KV_FULL}-installed ${S}/System.map
 	rm ${WORKDIR}/lib/modules/${CKV_FULL}/build
 	rm ${WORKDIR}/lib/modules/${CKV_FULL}/source
@@ -108,8 +118,8 @@ calculate-kernel_src_compile() {
 	export LDFLAGS=""
 	mkdir -p ${WORKDIR}/boot
 	cd ${S}
-	cp ${ROOT}/${CALCULATE_OVERLAY}/profiles/kernel/${KERNEL_CONFIG} \
-		${WORKDIR}/config || die "cannot copy kernel config"
+	einfo "Using kernel config from "$( readlink -f ${KERNEL_CONFIG} )
+	cp ${KERNEL_CONFIG}  ${WORKDIR}/config || die "cannot copy kernel config"
 	cp ${WORKDIR}/config ${S}/.config
 
 	use vmlinuz && vmlinuz_src_compile
@@ -136,14 +146,9 @@ vmlinuz_src_install() {
 }
 
 calculate-kernel_src_install() {
-	mv ${S}/.config ${WORKDIR}/config
+	rm -f ${S}/.config
 	kernel-2_src_install
 	use vmlinuz && vmlinuz_src_install
-}
-
-calculate-kernel_pkg_preinst() {
-	PKG_CONTENTS=${ROOT}/var/db/pkg/${CATEGORY}/${PN}-${CKV}*/CONTENTS
-	use vmlinuz && test -f ${PKG_CONTENTS} && calculate_rm_modules_dir ${PKG_CONTENTS}
 }
 
 calculate-kernel_pkg_postrm() {
@@ -153,6 +158,8 @@ calculate-kernel_pkg_postrm() {
 }
 
 vmlinuz_pkg_postinst() {
+	cp ${ROOT}/boot/initramfs-${KV_FULL}-installed \
+		${ROOT}/boot/initramfs-${KV_FULL}-install-installed
 	calculate_update_kernel ${KV_FULL} ${ROOT}/boot
 	cp -a ${ROOT}/tmp/firmware/* ${ROOT}/lib/firmware/
 	rm -rf ${ROOT}/tmp/firmware
@@ -160,11 +167,6 @@ vmlinuz_pkg_postinst() {
 	calculate_update_modules
 
 	sed -ri 's/a:1:sys-fs\/aufs2/a:0:sys-fs\/aufs2/' $MODULESDBFILE
-	if [[ $SRCLINUXLINK != linux-${CKV}*calculate ]]
-	then
-		ewarn "Perform command for update modules:"
-		ewarn "  module-rebuild -X rebuild"
-	fi
 }
 
 calculate-kernel_pkg_postinst() {
@@ -172,7 +174,9 @@ calculate-kernel_pkg_postinst() {
 	kernel-2_pkg_postinst
 
 	KV_OUT_DIR=${ROOT}/usr/src/linux-${KV_FULL}
-	cp ${WORKDIR}/config ${KV_OUT_DIR}/.config
+	[[ -e ${ROOT}/boot/config-${KV_FULL}-installed ]] &&
+		cp ${ROOT}/boot/config-${KV_FULL}-installed ${KV_OUT_DIR}/.config ||
+		cp ${KERNEL_CONFIG} ${KV_OUT_DIR}/.config
 
 	cd ${KV_OUT_DIR}
 	local GENTOOARCH="${ARCH}"
