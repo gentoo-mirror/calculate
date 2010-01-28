@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit calculate
+
 DESCRIPTION="The theme for Calculate Linux Desktop XFCE"
 HOMEPAGE="http://www.calculate-linux.org/calcualte-cldx-themes"
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
@@ -27,4 +29,11 @@ src_install() {
 		dosym ../icons/Calculate/40x40/apps/windows.png /usr/share/pixmaps/windows.png
 		dosym ../icons/Calculate/40x40/apps/yellow.png /usr/share/pixmaps/yellow.png
 		doins -r .
+}
+
+pkg_postinst() {
+	[[ -f ${ROOT}/boot/initrd ]] &&
+		calculate_update_splash ${ROOT}/boot/initrd
+	[[ -f ${ROOT}/boot/initrd-install ]] &&
+		calculate_update_splash ${ROOT}/boot/initrd-install
 }

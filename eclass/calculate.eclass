@@ -96,9 +96,9 @@ calculate_update_kernel() {
 	update_file ${dir}/initramfs-${kversion}-install ${dir}/initrd-install
 	# update System.map
 	update_file ${dir}/System.map-${kversion} ${dir}/System.map
-	# update config-{CKV} (CKV 2.6.31, KV 2.6.31.4)
-	make_old_file ${dir}/config-${CKV_FULL}
-	mv ${dir}/config-${CKV_FULL}-installed ${dir}/config-${CKV_FULL}
+	# update config-{KV_FULL}
+	make_old_file ${dir}/config-${KV_FULL}
+	mv ${dir}/config-${KV_FULL}-installed ${dir}/config-${KV_FULL}
 	ebegin "Trying to optimize initramfs"
 	( which calculate &>/dev/null && calculate --initrd ) && eend 0 || eend 1
 }
@@ -167,29 +167,29 @@ initramfs_unpack() {
 	cd ${TMP_INITRAMFS}
 	# select arch
 	UNPACKER="gzip"
-	lzma -dc ${BOOT_DIR}/$1 &>/dev/null && UNPACKER="lzma"
+	lzma --force -t $1 &>/dev/null && UNPACKER="lzma"
 	# unpack initramfs
-	gzip -dc ${BOOT_DIR}/$1 | cpio -di &>/dev/null
+	${UNPACKER} -dc $1 | cpio -di &>/dev/null
 	return $?
 }
 
 initramfs_change_spalsh() {
-	if [ -f ${SPLASH_DESCRIPTOR} ]
+	if [ -f ${ROOT}${SPLASH_DESCRIPTOR} ]
 	then
 		# get silentpic param
 		SILENTPIC=$( sed -nr '/^silentpic/ s/^[^=]+=(.*)$/\1/p' \
-			${SPLASH_DESCRIPTOR} )
+			${ROOT}${SPLASH_DESCRIPTOR} )
 		# get pic param
 		PIC=$( sed -nr '/^pic/ s/^[^=]+=(.*)$/\1/p' \
-			${SPLASH_DESCRIPTOR} )
-		if [ -f ${SILENTPIC} ] && [ -f ${PIC} ]
+			${ROOT}${SPLASH_DESCRIPTOR} )
+		if [ -f ${ROOT}${SILENTPIC} ] && [ -f ${ROOT}${PIC} ]
 		then
-			cp ${SPLASH_DESCRIPTOR} \
+			cp ${ROOT}${SPLASH_DESCRIPTOR} \
 					${TMP_INITRAMFS}${SPLASH_DESCRIPTOR} &&
 				mkdir -p ${TMP_INITRAMFS}${SILENTPIC%$(basename $SILENTPIC)} &&
-				cp $SILENTPIC ${TMP_INITRAMFS}${SILENTPIC} &&
+				cp ${ROOT}${SILENTPIC} ${TMP_INITRAMFS}${SILENTPIC} &&
 				mkdir -p ${TMP_INITRAMFS}${PIC%$(basename $PIC)} &&
-				cp $PIC ${TMP_INITRAMFS}${PIC}
+				cp ${ROOT}$PIC ${TMP_INITRAMFS}${PIC}
 			return $?
 		fi
 	else
@@ -200,10 +200,13 @@ initramfs_change_spalsh() {
 initramfs_pack() {
 	# pack new initramfs
 	cd ${TMP_INITRAMFS}
-	find * | cpio -o --quiet -H newc | gzip -9 >${BOOT_DIR}/$1.new
+	find * | cpio -o --quiet -H newc | gzip -9 >$1.new
 	# remove old initramfs
-	rm ${BOOT_DIR}/$1
-	mv ${BOOT_DIR}/$1.new ${BOOT_DIR}/$1
+	if [[ $? -eq 0 ]]
+	then
+		rm $1
+		mv $1.new $1
+	fi
 }
 
 # @FUNCTION: calculate_update_splash
@@ -262,7 +265,7 @@ calculate_update_depmod() {
 	ebegin "Updating module dependencies for ${KV_FULL}"
 	if [ -r "${KV_OUT_DIR}"/System.map ]
 	then
-		depmod -ae -F "${KV_OUT_DIR}"/System.map -b "${ROOT}" -r ${CKV_FULL}
+		depmod -ae -F "${KV_OUT_DIR}"/System.map -b "${ROOT}" -r ${KV_FULL}
 		eend $?
 	else
 		ewarn
