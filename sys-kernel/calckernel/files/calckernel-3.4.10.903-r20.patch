@@ -312,7 +312,7 @@ index a1ca537..66b2462 100755
  			CMD_LOGFILE=`parse_opt "$*"`
  			LOGFILE=`parse_opt "$*"`
 diff --git a/genkernel b/genkernel
-index f74846e..502aa1a 100755
+index f74846e..fc3a56e 100755
 --- a/genkernel
 +++ b/genkernel
 @@ -8,6 +8,7 @@ GK_V='3.4.10.902'
@@ -323,12 +323,17 @@ index f74846e..502aa1a 100755
  
  small_die() {
    echo $1
-@@ -55,7 +56,7 @@ trap_cleanup(){
+@@ -54,8 +55,12 @@ trap_cleanup(){
+ }
  
  cleanup(){
++    if [[ ${NOCLEARTMP} -ne 0 ]]
++    then
++    	return 
++    fi
      if [ -n "$TEMP" -a -d "$TEMP" ]; then
 -	rm -rf "$TEMP"
-+	[[ ${NOCLEARTMP} -ne 0 ]] && rm -rf "$TEMP" &>/dev/null
++	rm -rf "$TEMP" &>/dev/null
      fi
  
      if isTrue ${POSTCLEAR}
