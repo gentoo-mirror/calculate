@@ -12,7 +12,7 @@ USE="${USE} mysql"
 USE="${USE} webkit"
 
 # Window manager and speciality
-USE="${USE} -eds -gnome kde qt4 qt3support -qt3"
+USE="${USE} -eds -gnome kde semantic-desktop qt4 qt3support -qt3"
 
 VIDEO_CARDS="${VIDEO_CARDS} nvidia radeonhd"
 
