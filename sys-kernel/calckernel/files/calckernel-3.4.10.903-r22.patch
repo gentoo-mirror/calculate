@@ -32,10 +32,10 @@ index a417144..92e9d2d 100755
  CDROOT_TYPE='auto'
  NEW_ROOT='/newroot'
 diff --git a/defaults/initrd.scripts b/defaults/initrd.scripts
-index beec6de..317eb99 100755
+index beec6de..8900804 100755
 --- a/defaults/initrd.scripts
 +++ b/defaults/initrd.scripts
-@@ -169,11 +169,24 @@ cache_cd_contents() {
+@@ -169,21 +169,45 @@ cache_cd_contents() {
  			# TODO: Check the size of the image versus the size of our tmpfs
  			# along with the amount of available RAM and increase tmpfs size
  			# if necessary. (Not having awk sucks...)
@@ -44,37 +44,57 @@ index beec6de..317eb99 100755
 -			# cut -d: -f2 | cut -dk -f1 | sed -e "s/^\s*//") ; do
 -			# z=$(($z + $i)) ; done
 -			# echo $z
+-			good_msg "Copying loop file for caching..."
+-			cp -a ${NEW_ROOT}/mnt/cdrom/${LOOP} ${NEW_ROOT}/mnt/${LOOP}
+-			if [ $? -ne 0 ]
 +			
 +			# getting memory
-+			z=0
++			allmemory=0
 +			for i in $(cat /proc/meminfo | grep -e ^MemFree -e ^Cached | \
-+			cut -d: -f2 | cut -dk -f1 | sed -e "s/^\s*//") ; do
-+			z=$(($z + $i)) ; done
++				cut -d: -f2 | cut -dk -f1 | sed -e "s/^\s*//") ;
++			do
++				allmemory=$(($allmemory + $i))
++			done
 +
 +			# getting size tmpfs of default
-+			let curtfs=$z/2
++			let curtfs=$allmemory/2
 +           
 +			# getting size of image
-+			let q=`ls -la ${NEW_ROOT}/mnt/cdrom/${LOOP} | sed -r -n 's/(\S*\s*){4}(\S*).*/\2/p'`/5000*6
-+
-+			if [[ $((${curtfs}<${q})) = "1" -a $((${q}<${z})) = "1" ]];
++			let imagesize=`ls -la ${NEW_ROOT}/mnt/cdrom/${LOOP} | sed -r -n 's/(\S*\s*){4}(\S*).*/\2/p'`/20000*21
++			let addon=$imagesize/10
++			if [[ $curtfs -gt $(( ${imagesize} + ${addon} )) ]];
 +			then
-+				good_msg "Increasing size of tmpfs for ${NEW_ROOT}"
-+				mount -o remount,size=${q}000 -t tmpfs tmpfs ${NEW_ROOT}
++				let addon=$(( $curtfs - ${imagesize} ))
 +			fi
- 			good_msg "Copying loop file for caching..."
- 			cp -a ${NEW_ROOT}/mnt/cdrom/${LOOP} ${NEW_ROOT}/mnt/${LOOP}
- 			if [ $? -ne 0 ]
-@@ -184,6 +197,8 @@ cache_cd_contents() {
- 				rm -rf ${NEW_ROOT}/mnt/zisofs 2>/dev/null
++
++			if [[ $((${imagesize} + $addon)) -lt ${allmemory} ]];
+ 			then
+-				bad_msg "Failed to cache the loop file! Lack of space?"
+-				rm -rf ${NEW_ROOT}/mnt/livecd.* 2>/dev/null
+-				rm -rf ${NEW_ROOT}/mnt/image.* 2>/dev/null
+-				rm -rf ${NEW_ROOT}/mnt/zisofs 2>/dev/null
++				mount -o remount,size=${addon}000 -t tmpfs tmpfs ${NEW_ROOT}
++				mkdir ${NEW_ROOT}/mnt/squash
++				mount -o size=${imagesize}000 -t tmpfs tmpfs ${NEW_ROOT}/mnt/squash
++				good_msg "Copying loop file for caching..."
++				cp -a ${NEW_ROOT}/mnt/cdrom/${LOOP} ${NEW_ROOT}/mnt/squash/${LOOP}
++				if [ $? -ne 0 ]
++				then
++					bad_msg "Failed to cache the loop file! Lack of space?"
++					umount ${NEW_ROOT}/mnt/squash
++					mount -o remount,size=${curtfs}000 -t tmpfs tmpfs ${NEW_ROOT}
++				else
++					LOOPEXT='../squash/'
++					good_msg "Unmounting media from ${NEW_ROOT}/mnt/cdrom"
++					umount ${NEW_ROOT}/mnt/cdrom
++				fi
  			else
- 				LOOPEXT='../'
-+				good_msg "Unmounting media from ${NEW_ROOT}/mnt/cdrom"
-+				umount ${NEW_ROOT}/mnt/cdrom
+-				LOOPEXT='../'
++				bad_msg "Too low memory for cache the loop file."
  			fi
  		fi
  	fi
-@@ -950,6 +965,32 @@ getdvhoff() {
+@@ -950,6 +974,38 @@ getdvhoff() {
  	echo $(( $(hexdump -n 4 -s $((316 + 12 * $2)) -e '"%i"' $1) * 512))
  }
  
@@ -83,31 +103,37 @@ index beec6de..317eb99 100755
 +	# find module for union file system
 +	[ -n "$(find /lib/ -name unionfs.ko)" ] && UNIONTYPE="unionfs"
 +	[ -n "$(find /lib/ -name aufs.ko)" ] && UNIONTYPE="aufs"
-+	if [ -z "${UNIONTYPE}" ]
-+	then
-+		bad_msg "Module for union file system is not found!"
-+		run_shell
++	# probably aufs in kernel
++	if [ -n "$(gzip -dc /proc/config.gz | grep CONFIG_AUFS_FS=y )" ]
++	then 
++		UNIONTYPE="aufs"
 +	else
-+		modprobe ${UNIONTYPE} > /dev/null 2>&1
-+		# error on load union module
-+		if [ -z "$(lsmod | grep $UNIONTYPE)" ]
++		if [ -z "${UNIONTYPE}" ]
 +		then
-+			bad_msg "Module for union file system is not correct!"	
-+			if [[ ${UNIONTYPE} = aufs ]]
-+			then
-+				bad_msg "Probably kernel compiled without standalone patch."	
-+			fi
++			bad_msg "Module for union file system is not found!"
 +			run_shell
-+		fi
++		else
++			modprobe ${UNIONTYPE} > /dev/null 2>&1
++			# error on load union module
++			if [ -z "$(lsmod | grep $UNIONTYPE)" ]
++			then
++				bad_msg "Module for union file system is not correct!"	
++				if [[ ${UNIONTYPE} = aufs ]]
++				then
++					bad_msg "Probably kernel compiled without standalone patch."	
++				fi
++				run_shell
++			fi
 +
-+		good_msg "Loading ${UNIONTYPE}"
++			good_msg "Loading ${UNIONTYPE}"
++		fi
 +	fi
 +}
 +
  setup_unionfs() {
  	local rw_dir=$1
  	local ro_dir=$2
-@@ -969,6 +1010,7 @@ setup_unionfs() {
+@@ -969,6 +1025,7 @@ setup_unionfs() {
  		mkdir -p ${UNION}
  		good_msg "Loading fuse module"
  		modprobe fuse > /dev/null 2>&1
@@ -115,7 +141,7 @@ index beec6de..317eb99 100755
  #                 if [ -n "${UNIONFS}" ] 	 
  #                 then 	 
  #                         CHANGESDEV=${UNIONFS} 	 
-@@ -998,10 +1040,94 @@ setup_unionfs() {
+@@ -998,10 +1055,101 @@ setup_unionfs() {
  		mkdir /tmp
  		mkdir -p ${UNION}
  #		mkdir -p $CHANGES
@@ -198,6 +224,13 @@ index beec6de..317eb99 100755
 +			else
 +				mount -t unionfs -o dirs=${rw_dir}:${ro_dir}=ro unionfs ${UNION}
 +			fi
++
++			if [[ -n "$( echo ${LOOPEXT} | grep squash )" ]];
++			then
++				mkdir -p ${UNION}/mnt/squash
++				mount -o bind ${NEW_ROOT}/mnt/squash ${UNION}/mnt/squash
++			fi
++
 +			chmod 0755 ${UNION}
 +			mount -o bind ${rw_dir}/mnt/cdrom ${CDROMDIR}
 +			mount -o bind ${rw_dir}/mnt/livecd ${LIVECDDIR}
@@ -282,27 +315,52 @@ index d506f83..538b29b 100755
  			fi
  		else
  			bad_msg "Could not mount specified ROOT, try again"
-diff --git a/gen_initramfs.sh b/gen_initramfs.sh
-index ee4531d..eb5f923 100755
---- a/gen_initramfs.sh
-+++ b/gen_initramfs.sh
-@@ -560,8 +560,17 @@ create_initramfs() {
- 		append_data 'overlay'
- 	fi
+diff --git a/gen_cmdline.sh b/gen_cmdline.sh
+index a1ca537..66b2462 100755
+--- a/gen_cmdline.sh
++++ b/gen_cmdline.sh
+@@ -19,6 +19,7 @@ longusage() {
+   echo "	--logfile=<outfile>	Output file for debug info"
+   echo "	--color			Output debug in color"
+   echo "	--no-color		Do not output debug in color"
++  echo "	--no-cleartmp		Do not clear temp directory"
+   echo "  Kernel Configuration settings"
+   echo "	--menuconfig		Run menuconfig after oldconfig"
+   echo "	--no-menuconfig		Do not run menuconfig after oldconfig"
+@@ -426,6 +427,10 @@ parse_cmdline() {
+ 			print_info 2 "USECOLOR: ${USECOLOR}"
+ 			setColorVars
+ 			;;
++		--no-cleartmp)
++			NOCLEARTMP=1
++			print_info 2 "NOCLEARTMP: ${NOCLEARTMP}"
++			;;
+ 		--logfile=*)
+ 			CMD_LOGFILE=`parse_opt "$*"`
+ 			LOGFILE=`parse_opt "$*"`
+diff --git a/genkernel b/genkernel
+index f74846e..fc3a56e 100755
+--- a/genkernel
++++ b/genkernel
+@@ -8,6 +8,7 @@ GK_V='3.4.10.902'
+ TMPDIR='/var/tmp/genkernel'
  
--	gzip -9 "${CPIO}"
--	mv -f "${CPIO}.gz" "${CPIO}"
-+	# Select arch util
-+        if [ "`cat ${KERNEL_DIR}/.config | 
-+		grep -Pc "^CONFIG_RD_LZMA=y|^CONFIG_INITRAMFS_COMPRESSION_LZMA=y"`" == "2" ] &&
-+		which lzma &>/dev/null;
-+	then
-+		lzma -9 "${CPIO}"
-+		mv -f "${CPIO}.lzma" "${CPIO}"
-+	else
-+		gzip -9 "${CPIO}"
-+		mv -f "${CPIO}.gz" "${CPIO}"
-+	fi
+ TODEBUGCACHE=1 # Until an error occurs or LOGFILE is fully qualified.
++NOCLEARTMP=0
  
- 	if isTrue "${INTEGRATED_INITRAMFS}"
- 	then
+ small_die() {
+   echo $1
+@@ -54,8 +55,12 @@ trap_cleanup(){
+ }
+ 
+ cleanup(){
++    if [[ ${NOCLEARTMP} -ne 0 ]]
++    then
++    	return 
++    fi
+     if [ -n "$TEMP" -a -d "$TEMP" ]; then
+-	rm -rf "$TEMP"
++	rm -rf "$TEMP" &>/dev/null
+     fi
+ 
+     if isTrue ${POSTCLEAR}
