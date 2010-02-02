@@ -33,6 +33,7 @@ DEPEND="app-arch/bzip2
 	sys-apps/which
 	sys-boot/grub
 	sys-devel/gettext
+	sys-fs/squashfs-tools
 	sys-fs/udev"
 RDEPEND="${DEPEND}"
 
