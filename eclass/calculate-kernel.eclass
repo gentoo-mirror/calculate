@@ -83,6 +83,7 @@ vmlinuz_src_compile() {
 		--kernname=${SYSTEM} \
 		--no-menuconfig \
 		--clean \
+		--loglevel=2 \
 		--mrproper \
 		--no-cleartmp \
 		--disklabel \
