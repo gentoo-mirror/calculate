@@ -52,6 +52,9 @@ calculate-kernel_pkg_setup() {
 		[[ -n "$CARCH" ]] || CARCH=`arch`
 		KERNEL_CONFIG="${KERNEL_CONFIG}/config-${SYSTEM}-${CARCH}-${CKV}"
 	fi
+	ewarn "Perform command for update modules after kernel building:"
+	ewarn "  module-rebuild -X rebuild"
+	ebeep 5
 }
 
 calculate-kernel_src_unpack() {
