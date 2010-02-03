@@ -1,6 +1,7 @@
 
 if [[ ${EBUILD_PHASE} == postinst ]]
-then
+then	
+	NEED_INFO=
 	if [[ ! -L ${ROOT}/usr/local/portage/layman ]] &&
 	   [[ -e ${ROOT}/usr/local/portage/layman ]]
 	then
@@ -12,6 +13,7 @@ then
 		sed -ri 's|^(overlays\s*:\s*)\S+$|\1http://www.gentoo.org/proj/en/overlays/repositories.xml|' ${ROOT}/etc/layman/layman.cfg || res=1
 		rm -rf ${ROOT}/usr/local/portage/layman || res=1
 		ln -s /var/lib/layman ${ROOT}/usr/local/portage/layman || res=1
+		NEED_INFO=1
 		eend $res
 	fi
 	MAKEPROFILELINK=$( readlink ${ROOT}/etc/make.profile )
@@ -22,5 +24,11 @@ then
 		ln -sf ${MAKEPROFILELINK/usr\/local\/portage\/layman/var\/lib\/layman} \
 			/etc/make.profile
 		eend $? "Cann't fix make.profile link"
+		NEED_INFO=1
+	fi
+	if [[ -n "${NEED_INFO}" ]]
+	then
+		ewarn "Please reinstall eselect package:"
+		ewarn "  emerge app-admin/eselect"
 	fi
 fi
