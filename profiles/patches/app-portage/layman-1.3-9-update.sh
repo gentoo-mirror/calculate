@@ -7,10 +7,24 @@ then
 	then
 		ebegin "Move overlays"
 		local res=0
-		sed -ri 's|/usr/local/portage/layman|/var/lib/layman|' ${ROOT}/usr/local/portage/layman/make.conf || res=1
-		mv ${ROOT}/usr/local/portage/layman/* ${ROOT}/var/lib/layman/ || res=1
-		sed -ri 's|^(storage\s*:\s*)\S+$|\1/var/lib/layman|' ${ROOT}/etc/layman/layman.cfg || res=1
-		sed -ri 's|^(overlays\s*:\s*)\S+$|\1http://www.gentoo.org/proj/en/overlays/repositories.xml|' ${ROOT}/etc/layman/layman.cfg || res=1
+		if [[ -f  ${ROOT}/usr/local/portage/layman/make.conf ]] 
+		then
+			sed -ri 's|/usr/local/portage/layman|/var/lib/layman|' \
+				${ROOT}/usr/local/portage/layman/make.conf || res=1
+		fi
+		mkdir -p ${ROOT}/var/lib/layman  || res=1
+		if [[ -n $(ls -A ${ROOT}/usr/local/portage/layman/) ]]
+		then
+			mv ${ROOT}/usr/local/portage/layman/* ${ROOT}/var/lib/layman/ || res=1
+		fi
+		if [[ -f ${ROOT}/etc/layman/layman.cfg ]]
+		then
+			sed -ri 's|^(storage\s*:\s*)\S+$|\1/var/lib/layman|' ${ROOT}/etc/layman/layman.cfg || res=1
+		fi
+		if [[ -f ${ROOT}/etc/layman/layman.cfg ]]
+		then
+			sed -ri 's|^(overlays\s*:\s*)\S+$|\1http://www.gentoo.org/proj/en/overlays/repositories.xml|' ${ROOT}/etc/layman/layman.cfg || res=1
+		fi
 		rm -rf ${ROOT}/usr/local/portage/layman || res=1
 		ln -s /var/lib/layman ${ROOT}/usr/local/portage/layman || res=1
 		NEED_INFO=1
