@@ -228,7 +228,6 @@ RDEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
     kde-base/kdenetwork-filesharing
 	kde-base/kdnssd
-	kde-base/kget
 	kde-base/kopete
 	kde-base/kppp
 	kde-base/krdc
