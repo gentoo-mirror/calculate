@@ -8,7 +8,8 @@ PLUGIN_BUILD="1865"
 
 DESCRIPTION="Adblock Plus: plugin for mozilla firefox"
 HOMEPAGE="http://adblockplus.org/en/"
-SRC_URI="http://addons.mozilla.org/downloads/latest/${PLUGIN_BUILD}/${PLUGIN_PN}-${PV}.xpi"
+SRC_URI="http://addons.mozilla.org/downloads/latest/${PLUGIN_BUILD}/${PLUGIN_PN}-${PV}.xpi
+	     ftp://ftp.calculate.ru/pub/calculate/${PN}/${PLUGIN_PN}-${PV}.xpi"
 
 LICENSE="|| ( MPL-1.1 GPL-2 LGPL-2.1 )"
 SLOT="0"
