@@ -22,7 +22,7 @@ USE="${USE} 3dnow acpi cairo dbus dri hal ieee1394 mmx mmxext nvidia opengl scan
 USE="${USE} irc jabber jingle oscar yahoo"
 
 # Image support
-USE="${USE} X exif fdftk gd gif imagemagick jpeg jpeg2k mng pdf png svg tiff wmf wxwindows xpm" 
+USE="${USE} X exif fdftk gd gif imagemagick jpeg jpeg2k mng openexr pdf png raw svg tiff wmf wxwindows xpm" 
 # Languages support
 USE="${USE} -java"
 

@@ -16,6 +16,8 @@ media-video/transcode mjpeg
 media-video/xine-ui -X
 net-analyzer/nmap -gtk
 www-client/mozilla-firefox bindist custom-optimization
+media-libs/libsdl custom-cflags
+media-video/ffmpeg custom-cflags
 net-libs/xulrunner custom-optimization
 net-print/foo2zjs -foomaticdb
 net-print/gutenprint gimp
@@ -26,7 +28,7 @@ sys-apps/hal laptop
 sys-fs/mtools -X
 www-client/links -X
 x11-drivers/nvidia-drivers -gtk
-x11-libs/cairo glitz svg
+x11-libs/cairo cleartype glitz svg
 x11-libs/libX11 xcb
 x11-libs/pixman -sse2
 x11-misc/xscreensaver -opengl -jpeg
