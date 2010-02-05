@@ -99,8 +99,16 @@ calculate_update_kernel() {
 	# update config-{KV_FULL}
 	make_old_file ${dir}/config-${KV_FULL}
 	mv ${dir}/config-${KV_FULL}-installed ${dir}/config-${KV_FULL}
+
 	ebegin "Trying to optimize initramfs"
 	( which calculate &>/dev/null && calculate --initrd ) && eend 0 || eend 1
+	if [[ "$(md5sum ${ROOT}/boot/initrd | awk '{print $1}')" == \
+		"$(md5sum ${ROOT}/boot/initrd-install | awk '{print $1}')" ]]
+	then
+		ewarn
+		ewarn "Perform command after reboot for optimization initramfs:"
+		ewarn "  calculate --initrd"
+	fi
 }
 
 is_broken_link() {
