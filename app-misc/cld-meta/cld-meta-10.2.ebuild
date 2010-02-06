@@ -78,6 +78,7 @@ RDEPEND="
     net-p2p/ktorrent
     sys-apps/calculate-client
     sys-apps/ethtool
+	sys-apps/hdparm
     sys-apps/kexec-tools
     sys-apps/keyexec
     sys-apps/keyutils
@@ -95,6 +96,9 @@ RDEPEND="
     sys-process/htop
 	www-plugins/adblock-mozilla-plugin
     www-plugins/adobe-flash
+	www-plugins/oxygen-mozilla-plugin
+    www-plugins/plasma-mozilla-plugin
+    www-plugins/xclear-mozilla-plugin
     x11-apps/mesa-progs
     x11-apps/xdpyinfo
     x11-apps/xev
