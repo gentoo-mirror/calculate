@@ -87,6 +87,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	net-irc/weechat
 	net-mail/dovecot
 	net-mail/fetchmail
+	net-misc/bridge-utils
 	net-misc/dhcp
 	net-misc/ifenslave
 	net-misc/netkit-telnetd
