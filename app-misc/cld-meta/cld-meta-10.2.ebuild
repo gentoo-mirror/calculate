@@ -82,6 +82,7 @@ RDEPEND="
     sys-apps/kexec-tools
     sys-apps/keyexec
     sys-apps/keyutils
+	sys-apps/pcmciautils
     sys-apps/preload
 	sys-apps/usb_modeswitch
     sys-auth/nss_ldap

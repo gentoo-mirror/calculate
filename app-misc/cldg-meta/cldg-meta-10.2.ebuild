@@ -18,5 +18,6 @@ RDEPEND="
 	gnome-base/gnome
 	~media-gfx/cldg-themes-${PV}
 	net-misc/wicd
+	sys-apps/pcmciautils
 	sys-apps/hdparm
 "
