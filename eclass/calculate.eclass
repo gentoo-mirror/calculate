@@ -209,12 +209,6 @@ initramfs_pack() {
 	# pack new initramfs
 	cd ${TMP_INITRAMFS}
 	find * | cpio -o --quiet -H newc | gzip -9 >$1.new
-	# remove old initramfs
-	if [[ $? -eq 0 ]]
-	then
-		rm $1
-		mv $1.new $1
-	fi
 }
 
 # @FUNCTION: calculate_update_splash
