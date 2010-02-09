@@ -223,9 +223,10 @@ initramfs_pack() {
 # Install into initramfs splash data, which descripted by
 # /etc/splash/tty1/1024x768.cfg
 calculate_update_splash() {
-	einfo "Update splash screen"
+	ebegin "Update splash screen for $1"
 	initramfs_unpack $1 &&
 	initramfs_change_spalsh && initramfs_pack $1
+	eend $?
 }
 
 # @FUNCTION: calculate_set_kernelversion
