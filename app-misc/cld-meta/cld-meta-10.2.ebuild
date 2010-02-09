@@ -59,6 +59,7 @@ RDEPEND="
     media-video/dvdauthor
     media-video/dvgrab
     media-video/kdenlive
+	media-video/kffmpegthumbnailer
     media-video/recordmydesktop
     media-video/smplayer
     net-analyzer/macchanger
