@@ -4,7 +4,7 @@
 
 PLUGIN_UID="{C1F83B1E-D6EE-11DE-B441-1AD556D89593}"
 PLUGIN_PN="oxygen_kde"
-PLUGIN_BUILD="78516"
+PLUGIN_BUILD="78486"
 
 DESCRIPTION="Oxygen KDE: plugin for mozilla firefox"
 HOMEPAGE="http://addons.mozilla.org/ru/firefox/addon/59338/"
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE=""
 
-RDEPEND=">=www-client/mozilla-firefox-3.6.0"
+RDEPEND=">=www-client/mozilla-firefox-3.5.0"
 
 src_unpack() {
 	unzip "${DISTDIR}/${A}"
