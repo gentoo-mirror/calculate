@@ -208,7 +208,7 @@ initramfs_change_spalsh() {
 initramfs_pack() {
 	# pack new initramfs
 	cd ${TMP_INITRAMFS}
-	find * | cpio -o --quiet -H newc | gzip -9 >$1.new
+	find * | cpio -o --quiet -H newc | gzip -9 >$1
 }
 
 # @FUNCTION: calculate_update_splash
