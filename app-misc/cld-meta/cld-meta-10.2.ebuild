@@ -100,6 +100,7 @@ RDEPEND="
     www-plugins/adobe-flash
 	www-plugins/oxygen-mozilla-plugin
     www-plugins/plasma-mozilla-plugin
+	www-plugins/spell-mozilla-plugin
     www-plugins/xclear-mozilla-plugin
     x11-apps/mesa-progs
     x11-apps/xdpyinfo

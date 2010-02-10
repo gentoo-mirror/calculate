@@ -81,6 +81,7 @@ RDEPEND="
 	sys-process/htop
 	www-plugins/adblock-mozilla-plugin
 	www-plugins/adobe-flash
+	www-plugins/spell-mozilla-plugin
 	x11-apps/ccsm
 	x11-apps/fusion-icon
 	x11-apps/mesa-progs

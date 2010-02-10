@@ -20,4 +20,7 @@ RDEPEND="
 	net-misc/wicd
 	sys-apps/pcmciautils
 	sys-apps/hdparm
+	www-plugins/adblock-mozilla-plugin
+	www-plugins/adobe-flash
+	www-plugins/spell-mozilla-plugin
 "
