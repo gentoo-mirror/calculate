@@ -133,7 +133,6 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	sys-block/tw_cli
 	sys-boot/calcboot
 	sys-boot/grub
-	sys-fs/aufs2
 	sys-fs/dmraid
 	sys-fs/dosfstools
 	sys-fs/e2fsprogs
