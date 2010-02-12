@@ -1,7 +1,7 @@
 diff --git a/profile/mail/etc/dovecot/dovecot.conf b/profile/mail/etc/dovecot/dovecot.conf
 index b233f06..f89040d 100644
---- a/profile/mail/etc/dovecot/dovecot.conf
-+++ b/profile/mail/etc/dovecot/dovecot.conf
+--- profile/mail/etc/dovecot/dovecot.conf
++++ profile/mail/etc/dovecot/dovecot.conf
 @@ -5,6 +5,14 @@ chown=root:root
  auth_debug=yes
  # Тип хранения почты и расположение почтовых папок
