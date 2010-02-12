@@ -1,0 +1,19 @@
+diff --git a/profile/mail/etc/dovecot/dovecot.conf b/profile/mail/etc/dovecot/dovecot.conf
+index b233f06..f89040d 100644
+--- a/profile/mail/etc/dovecot/dovecot.conf
++++ b/profile/mail/etc/dovecot/dovecot.conf
+@@ -5,6 +5,14 @@ chown=root:root
+ auth_debug=yes
+ # Тип хранения почты и расположение почтовых папок
+ mail_location = maildir:#-sr_mail_path-#/%u
++protocol imap {
++     listen = *:143
++     ssl_listen = *:993
++}
++protocol pop3 {
++     listen = *:110
++     ssl_listen = *:995
++}
+ #?sr_mail_type==all#
+ protocols = imap imaps pop3 pop3s
+ #sr_mail_type#
