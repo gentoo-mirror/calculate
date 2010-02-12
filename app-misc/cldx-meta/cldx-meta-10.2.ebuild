@@ -30,7 +30,7 @@ RDEPEND="
 	app-editors/mousepad
 	~app-misc/cls-meta-${PV}
 	app-office/openoffice
-	app-text/epdfview
+	app-text/evince
 	app-text/fbreader
 	mail-client/claws-mail
 	mail-client/claws-mail-gtkhtml
