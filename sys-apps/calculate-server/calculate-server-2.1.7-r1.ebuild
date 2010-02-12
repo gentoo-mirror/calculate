@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit distutils
+inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
