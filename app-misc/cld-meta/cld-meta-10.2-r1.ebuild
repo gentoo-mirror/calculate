@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit calculate
 EAPI=2
 
 DESCRIPTION="Calculate Linux Desktop KDE (meta package)"
@@ -315,4 +316,5 @@ append_cxxflags_to() {
 
 pkg_postinst() {
 	cxxflags_present_in /etc/make.conf || append_cxxflags_to /etc/make.conf
+	calculate_change_version
 }

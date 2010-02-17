@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header:
 
-inherit eutils linux-info
+inherit eutils linux-info versionator
 
 # @FUNCTION: last_arg
 # @USING: last_arg manyarguments
@@ -292,3 +292,73 @@ calculate_clean_firmwares() {
 		fi
 	done
 }
+
+# FUNCTION: get_value
+# DESCRIPTION:
+# Get the value of the variable from stdio.
+get_value() {
+	sed -rn "s/^(.*\s+)?+$1=\"?([^\" ]*)\"?(\s+.*|$)/\2/p"
+}
+
+# FUNCTION: set_value
+# DESCRIPTION:
+# Set the value to the variable in the file
+set_value() {
+	local var=$1
+	local value=$2
+	local filename=$3
+	[[ -n $( get_value $var < $filename ) ]] &&
+		sed -ri "s/^$var=(\"?[^\"]*\"?)$/$var=$value/" $filename ||
+		echo "$var=$value" >>$filename
+}
+
+# @VARIABLE: CALCULATE_INI
+# @DESCRIPTION:
+# Fullpath to calculate.ini
+CALCULATE_INI=${ROOT}/etc/calculate/calculate.ini
+# @VARIABLE: LINUXVER
+# @DESCRIPTION:
+# The version of current operation system.
+LINUXVER=
+# @VARIABLE: ROOTDEV
+# @DESCRIPTION:
+# Boot device.
+ROOTDEV=
+
+# FUNCTION: change_issue
+# DESCRIPTION:
+# Change version in /etc/issue
+change_issue() {
+	sed -ri "s/${LINUXVER}/${PV}/" ${ROOT}/etc/issue
+}
+
+# FUNCTION: change_grub
+# DESCRIPTION:
+# Change version for grub
+change_grub() {
+	sed -ri "/^title/ {:f;N;s/\nkernel/&/;tc;bf;:c;s|root=${ROOTDEV}|&|;Te;s/${LINUXVER} / $PV /;:e}" /boot/grub/grub.conf
+}
+
+# FUNCTION: calculate_initvars
+# DESCRIPTION:
+# Init LINUXVER,ROOTDEV
+calculate_initvars() {
+	LINUXVER=$( get_value linuxver < ${CALCULATE_INI} )
+	ROOTDEV=$( get_value root < ${ROOT}/proc/cmdline )
+}
+
+# FUNCTION: calculate_change_version
+# DESCRIPTION:
+# Change the version of the system in calculate.ini,issue,grub.conf
+calculate_change_version() {
+	calculate_initvars
+	if [[ -n "${LINUXVER}" ]] && ! version_is_at_least ${PV} ${LINUXVER}
+	then
+		ebegin "Change version of operation system"
+			set_value linuxver ${PV} ${CALCULATE_INI} &&
+			change_issue &&
+			change_grub
+		eend $?
+	fi
+}
+

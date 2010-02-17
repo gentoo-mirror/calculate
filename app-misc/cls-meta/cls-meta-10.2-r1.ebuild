@@ -127,4 +127,5 @@ append_cxxflags_to() {
 
 pkg_postinst() {
 	cxxflags_present_in /etc/make.conf || append_cxxflags_to /etc/make.conf
+	calculate_change_version
 }
