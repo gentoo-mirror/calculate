@@ -336,7 +336,7 @@ change_issue() {
 # DESCRIPTION:
 # Change version for grub
 change_grub() {
-	sed -ri "/^title/ {:f;N;s/\nkernel/&/;tc;bf;:c;s|root=${ROOTDEV}|&|;Te;s/${LINUXVER} / $PV /;:e}" /boot/grub/grub.conf
+	sed -ri "/^title/ {:f;N;s/\nkernel/&/;tc;bf;:c;s|root=${ROOTDEV}|&|;Te;s/ ${LINUXVER} / $PV /;:e}" /boot/grub/grub.conf
 }
 
 # FUNCTION: calculate_initvars
