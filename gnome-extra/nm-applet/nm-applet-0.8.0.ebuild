@@ -19,7 +19,7 @@ SRC_URI="http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/0.8/netwo
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ppc x86"
+KEYWORDS="~amd64 ~arm ~ppc ~x86"
 IUSE=""
 
 RDEPEND=">=sys-apps/dbus-1.2
