@@ -22,7 +22,9 @@ DEPEND="=sys-apps/calculate-lib-9999
 		>=sys-apps/keyexec-0.1.2
 		>=sys-apps/hal-0.5.9
 		sys-apps/keyutils
-		sys-auth/pam_keystore"
+		sys-auth/pam_keystore
+		dev-python/py-smbpasswd
+		"
 
 RDEPEND="${DEPEND}"
 
