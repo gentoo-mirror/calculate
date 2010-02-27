@@ -16,7 +16,6 @@ IUSE=""
 RDEPEND="
 	~app-misc/cls-meta-${PV}
 	app-office/openoffice
-	gnome-base/gnome
 	>=net-misc/networkmanager-0.8
 	>=gnome-extra/nm-applet-0.8
 	~media-gfx/cldg-themes-${PV}
@@ -92,7 +91,6 @@ RDEPEND="${RDEPEND}
 
 	>=media-gfx/eog-2.26.3
 
-	>=www-client/epiphany-2.26.3
 	>=app-arch/file-roller-2.26.3
 	>=gnome-extra/gcalctool-5.26.3
 
