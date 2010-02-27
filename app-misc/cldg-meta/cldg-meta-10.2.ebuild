@@ -20,6 +20,7 @@ RDEPEND="
 	>=net-misc/networkmanager-0.8
 	>=gnome-extra/nm-applet-0.8
 	~media-gfx/cldg-themes-${PV}
+	net-analyzer/nmap
 	net-im/pidgin
 	net-irc/xchat
 	net-misc/rdesktop
