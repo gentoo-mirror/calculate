@@ -16,6 +16,7 @@ IUSE=""
 RDEPEND="
 	~app-misc/cls-meta-${PV}
 	app-office/openoffice
+	app-text/stardict
 	>=net-misc/networkmanager-0.8
 	>=gnome-extra/nm-applet-0.8
 	~media-gfx/cldg-themes-${PV}
