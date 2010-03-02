@@ -19,6 +19,7 @@ RDEPEND="
 	>=net-misc/networkmanager-0.8
 	>=gnome-extra/nm-applet-0.8
 	~media-gfx/cldg-themes-${PV}
+	media-sound/rhythmbox
 	net-analyzer/nmap
 	net-im/pidgin
 	net-irc/xchat
@@ -34,6 +35,7 @@ RDEPEND="
 	x11-apps/ccsm
 	x11-apps/fusion-icon
 	x11-themes/tango-icon-theme
+	x11-misc/glipper
 	x11-wm/compiz-fusion"
 
 RDEPEND="${RDEPEND}
