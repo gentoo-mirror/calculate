@@ -19,6 +19,9 @@ RDEPEND="
 	app-text/stardict
 	>=net-misc/networkmanager-0.8
 	>=gnome-extra/nm-applet-0.8
+	>=net-misc/networkmanager-openvpn-0.8
+	>=net-misc/networkmanager-pptp-0.8
+	>=net-misc/networkmanager-vpnc-0.8
 	~media-gfx/cldg-themes-${PV}
 	media-sound/rhythmbox
 	net-analyzer/nmap
