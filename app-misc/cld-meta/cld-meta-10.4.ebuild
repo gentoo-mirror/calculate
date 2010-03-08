@@ -73,8 +73,11 @@ RDEPEND="
     net-irc/konversation
     net-misc/ifenslave
 	net-misc/kvpnc
+	net-misc/networkmanager
+	net-misc/networkmanager-openvpn
+	net-misc/networkmanager-pptp
+	net-misc/networkmanager-vpnc
     net-misc/rdesktop
-    net-misc/wicd
     net-misc/wol
 	net-p2p/eiskaltdc
     net-p2p/ktorrent
