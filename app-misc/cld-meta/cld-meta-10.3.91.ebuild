@@ -247,7 +247,6 @@ RDEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	kde-base/akonadi
 	kde-base/akregator
-	kde-base/blogilo
 	kde-base/kabcclient
 	kde-base/kaddressbook
 	kde-base/kalarm
