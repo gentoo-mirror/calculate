@@ -47,7 +47,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	media-fonts/corefonts
 	media-fonts/droid
 	media-fonts/terminus-font
-	~media-gfx/cls-themes-${PV}
+	~media-gfx/cls-themes-10.4
 	media-gfx/splashutils
 	media-sound/alsa-utils
 	net-analyzer/iptraf

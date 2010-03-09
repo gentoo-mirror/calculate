@@ -22,7 +22,7 @@ RDEPEND="
 	>=net-misc/networkmanager-openvpn-0.8
 	>=net-misc/networkmanager-pptp-0.8
 	>=net-misc/networkmanager-vpnc-0.8
-	~media-gfx/cldg-themes-${PV}
+	~media-gfx/cldg-themes-10.4
 	media-sound/rhythmbox
 	net-analyzer/nmap
 	net-im/pidgin
