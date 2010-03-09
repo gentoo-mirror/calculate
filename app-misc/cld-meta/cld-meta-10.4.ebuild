@@ -17,6 +17,7 @@ IUSE=""
 RDEPEND="
 	!kde-base/kontactinterfaces
 	!kde-base/libknotificationitem
+	!net-misc/wicd
 "
 
 RDEPEND="
@@ -279,6 +280,7 @@ RDEPEND="${RDEPEND}
 	kde-base/kate
 	kde-base/kdeplasma-addons
 	kde-misc/kgtk
+	kde-misc/knetworkmanager
 	kde-misc/konq-plugins
 	kde-misc/openofficeorg-thumbnail
 	net-wireless/kbluetooth
