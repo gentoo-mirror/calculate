@@ -21,7 +21,7 @@ media-libs/libsdl custom-cflags
 media-video/ffmpeg custom-cflags
 net-libs/xulrunner custom-optimization
 net-print/foo2zjs -foomaticdb
-net-print/hplip -X -qt3 -qt4 gtk ppds
+net-print/hplip fax -X -qt3 -qt4 gtk ppds
 net-wireless/wpa_supplicant -qt4
 sys-apps/pciutils -zlib
 sys-apps/hal laptop
