@@ -15,6 +15,11 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
+	!kde-base/kontactinterfaces
+	!kde-base/libknotificationitem
+"
+
+RDEPEND="
 	app-admin/sudo
 	app-antivirus/clamav
 	app-arch/rar
