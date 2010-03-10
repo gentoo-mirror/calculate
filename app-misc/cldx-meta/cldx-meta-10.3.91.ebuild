@@ -35,7 +35,7 @@ RDEPEND="
 	mail-client/claws-mail
 	mail-client/claws-mail-gtkhtml
 	mail-client/claws-mail-rssyl
-	~media-gfx/cldx-themes-${PV}
+	~media-gfx/cldx-themes-10.4
 	media-gfx/gimp
 	media-gfx/gqview
 	media-gfx/gtkam
