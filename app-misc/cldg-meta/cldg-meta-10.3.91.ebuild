@@ -32,6 +32,7 @@ RDEPEND="
 	sys-apps/hdparm
 	sys-apps/calculate-client
 	sys-block/gparted
+	sys-process/htop
 	www-plugins/adblock-mozilla-plugin
 	www-plugins/adobe-flash
 	www-plugins/spell-mozilla-plugin
@@ -156,7 +157,6 @@ RDEPEND="${RDEPEND}
 	>=net-misc/vino-2.26.2
 
 	>=app-admin/pessulus-2.26.2
-	>=app-admin/sabayon-2.25.0
 	>=net-voip/ekiga-2.0.12
 
 	>=gnome-extra/gnome-screensaver-2.26.1
@@ -169,11 +169,6 @@ RDEPEND="${RDEPEND}
 
 	>=gnome-extra/libgail-gnome-1.20.1
 	>=gnome-extra/at-spi-1.26.0
-	>=app-accessibility/dasher-4.10.1
-	>=app-accessibility/gnome-mag-0.15.7
-	>=app-accessibility/gnome-speech-0.4.25
-	>=app-accessibility/gok-2.26.0
-	>=app-accessibility/orca-2.26.3
 	>=gnome-extra/mousetweaks-2.26.3 
 	>=net-print/gnome-cups-manager-0.31-r2
 	"
