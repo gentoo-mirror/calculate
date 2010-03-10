@@ -1,32 +1,21 @@
 diff --git a/modules/profile.eselect b/modules/profile.eselect
-index 93824c1..2cd43a6 100644
+index 488e6df..a678d52 100644
 --- a/modules/profile.eselect
 +++ b/modules/profile.eselect
-@@ -1,16 +1,21 @@
- # -*-eselect-*-  vim: ft=eselect
- # Copyright 1999-2009 Gentoo Foundation
- # Distributed under the terms of the GNU General Public License v2
--# $Id: profile.eselect 750 2009-12-31 00:02:52Z ulm $
-+# $Id: profile.eselect 727 2009-11-14 18:08:51Z ulm $
- 
- # This is a portage-only module.
- inherit package-manager
- 
- DESCRIPTION="Manage the /etc/make.profile symlink"
- MAINTAINER="eselect@gentoo.org"
--SVN_DATE='$Date: 2009-12-31 01:02:52 +0100 (Thu, 31 Dec 2009) $'
-+SVN_DATE='$Date: 2009-11-14 19:08:51 +0100 (Sat, 14 Nov 2009) $'
+@@ -12,6 +12,12 @@ SVN_DATE='$Date: 2010-02-05 21:58:39 +0100 (Fri, 05 Feb 2010) $'
  VERSION=$(svn_date_to_version "${SVN_DATE}")
  
+ # get a list of valid profiles
++# add calculate overlay to profiles
 +NEW_CALCULATE_OVERLAY="/var/lib/layman/calculate"
 +[[ -d ${NEW_CALCULATE_OVERLAY} ]] && 
 +	CALCULATE_OVERLAY=${NEW_CALCULATE_OVERLAY} ||
 +	CALCULATE_OVERLAY="/usr/local/portage/layman/calculate"
 +
- # get a list of valid profiles
  find_targets() {
  	local arch p portdir=${1}
-@@ -19,6 +24,17 @@ find_targets() {
+ 	[[ -n ${portdir} ]] || portdir=$(portageq portdir)
+@@ -19,6 +25,17 @@ find_targets() {
  	arch=$(arch)
  	[[ -z ${arch} ]] && return 1
  
@@ -44,7 +33,7 @@ index 93824c1..2cd43a6 100644
  	for p in $(sed -n -e "s|^${arch}[[:space:]]\+\([^[:space:]]\+\).*$|\1|p" \
  		"${ROOT}${portdir}/profiles/profiles.desc")
  	do
-@@ -54,6 +70,24 @@ set_symlink() {
+@@ -54,6 +71,24 @@ set_symlink() {
  		if [[ ${arch} != ${parch} && ${2} != "--force" ]] ; then
  			die -q "${target} is not a valid profile for ${arch}"
  		fi
@@ -69,7 +58,7 @@ index 93824c1..2cd43a6 100644
  	fi
  
  	if [[ -z ${target} ]] ; then
-@@ -75,6 +109,17 @@ set_symlink() {
+@@ -75,6 +110,17 @@ set_symlink() {
  			write_warning_msg \
  				"Strange path. Check ${EROOT}/etc/make.profile symlink"
  		fi
@@ -87,7 +76,7 @@ index 93824c1..2cd43a6 100644
  	else
  		die -q "Target \"${1}\" doesn't appear to be valid!"
  	fi
-@@ -93,6 +138,10 @@ do_show() {
+@@ -93,6 +139,10 @@ do_show() {
  		local portdir=$(portageq portdir)
  		local profiledir=$(canonicalise "${ROOT}${portdir}/profiles")
  		link=${link##${profiledir}/}
@@ -98,7 +87,7 @@ index 93824c1..2cd43a6 100644
  		write_kv_list_entry "${link}" ""
  	else
  		write_kv_list_entry "(unset)" ""
-@@ -115,6 +164,10 @@ do_list() {
+@@ -115,6 +165,10 @@ do_list() {
  	profiledir=$(canonicalise "${ROOT}${portdir}/profiles")
  	active=$(canonicalise "${EROOT}/etc/make.profile")
  	active=${active##${profiledir}/}
