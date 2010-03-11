@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,7 +13,7 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="kde xfce gnome"
 
 DEPEND="=sys-apps/calculate-lib-9999
 		>=dev-python/python-ldap-2.0[ssl]
@@ -24,6 +24,9 @@ DEPEND="=sys-apps/calculate-lib-9999
 		sys-apps/keyutils
 		sys-auth/pam_keystore
 		dev-python/py-smbpasswd
+		xfce? ( x11-misc/slim )
+		gnome? ( gnome-base/gdm )
+		kde? ( kde-base/kdm )
 		"
 
 RDEPEND="${DEPEND}"

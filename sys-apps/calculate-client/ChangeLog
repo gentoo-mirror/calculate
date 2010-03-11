@@ -1,6 +1,10 @@
 # ChangeLog for sys-apps/calculate-client
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  11 Mar 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  calculate-client-9999.ebuild:
+  Add IUSE="kde xfce gnome" to calculate-client-9999.
 
 *calculate-client-2.1.11 (03 Mar 2010)
   03 Mar 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
