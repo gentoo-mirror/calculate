@@ -1,8 +1,8 @@
 diff --git a/gui/gdmuser.c b/gui/gdmuser.c
-index 2dff3f6..fc5c707 100644
+index 2dff3f6..27a169f 100644
 --- a/gui/gdmuser.c
 +++ b/gui/gdmuser.c
-@@ -232,11 +232,16 @@ gdm_sort_func (gpointer d1, gpointer d2)
+@@ -232,13 +232,32 @@ gdm_sort_func (gpointer d1, gpointer d2)
  {
      GdmUser *a = d1;
      GdmUser *b = d2;
@@ -15,11 +15,36 @@ index 2dff3f6..fc5c707 100644
 -    return (strcmp (a->login, b->login));
 +    astr = (a->gecos && strcmp(a->gecos, "") != 0 ) ? a->gecos : a->login;
 +    bstr = (b->gecos && strcmp(b->gecos, "") != 0 ) ? b->gecos : b->login;
++    if(astr == a->gecos && bstr == b->gecos && !strcmp(astr,bstr)) {
++	return (strcmp (a->login, b->login));
++    }
 +
 +    return (strcmp (astr, bstr));
  }
  
++static gint
++gdm_sort_login_func (gpointer d1, gpointer d2)
++{
++    GdmUser *a = d1;
++    GdmUser *b = d2;
++
++    if (!d1 || !d2)
++        return (0);
++
++    return (strcmp (a->login, b->login));
++}
  
+ static gboolean
+ setup_user (struct passwd *pwent,
+@@ -267,7 +286,7 @@ setup_user (struct passwd *pwent,
+ 				   defface, read_faces);
+ 
+ 	    if ((user) &&
+-		(! g_list_find_custom (*users, user, (GCompareFunc) gdm_sort_func))) {
++		(! g_list_find_custom (*users, user, (GCompareFunc) gdm_sort_login_func))) {
+ 		cnt++;
+ 		*users = g_list_insert_sorted (*users, user,
+ 		     (GCompareFunc) gdm_sort_func);
 diff --git a/gui/greeter/greeter_item_ulist.c b/gui/greeter/greeter_item_ulist.c
 index 574a10b..d9f2628 100644
 --- a/gui/greeter/greeter_item_ulist.c
