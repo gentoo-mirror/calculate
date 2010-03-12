@@ -185,6 +185,8 @@ RDEPEND="${RDEPEND}
 	kde-base/qguiplatformplugin_kde
 	kde-base/solid
 	kde-base/systemsettings
+	kde-base/kdm                                                                               
+	sys-auth/polkit-kde
 "
 
 # kdegraphics-meta
