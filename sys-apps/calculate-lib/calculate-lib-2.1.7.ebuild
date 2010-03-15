@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 DEPEND="!<sys-apps/calculate-client-2.1.11
-		!<sys-apps/calculate-server-2.1.9
+		!<sys-apps/calculate-server-2.1.10
 		>=dev-lang/python-2.5.2
 		>=dev-python/python-ldap-2.0[ssl]
 		>=dev-python/pyxml-0.8"
