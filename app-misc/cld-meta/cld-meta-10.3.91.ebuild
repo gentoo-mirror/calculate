@@ -238,7 +238,6 @@ RDEPEND="${RDEPEND}
 	kde-base/kgpg
 	kde-base/ktimer
 	kde-base/kwallet
-	kde-base/superkaramba
 	kde-base/sweeper
 	kde-base/okteta
 	kde-base/printer-applet
