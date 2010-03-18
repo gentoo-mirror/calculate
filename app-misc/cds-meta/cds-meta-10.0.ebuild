@@ -48,7 +48,7 @@ RDEPEND="
 	dev-libs/klibc
 	dev-python/psycopg
 	dev-python/pyserial
-	dev-util/git
+	dev-vcs/git
 	mail-filter/clamsmtp
 	mail-filter/postgrey
 	mail-filter/procmail

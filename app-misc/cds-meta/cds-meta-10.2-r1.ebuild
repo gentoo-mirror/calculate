@@ -49,7 +49,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	dev-python/psycopg
 	dev-python/pyserial
 	dev-ruby/libxml
-	dev-util/git
+	dev-vcs/git
 	mail-filter/clamsmtp
 	mail-filter/postgrey
 	mail-filter/procmail

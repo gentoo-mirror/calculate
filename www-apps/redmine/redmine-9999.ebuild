@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}
         >=dev-ruby/coderay-0.7.6.227
         cvs? ( >=dev-util/cvs-1.12 )
         darcs? ( dev-util/darcs )
-        git? ( dev-util/git )
+        git? ( dev-vcs/git )
         mercurial? ( dev-util/mercurial )
         subversion? ( >=dev-util/subversion-1.3 )
         mongrel? (

@@ -43,7 +43,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	app-vim/colorschemes
 	app-vim/vimcommander
 	dev-libs/klibc
-	dev-util/git
+	dev-vcs/git
 	media-fonts/corefonts
 	media-fonts/droid
 	media-fonts/terminus-font
