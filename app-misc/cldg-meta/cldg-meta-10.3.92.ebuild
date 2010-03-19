@@ -15,6 +15,28 @@ IUSE=""
 
 RDEPEND="
 	~app-misc/cls-meta-${PV}
+	app-antivirus/clamav
+	app-arch/rar
+	app-dicts/aspell-de
+	app-dicts/aspell-en
+	app-dicts/aspell-es
+	app-dicts/aspell-fr
+	app-dicts/aspell-pt-br
+	app-dicts/aspell-ru
+	app-dicts/aspell-uk
+	app-dicts/ispell-de
+	app-dicts/ispell-es
+	app-dicts/ispell-fr
+	app-dicts/ispell-pt-br
+	app-dicts/ispell-ru
+	app-dicts/myspell-de
+	app-dicts/myspell-en
+	app-dicts/myspell-es
+	app-dicts/myspell-fr
+	app-dicts/myspell-pt
+	app-dicts/myspell-ru
+	app-dicts/myspell-uk
+	app-text/fbreader
 	app-office/openoffice
 	app-text/stardict
 	>=net-misc/networkmanager-0.8
@@ -23,27 +45,50 @@ RDEPEND="
 	>=net-misc/networkmanager-pptp-0.8
 	>=net-misc/networkmanager-vpnc-0.8
 	~media-gfx/cldg-themes-10.4
+	media-gfx/gimp
+	media-gfx/xsane
+	media-libs/win32codecs
 	media-sound/rhythmbox
+	media-tv/tvtime
 	net-analyzer/nmap
+	net-dns/bind-tools
+	net-fs/samba
 	net-im/pidgin
 	net-irc/xchat
 	net-misc/rdesktop
-	sys-apps/pcmciautils
-	sys-apps/hdparm
+	net-misc/wol
 	sys-apps/calculate-client
+	sys-apps/hdparm
+	sys-apps/ethtool
+	sys-apps/hdparm
+	sys-apps/kexec-tools
+	sys-apps/keyexec
+	sys-apps/keyutils
+	sys-apps/pcmciautils
+	sys-apps/preload
+	sys-apps/usb_modeswitch
+	sys-auth/pam_keystore
+	sys-auth/thinkfinger
 	sys-block/gparted
+	sys-power/acpid
+	sys-power/cpufreqd
+	sys-power/powernowd
 	sys-process/htop
 	www-plugins/adblock-mozilla-plugin
 	www-plugins/adobe-flash
 	www-plugins/spell-mozilla-plugin
-	x11-drivers/nvidia-drivers
+	www-plugins/xclear-mozilla-plugin
 	x11-themes/gnome-themes-extras
 	x11-apps/ccsm
 	x11-apps/fusion-icon
+	x11-apps/mesa-progs
+	x11-apps/xdpyinfo
+	x11-apps/xev
 	x11-plugins/pidgin-facebookchat
 	x11-plugins/pidgin-hotkeys
 	x11-themes/tango-icon-theme
 	x11-misc/glipper
+	x11-misc/xbindkeys
 	x11-wm/compiz-fusion"
 
 RDEPEND="${RDEPEND}
