@@ -46,7 +46,6 @@ RDEPEND="
 	app-dicts/myspell-pt
 	app-dicts/myspell-ru
 	app-dicts/myspell-uk
-	app-emulation/wine
 	~app-misc/cls-meta-${PV}
 	app-office/openoffice
 	app-text/fbreader
