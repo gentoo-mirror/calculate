@@ -68,7 +68,6 @@ RDEPEND="
     net-dialup/xl2tpd
     net-dns/bind-tools
 	net-fs/samba
-	net-im/kopete-facebook
     net-irc/konversation
     net-misc/ifenslave
 	net-misc/kvpnc
