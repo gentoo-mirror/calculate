@@ -17,7 +17,6 @@ IUSE=""
 RDEPEND="
 	!kde-base/kontactinterfaces
 	!kde-base/libknotificationitem
-	!net-misc/wicd
 "
 
 RDEPEND="
@@ -78,11 +77,8 @@ RDEPEND="
     net-irc/konversation
     net-misc/ifenslave
 	net-misc/kvpnc
-	net-misc/networkmanager
-	net-misc/networkmanager-openvpn
-	net-misc/networkmanager-pptp
-	net-misc/networkmanager-vpnc
     net-misc/rdesktop
+	net-misc/wicd
     net-misc/wol
 	net-p2p/eiskaltdc
     net-p2p/ktorrent
@@ -279,7 +275,6 @@ RDEPEND="${RDEPEND}
 	kde-base/kate
 	kde-base/kdeplasma-addons
 	kde-misc/kgtk
-	kde-misc/knetworkmanager
 	kde-misc/konq-plugins
 	kde-misc/openofficeorg-thumbnail
 	net-wireless/kbluetooth
