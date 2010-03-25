@@ -240,6 +240,7 @@ RDEPEND="${RDEPEND}
 
 # kdepim-meta
 #- kde-base/ktimetracker
+#- kde-base/kdepim-wizards
 RDEPEND="${RDEPEND}
 	kde-base/akonadi
 	kde-base/akregator
@@ -250,7 +251,6 @@ RDEPEND="${RDEPEND}
 	kde-base/kdepim-kresources
 	kde-base/kdepim-runtime
 	kde-base/kdepim-strigi-analyzer
-	kde-base/kdepim-wizards
 	kde-base/kjots
 	kde-base/kleopatra
 	kde-base/kmail
