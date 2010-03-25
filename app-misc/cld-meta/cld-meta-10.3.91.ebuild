@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -224,21 +224,22 @@ RDEPEND="${RDEPEND}
 "
 
 # kdeutils-meta
+#- kde-base/ktimer
+#- kde-base/okteta
 RDEPEND="${RDEPEND}
     kde-base/ark
 	kde-base/kcalc
 	kde-base/kcharselect
 	kde-base/kdf
 	kde-base/kgpg
-	kde-base/ktimer
 	kde-base/kwallet
 	kde-base/sweeper
-	kde-base/okteta
 	kde-base/printer-applet
 	kde-base/kdelirc
 "
 
 # kdepim-meta
+#- kde-base/ktimetracker
 RDEPEND="${RDEPEND}
 	kde-base/akonadi
 	kde-base/akregator
@@ -258,7 +259,6 @@ RDEPEND="${RDEPEND}
 	kde-base/konsolekalendar
 	kde-base/kontact
 	kde-base/korganizer
-	kde-base/ktimetracker
 	kde-base/libkdepim
 	kde-base/libkleo
 	kde-base/libkpgp
