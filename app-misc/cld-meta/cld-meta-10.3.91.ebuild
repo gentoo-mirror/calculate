@@ -133,6 +133,8 @@ RDEPEND="${RDEPEND}
 	kde-base/kdeartwork-weatherwallpapers
 "
 # kdebase-meta
+#- kde-base/konqueror
+#- kde-base/nsplugins
 RDEPEND="${RDEPEND}
 	kde-base/dolphin
 	kde-base/kappfinder
@@ -155,7 +157,6 @@ RDEPEND="${RDEPEND}
 	kde-base/kinfocenter
 	kde-base/klipper
 	kde-base/kmenuedit
-	kde-base/konqueror
 	kde-base/konsole
 	kde-base/kscreensaver
 	kde-base/ksmserver
@@ -171,7 +172,6 @@ RDEPEND="${RDEPEND}
 	kde-base/libplasmaclock
 	kde-base/libplasmagenericshell
 	kde-base/libtaskmanager
-	kde-base/nsplugins
 	kde-base/phonon-kde
 	kde-base/plasma-apps
 	kde-base/plasma-workspace
@@ -270,11 +270,11 @@ RDEPEND="${RDEPEND}
 "
 
 # kdemisc
+#- kde-misc/konq-plugins
 RDEPEND="${RDEPEND}
 	kde-base/kate
 	kde-base/kdeplasma-addons
 	kde-misc/kgtk
-	kde-misc/konq-plugins
 	kde-misc/openofficeorg-thumbnail
 	net-wireless/kbluetooth
 "
