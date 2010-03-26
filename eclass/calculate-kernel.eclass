@@ -114,6 +114,9 @@ vmlinuz_src_compile() {
 
 calculate-kernel_src_compile() {
 	use vmlinuz && vmlinuz_src_compile
+
+	insinto /etc/modprobe.d                                                                    
+	newins "${FILESDIR}"/modprobe_i915.conf i915.conf || die 
 }
 
 vmlinuz_src_install() {
