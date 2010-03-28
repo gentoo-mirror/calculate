@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -89,7 +89,6 @@ RDEPEND="
 	x11-apps/xev
 	x11-misc/slim
 	x11-misc/xbindkeys
-	x11-misc/xfce4-notifyd
 	x11-plugins/pidgin-libnotify
 	x11-terms/terminal
 	x11-themes/emerald-themes
@@ -107,6 +106,7 @@ RDEPEND="
 	xfce-extra/xfce4-mailwatch-plugin
 	xfce-extra/xfce4-mixer
 	xfce-extra/xfce4-notes-plugin
+	xfce-extra/xfce4-notifyd
 	xfce-extra/xfce4-power-manager
 	xfce-extra/xfce4-screenshooter
 	xfce-extra/xfce4-taskmanager
