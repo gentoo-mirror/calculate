@@ -2,6 +2,11 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Mar 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  calculate-sources-2.6.32.7.ebuild, calculate-sources-2.6.32.8.ebuild,
+  calculate-sources-2.6.32.9.ebuild, calculate-sources-2.6.32.10.ebuild:
+  Fix lzma-utils xz-utils depend.
+
 *calculate-sources-2.6.32.10 (23 Mar 2010)
 
   23 Mar 2010; Alexander Tratsevskiy (L'autre) <at@calculate.ru>
