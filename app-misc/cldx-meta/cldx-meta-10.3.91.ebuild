@@ -46,6 +46,7 @@ RDEPEND="
 	media-video/gnome-mplayer
 	media-video/mplayer
 	net-analyzer/macchanger
+	net-p2p/linuxdcpp
 	net-dialup/gnome-ppp
 	net-dialup/minicom
 	net-dialup/xl2tpd
