@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,6 +7,13 @@
 # initial version
 # updated to use cnijfilter-common-2.80 2008-01-12 by Victor Mataré
 #
+# 2010-03-19 GuS Version 3.20-r1
+# 	     Replaced dependency of non-existing dev-libs/libxml with
+#            dependency of >=dev-libs/libxml2-2.7.3-r2.
+#
+# 2010-03-20 GuS Version 3.20-r2
+#            Replaced dependency of non-existing virtual/ghostscript with
+#	     dependency of app-text/ghostscript-gpl.
 
 inherit eutils rpm flag-o-matic multilib
 
@@ -29,7 +36,7 @@ IUSE="amd64
 	mp560
 	ip4700
 	mp640"
-DEPEND="virtual/ghostscript
+DEPEND="app-text/ghostscript-gpl
 	>=net-print/cups-1.1.14
 	!amd64? ( sys-libs/glibc
 		>=dev-libs/popt-1.6
@@ -39,11 +46,10 @@ DEPEND="virtual/ghostscript
 		app-emulation/emul-linux-x86-compat
 		app-emulation/emul-linux-x86-baselibs )
 	servicetools? ( !amd64? ( >=gnome-base/libglade-0.6
-			>=dev-libs/libxml-1.8
+			>=dev-libs/libxml2-2.7.3-r2
 			=x11-libs/gtk+-1.2* )
 		amd64? ( >=app-emulation/emul-linux-x86-bjdeps-0.1
 			app-emulation/emul-linux-x86-gtklibs ) )"
-# >=automake-1.6.3
 
 # Arrays of supported Printers, there IDs and compatible models
 _pruse=("mp250" "mp270" "mp490" "mp550" "mp560" "ip4700" "mp640")
@@ -65,10 +71,10 @@ pkg_setup() {
 	if (use amd64 && use servicetools); then
 		eerror "You can't build this package with 'servicetools' on amd64,"
 		eerror "because you would need to compile '>=gnome-base/libglade-0.6'"
-		eerror "and '>=dev-libs/libxml-1.8' with 'export ABI=x86' first."
+		eerror "and '>=dev-libs/libxml2-2.7.3-r2' with 'export ABI=x86' first."
 		eerror "That's exactly what 'emul-linux-x86-bjdeps-0.1' does with"
 		eerror "'dev-libs/popt-1.6'. I encourage you to adapt this ebuild"
-		eerror "to build 32bit versions of 'libxml' and 'libglade' too!"
+		eerror "to build 32bit versions of 'libxml2' and 'libglade' too!"
 		die "servicetools not yet available on amd64"
 	fi
 
