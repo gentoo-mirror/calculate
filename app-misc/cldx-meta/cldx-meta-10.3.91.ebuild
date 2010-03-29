@@ -83,8 +83,8 @@ RDEPEND="
 	www-plugins/adblock-mozilla-plugin
 	www-plugins/adobe-flash
 	www-plugins/spell-mozilla-plugin
+	www-plugins/xclear-mozilla-plugin
 	x11-apps/ccsm
-	x11-apps/fusion-icon
 	x11-apps/mesa-progs
 	x11-apps/xdpyinfo
 	x11-apps/xev
@@ -94,7 +94,6 @@ RDEPEND="
 	x11-terms/terminal
 	x11-themes/emerald-themes
 	x11-themes/tango-icon-theme
-	x11-wm/compiz-fusion
 	x11-wm/emerald
 	xfce-base/xfce4-meta
 	xfce-extra/thunar-archive-plugin
