@@ -90,6 +90,7 @@ RDEPEND="
 	x11-apps/xev
 	x11-misc/slim
 	x11-misc/xbindkeys
+	x11-plugins/pidgin-facebookchat
 	x11-plugins/pidgin-libnotify
 	x11-terms/terminal
 	x11-themes/emerald-themes
