@@ -94,9 +94,7 @@ RDEPEND="
 	x11-plugins/pidgin-hotkeys
 	x11-plugins/pidgin-libnotify
 	x11-terms/terminal
-	x11-themes/emerald-themes
 	x11-themes/tango-icon-theme
-	x11-wm/emerald
 	xfce-base/xfce4-meta
 	xfce-extra/thunar-archive-plugin
 	xfce-extra/thunar-thumbnailers
