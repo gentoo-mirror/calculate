@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Mar 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  calculate-client-9999.ebuild:
+  Add depend xdialog and kdialog to depend.
+
   11 Mar 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
   calculate-client-9999.ebuild:
   Add IUSE="kde xfce gnome" to calculate-client-9999.
