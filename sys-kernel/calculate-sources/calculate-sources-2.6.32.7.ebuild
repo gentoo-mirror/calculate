@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,7 +16,7 @@ UNIPATCH_LIST="${DISTDIR}/${PN}-${CKV}.tar.bz2"
 
 DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.10.903-r22
 					>=sys-apps/calculate-1.3.5
-					app-arch/xz-utils
+					|| ( app-arch/xz-utils app-arch/lzma-utils )
 					sys-apps/v86d )"
 
 pkg_postinst() {
