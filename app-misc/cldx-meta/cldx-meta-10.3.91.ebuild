@@ -88,6 +88,7 @@ RDEPEND="
 	x11-apps/mesa-progs
 	x11-apps/xdpyinfo
 	x11-apps/xev
+	x11-misc/ktsuss
 	x11-misc/slim
 	x11-misc/xbindkeys
 	x11-plugins/pidgin-facebookchat
