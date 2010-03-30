@@ -84,7 +84,6 @@ RDEPEND="
 	www-plugins/adobe-flash
 	www-plugins/spell-mozilla-plugin
 	www-plugins/xclear-mozilla-plugin
-	x11-apps/ccsm
 	x11-apps/mesa-progs
 	x11-apps/xdpyinfo
 	x11-apps/xev
