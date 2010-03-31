@@ -29,6 +29,7 @@ src_install() {
 		dosym ../icons/Calculate/40x40/apps/topplan.png /usr/share/pixmaps/topplan.png
 		dosym ../icons/Calculate/40x40/apps/windows.png /usr/share/pixmaps/windows.png
 		dosym ../icons/Calculate/40x40/apps/yellow.png /usr/share/pixmaps/yellow.png
+		dosym calculate_en /usr/share/slim/themes/calculate
 		doins -r .
 }
 
