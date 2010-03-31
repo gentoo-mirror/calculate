@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -57,6 +57,7 @@ RDEPEND="
 	net-irc/xchat
 	net-misc/rdesktop
 	net-misc/wol
+	net-p2p/linuxdcpp
 	sys-apps/calculate-client
 	sys-apps/hdparm
 	sys-apps/ethtool
