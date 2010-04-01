@@ -50,6 +50,7 @@ RDEPEND="
 	media-libs/win32codecs
 	media-sound/rhythmbox
 	media-tv/tvtime
+	media-video/mplayer
 	net-analyzer/nmap
 	net-dns/bind-tools
 	net-fs/samba
@@ -58,6 +59,7 @@ RDEPEND="
 	net-misc/rdesktop
 	net-misc/wol
 	net-p2p/linuxdcpp
+	net-p2p/transmission
 	sys-apps/calculate-client
 	sys-apps/hdparm
 	sys-apps/ethtool
