@@ -24,7 +24,7 @@ RDEPEND=">=app-text/hunspell-1.2
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}-gcc4.4.patch"
+	epatch "${FILESDIR}/goldendict-0.9.0-gcc4.4.patch"
 	# duplicates stuff into a directory we don't use
 	sed -i \
 		-e s/INSTALLS\ \+=\ desktops2//g \
