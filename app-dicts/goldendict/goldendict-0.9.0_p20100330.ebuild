@@ -41,7 +41,7 @@ src_install() {
 		for Z in ${LANGS}; do
 			if [[ ${X} == ${Z} ]]; then
 				insinto /usr/share/apps/${PN}/locale
-				doins locale/ru.qm || die 'doins failed'
+				doins locale/ru_RU.qm || die 'doins failed'
 			fi
 		done
 	done
