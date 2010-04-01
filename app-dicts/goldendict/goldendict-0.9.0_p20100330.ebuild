@@ -23,14 +23,6 @@ RDEPEND=">=app-text/hunspell-1.2
 	>=x11-libs/qt-webkit-4.5:4"
 DEPEND="${RDEPEND}"
 
-src_prepare() {
-	# duplicates stuff into a directory we don't use
-	sed -i \
-		-e s/INSTALLS\ \+=\ desktops2//g \
-		-e s/INSTALLS\ \+=\ icons2//g \
-		"${S}"/goldendict.pro || die 'sed failed'
-}
-
 src_configure() {
 	PREFIX=/usr eqmake4
 }
