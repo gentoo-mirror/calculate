@@ -8,7 +8,7 @@ inherit qt4-r2 eutils
 
 DESCRIPTION="Feature-rich dictionary lookup program"
 HOMEPAGE="http://goldendict.berlios.de/"
-SRC_URI="ftp://ftp.calculate.ru/pub/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
