@@ -114,9 +114,6 @@ vmlinuz_src_compile() {
 
 calculate-kernel_src_compile() {
 	use vmlinuz && vmlinuz_src_compile
-
-	insinto /etc/modprobe.d                                                                    
-	newins "${FILESDIR}"/modprobe_i915.conf i915.conf || die 
 }
 
 vmlinuz_src_install() {
@@ -135,6 +132,8 @@ vmlinuz_src_install() {
 	dosym /usr/src/linux-${KV_FULL} \
 		"/lib/modules/${KV_FULL}/build" || 
 		die "cannot install build symlink"
+	insinto /etc/modprobe.d
+	newins "${FILESDIR}"/modprobe_i915.conf i915.conf || die
 }
 
 calculate-kernel_src_install() {
