@@ -86,6 +86,7 @@ RDEPEND="
 	www-plugins/xclear-mozilla-plugin
 	x11-apps/mesa-progs
 	x11-apps/xdpyinfo
+	x11-apps/xmessage
 	x11-apps/xev
 	x11-misc/ktsuss
 	x11-misc/slim
