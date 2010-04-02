@@ -90,6 +90,7 @@ RDEPEND="
 	x11-plugins/pidgin-facebookchat
 	x11-plugins/pidgin-hotkeys
 	x11-themes/tango-icon-theme
+	x11-apps/xmessage
 	x11-misc/glipper
 	x11-misc/xbindkeys
 	x11-wm/compiz-fusion"
