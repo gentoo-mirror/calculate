@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,7 +16,7 @@ KEYWORDS="amd64 x86"
 
 IUSE=""
 
-DEPEND="~sys-apps/calculate-lib-2.1.5
+DEPEND="~sys-apps/calculate-lib-2.1.8
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
@@ -163,8 +163,6 @@ pkg_postinst() {
 	fi
 
 	ewarn
-	ewarn "WARNING!!! If you are updating calculate-server from version"
-	ewarn "less 2.0.12, you need update samba and jabber services by commands:"
+	ewarn "WARNING!!! If you have the samba service, then update it by the command:"
 	ewarn "\tcl-update samba"
-	ewarn "\tcl-update jabber"
 }
