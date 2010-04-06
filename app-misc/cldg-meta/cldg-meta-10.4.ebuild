@@ -59,6 +59,7 @@ RDEPEND="
 	net-irc/xchat
 	net-misc/rdesktop
 	net-misc/wol
+	net-news/liferea
 	net-p2p/linuxdcpp
 	net-p2p/transmission
 	sys-apps/calculate-client
