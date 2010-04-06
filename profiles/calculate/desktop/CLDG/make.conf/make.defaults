@@ -1,4 +1,7 @@
 USE=""
 
+# System
+USE="${USE} networkmanager"
+
 # Window manager and speciality
 USE="${USE} gnome -kde"
