@@ -60,6 +60,7 @@ RDEPEND="
 	net-misc/rdesktop
 	net-misc/wicd
 	net-misc/wol
+	net-news/liferea
 	net-p2p/transmission
 	sci-calculators/galculator
 	sys-apps/calculate-client
