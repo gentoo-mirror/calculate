@@ -1,8 +1,13 @@
 diff --git a/scripts/udev/nut-usbups.rules b/scripts/udev/nut-usbups.rules
-index b43d324..78b375a 100644
+index b43d324..041a95d 100644
 --- a/scripts/udev/nut-usbups.rules
 +++ b/scripts/udev/nut-usbups.rules
-@@ -7,86 +7,86 @@ BUS!="usb", GOTO="nut-usbups_rules_end"
+@@ -3,90 +3,90 @@
+ ACTION!="add", GOTO="nut-usbups_rules_end"
+ SUBSYSTEM=="usb_device", GOTO="nut-usbups_rules_real"
+ SUBSYSTEM=="usb", GOTO="nut-usbups_rules_real"
+-BUS!="usb", GOTO="nut-usbups_rules_end"
++SUBSYSTEM!="usb", GOTO="nut-usbups_rules_end"
  
  LABEL="nut-usbups_rules_real"
  #  Krauler UP-M500VA  - blazer_usb
