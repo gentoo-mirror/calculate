@@ -1,35 +1,27 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="2"
 
-inherit distutils
+inherit distutils eutils
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}-r1.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The program for configuring services Linux"
-HOMEPAGE="http://www.calculate-linux.org/Calculate2"
+HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
 IUSE=""
 
-DEPEND="~sys-apps/calculate-lib-2.1.4
+DEPEND="~sys-apps/calculate-lib-2.1.7
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
-	!>=net-fs/samba-3.5.0
-	|| (
-			(
-				>=net-fs/samba-3.3.0[server,client]
-		   		net-fs/samba-libs[cups,pam,ldap]
-		   		net-fs/samba-server[acl,cups,ldap]
-		   		net-fs/samba-client[cups,ldap]
-			)
-			<net-fs/samba-3.3.0[acl,cups,kernel_linux,ldap,pam]
-	)
+	>=net-fs/samba-3.4.6[acl,client,cups,ldap,netapi,pam,server,smbclient,winbind]
+	<net-fs/samba-4.0.0
 	|| ( <net-mail/dovecot-1.2.0[pop3d,ldap,pam,ssl]
 	     >=net-mail/dovecot-1.2.0[ldap,pam,ssl]
 	)
@@ -41,7 +33,7 @@ DEPEND="~sys-apps/calculate-lib-2.1.4
 	>=net-misc/dhcp-3.1.2_p1"
 
 RDEPEND="${DEPEND}"
-S="${WORKDIR}/${PF}"
+
 
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \
@@ -163,8 +155,6 @@ pkg_postinst() {
 	fi
 
 	ewarn
-	ewarn "WARNING!!! If you are updating calculate-server from version"
-	ewarn "less 2.0.12, you need update samba and jabber services by commands:"
+	ewarn "WARNING!!! If you have the samba service, then update it by the command:"
 	ewarn "\tcl-update samba"
-	ewarn "\tcl-update jabber"
 }
