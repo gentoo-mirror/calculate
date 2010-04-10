@@ -20,7 +20,7 @@ DEPEND="~sys-apps/calculate-lib-2.1.7
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
-	>=net-fs/samba-3.4.6[acl,client,cups,ldap,netapi,pam,server,smbclient,winbind]
+	>=net-fs/samba-3.4.6[acl,client,cups,ldap,netapi,pam,server,smbclient]
 	<net-fs/samba-4.0.0
 	|| ( <net-mail/dovecot-1.2.0[pop3d,ldap,pam,ssl]
 	     >=net-mail/dovecot-1.2.0[ldap,pam,ssl]
