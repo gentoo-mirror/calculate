@@ -73,5 +73,6 @@ pkg_postinst() {
 	fi
 	[[ $need_repair_manconf -eq 1 ]] && \
 		sed -ri 's#/usr/bin/python.*manrc \| ##' /etc/man.conf
-	[[ `readlink -f /etc/portage/bashrc` == "/usr/calculate/install/bashrc" ]] && rm /etc/portage/bashrc
+	[[ `readlink -f /etc/portage/bashrc` == "/usr/calculate/install/bashrc" ]] &&
+		rm -f  /etc/portage/bashrc
 }
