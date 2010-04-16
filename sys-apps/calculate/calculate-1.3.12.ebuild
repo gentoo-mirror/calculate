@@ -1,9 +1,9 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 DESCRIPTION="Program for installation, building and upgrading system"
-HOMEPAGE="http://www.calculate-linux.org/Calculate"
+HOMEPAGE="http://www.calculate-linux.org/main/ru/calculate"
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
@@ -73,4 +73,5 @@ pkg_postinst() {
 	fi
 	[[ $need_repair_manconf -eq 1 ]] && \
 		sed -ri 's#/usr/bin/python.*manrc \| ##' /etc/man.conf
+	[[ `readlink -f /etc/portage/bashrc` == "/usr/calculate/install/bashrc" ]] && rm /etc/portage/bashrc
 }
