@@ -4,3 +4,10 @@ net-print/cnijfilter ip4700 mp250 mp270 mp490 mp550 mp560 mp64
 media-gfx/splashutils fbcondecor
 sys-fs/aufs2 inotify kernel-patch
 sys-kernel/calculate-sources symlink vmlinuz
+
+#fix update xorg
+sys-fs/udev extras
+x11-base/xorg-server -hal
+sys-auth/consolekit polisykit
+sys-apps/hal policykit
+
