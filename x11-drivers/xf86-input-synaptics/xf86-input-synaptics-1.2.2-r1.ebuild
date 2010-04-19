@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-input-synaptics/xf86-input-synaptics-1.2.2.ebuild,v 1.3 2010/04/10 09:46:50 scarabeus Exp $
 
+EAPI="2"
+
 inherit linux-info x-modular
 
 DESCRIPTION="Driver for Synaptics touchpads"
