@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-input-keyboard/xf86-input-keyboard-1.4.0.ebuild,v 1.8 2010/01/18 19:35:00 armin76 Exp $
 
 # Must be before x-modular eclass is inherited
+EAPI="2"
 #SNAPSHOT="yes"
 XDPVER="4"
 
