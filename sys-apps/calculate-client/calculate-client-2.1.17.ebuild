@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="kde xfce gnome"
 
-DEPEND=">=sys-apps/calculate-lib-2.1.9
+DEPEND=">=sys-apps/calculate-lib-2.1.10
 		dev-python/py-smbpasswd
 		>=dev-python/python-ldap-2.0[ssl]
 		>=sys-auth/pam_ldap-180[ssl]
