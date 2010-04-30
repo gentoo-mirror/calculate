@@ -20,19 +20,11 @@ DEPEND="=sys-apps/calculate-lib-9999
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
-	!>=net-fs/samba-3.5.0
-	|| (
-			(
-				>=net-fs/samba-3.3.0[server,client]
-		   		net-fs/samba-libs[cups,pam,ldap]
-		   		net-fs/samba-server[acl,cups,ldap]
-		   		net-fs/samba-client[cups,ldap]
-			)
-			<net-fs/samba-3.3.0[acl,cups,kernel_linux,ldap,pam]
-	)
+	>=net-fs/samba-3.4.6[acl,client,cups,ldap,netapi,pam,server,smbclient]
+	<net-fs/samba-4.0.0
 	|| (
 			<net-mail/dovecot-1.2.0[pop3d,ldap,pam,ssl]
-	     	>=net-mail/dovecot-1.2.0[ldap,pam,ssl]
+			>=net-mail/dovecot-1.2.0[ldap,pam,ssl]
 	)
 	>=mail-mta/postfix-2.2[ldap,pam,ssl]
 	>=net-ftp/proftpd-1.3.1[-acl,ldap,ncurses,nls,pam,radius,ssl,tcpd]
