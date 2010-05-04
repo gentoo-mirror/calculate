@@ -36,6 +36,14 @@ ISUPDATE=/tmp/${PN}.ebuild.update
 OLDISUPDATEPATH="${PORTAGE_TMPDIR}/portage/${CATEGORY}/${PN}-2.0.17/temp/"
 OLDISUPDATE="${OLDISUPDATEPATH}/${PN}.update"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	#bugfix #153
+	epatch "${FILESDIR}/calculate-client-2.1.17.patch"
+}
+
 pkg_preinst() {
 	touch ${ISUPDATE}
 	rm -f /etc/init.d/client
