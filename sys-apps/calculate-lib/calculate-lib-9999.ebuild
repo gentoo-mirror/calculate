@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_REPO_URI="git://git.calculate.ru/dev/calculate2/calculate-lib.git"
+EGIT_REPO_URI="git://git.calculate.ru/calculate2/calculate-lib.git"
 
 DESCRIPTION="The library for Calculate 2"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
