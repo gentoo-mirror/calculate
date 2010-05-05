@@ -23,8 +23,9 @@ RDEPEND="
 	app-admin/sudo
 	app-antivirus/clamav
 	app-arch/rar
-	app-cdr/k3b
-	app-cdr/k3b-i18n
+	|| ( ( >=app-cdr/k3b-1.71.0 !app-cdr/k3b-i18n )
+	   ( <app-cdr/k3b-1.71.0 app-cdr/k3b-i18n )
+	)
 	app-dicts/aspell-de
 	app-dicts/aspell-en
 	app-dicts/aspell-es
