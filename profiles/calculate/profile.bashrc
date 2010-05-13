@@ -10,29 +10,30 @@
 pkg_checkver() {
 	PATCH_PV=( `echo $1 | sed 's/[._]/ /g' | sed -r 's/([a-z]+)/ \1 /g'` )
 	EBUILD_PV=( `echo $2 | sed 's/[._]/ /g' | sed -r 's/([a-z]+)/ \1 /g'` )
-	for i in `seq 0 10`;
+	for i in $(seq 0 10);
 	do
 		# next part of version of patch
-		if [[ -n ${PATCH_PV[$i]} ]]; then
+		if [[ -n ${PATCH_PV[$i]} ]]
+			then
 			# if part patch version not equal ebuild version
-			if [[ ${PATCH_PV[$i]} != ${EBUILD_PV[$i]} ]];
+			if [[ ${PATCH_PV[$i]} != ${EBUILD_PV[$i]} ]]
 			then
 				# is pv in patch interval
-				if [[ ${PATCH_PV[$i]} =~ ^([0-9]+)-([0-9]+)$ ]];
+				if [[ ${PATCH_PV[$i]} =~ ^([0-9]+)-([0-9]+)$ ]]
 				then
 					# check version of ebuild not in interval
 					if [[ ${EBUILD_PV[$i]} -lt ${BASH_REMATCH[1]} ||
-					      ${EBUILD_PV[$i]} -gt ${BASH_REMATCH[2]} ]];
+					      ${EBUILD_PV[$i]} -gt ${BASH_REMATCH[2]} ]]
 					then
-						return 1;
+						return 1
 					fi
 				# pv not interval
 				else
-					return 1;
+					return 1
 				fi
 			fi
 		else
-			return 0;
+			return 0
 		fi
 	done
 	return 0
@@ -79,7 +80,6 @@ pkg_pick_patches() {
 			fi
 			if [[ -n ${MATCHED_PV} ]] && ! pkg_checkver ${MATCHED_PV} ${PV}; then
 				apecho " X  PV=${MATCHED_PV} does not match. Skipping..."
-				#apecho " X  PV does not match. Skipping..."
 				continue
 			fi
 			if [[ -d ${f} ]]; then
@@ -176,3 +176,48 @@ then
 
 	pkgpatch
 fi
+
+# added for calculate2.2
+# FUNC: change_permissions
+# DESC: change permissions for all files and directories into specified
+change_permissions() {
+	local directory=$1
+	[[ -d $1 ]] || return
+	
+	# get owner from parent directory
+	addwrite ${directory}
+	local dirowner=$(stat -c"%u:%g" ${directory})
+	local dirmode=0$(stat -c%a ${directory})
+	# get permissions from parent directory
+	local dirmode=0$(stat -c%a ${directory})
+	# turnoff execute for all (permission for files in parent directory)
+	local filemode=0$(echo "obase=8;$(( $dirmode & 0666 ))" | bc)
+	# set for all files and directories dirowner
+	chown -R ${dirowner} ${directory}
+	# set permissions for all directories in parent directory
+	find ${directory} \! -perm ${dirmode} -type d -exec chmod ${dirmode} {} \;
+	# set permissions for all files in parent directory
+	find ${directory} \! -perm ${filemode} -type f -exec chmod ${filemode} {} \;
+	adddeny ${directory}
+}
+
+# DISTDIR located at /var/calculate/remote
+[[ "${PORTAGE_ACTUAL_DISTDIR}" =~ ^/var/calculate/remote ]] &&
+# it resource isn't nfs and cifs
+[[ -z $(cat /proc/mounts | 
+	sed -rn '/\S+\s+\/var\/calculate\/remote (nfs|cifs)/p') ]] &&
+post_src_unpack() {
+	einfo "Performing permissions change for distdir directory"
+	change_permissions ${PORTAGE_ACTUAL_DISTDIR}
+}
+
+# PKGDIR located at /var/calculate/remote
+[[ "${PKGDIR}" =~ ^/var/calculate/remote ]] &&
+# it resource isn't nfs and cifs
+[[ -z $(cat /proc/mounts | 
+	sed -rn '/\S+\s+\/var\/calculate\/remote (nfs|cifs)/p') ]] &&
+pre_pkg_preinst() {
+	einfo "Performing permissions change for packages directory"
+	change_permissions ${PKGDIR}
+}
+
