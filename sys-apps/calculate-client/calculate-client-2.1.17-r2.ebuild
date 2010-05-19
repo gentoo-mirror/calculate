@@ -42,6 +42,8 @@ src_unpack() {
 
 	#bugfix #153
 	epatch "${FILESDIR}/calculate-client-2.1.17-r1.patch"
+	#bugfix progressbar with rsync
+	epatch "${FILESDIR}/calculate-client-2.1.17-r2.patch"
 }
 
 pkg_preinst() {

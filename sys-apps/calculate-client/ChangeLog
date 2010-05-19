@@ -2,6 +2,15 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-client-2.1.17-r2 (19 May 2010)
+
+  19 May 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  calculate-client-2.1.17-r1.ebuild, +calculate-client-2.1.17-r2.ebuild,
+  +files/calculate-client-2.1.17-r1.patch,
+  +files/calculate-client-2.1.17-r2.patch,
+  -files/calculate-client-2.1.17.patch:
+  Add patch for the correct profile synchronization
+
   04 May 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
   calculate-client-9999.ebuild:
   Fix git path.
