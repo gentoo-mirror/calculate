@@ -30,6 +30,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	app-cdr/dvd+rw-tools
 	app-editors/vim
 	app-i18n/enca
+	app-misc/calculate-install-gui
 	app-misc/livecd-tools
 	app-misc/mc
 	app-portage/eix
@@ -84,6 +85,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	net-wireless/wpa_supplicant
 	sys-apps/bar
 	sys-apps/calculate
+	sys-apps/calculate-install
 	sys-apps/hal
 	sys-apps/hotplug
 	sys-apps/ifplugd
