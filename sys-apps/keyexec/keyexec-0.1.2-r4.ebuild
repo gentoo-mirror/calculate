@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,15 +16,15 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="kde"
 
-DEPEND=">=sys-apps/keyutils-1.1
+DEPEND="net-misc/rdesktop
+	>=sys-apps/keyutils-1.1
 	>=sys-auth/pam_keystore-0.1
-	kde? (
-	>=kde-base/kdelibs-4.1.0 )"
+	kde? ( >=kde-base/kdelibs-4.1.0 )"
 
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	make CFLAGS="-Wall ${CFLAGS}" || die
+	emake CFLAGS="-Wall ${CFLAGS}" || die
 }
 
 src_install() {
