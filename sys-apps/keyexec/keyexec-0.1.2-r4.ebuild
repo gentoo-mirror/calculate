@@ -3,7 +3,7 @@
 # $Header: $
 
 DESCRIPTION="Starts other program using the password of the user kept in the kernel"
-HOMEPAGE="http://www.calculate-linux.org/keyexec"
+HOMEPAGE="http://www.calculate-linux.org/main/en/keyexec"
 SRC_URI="ftp://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
 		http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
 		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${P}.tar.bz2"
