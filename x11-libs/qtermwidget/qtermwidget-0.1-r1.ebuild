@@ -32,5 +32,5 @@ src_install() {
 	doins libqtermwidget.a
 	dodir /usr/include/qtermwidget
 	insinto /usr/include/qtermwidget
-	doins lib/*.h
+	doins lib/qtermwidget.h
 }
