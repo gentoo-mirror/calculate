@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/sys-boot/syslinux/syslinux-3.75.ebuild,v 1.1 2009/04/29 15:51:18 jer Exp $
 
@@ -12,7 +12,7 @@ SYSLINUX_P=${SYSLINUX_PN}-${SYSLINUX_PV}
 SYSLINUX_PF=${SYSLINUX_P}
 
 DESCRIPTION="Module calcmenu.c32 for syslinux"
-HOMEPAGE="http://www.calculate-linux.org/calcboot"
+HOMEPAGE="http://www.calculate-linux.org/main/ru/calcboot"
 SRC_URI="mirror://kernel/linux/utils/boot/syslinux/${SYSLINUX_P}.tar.bz2
 		ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
 

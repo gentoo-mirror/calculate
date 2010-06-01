@@ -49,7 +49,7 @@ else
 fi
 
 DESCRIPTION="Gentoo automatic kernel building scripts"
-HOMEPAGE="http://www.calculate-linux.org/calckernel"$
+HOMEPAGE="http://www.calculate-linux.org/main/ru/calckernel"$
 
 LICENSE="GPL-2"
 SLOT="0"
