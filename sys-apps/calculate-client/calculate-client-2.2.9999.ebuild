@@ -16,20 +16,21 @@ KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
 DEPEND="=sys-apps/calculate-desktop-2.2.9999
-		>=dev-python/python-ldap-2.0[ssl]
-		>=sys-auth/pam_ldap-180[ssl]
-		>=sys-auth/nss_ldap-239
-		>=sys-apps/keyexec-0.1.2
-		>=sys-apps/hal-0.5.9
-		sys-apps/keyutils
-		sys-auth/pam_keystore
-		dev-python/py-smbpasswd
-		xfce? ( x11-misc/slim
-				x11-misc/xdialog )
-		gnome? ( gnome-base/gdm
-				 x11-misc/xdialog )
-		kde? ( kde-base/kdm
-		       kde-base/kdialog )"
+	=sys-apps/calculate-lib-2.2.9999
+	>=dev-python/python-ldap-2.0[ssl]
+	>=sys-auth/pam_ldap-180[ssl]
+	>=sys-auth/nss_ldap-239
+	>=sys-apps/keyexec-0.1.2
+	>=sys-apps/hal-0.5.9
+	sys-apps/keyutils
+	sys-auth/pam_keystore
+	dev-python/py-smbpasswd
+	xfce? ( x11-misc/slim
+		x11-misc/xdialog )
+	gnome? ( gnome-base/gdm
+		x11-misc/xdialog )
+	kde? ( kde-base/kdm
+		kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
 
@@ -49,7 +50,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	cl-client --install
+	/usr/lib/calculate-2.2/calculate-client/bin/install
 	rm ${ISUPDATE}
 
 	# for fixing bug of ebuild calculate-client-2.0.17
@@ -61,6 +62,6 @@ pkg_prerm() {
 	# for fixing bug of ebuild calculate-client-2.0.17 (|| -e ${OLDISUPDATE} )
 	if ! [[ -e ${ISUPDATE} || -e ${OLDISUPDATE} ]];
 	then
-		cl-client --uninstall
+		/usr/lib/calculate-2.2/calculate-client/bin/uninstall
 	fi
 }
