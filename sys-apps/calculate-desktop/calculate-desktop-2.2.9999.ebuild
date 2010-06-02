@@ -13,8 +13,30 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="2.2"
 KEYWORDS="~amd64 ~x86"
+IUSE="kde xfce gnome"
 
-DEPEND="=sys-apps/calculate-lib-2.2.9999"
+DEPEND="=sys-apps/calculate-lib-2.2.9999
+	>=dev-python/python-ldap-2.0[ssl]
+	>=sys-auth/pam_ldap-180[ssl]
+	>=sys-auth/nss_ldap-239
+	>=sys-apps/keyexec-0.1.2
+	>=sys-apps/hal-0.5.9
+	sys-apps/keyutils
+	sys-auth/pam_keystore
+	dev-python/py-smbpasswd
+	xfce? ( x11-misc/slim
+		x11-misc/xdialog )
+	gnome? ( gnome-base/gdm
+		x11-misc/xdialog )
+	kde? ( kde-base/kdm
+		kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
 
+pkg_postinst() {
+	${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
+}
+
+pkg_prerm() {
+	${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/uninstall
+}
