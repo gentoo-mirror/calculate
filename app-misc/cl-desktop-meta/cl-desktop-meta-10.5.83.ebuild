@@ -16,7 +16,6 @@ IUSE=""
 # Developer
 RDEPEND="
 	dev-python/ipython
-	dev-python/psycopg
 	dev-tcltk/expect
 "
 
@@ -65,7 +64,6 @@ RDEPEND="${RDEPEND}
 	media-libs/win32codecs
 	media-sound/alsa-utils
 	media-sound/sox
-	media-tv/tvtime
 "
 
 # Office
