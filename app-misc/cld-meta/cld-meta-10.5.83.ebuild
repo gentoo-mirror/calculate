@@ -15,9 +15,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	app-misc/cls
-	app-misc/cl-desktop
-	app-misc/cl-kde
+	app-misc/cls-meta
+	app-misc/cl-desktop-meta
+	app-misc/cl-kde-meta
 "
 # Decoration
 RDEPEND="${RDEPEND}
