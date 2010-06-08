@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-MY_PV="${PV}-1"
+MY_PV="${PV}"
 MY_P="${PN}_${MY_PV}"
 
 EAPI="2"
@@ -12,7 +12,7 @@ inherit eutils python fdo-mime
 DESCRIPTION="OpenShot Video Editor is a free open-source non-linear video
 editor based on Python, GTK, and MLT."
 HOMEPAGE="http://www.openshotvideo.com"
-SRC_URI="http://launchpad.net/openshot/1.0/${PV}/+download/${MY_P}.tar.gz"
+SRC_URI="http://launchpad.net/openshot/${PV%.[^.]*}/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -29,10 +29,7 @@ RDEPEND="
 	media-video/ffmpeg[encode,ieee1394?,jack?,x264?,vorbis?,theora?,faac?,faad?,mp3?]
 	media-sound/sox[encode,ffmpeg]"
 
-S="${WORKDIR}/openshot"
-
 src_install() {
-	cd ${WORKDIR}/openshot
 	# Install the main OpenShot executable
 	dobin bin/openshot || die "failed to install OpenShot executable."
 
@@ -50,9 +47,17 @@ src_install() {
 	insinto /usr/share/openshot
 	doins -r openshot/* || die "failed to install OpenShot files."
 
+	# Install omf files
+	insinto "/usr/share/omf/${PN}"
+	doins docs/omf/* || die "failed to install omf files."
+
+	# Install Gnome help files
+	insinto "/usr/share/gnome/help/${PN}"
+	doins -r docs/gnome/* || die "failed to install Gnome help files."
+
 	# Install documentation
-	doman docs/openshot.1 || die "failed to install man page."
-	dodoc AUTHORS COPYING README
+	doman docs/*.1 || die "failed to install man page."
+	dodoc AUTHORS COPYING PKG-INFO README
 }
 
 pkg_postinst() {
