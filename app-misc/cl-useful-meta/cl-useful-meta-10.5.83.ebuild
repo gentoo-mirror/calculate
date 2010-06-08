@@ -87,6 +87,7 @@ RDEPEND="${RDEPEND}
 	app-portage/portage-utils
 	app-portage/ufed
 	app-text/wgetpaste
+	net-fs/nfs-utils
 	sys-apps/acl
 	sys-apps/hdparm
 	sys-apps/memtest86+
