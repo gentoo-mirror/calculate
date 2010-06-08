@@ -10,7 +10,7 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 # Developer
@@ -140,4 +140,6 @@ RDEPEND="
 "
 PDEPEND=">=gnome-base/gvfs-1.4.3[gdu]
 	=gnome-base/gnome-vfs-2.24.3-r1
-	>=gnome-base/gnome-mime-data-2.18.0"
+	>=gnome-base/gnome-mime-data-2.18.0
+"
+
