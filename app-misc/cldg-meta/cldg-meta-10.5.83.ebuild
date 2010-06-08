@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit calculate
 EAPI=2
+inherit calculate
 
-DESCRIPTION="Calculate Linux Desktop KDE (meta package)"
+DESCRIPTION="Calculate Linux Desktop GNOME (meta package)"
 HOMEPAGE="http://www.calculate-linux.org/main/en/cld"
 SRC_URI=""
 
@@ -17,47 +17,50 @@ IUSE=""
 RDEPEND="
 	app-misc/cls-meta
 	app-misc/cl-desktop-meta
-	app-misc/cl-kde-meta
+	app-misc/cl-gnome-meta
 "
+
 # Decoration
 RDEPEND="${RDEPEND}
-	media-gfx/cld-themes
-	x11-themes/gtk-engines-qtcurve
-"
-# Graphics
-RDEPEND="${RDEPEND}
-	media-gfx/digikam
+	media-gfx/cldg-themes
+	x11-themes/gnome-themes-extras
+	x11-themes/tango-icon-theme
+	x11-apps/ccsm
+	x11-apps/fusion-icon
+	x11-wm/compiz-fusion
 "
 # Multimedia
 RDEPEND="${RDEPEND}
-	media-sound/amarok
-	media-plugins/kipi-plugins
-	media-video/dvdauthor
-	media-video/dvgrab
-	media-video/kdenlive
-	media-video/kffmpegthumbnailer
-	media-video/recordmydesktop
-	media-video/smplayer
+	media-sound/rhythmbox
+	media-video/mplayer
 "
 # Network
 RDEPEND="${RDEPEND}
-	net-irc/konversation
-	net-p2p/eiskaltdc
+	net-im/pidgin
+	net-irc/xchat
+	net-p2p/linuxdcpp
+	net-p2p/transmission
+	x11-plugins/pidgin-facebookchat
+	x11-plugins/pidgin-hotkeys
 "
 # Nettools
-RDEPEND="${RDEPEND} 
-	net-misc/kvpnc
-	net-misc/wicd
+RDEPEND="${RDEPEND}
+	gnome-extra/nm-applet
+	net-misc/networkmanager
+	net-misc/networkmanager-openvpn
+	net-misc/networkmanager-pptp
+	net-misc/networkmanager-vpnc
 "
 # Office
 RDEPEND="${RDEPEND}
-	app-dicts/goldendict
 	app-text/fbreader
+	app-text/stardict
+	net-news/liferea
 "
 # Tools
 RDEPEND="${RDEPEND}
-	app-cdr/k3b
-	sys-block/partitionmanager
+	sys-block/gparted
+	x11-misc/glipper
 "
 
 pkg_postinst() {
@@ -66,9 +69,8 @@ pkg_postinst() {
 	local calculatename=$( get_value calculate < ${CALCULATE_INI} )
 	local system=$( get_value system < ${CALCULATE_INI} )
 
-	[[ "$calculatename" == "CLD" ]] &&
+	[[ "$calculatename" == "CLDG" ]] &&
 	[[ -n "$(eselect profile show |
 		grep calculate/${system}/${calculatename}/${ARCH}/developer)" ]] && 
 		eselect profile set calculate/${system}/${calculatename}/${ARCH}
 }
-
