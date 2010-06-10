@@ -10,31 +10,13 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE=""
-DEPEND="app-arch/bzip2
-	app-arch/cpio
-	app-arch/gzip
-	app-arch/p7zip
-	app-arch/tar
-	app-portage/layman
-	app-shells/bash
-	dev-lang/perl
-	dev-libs/openssl
+DEPEND="app-arch/p7zip
 	app-cdr/cdrkit
-	net-misc/wget
-	sys-apps/file
-	sys-apps/findutils
-	sys-apps/grep
+	app-portage/layman
+	sys-apps/bar
 	sys-apps/hal
-	sys-apps/module-init-tools
-	sys-apps/net-tools
-	sys-apps/pciutils
-	sys-apps/usbutils
-	sys-apps/util-linux
-	sys-apps/which
 	sys-boot/grub
-	sys-devel/gettext
-	sys-fs/squashfs-tools
-	sys-fs/udev"
+	sys-fs/squashfs-tools"
 RDEPEND="${DEPEND}"
 
 need_repair_manconf=0

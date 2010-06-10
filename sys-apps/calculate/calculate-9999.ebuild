@@ -12,7 +12,13 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
-DEPEND=""
+DEPEND="app-arch/p7zip
+	app-cdr/cdrkit
+	app-portage/layman
+	sys-apps/bar
+	sys-apps/hal
+	sys-boot/grub
+	sys-fs/squashfs-tools"
 RDEPEND="${DEPEND}"
 
 need_repair_manconf=0
