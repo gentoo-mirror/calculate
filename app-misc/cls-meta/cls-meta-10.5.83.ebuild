@@ -22,7 +22,7 @@ RDEPEND="
 "
 
 RDEPEND="${RDEPEND}
-	net-misc/dhcpcd
+	net-misc/dhcp
 	media-fonts/dejavu
 	media-gfx/cls-themes
 	www-client/chromium
