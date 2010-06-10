@@ -16,6 +16,7 @@ DEPEND="app-arch/p7zip
 	sys-apps/bar
 	sys-apps/hal
 	sys-boot/grub
+	sys-fs/dosfstools
 	sys-fs/squashfs-tools"
 RDEPEND="${DEPEND}"
 
