@@ -48,7 +48,6 @@ RDEPEND="${RDEPEND}
 	app-cdr/cdrkit
 	app-cdr/dvd+rw-tools
 	app-misc/mc
-	app-portage/eix
 	app-portage/genlop
 	app-portage/gentoolkit
 	app-portage/gentoolkit-dev

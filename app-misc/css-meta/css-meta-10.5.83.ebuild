@@ -16,18 +16,16 @@ IUSE="kernel"
 
 RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	app-misc/livecd-tools
+	app-portage/eix
 	app-portage/layman
 	dev-vcs/git
 	media-fonts/terminus-font
 	net-misc/dhcp
-	sys-apps/bar
 	sys-apps/calculate
-	sys-apps/hal
 	sys-apps/openrc
 	sys-boot/calcboot
 	sys-boot/grub
 	sys-fs/reiserfsprogs
-	sys-fs/squashfs-tools
 	sys-kernel/calckernel
 "
 
