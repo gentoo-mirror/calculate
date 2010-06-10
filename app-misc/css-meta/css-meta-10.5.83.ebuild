@@ -27,7 +27,6 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	sys-boot/calcboot
 	sys-boot/grub
 	sys-fs/reiserfsprogs
-	sys-fs/xfsprogs
 	sys-fs/squashfs-tools
 	sys-kernel/calckernel
 "
