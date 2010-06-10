@@ -22,9 +22,10 @@ KV_FULL="${PV}-calculate"
 S="${WORKDIR}/linux-${KV_FULL}"
 EXTRAVERSION="-calculate"
 
-CALC_K_SUBV=$(get_version_component_range 4)
+CALC_K_SUBV=.$(get_version_component_range 4)
+[[ ${CALC_K_SUBV} == "." ]] && CALC_K_SUBV=
 
-EXTRAVERSION=".${CALC_K_SUBV}-calculate"
+EXTRAVERSION="${CALC_K_SUBV}-calculate"
 
 UNIPATCH_STRICTORDER=1
 
