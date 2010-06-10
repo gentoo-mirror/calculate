@@ -18,6 +18,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	app-misc/livecd-tools
 	app-portage/layman
 	dev-vcs/git
+	net-misc/dhcp
 	sys-apps/bar
 	sys-apps/calculate
 	sys-apps/hal
