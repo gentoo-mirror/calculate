@@ -11,13 +11,14 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86 amd64"
+KEYWORDS="~x86 ~amd64"
 IUSE="kernel"
 
 RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	app-misc/livecd-tools
 	app-portage/layman
 	dev-vcs/git
+	media-fonts/terminus-font
 	net-misc/dhcp
 	sys-apps/bar
 	sys-apps/calculate
@@ -25,6 +26,8 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	sys-apps/openrc
 	sys-boot/calcboot
 	sys-boot/grub
+	sys-fs/reiserfsprogs
+	sys-fs/xfsprogs
 	sys-fs/squashfs-tools
 	sys-kernel/calckernel
 "

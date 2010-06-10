@@ -39,42 +39,10 @@ RDEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	app-vim/colorschemes
 	app-vim/vimcommander
-	media-fonts/terminus-font
 	media-gfx/splashutils
 "
 
 # Tools
-RDEPEND="${RDEPEND}
-	app-admin/testdisk
-	app-cdr/cdrkit
-	app-cdr/dvd+rw-tools
-	app-misc/mc
-	app-portage/eix
-	app-portage/genlop
-	app-portage/gentoolkit
-	app-portage/gentoolkit-dev
-	app-portage/portage-utils
-	app-portage/ufed
-	app-text/wgetpaste
-	sys-apps/acl
-	sys-apps/hdparm
-	sys-apps/memtest86+
-	sys-apps/pciutils
-	sys-apps/pv
-	sys-devel/prelink
-	sys-fs/dmraid
-	sys-fs/dosfstools
-	sys-fs/e2fsprogs
-	sys-fs/jfsutils
-	sys-fs/mdadm
-	sys-fs/mtools
-	sys-fs/ntfs3g
-	sys-fs/reiserfsprogs
-	sys-fs/xfsprogs
-	sys-kernel/module-rebuild
-	sys-process/htop
-"
-
 RDEPEND="${RDEPEND}
 	app-admin/testdisk
 	app-cdr/cdrkit
@@ -101,9 +69,6 @@ RDEPEND="${RDEPEND}
 	sys-fs/mdadm
 	sys-fs/mtools
 	sys-fs/ntfs3g
-	sys-fs/reiserfsprogs
-	sys-fs/xfsprogs
 	sys-kernel/module-rebuild
 	sys-process/htop
 "
-
