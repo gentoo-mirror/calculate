@@ -31,7 +31,6 @@ RDEPEND="${RDEPEND}
 	app-admin/syslog-ng
 	app-editors/vim
 	sys-apps/hotplug
-	sys-apps/ifplugd
 	sys-process/vixie-cron
 "
 

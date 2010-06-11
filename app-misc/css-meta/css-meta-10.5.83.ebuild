@@ -22,6 +22,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	media-fonts/terminus-font
 	net-misc/dhcp
 	sys-apps/calculate
+	sys-apps/ifplugd
 	sys-apps/openrc
 	sys-boot/calcboot
 	sys-boot/grub
