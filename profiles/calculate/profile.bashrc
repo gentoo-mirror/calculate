@@ -198,7 +198,6 @@ change_permissions() {
 	find ${directory} \! -perm ${dirmode} -type d -exec chmod ${dirmode} {} \;
 	# set permissions for all files in parent directory
 	find ${directory} \! -perm ${filemode} -type f -exec chmod ${filemode} {} \;
-	adddeny ${directory}
 }
 
 # DISTDIR located at /var/calculate/remote
