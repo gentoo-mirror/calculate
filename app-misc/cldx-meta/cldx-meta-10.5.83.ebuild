@@ -81,8 +81,12 @@ pkg_postinst() {
 	local calculatename=$( get_value calculate < ${CALCULATE_INI} )
 	local system=$( get_value system < ${CALCULATE_INI} )
 
-	[[ "$calculatename" == "CLDX" ]] &&
-	[[ -n "$(eselect profile show |
-		grep calculate/${system}/${calculatename}/${ARCH}/developer)" ]] && 
-		eselect profile set calculate/${system}/${calculatename}/${ARCH}
+	# check version on stable (PV has only 2 digit)
+	if ! [[ "$PV" =~ ^[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+ ]]
+	then
+		[[ "$calculatename" == "CLDX" ]] &&
+		[[ -n "$(eselect profile show |
+			grep calculate/${system}/${calculatename}/${ARCH}/developer)" ]] && 
+			eselect profile set calculate/${system}/${calculatename}/${ARCH}
+	fi
 }
