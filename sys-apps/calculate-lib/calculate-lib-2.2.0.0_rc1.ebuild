@@ -17,5 +17,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=dev-python/python-ldap-2.0[ssl]
-		>=dev-python/pyxml-0.8"
+	dev-python/py-smbpasswd
+	>=dev-python/pyxml-0.8"
 RDEPEND="${DEPEND}"
