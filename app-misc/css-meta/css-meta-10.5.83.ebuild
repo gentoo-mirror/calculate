@@ -12,9 +12,9 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="kernel"
+IUSE=""
 
-RDEPEND="kernel? ( sys-kernel/calculate-sources )
+RDEPEND="
 	app-misc/livecd-tools
 	app-portage/eix
 	app-portage/layman
@@ -24,10 +24,12 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	sys-apps/calculate
 	sys-apps/ifplugd
 	sys-apps/openrc
+	sys-apps/v86d
 	sys-boot/calcboot
 	sys-boot/grub
 	sys-fs/reiserfsprogs
 	sys-kernel/calckernel
+	virtual/linux-sources
 "
 
 pkg_postinst() {
