@@ -4,11 +4,10 @@
 
 EAPI="2"
 
-inherit distutils
-SNAPSHOT="3c0c16d2b723e009f9feff6165f2cd1a34bf6730"
+inherit distutils git
 
-SRC_URI="http://git.calculate.ru/?p=${PN}.git;a=snapshot;h=${SNAPSHOT};sf=tgz
-	-> ${P}.tar.gz"
+EGIT_COMMIT="3c0c16d2b723e009f9feff6165f2cd1a34bf6730"
+EGIT_REPO_URI="git://git.calculate.ru/calculate-desktop.git"
 
 DESCRIPTION="The program of the desktop configuration Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
@@ -17,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="=sys-apps/calculate-lib-2.2.0.0_rc1
+DEPEND="=sys-apps/calculate-lib-2.2.9999
 	>=dev-python/python-ldap-2.0[ssl]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
@@ -34,8 +33,6 @@ DEPEND="=sys-apps/calculate-lib-2.2.0.0_rc1
 		kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}"
 
 pkg_postinst() {
 	${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install

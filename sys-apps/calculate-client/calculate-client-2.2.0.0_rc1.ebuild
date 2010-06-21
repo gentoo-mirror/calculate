@@ -4,11 +4,10 @@
 
 EAPI="2"
 
-inherit distutils
+inherit distutils git
 
-SNAPSHOT="ca3a0d993fb187e1af0b5445f89c44821f85b571"
-SRC_URI="http://git.calculate.ru/?p=${PN}.git;a=snapshot;h=${SNAPSHOT};sf=tgz
-	-> ${P}.tar.gz"
+EGIT_COMMIT="ca3a0d993fb187e1af0b5445f89c44821f85b571"
+EGIT_REPO_URI="git://git.calculate.ru/calculate-client.git"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
@@ -17,8 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="=sys-apps/calculate-desktop-2.2.0.0_rc1
-	=sys-apps/calculate-lib-2.2.0.0_rc1
+DEPEND="=sys-apps/calculate-desktop-2.2.9999
+	=sys-apps/calculate-lib-2.2.9999
 	>=dev-python/python-ldap-2.0[ssl]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
@@ -33,8 +32,6 @@ DEPEND="=sys-apps/calculate-desktop-2.2.0.0_rc1
 		x11-misc/xdialog )
 	kde? ( kde-base/kdm
 		kde-base/kdialog )"
-
-S="${WORKDIR}/${PN}"
 
 RDEPEND="${DEPEND}"
 
