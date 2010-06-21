@@ -177,6 +177,14 @@ then
 	pkgpatch
 fi
 
+# Update configuration files for package installation
+if [[ ${EBUILD_PHASE} == preinst ]]; then
+	CL_UPDATE_PROG=/usr/lib/calculate-2.2/calculate-lib/bin/cl-update-config
+	if [ -e ${CL_UPDATE_PROG} ];then
+		CONFIG_PROTECT=${CONFIG_PROTECT} ${CL_UPDATE_PROG} --desktop --system --pkg_version ${PV} --pkg_category ${CATEGORY} --path ${D} $PN
+	fi
+fi
+
 # added for calculate2.2
 # FUNC: change_permissions
 # DESC: change permissions for all files and directories into specified
@@ -219,4 +227,3 @@ pre_pkg_preinst() {
 	einfo "Performing permissions change for packages directory"
 	change_permissions ${PKGDIR}
 }
-
