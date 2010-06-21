@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils
 
-SNAPSHOT="052d9566a9c0663e8615e6b8f4c5a2f6522adf62"
+SNAPSHOT="6bb79dd23d0f0c2621ecf1eb331c94aff2278237"
 
 SRC_URI="http://git.calculate.ru/?p=${PN}.git;a=snapshot;h=${SNAPSHOT};sf=tgz
 	-> ${P}.tar.gz"
