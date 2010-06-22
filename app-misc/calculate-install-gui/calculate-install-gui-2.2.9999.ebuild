@@ -21,10 +21,7 @@ DEPEND="=sys-apps/calculate-install-2.2.9999
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mkdir build
-	cd build
-	S="${WORKDIR}/${P}/build"
-	CMAKE_PREFIX_PATH=/usr cmake ..
+	CMAKE_PREFIX_PATH=/usr  cmake .
 }
 
 src_compile() {
@@ -33,5 +30,5 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}" install || die 'make install failed'
-	dodoc AUTHORS ChangeLog README
+	dodoc README
 }
