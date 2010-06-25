@@ -138,12 +138,8 @@ RDEPEND="${RDEPEND}
 #- kde-base/nsplugins
 RDEPEND="${RDEPEND}
 	kde-base/dolphin
-	kde-base/kappfinder
-	kde-base/kcheckpass
 	kde-base/kcheckpass
 	kde-base/kcminit
-	kde-base/kcminit
-	kde-base/kdebase-cursors
 	kde-base/kdebase-cursors
 	kde-base/kdebase-runtime-meta
 	kde-base/kdebase-startkde
