@@ -75,6 +75,7 @@ RDEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	app-admin/sudo
 	net-dns/bind-tools
+	net-misc/ntp
 	sys-apps/calculate-client
 	sys-apps/keyexec
 	sys-apps/preload
@@ -89,3 +90,4 @@ RDEPEND="${RDEPEND}
 	x11-apps/xmessage
 	x11-misc/xbindkeys
 "
+
