@@ -115,7 +115,7 @@ pkgpatch() {
 	apecho " !  GRAND RESULT: ${patches[@]}"
 	# before unpack phase ${S} yet not present
 	if ! pushd "${S}" &>/dev/null;then
-		pushd `pwd` >/dev/null
+		pushd "`pwd`" >/dev/null
 	fi
 	for patch in "${patches[@]}"; do
 		if [[ $patch =~ \.sh$ ]];
