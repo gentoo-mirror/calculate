@@ -36,6 +36,7 @@ RDEPEND="${RDEPEND}
 "
 # Network
 RDEPEND="${RDEPEND}
+	net-ftp/filezilla
 	net-im/pidgin
 	net-irc/xchat
 	net-p2p/linuxdcpp
