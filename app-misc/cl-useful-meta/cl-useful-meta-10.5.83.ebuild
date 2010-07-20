@@ -59,6 +59,7 @@ RDEPEND="${RDEPEND}
 	sys-apps/memtest86+
 	sys-apps/pciutils
 	sys-apps/pv
+	sys-apps/smartmontools
 	sys-devel/prelink
 	sys-fs/dmraid
 	sys-fs/dosfstools
