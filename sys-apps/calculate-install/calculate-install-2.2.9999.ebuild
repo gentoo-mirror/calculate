@@ -20,3 +20,9 @@ DEPEND="=sys-apps/calculate-lib-2.2.9999"
 
 RDEPEND="${DEPEND}"
 
+pkg_preinst() {
+	local initd="calculate"
+	local runlevel="default"
+	elog "Auto-adding '${initd}' service to your ${runlevel} runlevel"
+	ln -snf /etc/init.d/${initd} "${ROOT}"/etc/runlevels/${runlevel}/${initd}
+}
