@@ -41,6 +41,7 @@ RDEPEND="${RDEPEND}
 "
 # Network
 RDEPEND="${RDEPEND}
+	net-ftp/filezilla
 	net-news/liferea
 	mail-client/claws-mail
 	mail-client/claws-mail-gtkhtml
