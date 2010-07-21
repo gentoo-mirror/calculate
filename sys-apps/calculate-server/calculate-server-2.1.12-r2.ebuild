@@ -34,6 +34,13 @@ DEPEND="~sys-apps/calculate-lib-2.1.8
 
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# bugfix range absent in dhcp.conf
+	epatch "${FILESDIR}/calculate-server-2.1.12-r2.patch"
+}
 
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \

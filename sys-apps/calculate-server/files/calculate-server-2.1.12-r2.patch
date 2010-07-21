@@ -1,0 +1,47 @@
+diff --git a/profile/dhcp/etc/dhcp/dhcpd.conf b/profile/dhcp/etc/dhcp/dhcpd.conf
+index 3284616..554d249 100644
+--- a/profile/dhcp/etc/dhcp/dhcpd.conf
++++ b/profile/dhcp/etc/dhcp/dhcpd.conf
+@@ -12,8 +12,8 @@ authoritative;
+ update-static-leases on;
+ 
+ # basic default DHCP info
+-default-lease-time 600;
+-max-lease-time 7200;
++default-lease-time 6000;
++max-lease-time 72000;
+ 
+ #?sr_dns_set==on#
+ on commit {
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index bb9f3a3..28d35fc 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -7560,6 +7560,9 @@ outdated. If the backup is obsolete, use cl-backup."))
+             service = "ldap"
+             if not self.restartLdapServer():
+                 return False
++            # Устанавливаем автозапуск демона
++            if not self.setDaemonAutostart("slapd"):
++                return False
+             self.printOK(_("Restarting service %s")%"LDAP" + " ...")
+         # Перезапускаем остальные сервисы
+         if not flagError:
+@@ -19758,6 +19761,8 @@ eth0, eth1, ... etc."%net)
+          # Проверка сущестовования сети в конфигурационном файле
+         if not self.isExistingNet(net):
+             return False
++        dhcpObj = dncpTxt()
++        xmlNodesNet = dhcpObj.getXMLNet(network)
+         # ip роутера
+         router = ""
+         if options.has_key("router"):
+@@ -21183,6 +21188,8 @@ network %s")%net)
+         # Проверка на диапазон
+         for rang in ranges:
+             ipNet, listRange = rang
++            if not listRange:
++                continue
+             minIp, maxIp = sorted([self.getNumberIP(listRange[0]),
+                                 self.getNumberIP(listRange[1])])
+             if minIp == maxIp:
