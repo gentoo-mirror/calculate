@@ -101,7 +101,7 @@ RDEPEND="
     sys-power/cpufreqd
     sys-power/powernowd
     sys-process/htop
-	www-plugins/adblock-mozilla-plugin
+    www-plugins/adblock-mozilla-plugin
     www-plugins/adobe-flash
 	www-plugins/oxygen-mozilla-plugin
     www-plugins/plasma-mozilla-plugin

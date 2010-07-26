@@ -61,7 +61,7 @@ SRC_URI="http://releases.mozilla.org/pub/mozilla.org/addons/${PLUGIN_BUILD}/${SW
 			http://releases.mozilla.org/pub/mozilla.org/addons/13372/${SPELL_FR_FN}
 			ftp://ftp.calculate.ru/pub/calculate/${PN}/${SPELL_ES_FN} )"
 
-RDEPEND="www-client/mozilla-firefox"
+RDEPEND="www-client/firefox"
 
 file_to_uid() {
 	case $1 in

@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE=""
 
-RDEPEND="www-client/mozilla-firefox"
+RDEPEND="www-client/firefox"
 
 src_unpack() {
 	unzip "${DISTDIR}/${A}"

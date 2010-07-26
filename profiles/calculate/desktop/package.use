@@ -16,7 +16,7 @@ media-video/realplayer -X
 media-video/transcode mjpeg
 media-video/xine-ui -X
 net-analyzer/nmap -gtk
-www-client/mozilla-firefox bindist custom-optimization
+www-client/firefox bindist custom-optimization
 media-gfx/ufraw gimp
 media-libs/libsdl custom-cflags
 media-video/ffmpeg custom-cflags threads
@@ -44,7 +44,7 @@ app-misc/cls-meta kernel
 #for media-video/openshot-1.0.0
 media-libs/mlt frei0r
 
-#for www-client/mozilla-firefox-3.6
+#for www-client/firefox-3.6
 dev-db/sqlite fts3
 
 #support mount flash
