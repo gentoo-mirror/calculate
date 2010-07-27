@@ -1,0 +1,443 @@
+diff --git a/client-profiles/20-kde-4.3-4.4/.kde4/share/config/kdeglobals b/client-profiles/20-kde-4.3-4.4/.kde4/share/config/kdeglobals
+index 4d40d3b..5ada5bf 100644
+--- a/client-profiles/20-kde-4.3-4.4/.kde4/share/config/kdeglobals
++++ b/client-profiles/20-kde-4.3-4.4/.kde4/share/config/kdeglobals
+@@ -6,9 +6,9 @@
+ BrowserApplication[$e]=file:///usr/share/applications/chromium-chromium.desktop
+ #pkg#
+ # сделать mozilla firefox браузером по умолчанию, если он установлен
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ BrowserApplication[$e]=file:///home/#-ur_login-#/.local/share/applications/mozilla-firefox.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ BrowserApplication[$e]=file:///usr/share/applications/kde4/konqbrowser.desktop
+ #pkg#
+diff --git a/client-profiles/20-kde-4.3-4.4/.kde4/share/config/plasma-desktop-appletsrc b/client-profiles/20-kde-4.3-4.4/.kde4/share/config/plasma-desktop-appletsrc
+index 1727120..c76e1bb 100644
+--- a/client-profiles/20-kde-4.3-4.4/.kde4/share/config/plasma-desktop-appletsrc
++++ b/client-profiles/20-kde-4.3-4.4/.kde4/share/config/plasma-desktop-appletsrc
+@@ -220,10 +220,10 @@ geometry=0,0,#-sum(width,width)-#,#-sum(height,height)-#
+ #?pkg(www-client/chromium)!=#
+ Url=file:///usr/share/applications/chromium-chromium.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ Url=file:///home/#-ur_login-#/.local/share/applications/mozilla-firefox.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ Url=file:///usr/share/applications/kde4/konqbrowser.desktop
+ #pkg#
+ [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][LayoutInformation]
+diff --git a/client-profiles/20-kde-4.3/.kde4/share/config/kdeglobals b/client-profiles/20-kde-4.3/.kde4/share/config/kdeglobals
+index dcecda0..0ab2e76 100644
+--- a/client-profiles/20-kde-4.3/.kde4/share/config/kdeglobals
++++ b/client-profiles/20-kde-4.3/.kde4/share/config/kdeglobals
+@@ -8,10 +8,10 @@ emoticonsTheme=KMess-Cartoon
+ #?pkg(www-client/chromium)!=#
+ BrowserApplication[$e]=file:///usr/share/applications/chromium-chromium.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ BrowserApplication[$e]=file:///home/#-ur_login-#/.local/share/applications/mozilla-firefox.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ BrowserApplication[$e]=file:///usr/share/applications/kde4/konqbrowser.desktop
+ #pkg#
+ XftHintStyle=hintmedium
+diff --git a/client-profiles/20-kde-4.3/.kde4/share/config/plasma-desktop-appletsrc b/client-profiles/20-kde-4.3/.kde4/share/config/plasma-desktop-appletsrc
+index 5b87458..040b218 100644
+--- a/client-profiles/20-kde-4.3/.kde4/share/config/plasma-desktop-appletsrc
++++ b/client-profiles/20-kde-4.3/.kde4/share/config/plasma-desktop-appletsrc
+@@ -308,10 +308,10 @@ zvalue=0
+ #?pkg(www-client/chromium)!=#
+ Url=file:///usr/share/applications/chromium-chromium.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ Url=file:///home/#-ur_login-#/.local/share/applications/mozilla-firefox.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ Url=file:///usr/share/applications/kde4/konqbrowser.desktop
+ #pkg#
+ 
+diff --git a/client-profiles/20-kde-4.4/.kde4/share/config/kdeglobals b/client-profiles/20-kde-4.4/.kde4/share/config/kdeglobals
+index dcecda0..0ab2e76 100644
+--- a/client-profiles/20-kde-4.4/.kde4/share/config/kdeglobals
++++ b/client-profiles/20-kde-4.4/.kde4/share/config/kdeglobals
+@@ -8,10 +8,10 @@ emoticonsTheme=KMess-Cartoon
+ #?pkg(www-client/chromium)!=#
+ BrowserApplication[$e]=file:///usr/share/applications/chromium-chromium.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ BrowserApplication[$e]=file:///home/#-ur_login-#/.local/share/applications/mozilla-firefox.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ BrowserApplication[$e]=file:///usr/share/applications/kde4/konqbrowser.desktop
+ #pkg#
+ XftHintStyle=hintmedium
+diff --git a/client-profiles/20-kde-4.4/.kde4/share/config/plasma-desktop-appletsrc b/client-profiles/20-kde-4.4/.kde4/share/config/plasma-desktop-appletsrc
+index b8a0903..984dac6 100644
+--- a/client-profiles/20-kde-4.4/.kde4/share/config/plasma-desktop-appletsrc
++++ b/client-profiles/20-kde-4.4/.kde4/share/config/plasma-desktop-appletsrc
+@@ -228,10 +228,10 @@ zvalue=0
+ #?pkg(www-client/chromium)!=#
+ Url=file:///usr/share/applications/chromium-chromium.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ Url=file:///home/#-ur_login-#/.local/share/applications/mozilla-firefox.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ Url=file:///usr/share/applications/kde4/konqbrowser.desktop
+ #pkg#
+ [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][LayoutInformation]
+diff --git a/client-profiles/30-gnome-2.6/.gconf/apps/panel/300_bottom_objects/300_webbrowser/%gconf.xml b/client-profiles/30-gnome-2.6/.gconf/apps/panel/300_bottom_objects/300_webbrowser/%gconf.xml
+index be7501f..2a54b7d 100644
+--- a/client-profiles/30-gnome-2.6/.gconf/apps/panel/300_bottom_objects/300_webbrowser/%gconf.xml
++++ b/client-profiles/30-gnome-2.6/.gconf/apps/panel/300_bottom_objects/300_webbrowser/%gconf.xml
+@@ -23,7 +23,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium-chromium.desktop</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>mozilla-firefox.desktop</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/applications/browser/%gconf.xml b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/applications/browser/%gconf.xml
+index 6605ad6..dd51d2b 100644
+--- a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/applications/browser/%gconf.xml
++++ b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/applications/browser/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/about/%gconf.xml b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/about/%gconf.xml
+index 1d95e4c..8336a58 100644
+--- a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/about/%gconf.xml
++++ b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/about/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/chrome/%gconf.xml b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/chrome/%gconf.xml
+index d83de6f..9c41194 100644
+--- a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/chrome/%gconf.xml
++++ b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/chrome/%gconf.xml
+@@ -7,7 +7,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/ftp/%gconf.xml b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/ftp/%gconf.xml
+index d83de6f..9c41194 100644
+--- a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/ftp/%gconf.xml
++++ b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/ftp/%gconf.xml
+@@ -7,7 +7,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/http/%gconf.xml b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/http/%gconf.xml
+index 1d95e4c..8336a58 100644
+--- a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/http/%gconf.xml
++++ b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/http/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/https/%gconf.xml b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/https/%gconf.xml
+index 1d95e4c..8336a58 100644
+--- a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/https/%gconf.xml
++++ b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/https/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/unknown/%gconf.xml b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/unknown/%gconf.xml
+index 1d95e4c..8336a58 100644
+--- a/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/unknown/%gconf.xml
++++ b/client-profiles/30-gnome-2.6/.gconf/desktop/gnome/url-handlers/unknown/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/40-cldx-10.2-10.4/.config/xfce4/panel/launcher-30.rc b/client-profiles/40-cldx-10.2-10.4/.config/xfce4/panel/launcher-30.rc
+index 9418716..3cdbde2 100644
+--- a/client-profiles/40-cldx-10.2-10.4/.config/xfce4/panel/launcher-30.rc
++++ b/client-profiles/40-cldx-10.2-10.4/.config/xfce4/panel/launcher-30.rc
+@@ -10,11 +10,11 @@ Comment=Surf the internet
+ Icon=chromium-browser
+ Exec=chromium
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ Icon=browser
+ Exec=firefox
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ Icon=browser
+ Exec=exo-open --launch WebBrowser
+ #pkg#
+diff --git a/client-profiles/40-xfce-4.6/.config/xfce4/helpers.rc b/client-profiles/40-xfce-4.6/.config/xfce4/helpers.rc
+index 0571fa7..3a3f95a 100644
+--- a/client-profiles/40-xfce-4.6/.config/xfce4/helpers.rc
++++ b/client-profiles/40-xfce-4.6/.config/xfce4/helpers.rc
+@@ -1,7 +1,7 @@
+ #?pkg(www-client/chromium)!=#
+ WebBrowser=chromium
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ WebBrowser=firefox
+ #pkg#
+ MailReader=sylpheed-claws
+diff --git a/client-profiles/40-xfce-4.6/.config/xfce4/panel/launcher-30.rc b/client-profiles/40-xfce-4.6/.config/xfce4/panel/launcher-30.rc
+index 9418716..3cdbde2 100644
+--- a/client-profiles/40-xfce-4.6/.config/xfce4/panel/launcher-30.rc
++++ b/client-profiles/40-xfce-4.6/.config/xfce4/panel/launcher-30.rc
+@@ -10,11 +10,11 @@ Comment=Surf the internet
+ Icon=chromium-browser
+ Exec=chromium
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ Icon=browser
+ Exec=firefox
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ Icon=browser
+ Exec=exo-open --launch WebBrowser
+ #pkg#
+diff --git a/client-profiles/80-firefox-3.5/.calculate_directory b/client-profiles/80-firefox-3.5/.calculate_directory
+index 91e7aaf..1058025 100644
+--- a/client-profiles/80-firefox-3.5/.calculate_directory
++++ b/client-profiles/80-firefox-3.5/.calculate_directory
+@@ -1 +1 @@
+-# Calculate ini(main.update)!=off&ini(update.firefox)!=off&ini(ver.firefox)==&pkg(www-client/mozilla-firefox)>=3.5
++# Calculate ini(main.update)!=off&ini(update.firefox)!=off&ini(ver.firefox)==&pkg(www-client/firefox)>=3.5
+diff --git a/client-profiles/80-firefox-always/.calculate_directory b/client-profiles/80-firefox-always/.calculate_directory
+index 0548580..d59d5d2 100644
+--- a/client-profiles/80-firefox-always/.calculate_directory
++++ b/client-profiles/80-firefox-always/.calculate_directory
+@@ -1 +1 @@
+-# Calculate ini(main.update)!=off&ini(update.firefox)!=off&pkg(www-client/mozilla-firefox)>=3.5&ini(newsystem)==on
++# Calculate ini(main.update)!=off&ini(update.firefox)!=off&pkg(www-client/firefox)>=3.5&ini(newsystem)==on
+diff --git a/client-profiles/90-patch-2.1.16/.mozilla/firefox/.calculate_directory b/client-profiles/90-patch-2.1.16/.mozilla/firefox/.calculate_directory
+index ae19c3c..8c95e03 100644
+--- a/client-profiles/90-patch-2.1.16/.mozilla/firefox/.calculate_directory
++++ b/client-profiles/90-patch-2.1.16/.mozilla/firefox/.calculate_directory
+@@ -1,2 +1,2 @@
+-# Calculate pkg(www-client/mozilla-firefox)>=3.5
++# Calculate pkg(www-client/firefox)>=3.5
+ 
+diff --git a/client-profiles/90-patch-2.1.18/.config/xfce4/helpers.rc b/client-profiles/90-patch-2.1.18/.config/xfce4/helpers.rc
+index c60f227..1fab883 100644
+--- a/client-profiles/90-patch-2.1.18/.config/xfce4/helpers.rc
++++ b/client-profiles/90-patch-2.1.18/.config/xfce4/helpers.rc
+@@ -2,7 +2,7 @@
+ #?pkg(www-client/chromium)!=#
+ WebBrowser=chromium
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ WebBrowser=firefox
+ #pkg#
+ 
+diff --git a/client-profiles/90-patch-2.1.18/.config/xfce4/panel/launcher-30.rc b/client-profiles/90-patch-2.1.18/.config/xfce4/panel/launcher-30.rc
+index 2b8b82a..8f36fba 100644
+--- a/client-profiles/90-patch-2.1.18/.config/xfce4/panel/launcher-30.rc
++++ b/client-profiles/90-patch-2.1.18/.config/xfce4/panel/launcher-30.rc
+@@ -4,11 +4,11 @@
+ Icon=chromium-browser
+ Exec=chromium
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ Icon=browser
+ Exec=firefox
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ Icon=browser
+ Exec=exo-open --launch WebBrowser
+ #pkg#
+diff --git a/client-profiles/90-patch-2.1.18/.gconf/apps/panel/objects/300_webbrowser/%gconf.xml b/client-profiles/90-patch-2.1.18/.gconf/apps/panel/objects/300_webbrowser/%gconf.xml
+index 9d86083..53c8f8b 100644
+--- a/client-profiles/90-patch-2.1.18/.gconf/apps/panel/objects/300_webbrowser/%gconf.xml
++++ b/client-profiles/90-patch-2.1.18/.gconf/apps/panel/objects/300_webbrowser/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium-chromium.desktop</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>mozilla-firefox.desktop</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/applications/browser/%gconf.xml b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/applications/browser/%gconf.xml
+index 501600c..4028e7a 100644
+--- a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/applications/browser/%gconf.xml
++++ b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/applications/browser/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/about/%gconf.xml b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/about/%gconf.xml
+index 1d95e4c..8336a58 100644
+--- a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/about/%gconf.xml
++++ b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/about/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/chrome/%gconf.xml b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/chrome/%gconf.xml
+index d83de6f..9c41194 100644
+--- a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/chrome/%gconf.xml
++++ b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/chrome/%gconf.xml
+@@ -7,7 +7,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/ftp/%gconf.xml b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/ftp/%gconf.xml
+index 1d95e4c..8336a58 100644
+--- a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/ftp/%gconf.xml
++++ b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/ftp/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/http/%gconf.xml b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/http/%gconf.xml
+index 1d95e4c..8336a58 100644
+--- a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/http/%gconf.xml
++++ b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/http/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/https/%gconf.xml b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/https/%gconf.xml
+index 1d95e4c..8336a58 100644
+--- a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/https/%gconf.xml
++++ b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/https/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/unknown/%gconf.xml b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/unknown/%gconf.xml
+index 1d95e4c..8336a58 100644
+--- a/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/unknown/%gconf.xml
++++ b/client-profiles/90-patch-2.1.18/.gconf/desktop/gnome/url-handlers/unknown/%gconf.xml
+@@ -5,7 +5,7 @@
+ #?pkg(www-client/chromium)!=#
+ 		<stringvalue>chromium %s</stringvalue>
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ 		<stringvalue>firefox %s</stringvalue>
+ #pkg#
+ 	</entry>
+diff --git a/client-profiles/90-patch-2.1.18/.kde4/share/config/kdeglobals b/client-profiles/90-patch-2.1.18/.kde4/share/config/kdeglobals
+index 4d40d3b..5ada5bf 100644
+--- a/client-profiles/90-patch-2.1.18/.kde4/share/config/kdeglobals
++++ b/client-profiles/90-patch-2.1.18/.kde4/share/config/kdeglobals
+@@ -6,9 +6,9 @@
+ BrowserApplication[$e]=file:///usr/share/applications/chromium-chromium.desktop
+ #pkg#
+ # сделать mozilla firefox браузером по умолчанию, если он установлен
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ BrowserApplication[$e]=file:///home/#-ur_login-#/.local/share/applications/mozilla-firefox.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ BrowserApplication[$e]=file:///usr/share/applications/kde4/konqbrowser.desktop
+ #pkg#
+diff --git a/client-profiles/90-patch-2.1.18/.kde4/share/config/plasma-desktop-appletsrc b/client-profiles/90-patch-2.1.18/.kde4/share/config/plasma-desktop-appletsrc
+index 0933353..58fed8d 100644
+--- a/client-profiles/90-patch-2.1.18/.kde4/share/config/plasma-desktop-appletsrc
++++ b/client-profiles/90-patch-2.1.18/.kde4/share/config/plasma-desktop-appletsrc
+@@ -28,9 +28,9 @@ zvalue=0
+ #?pkg(www-client/chromium)!=#
+ Url=file:///usr/share/applications/chromium-chromium.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)!=&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)!=&pkg(www-client/chromium)==#
+ Url=file:///home/#-ur_login-#/.local/share/applications/mozilla-firefox.desktop
+ #pkg#
+-#?pkg(www-client/mozilla-firefox)==&pkg(www-client/chromium)==#
++#?pkg(www-client/firefox)==&pkg(www-client/chromium)==#
+ Url=file:///usr/share/applications/kde4/konqbrowser.desktop
+ #pkg#
