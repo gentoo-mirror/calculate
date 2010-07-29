@@ -51,6 +51,7 @@ RDEPEND="${RDEPEND}
 	net-misc/networkmanager-openvpn
 	net-misc/networkmanager-pptp
 	net-misc/networkmanager-vpnc
+	net-wireless/blueman
 "
 # Office
 RDEPEND="${RDEPEND}
