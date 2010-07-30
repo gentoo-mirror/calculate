@@ -45,7 +45,8 @@ RDEPEND="${RDEPEND}
 	net-p2p/eiskaltdc
 "
 # Nettools
-RDEPEND="${RDEPEND} 
+RDEPEND="${RDEPEND}
+	net-im/choqok
 	net-misc/kvpnc
 	net-misc/wicd
 "
