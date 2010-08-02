@@ -79,6 +79,30 @@ update_file() {
 	mv $1-installed $1
 }
 
+# @FUNCTION: detect_linux_shortname
+# @USAGE: 
+# @DESCRIPTION:
+# Detect calculate linux shortname by /etc/make.profile
+detect_linux_shortname() {
+	local makeprofile=$(readlink ${ROOT}/etc/make.profile)
+	local profile=
+	local system=
+	local shortname=
+	while [[ $profile != "calculate" && $profile != "." ]]
+	do
+		shortname=$system
+		system=$profile
+		profile=$(basename $makeprofile)
+		makeprofile=$(dirname $makeprofile)
+	done
+	if [[ $profile == "calculate" ]]
+	then
+		echo $shortname
+	else
+		echo "gentoo"
+	fi
+}
+
 # @FUNCTION: calculate_update_kernel
 # @USAGE: [kernelname] [kernelversion] [destination]
 # @DESCRIPTION:
@@ -97,8 +121,8 @@ calculate_update_kernel() {
 	# update System.map
 	update_file ${dir}/System.map-${kversion} ${dir}/System.map
 	# update config-{KV_FULL}
-	make_old_file ${dir}/config-${KV_FULL}
-	mv ${dir}/config-${KV_FULL}-installed ${dir}/config-${KV_FULL}
+	make_old_file ${dir}/config-${kversion}
+	mv ${dir}/config-${kversion}-installed ${dir}/config-${kversion}
 
 	ebegin "Trying to optimize initramfs"
 	( which calculate &>/dev/null && calculate --initrd ) && eend 0 || eend 1

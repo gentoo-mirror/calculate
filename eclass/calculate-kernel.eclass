@@ -20,7 +20,6 @@ SLOT=$(get_version_component_range 1-4)
 KV_FULL="${PV}-calculate"
 
 S="${WORKDIR}/linux-${KV_FULL}"
-EXTRAVERSION="-calculate"
 
 CALC_K_SUBV=.$(get_version_component_range 4)
 [[ ${CALC_K_SUBV} == "." ]] && CALC_K_SUBV=
@@ -98,17 +97,19 @@ vmlinuz_src_compile() {
 		--module-prefix=${WORKDIR} \
 		all || die "genkernel failed"
 	
-	cp ${S}/.config ${WORKDIR}/boot/config-${KV_FULL}-installed
+	OLDARCH=`arch`
+	NAMESUFFIX=${PV}-${OLDARCH}-$(detect_linux_shortname)
+	cp ${S}/.config ${WORKDIR}/boot/config-${NAMESUFFIX}-installed
 	einfo "kernel: >> Distclean..."
 	make distclean &>/dev/null || die "cannot perform distclean"
 	ARCH="${GENTOOARCH}"
 	mv ${WORKDIR}/boot/kernel-${SYSTEM}-*-${KV_FULL} \
-		${WORKDIR}/boot/vmlinuz-${KV_FULL}-installed
+		${WORKDIR}/boot/vmlinuz-${NAMESUFFIX}-installed
 	mv ${WORKDIR}/boot/initramfs-${SYSTEM}-*-${KV_FULL} \
-		${WORKDIR}/boot/initramfs-${KV_FULL}-installed
+		${WORKDIR}/boot/initramfs-${NAMESUFFIX}-installed
 	mv ${WORKDIR}/boot/System.map-${SYSTEM}-*-${KV_FULL} \
-		${WORKDIR}/boot/System.map-${KV_FULL}-installed
-	cp ${WORKDIR}/boot/System.map-${KV_FULL}-installed ${S}/System.map
+		${WORKDIR}/boot/System.map-${NAMESUFFIX}-installed
+	cp ${WORKDIR}/boot/System.map-${NAMESUFFIX}-installed ${S}/System.map
 	rm ${WORKDIR}/lib/modules/${KV_FULL}/build
 	rm ${WORKDIR}/lib/modules/${KV_FULL}/source
 }
@@ -143,10 +144,10 @@ calculate-kernel_src_install() {
 }
 
 vmlinuz_pkg_postinst() {
-	calculate_update_splash ${ROOT}/boot/initramfs-${KV_FULL}-installed
-	cp ${ROOT}/boot/initramfs-${KV_FULL}-installed \
-		${ROOT}/boot/initramfs-${KV_FULL}-install-installed
-	calculate_update_kernel ${KV_FULL} ${ROOT}/boot
+	calculate_update_splash ${ROOT}/boot/initramfs-${NAMESUFFIX}-installed
+	cp ${ROOT}/boot/initramfs-${NAMESUFFIX}-installed \
+		${ROOT}/boot/initramfs-${NAMESUFFIX}-install-installed
+	calculate_update_kernel ${NAMESUFFIX} ${ROOT}/boot
 	mkdir -p ${ROOT}/lib/firmware
 	cp -a ${ROOT}/tmp/firmware/* ${ROOT}/lib/firmware/
 	rm -rf ${ROOT}/tmp/firmware
@@ -161,8 +162,8 @@ calculate-kernel_pkg_postinst() {
 	kernel-2_pkg_postinst
 
 	KV_OUT_DIR=${ROOT}/usr/src/linux-${KV_FULL}
-	[[ -e ${ROOT}/boot/config-${KV_FULL}-installed ]] &&
-		cp ${ROOT}/boot/config-${KV_FULL}-installed ${KV_OUT_DIR}/.config ||
+	[[ -e ${ROOT}/boot/config-${NAMESUFFIX}-installed ]] &&
+		cp ${ROOT}/boot/config-${NAMESUFFIX}-installed ${KV_OUT_DIR}/.config ||
 		cp ${KERNEL_CONFIG} ${KV_OUT_DIR}/.config
 
 	cd ${KV_OUT_DIR}
