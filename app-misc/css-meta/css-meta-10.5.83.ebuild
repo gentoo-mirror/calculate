@@ -15,21 +15,12 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND="
-	app-misc/livecd-tools
-	app-portage/eix
-	app-portage/layman
-	dev-vcs/git
-	media-fonts/terminus-font
+	app-misc/cl-base-meta
+"
+
+# Network
+RDEPEND="
 	net-misc/dhcp
-	sys-apps/calculate
-	sys-apps/ifplugd
-	sys-apps/openrc
-	sys-apps/v86d
-	sys-boot/calcboot
-	sys-boot/grub
-	sys-fs/reiserfsprogs
-	sys-kernel/calckernel
-	virtual/linux-sources
 "
 
 pkg_postinst() {

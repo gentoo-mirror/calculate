@@ -15,16 +15,16 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND="
-	app-misc/css-meta
+	app-misc/cl-base-meta
 	app-misc/cl-printer-meta
 	app-misc/cl-useful-meta
 	app-misc/cl-wireless-meta
 "
 
 RDEPEND="${RDEPEND}
-	net-misc/dhcp
 	media-fonts/dejavu
 	media-gfx/cls-themes
+	net-misc/dhcpcd
 	www-client/chromium
 	www-plugins/adobe-flash
 	sys-apps/pcmciautils
