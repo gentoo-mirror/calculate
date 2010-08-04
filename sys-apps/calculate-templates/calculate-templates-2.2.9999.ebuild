@@ -23,6 +23,7 @@ src_compile() {
 }
 
 src_install() {
-	insinto /usr/share/calculate
+	dodir /usr/share/calculate/templates
+	insinto /usr/share/calculate/templates
 	doins -r *
 }
