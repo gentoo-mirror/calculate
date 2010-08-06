@@ -58,7 +58,6 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	net-dialup/ppp
 	net-dialup/pptpclient
 	net-dialup/rp-pppoe
-	net-dialup/slmodem
 	net-firewall/iptables
 	net-fs/nfs-utils
 	net-fs/samba
