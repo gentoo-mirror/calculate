@@ -1,0 +1,5 @@
+--- a/templates/desktop/60-chromium-5.0/.calculate_directory
++++ b/templates/desktop/60-chromium-5.0/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip belong(chromium)!=&&ini(main.update)!=off&&ini(update.chromium)!=off&&ini(ver.chromium)==&&pkg(www-client/chromium)>=5.0
++# Calculate append=skip belong(chromium)!=&&exists(~/.config/chromium)==&&ini(main.update)!=off&&ini(update.chromium)!=off&&ini(ver.chromium)==&&pkg(www-client/chromium)>=5.0

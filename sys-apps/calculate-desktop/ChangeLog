@@ -2,6 +2,14 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-desktop-2.2.0.0_rc1-r1 (10 Aug 2010)
+
+  10 Aug 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-desktop-2.2.0.0_rc1.ebuild,
+  +calculate-desktop-2.2.0.0_rc1-r1.ebuild,
+  +files/calculate-desktop-2.2.0.0_rc1-r1.patch:
+  Fix bug in chromium configure.
+
 *calculate-desktop-2.2.0.0_rc1 (21 Jun 2010)
 
   21 Jun 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>

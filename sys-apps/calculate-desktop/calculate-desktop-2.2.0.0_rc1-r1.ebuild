@@ -34,6 +34,14 @@ DEPEND="=sys-apps/calculate-lib-2.2.0.0_rc1
 
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	git_src_unpack
+	cd "${S}"
+
+	#bugfix wrong chromium configure
+	epatch "${FILESDIR}/calculate-desktop-2.2.0.0_rc1-r1.patch"
+}
+
 pkg_postinst() {
 	${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
 	if use kde || use xfce || use gnome;
