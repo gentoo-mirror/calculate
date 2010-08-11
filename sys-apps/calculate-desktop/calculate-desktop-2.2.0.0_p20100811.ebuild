@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="3c0c16d2b723e009f9feff6165f2cd1a34bf6730"
+EGIT_COMMIT="11f82c58d370c53985eb22aa32d24af2659a0184"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-desktop.git"
 
 DESCRIPTION="The program of the desktop configuration Calculate Linux"
@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="=sys-apps/calculate-lib-2.2.0.0_rc1
+DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100811
 	>=dev-python/python-ldap-2.0[ssl]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
@@ -39,11 +39,11 @@ src_unpack() {
 	cd "${S}"
 
 	#bugfix wrong chromium configure
-	epatch "${FILESDIR}/calculate-desktop-2.2.0.0_rc1-r1.patch"
+	#epatch "${FILESDIR}/calculate-desktop-2.2.0.0_rc1-r1.patch"
 }
 
 pkg_postinst() {
-	${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
+	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
 	if use kde || use xfce || use gnome;
 	then
 		ewarn "Please restart xdm for refreshing configuration files."
@@ -51,5 +51,6 @@ pkg_postinst() {
 }
 
 pkg_prerm() {
-	${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/uninstall
+	:
+	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/uninstall
 }

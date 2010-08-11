@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="ca3a0d993fb187e1af0b5445f89c44821f85b571"
+EGIT_COMMIT="65e73fb49b2a282cd2d4b93208ab0a71b627a369"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-client.git"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-desktop-2.2.0.0_rc1
-	=sys-apps/calculate-lib-2.2.0.0_rc1
+DEPEND="~sys-apps/calculate-desktop-2.2.0.0_p20100811
+	~sys-apps/calculate-lib-2.2.0.0_p20100811
 	>=dev-python/python-ldap-2.0[ssl]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
@@ -50,7 +50,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	/usr/lib/calculate-2.2/calculate-client/bin/install
+	#/usr/lib/calculate-2.2/calculate-client/bin/install
 	rm ${ISUPDATE}
 
 	# for fixing bug of ebuild calculate-client-2.0.17
@@ -62,6 +62,7 @@ pkg_prerm() {
 	# for fixing bug of ebuild calculate-client-2.0.17 (|| -e ${OLDISUPDATE} )
 	if ! [[ -e ${ISUPDATE} || -e ${OLDISUPDATE} ]];
 	then
-		/usr/lib/calculate-2.2/calculate-client/bin/uninstall
+		:
+		#/usr/lib/calculate-2.2/calculate-client/bin/uninstall
 	fi
 }
