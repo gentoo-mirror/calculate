@@ -50,6 +50,7 @@ RDEPEND="${RDEPEND}
 	net-fs/fusesmb
 	net-im/pidgin
 	net-irc/xchat
+	net-misc/pino
 	net-p2p/linuxdcpp
 	net-p2p/transmission
 	x11-plugins/pidgin-facebookchat
