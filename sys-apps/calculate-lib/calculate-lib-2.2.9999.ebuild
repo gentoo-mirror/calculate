@@ -19,3 +19,7 @@ DEPEND="~sys-apps/calculate-templates-2.2.9999
 	>=dev-python/python-ldap-2.0[ssl]
 	>=dev-python/pyxml-0.8"
 RDEPEND="${DEPEND}"
+
+pkg_postinst() {
+	sed -i '/^cl_pass_action/d' ${ROOT}/etc/calculate/calculate2.env
+}
