@@ -16,7 +16,7 @@ KEYWORDS="amd64 x86"
 
 IUSE=""
 
-DEPEND="~sys-apps/calculate-lib-2.1.8
+DEPEND="=sys-apps/calculate-lib-2.1.8-r1
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
@@ -40,6 +40,8 @@ src_unpack() {
 
 	# bugfix range absent in dhcp.conf
 	epatch "${FILESDIR}/calculate-server-2.1.12-r2.patch"
+	# change palce of i18n files to /usr/share/calculate-2.0
+	epatch "${FILESDIR}/server_i18n_path.patch"
 }
 
 pkg_postinst() {

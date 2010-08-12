@@ -1,0 +1,13 @@
+diff --git a/setup.py b/setup.py
+index d1e2cb7..77b1deb 100755
+--- a/setup.py
++++ b/setup.py
+@@ -31,7 +31,7 @@ data_files = []
+ var_data_files = []
+ 
+ data_dirs_local = ['client-profiles', 'profiles']
+-share_calculate_dir = "/usr/share/calculate/"
++share_calculate_dir = "/usr/share/calculate-2.0/"
+ data_dirs_share = ['i18n']
+ 
+ 

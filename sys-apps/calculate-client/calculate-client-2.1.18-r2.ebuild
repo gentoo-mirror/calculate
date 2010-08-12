@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="kde xfce gnome"
 
-DEPEND=">=sys-apps/calculate-lib-2.1.10
+DEPEND=">=sys-apps/calculate-lib-2.1.10-r1
 		dev-python/py-smbpasswd
 		>=dev-python/python-ldap-2.0[ssl]
 		>=sys-auth/pam_ldap-180[ssl]
@@ -42,6 +42,8 @@ src_unpack() {
 
 	# fix pkg(www-client/mozilla-firefox) to pkg(www-client/firefox)
 	epatch "${FILESDIR}/calculate-client-2.1.18-r1.patch"
+	# change palce of i18n files to /usr/share/calculate-2.0
+	epatch "${FILESDIR}/client_i18n_path.patch"
 }
 
 pkg_preinst() {

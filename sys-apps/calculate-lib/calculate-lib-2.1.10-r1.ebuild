@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit distutils
+inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
@@ -20,3 +20,11 @@ DEPEND="!<sys-apps/calculate-client-2.1.16
 		>=dev-python/python-ldap-2.0[ssl]
 		>=dev-python/pyxml-0.8"
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# change palce of i18n files to /usr/share/calculate-2.0
+	epatch "${FILESDIR}/lib_i18n_path.patch"
+}

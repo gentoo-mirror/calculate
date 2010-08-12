@@ -1,0 +1,25 @@
+diff --git a/pym/cl_base.py b/pym/cl_base.py
+index 4a8626e..15a8d34 100644
+--- a/pym/cl_base.py
++++ b/pym/cl_base.py
+@@ -126,7 +126,7 @@ class lang:
+         #self.nameDomain = ''
+         """ Название файла перевода (Домен) если используется 1 файл перевода
+         """
+-        self.__catalog = os.path.abspath('/usr/share/calculate/i18n')
++        self.__catalog = os.path.abspath('/usr/share/calculate-2.0/i18n')
+         """ Путь к каталогу переводов (в этом каталоге
+             ru_RU/LC_MESSAGES в котором файл перевода)
+         """
+diff --git a/setup.py b/setup.py
+index 3e60076..e1df18c 100755
+--- a/setup.py
++++ b/setup.py
+@@ -31,6 +31,6 @@ setup(
+     license = "http://www.apache.org/licenses/LICENSE-2.0",
+     package_dir = {'calculate-lib': "."},
+     packages = ['calculate-lib.pym'],
+-    data_files = [("/usr/share/calculate/i18n",['i18n/cl_lib_ru.mo']),
++    data_files = [("/usr/share/calculate-2.0/i18n",['i18n/cl_lib_ru.mo']),
+                   ("/var/calculate/remote",[])],
+ )

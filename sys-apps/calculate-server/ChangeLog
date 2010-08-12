@@ -2,6 +2,13 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-server-2.1.12-r3 (12 Aug 2010)
+
+  12 Aug 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +files/server_i18n_path.patch, -calculate-server-2.1.12-r2.ebuild,
+  +calculate-server-2.1.12-r3.ebuild:
+  Add path for place i18n files.
+
 *calculate-server-2.1.12-r2 (21 Jul 2010)
 
   21 Jul 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
