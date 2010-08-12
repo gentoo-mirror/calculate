@@ -21,3 +21,7 @@ DEPEND="~sys-apps/calculate-templates-2.2.0.0_p20100811
 	dev-python/py-smbpasswd
 	>=dev-python/pyxml-0.8"
 RDEPEND="${DEPEND}"
+
+pkg_postinst() {
+	sed -i '/^cl_pass_action/d' ${ROOT}/etc/calculate/calculate2.env
+}
