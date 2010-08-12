@@ -18,10 +18,3 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100811"
 
 RDEPEND="${DEPEND}"
-
-pkg_preinst() {
-	local initd="calculate"
-	local runlevel="boot"
-	elog "Auto-adding '${initd}' service to your ${runlevel} runlevel"
-	ln -snf /etc/init.d/${initd} "${ROOT}"/etc/runlevels/${runlevel}/${initd}
-}
