@@ -17,7 +17,7 @@ IUSE=""
 RDEPEND="
 	!net-p2p/eiskaltdc
 "
-RDEPEND="
+RDEPEND="${RDEPEND}
 	app-misc/cls-meta
 	app-misc/cl-desktop-meta
 	app-misc/cl-kde-meta
