@@ -17,6 +17,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="~sys-apps/calculate-templates-2.2.0.0_p20100812
+	!<sys-apps/calculate-lib-2.1.8-r1
+	!=sys-apps/calculate-lib-2.1.9
+	!=sys-apps/calculate-lib-2.1.10
 	>=dev-python/python-ldap-2.0[ssl]
 	dev-python/py-smbpasswd
 	>=dev-python/pyxml-0.8"
