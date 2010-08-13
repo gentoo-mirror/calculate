@@ -12,13 +12,17 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
+IUSE="printer wireless"
 
 RDEPEND="
 	app-misc/cl-base-meta
-	app-misc/cl-printer-meta
+	printer? (
+		app-misc/cl-printer-meta
+	)
 	app-misc/cl-useful-meta
-	app-misc/cl-wireless-meta
+	wireless? (
+		app-misc/cl-wireless-meta
+	)
 "
 
 RDEPEND="${RDEPEND}
