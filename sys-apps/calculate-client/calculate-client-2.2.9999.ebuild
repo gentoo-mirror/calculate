@@ -50,7 +50,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	/usr/lib/calculate-2.2/calculate-client/bin/install
+	#/usr/lib/calculate-2.2/calculate-client/bin/install
 	rm ${ISUPDATE}
 
 	# for fixing bug of ebuild calculate-client-2.0.17
@@ -62,6 +62,7 @@ pkg_prerm() {
 	# for fixing bug of ebuild calculate-client-2.0.17 (|| -e ${OLDISUPDATE} )
 	if ! [[ -e ${ISUPDATE} || -e ${OLDISUPDATE} ]];
 	then
-		/usr/lib/calculate-2.2/calculate-client/bin/uninstall
+		:
+		#/usr/lib/calculate-2.2/calculate-client/bin/uninstall
 	fi
 }
