@@ -34,7 +34,7 @@ DEPEND="=sys-apps/calculate-lib-2.2.9999
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {
-	${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
+	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
 	if use kde || use xfce || use gnome;
 	then
 		ewarn "Please restart xdm for refreshing configuration files."
@@ -42,5 +42,6 @@ pkg_postinst() {
 }
 
 pkg_prerm() {
-	${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/uninstall
+	:
+	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/uninstall
 }
