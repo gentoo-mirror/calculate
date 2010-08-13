@@ -29,8 +29,6 @@ RDEPEND="${RDEPEND}
 	www-plugins/adobe-flash
 	sys-apps/pcmciautils
 	sys-apps/usb_modeswitch
-	sys-apps/v86d
-	virtual/linux-sources
 	x11-base/xorg-x11
 	x11-terms/rxvt-unicode
 	x11-wm/openbox

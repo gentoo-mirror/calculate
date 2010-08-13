@@ -15,6 +15,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
+	!net-p2p/eiskaltdc
+"
+RDEPEND="
 	app-misc/cls-meta
 	app-misc/cl-desktop-meta
 	app-misc/cl-kde-meta
@@ -42,7 +45,7 @@ RDEPEND="${RDEPEND}
 # Network
 RDEPEND="${RDEPEND}
 	net-irc/konversation
-	net-p2p/eiskaltdc
+	net-p2p/eiskaltdcpp
 "
 # Nettools
 RDEPEND="${RDEPEND}
