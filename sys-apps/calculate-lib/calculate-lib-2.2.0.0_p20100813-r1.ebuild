@@ -4,9 +4,9 @@
 
 EAPI="2"
 
-inherit distutils git
+inherit distutils git eutils
 
-EGIT_COMMIT="6528db1cdddfada110904347c32b6a63947a3840"
+EGIT_COMMIT="ba90501a21b811c8b582275fb6ee7b953464d027"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-lib.git"
 
 DESCRIPTION="The library for Calculate 2"
@@ -24,6 +24,14 @@ DEPEND="~sys-apps/calculate-templates-2.2.0.0_p20100812
 	dev-python/py-smbpasswd
 	>=dev-python/pyxml-0.8"
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	git_src_unpack
+	cd "${S}"
+
+	# fix shortname
+	epatch "${FILESDIR}/shortname-fix.patch"
+}
 
 pkg_postinst() {
 	sed -i '/^cl_pass_action/d' ${ROOT}/etc/calculate/calculate2.env
