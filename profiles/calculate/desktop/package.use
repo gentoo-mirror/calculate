@@ -36,6 +36,9 @@ x11-libs/cairo cleartype glitz svg
 x11-libs/libX11 xcb
 x11-misc/xscreensaver -opengl -jpeg
 
+#added support flash in amd64
+www-plugins/adobe-flash nspluginwrapper
+
 #for compile with sys-auth/pambase
 net-wireless/bluez -consolekit
 
