@@ -32,6 +32,7 @@ RDEPEND="${RDEPEND}
 # Multimedia
 RDEPEND="${RDEPEND}
 	media-sound/rhythmbox
+	media-video/cheese
 	media-video/mplayer
 "
 # Network
