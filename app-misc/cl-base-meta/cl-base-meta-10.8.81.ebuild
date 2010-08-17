@@ -27,7 +27,6 @@ RDEPEND="
 	sys-apps/v86d
 	sys-boot/calcboot
 	sys-boot/grub
-	sys-boot/syslinux
 	sys-fs/reiserfsprogs
 	sys-kernel/calckernel
 	virtual/linux-sources
