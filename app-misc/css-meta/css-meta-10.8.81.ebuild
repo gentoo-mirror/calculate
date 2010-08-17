@@ -19,7 +19,7 @@ RDEPEND="
 "
 
 # Network
-RDEPEND="
+RDEPEND="${RDEPEND}
 	net-misc/dhcp
 "
 
