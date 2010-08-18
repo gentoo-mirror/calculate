@@ -15,6 +15,9 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100816"
+DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100816
+	app-portage/layman
+	sys-boot/grub
+	sys-fs/dosfstools"
 
 RDEPEND="${DEPEND}"
