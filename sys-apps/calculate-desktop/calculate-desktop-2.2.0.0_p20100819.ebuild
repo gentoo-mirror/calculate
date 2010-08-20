@@ -16,22 +16,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100816
+DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100819
 	!<sys-apps/calculate-client-2.2.0
-	>=dev-python/python-ldap-2.0[ssl]
-	>=sys-auth/pam_ldap-180[ssl]
-	>=sys-auth/nss_ldap-239
-	>=sys-apps/keyexec-0.1.2
-	>=sys-apps/hal-0.5.9
-	sys-apps/keyutils
-	sys-auth/pam_keystore
-	dev-python/py-smbpasswd
-	xfce? ( x11-misc/slim
-		x11-misc/xdialog )
-	gnome? ( gnome-base/gdm
-		x11-misc/xdialog )
-	kde? ( kde-base/kdm
-		kde-base/kdialog )"
+	xfce? ( x11-misc/xdialog )
+	gnome? ( x11-misc/xdialog )
+	kde? ( kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
 
@@ -45,9 +34,11 @@ src_unpack() {
 
 pkg_postinst() {
 	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
-	if use kde || use xfce || use gnome;
+	einfo "For configure calculate-desktop perform:"
+	einfo "  cl-desktop --install"
+	if use kde || use xfce || use gnome
 	then
-		ewarn "Please restart xdm for refreshing configuration files."
+		einfo "  /etc/init.d/xdm restart"
 	fi
 }
 

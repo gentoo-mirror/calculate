@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-desktop-2.2.0.0_p20100816
-	~sys-apps/calculate-lib-2.2.0.0_p20100816
+DEPEND="~sys-apps/calculate-desktop-2.2.0.0_p20100819
+	~sys-apps/calculate-lib-2.2.0.0_p20100819
 	>=dev-python/python-ldap-2.0[ssl]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
@@ -25,12 +25,9 @@ DEPEND="~sys-apps/calculate-desktop-2.2.0.0_p20100816
 	>=sys-apps/hal-0.5.9
 	sys-apps/keyutils
 	sys-auth/pam_keystore
-	xfce? ( x11-misc/slim
-		x11-misc/xdialog )
-	gnome? ( gnome-base/gdm
-		x11-misc/xdialog )
-	kde? ( kde-base/kdm
-		kde-base/kdialog )"
+	xfce? ( x11-misc/xdialog )
+	gnome? ( x11-misc/xdialog )
+	kde? ( kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
 
@@ -56,6 +53,8 @@ pkg_postinst() {
 	# for fixing bug of ebuild calculate-client-2.0.17
 	rm -rf ${PORTAGE_TMPDIR}/portage/${CATEGORY}/${PN}-2.0.17
 	rmdir ${PORTAGE_TMPDIR}/portage/${CATEGORY} &>/dev/null
+	einfo "For configure calculate-client perform:"
+	einfo "  cl-client --install"
 }
 
 pkg_prerm() {
