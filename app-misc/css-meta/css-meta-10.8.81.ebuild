@@ -23,6 +23,11 @@ RDEPEND="${RDEPEND}
 	net-misc/dhcp
 "
 
+# Tools
+RDEPEND="${RDEPEND}
+	app-misc/screen
+"
+
 pkg_postinst() {
 	calculate_change_version
 

@@ -13,8 +13,19 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-# Developer
+# Base
 RDEPEND="
+	app-editors/vim
+"
+
+# Decoration
+RDEPEND="${RDEPEND}
+	app-vim/colorschemes
+	app-vim/vimcommander
+"
+
+# Developer
+RDEPEND="${RDEPEND}
 	dev-python/ipython
 	dev-tcltk/expect
 "
@@ -64,6 +75,10 @@ RDEPEND="${RDEPEND}
 	media-libs/win32codecs
 	media-sound/alsa-utils
 	media-sound/sox
+"
+# Network
+RDEPEND="${RDEPEND}
+	www-plugins/adobe-flash
 "
 
 # Office
