@@ -29,15 +29,12 @@ RDEPEND="
 RDEPEND="${RDEPEND}
 	app-admin/logrotate
 	app-admin/syslog-ng
-	app-editors/vim
 	sys-apps/hotplug
 	sys-process/vixie-cron
 "
 
 # Decoration
 RDEPEND="${RDEPEND}
-	app-vim/colorschemes
-	app-vim/vimcommander
 	media-gfx/splashutils
 "
 

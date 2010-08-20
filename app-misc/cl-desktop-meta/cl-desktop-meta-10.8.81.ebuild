@@ -13,8 +13,19 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-# Developer
+# Base
 RDEPEND="
+	app-editors/vim
+"
+
+# Decoration
+RDEPEND="${RDEPEND}
+	app-vim/colorschemes
+	app-vim/vimcommander
+"
+
+# Developer
+RDEPEND="${RDEPEND}
 	dev-python/ipython
 	dev-tcltk/expect
 "
