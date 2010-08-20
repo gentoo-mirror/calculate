@@ -76,6 +76,10 @@ RDEPEND="${RDEPEND}
 	media-sound/alsa-utils
 	media-sound/sox
 "
+# Network
+RDEPEND="${RDEPEND}
+	www-plugins/adobe-flash
+"
 
 # Office
 RDEPEND="${RDEPEND}

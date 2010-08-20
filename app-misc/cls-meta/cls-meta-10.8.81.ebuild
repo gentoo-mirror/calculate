@@ -30,7 +30,6 @@ RDEPEND="${RDEPEND}
 	media-gfx/cls-themes
 	net-misc/dhcpcd
 	www-client/chromium
-	www-plugins/adobe-flash
 	sys-apps/pcmciautils
 	sys-apps/usb_modeswitch
 	x11-base/xorg-x11
