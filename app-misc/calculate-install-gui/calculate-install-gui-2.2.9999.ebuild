@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="=sys-apps/calculate-install-2.2.9999
 	x11-libs/qtermwidget
-	sys-apps/parted"
+	sys-block/parted"
 
 RDEPEND="${DEPEND}"
 

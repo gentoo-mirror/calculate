@@ -123,7 +123,6 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	sys-apps/kexec-tools
 	sys-apps/memtest86+
 	sys-apps/openrc
-	sys-apps/parted
 	sys-apps/pciutils
 	sys-apps/pv
 	sys-apps/smartmontools
@@ -131,6 +130,7 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	sys-apps/v86d
 	sys-auth/nss_ldap
 	sys-auth/pam_ldap
+	sys-block/parted
 	sys-block/tw_cli
 	sys-boot/calcboot
 	sys-boot/grub

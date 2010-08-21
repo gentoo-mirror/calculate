@@ -19,7 +19,7 @@ DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100819
 	app-portage/layman
 	sys-boot/grub
 	sys-fs/dosfstools
-	sys-apps/parted"
+	sys-block/parted"
 
 RDEPEND="${DEPEND}"
 
