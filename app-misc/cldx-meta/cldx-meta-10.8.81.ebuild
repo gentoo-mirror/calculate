@@ -15,6 +15,10 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
+	!mail-client/claws-mail-gtkhtml
+"
+
+RDEPEND="${RDEPEND}
 	app-misc/cls-meta
 	app-misc/cl-desktop-meta
 	app-misc/cl-xfce-meta
@@ -44,7 +48,6 @@ RDEPEND="${RDEPEND}
 	net-ftp/filezilla
 	net-news/liferea
 	mail-client/claws-mail
-	mail-client/claws-mail-gtkhtml
 	mail-client/claws-mail-rssyl
 	net-dialup/gnome-ppp
 	net-fs/fusesmb
