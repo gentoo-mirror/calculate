@@ -25,7 +25,7 @@ RDEPEND="${RDEPEND}
 "
 # Base
 RDEPEND="${RDEPEND}
-	x11-misc/slim
+	gnome-base/gdm
 "
 # Decoration
 RDEPEND="${RDEPEND}
