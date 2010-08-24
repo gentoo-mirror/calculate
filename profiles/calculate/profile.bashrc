@@ -181,6 +181,7 @@ fi
 if [[ ${EBUILD_PHASE} == preinst ]]; then
 	CL_UPDATE_PROG=/usr/lib/calculate-2.2/calculate-lib/bin/cl-update-config
 	if [ -e ${CL_UPDATE_PROG} ];then
+		[[ -z ${CONFIG_PROTECT} && -e /etc/profile ]] && source /etc/profile
 		CONFIG_PROTECT=${CONFIG_PROTECT} ${CL_UPDATE_PROG} --desktop --system --pkg_version ${PV} --pkg_category ${CATEGORY} --path ${D} $PN
 	fi
 fi
