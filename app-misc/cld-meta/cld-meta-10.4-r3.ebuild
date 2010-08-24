@@ -47,7 +47,6 @@ RDEPEND="
 	app-dicts/myspell-ru
 	app-dicts/myspell-uk
 	~app-misc/cls-meta-${PV}
-	app-office/openoffice
 	app-text/fbreader
 	dev-python/ipython
 	dev-python/psycopg
@@ -101,6 +100,7 @@ RDEPEND="
     sys-power/cpufreqd
     sys-power/powernowd
     sys-process/htop
+	virtual/ooo
     www-plugins/adblock-mozilla-plugin
     www-plugins/adobe-flash
 	www-plugins/oxygen-mozilla-plugin
