@@ -16,7 +16,7 @@ SLOT="2.2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="~sys-apps/calculate-templates-2.2.0.0_p20100819
+DEPEND="~sys-apps/calculate-templates-2.2.0.0_p20100823
 	!<sys-apps/calculate-lib-2.1.8-r1
 	!=sys-apps/calculate-lib-2.1.9
 	!=sys-apps/calculate-lib-2.1.10
