@@ -29,7 +29,6 @@ RDEPEND="${RDEPEND}
 	media-fonts/dejavu
 	media-gfx/cls-themes
 	virtual/dhcpc
-	www-client/chromium
 	sys-apps/pcmciautils
 	sys-apps/usb_modeswitch
 	x11-base/xorg-x11
