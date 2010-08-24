@@ -14,6 +14,7 @@ KEYWORDS="amd64 x86"
 IUSE=""
 
 # Developer
+#net-wireless/madwimax
 RDEPEND="
 	net-wireless/b43-firmware
 	net-wireless/ipw2100-firmware
@@ -24,7 +25,6 @@ RDEPEND="
 	net-wireless/iwl5150-ucode
 	net-wireless/madwifi-ng
 	net-wireless/madwifi-ng-tools
-	net-wireless/madwimax
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
 "
