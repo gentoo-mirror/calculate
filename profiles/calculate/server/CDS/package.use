@@ -1,5 +1,6 @@
 dev-lang/php apache2 xml -fdftk session -berkdb dba mysql
 dev-util/subversion apache2
+dev-vcs/git cgi curl perl webdav
 net-dns/bind sdb-ldap
 net-im/calculate-ejabberd mod_muc
 net-mail/dovecot pop3d
@@ -7,4 +8,3 @@ net-proxy/squid icap-client
 net-ftp/proftpd -ipv6 -acl
 www-apps/redmine -mysql git mongrel openid postgres imagemagick
 app-misc/cds-meta kernel
-dev-vcs/git cgi curl perl webdav

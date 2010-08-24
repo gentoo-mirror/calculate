@@ -24,6 +24,7 @@ RDEPEND="
 	net-wireless/iwl5150-ucode
 	net-wireless/madwifi-ng
 	net-wireless/madwifi-ng-tools
+	net-wireless/madwimax
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
 "
