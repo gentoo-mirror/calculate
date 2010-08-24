@@ -78,6 +78,7 @@ RDEPEND="${RDEPEND}
 "
 # Network
 RDEPEND="${RDEPEND}
+	www-client/chromium
 	www-plugins/adobe-flash
 "
 
