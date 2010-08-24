@@ -15,6 +15,10 @@ KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="
+	!mail-client/claws-mail-gtkhtml
+"
+
+RDEPEND="${RDEPEND}
 	app-admin/sudo
 	app-arch/rar
 	app-cdr/xfburn
@@ -34,7 +38,6 @@ RDEPEND="
 	app-text/evince
 	app-text/fbreader
 	mail-client/claws-mail
-	mail-client/claws-mail-gtkhtml
 	mail-client/claws-mail-rssyl
 	~media-gfx/cldx-themes-10.4
 	media-gfx/gimp
