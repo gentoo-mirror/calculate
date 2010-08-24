@@ -26,6 +26,7 @@ RDEPEND="
 "
 
 RDEPEND="${RDEPEND}
+	app-misc/calculate-install-gui
 	media-fonts/dejavu
 	media-gfx/cls-themes
 	virtual/dhcpc
