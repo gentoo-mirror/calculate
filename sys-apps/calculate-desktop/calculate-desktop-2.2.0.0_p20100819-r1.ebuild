@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="9d44fa719df60d111a2024254c9eca99801b8795"
+EGIT_COMMIT="de4a0fa3794f0fe2a1d6be248e51c1f63ff39567"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-desktop.git"
 
 DESCRIPTION="The program of the desktop configuration Calculate Linux"
