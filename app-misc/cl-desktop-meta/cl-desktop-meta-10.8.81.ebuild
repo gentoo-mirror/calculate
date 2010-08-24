@@ -83,7 +83,7 @@ RDEPEND="${RDEPEND}
 
 # Office
 RDEPEND="${RDEPEND}
-	app-office/openoffice
+	virtual/ooo
 "
 
 # Tools
