@@ -28,7 +28,7 @@ RDEPEND="
 RDEPEND="${RDEPEND}
 	media-fonts/dejavu
 	media-gfx/cls-themes
-	net-misc/dhcpcd
+	virtual/dhcpc
 	www-client/chromium
 	sys-apps/pcmciautils
 	sys-apps/usb_modeswitch
