@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="76c1266e32cc8dcf203641e3a137b136bc6f95d7"
+EGIT_COMMIT="159dedb451acc4423a121fe2e41e933100be35a0"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-client.git"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
