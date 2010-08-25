@@ -53,6 +53,7 @@ RDEPEND="${RDEPEND}
 	net-fs/nfs-utils
 	sys-apps/acl
 	sys-apps/hdparm
+	sys-apps/lm_sensors
 	sys-apps/memtest86+
 	sys-apps/pciutils
 	sys-apps/pv
