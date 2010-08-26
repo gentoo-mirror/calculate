@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100823
+DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100826
 	!<sys-apps/calculate-client-2.2.0
 	xfce? ( x11-misc/xdialog )
 	gnome? ( x11-misc/xdialog )
