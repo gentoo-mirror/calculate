@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit git
 
-EGIT_COMMIT="8b4ea50a1ba2153240acf5c5ac108787852a476d"
+EGIT_COMMIT="fd7a06c55597938862e8bbc41d9086add396e26c"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-install-gui.git"
 
 DESCRIPTION="GUI frontend for the program of installation Calculate Linux"
