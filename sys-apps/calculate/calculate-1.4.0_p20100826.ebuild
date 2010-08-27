@@ -16,7 +16,6 @@ IUSE=""
 DEPEND="app-arch/p7zip
 	app-cdr/cdrkit
 	app-portage/layman
-	sys-apps/hal
 	sys-fs/dosfstools
 	sys-fs/squashfs-tools"
 RDEPEND="${DEPEND}"
