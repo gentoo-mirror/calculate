@@ -20,6 +20,7 @@ RDEPEND="
 	app-portage/layman
 	dev-vcs/git
 	media-fonts/terminus-font
+	sys-apps/calculate
 	sys-apps/calculate-install
 	sys-apps/ifplugd
 	sys-apps/openrc
