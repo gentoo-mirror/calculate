@@ -10,3 +10,8 @@ sys-fs/udev extras
 sys-auth/consolekit policykit
 sys-apps/hal policykit
 
+#disable Xorg dependence
+media-fonts/terminus-font -pcf -X
+
+#for accemble splashutils
+media-libs/jpeg static-libs
