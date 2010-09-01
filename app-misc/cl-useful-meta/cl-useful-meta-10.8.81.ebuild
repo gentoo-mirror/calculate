@@ -38,6 +38,11 @@ RDEPEND="${RDEPEND}
 	media-gfx/splashutils
 "
 
+# Network
+RDEPEND="${RDEPEND}
+	net-dialup/rp-pppoe
+"
+
 # Tools
 RDEPEND="${RDEPEND}
 	app-admin/testdisk
