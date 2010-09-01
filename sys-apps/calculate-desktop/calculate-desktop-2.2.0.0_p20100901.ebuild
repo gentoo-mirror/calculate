@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="ae532aa86b3375cec2e2a31c186b37a687f2eac1"
+EGIT_COMMIT="466471772b50b07366c5dfb97c0e5b3485839101"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-desktop.git"
 
 DESCRIPTION="The program of the desktop configuration Calculate Linux"
@@ -16,22 +16,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100813
+DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100901
 	!<sys-apps/calculate-client-2.2.0
-	>=dev-python/python-ldap-2.0[ssl]
-	>=sys-auth/pam_ldap-180[ssl]
-	>=sys-auth/nss_ldap-239
-	>=sys-apps/keyexec-0.1.2
-	>=sys-apps/hal-0.5.9
-	sys-apps/keyutils
-	sys-auth/pam_keystore
-	dev-python/py-smbpasswd
-	xfce? ( x11-misc/slim
-		x11-misc/xdialog )
-	gnome? ( gnome-base/gdm
-		x11-misc/xdialog )
-	kde? ( kde-base/kdm
-		kde-base/kdialog )"
+	xfce? ( x11-misc/xdialog )
+	gnome? ( x11-misc/xdialog )
+	kde? ( kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
 
@@ -45,9 +34,11 @@ src_unpack() {
 
 pkg_postinst() {
 	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
-	if use kde || use xfce || use gnome;
+	einfo "For configure calculate-desktop perform:"
+	einfo "  cl-desktop --install"
+	if use kde || use xfce || use gnome
 	then
-		ewarn "Please restart xdm for refreshing configuration files."
+		einfo "  /etc/init.d/xdm restart"
 	fi
 }
 

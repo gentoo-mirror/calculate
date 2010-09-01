@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="b9da3e553fcbfadce3a6e73caac3bce3fa0e7bb0"
+EGIT_COMMIT="373124b072c25c2901f475773c70c4f6af4191a0"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-client.git"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND=">=sys-apps/calculate-desktop-2.2.0.0_p20100813-r1
-	~sys-apps/calculate-lib-2.2.0.0_p20100813
+DEPEND="~sys-apps/calculate-desktop-2.2.0.0_p20100901
+	~sys-apps/calculate-lib-2.2.0.0_p20100901
 	>=dev-python/python-ldap-2.0[ssl]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
@@ -25,12 +25,9 @@ DEPEND=">=sys-apps/calculate-desktop-2.2.0.0_p20100813-r1
 	>=sys-apps/hal-0.5.9
 	sys-apps/keyutils
 	sys-auth/pam_keystore
-	xfce? ( x11-misc/slim
-		x11-misc/xdialog )
-	gnome? ( gnome-base/gdm
-		x11-misc/xdialog )
-	kde? ( kde-base/kdm
-		kde-base/kdialog )"
+	xfce? ( x11-misc/xdialog )
+	gnome? ( x11-misc/xdialog )
+	kde? ( kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
 
@@ -56,6 +53,8 @@ pkg_postinst() {
 	# for fixing bug of ebuild calculate-client-2.0.17
 	rm -rf ${PORTAGE_TMPDIR}/portage/${CATEGORY}/${PN}-2.0.17
 	rmdir ${PORTAGE_TMPDIR}/portage/${CATEGORY} &>/dev/null
+	einfo "For configure calculate-client perform:"
+	einfo "  cl-client --install"
 }
 
 pkg_prerm() {
