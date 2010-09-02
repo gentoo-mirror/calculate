@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git eutils
 
-EGIT_COMMIT="12741539eafc200dda6d152f2c9e47dab8e834de"
+EGIT_COMMIT="497eaa687d985263cc827ccdbfcfdcf63080d095"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-lib.git"
 
 DESCRIPTION="The library for Calculate 2"
@@ -22,9 +22,11 @@ DEPEND="~sys-apps/calculate-templates-2.2.0.0_p20100901
 	!=sys-apps/calculate-lib-2.1.10
 	>=dev-python/python-ldap-2.0[ssl]
 	dev-python/py-smbpasswd
-	>=dev-python/pyxml-0.8"
+	>=dev-python/pyxml-0.8
+	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {
-	sed -i '/^cl_pass_action/d' ${ROOT}/etc/calculate/calculate2.env
+	[[ -e ${ROOT}/etc/calculate/calculate2.env ]] && \
+		sed -i '/^cl_pass_action/d' ${ROOT}/etc/calculate/calculate2.env
 }
