@@ -61,6 +61,7 @@ RDEPEND="${RDEPEND}
 # Tools
 RDEPEND="${RDEPEND}
 	app-cdr/k3b
+	app-editors/qxmledit
 	sys-block/partitionmanager
 "
 
