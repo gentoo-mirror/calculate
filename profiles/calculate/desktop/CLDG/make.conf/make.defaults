@@ -5,3 +5,5 @@ USE="${USE} networkmanager"
 
 # Window manager and speciality
 USE="${USE} gnome -kde"
+
+VIDEO_CARDS="${VIDEO_CARDS} nvidia radeonhd"
