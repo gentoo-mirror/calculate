@@ -143,6 +143,28 @@ calculate-kernel_src_install() {
 	use vmlinuz && vmlinuz_src_install
 }
 
+# FUNCTION: change_kernel_in_grub
+# DESCRIPTION:
+# Change kernel version in grub
+change_kernel_in_grub() {
+	[[ -f /boot/vmlinuz-${NAMESUFFIX} ]] &&
+	[[ -f /boot/initramfs-${NAMESUFFIX} ]] &&
+	[[ -f /boot/initramfs-${NAMESUFFIX}-install ]] &&
+	sed -ri "/^title/{                           #find title in grub.conf
+	:readnextline;N;                             #read next line
+	s/\ninitrd/&/;                               #if pattern not contents initrd
+	Treadnextline;                               #goto read next line
+	:changemenuitem;                             #else try change menuitem
+	s|root=${ROOTDEV}|&|;                        #if menuitem not for the system
+	Tskipmenuitem;                               #then skip menuitem
+	s|(/boot/vmlinuz)[^ ]+|\1-${NAMESUFFIX}|;    #else change vmlinuz
+	s|initrd (.*)-install$|initrd \1/install|;        #hide '-install'
+	s|(/boot/initramfs)[^ /]+|\1-${NAMESUFFIX}|; #change initramfs
+	s|/install$|-install|;                            #show '-install'
+	:skipmenuitem;
+	}" /boot/grub/grub.conf
+}
+
 vmlinuz_pkg_postinst() {
 	calculate_update_splash ${ROOT}/boot/initramfs-${NAMESUFFIX}-installed
 	cp ${ROOT}/boot/initramfs-${NAMESUFFIX}-installed \
@@ -156,6 +178,8 @@ vmlinuz_pkg_postinst() {
 
 	[[ -f $MODULESDBFILE ]] &&
 		sed -ri 's/a:1:sys-fs\/aufs2/a:0:sys-fs\/aufs2/' $MODULESDBFILE
+	calculate_initvars
+	change_kernel_in_grub
 }
 
 calculate-kernel_pkg_postinst() {
