@@ -44,8 +44,10 @@ src_install() {
 }
 
 pkg_postinst() {
-	[[ -f ${ROOT}/boot/initrd ]] &&
-		calculate_update_splash ${ROOT}/boot/initrd
-	[[ -f ${ROOT}/boot/initrd-install ]] &&
-		calculate_update_splash ${ROOT}/boot/initrd-install
+	local initrdfile=$(calculate_get_current_initrd)
+	local initrdinstallfile=$(calculate_get_current_initrd -install)
+	[[ -f ${ROOT}${initrdfile} ]] &&
+		calculate_update_splash ${ROOT}${initrdfile}
+	[[ -f ${ROOT}${initrdinstallfile} ]] &&
+		calculate_update_splash ${ROOT}${initrdinstallfile}
 }
