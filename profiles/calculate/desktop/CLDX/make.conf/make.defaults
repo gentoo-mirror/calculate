@@ -3,6 +3,9 @@ USE=""
 # Network protocols
 USE="${USE} ldap rdesktop"
 
+# System
+USE="${USE} gnome-keyring"
+
 # Window manager and specialities
 USE="${USE} -eds -gnome -kde"
 

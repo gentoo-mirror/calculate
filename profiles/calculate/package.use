@@ -7,8 +7,6 @@ sys-kernel/calculate-sources symlink vmlinuz
 
 #fix update xorg
 sys-fs/udev extras
-sys-auth/consolekit policykit
-sys-apps/hal policykit
 
 #disable Xorg dependence
 media-fonts/terminus-font -pcf -X

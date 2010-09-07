@@ -39,11 +39,6 @@ x11-misc/xscreensaver -opengl -jpeg
 #added support flash in amd64
 www-plugins/adobe-flash nspluginwrapper
 
-#for compile with sys-auth/pambase
-net-wireless/bluez -consolekit
-
-#for compile with gnome-base/gdm
-sys-auth/pambase consolekit
 app-misc/cls-meta kernel
 
 #for media-video/openshot-1.0.0
@@ -52,5 +47,3 @@ media-libs/mlt frei0r
 #for www-client/firefox-3.6
 dev-db/sqlite fts3
 
-#support mount flash
-sys-apps/hal -policykit

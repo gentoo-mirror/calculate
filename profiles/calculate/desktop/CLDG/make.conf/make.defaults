@@ -1,7 +1,7 @@
 USE=""
 
 # System
-USE="${USE} networkmanager"
+USE="${USE} gnome-keyring networkmanager"
 
 # Window manager and speciality
 USE="${USE} gnome -kde"
