@@ -150,6 +150,7 @@ change_kernel_in_grub() {
 	[[ -f /boot/vmlinuz-${NAMESUFFIX} ]] &&
 	[[ -f /boot/initramfs-${NAMESUFFIX} ]] &&
 	[[ -f /boot/initramfs-${NAMESUFFIX}-install ]] &&
+	[[ -f /boot/grub/grub.conf ]] &&
 	sed -ri "/^title/{                           #find title in grub.conf
 	:readnextline;N;                             #read next line
 	s/\ninitrd/&/;                               #if pattern not contents initrd

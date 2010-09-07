@@ -392,15 +392,26 @@ calculate_change_version() {
 calculate_get_current_initrd() {
 	calculate_initvars
 	local suffix=$1
-	sed -nr "/^title/{                                #find title in grub.conf
-	:readnextline;N;                                 #read next line
-	s/\ninitrd/&/;                                   #if pattern not contents initrd 
-	Treadnextline;                                   #goto read next line
-	s|root=${ROOTDEV}.*initrd.*${suffix}|&|;         #if menuitem not for this system
-	Tskipmenuitem;                                   #then skip menuitem
-	s|^.*initrd (.*)$|\1|p;                          #display initramfs
-	q;
-	:skipmenuitem;
-	d;
-	}" /boot/grub/grub.conf
+	if [[ -f /boot/grub/grub.conf ]]
+	then
+		filename=$(sed -nr "/^title/{            #find title in grub.conf
+		:readnextline;N;                         #read next line
+		s/\ninitrd/&/;                           #if pattern not contents initrd 
+		Treadnextline;                           #goto read next line
+		s|root=${ROOTDEV}.*initrd.*${suffix}|&|; #if menuitem not for this system
+		Tskipmenuitem;                           #then skip menuitem
+		s|^.*initrd (.*)$|\1|p;                  #display initramfs
+		q;
+		:skipmenuitem;
+		d;
+		}" /boot/grub/grub.conf)
+		if [[ -z $filename ]]
+		then
+			echo "/boot/initrd${suffix}"
+		else
+			echo $filename
+		fi
+	else
+		echo "/boot/initrd${suffix}"
+	fi
 }
