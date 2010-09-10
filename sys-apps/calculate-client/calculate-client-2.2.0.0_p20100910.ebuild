@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-desktop-2.2.0.0_p20100907
-	~sys-apps/calculate-lib-2.2.0.0_p20100907
+DEPEND="~sys-apps/calculate-desktop-2.2.0.0_p20100910
+	~sys-apps/calculate-lib-2.2.0.0_p20100910
 	>=dev-python/python-ldap-2.0[ssl]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
