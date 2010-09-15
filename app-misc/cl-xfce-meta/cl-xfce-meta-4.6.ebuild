@@ -24,6 +24,7 @@ RDEPEND="
 	xfce-extra/xfce4-datetime-plugin
 	xfce-extra/xfce4-mailwatch-plugin
 	xfce-extra/xfce4-mixer
+	xfce-extra/xfce4-netload-plugin
 	xfce-extra/xfce4-notes-plugin
 	xfce-extra/xfce4-notifyd
 	xfce-extra/xfce4-power-manager
