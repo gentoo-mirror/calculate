@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="bb8deeb756959b9338c818fa8f279df1b77b874f"
+EGIT_COMMIT="072279e7d8b5bd15f9b6480f47b506744b551138"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-install.git"
 
 DESCRIPTION="The program of installation Calculate Linux"
@@ -15,7 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100910
+DEPEND="~sys-apps/calculate-lib-2.2.0.0_p20100915
 	app-portage/layman
 	sys-boot/grub
 	sys-fs/dosfstools
