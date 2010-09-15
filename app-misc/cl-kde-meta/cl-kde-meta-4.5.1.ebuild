@@ -171,7 +171,6 @@ RDEPEND="${RDEPEND}
 
 # kdemisc
 #- kde-misc/konq-plugins
-#+ bluedevil
 RDEPEND="${RDEPEND}
 	kde-base/kate
 	kde-base/kdeplasma-addons
@@ -179,5 +178,6 @@ RDEPEND="${RDEPEND}
 	kde-misc/kgtk
 	kde-misc/knetworkmanager
 	kde-misc/openofficeorg-thumbnail
+	net-wireless/bluedevil
 "
 
