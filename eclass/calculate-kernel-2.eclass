@@ -1,0 +1,129 @@
+# Copyright 1999-2010 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+#
+# Original Author: © 2007-2009 Mir Calculate, Ltd. 
+# Purpose: Installing linux-desktop, linux-server. 
+# Build the kernel from source.
+
+inherit calculate eutils kernel-2
+EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst
+
+IUSE="vmlinuz"
+
+detect_version
+detect_arch
+
+CKV=$(get_version_component_range 1-3)
+SLOT=$(get_version_component_range 1-4)
+KV_FULL="${PV}-calculate"
+S="${WORKDIR}/linux-${KV_FULL}"
+
+CALC_K_SUBV=.$(get_version_component_range 4)
+[[ ${CALC_K_SUBV} == "." ]] && CALC_K_SUBV=
+
+EXTRAVERSION="${CALC_K_SUBV}-calculate"
+
+UNIPATCH_STRICTORDER=1
+
+CALC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-${CKV}.tar.bz2
+        ftp://mirror.yandex.ru/calculate/${PN}/${PN}-${CKV}.tar.bz2
+		http://mirror.yandex.ru/calculate/${PN}/${PN}-${CKV}.tar.bz2
+		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${PN}-${CKV}.tar.bz2"
+
+calculate-kernel-2_pkg_setup() {
+	kernel-2_pkg_setup
+	ewarn "Perform command for update modules after kernel building:"
+	ewarn "  module-rebuild -X rebuild"
+	ebeep 5
+}
+
+calculate-kernel-2_src_unpack() {
+	kernel-2_src_unpack
+}
+
+vmlinuz_src_compile() {
+	# disable sandbox
+	export SANDBOX_ON=0
+	export LDFLAGS=""
+	local GENTOOARCH="${ARCH}"
+	unset ARCH
+
+	cd ${S}
+	DEFAULT_KERNEL_SOURCE="${S}" CMD_KERNEL_DIR="${S}" cl-kernel \
+		--ebuild \
+		--kerneldir=${S} \
+		--set cl_kernel_cache_path=${WORKDIR}/cache \
+		--set cl_kernel_temp_path=${S}/temp \
+		--set cl_kernel_install_path=${WORKDIR} \
+		--mrproper || die "kernel build failed"
+	
+	make distclean &>/dev/null || die "cannot perform distclean"
+	ARCH="${GENTOOARCH}"
+
+	rm ${WORKDIR}/lib/modules/${KV_FULL}/build
+	rm ${WORKDIR}/lib/modules/${KV_FULL}/source
+}
+
+calculate-kernel-2_src_compile() {
+	use vmlinuz && vmlinuz_src_compile
+}
+
+vmlinuz_src_install() {
+	cd ${WORKDIR}/lib
+	insinto /lib
+	doins -r modules
+	dodir /usr/share/${PN}/${PV}
+	insinto /usr/share/${PN}/${PV}
+	doins -r firmware
+	cd ${WORKDIR}
+	doins -r boot
+	
+	dosym /usr/src/linux-${KV_FULL} \
+		"/lib/modules/${KV_FULL}/source" ||
+		die "cannot install source symlink"
+	dosym /usr/src/linux-${KV_FULL} \
+		"/lib/modules/${KV_FULL}/build" || 
+		die "cannot install build symlink"
+	insinto /etc/modprobe.d
+
+	newins "${FILESDIR}"/modprobe_i915.conf i915.conf || die
+}
+
+calculate-kernel-2_src_install() {
+	kernel-2_src_install
+	use vmlinuz && vmlinuz_src_install
+}
+
+vmlinuz_pkg_postinst() {
+	cp -p /usr/share/${PN}/${PV}/boot/* ${ROOT}/boot/
+	cl-kernel --ebuild \
+		--set cl_kernel_src_path=/usr/src/linux-${KV_FULL} \
+		--set cl_kernel_install_path=${ROOT}/
+
+	mkdir -p ${ROOT}/lib/firmware
+	cp -a ${ROOT}/usr/share/${PN}/${PV}/firmware/* ${ROOT}/lib/firmware/
+	calculate_update_depmod
+	calculate_update_modules
+
+	[[ -f $MODULESDBFILE ]] &&
+		sed -ri 's/a:1:sys-fs\/aufs2/a:0:sys-fs\/aufs2/' $MODULESDBFILE
+}
+
+calculate-kernel-2_pkg_postinst() {
+	kernel-2_pkg_postinst
+
+	KV_OUT_DIR=${ROOT}/usr/src/linux-${KV_FULL}
+	cp -p /usr/share/${PN}/${PV}/boot/System.map* ${KV_OUT_DIR}/System.map
+	cp -p /usr/share/${PN}/${PV}/boot/config* ${KV_OUT_DIR}/.config
+	cd ${KV_OUT_DIR}
+	local GENTOOARCH="${ARCH}"
+	unset ARCH
+	ebegin "kernel: >> Running modules_prepare..."
+	make modules_prepare &>/dev/null
+	eend $? "Failed modules prepare"
+	ARCH="${GENTOOARCH}"
+
+	use vmlinuz && vmlinuz_pkg_postinst
+}
