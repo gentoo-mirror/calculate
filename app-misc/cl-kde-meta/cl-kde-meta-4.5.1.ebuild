@@ -35,13 +35,9 @@ RDEPEND="${RDEPEND}
 # kdebase-meta
 #- kde-base/konqueror
 #- kde-base/nsplugins
-
-#+freespacenotifier
-#+kstyles
-#+liboxygenstyle
-
 RDEPEND="${RDEPEND}
 	kde-base/dolphin
+	kde-base/freespacenotifier
 	kde-base/kcheckpass
 	kde-base/kcminit
 	kde-base/kdebase-cursors
@@ -63,6 +59,7 @@ RDEPEND="${RDEPEND}
 	kde-base/ksmserver
 	kde-base/ksplash
 	kde-base/kstartupconfig
+	kde-base/kstyles
 	kde-base/ksysguard
 	kde-base/ksystraycmd
 	kde-base/kwin
@@ -70,6 +67,7 @@ RDEPEND="${RDEPEND}
 	kde-base/kwrited
 	kde-base/libkonq
 	kde-base/libkworkspace
+	kde-base/liboxygenstyle
 	kde-base/libplasmaclock
 	kde-base/libplasmagenericshell
 	kde-base/libtaskmanager
@@ -105,9 +103,6 @@ RDEPEND="${RDEPEND}
 "
 
 # kdemultimedia-meta
-
-# +ffmpegthumbs
-
 RDEPEND="${RDEPEND}
 	kde-base/kdemultimedia-kioslaves
 	kde-base/kmix
@@ -115,6 +110,7 @@ RDEPEND="${RDEPEND}
 	kde-base/libkcddb
 	kde-base/libkcompactdisc
 	kde-base/mplayerthumbs
+	kde-base/ffmpegthumbs
 "
 
 # kdenetwork-meta
@@ -130,20 +126,16 @@ RDEPEND="${RDEPEND}
 # kdeutils-meta
 #- kde-base/ktimer
 #- kde-base/okteta
-
-# + kremotecontrol
-# - kdelirc
-
 RDEPEND="${RDEPEND}
     kde-base/ark
 	kde-base/kcalc
 	kde-base/kcharselect
 	kde-base/kdf
 	kde-base/kgpg
+	kde-base/kremotecontrol
 	kde-base/kwallet
 	kde-base/sweeper
 	kde-base/printer-applet
-	kde-base/kdelirc
 "
 
 # kdepim-meta
@@ -179,12 +171,13 @@ RDEPEND="${RDEPEND}
 
 # kdemisc
 #- kde-misc/konq-plugins
+#+ bluedevil
 RDEPEND="${RDEPEND}
 	kde-base/kate
 	kde-base/kdeplasma-addons
 	kde-base/kget
 	kde-misc/kgtk
+	kde-misc/knetworkmanager
 	kde-misc/openofficeorg-thumbnail
-	net-wireless/kbluetooth
 "
 
