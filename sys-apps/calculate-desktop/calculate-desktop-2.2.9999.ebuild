@@ -24,12 +24,9 @@ DEPEND="=sys-apps/calculate-lib-2.2.9999
 	sys-apps/keyutils
 	sys-auth/pam_keystore
 	dev-python/py-smbpasswd
-	xfce? ( x11-misc/slim
-		x11-misc/xdialog )
-	gnome? ( gnome-base/gdm
-		x11-misc/xdialog )
-	kde? ( kde-base/kdm
-		kde-base/kdialog )"
+	xfce? ( x11-misc/xdialog )
+	gnome? ( x11-misc/xdialog )
+	kde? ( kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
 
