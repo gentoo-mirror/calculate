@@ -171,11 +171,11 @@ RDEPEND="${RDEPEND}
 
 # kdemisc
 #- kde-misc/konq-plugins
+#- kde-misc/kgtk
 RDEPEND="${RDEPEND}
 	kde-base/kate
 	kde-base/kdeplasma-addons
 	kde-base/kget
-	kde-misc/kgtk
 	kde-misc/knetworkmanager
 	kde-misc/openofficeorg-thumbnail
 	net-wireless/bluedevil
