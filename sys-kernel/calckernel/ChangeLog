@@ -2,6 +2,12 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calckernel-3.4.10.903-r23 (16 Sep 2010)
+
+  16 Sep 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calckernel-3.4.10.903-r23.ebuild, +files/calckernel-3.4.10.903-r23.patch:
+  Added hide busybox compilation.
+
   01 Jun 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
   calckernel-3.4.10.903-r22.ebuild:
   Changed home page.
