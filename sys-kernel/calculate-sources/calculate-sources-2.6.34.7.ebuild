@@ -14,7 +14,7 @@ SRC_URI="${KERNEL_URI} ${ARCH_URI} ${CALC_URI}"
 
 UNIPATCH_LIST="${DISTDIR}/${PN}-${CKV}.tar.bz2"
 
-DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.10.903-r22
+DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.10.903-r23
 	sys-apps/calculate-builder
 	|| ( app-arch/xz-utils app-arch/lzma-utils )
 	sys-apps/v86d )"

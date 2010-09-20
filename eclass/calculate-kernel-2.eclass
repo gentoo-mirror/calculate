@@ -99,7 +99,7 @@ calculate-kernel-2_src_install() {
 vmlinuz_pkg_postinst() {
 	cp -p /usr/share/${PN}/${PV}/boot/* ${ROOT}/boot/
 	cl-kernel --ebuild \
-		--set cl_kernel_src_path=/usr/src/linux-${KV_FULL} \
+		-k /usr/src/linux-${KV_FULL} \
 		--set cl_kernel_install_path=${ROOT}/
 
 	mkdir -p ${ROOT}/lib/firmware
