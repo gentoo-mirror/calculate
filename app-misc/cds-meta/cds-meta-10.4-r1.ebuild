@@ -147,7 +147,6 @@ RDEPEND="kernel? ( sys-kernel/calculate-sources )
 	sys-fs/xfsprogs
 	sys-kernel/calckernel
 	sys-kernel/module-rebuild
-	sys-power/nut
 	sys-process/htop
 	sys-process/lsof
 	sys-process/vixie-cron
