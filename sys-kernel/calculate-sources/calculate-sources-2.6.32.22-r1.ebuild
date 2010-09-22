@@ -4,7 +4,7 @@
 
 ETYPE="sources"
 
-inherit calculate-kernel
+inherit calculate-kernel-old
 
 DESCRIPTION="Full sources including the Calculate patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
 KEYWORDS="amd64 x86"
@@ -20,7 +20,7 @@ DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.10.903-r22
 					sys-apps/v86d )"
 
 pkg_postinst() {
-	calculate-kernel_pkg_postinst
+	calculate-kernel-old_pkg_postinst
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
 }
