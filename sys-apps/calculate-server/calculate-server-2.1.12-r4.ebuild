@@ -26,8 +26,8 @@ DEPEND="=sys-apps/calculate-lib-2.1.8-r1
 		>=net-mail/dovecot-1.2.0[ldap,pam,ssl]
 	)
 	>=mail-mta/postfix-2.2[ldap,pam,ssl]
-	|| ( <net-ftp/proftpd-1.3.2[-acl,ldap,ncurses,nls,pam,radius,ssl,tcpd]
-		>=net-ftp/proftpd-1.3.2[-acl,ident,ldap,ncurses,nls,pam,radius,ssl,tcpd]
+	|| ( <net-ftp/proftpd-1.3.3[-acl,ldap,ncurses,nls,pam,radius,ssl,tcpd]
+		>=net-ftp/proftpd-1.3.3[-acl,ident,ldap,ncurses,nls,pam,radius,ssl,tcpd]
 	)
 	>=mail-filter/procmail-3.22
 	>=net-dns/bind-9.6.1_p1[sdb-ldap]
