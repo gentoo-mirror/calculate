@@ -64,6 +64,10 @@ media-video/nvidia-settings amd64 x86
 ~x11-drivers/xf86-input-virtualbox-3.2.8 amd64 x86
 ~x11-drivers/xf86-video-virtualbox-3.2.8 amd64 x86
 
+#for support kernel 2.6.35
+~net-wireless/madwifi-ng-0.9.4.4133.20100621 amd64 x86
+~net-wireless/madwifi-ng-tools-0.9.4.4133.20100621 amd64 x86
+
 ~sys-apps/calculate-1.4.0_p20100921 amd64 x86
 ~sys-apps/calculate-builder-2.2.0.0_p20100921 amd64 x86
 ~sys-apps/calculate-install-2.2.0.0_p20100921 amd64 x86
