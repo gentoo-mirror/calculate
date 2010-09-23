@@ -74,7 +74,6 @@ vmlinuz_src_install() {
 	cd ${WORKDIR}/lib
 	insinto /lib
 	doins -r modules
-	dodir /usr/share/${PN}/${PV}
 	insinto /usr/share/${PN}/${PV}
 	doins -r firmware
 	cd ${WORKDIR}
@@ -93,7 +92,15 @@ vmlinuz_src_install() {
 
 calculate-kernel-2_src_install() {
 	kernel-2_src_install
+	dodir /usr/share/${PN}/${PV}/boot
 	use vmlinuz && vmlinuz_src_install
+	if ! use vmlinuz
+	then
+		local configname=$(cl-kernel -v --filter cl_kernel_config | \
+		sed -nr 's/.*\[.\]\s//p')
+		[[ -n $configname ]] &&
+			cp $configname ${D}/usr/share/${PN}/${PV}/boot/config-${KV_FULL}
+	fi
 }
 
 vmlinuz_pkg_postinst() {
@@ -115,11 +122,17 @@ calculate-kernel-2_pkg_postinst() {
 	kernel-2_pkg_postinst
 
 	KV_OUT_DIR=${ROOT}/usr/src/linux-${KV_FULL}
-	cp -p /usr/share/${PN}/${PV}/boot/System.map* ${KV_OUT_DIR}/System.map
+	if ls /usr/share/${PN}/${PV}/boot/ | grep -q System.map
+	then
+		cp -p /usr/share/${PN}/${PV}/boot/System.map* ${KV_OUT_DIR}/System.map
+	fi
 	cp -p /usr/share/${PN}/${PV}/boot/config* ${KV_OUT_DIR}/.config
 	cd ${KV_OUT_DIR}
 	local GENTOOARCH="${ARCH}"
 	unset ARCH
+	ebegin "kernel: >> Running oldconfig..."
+	make oldconfig </dev/null &>/dev/null
+	eend $? "Failed oldconfig"
 	ebegin "kernel: >> Running modules_prepare..."
 	make modules_prepare &>/dev/null
 	eend $? "Failed modules prepare"
