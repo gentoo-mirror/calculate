@@ -17,7 +17,6 @@ IUSE=""
 RDEPEND="
 	net-print/cnijfilter
 	net-print/cups
-	net-print/foo2zjs
 	net-print/gutenprint
 	net-print/hplip
 "
