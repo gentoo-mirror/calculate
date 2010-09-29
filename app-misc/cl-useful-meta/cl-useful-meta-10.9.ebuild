@@ -45,6 +45,7 @@ RDEPEND="${RDEPEND}
 
 # Tools
 RDEPEND="${RDEPEND}
+	app-admin/hddtemp
 	app-admin/testdisk
 	app-cdr/cdrkit
 	app-cdr/dvd+rw-tools
