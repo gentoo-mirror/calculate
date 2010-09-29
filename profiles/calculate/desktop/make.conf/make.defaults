@@ -49,7 +49,7 @@ USE="${USE} libwww vhosts"
 USE="${USE} bluetooth"
 
 # Window manager and speciality
-USE="${USE} gtk"
+USE="${USE} gtk libnotify"
 
 VIDEO_CARDS="${VIDEO_CARDS} nouveau"
 
