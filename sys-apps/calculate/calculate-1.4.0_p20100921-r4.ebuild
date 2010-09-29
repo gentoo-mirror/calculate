@@ -4,7 +4,7 @@
 
 inherit git
 
-EGIT_COMMIT="d6bb93cc253be2a91ea29f67dd090ed40607d806"
+EGIT_COMMIT="e489e6e975d11d3d4b0d01120eee52973e765e0c"
 EGIT_REPO_URI="git://git.calculate.ru/calculate.git"
 DESCRIPTION="Program for installation, building and upgrading system"
 HOMEPAGE="http://www.calculate-linux.org/main/ru/calculate"
