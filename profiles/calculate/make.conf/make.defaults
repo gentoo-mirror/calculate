@@ -15,7 +15,7 @@ USE="${USE} bash-completion logrotate"
 
 AUTOCLEAN="yes"
 CAMERAS="*"
-DISTDIR="/usr/calculate/share/distfiles"
+DISTDIR="/var/calculate/remote/distfiles"
 FEATURES="parallel-fetch"
 FOO2ZJS_DEVICES="*"
 INPUT_DEVICES="${INPUT_DEVICES} mutouch synaptics virtualbox vmmouse"
