@@ -386,6 +386,23 @@ calculate_change_version() {
 	fi
 }
 
+# FUNCTION: get_last_filename
+# DESCRIPTION:
+# Get latest regular file by name
+get_last_filename() {
+	findfiles=$(ls $1/$2*$3 2>/dev/null)
+	if [[ -n $findfiles ]]
+	then
+		for line in $findfiles
+		do
+			if [[ $(LANG=C stat -c %F $line) == "regular file" ]]
+			then
+				echo $(stat -c %Y $line) $line
+			fi
+		done | sort | tail -1 | awk '{print $2}'
+	fi
+}
+
 # FUNCTION: calculate_get_current_initrd
 # DESCRIPTION:
 # Get current initrd or initrd with suffix
@@ -407,11 +424,11 @@ calculate_get_current_initrd() {
 		}" /boot/grub/grub.conf)
 		if [[ -z $filename ]]
 		then
-			echo "/boot/initrd${suffix}"
+			get_last_filename /boot initr ${suffix}
 		else
 			echo $filename
 		fi
 	else
-		echo "/boot/initrd${suffix}"
+		get_last_filename /boot initr ${suffix}
 	fi
 }
