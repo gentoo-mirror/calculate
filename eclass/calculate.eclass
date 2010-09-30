@@ -428,11 +428,11 @@ calculate_get_current_initrd() {
 		}" /boot/grub/grub.conf)
 		if [[ -z $filename ]]
 		then
-			get_last_filename /boot initr "${suffix}"
+			get_last_filename /boot initr ${suffix}
 		else
 			echo $filename
 		fi
 	else
-		get_last_filename /boot initr "${suffix}"
+		get_last_filename /boot initr ${suffix}
 	fi
 }
