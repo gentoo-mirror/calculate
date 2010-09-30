@@ -26,6 +26,14 @@ DEPEND="~sys-apps/calculate-templates-2.2.0.0_p20100921
 	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	git_src_unpack
+	cd "${S}"
+
+	# change palce of i18n files to /usr/share/calculate-2.0
+	epatch "${FILESDIR}/writelog-fix.patch"
+}
+
 pkg_postinst() {
 	[[ -e ${ROOT}/etc/calculate/calculate2.env ]] && \
 		sed -i '/^cl_pass_action/d' ${ROOT}/etc/calculate/calculate2.env
