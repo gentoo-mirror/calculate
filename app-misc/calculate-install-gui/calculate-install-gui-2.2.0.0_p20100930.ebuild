@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="|| ( ~sys-apps/calculate-install-2.2.0.0_p20100921
-	~sys-apps/calculate-install-2.2.0.0_p20100929 )
+	~sys-apps/calculate-install-2.2.0.0_p20100930 )
 	x11-libs/qtermwidget"
 
 RDEPEND="${DEPEND}"
