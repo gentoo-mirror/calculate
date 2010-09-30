@@ -390,7 +390,7 @@ calculate_change_version() {
 # DESCRIPTION:
 # Get latest regular file by name
 get_last_filename() {
-	findfiles=$(ls $1/$2* 2>/dev/null)
+	findfiles=$(ls $1/$2*$3 2>/dev/null)
 	if [[ -n $findfiles ]]
 	then
 		for line in $findfiles
@@ -399,7 +399,7 @@ get_last_filename() {
 			then
 				echo $(stat -c %Y $line) $line
 			fi
-		done | sort | grep $3 | tail -1 | awk '{print $2}'
+		done | sort | tail -1 | awk '{print $2}'
 	fi
 }
 
@@ -409,10 +409,6 @@ get_last_filename() {
 calculate_get_current_initrd() {
 	calculate_initvars
 	local suffix=$1
-	if [[ -z $suffix ]]
-	then
-		suffix="-v install"
-	fi
 	if [[ -f /boot/grub/grub.conf ]]
 	then
 		filename=$(sed -nr "/^title/{            #find title in grub.conf
