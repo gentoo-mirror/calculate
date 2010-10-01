@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="29ce02910a910cbde8ffdd618afb242aff0c96ba"
+EGIT_COMMIT="da0cfe5f11adff5fc33a9bec6c94f7b0da2e6ede"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-client.git"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
@@ -17,7 +17,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
 DEPEND="~sys-apps/calculate-desktop-${PV}
-	~sys-apps/calculate-lib-${PV}
+	>=sys-apps/calculate-lib-2.2.0.0_p20100930-r1
+	<sys-apps/calculate-lib-2.2.0.0_p20101001
 	>=dev-python/python-ldap-2.0[ssl]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
