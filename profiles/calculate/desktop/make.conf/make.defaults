@@ -7,6 +7,9 @@ USE="${USE} alsa -arts audiofile id3tag flac mad mp3 mpeg nas ogg oggvorbis open
 # CD and DVD
 USE="${USE} cdparanoia cdr css dvd dvdr dvdread vcd"
 
+# Devices
+USE="${USE} ipod"
+
 # Documentation format
 USE="${USE} chm djvu ebook"
 
