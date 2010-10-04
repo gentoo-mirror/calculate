@@ -49,6 +49,7 @@ RDEPEND="${RDEPEND}
 # Nettools
 RDEPEND="${RDEPEND}
 	gnome-extra/nm-applet
+	net-misc/cnetworkmanager
 	net-misc/networkmanager
 	net-misc/networkmanager-openvpn
 	net-misc/networkmanager-pptp
