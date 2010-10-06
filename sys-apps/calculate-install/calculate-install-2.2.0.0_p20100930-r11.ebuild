@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="e2b4438ccb39e2de4a4272422c3a487afc55246c"
+EGIT_COMMIT="d7bb967b167a68ca73c0a1c8b88c8e5b74fc7d8a"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-install.git"
 
 DESCRIPTION="The program of installation Calculate Linux"
