@@ -3,7 +3,8 @@
 # $Header: $
 
 inherit git
-EGIT_COMMIT="70c7ec0b0ea8201af3db4ba4faaacb26eb95c780"
+
+EGIT_COMMIT="c0bcf1b7ed94a937ce79f840014439458bb2031f"
 EGIT_REPO_URI="git://git.calculate.ru/calculate.git"
 DESCRIPTION="Program for installation, building and upgrading system"
 HOMEPAGE="http://www.calculate-linux.org/main/ru/calculate"
