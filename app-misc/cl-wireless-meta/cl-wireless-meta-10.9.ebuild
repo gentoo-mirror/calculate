@@ -23,6 +23,8 @@ RDEPEND="
 	net-wireless/iwl4965-ucode
 	net-wireless/iwl5000-ucode
 	net-wireless/iwl5150-ucode
+	net-wireless/iwl6000-ucode
+	net-wireless/iwl6050-ucode
 	net-wireless/madwifi-ng
 	net-wireless/madwifi-ng-tools
 	net-wireless/madwimax
