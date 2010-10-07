@@ -4,16 +4,15 @@
 
 EAPI="2"
 
-inherit distutils git
+inherit distutils eutils
 
-EGIT_COMMIT="4afda95766aca5b5d8c5b03b14941fee8d2f7b5c"
-EGIT_REPO_URI="git://git.calculate.ru/calculate-templates.git"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="Templates for calculate utilities 2.2"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 DEPEND="!=sys-apps/calculate-lib-2.2.0.0_rc1"
 

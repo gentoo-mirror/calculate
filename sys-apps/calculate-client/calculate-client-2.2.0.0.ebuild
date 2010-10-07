@@ -4,21 +4,19 @@
 
 EAPI="2"
 
-inherit distutils git
+inherit distutils eutils
 
-EGIT_COMMIT="584e601d24715b595dbd97097086f36730a85653"
-EGIT_REPO_URI="git://git.calculate.ru/calculate-client.git"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-desktop-${PV}
-	>=sys-apps/calculate-lib-2.2.0.0_p20100930-r1
-	<sys-apps/calculate-lib-2.2.0.0_p20101001
+DEPEND="~sys-apps/calculate-desktop-2.2.0.0
+	~sys-apps/calculate-lib-2.2.0.0
 	>=dev-python/python-ldap-2.0[ssl]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239

@@ -4,19 +4,17 @@
 
 EAPI="2"
 
-inherit git
+inherit distutils eutils
 
-EGIT_COMMIT="04a997aa75a5c46b03d5132232b084ead6bb224b"
-EGIT_REPO_URI="git://git.calculate.ru/calculate-install-gui.git"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="GUI frontend for the program of installation Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-DEPEND="|| ( ~sys-apps/calculate-install-2.2.0.0_p20100921
-	~sys-apps/calculate-install-2.2.0.0_p20100930 )
+DEPEND="~sys-apps/calculate-install-2.2.0.0
 	x11-libs/qtermwidget"
 
 RDEPEND="${DEPEND}"
