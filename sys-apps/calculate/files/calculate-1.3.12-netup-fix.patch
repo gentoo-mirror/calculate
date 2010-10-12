@@ -1,0 +1,10 @@
+diff --git a/install/profile/1default/etc/conf.d/net?calculate=CDS?calculate=CLS b/install/profile/1default/etc/conf.d/net?calculate=CDS?calculate=CLS
+index 57ab988..31f3691 100644
+--- a/install/profile/1default/etc/conf.d/net?calculate=CDS?calculate=CLS
++++ b/install/profile/1default/etc/conf.d/net?calculate=CDS?calculate=CLS
+@@ -4,4 +4,5 @@
+ # /etc/conf.d/net.
+ 
+ #-netconf-#
++modules=("!plug")
+ 

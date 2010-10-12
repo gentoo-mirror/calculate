@@ -1,0 +1,22 @@
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 28d35fc..611cf36 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -6925,7 +6925,7 @@ options '-w, --workgroup'"))
+         # права и владелец /var/calculate/remote
+         if os.path.exists(remotePath):
+            os.chown(remotePath,0,int(cl.gid))
+-           os.chmod(remotePath,02750)
++           os.chmod(remotePath,02755)
+         # изменяем владельца remote на client
+         if not os.path.exists(remoteEnvFile):
+             fd = os.open(remoteEnvFile, os.O_CREAT)
+@@ -11966,7 +11966,7 @@ class servRepl(shareLdap):
+             # права и владелец /var/calculate/remote
+             if os.path.exists(remotePath):
+                 os.chown(remotePath,0,int(cl.gid))
+-                os.chmod(remotePath,02750)
++                os.chmod(remotePath,02755)
+             # изменяем владельца remote на client
+             if not os.path.exists(remoteEnvFile):
+                 fd = os.open(remoteEnvFile, os.O_CREAT)

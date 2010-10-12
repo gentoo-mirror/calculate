@@ -44,6 +44,8 @@ src_unpack() {
 	epatch "${FILESDIR}/calculate-server-2.1.12-r2.patch"
 	# bugfix templates for new squid
 	epatch "${FILESDIR}/calculate-server-2.1.12-fix-squid.patch"
+	# fix /var/calculate/remote permission for emerge
+	epatch "${FILESDIR}/calculate-server-2.1.12-fix-remote.patch"
 	# change palce of i18n files to /usr/share/calculate-2.0
 	epatch "${FILESDIR}/server_i18n_path.patch"
 }
