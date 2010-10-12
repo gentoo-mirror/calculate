@@ -43,6 +43,8 @@ src_unpack() {
 
 	# fix copy memtest.bin to iso image
 	epatch "${FILESDIR}/calculate-1.3.12-memtest-fix.patch"
+	# fix net up
+	epatch "${FILESDIR}/calculate-1.3.12-netup-fix.patch"
 }
 
 src_install() {
