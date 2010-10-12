@@ -1,0 +1,13 @@
+diff --git a/install/calculate b/install/calculate
+index e554583..430852e 100755
+--- a/install/calculate
++++ b/install/calculate
+@@ -5430,7 +5430,7 @@ sub createiso{
+ 	if(system(qq|
+ 		cp $data{tmpdir}/livecd/calculate/boot/vmlinuz $target/boot/vmlinuz &&
+ 		cp $data{tmpdir}/livecd/calculate/boot/initrd $target/boot/ &&
+-		cp -a $data{tmpdir}/livecd/calculate/boot/memtest86plus/memtest.bin $target/$isolinux/memtest &&
++		cp -Lp $data{tmpdir}/livecd/calculate/boot/memtest86plus/memtest.bin $target/$isolinux/memtest &&
+ 		cp -a $data{tmpdir}/livecd/calculate/usr/share/syslinux/isolinux.bin $target/$isolinux/ &&
+ 		cp -a $data{tmpdir}/livecd/calculate/usr/share/syslinux/calcmenu.c32 $target/$isolinux/ &&
+ 		cp $data{tmpdir}/livecd/calculate/boot/boot.jpg $target/$isolinux/ $copyflash

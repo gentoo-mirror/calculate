@@ -35,6 +35,14 @@ pkg_setup() {
 	fi
 }
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# fix copy memtest.bin to iso image
+	epatch "${FILESDIR}/calculate-1.3.12-memtest-fix.patch"
+}
+
 src_install() {
 	emake install DESTDIR="${D}" || die "Calculate installation failed."
 	dodoc Change.log

@@ -42,6 +42,8 @@ src_unpack() {
 
 	# bugfix range absent in dhcp.conf
 	epatch "${FILESDIR}/calculate-server-2.1.12-r2.patch"
+	# bugfix templates for new squid
+	epatch "${FILESDIR}/calculate-server-2.1.12-fix-squid.patch"
 	# change palce of i18n files to /usr/share/calculate-2.0
 	epatch "${FILESDIR}/server_i18n_path.patch"
 }
