@@ -8,4 +8,10 @@
 	<use>
 		<flag name='vmlinuz'>Build kernel, modules and initramfs</flag>
 	</use>
+	<use>
+		<flag name='bfq'>Apply kernel patch for BFQ I/O scheduler</flag>
+	</use>
+	<use>
+		<flag name='bfs'>Apply kernel patch for BF scheduler</flag>
+	</use>
 </pkgmetadata>
