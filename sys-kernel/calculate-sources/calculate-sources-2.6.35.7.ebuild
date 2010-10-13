@@ -42,10 +42,12 @@ pkg_postinst() {
 	calculate-kernel-2_pkg_postinst
 	if use bfq
 	then
-		einfo "Change value of elevator to bfq in /boot/grub/grub.conf for"
-		einfo "using BFQ I/O scheduler."
-		einfo "Part of grub.conf for example:"
-		einfo "kernel /boot/vmlinuz-a7acd396 root=/dev/sda2 elevator=bfq"
+		ewarn ""
+		ewarn "Change value of elevator to bfq in /boot/grub/grub.conf for"
+		ewarn "using BFQ I/O scheduler."
+		ewarn "Part of grub.conf for example:"
+		ewarn "kernel /boot/vmlinuz-a7acd396 root=/dev/sda2 elevator=bfq"
+		ewarn ""
 	fi
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
