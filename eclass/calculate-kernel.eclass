@@ -52,7 +52,7 @@ calculate-kernel_pkg_setup() {
 		[[ -n "$CARCH" ]] || CARCH=`arch`
 		KERNEL_CONFIG="${KERNEL_CONFIG}/config-${SYSTEM}-${CARCH}-${CKV}"
 	fi
-	ewarn "Perform command for update modules after kernel building:"
+	ewarn "After the kernel assemble perform command to update modules:"
 	ewarn "  module-rebuild -X rebuild"
 	ebeep 5
 }
