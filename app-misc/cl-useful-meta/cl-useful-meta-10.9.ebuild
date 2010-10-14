@@ -40,6 +40,7 @@ RDEPEND="${RDEPEND}
 
 # Network
 RDEPEND="${RDEPEND}
+	net-dialup/pptpclient
 	net-dialup/rp-pppoe
 "
 
