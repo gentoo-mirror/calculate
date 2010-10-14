@@ -34,6 +34,7 @@ CALC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-${CKV}.tar.bz2
 
 calculate-kernel-2_pkg_setup() {
 	kernel-2_pkg_setup
+	ewarn "!!! WARNING !!!  WARNING !!!  WARNING !!!  WARNING !!!"
 	ewarn "Perform command for update modules after kernel building:"
 	ewarn "  module-rebuild -X rebuild"
 	ebeep 5
