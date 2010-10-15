@@ -20,8 +20,8 @@ DEPEND="~sys-apps/calculate-templates-2.2.0.1_rc1
 	!<sys-apps/calculate-lib-2.1.8-r1
 	!=sys-apps/calculate-lib-2.1.9
 	!=sys-apps/calculate-lib-2.1.10
-	!minimal? ( >=dev-python/python-ldap-2.0[ssl] 
-	dev-python/py-smbpasswd )
+	!minimal? ( >=dev-python/python-ldap-2.0[ssl] )
+	dev-python/py-smbpasswd
 	>=dev-python/pyxml-0.8
 	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
