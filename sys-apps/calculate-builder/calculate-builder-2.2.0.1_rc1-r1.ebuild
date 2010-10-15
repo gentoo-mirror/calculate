@@ -15,7 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-install-2.2.0.1_rc1
+DEPEND="~sys-apps/calculate-install-2.2.0.1_rc2
 	~sys-apps/calculate-templates-2.2.0.1_rc1
 	!<sys-apps/calculate-1.4.0_p20100921"
 
