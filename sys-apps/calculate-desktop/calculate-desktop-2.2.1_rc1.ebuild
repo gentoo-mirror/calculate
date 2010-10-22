@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="bd9ccf2435d9e216c87a05416b8be253e44d329a"
+EGIT_COMMIT="dd294418c7d06fd61d4f4d82092647a99f803b39"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-desktop.git"
 
 DESCRIPTION="The program of the desktop configuration Calculate Linux"
@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-lib-2.2.0.1_rc2
+DEPEND="~sys-apps/calculate-lib-2.2.1_rc1
 	!<sys-apps/calculate-client-2.2.0
 	xfce? ( x11-misc/xdialog )
 	gnome? ( x11-misc/xdialog )
