@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit git
 
-EGIT_COMMIT="898770a9a80628f2f9417b041fe5d1aebc0af4ef"
+EGIT_COMMIT="5599dc390139155dce44e048c4adfea32d8383d2"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-install-gui.git"
 
 DESCRIPTION="GUI frontend for the program of installation Calculate Linux"
@@ -15,7 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-install-2.2.1_rc1
+DEPEND="~sys-apps/calculate-install-2.2.1_rc2
 	x11-libs/qtermwidget"
 
 RDEPEND="${DEPEND}"

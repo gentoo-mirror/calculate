@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="de95d45624655940c849cd2acbbfe1229efc078a"
+EGIT_COMMIT="e66a1bb9e1feed576b4831949d2edf8474276ef7"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-builder.git"
 
 DESCRIPTION="The utilities for builder tasks of Calculate Linux"
@@ -15,8 +15,8 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-install-2.2.1_rc1
-	~sys-apps/calculate-templates-2.2.1_rc1
+DEPEND="~sys-apps/calculate-install-2.2.1_rc2
+	~sys-apps/calculate-templates-2.2.1_rc2
 	!<sys-apps/calculate-1.4.0_p20100921"
 
 RDEPEND="${DEPEND}"
