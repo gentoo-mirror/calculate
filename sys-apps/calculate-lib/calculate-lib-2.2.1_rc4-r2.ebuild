@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git eutils
 
-EGIT_COMMIT="9273f2d49a15031d549ac13d56b4ee1d4217f46f"
+EGIT_COMMIT="c3d224b13c315d500fe22fe37c4ec270a5b9d67c"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-lib.git"
 
 DESCRIPTION="The library for Calculate 2"
