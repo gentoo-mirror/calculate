@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git eutils
 
-EGIT_COMMIT="282da2001ee166794135534c3766a54c8009d2f2"
+EGIT_COMMIT="5bf89fb2891329d85c830cfc51d28e6e63fe9543"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-lib.git"
 
 DESCRIPTION="The library for Calculate 2"
@@ -16,12 +16,11 @@ SLOT="2.2"
 KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
-DEPEND="~sys-apps/calculate-templates-2.2.1_rc5
+DEPEND="~sys-apps/calculate-templates-2.2.1_rc6
 	!<sys-apps/calculate-lib-2.1.8-r1
 	!=sys-apps/calculate-lib-2.1.9
 	!=sys-apps/calculate-lib-2.1.10
-	!minimal? ( >=dev-python/python-ldap-2.0[ssl]
-	dev-python/py-smbpasswd )
+	!minimal? ( dev-python/py-smbpasswd )
 	>=dev-python/pyxml-0.8
 	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
