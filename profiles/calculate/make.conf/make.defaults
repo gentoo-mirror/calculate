@@ -23,4 +23,5 @@ LINGUAS="bg en de es fr it pl pt_BR ru uk"
 LDFLAGS="-Wl,--as-needed"
 PORTAGE_NICENESS=19
 PORTAGE_TMPDIR="/var/calculate/tmp"
+USE_EXPAND="CALCULATE"
 
