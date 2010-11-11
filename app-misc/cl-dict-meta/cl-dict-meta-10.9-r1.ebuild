@@ -15,37 +15,37 @@ IUSE="linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR lingu
 
 # Dict
 RDEPEND="
-	!linguas_de? (
+	linguas_de? (
 		app-dicts/aspell-de
 		app-dicts/ispell-de
 		app-dicts/myspell-de
 	)
-	!linguas_en? (
+	linguas_en? (
 		app-dicts/aspell-en
 		app-dicts/myspell-en
 
 	)
-	!linguas_es? (
+	linguas_es? (
 		app-dicts/aspell-es
 		app-dicts/ispell-es
 		app-dicts/myspell-es
 	)
-	!linguas_fr? (
+	linguas_fr? (
 		app-dicts/aspell-fr
 		app-dicts/ispell-fr
 		app-dicts/myspell-fr
 	)
-	!linguas_it? (
+	linguas_it? (
 		app-dicts/aspell-it
 		app-dicts/ispell-it
 		app-dicts/myspell-it
 	)
-	!linguas_pt_BR? (
+	linguas_pt_BR? (
 		app-dicts/aspell-pt-br
 		app-dicts/ispell-pt-br
 		app-dicts/myspell-pt
 	)
-	!linguas_ru? (
+	linguas_ru? (
 		app-dicts/aspell-ru
 		app-dicts/ispell-ru
 		app-dicts/myspell-ru
