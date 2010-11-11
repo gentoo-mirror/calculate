@@ -12,7 +12,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 amd64"
-IUSE="calculate_printer calculate_wireless"
+IUSE="calculate_noprinter calculate_nowireless"
 
 RDEPEND="
 	>=sys-auth/pambase-20101024
@@ -21,11 +21,11 @@ RDEPEND="
 
 RDEPEND="${RDEPEND}
 	app-misc/cl-base-meta
-	calculate_printer? (
+	!calculate_noprinter? (
 		app-misc/cl-printer-meta
 	)
 	app-misc/cl-useful-meta
-	calculate_wireless? (
+	!calculate_nowireless? (
 		app-misc/cl-wireless-meta
 	)
 "

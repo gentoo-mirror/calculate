@@ -2,6 +2,12 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*cls-meta-10.9-r3 (11 Nov 2010)
+
+  11 Nov 2010; Alexander Tratsevskiy (L'autre) <at@calculate.ru>
+  -cls-meta-10.9-r2.ebuild, +cls-meta-10.9-r3.ebuild:
+  Modify USE flags for cls-meta
+
   09 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
   -cls-meta-10.9.ebuild, cls-meta-10.9-r1.ebuild:
   Fix depends for shadow and pambase.
