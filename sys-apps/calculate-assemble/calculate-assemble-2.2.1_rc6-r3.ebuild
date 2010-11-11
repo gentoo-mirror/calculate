@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="cba0d43be5b73133f3a7faf49fe7a3c3f80edfd3"
+EGIT_COMMIT="e460e06f16cb064bcad9423c89927c11d6ede2ed"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-assemble.git"
 
 DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
