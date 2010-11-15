@@ -14,7 +14,8 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-DEPEND="!=sys-apps/calculate-lib-2.2.0.0_rc1"
+DEPEND="!=sys-apps/calculate-lib-2.2.0.0_rc1
+	!>=sys-apps/calculate-lib-2.2.0.1"
 
 RDEPEND="${DEPEND}"
 
