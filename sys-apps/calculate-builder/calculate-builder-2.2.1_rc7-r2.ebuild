@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="5a878f41cb4fec688bb2ff75e354e36ae65b2aaa"
+EGIT_COMMIT="fd5539bc66e70064aac1b7597cc293bc53165fd8"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-builder.git"
 
 DESCRIPTION="The utilities for builder tasks of Calculate Linux"
