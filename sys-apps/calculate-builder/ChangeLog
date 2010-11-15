@@ -2,6 +2,13 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-builder-2.2.1_rc7-r5 (15 Nov 2010)
+
+  15 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-builder-2.2.1_rc7-r4.ebuild,
+  +calculate-builder-2.2.1_rc7-r5.ebuild:
+  Add depends cdrkit and squashfs-tools.
+
 *calculate-builder-2.2.1_rc7-r1 (15 Nov 2010)
 
   15 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>

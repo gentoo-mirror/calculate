@@ -17,6 +17,8 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="~sys-apps/calculate-install-2.2.1_rc7
 	~sys-apps/calculate-templates-2.2.1_rc7
-	!<sys-apps/calculate-1.4.0_p20100921"
+	!<sys-apps/calculate-1.4.0_p20100921
+	app-cdr/cdrkit
+	sys-fs/squashfs-tools"
 
 RDEPEND="${DEPEND}"
