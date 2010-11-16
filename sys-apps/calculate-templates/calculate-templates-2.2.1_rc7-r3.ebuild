@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="030983280114e6e4f18f93f5ec606077bdd3674f"
+EGIT_COMMIT="7f9daa0f9860ebc6ba037ae8da1546c88ca90a0c"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-templates.git"
 
 DESCRIPTION="Templates for calculate utilities 2.2"
