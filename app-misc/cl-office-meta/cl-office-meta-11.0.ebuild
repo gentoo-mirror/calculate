@@ -4,17 +4,35 @@
 
 EAPI=2
 
-DESCRIPTION="Calculate Linux (dictionary meta package)"
+DESCRIPTION="Calculate Linux (office meta package)"
 HOMEPAGE="http://www.calculate-linux.org"
 SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru"
+IUSE="distro_CLD distro_CLDG distro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru"
 
-# Dict
 RDEPEND="
+	app-editors/vim
+	app-office/openoffice
+	app-text/fbreader
+
+	distro_CLD? (
+		app-dicts/goldendict
+		kde-misc/openofficeorg-thumbnail
+	)
+	distro_CLDG? (
+		app-text/stardict
+		net-news/liferea
+	)
+	distro_CLDX? (
+		app-editors/mousepad
+		app-text/evince
+		app-text/stardict
+		sci-calculators/galculator
+	)
+
 	linguas_de? (
 		app-dicts/aspell-de
 		app-dicts/ispell-de
@@ -23,7 +41,6 @@ RDEPEND="
 	linguas_en? (
 		app-dicts/aspell-en
 		app-dicts/myspell-en
-
 	)
 	linguas_es? (
 		app-dicts/aspell-es

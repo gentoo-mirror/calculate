@@ -12,34 +12,30 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 amd64"
-IUSE="calculate_noprinter calculate_nowireless"
+IUSE="calculate_nodecoration calculate_nonetwork calculate_noprinter calculate_nowireless"
 
 RDEPEND="
 	>=sys-auth/pambase-20101024
 	>=sys-apps/shadow-4.1.4.2-r6
+	!app-misc/cl-useful-meta
 "
 
 RDEPEND="${RDEPEND}
 	app-misc/cl-base-meta
+	app-misc/cl-tools-meta
+
+	!calculate_nodecoration? (
+		app-misc/cl-decoration-meta
+	)
+	!calculate_nonetwork? (
+		app-misc/cl-network-meta
+	)
 	!calculate_noprinter? (
 		app-misc/cl-printer-meta
 	)
-	app-misc/cl-useful-meta
 	!calculate_nowireless? (
 		app-misc/cl-wireless-meta
 	)
-"
-
-RDEPEND="${RDEPEND}
-	app-misc/calculate-install-gui
-	media-fonts/dejavu
-	media-gfx/cls-themes
-	virtual/dhcpc
-	sys-apps/pcmciautils
-	sys-apps/usb_modeswitch
-	x11-base/xorg-x11
-	x11-terms/rxvt-unicode
-	x11-wm/openbox
 "
 
 cxxflags_present_in() {

@@ -177,7 +177,6 @@ RDEPEND="${RDEPEND}
 	kde-base/kdeplasma-addons
 	kde-base/kget
 	kde-misc/knetworkmanager
-	kde-misc/openofficeorg-thumbnail
 	net-wireless/bluedevil
 "
 

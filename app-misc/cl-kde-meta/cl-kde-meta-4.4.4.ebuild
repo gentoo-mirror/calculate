@@ -172,7 +172,6 @@ RDEPEND="${RDEPEND}
 	kde-base/kdeplasma-addons
 	kde-base/kget
 	kde-misc/kgtk
-	kde-misc/openofficeorg-thumbnail
 	net-wireless/kbluetooth
 "
 

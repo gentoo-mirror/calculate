@@ -4,7 +4,7 @@
 
 EAPI=2
 
-DESCRIPTION="Calculate Linux (printer meta package)"
+DESCRIPTION="Calculate Linux (printer/scanner meta package)"
 HOMEPAGE="http://www.calculate-linux.org"
 SRC_URI=""
 
@@ -15,6 +15,7 @@ IUSE=""
 
 # Developer
 RDEPEND="
+	media-gfx/xsane
 	net-print/cnijfilter
 	net-print/cups
 	net-print/gutenprint
