@@ -11,28 +11,24 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_CLD distro_CLDG distro_CLDX"
+IUSE="distro_CLD distro_CLDG distro_CLDX distro_desktop"
 
 RDEPEND="
 	net-dialup/pptpclient
 	net-dialup/rp-pppoe
 
-	distro_CLD? (
+	distro_desktop? (
 		net-analyzer/nmap
 		net-im/skype
 		www-client/chromium
 		www-plugins/adobe-flash
-
+	)
+	distro_CLD? (
 		net-im/choqok
 		net-irc/konversation
 		net-p2p/eiskaltdcpp
 	)
 	distro_CLDG? (
-		net-analyzer/nmap
-		net-im/skype
-		www-client/chromium
-		www-plugins/adobe-flash
-
 		net-ftp/filezilla
 		net-im/pidgin
 		net-irc/xchat
@@ -43,11 +39,6 @@ RDEPEND="
 		x11-plugins/pidgin-hotkeys
 	)
 	distro_CLDX? (
-		net-analyzer/nmap
-		net-im/skype
-		www-client/chromium
-		www-plugins/adobe-flash
-
 		app-cdr/xfburn
 		net-ftp/filezilla
 		net-news/liferea
