@@ -13,7 +13,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-RDEPEND="!media-gfx/calculate-cls-themes"
+RDEPEND="!media-gfx/calculate-cls-themes
+		media-gfx/splashutils"
 
 DEPEND="${RDEPEND}"
 

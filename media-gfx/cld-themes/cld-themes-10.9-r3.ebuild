@@ -4,8 +4,8 @@
 
 inherit calculate
 
-DESCRIPTION="The theme for Calculate Linux Desktop CLDG"
-HOMEPAGE="http://www.calculate-linux.org/calcualte-cldg-themes"
+DESCRIPTION="The theme for Calculate Linux Desktop KDE"
+HOMEPAGE="http://www.calculate-linux.org/calcualte-cld-themes"
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
@@ -16,12 +16,30 @@ IUSE=""
 RDEPEND="!media-gfx/calculate-cldx-themes
 		!media-gfx/calculate-cld-themes
 		!media-gfx/cldx-themes
-		!media-gfx/cld-themes"
+		media-gfx/splashutils"
 
 DEPEND="${RDEPEND}"
 
 src_install() {
 		insinto /
+		dosym ../CalculateSplashEn/400x300 \
+			/usr/share/apps/ksplash/Themes/CalculateSplashPt/400x300
+		dosym ../CalculateSplashEn/400x300 \
+			/usr/share/apps/ksplash/Themes/CalculateSplashDe/400x300
+		dosym ../CalculateSplashEn/400x300 \
+			/usr/share/apps/ksplash/Themes/CalculateSplashEs/400x300
+		dosym ../CalculateSplashEn/400x300 \
+			/usr/share/apps/ksplash/Themes/CalculateSplashFr/400x300
+		dosym ../CalculateSplashEn/400x300 \
+			/usr/share/apps/ksplash/Themes/CalculateSplashRu/400x300
+		dosym ../CalculateSplashEn/400x300 \
+			/usr/share/apps/ksplash/Themes/CalculateSplashUk/400x300
+		dosym ../CalculateSplashEn/400x300 \
+			/usr/share/apps/ksplash/Themes/CalculateSplashIt/400x300
+		dosym ../CalculateSplashEn/400x300 \
+			/usr/share/apps/ksplash/Themes/CalculateSplashPl/400x300
+		dosym ../CalculateSplashEn/400x300 \
+			/usr/share/apps/ksplash/Themes/CalculateSplashBg/400x300
 		dosym ../icons/Calculate/40x40/apps/1c.png \
 			/usr/share/pixmaps/1c.png
 		dosym ../icons/Calculate/40x40/apps/autocad.png \

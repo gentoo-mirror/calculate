@@ -16,7 +16,8 @@ IUSE=""
 RDEPEND="!media-gfx/calculate-cldx-themes
 		!media-gfx/calculate-cld-themes
 		!media-gfx/cld-themes
-		!media-gfx/cldg-themes"
+		!media-gfx/cldg-themes
+		media-gfx/splashutils"
 DEPEND="${RDEPEND}"
 
 src_install() {
