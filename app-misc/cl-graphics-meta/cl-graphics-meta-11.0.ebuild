@@ -18,8 +18,6 @@ RDEPEND="
 	distro_CLD? (
 		media-gfx/digikam
 	)
-	distro_CLDG? (
-	)
 	distro_CLDX? (
 		media-gfx/gqview
 		media-gfx/gtkam
