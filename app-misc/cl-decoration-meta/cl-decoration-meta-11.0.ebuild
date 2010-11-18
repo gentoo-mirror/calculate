@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_CLD distro_CLDG distro_CLDX distro_CLS distro_desktop"
+IUSE="distro_CDS distro_CLD distro_CLDG distro_CLDX distro_CLS distro_desktop"
 
 RDEPEND="
 	media-gfx/splashutils
@@ -21,6 +21,9 @@ RDEPEND="
 		app-vim/vimcommander
 		media-fonts/corefonts
 		media-fonts/droid
+	)
+	distro_CDS? (
+		media-gfx/cds-themes
 	)
 	distro_CLD? (
 		media-gfx/cld-themes

@@ -12,10 +12,11 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 amd64"
-IUSE=""
+IUSE="calculate_nokernel"
 
 RDEPEND="
 	app-misc/cl-base-meta
+	!calculate_nokernel? ( sys-kernel/calculate-sources )
 "
 
 # Network

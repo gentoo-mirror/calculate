@@ -24,18 +24,10 @@ RDEPEND="${RDEPEND}
 	app-misc/cl-base-meta
 	app-misc/cl-tools-meta
 
-	!calculate_nodecoration? (
-		app-misc/cl-decoration-meta
-	)
-	!calculate_nonetwork? (
-		app-misc/cl-network-meta
-	)
-	!calculate_noprinter? (
-		app-misc/cl-printer-meta
-	)
-	!calculate_nowireless? (
-		app-misc/cl-wireless-meta
-	)
+	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
+	!calculate_nonetwork? ( app-misc/cl-network-meta )
+	!calculate_noprinter? ( app-misc/cl-printer-meta )
+	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 "
 
 cxxflags_present_in() {

@@ -28,6 +28,5 @@ RDEPEND="
 	sys-boot/grub
 	sys-fs/reiserfsprogs
 	sys-kernel/calckernel
-	virtual/linux-sources
 "
 
