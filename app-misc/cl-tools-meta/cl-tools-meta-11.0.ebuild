@@ -49,7 +49,6 @@ RDEPEND="
 		app-misc/mc
 		app-portage/emerge-delta-webrsync
 		app-portage/genlop
-		app-portage/gentoolkit
 		app-portage/gentoolkit-dev
 		app-portage/portage-utils
 		app-portage/ufed
