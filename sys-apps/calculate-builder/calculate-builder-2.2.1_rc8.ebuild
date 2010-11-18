@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git
 
-EGIT_COMMIT="c9ebc799b5afbe07c59f3bc850fbed63f793be9b"
+EGIT_COMMIT="69ca4ed49aba0d2df8138094d2f5d7d3e62bd2ce"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-builder.git"
 
 DESCRIPTION="The utilities for builder tasks of Calculate Linux"
@@ -15,8 +15,8 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-install-2.2.1_rc7
-	~sys-apps/calculate-templates-2.2.1_rc7
+DEPEND="~sys-apps/calculate-install-2.2.1_rc8
+	~sys-apps/calculate-templates-2.2.1_rc8
 	!<sys-apps/calculate-1.4.0_p20100921
 	app-cdr/cdrkit
 	sys-fs/squashfs-tools"
