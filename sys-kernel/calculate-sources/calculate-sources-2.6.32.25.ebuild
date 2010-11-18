@@ -20,8 +20,6 @@ DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.10.903-r23
 	|| ( app-arch/xz-utils app-arch/lzma-utils )
 	sys-apps/v86d )"
 
-SLOT="2.6.32.24-r1"
-
 pkg_postinst() {
 	calculate-kernel-2_pkg_postinst
 	einfo "For more info on this patchset, and how to report problems, see:"
