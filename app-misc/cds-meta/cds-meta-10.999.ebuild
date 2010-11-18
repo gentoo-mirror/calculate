@@ -167,8 +167,8 @@ pkg_postinst() {
 	local calculatename=$( get_value calculate < ${CALCULATE_INI} )
 	local system=$( get_value system < ${CALCULATE_INI} )
 
-	# check version on stable (PV has only 2 digit)
-	if ! [[ "$PV" =~ ^[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+ ]]
+	# check version on stable (PV hasn't 999)
+	if ! [[ "$PV" =~ 999 ]]
 	then
 		[[ "$calculatename" == "CDS" ]] &&
 		[[ -n "$(eselect profile show |

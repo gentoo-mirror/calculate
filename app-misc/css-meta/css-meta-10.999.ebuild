@@ -31,7 +31,7 @@ pkg_postinst() {
 	local system=$( get_value system < ${CALCULATE_INI} )
 
 	# check version on stable (PV has only 2 digit)
-	if ! [[ "$PV" =~ ^[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+ ]]
+	if ! [[ "$PV" =~ 999 ]]
 	then
 		[[ "$calculatename" == "CSS" ]] &&
 		[[ -n "$(eselect profile show |
