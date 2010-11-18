@@ -17,7 +17,7 @@ IUSE=""
 RDEPEND="
 	app-misc/livecd-tools
 	app-portage/eix
-	app-portage/gentoolkit-dev
+	app-portage/gentoolkit
 	app-portage/layman
 	dev-vcs/git
 	media-fonts/terminus-font
