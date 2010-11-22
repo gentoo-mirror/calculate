@@ -11,10 +11,29 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_CLD distro_CLDG distro_CLDX distro_desktop"
+IUSE="distro_CLS distro_desktop distro_CLD distro_CLDG distro_CLDX distro_CDS"
 
 RDEPEND="
+	distro_CLD? (
+		app-misc/calculate-install-gui
+		media-fonts/dejavu
+		virtual/dhcpc
+		sys-apps/pcmciautils
+		sys-apps/usb_modeswitch
+		x11-base/xorg-x11
+		x11-terms/rxvt-unicode
+		x11-wm/openbox
+	)
 	distro_desktop? (
+		app-misc/calculate-install-gui
+		media-fonts/dejavu
+		virtual/dhcpc
+		sys-apps/pcmciautils
+		sys-apps/usb_modeswitch
+		x11-base/xorg-x11
+		x11-terms/rxvt-unicode
+		x11-wm/openbox
+
 		app-admin/sudo
 		dev-python/ipython
 		dev-tcltk/expect
@@ -32,16 +51,6 @@ RDEPEND="
 		x11-apps/xmessage
 		x11-misc/xbindkeys
 
-		app-arch/arj
-		app-arch/bzip2
-		app-arch/dump
-		app-arch/p7zip
-		app-arch/rar
-		app-arch/unace
-		app-arch/unarj
-		app-arch/unzip
-		app-arch/zip
-
 		app-admin/hddtemp
 		app-admin/testdisk
 		app-cdr/cdrkit
@@ -52,8 +61,6 @@ RDEPEND="
 		app-portage/gentoolkit-dev
 		app-portage/portage-utils
 		app-portage/ufed
-		app-text/wgetpaste
-		net-fs/nfs-utils
 		sys-apps/acl
 		sys-apps/hdparm
 		sys-apps/lm_sensors
@@ -85,6 +92,64 @@ RDEPEND="
 		x11-misc/ktsuss
 		x11-terms/terminal
 	)
+	distro_CDS? (
+		app-admin/hddtemp
+		app-admin/testdisk
+		app-antivirus/clamav
+		app-cdr/cdrkit
+		app-cdr/dvd+rw-tools
+		app-editors/vim
+		app-i18n/enca
+		app-misc/mc
+		app-misc/screen
+		app-portage/emerge-delta-webrsync
+		app-portage/genlop
+		app-portage/portage-utils
+		app-portage/ufed
+		dev-libs/klibc
+		dev-python/psycopg
+		dev-python/pyserial
+		dev-ruby/libxml
+		sci-libs/fftw
+		sys-apps/acl
+		sys-apps/calculate-server
+		sys-apps/ethtool
+		sys-apps/iproute2
+		sys-apps/kexec-tools
+		sys-apps/memtest86+
+		sys-apps/pciutils
+		sys-apps/pv
+		sys-apps/smartmontools
+		sys-apps/usbutils
+		sys-auth/nss_ldap
+		sys-auth/pam_ldap
+		sys-block/parted
+		sys-block/tw_cli
+		sys-fs/dmraid
+		sys-fs/dosfstools
+		sys-fs/e2fsprogs
+		sys-fs/jfsutils
+		sys-fs/mdadm
+		sys-fs/mtools
+		sys-fs/ntfs3g
+		sys-fs/xfsdump
+		sys-fs/xfsprogs
+		sys-kernel/module-rebuild
+		sys-process/htop
+		sys-process/lsof
+	)
+"
+
+# Archive
+RDEPEND="${RDEPEND}
+	app-arch/arj
+	app-arch/dump
+	app-arch/p7zip
+	app-arch/rar
+	app-arch/unace
+	app-arch/unarj
+	app-arch/unzip
+	app-arch/zip
 "
 
 # Base
@@ -95,14 +160,3 @@ RDEPEND="${RDEPEND}
 	sys-process/vixie-cron
 "
 
-# Tools
-RDEPEND="${RDEPEND} 
-	app-misc/calculate-install-gui
-	media-fonts/dejavu
-	virtual/dhcpc
-	sys-apps/pcmciautils
-	sys-apps/usb_modeswitch
-	x11-base/xorg-x11
-	x11-terms/rxvt-unicode
-	x11-wm/openbox
-"

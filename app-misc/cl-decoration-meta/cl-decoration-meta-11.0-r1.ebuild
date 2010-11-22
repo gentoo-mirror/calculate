@@ -16,14 +16,14 @@ IUSE="distro_CDS distro_CLD distro_CLDG distro_CLDX distro_CLS distro_desktop"
 RDEPEND="
 	media-gfx/splashutils
 
+	distro_CLS? (
+		media-gfx/cls-themes
+	)
 	distro_desktop? (
 		app-vim/colorschemes
 		app-vim/vimcommander
 		media-fonts/corefonts
 		media-fonts/droid
-	)
-	distro_CDS? (
-		media-gfx/cds-themes
 	)
 	distro_CLD? (
 		media-gfx/cld-themes
@@ -41,8 +41,10 @@ RDEPEND="
 		media-gfx/cldx-themes
 		x11-themes/tango-icon-theme
 	)
-	distro_CLS? (
-		media-gfx/cls-themes
+	distro_CDS? (
+		app-vim/colorschemes
+		app-vim/vimcommander
+		media-gfx/cds-themes
 	)
 "
 

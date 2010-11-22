@@ -11,7 +11,8 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
+IUSE="calculate_nodecoration calculate_nographics calculate_nomultimedia
+calculate_nonettools calculate_nonetwork"
 
 # kdeadmin-meta
 RDEPEND="
@@ -22,15 +23,17 @@ RDEPEND="
 "
 # kdeartwork-meta
 RDEPEND="${RDEPEND}
-	kde-base/kdeartwork-colorschemes
-	kde-base/kdeartwork-desktopthemes
-	kde-base/kdeartwork-emoticons
-	kde-base/kdeartwork-iconthemes
-	kde-base/kdeartwork-kscreensaver
-	kde-base/kdeartwork-sounds
-	kde-base/kdeartwork-styles
-	kde-base/kdeartwork-wallpapers
-	kde-base/kdeartwork-weatherwallpapers
+	!calculate_nodecoration? (
+		kde-base/kdeartwork-colorschemes
+		kde-base/kdeartwork-desktopthemes
+		kde-base/kdeartwork-emoticons
+		kde-base/kdeartwork-iconthemes
+		kde-base/kdeartwork-kscreensaver
+		kde-base/kdeartwork-sounds
+		kde-base/kdeartwork-styles
+		kde-base/kdeartwork-wallpapers
+		kde-base/kdeartwork-weatherwallpapers
+	)
 "
 # kdebase-meta
 #- kde-base/konqueror
@@ -81,42 +84,48 @@ RDEPEND="${RDEPEND}
 
 # kdegraphics-meta
 RDEPEND="${RDEPEND}
-    kde-base/gwenview
-	kde-base/kamera
-	kde-base/kcolorchooser
-	kde-base/kdegraphics-strigi-analyzer
-	kde-base/kgamma
-	kde-base/kolourpaint
-	kde-base/kruler
-	kde-base/ksaneplugin
-	kde-base/ksnapshot
-	kde-base/libkdcraw
-	kde-base/libkexiv2
-	kde-base/libkipi
-	kde-base/libksane
-	kde-base/okular
-	kde-base/svgpart
-	kde-base/thumbnailers
+	!calculate_nographics? (
+	    kde-base/gwenview
+		kde-base/kamera
+		kde-base/kcolorchooser
+		kde-base/kdegraphics-strigi-analyzer
+		kde-base/kgamma
+		kde-base/kolourpaint
+		kde-base/kruler
+		kde-base/ksaneplugin
+		kde-base/ksnapshot
+		kde-base/libkdcraw
+		kde-base/libkexiv2
+		kde-base/libkipi
+		kde-base/libksane
+		kde-base/okular
+		kde-base/svgpart
+		kde-base/thumbnailers
+	)
 "
 
 # kdemultimedia-meta
 RDEPEND="${RDEPEND}
-	kde-base/kdemultimedia-kioslaves
-	kde-base/kmix
-	kde-base/kscd
-	kde-base/libkcddb
-	kde-base/libkcompactdisc
-	kde-base/mplayerthumbs
+	!calculate_nomultimedia? (
+		kde-base/kdemultimedia-kioslaves
+		kde-base/kmix
+		kde-base/kscd
+		kde-base/libkcddb
+		kde-base/libkcompactdisc
+		kde-base/mplayerthumbs
+	)
 "
 
 # kdenetwork-meta
 RDEPEND="${RDEPEND}
-	kde-base/kdenetwork-filesharing
-	kde-base/kdnssd
-	kde-base/kopete
-	kde-base/kppp
-	kde-base/krdc
-	kde-base/krfb
+	!calculate_nonettools? (
+		kde-base/kdenetwork-filesharing
+		kde-base/kdnssd
+		kde-base/kopete
+		kde-base/kppp
+		kde-base/krdc
+		kde-base/krfb
+	)
 "
 
 # kdeutils-meta
@@ -138,26 +147,28 @@ RDEPEND="${RDEPEND}
 #- kde-base/ktimetracker
 #- kde-base/kdepim-wizards
 RDEPEND="${RDEPEND}
-	kde-base/akonadi
-	kde-base/akregator
-	kde-base/kabcclient
-	kde-base/kaddressbook
-	kde-base/kalarm
-	kde-base/kdepim-icons
-	kde-base/kdepim-kresources
-	kde-base/kdepim-runtime
-	kde-base/kdepim-strigi-analyzer
-	kde-base/kjots
-	kde-base/kleopatra
-	kde-base/kmail
-	kde-base/knode
-	kde-base/knotes
-	kde-base/konsolekalendar
-	kde-base/kontact
-	kde-base/korganizer
-	kde-base/libkdepim
-	kde-base/libkleo
-	kde-base/libkpgp
+	!calculate_nonetwork? (
+		kde-base/akonadi
+		kde-base/akregator
+		kde-base/kabcclient
+		kde-base/kaddressbook
+		kde-base/kalarm
+		kde-base/kdepim-icons
+		kde-base/kdepim-kresources
+		kde-base/kdepim-runtime
+		kde-base/kdepim-strigi-analyzer
+		kde-base/kjots
+		kde-base/kleopatra
+		kde-base/kmail
+		kde-base/knode
+		kde-base/knotes
+		kde-base/konsolekalendar
+		kde-base/kontact
+		kde-base/korganizer
+		kde-base/libkdepim
+		kde-base/libkleo
+		kde-base/libkpgp
+	)
 "
 
 # kde-l10n

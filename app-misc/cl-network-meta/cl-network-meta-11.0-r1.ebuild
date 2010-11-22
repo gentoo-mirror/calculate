@@ -11,13 +11,11 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_CLD distro_CLDG distro_CLDX distro_desktop"
+IUSE="distro_desktop distro_CLD distro_CLDG distro_CLDX distro_CDS"
 
 RDEPEND="
-	net-dialup/pptpclient
-	net-dialup/rp-pppoe
-
 	distro_desktop? (
+		app-text/wgetpaste
 		net-analyzer/nmap
 		net-im/skype
 		www-client/chromium
@@ -54,6 +52,25 @@ RDEPEND="
 		x11-plugins/pidgin-facebookchat
 		x11-plugins/pidgin-hotkeys
 		x11-plugins/pidgin-libnotify
+	)
+	distro_CDS? (
+		app-text/wgetpaste
+		net-analyzer/fail2ban
+		net-analyzer/ipcad
+		net-analyzer/iptraf
+		net-analyzer/macchanger
+		net-analyzer/nmap
+		net-analyzer/sarg
+		net-analyzer/tcpdump
+		net-analyzer/traceroute
+		net-analyzer/vnstat
+		net-dialup/minicom
+		net-irc/cgiirc
+		net-irc/weechat
+		net-misc/whois
+		net-p2p/bittorrent
+		net-p2p/btpd
+		www-client/links
 	)
 "
 
