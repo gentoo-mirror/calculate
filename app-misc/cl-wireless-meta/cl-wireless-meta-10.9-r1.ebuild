@@ -17,6 +17,7 @@ IUSE=""
 #net-wireless/madwimax
 RDEPEND="
 	net-wireless/b43-firmware
+	net-wireless/broadcom-sta
 	net-wireless/ipw2100-firmware
 	net-wireless/ipw2200-firmware
 	net-wireless/iwl1000-ucode
