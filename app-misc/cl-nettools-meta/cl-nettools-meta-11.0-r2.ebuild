@@ -24,6 +24,11 @@ RDEPEND="
 	)
 	distro_CLD? (
 		net-misc/kvpnc
+		net-misc/cnetworkmanager
+		net-misc/networkmanager
+		net-misc/networkmanager-openvpn
+		net-misc/networkmanager-pptp
+		net-misc/networkmanager-vpnc
 	)
 	distro_CLDG? (
 		gnome-extra/nm-applet
