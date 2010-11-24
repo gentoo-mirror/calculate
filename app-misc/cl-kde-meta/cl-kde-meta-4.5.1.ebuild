@@ -150,6 +150,7 @@ RDEPEND="${RDEPEND}
 # kdepim-meta
 #- kde-base/ktimetracker
 #- kde-base/kdepim-wizards
+#- kde-base/knode
 RDEPEND="${RDEPEND}
 	!calculate_nonetwork? (
 		kde-base/akonadi
@@ -164,7 +165,6 @@ RDEPEND="${RDEPEND}
 		kde-base/kjots
 		kde-base/kleopatra
 		kde-base/kmail
-		kde-base/knode
 		kde-base/knotes
 		kde-base/konsolekalendar
 		kde-base/kontact
