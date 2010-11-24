@@ -24,7 +24,6 @@ RDEPEND="
 	)
 	distro_CLD? (
 		net-misc/kvpnc
-		net-misc/wicd
 	)
 	distro_CLDG? (
 		gnome-extra/nm-applet

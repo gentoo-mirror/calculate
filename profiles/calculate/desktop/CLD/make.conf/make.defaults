@@ -10,6 +10,9 @@ USE="${USE} ldap rdesktop"
 USE="${USE} mysql"
 #USE="${USE} postgres"
 
+# System
+USE="${USE} networkmanager"
+
 # Web
 USE="${USE} webkit"
 
