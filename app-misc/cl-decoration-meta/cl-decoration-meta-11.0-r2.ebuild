@@ -11,25 +11,25 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_CDS distro_CLD distro_CLDG distro_CLDX distro_CLS distro_desktop"
+IUSE="cdistro_CDS cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CLS cdistro_desktop"
 
 RDEPEND="
 	media-gfx/splashutils
 
-	distro_CLS? (
+	cdistro_CLS? (
 		media-gfx/cls-themes
 	)
-	distro_desktop? (
+	cdistro_desktop? (
 		app-vim/colorschemes
 		app-vim/vimcommander
 		media-fonts/corefonts
 		media-fonts/droid
 	)
-	distro_CLD? (
+	cdistro_CLD? (
 		media-gfx/cld-themes
 		x11-themes/gtk-engines-qtcurve
 	)
-	distro_CLDG? (
+	cdistro_CLDG? (
 		media-gfx/cldg-themes
 		x11-themes/gnome-themes-extras
 		x11-themes/tango-icon-theme
@@ -37,11 +37,11 @@ RDEPEND="
 		x11-apps/fusion-icon
 		x11-wm/compiz-fusion
 	)
-	distro_CLDX? (
+	cdistro_CLDX? (
 		media-gfx/cldx-themes
 		x11-themes/tango-icon-theme
 	)
-	distro_CDS? (
+	cdistro_CDS? (
 		app-vim/colorschemes
 		app-vim/vimcommander
 		media-gfx/cds-themes

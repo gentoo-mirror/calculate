@@ -11,14 +11,14 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_CLD distro_CLDG distro_CLDX"
+IUSE="cdistro_CLD cdistro_CLDX"
 
 RDEPEND="
 	media-gfx/gimp
-	distro_CLD? (
+	cdistro_CLD? (
 		media-gfx/digikam
 	)
-	distro_CLDX? (
+	cdistro_CLDX? (
 		media-gfx/gqview
 		media-gfx/gtkam
 	)

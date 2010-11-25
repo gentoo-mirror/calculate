@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_desktop distro_CLD distro_CLDG distro_CLDX distro_CDS"
+IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS"
 
 RDEPEND="
 	net-dialup/pptpclient
@@ -19,10 +19,10 @@ RDEPEND="
 	net-dns/bind-tools
 	net-misc/ntp
 
-	distro_desktop? (
+	cdistro_desktop? (
 		net-fs/nfs-utils
 	)
-	distro_CLD? (
+	cdistro_CLD? (
 		net-misc/kvpnc
 		net-misc/cnetworkmanager
 		net-misc/networkmanager
@@ -30,7 +30,7 @@ RDEPEND="
 		net-misc/networkmanager-pptp
 		net-misc/networkmanager-vpnc
 	)
-	distro_CLDG? (
+	cdistro_CLDG? (
 		gnome-extra/nm-applet
 		net-misc/cnetworkmanager
 		net-misc/networkmanager
@@ -39,10 +39,10 @@ RDEPEND="
 		net-misc/networkmanager-vpnc
 		net-wireless/blueman
 	)
-	distro_CLDX? (
+	cdistro_CLDX? (
 		net-misc/wicd
 	)
-	distro_CDS? (
+	cdistro_CDS? (
 		net-dialup/freeradius
 		net-dialup/ppp
 		net-dialup/pptpclient

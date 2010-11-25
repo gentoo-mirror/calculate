@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_CLD distro_CLDG distro_CLDX"
+IUSE="cdistro_CLD cdistro_CLDG cdistro_CLDX"
 
 RDEPEND="
 	media-libs/win32codecs
@@ -19,7 +19,7 @@ RDEPEND="
 	media-sound/sox
 	media-video/mplayer
 
-	distro_CLD? (
+	cdistro_CLD? (
 		app-cdr/k3b
 		media-sound/amarok
 		media-plugins/kipi-plugins
@@ -30,11 +30,11 @@ RDEPEND="
 		media-video/recordmydesktop
 		media-video/smplayer
 	)
-	distro_CLDG? (
+	cdistro_CLDG? (
 		media-sound/rhythmbox
 		media-video/cheese
 	)
-	distro_CLDX? (
+	cdistro_CLDX? (
 		media-sound/audacious
 		media-video/gnome-mplayer
 	)

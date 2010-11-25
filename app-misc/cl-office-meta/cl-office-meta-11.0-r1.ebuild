@@ -11,22 +11,22 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_CLD distro_CLDG distro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru"
+IUSE="cdistro_CLD cdistro_CLDG cdistro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru"
 
 RDEPEND="
 	app-editors/vim
 	app-office/openoffice
 	app-text/fbreader
 
-	distro_CLD? (
+	cdistro_CLD? (
 		app-dicts/goldendict
 		kde-misc/openofficeorg-thumbnail
 	)
-	distro_CLDG? (
+	cdistro_CLDG? (
 		app-text/stardict
 		net-news/liferea
 	)
-	distro_CLDX? (
+	cdistro_CLDX? (
 		app-editors/mousepad
 		app-text/evince
 		app-text/stardict

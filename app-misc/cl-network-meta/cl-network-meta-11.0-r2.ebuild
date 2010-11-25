@@ -11,22 +11,22 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_desktop distro_CLD distro_CLDG distro_CLDX distro_CDS"
+IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS"
 
 RDEPEND="
-	distro_desktop? (
+	cdistro_desktop? (
 		app-text/wgetpaste
 		net-analyzer/nmap
 		net-im/skype
 		www-client/chromium
 		www-plugins/adobe-flash
 	)
-	distro_CLD? (
+	cdistro_CLD? (
 		net-im/choqok
 		net-irc/konversation
 		net-p2p/eiskaltdcpp
 	)
-	distro_CLDG? (
+	cdistro_CLDG? (
 		net-ftp/filezilla
 		net-im/pidgin
 		net-irc/xchat
@@ -36,7 +36,7 @@ RDEPEND="
 		x11-plugins/pidgin-facebookchat
 		x11-plugins/pidgin-hotkeys
 	)
-	distro_CLDX? (
+	cdistro_CLDX? (
 		app-cdr/xfburn
 		net-ftp/filezilla
 		net-news/liferea
@@ -53,7 +53,7 @@ RDEPEND="
 		x11-plugins/pidgin-hotkeys
 		x11-plugins/pidgin-libnotify
 	)
-	distro_CDS? (
+	cdistro_CDS? (
 		app-text/wgetpaste
 		net-analyzer/fail2ban
 		net-analyzer/ipcad

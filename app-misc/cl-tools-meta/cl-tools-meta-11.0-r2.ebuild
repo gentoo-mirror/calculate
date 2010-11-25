@@ -11,10 +11,10 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="distro_CLS distro_desktop distro_CLD distro_CLDG distro_CLDX distro_CDS"
+IUSE="cdistro_CLS cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS"
 
 RDEPEND="
-	distro_CLD? (
+	cdistro_CLD? (
 		app-misc/calculate-install-gui
 		media-fonts/dejavu
 		virtual/dhcpc
@@ -24,7 +24,7 @@ RDEPEND="
 		x11-terms/rxvt-unicode
 		x11-wm/openbox
 	)
-	distro_desktop? (
+	cdistro_desktop? (
 		app-misc/calculate-install-gui
 		media-fonts/dejavu
 		virtual/dhcpc
@@ -80,19 +80,19 @@ RDEPEND="
 		sys-kernel/module-rebuild
 		sys-process/htop
 	)
-	distro_CLD? (
+	cdistro_CLD? (
 		sys-block/partitionmanager
 	)
-	distro_CLDG? (
+	cdistro_CLDG? (
 		sys-block/gparted
 		x11-misc/glipper
 	)
-	distro_CLDX? (
+	cdistro_CLDX? (
 		sys-block/gparted
 		x11-misc/ktsuss
 		x11-terms/terminal
 	)
-	distro_CDS? (
+	cdistro_CDS? (
 		app-admin/hddtemp
 		app-admin/testdisk
 		app-antivirus/clamav
