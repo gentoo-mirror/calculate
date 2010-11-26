@@ -178,14 +178,28 @@ then
 fi
 
 # Update configuration files for package installation
-if [[ ${EBUILD_PHASE} == preinst ]]; then
+if [[ ${EBUILD_PHASE} == setup ]]; then
+    userBashrc="/etc/portage/bashrc"
+    if [[ -f /etc/portage/bashrc ]] &&
+       grep -q -e "function\s+post_pkg_preinst" -e "post_pkg_preinst\(\)" $userBashrc &&
+       ! grep -q "calculate_post_pkg_preinst" $userBashrc;
+    then 
+        ewarn ""
+        ewarn "!!! WARNING !!!  WARNING !!!  WARNING !!!  WARNING !!!"
+        ewarn "Redeclaration post_pkg_reinst was detected in ${useBashrc}."
+        ewarn "Remove it for correct package configuration."
+        inherit eutils
+        ebeep 5
+    fi
+fi
+
+post_pkg_preinst() {
 	CL_UPDATE_PROG=/usr/lib/calculate-2.2/calculate-lib/bin/cl-update-config
 	if [ -e ${CL_UPDATE_PROG} ];then
 		[[ -z ${CONFIG_PROTECT} && -e /etc/profile ]] && source /etc/profile
 		CONFIG_PROTECT=${CONFIG_PROTECT} ${CL_UPDATE_PROG} --desktop --system --pkg_version ${PV} --pkg_category ${CATEGORY} --path ${D} $PN
 	fi
-fi
-
+}
 # added for calculate2.2
 # FUNC: change_permissions
 # DESC: change permissions for all files and directories into specified
