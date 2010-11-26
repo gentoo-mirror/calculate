@@ -35,6 +35,7 @@ RDEPEND="
 		media-video/cheese
 	)
 	cdistro_CLDX? (
+		app-cdr/xfburn
 		media-sound/audacious
 		media-video/gnome-mplayer
 	)

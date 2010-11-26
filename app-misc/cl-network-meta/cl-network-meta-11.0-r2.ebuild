@@ -37,7 +37,6 @@ RDEPEND="
 		x11-plugins/pidgin-hotkeys
 	)
 	cdistro_CLDX? (
-		app-cdr/xfburn
 		net-ftp/filezilla
 		net-news/liferea
 		mail-client/claws-mail
