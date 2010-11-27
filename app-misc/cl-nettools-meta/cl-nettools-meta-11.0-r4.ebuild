@@ -21,26 +21,22 @@ RDEPEND="
 
 	cdistro_desktop? (
 		net-fs/nfs-utils
+		net-misc/cnetworkmanager
+		net-misc/networkmanager
+		net-misc/networkmanager-openvpn
+		net-misc/networkmanager-pptp
+		net-misc/networkmanager-vpnc
 	)
 	cdistro_CLD? (
 		net-misc/kvpnc
-		net-misc/cnetworkmanager
-		net-misc/networkmanager
-		net-misc/networkmanager-openvpn
-		net-misc/networkmanager-pptp
-		net-misc/networkmanager-vpnc
 	)
 	cdistro_CLDG? (
 		gnome-extra/nm-applet
-		net-misc/cnetworkmanager
-		net-misc/networkmanager
-		net-misc/networkmanager-openvpn
-		net-misc/networkmanager-pptp
-		net-misc/networkmanager-vpnc
 		net-wireless/blueman
 	)
 	cdistro_CLDX? (
-		net-misc/wicd
+		gnome-extra/nm-applet
+		net-wireless/blueman
 	)
 	cdistro_CDS? (
 		net-dialup/freeradius
