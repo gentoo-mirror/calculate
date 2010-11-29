@@ -12,7 +12,8 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 amd64"
-IUSE="calculate_nodecoration calculate_nonetwork calculate_noprinter calculate_nowireless"
+IUSE="calculate_nodecoration calculate_nokernel calculate_nonetwork
+calculate_noprinter calculate_nowireless"
 
 RDEPEND="
 	>=sys-auth/pambase-20101024
@@ -25,6 +26,7 @@ RDEPEND="${RDEPEND}
 	app-misc/cl-tools-meta
 
 	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
+	!calculate_nokernel? ( sys-kernel/calculate-sources )
 	!calculate_nonetwork? ( app-misc/cl-network-meta )
 	!calculate_noprinter? ( app-misc/cl-printer-meta )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
