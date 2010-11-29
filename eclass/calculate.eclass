@@ -241,13 +241,10 @@ initramfs_pack() {
 # Install into initramfs splash data, which descripted by
 # /etc/splash/tty1/1024x768.cfg
 calculate_update_splash() {
-	if which splash_geninitramfs &>/dev/null && \
-		[[ -e /etc/splash/tty1 ]]
-	then
-		ebegin "Update splash screen for $1"
-		splash_geninitramfs -a $1 tty1
-		eend $?
-	fi 
+	ebegin "Update splash screen for $1"
+	initramfs_unpack $1 &&
+	initramfs_change_spalsh && initramfs_pack $1
+	eend $?
 }
 
 # @FUNCTION: calculate_set_kernelversion
@@ -370,29 +367,7 @@ change_grub() {
 # DESCRIPTION:
 # Init LINUXVER,ROOTDEV
 calculate_initvars() {
-	makeProfile=/etc/make.profile
-	if [[ -f ${CALCULATE_INI} ]]
-	then
-		LINUXVER=$( get_value linuxver < ${CALCULATE_INI} )
-	else
-		LINUXVER=10
-		if [[ $(readlink $makeProfile) =~ \
-			.*(calculate/(server|desktop)/([^/]+)/).* ]]
-		then
-			CALCULATEDISTRO=$(echo ${BASH_REMATCH[3]} | tr [:upper:] [:lower:])
-			metaPkgFile=/var/db/pkg/app-misc
-			if [[ "$(ls $metaPkgFile | grep ${CALCULATEDISTRO}-meta)" =~ \
-				${CALCULATEDISTRO}-meta-((.*?)-r[0-9]+|(.*?)) ]]
-			then
-				if [[ -n ${BASH_REMATCH[2]} ]]
-				then
-					LINUXVER=${BASH_REMATCH[2]}
-				else
-					LINUXVER=${BASH_REMATCH[3]}
-				fi
-			fi
-		fi
-	fi
+	LINUXVER=$( get_value linuxver < ${CALCULATE_INI} )
 	ROOTDEV=$( get_value root < ${ROOT}/proc/cmdline )
 }
 
@@ -415,7 +390,7 @@ calculate_change_version() {
 # DESCRIPTION:
 # Get latest regular file by name
 get_last_filename() {
-	findfiles=$(ls -d $1/$2*$3 2>/dev/null)
+	findfiles=$(ls $1/$2*$3 2>/dev/null)
 	if [[ -n $findfiles ]]
 	then
 		for line in $findfiles
