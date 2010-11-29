@@ -33,9 +33,6 @@ RDEPEND="
 		media-gfx/cldg-themes
 		x11-themes/gnome-themes-extras
 		x11-themes/tango-icon-theme
-		x11-apps/ccsm
-		x11-apps/fusion-icon
-		x11-wm/compiz-fusion
 	)
 	cdistro_CLDX? (
 		media-gfx/cldx-themes
