@@ -28,6 +28,7 @@ pkg_postinst() {
 	local initrdinstallfile=$(calculate_get_current_initrd -install)
 	[[ -f ${ROOT}${initrdfile} ]] &&
 		calculate_update_splash ${ROOT}${initrdfile}
-	[[ -f ${ROOT}${initrdinstallfile} ]] &&
+	[[ -f ${ROOT}${initrdinstallfile} &&
+		"${ROOT}${initrdinstallfile}" != "${ROOT}${initrdfile}" ]] &&
 		calculate_update_splash ${ROOT}${initrdinstallfile}
 }
