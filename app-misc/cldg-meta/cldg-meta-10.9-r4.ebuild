@@ -12,10 +12,20 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="calculate_nocompiz calculate_nodecoration calculate_nognome
-calculate_nographics calculate_nokernel calculate_nomultimedia
-calculate_nonetwork calculate_nonettools calculate_noprinter
-calculate_nooffice calculate_nowireless"
+IUSE="
+calculate_nocompiz
+calculate_nodecoration
+calculate_nognome
+calculate_nographics
+calculate_nokernel
+calculate_nomultimedia
+calculate_nonetwork
+calculate_nonettools
+calculate_noprinter
+calculate_nooffice
+calculate_noxorg
+calculate_nowireless
+"
 
 RDEPEND="${RDEPEND}
 	!app-misc/cls-meta
@@ -42,6 +52,7 @@ RDEPEND="
 	!calculate_nonettools? ( app-misc/cl-nettools-meta )
 	!calculate_noprinter? ( app-misc/cl-printer-meta )
 	!calculate_nooffice? ( app-misc/cl-office-meta )
+	!calculate_noxorg? ( app-misc/cl-xorg-meta )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 "
 

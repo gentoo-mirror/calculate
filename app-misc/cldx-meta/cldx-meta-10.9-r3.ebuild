@@ -5,45 +5,58 @@
 EAPI=2
 inherit calculate
 
-DESCRIPTION="Calculate Linux Scratch (meta package)"
-HOMEPAGE="http://www.calculate-linux.org/main/en/cls"
+DESCRIPTION="Calculate Linux Desktop XFCE (meta package)"
+HOMEPAGE="http://www.calculate-linux.org/main/en/cld"
 SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86 amd64"
-IUSE="calculate_nodecoration calculate_nokernel calculate_nonetwork
-calculate_noprinter calculate_nowireless"
+KEYWORDS="amd64 x86"
+IUSE="
+calculate_nodecoration
+calculate_nographics
+calculate_nokernel
+calculate_nomultimedia
+calculate_nonetwork
+calculate_nonettools
+calculate_noprinter
+calculate_nooffice
+calculate_noxfce
+calculate_noxorg
+calculate_nowireless
+"
 
 RDEPEND="
-	>=sys-auth/pambase-20101024
-	>=sys-apps/shadow-4.1.4.2-r6
+	!app-misc/cls-meta
+	!app-misc/cl-dict-meta
+	!app-misc/cl-desktop-meta
 	!app-misc/cl-useful-meta
+	!mail-client/claws-mail-gtkhtml
+	!net-misc/wicd
 "
 
 RDEPEND="${RDEPEND}
 	app-misc/cl-base-meta
 	app-misc/cl-tools-meta
 
+	!calculate_noxfce? ( app-misc/cl-xfce-meta )
 	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
+	!calculate_nographics? ( app-misc/cl-graphics-meta )
 	!calculate_nokernel? ( sys-kernel/calculate-sources )
+	!calculate_nomultimedia? ( app-misc/cl-multimedia-meta )
 	!calculate_nonetwork? ( app-misc/cl-network-meta )
+	!calculate_nonettools? ( app-misc/cl-nettools-meta )
 	!calculate_noprinter? ( app-misc/cl-printer-meta )
+	!calculate_nooffice? ( app-misc/cl-office-meta )
+	!calculate_noxorg? ( app-misc/cl-xorg-meta )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 "
-
-cxxflags_present_in() {
-	grep CXXFLAGS $1 &>/dev/null
-	return $?
-}
-
-append_cxxflags_to() {
-	sed -i '$aCXXFLAGS="\${CFLAGS}"' $1
-}
-
+# Base
+RDEPEND="${RDEPEND}
+	gnome-base/gdm
+"
 
 pkg_postinst() {
-	cxxflags_present_in /etc/make.conf || append_cxxflags_to /etc/make.conf
 	calculate_change_version
 
 	local calculatename=$( get_value calculate < ${CALCULATE_INI} )
@@ -52,7 +65,7 @@ pkg_postinst() {
 	# check version on stable (PV hasn't 999)
 	if ! [[ "$PV" =~ 999 ]]
 	then
-		[[ "$calculatename" == "CLS" ]] &&
+		[[ "$calculatename" == "CLDX" ]] &&
 		[[ -n "$(eselect profile show |
 			grep calculate/${system}/${calculatename}/${ARCH}/developer)" ]] && 
 			eselect profile set calculate/${system}/${calculatename}/${ARCH}

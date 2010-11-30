@@ -22,8 +22,6 @@ RDEPEND="
 	cdistro_desktop? (
 		app-vim/colorschemes
 		app-vim/vimcommander
-		media-fonts/corefonts
-		media-fonts/droid
 	)
 	cdistro_CLD? (
 		media-gfx/cld-themes

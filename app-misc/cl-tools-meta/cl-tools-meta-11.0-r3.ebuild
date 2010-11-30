@@ -13,26 +13,12 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="cdistro_CLS cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS"
 
-RDEPEND="
-	cdistro_CLD? (
-		app-misc/calculate-install-gui
-		media-fonts/dejavu
-		virtual/dhcpc
-		sys-apps/pcmciautils
-		sys-apps/usb_modeswitch
-		x11-base/xorg-x11
-		x11-terms/rxvt-unicode
-		x11-wm/openbox
-	)
+RDEPEND="${RDEPEND}
 	cdistro_desktop? (
 		app-misc/calculate-install-gui
-		media-fonts/dejavu
 		virtual/dhcpc
 		sys-apps/pcmciautils
 		sys-apps/usb_modeswitch
-		x11-base/xorg-x11
-		x11-terms/rxvt-unicode
-		x11-wm/openbox
 
 		app-admin/sudo
 		dev-python/ipython
@@ -137,6 +123,9 @@ RDEPEND="
 		sys-kernel/module-rebuild
 		sys-process/htop
 		sys-process/lsof
+	)
+	cdistro_CLS? (
+		virtual/dhcpc
 	)
 "
 

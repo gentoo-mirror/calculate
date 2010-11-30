@@ -5,7 +5,7 @@
 EAPI=2
 
 DESCRIPTION="Calculate Linux (XFCE meta package)"
-HOMEPAGE="http://www.calculate-linux.org/main/en/cld"
+HOMEPAGE="http://www.calculate-linux.org"
 SRC_URI=""
 
 LICENSE="GPL-2"
