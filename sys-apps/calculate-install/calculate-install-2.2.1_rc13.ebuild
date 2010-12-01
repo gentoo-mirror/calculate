@@ -16,7 +16,7 @@ SLOT="0"
 IUSE="minimal"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-lib-2.2.1_rc12
+DEPEND="~sys-apps/calculate-lib-2.2.1_rc13
 	app-portage/layman
 	!minimal? ( sys-boot/grub
 	sys-fs/dosfstools
