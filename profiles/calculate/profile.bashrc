@@ -197,7 +197,7 @@ post_pkg_preinst() {
 	CL_UPDATE_PROG=/usr/lib/calculate-2.2/calculate-lib/bin/cl-update-config
 	if [ -e ${CL_UPDATE_PROG} ];then
 		[[ -z ${CONFIG_PROTECT} && -e /etc/profile ]] && source /etc/profile
-		CONFIG_PROTECT=${CONFIG_PROTECT} ${CL_UPDATE_PROG} --desktop --system --pkg_version ${PV} --pkg_category ${CATEGORY} --path ${D} $PN
+		CONFIG_PROTECT=${CONFIG_PROTECT} ${CL_UPDATE_PROG} --desktop --system --pkg_version ${PVR} --pkg_category ${CATEGORY} --path ${D} $PN
 	fi
 }
 # added for calculate2.2
