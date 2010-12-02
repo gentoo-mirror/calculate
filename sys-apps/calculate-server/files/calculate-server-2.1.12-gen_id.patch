@@ -1,0 +1,53 @@
+diff --git a/pym/cl_fill_server.py b/pym/cl_fill_server.py
+index 87b965e..84eec71 100644
+--- a/pym/cl_fill_server.py
++++ b/pym/cl_fill_server.py
+@@ -230,15 +230,16 @@ class fillVars(object, cl_base.glob_attr):
+         for replServer in replServers:
+             if replServer:
+                 md5hex = hashlib.md5(replServer).hexdigest()
++                data8bit = "".join(map(lambda x: str(int(x,16)/2),list(md5hex)))
+                 dStart = 0
+                 dEnd = 3
+                 dMax = 32
+-                while(dEnd<=dMax and md5hex[dStart:dEnd] in rids):
++                while(dEnd<=dMax and data8bit[dStart:dEnd] in rids):
+                     dStart += 1
+                     dEnd +=1
+                 if dEnd>=dMax:
+                     return ""
+-                rids.append(str(int(md5hex[dStart:dEnd],16)))
++                rids.append(data8bit[dStart:dEnd])
+         return ",".join(rids)
+ 
+     def get_ld_repl_id(self):
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 28d35fc..8aebb09 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -7289,6 +7289,16 @@ outdated. If the backup is obsolete, use cl-backup."))
+                 return files
+             return True
+ 
++    def updateIDReplServers(self):
++        """Обновление id серверов репликации для LDAP"""
++        if self.clVars.Get("ld_repl_set") == "on":
++            replIds = self.clVars.Get("ld_repl_ids")
++            self.reloadDefaultVar("ld_repl_ids")
++            newReplIds = self.clVars.Get("ld_repl_ids")
++            if replIds != newReplIds:
++                 self.clVars.Write("ld_repl_ids",newReplIds,
++                                   True,"local")
++        return True
+ 
+     def updateServer(self, options, serviceUpdate, clVars=False,
+                      noInputAllowNetServices=[], printReplServ=True):
+@@ -7456,6 +7466,8 @@ outdated. If the backup is obsolete, use cl-backup."))
+         # Флаг почтового релея
+         flagMailRelay = False
+         if not flagError:
++            # Обновление id серверов репликации
++            self.updateIDReplServers()
+             for service in servInstalled:
+                 if service == "ldap":
+                     continue
