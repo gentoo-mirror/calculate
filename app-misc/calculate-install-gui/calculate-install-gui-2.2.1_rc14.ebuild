@@ -15,7 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-install-2.2.1_rc13
+DEPEND="~sys-apps/calculate-install-2.2.1_rc14
 	x11-libs/qtermwidget"
 
 RDEPEND="${DEPEND}"
