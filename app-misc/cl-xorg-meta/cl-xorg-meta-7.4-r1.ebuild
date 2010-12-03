@@ -84,4 +84,7 @@ RDEPEND="${RDEPEND}
 	media-fonts/dejavu
 	media-fonts/droid
 "
-
+# Other
+RDEPEND="${RDEPEND}
+	x11-libs/xosd
+"
