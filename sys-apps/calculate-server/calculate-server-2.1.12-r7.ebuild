@@ -48,6 +48,8 @@ src_unpack() {
 	epatch "${FILESDIR}/calculate-server-2.1.12-fix-remote.patch"
 	# change palce of i18n files to /usr/share/calculate-2.0
 	epatch "${FILESDIR}/server_i18n_path.patch"
+	# fix generate replication id
+	epatch "${FILESDIR}/calculate-server-2.1.12-gen_id.patch"
 }
 
 pkg_postinst() {
