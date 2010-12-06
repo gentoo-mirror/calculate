@@ -40,6 +40,9 @@ media-video/nvidia-settings amd64 x86
 ~dev-libs/liblinebreak-1.0 amd64 x86
 ~net-wireless/blueman-1.21 amd64 x86
 
+#to work properly networkmanager
+~net-misc/dhcpcd-5.2.9 amd64 x86
+
 ~net-im/skype-2.1.0.81 amd64 x86
 
 ~x11-libs/qtermwidget-0.1 amd64 x86
