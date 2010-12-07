@@ -213,14 +213,26 @@ change_permissions() {
 	local dirmode=0$(stat -c%a ${directory})
 	# get permissions from parent directory
 	local dirmode=0$(stat -c%a ${directory})
+	
 	# turnoff execute for all (permission for files in parent directory)
-	local filemode=0$(echo "obase=8;$(( $dirmode & 0666 ))" | bc)
+	if which bc &>/dev/null;
+	then
+		local filemode=0$(echo "obase=8;$(( $dirmode & 0666 ))" | bc)
+	elif which printf &>/dev/null;
+	then
+		local filemode=$(printf "0%o" $(( $dirmode & 0666 )) )
+	else
+		local filemode=
+	fi
 	# set for all files and directories dirowner
 	chown -R ${dirowner} ${directory}
 	# set permissions for all directories in parent directory
 	find ${directory} \! -perm ${dirmode} -type d -exec chmod ${dirmode} {} \;
-	# set permissions for all files in parent directory
-	find ${directory} \! -perm ${filemode} -type f -exec chmod ${filemode} {} \;
+	if [[ -n $filemode ]]
+	then
+		# set permissions for all files in parent directory
+		find ${directory} \! -perm ${filemode} -type f -exec chmod ${filemode} {} \;
+	fi
 }
 
 # DISTDIR located at /var/calculate/remote
