@@ -414,7 +414,6 @@ calculate_change_version() {
 	if [[ -n "${LINUXVER}" ]] && ! version_is_at_least ${PV} ${LINUXVER}
 	then
 		ebegin "Change version of operation system"
-			set_value linuxver ${PV} ${CALCULATE_INI} &&
 			change_issue &&
 			change_grub
 		eend $?
