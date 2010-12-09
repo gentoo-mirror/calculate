@@ -2,7 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit calculate
 EAPI=2
 
 DESCRIPTION="Calculate Linux Desktop KDE (meta package)"
@@ -49,20 +48,3 @@ RDEPEND="${RDEPEND}
 	!calculate_noxorg? ( app-misc/cl-xorg-meta )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 "
-
-pkg_postinst() {
-	calculate_change_version
-
-	local calculatename=$( get_value calculate < ${CALCULATE_INI} )
-	local system=$( get_value system < ${CALCULATE_INI} )
-
-	# check version on stable (PV hasn't 999)
-	if ! [[ "$PV" =~ 999 ]]
-	then
-		[[ "$calculatename" == "CLD" ]] &&
-		[[ -n "$(eselect profile show |
-			grep calculate/${system}/${calculatename}/${ARCH}/developer)" ]] && 
-			eselect profile set calculate/${system}/${calculatename}/${ARCH}
-	fi
-}
-

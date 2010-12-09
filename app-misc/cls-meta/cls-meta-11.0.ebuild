@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI=2
-inherit calculate
 
 DESCRIPTION="Calculate Linux Scratch (meta package)"
 HOMEPAGE="http://www.calculate-linux.org/main/en/cls"
@@ -40,30 +39,3 @@ RDEPEND="${RDEPEND}
 	!calculate_noxorg? ( app-misc/cl-xorg-meta )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 "
-
-cxxflags_present_in() {
-	grep CXXFLAGS $1 &>/dev/null
-	return $?
-}
-
-append_cxxflags_to() {
-	sed -i '$aCXXFLAGS="\${CFLAGS}"' $1
-}
-
-
-pkg_postinst() {
-	cxxflags_present_in /etc/make.conf || append_cxxflags_to /etc/make.conf
-	calculate_change_version
-
-	local calculatename=$( get_value calculate < ${CALCULATE_INI} )
-	local system=$( get_value system < ${CALCULATE_INI} )
-
-	# check version on stable (PV hasn't 999)
-	if ! [[ "$PV" =~ 999 ]]
-	then
-		[[ "$calculatename" == "CLS" ]] &&
-		[[ -n "$(eselect profile show |
-			grep calculate/${system}/${calculatename}/${ARCH}/developer)" ]] && 
-			eselect profile set calculate/${system}/${calculatename}/${ARCH}
-	fi
-}

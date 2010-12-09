@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI=2
-inherit calculate
 
 DESCRIPTION="Calculate Directory Server (meta package)"
 HOMEPAGE="http://www.calculate-linux.org/main/en/cds"
@@ -60,30 +59,3 @@ RDEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	net-nds/openldap
 "
-
-cxxflags_present_in() {
-	grep CXXFLAGS $1 &>/dev/null
-	return $?
-}
-
-append_cxxflags_to() {
-	sed -i '$aCXXFLAGS="\${CFLAGS}"' $1
-}
-
-
-pkg_postinst() {
-	cxxflags_present_in /etc/make.conf || append_cxxflags_to /etc/make.conf
-	calculate_change_version
-
-	local calculatename=$( get_value calculate < ${CALCULATE_INI} )
-	local system=$( get_value system < ${CALCULATE_INI} )
-
-	# check version on stable (PV hasn't 999)
-	if ! [[ "$PV" =~ 999 ]]
-	then
-		[[ "$calculatename" == "CDS" ]] &&
-		[[ -n "$(eselect profile show |
-			grep calculate/${system}/${calculatename}/${ARCH}/developer)" ]] && 
-			eselect profile set calculate/${system}/${calculatename}/${ARCH}
-	fi
-}

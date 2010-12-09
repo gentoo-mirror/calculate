@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit calculate
 EAPI=2
 
 DESCRIPTION="Calculate Linux (meta package)"
@@ -21,4 +22,24 @@ RDEPEND="
 	cdistro_CLS? ( app-misc/cls-meta )
 	cdistro_CSS? ( app-misc/css-meta )
 "
+
+pkg_postinst() {
+	calculate_change_version
+
+	local calculatename=$( detect_linux_shortname )
+	local system=desktop
+	if [[ $calculatename == "CDS" ]] || [[ $calculatename == "CSS" ]]
+	then
+		system=server
+	fi
+
+	# check version on stable (PV hasn't 999)
+	if ! [[ "$PV" =~ 999 ]]
+	then
+		[[ -n "$calculatename" ]] &&
+		[[ -n "$(eselect profile show |
+			grep calculate/${system}/${calculatename}/${ARCH})" ]] && 
+			eselect profile set calculate/${system}/${calculatename}/${ARCH}/binary
+	fi
+}
 
