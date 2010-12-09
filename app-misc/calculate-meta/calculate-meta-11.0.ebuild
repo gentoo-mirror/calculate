@@ -37,6 +37,8 @@ pkg_postinst() {
 	if ! [[ "$PV" =~ 999 ]]
 	then
 		[[ -n "$calculatename" ]] &&
+		[[ "$calculatename" != "CLS" ]] &&
+		[[ "$calculatename" != "CSS" ]] &&
 		[[ -n "$(eselect profile show |
 			grep calculate/${system}/${calculatename}/${ARCH})" ]] && 
 			eselect profile set calculate/${system}/${calculatename}/${ARCH}/binary
