@@ -10,7 +10,7 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="calculate_nodecoration calculate_nokernel calculate_nonettools
 calculate_nonetwork calculate_nowireless
 calculate_nodhcp calculate_noftp calculate_nojabber calculate_nomail
