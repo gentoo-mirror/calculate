@@ -17,7 +17,7 @@ RDEPEND="!media-gfx/calculate-cldx-themes
 		!media-gfx/calculate-cld-themes
 		!media-gfx/cldx-themes
 		media-gfx/splashutils
-		>=sys-apps/calculate-templates-2.2.1-r2"
+		>=sys-apps/calculate-templates-2.2.1-r4"
 
 DEPEND="${RDEPEND}"
 
