@@ -18,6 +18,14 @@ DEPEND=""
 
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# themes fix patch
+	epatch "${FILESDIR}/calculate-templates-2.2.1-fixthemes.patch"
+}
+
 src_compile() {
 :
 }
