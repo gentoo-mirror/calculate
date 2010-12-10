@@ -21,10 +21,19 @@ index 7b2a760..3895bc6 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cds-themes/tty1/800x600.cfg b/install/1merge/cds-themes/tty1/800x600.cfg
-index cb63e9a..28e7a72 100644
+index cb63e9a..4b4daae 100644
 --- a/install/1merge/cds-themes/tty1/800x600.cfg
 +++ b/install/1merge/cds-themes/tty1/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -37,11 +46,14 @@ index cb63e9a..28e7a72 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cds-themes/tty2/1024x768.cfg b/install/1merge/cds-themes/tty2/1024x768.cfg
 index db78bd4..1dd57cf 100644
 --- a/install/1merge/cds-themes/tty2/1024x768.cfg
@@ -65,10 +77,19 @@ index db78bd4..1dd57cf 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cds-themes/tty2/800x600.cfg b/install/1merge/cds-themes/tty2/800x600.cfg
-index fdb4ca9..23eee54 100644
+index fdb4ca9..f73bcab 100644
 --- a/install/1merge/cds-themes/tty2/800x600.cfg
 +++ b/install/1merge/cds-themes/tty2/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -81,11 +102,14 @@ index fdb4ca9..23eee54 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cds-themes/tty3/1024x768.cfg b/install/1merge/cds-themes/tty3/1024x768.cfg
 index db3a84e..2eefd26 100644
 --- a/install/1merge/cds-themes/tty3/1024x768.cfg
@@ -109,10 +133,19 @@ index db3a84e..2eefd26 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cds-themes/tty3/800x600.cfg b/install/1merge/cds-themes/tty3/800x600.cfg
-index 56ec395..8bc61cd 100644
+index 56ec395..bdec625 100644
 --- a/install/1merge/cds-themes/tty3/800x600.cfg
 +++ b/install/1merge/cds-themes/tty3/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -125,11 +158,14 @@ index 56ec395..8bc61cd 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cds-themes/tty4/1024x768.cfg b/install/1merge/cds-themes/tty4/1024x768.cfg
 index edadc69..03bd5e8 100644
 --- a/install/1merge/cds-themes/tty4/1024x768.cfg
@@ -153,10 +189,19 @@ index edadc69..03bd5e8 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cds-themes/tty4/800x600.cfg b/install/1merge/cds-themes/tty4/800x600.cfg
-index d49b5be..035200f 100644
+index d49b5be..6dc0633 100644
 --- a/install/1merge/cds-themes/tty4/800x600.cfg
 +++ b/install/1merge/cds-themes/tty4/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -169,11 +214,14 @@ index d49b5be..035200f 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cds-themes/tty5/1024x768.cfg b/install/1merge/cds-themes/tty5/1024x768.cfg
 index f0792d2..2938667 100644
 --- a/install/1merge/cds-themes/tty5/1024x768.cfg
@@ -197,10 +245,19 @@ index f0792d2..2938667 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cds-themes/tty5/800x600.cfg b/install/1merge/cds-themes/tty5/800x600.cfg
-index e7f4837..ad4fc09 100644
+index e7f4837..f68b49c 100644
 --- a/install/1merge/cds-themes/tty5/800x600.cfg
 +++ b/install/1merge/cds-themes/tty5/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -213,11 +270,14 @@ index e7f4837..ad4fc09 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cds-themes/tty6/1024x768.cfg b/install/1merge/cds-themes/tty6/1024x768.cfg
 index d248b2f..27366e6 100644
 --- a/install/1merge/cds-themes/tty6/1024x768.cfg
@@ -241,10 +301,19 @@ index d248b2f..27366e6 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cds-themes/tty6/800x600.cfg b/install/1merge/cds-themes/tty6/800x600.cfg
-index 4a49e55..78dd248 100644
+index 4a49e55..017080f 100644
 --- a/install/1merge/cds-themes/tty6/800x600.cfg
 +++ b/install/1merge/cds-themes/tty6/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -257,11 +326,14 @@ index 4a49e55..78dd248 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cld-themes/tty1/1024x768.cfg b/install/1merge/cld-themes/tty1/1024x768.cfg
 index 785793a..65b8bd0 100644
 --- a/install/1merge/cld-themes/tty1/1024x768.cfg
@@ -285,10 +357,19 @@ index 785793a..65b8bd0 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cld-themes/tty1/800x600.cfg b/install/1merge/cld-themes/tty1/800x600.cfg
-index 36018a4..89fa2bd 100644
+index 36018a4..02cf52d 100644
 --- a/install/1merge/cld-themes/tty1/800x600.cfg
 +++ b/install/1merge/cld-themes/tty1/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -301,11 +382,14 @@ index 36018a4..89fa2bd 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cld-themes/tty2/1024x768.cfg b/install/1merge/cld-themes/tty2/1024x768.cfg
 index 2af3f4c..b0a7e56 100644
 --- a/install/1merge/cld-themes/tty2/1024x768.cfg
@@ -329,10 +413,19 @@ index 2af3f4c..b0a7e56 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cld-themes/tty2/800x600.cfg b/install/1merge/cld-themes/tty2/800x600.cfg
-index d836b48..98f4369 100644
+index d836b48..782566e 100644
 --- a/install/1merge/cld-themes/tty2/800x600.cfg
 +++ b/install/1merge/cld-themes/tty2/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -345,11 +438,14 @@ index d836b48..98f4369 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cld-themes/tty3/1024x768.cfg b/install/1merge/cld-themes/tty3/1024x768.cfg
 index edfd14f..78dd7b0 100644
 --- a/install/1merge/cld-themes/tty3/1024x768.cfg
@@ -373,10 +469,19 @@ index edfd14f..78dd7b0 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cld-themes/tty3/800x600.cfg b/install/1merge/cld-themes/tty3/800x600.cfg
-index 97d4060..865212b 100644
+index 97d4060..2830fff 100644
 --- a/install/1merge/cld-themes/tty3/800x600.cfg
 +++ b/install/1merge/cld-themes/tty3/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -389,11 +494,14 @@ index 97d4060..865212b 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cld-themes/tty4/1024x768.cfg b/install/1merge/cld-themes/tty4/1024x768.cfg
 index e4112ac..6765443 100644
 --- a/install/1merge/cld-themes/tty4/1024x768.cfg
@@ -417,10 +525,19 @@ index e4112ac..6765443 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cld-themes/tty4/800x600.cfg b/install/1merge/cld-themes/tty4/800x600.cfg
-index 70de266..c89c245 100644
+index 70de266..ff3561a 100644
 --- a/install/1merge/cld-themes/tty4/800x600.cfg
 +++ b/install/1merge/cld-themes/tty4/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -433,11 +550,14 @@ index 70de266..c89c245 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cld-themes/tty5/1024x768.cfg b/install/1merge/cld-themes/tty5/1024x768.cfg
 index b788de2..a88daf0 100644
 --- a/install/1merge/cld-themes/tty5/1024x768.cfg
@@ -461,10 +581,19 @@ index b788de2..a88daf0 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cld-themes/tty5/800x600.cfg b/install/1merge/cld-themes/tty5/800x600.cfg
-index 5715b06..bcd9135 100644
+index 5715b06..3b1fbf1 100644
 --- a/install/1merge/cld-themes/tty5/800x600.cfg
 +++ b/install/1merge/cld-themes/tty5/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -477,11 +606,14 @@ index 5715b06..bcd9135 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cld-themes/tty6/1024x768.cfg b/install/1merge/cld-themes/tty6/1024x768.cfg
 index 00d9942..f506674 100644
 --- a/install/1merge/cld-themes/tty6/1024x768.cfg
@@ -505,10 +637,19 @@ index 00d9942..f506674 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cld-themes/tty6/800x600.cfg b/install/1merge/cld-themes/tty6/800x600.cfg
-index 440d49f..84538b9 100644
+index 440d49f..0d6928a 100644
 --- a/install/1merge/cld-themes/tty6/800x600.cfg
 +++ b/install/1merge/cld-themes/tty6/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -521,11 +662,14 @@ index 440d49f..84538b9 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldg-themes/tty1/1024x768.cfg b/install/1merge/cldg-themes/tty1/1024x768.cfg
 index 00e4881..650dc72 100644
 --- a/install/1merge/cldg-themes/tty1/1024x768.cfg
@@ -549,10 +693,19 @@ index 00e4881..650dc72 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldg-themes/tty1/800x600.cfg b/install/1merge/cldg-themes/tty1/800x600.cfg
-index a157aa1..0124b11 100644
+index a157aa1..7171503 100644
 --- a/install/1merge/cldg-themes/tty1/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty1/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -565,11 +718,14 @@ index a157aa1..0124b11 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldg-themes/tty2/1024x768.cfg b/install/1merge/cldg-themes/tty2/1024x768.cfg
 index d3f458d..30d47a2 100644
 --- a/install/1merge/cldg-themes/tty2/1024x768.cfg
@@ -593,10 +749,19 @@ index d3f458d..30d47a2 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldg-themes/tty2/800x600.cfg b/install/1merge/cldg-themes/tty2/800x600.cfg
-index 0d8995e..b3fed2c 100644
+index 0d8995e..1b2462f 100644
 --- a/install/1merge/cldg-themes/tty2/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty2/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -609,11 +774,14 @@ index 0d8995e..b3fed2c 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldg-themes/tty3/1024x768.cfg b/install/1merge/cldg-themes/tty3/1024x768.cfg
 index 1384ea8..1820cd9 100644
 --- a/install/1merge/cldg-themes/tty3/1024x768.cfg
@@ -637,10 +805,19 @@ index 1384ea8..1820cd9 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldg-themes/tty3/800x600.cfg b/install/1merge/cldg-themes/tty3/800x600.cfg
-index 8952c54..f93ad0f 100644
+index 8952c54..05f5922 100644
 --- a/install/1merge/cldg-themes/tty3/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty3/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -653,11 +830,14 @@ index 8952c54..f93ad0f 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldg-themes/tty4/1024x768.cfg b/install/1merge/cldg-themes/tty4/1024x768.cfg
 index 1d83d52..f8e539b 100644
 --- a/install/1merge/cldg-themes/tty4/1024x768.cfg
@@ -681,10 +861,19 @@ index 1d83d52..f8e539b 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldg-themes/tty4/800x600.cfg b/install/1merge/cldg-themes/tty4/800x600.cfg
-index 17f30e0..6796082 100644
+index 17f30e0..c77c204 100644
 --- a/install/1merge/cldg-themes/tty4/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty4/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -697,11 +886,14 @@ index 17f30e0..6796082 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldg-themes/tty5/1024x768.cfg b/install/1merge/cldg-themes/tty5/1024x768.cfg
 index 8eb74b0..b2c514d 100644
 --- a/install/1merge/cldg-themes/tty5/1024x768.cfg
@@ -725,10 +917,19 @@ index 8eb74b0..b2c514d 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldg-themes/tty5/800x600.cfg b/install/1merge/cldg-themes/tty5/800x600.cfg
-index 062354c..d3c0b4f 100644
+index 062354c..808bfee 100644
 --- a/install/1merge/cldg-themes/tty5/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty5/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -741,11 +942,14 @@ index 062354c..d3c0b4f 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldg-themes/tty6/1024x768.cfg b/install/1merge/cldg-themes/tty6/1024x768.cfg
 index 697f082..b8db7d1 100644
 --- a/install/1merge/cldg-themes/tty6/1024x768.cfg
@@ -769,10 +973,19 @@ index 697f082..b8db7d1 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldg-themes/tty6/800x600.cfg b/install/1merge/cldg-themes/tty6/800x600.cfg
-index aee51d7..eb4f80c 100644
+index aee51d7..30ef0b0 100644
 --- a/install/1merge/cldg-themes/tty6/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty6/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -785,11 +998,14 @@ index aee51d7..eb4f80c 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldx-themes/tty1/1024x768.cfg b/install/1merge/cldx-themes/tty1/1024x768.cfg
 index e0b5a2c..4085913 100644
 --- a/install/1merge/cldx-themes/tty1/1024x768.cfg
@@ -813,10 +1029,19 @@ index e0b5a2c..4085913 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldx-themes/tty1/800x600.cfg b/install/1merge/cldx-themes/tty1/800x600.cfg
-index 3a8f5ec..5dd4ca0 100644
+index 3a8f5ec..0f33cac 100644
 --- a/install/1merge/cldx-themes/tty1/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty1/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -829,11 +1054,14 @@ index 3a8f5ec..5dd4ca0 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldx-themes/tty2/1024x768.cfg b/install/1merge/cldx-themes/tty2/1024x768.cfg
 index 1dbd469..94e7cae 100644
 --- a/install/1merge/cldx-themes/tty2/1024x768.cfg
@@ -857,10 +1085,19 @@ index 1dbd469..94e7cae 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldx-themes/tty2/800x600.cfg b/install/1merge/cldx-themes/tty2/800x600.cfg
-index 4505708..76d0bed 100644
+index 4505708..403d2df 100644
 --- a/install/1merge/cldx-themes/tty2/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty2/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -873,11 +1110,14 @@ index 4505708..76d0bed 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldx-themes/tty3/1024x768.cfg b/install/1merge/cldx-themes/tty3/1024x768.cfg
 index 905e44d..a922702 100644
 --- a/install/1merge/cldx-themes/tty3/1024x768.cfg
@@ -901,10 +1141,19 @@ index 905e44d..a922702 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldx-themes/tty3/800x600.cfg b/install/1merge/cldx-themes/tty3/800x600.cfg
-index 32e3c31..d24e126 100644
+index 32e3c31..01d15f8 100644
 --- a/install/1merge/cldx-themes/tty3/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty3/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -917,11 +1166,14 @@ index 32e3c31..d24e126 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldx-themes/tty4/1024x768.cfg b/install/1merge/cldx-themes/tty4/1024x768.cfg
 index 67594b5..bcd814a 100644
 --- a/install/1merge/cldx-themes/tty4/1024x768.cfg
@@ -945,10 +1197,19 @@ index 67594b5..bcd814a 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldx-themes/tty4/800x600.cfg b/install/1merge/cldx-themes/tty4/800x600.cfg
-index 640a795..06f33fd 100644
+index 640a795..e631c25 100644
 --- a/install/1merge/cldx-themes/tty4/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty4/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -961,11 +1222,14 @@ index 640a795..06f33fd 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldx-themes/tty5/1024x768.cfg b/install/1merge/cldx-themes/tty5/1024x768.cfg
 index dd8ec79..852bf25 100644
 --- a/install/1merge/cldx-themes/tty5/1024x768.cfg
@@ -989,10 +1253,19 @@ index dd8ec79..852bf25 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldx-themes/tty5/800x600.cfg b/install/1merge/cldx-themes/tty5/800x600.cfg
-index cd23762..7f14bbf 100644
+index cd23762..62190f8 100644
 --- a/install/1merge/cldx-themes/tty5/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty5/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -1005,11 +1278,14 @@ index cd23762..7f14bbf 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cldx-themes/tty6/1024x768.cfg b/install/1merge/cldx-themes/tty6/1024x768.cfg
 index a7cfb5d..b22070f 100644
 --- a/install/1merge/cldx-themes/tty6/1024x768.cfg
@@ -1033,10 +1309,19 @@ index a7cfb5d..b22070f 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cldx-themes/tty6/800x600.cfg b/install/1merge/cldx-themes/tty6/800x600.cfg
-index 808feac..2e2642d 100644
+index 808feac..ee5c8cb 100644
 --- a/install/1merge/cldx-themes/tty6/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty6/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -1049,11 +1334,14 @@ index 808feac..2e2642d 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cls-themes/tty1/1024x768.cfg b/install/1merge/cls-themes/tty1/1024x768.cfg
 index 1b2479b..94da396 100644
 --- a/install/1merge/cls-themes/tty1/1024x768.cfg
@@ -1077,10 +1365,19 @@ index 1b2479b..94da396 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cls-themes/tty1/800x600.cfg b/install/1merge/cls-themes/tty1/800x600.cfg
-index 8b8fdd2..464df4b 100644
+index 8b8fdd2..7c8d0b8 100644
 --- a/install/1merge/cls-themes/tty1/800x600.cfg
 +++ b/install/1merge/cls-themes/tty1/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -1093,11 +1390,14 @@ index 8b8fdd2..464df4b 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cls-themes/tty2/1024x768.cfg b/install/1merge/cls-themes/tty2/1024x768.cfg
 index 0c41cbf..a49f6d6 100644
 --- a/install/1merge/cls-themes/tty2/1024x768.cfg
@@ -1121,10 +1421,19 @@ index 0c41cbf..a49f6d6 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cls-themes/tty2/800x600.cfg b/install/1merge/cls-themes/tty2/800x600.cfg
-index e0340df..84df01f 100644
+index e0340df..5900f9a 100644
 --- a/install/1merge/cls-themes/tty2/800x600.cfg
 +++ b/install/1merge/cls-themes/tty2/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -1137,11 +1446,14 @@ index e0340df..84df01f 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cls-themes/tty3/1024x768.cfg b/install/1merge/cls-themes/tty3/1024x768.cfg
 index d900b58..2ddef20 100644
 --- a/install/1merge/cls-themes/tty3/1024x768.cfg
@@ -1165,10 +1477,19 @@ index d900b58..2ddef20 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cls-themes/tty3/800x600.cfg b/install/1merge/cls-themes/tty3/800x600.cfg
-index 9fa9cd0..e7173bf 100644
+index 9fa9cd0..8af3c0c 100644
 --- a/install/1merge/cls-themes/tty3/800x600.cfg
 +++ b/install/1merge/cls-themes/tty3/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -1181,11 +1502,14 @@ index 9fa9cd0..e7173bf 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cls-themes/tty4/1024x768.cfg b/install/1merge/cls-themes/tty4/1024x768.cfg
 index 4575404..7332445 100644
 --- a/install/1merge/cls-themes/tty4/1024x768.cfg
@@ -1209,10 +1533,19 @@ index 4575404..7332445 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cls-themes/tty4/800x600.cfg b/install/1merge/cls-themes/tty4/800x600.cfg
-index 87f4312..48e6607 100644
+index 87f4312..6f49d2d 100644
 --- a/install/1merge/cls-themes/tty4/800x600.cfg
 +++ b/install/1merge/cls-themes/tty4/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -1225,11 +1558,14 @@ index 87f4312..48e6607 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cls-themes/tty5/1024x768.cfg b/install/1merge/cls-themes/tty5/1024x768.cfg
 index 9655309..b5001f6 100644
 --- a/install/1merge/cls-themes/tty5/1024x768.cfg
@@ -1253,10 +1589,19 @@ index 9655309..b5001f6 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cls-themes/tty5/800x600.cfg b/install/1merge/cls-themes/tty5/800x600.cfg
-index 018292e..d903d2c 100644
+index 018292e..fc5d969 100644
 --- a/install/1merge/cls-themes/tty5/800x600.cfg
 +++ b/install/1merge/cls-themes/tty5/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -1269,11 +1614,14 @@ index 018292e..d903d2c 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1merge/cls-themes/tty6/1024x768.cfg b/install/1merge/cls-themes/tty6/1024x768.cfg
 index c22cabe..322c4ff 100644
 --- a/install/1merge/cls-themes/tty6/1024x768.cfg
@@ -1297,10 +1645,19 @@ index c22cabe..322c4ff 100644
  box     19 679 1005 679 #eef4ff
  #pkg#
 diff --git a/install/1merge/cls-themes/tty6/800x600.cfg b/install/1merge/cls-themes/tty6/800x600.cfg
-index 56ece74..6dc1f8d 100644
+index 56ece74..56fd4d2 100644
 --- a/install/1merge/cls-themes/tty6/800x600.cfg
 +++ b/install/1merge/cls-themes/tty6/800x600.cfg
-@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
+@@ -13,7 +13,7 @@ bgcolor=0
+ tx=20
+ ty=22
+ tw=764
+-th=507
++th=485
+ 
+ # Full path to background image JPG/PNG silend mode.
+ # Image must has 256 colors.
+@@ -46,14 +46,14 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -1313,11 +1670,14 @@ index 56ece74..6dc1f8d 100644
  #rectangle around text window in verbose mode
 -box     14 14  14 530 #313234
 -box     14 14 785 14 #313234
-+box     14 14  14 530 #8C9096
+-box     785 14 785 530 #eef4ff
+-box     14 530 785 530 #eef4ff
++box     14 14  14 505 #8C9096
 +box     14 14 785 14 #8C9096
- box     785 14 785 530 #eef4ff
- box     14 530 785 530 #eef4ff
++box     785 14 785 505 #eef4ff
++box     14 505 785 505 #eef4ff
  #pkg#
+ 
 diff --git a/install/1system/openrc/conf.d/net b/install/1system/openrc/conf.d/net
 new file mode 100644
 index 0000000..9f72552
