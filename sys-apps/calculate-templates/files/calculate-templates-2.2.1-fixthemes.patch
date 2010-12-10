@@ -1,8 +1,8 @@
 diff --git a/install/1merge/cds-themes/tty1/1024x768.cfg b/install/1merge/cds-themes/tty1/1024x768.cfg
-index 7b2a760..654f264 100644
+index 7b2a760..3895bc6 100644
 --- a/install/1merge/cds-themes/tty1/1024x768.cfg
 +++ b/install/1merge/cds-themes/tty1/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -10,15 +10,21 @@ index 7b2a760..654f264 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty1/800x600.cfg b/install/1merge/cds-themes/tty1/800x600.cfg
-index cb63e9a..728abc0 100644
+index cb63e9a..28e7a72 100644
 --- a/install/1merge/cds-themes/tty1/800x600.cfg
 +++ b/install/1merge/cds-themes/tty1/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -26,15 +32,21 @@ index cb63e9a..728abc0 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty2/1024x768.cfg b/install/1merge/cds-themes/tty2/1024x768.cfg
-index db78bd4..3cb0c55 100644
+index db78bd4..1dd57cf 100644
 --- a/install/1merge/cds-themes/tty2/1024x768.cfg
 +++ b/install/1merge/cds-themes/tty2/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -42,15 +54,21 @@ index db78bd4..3cb0c55 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty2/800x600.cfg b/install/1merge/cds-themes/tty2/800x600.cfg
-index fdb4ca9..047462b 100644
+index fdb4ca9..23eee54 100644
 --- a/install/1merge/cds-themes/tty2/800x600.cfg
 +++ b/install/1merge/cds-themes/tty2/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -58,15 +76,21 @@ index fdb4ca9..047462b 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty3/1024x768.cfg b/install/1merge/cds-themes/tty3/1024x768.cfg
-index db3a84e..185734b 100644
+index db3a84e..2eefd26 100644
 --- a/install/1merge/cds-themes/tty3/1024x768.cfg
 +++ b/install/1merge/cds-themes/tty3/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -74,15 +98,21 @@ index db3a84e..185734b 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty3/800x600.cfg b/install/1merge/cds-themes/tty3/800x600.cfg
-index 56ec395..1ef5b80 100644
+index 56ec395..8bc61cd 100644
 --- a/install/1merge/cds-themes/tty3/800x600.cfg
 +++ b/install/1merge/cds-themes/tty3/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -90,15 +120,21 @@ index 56ec395..1ef5b80 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty4/1024x768.cfg b/install/1merge/cds-themes/tty4/1024x768.cfg
-index edadc69..0f47adb 100644
+index edadc69..03bd5e8 100644
 --- a/install/1merge/cds-themes/tty4/1024x768.cfg
 +++ b/install/1merge/cds-themes/tty4/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -106,15 +142,21 @@ index edadc69..0f47adb 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty4/800x600.cfg b/install/1merge/cds-themes/tty4/800x600.cfg
-index d49b5be..7a78c5a 100644
+index d49b5be..035200f 100644
 --- a/install/1merge/cds-themes/tty4/800x600.cfg
 +++ b/install/1merge/cds-themes/tty4/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -122,15 +164,21 @@ index d49b5be..7a78c5a 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty5/1024x768.cfg b/install/1merge/cds-themes/tty5/1024x768.cfg
-index f0792d2..37b2b81 100644
+index f0792d2..2938667 100644
 --- a/install/1merge/cds-themes/tty5/1024x768.cfg
 +++ b/install/1merge/cds-themes/tty5/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -138,15 +186,21 @@ index f0792d2..37b2b81 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty5/800x600.cfg b/install/1merge/cds-themes/tty5/800x600.cfg
-index e7f4837..25411ba 100644
+index e7f4837..ad4fc09 100644
 --- a/install/1merge/cds-themes/tty5/800x600.cfg
 +++ b/install/1merge/cds-themes/tty5/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -154,15 +208,21 @@ index e7f4837..25411ba 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty6/1024x768.cfg b/install/1merge/cds-themes/tty6/1024x768.cfg
-index d248b2f..624f517 100644
+index d248b2f..27366e6 100644
 --- a/install/1merge/cds-themes/tty6/1024x768.cfg
 +++ b/install/1merge/cds-themes/tty6/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -170,15 +230,21 @@ index d248b2f..624f517 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cds-themes/tty6/800x600.cfg b/install/1merge/cds-themes/tty6/800x600.cfg
-index 4a49e55..6c211c9 100644
+index 4a49e55..78dd248 100644
 --- a/install/1merge/cds-themes/tty6/800x600.cfg
 +++ b/install/1merge/cds-themes/tty6/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -186,15 +252,21 @@ index 4a49e55..6c211c9 100644
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty1/1024x768.cfg b/install/1merge/cld-themes/tty1/1024x768.cfg
-index 785793a..f91add3 100644
+index 785793a..65b8bd0 100644
 --- a/install/1merge/cld-themes/tty1/1024x768.cfg
 +++ b/install/1merge/cld-themes/tty1/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -202,15 +274,21 @@ index 785793a..f91add3 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty1/800x600.cfg b/install/1merge/cld-themes/tty1/800x600.cfg
-index 36018a4..d9a17bb 100644
+index 36018a4..89fa2bd 100644
 --- a/install/1merge/cld-themes/tty1/800x600.cfg
 +++ b/install/1merge/cld-themes/tty1/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -218,15 +296,21 @@ index 36018a4..d9a17bb 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty2/1024x768.cfg b/install/1merge/cld-themes/tty2/1024x768.cfg
-index 2af3f4c..3cf9d67 100644
+index 2af3f4c..b0a7e56 100644
 --- a/install/1merge/cld-themes/tty2/1024x768.cfg
 +++ b/install/1merge/cld-themes/tty2/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -234,15 +318,21 @@ index 2af3f4c..3cf9d67 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty2/800x600.cfg b/install/1merge/cld-themes/tty2/800x600.cfg
-index d836b48..2bb14df 100644
+index d836b48..98f4369 100644
 --- a/install/1merge/cld-themes/tty2/800x600.cfg
 +++ b/install/1merge/cld-themes/tty2/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -250,15 +340,21 @@ index d836b48..2bb14df 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty3/1024x768.cfg b/install/1merge/cld-themes/tty3/1024x768.cfg
-index edfd14f..0af6c2b 100644
+index edfd14f..78dd7b0 100644
 --- a/install/1merge/cld-themes/tty3/1024x768.cfg
 +++ b/install/1merge/cld-themes/tty3/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -266,15 +362,21 @@ index edfd14f..0af6c2b 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty3/800x600.cfg b/install/1merge/cld-themes/tty3/800x600.cfg
-index 97d4060..2111257 100644
+index 97d4060..865212b 100644
 --- a/install/1merge/cld-themes/tty3/800x600.cfg
 +++ b/install/1merge/cld-themes/tty3/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -282,15 +384,21 @@ index 97d4060..2111257 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty4/1024x768.cfg b/install/1merge/cld-themes/tty4/1024x768.cfg
-index e4112ac..913ec3b 100644
+index e4112ac..6765443 100644
 --- a/install/1merge/cld-themes/tty4/1024x768.cfg
 +++ b/install/1merge/cld-themes/tty4/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -298,15 +406,21 @@ index e4112ac..913ec3b 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty4/800x600.cfg b/install/1merge/cld-themes/tty4/800x600.cfg
-index 70de266..1db4103 100644
+index 70de266..c89c245 100644
 --- a/install/1merge/cld-themes/tty4/800x600.cfg
 +++ b/install/1merge/cld-themes/tty4/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -314,15 +428,21 @@ index 70de266..1db4103 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty5/1024x768.cfg b/install/1merge/cld-themes/tty5/1024x768.cfg
-index b788de2..b8c04a6 100644
+index b788de2..a88daf0 100644
 --- a/install/1merge/cld-themes/tty5/1024x768.cfg
 +++ b/install/1merge/cld-themes/tty5/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -330,15 +450,21 @@ index b788de2..b8c04a6 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty5/800x600.cfg b/install/1merge/cld-themes/tty5/800x600.cfg
-index 5715b06..17714f3 100644
+index 5715b06..bcd9135 100644
 --- a/install/1merge/cld-themes/tty5/800x600.cfg
 +++ b/install/1merge/cld-themes/tty5/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -346,15 +472,21 @@ index 5715b06..17714f3 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty6/1024x768.cfg b/install/1merge/cld-themes/tty6/1024x768.cfg
-index 00d9942..556d726 100644
+index 00d9942..f506674 100644
 --- a/install/1merge/cld-themes/tty6/1024x768.cfg
 +++ b/install/1merge/cld-themes/tty6/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -362,15 +494,21 @@ index 00d9942..556d726 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cld-themes/tty6/800x600.cfg b/install/1merge/cld-themes/tty6/800x600.cfg
-index 440d49f..0aa9dd4 100644
+index 440d49f..84538b9 100644
 --- a/install/1merge/cld-themes/tty6/800x600.cfg
 +++ b/install/1merge/cld-themes/tty6/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -378,15 +516,21 @@ index 440d49f..0aa9dd4 100644
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty1/1024x768.cfg b/install/1merge/cldg-themes/tty1/1024x768.cfg
-index 00e4881..48ed0c0 100644
+index 00e4881..650dc72 100644
 --- a/install/1merge/cldg-themes/tty1/1024x768.cfg
 +++ b/install/1merge/cldg-themes/tty1/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -394,15 +538,21 @@ index 00e4881..48ed0c0 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty1/800x600.cfg b/install/1merge/cldg-themes/tty1/800x600.cfg
-index a157aa1..993a822 100644
+index a157aa1..0124b11 100644
 --- a/install/1merge/cldg-themes/tty1/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty1/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -410,15 +560,21 @@ index a157aa1..993a822 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty2/1024x768.cfg b/install/1merge/cldg-themes/tty2/1024x768.cfg
-index d3f458d..1399296 100644
+index d3f458d..30d47a2 100644
 --- a/install/1merge/cldg-themes/tty2/1024x768.cfg
 +++ b/install/1merge/cldg-themes/tty2/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -426,15 +582,21 @@ index d3f458d..1399296 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty2/800x600.cfg b/install/1merge/cldg-themes/tty2/800x600.cfg
-index 0d8995e..accf2a6 100644
+index 0d8995e..b3fed2c 100644
 --- a/install/1merge/cldg-themes/tty2/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty2/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -442,15 +604,21 @@ index 0d8995e..accf2a6 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty3/1024x768.cfg b/install/1merge/cldg-themes/tty3/1024x768.cfg
-index 1384ea8..40d3e98 100644
+index 1384ea8..1820cd9 100644
 --- a/install/1merge/cldg-themes/tty3/1024x768.cfg
 +++ b/install/1merge/cldg-themes/tty3/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -458,15 +626,21 @@ index 1384ea8..40d3e98 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty3/800x600.cfg b/install/1merge/cldg-themes/tty3/800x600.cfg
-index 8952c54..0449b7d 100644
+index 8952c54..f93ad0f 100644
 --- a/install/1merge/cldg-themes/tty3/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty3/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -474,15 +648,21 @@ index 8952c54..0449b7d 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty4/1024x768.cfg b/install/1merge/cldg-themes/tty4/1024x768.cfg
-index 1d83d52..3e8abe5 100644
+index 1d83d52..f8e539b 100644
 --- a/install/1merge/cldg-themes/tty4/1024x768.cfg
 +++ b/install/1merge/cldg-themes/tty4/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -490,15 +670,21 @@ index 1d83d52..3e8abe5 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty4/800x600.cfg b/install/1merge/cldg-themes/tty4/800x600.cfg
-index 17f30e0..18c5a07 100644
+index 17f30e0..6796082 100644
 --- a/install/1merge/cldg-themes/tty4/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty4/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -506,15 +692,21 @@ index 17f30e0..18c5a07 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty5/1024x768.cfg b/install/1merge/cldg-themes/tty5/1024x768.cfg
-index 8eb74b0..0c942ed 100644
+index 8eb74b0..b2c514d 100644
 --- a/install/1merge/cldg-themes/tty5/1024x768.cfg
 +++ b/install/1merge/cldg-themes/tty5/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -522,15 +714,21 @@ index 8eb74b0..0c942ed 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty5/800x600.cfg b/install/1merge/cldg-themes/tty5/800x600.cfg
-index 062354c..5fdddb3 100644
+index 062354c..d3c0b4f 100644
 --- a/install/1merge/cldg-themes/tty5/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty5/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -538,15 +736,21 @@ index 062354c..5fdddb3 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty6/1024x768.cfg b/install/1merge/cldg-themes/tty6/1024x768.cfg
-index 697f082..b41d7eb 100644
+index 697f082..b8db7d1 100644
 --- a/install/1merge/cldg-themes/tty6/1024x768.cfg
 +++ b/install/1merge/cldg-themes/tty6/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -554,15 +758,21 @@ index 697f082..b41d7eb 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldg-themes/tty6/800x600.cfg b/install/1merge/cldg-themes/tty6/800x600.cfg
-index aee51d7..9fffa64 100644
+index aee51d7..eb4f80c 100644
 --- a/install/1merge/cldg-themes/tty6/800x600.cfg
 +++ b/install/1merge/cldg-themes/tty6/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -570,15 +780,21 @@ index aee51d7..9fffa64 100644
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty1/1024x768.cfg b/install/1merge/cldx-themes/tty1/1024x768.cfg
-index e0b5a2c..f7e94f3 100644
+index e0b5a2c..4085913 100644
 --- a/install/1merge/cldx-themes/tty1/1024x768.cfg
 +++ b/install/1merge/cldx-themes/tty1/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -586,15 +802,21 @@ index e0b5a2c..f7e94f3 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty1/800x600.cfg b/install/1merge/cldx-themes/tty1/800x600.cfg
-index 3a8f5ec..8b3e280 100644
+index 3a8f5ec..5dd4ca0 100644
 --- a/install/1merge/cldx-themes/tty1/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty1/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -602,15 +824,21 @@ index 3a8f5ec..8b3e280 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty2/1024x768.cfg b/install/1merge/cldx-themes/tty2/1024x768.cfg
-index 1dbd469..9cfce2c 100644
+index 1dbd469..94e7cae 100644
 --- a/install/1merge/cldx-themes/tty2/1024x768.cfg
 +++ b/install/1merge/cldx-themes/tty2/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -618,15 +846,21 @@ index 1dbd469..9cfce2c 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty2/800x600.cfg b/install/1merge/cldx-themes/tty2/800x600.cfg
-index 4505708..67a81d9 100644
+index 4505708..76d0bed 100644
 --- a/install/1merge/cldx-themes/tty2/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty2/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -634,15 +868,21 @@ index 4505708..67a81d9 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty3/1024x768.cfg b/install/1merge/cldx-themes/tty3/1024x768.cfg
-index 905e44d..0d842ba 100644
+index 905e44d..a922702 100644
 --- a/install/1merge/cldx-themes/tty3/1024x768.cfg
 +++ b/install/1merge/cldx-themes/tty3/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -650,15 +890,21 @@ index 905e44d..0d842ba 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty3/800x600.cfg b/install/1merge/cldx-themes/tty3/800x600.cfg
-index 32e3c31..d6ec07e 100644
+index 32e3c31..d24e126 100644
 --- a/install/1merge/cldx-themes/tty3/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty3/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -666,15 +912,21 @@ index 32e3c31..d6ec07e 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty4/1024x768.cfg b/install/1merge/cldx-themes/tty4/1024x768.cfg
-index 67594b5..09917ea 100644
+index 67594b5..bcd814a 100644
 --- a/install/1merge/cldx-themes/tty4/1024x768.cfg
 +++ b/install/1merge/cldx-themes/tty4/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -682,15 +934,21 @@ index 67594b5..09917ea 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty4/800x600.cfg b/install/1merge/cldx-themes/tty4/800x600.cfg
-index 640a795..1d1e1a4 100644
+index 640a795..06f33fd 100644
 --- a/install/1merge/cldx-themes/tty4/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty4/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -698,15 +956,21 @@ index 640a795..1d1e1a4 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty5/1024x768.cfg b/install/1merge/cldx-themes/tty5/1024x768.cfg
-index dd8ec79..4ea78d6 100644
+index dd8ec79..852bf25 100644
 --- a/install/1merge/cldx-themes/tty5/1024x768.cfg
 +++ b/install/1merge/cldx-themes/tty5/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -714,15 +978,21 @@ index dd8ec79..4ea78d6 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty5/800x600.cfg b/install/1merge/cldx-themes/tty5/800x600.cfg
-index cd23762..520d883 100644
+index cd23762..7f14bbf 100644
 --- a/install/1merge/cldx-themes/tty5/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty5/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -730,15 +1000,21 @@ index cd23762..520d883 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty6/1024x768.cfg b/install/1merge/cldx-themes/tty6/1024x768.cfg
-index a7cfb5d..bcd2ee9 100644
+index a7cfb5d..b22070f 100644
 --- a/install/1merge/cldx-themes/tty6/1024x768.cfg
 +++ b/install/1merge/cldx-themes/tty6/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -746,15 +1022,21 @@ index a7cfb5d..bcd2ee9 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cldx-themes/tty6/800x600.cfg b/install/1merge/cldx-themes/tty6/800x600.cfg
-index 808feac..9240cf0 100644
+index 808feac..2e2642d 100644
 --- a/install/1merge/cldx-themes/tty6/800x600.cfg
 +++ b/install/1merge/cldx-themes/tty6/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -762,15 +1044,21 @@ index 808feac..9240cf0 100644
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty1/1024x768.cfg b/install/1merge/cls-themes/tty1/1024x768.cfg
-index 1b2479b..ca656bd 100644
+index 1b2479b..94da396 100644
 --- a/install/1merge/cls-themes/tty1/1024x768.cfg
 +++ b/install/1merge/cls-themes/tty1/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -778,15 +1066,21 @@ index 1b2479b..ca656bd 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty1/800x600.cfg b/install/1merge/cls-themes/tty1/800x600.cfg
-index 8b8fdd2..fe2777c 100644
+index 8b8fdd2..464df4b 100644
 --- a/install/1merge/cls-themes/tty1/800x600.cfg
 +++ b/install/1merge/cls-themes/tty1/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -794,15 +1088,21 @@ index 8b8fdd2..fe2777c 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty2/1024x768.cfg b/install/1merge/cls-themes/tty2/1024x768.cfg
-index 0c41cbf..7ca81d2 100644
+index 0c41cbf..a49f6d6 100644
 --- a/install/1merge/cls-themes/tty2/1024x768.cfg
 +++ b/install/1merge/cls-themes/tty2/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -810,15 +1110,21 @@ index 0c41cbf..7ca81d2 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty2/800x600.cfg b/install/1merge/cls-themes/tty2/800x600.cfg
-index e0340df..bbea78e 100644
+index e0340df..84df01f 100644
 --- a/install/1merge/cls-themes/tty2/800x600.cfg
 +++ b/install/1merge/cls-themes/tty2/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -826,15 +1132,21 @@ index e0340df..bbea78e 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty3/1024x768.cfg b/install/1merge/cls-themes/tty3/1024x768.cfg
-index d900b58..74a6812 100644
+index d900b58..2ddef20 100644
 --- a/install/1merge/cls-themes/tty3/1024x768.cfg
 +++ b/install/1merge/cls-themes/tty3/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -842,15 +1154,21 @@ index d900b58..74a6812 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty3/800x600.cfg b/install/1merge/cls-themes/tty3/800x600.cfg
-index 9fa9cd0..61d25f2 100644
+index 9fa9cd0..e7173bf 100644
 --- a/install/1merge/cls-themes/tty3/800x600.cfg
 +++ b/install/1merge/cls-themes/tty3/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -858,15 +1176,21 @@ index 9fa9cd0..61d25f2 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty4/1024x768.cfg b/install/1merge/cls-themes/tty4/1024x768.cfg
-index 4575404..b0ccf13 100644
+index 4575404..7332445 100644
 --- a/install/1merge/cls-themes/tty4/1024x768.cfg
 +++ b/install/1merge/cls-themes/tty4/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -874,15 +1198,21 @@ index 4575404..b0ccf13 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty4/800x600.cfg b/install/1merge/cls-themes/tty4/800x600.cfg
-index 87f4312..58829b9 100644
+index 87f4312..48e6607 100644
 --- a/install/1merge/cls-themes/tty4/800x600.cfg
 +++ b/install/1merge/cls-themes/tty4/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -890,15 +1220,21 @@ index 87f4312..58829b9 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty5/1024x768.cfg b/install/1merge/cls-themes/tty5/1024x768.cfg
-index 9655309..41abda0 100644
+index 9655309..b5001f6 100644
 --- a/install/1merge/cls-themes/tty5/1024x768.cfg
 +++ b/install/1merge/cls-themes/tty5/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -906,15 +1242,21 @@ index 9655309..41abda0 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty5/800x600.cfg b/install/1merge/cls-themes/tty5/800x600.cfg
-index 018292e..1fa0264 100644
+index 018292e..d903d2c 100644
 --- a/install/1merge/cls-themes/tty5/800x600.cfg
 +++ b/install/1merge/cls-themes/tty5/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -922,15 +1264,21 @@ index 018292e..1fa0264 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty6/1024x768.cfg b/install/1merge/cls-themes/tty6/1024x768.cfg
-index c22cabe..afd4d0a 100644
+index c22cabe..322c4ff 100644
 --- a/install/1merge/cls-themes/tty6/1024x768.cfg
 +++ b/install/1merge/cls-themes/tty6/1024x768.cfg
-@@ -46,9 +46,9 @@ box silent		360 414 664 414 #eef4ff
+@@ -46,13 +46,13 @@ box silent		360 414 664 414 #eef4ff
  box silent		360 408 360 414 #313234
  box silent		664 408 664 414 #eef4ff
  
@@ -938,15 +1286,21 @@ index c22cabe..afd4d0a 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 20 20 1004 678 #1B2D3A
-+box noover 20 20 1004 678 #12233A
++#box noover 20 20 1004 678 #12233A
  
  #rectangle around text window in verbose mode
- box     19 19  19 679 #313234
+-box     19 19  19 679 #313234
+-box     19 19 1005 19 #313234
++box     19 19  19 679 #8C9096
++box     19 19 1005 19 #8C9096
+ box     1005 19 1005 679 #eef4ff
+ box     19 679 1005 679 #eef4ff
+ #pkg#
 diff --git a/install/1merge/cls-themes/tty6/800x600.cfg b/install/1merge/cls-themes/tty6/800x600.cfg
-index 56ece74..f32ee5e 100644
+index 56ece74..6dc1f8d 100644
 --- a/install/1merge/cls-themes/tty6/800x600.cfg
 +++ b/install/1merge/cls-themes/tty6/800x600.cfg
-@@ -46,9 +46,9 @@ box silent		281 323 518 323 #eef4ff
+@@ -46,13 +46,13 @@ box silent		281 323 518 323 #eef4ff
  box silent		281 318 281 323 #313234
  box silent		518 318 518 323 #eef4ff
  
@@ -954,10 +1308,16 @@ index 56ece74..f32ee5e 100644
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
  #background color for text window in verbose mode
 -box noover 15 15 784 529 #1B2D3A
-+box noover 15 15 784 529 #12233A
++#box noover 15 15 784 529 #12233A
  
  #rectangle around text window in verbose mode
- box     14 14  14 530 #313234
+-box     14 14  14 530 #313234
+-box     14 14 785 14 #313234
++box     14 14  14 530 #8C9096
++box     14 14 785 14 #8C9096
+ box     785 14 785 530 #eef4ff
+ box     14 530 785 530 #eef4ff
+ #pkg#
 diff --git a/install/1system/openrc/conf.d/net b/install/1system/openrc/conf.d/net
 new file mode 100644
 index 0000000..9f72552
