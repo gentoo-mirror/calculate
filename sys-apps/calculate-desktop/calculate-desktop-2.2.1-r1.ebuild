@@ -23,6 +23,14 @@ DEPEND="~sys-apps/calculate-lib-2.2.1
 
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# color fix patch
+	epatch "${FILESDIR}/calculate-desktop-2.2.1-fix_color.patch"
+}
+
 pkg_postinst() {
 	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
 	einfo "For configure calculate-desktop perform:"

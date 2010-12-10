@@ -22,3 +22,12 @@ DEPEND="~sys-apps/calculate-templates-2.2.1
 	>=dev-python/pyxml-0.8
 	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# resolution fix patch
+	epatch "${FILESDIR}/calculate-lib-2.2.1-fix_resolution.patch"
+}
+

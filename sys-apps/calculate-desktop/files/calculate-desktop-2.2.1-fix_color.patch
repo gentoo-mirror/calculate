@@ -1,0 +1,24 @@
+diff --git a/data/login.d/00init b/data/login.d/00init
+index 876c171..7076476 100644
+--- a/data/login.d/00init
++++ b/data/login.d/00init
+@@ -14,7 +14,7 @@
+ #  limitations under the License.
+ 
+ # set background color
+-xsetroot -solid rgb:17/0b/0a
++xsetroot -solid rgb:30/64/8b
+ 
+ if [[ "`ps axeo command | grep 'xdm/xdm --logout' | grep -v grep | \
+ 	sed -n -r 's/.* USER=([^ ]+) .*/\1/p'`" == "$USER" ]];
+diff --git a/data/logout.d/00init b/data/logout.d/00init
+index b73ae14..52c0006 100644
+--- a/data/logout.d/00init
++++ b/data/logout.d/00init
+@@ -14,5 +14,5 @@
+ #  limitations under the License.
+ 
+ # set background color
+-xsetroot -solid rgb:17/0b/0a
++xsetroot -solid rgb:30/64/8b
+ exit 0
