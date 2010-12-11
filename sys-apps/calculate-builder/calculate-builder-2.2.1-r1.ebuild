@@ -21,3 +21,11 @@ DEPEND="~sys-apps/calculate-install-2.2.1
 	sys-fs/squashfs-tools"
 
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# getdigest fix patch
+	epatch "${FILESDIR}/calculate-builder-2.2.1-fix_getdigest.patch"
+}

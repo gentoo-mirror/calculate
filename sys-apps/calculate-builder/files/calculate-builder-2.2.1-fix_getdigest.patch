@@ -1,0 +1,13 @@
+diff --git a/pym/cl_builder.py b/pym/cl_builder.py
+index ac2b774..f0bf9c5 100644
+--- a/pym/cl_builder.py
++++ b/pym/cl_builder.py
+@@ -657,7 +657,7 @@ class cl_builder(color_print):
+             open(digestfile,'w').writelines(map(lambda x:template%{
+                 'alg':x.upper(),
+                 'digest': \
+-                    process("%ssum",filename).read().partition(' ')[0],
++                    process("%ssum"%x,filename).read().partition(' ')[0],
+                 'filename':path.basename(filename)},["md5","sha1"]))
+         except:
+             return False

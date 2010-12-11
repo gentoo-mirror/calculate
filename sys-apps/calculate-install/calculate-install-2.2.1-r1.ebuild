@@ -24,6 +24,14 @@ DEPEND="~sys-apps/calculate-lib-2.2.1
 
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# getversion fix patch
+	epatch "${FILESDIR}/calculate-install-2.2.1-fix_getversion.patch"
+}
+
 pkg_postinst() {
 	einfo "For configure calculate-install perform:"
 	einfo "  cl-install --install"

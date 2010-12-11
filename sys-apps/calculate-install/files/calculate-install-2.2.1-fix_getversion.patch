@@ -1,0 +1,29 @@
+diff --git a/pym/cl_fill_install.py b/pym/cl_fill_install.py
+index fc01400..a8de226 100644
+--- a/pym/cl_fill_install.py
++++ b/pym/cl_fill_install.py
+@@ -611,18 +611,17 @@ class fillVars(object, glob_attr):
+         if not imagename:
+             return ""
+         d = DistributiveRepository()._getfromcontent(imagename)
+-        if "linuxver" in d:
++        if "linuxver" in d and d['linuxver'] != "0":
+             return d['linuxver']
+-        elif "ver" in d:
++        elif "ver" in d d['ver'] != "0":
+             return d['ver']
+-        else:
+-            if self.Get('os_install_linux_shortname') == \
+-                self.Get('os_linux_shortname'):
+-                return self.Get('os_linux_ver')
+         res = DistributiveRepository.reDistName.search(imagename)
+         if res:
+             return res.groupdict()['ver']
+-        return ""
++        if self.Get('os_install_linux_shortname') == \
++            self.Get('os_linux_shortname'):
++            return self.Get('os_linux_ver')
++        return "0"
+ 
+     def get_cl_pkgdir_path(self):
+         return "/var/calculate/remote/packages/%s/%s" % (

@@ -29,5 +29,7 @@ src_unpack() {
 
 	# resolution fix patch
 	epatch "${FILESDIR}/calculate-lib-2.2.1-fix_resolution.patch"
+	# getversion fix patch
+	epatch "${FILESDIR}/calculate-lib-2.2.1-fix_getversion.patch"
 }
 

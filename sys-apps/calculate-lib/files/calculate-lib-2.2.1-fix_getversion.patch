@@ -1,0 +1,16 @@
+diff --git a/pym/cl_vars_share.py b/pym/cl_vars_share.py
+index 8bfcf0d..347fc39 100644
+--- a/pym/cl_vars_share.py
++++ b/pym/cl_vars_share.py
+@@ -456,8 +456,9 @@ class varsShare:
+         pkgInfoDir = path.join(systemroot,'var/db/pkg/app-misc/')
+         if not os.access(pkgInfoDir,os.R_OK):
+             return None
+-        metaPkgs = filter(lambda x:"calculate-meta" in x,
+-                          os.listdir(pkgInfoDir))
++        metaPkgs = sorted(filter(lambda x:"calculate-meta" in x or \
++                                 "%s-meta"%shortname.lower() in x,
++                          os.listdir(pkgInfoDir)))
+         if metaPkgs:
+             reFindVer = re.compile("(?<=\-)\d+\.?\d*\.?\d*")
+             findVer = reFindVer.search(metaPkgs[0])
