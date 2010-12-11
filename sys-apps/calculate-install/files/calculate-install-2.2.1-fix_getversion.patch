@@ -1,5 +1,5 @@
 diff --git a/pym/cl_fill_install.py b/pym/cl_fill_install.py
-index fc01400..a8de226 100644
+index fc01400..9e05268 100644
 --- a/pym/cl_fill_install.py
 +++ b/pym/cl_fill_install.py
 @@ -611,18 +611,17 @@ class fillVars(object, glob_attr):
@@ -10,7 +10,7 @@ index fc01400..a8de226 100644
 +        if "linuxver" in d and d['linuxver'] != "0":
              return d['linuxver']
 -        elif "ver" in d:
-+        elif "ver" in d d['ver'] != "0":
++        elif "ver" in d and d['ver'] != "0":
              return d['ver']
 -        else:
 -            if self.Get('os_install_linux_shortname') == \
