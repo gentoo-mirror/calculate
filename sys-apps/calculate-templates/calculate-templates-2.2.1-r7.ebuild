@@ -24,6 +24,8 @@ src_unpack() {
 
 	# themes fix patch
 	epatch "${FILESDIR}/calculate-templates-2.2.1-fixthemes.patch"
+	# backlight fix patch
+	epatch "${FILESDIR}/calculate-templates-2.2.1-fixbacklight.patch"
 }
 
 src_compile() {
