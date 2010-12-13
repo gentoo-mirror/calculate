@@ -19,6 +19,7 @@ calculate_nomysql calculate_nonamed calculate_nopgsql calculate_noproxy
 
 RDEPEND="
 	!sys-apps/calculate
+	!net-im/calculate-ejabberd
 "
 
 RDEPEND="${RDEPEND}
@@ -36,7 +37,7 @@ RDEPEND="${RDEPEND}
 		net-ftp/ftp
 		net-ftp/proftpd
 	)
-	!calculate_nojabber? ( net-im/calculate-ejabberd )
+	!calculate_nojabber? ( net-im/ejabberd )
 	!calculate_nomail? (
 		mail-filter/clamsmtp
 		mail-filter/postgrey
