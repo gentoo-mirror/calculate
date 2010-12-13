@@ -18,3 +18,11 @@ DEPEND="~sys-apps/calculate-builder-2.2.1
 	~sys-apps/calculate-templates-2.2.1"
 
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# backport 2.2.2
+	epatch "${FILESDIR}/calculate-assemble-2.2.1-backport.patch"
+}

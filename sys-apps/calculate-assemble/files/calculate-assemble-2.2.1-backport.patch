@@ -1,0 +1,225 @@
+diff --git a/i18n/cl_assemble_ru.mo b/i18n/cl_assemble_ru.mo
+index 29449b2..8d74d24 100644
+Binary files a/i18n/cl_assemble_ru.mo and b/i18n/cl_assemble_ru.mo differ
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index b8c3ad1..62a28c7 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -176,6 +176,13 @@ class cl_assemble(color_print):
+               'hideout':True,
+               'condition':'.'
+              },
++             # creating mask,unmask list
++             {'command':'createMaskUnmaskList()',
++              'step':'maskunmask',
++              'message':_("Creating mask/unmask list file"),
++              'hideout':True,
++              'condition':'.'
++             },
+              # update eix base
+              {'command':'eix-update',
+               'step':'eixupdate',
+@@ -389,7 +396,7 @@ class cl_assemble(color_print):
+             return False
+         return True
+ 
+-    def _askUser(self,force,question,):
++    def _askUser(self,force,question):
+         """Ask user about continue"""
+         if not force:
+             dialogMessage = question + " (yes/no)"
+@@ -419,6 +426,7 @@ class cl_assemble(color_print):
+     def _formatAndUnpackStage(self):
+         """Format partition for assemble and unpack stage"""
+         self.printMessageForTest(_("Formating partition"))
++        self.saveVars('os_assemble_root_dev')
+         self.targetDistr.performFormat()
+ 
+         self.printMessageForTest(_("Unpacking stage image into target"))
+@@ -717,9 +725,12 @@ class cl_assemble(color_print):
+                 IOval = PIPE
+             envdict = {'CHROOT':"on"}
+             envdict.update(os.environ)
++            needAsk = self.clVars.Get('cl_assemble_ask_set') == "on"
+             if "emerge " in command:
+                 command = "env-update &>/dev/null;" \
+                           "source /etc/profile &>/dev/null;%s"%command
++                if showProcess and needAsk:
++                    command = command.replace("emerge ","emerge -a ")
+             commandLine = ["chroot",self.clVars.Get('cl_assemble_path'),
+                                 "/bin/bash","-c",command]
+             curarch = self.clVars.Get('os_arch_machine')
+@@ -727,7 +738,11 @@ class cl_assemble(color_print):
+             if curarch != buildarch:
+                 if buildarch == "i686":
+                     commandLine = ["linux32"] + commandLine
+-            chrootCommand = process(*commandLine,stderr=IOval,
++            if showProcess and needAsk:
++                chrootCommand = process(*commandLine,stderr=IOval,
++                                stdin=None,stdout=IOval,envdict=envdict)
++            else:
++                chrootCommand = process(*commandLine,stderr=IOval,
+                                 stdout=IOval,envdict=envdict)
+             DEBUG(self._getCommand(chrootCommand.command))
+             if raiseError and chrootCommand.failed():
+@@ -907,6 +922,9 @@ class cl_assemble(color_print):
+             self.printERROR(_("Interrupting the compilation"))
+             return False
+         self.mainAction = self.clVars.Get('cl_action')
++        if self.mainAction in ('make','update','syncupdate'):
++            if not force:
++                self.clVars.Set('cl_assemble_ask_set', 'on', True)
+         self.assemblePath = self.clVars.Get('cl_assemble_path')
+         if "finish" in self.clVars.Get('cl_assemble_step_world'):
+             self.writeVar('cl_assemble_step_world','stagecomplete',True)
+@@ -1325,8 +1343,15 @@ class cl_assemble(color_print):
+ 
+     def tryUseAvailable(self):
+         """Check free available device and set valut to os_assemble_root_dev"""
++        distros = self.clVars.Get('cl_assemble_distro')
++        assembleEnv = iniParser(self.assembleEnvFile)
+         discardEmpty = lambda x : filter(lambda y:y,x)
+-        discardBusy = lambda x : filter(lambda y:not isMount(y),x)
++        busyDevs = \
++            discardEmpty(
++            map(lambda x:assembleEnv.getVar(x,'os_assemble_root_dev'),
++            distros))
++        discardBusy = lambda x : filter(lambda y:not (x in busyDevs 
++                                                      or isMount(y)),x)
+         availableDev = self.clVars.Get('cl_assemble_available_dev').split(',')
+         availableDev = discardEmpty(availableDev)
+         freeDev = discardBusy(availableDev)
+@@ -1433,6 +1458,11 @@ class cl_assemble(color_print):
+ 
+     def regenPackages(self,chrootPath,pkgDirPath):
+         """Regenerate packages and clean SYNC param"""
++        def fixKeywords(s):
++            if s.startswith("KEYWORDS:"):
++                return "KEYWORDS: amd64 x86\n"
++            else:
++                return s
+         pathPackages = pathJoin(chrootPath,pkgDirPath,"Packages")
+         # remove Packages if it recreated
+         if path.exists(pathPackages):
+@@ -1441,8 +1471,9 @@ class cl_assemble(color_print):
+         if path.exists(pathPackages):
+             # remove SYNC param
+             filtredPackages = \
++                map(fixKeywords,
+                 filter(lambda x:not x.startswith("SYNC:"),
+-                open(pathPackages,'r'))
++                open(pathPackages,'r')))
+             open(pathPackages,'w').writelines(filtredPackages)
+ 
+     def binaryCleaning(self):
+@@ -1483,3 +1514,56 @@ class cl_assemble(color_print):
+         else:
+             self.printByResult(skip=True)
+         return True
++
++    def createMaskList(self,chrootdir,filename):
++        """Create package mask list by chrootdir"""
++        pkgdir = path.join(chrootdir,'var/db/pkg')
++        reVerSplit = re.compile(r"^(.*?)-(([^-]+?)(?:-(r\d+))?)$",re.S)
++        if not path.exists(chrootdir):
++            return False
++        try:
++            packageList = sorted(reduce(lambda x,y:x+map(lambda x:path.join(y,x),
++                os.listdir(path.join(pkgdir,y))), os.listdir(pkgdir),[]))
++            open(filename,'w').writelines(
++                map(lambda x:"%s\n"%x,
++                map(lambda x:x.groups()[0],
++                filter(lambda x:x,
++                map(reVerSplit.search,
++                packageList)))))
++        except (IOError,OSError),e:
++            return False
++        return True
++
++    def createUnmaskList(self,chrootdir,filename):
++        """Create package unmask list by chrootdir"""
++        pkgdir = path.join(chrootdir,'var/db/pkg')
++        if not path.exists(chrootdir):
++            return False
++        try:
++            packageList = sorted(reduce(lambda x,y:x+map(lambda x:path.join(y,x),
++                os.listdir(path.join(pkgdir,y))), os.listdir(pkgdir),[]))
++            open(filename,'w').writelines(map(lambda x:"=%s\n"%x,packageList))
++        except (IOError,OSError),e:
++            return False
++        return True
++
++    def createMaskUnmaskList(self):
++        """Action create mask unmask list"""
++        linuxDir = self.clVars.Get('cl_assemble_linuxdir')
++        curdate = datetime.now()
++        linuxver = self.clVars.Get('os_assemble_linux_ver') or \
++                "%04d%02d%02d"%(curdate.year,curdate.month,curdate.day)
++        name = "%(shortname)s-%(ver)s-%(march)s"% \
++            {'shortname':self.clVars.Get("os_assemble_linux_shortname").lower(),
++             'ver': linuxver,
++             'march':self.clVars.Get('os_assemble_arch_machine')}
++        if not path.exists(linuxDir):
++            os.makedirs(linuxDir,mode=0755)
++        maskName = pathJoin(linuxDir,"%s.mask"%name)
++        unmaskName = pathJoin(linuxDir,"%s.unmask"%name)
++        if self.createMaskList(self.clVars.Get('cl_assemble_path'),
++                               maskName) and \
++           self.createUnmaskList(self.clVars.Get('cl_assemble_path'),
++                               unmaskName):
++            return True
++        return False
+diff --git a/pym/cl_fill_assemble.py b/pym/cl_fill_assemble.py
+index 9ad760f..8208d58 100644
+--- a/pym/cl_fill_assemble.py
++++ b/pym/cl_fill_assemble.py
+@@ -71,7 +71,10 @@ class fillVars(installFillVars):
+                              '/profiles/')[2]
+         envFile = '/etc/calculate/assemble.env'
+         envData = iniParser(envFile)
+-        return _toUNICODE(envData.getVar(section,var)).encode('utf-8')
++        res = envData.getVar(section,var)
++        if res != False:
++            res = _toUNICODE(res).encode('utf-8')
++        return res
+     
+     def get_os_assemble_linux_ver(self):
+         """Get system version"""
+@@ -310,6 +313,13 @@ class fillVars(installFillVars):
+                     '/profiles/')[2].replace("/","-"),
+             "packages")
+ 
++    def get_cl_assemble_linuxdir(self):
++        """Get directory, which contains distro"""
++        return path.join("/var/calculate/remote/assemble",
++            self.Get('os_assemble_system_profile').rpartition(
++                    '/profiles/')[2].replace("/","-"),
++            "linux")
++
+     def get_cl_assemble_sync(self):
+         """Preferred rsync mirror for portages"""
+         fromEnv = self._getFromEnv('cl_assemble_sync')
+diff --git a/pym/cl_vars_assemble.py b/pym/cl_vars_assemble.py
+index 56588ff..5229aba 100644
+--- a/pym/cl_vars_assemble.py
++++ b/pym/cl_vars_assemble.py
+@@ -60,6 +60,9 @@ class Data:
+     # FEATURES="buildpkg" for chroot commands
+     cl_assemble_buildpkg_set = {}
+ 
++    # add -a option for all emerge
++    cl_assemble_ask_set = {'value':'off'}
++
+     # pid of assembling process
+     cl_assemble_pid = {}
+ 
+@@ -98,6 +101,9 @@ class Data:
+ 
+     # PKGDIR for binary packages
+     cl_assemble_pkgdir = {}
++
++    # distro directory
++    cl_assemble_linuxdir = {}
+     
+     # linux version of assembling system
+     os_assemble_linux_ver = {'mode':'w'}
