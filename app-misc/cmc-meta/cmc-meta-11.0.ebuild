@@ -11,11 +11,20 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 amd64"
-IUSE=""
+IUSE="
+calculate_nodecoration
+calculate_nowireless
+"
 
-RDEPEND="
-	app-misc/cl-decoration-meta
-	app-misc/cl-wireless-meta
+RDEPEND="${RDEPEND}
+	app-misc/cl-base-meta
+	app-misc/cl-tools-meta
+
+	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
+	!calculate_nowireless? ( app-misc/cl-wireless-meta )
+
 	media-tv/xbmc
 	net-dialup/mingetty
+	virtual/dhcpc
 "
+
