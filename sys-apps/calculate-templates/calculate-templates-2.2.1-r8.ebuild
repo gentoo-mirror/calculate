@@ -22,10 +22,8 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 
-	# themes fix patch
-	epatch "${FILESDIR}/calculate-templates-2.2.1-fixthemes.patch"
-	# backlight fix patch
-	epatch "${FILESDIR}/calculate-templates-2.2.1-fixbacklight.patch"
+	# backport templates
+	epatch "${FILESDIR}/calculate-templates-2.2.1-backport.patch"
 }
 
 src_compile() {

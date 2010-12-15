@@ -28,4 +28,6 @@ src_unpack() {
 
 	# getdigest fix patch
 	epatch "${FILESDIR}/calculate-builder-2.2.1-fix_getdigest.patch"
+	# binary fix patch
+	epatch "${FILESDIR}/calculate-builder-2.2.1-fix_binarywork.patch"
 }

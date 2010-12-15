@@ -1,3 +1,10 @@
+diff --git a/assemble/setup/etc/make.profile b/assemble/setup/etc/make.profile
+index 5f46850..602911f 100644
+--- a/assemble/setup/etc/make.profile
++++ b/assemble/setup/etc/make.profile
+@@ -1 +1 @@
+-# Calculate name=make.profile link=#-os_assemble_system_profile-# symbolic force
++# Calculate name=make.profile link=#-os_assemble_real_profile-# symbolic force
 diff --git a/install/1merge/cds-themes/tty1/1024x768.cfg b/install/1merge/cds-themes/tty1/1024x768.cfg
 index 7b2a760..3895bc6 100644
 --- a/install/1merge/cds-themes/tty1/1024x768.cfg
@@ -2522,3 +2529,33 @@ index 0000000..9f72552
 @@ -0,0 +1,2 @@
 +# Calculate comment=# os_install_linux_system==server
 +modules="!plug"
+diff --git a/install/2laptop/samsung/calculate-install/bin/backlight b/install/2laptop/samsung/calculate-install/bin/backlight
+index eb8e2d0..8ccef8e 100644
+--- a/install/2laptop/samsung/calculate-install/bin/backlight
++++ b/install/2laptop/samsung/calculate-install/bin/backlight
+@@ -21,13 +21,23 @@ var1d=$((0x$var1))
+ case "$1" in
+        up)
+                #calculate new brightness
+-               var2=`echo "ibase=10; obase=16; a=($var1d+$AMOUNT);if (a<255) print a else print 255" | bc`
++               var2=$(($var1d + $AMOUNT))
++               if [[ $var2 -gt 255 ]]
++               then
++                      var2=255
++               fi
++               var2=`printf "%x" $var2`
+                echo "$0: increasing brightness from 0x$var1 to 0x$var2"
+                setpci -s $DEVICE F4.B=$var2
+                ;;
+        down)
+                #calculate new brightness
+-               var2=`echo "ibase=10; obase=16; a=($var1d-$AMOUNT);if (a>$MIN) print a else print $MIN" | bc`
++               var2=$(($var1d - $AMOUNT))
++               if [[ $var2 -lt $MIN ]]
++               then
++                      var2=$MIN
++               fi
++               var2=`printf "%x" $var2`
+                echo "$0: decreasing brightness from 0x$var1 to 0x$var2"
+                setpci -s $DEVICE F4.B=$var2
+                ;;

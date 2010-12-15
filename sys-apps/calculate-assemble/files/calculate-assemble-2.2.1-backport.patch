@@ -164,7 +164,7 @@ index b8c3ad1..202347c 100644
 +            return True
 +        return False
 diff --git a/pym/cl_fill_assemble.py b/pym/cl_fill_assemble.py
-index 9ad760f..8208d58 100644
+index 9ad760f..4611746 100644
 --- a/pym/cl_fill_assemble.py
 +++ b/pym/cl_fill_assemble.py
 @@ -71,7 +71,10 @@ class fillVars(installFillVars):
@@ -193,8 +193,20 @@ index 9ad760f..8208d58 100644
      def get_cl_assemble_sync(self):
          """Preferred rsync mirror for portages"""
          fromEnv = self._getFromEnv('cl_assemble_sync')
+@@ -338,3 +348,11 @@ class fillVars(installFillVars):
+             if distr:
+                 return shortname
+         return "stage"
++
++    def get_os_assemble_real_profile(self):
++        """Real make.profile link"""
++        discardName = "/binary"
++        profile = self.Get('os_assemble_system_profile')
++        if profile and  profile.endswith(discardName):
++            return profile[:-len(discardName)]
++        return profile
 diff --git a/pym/cl_vars_assemble.py b/pym/cl_vars_assemble.py
-index 56588ff..5229aba 100644
+index 56588ff..a2882e8 100644
 --- a/pym/cl_vars_assemble.py
 +++ b/pym/cl_vars_assemble.py
 @@ -60,6 +60,9 @@ class Data:
@@ -217,3 +229,17 @@ index 56588ff..5229aba 100644
      
      # linux version of assembling system
      os_assemble_linux_ver = {'mode':'w'}
+@@ -120,9 +126,12 @@ class Data:
+     # arch by gentoo
+     os_assemble_gentoo_arch = {}
+ 
+-    # developer profile
++    # current profile
+     os_assemble_system_profile = {}
+ 
++    # real profile (if profile is binary, then binary discard)
++    os_assemble_real_profile = {}
++
+     # device for assembling
+     os_assemble_root_dev = {}
+ 
