@@ -12,7 +12,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS cdistro_CLS cdistro_CSS"
+IUSE="cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS cdistro_CLS cdistro_CSS cdistro_CMC"
 
 RDEPEND="
 	cdistro_CLD? ( app-misc/cld-meta )
@@ -21,6 +21,7 @@ RDEPEND="
 	cdistro_CDS? ( app-misc/cds-meta )
 	cdistro_CLS? ( app-misc/cls-meta )
 	cdistro_CSS? ( app-misc/css-meta )
+	cdistro_CMC? ( app-misc/cmc-meta )
 "
 
 pkg_postinst() {
