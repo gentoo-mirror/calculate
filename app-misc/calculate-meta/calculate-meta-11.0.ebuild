@@ -43,7 +43,9 @@ pkg_postinst() {
 	fi
 
 	# check version on stable (PV hasn't 999)
-	if ! [[ "$PV" =~ 999 ]]
+	if ! [[ "$PV" =~ 999 ]] && [[ -e /proc/self/mountinfo ]] && \
+		[[ -e /proc/1/mountinfo ]] && \
+		diff /proc/self/mountinfo /proc/1/mountinfo &>/dev/null
 	then
 		[[ -n "$calculatename" ]] &&
 		[[ "$calculatename" != "CMC" ]] &&
