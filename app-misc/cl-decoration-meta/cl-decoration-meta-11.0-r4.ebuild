@@ -11,14 +11,11 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="cdistro_CDS cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CLS cdistro_desktop"
+IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CLS cdistro_CMC cdistro_CDS"
 
 RDEPEND="
 	media-gfx/splashutils
 
-	cdistro_CLS? (
-		media-gfx/cls-themes
-	)
 	cdistro_desktop? (
 		app-vim/colorschemes
 		app-vim/vimcommander
@@ -35,6 +32,12 @@ RDEPEND="
 	cdistro_CLDX? (
 		media-gfx/cldx-themes
 		x11-themes/tango-icon-theme
+	)
+	cdistro_CLS? (
+		media-gfx/cls-themes
+	)
+	cdistro_CMC? (
+		media-gfx/cmc-themes
 	)
 	cdistro_CDS? (
 		app-vim/colorschemes

@@ -4,31 +4,18 @@
 
 EAPI=2
 
-DESCRIPTION="Calculate Media Center"
-HOMEPAGE="http://www.calculate-linux.org/main/en/cmc"
+DESCRIPTION="Calculate Media Center (meta package)"
+HOMEPAGE="http://www.calculate-linux.org/"
 SRC_URI=""
 
 LICENSE="GPL-2"
-SLOT="11"
+SLOT="0"
 KEYWORDS="x86 amd64"
-IUSE="
-calculate_nodecoration
-calculate_nokernel
-calculate_nonetwork
-calculate_nonettools
-calculate_noopenbox
-calculate_noprinter
-calculate_nowireless
-"
+IUSE=""
 
 RDEPEND="
-	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
-	!calculate_nokernel? ( sys-kernel/calculate-sources )
-	!calculate_nonetwork? ( app-misc/cl-network-meta )
-	!calculate_nonettools? ( app-misc/cl-nettools-meta )
-	!calculate_noprinter? ( app-misc/cl-printer-meta )
-	!calculate_nowireless? ( app-misc/cl-wireless-meta )
-	!calculate_noopenbox? ( app-misc/cl-openbox-meta )
-	cdistro_CMC? ( net-dialup/mingetty )
+	app-misc/cl-decoration-meta
+	app-misc/cl-wireless-meta
 	media-tv/xbmc
+	net-dialup/mingetty
 "
