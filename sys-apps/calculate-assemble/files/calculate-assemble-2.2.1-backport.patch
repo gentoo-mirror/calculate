@@ -2,18 +2,10 @@ diff --git a/i18n/cl_assemble_ru.mo b/i18n/cl_assemble_ru.mo
 index 29449b2..8d74d24 100644
 Binary files a/i18n/cl_assemble_ru.mo and b/i18n/cl_assemble_ru.mo differ
 diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
-index b8c3ad1..013f9f8 100644
+index b8c3ad1..202347c 100644
 --- a/pym/cl_assemble.py
 +++ b/pym/cl_assemble.py
-@@ -32,6 +32,7 @@ from cl_distr import IsoDistributive, DirectoryDistributive, \
-                     DistributiveError, PartitionDistributive, \
-                     DistributiveRepository, ArchiveDistributive
- from cl_vars_share import varsShare
-+from datetime import datetime
- 
- from cl_lang import lang
- lang().setLanguage(sys.modules[__name__])
-@@ -176,6 +177,13 @@ class cl_assemble(color_print):
+@@ -176,6 +176,13 @@ class cl_assemble(color_print):
                'hideout':True,
                'condition':'.'
               },
@@ -27,7 +19,7 @@ index b8c3ad1..013f9f8 100644
               # update eix base
               {'command':'eix-update',
                'step':'eixupdate',
-@@ -389,7 +397,7 @@ class cl_assemble(color_print):
+@@ -389,7 +396,7 @@ class cl_assemble(color_print):
              return False
          return True
  
@@ -36,7 +28,7 @@ index b8c3ad1..013f9f8 100644
          """Ask user about continue"""
          if not force:
              dialogMessage = question + " (yes/no)"
-@@ -419,6 +427,7 @@ class cl_assemble(color_print):
+@@ -419,6 +426,7 @@ class cl_assemble(color_print):
      def _formatAndUnpackStage(self):
          """Format partition for assemble and unpack stage"""
          self.printMessageForTest(_("Formating partition"))
@@ -44,7 +36,7 @@ index b8c3ad1..013f9f8 100644
          self.targetDistr.performFormat()
  
          self.printMessageForTest(_("Unpacking stage image into target"))
-@@ -717,9 +726,12 @@ class cl_assemble(color_print):
+@@ -717,9 +725,12 @@ class cl_assemble(color_print):
                  IOval = PIPE
              envdict = {'CHROOT':"on"}
              envdict.update(os.environ)
@@ -57,7 +49,7 @@ index b8c3ad1..013f9f8 100644
              commandLine = ["chroot",self.clVars.Get('cl_assemble_path'),
                                  "/bin/bash","-c",command]
              curarch = self.clVars.Get('os_arch_machine')
-@@ -727,7 +739,11 @@ class cl_assemble(color_print):
+@@ -727,7 +738,11 @@ class cl_assemble(color_print):
              if curarch != buildarch:
                  if buildarch == "i686":
                      commandLine = ["linux32"] + commandLine
@@ -70,7 +62,7 @@ index b8c3ad1..013f9f8 100644
                                  stdout=IOval,envdict=envdict)
              DEBUG(self._getCommand(chrootCommand.command))
              if raiseError and chrootCommand.failed():
-@@ -907,6 +923,9 @@ class cl_assemble(color_print):
+@@ -907,6 +922,9 @@ class cl_assemble(color_print):
              self.printERROR(_("Interrupting the compilation"))
              return False
          self.mainAction = self.clVars.Get('cl_action')
@@ -80,7 +72,7 @@ index b8c3ad1..013f9f8 100644
          self.assemblePath = self.clVars.Get('cl_assemble_path')
          if "finish" in self.clVars.Get('cl_assemble_step_world'):
              self.writeVar('cl_assemble_step_world','stagecomplete',True)
-@@ -1325,8 +1344,15 @@ class cl_assemble(color_print):
+@@ -1325,8 +1343,15 @@ class cl_assemble(color_print):
  
      def tryUseAvailable(self):
          """Check free available device and set valut to os_assemble_root_dev"""
@@ -97,7 +89,7 @@ index b8c3ad1..013f9f8 100644
          availableDev = self.clVars.Get('cl_assemble_available_dev').split(',')
          availableDev = discardEmpty(availableDev)
          freeDev = discardBusy(availableDev)
-@@ -1433,6 +1459,11 @@ class cl_assemble(color_print):
+@@ -1433,6 +1458,11 @@ class cl_assemble(color_print):
  
      def regenPackages(self,chrootPath,pkgDirPath):
          """Regenerate packages and clean SYNC param"""
@@ -109,7 +101,7 @@ index b8c3ad1..013f9f8 100644
          pathPackages = pathJoin(chrootPath,pkgDirPath,"Packages")
          # remove Packages if it recreated
          if path.exists(pathPackages):
-@@ -1441,8 +1472,9 @@ class cl_assemble(color_print):
+@@ -1441,8 +1471,9 @@ class cl_assemble(color_print):
          if path.exists(pathPackages):
              # remove SYNC param
              filtredPackages = \
@@ -120,7 +112,7 @@ index b8c3ad1..013f9f8 100644
              open(pathPackages,'w').writelines(filtredPackages)
  
      def binaryCleaning(self):
-@@ -1483,3 +1515,56 @@ class cl_assemble(color_print):
+@@ -1483,3 +1514,50 @@ class cl_assemble(color_print):
          else:
              self.printByResult(skip=True)
          return True
@@ -159,18 +151,12 @@ index b8c3ad1..013f9f8 100644
 +
 +    def createMaskUnmaskList(self):
 +        """Action create mask unmask list"""
-+        linuxDir = self.clVars.Get('cl_assemble_linuxdir')
-+        curdate = datetime.now()
-+        linuxver = self.clVars.Get('os_assemble_linux_ver') or \
-+                "%04d%02d%02d"%(curdate.year,curdate.month,curdate.day)
-+        name = "%(shortname)s-%(ver)s-%(march)s"% \
-+            {'shortname':self.clVars.Get("os_assemble_linux_shortname").lower(),
-+             'ver': linuxver,
-+             'march':self.clVars.Get('os_assemble_arch_machine')}
-+        if not path.exists(linuxDir):
-+            os.makedirs(linuxDir,mode=0755)
-+        maskName = pathJoin(linuxDir,"%s.mask"%name)
-+        unmaskName = pathJoin(linuxDir,"%s.unmask"%name)
++        baseDir = self.clVars.Get('cl_assemble_pkgdir')
++        name = "package"
++        if not path.exists(baseDir):
++            os.makedirs(baseDir,mode=0755)
++        maskName = pathJoin(baseDir,"%s.mask"%name)
++        unmaskName = pathJoin(baseDir,"%s.unmask"%name)
 +        if self.createMaskList(self.clVars.Get('cl_assemble_path'),
 +                               maskName) and \
 +           self.createUnmaskList(self.clVars.Get('cl_assemble_path'),
