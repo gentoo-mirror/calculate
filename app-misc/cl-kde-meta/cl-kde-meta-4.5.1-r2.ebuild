@@ -182,6 +182,7 @@ RDEPEND="${RDEPEND}
 # kde-l10n
 RDEPEND="${RDEPEND}
 	kde-base/kde-l10n
+	kde-base/kdepim-l10n
 "
 
 # kdemisc
