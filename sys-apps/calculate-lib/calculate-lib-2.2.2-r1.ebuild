@@ -23,3 +23,11 @@ DEPEND="~sys-apps/calculate-templates-2.2.2
 	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# add cmc patch
+	epatch "${FILESDIR}/calculate-lib-2.2.2-add_cmc.patch"
+}
+
