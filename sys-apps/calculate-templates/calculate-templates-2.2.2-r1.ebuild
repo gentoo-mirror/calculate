@@ -18,6 +18,14 @@ DEPEND=""
 
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# backport templates
+	epatch "${FILESDIR}/calculate-templates-2.2.2-xorg_conf_fix.patch"
+}
+
 src_compile() {
 :
 }
