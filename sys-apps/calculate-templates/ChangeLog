@@ -2,6 +2,15 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-templates-2.2.3 (17 Dec 2010)
+
+  17 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-templates-2.2.1_rc17.ebuild,
+  -calculate-templates-2.2.2-r1.ebuild,
+  -files/calculate-templates-2.2.2-xorg_conf_fix.patch,
+  +calculate-templates-2.2.3.ebuild:
+  Bump version. Remove previous version with patch.
+
 *calculate-templates-2.2.2 (15 Dec 2010)
 
   15 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
