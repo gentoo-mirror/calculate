@@ -13,6 +13,7 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE="
 calculate_nodecoration
+calculate_nokernel
 calculate_nowireless
 "
 
@@ -22,6 +23,7 @@ RDEPEND="${RDEPEND}
 	app-misc/cl-xorg-meta
 
 	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
+	!calculate_nokernel? ( sys-kernel/calculate-sources )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 
 	media-tv/xbmc
