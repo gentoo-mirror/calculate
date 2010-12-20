@@ -22,8 +22,10 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 
-	# backport templates
+	# fix samsung templates
 	epatch "${FILESDIR}/calculate-templates-2.2.3-fix_samsung_templates.patch"
+	# fix flash install
+	epatch "${FILESDIR}/calculate-templates-2.2.3-fix_flash_install.patch"
 }
 
 src_compile() {
