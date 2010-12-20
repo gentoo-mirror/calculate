@@ -18,6 +18,14 @@ DEPEND=""
 
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# backport templates
+	epatch "${FILESDIR}/calculate-templates-2.2.3-fix_samsung_templates.patch"
+}
+
 src_compile() {
 :
 }
