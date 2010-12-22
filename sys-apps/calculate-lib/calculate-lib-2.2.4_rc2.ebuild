@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit distutils git eutils
 
-EGIT_COMMIT="4bdaf7d766bccf09350eabc5340b7c7d3ecf4506"
+EGIT_COMMIT="1eeb52c6847456e49911414a94d7632adf855b19"
 EGIT_REPO_URI="git://git.calculate.ru/calculate-lib.git"
 
 DESCRIPTION="The library for Calculate 2"
@@ -16,7 +16,7 @@ SLOT="2.2"
 KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
-DEPEND="~sys-apps/calculate-templates-2.2.4_rc1
+DEPEND="~sys-apps/calculate-templates-2.2.4_rc2
 	!<sys-apps/calculate-lib-2.1.8-r1
 	!=sys-apps/calculate-lib-2.1.9
 	!=sys-apps/calculate-lib-2.1.10
