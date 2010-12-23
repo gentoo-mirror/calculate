@@ -8,20 +8,19 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The program of installation Calculate Linux"
+DESCRIPTION="The library for Calculate 2"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="2.2"
 KEYWORDS="amd64 x86"
 IUSE="minimal"
-
-DEPEND="~sys-apps/calculate-lib-2.2.4
-	app-portage/layman
-	!minimal? ( sys-boot/grub
-	sys-fs/dosfstools
-	sys-fs/squashfs-tools
-	sys-block/parted )"
-
+DEPEND="~sys-apps/calculate-templates-2.2.4
+	!<sys-apps/calculate-lib-2.1.8-r1
+	!=sys-apps/calculate-lib-2.1.9
+	!=sys-apps/calculate-lib-2.1.10
+	!minimal? ( dev-python/py-smbpasswd )
+	>=dev-python/pyxml-0.8
+	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
@@ -29,10 +28,5 @@ src_unpack() {
 	cd "${S}"
 
 	# fix lang variable
-	epatch "${FILESDIR}/calculate-install-2.2.4-fixlang.patch"
-}
-
-pkg_postinst() {
-	einfo "For configure calculate-install perform:"
-	einfo "  cl-install --install"
+	epatch "${FILESDIR}/calculate-lib-2.2.4-fixfilter.patch"
 }
