@@ -4,18 +4,17 @@
 
 EAPI="2"
 
-inherit distutils git
+inherit distutils eutils
 
-EGIT_COMMIT="117f9a25abed43eab387a57da94d0c556bfa0b7e"
-EGIT_REPO_URI="git://git.calculate.ru/calculate-assemble.git"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-DEPEND="~sys-apps/calculate-builder-2.2.4_rc2
-	~sys-apps/calculate-templates-2.2.4_rc2"
+DEPEND="~sys-apps/calculate-builder-2.2.4
+	~sys-apps/calculate-templates-2.2.4"
 
 RDEPEND="${DEPEND}"

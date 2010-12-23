@@ -4,34 +4,24 @@
 
 EAPI="2"
 
-inherit distutils git
+inherit distutils eutils
 
-EGIT_COMMIT="1e76a67bd97919e54eae360566c37d09be71ac79"
-EGIT_REPO_URI="git://git.calculate.ru/calculate-desktop.git"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The program of the desktop configuration Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-lib-2.2.4_rc2
-	!<sys-apps/calculate-client-2.2.0
+DEPEND="~sys-apps/calculate-lib-2.2.4
 	>=dev-python/python-ldap-2.0[ssl]
 	xfce? ( x11-misc/xdialog )
 	gnome? ( x11-misc/xdialog )
 	kde? ( kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	git_src_unpack
-	cd "${S}"
-
-	#bugfix wrong chromium configure
-	#epatch "${FILESDIR}/calculate-desktop-2.2.0.0_rc1-r1.patch"
-}
 
 pkg_postinst() {
 	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
@@ -41,9 +31,4 @@ pkg_postinst() {
 	then
 		einfo "  /etc/init.d/xdm restart"
 	fi
-}
-
-pkg_prerm() {
-	:
-	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/uninstall
 }
