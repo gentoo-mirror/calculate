@@ -24,6 +24,14 @@ DEPEND="~sys-apps/calculate-lib-2.2.4
 
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# fix lang variable
+	epatch "${FILESDIR}/calculate-install-2.2.4-fixlang.patch"
+}
+
 pkg_postinst() {
 	einfo "For configure calculate-install perform:"
 	einfo "  cl-install --install"
