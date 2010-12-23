@@ -1,0 +1,20 @@
+commit ee6763101ed9b4b6ae49893cb0d96b8753bd4dcd
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Thu Dec 23 18:04:14 2010 +0300
+
+    Change print Vars by filter mode.
+
+diff --git a/pym/cl_datavars.py b/pym/cl_datavars.py
+index b2f9394..459d51e 100644
+--- a/pym/cl_datavars.py
++++ b/pym/cl_datavars.py
+@@ -619,7 +619,8 @@ storage of variables templates")%location)
+             for nameVar in dictVars:
+                 if not "__" in nameVar and (not\
+                     (getattr(dataVar,nameVar).has_key("hide") and\
+-                     getattr(dataVar,nameVar)['hide']) or verbose>1):
++                     getattr(dataVar,nameVar)['hide']) or verbose>1 \
++                     or varsFilter):
+                     if varsNames and not nameVar in varsNames:
+                         continue
+                     if reFilter and not reFilter.search(nameVar):
