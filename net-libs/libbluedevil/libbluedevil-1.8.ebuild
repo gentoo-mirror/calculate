@@ -2,17 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 
-inherit git kde4-base
+inherit kde4-base
 
+MY_P=${PN}-v${PV}-1
 DESCRIPTION="A Qt wrapper for bluez used in the KDE bluetooth stack"
 HOMEPAGE="http://gitorious.org/libbluedevil"
-EGIT_COMMIT="d8ca7aba3e24844bbb3ad3b5c8c334471f24ee59"
-EGIT_REPO_URI="git://gitorious.org/libbluedevil/libbluedevil.git"
+SRC_URI="http://media.ereslibre.es/2010/11/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 SLOT="4"
 IUSE="debug"
 
@@ -20,6 +20,4 @@ RDEPEND="
 	net-wireless/bluez
 "
 
-src_unpack() {
-	git_src_unpack
-}
+S=${WORKDIR}/${MY_P}

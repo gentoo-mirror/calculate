@@ -2,22 +2,23 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 
-inherit git kde4-base
+inherit kde4-base
+
+MY_P=${PN}-v${PV}
 
 DESCRIPTION="Bluetooth stack for KDE"
 HOMEPAGE="http://gitorious.org/bluedevil"
-EGIT_COMMIT="4d13976637b5063198ff834b51a386c4aa9710a5"
-EGIT_REPO_URI="git://gitorious.org/bluedevil/bluedevil.git"
+SRC_URI="http://media.ereslibre.es/2010/11/${MY_P}.tar.bz2"
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 SLOT="4"
 IUSE="debug"
 
 DEPEND="
-	~net-libs/libbluedevil-1.9_p20100915
+	net-libs/libbluedevil
 	x11-misc/shared-mime-info
 "
 RDEPEND="${DEPEND}
@@ -26,6 +27,4 @@ RDEPEND="${DEPEND}
 	app-mobilephone/obex-data-server
 "
 
-src_unpack() {
-	git_src_unpack
-}
+S=${WORKDIR}/${MY_P}
