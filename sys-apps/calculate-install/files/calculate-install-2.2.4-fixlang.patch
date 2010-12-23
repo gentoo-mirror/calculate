@@ -1,0 +1,16 @@
+commit 5cea93c8a51d7b57ad8850182bdd5a546c7cb954
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Thu Dec 23 17:51:24 2010 +0300
+
+    Fix lang variable.
+
+diff --git a/pym/cl_vars_install.py b/pym/cl_vars_install.py
+index 9f4015e..7f31f39 100644
+--- a/pym/cl_vars_install.py
++++ b/pym/cl_vars_install.py
+@@ -351,4 +351,5 @@ class Data:
+     hr_laptop = {}
+     hr_laptop_model = {}
+     os_locale_language = {}
++    os_locale_lang = {}
+     cl_root_path = {'mode':"w"}
