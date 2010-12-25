@@ -1,13 +1,14 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2006 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit multilib eutils rpm versionator
-MY_P=${P/_p/-}
+MY_PF=${PF/-r/-}
 DESCRIPTION="Common files for the Canon CUPS Capt driver"
 HOMEPAGE="http://www.canon.com/"
-SRC_URI="ftp://ftp.calculate-linux.org/pub/calculate/cndrvcups/${MY_P}-2.tar.gz"
+SRC_URI="http://files.canon-europe.com/files/soft39340/software/CAPT_Printer_Driver_for_Linux_V200_uk_EN.tar.gz"
 LICENSE="CANON"
+RESTRICT="mirror"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="-cngplp"    # enable or disable cngplp compilation, may cause build break on ~amd64, don't really know if cngplp is ever needed
@@ -24,6 +25,13 @@ QA_TEXTRELS="${dir:1}/libcaepcm.so.1.0
 	${dir:1}/libc3pl.so.0.0.1
 	${dir:1}/libcnlbcm.so.1.0
 	${dir:1}/libcaiousb.so.1.0.0"
+
+src_unpack() {
+	unpack ${A}
+	unpack ./CAPT_Printer_Driver_for_Linux_V200_uk_EN/Src/${MY_PF}.tar.gz
+	cd ${S}
+}
+
 src_configure(){
 	if hasuse cngplp; then CNGPLP="cngplp"; fi
 	for i in buftool ${CNGPLP}; do
