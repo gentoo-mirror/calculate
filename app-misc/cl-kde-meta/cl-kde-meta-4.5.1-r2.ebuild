@@ -188,7 +188,6 @@ RDEPEND="${RDEPEND}
 # kdemisc
 #- kde-misc/konq-plugins
 #- kde-misc/kgtk
-#- net-wireless/bluedevil
 RDEPEND="${RDEPEND}
 	kde-base/kate
 	kde-base/kdeplasma-addons
