@@ -11,11 +11,15 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
+IUSE="cdistro_CLD"
 
-# Developer
-#net-wireless/madwimax
-RDEPEND="
+#bluetooth
+RDEPEND="${RDEPEND}
+	cdistro_CLD? ( net-wireless/bluedevil )
+"
+
+# wi-fi
+RDEPEND="${RDEPEND}
 	net-wireless/b43-firmware
 	net-wireless/broadcom-sta
 	net-wireless/ipw2100-firmware
@@ -29,9 +33,12 @@ RDEPEND="
 	net-wireless/iwl6050-ucode
 	net-wireless/madwifi-ng
 	net-wireless/madwifi-ng-tools
-	net-wireless/madwimax
 	net-wireless/rt73-firmware
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
+"
+# wi-max
+RDEPEND="${RDEPEND}
+	net-wireless/madwimax
 "
 
