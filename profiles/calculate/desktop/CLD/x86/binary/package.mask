@@ -103,6 +103,8 @@ app-misc/mime-types
 app-misc/pax-utils
 app-misc/realpath
 app-misc/strigi
+app-mobilephone/obex-data-server
+app-mobilephone/obexd
 app-office/akonadi-server
 app-office/openoffice
 app-pda/libplist
@@ -219,6 +221,7 @@ dev-libs/lzo
 dev-libs/mpfr
 dev-libs/nspr
 dev-libs/nss
+dev-libs/openobex
 dev-libs/openssl
 dev-libs/popt
 dev-libs/pth
@@ -630,6 +633,7 @@ net-im/choqok
 net-im/skype
 net-irc/konversation
 net-libs/gnutls
+net-libs/libbluedevil
 net-libs/libktorrent
 net-libs/liblockfile
 net-libs/libnfsidmap
@@ -673,6 +677,7 @@ net-print/gutenprint
 net-print/hplip
 net-wireless/b43-firmware
 net-wireless/b43-fwcutter
+net-wireless/bluedevil
 net-wireless/bluez
 net-wireless/broadcom-sta
 net-wireless/ipw2100-firmware
@@ -1003,7 +1008,6 @@ x11-libs/libvdpau
 x11-libs/libwnck
 x11-libs/libxcb
 x11-libs/libxkbfile
-x11-libs/libxkbui
 x11-libs/libxklavier
 x11-libs/pango
 x11-libs/pixman
