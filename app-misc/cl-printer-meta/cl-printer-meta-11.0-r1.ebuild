@@ -16,6 +16,7 @@ IUSE=""
 # Developer
 RDEPEND="
 	media-gfx/xsane
+	net-print/cndrvcups-capt
 	net-print/cnijfilter
 	net-print/cups
 	net-print/gutenprint

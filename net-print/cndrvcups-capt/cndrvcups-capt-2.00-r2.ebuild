@@ -11,7 +11,7 @@ SRC_URI="http://files.canon-europe.com/files/soft39340/software/CAPT_Printer_Dri
 LICENSE="CANON"
 RESTRICT="mirror"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 EAPI="2"
 
