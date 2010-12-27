@@ -1,0 +1,19 @@
+commit 37821912d0b2af355e5a4532fc5e78e6bbea4acb
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Dec 27 20:05:07 2010 +0300
+
+    Fix fill method os_install_linux_ver.
+
+diff --git a/pym/cl_fill_install.py b/pym/cl_fill_install.py
+index 3977c35..e2b7fac 100644
+--- a/pym/cl_fill_install.py
++++ b/pym/cl_fill_install.py
+@@ -672,7 +672,7 @@ class fillVars(object, glob_attr):
+                                   self.Get('cl_image_path'),
+                                   self.Get('os_install_arch_machine'),
+                                   self.Get('os_install_linux_shortname'))
+-        if not imagename:
++        if not imagename and self.Get('cl_action') != 'merge':
+             return ""
+         d = DistributiveRepository()._getfromcontent(imagename)
+         if "linuxver" in d and d['linuxver'] != "0":

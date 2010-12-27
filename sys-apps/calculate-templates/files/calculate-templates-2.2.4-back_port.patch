@@ -28,6 +28,22 @@ index 0000000..00c36a3
 +	fi
 +}
 +
+diff --git a/install/1merge/calculate-sources/modprobe.d/i915.conf b/install/1merge/calculate-sources/modprobe.d/i915.conf
+new file mode 100644
+index 0000000..69ad5b9
+--- /dev/null
++++ b/install/1merge/calculate-sources/modprobe.d/i915.conf
+@@ -0,0 +1,2 @@
++# Calculate comment=#
++# This file will be removed
+diff --git a/install/1merge/calculate-sources/modprobe.d/modprobe_i915.conf b/install/1merge/calculate-sources/modprobe.d/modprobe_i915.conf
+new file mode 100644
+index 0000000..69ad5b9
+--- /dev/null
++++ b/install/1merge/calculate-sources/modprobe.d/modprobe_i915.conf
+@@ -0,0 +1,2 @@
++# Calculate comment=#
++# This file will be removed
 diff --git a/install/1merge/calculate-sources/modprobe_i915.conf b/install/1merge/calculate-sources/modprobe_i915.conf
 deleted file mode 100644
 index c6a113e..0000000
