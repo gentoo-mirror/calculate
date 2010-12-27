@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit multilib eutils versionator
-MY_PF=${PF/-r/-}
+MY_PF=${PF/-r[0-9]/-2}
 S=${WORKDIR}/${PN}-$(get_version_component_range 1-2)
 DESCRIPTION="Canon CUPS Capt driver"
 HOMEPAGE="http://www.canon.com/"
@@ -28,6 +28,7 @@ RDEPEND="${DEPEND}
 		amd64? (
 			>=app-emulation/emul-linux-x86-gtklibs-2.0
 			>=app-emulation/emul-linux-x86-baselibs-10.0-r1
+			>=app-emulation/emul-linux-x86-bjdeps-0.1-r2
 		)
 		!amd64? (
 			dev-libs/popt
@@ -71,19 +72,6 @@ src_install() {
 		make install DESTDIR=${D}
 		cd ..
 	done
-
-	if use amd64; then
-		OABI=${ABI}
-		ABI="x86"
-		insinto /usr/lib32
-		i="libpopt.so.0.0.0"
-		[ ! -e ${FILESDIR}/${i} ] && die "You have to download libpopt.so.0.0.0 from http://bugs.gentoo.org/attachment.cgi?id=132734 and put it to ${FILESDIR} manually!"
-		dolib.so ${FILESDIR}/${i}
-		dosym ${i} /usr/lib32/${i%.?}
-		dosym ${i} /usr/lib32/${i%.?.?}
-		dosym ${i} /usr/lib32/${i%.?.?.?}
-		ABI=${OABI}
-	fi
 
 	# Install the libs
 	OABI=${ABI}
@@ -194,9 +182,4 @@ pkg_postinst() {
 	einfo
 	ewarn "If you reinstall make sure the fifo is created in /var/ccpd, if not"
 	ewarn "just reinstall again. This is due to bug #136199"
-	if use amd64; then
-		ewarn
-		ewarn "The file /usr/lib32/libpopt.so.0.0.0 doesn't exist in any x86 package yet"
-		ewarn "The file comes from a Gentoo x86 machine"
-	fi
 }
