@@ -14,7 +14,6 @@ KEYWORDS="amd64 x86"
 IUSE="cdistro_CLD cdistro_CLDG cdistro_CLDX"
 
 RDEPEND="
-	media-libs/win32codecs
 	media-sound/alsa-utils
 	media-sound/sox
 	media-video/mplayer
