@@ -29,7 +29,7 @@ EXTRAVERSION="${CALC_K_SUBV}-calculate"
 UNIPATCH_STRICTORDER=1
 
 CALC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-${CKV}.tar.bz2
-        ftp://mirror.yandex.ru/calculate/${PN}/${PN}-${CKV}.tar.bz2
+        ftp://ftp.calculate-linux.org/pub/calculate/${PN}/${PN}-${CKV}.tar.bz2
 		http://mirror.yandex.ru/calculate/${PN}/${PN}-${CKV}.tar.bz2
 		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${PN}-${CKV}.tar.bz2"
 

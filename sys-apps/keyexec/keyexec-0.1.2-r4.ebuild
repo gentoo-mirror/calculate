@@ -4,7 +4,7 @@
 
 DESCRIPTION="Starts other program using the password of the user kept in the kernel"
 HOMEPAGE="http://www.calculate-linux.org/main/en/keyexec"
-SRC_URI="ftp://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
+SRC_URI="ftp://ftp.calculate-linux.org/pub/calculate/${PN}/${P}.tar.bz2
 		http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
 		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${P}.tar.bz2"
 

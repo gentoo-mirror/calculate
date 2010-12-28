@@ -4,7 +4,7 @@
 
 DESCRIPTION="Sending fax or voice files using modem ZyXELOmni 56K"
 HOMEPAGE="http://www.calculate-linux.org/faxsend"
-SRC_URI="ftp://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
+SRC_URI="ftp://ftp.calculate-linux.org/pub/calculate/${PN}/${P}.tar.bz2
 		http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2
 		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${P}.tar.bz2"
 LICENSE="Apache-2.0"
