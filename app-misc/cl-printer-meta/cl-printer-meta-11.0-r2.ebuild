@@ -19,7 +19,6 @@ RDEPEND="
 	net-print/cndrvcups-capt
 	net-print/cnijfilter
 	net-print/cups
-	net-print/foo2zjs
 	net-print/gutenprint
 	net-print/hplip
 "
