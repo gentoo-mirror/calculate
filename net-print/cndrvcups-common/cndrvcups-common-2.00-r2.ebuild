@@ -12,7 +12,6 @@ RESTRICT="mirror"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="-cngplp"    # enable or disable cngplp compilation, may cause build break on ~amd64, don't really know if cngplp is ever needed
-RESTRICT=""
 EAPI="2"
 
 DEPEND=">=net-print/cups-1.1.17"

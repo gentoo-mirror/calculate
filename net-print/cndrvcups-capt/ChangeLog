@@ -1,0 +1,14 @@
+# ChangeLog for cndrvcups-capt
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Dec 2010; Dmitry 'daks' Fomenko <daks12@gmail.com> cndrvcups-capt-2.00-r2.ebuild,
+  -files/ccpd.conf, -files/libpopt.so.0.0.0, +metadata.xml, +ChangeLog:
+  Corrected ebuild. Remove unnecessary files. Fixing dependency. Added useflag gtk
+  for install graphics part of driver.
+
+*cndrvcups-capt-2.00-r2 (26 Dec 2010)
+
+  26 Dec 2010; Dmitry 'daks' Fomenko <daks12@gmail.com> +cndrvcups-capt-2.00-r2.ebuild,
+  +files/ccpd.conf, +files/libpopt.so.0.0.0, +files/cndrvcups-capt-init.d:
+  Inital ebuild. Taken from bug #130612

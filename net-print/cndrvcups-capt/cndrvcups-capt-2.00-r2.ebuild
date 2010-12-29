@@ -1,9 +1,9 @@
 # Copyright 1999-2006 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: $ ver 1.1
 
 inherit multilib eutils versionator
-MY_PF=${PF/-r[0-9]/-2}
+MY_PF=${PF/-r2/-2}
 S=${WORKDIR}/${PN}-$(get_version_component_range 1-2)
 DESCRIPTION="Canon CUPS Capt driver"
 HOMEPAGE="http://www.canon.com/"
@@ -11,8 +11,8 @@ SRC_URI="http://files.canon-europe.com/files/soft39340/software/CAPT_Printer_Dri
 LICENSE="CANON"
 RESTRICT="mirror"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
+IUSE="gtk"
 EAPI="2"
 
 DEPEND="=net-print/cndrvcups-common-2.00-r2
@@ -26,14 +26,19 @@ RDEPEND="${DEPEND}
 		>=sys-apps/portage-2.1.1_pre1
 		app-text/ghostscript-gpl
 		amd64? (
-			>=app-emulation/emul-linux-x86-gtklibs-2.0
+			gtk? (
+				>=app-emulation/emul-linux-x86-gtklibs-2.0
+			    )
 			>=app-emulation/emul-linux-x86-baselibs-10.0-r1
 			>=app-emulation/emul-linux-x86-bjdeps-0.1-r2
 		)
 		!amd64? (
 			dev-libs/popt
 			dev-libs/libxml2
-		)"
+		)
+		gtk? (
+		    x11-libs/gtk+
+		    )"
 
 src_unpack() {
 	unpack ${A}
@@ -50,28 +55,44 @@ src_configure() {
 	NOCONFIGURE=1 ./autogen.sh
 	econf --disable-static
 	cd ..
-	for i in statusui backend pstocapt pstocapt{,2,3} ppd; do
+	for i in backend pstocapt pstocapt{,2,3} ppd; do
 		cd ${i}
 		NOCONFIGURE=1 ./autogen.sh
 		econf
 		cd ..
 	done
+	if use gtk; then
+		cd statusui
+		NOCONFIGURE=1 ./autogen.sh
+		econf
+		cd ..
+	fi
 }
 
 src_compile() {
-	for i in statusui driver backend pstocapt{,2,3} ppd; do
+	for i in driver backend pstocapt{,2,3} ppd; do
 		cd ${i}
 		emake
 		cd ..
 	done
+	if use gtk; then
+		cd statusui
+		emake
+		cd ..
+	fi
 }
 
 src_install() {
-	for i in statusui driver backend pstocapt{,2,3} ppd; do
+	for i in driver backend pstocapt{,2,3} ppd; do
 		cd ${i}
 		make install DESTDIR=${D}
 		cd ..
 	done
+	if use gtk; then
+		cd statusui
+		make install DESTDIR=${D}
+		cd ..
+	fi
 
 	# Install the libs
 	OABI=${ABI}
