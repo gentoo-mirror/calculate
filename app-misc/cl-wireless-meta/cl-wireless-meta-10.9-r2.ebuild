@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="cdistro_CLD"
+IUSE="cdistro_desktop cdistro_CLD"
 
 #bluetooth
 RDEPEND="${RDEPEND}
@@ -39,6 +39,6 @@ RDEPEND="${RDEPEND}
 "
 # wi-max
 RDEPEND="${RDEPEND}
-	net-wireless/madwimax
+	cdistro_desktop? ( net-wireless/madwimax )
 "
 
