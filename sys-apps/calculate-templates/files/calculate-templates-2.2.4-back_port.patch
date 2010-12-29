@@ -16113,6 +16113,16 @@ index 14ee764..eecea9b 100644
 -<text>verbose-CMC-tty6-800x600.jpg</text>
 +<reg>tty1/images/verbose-CMC-tty1-800x600.jpg</reg>
 +<text>tty6/images/verbose-CMC-tty6-800x600.jpg</text>
+diff --git a/install/1merge/udev/blacklist.conf b/install/1merge/udev/blacklist.conf
+index c1736e3..d832895 100644
+--- a/install/1merge/udev/blacklist.conf
++++ b/install/1merge/udev/blacklist.conf
+@@ -1,3 +1,5 @@
+ # Calculate format=patch comment=#
+ <reg>#blacklist usblp</reg>
+ <text>blacklist usblp</text>
++<reg>#blacklist pcspkr</reg>
++<text>blacklist pcspkr</text>
 diff --git a/install/1merge/xinit/conf.d/xdm b/install/1merge/xinit/conf.d/xdm
 deleted file mode 100644
 index eb21521..0000000
@@ -16149,3 +16159,454 @@ index 0000000..eb21521
 +#?pkg(x11-misc/slim)!=&&pkg(kde-base/kdm)==&&pkg(gnome-base/gdm)==#
 +DISPLAYMANAGER="slim"
 +#pkg#
+diff --git a/install/2laptop/lenovo/.calculate_directory b/install/2laptop/lenovo/.calculate_directory
+new file mode 100644
+index 0000000..39de1e5
+--- /dev/null
++++ b/install/2laptop/lenovo/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate append=skip hr_laptop==lenovo
+diff --git a/install/2laptop/lenovo/calculate-install/.calculate_directory b/install/2laptop/lenovo/calculate-install/.calculate_directory
+new file mode 100644
+index 0000000..609b17e
+--- /dev/null
++++ b/install/2laptop/lenovo/calculate-install/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate belong()!=&&cl_chroot_status==off&&pkg(sys-apps/calculate-install)!= path=/ name=etc
++
+diff --git a/install/2laptop/lenovo/calculate-install/bin/.calculate_directory b/install/2laptop/lenovo/calculate-install/bin/.calculate_directory
+new file mode 100644
+index 0000000..00db44b
+--- /dev/null
++++ b/install/2laptop/lenovo/calculate-install/bin/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate path=/usr
+diff --git a/install/2laptop/lenovo/calculate-install/bin/wifi_toggle b/install/2laptop/lenovo/calculate-install/bin/wifi_toggle
+new file mode 100644
+index 0000000..ad15d75
+--- /dev/null
++++ b/install/2laptop/lenovo/calculate-install/bin/wifi_toggle
+@@ -0,0 +1,31 @@
++# Calculate chmod=0755 comment=# load(char,/sys/bus/pci/devices/0000:03:00.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:03:00.0/device,root)==0x423d
++#!/bin/bash
++# toggle wifi
++
++#?pkg(media-fonts/droid)!=#
++FONT='-*-droid sans-bold-*-*-*-34-*-*-*-*-*-*-*'
++#pkg#
++#?pkg(media-fonts/droid)==#
++FONT='-adobe-helvetica-bold-*-*-*-34-*-*-*-*-*-*-*'
++#pkg#
++DELAY=1
++
++if lsmod | grep -q iwlagn
++then
++    sudo rmmod iwlagn
++    message="Wifi disable"
++else
++    sudo modprobe iwlagn
++    message="Wifi enable"
++fi
++ 
++if which kdialog &>/dev/null
++then
++	kdialog --passivepopup "${message}" --title "Wifi" ${DELAY}
++elif which osd_cat &>/dev/null
++then
++	osd_cat -A center -p middle -f "${FONT}" -d ${DELAY} << EOF
++${message}
++EOF
++fi
++exit 0
+diff --git a/install/2laptop/lenovo/calculate-install/init.d/.calculate_directory b/install/2laptop/lenovo/calculate-install/init.d/.calculate_directory
+new file mode 100644
+index 0000000..459f9b5
+--- /dev/null
++++ b/install/2laptop/lenovo/calculate-install/init.d/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate path=/etc
+diff --git a/install/2laptop/lenovo/calculate-install/init.d/laptopd b/install/2laptop/lenovo/calculate-install/init.d/laptopd
+new file mode 100644
+index 0000000..6bcb498
+--- /dev/null
++++ b/install/2laptop/lenovo/calculate-install/init.d/laptopd
+@@ -0,0 +1,27 @@
++# Calculate comment=# chmod=0755
++#!/sbin/runscript
++# Copyright 1999-2010 Gentoo Foundation
++# Distributed under the terms of the GNU General Public License v2
++# $Header: /var/cvsroot/gentoo-x86/sys-power/acpid/files/acpid-2.0.3-init.d,v 1.1 2010/04/04 16:39:09 ssuominen Exp $
++
++depend() {
++	after *
++}
++
++start() {
++	ebegin "Configure laptop"
++	setkeycodes e007 187   # XF86Launch8
++	setkeycodes e00e 185   # XF86Launch5
++	if lsmod | grep -q "^psmouse"
++	then
++		rmmod psmouse
++		modprobe psmouse
++	fi
++	lsmod | grep -q "^acer_wmi" && rmmod acer-wmi
++	eend 0
++}
++
++stop() {
++	eend 0
++}
++
+diff --git a/install/2laptop/lenovo/calculate-install/runlevels/default/.calculate_directory b/install/2laptop/lenovo/calculate-install/runlevels/default/.calculate_directory
+new file mode 100644
+index 0000000..0f7257b
+--- /dev/null
++++ b/install/2laptop/lenovo/calculate-install/runlevels/default/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate path=/etc/runlevels
++
+diff --git a/install/2laptop/lenovo/calculate-install/runlevels/default/laptopd b/install/2laptop/lenovo/calculate-install/runlevels/default/laptopd
+new file mode 100644
+index 0000000..45732a1
+--- /dev/null
++++ b/install/2laptop/lenovo/calculate-install/runlevels/default/laptopd
+@@ -0,0 +1 @@
++# Calculate link=/etc/init.d/laptopd symbolic
+diff --git a/install/2laptop/lenovo/calculate-sources/.calculate_directory b/install/2laptop/lenovo/calculate-sources/.calculate_directory
+new file mode 100644
+index 0000000..b7692d9
+--- /dev/null
++++ b/install/2laptop/lenovo/calculate-sources/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate belong()!=&&cl_chroot_status!=&&pkg(sys-kernel/calculate-sources)!= path=/etc name=modprobe.d
++
+diff --git a/install/2laptop/lenovo/calculate-sources/psmouse.conf b/install/2laptop/lenovo/calculate-sources/psmouse.conf
+new file mode 100644
+index 0000000..38de74d
+--- /dev/null
++++ b/install/2laptop/lenovo/calculate-sources/psmouse.conf
+@@ -0,0 +1,4 @@
++# Calculate comment=#
++# Psmouse driver kernel modules' configuration file.
++
++options psmouse proto=imps
+diff --git a/install/2laptop/lenovo/gconf/%gconf-tree.xml b/install/2laptop/lenovo/gconf/%gconf-tree.xml
+new file mode 100644
+index 0000000..33cc060
+--- /dev/null
++++ b/install/2laptop/lenovo/gconf/%gconf-tree.xml
+@@ -0,0 +1,110 @@
++# Calculate format=xml_gconf_tree
++<?xml version="1.0"?>
++<gconf>
++	<dir name="desktop">
++		<dir name="gnome">
++			<dir name="keybindings">
++#?load(char,/sys/bus/pci/devices/0000:03:00.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:03:00.0/device,root)==0x423d#
++				<dir name="custom_wifi_toggle">
++					<entry name="action" schema="/schemas/desktop/gnome/keybindings/custom_wifi_toggle/action"/>
++					<entry name="name" schema="/schemas/desktop/gnome/keybindings/custom_wifi_toggle/name"/>
++					<entry name="binding" schema="/schemas/desktop/gnome/keybindings/custom_wifi_toggle/binding"/>
++				</dir>
++#load#
++#?os_install_root_type!=livecd
++				<dir name="custom_hibernate">
++					<entry name="action" schema="/schemas/desktop/gnome/keybindings/custom_hibernate/action"/>
++					<entry name="name" schema="/schemas/desktop/gnome/keybindings/custom_hibernate/name"/>
++					<entry name="binding" schema="/schemas/desktop/gnome/keybindings/custom_hibernate/binding"/>
++				</dir>
++#os_install_root_type
++			</dir>
++		</dir>
++	</dir>
++	<dir name="schemas">
++		<dir name="desktop">
++			<dir name="gnome">
++				<dir name="keybindings">
++#?load(char,/sys/bus/pci/devices/0000:03:00.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:03:00.0/device,root)==0x423d#
++					<dir name="custom_wifi_toggle">
++						<entry name="action" type="schema" stype="string" owner="calculate">
++							<local_schema locale="C" short_desc="Toggle wifi">
++								<default type="string">
++									<stringvalue>/usr/bin/wifi_toggle</stringvalue>
++								</default>
++								<longdesc>
++          Command used to wifi toggle.
++        </longdesc>
++							</local_schema>
++						</entry>
++						<entry name="binding" type="schema" stype="string" owner="calculate">
++							<local_schema locale="C" short_desc="Increase backlight">
++								<default type="string">
++									<stringvalue>XF86Launch6</stringvalue>
++								</default>
++								<longdesc>
++          Binding to wifi toggle.
++        </longdesc>
++							</local_schema>
++						</entry>
++						<entry name="name" type="schema" stype="string" owner="calculate">
++							<local_schema locale="ru">
++								<default type="string">
++									<stringvalue>Включить/выключить беспроводную сеть</stringvalue>
++								</default>
++							</local_schema>
++							<local_schema locale="C" short_desc="The name of the keyboard shortcut to increase screen backlight">
++								<default type="string">
++									<stringvalue>Toggle wifi</stringvalue>
++								</default>
++								<longdesc>
++          This is the name of the keyboard shortcut to wifi toggle. This name will be shown in the keyboard shortcut preferences dialog.
++        </longdesc>
++							</local_schema>
++						</entry>
++					</dir>
++#load#
++#?os_install_root_type!=livecd
++					<dir name="custom_hibernate">
++						<entry name="action" type="schema" stype="string" owner="calculate">
++							<local_schema locale="C" short_desc="Hibernate">
++								<default type="string">
++									<stringvalue>sudo /usr/sbin/pm-hibernate</stringvalue>
++								</default>
++								<longdesc>
++          Command used to hibernate.
++        </longdesc>
++							</local_schema>
++						</entry>
++						<entry name="binding" type="schema" stype="string" owner="calculate">
++							<local_schema locale="C" short_desc="Toggle cpu mode">
++								<default type="string">
++									<stringvalue>XF86Launch8</stringvalue>
++								</default>
++								<longdesc>
++          Binding to hibernate.
++        </longdesc>
++							</local_schema>
++						</entry>
++						<entry name="name" type="schema" stype="string" owner="calculate">
++							<local_schema locale="ru">
++								<default type="string">
++									<stringvalue>Спящий режим</stringvalue>
++								</default>
++							</local_schema>
++							<local_schema locale="C" short_desc="The name of the keyboard shortcut to toggle cpu mode">
++								<default type="string">
++									<stringvalue>Hibernation</stringvalue>
++								</default>
++								<longdesc>
++          This is the name of the keyboard shortcut to hibernate. This name will be shown in the keyboard shortcut preferences dialog.
++        </longdesc>
++							</local_schema>
++						</entry>
++					</dir>
++#os_install_root_type
++				</dir>
++			</dir>
++		</dir>
++	</dir>
++</gconf>
+diff --git a/install/2laptop/lenovo/gconf/.calculate_directory b/install/2laptop/lenovo/gconf/.calculate_directory
+new file mode 100644
+index 0000000..221c405
+--- /dev/null
++++ b/install/2laptop/lenovo/gconf/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate belong()!=&&cl_chroot_status==off&&pkg(gnome-base/gconf)!= path=/etc/gconf name=gconf.xml.mandatory
+diff --git a/install/2laptop/lenovo/khotkeys/.calculate_directory b/install/2laptop/lenovo/khotkeys/.calculate_directory
+new file mode 100644
+index 0000000..fba9aa3
+--- /dev/null
++++ b/install/2laptop/lenovo/khotkeys/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate belong()!=&&cl_chroot_status==off&&pkg(kde-base/khotkeys)!= path=/usr/share/apps
+diff --git a/install/2laptop/lenovo/khotkeys/hibernate.khotkeys b/install/2laptop/lenovo/khotkeys/hibernate.khotkeys
+new file mode 100644
+index 0000000..ee735fe
+--- /dev/null
++++ b/install/2laptop/lenovo/khotkeys/hibernate.khotkeys
+@@ -0,0 +1,50 @@
++# Calculate os_install_root_type!=livecd
++[Data]
++DataCount=1
++
++[Data_1]
++Comment=This group contains actions that are set up for laptop.
++Comment[ru]=Группа действий для ноутбуков.
++DataCount=1
++Enabled=true
++Name=Laptop Actions
++Name[ru]=Действия для ноутбука
++SystemGroup=0
++Type=ACTION_DATA_GROUP
++AllowMerge=true
++
++[Data_1Conditions]
++Comment=
++ConditionsCount=0
++
++[Data_1_1]
++Comment=Hibernation.
++Comment[ru]=Включить спящий режим.
++Enabled=true
++Name=Hibernation
++Name[ru]=Спящий режим
++Type=COMMAND_URL_SHORTCUT_ACTION_DATA
++
++[Data_1_1Actions]
++ActionsCount=1
++
++[Data_1_1Actions0]
++CommandURL=sudo /usr/sbin/pm-hibernate
++Type=COMMAND_URL
++
++[Data_1_1Conditions]
++Comment=
++ConditionsCount=0
++
++[Data_1_1Triggers]
++Comment=Simple_action
++Comment[ru]=Простое действие
++TriggersCount=1
++
++[Data_1_1Triggers0]
++Key=Launch (A)
++Type=SHORTCUT
++
++[Main]
++Version=2
++ImportId=hibernate
+diff --git a/install/2laptop/lenovo/khotkeys/togglewifi.khotkeys b/install/2laptop/lenovo/khotkeys/togglewifi.khotkeys
+new file mode 100644
+index 0000000..12950ba
+--- /dev/null
++++ b/install/2laptop/lenovo/khotkeys/togglewifi.khotkeys
+@@ -0,0 +1,50 @@
++# Calculate load(char,/sys/bus/pci/devices/0000:03:00.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:03:00.0/device,root)==0x423d
++[Data]
++DataCount=1
++
++[Data_1]
++Comment=This group contains actions that are set up for laptop.
++Comment[ru]=Группа действий для ноутбуков.
++DataCount=1
++Enabled=true
++Name=Laptop Actions
++Name[ru]=Действия для ноутбука
++SystemGroup=0
++Type=ACTION_DATA_GROUP
++AllowMerge=true
++
++[Data_1Conditions]
++Comment=
++ConditionsCount=0
++
++[Data_1_1]
++Comment=Toggle wireless net.
++Comment[ru]=Включить/включить беспроводную сеть.
++Enabled=true
++Name=Toggle wifi
++Name[ru]=Вкл/Выкл wifi
++Type=COMMAND_URL_SHORTCUT_ACTION_DATA
++
++[Data_1_1Actions]
++ActionsCount=1
++
++[Data_1_1Actions0]
++CommandURL=/usr/bin/wifi_toggle
++Type=COMMAND_URL
++
++[Data_1_1Conditions]
++Comment=
++ConditionsCount=0
++
++[Data_1_1Triggers]
++Comment=Simple_action
++Comment[ru]=Простое действие
++TriggersCount=1
++
++[Data_1_1Triggers0]
++Key=Launch (8)
++Type=SHORTCUT
++
++[Main]
++Version=2
++ImportId=toggle_wifi
+diff --git a/install/2laptop/lenovo/libxfcegui4/.calculate_directory b/install/2laptop/lenovo/libxfcegui4/.calculate_directory
+new file mode 100644
+index 0000000..3ee67df
+--- /dev/null
++++ b/install/2laptop/lenovo/libxfcegui4/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate belong()!=&&cl_chroot_status==off&&pkg(xfce-base/libxfcegui4)!= path=/etc/xdg/xfce4/xfconf name=xfce-perchannel-xml
++
+diff --git a/install/2laptop/lenovo/libxfcegui4/xfce4-keyboard-shortcuts.xml b/install/2laptop/lenovo/libxfcegui4/xfce4-keyboard-shortcuts.xml
+new file mode 100644
+index 0000000..b23954a
+--- /dev/null
++++ b/install/2laptop/lenovo/libxfcegui4/xfce4-keyboard-shortcuts.xml
+@@ -0,0 +1,15 @@
++# Calculate format=xml_xfce
++<?xml version="1.0" encoding="UTF-8"?>
++
++<channel name="xfce4-keyboard-shortcuts" version="1.0">
++  <property name="commands" type="empty">
++    <property name="default" type="empty">
++#?load(char,/sys/bus/pci/devices/0000:03:00.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:03:00.0/device,root)==0x423d#
++      <property name="XF86Launch6" type="string" value="sudo /usr/bin/backlight toggle"/>
++#load#
++#?os_install_root_type!=livecd
++      <property name="XF86Launch8" type="string" value="sudo /usr/sbin/pm-hibernate"/>
++#os_install_root_type#
++    </property>
++  </property>
++</channel>
+diff --git a/install/2laptop/lenovo/sudo/.calculate_directory b/install/2laptop/lenovo/sudo/.calculate_directory
+new file mode 100644
+index 0000000..cb4c76e
+--- /dev/null
++++ b/install/2laptop/lenovo/sudo/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate belong()!=&&cl_chroot_status==off&&pkg(app-admin/sudo)!= name=etc
++
+diff --git a/install/2laptop/lenovo/sudo/sudoers b/install/2laptop/lenovo/sudo/sudoers
+new file mode 100644
+index 0000000..dc81e5e
+--- /dev/null
++++ b/install/2laptop/lenovo/sudo/sudoers
+@@ -0,0 +1,12 @@
++# Calculate format=patch path=/etc
++<reg>(# BEGIN laptop configuration)
++.*(# END laptop configuration)</reg>
++<text>\1
++#?load(char,/sys/bus/pci/devices/0000:03:00.0/vendor,root)!=0x8086||load(char,/sys/bus/pci/devices/0000:03:00.0/device,root)!=0x423d#
++Cmnd_Alias NETBOOK_CMDS = /usr/sbin/pm-hibernate
++#load#
++#?load(char,/sys/bus/pci/devices/0000:03:00.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:03:00.0/device,root)==0x423d#
++Cmnd_Alias NETBOOK_CMDS = /sbin/modprobe iwlagn, /sbin/rmmod iwlagn, /usr/sbin/pm-hibernate
++#load#
++%users	ALL=(ALL) NOPASSWD: NETBOOK_CMDS 
++\2</text>
+diff --git a/install/2laptop/lenovo/udev/.calculate_directory b/install/2laptop/lenovo/udev/.calculate_directory
+new file mode 100644
+index 0000000..f591a3c
+--- /dev/null
++++ b/install/2laptop/lenovo/udev/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate belong()!=&&cl_chroot_status==off&&pkg(sys-fs/udev)!= path=/etc name=modprobe.d
++
+diff --git a/install/2laptop/lenovo/udev/blacklist.conf b/install/2laptop/lenovo/udev/blacklist.conf
+new file mode 100644
+index 0000000..a9566d8
+--- /dev/null
++++ b/install/2laptop/lenovo/udev/blacklist.conf
+@@ -0,0 +1,8 @@
++# Calculate format=patch comment=#
++<reg>blacklist usbkbd
++
++</reg>
++<text>blacklist usbkbd
++blacklist acer-wmi
++
++</text>
