@@ -87,11 +87,11 @@
 =app-misc/cl-decoration-meta-11.0-r4
 =app-misc/cl-graphics-meta-11.0-r1
 =app-misc/cl-kde-meta-4.5.1-r2
-=app-misc/cl-multimedia-meta-11.0-r1
+=app-misc/cl-multimedia-meta-11.0-r2
 =app-misc/cl-nettools-meta-11.0-r4
 =app-misc/cl-network-meta-11.0-r2
 =app-misc/cl-office-meta-11.0-r1
-=app-misc/cl-printer-meta-11.0
+=app-misc/cl-printer-meta-11.0-r2
 =app-misc/cl-tools-meta-11.0-r3
 =app-misc/cl-wireless-meta-10.9-r2
 =app-misc/cl-xorg-meta-7.4-r1
@@ -206,7 +206,7 @@
 =dev-libs/libgpg-error-1.7
 =dev-libs/libical-0.43
 =dev-libs/libksba-1.0.7
-=dev-libs/liblinebreak-1.0
+=dev-libs/liblinebreak-1.2
 =dev-libs/libnatspec-0.2.6
 =dev-libs/libnl-1.1-r1
 =dev-libs/liboil-0.3.17
@@ -324,7 +324,7 @@
 =kde-base/kcolorchooser-4.5.4
 =kde-base/kcontrol-4.5.4
 =kde-base/kcron-4.5.4
-=kde-base/kde-env-4.5.4
+=kde-base/kde-env-4.5.4-r1
 =kde-base/kde-l10n-4.5.4
 =kde-base/kdeartwork-colorschemes-4.5.4
 =kde-base/kdeartwork-desktopthemes-4.5.4
@@ -480,7 +480,7 @@
 =media-fonts/ttf-bitstream-vera-1.10-r3
 =media-fonts/urw-fonts-2.4.9
 =media-gfx/cld-themes-11.0-r7
-=media-gfx/digikam-1.5.0
+=media-gfx/digikam-1.7.0
 =media-gfx/exiv2-0.19
 =media-gfx/fbgrab-1.0
 =media-gfx/gimp-2.6.8
@@ -555,7 +555,7 @@
 =media-libs/libvorbis-1.3.1
 =media-libs/libwmf-0.2.8.4-r3
 =media-libs/libwpg-0.1.3
-=media-libs/mediastreamer-2.3.0-r1
+=media-libs/mediastreamer-2.6.0
 =media-libs/mesa-7.9
 =media-libs/mlt-0.5.10
 =media-libs/musicbrainz-2.1.5
@@ -596,7 +596,7 @@
 =media-plugins/gst-plugins-vorbis-0.10.29
 =media-plugins/gst-plugins-x-0.10.29
 =media-plugins/gst-plugins-xvideo-0.10.29
-=media-plugins/kipi-plugins-1.5.0
+=media-plugins/kipi-plugins-1.6.0
 =media-plugins/live-2009.06.02
 =media-sound/alsa-headers-1.0.23
 =media-sound/alsa-utils-1.0.23-r1
@@ -644,7 +644,7 @@
 =net-libs/libvncserver-0.9.7
 =net-libs/neon-0.29.5
 =net-libs/openslp-1.2.1-r1
-=net-libs/ortp-0.16.1
+=net-libs/ortp-0.16.3
 =net-libs/webkit-gtk-1.2.5
 =net-libs/xulrunner-1.9.2.13
 =net-mail/mailbase-1
@@ -665,13 +665,15 @@
 =net-misc/rdesktop-1.6.0
 =net-misc/rsync-3.0.7
 =net-misc/vpnc-0.5.3
-=net-misc/wget-1.12-r2
+=net-misc/wget-1.12-r3
 =net-nds/openldap-2.4.23
 =net-nds/portmap-6.0
 =net-p2p/eiskaltdcpp-2.1.1
+=net-print/cndrvcups-capt-2.00-r2
+=net-print/cndrvcups-common-2.00-r2
 =net-print/cnijfilter-3.20-r1
-=net-print/cups-1.4.4-r2
-=net-print/foomatic-db-4.0.20100218
+=net-print/cups-1.4.5
+=net-print/foomatic-db-4.0.20101123
 =net-print/foomatic-db-engine-4.0.4
 =net-print/foomatic-filters-4.0.4
 =net-print/gutenprint-5.2.6
@@ -712,9 +714,9 @@
 =sys-apps/calculate-builder-2.2.4-r2
 =sys-apps/calculate-client-2.2.4
 =sys-apps/calculate-desktop-2.2.4
-=sys-apps/calculate-install-2.2.4-r5
+=sys-apps/calculate-install-2.2.4-r6
 =sys-apps/calculate-lib-2.2.4-r1
-=sys-apps/calculate-templates-2.2.4-r5
+=sys-apps/calculate-templates-2.2.4-r6
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.1
 =sys-apps/debianutils-3.2.3
@@ -740,7 +742,7 @@
 =sys-apps/keyutils-1.2-r2
 =sys-apps/less-436
 =sys-apps/lm_sensors-3.2.0
-=sys-apps/man-db-2.5.7-r1
+=sys-apps/man-db-2.5.9
 =sys-apps/man-pages-3.28
 =sys-apps/man-pages-posix-2003a
 =sys-apps/memtest86+-4.00
@@ -750,7 +752,7 @@
 =sys-apps/openrc-0.6.8
 =sys-apps/pciutils-3.1.4
 =sys-apps/pcmciautils-014-r1
-=sys-apps/portage-2.2.0_alpha9
+=sys-apps/portage-2.2.0_alpha10
 =sys-apps/preload-0.6.4-r2
 =sys-apps/pv-1.1.4
 =sys-apps/rescan-scsi-bus-1.29
