@@ -27,13 +27,13 @@ src_unpack() {
 	# apply patch bfq
 	if use bfq
 	then
-		epatch "${FILESDIR}/4700_BFQ_2.6.35.patch" || \
+		epatch "${FILESDIR}/1800_BFQ-2.6.36.patch" || \
 			die "Failed apply bfq patch"
 	fi
 	# apply patch bfs
 	if use bfs
 	then
-		epatch "${FILESDIR}/4600_sched-bfs_2.6.35.patch" || \
+		epatch "${FILESDIR}/1810_sched-bfs-360-2.6.36.2.patch" || \
 			die "Failed apply bfs patch"
 	fi
 }
