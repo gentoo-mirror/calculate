@@ -22,7 +22,11 @@ cdistro_CDS
 cdistro_CSS
 "
 
-RDEPEND="
+RDEPEND="${RDEPEND}
+	!sys-apps/calculate
+"
+
+RDEPEND="${RDEPEND}
 	cdistro_CLD? ( app-misc/cld-meta )
 	cdistro_CLDG? ( app-misc/cldg-meta )
 	cdistro_CLDX? ( app-misc/cldx-meta )
