@@ -25,6 +25,7 @@ cdistro_CSS
 RDEPEND="${RDEPEND}
 	!sys-apps/calculate
 	!x11-plugins/pidgin-facebookchat
+	!app-text/goldendict
 "
 
 RDEPEND="${RDEPEND}
