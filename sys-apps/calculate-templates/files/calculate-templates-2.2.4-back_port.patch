@@ -16293,7 +16293,7 @@ index 0000000..38de74d
 +options psmouse proto=imps
 diff --git a/install/2laptop/lenovo/gconf/%gconf-tree.xml b/install/2laptop/lenovo/gconf/%gconf-tree.xml
 new file mode 100644
-index 0000000..33cc060
+index 0000000..5684a77
 --- /dev/null
 +++ b/install/2laptop/lenovo/gconf/%gconf-tree.xml
 @@ -0,0 +1,110 @@
@@ -16310,13 +16310,13 @@ index 0000000..33cc060
 +					<entry name="binding" schema="/schemas/desktop/gnome/keybindings/custom_wifi_toggle/binding"/>
 +				</dir>
 +#load#
-+#?os_install_root_type!=livecd
++#?os_install_root_type!=livecd#
 +				<dir name="custom_hibernate">
 +					<entry name="action" schema="/schemas/desktop/gnome/keybindings/custom_hibernate/action"/>
 +					<entry name="name" schema="/schemas/desktop/gnome/keybindings/custom_hibernate/name"/>
 +					<entry name="binding" schema="/schemas/desktop/gnome/keybindings/custom_hibernate/binding"/>
 +				</dir>
-+#os_install_root_type
++#os_install_root_type#
 +			</dir>
 +		</dir>
 +	</dir>
@@ -16363,7 +16363,7 @@ index 0000000..33cc060
 +						</entry>
 +					</dir>
 +#load#
-+#?os_install_root_type!=livecd
++#?os_install_root_type!=livecd#
 +					<dir name="custom_hibernate">
 +						<entry name="action" type="schema" stype="string" owner="calculate">
 +							<local_schema locale="C" short_desc="Hibernate">
@@ -16401,7 +16401,7 @@ index 0000000..33cc060
 +							</local_schema>
 +						</entry>
 +					</dir>
-+#os_install_root_type
++#os_install_root_type#
 +				</dir>
 +			</dir>
 +		</dir>
@@ -16543,7 +16543,7 @@ index 0000000..3ee67df
 +
 diff --git a/install/2laptop/lenovo/libxfcegui4/xfce4-keyboard-shortcuts.xml b/install/2laptop/lenovo/libxfcegui4/xfce4-keyboard-shortcuts.xml
 new file mode 100644
-index 0000000..b23954a
+index 0000000..e24e3b0
 --- /dev/null
 +++ b/install/2laptop/lenovo/libxfcegui4/xfce4-keyboard-shortcuts.xml
 @@ -0,0 +1,15 @@
@@ -16556,7 +16556,7 @@ index 0000000..b23954a
 +#?load(char,/sys/bus/pci/devices/0000:03:00.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:03:00.0/device,root)==0x423d#
 +      <property name="XF86Launch6" type="string" value="sudo /usr/bin/backlight toggle"/>
 +#load#
-+#?os_install_root_type!=livecd
++#?os_install_root_type!=livecd#
 +      <property name="XF86Launch8" type="string" value="sudo /usr/sbin/pm-hibernate"/>
 +#os_install_root_type#
 +    </property>
