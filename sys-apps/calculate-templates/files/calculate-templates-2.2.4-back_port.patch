@@ -16227,10 +16227,10 @@ index 0000000..459f9b5
 +# Calculate path=/etc
 diff --git a/install/2laptop/lenovo/calculate-install/init.d/laptopd b/install/2laptop/lenovo/calculate-install/init.d/laptopd
 new file mode 100644
-index 0000000..6bcb498
+index 0000000..e8ec6e0
 --- /dev/null
 +++ b/install/2laptop/lenovo/calculate-install/init.d/laptopd
-@@ -0,0 +1,27 @@
+@@ -0,0 +1,32 @@
 +# Calculate comment=# chmod=0755
 +#!/sbin/runscript
 +# Copyright 1999-2010 Gentoo Foundation
@@ -16251,6 +16251,11 @@ index 0000000..6bcb498
 +		modprobe psmouse
 +	fi
 +	lsmod | grep -q "^acer_wmi" && rmmod acer-wmi
++#?hr_laptop_model==Mariana-3B#
++	lsmod | grep -q "^tg3" && rmmod tg3
++	modprobe -q broadcom
++	modprobe -q tg3
++#hr_laptop_model#
 +	eend 0
 +}
 +
