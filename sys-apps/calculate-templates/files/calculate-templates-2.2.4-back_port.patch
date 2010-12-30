@@ -71,7 +71,7 @@ index 0000000..11ec760
 +# Calculate link=/etc/init.d/uvesafb symbolic
 diff --git a/install/1merge/cds-themes/tty1/1024x576.cfg b/install/1merge/cds-themes/tty1/1024x576.cfg
 new file mode 100644
-index 0000000..146dcd6
+index 0000000..0d75460
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1024x576.cfg
 @@ -0,0 +1,59 @@
@@ -118,7 +118,7 @@ index 0000000..146dcd6
 +box silent 376 306 649 309 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 376 306 648 306 #AAAAAA
++box silent 376 305 648 305 #AAAAAA
 +box silent 376 310 648 310 #CCCCCC
 +box silent 375 306 375 309 #AAAAAA
 +box silent 649 306 649 309 #CCCCCC
@@ -265,7 +265,7 @@ index 0000000..77a92a1
 +
 diff --git a/install/1merge/cds-themes/tty1/1280x1024.cfg b/install/1merge/cds-themes/tty1/1280x1024.cfg
 new file mode 100644
-index 0000000..c3414a3
+index 0000000..b8471bd
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1280x1024.cfg
 @@ -0,0 +1,59 @@
@@ -313,8 +313,8 @@ index 0000000..c3414a3
 +
 +#progress bar rectange for silent mode
 +box silent 470 544 810 544 #AAAAAA
-+box silent 470 552 810 552 #CCCCCC
-+box silent 468 545 468 550 #AAAAAA
++box silent 470 551 810 551 #CCCCCC
++box silent 469 545 469 550 #AAAAAA
 +box silent 811 545 811 550 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -330,7 +330,7 @@ index 0000000..c3414a3
 +
 diff --git a/install/1merge/cds-themes/tty1/1280x720.cfg b/install/1merge/cds-themes/tty1/1280x720.cfg
 new file mode 100644
-index 0000000..9060dac
+index 0000000..cb8a7f0
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1280x720.cfg
 @@ -0,0 +1,59 @@
@@ -379,7 +379,7 @@ index 0000000..9060dac
 +#progress bar rectange for silent mode
 +box silent 470 382 810 382 #AAAAAA
 +box silent 470 388 810 388 #CCCCCC
-+box silent 468 383 468 387 #AAAAAA
++box silent 469 383 469 387 #AAAAAA
 +box silent 811 383 811 387 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -395,7 +395,7 @@ index 0000000..9060dac
 +
 diff --git a/install/1merge/cds-themes/tty1/1280x768.cfg b/install/1merge/cds-themes/tty1/1280x768.cfg
 new file mode 100644
-index 0000000..527dfd5
+index 0000000..09ff000
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1280x768.cfg
 @@ -0,0 +1,59 @@
@@ -444,7 +444,7 @@ index 0000000..527dfd5
 +#progress bar rectange for silent mode
 +box silent 470 408 810 408 #AAAAAA
 +box silent 470 414 810 414 #CCCCCC
-+box silent 468 409 468 413 #AAAAAA
++box silent 469 409 469 413 #AAAAAA
 +box silent 811 409 811 413 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -460,7 +460,7 @@ index 0000000..527dfd5
 +
 diff --git a/install/1merge/cds-themes/tty1/1280x800.cfg b/install/1merge/cds-themes/tty1/1280x800.cfg
 new file mode 100644
-index 0000000..0230a5a
+index 0000000..2ca14da
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1280x800.cfg
 @@ -0,0 +1,59 @@
@@ -509,7 +509,7 @@ index 0000000..0230a5a
 +#progress bar rectange for silent mode
 +box silent 470 425 810 425 #AAAAAA
 +box silent 470 431 810 431 #CCCCCC
-+box silent 468 426 468 430 #AAAAAA
++box silent 469 426 469 430 #AAAAAA
 +box silent 811 426 811 430 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -655,7 +655,7 @@ index 0000000..1be3189
 +
 diff --git a/install/1merge/cds-themes/tty1/1368x768.cfg b/install/1merge/cds-themes/tty1/1368x768.cfg
 new file mode 100644
-index 0000000..7cc225e
+index 0000000..5a66bc7
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1368x768.cfg
 @@ -0,0 +1,59 @@
@@ -702,9 +702,9 @@ index 0000000..7cc225e
 +box silent 502 409 867 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 502 408 865 408 #AAAAAA
-+box silent 502 414 865 414 #CCCCCC
-+box silent 500 409 500 413 #AAAAAA
++box silent 502 408 866 408 #AAAAAA
++box silent 502 414 866 414 #CCCCCC
++box silent 501 409 501 413 #AAAAAA
 +box silent 867 409 867 413 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -720,7 +720,7 @@ index 0000000..7cc225e
 +
 diff --git a/install/1merge/cds-themes/tty1/1400x1050.cfg b/install/1merge/cds-themes/tty1/1400x1050.cfg
 new file mode 100644
-index 0000000..0c8a86f
+index 0000000..c643ddb
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1400x1050.cfg
 @@ -0,0 +1,59 @@
@@ -767,9 +767,9 @@ index 0000000..0c8a86f
 +box silent 514 559 887 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 514 557 885 557 #AAAAAA
-+box silent 514 566 885 566 #CCCCCC
-+box silent 512 559 512 564 #AAAAAA
++box silent 514 558 886 558 #AAAAAA
++box silent 514 565 886 565 #CCCCCC
++box silent 513 559 513 564 #AAAAAA
 +box silent 887 559 887 564 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -785,7 +785,7 @@ index 0000000..0c8a86f
 +
 diff --git a/install/1merge/cds-themes/tty1/1440x900.cfg b/install/1merge/cds-themes/tty1/1440x900.cfg
 new file mode 100644
-index 0000000..af52f76
+index 0000000..13b0a32
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1440x900.cfg
 @@ -0,0 +1,59 @@
@@ -833,7 +833,7 @@ index 0000000..af52f76
 +
 +#progress bar rectange for silent mode
 +box silent 528 478 911 478 #AAAAAA
-+box silent 528 485 911 485 #CCCCCC
++box silent 528 484 911 484 #CCCCCC
 +box silent 527 479 527 483 #AAAAAA
 +box silent 912 479 912 483 #CCCCCC
 +
@@ -850,7 +850,7 @@ index 0000000..af52f76
 +
 diff --git a/install/1merge/cds-themes/tty1/1600x1200.cfg b/install/1merge/cds-themes/tty1/1600x1200.cfg
 new file mode 100644
-index 0000000..1b6aa2f
+index 0000000..b5d6028
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1600x1200.cfg
 @@ -0,0 +1,59 @@
@@ -897,9 +897,9 @@ index 0000000..1b6aa2f
 +box silent 587 639 1014 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 637 1012 637 #AAAAAA
-+box silent 587 646 1012 646 #CCCCCC
-+box silent 585 639 585 645 #AAAAAA
++box silent 587 638 1013 638 #AAAAAA
++box silent 587 646 1013 646 #CCCCCC
++box silent 586 639 586 645 #AAAAAA
 +box silent 1014 639 1014 645 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -915,7 +915,7 @@ index 0000000..1b6aa2f
 +
 diff --git a/install/1merge/cds-themes/tty1/1600x768.cfg b/install/1merge/cds-themes/tty1/1600x768.cfg
 new file mode 100644
-index 0000000..61325da
+index 0000000..7fbcefd
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1600x768.cfg
 @@ -0,0 +1,59 @@
@@ -962,9 +962,9 @@ index 0000000..61325da
 +box silent 587 409 1014 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 408 1012 408 #AAAAAA
-+box silent 587 414 1012 414 #CCCCCC
-+box silent 585 409 585 413 #AAAAAA
++box silent 587 408 1013 408 #AAAAAA
++box silent 587 414 1013 414 #CCCCCC
++box silent 586 409 586 413 #AAAAAA
 +box silent 1014 409 1014 413 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -980,7 +980,7 @@ index 0000000..61325da
 +
 diff --git a/install/1merge/cds-themes/tty1/1600x900.cfg b/install/1merge/cds-themes/tty1/1600x900.cfg
 new file mode 100644
-index 0000000..6e20cfc
+index 0000000..759f2a6
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1600x900.cfg
 @@ -0,0 +1,59 @@
@@ -1027,9 +1027,9 @@ index 0000000..6e20cfc
 +box silent 587 479 1014 483 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 478 1012 478 #AAAAAA
-+box silent 587 485 1012 485 #CCCCCC
-+box silent 585 479 585 483 #AAAAAA
++box silent 587 478 1013 478 #AAAAAA
++box silent 587 484 1013 484 #CCCCCC
++box silent 586 479 586 483 #AAAAAA
 +box silent 1014 479 1014 483 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -1045,7 +1045,7 @@ index 0000000..6e20cfc
 +
 diff --git a/install/1merge/cds-themes/tty1/1680x1050.cfg b/install/1merge/cds-themes/tty1/1680x1050.cfg
 new file mode 100644
-index 0000000..649fb0f
+index 0000000..bd839bc
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1680x1050.cfg
 @@ -0,0 +1,59 @@
@@ -1092,8 +1092,8 @@ index 0000000..649fb0f
 +box silent 616 559 1064 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 616 557 1063 557 #AAAAAA
-+box silent 616 566 1063 566 #CCCCCC
++box silent 616 558 1063 558 #AAAAAA
++box silent 616 565 1063 565 #CCCCCC
 +box silent 615 559 615 564 #AAAAAA
 +box silent 1064 559 1064 564 #CCCCCC
 +
@@ -1175,7 +1175,7 @@ index 0000000..9c6266d
 +
 diff --git a/install/1merge/cds-themes/tty1/1920x1080.cfg b/install/1merge/cds-themes/tty1/1920x1080.cfg
 new file mode 100644
-index 0000000..12af777
+index 0000000..a2d4f5e
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1920x1080.cfg
 @@ -0,0 +1,59 @@
@@ -1222,9 +1222,9 @@ index 0000000..12af777
 +box silent 705 575 1216 580 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 573 1215 573 #AAAAAA
-+box silent 705 582 1215 582 #CCCCCC
-+box silent 703 575 703 580 #AAAAAA
++box silent 705 574 1215 574 #AAAAAA
++box silent 705 581 1215 581 #CCCCCC
++box silent 704 575 704 580 #AAAAAA
 +box silent 1216 575 1216 580 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -1240,7 +1240,7 @@ index 0000000..12af777
 +
 diff --git a/install/1merge/cds-themes/tty1/1920x1200.cfg b/install/1merge/cds-themes/tty1/1920x1200.cfg
 new file mode 100644
-index 0000000..1d75c0b
+index 0000000..2672937
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/1920x1200.cfg
 @@ -0,0 +1,59 @@
@@ -1287,9 +1287,9 @@ index 0000000..1d75c0b
 +box silent 705 639 1216 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 637 1215 637 #AAAAAA
++box silent 705 638 1215 638 #AAAAAA
 +box silent 705 646 1215 646 #CCCCCC
-+box silent 703 639 703 645 #AAAAAA
++box silent 704 639 704 645 #AAAAAA
 +box silent 1216 639 1216 645 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -1305,7 +1305,7 @@ index 0000000..1d75c0b
 +
 diff --git a/install/1merge/cds-themes/tty1/2048x1152.cfg b/install/1merge/cds-themes/tty1/2048x1152.cfg
 new file mode 100644
-index 0000000..84bbf3b
+index 0000000..2ebc95d
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/2048x1152.cfg
 @@ -0,0 +1,59 @@
@@ -1352,9 +1352,9 @@ index 0000000..84bbf3b
 +box silent 752 613 1298 619 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 752 612 1296 612 #AAAAAA
-+box silent 752 621 1296 621 #CCCCCC
-+box silent 750 613 750 619 #AAAAAA
++box silent 752 612 1297 612 #AAAAAA
++box silent 752 620 1297 620 #CCCCCC
++box silent 751 613 751 619 #AAAAAA
 +box silent 1298 613 1298 619 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -1370,7 +1370,7 @@ index 0000000..84bbf3b
 +
 diff --git a/install/1merge/cds-themes/tty1/2560x1440.cfg b/install/1merge/cds-themes/tty1/2560x1440.cfg
 new file mode 100644
-index 0000000..c31b558
+index 0000000..c58a97e
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/2560x1440.cfg
 @@ -0,0 +1,59 @@
@@ -1417,9 +1417,9 @@ index 0000000..c31b558
 +box silent 940 766 1622 774 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 765 1620 765 #AAAAAA
-+box silent 940 776 1620 776 #CCCCCC
-+box silent 937 766 937 774 #AAAAAA
++box silent 940 765 1621 765 #AAAAAA
++box silent 940 775 1621 775 #CCCCCC
++box silent 939 766 939 774 #AAAAAA
 +box silent 1622 766 1622 774 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -1435,7 +1435,7 @@ index 0000000..c31b558
 +
 diff --git a/install/1merge/cds-themes/tty1/2560x1600.cfg b/install/1merge/cds-themes/tty1/2560x1600.cfg
 new file mode 100644
-index 0000000..477afba
+index 0000000..d9177a9
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/2560x1600.cfg
 @@ -0,0 +1,59 @@
@@ -1482,9 +1482,9 @@ index 0000000..477afba
 +box silent 940 852 1622 860 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 850 1620 850 #AAAAAA
-+box silent 940 862 1620 862 #CCCCCC
-+box silent 937 852 937 860 #AAAAAA
++box silent 940 851 1621 851 #AAAAAA
++box silent 940 861 1621 861 #CCCCCC
++box silent 939 852 939 860 #AAAAAA
 +box silent 1622 852 1622 860 #CCCCCC
 +
 +#?pkg(media-gfx/cds-themes)<10.9||pkg(media-gfx/cds-themes)>=11.0##
@@ -1500,7 +1500,7 @@ index 0000000..477afba
 +
 diff --git a/install/1merge/cds-themes/tty1/640x480.cfg b/install/1merge/cds-themes/tty1/640x480.cfg
 new file mode 100644
-index 0000000..97435e6
+index 0000000..b861bca
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/640x480.cfg
 @@ -0,0 +1,59 @@
@@ -1547,8 +1547,8 @@ index 0000000..97435e6
 +box silent 235 255 405 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 235 255 405 255 #AAAAAA
-+box silent 235 258 405 258 #CCCCCC
++box silent 235 254 404 254 #AAAAAA
++box silent 235 259 404 259 #CCCCCC
 +box silent 234 255 234 258 #AAAAAA
 +box silent 405 255 405 258 #CCCCCC
 +
@@ -1565,7 +1565,7 @@ index 0000000..97435e6
 +
 diff --git a/install/1merge/cds-themes/tty1/800x480.cfg b/install/1merge/cds-themes/tty1/800x480.cfg
 new file mode 100644
-index 0000000..b6d8320
+index 0000000..6f86a7a
 --- /dev/null
 +++ b/install/1merge/cds-themes/tty1/800x480.cfg
 @@ -0,0 +1,59 @@
@@ -1612,8 +1612,8 @@ index 0000000..b6d8320
 +box silent 293 255 507 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 293 255 506 255 #AAAAAA
-+box silent 293 258 506 258 #CCCCCC
++box silent 293 254 506 254 #AAAAAA
++box silent 293 259 506 259 #CCCCCC
 +box silent 292 255 292 258 #AAAAAA
 +box silent 507 255 507 258 #CCCCCC
 +
@@ -2810,7 +2810,7 @@ index b654b2c..dec6a84 100644
 +<text>tty6/images/verbose-CDS-tty6-800x600.jpg</text>
 diff --git a/install/1merge/cld-themes/tty1/1024x576.cfg b/install/1merge/cld-themes/tty1/1024x576.cfg
 new file mode 100644
-index 0000000..56a2a7d
+index 0000000..2489532
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1024x576.cfg
 @@ -0,0 +1,59 @@
@@ -2857,10 +2857,10 @@ index 0000000..56a2a7d
 +box silent 376 306 649 309 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 376 306 648 306 #AAAAAA
-+box silent 376 310 648 310 #CCCCCC
++box silent 376 305 649 305 #AAAAAA
++box silent 376 310 649 310 #CCCCCC
 +box silent 375 306 375 309 #AAAAAA
-+box silent 649 306 649 309 #CCCCCC
++box silent 650 306 650 309 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -2939,7 +2939,7 @@ index 0000000..bab6359
 +
 diff --git a/install/1merge/cld-themes/tty1/1200x800.cfg b/install/1merge/cld-themes/tty1/1200x800.cfg
 new file mode 100644
-index 0000000..53c6b71
+index 0000000..48b9636
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1200x800.cfg
 @@ -0,0 +1,59 @@
@@ -2986,10 +2986,10 @@ index 0000000..53c6b71
 +box silent 440 426 760 430 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 440 425 759 425 #AAAAAA
-+box silent 440 431 759 431 #CCCCCC
++box silent 440 425 760 425 #AAAAAA
++box silent 440 431 760 431 #CCCCCC
 +box silent 439 426 439 430 #AAAAAA
-+box silent 760 426 760 430 #CCCCCC
++box silent 761 426 761 430 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3004,7 +3004,7 @@ index 0000000..53c6b71
 +
 diff --git a/install/1merge/cld-themes/tty1/1280x1024.cfg b/install/1merge/cld-themes/tty1/1280x1024.cfg
 new file mode 100644
-index 0000000..4e75c23
+index 0000000..893ffba
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1280x1024.cfg
 @@ -0,0 +1,59 @@
@@ -3051,10 +3051,10 @@ index 0000000..4e75c23
 +box silent 470 545 811 550 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 470 544 810 544 #AAAAAA
-+box silent 470 552 810 552 #CCCCCC
-+box silent 468 545 468 550 #AAAAAA
-+box silent 811 545 811 550 #CCCCCC
++box silent 470 544 811 544 #AAAAAA
++box silent 470 551 811 551 #CCCCCC
++box silent 469 545 469 550 #AAAAAA
++box silent 812 545 812 550 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3069,7 +3069,7 @@ index 0000000..4e75c23
 +
 diff --git a/install/1merge/cld-themes/tty1/1280x720.cfg b/install/1merge/cld-themes/tty1/1280x720.cfg
 new file mode 100644
-index 0000000..2c96417
+index 0000000..eb1be75
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1280x720.cfg
 @@ -0,0 +1,59 @@
@@ -3116,10 +3116,10 @@ index 0000000..2c96417
 +box silent 470 383 811 387 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 470 382 810 382 #AAAAAA
-+box silent 470 388 810 388 #CCCCCC
-+box silent 468 383 468 387 #AAAAAA
-+box silent 811 383 811 387 #CCCCCC
++box silent 470 382 811 382 #AAAAAA
++box silent 470 388 811 388 #CCCCCC
++box silent 469 383 469 387 #AAAAAA
++box silent 812 383 812 387 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3134,7 +3134,7 @@ index 0000000..2c96417
 +
 diff --git a/install/1merge/cld-themes/tty1/1280x768.cfg b/install/1merge/cld-themes/tty1/1280x768.cfg
 new file mode 100644
-index 0000000..686e84a
+index 0000000..8b4e9d1
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1280x768.cfg
 @@ -0,0 +1,59 @@
@@ -3181,10 +3181,10 @@ index 0000000..686e84a
 +box silent 470 409 811 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 470 408 810 408 #AAAAAA
-+box silent 470 414 810 414 #CCCCCC
-+box silent 468 409 468 413 #AAAAAA
-+box silent 811 409 811 413 #CCCCCC
++box silent 470 408 811 408 #AAAAAA
++box silent 470 414 811 414 #CCCCCC
++box silent 469 409 469 413 #AAAAAA
++box silent 812 409 812 413 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3199,7 +3199,7 @@ index 0000000..686e84a
 +
 diff --git a/install/1merge/cld-themes/tty1/1280x800.cfg b/install/1merge/cld-themes/tty1/1280x800.cfg
 new file mode 100644
-index 0000000..8b888f9
+index 0000000..85e5fee
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1280x800.cfg
 @@ -0,0 +1,59 @@
@@ -3246,10 +3246,10 @@ index 0000000..8b888f9
 +box silent 470 426 811 430 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 470 425 810 425 #AAAAAA
-+box silent 470 431 810 431 #CCCCCC
-+box silent 468 426 468 430 #AAAAAA
-+box silent 811 426 811 430 #CCCCCC
++box silent 470 425 811 425 #AAAAAA
++box silent 470 431 811 431 #CCCCCC
++box silent 469 426 469 430 #AAAAAA
++box silent 812 426 812 430 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3264,7 +3264,7 @@ index 0000000..8b888f9
 +
 diff --git a/install/1merge/cld-themes/tty1/1360x768.cfg b/install/1merge/cld-themes/tty1/1360x768.cfg
 new file mode 100644
-index 0000000..437d198
+index 0000000..37ac699
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1360x768.cfg
 @@ -0,0 +1,59 @@
@@ -3311,10 +3311,10 @@ index 0000000..437d198
 +box silent 499 409 861 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 499 408 860 408 #AAAAAA
-+box silent 499 414 860 414 #CCCCCC
++box silent 499 408 861 408 #AAAAAA
++box silent 499 414 861 414 #CCCCCC
 +box silent 498 409 498 413 #AAAAAA
-+box silent 861 409 861 413 #CCCCCC
++box silent 862 409 862 413 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3329,7 +3329,7 @@ index 0000000..437d198
 +
 diff --git a/install/1merge/cld-themes/tty1/1366x768.cfg b/install/1merge/cld-themes/tty1/1366x768.cfg
 new file mode 100644
-index 0000000..6065a29
+index 0000000..16e6e89
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1366x768.cfg
 @@ -0,0 +1,59 @@
@@ -3376,10 +3376,10 @@ index 0000000..6065a29
 +box silent 501 409 865 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 501 408 864 408 #AAAAAA
-+box silent 501 414 864 414 #CCCCCC
++box silent 501 408 865 408 #AAAAAA
++box silent 501 414 865 414 #CCCCCC
 +box silent 500 409 500 413 #AAAAAA
-+box silent 865 409 865 413 #CCCCCC
++box silent 866 409 866 413 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3394,7 +3394,7 @@ index 0000000..6065a29
 +
 diff --git a/install/1merge/cld-themes/tty1/1368x768.cfg b/install/1merge/cld-themes/tty1/1368x768.cfg
 new file mode 100644
-index 0000000..a2176ea
+index 0000000..fd31e93
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1368x768.cfg
 @@ -0,0 +1,59 @@
@@ -3441,10 +3441,10 @@ index 0000000..a2176ea
 +box silent 502 409 867 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 502 408 865 408 #AAAAAA
-+box silent 502 414 865 414 #CCCCCC
-+box silent 500 409 500 413 #AAAAAA
-+box silent 867 409 867 413 #CCCCCC
++box silent 502 408 867 408 #AAAAAA
++box silent 502 414 867 414 #CCCCCC
++box silent 501 409 501 413 #AAAAAA
++box silent 868 409 868 413 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3459,7 +3459,7 @@ index 0000000..a2176ea
 +
 diff --git a/install/1merge/cld-themes/tty1/1400x1050.cfg b/install/1merge/cld-themes/tty1/1400x1050.cfg
 new file mode 100644
-index 0000000..e2382bb
+index 0000000..0c805f3
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1400x1050.cfg
 @@ -0,0 +1,59 @@
@@ -3506,10 +3506,10 @@ index 0000000..e2382bb
 +box silent 514 559 887 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 514 557 885 557 #AAAAAA
-+box silent 514 566 885 566 #CCCCCC
-+box silent 512 559 512 564 #AAAAAA
-+box silent 887 559 887 564 #CCCCCC
++box silent 514 558 887 558 #AAAAAA
++box silent 514 565 887 565 #CCCCCC
++box silent 513 559 513 564 #AAAAAA
++box silent 888 559 888 564 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3524,7 +3524,7 @@ index 0000000..e2382bb
 +
 diff --git a/install/1merge/cld-themes/tty1/1440x900.cfg b/install/1merge/cld-themes/tty1/1440x900.cfg
 new file mode 100644
-index 0000000..eb74429
+index 0000000..47787fa
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1440x900.cfg
 @@ -0,0 +1,59 @@
@@ -3571,10 +3571,10 @@ index 0000000..eb74429
 +box silent 528 479 912 483 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 528 478 911 478 #AAAAAA
-+box silent 528 485 911 485 #CCCCCC
++box silent 528 478 912 478 #AAAAAA
++box silent 528 484 912 484 #CCCCCC
 +box silent 527 479 527 483 #AAAAAA
-+box silent 912 479 912 483 #CCCCCC
++box silent 913 479 913 483 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3589,7 +3589,7 @@ index 0000000..eb74429
 +
 diff --git a/install/1merge/cld-themes/tty1/1600x1200.cfg b/install/1merge/cld-themes/tty1/1600x1200.cfg
 new file mode 100644
-index 0000000..44f3a5c
+index 0000000..9d3b32e
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1600x1200.cfg
 @@ -0,0 +1,59 @@
@@ -3636,10 +3636,10 @@ index 0000000..44f3a5c
 +box silent 587 639 1014 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 637 1012 637 #AAAAAA
-+box silent 587 646 1012 646 #CCCCCC
-+box silent 585 639 585 645 #AAAAAA
-+box silent 1014 639 1014 645 #CCCCCC
++box silent 587 638 1014 638 #AAAAAA
++box silent 587 646 1014 646 #CCCCCC
++box silent 586 639 586 645 #AAAAAA
++box silent 1015 639 1015 645 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3654,7 +3654,7 @@ index 0000000..44f3a5c
 +
 diff --git a/install/1merge/cld-themes/tty1/1600x768.cfg b/install/1merge/cld-themes/tty1/1600x768.cfg
 new file mode 100644
-index 0000000..cd7903a
+index 0000000..40193ca
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1600x768.cfg
 @@ -0,0 +1,59 @@
@@ -3701,10 +3701,10 @@ index 0000000..cd7903a
 +box silent 587 409 1014 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 408 1012 408 #AAAAAA
-+box silent 587 414 1012 414 #CCCCCC
-+box silent 585 409 585 413 #AAAAAA
-+box silent 1014 409 1014 413 #CCCCCC
++box silent 587 408 1014 408 #AAAAAA
++box silent 587 414 1014 414 #CCCCCC
++box silent 586 409 586 413 #AAAAAA
++box silent 1015 409 1015 413 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3719,7 +3719,7 @@ index 0000000..cd7903a
 +
 diff --git a/install/1merge/cld-themes/tty1/1600x900.cfg b/install/1merge/cld-themes/tty1/1600x900.cfg
 new file mode 100644
-index 0000000..83cf29b
+index 0000000..2b624a1
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1600x900.cfg
 @@ -0,0 +1,59 @@
@@ -3766,10 +3766,10 @@ index 0000000..83cf29b
 +box silent 587 479 1014 483 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 478 1012 478 #AAAAAA
-+box silent 587 485 1012 485 #CCCCCC
-+box silent 585 479 585 483 #AAAAAA
-+box silent 1014 479 1014 483 #CCCCCC
++box silent 587 478 1014 478 #AAAAAA
++box silent 587 484 1014 484 #CCCCCC
++box silent 586 479 586 483 #AAAAAA
++box silent 1015 479 1015 483 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3784,7 +3784,7 @@ index 0000000..83cf29b
 +
 diff --git a/install/1merge/cld-themes/tty1/1680x1050.cfg b/install/1merge/cld-themes/tty1/1680x1050.cfg
 new file mode 100644
-index 0000000..54a1ead
+index 0000000..08ff80d
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1680x1050.cfg
 @@ -0,0 +1,59 @@
@@ -3831,10 +3831,10 @@ index 0000000..54a1ead
 +box silent 616 559 1064 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 616 557 1063 557 #AAAAAA
-+box silent 616 566 1063 566 #CCCCCC
++box silent 616 558 1064 558 #AAAAAA
++box silent 616 565 1064 565 #CCCCCC
 +box silent 615 559 615 564 #AAAAAA
-+box silent 1064 559 1064 564 #CCCCCC
++box silent 1065 559 1065 564 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3849,7 +3849,7 @@ index 0000000..54a1ead
 +
 diff --git a/install/1merge/cld-themes/tty1/1680x945.cfg b/install/1merge/cld-themes/tty1/1680x945.cfg
 new file mode 100644
-index 0000000..4e3156e
+index 0000000..f63068b
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1680x945.cfg
 @@ -0,0 +1,59 @@
@@ -3896,10 +3896,10 @@ index 0000000..4e3156e
 +box silent 616 503 1064 508 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 616 502 1063 502 #AAAAAA
-+box silent 616 509 1063 509 #CCCCCC
++box silent 616 502 1064 502 #AAAAAA
++box silent 616 509 1064 509 #CCCCCC
 +box silent 615 503 615 508 #AAAAAA
-+box silent 1064 503 1064 508 #CCCCCC
++box silent 1065 503 1065 508 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3914,7 +3914,7 @@ index 0000000..4e3156e
 +
 diff --git a/install/1merge/cld-themes/tty1/1920x1080.cfg b/install/1merge/cld-themes/tty1/1920x1080.cfg
 new file mode 100644
-index 0000000..bbd387f
+index 0000000..dbd99f9
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1920x1080.cfg
 @@ -0,0 +1,59 @@
@@ -3961,10 +3961,10 @@ index 0000000..bbd387f
 +box silent 705 575 1216 580 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 573 1215 573 #AAAAAA
-+box silent 705 582 1215 582 #CCCCCC
-+box silent 703 575 703 580 #AAAAAA
-+box silent 1216 575 1216 580 #CCCCCC
++box silent 705 574 1216 574 #AAAAAA
++box silent 705 581 1216 581 #CCCCCC
++box silent 704 575 704 580 #AAAAAA
++box silent 1217 575 1217 580 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -3979,7 +3979,7 @@ index 0000000..bbd387f
 +
 diff --git a/install/1merge/cld-themes/tty1/1920x1200.cfg b/install/1merge/cld-themes/tty1/1920x1200.cfg
 new file mode 100644
-index 0000000..5e99ade
+index 0000000..d2c963a
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/1920x1200.cfg
 @@ -0,0 +1,59 @@
@@ -4026,10 +4026,10 @@ index 0000000..5e99ade
 +box silent 705 639 1216 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 637 1215 637 #AAAAAA
-+box silent 705 646 1215 646 #CCCCCC
-+box silent 703 639 703 645 #AAAAAA
-+box silent 1216 639 1216 645 #CCCCCC
++box silent 705 638 1216 638 #AAAAAA
++box silent 705 646 1216 646 #CCCCCC
++box silent 704 639 704 645 #AAAAAA
++box silent 1217 639 1217 645 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -4044,7 +4044,7 @@ index 0000000..5e99ade
 +
 diff --git a/install/1merge/cld-themes/tty1/2048x1152.cfg b/install/1merge/cld-themes/tty1/2048x1152.cfg
 new file mode 100644
-index 0000000..c22e070
+index 0000000..c9217a9
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/2048x1152.cfg
 @@ -0,0 +1,59 @@
@@ -4091,10 +4091,10 @@ index 0000000..c22e070
 +box silent 752 613 1298 619 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 752 612 1296 612 #AAAAAA
-+box silent 752 621 1296 621 #CCCCCC
-+box silent 750 613 750 619 #AAAAAA
-+box silent 1298 613 1298 619 #CCCCCC
++box silent 752 612 1298 612 #AAAAAA
++box silent 752 620 1298 620 #CCCCCC
++box silent 751 613 751 619 #AAAAAA
++box silent 1299 613 1299 619 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -4109,7 +4109,7 @@ index 0000000..c22e070
 +
 diff --git a/install/1merge/cld-themes/tty1/2560x1440.cfg b/install/1merge/cld-themes/tty1/2560x1440.cfg
 new file mode 100644
-index 0000000..696d578
+index 0000000..076bece
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/2560x1440.cfg
 @@ -0,0 +1,59 @@
@@ -4156,10 +4156,10 @@ index 0000000..696d578
 +box silent 940 766 1622 774 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 765 1620 765 #AAAAAA
-+box silent 940 776 1620 776 #CCCCCC
-+box silent 937 766 937 774 #AAAAAA
-+box silent 1622 766 1622 774 #CCCCCC
++box silent 940 765 1622 765 #AAAAAA
++box silent 940 775 1622 775 #CCCCCC
++box silent 939 766 939 774 #AAAAAA
++box silent 1623 766 1623 774 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -4174,7 +4174,7 @@ index 0000000..696d578
 +
 diff --git a/install/1merge/cld-themes/tty1/2560x1600.cfg b/install/1merge/cld-themes/tty1/2560x1600.cfg
 new file mode 100644
-index 0000000..da36a20
+index 0000000..eaf39ef
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/2560x1600.cfg
 @@ -0,0 +1,59 @@
@@ -4221,10 +4221,10 @@ index 0000000..da36a20
 +box silent 940 852 1622 860 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 850 1620 850 #AAAAAA
-+box silent 940 862 1620 862 #CCCCCC
-+box silent 937 852 937 860 #AAAAAA
-+box silent 1622 852 1622 860 #CCCCCC
++box silent 940 851 1622 851 #AAAAAA
++box silent 940 861 1622 861 #CCCCCC
++box silent 939 852 939 860 #AAAAAA
++box silent 1623 852 1623 860 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -4239,7 +4239,7 @@ index 0000000..da36a20
 +
 diff --git a/install/1merge/cld-themes/tty1/640x480.cfg b/install/1merge/cld-themes/tty1/640x480.cfg
 new file mode 100644
-index 0000000..aa261f9
+index 0000000..7f16b8b
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/640x480.cfg
 @@ -0,0 +1,59 @@
@@ -4286,10 +4286,10 @@ index 0000000..aa261f9
 +box silent 235 255 405 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 235 255 405 255 #AAAAAA
-+box silent 235 258 405 258 #CCCCCC
++box silent 235 254 405 254 #AAAAAA
++box silent 235 259 405 259 #CCCCCC
 +box silent 234 255 234 258 #AAAAAA
-+box silent 405 255 405 258 #CCCCCC
++box silent 406 255 406 258 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -4304,7 +4304,7 @@ index 0000000..aa261f9
 +
 diff --git a/install/1merge/cld-themes/tty1/800x480.cfg b/install/1merge/cld-themes/tty1/800x480.cfg
 new file mode 100644
-index 0000000..6402c0c
+index 0000000..7a32b20
 --- /dev/null
 +++ b/install/1merge/cld-themes/tty1/800x480.cfg
 @@ -0,0 +1,59 @@
@@ -4351,10 +4351,10 @@ index 0000000..6402c0c
 +box silent 293 255 507 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 293 255 506 255 #AAAAAA
-+box silent 293 258 506 258 #CCCCCC
++box silent 293 254 507 254 #AAAAAA
++box silent 293 259 507 259 #CCCCCC
 +box silent 292 255 292 258 #AAAAAA
-+box silent 507 255 507 258 #CCCCCC
++box silent 508 255 508 258 #CCCCCC
 +
 +#?pkg(media-gfx/cld-themes)<10.9||pkg(media-gfx/cld-themes)>=11.0##
 +#background color for text window in verbose mode
@@ -5449,7 +5449,7 @@ index 0000000..023fcb3
 +<text>tty6/images/verbose-CLD-tty6-800x480.jpg</text>
 diff --git a/install/1merge/cldg-themes/tty1/1024x576.cfg b/install/1merge/cldg-themes/tty1/1024x576.cfg
 new file mode 100644
-index 0000000..3fee26d
+index 0000000..a806bf1
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1024x576.cfg
 @@ -0,0 +1,59 @@
@@ -5496,7 +5496,7 @@ index 0000000..3fee26d
 +box silent 376 306 649 309 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 376 306 648 306 #AAAAAA
++box silent 376 305 648 305 #AAAAAA
 +box silent 376 310 648 310 #CCCCCC
 +box silent 375 306 375 309 #AAAAAA
 +box silent 649 306 649 309 #CCCCCC
@@ -5643,7 +5643,7 @@ index 0000000..8e06580
 +
 diff --git a/install/1merge/cldg-themes/tty1/1280x1024.cfg b/install/1merge/cldg-themes/tty1/1280x1024.cfg
 new file mode 100644
-index 0000000..f76beac
+index 0000000..e751f5b
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1280x1024.cfg
 @@ -0,0 +1,59 @@
@@ -5691,8 +5691,8 @@ index 0000000..f76beac
 +
 +#progress bar rectange for silent mode
 +box silent 470 544 810 544 #AAAAAA
-+box silent 470 552 810 552 #CCCCCC
-+box silent 468 545 468 550 #AAAAAA
++box silent 470 551 810 551 #CCCCCC
++box silent 469 545 469 550 #AAAAAA
 +box silent 811 545 811 550 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -5708,7 +5708,7 @@ index 0000000..f76beac
 +
 diff --git a/install/1merge/cldg-themes/tty1/1280x720.cfg b/install/1merge/cldg-themes/tty1/1280x720.cfg
 new file mode 100644
-index 0000000..590492b
+index 0000000..881ef57
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1280x720.cfg
 @@ -0,0 +1,59 @@
@@ -5757,7 +5757,7 @@ index 0000000..590492b
 +#progress bar rectange for silent mode
 +box silent 470 382 810 382 #AAAAAA
 +box silent 470 388 810 388 #CCCCCC
-+box silent 468 383 468 387 #AAAAAA
++box silent 469 383 469 387 #AAAAAA
 +box silent 811 383 811 387 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -5773,7 +5773,7 @@ index 0000000..590492b
 +
 diff --git a/install/1merge/cldg-themes/tty1/1280x768.cfg b/install/1merge/cldg-themes/tty1/1280x768.cfg
 new file mode 100644
-index 0000000..af214db
+index 0000000..be2466e
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1280x768.cfg
 @@ -0,0 +1,59 @@
@@ -5822,7 +5822,7 @@ index 0000000..af214db
 +#progress bar rectange for silent mode
 +box silent 470 408 810 408 #AAAAAA
 +box silent 470 414 810 414 #CCCCCC
-+box silent 468 409 468 413 #AAAAAA
++box silent 469 409 469 413 #AAAAAA
 +box silent 811 409 811 413 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -5838,7 +5838,7 @@ index 0000000..af214db
 +
 diff --git a/install/1merge/cldg-themes/tty1/1280x800.cfg b/install/1merge/cldg-themes/tty1/1280x800.cfg
 new file mode 100644
-index 0000000..dd0191a
+index 0000000..65fe92f
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1280x800.cfg
 @@ -0,0 +1,59 @@
@@ -5887,7 +5887,7 @@ index 0000000..dd0191a
 +#progress bar rectange for silent mode
 +box silent 470 425 810 425 #AAAAAA
 +box silent 470 431 810 431 #CCCCCC
-+box silent 468 426 468 430 #AAAAAA
++box silent 469 426 469 430 #AAAAAA
 +box silent 811 426 811 430 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6033,7 +6033,7 @@ index 0000000..d4ac042
 +
 diff --git a/install/1merge/cldg-themes/tty1/1368x768.cfg b/install/1merge/cldg-themes/tty1/1368x768.cfg
 new file mode 100644
-index 0000000..774cf96
+index 0000000..031ad58
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1368x768.cfg
 @@ -0,0 +1,59 @@
@@ -6080,9 +6080,9 @@ index 0000000..774cf96
 +box silent 502 409 867 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 502 408 865 408 #AAAAAA
-+box silent 502 414 865 414 #CCCCCC
-+box silent 500 409 500 413 #AAAAAA
++box silent 502 408 866 408 #AAAAAA
++box silent 502 414 866 414 #CCCCCC
++box silent 501 409 501 413 #AAAAAA
 +box silent 867 409 867 413 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6098,7 +6098,7 @@ index 0000000..774cf96
 +
 diff --git a/install/1merge/cldg-themes/tty1/1400x1050.cfg b/install/1merge/cldg-themes/tty1/1400x1050.cfg
 new file mode 100644
-index 0000000..f79980b
+index 0000000..7b4a2eb
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1400x1050.cfg
 @@ -0,0 +1,59 @@
@@ -6145,9 +6145,9 @@ index 0000000..f79980b
 +box silent 514 559 887 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 514 557 885 557 #AAAAAA
-+box silent 514 566 885 566 #CCCCCC
-+box silent 512 559 512 564 #AAAAAA
++box silent 514 558 886 558 #AAAAAA
++box silent 514 565 886 565 #CCCCCC
++box silent 513 559 513 564 #AAAAAA
 +box silent 887 559 887 564 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6163,7 +6163,7 @@ index 0000000..f79980b
 +
 diff --git a/install/1merge/cldg-themes/tty1/1440x900.cfg b/install/1merge/cldg-themes/tty1/1440x900.cfg
 new file mode 100644
-index 0000000..ffdc93f
+index 0000000..c13438e
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1440x900.cfg
 @@ -0,0 +1,59 @@
@@ -6211,7 +6211,7 @@ index 0000000..ffdc93f
 +
 +#progress bar rectange for silent mode
 +box silent 528 478 911 478 #AAAAAA
-+box silent 528 485 911 485 #CCCCCC
++box silent 528 484 911 484 #CCCCCC
 +box silent 527 479 527 483 #AAAAAA
 +box silent 912 479 912 483 #CCCCCC
 +
@@ -6228,7 +6228,7 @@ index 0000000..ffdc93f
 +
 diff --git a/install/1merge/cldg-themes/tty1/1600x1200.cfg b/install/1merge/cldg-themes/tty1/1600x1200.cfg
 new file mode 100644
-index 0000000..2f29968
+index 0000000..56fce38
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1600x1200.cfg
 @@ -0,0 +1,59 @@
@@ -6275,9 +6275,9 @@ index 0000000..2f29968
 +box silent 587 639 1014 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 637 1012 637 #AAAAAA
-+box silent 587 646 1012 646 #CCCCCC
-+box silent 585 639 585 645 #AAAAAA
++box silent 587 638 1013 638 #AAAAAA
++box silent 587 646 1013 646 #CCCCCC
++box silent 586 639 586 645 #AAAAAA
 +box silent 1014 639 1014 645 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6293,7 +6293,7 @@ index 0000000..2f29968
 +
 diff --git a/install/1merge/cldg-themes/tty1/1600x768.cfg b/install/1merge/cldg-themes/tty1/1600x768.cfg
 new file mode 100644
-index 0000000..15b5394
+index 0000000..3249246
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1600x768.cfg
 @@ -0,0 +1,59 @@
@@ -6340,9 +6340,9 @@ index 0000000..15b5394
 +box silent 587 409 1014 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 408 1012 408 #AAAAAA
-+box silent 587 414 1012 414 #CCCCCC
-+box silent 585 409 585 413 #AAAAAA
++box silent 587 408 1013 408 #AAAAAA
++box silent 587 414 1013 414 #CCCCCC
++box silent 586 409 586 413 #AAAAAA
 +box silent 1014 409 1014 413 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6358,7 +6358,7 @@ index 0000000..15b5394
 +
 diff --git a/install/1merge/cldg-themes/tty1/1600x900.cfg b/install/1merge/cldg-themes/tty1/1600x900.cfg
 new file mode 100644
-index 0000000..f56e46f
+index 0000000..c46b651
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1600x900.cfg
 @@ -0,0 +1,59 @@
@@ -6405,9 +6405,9 @@ index 0000000..f56e46f
 +box silent 587 479 1014 483 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 478 1012 478 #AAAAAA
-+box silent 587 485 1012 485 #CCCCCC
-+box silent 585 479 585 483 #AAAAAA
++box silent 587 478 1013 478 #AAAAAA
++box silent 587 484 1013 484 #CCCCCC
++box silent 586 479 586 483 #AAAAAA
 +box silent 1014 479 1014 483 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6423,7 +6423,7 @@ index 0000000..f56e46f
 +
 diff --git a/install/1merge/cldg-themes/tty1/1680x1050.cfg b/install/1merge/cldg-themes/tty1/1680x1050.cfg
 new file mode 100644
-index 0000000..7187741
+index 0000000..e7795d4
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1680x1050.cfg
 @@ -0,0 +1,59 @@
@@ -6470,8 +6470,8 @@ index 0000000..7187741
 +box silent 616 559 1064 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 616 557 1063 557 #AAAAAA
-+box silent 616 566 1063 566 #CCCCCC
++box silent 616 558 1063 558 #AAAAAA
++box silent 616 565 1063 565 #CCCCCC
 +box silent 615 559 615 564 #AAAAAA
 +box silent 1064 559 1064 564 #CCCCCC
 +
@@ -6553,7 +6553,7 @@ index 0000000..e907eed
 +
 diff --git a/install/1merge/cldg-themes/tty1/1920x1080.cfg b/install/1merge/cldg-themes/tty1/1920x1080.cfg
 new file mode 100644
-index 0000000..0d40b77
+index 0000000..96c23ac
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1920x1080.cfg
 @@ -0,0 +1,59 @@
@@ -6600,9 +6600,9 @@ index 0000000..0d40b77
 +box silent 705 575 1216 580 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 573 1215 573 #AAAAAA
-+box silent 705 582 1215 582 #CCCCCC
-+box silent 703 575 703 580 #AAAAAA
++box silent 705 574 1215 574 #AAAAAA
++box silent 705 581 1215 581 #CCCCCC
++box silent 704 575 704 580 #AAAAAA
 +box silent 1216 575 1216 580 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6618,7 +6618,7 @@ index 0000000..0d40b77
 +
 diff --git a/install/1merge/cldg-themes/tty1/1920x1200.cfg b/install/1merge/cldg-themes/tty1/1920x1200.cfg
 new file mode 100644
-index 0000000..1ab82c0
+index 0000000..a15dcb2
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/1920x1200.cfg
 @@ -0,0 +1,59 @@
@@ -6665,9 +6665,9 @@ index 0000000..1ab82c0
 +box silent 705 639 1216 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 637 1215 637 #AAAAAA
++box silent 705 638 1215 638 #AAAAAA
 +box silent 705 646 1215 646 #CCCCCC
-+box silent 703 639 703 645 #AAAAAA
++box silent 704 639 704 645 #AAAAAA
 +box silent 1216 639 1216 645 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6683,7 +6683,7 @@ index 0000000..1ab82c0
 +
 diff --git a/install/1merge/cldg-themes/tty1/2048x1152.cfg b/install/1merge/cldg-themes/tty1/2048x1152.cfg
 new file mode 100644
-index 0000000..4b7ef94
+index 0000000..e790eca
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/2048x1152.cfg
 @@ -0,0 +1,59 @@
@@ -6730,9 +6730,9 @@ index 0000000..4b7ef94
 +box silent 752 613 1298 619 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 752 612 1296 612 #AAAAAA
-+box silent 752 621 1296 621 #CCCCCC
-+box silent 750 613 750 619 #AAAAAA
++box silent 752 612 1297 612 #AAAAAA
++box silent 752 620 1297 620 #CCCCCC
++box silent 751 613 751 619 #AAAAAA
 +box silent 1298 613 1298 619 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6748,7 +6748,7 @@ index 0000000..4b7ef94
 +
 diff --git a/install/1merge/cldg-themes/tty1/2560x1440.cfg b/install/1merge/cldg-themes/tty1/2560x1440.cfg
 new file mode 100644
-index 0000000..b9c45b2
+index 0000000..55c98d3
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/2560x1440.cfg
 @@ -0,0 +1,59 @@
@@ -6795,9 +6795,9 @@ index 0000000..b9c45b2
 +box silent 940 766 1622 774 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 765 1620 765 #AAAAAA
-+box silent 940 776 1620 776 #CCCCCC
-+box silent 937 766 937 774 #AAAAAA
++box silent 940 765 1621 765 #AAAAAA
++box silent 940 775 1621 775 #CCCCCC
++box silent 939 766 939 774 #AAAAAA
 +box silent 1622 766 1622 774 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6813,7 +6813,7 @@ index 0000000..b9c45b2
 +
 diff --git a/install/1merge/cldg-themes/tty1/2560x1600.cfg b/install/1merge/cldg-themes/tty1/2560x1600.cfg
 new file mode 100644
-index 0000000..e9d0047
+index 0000000..3fe035b
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/2560x1600.cfg
 @@ -0,0 +1,59 @@
@@ -6860,9 +6860,9 @@ index 0000000..e9d0047
 +box silent 940 852 1622 860 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 850 1620 850 #AAAAAA
-+box silent 940 862 1620 862 #CCCCCC
-+box silent 937 852 937 860 #AAAAAA
++box silent 940 851 1621 851 #AAAAAA
++box silent 940 861 1621 861 #CCCCCC
++box silent 939 852 939 860 #AAAAAA
 +box silent 1622 852 1622 860 #CCCCCC
 +
 +#?pkg(media-gfx/cldg-themes)<10.9||pkg(media-gfx/cldg-themes)>=11.0##
@@ -6878,7 +6878,7 @@ index 0000000..e9d0047
 +
 diff --git a/install/1merge/cldg-themes/tty1/640x480.cfg b/install/1merge/cldg-themes/tty1/640x480.cfg
 new file mode 100644
-index 0000000..7fd338d
+index 0000000..c68fd69
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/640x480.cfg
 @@ -0,0 +1,59 @@
@@ -6925,8 +6925,8 @@ index 0000000..7fd338d
 +box silent 235 255 405 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 235 255 405 255 #AAAAAA
-+box silent 235 258 405 258 #CCCCCC
++box silent 235 254 404 254 #AAAAAA
++box silent 235 259 404 259 #CCCCCC
 +box silent 234 255 234 258 #AAAAAA
 +box silent 405 255 405 258 #CCCCCC
 +
@@ -6943,7 +6943,7 @@ index 0000000..7fd338d
 +
 diff --git a/install/1merge/cldg-themes/tty1/800x480.cfg b/install/1merge/cldg-themes/tty1/800x480.cfg
 new file mode 100644
-index 0000000..9a5efa0
+index 0000000..59b5753
 --- /dev/null
 +++ b/install/1merge/cldg-themes/tty1/800x480.cfg
 @@ -0,0 +1,59 @@
@@ -6990,8 +6990,8 @@ index 0000000..9a5efa0
 +box silent 293 255 507 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 293 255 506 255 #AAAAAA
-+box silent 293 258 506 258 #CCCCCC
++box silent 293 254 506 254 #AAAAAA
++box silent 293 259 506 259 #CCCCCC
 +box silent 292 255 292 258 #AAAAAA
 +box silent 507 255 507 258 #CCCCCC
 +
@@ -8088,7 +8088,7 @@ index 0000000..ff28a57
 +<text>tty6/images/verbose-CLDG-tty6-800x480.jpg</text>
 diff --git a/install/1merge/cldx-themes/tty1/1024x576.cfg b/install/1merge/cldx-themes/tty1/1024x576.cfg
 new file mode 100644
-index 0000000..458fb71
+index 0000000..4e03a2c
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1024x576.cfg
 @@ -0,0 +1,59 @@
@@ -8135,7 +8135,7 @@ index 0000000..458fb71
 +box silent 376 306 649 309 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 376 306 648 306 #AAAAAA
++box silent 376 305 648 305 #AAAAAA
 +box silent 376 310 648 310 #CCCCCC
 +box silent 375 306 375 309 #AAAAAA
 +box silent 649 306 649 309 #CCCCCC
@@ -8282,7 +8282,7 @@ index 0000000..f031f7a
 +
 diff --git a/install/1merge/cldx-themes/tty1/1280x1024.cfg b/install/1merge/cldx-themes/tty1/1280x1024.cfg
 new file mode 100644
-index 0000000..919db09
+index 0000000..87cc803
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1280x1024.cfg
 @@ -0,0 +1,59 @@
@@ -8330,8 +8330,8 @@ index 0000000..919db09
 +
 +#progress bar rectange for silent mode
 +box silent 470 544 810 544 #AAAAAA
-+box silent 470 552 810 552 #CCCCCC
-+box silent 468 545 468 550 #AAAAAA
++box silent 470 551 810 551 #CCCCCC
++box silent 469 545 469 550 #AAAAAA
 +box silent 811 545 811 550 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -8347,7 +8347,7 @@ index 0000000..919db09
 +
 diff --git a/install/1merge/cldx-themes/tty1/1280x720.cfg b/install/1merge/cldx-themes/tty1/1280x720.cfg
 new file mode 100644
-index 0000000..4670c6a
+index 0000000..34f92c2
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1280x720.cfg
 @@ -0,0 +1,59 @@
@@ -8396,7 +8396,7 @@ index 0000000..4670c6a
 +#progress bar rectange for silent mode
 +box silent 470 382 810 382 #AAAAAA
 +box silent 470 388 810 388 #CCCCCC
-+box silent 468 383 468 387 #AAAAAA
++box silent 469 383 469 387 #AAAAAA
 +box silent 811 383 811 387 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -8412,7 +8412,7 @@ index 0000000..4670c6a
 +
 diff --git a/install/1merge/cldx-themes/tty1/1280x768.cfg b/install/1merge/cldx-themes/tty1/1280x768.cfg
 new file mode 100644
-index 0000000..a90c80e
+index 0000000..c49c17a
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1280x768.cfg
 @@ -0,0 +1,59 @@
@@ -8461,7 +8461,7 @@ index 0000000..a90c80e
 +#progress bar rectange for silent mode
 +box silent 470 408 810 408 #AAAAAA
 +box silent 470 414 810 414 #CCCCCC
-+box silent 468 409 468 413 #AAAAAA
++box silent 469 409 469 413 #AAAAAA
 +box silent 811 409 811 413 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -8477,7 +8477,7 @@ index 0000000..a90c80e
 +
 diff --git a/install/1merge/cldx-themes/tty1/1280x800.cfg b/install/1merge/cldx-themes/tty1/1280x800.cfg
 new file mode 100644
-index 0000000..8794937
+index 0000000..db862af
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1280x800.cfg
 @@ -0,0 +1,59 @@
@@ -8526,7 +8526,7 @@ index 0000000..8794937
 +#progress bar rectange for silent mode
 +box silent 470 425 810 425 #AAAAAA
 +box silent 470 431 810 431 #CCCCCC
-+box silent 468 426 468 430 #AAAAAA
++box silent 469 426 469 430 #AAAAAA
 +box silent 811 426 811 430 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -8672,7 +8672,7 @@ index 0000000..4b19c2e
 +
 diff --git a/install/1merge/cldx-themes/tty1/1368x768.cfg b/install/1merge/cldx-themes/tty1/1368x768.cfg
 new file mode 100644
-index 0000000..09fd8f0
+index 0000000..03066ab
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1368x768.cfg
 @@ -0,0 +1,59 @@
@@ -8719,9 +8719,9 @@ index 0000000..09fd8f0
 +box silent 502 409 867 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 502 408 865 408 #AAAAAA
-+box silent 502 414 865 414 #CCCCCC
-+box silent 500 409 500 413 #AAAAAA
++box silent 502 408 866 408 #AAAAAA
++box silent 502 414 866 414 #CCCCCC
++box silent 501 409 501 413 #AAAAAA
 +box silent 867 409 867 413 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -8737,7 +8737,7 @@ index 0000000..09fd8f0
 +
 diff --git a/install/1merge/cldx-themes/tty1/1400x1050.cfg b/install/1merge/cldx-themes/tty1/1400x1050.cfg
 new file mode 100644
-index 0000000..9395f0f
+index 0000000..930e4a9
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1400x1050.cfg
 @@ -0,0 +1,59 @@
@@ -8784,9 +8784,9 @@ index 0000000..9395f0f
 +box silent 514 559 887 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 514 557 885 557 #AAAAAA
-+box silent 514 566 885 566 #CCCCCC
-+box silent 512 559 512 564 #AAAAAA
++box silent 514 558 886 558 #AAAAAA
++box silent 514 565 886 565 #CCCCCC
++box silent 513 559 513 564 #AAAAAA
 +box silent 887 559 887 564 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -8802,7 +8802,7 @@ index 0000000..9395f0f
 +
 diff --git a/install/1merge/cldx-themes/tty1/1440x900.cfg b/install/1merge/cldx-themes/tty1/1440x900.cfg
 new file mode 100644
-index 0000000..a189e06
+index 0000000..135df3f
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1440x900.cfg
 @@ -0,0 +1,59 @@
@@ -8850,7 +8850,7 @@ index 0000000..a189e06
 +
 +#progress bar rectange for silent mode
 +box silent 528 478 911 478 #AAAAAA
-+box silent 528 485 911 485 #CCCCCC
++box silent 528 484 911 484 #CCCCCC
 +box silent 527 479 527 483 #AAAAAA
 +box silent 912 479 912 483 #CCCCCC
 +
@@ -8867,7 +8867,7 @@ index 0000000..a189e06
 +
 diff --git a/install/1merge/cldx-themes/tty1/1600x1200.cfg b/install/1merge/cldx-themes/tty1/1600x1200.cfg
 new file mode 100644
-index 0000000..5b9d052
+index 0000000..bce4caf
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1600x1200.cfg
 @@ -0,0 +1,59 @@
@@ -8914,9 +8914,9 @@ index 0000000..5b9d052
 +box silent 587 639 1014 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 637 1012 637 #AAAAAA
-+box silent 587 646 1012 646 #CCCCCC
-+box silent 585 639 585 645 #AAAAAA
++box silent 587 638 1013 638 #AAAAAA
++box silent 587 646 1013 646 #CCCCCC
++box silent 586 639 586 645 #AAAAAA
 +box silent 1014 639 1014 645 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -8932,7 +8932,7 @@ index 0000000..5b9d052
 +
 diff --git a/install/1merge/cldx-themes/tty1/1600x768.cfg b/install/1merge/cldx-themes/tty1/1600x768.cfg
 new file mode 100644
-index 0000000..c46b966
+index 0000000..f80b7c4
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1600x768.cfg
 @@ -0,0 +1,59 @@
@@ -8979,9 +8979,9 @@ index 0000000..c46b966
 +box silent 587 409 1014 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 408 1012 408 #AAAAAA
-+box silent 587 414 1012 414 #CCCCCC
-+box silent 585 409 585 413 #AAAAAA
++box silent 587 408 1013 408 #AAAAAA
++box silent 587 414 1013 414 #CCCCCC
++box silent 586 409 586 413 #AAAAAA
 +box silent 1014 409 1014 413 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -8997,7 +8997,7 @@ index 0000000..c46b966
 +
 diff --git a/install/1merge/cldx-themes/tty1/1600x900.cfg b/install/1merge/cldx-themes/tty1/1600x900.cfg
 new file mode 100644
-index 0000000..9d30462
+index 0000000..074b5cb
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1600x900.cfg
 @@ -0,0 +1,59 @@
@@ -9044,9 +9044,9 @@ index 0000000..9d30462
 +box silent 587 479 1014 483 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 478 1012 478 #AAAAAA
-+box silent 587 485 1012 485 #CCCCCC
-+box silent 585 479 585 483 #AAAAAA
++box silent 587 478 1013 478 #AAAAAA
++box silent 587 484 1013 484 #CCCCCC
++box silent 586 479 586 483 #AAAAAA
 +box silent 1014 479 1014 483 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -9062,7 +9062,7 @@ index 0000000..9d30462
 +
 diff --git a/install/1merge/cldx-themes/tty1/1680x1050.cfg b/install/1merge/cldx-themes/tty1/1680x1050.cfg
 new file mode 100644
-index 0000000..5ea53d9
+index 0000000..2977c7a
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1680x1050.cfg
 @@ -0,0 +1,59 @@
@@ -9109,8 +9109,8 @@ index 0000000..5ea53d9
 +box silent 616 559 1064 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 616 557 1063 557 #AAAAAA
-+box silent 616 566 1063 566 #CCCCCC
++box silent 616 558 1063 558 #AAAAAA
++box silent 616 565 1063 565 #CCCCCC
 +box silent 615 559 615 564 #AAAAAA
 +box silent 1064 559 1064 564 #CCCCCC
 +
@@ -9192,7 +9192,7 @@ index 0000000..c5db6ab
 +
 diff --git a/install/1merge/cldx-themes/tty1/1920x1080.cfg b/install/1merge/cldx-themes/tty1/1920x1080.cfg
 new file mode 100644
-index 0000000..276b45b
+index 0000000..7202f5c
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1920x1080.cfg
 @@ -0,0 +1,59 @@
@@ -9239,9 +9239,9 @@ index 0000000..276b45b
 +box silent 705 575 1216 580 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 573 1215 573 #AAAAAA
-+box silent 705 582 1215 582 #CCCCCC
-+box silent 703 575 703 580 #AAAAAA
++box silent 705 574 1215 574 #AAAAAA
++box silent 705 581 1215 581 #CCCCCC
++box silent 704 575 704 580 #AAAAAA
 +box silent 1216 575 1216 580 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -9257,7 +9257,7 @@ index 0000000..276b45b
 +
 diff --git a/install/1merge/cldx-themes/tty1/1920x1200.cfg b/install/1merge/cldx-themes/tty1/1920x1200.cfg
 new file mode 100644
-index 0000000..99dc51f
+index 0000000..bc0cf4a
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/1920x1200.cfg
 @@ -0,0 +1,59 @@
@@ -9304,9 +9304,9 @@ index 0000000..99dc51f
 +box silent 705 639 1216 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 637 1215 637 #AAAAAA
++box silent 705 638 1215 638 #AAAAAA
 +box silent 705 646 1215 646 #CCCCCC
-+box silent 703 639 703 645 #AAAAAA
++box silent 704 639 704 645 #AAAAAA
 +box silent 1216 639 1216 645 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -9322,7 +9322,7 @@ index 0000000..99dc51f
 +
 diff --git a/install/1merge/cldx-themes/tty1/2048x1152.cfg b/install/1merge/cldx-themes/tty1/2048x1152.cfg
 new file mode 100644
-index 0000000..e3d7d5a
+index 0000000..537a113
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/2048x1152.cfg
 @@ -0,0 +1,59 @@
@@ -9369,9 +9369,9 @@ index 0000000..e3d7d5a
 +box silent 752 613 1298 619 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 752 612 1296 612 #AAAAAA
-+box silent 752 621 1296 621 #CCCCCC
-+box silent 750 613 750 619 #AAAAAA
++box silent 752 612 1297 612 #AAAAAA
++box silent 752 620 1297 620 #CCCCCC
++box silent 751 613 751 619 #AAAAAA
 +box silent 1298 613 1298 619 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -9387,7 +9387,7 @@ index 0000000..e3d7d5a
 +
 diff --git a/install/1merge/cldx-themes/tty1/2560x1440.cfg b/install/1merge/cldx-themes/tty1/2560x1440.cfg
 new file mode 100644
-index 0000000..43fc90d
+index 0000000..0377fa0
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/2560x1440.cfg
 @@ -0,0 +1,59 @@
@@ -9434,9 +9434,9 @@ index 0000000..43fc90d
 +box silent 940 766 1622 774 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 765 1620 765 #AAAAAA
-+box silent 940 776 1620 776 #CCCCCC
-+box silent 937 766 937 774 #AAAAAA
++box silent 940 765 1621 765 #AAAAAA
++box silent 940 775 1621 775 #CCCCCC
++box silent 939 766 939 774 #AAAAAA
 +box silent 1622 766 1622 774 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -9452,7 +9452,7 @@ index 0000000..43fc90d
 +
 diff --git a/install/1merge/cldx-themes/tty1/2560x1600.cfg b/install/1merge/cldx-themes/tty1/2560x1600.cfg
 new file mode 100644
-index 0000000..8a83230
+index 0000000..36faba5
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/2560x1600.cfg
 @@ -0,0 +1,59 @@
@@ -9499,9 +9499,9 @@ index 0000000..8a83230
 +box silent 940 852 1622 860 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 850 1620 850 #AAAAAA
-+box silent 940 862 1620 862 #CCCCCC
-+box silent 937 852 937 860 #AAAAAA
++box silent 940 851 1621 851 #AAAAAA
++box silent 940 861 1621 861 #CCCCCC
++box silent 939 852 939 860 #AAAAAA
 +box silent 1622 852 1622 860 #CCCCCC
 +
 +#?pkg(media-gfx/cldx-themes)<10.9||pkg(media-gfx/cldx-themes)>=11.0##
@@ -9517,7 +9517,7 @@ index 0000000..8a83230
 +
 diff --git a/install/1merge/cldx-themes/tty1/640x480.cfg b/install/1merge/cldx-themes/tty1/640x480.cfg
 new file mode 100644
-index 0000000..343a51b
+index 0000000..63a0811
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/640x480.cfg
 @@ -0,0 +1,59 @@
@@ -9564,8 +9564,8 @@ index 0000000..343a51b
 +box silent 235 255 405 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 235 255 405 255 #AAAAAA
-+box silent 235 258 405 258 #CCCCCC
++box silent 235 254 404 254 #AAAAAA
++box silent 235 259 404 259 #CCCCCC
 +box silent 234 255 234 258 #AAAAAA
 +box silent 405 255 405 258 #CCCCCC
 +
@@ -9582,7 +9582,7 @@ index 0000000..343a51b
 +
 diff --git a/install/1merge/cldx-themes/tty1/800x480.cfg b/install/1merge/cldx-themes/tty1/800x480.cfg
 new file mode 100644
-index 0000000..d9cb842
+index 0000000..cc80b59
 --- /dev/null
 +++ b/install/1merge/cldx-themes/tty1/800x480.cfg
 @@ -0,0 +1,59 @@
@@ -9629,8 +9629,8 @@ index 0000000..d9cb842
 +box silent 293 255 507 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 293 255 506 255 #AAAAAA
-+box silent 293 258 506 258 #CCCCCC
++box silent 293 254 506 254 #AAAAAA
++box silent 293 259 506 259 #CCCCCC
 +box silent 292 255 292 258 #AAAAAA
 +box silent 507 255 507 258 #CCCCCC
 +
@@ -10727,7 +10727,7 @@ index 0000000..05ba38d
 +<text>tty6/images/verbose-CLDX-tty6-800x480.jpg</text>
 diff --git a/install/1merge/cls-themes/tty1/1024x576.cfg b/install/1merge/cls-themes/tty1/1024x576.cfg
 new file mode 100644
-index 0000000..34add46
+index 0000000..e58baee
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1024x576.cfg
 @@ -0,0 +1,59 @@
@@ -10774,7 +10774,7 @@ index 0000000..34add46
 +box silent 376 306 649 309 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 376 306 648 306 #AAAAAA
++box silent 376 305 648 305 #AAAAAA
 +box silent 376 310 648 310 #CCCCCC
 +box silent 375 306 375 309 #AAAAAA
 +box silent 649 306 649 309 #CCCCCC
@@ -10921,7 +10921,7 @@ index 0000000..5a47b3c
 +
 diff --git a/install/1merge/cls-themes/tty1/1280x1024.cfg b/install/1merge/cls-themes/tty1/1280x1024.cfg
 new file mode 100644
-index 0000000..7f21c0b
+index 0000000..bbba7fd
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1280x1024.cfg
 @@ -0,0 +1,59 @@
@@ -10969,8 +10969,8 @@ index 0000000..7f21c0b
 +
 +#progress bar rectange for silent mode
 +box silent 470 544 810 544 #AAAAAA
-+box silent 470 552 810 552 #CCCCCC
-+box silent 468 545 468 550 #AAAAAA
++box silent 470 551 810 551 #CCCCCC
++box silent 469 545 469 550 #AAAAAA
 +box silent 811 545 811 550 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -10986,7 +10986,7 @@ index 0000000..7f21c0b
 +
 diff --git a/install/1merge/cls-themes/tty1/1280x720.cfg b/install/1merge/cls-themes/tty1/1280x720.cfg
 new file mode 100644
-index 0000000..f7a7334
+index 0000000..2904069
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1280x720.cfg
 @@ -0,0 +1,59 @@
@@ -11035,7 +11035,7 @@ index 0000000..f7a7334
 +#progress bar rectange for silent mode
 +box silent 470 382 810 382 #AAAAAA
 +box silent 470 388 810 388 #CCCCCC
-+box silent 468 383 468 387 #AAAAAA
++box silent 469 383 469 387 #AAAAAA
 +box silent 811 383 811 387 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -11051,7 +11051,7 @@ index 0000000..f7a7334
 +
 diff --git a/install/1merge/cls-themes/tty1/1280x768.cfg b/install/1merge/cls-themes/tty1/1280x768.cfg
 new file mode 100644
-index 0000000..75c5477
+index 0000000..cab2f08
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1280x768.cfg
 @@ -0,0 +1,59 @@
@@ -11100,7 +11100,7 @@ index 0000000..75c5477
 +#progress bar rectange for silent mode
 +box silent 470 408 810 408 #AAAAAA
 +box silent 470 414 810 414 #CCCCCC
-+box silent 468 409 468 413 #AAAAAA
++box silent 469 409 469 413 #AAAAAA
 +box silent 811 409 811 413 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -11116,7 +11116,7 @@ index 0000000..75c5477
 +
 diff --git a/install/1merge/cls-themes/tty1/1280x800.cfg b/install/1merge/cls-themes/tty1/1280x800.cfg
 new file mode 100644
-index 0000000..49f4e19
+index 0000000..365ecc2
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1280x800.cfg
 @@ -0,0 +1,59 @@
@@ -11165,7 +11165,7 @@ index 0000000..49f4e19
 +#progress bar rectange for silent mode
 +box silent 470 425 810 425 #AAAAAA
 +box silent 470 431 810 431 #CCCCCC
-+box silent 468 426 468 430 #AAAAAA
++box silent 469 426 469 430 #AAAAAA
 +box silent 811 426 811 430 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -11311,7 +11311,7 @@ index 0000000..79259bf
 +
 diff --git a/install/1merge/cls-themes/tty1/1368x768.cfg b/install/1merge/cls-themes/tty1/1368x768.cfg
 new file mode 100644
-index 0000000..71b45b4
+index 0000000..b0696f8
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1368x768.cfg
 @@ -0,0 +1,59 @@
@@ -11358,9 +11358,9 @@ index 0000000..71b45b4
 +box silent 502 409 867 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 502 408 865 408 #AAAAAA
-+box silent 502 414 865 414 #CCCCCC
-+box silent 500 409 500 413 #AAAAAA
++box silent 502 408 866 408 #AAAAAA
++box silent 502 414 866 414 #CCCCCC
++box silent 501 409 501 413 #AAAAAA
 +box silent 867 409 867 413 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -11376,7 +11376,7 @@ index 0000000..71b45b4
 +
 diff --git a/install/1merge/cls-themes/tty1/1400x1050.cfg b/install/1merge/cls-themes/tty1/1400x1050.cfg
 new file mode 100644
-index 0000000..8d9f160
+index 0000000..b20dd80
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1400x1050.cfg
 @@ -0,0 +1,59 @@
@@ -11423,9 +11423,9 @@ index 0000000..8d9f160
 +box silent 514 559 887 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 514 557 885 557 #AAAAAA
-+box silent 514 566 885 566 #CCCCCC
-+box silent 512 559 512 564 #AAAAAA
++box silent 514 558 886 558 #AAAAAA
++box silent 514 565 886 565 #CCCCCC
++box silent 513 559 513 564 #AAAAAA
 +box silent 887 559 887 564 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -11441,7 +11441,7 @@ index 0000000..8d9f160
 +
 diff --git a/install/1merge/cls-themes/tty1/1440x900.cfg b/install/1merge/cls-themes/tty1/1440x900.cfg
 new file mode 100644
-index 0000000..eb0e553
+index 0000000..010ff00
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1440x900.cfg
 @@ -0,0 +1,59 @@
@@ -11489,7 +11489,7 @@ index 0000000..eb0e553
 +
 +#progress bar rectange for silent mode
 +box silent 528 478 911 478 #AAAAAA
-+box silent 528 485 911 485 #CCCCCC
++box silent 528 484 911 484 #CCCCCC
 +box silent 527 479 527 483 #AAAAAA
 +box silent 912 479 912 483 #CCCCCC
 +
@@ -11506,7 +11506,7 @@ index 0000000..eb0e553
 +
 diff --git a/install/1merge/cls-themes/tty1/1600x1200.cfg b/install/1merge/cls-themes/tty1/1600x1200.cfg
 new file mode 100644
-index 0000000..2ac984a
+index 0000000..646ee58
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1600x1200.cfg
 @@ -0,0 +1,59 @@
@@ -11553,9 +11553,9 @@ index 0000000..2ac984a
 +box silent 587 639 1014 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 637 1012 637 #AAAAAA
-+box silent 587 646 1012 646 #CCCCCC
-+box silent 585 639 585 645 #AAAAAA
++box silent 587 638 1013 638 #AAAAAA
++box silent 587 646 1013 646 #CCCCCC
++box silent 586 639 586 645 #AAAAAA
 +box silent 1014 639 1014 645 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -11571,7 +11571,7 @@ index 0000000..2ac984a
 +
 diff --git a/install/1merge/cls-themes/tty1/1600x768.cfg b/install/1merge/cls-themes/tty1/1600x768.cfg
 new file mode 100644
-index 0000000..58e6c7e
+index 0000000..37908bf
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1600x768.cfg
 @@ -0,0 +1,59 @@
@@ -11618,9 +11618,9 @@ index 0000000..58e6c7e
 +box silent 587 409 1014 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 408 1012 408 #AAAAAA
-+box silent 587 414 1012 414 #CCCCCC
-+box silent 585 409 585 413 #AAAAAA
++box silent 587 408 1013 408 #AAAAAA
++box silent 587 414 1013 414 #CCCCCC
++box silent 586 409 586 413 #AAAAAA
 +box silent 1014 409 1014 413 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -11636,7 +11636,7 @@ index 0000000..58e6c7e
 +
 diff --git a/install/1merge/cls-themes/tty1/1600x900.cfg b/install/1merge/cls-themes/tty1/1600x900.cfg
 new file mode 100644
-index 0000000..7c64865
+index 0000000..9885ef6
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1600x900.cfg
 @@ -0,0 +1,59 @@
@@ -11683,9 +11683,9 @@ index 0000000..7c64865
 +box silent 587 479 1014 483 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 478 1012 478 #AAAAAA
-+box silent 587 485 1012 485 #CCCCCC
-+box silent 585 479 585 483 #AAAAAA
++box silent 587 478 1013 478 #AAAAAA
++box silent 587 484 1013 484 #CCCCCC
++box silent 586 479 586 483 #AAAAAA
 +box silent 1014 479 1014 483 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -11701,7 +11701,7 @@ index 0000000..7c64865
 +
 diff --git a/install/1merge/cls-themes/tty1/1680x1050.cfg b/install/1merge/cls-themes/tty1/1680x1050.cfg
 new file mode 100644
-index 0000000..2a8a463
+index 0000000..920ab0a
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1680x1050.cfg
 @@ -0,0 +1,59 @@
@@ -11748,8 +11748,8 @@ index 0000000..2a8a463
 +box silent 616 559 1064 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 616 557 1063 557 #AAAAAA
-+box silent 616 566 1063 566 #CCCCCC
++box silent 616 558 1063 558 #AAAAAA
++box silent 616 565 1063 565 #CCCCCC
 +box silent 615 559 615 564 #AAAAAA
 +box silent 1064 559 1064 564 #CCCCCC
 +
@@ -11831,7 +11831,7 @@ index 0000000..1626eaf
 +
 diff --git a/install/1merge/cls-themes/tty1/1920x1080.cfg b/install/1merge/cls-themes/tty1/1920x1080.cfg
 new file mode 100644
-index 0000000..c6eec3a
+index 0000000..f6865cc
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1920x1080.cfg
 @@ -0,0 +1,59 @@
@@ -11878,9 +11878,9 @@ index 0000000..c6eec3a
 +box silent 705 575 1216 580 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 573 1215 573 #AAAAAA
-+box silent 705 582 1215 582 #CCCCCC
-+box silent 703 575 703 580 #AAAAAA
++box silent 705 574 1215 574 #AAAAAA
++box silent 705 581 1215 581 #CCCCCC
++box silent 704 575 704 580 #AAAAAA
 +box silent 1216 575 1216 580 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -11896,7 +11896,7 @@ index 0000000..c6eec3a
 +
 diff --git a/install/1merge/cls-themes/tty1/1920x1200.cfg b/install/1merge/cls-themes/tty1/1920x1200.cfg
 new file mode 100644
-index 0000000..f53beeb
+index 0000000..cf5f2d5
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/1920x1200.cfg
 @@ -0,0 +1,59 @@
@@ -11943,9 +11943,9 @@ index 0000000..f53beeb
 +box silent 705 639 1216 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 637 1215 637 #AAAAAA
++box silent 705 638 1215 638 #AAAAAA
 +box silent 705 646 1215 646 #CCCCCC
-+box silent 703 639 703 645 #AAAAAA
++box silent 704 639 704 645 #AAAAAA
 +box silent 1216 639 1216 645 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -11961,7 +11961,7 @@ index 0000000..f53beeb
 +
 diff --git a/install/1merge/cls-themes/tty1/2048x1152.cfg b/install/1merge/cls-themes/tty1/2048x1152.cfg
 new file mode 100644
-index 0000000..bfffaff
+index 0000000..dc6bffa
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/2048x1152.cfg
 @@ -0,0 +1,59 @@
@@ -12008,9 +12008,9 @@ index 0000000..bfffaff
 +box silent 752 613 1298 619 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 752 612 1296 612 #AAAAAA
-+box silent 752 621 1296 621 #CCCCCC
-+box silent 750 613 750 619 #AAAAAA
++box silent 752 612 1297 612 #AAAAAA
++box silent 752 620 1297 620 #CCCCCC
++box silent 751 613 751 619 #AAAAAA
 +box silent 1298 613 1298 619 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -12026,7 +12026,7 @@ index 0000000..bfffaff
 +
 diff --git a/install/1merge/cls-themes/tty1/2560x1440.cfg b/install/1merge/cls-themes/tty1/2560x1440.cfg
 new file mode 100644
-index 0000000..4fd3424
+index 0000000..8c8bc40
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/2560x1440.cfg
 @@ -0,0 +1,59 @@
@@ -12073,9 +12073,9 @@ index 0000000..4fd3424
 +box silent 940 766 1622 774 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 765 1620 765 #AAAAAA
-+box silent 940 776 1620 776 #CCCCCC
-+box silent 937 766 937 774 #AAAAAA
++box silent 940 765 1621 765 #AAAAAA
++box silent 940 775 1621 775 #CCCCCC
++box silent 939 766 939 774 #AAAAAA
 +box silent 1622 766 1622 774 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -12091,7 +12091,7 @@ index 0000000..4fd3424
 +
 diff --git a/install/1merge/cls-themes/tty1/2560x1600.cfg b/install/1merge/cls-themes/tty1/2560x1600.cfg
 new file mode 100644
-index 0000000..9b15426
+index 0000000..ad16038
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/2560x1600.cfg
 @@ -0,0 +1,59 @@
@@ -12138,9 +12138,9 @@ index 0000000..9b15426
 +box silent 940 852 1622 860 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 850 1620 850 #AAAAAA
-+box silent 940 862 1620 862 #CCCCCC
-+box silent 937 852 937 860 #AAAAAA
++box silent 940 851 1621 851 #AAAAAA
++box silent 940 861 1621 861 #CCCCCC
++box silent 939 852 939 860 #AAAAAA
 +box silent 1622 852 1622 860 #CCCCCC
 +
 +#?pkg(media-gfx/cls-themes)<10.9||pkg(media-gfx/cls-themes)>=11.0##
@@ -12156,7 +12156,7 @@ index 0000000..9b15426
 +
 diff --git a/install/1merge/cls-themes/tty1/640x480.cfg b/install/1merge/cls-themes/tty1/640x480.cfg
 new file mode 100644
-index 0000000..107b916
+index 0000000..c9f883e
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/640x480.cfg
 @@ -0,0 +1,59 @@
@@ -12203,8 +12203,8 @@ index 0000000..107b916
 +box silent 235 255 405 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 235 255 405 255 #AAAAAA
-+box silent 235 258 405 258 #CCCCCC
++box silent 235 254 404 254 #AAAAAA
++box silent 235 259 404 259 #CCCCCC
 +box silent 234 255 234 258 #AAAAAA
 +box silent 405 255 405 258 #CCCCCC
 +
@@ -12221,7 +12221,7 @@ index 0000000..107b916
 +
 diff --git a/install/1merge/cls-themes/tty1/800x480.cfg b/install/1merge/cls-themes/tty1/800x480.cfg
 new file mode 100644
-index 0000000..c70f85c
+index 0000000..60c4aa3
 --- /dev/null
 +++ b/install/1merge/cls-themes/tty1/800x480.cfg
 @@ -0,0 +1,59 @@
@@ -12268,8 +12268,8 @@ index 0000000..c70f85c
 +box silent 293 255 507 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 293 255 506 255 #AAAAAA
-+box silent 293 258 506 258 #CCCCCC
++box silent 293 254 506 254 #AAAAAA
++box silent 293 259 506 259 #CCCCCC
 +box silent 292 255 292 258 #AAAAAA
 +box silent 507 255 507 258 #CCCCCC
 +
@@ -13376,7 +13376,7 @@ index 0000000..c926a7a
 +<text>tty6/images/verbose-CLS-tty6-800x480.jpg</text>
 diff --git a/install/1merge/cmc-themes/tty1/1024x576.cfg b/install/1merge/cmc-themes/tty1/1024x576.cfg
 new file mode 100644
-index 0000000..c0af4b3
+index 0000000..be501fe
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1024x576.cfg
 @@ -0,0 +1,59 @@
@@ -13423,7 +13423,7 @@ index 0000000..c0af4b3
 +box silent 376 306 649 309 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 376 306 648 306 #AAAAAA
++box silent 376 305 648 305 #AAAAAA
 +box silent 376 310 648 310 #CCCCCC
 +box silent 375 306 375 309 #AAAAAA
 +box silent 649 306 649 309 #CCCCCC
@@ -13570,7 +13570,7 @@ index 0000000..94dc398
 +
 diff --git a/install/1merge/cmc-themes/tty1/1280x1024.cfg b/install/1merge/cmc-themes/tty1/1280x1024.cfg
 new file mode 100644
-index 0000000..e799525
+index 0000000..4035033
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1280x1024.cfg
 @@ -0,0 +1,59 @@
@@ -13618,8 +13618,8 @@ index 0000000..e799525
 +
 +#progress bar rectange for silent mode
 +box silent 470 544 810 544 #AAAAAA
-+box silent 470 552 810 552 #CCCCCC
-+box silent 468 545 468 550 #AAAAAA
++box silent 470 551 810 551 #CCCCCC
++box silent 469 545 469 550 #AAAAAA
 +box silent 811 545 811 550 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -13635,7 +13635,7 @@ index 0000000..e799525
 +
 diff --git a/install/1merge/cmc-themes/tty1/1280x720.cfg b/install/1merge/cmc-themes/tty1/1280x720.cfg
 new file mode 100644
-index 0000000..2ce9c63
+index 0000000..635c28e
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1280x720.cfg
 @@ -0,0 +1,59 @@
@@ -13684,7 +13684,7 @@ index 0000000..2ce9c63
 +#progress bar rectange for silent mode
 +box silent 470 382 810 382 #AAAAAA
 +box silent 470 388 810 388 #CCCCCC
-+box silent 468 383 468 387 #AAAAAA
++box silent 469 383 469 387 #AAAAAA
 +box silent 811 383 811 387 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -13700,7 +13700,7 @@ index 0000000..2ce9c63
 +
 diff --git a/install/1merge/cmc-themes/tty1/1280x768.cfg b/install/1merge/cmc-themes/tty1/1280x768.cfg
 new file mode 100644
-index 0000000..9f81945
+index 0000000..9162f1e
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1280x768.cfg
 @@ -0,0 +1,59 @@
@@ -13749,7 +13749,7 @@ index 0000000..9f81945
 +#progress bar rectange for silent mode
 +box silent 470 408 810 408 #AAAAAA
 +box silent 470 414 810 414 #CCCCCC
-+box silent 468 409 468 413 #AAAAAA
++box silent 469 409 469 413 #AAAAAA
 +box silent 811 409 811 413 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -13765,7 +13765,7 @@ index 0000000..9f81945
 +
 diff --git a/install/1merge/cmc-themes/tty1/1280x800.cfg b/install/1merge/cmc-themes/tty1/1280x800.cfg
 new file mode 100644
-index 0000000..8fb0437
+index 0000000..b9713d6
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1280x800.cfg
 @@ -0,0 +1,59 @@
@@ -13814,7 +13814,7 @@ index 0000000..8fb0437
 +#progress bar rectange for silent mode
 +box silent 470 425 810 425 #AAAAAA
 +box silent 470 431 810 431 #CCCCCC
-+box silent 468 426 468 430 #AAAAAA
++box silent 469 426 469 430 #AAAAAA
 +box silent 811 426 811 430 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -13960,7 +13960,7 @@ index 0000000..8bbceec
 +
 diff --git a/install/1merge/cmc-themes/tty1/1368x768.cfg b/install/1merge/cmc-themes/tty1/1368x768.cfg
 new file mode 100644
-index 0000000..c60acb7
+index 0000000..30298cb
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1368x768.cfg
 @@ -0,0 +1,59 @@
@@ -14007,9 +14007,9 @@ index 0000000..c60acb7
 +box silent 502 409 867 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 502 408 865 408 #AAAAAA
-+box silent 502 414 865 414 #CCCCCC
-+box silent 500 409 500 413 #AAAAAA
++box silent 502 408 866 408 #AAAAAA
++box silent 502 414 866 414 #CCCCCC
++box silent 501 409 501 413 #AAAAAA
 +box silent 867 409 867 413 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -14025,7 +14025,7 @@ index 0000000..c60acb7
 +
 diff --git a/install/1merge/cmc-themes/tty1/1400x1050.cfg b/install/1merge/cmc-themes/tty1/1400x1050.cfg
 new file mode 100644
-index 0000000..3a455c3
+index 0000000..5916f99
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1400x1050.cfg
 @@ -0,0 +1,59 @@
@@ -14072,9 +14072,9 @@ index 0000000..3a455c3
 +box silent 514 559 887 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 514 557 885 557 #AAAAAA
-+box silent 514 566 885 566 #CCCCCC
-+box silent 512 559 512 564 #AAAAAA
++box silent 514 558 886 558 #AAAAAA
++box silent 514 565 886 565 #CCCCCC
++box silent 513 559 513 564 #AAAAAA
 +box silent 887 559 887 564 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -14090,7 +14090,7 @@ index 0000000..3a455c3
 +
 diff --git a/install/1merge/cmc-themes/tty1/1440x900.cfg b/install/1merge/cmc-themes/tty1/1440x900.cfg
 new file mode 100644
-index 0000000..27bb6f2
+index 0000000..fdd044f
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1440x900.cfg
 @@ -0,0 +1,59 @@
@@ -14138,7 +14138,7 @@ index 0000000..27bb6f2
 +
 +#progress bar rectange for silent mode
 +box silent 528 478 911 478 #AAAAAA
-+box silent 528 485 911 485 #CCCCCC
++box silent 528 484 911 484 #CCCCCC
 +box silent 527 479 527 483 #AAAAAA
 +box silent 912 479 912 483 #CCCCCC
 +
@@ -14155,7 +14155,7 @@ index 0000000..27bb6f2
 +
 diff --git a/install/1merge/cmc-themes/tty1/1600x1200.cfg b/install/1merge/cmc-themes/tty1/1600x1200.cfg
 new file mode 100644
-index 0000000..4268d16
+index 0000000..c29a03a
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1600x1200.cfg
 @@ -0,0 +1,59 @@
@@ -14202,9 +14202,9 @@ index 0000000..4268d16
 +box silent 587 639 1014 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 637 1012 637 #AAAAAA
-+box silent 587 646 1012 646 #CCCCCC
-+box silent 585 639 585 645 #AAAAAA
++box silent 587 638 1013 638 #AAAAAA
++box silent 587 646 1013 646 #CCCCCC
++box silent 586 639 586 645 #AAAAAA
 +box silent 1014 639 1014 645 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -14220,7 +14220,7 @@ index 0000000..4268d16
 +
 diff --git a/install/1merge/cmc-themes/tty1/1600x768.cfg b/install/1merge/cmc-themes/tty1/1600x768.cfg
 new file mode 100644
-index 0000000..2ddd3b6
+index 0000000..64ec4a3
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1600x768.cfg
 @@ -0,0 +1,59 @@
@@ -14267,9 +14267,9 @@ index 0000000..2ddd3b6
 +box silent 587 409 1014 413 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 408 1012 408 #AAAAAA
-+box silent 587 414 1012 414 #CCCCCC
-+box silent 585 409 585 413 #AAAAAA
++box silent 587 408 1013 408 #AAAAAA
++box silent 587 414 1013 414 #CCCCCC
++box silent 586 409 586 413 #AAAAAA
 +box silent 1014 409 1014 413 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -14285,7 +14285,7 @@ index 0000000..2ddd3b6
 +
 diff --git a/install/1merge/cmc-themes/tty1/1600x900.cfg b/install/1merge/cmc-themes/tty1/1600x900.cfg
 new file mode 100644
-index 0000000..9c1142a
+index 0000000..6dfbe0a
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1600x900.cfg
 @@ -0,0 +1,59 @@
@@ -14332,9 +14332,9 @@ index 0000000..9c1142a
 +box silent 587 479 1014 483 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 587 478 1012 478 #AAAAAA
-+box silent 587 485 1012 485 #CCCCCC
-+box silent 585 479 585 483 #AAAAAA
++box silent 587 478 1013 478 #AAAAAA
++box silent 587 484 1013 484 #CCCCCC
++box silent 586 479 586 483 #AAAAAA
 +box silent 1014 479 1014 483 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -14350,7 +14350,7 @@ index 0000000..9c1142a
 +
 diff --git a/install/1merge/cmc-themes/tty1/1680x1050.cfg b/install/1merge/cmc-themes/tty1/1680x1050.cfg
 new file mode 100644
-index 0000000..434f1c5
+index 0000000..0df5640
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1680x1050.cfg
 @@ -0,0 +1,59 @@
@@ -14397,8 +14397,8 @@ index 0000000..434f1c5
 +box silent 616 559 1064 564 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 616 557 1063 557 #AAAAAA
-+box silent 616 566 1063 566 #CCCCCC
++box silent 616 558 1063 558 #AAAAAA
++box silent 616 565 1063 565 #CCCCCC
 +box silent 615 559 615 564 #AAAAAA
 +box silent 1064 559 1064 564 #CCCCCC
 +
@@ -14480,7 +14480,7 @@ index 0000000..011bafe
 +
 diff --git a/install/1merge/cmc-themes/tty1/1920x1080.cfg b/install/1merge/cmc-themes/tty1/1920x1080.cfg
 new file mode 100644
-index 0000000..4a8b6d7
+index 0000000..beaba34
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1920x1080.cfg
 @@ -0,0 +1,59 @@
@@ -14527,9 +14527,9 @@ index 0000000..4a8b6d7
 +box silent 705 575 1216 580 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 573 1215 573 #AAAAAA
-+box silent 705 582 1215 582 #CCCCCC
-+box silent 703 575 703 580 #AAAAAA
++box silent 705 574 1215 574 #AAAAAA
++box silent 705 581 1215 581 #CCCCCC
++box silent 704 575 704 580 #AAAAAA
 +box silent 1216 575 1216 580 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -14545,7 +14545,7 @@ index 0000000..4a8b6d7
 +
 diff --git a/install/1merge/cmc-themes/tty1/1920x1200.cfg b/install/1merge/cmc-themes/tty1/1920x1200.cfg
 new file mode 100644
-index 0000000..32e02d2
+index 0000000..fc69ee1
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/1920x1200.cfg
 @@ -0,0 +1,59 @@
@@ -14592,9 +14592,9 @@ index 0000000..32e02d2
 +box silent 705 639 1216 645 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 705 637 1215 637 #AAAAAA
++box silent 705 638 1215 638 #AAAAAA
 +box silent 705 646 1215 646 #CCCCCC
-+box silent 703 639 703 645 #AAAAAA
++box silent 704 639 704 645 #AAAAAA
 +box silent 1216 639 1216 645 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -14610,7 +14610,7 @@ index 0000000..32e02d2
 +
 diff --git a/install/1merge/cmc-themes/tty1/2048x1152.cfg b/install/1merge/cmc-themes/tty1/2048x1152.cfg
 new file mode 100644
-index 0000000..231d6e3
+index 0000000..93241a4
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/2048x1152.cfg
 @@ -0,0 +1,59 @@
@@ -14657,9 +14657,9 @@ index 0000000..231d6e3
 +box silent 752 613 1298 619 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 752 612 1296 612 #AAAAAA
-+box silent 752 621 1296 621 #CCCCCC
-+box silent 750 613 750 619 #AAAAAA
++box silent 752 612 1297 612 #AAAAAA
++box silent 752 620 1297 620 #CCCCCC
++box silent 751 613 751 619 #AAAAAA
 +box silent 1298 613 1298 619 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -14675,7 +14675,7 @@ index 0000000..231d6e3
 +
 diff --git a/install/1merge/cmc-themes/tty1/2560x1440.cfg b/install/1merge/cmc-themes/tty1/2560x1440.cfg
 new file mode 100644
-index 0000000..1892b6c
+index 0000000..ee8b39e
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/2560x1440.cfg
 @@ -0,0 +1,59 @@
@@ -14722,9 +14722,9 @@ index 0000000..1892b6c
 +box silent 940 766 1622 774 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 765 1620 765 #AAAAAA
-+box silent 940 776 1620 776 #CCCCCC
-+box silent 937 766 937 774 #AAAAAA
++box silent 940 765 1621 765 #AAAAAA
++box silent 940 775 1621 775 #CCCCCC
++box silent 939 766 939 774 #AAAAAA
 +box silent 1622 766 1622 774 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -14740,7 +14740,7 @@ index 0000000..1892b6c
 +
 diff --git a/install/1merge/cmc-themes/tty1/2560x1600.cfg b/install/1merge/cmc-themes/tty1/2560x1600.cfg
 new file mode 100644
-index 0000000..f646c97
+index 0000000..bc25fc1
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/2560x1600.cfg
 @@ -0,0 +1,59 @@
@@ -14787,9 +14787,9 @@ index 0000000..f646c97
 +box silent 940 852 1622 860 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 940 850 1620 850 #AAAAAA
-+box silent 940 862 1620 862 #CCCCCC
-+box silent 937 852 937 860 #AAAAAA
++box silent 940 851 1621 851 #AAAAAA
++box silent 940 861 1621 861 #CCCCCC
++box silent 939 852 939 860 #AAAAAA
 +box silent 1622 852 1622 860 #CCCCCC
 +
 +#?pkg(media-gfx/cmc-themes)<10.9||pkg(media-gfx/cmc-themes)>=11.0##
@@ -14805,7 +14805,7 @@ index 0000000..f646c97
 +
 diff --git a/install/1merge/cmc-themes/tty1/640x480.cfg b/install/1merge/cmc-themes/tty1/640x480.cfg
 new file mode 100644
-index 0000000..e02db23
+index 0000000..9712aec
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/640x480.cfg
 @@ -0,0 +1,59 @@
@@ -14852,8 +14852,8 @@ index 0000000..e02db23
 +box silent 235 255 405 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 235 255 405 255 #AAAAAA
-+box silent 235 258 405 258 #CCCCCC
++box silent 235 254 404 254 #AAAAAA
++box silent 235 259 404 259 #CCCCCC
 +box silent 234 255 234 258 #AAAAAA
 +box silent 405 255 405 258 #CCCCCC
 +
@@ -14870,7 +14870,7 @@ index 0000000..e02db23
 +
 diff --git a/install/1merge/cmc-themes/tty1/800x480.cfg b/install/1merge/cmc-themes/tty1/800x480.cfg
 new file mode 100644
-index 0000000..e580473
+index 0000000..1047ca8
 --- /dev/null
 +++ b/install/1merge/cmc-themes/tty1/800x480.cfg
 @@ -0,0 +1,59 @@
@@ -14917,8 +14917,8 @@ index 0000000..e580473
 +box silent 293 255 507 258 #FFC867 #FFC867 #D48D17 #D48D17
 +
 +#progress bar rectange for silent mode
-+box silent 293 255 506 255 #AAAAAA
-+box silent 293 258 506 258 #CCCCCC
++box silent 293 254 506 254 #AAAAAA
++box silent 293 259 506 259 #CCCCCC
 +box silent 292 255 292 258 #AAAAAA
 +box silent 507 255 507 258 #CCCCCC
 +
