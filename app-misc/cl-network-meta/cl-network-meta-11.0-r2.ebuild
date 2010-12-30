@@ -47,7 +47,6 @@ RDEPEND="
 		net-misc/pino
 		net-p2p/deluge
 		net-p2p/linuxdcpp
-		x11-plugins/pidgin-facebookchat
 		x11-plugins/pidgin-hotkeys
 		x11-plugins/pidgin-libnotify
 	)
