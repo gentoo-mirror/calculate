@@ -4,6 +4,7 @@
 
 EAPI=3
 
+inherit toolchain-funcs flag-o-matic
 DESCRIPTION="Unhide is a forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs or by another hidden technique."
 HOMEPAGE="http://security-projects.com/?Unhide"
 SRC_URI="http://security-projects.com/unhide-20100819.tgz"
@@ -17,14 +18,18 @@ RESTRICT="mirror"
 DEPEND=""
 RDEPEND="${DEPEND}"
 
+src_configure() {
+    append-cflags -lpthread
+}
+
 src_compile() {
-    gcc -DVERSION=${PV} ${CFLAGS} -lpthread ${LDFLAGS} \
+    $(tc-getCC) -DVERSION=${PV} ${CFLAGS} ${LDFLAGS} \
     ${PN}.c -o ${PN} || die "Failed to compile ${PN}"
 
-    gcc -DVERSION=${PV} ${CFLAGS} -lpthread ${LDFLAGS} \
+    $(tc-getCC) -DVERSION=${PV} ${CFLAGS} ${LDFLAGS} \
     ${PN}-linux26.c -o ${PN}-linux26 || die "Failed to compile ${PN}-linux26"
 
-    gcc -DVERSION=${PV} ${CFLAGS} -lpthread ${LDFLAGS} \
+    $(tc-getCC) -DVERSION=${PV} ${CFLAGS} ${LDFLAGS} \
     ${PN}-tcp.c -o ${PN}-tcp || die "Failed to compile ${PN}-tcp"
 }
 
