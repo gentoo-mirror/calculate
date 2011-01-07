@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="cdistro_CLS cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS"
+IUSE="cdistro_CDS cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CLS cdistro_CMC"
 
 RDEPEND="${RDEPEND}
 	cdistro_desktop? (
@@ -126,6 +126,9 @@ RDEPEND="${RDEPEND}
 	)
 	cdistro_CLS? (
 		virtual/dhcpc
+	)
+	cdistro_CMC? (
+		app-misc/screen
 	)
 "
 
