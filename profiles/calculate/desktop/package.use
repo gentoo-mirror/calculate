@@ -3,7 +3,6 @@ app-crypt/pinentry gtk
 app-emulation/wine xml
 app-text/djvu -nsplugin
 app-text/poppler-bindings gtk
-dev-db/mysql embedded
 dev-db/sqlite secure-delete
 dev-vcs/git tk
 media-libs/mlt melt xml
@@ -35,6 +34,10 @@ x11-drivers/nvidia-drivers -gtk
 x11-libs/cairo cleartype glitz svg
 x11-libs/libX11 xcb
 x11-misc/xscreensaver -opengl -jpeg
+
+#support amarok
+dev-db/mysql embedded
+virtual/mysql embedded
 
 #added support flash in amd64
 www-plugins/adobe-flash nspluginwrapper
