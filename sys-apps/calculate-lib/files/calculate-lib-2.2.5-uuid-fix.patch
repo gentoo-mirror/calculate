@@ -1,0 +1,34 @@
+commit 6d553e2abc9e3dda6edfd9e57c1b937bc0976119
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Jan 11 13:11:41 2011 +0300
+
+    Fix uuid path absent.
+
+diff --git a/pym/cl_fill.py b/pym/cl_fill.py
+index 7d8d07d..a72bc34 100644
+--- a/pym/cl_fill.py
++++ b/pym/cl_fill.py
+@@ -222,6 +222,8 @@ class fillVars(varsShare):
+                     mapUuidDev = dict(map(lambda x:(path.basename(x),
+                                     path.normpath(path.join(uuidpath,
+                                     os.readlink(x)))), uuidDevs))
++                else:
++                    mapUuidDev = {}
+                 if re.match("^UUID=.*$",rootparam):
+                     uuid = rootparam[5:]
+                     if uuid in mapUuidDev:
+diff --git a/pym/cl_utils.py b/pym/cl_utils.py
+index dd64a87..736979d 100644
+--- a/pym/cl_utils.py
++++ b/pym/cl_utils.py
+@@ -599,8 +599,8 @@ def isFstabMount(pathname,mapDevUuid={}):
+         absPath = "swap"
+     else:
+         absPath = os.path.abspath(pathname)
+-    if not mapDevUuid:
+-        devuuid = '/dev/disk/by-uuid'
++    devuuid = '/dev/disk/by-uuid'
++    if not mapDevUuid and os.path.exists(devuuid):
+         mapDevUuid.update(
+             map(lambda x:("UUID=%s"%os.path.basename(x),
+                     os.path.normpath(os.path.join(devuuid,os.readlink(x)))),

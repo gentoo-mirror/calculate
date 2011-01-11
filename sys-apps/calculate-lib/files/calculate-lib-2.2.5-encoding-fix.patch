@@ -1,0 +1,23 @@
+commit 50b513d30334fbc9a12261024cac20904a665b0d
+Author: Самоукин Алексей <as@calculate.ru>
+Date:   Tue Jan 11 13:16:05 2011 +0300
+
+    Bugfix print help to file.
+
+diff --git a/pym/cl_opt.py b/pym/cl_opt.py
+index bd8a83c..833677e 100644
+--- a/pym/cl_opt.py
++++ b/pym/cl_opt.py
+@@ -334,6 +334,12 @@ is used in conjunction with the option '-v --vars'")
+                  epilog=epilog)
+         self.formatter._long_opt_fmt = "%s %s"
+ 
++    def _get_encoding(self, file):
++        encoding = getattr(file, "encoding", None)
++        if not encoding:
++            encoding = "UTF-8"
++        return encoding
++
+     def get_usage(self):
+         """Replace standard help header"""
+         if self.usage:
