@@ -1,0 +1,14 @@
+commit d4b9bda3ded682393979dd5421c9d65bd77b0495
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Tue Jan 11 09:26:49 2011 +0300
+
+    Add template for set python2.6 by default.
+
+diff --git a/assemble/prepare/etc/python.config b/assemble/prepare/etc/python.config
+new file mode 100644
+index 0000000..6422815
+--- /dev/null
++++ b/assemble/prepare/etc/python.config
+@@ -0,0 +1,2 @@
++# Calculate path=/etc/env.d/python name=config
++python2.6

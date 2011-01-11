@@ -1,6 +1,13 @@
 # ChangeLog for sys-apps/calculate-templates
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*calculate-templates-2.2.5-r2 (11 Jan 2011)
+
+  11 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-templates-2.2.5-r2.ebuild,
+  +files/calculate-templates-2.2.5-assemble-python2.6.patch:
+  Fix for assembling from stage with python 3.0.
 
 *calculate-templates-2.2.5 (30 Dec 2010)
 
