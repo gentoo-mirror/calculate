@@ -1,0 +1,32 @@
+commit 74dc356ab4ae217bd819131a8435578176aa73ac
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Jan 11 13:06:35 2011 +0300
+
+    Fix absent /dev/disk/by-uuid path error.
+
+diff --git a/pym/cl_fill_install.py b/pym/cl_fill_install.py
+index 0bc3fdd..275875e 100644
+--- a/pym/cl_fill_install.py
++++ b/pym/cl_fill_install.py
+@@ -259,12 +259,15 @@ class fillVars(object, glob_attr):
+                         disk_hash[dev][key] = value[1:-1]
+         # discard comment and empty string
+         devuuid = '/dev/disk/by-uuid'
+-        mapUuidDev = dict(
+-            map(lambda x:("UUID=%s"%os.path.basename(x),
+-                    os.path.normpath(os.path.join(devuuid,os.readlink(x)))),
+-            filter(os.path.islink,
+-            map(lambda x:os.path.join(devuuid,x),
+-            os.listdir(devuuid)))))
++        if path.exists(devuuid):
++            mapUuidDev = dict(
++                map(lambda x:("UUID=%s"%os.path.basename(x),
++                        os.path.normpath(os.path.join(devuuid,os.readlink(x)))),
++                filter(os.path.islink,
++                map(lambda x:os.path.join(devuuid,x),
++                os.listdir(devuuid)))))
++        else:
++            mapUuidDev = {}
+         mapDevUuid = dict(map(lambda x:(x[1],x[0]),mapUuidDev.items()))
+         mountOptionsList = \
+             filter(lambda x: x.strip() and not x.strip().startswith('#'),
