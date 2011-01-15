@@ -26,6 +26,7 @@ RDEPEND="${RDEPEND}
 	!calculate_nokernel? ( sys-kernel/calculate-sources )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 
+	app-misc/lirc
 	media-tv/xbmc
 	net-dialup/mingetty
 	net-p2p/rtorrent
