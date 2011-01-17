@@ -16,7 +16,7 @@ IUSE="cdistro_CDS cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_
 RDEPEND="${RDEPEND}
 	cdistro_desktop? (
 		app-misc/calculate-install-gui
-		virtual/dhcpc
+		net-misc/dhcpcd
 		sys-apps/pcmciautils
 		sys-apps/usb_modeswitch
 
@@ -48,6 +48,7 @@ RDEPEND="${RDEPEND}
 		app-portage/portage-utils
 		app-portage/ufed
 		sys-apps/acl
+		sys-apps/gdisk
 		sys-apps/hdparm
 		sys-apps/lm_sensors
 		sys-apps/memtest86+
@@ -100,6 +101,7 @@ RDEPEND="${RDEPEND}
 		sys-apps/acl
 		sys-apps/calculate-server
 		sys-apps/ethtool
+		sys-apps/gdisk
 		sys-apps/iproute2
 		sys-apps/kexec-tools
 		sys-apps/memtest86+
