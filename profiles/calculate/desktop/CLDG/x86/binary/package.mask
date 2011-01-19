@@ -193,6 +193,7 @@ dev-libs/glib
 dev-libs/gmime
 dev-libs/gmp
 dev-libs/icu
+dev-libs/ilbc-rfc3951
 dev-libs/iniparser
 dev-libs/klibc
 dev-libs/libIDL
@@ -236,7 +237,6 @@ dev-libs/openssl
 dev-libs/popt
 dev-libs/protobuf
 dev-libs/pth
-dev-libs/pwlib
 dev-libs/totem-pl-parser
 dev-perl/Archive-Zip
 dev-perl/Authen-SASL
@@ -452,6 +452,7 @@ media-libs/libpng
 media-libs/libsdl
 media-libs/libsndfile
 media-libs/libtheora
+media-libs/libv4l
 media-libs/libvorbis
 media-libs/libwmf
 media-libs/libwpg
@@ -545,6 +546,7 @@ net-libs/libsoup
 net-libs/libsoup-gnome
 net-libs/neon
 net-libs/opal
+net-libs/ptlib
 net-libs/rb_libtorrent
 net-libs/telepathy-glib
 net-libs/webkit-gtk
@@ -636,6 +638,7 @@ sys-apps/eject
 sys-apps/file
 sys-apps/findutils
 sys-apps/gawk
+sys-apps/gdisk
 sys-apps/gnome-disk-utility
 sys-apps/grep
 sys-apps/groff
@@ -747,6 +750,7 @@ sys-libs/e2fsprogs-libs
 sys-libs/gdbm
 sys-libs/glibc
 sys-libs/gpm
+sys-libs/libavc1394
 sys-libs/libcap
 sys-libs/libieee1284
 sys-libs/libkudzu
