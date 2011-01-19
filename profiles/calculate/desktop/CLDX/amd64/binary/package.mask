@@ -8,8 +8,6 @@ app-admin/eselect-python
 app-admin/eselect-vi
 app-admin/eselect-wxwidgets
 app-admin/eselect-xvmc
-app-admin/gam-server
-app-admin/gamin
 app-admin/hddtemp
 app-admin/logrotate
 app-admin/perl-cleaner
@@ -110,7 +108,9 @@ app-misc/pax-utils
 app-misc/realpath
 app-mobilephone/obex-data-server
 app-office/openoffice
+app-pda/libimobiledevice
 app-pda/libplist
+app-pda/usbmuxd
 app-portage/eix
 app-portage/emerge-delta-webrsync
 app-portage/genlop
@@ -184,6 +184,7 @@ dev-libs/klibc
 dev-libs/libIDL
 dev-libs/libaio
 dev-libs/libassuan
+dev-libs/libatasmart
 dev-libs/libburn
 dev-libs/libcdio
 dev-libs/libconfig
@@ -191,7 +192,6 @@ dev-libs/libcroco
 dev-libs/libdaemon
 dev-libs/libevent
 dev-libs/libffi
-dev-libs/libgamin
 dev-libs/libgcrypt
 dev-libs/libgee
 dev-libs/libgpg-error
@@ -289,6 +289,7 @@ gnome-base/gconf
 gnome-base/gdm
 gnome-base/gnome-common
 gnome-base/gnome-keyring
+gnome-base/gvfs
 gnome-base/libglade
 gnome-base/libgnome-keyring
 gnome-base/libgnomecanvas
@@ -314,7 +315,6 @@ media-fonts/terminus-font
 media-fonts/ttf-bitstream-vera
 media-fonts/urw-fonts
 media-gfx/cldx-themes
-media-gfx/dcraw
 media-gfx/exiv2
 media-gfx/fbgrab
 media-gfx/gimp
@@ -322,7 +322,6 @@ media-gfx/gqview
 media-gfx/gtkam
 media-gfx/gtkimageview
 media-gfx/imagemagick
-media-gfx/raw-thumbnailer
 media-gfx/sane-backends
 media-gfx/splashutils
 media-gfx/ufraw
@@ -458,7 +457,9 @@ net-libs/liblockfile
 net-libs/libnfsidmap
 net-libs/libnice
 net-libs/libpcap
+net-libs/libproxy
 net-libs/libsoup
+net-libs/libsoup-gnome
 net-libs/neon
 net-libs/rb_libtorrent
 net-libs/webkit-gtk
@@ -545,6 +546,8 @@ sys-apps/eject
 sys-apps/file
 sys-apps/findutils
 sys-apps/gawk
+sys-apps/gdisk
+sys-apps/gnome-disk-utility
 sys-apps/grep
 sys-apps/groff
 sys-apps/hal
@@ -641,6 +644,7 @@ sys-fs/reiserfsprogs
 sys-fs/squashfs-tools
 sys-fs/sysfsutils
 sys-fs/udev
+sys-fs/udisks
 sys-fs/xfsdump
 sys-fs/xfsprogs
 sys-kernel/calckernel
@@ -674,6 +678,7 @@ sys-power/cpufrequtils
 sys-power/pm-quirks
 sys-power/pm-utils
 sys-power/powernowd
+sys-power/upower
 sys-process/cronbase
 sys-process/htop
 sys-process/procps
@@ -684,7 +689,6 @@ virtual/c++-tr1-functional
 virtual/cdrtools
 virtual/editor
 virtual/eject
-virtual/fam
 virtual/glu
 virtual/init
 virtual/jpeg
@@ -853,6 +857,7 @@ x11-misc/shared-mime-info
 x11-misc/util-macros
 x11-misc/xbindkeys
 x11-misc/xbitmaps
+x11-misc/xdg-user-dirs
 x11-misc/xdg-utils
 x11-misc/xdialog
 x11-misc/xkeyboard-config
@@ -896,7 +901,8 @@ x11-themes/tango-icon-theme
 x11-themes/xcursor-themes
 x11-themes/xfce4-icon-theme
 xfce-base/exo
-xfce-base/libxfce4menu
+xfce-base/garcon
+xfce-base/libxfce4ui
 xfce-base/libxfce4util
 xfce-base/libxfcegui4
 xfce-base/thunar
@@ -911,6 +917,7 @@ xfce-base/xfwm4
 xfce-extra/thunar-archive-plugin
 xfce-extra/thunar-thumbnailers
 xfce-extra/thunar-volman
+xfce-extra/tumbler
 xfce-extra/xfce4-battery-plugin
 xfce-extra/xfce4-clipman-plugin
 xfce-extra/xfce4-cpugraph-plugin
