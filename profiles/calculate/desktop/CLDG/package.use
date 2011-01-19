@@ -9,3 +9,6 @@ gnome-base/gnome-applets gstreamer
 gnome-base/gnome-volume-manager automount
 sys-block/parted device-mapper
 dev-lang/python sqlite
+
+#need for net-voip/ekiga-3.2.7
+net-libs/opal sip
