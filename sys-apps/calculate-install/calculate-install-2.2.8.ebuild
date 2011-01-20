@@ -4,21 +4,21 @@
 
 EAPI="2"
 
-inherit distutils git
+inherit distutils eutils
 
-EGIT_COMMIT="a646ee2057793dee8701a0a734373c84aa3d0846"
-EGIT_REPO_URI="git://git.calculate.ru/calculate-install.git"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The program of installation Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
+KEYWORDS="amd64 x86"
 IUSE="minimal"
-KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-lib-2.2.8_rc1
+DEPEND="~sys-apps/calculate-lib-2.2.8
 	app-portage/layman
 	!minimal? ( sys-boot/grub
+	sys-apps/gdisk
 	sys-fs/dosfstools
 	sys-fs/squashfs-tools
 	sys-block/parted )"
