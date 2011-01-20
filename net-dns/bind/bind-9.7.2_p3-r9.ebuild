@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/bind/bind-9.7.2_p2.ebuild,v 1.1 2010/10/05 10:43:52 idl0r Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/bind/bind-9.7.2_p3-r3.ebuild,v 1.1 2011/01/07 23:37:37 robbat2 Exp $
 
 EAPI="3"
 
@@ -12,15 +12,19 @@ MY_P="${PN}-${MY_PV}"
 SDB_LDAP_VER="1.1.0"
 
 GEOIP_PV=1.3
-GEOIP_SRC_URI_BASE="http://bind-geoip.googlecode.com/"
+#GEOIP_PV_AGAINST="${MY_PV}"
+GEOIP_PV_AGAINST="9.7.2-P2"
 GEOIP_P="bind-geoip-${GEOIP_PV}"
+GEOIP_PATCH_A="${GEOIP_P}-${GEOIP_PV_AGAINST}.patch"
+GEOIP_DOC_A="${GEOIP_P}-readme.txt"
+GEOIP_SRC_URI_BASE="http://bind-geoip.googlecode.com/"
 
 DESCRIPTION="BIND - Berkeley Internet Name Domain - Name Server"
 HOMEPAGE="http://www.isc.org/software/bind"
 SRC_URI="ftp://ftp.isc.org/isc/bind9/${MY_PV}/${MY_P}.tar.gz
 	doc? ( mirror://gentoo/dyndns-samples.tbz2 )
-	geoip? ( ${GEOIP_SRC_URI_BASE}/files/${GEOIP_P}-readme.txt
-			 ${GEOIP_SRC_URI_BASE}/files/${GEOIP_P}.patch )
+	geoip? ( ${GEOIP_SRC_URI_BASE}/files/${GEOIP_DOC_A}
+			 ${GEOIP_SRC_URI_BASE}/files/${GEOIP_PATCH_A} )
 	sdb-ldap? ( mirror://gentoo/bind-sdb-ldap-${SDB_LDAP_VER}.tar.bz2 )"
 
 LICENSE="as-is"
@@ -90,11 +94,11 @@ src_prepare() {
 	use sdb-ldap && epatch "${FILESDIR}"/bind-9.7.2-use_deprecated.patch
 
 	if use geoip; then
-		cp "${DISTDIR}"/${GEOIP_P}.patch "${S}" || die
-		sed -i -e 's/-RELEASEVER=3/-RELEASEVER=2/' \
-			-e 's/+RELEASEVER=3-geoip-1.3/+RELEASEVER=2-geoip-1.3/' \
-			${GEOIP_P}.patch || die
-		epatch ${GEOIP_P}.patch
+		cp "${DISTDIR}"/${GEOIP_PATCH_A} "${S}" || die
+		sed -i -e 's/-RELEASEVER=2/-RELEASEVER=3/' \
+			-e 's/+RELEASEVER=2-geoip-1.3/+RELEASEVER=3-geoip-1.3/' \
+			${GEOIP_PATCH_A} || die
+		epatch ${GEOIP_PATCH_A}
 	fi
 
 	# bug #220361
@@ -203,7 +207,7 @@ src_install() {
 	use geoip && dodoc "${DISTDIR}"/${GEOIP_P}-readme.txt
 
 	insinto /etc/bind
-	newins "${FILESDIR}"/named.conf-r4 named.conf || die
+	newins "${FILESDIR}"/named.conf-r5 named.conf || die
 
 	# ftp://ftp.rs.internic.net/domain/named.cache:
 	insinto /var/bind
@@ -213,8 +217,8 @@ src_install() {
 	newins "${FILESDIR}"/127.zone-r1 127.zone || die
 	newins "${FILESDIR}"/localhost.zone-r3 localhost.zone || die
 
-	newinitd "${FILESDIR}"/named.init-r8 named || die
-	newconfd "${FILESDIR}"/named.confd-r4 named || die
+	newinitd "${FILESDIR}"/named.init-r9 named || die
+	newconfd "${FILESDIR}"/named.confd-r5 named || die
 
 	newenvd "${FILESDIR}"/10bind.env 10bind || die
 
@@ -296,6 +300,7 @@ pkg_postinst() {
 pkg_config() {
 	CHROOT=$(source /etc/conf.d/named; echo ${CHROOT})
 	CHROOT_NOMOUNT=$(source /etc/conf.d/named; echo ${CHROOT_NOMOUNT})
+	CHROOT_GEOIP=$(source /etc/conf.d/named; echo ${CHROOT_GEOIP})
 
 	if [[ -z "${CHROOT}" ]]; then
 		eerror "This config script is designed to automate setting up"
@@ -340,6 +345,10 @@ pkg_config() {
 	if [ "${CHROOT_NOMOUNT:-0}" -ne 0 ]; then
 		cp -a /etc/bind ${CHROOT}/etc/
 		cp -a /var/bind ${CHROOT}/var/
+	fi
+
+	if [ "${CHROOT_GEOIP:-0}" -eq 1 ]; then
+		mkdir -m 0755 -p ${CHROOT}/usr/share/GeoIP
 	fi
 
 	elog "You may need to add the following line to your syslog-ng.conf:"

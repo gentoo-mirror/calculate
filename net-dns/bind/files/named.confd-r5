@@ -1,6 +1,6 @@
 # Set various named options here.
 #
-OPTIONS=""
+#OPTIONS=""
 
 # Set this to the number of processors you want bind to use.
 # Leave this unchanged if you want bind to automatically detect the number
@@ -13,15 +13,13 @@ OPTIONS=""
 #
 #CHROOT="/chroot/dns"
 
+# Uncomment to enable binmount of /usr/share/GeoIP
+#CHROOT_GEOIP="1"
+
 # Uncomment the line below to avoid that the init script mounts the needed paths
 # into the chroot directory.
 # You have to copy all needed config files by hand if you say CHROOT_NOMOUNT="1".
 #CHROOT_NOMOUNT="1"
-
-# RNDC needs to be told what server we're using sometimes.
-#SERVER="-s 127.0.0.1"
-# rndc key to use
-RNDC_KEY="${CHROOT}/etc/bind/rndc.key"
 
 # Default pid file location
 PIDFILE="${CHROOT}/var/run/named/named.pid"

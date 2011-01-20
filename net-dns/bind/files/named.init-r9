@@ -1,9 +1,9 @@
 #!/sbin/runscript
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/bind/files/named.init-r8,v 1.1 2010/09/23 17:49:44 idl0r Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/bind/files/named.init-r9,v 1.2 2010/12/15 23:35:09 idl0r Exp $
 
-opts="start stop reload restart"
+opts="start stop reload restart checkconfig checkzones"
 
 depend() {
 	need net
@@ -30,19 +30,30 @@ _mount() {
 	opts="${*}"
 	shift $#
 
-	if [ -z "$(grep ${to} /proc/mounts)" ]; then
+	if [ -z "$(awk "\$2 == \"${to}\" { print \$2 }" /proc/mounts)" ]; then
 		einfo "mounting ${from} to ${to}"
 		mount ${from} ${to} ${opts} || return 1
 	fi
+
+	return 0
 }
 
 _umount() {
 	local dir=$1
 
-	if [ -n "$(grep ${dir} /proc/mounts)" ]; then
+	if [ -n "$(awk "\$2 == \"${dir}\" { print \$2 }" /proc/mounts)" ]; then
 		einfo "umount ${dir}"
-		umount ${dir}
+		umount ${dir} || return 1
 	fi
+
+	return 0
+}
+
+_get_pidfile() {
+	# as suggested in bug #107724, bug 335398#c17
+	[ -n "${PIDFILE}" ] || PIDFILE=${CHROOT}$(\
+			/usr/sbin/named-checkconf -p ${CHROOT:+-t} ${CHROOT} ${NAMED_CONF/${CHROOT}} | grep 'pid-file' | cut -d\" -f2)
+	[ -z "${PIDFILE}" ] && PIDFILE=${CHROOT}/var/run/named/named.pid
 }
 
 check_chroot() {
@@ -55,32 +66,33 @@ check_chroot() {
 		[ ! -e "${CHROOT}/etc/localtime" ] && return 1
 		[ ! -c "${CHROOT}/dev/null" ] || [ ! -c "${CHROOT}/dev/zero" ] && return 1
 		[ ! -c "${CHROOT}/dev/random" ] && [ ! -c "${CHROOT}/dev/urandom" ] && return 1
+		[ "${CHROOT_GEOIP:-0}" -eq 1 ] && [ ! -d "${CHROOT}/usr/share/GeoIP" ] && return 1
 	fi
 
 	return 0
 }
 
 checkconfig() {
+	ebegin "Checking named configuration"
+
 	if [ ! -f "${NAMED_CONF}" ] ; then
 		eerror "No ${NAMED_CONF} file exists!"
+		return 1
 	fi
 
-	named-checkconf -z -j ${CHROOT:+-t} ${CHROOT} ${NAMED_CONF/${CHROOT}} 1>/dev/null || {
+	/usr/sbin/named-checkconf ${CHROOT:+-t} ${CHROOT} ${NAMED_CONF/${CHROOT}} || {
 		eerror "named-checkconf failed! Please fix your config first."
 		return 1
 	}
 
-	# as suggested in bug #107724
-	[ -n "${PIDFILE}" ] || PIDFILE=${CHROOT}$(\
-		egrep -v \
-			"^([[:cntrl:] ]+(#|//|/\*)|(#|//|/\*))" \
-			${CHROOT}/etc/bind/named.conf \
-				| egrep -o -m1 "pid\-file +\".+\" *;" \
-				| cut -d\" -f2
-	)
-	[ -z "${PIDFILE}" ] && PIDFILE=${CHROOT}/var/run/named/named.pid
-
+	eend 0
 	return 0
+}
+
+checkzones() {
+	ebegin "Checking named configuration and zones"
+	/usr/sbin/named-checkconf -z -j ${CHROOT:+-t} ${CHROOT} ${NAMED_CONF/${CHROOT}}
+	eend $?
 }
 
 start() {
@@ -100,15 +112,16 @@ start() {
 			_mount /etc/bind ${CHROOT}/etc/bind -o bind
 			_mount /var/bind ${CHROOT}/var/bind -o bind
 			_mount /var/log/named ${CHROOT}/var/log/named -o bind
+			if [ "${CHROOT_GEOIP:-0}" -eq 1 ]; then
+				_mount /usr/share/GeoIP ${CHROOT}/usr/share/GeoIP -o bind
+			fi
 		fi
 	fi
 
-	checkconfig || {
-		eend 1
-		return 1
-	}
+	checkconfig || { eend 1; return 1; }
 
-	# create piddir (usually /var/run/named) if necessary
+	# create piddir (usually /var/run/named) if necessary, bug 334535
+	_get_pidfile
 	piddir="${PIDFILE%/*}"
 	if [ ! -d "${piddir}" ]; then
 		checkpath -q -d -o root:named -m 0770 "${piddir}" || {
@@ -133,20 +146,23 @@ stop() {
 	local reported=0
 
 	ebegin "Stopping ${CHROOT:+chrooted }named"
-	checkconfig || return 2
-	if [ -n "${RNDC_KEY}" ] && [ -f "${RNDC_KEY}" ]; then
-		rndc $SERVER -k $RNDC_KEY stop 1>/dev/null
-	else
-		# -R 10, bug 335398
-		start-stop-daemon --stop --retry 10 --pidfile $PIDFILE \
-			--exec /usr/sbin/named
+
+	# Workaround for now, until openrc's restart has been fixed.
+	# openrc doesn't care about a restart() function in init scripts.
+	if [ "${RC_CMD}" = "restart" ]; then
+		checkconfig || { eend 1; return 1; }
 	fi
 
+	# -R 10, bug 335398
+	_get_pidfile
+	start-stop-daemon --stop --retry 10 --pidfile $PIDFILE \
+		--exec /usr/sbin/named
+
 	if [ -n "${CHROOT}" ] && [ "${CHROOT_NOMOUNT:-0}" -eq 0 ]; then
-		einfo "Umounting chroot dirs"
+		ebegin "Umounting chroot dirs"
 
 		# just to be sure everything gets clean
-		while [ -n "$(fuser ${CHROOT} 2>/dev/null)" ]; do
+		while fuser -s ${CHROOT} 2>/dev/null; do
 			if [ "${reported}" -eq 0 ]; then
 				einfo "Waiting until all named processes are stopped"
 				reported=1
@@ -154,6 +170,7 @@ stop() {
 			sleep 1
 		done
 
+		[ "${CHROOT_GEOIP:-0}" -eq 1 ] && _umount ${CHROOT}/usr/share/GeoIP
 		_umount ${CHROOT}/etc/bind
 		_umount ${CHROOT}/var/log/named
 		_umount ${CHROOT}/var/bind
@@ -165,20 +182,19 @@ stop() {
 reload() {
 	local ret
 
-	# checkconf also gives us the pidfile.
-	checkconfig || return 3
-
 	ebegin "Reloading named.conf and zone files"
-	if [ -n "${RNDC_KEY}" ] && [ -f "${RNDC_KEY}" ] ; then
-		rndc $SERVER -k $RNDC_KEY reload 1>/dev/null
-		ret=$?
-	elif [ -n "${PIDFILE}" ]; then
-		start-stop-daemon --pidfile $PIDFILE --signal HUP
+
+	checkconfig || { eend 1; return 1; }
+
+	_get_pidfile
+	if [ -n "${PIDFILE}" ]; then
+		# FIXME: Remove --stop and --oknodo as soon as baselayout-1 has been removed... finally...
+		start-stop-daemon --stop --oknodo --pidfile $PIDFILE --signal HUP --exec /usr/sbin/named
 		ret=$?
 	else
-		ewarn "Neither an rndc key has been specified nor a pidfile... this is"
+		ewarn "Unable to determine the pidfile... this is"
 		ewarn "a fallback mode. Please check your installation!"
-		
+
 		$RC_SERVICE restart
 		ret=$?
 	fi
