@@ -1,0 +1,14 @@
+diff --git a/pym/cl_install.py b/pym/cl_install.py
+index a9b0a9c..3c479d3 100644
+--- a/pym/cl_install.py
++++ b/pym/cl_install.py
+@@ -966,7 +966,8 @@ class cl_install(color_print, SignalInterrupt):
+                                                     mountPoint=mountPoint,
+                                                     fileSystem=fileSystem,
+                                                     isFormat=isFormat,
+-                                                    systemId=None)
++                                                    systemId=None,
++                                                    partitionTable=None)
+             if flagMultipartition:
+                 # Set Multipartition
+                 target.multipartition=objMultiPartitions
