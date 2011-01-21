@@ -1,3 +1,17 @@
+diff --git a/pym/cl_distr.py b/pym/cl_distr.py
+index b16fcf5..eb9c531 100644
+--- a/pym/cl_distr.py
++++ b/pym/cl_distr.py
+@@ -783,7 +783,8 @@ class PartitionDistributive(Distributive):
+                                          self.getMultipartData())
+             dirObj = self.DirectoryObject
+             mdirectory = dirObj.directory
+-            for srcDir, destDir, fileSystem, isFormat in mulipartDataBind:
++            for srcDir, destDir, fileSystem, isFormat, partTable \
++                    in mulipartDataBind:
+                 realDestDir = pathJoin(mdirectory, destDir)
+                 realSrcDir = pathJoin(mdirectory, srcDir)
+                 self._mountBind(realSrcDir, realDestDir)
 diff --git a/pym/cl_install.py b/pym/cl_install.py
 index a9b0a9c..3c479d3 100644
 --- a/pym/cl_install.py
