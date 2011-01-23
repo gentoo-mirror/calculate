@@ -23,7 +23,7 @@ src_unpack() {
 	cd "${S}"
 
 	#Use Leafpad in CLDX
-	epatch "${FILESDIR}/calculate-templates-2.2.3-use_leafpad_in_CLDX.patch"
+	epatch "${FILESDIR}/calculate-templates-2.2.8-use_leafpad_in_CLDX.patch"
 }
 
 src_compile() {

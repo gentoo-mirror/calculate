@@ -56,11 +56,11 @@ index 0000000..35b0f29
 +patch = on
 diff --git a/desktop/desktop/00-patch-2.2.8/kcminputrc b/desktop/desktop/00-patch-2.2.8/kcminputrc
 new file mode 100644
-index 0000000..c710477
+index 0000000..059b0d8
 --- /dev/null
 +++ b/desktop/desktop/00-patch-2.2.8/kcminputrc
 @@ -0,0 +1,8 @@
-+# Calculate format=kde ini(ver.kde)!= path=~/.kde/share/config
++# Calculate format=kde ini(ver.kde)!= path=~/.kde4/share/config
 +[$Version]
 +#для отмены сброса настройки cursorTheme
 +update_info=mouse_cursor_theme.upd:kde3.4.99
