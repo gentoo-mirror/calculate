@@ -1,0 +1,120 @@
+diff --git a/desktop/00-desktop-init/empty_dir/0ini.env b/desktop/00-desktop-init/empty_dir/0ini.env
+index affd6d2..0330d55 100644
+--- a/desktop/00-desktop-init/empty_dir/0ini.env
++++ b/desktop/00-desktop-init/empty_dir/0ini.env
+@@ -4,7 +4,7 @@
+ update = on
+ 
+ [ver]
+-patch = 2.2.6
++patch = 2.2.8
+ 
+ [update]
+ patch = on
+diff --git a/desktop/desktop/00-patch-2.2.7/kcminputrc b/desktop/desktop/00-patch-2.2.7/kcminputrc
+deleted file mode 100644
+index 76b306a..0000000
+--- a/desktop/desktop/00-patch-2.2.7/kcminputrc
++++ /dev/null
+@@ -1,8 +0,0 @@
+-# Calculate format=kde ini(ver.kde)!=
+-[$Version]
+-#для отмены сброса настройки cursorTheme
+-update_info=mouse_cursor_theme.upd:kde3.4.99
+-
+-[Mouse]
+-#тема курсоров мыши
+-cursorTheme=neutral
+diff --git a/desktop/desktop/00-patch-2.2.8/.calculate_directory b/desktop/desktop/00-patch-2.2.8/.calculate_directory
+new file mode 100644
+index 0000000..ef8044f
+--- /dev/null
++++ b/desktop/desktop/00-patch-2.2.8/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate append=skip belong(calculate-desktop)!=&&ini(update.patch)!=off&&ini(ver.patch)<2.2.8
+diff --git a/desktop/desktop/00-patch-2.2.8/10000000043.desktop b/desktop/desktop/00-patch-2.2.8/10000000043.desktop
+new file mode 100644
+index 0000000..b08d698
+--- /dev/null
++++ b/desktop/desktop/00-patch-2.2.8/10000000043.desktop
+@@ -0,0 +1,3 @@
++# Calculate format=kde link=/usr/share/applications/leafpad.desktop path=~/.config/xfce4/panel/launcher-43
++[Desktop Entry]
++X-XFCE-Source=file:///usr/share/applications/leafpad.desktop
+diff --git a/desktop/desktop/00-patch-2.2.8/ini.env b/desktop/desktop/00-patch-2.2.8/ini.env
+new file mode 100644
+index 0000000..35b0f29
+--- /dev/null
++++ b/desktop/desktop/00-patch-2.2.8/ini.env
+@@ -0,0 +1,7 @@
++# Calculate format=samba path=~/.calculate
++
++[ver]
++patch = 2.2.8
++
++[update]
++patch = on
+diff --git a/desktop/desktop/00-patch-2.2.8/kcminputrc b/desktop/desktop/00-patch-2.2.8/kcminputrc
+new file mode 100644
+index 0000000..c710477
+--- /dev/null
++++ b/desktop/desktop/00-patch-2.2.8/kcminputrc
+@@ -0,0 +1,8 @@
++# Calculate format=kde ini(ver.kde)!= path=~/.kde/share/config
++[$Version]
++#для отмены сброса настройки cursorTheme
++update_info=mouse_cursor_theme.upd:kde3.4.99
++
++[Mouse]
++#тема курсоров мыши
++cursorTheme=neutral
+diff --git a/desktop/desktop/00-patch-2.2.8/kcminputrc-bad b/desktop/desktop/00-patch-2.2.8/kcminputrc-bad
+new file mode 100644
+index 0000000..b9e0ea2
+--- /dev/null
++++ b/desktop/desktop/00-patch-2.2.8/kcminputrc-bad
+@@ -0,0 +1,2 @@
++# Calculate ini(ver.kde)!= append=remove name=kcminputrc
++
+diff --git a/desktop/desktop/00-patch-2.2.8/leafpadrc b/desktop/desktop/00-patch-2.2.8/leafpadrc
+new file mode 100644
+index 0000000..8d0a375
+--- /dev/null
++++ b/desktop/desktop/00-patch-2.2.8/leafpadrc
+@@ -0,0 +1,8 @@
++# Calculate path=~/.config/leafpad
++0.8.17
++600
++400
++Droid Sans Mono 10
++1
++0
++0
+diff --git a/desktop/desktop/00-patch-2.2.8/xfce4-panel.xml b/desktop/desktop/00-patch-2.2.8/xfce4-panel.xml
+new file mode 100644
+index 0000000..08a87c7
+--- /dev/null
++++ b/desktop/desktop/00-patch-2.2.8/xfce4-panel.xml
+@@ -0,0 +1,12 @@
++# Calculate format=xml_xfce path=~/.config/xfce4/xfconf/xfce-perchannel-xml
++<?xml version="1.0" encoding="UTF-8"?>
++
++<channel name="xfce4-panel" version="1.0">
++  <property name="plugins" type="empty">
++    <property name="plugin-43" type="string" value="launcher">
++      <property name="items" type="array">
++        <value type="string" value="10000000043.desktop"/>
++      </property>
++    </property>
++  </property>
++</channel>
+diff --git a/desktop/desktop/40-xfce-4.8/.config/xfce4/panel/launcher-43/10000000043.desktop b/desktop/desktop/40-xfce-4.8/.config/xfce4/panel/launcher-43/10000000043.desktop
+index 903d2f1..deaad8d 100644
+--- a/desktop/desktop/40-xfce-4.8/.config/xfce4/panel/launcher-43/10000000043.desktop
++++ b/desktop/desktop/40-xfce-4.8/.config/xfce4/panel/launcher-43/10000000043.desktop
+@@ -1,3 +1,3 @@
+-# Calculate format=kde link=/usr/share/applications/mousepad.desktop
++# Calculate format=kde link=/usr/share/applications/leafpad.desktop
+ [Desktop Entry]
+-X-XFCE-Source=file:///usr/share/applications/mousepad.desktop
++X-XFCE-Source=file:///usr/share/applications/leafpad.desktop
