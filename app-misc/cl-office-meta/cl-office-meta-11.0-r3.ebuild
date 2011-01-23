@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -27,7 +27,8 @@ RDEPEND="
 		net-news/liferea
 	)
 	cdistro_CLDX? (
-		app-editors/mousepad
+		!app-editors/mousepad
+		app-editors/leafpad
 		app-text/evince
 		app-text/stardict
 		sci-calculators/galculator
