@@ -2,6 +2,15 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-lib-2.2.3.ebuild, -calculate-lib-2.2.4-r1.ebuild,
+  -files/calculate-lib-2.2.4-fixfilter.patch, -calculate-lib-2.2.5.ebuild,
+  -calculate-lib-2.2.5-r1.ebuild,
+  -files/calculate-lib-2.2.5-encoding-fix.patch,
+  -files/calculate-lib-2.2.5-uuid-fix.patch, -calculate-lib-2.2.6.ebuild,
+  -calculate-lib-2.2.7.ebuild:
+  Clean old ebuilds.
+
 *calculate-lib-2.2.8-r1 (21 Jan 2011)
 
   21 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>

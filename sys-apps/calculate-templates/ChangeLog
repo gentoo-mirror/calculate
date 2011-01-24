@@ -2,6 +2,23 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-templates-2.2.3-r2.ebuild,
+  -files/calculate-templates-2.2.3-fix_flash_install.patch,
+  -files/calculate-templates-2.2.3-fix_samsung_templates.patch,
+  -calculate-templates-2.2.4.ebuild, -calculate-templates-2.2.4-r6.ebuild,
+  -calculate-templates-2.2.4-r7.ebuild,
+  -calculate-templates-2.2.4-r8.ebuild,
+  -calculate-templates-2.2.4-r9.ebuild,
+  -calculate-templates-2.2.4-r10.ebuild,
+  -files/calculate-templates-2.2.4-back_port.patch,
+  -calculate-templates-2.2.5-r1.ebuild,
+  -calculate-templates-2.2.5-r2.ebuild,
+  -calculate-templates-2.2.5-r3.ebuild,
+  -files/calculate-templates-2.2.5-assemble-python2.6.patch,
+  -calculate-templates-2.2.6.ebuild, -calculate-templates-2.2.7.ebuild:
+  Clean old ebuilds.
+
 *calculate-templates-2.2.8-r2 (24 Jan 2011)
 
   23 Jan 2011; Alexander Tratsevskiy <at@calculate.ru>

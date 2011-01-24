@@ -2,6 +2,20 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-install-2.2.3.ebuild, -calculate-install-2.2.4-r2.ebuild,
+  -calculate-install-2.2.4-r3.ebuild, -calculate-install-2.2.4-r4.ebuild,
+  -calculate-install-2.2.4-r5.ebuild, -calculate-install-2.2.4-r6.ebuild,
+  -files/calculate-install-2.2.4-fix_fstab.patch,
+  -files/calculate-install-2.2.4-fix_grub_conf.patch,
+  -files/calculate-install-2.2.4-fix_linux_ver.patch,
+  -files/calculate-install-2.2.4-fix_uuid_fstab.patch,
+  -calculate-install-2.2.5.ebuild, -calculate-install-2.2.5-r1.ebuild,
+  -files/calculate-install-2.2.5-fix-uuid.patch,
+  -files/calculate-install-2.2.5-update-handbook.patch,
+  -calculate-install-2.2.6.ebuild, -calculate-install-2.2.7.ebuild:
+  Clean old ebuilds.
+
 *calculate-install-2.2.8-r2 (24 Jan 2011)
 
   24 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
