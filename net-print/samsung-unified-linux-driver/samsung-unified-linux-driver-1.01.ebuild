@@ -14,7 +14,7 @@ LICENSE="SAMSUNG-ELECTRONICS-software"
 SLOT="0"
 # x86 should be supported, but we have to do -* because only x86/amd64
 # is supported.
-KEYWORDS="~amd64 -*"
+KEYWORDS="amd64 x86"
 IUSE="doc test"
 
 S=${WORKDIR}/cdroot/Linux
