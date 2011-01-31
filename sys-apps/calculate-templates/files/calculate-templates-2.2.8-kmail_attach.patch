@@ -2,14 +2,14 @@ diff --git a/desktop/desktop/00-patch-2.2.9/.calculate_directory b/desktop/deskt
 new file mode 100644
 index 0000000..ee4dbd5
 --- /dev/null
-+++ b/desktop/desktop/00-patch-2.2.9/.calculate_directory
++++ desktop/desktop/00-patch-2.2.9/.calculate_directory
 @@ -0,0 +1 @@
 +# Calculate append=skip belong(calculate-desktop)!=&&ini(update.patch)!=off&&ini(ver.patch)<2.2.8.1
 diff --git a/desktop/desktop/00-patch-2.2.9/ini.env b/desktop/desktop/00-patch-2.2.9/ini.env
 new file mode 100644
 index 0000000..d565ea7
 --- /dev/null
-+++ b/desktop/desktop/00-patch-2.2.9/ini.env
++++ desktop/desktop/00-patch-2.2.9/ini.env
 @@ -0,0 +1,7 @@
 +# Calculate format=samba path=~/.calculate
 +
@@ -22,7 +22,7 @@ diff --git a/desktop/desktop/00-patch-2.2.9/send-attach.desktop b/desktop/deskto
 new file mode 100644
 index 0000000..d08740f
 --- /dev/null
-+++ b/desktop/desktop/00-patch-2.2.9/send-attach.desktop
++++ desktop/desktop/00-patch-2.2.9/send-attach.desktop
 @@ -0,0 +1,21 @@
 +# Calculate format=kde ini(ver.kde)!= path= ~/.kde4/share/kde4/services/ServiceMenu
 +[Desktop Entry]
@@ -49,7 +49,7 @@ diff --git a/desktop/desktop/20-kde-4.5/.kde4/share/kde4/services/ServiceMenu/se
 new file mode 100644
 index 0000000..fa95700
 --- /dev/null
-+++ b/desktop/desktop/20-kde-4.5/.kde4/share/kde4/services/ServiceMenu/send-attach.desktop
++++ desktop/desktop/20-kde-4.5/.kde4/share/kde4/services/ServiceMenu/send-attach.desktop
 @@ -0,0 +1,20 @@
 +[Desktop Entry]
 +Type=Service
