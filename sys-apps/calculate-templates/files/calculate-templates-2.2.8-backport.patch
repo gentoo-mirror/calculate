@@ -1,0 +1,216 @@
+diff --git a/desktop/00-desktop-init/empty_dir/0ini.env b/desktop/00-desktop-init/empty_dir/0ini.env
+index affd6d2..26a47ed 100644
+--- desktop/00-desktop-init/empty_dir/0ini.env
++++ desktop/00-desktop-init/empty_dir/0ini.env
+@@ -4,7 +4,7 @@
+ update = on
+ 
+ [ver]
+-patch = 2.2.6
++patch = 2.2.8.1
+ 
+ [update]
+ patch = on
+diff --git a/desktop/desktop/00-patch-2.2.7/kcminputrc b/desktop/desktop/00-patch-2.2.7/kcminputrc
+deleted file mode 100644
+index 76b306a..0000000
+--- desktop/desktop/00-patch-2.2.7/kcminputrc
++++ /dev/null
+@@ -1,8 +0,0 @@
+-# Calculate format=kde ini(ver.kde)!=
+-[$Version]
+-#для отмены сброса настройки cursorTheme
+-update_info=mouse_cursor_theme.upd:kde3.4.99
+-
+-[Mouse]
+-#тема курсоров мыши
+-cursorTheme=neutral
+diff --git a/desktop/desktop/00-patch-2.2.8/.calculate_directory b/desktop/desktop/00-patch-2.2.8/.calculate_directory
+new file mode 100644
+index 0000000..ef8044f
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.8/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate append=skip belong(calculate-desktop)!=&&ini(update.patch)!=off&&ini(ver.patch)<2.2.8
+diff --git a/desktop/desktop/00-patch-2.2.8/10000000043.desktop b/desktop/desktop/00-patch-2.2.8/10000000043.desktop
+new file mode 100644
+index 0000000..b08d698
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.8/10000000043.desktop
+@@ -0,0 +1,3 @@
++# Calculate format=kde link=/usr/share/applications/leafpad.desktop path=~/.config/xfce4/panel/launcher-43
++[Desktop Entry]
++X-XFCE-Source=file:///usr/share/applications/leafpad.desktop
+diff --git a/desktop/desktop/00-patch-2.2.8/ini.env b/desktop/desktop/00-patch-2.2.8/ini.env
+new file mode 100644
+index 0000000..35b0f29
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.8/ini.env
+@@ -0,0 +1,7 @@
++# Calculate format=samba path=~/.calculate
++
++[ver]
++patch = 2.2.8
++
++[update]
++patch = on
+diff --git a/desktop/desktop/00-patch-2.2.8/kcminputrc b/desktop/desktop/00-patch-2.2.8/kcminputrc
+new file mode 100644
+index 0000000..059b0d8
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.8/kcminputrc
+@@ -0,0 +1,8 @@
++# Calculate format=kde ini(ver.kde)!= path=~/.kde4/share/config
++[$Version]
++#для отмены сброса настройки cursorTheme
++update_info=mouse_cursor_theme.upd:kde3.4.99
++
++[Mouse]
++#тема курсоров мыши
++cursorTheme=neutral
+diff --git a/desktop/desktop/00-patch-2.2.8/kcminputrc-bad b/desktop/desktop/00-patch-2.2.8/kcminputrc-bad
+new file mode 100644
+index 0000000..b9e0ea2
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.8/kcminputrc-bad
+@@ -0,0 +1,2 @@
++# Calculate ini(ver.kde)!= append=remove name=kcminputrc
++
+diff --git a/desktop/desktop/00-patch-2.2.8/leafpadrc b/desktop/desktop/00-patch-2.2.8/leafpadrc
+new file mode 100644
+index 0000000..8d0a375
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.8/leafpadrc
+@@ -0,0 +1,8 @@
++# Calculate path=~/.config/leafpad
++0.8.17
++600
++400
++Droid Sans Mono 10
++1
++0
++0
+diff --git a/desktop/desktop/00-patch-2.2.8/xfce4-panel.xml b/desktop/desktop/00-patch-2.2.8/xfce4-panel.xml
+new file mode 100644
+index 0000000..08a87c7
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.8/xfce4-panel.xml
+@@ -0,0 +1,12 @@
++# Calculate format=xml_xfce path=~/.config/xfce4/xfconf/xfce-perchannel-xml
++<?xml version="1.0" encoding="UTF-8"?>
++
++<channel name="xfce4-panel" version="1.0">
++  <property name="plugins" type="empty">
++    <property name="plugin-43" type="string" value="launcher">
++      <property name="items" type="array">
++        <value type="string" value="10000000043.desktop"/>
++      </property>
++    </property>
++  </property>
++</channel>
+diff --git a/desktop/desktop/00-patch-2.2.9/.calculate_directory b/desktop/desktop/00-patch-2.2.9/.calculate_directory
+new file mode 100644
+index 0000000..ee4dbd5
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.9/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate append=skip belong(calculate-desktop)!=&&ini(update.patch)!=off&&ini(ver.patch)<2.2.8.1
+diff --git a/desktop/desktop/00-patch-2.2.9/ini.env b/desktop/desktop/00-patch-2.2.9/ini.env
+new file mode 100644
+index 0000000..d565ea7
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.9/ini.env
+@@ -0,0 +1,7 @@
++# Calculate format=samba path=~/.calculate
++
++[ver]
++patch = 2.2.8.1
++
++[update]
++patch = on
+diff --git a/desktop/desktop/00-patch-2.2.9/send-attach.desktop b/desktop/desktop/00-patch-2.2.9/send-attach.desktop
+new file mode 100644
+index 0000000..9590ed5
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.9/send-attach.desktop
+@@ -0,0 +1,21 @@
++# Calculate format=kde ini(ver.kde)!= path=~/.kde4/share/kde4/services/ServiceMenu
++[Desktop Entry]
++Type=Service
++X-KDE-ServiceTypes=KonqPopupMenu/Plugin,all/allfiles
++Actions=openKmailAttachment
++Encoding=UTF-8
++MimeType=application/octet-stream
++ExcludeServiceTypes=application/x-iso,kdedevice/*,inode/directory
++
++[Desktop Action openKmailAttachment]
++Name=Send File As Attachment
++Name[de]=Datei als Anhang versenden
++Name[en]=Send File As Attachment
++Name[fr]=Envoyer le fichier en pièce jointe
++Name[pt]=Enviar por correio-e
++Name[sk]=Poslať e-mailom
++Name[ru]=Отправить в KMail
++
++Icon=kmail
++Exec=kmail --composer --attach %F `echo attachment=\'file://%F\' | sed 's/ \//,file:\/\/\//g'`
++X-Ubuntu-Gettext-Domain=desktop_kdebase
+diff --git a/desktop/desktop/20-kde-4.5/.kde4/share/kde4/services/ServiceMenu/send-attach.desktop b/desktop/desktop/20-kde-4.5/.kde4/share/kde4/services/ServiceMenu/send-attach.desktop
+new file mode 100644
+index 0000000..fa95700
+--- /dev/null
++++ desktop/desktop/20-kde-4.5/.kde4/share/kde4/services/ServiceMenu/send-attach.desktop
+@@ -0,0 +1,20 @@
++[Desktop Entry]
++Type=Service
++X-KDE-ServiceTypes=KonqPopupMenu/Plugin,all/allfiles
++Actions=openKmailAttachment
++Encoding=UTF-8
++MimeType=application/octet-stream
++ExcludeServiceTypes=application/x-iso,kdedevice/*,inode/directory
++
++[Desktop Action openKmailAttachment]
++Name=Send File As Attachment
++Name[de]=Datei als Anhang versenden
++Name[en]=Send File As Attachment
++Name[fr]=Envoyer le fichier en pièce jointe
++Name[pt]=Enviar por correio-e
++Name[sk]=Poslať e-mailom
++Name[ru]=Отправить в KMail
++
++Icon=kmail
++Exec=kmail --composer --attach %F `echo attachment=\'file://%F\' | sed 's/ \//,file:\/\/\//g'`
++X-Ubuntu-Gettext-Domain=desktop_kdebase
+diff --git a/desktop/desktop/40-xfce-4.8/.config/xfce4/panel/launcher-43/10000000043.desktop b/desktop/desktop/40-xfce-4.8/.config/xfce4/panel/launcher-43/10000000043.desktop
+index 903d2f1..deaad8d 100644
+--- desktop/desktop/40-xfce-4.8/.config/xfce4/panel/launcher-43/10000000043.desktop
++++ desktop/desktop/40-xfce-4.8/.config/xfce4/panel/launcher-43/10000000043.desktop
+@@ -1,3 +1,3 @@
+-# Calculate format=kde link=/usr/share/applications/mousepad.desktop
++# Calculate format=kde link=/usr/share/applications/leafpad.desktop
+ [Desktop Entry]
+-X-XFCE-Source=file:///usr/share/applications/mousepad.desktop
++X-XFCE-Source=file:///usr/share/applications/leafpad.desktop
+diff --git a/install/1merge/portage/make.conf b/install/1merge/portage/make.conf
+index 3626e63..b22a15b 100644
+--- install/1merge/portage/make.conf
++++ install/1merge/portage/make.conf
+@@ -6,6 +6,7 @@
+ #?os_linux_shortname==CLD||os_linux_shortname==CLDG||os_linux_shortname==CLDX||os_linux_shortname==CDS#
+ #PORTAGE_BINHOST="http://calculate.freeside.ru/pub/#-os_linux_shortname-#/grp/#-os_arch_machine-#"
+ #PORTAGE_BINHOST="ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/#-os_linux_shortname-#/grp/#-os_arch_machine-#"
++#PORTAGE_BINHOST="ftp://77.88.19.68/calculate/#-os_linux_shortname-#/grp/#-os_arch_machine-#"
+ #os_linux_shortname#
+ 
+ # Add flags nowireless, noprinter, nooffice, etc. separated by a space or
+diff --git a/install/1system/grub/grub.conf b/install/1system/grub/grub.conf
+index 1eee3de..b1b0b3d 100644
+--- install/1system/grub/grub.conf
++++ install/1system/grub/grub.conf
+@@ -1,5 +1,5 @@
+ # Calculate comment=# cl_install_scratch_action!=up
+-timeout 5
++timeout 2
+ default 0
+ fallback 1
+ splashimage=(hd#-disk(/boot,grub)-#)/boot/grub/grub-calculate.xpm.gz

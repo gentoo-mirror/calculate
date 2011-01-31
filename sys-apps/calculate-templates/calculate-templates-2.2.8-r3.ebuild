@@ -22,10 +22,8 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 
-	#Use Leafpad in CLDX
-	epatch "${FILESDIR}/calculate-templates-2.2.8-use_leafpad_in_CLDX.patch"
-	# send-attach for kmail
-	epatch "${FILESDIR}/calculate-templates-2.2.8-kmail_attach.patch"
+	# backport patch
+	epatch "${FILESDIR}/calculate-templates-2.2.8-backport.patch"
 }
 
 src_compile() {
