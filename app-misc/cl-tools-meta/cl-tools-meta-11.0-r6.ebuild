@@ -125,6 +125,7 @@ RDEPEND="${RDEPEND}
 		sys-fs/xfsprogs
 		sys-kernel/module-rebuild
 		sys-process/htop
+		sys-process/iotop
 		sys-process/lsof
 	)
 	cdistro_CLS? (
