@@ -39,6 +39,11 @@ NEW_CALCULATE_OVERLAY="/var/lib/layman/calculate"
 	CALCULATE_OVERLAY="/usr/local/portage/layman/calculate"
 
 MODULESDBFILE=${ROOT}/var/lib/module-rebuild/moduledb
+if [[ -n $LONGTERM ]];then 
+	if [[ $KERNEL_URI =~ ^(.*)(kernel/v2.6/patch)(.*)$ ]];then
+		KERNEL_URI="${BASH_REMATCH[1]}kernel/v2.6/longterm/v${CKV}/patch${BASH_REMATCH[3]}"
+	fi
+fi
 
 calculate-kernel_pkg_setup() {
 	kernel-2_pkg_setup

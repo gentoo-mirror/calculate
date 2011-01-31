@@ -32,6 +32,12 @@ CALC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-${CKV}.tar.bz2
 		http://mirror.yandex.ru/calculate/${PN}/${PN}-${CKV}.tar.bz2
 		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${PN}-${CKV}.tar.bz2"
 
+if [[ -n $LONGTERM ]];then 
+	if [[ $KERNEL_URI =~ ^(.*)(kernel/v2.6/patch)(.*)$ ]];then
+		KERNEL_URI="${BASH_REMATCH[1]}kernel/v2.6/longterm/v${CKV}/patch${BASH_REMATCH[3]}"
+	fi
+fi
+
 calculate-kernel-2_pkg_setup() {
 	kernel-2_pkg_setup
 	ewarn "!!! WARNING !!!  WARNING !!!  WARNING !!!  WARNING !!!"
