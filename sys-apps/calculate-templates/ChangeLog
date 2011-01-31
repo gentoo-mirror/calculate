@@ -2,6 +2,13 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-templates-2.2.8-r3 (31 Jan 2011)
+
+  31 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-templates-2.2.8-r3.ebuild,
+  +files/calculate-templates-2.2.8-kmail_attach.patch:
+  Add send-attach for kmail.
+
   24 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
   -calculate-templates-2.2.3-r2.ebuild,
   -files/calculate-templates-2.2.3-fix_flash_install.patch,
