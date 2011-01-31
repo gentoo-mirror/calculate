@@ -191,7 +191,5 @@ RDEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	kde-base/kate
 	kde-base/kdeplasma-addons
-	kde-base/kget
-	kde-misc/knetworkmanager
 "
 

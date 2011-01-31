@@ -2,14 +2,21 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*cl-tools-meta-11.0-r5 (31 Jan 2011)
+
+  31 Jan 2011; Alexander Tratsevskiy (L'autre)
+  <at@calculate.ru> -cl-tools-meta-11.0-r4.ebuild,
+  +cl-tools-meta-11.0-r5.ebuild:
+  Added sys-apps/xinetd
+
 *cl-tools-meta-11.0-r4 (17 Jan 2011)
 
-  17 Jan 2011; Трацевский Александр
+  17 Jan 2011; Alexander Tratsevskiy (L'autre)
   <atratsevskiy@gentoo.org> -cl-tools-meta-11.0-r3.ebuild,
   +cl-tools-meta-11.0-r4.ebuild:
   Added sys-apps/gdisk
 
-  07 Jan 2011; Трацевский Александр <alex@gentoo.org>
+  07 Jan 2011; Alexander Tratsevskiy (L'autre)
   cl-tools-meta-11.0-r3.ebuild:
   Added app-misc/screen for CMC
 

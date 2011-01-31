@@ -28,7 +28,7 @@ RDEPEND="
 		net-misc/networkmanager-vpnc
 	)
 	cdistro_CLD? (
-		net-misc/kvpnc
+		kde-misc/knetworkmanager
 	)
 	cdistro_CLDG? (
 		gnome-extra/nm-applet

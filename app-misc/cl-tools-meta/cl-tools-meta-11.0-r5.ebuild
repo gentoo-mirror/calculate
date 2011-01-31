@@ -55,6 +55,7 @@ RDEPEND="${RDEPEND}
 		sys-apps/pciutils
 		sys-apps/pv
 		sys-apps/smartmontools
+		sys-apps/xinetd
 		sys-devel/prelink
 		sys-fs/dmraid
 		sys-fs/dosfstools
