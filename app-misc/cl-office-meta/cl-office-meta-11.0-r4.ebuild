@@ -24,7 +24,6 @@ RDEPEND="
 	)
 	cdistro_CLDG? (
 		app-text/stardict
-		net-news/liferea
 	)
 	cdistro_CLDX? (
 		!app-editors/mousepad

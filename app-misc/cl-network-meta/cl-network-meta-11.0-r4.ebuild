@@ -32,6 +32,7 @@ RDEPEND="
 		net-im/pidgin
 		net-irc/xchat
 		net-misc/pino
+		net-news/liferea
 		net-p2p/deluge
 		net-p2p/linuxdcpp
 		x11-plugins/pidgin-hotkeys
