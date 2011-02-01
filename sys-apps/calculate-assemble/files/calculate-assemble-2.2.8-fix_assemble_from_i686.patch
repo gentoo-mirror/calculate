@@ -1,0 +1,13 @@
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index 6ca1546..2bb30c6 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -367,7 +367,7 @@ class cl_assemble(color_print):
+                     _("Impossible to assemble %(what)s system from %(from)s")%
+                     {'what':self.clVars.Get('os_assemble_arch_machine'),
+                      'from':self.clVars.Get('os_arch_machine')})
+-            return False
++                return False
+         dev = self.clVars.Get('os_assemble_root_dev')
+         mp = isFstabMount(dev)
+         if mp:
