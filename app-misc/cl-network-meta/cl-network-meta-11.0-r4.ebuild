@@ -22,7 +22,6 @@ RDEPEND="
 		www-plugins/adobe-flash
 	)
 	cdistro_CLD? (
-		kde-base/kget
 		net-im/choqok
 		net-irc/konversation
 		net-p2p/eiskaltdcpp
