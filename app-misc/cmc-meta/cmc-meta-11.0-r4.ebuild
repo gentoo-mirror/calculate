@@ -27,6 +27,7 @@ RDEPEND="${RDEPEND}
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 
 	app-misc/lirc
+	app-text/wgetpaste
 	media-tv/xbmc
 	net-dialup/mingetty
 	net-p2p/rtorrent
