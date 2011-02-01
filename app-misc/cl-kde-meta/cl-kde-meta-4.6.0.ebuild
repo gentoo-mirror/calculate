@@ -192,13 +192,13 @@ RDEPEND="${RDEPEND}
 #-----------------------------------------------------------------------------
 # kdepim-meta
 #-----------------------------------------------------------------------------
+#kde-base/blogilo
 #kde-base/kdepim-wizards
 #kde-base/knode
 #kde-base/ktimetracker
 RDEPEND="${RDEPEND}
 	!calculate_nonetwork? (
 		kde-base/akregator
-		kde-base/blogilo
 		kde-base/kabcclient
 		kde-base/kaddressbook
 		kde-base/kalarm
