@@ -51,6 +51,7 @@ RDEPEND="${RDEPEND}
 #kde-base/konqueror
 #kde-base/nsplugins
 RDEPEND="${RDEPEND}
+	!<kde-base/kdebase-wallpapers-4.6.0
 	kde-base/dolphin
 	kde-base/freespacenotifier
 	kde-base/kcheckpass
