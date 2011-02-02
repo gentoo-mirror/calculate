@@ -32,6 +32,8 @@ RDEPEND="${RDEPEND}
 #-----------------------------------------------------------------------------
 # kdeartwork-meta
 #-----------------------------------------------------------------------------
+#kde-base/kdeartwork-wallpapers
+#kde-base/kdeartwork-weatherwallpapers
 RDEPEND="${RDEPEND}
 	!calculate_nodecoration? (
 		kde-base/kdeartwork-colorschemes
@@ -41,8 +43,6 @@ RDEPEND="${RDEPEND}
 		kde-base/kdeartwork-kscreensaver
 		kde-base/kdeartwork-sounds
 		kde-base/kdeartwork-styles
-		kde-base/kdeartwork-wallpapers
-		kde-base/kdeartwork-weatherwallpapers
 	)
 "
 #-----------------------------------------------------------------------------
