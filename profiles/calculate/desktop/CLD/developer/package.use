@@ -1,8 +1,7 @@
 # required by =kde-base/pykde4-4.6.0, required by =kde-base/printer-applet-4.6.0
 dev-python/PyQt4 declarative
 
-media-sound/phonon -xine -gstreamer
-kde-base/phonon-kde -xine
+media-sound/phonon -xine -vlc
 media-libs/mlt -xine
 kde-base/mplayerthumbs -mplayer
 
