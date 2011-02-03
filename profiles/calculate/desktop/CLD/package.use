@@ -17,7 +17,6 @@ www-client/firefox java
 net-im/qutim icq
 net-libs/xulrunner java
 net-print/gutenprint gimp
-media-sound/phonon gstreamer
 
 dev-lang/lua deprecated
 net-p2p/eiskaltdcpp -gtk
@@ -28,3 +27,11 @@ net-p2p/eiskaltdcpp -gtk
 
 #for support holidays region (http://bugs.gentoo.org/326563)
 kde-base/plasma-workspace rss
+
+# required by =kde-base/pykde4-4.6.0, required by =kde-base/printer-applet-4.6.0
+dev-python/PyQt4 declarative
+
+media-sound/phonon -gstreamer -vlc xine
+media-libs/mlt -xine
+kde-base/mplayerthumbs -mplayer
+
