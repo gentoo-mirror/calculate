@@ -117,7 +117,9 @@ app-mobilephone/obex-data-server
 app-mobilephone/obexd
 app-office/akonadi-server
 app-office/openoffice
+app-pda/libimobiledevice
 app-pda/libplist
+app-pda/usbmuxd
 app-portage/eix
 app-portage/emerge-delta-webrsync
 app-portage/genlop
@@ -178,7 +180,6 @@ dev-java/rhino
 dev-java/servletapi
 dev-java/tomcat-servlet-api
 dev-lang/nasm
-dev-lang/orc
 dev-lang/perl
 dev-lang/python
 dev-lang/python
@@ -191,7 +192,6 @@ dev-libs/boost
 dev-libs/chmlib
 dev-libs/cyrus-sasl
 dev-libs/dbus-glib
-dev-libs/eggdbus
 dev-libs/elfutils
 dev-libs/eventlog
 dev-libs/expat
@@ -203,6 +203,7 @@ dev-libs/iniparser
 dev-libs/klibc
 dev-libs/libIDL
 dev-libs/libassuan
+dev-libs/libatasmart
 dev-libs/libattica
 dev-libs/libcdio
 dev-libs/libconfig
@@ -312,6 +313,7 @@ gnome-base/libglade
 gnome-base/librsvg
 gnome-base/orbit
 gnome-extra/libgsf
+gnome-extra/polkit-gnome
 java-virtuals/servlet-api
 kde-base/activitymanager
 kde-base/akonadi
@@ -321,6 +323,7 @@ kde-base/attica
 kde-base/dolphin
 kde-base/drkonqi
 kde-base/ffmpegthumbs
+kde-base/filelight
 kde-base/freespacenotifier
 kde-base/gwenview
 kde-base/kabcclient
@@ -345,8 +348,6 @@ kde-base/kdeartwork-iconthemes
 kde-base/kdeartwork-kscreensaver
 kde-base/kdeartwork-sounds
 kde-base/kdeartwork-styles
-kde-base/kdeartwork-wallpapers
-kde-base/kdeartwork-weatherwallpapers
 kde-base/kdebase-cursors
 kde-base/kdebase-data
 kde-base/kdebase-desktoptheme
@@ -399,7 +400,6 @@ kde-base/kmenuedit
 kde-base/kmimetypefinder
 kde-base/kmix
 kde-base/knetattach
-kde-base/knetworkconf
 kde-base/knewstuff
 kde-base/knotes
 kde-base/knotify
@@ -428,6 +428,7 @@ kde-base/kstart
 kde-base/kstartupconfig
 kde-base/kstyles
 kde-base/ksysguard
+kde-base/ksystemlog
 kde-base/ksystraycmd
 kde-base/ktimezoned
 kde-base/ktraderclient
@@ -477,6 +478,7 @@ kde-base/thumbnailers
 kde-misc/knetworkmanager
 kde-misc/kwebkitpart
 kde-misc/openofficeorg-thumbnail
+kde-misc/polkit-kde-kcmodules
 mail-client/mailx
 mail-client/mailx-support
 mail-mta/ssmtp
@@ -518,8 +520,6 @@ media-libs/gegl
 media-libs/giflib
 media-libs/glitz
 media-libs/gst-plugins-base
-media-libs/gst-plugins-good
-media-libs/gst-plugins-ugly
 media-libs/gstreamer
 media-libs/ilmbase
 media-libs/jasper
@@ -534,6 +534,7 @@ media-libs/libcddb
 media-libs/libcuefile
 media-libs/libdc1394
 media-libs/libdca
+media-libs/libdiscid
 media-libs/libdv
 media-libs/libdvdcss
 media-libs/libdvdnav
@@ -591,22 +592,6 @@ media-libs/x264
 media-libs/xine-lib
 media-libs/xvid
 media-plugins/frei0r-plugins
-media-plugins/gst-plugins-a52dec
-media-plugins/gst-plugins-alsa
-media-plugins/gst-plugins-dvdread
-media-plugins/gst-plugins-ffmpeg
-media-plugins/gst-plugins-flac
-media-plugins/gst-plugins-mad
-media-plugins/gst-plugins-meta
-media-plugins/gst-plugins-mpeg2dec
-media-plugins/gst-plugins-ogg
-media-plugins/gst-plugins-resindvd
-media-plugins/gst-plugins-theora
-media-plugins/gst-plugins-v4l
-media-plugins/gst-plugins-v4l2
-media-plugins/gst-plugins-vorbis
-media-plugins/gst-plugins-x
-media-plugins/gst-plugins-xvideo
 media-plugins/kipi-plugins
 media-plugins/live
 media-sound/alsa-headers
@@ -617,6 +602,7 @@ media-sound/gsm
 media-sound/lame
 media-sound/musepack-tools
 media-sound/phonon
+media-sound/phonon-xine
 media-sound/sox
 media-sound/twolame
 media-video/dirac
@@ -654,7 +640,6 @@ net-libs/libsoup
 net-libs/libssh
 net-libs/libvncserver
 net-libs/neon
-net-libs/openslp
 net-libs/ortp
 net-libs/webkit-gtk
 net-libs/xulrunner
@@ -789,7 +774,7 @@ sys-auth/pam_keystore
 sys-auth/pam_ldap
 sys-auth/pambase
 sys-auth/polkit
-sys-auth/polkit-kde
+sys-auth/polkit-kde-agent
 sys-auth/polkit-qt
 sys-auth/thinkfinger
 sys-block/parted
@@ -834,6 +819,7 @@ sys-fs/reiserfsprogs
 sys-fs/squashfs-tools
 sys-fs/sysfsutils
 sys-fs/udev
+sys-fs/udisks
 sys-fs/xfsprogs
 sys-kernel/calckernel
 sys-kernel/calculate-sources
@@ -868,6 +854,7 @@ sys-power/cpufrequtils
 sys-power/pm-quirks
 sys-power/pm-utils
 sys-power/powernowd
+sys-power/upower
 sys-process/cronbase
 sys-process/htop
 sys-process/procps
@@ -1030,6 +1017,7 @@ x11-libs/pango
 x11-libs/pixman
 x11-libs/qt-core
 x11-libs/qt-dbus
+x11-libs/qt-declarative
 x11-libs/qt-gui
 x11-libs/qt-multimedia
 x11-libs/qt-opengl
