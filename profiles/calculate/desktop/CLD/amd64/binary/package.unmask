@@ -51,7 +51,6 @@
 =app-dicts/aspell-pt-br-6.0.20090702
 =app-dicts/aspell-ru-0.99.1-r1
 =app-dicts/aspell-uk-1.4.0.0
-=app-dicts/goldendict-1.0.1-r1
 =app-dicts/ispell-de-20011124
 =app-dicts/ispell-es-1.10
 =app-dicts/ispell-fr-1.0
@@ -60,7 +59,6 @@
 =app-dicts/ispell-ru-0.99.8
 =app-dicts/myspell-bg-20060316
 =app-dicts/myspell-de-20080915-r1
-=app-dicts/myspell-de-alt-20060124
 =app-dicts/myspell-en-20081002
 =app-dicts/myspell-es-20060316
 =app-dicts/myspell-fr-20060316
@@ -91,7 +89,7 @@
 =app-laptop/radeontool-1.5-r3
 =app-misc/ca-certificates-20090709
 =app-misc/calculate-install-gui-2.2.8
-=app-misc/calculate-meta-11.0-r2
+=app-misc/calculate-meta-11.0-r3
 =app-misc/cl-base-meta-11.0
 =app-misc/cl-decoration-meta-11.0-r4
 =app-misc/cl-graphics-meta-11.0-r1
@@ -99,12 +97,12 @@
 =app-misc/cl-multimedia-meta-11.0-r2
 =app-misc/cl-nettools-meta-11.0-r5
 =app-misc/cl-network-meta-11.0-r4
-=app-misc/cl-office-meta-11.0-r4
+=app-misc/cl-office-meta-11.0-r5
 =app-misc/cl-printer-meta-11.0-r3
 =app-misc/cl-tools-meta-11.0-r6
 =app-misc/cl-wireless-meta-10.9-r3
 =app-misc/cl-xorg-meta-7.4-r1
-=app-misc/cld-meta-11.0
+=app-misc/cld-meta-11.0-r1
 =app-misc/hal-info-20090716
 =app-misc/lirc-0.8.7
 =app-misc/livecd-tools-1.0.42
@@ -141,6 +139,7 @@
 =app-text/enchant-1.6.0
 =app-text/fbreader-0.12.10
 =app-text/ghostscript-gpl-8.71-r6
+=app-text/goldendict-1.0.1
 =app-text/hunspell-1.2.11
 =app-text/iso-codes-3.19
 =app-text/ispell-3.3.02-r1
@@ -475,7 +474,7 @@
 =kde-base/system-config-printer-kde-4.6.0
 =kde-base/systemsettings-4.6.0
 =kde-base/thumbnailers-4.6.0
-=kde-misc/knetworkmanager-4.4.0_p20101012
+=kde-misc/knetworkmanager-4.4.0_p20110204
 =kde-misc/kwebkitpart-0.9.6
 =kde-misc/openofficeorg-thumbnail-1.0.0
 =kde-misc/polkit-kde-kcmodules-0.98_pre20101127
@@ -565,7 +564,7 @@
 =media-libs/libtheora-1.1.1
 =media-libs/libv4l-0.8.1
 =media-libs/libvorbis-1.3.1
-=media-libs/libvpx-0.9.5
+=media-libs/libvpx-0.9.5-r1
 =media-libs/libwmf-0.2.8.4-r3
 =media-libs/libwpg-0.1.3
 =media-libs/mediastreamer-2.6.0
@@ -663,7 +662,7 @@
 =net-misc/wget-1.12-r3
 =net-nds/openldap-2.4.23
 =net-nds/portmap-6.0
-=net-p2p/eiskaltdcpp-2.1.1
+=net-p2p/eiskaltdcpp-2.2.0
 =net-print/cndrvcups-capt-2.00-r2
 =net-print/cndrvcups-common-2.00-r2
 =net-print/cnijfilter-3.20-r1
@@ -749,7 +748,7 @@
 =sys-apps/openrc-0.7.0
 =sys-apps/pciutils-3.1.4
 =sys-apps/pcmciautils-014-r1
-=sys-apps/portage-2.2.0_alpha19
+=sys-apps/portage-2.2.0_alpha20
 =sys-apps/preload-0.6.4-r2
 =sys-apps/pv-1.1.4
 =sys-apps/rescan-scsi-bus-1.29
@@ -894,7 +893,7 @@
 =virtual/perl-digest-base-1.16
 =virtual/perl-libnet-1.22
 =virtual/ttf-fonts-1
-=www-client/chromium-9.0.597.83
+=www-client/chromium-9.0.597.84
 =www-misc/htdig-3.2.0_beta6-r3
 =www-plugins/adobe-flash-10.1.102.64
 =www-plugins/nspluginwrapper-1.3.0
@@ -951,7 +950,7 @@
 =x11-drivers/xf86-input-keyboard-1.5.0
 =x11-drivers/xf86-input-mouse-1.6.0
 =x11-drivers/xf86-input-synaptics-1.3.0
-=x11-drivers/xf86-video-ati-6.13.2
+=x11-drivers/xf86-video-ati-6.14.0
 =x11-drivers/xf86-video-dummy-0.3.4
 =x11-drivers/xf86-video-fbdev-0.4.2
 =x11-drivers/xf86-video-glint-1.2.5
