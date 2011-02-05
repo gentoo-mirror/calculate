@@ -19,7 +19,8 @@ RDEPEND="
 	app-text/fbreader
 
 	cdistro_CLD? (
-		app-dicts/goldendict
+		!app-dicts/goldendict
+		app-text/goldendict
 		kde-misc/openofficeorg-thumbnail
 	)
 	cdistro_CLDG? (
