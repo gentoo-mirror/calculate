@@ -44,9 +44,6 @@ RDEPEND="sys-libs/zlib
 	>=x11-libs/qt-webkit-4.5
 	x11-libs/libXtst"
 
-RDEPEND="${RDEPEND}
-	!app-text/goldendict"
-
 DEPEND="${RDEPEND}"
 for i in ${LANGS}; do
 	RDEPEND="${RDEPEND}
