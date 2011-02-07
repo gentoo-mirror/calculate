@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,6 +13,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CLS cdistro_CMC cdistro_CDS"
 
+#x11-themes/oxygen-molecule needed for chromium
 RDEPEND="
 	media-gfx/splashutils
 
@@ -21,8 +22,10 @@ RDEPEND="
 		app-vim/vimcommander
 	)
 	cdistro_CLD? (
+		!x11-themes/gnome-icon-theme
 		media-gfx/cld-themes
 		x11-themes/gtk-engines-qtcurve
+		x11-themes/oxygen-molecule
 	)
 	cdistro_CLDG? (
 		media-gfx/cldg-themes
