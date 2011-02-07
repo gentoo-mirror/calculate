@@ -31,7 +31,6 @@ RDEPEND="
 	!app-misc/cl-desktop-meta
 	!app-misc/cl-useful-meta
 	!net-p2p/eiskaltdc
-	!app-dicts/goldendict
 "
 RDEPEND="${RDEPEND}
 	app-misc/cl-base-meta
