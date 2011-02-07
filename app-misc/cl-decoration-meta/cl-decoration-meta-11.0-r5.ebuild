@@ -22,7 +22,6 @@ RDEPEND="
 		app-vim/vimcommander
 	)
 	cdistro_CLD? (
-		!x11-themes/gnome-icon-theme
 		media-gfx/cld-themes
 		x11-themes/gtk-engines-qtcurve
 		x11-themes/oxygen-molecule
