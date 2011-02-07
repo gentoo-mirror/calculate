@@ -92,7 +92,7 @@
 =app-misc/cl-network-meta-11.0-r4
 =app-misc/cl-office-meta-11.0-r5
 =app-misc/cl-printer-meta-11.0-r3
-=app-misc/cl-tools-meta-11.0-r6
+=app-misc/cl-tools-meta-11.0-r7
 =app-misc/cl-wireless-meta-10.9-r3
 =app-misc/cl-xorg-meta-7.4-r1
 =app-misc/cldg-meta-11.0
@@ -173,6 +173,7 @@
 =dev-java/servletapi-2.4-r5
 =dev-java/tomcat-servlet-api-4.1.36
 =dev-lang/nasm-2.08.02
+=dev-lang/orc-0.4.11
 =dev-lang/perl-5.12.2-r6
 =dev-lang/python-2.6.6-r1
 =dev-lang/python-3.1.2-r4
@@ -235,7 +236,7 @@
 =dev-libs/openobex-1.5
 =dev-libs/openssl-1.0.0c
 =dev-libs/popt-1.16
-=dev-libs/protobuf-2.3.0-r1
+=dev-libs/protobuf-2.3.0-r2
 =dev-libs/pth-2.0.7-r2
 =dev-libs/totem-pl-parser-2.30.4
 =dev-perl/Archive-Zip-1.30
@@ -415,7 +416,7 @@
 =media-libs/gst-plugins-bad-0.10.19
 =media-libs/gst-plugins-base-0.10.29
 =media-libs/gst-plugins-good-0.10.23
-=media-libs/gst-plugins-ugly-0.10.13
+=media-libs/gst-plugins-ugly-0.10.16
 =media-libs/gstreamer-0.10.29
 =media-libs/ilmbase-1.0.2
 =media-libs/jasper-1.900.1-r3
@@ -482,18 +483,18 @@
 =media-libs/win32codecs-20071007-r4
 =media-libs/x264-0.0.20101029
 =media-libs/xvid-1.2.2-r2
-=media-plugins/gst-plugins-a52dec-0.10.13
+=media-plugins/gst-plugins-a52dec-0.10.16
 =media-plugins/gst-plugins-alsa-0.10.29
 =media-plugins/gst-plugins-cdparanoia-0.10.29
-=media-plugins/gst-plugins-dvdread-0.10.13
+=media-plugins/gst-plugins-dvdread-0.10.16
 =media-plugins/gst-plugins-ffmpeg-0.10.9
 =media-plugins/gst-plugins-flac-0.10.23
 =media-plugins/gst-plugins-gconf-0.10.23
 =media-plugins/gst-plugins-gio-0.10.29
 =media-plugins/gst-plugins-libmms-0.10.19
-=media-plugins/gst-plugins-mad-0.10.13
+=media-plugins/gst-plugins-mad-0.10.16
 =media-plugins/gst-plugins-meta-0.10-r4
-=media-plugins/gst-plugins-mpeg2dec-0.10.13
+=media-plugins/gst-plugins-mpeg2dec-0.10.16
 =media-plugins/gst-plugins-ogg-0.10.29
 =media-plugins/gst-plugins-pango-0.10.29
 =media-plugins/gst-plugins-resindvd-0.10.19
@@ -562,7 +563,7 @@
 =net-misc/mobile-broadband-provider-info-20100510
 =net-misc/modemmanager-0.4
 =net-misc/netkit-fingerd-0.17-r3
-=net-misc/networkmanager-0.8.2-r4
+=net-misc/networkmanager-0.8.2-r5
 =net-misc/networkmanager-openvpn-0.8.2
 =net-misc/networkmanager-pptp-0.8.2
 =net-misc/networkmanager-vpnc-0.8.2
@@ -670,7 +671,7 @@
 =sys-apps/openrc-0.7.0
 =sys-apps/pciutils-3.1.4
 =sys-apps/pcmciautils-014-r1
-=sys-apps/portage-2.2.0_alpha20
+=sys-apps/portage-2.2.0_alpha21
 =sys-apps/preload-0.6.4-r2
 =sys-apps/pv-1.1.4
 =sys-apps/rescan-scsi-bus-1.29
@@ -775,6 +776,7 @@
 =sys-power/pm-quirks-20100619
 =sys-power/pm-utils-1.4.1
 =sys-power/powernowd-0.97
+=sys-power/powertop-1.13
 =sys-power/upower-0.9.5
 =sys-process/cronbase-0.3.2-r1
 =sys-process/htop-0.8.3
