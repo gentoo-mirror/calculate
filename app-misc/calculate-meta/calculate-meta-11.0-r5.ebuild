@@ -37,28 +37,3 @@ RDEPEND="${RDEPEND}
 	cdistro_CSS? ( app-misc/css-meta )
 "
 
-pkg_postinst() {
-	calculate_change_version
-
-	local calculatename=$( detect_linux_shortname )
-	local system=desktop
-	if [[ $calculatename == "CDS" ]] || [[ $calculatename == "CSS" ]]
-	then
-		system=server
-	fi
-
-	# check version on stable (PV hasn't 999)
-	if ! [[ "$PV" =~ 999 ]] && [[ -e /proc/self/mountinfo ]] && \
-		[[ -e /proc/1/mountinfo ]] && \
-		diff /proc/self/mountinfo /proc/1/mountinfo &>/dev/null
-	then
-		[[ -n "$calculatename" ]] &&
-		[[ "$calculatename" != "CMC" ]] &&
-		[[ "$calculatename" != "CLS" ]] &&
-		[[ "$calculatename" != "CSS" ]] &&
-		[[ -n "$(eselect profile show |
-			grep calculate/${system}/${calculatename}/${ARCH})" ]] && 
-			eselect profile set calculate/${system}/${calculatename}/${ARCH}/binary
-	fi
-}
-
