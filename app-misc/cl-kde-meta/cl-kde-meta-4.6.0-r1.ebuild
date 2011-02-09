@@ -48,7 +48,6 @@ RDEPEND="${RDEPEND}
 #-----------------------------------------------------------------------------
 # kdebase-meta
 #-----------------------------------------------------------------------------
-#kde-base/konqueror
 #kde-base/nsplugins
 RDEPEND="${RDEPEND}
 	!<kde-base/kdebase-wallpapers-4.6.0
@@ -70,6 +69,7 @@ RDEPEND="${RDEPEND}
 	kde-base/kinfocenter
 	kde-base/klipper
 	kde-base/kmenuedit
+	kde-base/konqueror
 	kde-base/konsole
 	kde-base/kscreensaver
 	kde-base/ksmserver
