@@ -1,10 +1,9 @@
 app-arch/p7zip -kde
 =kde-base/kde-l10n-4.4.5 -handbook
-<app-office/openoffice-3.2.0 gtk java -kde
->=app-office/openoffice-3.2.0 -gtk java kde
+>=app-office/openoffice-3.2.0 -gtk kde
 app-text/fbreader -gtk -qt3 qt4
 dev-python/PyQt4 sql
-dev-libs/soprano java redland
+dev-libs/soprano redland
 dev-util/cmake -qt4
 kde-base/dolphin thumbnail
 kde-base/gwenview kipi

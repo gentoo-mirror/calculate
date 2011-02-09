@@ -27,7 +27,7 @@ USE="${USE} irc jabber jingle oscar yahoo"
 # Image support
 USE="${USE} X exif fdftk gd gif imagemagick jpeg jpeg2k mng openexr pdf png raw svg tiff wmf wxwindows xpm" 
 # Languages support
-USE="${USE} -java"
+#USE="${USE} -java"
 
 # Locale and Fonts
 USE="${USE} spell"
