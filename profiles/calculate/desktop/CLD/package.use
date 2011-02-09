@@ -37,3 +37,6 @@ kde-base/mplayerthumbs -mplayer
 # remove the dependency on in gnome-base/gconf
 net-libs/xulrunner -libnotify
 
+# for install with xulrunner
+www-client/firefox -libnotify
+
