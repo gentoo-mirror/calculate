@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,6 +13,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS"
 
+#net-misc/pino
 RDEPEND="
 	cdistro_desktop? (
 		app-text/wgetpaste
@@ -30,7 +31,6 @@ RDEPEND="
 		net-ftp/filezilla
 		net-im/pidgin
 		net-irc/xchat
-		net-misc/pino
 		net-news/liferea
 		net-p2p/deluge
 		net-p2p/linuxdcpp
@@ -45,7 +45,6 @@ RDEPEND="
 		net-fs/fusesmb
 		net-im/pidgin
 		net-irc/xchat
-		net-misc/pino
 		net-p2p/deluge
 		net-p2p/linuxdcpp
 		x11-plugins/pidgin-hotkeys
