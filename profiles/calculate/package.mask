@@ -7,3 +7,6 @@ sys-fs/device-mapper
 #for support sys-boot/unetbootin
 >=sys-boot/calcboot-4.0
 >=sys-boot/syslinux-4.0
+
+#Gentoo Bug 353814 http://bugs.gentoo.org/show_bug.cgi?id=353814
+>=sys-libs/glibc-2.13
