@@ -15,7 +15,7 @@ IUSE="cdistro_CLD cdistro_CLDG cdistro_CLDX linguas_de linguas_en linguas_es lin
 
 RDEPEND="
 	app-editors/vim
-	app-office/openoffice
+	app-office/libreoffice
 	app-text/fbreader
 
 	cdistro_CLD? (
