@@ -14,6 +14,8 @@ KEYWORDS="amd64 x86"
 IUSE="cdistro_CDS cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CLS cdistro_CMC"
 
 RDEPEND="${RDEPEND}
+	sys-apps/ethtool
+
 	cdistro_desktop? (
 		app-misc/calculate-install-gui
 		net-misc/dhcpcd
@@ -102,7 +104,6 @@ RDEPEND="${RDEPEND}
 		sci-libs/fftw
 		sys-apps/acl
 		sys-apps/calculate-server
-		sys-apps/ethtool
 		sys-apps/gdisk
 		sys-apps/iproute2
 		sys-apps/kexec-tools
