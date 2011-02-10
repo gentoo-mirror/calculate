@@ -90,7 +90,7 @@
 =app-misc/cl-multimedia-meta-11.0-r2
 =app-misc/cl-nettools-meta-11.0-r5
 =app-misc/cl-network-meta-11.0-r5
-=app-misc/cl-office-meta-11.0-r6
+=app-misc/cl-office-meta-11.0-r7
 =app-misc/cl-printer-meta-11.0-r3
 =app-misc/cl-tools-meta-11.0-r7
 =app-misc/cl-wireless-meta-10.9-r3
@@ -103,7 +103,7 @@
 =app-misc/pax-utils-0.2.1
 =app-misc/realpath-1.15-r1
 =app-mobilephone/obex-data-server-0.4.5
-=app-office/openoffice-3.2.1-r1
+=app-office/libreoffice-3.3.0
 =app-pda/libimobiledevice-1.0.2
 =app-pda/libplist-1.3
 =app-pda/usbmuxd-1.0.4
@@ -138,7 +138,6 @@
 =app-text/ispell-3.3.02-r1
 =app-text/libpaper-1.1.23
 =app-text/libspectre-0.2.5
-=app-text/libwpd-0.8.14
 =app-text/poppler-0.14.5
 =app-text/rarian-0.8.1-r1
 =app-text/recode-3.6_p17-r2
@@ -155,23 +154,7 @@
 =dev-cpp/glibmm-2.24.2-r1
 =dev-cpp/gtkmm-2.20.3
 =dev-cpp/pangomm-2.26.3
-=dev-db/hsqldb-1.8.1.2-r1
 =dev-db/sqlite-3.7.2
-=dev-java/ant-core-1.8.1
-=dev-java/ant-nodeps-1.8.1
-=dev-java/bsh-2.0_beta4-r3
-=dev-java/icedtea6-bin-1.9.5
-=dev-java/java-config-2.1.11-r3
-=dev-java/java-config-wrapper-0.16
-=dev-java/javacc-4.2
-=dev-java/javatoolkit-0.3.0-r4
-=dev-java/junit-3.8.2-r1
-=dev-java/libreadline-java-0.8.0-r3
-=dev-java/lucene-2.3.2
-=dev-java/lucene-analyzers-2.3.2
-=dev-java/rhino-1.5.5-r4
-=dev-java/servletapi-2.4-r5
-=dev-java/tomcat-servlet-api-4.1.36
 =dev-lang/nasm-2.08.02
 =dev-lang/orc-0.4.11
 =dev-lang/perl-5.12.2-r6
@@ -236,6 +219,8 @@
 =dev-libs/popt-1.16
 =dev-libs/protobuf-2.3.0-r2
 =dev-libs/pth-2.0.7-r2
+=dev-libs/rasqal-0.9.17
+=dev-libs/redland-1.0.10-r1
 =dev-libs/totem-pl-parser-2.30.4
 =dev-perl/Archive-Zip-1.30
 =dev-perl/Authen-SASL-2.15
@@ -305,6 +290,7 @@
 =dev-util/boost-build-1.42.0
 =dev-util/chromium-tools-0.1.6
 =dev-util/cmake-2.8.1-r2
+=dev-util/cppunit-1.12.1
 =dev-util/ctags-5.7
 =dev-util/desktop-file-utils-0.17
 =dev-util/dialog-1.1.20080819
@@ -369,7 +355,6 @@
 =gnome-extra/swfdec-gnome-2.30.1
 =gnome-extra/yelp-2.30.2
 =gnome-extra/zenity-2.30.0
-=java-virtuals/servlet-api-2.3
 =mail-client/evolution-2.30.3
 =mail-client/mailx-8.1.2.20050715-r3
 =mail-client/mailx-support-20060102-r1
@@ -457,7 +442,6 @@
 =media-libs/libvorbis-1.3.1
 =media-libs/libvpx-0.9.5-r1
 =media-libs/libwmf-0.2.8.4-r3
-=media-libs/libwpg-0.1.3
 =media-libs/mesa-7.9.1
 =media-libs/musicbrainz-2.1.5
 =media-libs/musicbrainz-3.0.2
@@ -468,6 +452,7 @@
 =media-libs/openexr-1.7.0
 =media-libs/openjpeg-1.3-r2
 =media-libs/portaudio-19_pre20071207
+=media-libs/raptor-1.4.20
 =media-libs/schroedinger-1.0.8
 =media-libs/sdl-image-1.2.10-r1
 =media-libs/sdl-mixer-1.2.11-r1
@@ -785,9 +770,7 @@
 =virtual/eject-0
 =virtual/glu-7.0
 =virtual/init-0
-=virtual/jdk-1.6.0
 =virtual/jpeg-0
-=virtual/jre-1.6.0
 =virtual/libffi-0
 =virtual/libiconv-0
 =virtual/libintl-0
