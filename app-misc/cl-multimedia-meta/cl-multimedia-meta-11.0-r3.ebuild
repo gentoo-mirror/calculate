@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,10 +14,10 @@ KEYWORDS="amd64 x86"
 IUSE="cdistro_CLD cdistro_CLDG cdistro_CLDX"
 
 RDEPEND="
+	media-gfx/scrot
 	media-sound/alsa-utils
 	media-sound/sox
 	media-video/mplayer
-
 	cdistro_CLD? (
 		app-cdr/k3b
 		media-sound/amarok
