@@ -112,7 +112,7 @@ app-misc/mime-types
 app-misc/pax-utils
 app-misc/realpath
 app-mobilephone/obex-data-server
-app-office/openoffice
+app-office/libreoffice
 app-pda/libimobiledevice
 app-pda/libplist
 app-pda/usbmuxd
@@ -147,7 +147,6 @@ app-text/iso-codes
 app-text/ispell
 app-text/libpaper
 app-text/libspectre
-app-text/libwpd
 app-text/poppler
 app-text/rarian
 app-text/recode
@@ -164,23 +163,7 @@ dev-cpp/cairomm
 dev-cpp/glibmm
 dev-cpp/gtkmm
 dev-cpp/pangomm
-dev-db/hsqldb
 dev-db/sqlite
-dev-java/ant-core
-dev-java/ant-nodeps
-dev-java/bsh
-dev-java/icedtea6-bin
-dev-java/java-config
-dev-java/java-config-wrapper
-dev-java/javacc
-dev-java/javatoolkit
-dev-java/junit
-dev-java/libreadline-java
-dev-java/lucene
-dev-java/lucene-analyzers
-dev-java/rhino
-dev-java/servletapi
-dev-java/tomcat-servlet-api
 dev-lang/nasm
 dev-lang/orc
 dev-lang/perl
@@ -245,6 +228,8 @@ dev-libs/popt
 dev-libs/protobuf
 dev-libs/pth
 dev-libs/pwlib
+dev-libs/rasqal
+dev-libs/redland
 dev-libs/totem-pl-parser
 dev-perl/Archive-Zip
 dev-perl/Authen-SASL
@@ -314,6 +299,7 @@ dev-util/bin_replace_string
 dev-util/boost-build
 dev-util/chromium-tools
 dev-util/cmake
+dev-util/cppunit
 dev-util/ctags
 dev-util/desktop-file-utils
 dev-util/dialog
@@ -378,7 +364,6 @@ gnome-extra/sensors-applet
 gnome-extra/swfdec-gnome
 gnome-extra/yelp
 gnome-extra/zenity
-java-virtuals/servlet-api
 mail-client/evolution
 mail-client/mailx
 mail-client/mailx-support
@@ -466,7 +451,6 @@ media-libs/libv4l
 media-libs/libvorbis
 media-libs/libvpx
 media-libs/libwmf
-media-libs/libwpg
 media-libs/mesa
 media-libs/musicbrainz
 media-libs/musicbrainz
@@ -477,6 +461,7 @@ media-libs/opencore-amr
 media-libs/openexr
 media-libs/openjpeg
 media-libs/portaudio
+media-libs/raptor
 media-libs/schroedinger
 media-libs/sdl-image
 media-libs/sdl-mixer
@@ -791,9 +776,7 @@ virtual/editor
 virtual/eject
 virtual/glu
 virtual/init
-virtual/jdk
 virtual/jpeg
-virtual/jre
 virtual/libffi
 virtual/libiconv
 virtual/libintl
