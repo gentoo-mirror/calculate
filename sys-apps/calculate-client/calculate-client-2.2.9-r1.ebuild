@@ -21,7 +21,6 @@ DEPEND="~sys-apps/calculate-desktop-2.2.9
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
 	>=sys-apps/keyexec-0.1.2
-	>=sys-apps/hal-0.5.9
 	sys-apps/keyutils
 	sys-auth/pam_keystore
 	xfce? ( x11-misc/xdialog )
