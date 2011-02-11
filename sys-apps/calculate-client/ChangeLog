@@ -2,6 +2,13 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-client-2.2.9-r1 (11 Feb 2011)
+
+  11 Feb 2011; Alexander Tratsevskiy (L'autre) <at@calculate.ru>
+  -calculate-client-2.2.9.ebuild,
+  +calculate-client-2.2.9-r1.ebuild:
+  Remove hal dep.
+
 *calculate-client-2.2.9 (09 Feb 2011)
 
   09 Feb 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
