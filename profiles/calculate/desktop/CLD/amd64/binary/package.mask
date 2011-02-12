@@ -103,7 +103,6 @@ app-misc/cl-tools-meta
 app-misc/cl-wireless-meta
 app-misc/cl-xorg-meta
 app-misc/cld-meta
-app-misc/hal-info
 app-misc/lirc
 app-misc/livecd-tools
 app-misc/mc
@@ -162,6 +161,7 @@ dev-db/sqlite
 dev-db/virtuoso-odbc
 dev-db/virtuoso-server
 dev-lang/nasm
+dev-lang/orc
 dev-lang/perl
 dev-lang/python
 dev-lang/python
@@ -670,6 +670,8 @@ net-wireless/madwifi-ng
 net-wireless/madwifi-ng-tools
 net-wireless/madwimax
 net-wireless/rt73-firmware
+net-wireless/rtl8192se
+net-wireless/rtl8192se-firmware
 net-wireless/wireless-tools
 net-wireless/wpa_supplicant
 net-zope/zope-interface
@@ -695,7 +697,6 @@ sys-apps/coreutils
 sys-apps/dbus
 sys-apps/debianutils
 sys-apps/diffutils
-sys-apps/dmidecode
 sys-apps/eject
 sys-apps/ethtool
 sys-apps/file
@@ -704,7 +705,6 @@ sys-apps/gawk
 sys-apps/gdisk
 sys-apps/grep
 sys-apps/groff
-sys-apps/hal
 sys-apps/hdparm
 sys-apps/help2man
 sys-apps/hotplug
@@ -782,7 +782,6 @@ sys-devel/m4
 sys-devel/make
 sys-devel/patch
 sys-devel/prelink
-sys-fs/cryptsetup
 sys-fs/dmraid
 sys-fs/dosfstools
 sys-fs/e2fsprogs
