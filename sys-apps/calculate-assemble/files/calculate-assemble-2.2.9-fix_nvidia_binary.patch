@@ -1,0 +1,51 @@
+commit 453dcdda121338255a73f822ede9668864fb7aa6
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Feb 14 09:49:06 2011 +0300
+
+    Fix nvidia driver prepend chech.
+
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index 2e5372c..3db0695 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -721,13 +721,17 @@ class cl_assemble(color_print):
+         else:
+             return False
+ 
+-    def runChroot(self,command,raiseError=True,showProcess=False):
++    def runChroot(self,command,raiseError=True,showProcess=False,joinErr=False):
+         """Run command in chroot specified by cl_assemble_path"""
+         try:
+             if showProcess:
+                 IOval = None
+             else:
+                 IOval = PIPE
++            if joinErr:
++                ERRval = STDOUT
++            else:
++                ERRval = IOval
+             envdict = {'CHROOT':"on"}
+             envdict.update(os.environ)
+             needAsk = self.clVars.Get('cl_assemble_ask_set') == "on"
+@@ -744,10 +748,10 @@ class cl_assemble(color_print):
+                 if buildarch == "i686":
+                     commandLine = ["linux32"] + commandLine
+             if showProcess and needAsk:
+-                chrootCommand = process(*commandLine,stderr=IOval,
++                chrootCommand = process(*commandLine,stderr=ERRval,
+                                 stdin=None,stdout=IOval,envdict=envdict)
+             else:
+-                chrootCommand = process(*commandLine,stderr=IOval,
++                chrootCommand = process(*commandLine,stderr=ERRval,
+                                 stdout=IOval,envdict=envdict)
+             DEBUG(self._getCommand(chrootCommand.command))
+             if raiseError and chrootCommand.failed():
+@@ -1420,7 +1424,7 @@ class cl_assemble(color_print):
+             # run verbose package emergin for get version
+             checkprocess = self.runChroot(
+                         "emerge -vp \<%s-%s"%
+-                        (pkgName,drvVer),raiseError=False)
++                        (pkgName,drvVer),raiseError=False,joinErr=True)
+             rePackage = re.compile("^\[ebuild[^\]]+]\s+(\S+)")
+             # get version from emerging nvidia-driver
+             nvidiaVersions = \
