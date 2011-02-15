@@ -23,7 +23,7 @@ src_unpack() {
 	cd "${S}"
 
 	# backport from 2.2.10
-	epatch "${FILESDIR}/files/calculate-templates-2.2.9-backport.patch"
+	epatch "${FILESDIR}/calculate-templates-2.2.9-backport.patch"
 }
 
 src_compile() {
