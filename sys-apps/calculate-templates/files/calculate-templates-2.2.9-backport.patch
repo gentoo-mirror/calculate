@@ -1,0 +1,43 @@
+diff --git desktop/desktop/20-kde-always/.kde4/share/config/kcminputrc desktop/desktop/20-kde-always/.kde4/share/config/kcminputrc
+deleted file mode 100644
+index 5cf83e2..0000000
+--- desktop/desktop/20-kde-always/.kde4/share/config/kcminputrc
++++ /dev/null
+@@ -1,9 +0,0 @@
+-# Calculate format=kde
+-[Keyboard]
+-#NumLock mode for notebooks (0-enable, 1-disable, 2-not modify)
+-#?hr_laptop==#
+-NumLock=0
+-#hr_laptop#
+-#?hr_laptop!=#
+-NumLock=2
+-#hr_laptop#
+diff --git install/1merge/konqueror/.calculate_directory install/1merge/konqueror/.calculate_directory
+new file mode 100644
+index 0000000..a9193a9
+--- /dev/null
++++ install/1merge/konqueror/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate belong()!=&&cl_chroot_status!=&&pkg(kde-base/konqueror)!= append=skip
++
+diff --git install/1merge/konqueror/Home.desktop.remove install/1merge/konqueror/Home.desktop.remove
+new file mode 100644
+index 0000000..52b8e1b
+--- /dev/null
++++ install/1merge/konqueror/Home.desktop.remove
+@@ -0,0 +1 @@
++# Calculate append=remove path=/usr/share/applications/kde4 name=Home.desktop
+diff --git install/1merge/portage/make.conf install/1merge/portage/make.conf
+index 6570921..372f186 100644
+--- install/1merge/portage/make.conf
++++ install/1merge/portage/make.conf
+@@ -25,7 +25,7 @@
+ # net-wireless/broadcom-sta, dev-java/sun-jdk and others.
+ #os_install_locale_language#
+ #?os_install_locale_language==ru#
+-# Домустимые лицензии. Требуется указать для таких пакетов, как:
++# Допустимые лицензии. Требуется указать для таких пакетов, как:
+ # net-wireless/broadcom-sta, dev-java/sun-jdk и прочие.
+ #os_install_locale_language#
+ ACCEPT_LICENSE="*"
