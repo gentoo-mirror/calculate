@@ -31,7 +31,6 @@ RDEPEND="
 	!app-misc/cl-desktop-meta
 	!app-misc/cl-useful-meta
 	!mail-client/claws-mail-gtkhtml
-	!net-misc/wicd
 "
 
 RDEPEND="${RDEPEND}
