@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,7 +21,7 @@ RDEPEND="
 	app-portage/layman
 	dev-vcs/git
 	media-fonts/terminus-font
-	sys-apps/calculate-install
+	sys-apps/calculate-utilities
 	sys-apps/ifplugd
 	sys-apps/openrc
 	sys-apps/v86d

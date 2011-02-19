@@ -17,7 +17,6 @@ RDEPEND="${RDEPEND}
 	sys-apps/ethtool
 
 	cdistro_desktop? (
-		app-misc/calculate-install-gui
 		net-misc/dhcpcd
 		sys-apps/pcmciautils
 		sys-apps/usb_modeswitch
@@ -25,7 +24,6 @@ RDEPEND="${RDEPEND}
 		app-admin/sudo
 		dev-python/ipython
 		dev-tcltk/expect
-		sys-apps/calculate-client
 		sys-apps/keyexec
 		sys-apps/preload
 		sys-auth/thinkfinger
@@ -103,7 +101,6 @@ RDEPEND="${RDEPEND}
 		dev-ruby/libxml
 		sci-libs/fftw
 		sys-apps/acl
-		sys-apps/calculate-server
 		sys-apps/gdisk
 		sys-apps/iproute2
 		sys-apps/kexec-tools
