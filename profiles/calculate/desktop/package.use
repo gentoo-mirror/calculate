@@ -60,3 +60,9 @@ dev-libs/libgcrypt static-libs
 
 #for www-client/chromium-9.0.597.94
 dev-libs/libxml2 icu
+
+#for dev-util/qt-creator-2.1.0
+x11-libs/qt-core private-headers
+x11-libs/qt-declarative private-headers
+x11-libs/qt-gui private-headers
+x11-libs/qt-script private-headers
