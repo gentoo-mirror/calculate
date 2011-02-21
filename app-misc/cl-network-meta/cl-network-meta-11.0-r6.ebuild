@@ -62,7 +62,6 @@ RDEPEND="
 		net-analyzer/traceroute
 		net-analyzer/vnstat
 		net-dialup/minicom
-		net-irc/cgiirc
 		net-irc/weechat
 		net-misc/whois
 		net-p2p/bittorrent
