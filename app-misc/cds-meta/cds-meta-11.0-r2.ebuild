@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -11,10 +11,21 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="calculate_nodecoration calculate_nokernel calculate_nonettools
-calculate_nonetwork calculate_nowireless
-calculate_nodhcp calculate_noftp calculate_nojabber calculate_nomail
-calculate_nomysql calculate_nonamed calculate_nopgsql calculate_noproxy
+IUSE="
+calculate_nodecoration
+calculate_nokernel
+calculate_nonettools
+calculate_nonetwork
+calculate_nowireless
+calculate_noapache
+calculate_nodhcp
+calculate_noftp
+calculate_nojabber
+calculate_nomail
+calculate_nomysql
+calculate_nonamed
+calculate_nopgsql
+calculate_noproxy
 "
 
 RDEPEND="
@@ -32,6 +43,7 @@ RDEPEND="${RDEPEND}
 	!calculate_nonetwork? ( app-misc/cl-network-meta )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 
+	!calculate_noapache? ( www-servers/apache )
 	!calculate_nodhcp? ( net-misc/dhcp )
 	!calculate_noftp? (
 		net-ftp/ftp
