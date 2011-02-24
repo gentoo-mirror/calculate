@@ -141,7 +141,7 @@
 =app-text/ghostscript-gpl-8.71-r6
 =app-text/goldendict-1.0.1
 =app-text/hunspell-1.2.11
-=app-text/iso-codes-3.19
+=app-text/iso-codes-3.24
 =app-text/ispell-3.3.02-r1
 =app-text/libpaper-1.1.23
 =app-text/libspectre-0.2.6
@@ -169,11 +169,11 @@
 =dev-lang/tcl-8.5.9
 =dev-lang/tk-8.5.9-r1
 =dev-lang/yasm-1.1.0-r1
-=dev-libs/atk-1.30.0
+=dev-libs/atk-1.32.0
 =dev-libs/boost-1.42.0-r2
 =dev-libs/chmlib-0.40-r1
 =dev-libs/cyrus-sasl-2.1.23-r1
-=dev-libs/dbus-glib-0.88
+=dev-libs/dbus-glib-0.92
 =dev-libs/elfutils-0.149
 =dev-libs/eventlog-0.2.12
 =dev-libs/expat-2.0.1-r3
@@ -261,7 +261,7 @@
 =dev-python/pycairo-1.8.10
 =dev-python/pycups-1.9.53
 =dev-python/pygobject-2.26.0-r1
-=dev-python/pygtk-2.17.0
+=dev-python/pygtk-2.22.0-r1
 =dev-python/pyopenssl-0.11
 =dev-python/python-ldap-2.3.12
 =dev-python/pyxml-0.8.4-r2
@@ -282,14 +282,14 @@
 =dev-util/dialog-1.1.20080819
 =dev-util/diffball-1.0
 =dev-util/gperf-3.0.4
-=dev-util/gtk-doc-am-1.15
+=dev-util/gtk-doc-am-1.16
 =dev-util/intltool-0.41.1
 =dev-util/pkgconfig-0.25-r2
 =dev-util/yacc-1.9.1-r4
 =dev-vcs/git-1.7.3.4-r1
 =gnome-base/gnome-common-2.28.0
 =gnome-base/libglade-2.6.4
-=gnome-base/librsvg-2.26.3
+=gnome-base/librsvg-2.32.1
 =gnome-extra/libgsf-1.14.18
 =kde-base/activitymanager-4.6.0
 =kde-base/akonadi-4.4.9
@@ -520,7 +520,7 @@
 =media-libs/libggi-2.2.2
 =media-libs/libggiwmh-0.3.2
 =media-libs/libgii-1.0.2
-=media-libs/libgphoto2-2.4.9
+=media-libs/libgphoto2-2.4.10
 =media-libs/libgpod-0.8.0
 =media-libs/libid3tag-0.15.1b-r2
 =media-libs/libiec61883-1.1.0
@@ -612,7 +612,7 @@
 =net-libs/liblockfile-1.08
 =net-libs/libnfsidmap-0.21-r1
 =net-libs/libpcap-1.1.1
-=net-libs/libsoup-2.30.2-r1
+=net-libs/libsoup-2.32.2
 =net-libs/libssh-0.4.8
 =net-libs/libvncserver-0.9.7
 =net-libs/neon-0.29.5
@@ -796,7 +796,7 @@
 =sys-fs/squashfs-tools-4.0
 =sys-fs/sysfsutils-2.1.0
 =sys-fs/udev-151-r4
-=sys-fs/udisks-1.0.1-r1
+=sys-fs/udisks-1.0.2
 =sys-fs/xfsprogs-3.0.3
 =sys-kernel/calckernel-3.4.10.903-r23
 =sys-kernel/calculate-sources-2.6.36.3
@@ -945,7 +945,8 @@
 =x11-drivers/xf86-video-vesa-2.3.0
 =x11-drivers/xf86-video-vmware-11.0.3
 =x11-libs/cairo-1.10.2-r1
-=x11-libs/gtk+-2.20.1-r1
+=x11-libs/gdk-pixbuf-2.22.1
+=x11-libs/gtk+-2.22.1-r1
 =x11-libs/libICE-1.0.7
 =x11-libs/libSM-1.2.0
 =x11-libs/libX11-1.4.1
