@@ -1,7 +1,6 @@
 app-admin/eselect
 app-admin/eselect-boost
 app-admin/eselect-ctags
-app-admin/eselect-esd
 app-admin/eselect-fontconfig
 app-admin/eselect-mesa
 app-admin/eselect-opengl
@@ -149,6 +148,7 @@ app-text/wgetpaste
 app-vim/colorschemes
 app-vim/gentoo-syntax
 app-vim/vimcommander
+dev-cpp/atkmm
 dev-cpp/cairomm
 dev-cpp/glibmm
 dev-cpp/gtkmm
@@ -162,6 +162,7 @@ dev-lang/python
 dev-lang/swig
 dev-lang/tcl
 dev-lang/tk
+dev-lang/vala
 dev-lang/yasm
 dev-libs/atk
 dev-libs/boost
@@ -174,8 +175,8 @@ dev-libs/fribidi
 dev-libs/glib
 dev-libs/gmime
 dev-libs/gmp
+dev-libs/gobject-introspection
 dev-libs/icu
-dev-libs/ilbc-rfc3951
 dev-libs/iniparser
 dev-libs/klibc
 dev-libs/libIDL
@@ -236,6 +237,7 @@ dev-perl/IO-Socket-SSL
 dev-perl/Locale-gettext
 dev-perl/Net-SMTP-SSL
 dev-perl/Net-SSLeay
+dev-perl/Text-CSV
 dev-perl/URI
 dev-perl/XML-LibXML
 dev-perl/XML-NamespaceSupport
@@ -329,7 +331,6 @@ gnome-base/libgtop
 gnome-base/librsvg
 gnome-base/nautilus
 gnome-base/orbit
-gnome-extra/at-spi
 gnome-extra/bug-buddy
 gnome-extra/deskbar-applet
 gnome-extra/evolution-data-server
@@ -345,12 +346,8 @@ gnome-extra/gnome-utils
 gnome-extra/gtkhtml
 gnome-extra/gucharmap
 gnome-extra/hamster-applet
-gnome-extra/libgail-gnome
-gnome-extra/libgsf
-gnome-extra/mousetweaks
 gnome-extra/nm-applet
 gnome-extra/polkit-gnome
-gnome-extra/sensors-applet
 gnome-extra/swfdec-gnome
 gnome-extra/yelp
 gnome-extra/zenity
@@ -413,7 +410,6 @@ media-libs/libcaca
 media-libs/libcanberra
 media-libs/libcddb
 media-libs/libdc1394
-media-libs/libdc1394
 media-libs/libdca
 media-libs/libdiscid
 media-libs/libdv
@@ -443,7 +439,6 @@ media-libs/libvorbis
 media-libs/libvpx
 media-libs/libwmf
 media-libs/mesa
-media-libs/musicbrainz
 media-libs/musicbrainz
 media-libs/nas
 media-libs/openal
@@ -492,7 +487,6 @@ media-plugins/live
 media-sound/alsa-headers
 media-sound/alsa-utils
 media-sound/cdparanoia
-media-sound/esound
 media-sound/gsm
 media-sound/lame
 media-sound/rhythmbox
@@ -531,8 +525,6 @@ net-libs/libproxy
 net-libs/libsoup
 net-libs/libsoup-gnome
 net-libs/neon
-net-libs/opal
-net-libs/ptlib
 net-libs/rb_libtorrent
 net-libs/telepathy-glib
 net-libs/webkit-gtk
@@ -576,7 +568,6 @@ net-print/gutenprint
 net-print/hplip
 net-print/libgnomecups
 net-print/samsung-unified-linux-driver
-net-voip/ekiga
 net-wireless/b43-firmware
 net-wireless/b43-fwcutter
 net-wireless/blueman
@@ -736,7 +727,6 @@ sys-libs/e2fsprogs-libs
 sys-libs/gdbm
 sys-libs/glibc
 sys-libs/gpm
-sys-libs/libavc1394
 sys-libs/libcap
 sys-libs/libieee1284
 sys-libs/libkudzu
@@ -870,6 +860,7 @@ x11-drivers/xf86-video-vmware
 x11-libs/cairo
 x11-libs/compiz-bcop
 x11-libs/compizconfig-backend-gconf
+x11-libs/gdk-pixbuf
 x11-libs/gksu
 x11-libs/gtk+
 x11-libs/gtksourceview
