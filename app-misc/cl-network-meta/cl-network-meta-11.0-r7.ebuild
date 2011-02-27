@@ -53,7 +53,6 @@ RDEPEND="
 	cdistro_CDS? (
 		app-text/wgetpaste
 		net-analyzer/fail2ban
-		net-analyzer/ipcad
 		net-analyzer/iptraf
 		net-analyzer/macchanger
 		net-analyzer/nmap
