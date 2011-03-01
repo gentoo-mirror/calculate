@@ -53,11 +53,11 @@
 =app-i18n/man-pages-ru-3.27.2066.1435.20101003
 =app-misc/ca-certificates-20090709
 =app-misc/calculate-meta-11.0-r5
-=app-misc/cds-meta-11.0-r2
+=app-misc/cds-meta-11.0-r3
 =app-misc/cl-base-meta-11.0-r1
 =app-misc/cl-decoration-meta-11.0-r5
 =app-misc/cl-nettools-meta-11.0-r5
-=app-misc/cl-network-meta-11.0-r7
+=app-misc/cl-network-meta-11.0-r8
 =app-misc/cl-tools-meta-11.0-r9
 =app-misc/cl-wireless-meta-10.9-r4
 =app-misc/livecd-tools-1.0.42
@@ -107,6 +107,7 @@
 =dev-libs/expat-2.0.1-r3
 =dev-libs/glib-2.26.1-r1
 =dev-libs/gmp-4.3.2
+=dev-libs/iksemel-1.3
 =dev-libs/iniparser-3.0b-r1
 =dev-libs/klibc-1.5.12-r1
 =dev-libs/libassuan-2.0.0
@@ -208,6 +209,7 @@
 =media-gfx/fbgrab-1.0
 =media-gfx/imagemagick-6.6.5.6
 =media-gfx/splashutils-1.5.4.3-r3
+=media-libs/alsa-lib-1.0.23
 =media-libs/fontconfig-2.8.0
 =media-libs/freetype-2.4.3-r2
 =media-libs/gd-2.0.35-r1
@@ -215,9 +217,14 @@
 =media-libs/jpeg-8b
 =media-libs/lcms-1.19
 =media-libs/libmng-1.0.10
+=media-libs/libogg-1.2.0
 =media-libs/libpng-1.4.5
+=media-libs/libvorbis-1.3.1
 =media-libs/openjpeg-1.3-r2
+=media-libs/spandsp-0.0.6_pre12-r1
+=media-libs/speex-1.2_rc1
 =media-libs/tiff-3.9.4
+=media-sound/alsa-headers-1.0.23
 =net-analyzer/fail2ban-0.8.4-r2
 =net-analyzer/iptraf-3.0.0-r5
 =net-analyzer/macchanger-1.5.0-r2
@@ -232,6 +239,7 @@
 =net-dialup/ppp-2.4.4-r25
 =net-dialup/pptpclient-1.7.2-r2
 =net-dialup/pptpd-1.3.4
+=net-dialup/radiusclient-ng-0.5.6
 =net-dialup/rp-pppoe-3.8-r2
 =net-dialup/xl2tpd-1.2.4
 =net-dns/bind-9.7.2_p3-r9
@@ -243,6 +251,7 @@
 =net-ftp/ftp-0.17-r7
 =net-ftp/ftpbase-0.01-r2
 =net-ftp/proftpd-1.3.3d-r1
+=net-ftp/tftp-hpa-0.49-r1
 =net-im/ejabberd-2.1.5
 =net-im/jabber-base-0.01
 =net-irc/weechat-0.3.3
@@ -253,6 +262,10 @@
 =net-mail/dovecot-1.2.16
 =net-mail/fetchmail-6.3.17
 =net-mail/mailbase-1
+=net-misc/asterisk-1.6.2.16.2-r2
+=net-misc/asterisk-core-sounds-1.4.19
+=net-misc/asterisk-extra-sounds-1.4.11
+=net-misc/asterisk-moh-opsound-2.03
 =net-misc/bridge-utils-1.4
 =net-misc/curl-7.20.0-r2
 =net-misc/dhcp-3.1.2_p1
