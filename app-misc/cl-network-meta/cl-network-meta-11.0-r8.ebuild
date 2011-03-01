@@ -62,9 +62,8 @@ RDEPEND="
 		net-analyzer/vnstat
 		net-dialup/minicom
 		net-irc/weechat
+		net-ftp/tftp-hpa
 		net-misc/whois
-		net-p2p/bittorrent
-		net-p2p/btpd
 		www-client/links
 	)
 "

@@ -18,6 +18,8 @@ calculate_nonettools
 calculate_nonetwork
 calculate_nowireless
 calculate_noapache
+calculate_noasterisk
+calculate_nobittorrent
 calculate_nodhcp
 calculate_noftp
 calculate_nojabber
@@ -44,6 +46,11 @@ RDEPEND="${RDEPEND}
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 
 	!calculate_noapache? ( www-servers/apache )
+	!calculate_noasterisk? ( net-misc/asterisk )
+	!calculate_nobittorrent? (
+		net-p2p/bittorrent
+		net-p2p/btpd
+	)
 	!calculate_nodhcp? ( net-misc/dhcp )
 	!calculate_noftp? (
 		net-ftp/ftp
