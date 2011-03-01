@@ -108,6 +108,7 @@ dev-libs/eventlog
 dev-libs/expat
 dev-libs/glib
 dev-libs/gmp
+dev-libs/iksemel
 dev-libs/iniparser
 dev-libs/klibc
 dev-libs/libassuan
@@ -209,6 +210,7 @@ media-gfx/cds-themes
 media-gfx/fbgrab
 media-gfx/imagemagick
 media-gfx/splashutils
+media-libs/alsa-lib
 media-libs/fontconfig
 media-libs/freetype
 media-libs/gd
@@ -216,9 +218,14 @@ media-libs/jasper
 media-libs/jpeg
 media-libs/lcms
 media-libs/libmng
+media-libs/libogg
 media-libs/libpng
+media-libs/libvorbis
 media-libs/openjpeg
+media-libs/spandsp
+media-libs/speex
 media-libs/tiff
+media-sound/alsa-headers
 net-analyzer/fail2ban
 net-analyzer/iptraf
 net-analyzer/macchanger
@@ -233,6 +240,7 @@ net-dialup/minicom
 net-dialup/ppp
 net-dialup/pptpclient
 net-dialup/pptpd
+net-dialup/radiusclient-ng
 net-dialup/rp-pppoe
 net-dialup/xl2tpd
 net-dns/bind
@@ -244,6 +252,7 @@ net-fs/samba
 net-ftp/ftp
 net-ftp/ftpbase
 net-ftp/proftpd
+net-ftp/tftp-hpa
 net-im/ejabberd
 net-im/jabber-base
 net-irc/weechat
@@ -254,6 +263,10 @@ net-libs/libpcap
 net-mail/dovecot
 net-mail/fetchmail
 net-mail/mailbase
+net-misc/asterisk
+net-misc/asterisk-core-sounds
+net-misc/asterisk-extra-sounds
+net-misc/asterisk-moh-opsound
 net-misc/bridge-utils
 net-misc/curl
 net-misc/dhcp
