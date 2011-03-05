@@ -1,0 +1,13 @@
+diff --git a/pym/cl_vars_client.py b/pym/cl_vars_client.py
+index b3a7794..fb738ba 100644
+--- a/pym/cl_vars_client.py
++++ b/pym/cl_vars_client.py
+@@ -77,7 +77,7 @@ class Data:
+         ".local/share/mime/mime.cache", ".gvfs",
+         ".kde4/share/apps/nepomuk/repository/main/data", ".logout",
+         ".Xauthority", ".thumbnails", ".mozilla/firefox/*/Cache",
+-        ".kde4/socket-*", ".cache/"]}
++        ".kde4/socket-*", ".cache/", ".local/share/Trash"]}
+ 
+     # Директории или файлы которые удаляются
+     # при синхронизации профиля пользователя
