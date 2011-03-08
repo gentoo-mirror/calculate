@@ -103,6 +103,7 @@ RDEPEND="${RDEPEND}
 		sys-apps/acl
 		sys-apps/gdisk
 		sys-apps/iproute2
+		sys-apps/lm_sensors
 		sys-apps/kexec-tools
 		sys-apps/memtest86+
 		sys-apps/pciutils
@@ -132,6 +133,7 @@ RDEPEND="${RDEPEND}
 	)
 	cdistro_CMC? (
 		app-misc/screen
+		sys-apps/lm_sensors
 		sys-power/powertop
 	)
 "
