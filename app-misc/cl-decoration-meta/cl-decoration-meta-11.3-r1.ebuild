@@ -23,7 +23,7 @@ RDEPEND="
 	)
 	cdistro_CLD? (
 		media-gfx/cld-themes
-		x11-themes/gtk-engines-qtcurve
+		x11-themes/oxygen-gtk
 		x11-themes/xfce4-icon-theme
 	)
 	cdistro_CLDG? (
