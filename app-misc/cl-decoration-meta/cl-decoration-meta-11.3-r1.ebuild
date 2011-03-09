@@ -22,6 +22,7 @@ RDEPEND="
 		app-vim/vimcommander
 	)
 	cdistro_CLD? (
+		!x11-themes/gtk-engines-qtcurve
 		media-gfx/cld-themes
 		x11-themes/oxygen-gtk
 		x11-themes/xfce4-icon-theme
