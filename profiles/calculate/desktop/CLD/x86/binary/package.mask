@@ -159,6 +159,7 @@ dev-lang/python
 dev-lang/swig
 dev-lang/tcl
 dev-lang/tk
+dev-lang/v8
 dev-lang/yasm
 dev-libs/atk
 dev-libs/boost
@@ -237,7 +238,11 @@ dev-perl/Net-SMTP-SSL
 dev-perl/Net-SSLeay
 dev-perl/PlRPC
 dev-perl/URI
+dev-perl/XML-LibXML
+dev-perl/XML-NamespaceSupport
 dev-perl/XML-Parser
+dev-perl/XML-SAX
+dev-perl/XML-Simple
 dev-perl/YAML-Tiny
 dev-perl/libwww-perl
 dev-python/PyQt4
@@ -276,6 +281,7 @@ dev-util/gperf
 dev-util/gtk-doc-am
 dev-util/intltool
 dev-util/pkgconfig
+dev-util/scons
 dev-util/yacc
 dev-vcs/git
 gnome-base/gnome-common
@@ -997,6 +1003,7 @@ x11-libs/xcb-util
 x11-libs/xosd
 x11-libs/xtrans
 x11-misc/gccmakedep
+x11-misc/icon-naming-utils
 x11-misc/imake
 x11-misc/makedepend
 x11-misc/mkxf86config
@@ -1036,7 +1043,8 @@ x11-proto/xf86rushproto
 x11-proto/xf86vidmodeproto
 x11-proto/xineramaproto
 x11-proto/xproto
-x11-themes/gtk-engines-qtcurve
 x11-themes/hicolor-icon-theme
-x11-themes/oxygen-molecule
+x11-themes/oxygen-gtk
+x11-themes/tango-icon-theme
 x11-themes/xcursor-themes
+x11-themes/xfce4-icon-theme
