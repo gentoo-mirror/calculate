@@ -13,8 +13,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CLS cdistro_CMC cdistro_CDS"
 
-#x11-themes/oxygen-molecule (CLD) needed for chromium
-#x11-themes/xfce4-icon-theme (CLDX) needed for chromium
+#x11-themes/xfce4-icon-theme (CLD, CLDX) needed for chromium
 RDEPEND="
 	media-gfx/splashutils
 
@@ -25,7 +24,7 @@ RDEPEND="
 	cdistro_CLD? (
 		media-gfx/cld-themes
 		x11-themes/gtk-engines-qtcurve
-		x11-themes/oxygen-molecule
+		x11-themes/xfce4-icon-theme
 	)
 	cdistro_CLDG? (
 		media-gfx/cldg-themes
