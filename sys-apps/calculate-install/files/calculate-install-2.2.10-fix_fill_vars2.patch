@@ -59,3 +59,65 @@ index 8f5dd33..5b7d52c 100644
  
      def setNoColor(self):
          self.color = False
+diff --git a/i18n/cl_install_ru.mo b/i18n/cl_install_ru.mo
+index ff3daaf..9fe439a 100644
+Binary files a/i18n/cl_install_ru.mo and b/i18n/cl_install_ru.mo differ
+diff --git a/pym/cl_fill_install.py b/pym/cl_fill_install.py
+index 56120d6..f69667c 100644
+--- a/pym/cl_fill_install.py
++++ b/pym/cl_fill_install.py
+@@ -69,8 +69,8 @@ class fillVars(object, glob_attr):
+         actionsMap = {'merge':'up',
+                       'system':'up'}
+         cl_action = self.Get('cl_action')
+-        clRootType = self.Get('os_install_root_type')
+-        if cl_action == "system" and clRootType == "flash":
++        if cl_action == 'system' and \
++            self.Get('os_install_root_type') == 'flash':
+             return ""
+         return actionsMap[cl_action] if cl_action in actionsMap else ""
+ 
+@@ -78,9 +78,8 @@ class fillVars(object, glob_attr):
+         """Need perform templates for install:system"""
+         if self.Get('cl_assemble_prepare_action') != "":
+             return ""
+-        if self.Get('os_install_root_type') == "flash":
+-            return ""
+-        if self.Get('cl_action') == 'system':
++        if self.Get('cl_action') == 'system' and \
++            self.Get('os_install_root_type') != "flash":
+             return "up"
+         else:
+             return ""
+@@ -89,8 +88,7 @@ class fillVars(object, glob_attr):
+         """Need perform templates for install:flash"""
+         actionsMap = {'system':'up'}
+         clAction = self.Get('cl_action')
+-        clRootType = self.Get('os_install_root_type')
+-        if clAction == 'system' and clRootType == 'flash':
++        if clAction == 'system' and self.Get('os_install_root_type') == 'flash':
+             return "up"
+         return ""
+ 
+diff --git a/pym/cl_install.py b/pym/cl_install.py
+index 8f5dd33..5b7d52c 100644
+--- a/pym/cl_install.py
++++ b/pym/cl_install.py
+@@ -49,8 +49,6 @@ def pop_install_errors():
+ 
+ defaultExit = cl_overriding.exit
+ defaultPrintERROR = cl_overriding.printERROR
+-cl_overriding.exit = installExit
+-cl_overriding.printERROR = overprintERROR
+ 
+ from cl_lang import lang
+ from cl_fill import clLocale
+@@ -779,6 +777,8 @@ class cl_install(color_print, SignalInterrupt):
+         self.stdoutHide = None
+         self.stderrHide = None
+         Spinner().setWriteFunc(self.defaultPrint)
++        cl_overriding.exit = installExit
++        cl_overriding.printERROR = overprintERROR
+ 
+     def setNoColor(self):
+         self.color = False
