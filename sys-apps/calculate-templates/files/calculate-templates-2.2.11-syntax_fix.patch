@@ -1,0 +1,77 @@
+commit 89964a8894be85d69531218c74859f80c75fa39e
+Author: Alexander Tratsevskiy <at@calculate.ru>
+Date:   Fri Mar 11 17:12:14 2011 +0300
+
+    Fix make.conf
+
+diff --git a/install/1merge/portage/make.conf b/install/1merge/portage/make.conf
+index c8a7bd9..a539fe6 100644
+--- a/install/1merge/portage/make.conf
++++ b/install/1merge/portage/make.conf
+@@ -1,6 +1,6 @@
+ # Calculate comment=# exists(/etc/make.conf,root)==&&cl_chroot_status==off||ac_install_system==up||os_install_root_type==livecd
+ 
+-#?os_install_locale_language!=ru&&?os_install_locale_language!=bg#
++#?os_install_locale_language!=ru&&os_install_locale_language!=bg#
+ #-------------------
+ # Basic build option
+ #-------------------
+@@ -30,7 +30,7 @@
+ #os_install_locale_language#
+ #CALCULATE=""
+ 
+-#?os_install_locale_language!=ru&&?os_install_locale_language!=bg#
++#?os_install_locale_language!=ru&&os_install_locale_language!=bg#
+ # Valid license. Need to specify for such packages as:
+ # net-wireless/broadcom-sta, dev-java/sun-jdk and others.
+ #os_install_locale_language#
+@@ -44,7 +44,7 @@
+ #os_install_locale_language#
+ ACCEPT_LICENSE="*"
+ 
+-#?os_install_locale_language!=ru&&?os_install_locale_language!=bg#
++#?os_install_locale_language!=ru&&os_install_locale_language!=bg#
+ # Alternative mirror updates repository. In case of problems with access
+ # at the beginning try to update the overlay by running `layman-s calculate`.
+ #os_install_locale_language#
+@@ -62,7 +62,7 @@ ACCEPT_LICENSE="*"
+ #PORTAGE_BINHOST="ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/#-os_install_linux_shortname-#/grp/#-os_install_arch_machine-#"
+ #os_install_linux_shortname#
+ 
+-#?os_install_locale_language!=ru&&?os_install_locale_language!=bg#
++#?os_install_locale_language!=ru&&os_install_locale_language!=bg#
+ # Connecting overlays layman. You should not change this setting, as this may
+ # disrupt the package manager.
+ #os_install_locale_language#
+@@ -76,11 +76,11 @@ ACCEPT_LICENSE="*"
+ #os_install_locale_language#
+ source /var/lib/layman/make.conf
+ 
+-#?os_install_locale_language!=ru&&?os_install_locale_language!=bg#
++#?os_install_locale_language!=ru&&os_install_locale_language!=bg#
+ #-----------------
+ # Compiler Options
+ #-----------------
+-# Additional options passed to the compiler. The flag "-march = native"
++# Additional options passed to the compiler. The flag "-march=native"
+ # Optimize the program by your hardware.
+ #os_install_locale_language#
+ #?os_install_locale_language==ru#
+@@ -100,7 +100,7 @@ source /var/lib/layman/make.conf
+ #CFLAGS="-O2 -march=native -pipe"
+ #CXXFLAGS="${CFLAGS}"
+ 
+-#?os_install_locale_language!=ru&&?os_install_locale_language!=bg#
++#?os_install_locale_language!=ru&&os_install_locale_language!=bg#
+ #-------------------
+ # Faster Compilation
+ #-------------------
+@@ -120,7 +120,7 @@ source /var/lib/layman/make.conf
+ #os_install_locale_language#
+ MAKEOPTS="#-os_install_makeopts-#"
+ 
+-#?os_install_locale_language!=ru&&?os_install_locale_language!=bg#
++#?os_install_locale_language!=ru&&os_install_locale_language!=bg#
+ # The number of packets for simultaneous assembly.
+ #os_install_locale_language#
+ #?os_install_locale_language==ru#
