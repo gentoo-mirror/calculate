@@ -154,7 +154,7 @@ RDEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	app-admin/logrotate
 	app-admin/syslog-ng
-	sys-apps/hotplug
+	!sys-apps/hotplug
 	sys-process/vixie-cron
 "
 
