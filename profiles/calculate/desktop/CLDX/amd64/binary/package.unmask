@@ -21,9 +21,10 @@
 =app-arch/cpio-2.11
 =app-arch/dump-0.4.41
 =app-arch/gzip-1.4
+=app-arch/libarchive-2.8.4-r1
 =app-arch/p7zip-9.13
 =app-arch/rar-3.9.3
-=app-arch/rpm2targz-9.0.0.3g
+=app-arch/rpm2targz-9.0.0.4g
 =app-arch/tar-1.23-r2
 =app-arch/unace-1.2b-r1
 =app-arch/unarj-2.65
@@ -127,6 +128,7 @@
 =app-text/docbook-xml-dtd-4.1.2-r6
 =app-text/docbook-xml-dtd-4.3-r1
 =app-text/docbook-xml-dtd-4.4-r2
+=app-text/docbook-xml-dtd-4.5-r1
 =app-text/docbook-xsl-stylesheets-1.75.2
 =app-text/enchant-1.6.0
 =app-text/evince-2.32.0-r1
@@ -157,7 +159,7 @@
 =dev-cpp/gtkmm-2.22.0
 =dev-cpp/pangomm-2.26.3
 =dev-db/sqlite-3.7.5
-=dev-lang/nasm-2.08.02
+=dev-lang/nasm-2.09.04
 =dev-lang/orc-0.4.11
 =dev-lang/perl-5.12.2-r6
 =dev-lang/python-2.6.6-r2
@@ -195,7 +197,7 @@
 =dev-libs/libgpg-error-1.10
 =dev-libs/libisofs-1.0.0
 =dev-libs/libksba-1.1.0
-=dev-libs/liblinebreak-1.2
+=dev-libs/liblinebreak-2.0
 =dev-libs/libmcs-0.7.1-r2
 =dev-libs/libmowgli-0.7.0
 =dev-libs/libnatspec-0.2.6
@@ -247,7 +249,7 @@
 =dev-perl/glib-perl-1.223
 =dev-perl/libwww-perl-5.836
 =dev-python/chardet-2.0.1
-=dev-python/cython-0.13
+=dev-python/cython-0.14.1
 =dev-python/dbus-python-0.83.2
 =dev-python/foolscap-0.6.1
 =dev-python/gst-python-0.10.20
@@ -274,7 +276,7 @@
 =dev-util/bin_replace_string-0.2
 =dev-util/boost-build-1.42.0
 =dev-util/chromium-tools-0.1.6
-=dev-util/cmake-2.8.1-r2
+=dev-util/cmake-2.8.4
 =dev-util/cppunit-1.12.1
 =dev-util/ctags-5.7
 =dev-util/desktop-file-utils-0.17
@@ -355,6 +357,7 @@
 =media-libs/jasper-1.900.1-r3
 =media-libs/jpeg-8b
 =media-libs/lcms-1.19
+=media-libs/lcms-2.0a
 =media-libs/libart_lgpl-2.3.21-r1
 =media-libs/libass-0.9.11
 =media-libs/libcaca-0.99_beta17
@@ -560,7 +563,7 @@
 =sys-apps/grep-2.5.4-r1
 =sys-apps/groff-1.20.1-r3
 =sys-apps/hdparm-9.28
-=sys-apps/help2man-1.37.1
+=sys-apps/help2man-1.38.2
 =sys-apps/hotplug-20040923-r2
 =sys-apps/hotplug-base-20040401
 =sys-apps/hwdata-gentoo-0.4
@@ -856,7 +859,7 @@
 =x11-libs/xtrans-1.2.6
 =x11-misc/gccmakedep-1.0.2
 =x11-misc/icon-naming-utils-0.8.90
-=x11-misc/imake-1.0.3
+=x11-misc/imake-1.0.4
 =x11-misc/ktsuss-1.4
 =x11-misc/makedepend-1.0.3
 =x11-misc/mkxf86config-0.9.10
@@ -868,7 +871,7 @@
 =x11-misc/xdg-utils-1.0.2_p20100618
 =x11-misc/xdialog-2.3.1
 =x11-misc/xkeyboard-config-2.1
-=x11-misc/xorg-cf-files-1.0.3
+=x11-misc/xorg-cf-files-1.0.4
 =x11-misc/xscreensaver-5.12-r1
 =x11-plugins/pidgin-hotkeys-0.2.4
 =x11-plugins/pidgin-libnotify-0.14
