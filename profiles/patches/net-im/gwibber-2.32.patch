@@ -1,0 +1,15 @@
+diff --git a/gwibber/microblog/util/const.py b/gwibber/microblog/util/const.py
+index 9d88956..46c6b9c 100644
+--- a/gwibber/microblog/util/const.py
++++ b/gwibber/microblog/util/const.py
+@@ -17,8 +17,8 @@ if environ.has_key("FB_APP_KEY"):
+ else:
+   FB_APP_KEY = "71b85c6d8cb5bbb9f1a3f8bbdcdd4b05"
+ 
+-TWITTER_OAUTH_KEY = "VDOuA5qCJ1XhjaSa4pl76g"
+-TWITTER_OAUTH_SECRET = "BqHlB8sMz5FhZmmFimwgiIdB0RiBr72Y0bio49IVJM"
++TWITTER_OAUTH_KEY = "irARiVrv825Fl2oZaYiQA"
++TWITTER_OAUTH_SECRET = "qYZa8Dszrow6vry4iwtSm1zTidnW7ii8IQztgXWZY"
+ 
+ # Gwibber
+ MAX_MESSAGE_LENGTH = 140
