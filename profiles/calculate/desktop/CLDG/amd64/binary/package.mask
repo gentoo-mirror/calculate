@@ -412,7 +412,6 @@ media-libs/imlib2
 media-libs/jasper
 media-libs/jpeg
 media-libs/lcms
-media-libs/lcms
 media-libs/libao
 media-libs/libart_lgpl
 media-libs/libass
@@ -533,6 +532,7 @@ net-libs/libpcap
 net-libs/libproxy
 net-libs/libsoup
 net-libs/libsoup-gnome
+net-libs/libtirpc
 net-libs/neon
 net-libs/rb_libtorrent
 net-libs/telepathy-glib
@@ -561,7 +561,7 @@ net-misc/vpnc
 net-misc/wget
 net-misc/whois
 net-nds/openldap
-net-nds/portmap
+net-nds/rpcbind
 net-news/liferea
 net-p2p/deluge
 net-p2p/linuxdcpp
