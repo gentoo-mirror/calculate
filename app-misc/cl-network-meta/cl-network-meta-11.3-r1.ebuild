@@ -31,6 +31,7 @@ RDEPEND="
 		net-ftp/filezilla
 		net-im/pidgin
 		net-irc/xchat
+		net-misc/gwibber
 		net-news/liferea
 		net-p2p/deluge
 		net-p2p/linuxdcpp
