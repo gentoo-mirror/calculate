@@ -1,0 +1,23 @@
+commit e08fc6a34efa599696006c48bf90efea169f107d
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Mar 15 11:57:53 2011 +0300
+
+    Fix dialogYesNo for ssh install.
+
+diff --git a/pym/server/utils.py b/pym/server/utils.py
+index 018ec8a..f9268d1 100644
+--- a/pym/server/utils.py
++++ b/pym/server/utils.py
+@@ -73,9 +73,10 @@ def dialogYesNo(message, reYes=re.compile("^ye?s?$",re.I),
+     """Вывод сообщения, ожидание набора Yes или No (в любом регистре)
+ 
+     если Yes - True, если No - False"""
+-    #sys.stdout.write(message + ": ")
++    sys.stdout.write(message + ": ")
++    sys.stdout.flush()
+     #strIn=sys.stdin.readline().lower().strip()
+-    strIn = raw_input(message + ": ")    
++    strIn = raw_input("")    
+     sys.stdout.write("\n")
+     if reYes.match(strIn):
+         return True
