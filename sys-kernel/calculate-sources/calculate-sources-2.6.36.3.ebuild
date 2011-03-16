@@ -33,7 +33,7 @@ src_unpack() {
 	# apply patch bfs
 	if use bfs
 	then
-		epatch "${FILESDIR}/1810_sched-bfs-360-2.6.36.2.patch" || \
+		epatch "${FILESDIR}/1810_sched-bfs-360-2.6.36.3.patch" || \
 			die "Failed apply bfs patch"
 	fi
 }
