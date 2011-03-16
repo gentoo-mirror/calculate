@@ -2831,7 +2831,7 @@ Index: linux-2.6.36.2-ck1/kernel/sched_bfs.c
 +/*
 + * calc_load - update the avenrun load estimates every LOAD_FREQ seconds.
 + */
-+void calc_global_load(unsigned load ticks)
++void calc_global_load(unsigned long ticks)
 +{
 +	long active;
 +
