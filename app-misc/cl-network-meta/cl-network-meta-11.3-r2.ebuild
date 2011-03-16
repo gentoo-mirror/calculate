@@ -18,6 +18,7 @@ RDEPEND="
 	cdistro_desktop? (
 		app-text/wgetpaste
 		net-analyzer/nmap
+		net-analyzer/vnstat
 		net-im/skype
 		www-client/chromium
 		www-plugins/adobe-flash
