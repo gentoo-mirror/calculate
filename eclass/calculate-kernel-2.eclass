@@ -60,6 +60,7 @@ vmlinuz_src_compile() {
 	cd ${S}
 	DEFAULT_KERNEL_SOURCE="${S}" CMD_KERNEL_DIR="${S}" cl-kernel \
 		--ebuild \
+		${CL_KERNEL_OPTS} \
 		--kerneldir=${S} \
 		--set cl_kernel_cache_path=${WORKDIR}/cache \
 		--set cl_kernel_temp_path=${S}/temp \

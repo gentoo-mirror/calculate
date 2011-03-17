@@ -20,6 +20,7 @@ DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.10.903-r23
 	sys-apps/v86d )"
 
 IUSE="bfq bfs"
+CL_KERNEL_OPTS="--lvm --mdadm --dmraid"
 
 src_unpack() {
 	calculate-kernel-2_src_unpack
