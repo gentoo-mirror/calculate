@@ -2,6 +2,17 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-install-2.2.8.ebuild, -calculate-install-2.2.8-r1.ebuild,
+  -calculate-install-2.2.8-r2.ebuild,
+  -files/calculate-install-2.2.8-fix_bind_mounts.patch,
+  -files/calculate-install-2.2.8-fix_initrd_optimization.patch,
+  -calculate-install-2.2.9.ebuild, -calculate-install-2.2.10.ebuild,
+  -calculate-install-2.2.10-r1.ebuild, -calculate-install-2.2.10-r2.ebuild,
+  -files/calculate-install-2.2.10-fix_fill_vars.patch,
+  -files/calculate-install-2.2.10-fix_fill_vars2.patch:
+  Remove old.
+
 *calculate-install-2.2.11 (11 Mar 2011)
 
   11 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>

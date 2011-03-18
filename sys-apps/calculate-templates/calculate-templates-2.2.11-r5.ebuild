@@ -22,8 +22,12 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 
-	# backport patch
-	epatch "${FILESDIR}/calculate-templates-2.2.8-backport.patch"
+	# patch, which fix syntax bug
+	epatch "${FILESDIR}/calculate-templates-2.2.11-syntax_fix.patch"
+	# patch, hide needless icons
+	epatch "${FILESDIR}/calculate-templates-2.2.11-hide_couch2.patch"
+	# patch for fix scratch boot sync
+	epatch "${FILESDIR}/calculate-templates-2.2.11-fix_scratch.patch"
 }
 
 src_compile() {
