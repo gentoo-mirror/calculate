@@ -1,5 +1,5 @@
 diff --git a/block/Kconfig.iosched b/block/Kconfig.iosched
-index 3199b76..5905452 100644
+index 3199b76..e8c9dd3 100644
 --- a/block/Kconfig.iosched
 +++ b/block/Kconfig.iosched
 @@ -43,6 +43,28 @@ config CFQ_GROUP_IOSCHED
@@ -1218,7 +1218,7 @@ index 0000000..9d06ceb
 +}
 diff --git a/block/bfq-iosched.c b/block/bfq-iosched.c
 new file mode 100644
-index 0000000..7257521
+index 0000000..7ec2b12
 --- /dev/null
 +++ b/block/bfq-iosched.c
 @@ -0,0 +1,2404 @@
@@ -2898,7 +2898,7 @@ index 0000000..7257521
 +			if (bfq_bfqq_budget_timeout(bfqq))
 +				bfq_bfqq_expire(bfqd, bfqq, 0,
 +						BFQ_BFQQ_BUDGET_TIMEOUT);
-+			__blk_run_queue(bfqd->queue);
++			__blk_run_queue(bfqd->queue, false);
 +		}
 +	}
 +}
@@ -3134,7 +3134,7 @@ index 0000000..7257521
 +	unsigned long flags;
 +
 +	spin_lock_irqsave(q->queue_lock, flags);
-+	__blk_run_queue(q);
++	__blk_run_queue(q, false);
 +	spin_unlock_irqrestore(q->queue_lock, flags);
 +}
 +
