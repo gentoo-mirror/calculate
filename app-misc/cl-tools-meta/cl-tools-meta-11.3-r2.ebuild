@@ -11,7 +11,16 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="cdistro_CDS cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CLS cdistro_CMC"
+IUSE="
+	cdistro_CDS
+	cdistro_desktop
+	cdistro_CLD
+	cdistro_CLDG
+	cdistro_CLDX
+	cdistro_CLS
+	cdistro_CMC
+	calculate_noarch
+"
 
 RDEPEND="${RDEPEND}
 	sys-apps/ethtool
@@ -140,14 +149,16 @@ RDEPEND="${RDEPEND}
 
 # Archive
 RDEPEND="${RDEPEND}
-	app-arch/arj
-	app-arch/dump
-	app-arch/p7zip
-	app-arch/rar
-	app-arch/unace
-	app-arch/unarj
-	app-arch/unzip
-	app-arch/zip
+	!calculate_noarch? (
+		app-arch/arj
+		app-arch/dump
+		app-arch/p7zip
+		app-arch/rar
+		app-arch/unace
+		app-arch/unarj
+		app-arch/unzip
+		app-arch/zip
+	)
 "
 
 # Base
