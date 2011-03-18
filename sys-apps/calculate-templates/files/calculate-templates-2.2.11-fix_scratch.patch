@@ -1,9 +1,3 @@
-commit 65773dff40e2aec67059a6e32d17da2c91d81508
-Author: Mike Hiretsky <mh@calculate.ru>
-Date:   Fri Mar 18 10:32:36 2011 +0300
-
-    Fix scratch boot sync.
-
 diff --git install/1merge/calculate-install/boot/.calculate_directory install/1merge/calculate-install/boot/.calculate_directory
 new file mode 100644
 index 0000000..bd90c3e
@@ -18,13 +12,20 @@ index 0000000..3c79ab6
 +++ install/1merge/calculate-install/boot/scratch
 @@ -0,0 +1 @@
 +# Calculate link=/etc/init.d/scratch symbolic
+diff --git install/1merge/calculate-install/init.d/.calculate_directory install/1merge/calculate-install/init.d/.calculate_directory
+new file mode 100644
+index 0000000..eb39d4f
+--- /dev/null
++++ install/1merge/calculate-install/init.d/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate path=/etc os_install_scratch==on
 diff --git install/1merge/calculate-install/init.d/scratch install/1merge/calculate-install/init.d/scratch
 new file mode 100644
-index 0000000..59288f1
+index 0000000..f48bc99
 --- /dev/null
 +++ install/1merge/calculate-install/init.d/scratch
 @@ -0,0 +1,15 @@
-+# Calculate chmod=0755 os_install_scratch==on
++# Calculate chmod=0755
 +#!/sbin/runscript
 +
 +depend() {
