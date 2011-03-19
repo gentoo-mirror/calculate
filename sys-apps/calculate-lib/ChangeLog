@@ -2,6 +2,20 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-lib-2.1.8-r1.ebuild, -calculate-lib-2.2.8.ebuild,
+  -calculate-lib-2.2.8-r1.ebuild, -calculate-lib-2.2.9.ebuild,
+  -calculate-lib-2.2.10.ebuild, -calculate-lib-2.2.11.ebuild,
+  -calculate-lib-2.2.11-r1.ebuild:
+  Remove old.
+
+*calculate-lib-2.2.11-r2 (16 Mar 2011)
+
+  16 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-lib-2.2.11-r2.ebuild,
+  +files/calculate-lib-2.2.11-fix_C_locale.patch:
+  Update for bugfix.
+
 *calculate-lib-2.2.11-r1 (15 Mar 2011)
 
   15 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>

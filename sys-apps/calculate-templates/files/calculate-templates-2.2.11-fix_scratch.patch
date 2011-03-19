@@ -1,0 +1,56 @@
+diff --git install/1merge/calculate-install/boot/.calculate_directory install/1merge/calculate-install/boot/.calculate_directory
+new file mode 100644
+index 0000000..bd90c3e
+--- /dev/null
++++ install/1merge/calculate-install/boot/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate path=/etc/runlevels os_install_scratch==on
+diff --git install/1merge/calculate-install/boot/scratch install/1merge/calculate-install/boot/scratch
+new file mode 100644
+index 0000000..3c79ab6
+--- /dev/null
++++ install/1merge/calculate-install/boot/scratch
+@@ -0,0 +1 @@
++# Calculate link=/etc/init.d/scratch symbolic
+diff --git install/1merge/calculate-install/init.d/.calculate_directory install/1merge/calculate-install/init.d/.calculate_directory
+new file mode 100644
+index 0000000..eb39d4f
+--- /dev/null
++++ install/1merge/calculate-install/init.d/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate path=/etc os_install_scratch==on
+diff --git install/1merge/calculate-install/init.d/scratch install/1merge/calculate-install/init.d/scratch
+new file mode 100644
+index 0000000..f48bc99
+--- /dev/null
++++ install/1merge/calculate-install/init.d/scratch
+@@ -0,0 +1,15 @@
++# Calculate chmod=0755
++#!/sbin/runscript
++
++depend() {
++	need localmount
++}
++
++stop() {
++	# Sync boot scratch
++	if [[ -e /boot ]] && [[ -e /mnt/scratch/boot ]]
++	then
++		ebegin "Synchronize /boot for scratch mode"
++		rsync -a -x --delete /boot/ /mnt/scratch/boot/ && eend 0 || eend 1
++	fi
++}
+diff --git install/1system/openrc/conf.d/local.stop install/1system/openrc/conf.d/local.stop
+deleted file mode 100644
+index bf1556b..0000000
+--- install/1system/openrc/conf.d/local.stop
++++ /dev/null
+@@ -1,8 +0,0 @@
+-# Calculate os_install_scratch==on append=after comment=#
+-
+-# for synchronize ROOTDEV/workspace/boot with ROOTDEV/boot
+-if [[ -e /boot ]] && [[ -e /mnt/scratch/boot ]]
+-then
+-	ebegin "Synchronize /boot for scratch mode"
+-	rsync -a -x --delete /boot/ /mnt/scratch/boot/ && eend 0 || eend 1
+-fi

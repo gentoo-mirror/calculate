@@ -92,11 +92,11 @@
 =app-misc/cl-graphics-meta-11.3
 =app-misc/cl-multimedia-meta-11.3
 =app-misc/cl-nettools-meta-11.3
-=app-misc/cl-network-meta-11.3-r1
+=app-misc/cl-network-meta-11.3-r2
 =app-misc/cl-office-meta-11.3
 =app-misc/cl-printer-meta-11.3
 =app-misc/cl-tools-meta-11.3-r1
-=app-misc/cl-wireless-meta-11.3
+=app-misc/cl-wireless-meta-11.3-r1
 =app-misc/cl-xfce-meta-4.8
 =app-misc/cl-xorg-meta-7.4-r1
 =app-misc/cldx-meta-11.3
@@ -127,7 +127,6 @@
 =app-text/docbook-xml-dtd-4.1.2-r6
 =app-text/docbook-xml-dtd-4.3-r1
 =app-text/docbook-xml-dtd-4.4-r2
-=app-text/docbook-xml-dtd-4.5-r1
 =app-text/docbook-xsl-stylesheets-1.75.2
 =app-text/enchant-1.6.0
 =app-text/evince-2.32.0-r1
@@ -356,7 +355,6 @@
 =media-libs/jasper-1.900.1-r3
 =media-libs/jpeg-8b
 =media-libs/lcms-1.19
-=media-libs/lcms-2.0a
 =media-libs/libart_lgpl-2.3.21-r1
 =media-libs/libass-0.9.11
 =media-libs/libcaca-0.99_beta17
@@ -444,6 +442,7 @@
 =media-video/mplayer-1.0_rc4_p20101219
 =media-video/xanim-2.80.1-r4
 =net-analyzer/nmap-5.21-r1
+=net-analyzer/vnstat-1.10
 =net-dialup/gnome-ppp-0.3.23-r1
 =net-dialup/ppp-2.4.5-r1
 =net-dialup/pptpclient-1.7.2-r2
@@ -528,7 +527,7 @@
 =net-wireless/rtl8192se-2.6.0019.1207.2010
 =net-wireless/rtl8192se-firmware-2.6.0019.1207.2010
 =net-wireless/wireless-tools-29
-=net-wireless/wpa_supplicant-0.7.2-r3
+=net-wireless/wpa_supplicant-0.7.3-r2
 =net-zope/zope-interface-3.5.3
 =perl-core/ExtUtils-CBuilder-0.27.03
 =perl-core/ExtUtils-ParseXS-2.22.05
@@ -541,13 +540,13 @@
 =sys-apps/attr-2.4.44
 =sys-apps/baselayout-2.0.1-r1
 =sys-apps/busybox-1.17.4
-=sys-apps/calculate-builder-2.2.11
+=sys-apps/calculate-builder-2.2.11-r1
 =sys-apps/calculate-client-2.2.11
 =sys-apps/calculate-desktop-2.2.11
 =sys-apps/calculate-install-2.2.11
-=sys-apps/calculate-lib-2.2.11
-=sys-apps/calculate-templates-2.2.11-r1
-=sys-apps/calculate-utilities-2.2.11-r1
+=sys-apps/calculate-lib-2.2.11-r2
+=sys-apps/calculate-templates-2.2.11-r5
+=sys-apps/calculate-utilities-2.2.11-r8
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.1
 =sys-apps/debianutils-3.2.3
@@ -722,7 +721,7 @@
 =virtual/perl-libnet-1.22
 =virtual/ttf-fonts-1
 =www-client/chromium-10.0.648.133
-=www-plugins/adobe-flash-10.2.152.27
+=www-plugins/adobe-flash-10.2.152.27_p201011173-r2
 =www-plugins/nspluginwrapper-1.3.0
 =x11-apps/appres-1.0.3
 =x11-apps/bdftopcf-1.0.3
@@ -771,7 +770,9 @@
 =x11-apps/xwud-1.0.3
 =x11-base/xorg-drivers-1.9
 =x11-base/xorg-server-1.9.4
+=x11-drivers/nvidia-drivers-173.14.28
 =x11-drivers/nvidia-drivers-260.19.36
+=x11-drivers/nvidia-drivers-96.43.19
 =x11-drivers/xf86-input-evdev-2.6.0
 =x11-drivers/xf86-input-keyboard-1.5.0
 =x11-drivers/xf86-input-mouse-1.6.0
@@ -833,7 +834,7 @@
 =x11-libs/libdrm-2.4.23
 =x11-libs/libfontenc-1.1.0
 =x11-libs/libgksu-2.0.12-r1
-=x11-libs/libnotify-0.4.5
+=x11-libs/libnotify-0.5.2
 =x11-libs/libpciaccess-0.12.1
 =x11-libs/libvdpau-0.4.1
 =x11-libs/libwnck-2.30.6
@@ -862,7 +863,7 @@
 =x11-misc/makedepend-1.0.3
 =x11-misc/mkxf86config-0.9.10
 =x11-misc/shared-mime-info-0.80
-=x11-misc/util-macros-1.11.0
+=x11-misc/util-macros-1.12.0
 =x11-misc/xbindkeys-1.8.4
 =x11-misc/xbitmaps-1.1.1
 =x11-misc/xdg-user-dirs-0.13

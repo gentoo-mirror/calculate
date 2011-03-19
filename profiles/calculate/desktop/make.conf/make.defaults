@@ -50,7 +50,7 @@ USE="${USE} a52 aac aalib avi cddb dv encode fbcon ffmpeg flash ggi libcaca lzo 
 USE="${USE} libwww vhosts"
 
 # Wireless
-USE="${USE} bluetooth"
+USE="${USE} bluetooth wimax"
 
 # Window manager and speciality
 USE="${USE} gtk libnotify qt3support"
