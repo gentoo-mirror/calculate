@@ -1,0 +1,71 @@
+commit 86b97488e310f732005f858f445ed212e5bb61e4
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Mar 21 16:37:27 2011 +0300
+
+    Fix console feature.
+
+diff --git a/pym/cl_kernel.py b/pym/cl_kernel.py
+index 2d4b96e..378ca2a 100644
+--- a/pym/cl_kernel.py
++++ b/pym/cl_kernel.py
+@@ -21,7 +21,7 @@ import sys
+ import traceback
+ from os import path
+ from cl_builder import DataVarsBuilder, printNoColor, __version__, __app__
+-from cl_utils import process
++from cl_utils import process,listDirectory,cmpVersion,reVerSplitToPV,reVerSplit
+ from subprocess import STDOUT,PIPE
+ from cl_print import color_print
+ from shutil import copy2 as copy_with_perm
+@@ -305,11 +305,7 @@ class cl_kernel(color_print):
+         if self.skipByChrootAndShortname():
+             return True
+         calculate2env = clVars.Get('cl_env_path')[0]
+-        if not path.exists(calculate2env) or \
+-            not filter(lambda x:x.startswith('cl_kernel_uid'),
+-                   open(calculate2env,'r')):
+-            return self.performVersionMigrate()
+-        return True
++        return self.performVersionMigrate()
+     
+     def performVersionMigrate(self):
+         """Generate cl_kernel_uid, write to calculate2.env, fix grub.conf"""
+@@ -322,7 +318,8 @@ class cl_kernel(color_print):
+             re.compile("(/boot/)(?:initrd|initramfs)(?:-\S+?)?((?:-install)?)$")
+         grubconf = '/boot/grub/grub.conf'
+         rootdev = clVars.Get('os_root_dev')
+-        def grubreduce(x,y):
++
++        def grubsetUID(x,y):
+             if y.startswith('title'):
+                 x[0] = False
+             elif y.startswith('kernel') and "root=%s"%rootdev in y:
+@@ -332,10 +329,27 @@ class cl_kernel(color_print):
+                 y = reChangeInitrd.sub("\\1initrd-%s\\2"%clKernelUid,y)
+             return [x[0],x[1] + [y]]
+ 
++        def grubchangeCONSOLE(x,y):
++            if y.startswith('title'):
++                x[0] = False
++            elif y.startswith('kernel') and "/boot/vmlinuz-%s"%clKernelUid in y:
++                x[0] = True
++            if x[0]:
++                y = y.replace('CONSOLE=/dev/','console=')
++            return [x[0],x[1] + [y]]
++
+         if not os.access(grubconf,os.W_OK):
+             self.printERROR(_("No permissions to write to '%s'")%grubconf)
+             return False
+-        newGrub = reduce(grubreduce,open(grubconf,'r'),[False,[]])[1]
++        newGrub = reduce(grubsetUID,open(grubconf,'r'),[False,[]])[1]
++        calcKernel = filter(lambda x:x['PN'] == 'calckernel',
++                     map(reVerSplitToPV,
++                     filter(lambda x:x,
++                     map(lambda x:reVerSplit.search(x),
++                     listDirectory('/var/db/pkg/sys-kernel')))))
++        if calcKernel and cmpVersion(calcKernel[-1]['PVR'],"3.4.14") >= 0:
++            newGrub = reduce(grubchangeCONSOLE,newGrub,[False,[]])[1]
++
+         open(grubconf,'w').writelines(newGrub)
+         return True
+     
