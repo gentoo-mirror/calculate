@@ -9,6 +9,6 @@ USE="${USE} gnome-keyring networkmanager"
 # Window manager and specialities
 USE="${USE} -eds -gnome -kde"
 
-VIDEO_CARDS="${VIDEO_CARDS} nvidia radeonhd"
+VIDEO_CARDS="${VIDEO_CARDS} radeonhd"
 CDISTRO="CLDX desktop"
 CL="builder client desktop installgui"

@@ -6,6 +6,6 @@ USE="${USE} gnome-keyring networkmanager"
 # Window manager and speciality
 USE="${USE} gnome -kde"
 
-VIDEO_CARDS="${VIDEO_CARDS} nvidia radeonhd"
+VIDEO_CARDS="${VIDEO_CARDS} radeonhd"
 CDISTRO="CLDG desktop"
 CL="builder client desktop installgui"
