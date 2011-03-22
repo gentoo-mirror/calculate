@@ -99,7 +99,6 @@ RDEPEND="${RDEPEND}
 		!calculate_noantivirus? ( app-antivirus/clamav )
 		app-cdr/cdrkit
 		app-cdr/dvd+rw-tools
-		app-editors/vim
 		app-i18n/enca
 		app-misc/mc
 		app-misc/screen
@@ -140,6 +139,7 @@ RDEPEND="${RDEPEND}
 		sys-process/htop
 		sys-process/iotop
 		sys-process/lsof
+		virtual/editor
 	)
 	cdistro_CLS? (
 		virtual/dhcpc
