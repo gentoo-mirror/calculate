@@ -14,9 +14,9 @@ KEYWORDS="amd64 x86"
 IUSE="cdistro_CLD cdistro_CLDG cdistro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru"
 
 RDEPEND="
-	app-editors/vim
 	app-office/libreoffice
 	app-text/fbreader
+	virtual/editor
 
 	cdistro_CLD? (
 		app-text/goldendict
