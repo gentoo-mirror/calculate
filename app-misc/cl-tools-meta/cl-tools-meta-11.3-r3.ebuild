@@ -21,6 +21,7 @@ IUSE="
 	cdistro_CMC
 	calculate_noarch
 	calculate_nopgsql
+	calculate_noantivirus
 "
 
 RDEPEND="${RDEPEND}
@@ -94,7 +95,7 @@ RDEPEND="${RDEPEND}
 	cdistro_CDS? (
 		app-admin/hddtemp
 		app-admin/testdisk
-		app-antivirus/clamav
+		!calculate_noantivirus? ( app-antivirus/clamav )
 		app-cdr/cdrkit
 		app-cdr/dvd+rw-tools
 		app-editors/vim
