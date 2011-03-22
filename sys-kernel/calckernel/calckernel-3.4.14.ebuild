@@ -68,6 +68,7 @@ IUSE="ibm selinux"
 
 DEPEND="sys-fs/e2fsprogs
 	selinux? ( sys-libs/libselinux )
+	>=sys-apps/calculate-templates-2.2.12
 	!sys-kernel/genkernel"
 RDEPEND="${DEPEND} app-arch/cpio"
 
