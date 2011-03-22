@@ -19,9 +19,10 @@ IUSE="
 	cdistro_CLDX
 	cdistro_CLS
 	cdistro_CMC
+	calculate_noantivirus
 	calculate_noarch
 	calculate_nopgsql
-	calculate_noantivirus
+	calculate_nosamba
 "
 
 RDEPEND="${RDEPEND}
@@ -110,6 +111,7 @@ RDEPEND="${RDEPEND}
 		!calculate_nopgsql? ( dev-python/psycopg )
 		dev-python/pyserial
 		dev-ruby/libxml
+		!calculate_nosamba? ( net-fs/samba )
 		sci-libs/fftw
 		sys-apps/acl
 		sys-apps/gdisk
