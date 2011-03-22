@@ -25,7 +25,7 @@ RDEPEND="${RDEPEND}
 	=sys-apps/calculate-templates-2.2.11-r5
 	=sys-apps/calculate-lib-2.2.11-r3
 
-	cl_assemble? ( =sys-apps/calculate-assemble-2.2.11-r2 )
+	cl_assemble? ( =sys-apps/calculate-assemble-2.2.11-r3 )
 	cl_builder? ( =sys-apps/calculate-builder-2.2.11-r2 )
 	cl_client? ( =sys-apps/calculate-client-2.2.11 )
 	cl_desktop? ( =sys-apps/calculate-desktop-2.2.11 )
