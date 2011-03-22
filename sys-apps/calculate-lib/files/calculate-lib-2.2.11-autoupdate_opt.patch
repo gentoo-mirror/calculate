@@ -1,0 +1,181 @@
+commit cad7de2f1308af6424c56bca6bcf732da14b8c8b
+Author: Самоукин Алексей <as@calculate.ru>
+Date:   Tue Mar 22 13:53:14 2011 +0300
+
+    Added template header option autoupdate.
+
+diff --git a/pym/cl_template.py b/pym/cl_template.py
+index fb6b55a..cd34257 100644
+--- a/pym/cl_template.py
++++ b/pym/cl_template.py
+@@ -436,7 +436,7 @@ class fileHeader(_terms):
+     # Допустимые параметры заголовка
+     allowParam = ["format", "format_conf", "comment", "append", "force",
+                   "link", "mirror", "symbolic", "chmod", "chown", "name",
+-                  "path"]
++                  "path", "autoupdate"]
+ 
+     # Тип шаблона
+     fileType = ""
+@@ -454,7 +454,7 @@ class fileHeader(_terms):
+     # условные операторы
+     terms = ('>', '<', '==', '!=', '>=', '<=')
+     # параметры без значения
+-    listParNotVal = ("symbolic", "force", "mirror")
++    listParNotVal = ("symbolic", "force", "mirror", "autoupdate")
+     # Результат вычисления условия в заголовке
+     headerTerm = True
+ 
+@@ -610,7 +610,7 @@ class dirHeader(_terms):
+ 
+     """
+     # Допустимые параметры заголовка
+-    allowParam = ["append", "chmod", "chown", "name", "path"]
++    allowParam = ["append", "chmod", "chown", "name", "path", "autoupdate"]
+ 
+     # Тип вставки шаблона
+     typeAppend = ""
+@@ -622,7 +622,7 @@ class dirHeader(_terms):
+     terms = ('>', '<', '==', '!=', '>=', '<=')
+ 
+     # параметры без значения
+-    listParNotVal = ("symbolic", "force")
++    listParNotVal = ("symbolic", "force", "autoupdate")
+ 
+     # Результат вычисления условия в заголовке
+     headerTerm = True
+@@ -3545,6 +3545,9 @@ re.M|re.S)
+             self.cltObj = False
+         # Фильтровать ли шаблоны clt по конфигурационным файлам обычных шаблонов
+         self.cltFilter = cltFilter
++        # autoupdate файлы
++        self.autoUpdateFiles = []
++        self.autoUpdateDirs = []
+ 
+ 
+     # Преобразование восьмеричного в целое (ввод строка, вывод число)
+@@ -3952,6 +3955,10 @@ variable 'cl_name'"))
+             self.cltObj.functObj = self.functObj
+             # Словарь примененных файлов шаблонов
+             self.cltObj.dictProcessedTemplates = self.dictProcessedTemplates
++            self.cltObj.autoUpdateFiles = self.autoUpdateFiles
++            self.cltObj.autoUpdateDirs = self.autoUpdateDirs
++            
++            
+             if self.cltFilter:
+                 # Шаблоны + .clt которые будут  применены
+                 self.cltObj.filterApplyTemplates +=\
+@@ -3977,9 +3984,12 @@ variable 'cl_name'"))
+                 return False
+             pathDir, objHead =  retDir
+             optDir["path"] = pathDir
+-            if not objHead is True and objHead.typeAppend == "skip":
+-                # Установка опции пропуска директории
+-                optDir["skip"] = True
++            if not objHead is True:
++                if objHead.typeAppend == "skip":
++                    # Установка опции пропуска директории
++                    optDir["skip"] = True
++                if "autoupdate" in objHead.params:
++                    optDir["autoupdate"] = True
+         if flagDir or stat.S_ISDIR(os.lstat(scanDir)[stat.ST_MODE]):
+             for fileOrDir in sorted(os.listdir(scanDir)):
+                 absPath = os.path.join(scanDir,fileOrDir)
+@@ -4004,9 +4014,12 @@ variable 'cl_name'"))
+                     optNextDir = {}
+                     pathDir, objHead =  retDir
+                     optNextDir["path"] = pathDir
+-                    if not objHead is True and objHead.typeAppend == "skip":
+-                        # Установка опции пропуска директории
+-                        optNextDir["skip"] = True
++                    if not objHead is True:
++                        if objHead.typeAppend == "skip":
++                            # Установка опции пропуска директории
++                            optNextDir["skip"] = True
++                        if "autoupdate" in objHead.params:
++                            optNextDir["autoupdate"] = True
+                     ret = self.scanningTemplates(absPath, prefix, True,
+                                                  optNextDir)
+                     if ret is False:
+@@ -4098,6 +4111,7 @@ variable 'cl_name'"))
+             return True
+ 
+         applyDir = newDir
++
+         # Родительская директория
+         if optDir.get("path"):
+             path = optDir["path"]
+@@ -4118,6 +4132,8 @@ variable 'cl_name'"))
+             crDirs = self.createDir(applyDir, False, self.uid, self.gid)
+             if not crDirs:
+                 return ("", False, [])
++            if "autoupdate" in optDir:
++                self.autoUpdateDirs.append(applyDir)
+             if crDirs is True:
+                 return (applyDir, True, [])
+             else:
+@@ -4286,6 +4302,9 @@ variable 'cl_name'"))
+                     createdDirs += crDirs
+         if not objHead:
+             applyDir = ""
++        if applyDir:
++            if "autoupdate" in optDir or "autoupdate" in objHead.params:
++                self.autoUpdateDirs.append(applyDir)
+         return (applyDir, objHead, createdDirs)
+ 
+     def getApplyHeadTemplate(self, nameFileTemplate, nameFileConfig,
+@@ -4655,6 +4674,8 @@ variable 'cl_name'"))
+             self.dictProcessedTemplates[pathOldFile] = []
+         self.dictProcessedTemplates[pathOldFile].append(nameFileTemplate)
+         preReturn(pathProg)
++        if "autoupdate" in optFile or "autoupdate" in objHeadNew.params:
++            self.autoUpdateFiles += applyFiles
+         return (applyFiles, objHeadNew)
+ 
+     def createNewClass(self, name, bases, attrs={}):
+diff --git a/pym/update_config/cl_update_config.py b/pym/update_config/cl_update_config.py
+index fda54b5..d982f70 100644
+--- a/pym/update_config/cl_update_config.py
++++ b/pym/update_config/cl_update_config.py
+@@ -356,10 +356,27 @@ class updateSystemConfigs(shareUpdateConfigs):
+                 dstDir = os.path.dirname(dst)
+                 self.createDir(configPath, dstDir)
+                 copy2(src, dst)
+-                sUid, sGid = getModeFile(src, mode="owner")
++                sMode, sUid, sGid = getModeFile(src)
+                 os.chown(dst, sUid, sGid)
++                os.chmod(dst, sMode)
+                 self.logger.warn(" "*5 + dst)
+         return True
++    
++    def copyDirOrFile(self, src, dst, configPath):
++        if src != dst:
++            if os.path.isfile(src):
++                dstDir = os.path.dirname(dst)
++                self.createDir(configPath, dstDir)
++                copy2(src, dst)
++                sMode, sUid, sGid = getModeFile(src)
++                os.chown(dst, sUid, sGid)
++                os.chmod(dst, sMode)
++            elif os.path.isdir(src):
++                self.createDir(configPath, dst)
++                sMode, sUid, sGid = getModeFile(src)
++                os.chown(dst, sUid, sGid)
++                os.chmod(dst, sMode)
++                
+ 
+     def updateConfig(self, nameProgram, category, version, configPath):
+         """Обновление системных конфигурационных файлов"""
+@@ -410,6 +427,12 @@ class updateSystemConfigs(shareUpdateConfigs):
+                 for errMess in clTempl.getError().splitlines():
+                     self.printERROR(errMess)
+                 return False
++            copyFiles = clTempl.autoUpdateFiles
++            copyDirs = clTempl.autoUpdateDirs
++            allCopyAutoupdateFiles = copyDirs + copyFiles
++            for fileOrDir in allCopyAutoupdateFiles:
++                dst = "/" + fileOrDir.partition(configPath)[2]
++                self.copyDirOrFile(fileOrDir, dst, configPath)
+             if dirsFiles and dirsFiles[1]:
+                 if not nameAndVerPkg in listIndex:
+                     listIndex.append(nameAndVerPkg)
