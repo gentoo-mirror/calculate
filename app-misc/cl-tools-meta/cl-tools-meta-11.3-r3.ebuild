@@ -20,6 +20,7 @@ IUSE="
 	cdistro_CLS
 	cdistro_CMC
 	calculate_noarch
+	calculate_nopgsql
 "
 
 RDEPEND="${RDEPEND}
@@ -105,7 +106,7 @@ RDEPEND="${RDEPEND}
 		app-portage/portage-utils
 		app-portage/ufed
 		dev-libs/klibc
-		dev-python/psycopg
+		!calculate_nopgsql? ( dev-python/psycopg )
 		dev-python/pyserial
 		dev-ruby/libxml
 		sci-libs/fftw
