@@ -28,6 +28,8 @@ src_unpack() {
 	epatch "${FILESDIR}/calculate-templates-2.2.11-hide_couch2.patch"
 	# patch for fix scratch boot sync
 	epatch "${FILESDIR}/calculate-templates-2.2.11-fix_scratch.patch"
+	# for fix calckernel update
+	epatch "${FILESDIR}/calculate-templates-2.2.11-calckernel_autoupdate.patch"
 }
 
 src_compile() {
