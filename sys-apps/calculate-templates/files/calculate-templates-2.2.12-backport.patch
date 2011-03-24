@@ -30,6 +30,16 @@ index 0000000..739cc33
 +#?os_install_linux_subname==#
 +#-os_install_linux_name-# #-os_install_linux_ver-#
 +#os_install_linux_subname#
+diff --git install/1merge/openrc/rc.conf install/1merge/openrc/rc.conf
+index 1616719..71a8d1d 100644
+--- install/1merge/openrc/rc.conf
++++ install/1merge/openrc/rc.conf
+@@ -5,3 +5,5 @@ rc_interactive="YES"
+ no_umounts="/newroot.*:/lib/splash/cache:/lib64/splash/cache"
+ #use all net.* for network atapters (need for CDS)
+ rc_hotplug="*"
++#nothing special type
++rc_sys=""
 diff --git install/1merge/portage/make.conf install/1merge/portage/make.conf
 index a539fe6..6928e79 100644
 --- install/1merge/portage/make.conf
