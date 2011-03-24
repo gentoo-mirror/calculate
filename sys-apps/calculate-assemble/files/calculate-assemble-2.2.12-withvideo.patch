@@ -1,0 +1,204 @@
+diff --git a/i18n/cl_assemble_ru.mo b/i18n/cl_assemble_ru.mo
+index d084398..c3fc66f 100644
+Binary files a/i18n/cl_assemble_ru.mo and b/i18n/cl_assemble_ru.mo differ
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index 1244811..803fd08 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -41,6 +41,7 @@ import cl_install
+ import cl_overriding
+ import random
+ from shutil import copyfile
++import time
+ 
+ def DEBUG(msg):
+     if "DEBUG" in os.environ:
+@@ -166,11 +167,15 @@ class cl_assemble(color_print):
+               'hideout':True,
+               'condition':'.',
+               'progname':'prelink'},
++             # get propreitary drivers
++             {'command':'fetchDrivers()',
++              'step':'fetchdrivers',
++              'message':_("Fetching %s")%'video drivers'},
+              # emerge all nvidia-drivers
+-             {'command':'makeNvidiaDrivers()',
+-              'step':'nvidia',
+-              'hideout':True,
+-              'message':_("Making %s")%'nvidia-drivers'},
++             #{'command':'makeNvidiaDrivers()',
++             # 'step':'nvidia',
++             # 'hideout':True,
++             # 'message':_("Making %s")%'nvidia-drivers'},
+              # binary cleaning
+              {'command':'binaryCleaning()',
+               'step':'binclean',
+@@ -1384,6 +1389,80 @@ class cl_assemble(color_print):
+                map(self.reVerSplit.search,
+                os.listdir(x11DriversPath))))
+ 
++    def fetchDrivers(self):
++        """Fetch propreitary drivers"""
++        if self.clVars.Get('cl_assemble_withvideo_set') == "on":
++            drivers = [('nvidia-drivers 96.XX.XX',
++                        '\\<x11-drivers/nvidia-drivers-97'),
++                       ('nvidia-drivers 173.XX.XX',
++                        '\\<x11-drivers/nvidia-drivers-174'),
++                       ('nvidia-drivers 260.XX.XX',
++                        'x11-drivers/nvidia-drivers'),
++                       ('ati-drivers','x11-drivers/ati-drivers')]
++        else:
++            drivers = []
++        chrootPath = self.clVars.Get('cl_assemble_path')
++        distDir = '/usr/portage/distfiles'
++        pathDistDir = pathJoin(chrootPath,distDir)
++        if self.startMessage:
++            self.startMessage = ""
++            self.defaultPrint("\n")
++        needFiles = []
++        infoprocess = self.runChroot(
++                    "emerge --info",raiseError=False,joinErr=True)
++        curDistdir = \
++            map(lambda x:x.strip().rpartition('=')[-1].strip('"\''),
++            filter(lambda x:x.startswith("DISTDIR"),
++            infoprocess))
++        if curDistdir:
++            curDistdir = curDistdir[0]
++        else:
++            curDistdir = '/var/calculate/remote/distfiles'
++        while drivers:
++            repeatDrivers = []
++            for verName,drvVer in drivers:
++                self.printMessageForTest(" " +
++                    _("Fetching %s")%verName)
++                # run verbose package emergin for get version
++                fetchprocess = self.runChroot(
++                            "emerge -f %s"%
++                            drvVer, raiseError=False,joinErr=True)
++                rePackage = re.compile("(?:^ \* (.*?) RMD160 SHA1|File.*is already locked)")
++                # get fetched files
++                fetchedFiles = \
++                    map(lambda x:x.groups()[0],
++                    filter(lambda x:x,
++                    map(rePackage.search,
++                    fetchprocess)))
++                if None in fetchedFiles:
++                    repeatDrivers.append((verName,drvVer))
++                    self.printByResult(skip=True)
++                else:
++                    self.printByResult(fetchprocess.success())
++                    needFiles += fetchedFiles
++            drivers = repeatDrivers
++            if drivers:
++                self.printMessageForTest(" " +
++                    _("Waiting for unlock %s")%drivers[0][0])
++                time.sleep(10)
++                self.printByResult(True)
++
++        needFiles = set(needFiles)
++        fetchedList = set(listDirectory(pathDistDir))
++        removedList = fetchedList - needFiles
++        self.printMessageForTest(" " +
++            _("Cleaning %s")%distDir)
++        map(lambda x:os.unlink(x),
++         filter(lambda x:path.exists(x),
++         map(lambda x:pathJoin(chrootPath,distDir,x),
++         removedList)))
++        map(lambda x:copyfile(x[0],x[1]),
++         filter(lambda x:path.exists(x[0]) and not path.exists(x[1]),
++         map(lambda x:(pathJoin(chrootPath,curDistdir,x),
++                       pathJoin(chrootPath,distDir,x)),
++         needFiles - fetchedList)))
++        self.printByResult(True)
++
+     def makeNvidiaDrivers(self):
+         """Emerge all nvidia-drivers as binary"""
+         def removeNvidiaByVer(chrootPath,pkgDir,pkgName,versList):
+@@ -1524,16 +1603,16 @@ class cl_assemble(color_print):
+              map(lambda x:path.join(pkgDir,x),
+              os.listdir(pkgDir))))
+ 
+-            packagesDir = 'usr/portage/packages'
+-            x11_drivers = 'x11-drivers'
+-            nvidiaDir = pathJoin(chrootPath, packagesDir,x11_drivers)
++            #packagesDir = 'usr/portage/packages'
++            #x11_drivers = 'x11-drivers'
++            #nvidiaDir = pathJoin(chrootPath, packagesDir,x11_drivers)
+ 
+-            pkgDirX11Drivers = pathJoin(pkgDir,'x11-drivers')
+-            if not path.exists(pkgDirX11Drivers):
+-                os.makedirs(pkgDirX11Drivers,mode=0755)
+-            map(lambda x:copyfile(pathJoin(nvidiaDir,x),
+-                                  pathJoin(pkgDirX11Drivers,x)),
+-             listDirectory(nvidiaDir))
++            #pkgDirX11Drivers = pathJoin(pkgDir,'x11-drivers')
++            #if not path.exists(pkgDirX11Drivers):
++            #    os.makedirs(pkgDirX11Drivers,mode=0755)
++            #map(lambda x:copyfile(pathJoin(nvidiaDir,x),
++            #                      pathJoin(pkgDirX11Drivers,x)),
++            # listDirectory(nvidiaDir))
+ 
+             self.regenPackages(chrootPath,pkgDir[len(chrootPath):])
+         else:
+@@ -1562,17 +1641,17 @@ class cl_assemble(color_print):
+     def createUnmaskList(self,chrootdir,filename):
+         """Create package unmask list by chrootdir"""
+         pkgdir = path.join(chrootdir,'var/db/pkg')
+-        x11_bindir = path.join(chrootdir,'usr/portage/packages/x11-drivers')
++        #x11_bindir = path.join(chrootdir,'usr/portage/packages/x11-drivers')
+         if not path.exists(chrootdir):
+             return False
+         try:
+             packageList = sorted(reduce(lambda x,y:x+map(lambda x:path.join(y,x),
+                 os.listdir(path.join(pkgdir,y))), os.listdir(pkgdir),[]))
+-            packageList = \
+-                sorted(packageList+
+-                       map(lambda x:path.join('x11-drivers',x[:-5]),
+-                       filter(lambda x:x.endswith('.tbz2'),
+-                       listDirectory(x11_bindir))))
++            #packageList = \
++            #    sorted(packageList+
++            #           map(lambda x:path.join('x11-drivers',x[:-5]),
++            #           filter(lambda x:x.endswith('.tbz2'),
++            #           listDirectory(x11_bindir))))
+             open(filename,'w').writelines(map(lambda x:"=%s\n"%x,packageList))
+         except (IOError,OSError),e:
+             return False
+diff --git a/pym/cl_make_cmd.py b/pym/cl_make_cmd.py
+index d02f0ff..003ca42 100644
+--- a/pym/cl_make_cmd.py
++++ b/pym/cl_make_cmd.py
+@@ -54,6 +54,10 @@ CMD_OPTIONS = [{'shortOption':"D",
+                {'longOption':"skipfirst",
+                 'help':_("skip the first package in the resume assemblihg")
+                },
++               {'shortOption':'V',
++                'longOption':"withvideo",
++                'help':_("fetch video drivers into assembling system")
++               },
+                {'longOption':"set"},
+                {'shortOption':"f",
+                 'longOption':"force",
+@@ -93,6 +97,8 @@ class make_cmd(assemble_cmd):
+                 sys.exit(1)
+         self.optobj.checkVarSyntax(values)
+         self.setVars(values)
++        if values.V:
++            self.logicObj.clVars.Set('cl_assemble_withvideo_set',"on",True)
+         if not values.v and self.isRoot(printError=False):
+             if values.m:
+                 self.checkIncompatibleParam("make")
+diff --git a/pym/cl_vars_assemble.py b/pym/cl_vars_assemble.py
+index 5552861..84592ac 100644
+--- a/pym/cl_vars_assemble.py
++++ b/pym/cl_vars_assemble.py
+@@ -60,6 +60,9 @@ class Data:
+     # FEATURES="buildpkg" for chroot commands
+     cl_assemble_buildpkg_set = {}
+ 
++    # fetch video drivers
++    cl_assemble_withvideo_set = {'value':'off'}
++
+     # add -a option for all emerge
+     cl_assemble_ask_set = {'value':'off'}
+ 
