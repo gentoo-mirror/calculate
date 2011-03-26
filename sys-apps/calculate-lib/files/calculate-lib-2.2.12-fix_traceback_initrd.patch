@@ -1,0 +1,20 @@
+commit 5c1d68928d25819f9357f9db4282334d1c63023a
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Sat Mar 26 13:35:58 2011 +0300
+
+    Fix traceback in get initramfs from empty dir.
+
+diff --git a/pym/cl_vars_share.py b/pym/cl_vars_share.py
+index 9075c4e..fb3a76a 100644
+--- a/pym/cl_vars_share.py
++++ b/pym/cl_vars_share.py
+@@ -282,6 +282,9 @@ class varsShare:
+ 
+         ftype = typeFile(magic=0x4).getMType
+         kernelfile = path.join(chroot,'boot',kernel)
++        typeKernelFile = ftype(kernelfile)
++        if typeKernelFile == None:
++            return ""
+         resKernelVer = self.reFindVer.search(ftype(kernelfile))
+         if resKernelVer:
+             kernelVersion = "%s-%s-%s"% \
