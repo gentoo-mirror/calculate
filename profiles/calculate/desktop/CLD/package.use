@@ -29,8 +29,8 @@ kde-base/plasma-workspace rss
 # required by =kde-base/pykde4-4.6.0, required by =kde-base/printer-applet-4.6.0
 dev-python/PyQt4 declarative
 
-media-sound/phonon -vlc xine
 media-libs/mlt -xine
+media-libs/phonon -vlc xine
 kde-base/mplayerthumbs -mplayer
 
 # remove gstreamer dep
