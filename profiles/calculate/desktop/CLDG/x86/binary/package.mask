@@ -102,9 +102,6 @@ app-misc/pax-utils
 app-misc/realpath
 app-mobilephone/obex-data-server
 app-office/libreoffice
-app-pda/libimobiledevice
-app-pda/libplist
-app-pda/usbmuxd
 app-portage/eix
 app-portage/emerge-delta-webrsync
 app-portage/genlop
@@ -166,7 +163,6 @@ dev-lang/spidermonkey
 dev-lang/swig
 dev-lang/tcl
 dev-lang/tk
-dev-lang/v8
 dev-lang/vala
 dev-lang/yasm
 dev-libs/atk
@@ -305,7 +301,6 @@ dev-python/twisted-web
 dev-tcltk/expect
 dev-util/bin_replace_string
 dev-util/boost-build
-dev-util/chromium-tools
 dev-util/cmake
 dev-util/cppunit
 dev-util/ctags
@@ -542,6 +537,7 @@ net-libs/libpcap
 net-libs/libproxy
 net-libs/libsoup
 net-libs/libsoup-gnome
+net-libs/libtirpc
 net-libs/neon
 net-libs/rb_libtorrent
 net-libs/telepathy-glib
@@ -571,7 +567,7 @@ net-misc/vpnc
 net-misc/wget
 net-misc/whois
 net-nds/openldap
-net-nds/portmap
+net-nds/rpcbind
 net-news/liferea
 net-p2p/deluge
 net-p2p/linuxdcpp
@@ -895,7 +891,6 @@ x11-libs/libXdmcp
 x11-libs/libXext
 x11-libs/libXfixes
 x11-libs/libXfont
-x11-libs/libXfontcache
 x11-libs/libXft
 x11-libs/libXi
 x11-libs/libXinerama
@@ -963,7 +958,6 @@ x11-proto/compositeproto
 x11-proto/damageproto
 x11-proto/dri2proto
 x11-proto/fixesproto
-x11-proto/fontcacheproto
 x11-proto/fontsproto
 x11-proto/glproto
 x11-proto/inputproto
