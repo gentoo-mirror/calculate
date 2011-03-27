@@ -97,9 +97,7 @@ app-misc/pax-utils
 app-misc/realpath
 app-mobilephone/obex-data-server
 app-office/libreoffice
-app-pda/libimobiledevice
 app-pda/libplist
-app-pda/usbmuxd
 app-portage/eix
 app-portage/emerge-delta-webrsync
 app-portage/genlop
@@ -114,6 +112,7 @@ app-shells/gentoo-bashcomp
 app-text/aspell
 app-text/build-docbook-catalog
 app-text/djvu
+app-text/docbook-xml-dtd
 app-text/docbook-xsl-stylesheets
 app-text/enchant
 app-text/evince
@@ -132,6 +131,7 @@ app-text/recode
 app-text/rman
 app-text/scrollkeeper
 app-text/scrollkeeper-dtd
+app-text/sgml-common
 app-text/stardict
 app-text/wgetpaste
 app-vim/colorschemes
@@ -151,7 +151,6 @@ dev-lang/python
 dev-lang/swig
 dev-lang/tcl
 dev-lang/tk
-dev-lang/v8
 dev-lang/yasm
 dev-libs/atk
 dev-libs/boost
@@ -259,7 +258,6 @@ dev-python/twisted-web
 dev-tcltk/expect
 dev-util/bin_replace_string
 dev-util/boost-build
-dev-util/chromium-tools
 dev-util/cmake
 dev-util/cppunit
 dev-util/ctags
@@ -454,6 +452,7 @@ net-libs/libpcap
 net-libs/libproxy
 net-libs/libsoup
 net-libs/libsoup-gnome
+net-libs/libtirpc
 net-libs/neon
 net-libs/rb_libtorrent
 net-libs/webkit-gtk
@@ -478,7 +477,7 @@ net-misc/rsync
 net-misc/vpnc
 net-misc/wget
 net-nds/openldap
-net-nds/portmap
+net-nds/rpcbind
 net-news/liferea
 net-p2p/deluge
 net-p2p/linuxdcpp
@@ -797,7 +796,6 @@ x11-libs/libXdmcp
 x11-libs/libXext
 x11-libs/libXfixes
 x11-libs/libXfont
-x11-libs/libXfontcache
 x11-libs/libXft
 x11-libs/libXi
 x11-libs/libXinerama
@@ -862,7 +860,6 @@ x11-proto/compositeproto
 x11-proto/damageproto
 x11-proto/dri2proto
 x11-proto/fixesproto
-x11-proto/fontcacheproto
 x11-proto/fontsproto
 x11-proto/glproto
 x11-proto/inputproto
