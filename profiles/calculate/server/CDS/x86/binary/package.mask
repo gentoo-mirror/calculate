@@ -249,6 +249,7 @@ net-libs/gnutls
 net-libs/liblockfile
 net-libs/libnfsidmap
 net-libs/libpcap
+net-libs/libtirpc
 net-mail/dovecot
 net-mail/fetchmail
 net-mail/mailbase
@@ -264,7 +265,7 @@ net-misc/wget
 net-misc/whois
 net-misc/wol
 net-nds/openldap
-net-nds/portmap
+net-nds/rpcbind
 net-p2p/bittorrent
 net-p2p/btpd
 net-print/cups
@@ -456,5 +457,6 @@ virtual/perl-Time-Local
 virtual/perl-digest-base
 virtual/perl-libnet
 virtual/perl-version
+virtual/ttf-fonts
 www-client/links
 www-servers/apache
