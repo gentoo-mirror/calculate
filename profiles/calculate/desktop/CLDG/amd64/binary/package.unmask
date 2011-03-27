@@ -12,7 +12,7 @@
 =app-admin/logrotate-3.7.8
 =app-admin/perl-cleaner-2.7
 =app-admin/pessulus-2.30.4
-=app-admin/python-updater-0.8
+=app-admin/python-updater-0.8-r1
 =app-admin/sudo-1.7.4_p5
 =app-admin/syslog-ng-3.1.4
 =app-admin/testdisk-6.11-r1
@@ -111,9 +111,6 @@
 =app-misc/realpath-1.15-r1
 =app-mobilephone/obex-data-server-0.4.5
 =app-office/libreoffice-3.3.2
-=app-pda/libimobiledevice-1.0.2
-=app-pda/libplist-1.3
-=app-pda/usbmuxd-1.0.4
 =app-portage/eix-0.22.5
 =app-portage/emerge-delta-webrsync-3.5.1-r3
 =app-portage/genlop-0.30.8-r2
@@ -169,13 +166,12 @@
 =dev-lang/nasm-2.09.04
 =dev-lang/orc-0.4.11
 =dev-lang/perl-5.12.2-r6
-=dev-lang/python-2.6.6-r2
+=dev-lang/python-2.7.1-r1
 =dev-lang/python-3.1.3-r1
 =dev-lang/spidermonkey-1.7.0
 =dev-lang/swig-1.3.40-r1
 =dev-lang/tcl-8.5.9
 =dev-lang/tk-8.5.9-r1
-=dev-lang/v8-3.0.12.30
 =dev-lang/vala-0.10.3
 =dev-lang/yasm-1.1.0-r1
 =dev-libs/atk-1.32.0
@@ -202,7 +198,7 @@
 =dev-libs/libcroco-0.6.2
 =dev-libs/libdaemon-0.14-r1
 =dev-libs/libevent-1.4.14b
-=dev-libs/libffi-3.0.9
+=dev-libs/libffi-3.0.9-r2
 =dev-libs/libgcrypt-1.4.6
 =dev-libs/libgdata-0.8.0
 =dev-libs/libgpg-error-1.10
@@ -288,7 +284,7 @@
 =dev-python/libgnomecanvas-python-2.28.1
 =dev-python/libwnck-python-2.32.0
 =dev-python/mako-0.3.6
-=dev-python/markupsafe-0.11
+=dev-python/markupsafe-0.12
 =dev-python/notify-python-0.1.1-r1
 =dev-python/numpy-1.5.1
 =dev-python/oauth-1.0.1
@@ -304,7 +300,7 @@
 =dev-python/pyorbit-2.24.0
 =dev-python/pyrex-0.9.9
 =dev-python/python-distutils-extra-2.23
-=dev-python/python-ldap-2.3.12
+=dev-python/python-ldap-2.3.13
 =dev-python/pywebkitgtk-1.1.8
 =dev-python/pyxdg-0.19
 =dev-python/pyxml-0.8.4-r2
@@ -317,7 +313,6 @@
 =dev-tcltk/expect-5.44.1.15
 =dev-util/bin_replace_string-0.2
 =dev-util/boost-build-1.42.0
-=dev-util/chromium-tools-0.1.6
 =dev-util/cmake-2.8.4
 =dev-util/cppunit-1.12.1
 =dev-util/ctags-5.7
@@ -343,7 +338,7 @@
 =gnome-base/gnome-panel-2.32.1-r1
 =gnome-base/gnome-session-2.32.1
 =gnome-base/gnome-settings-daemon-2.32.1
-=gnome-base/gnome-vfs-2.24.4
+=gnome-base/gnome-vfs-2.24.4-r1
 =gnome-base/gvfs-1.6.6-r1
 =gnome-base/libbonobo-2.24.3
 =gnome-base/libbonoboui-2.24.4-r1
@@ -413,9 +408,9 @@
 =media-libs/faac-1.28-r1
 =media-libs/faad2-2.7-r2
 =media-libs/flac-1.2.1-r3
-=media-libs/fontconfig-2.8.0
+=media-libs/fontconfig-2.8.0-r1
 =media-libs/freeglut-2.6.0
-=media-libs/freetype-2.4.3-r2
+=media-libs/freetype-2.4.4
 =media-libs/ftgl-2.1.3_rc5
 =media-libs/gd-2.0.35-r1
 =media-libs/gegl-0.0.22
@@ -558,7 +553,7 @@
 =net-libs/rb_libtorrent-0.15.5
 =net-libs/telepathy-glib-0.12.7
 =net-libs/webkit-gtk-1.2.7
-=net-libs/xulrunner-1.9.2.15
+=net-libs/xulrunner-1.9.2.16
 =net-mail/mailbase-1
 =net-misc/cnetworkmanager-0.21.1
 =net-misc/curl-7.20.0-r2
@@ -632,13 +627,13 @@
 =sys-apps/attr-2.4.44
 =sys-apps/baselayout-2.0.1-r1
 =sys-apps/busybox-1.17.4
-=sys-apps/calculate-builder-2.2.12
+=sys-apps/calculate-builder-2.2.12-r1
 =sys-apps/calculate-client-2.2.12
 =sys-apps/calculate-desktop-2.2.12
-=sys-apps/calculate-install-2.2.12
-=sys-apps/calculate-lib-2.2.12
-=sys-apps/calculate-templates-2.2.12
-=sys-apps/calculate-utilities-2.2.12
+=sys-apps/calculate-install-2.2.12-r2
+=sys-apps/calculate-lib-2.2.12-r1
+=sys-apps/calculate-templates-2.2.12-r1
+=sys-apps/calculate-utilities-2.2.12-r5
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.1
 =sys-apps/debianutils-3.2.3
@@ -688,7 +683,7 @@
 =sys-apps/tcp-wrappers-7.6-r8
 =sys-apps/texinfo-4.13
 =sys-apps/usb_modeswitch-1.1.4
-=sys-apps/usbutils-0.90
+=sys-apps/usbutils-001
 =sys-apps/util-linux-2.18-r1
 =sys-apps/v86d-0.1.10
 =sys-apps/which-2.20
@@ -812,8 +807,8 @@
 =virtual/perl-digest-base-1.16
 =virtual/perl-libnet-1.22
 =virtual/ttf-fonts-1
-=www-client/chromium-10.0.648.133
-=www-plugins/adobe-flash-10.2.152.27_p201011173-r2
+=www-client/chromium-10.0.648.204
+=www-plugins/adobe-flash-10.2.153.1
 =www-plugins/nspluginwrapper-1.3.0
 =x11-apps/appres-1.0.3
 =x11-apps/bdftopcf-1.0.3
@@ -864,8 +859,6 @@
 =x11-apps/xwud-1.0.3
 =x11-base/xorg-drivers-1.9
 =x11-base/xorg-server-1.9.4
-=x11-drivers/nvidia-drivers-173.14.28
-=x11-drivers/nvidia-drivers-96.43.19
 =x11-drivers/xf86-input-evdev-2.6.0
 =x11-drivers/xf86-input-keyboard-1.6.0
 =x11-drivers/xf86-input-mouse-1.7.0
