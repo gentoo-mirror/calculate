@@ -105,9 +105,7 @@ app-mobilephone/obex-data-server
 app-mobilephone/obexd
 app-office/akonadi-server
 app-office/libreoffice
-app-pda/libimobiledevice
 app-pda/libplist
-app-pda/usbmuxd
 app-portage/eix
 app-portage/emerge-delta-webrsync
 app-portage/genlop
@@ -123,6 +121,7 @@ app-text/aspell
 app-text/build-docbook-catalog
 app-text/convertlit
 app-text/djvu
+app-text/docbook-xml-dtd
 app-text/docbook-xsl-stylesheets
 app-text/ebook-tools
 app-text/enchant
@@ -137,6 +136,7 @@ app-text/libspectre
 app-text/poppler
 app-text/recode
 app-text/rman
+app-text/sgml-common
 app-text/wgetpaste
 app-vim/colorschemes
 app-vim/gentoo-syntax
@@ -156,7 +156,6 @@ dev-lang/python
 dev-lang/swig
 dev-lang/tcl
 dev-lang/tk
-dev-lang/v8
 dev-lang/yasm
 dev-libs/atk
 dev-libs/boost
@@ -267,7 +266,6 @@ dev-tcltk/expect
 dev-util/automoc
 dev-util/bin_replace_string
 dev-util/boost-build
-dev-util/chromium-tools
 dev-util/cmake
 dev-util/cppunit
 dev-util/ctags
@@ -278,7 +276,6 @@ dev-util/gperf
 dev-util/gtk-doc-am
 dev-util/intltool
 dev-util/pkgconfig
-dev-util/scons
 dev-util/yacc
 dev-vcs/git
 gnome-base/gnome-common
@@ -547,6 +544,7 @@ media-libs/openal
 media-libs/opencore-amr
 media-libs/openexr
 media-libs/openjpeg
+media-libs/phonon
 media-libs/portaudio
 media-libs/qimageblitz
 media-libs/raptor
@@ -571,7 +569,6 @@ media-sound/cdparanoia
 media-sound/gsm
 media-sound/lame
 media-sound/musepack-tools
-media-sound/phonon
 media-sound/phonon-xine
 media-sound/sox
 media-sound/twolame
@@ -609,6 +606,7 @@ net-libs/libnfsidmap
 net-libs/libpcap
 net-libs/libsoup
 net-libs/libssh
+net-libs/libtirpc
 net-libs/libvncserver
 net-libs/neon
 net-libs/ortp
@@ -633,7 +631,7 @@ net-misc/rsync
 net-misc/vpnc
 net-misc/wget
 net-nds/openldap
-net-nds/portmap
+net-nds/rpcbind
 net-p2p/eiskaltdcpp
 net-print/cndrvcups-capt
 net-print/cndrvcups-common
@@ -834,6 +832,7 @@ virtual/blas
 virtual/cdrtools
 virtual/editor
 virtual/eject
+virtual/ffmpeg
 virtual/glu
 virtual/init
 virtual/jpeg
@@ -953,7 +952,6 @@ x11-libs/libXdmcp
 x11-libs/libXext
 x11-libs/libXfixes
 x11-libs/libXfont
-x11-libs/libXfontcache
 x11-libs/libXft
 x11-libs/libXi
 x11-libs/libXinerama
@@ -968,7 +966,6 @@ x11-libs/libXtst
 x11-libs/libXv
 x11-libs/libXvMC
 x11-libs/libXxf86dga
-x11-libs/libXxf86misc
 x11-libs/libXxf86vm
 x11-libs/libdrm
 x11-libs/libfontenc
@@ -1015,7 +1012,6 @@ x11-proto/compositeproto
 x11-proto/damageproto
 x11-proto/dri2proto
 x11-proto/fixesproto
-x11-proto/fontcacheproto
 x11-proto/fontsproto
 x11-proto/glproto
 x11-proto/inputproto
