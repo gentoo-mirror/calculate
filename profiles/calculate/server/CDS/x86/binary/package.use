@@ -181,8 +181,8 @@
 =sys-apps/baselayout-2.0.1-r1 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-install-2.2.12-r2 -minimal
-=sys-apps/calculate-lib-2.2.12-r1 -minimal
-=sys-apps/calculate-utilities-2.2.12-r5 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-lib-2.2.12-r2 -minimal
+=sys-apps/calculate-utilities-2.2.12-r6 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.2.3 kernel_linux -static
 =sys-apps/diffutils-2.8.7-r2 nls -static
@@ -206,7 +206,7 @@
 =sys-apps/net-tools-1.60_p20090728014017-r1 nls -static
 =sys-apps/openrc-0.8.0 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.4 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha28 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha29 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
