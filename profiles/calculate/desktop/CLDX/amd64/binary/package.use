@@ -38,7 +38,7 @@
 =app-misc/cl-graphics-meta-11.3 cdistro_CLDX -cdistro_CLD
 =app-misc/cl-multimedia-meta-11.3 cdistro_CLDX -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-nettools-meta-11.3 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
-=app-misc/cl-network-meta-11.3-r2 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
+=app-misc/cl-network-meta-11.3-r3 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-office-meta-11.3 cdistro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-tools-meta-11.3-r3 cdistro_CLDX cdistro_desktop -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.3-r1 cdistro_desktop
@@ -360,7 +360,7 @@
 =sys-apps/calculate-desktop-2.2.12 xfce -gnome -kde
 =sys-apps/calculate-install-2.2.12-r2 -minimal
 =sys-apps/calculate-lib-2.2.12-r2 -minimal
-=sys-apps/calculate-utilities-2.2.12-r6 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.12-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
@@ -468,7 +468,7 @@
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
 =www-client/chromium-10.0.648.204 cups gecko-mediaplayer gnome-keyring -gnome -test
-=www-plugins/adobe-flash-10.2.153.1 nspluginwrapper vdpau
+=www-plugins/adobe-flash-10.2.153.1 vdpau
 =x11-apps/xauth-1.0.5 ipv6
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
 =x11-apps/xhost-1.0.4 ipv6
