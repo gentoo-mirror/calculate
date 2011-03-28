@@ -29,7 +29,7 @@
 =app-misc/cl-graphics-meta-11.3 cdistro_CLDX -cdistro_CLD
 =app-misc/cl-multimedia-meta-11.3 cdistro_CLDX -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-nettools-meta-11.3 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
-=app-misc/cl-network-meta-11.3-r2 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
+=app-misc/cl-network-meta-11.3-r3 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-office-meta-11.3 cdistro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-tools-meta-11.3-r3 cdistro_CLDX cdistro_desktop -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.3-r1 cdistro_desktop
@@ -140,7 +140,7 @@
 =dev-python/pygtk-2.22.0-r1 -doc -examples -test
 =dev-python/pyopenssl-0.11 -doc
 =dev-python/pyrex-0.9.9 -examples
-=dev-python/python-ldap-2.3.12 ssl -doc -examples -sasl
+=dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-python/reportlab-2.5 -doc -examples -test
 =dev-python/twisted-10.2.0 crypt gtk -serial
@@ -273,7 +273,7 @@
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
 =media-video/ffmpeg-0.6_p25767 3dnow 3dnowext X alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads v4l v4l2 vdpau vorbis x264 xvid zlib -altivec -bindist -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vaapi -video_cards_nvidia -vpx
-=media-video/ffmpegthumbnailer-2.0.4 jpeg png -gnome
+=media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/gnome-mplayer-1.0.0 alsa ipod libnotify -gnome -musicbrainz -pulseaudio
 =media-video/mplayer-1.0_rc4_p20110322 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -lirc -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
 =net-analyzer/nmap-5.21-r1 ssl -gtk -lua
@@ -349,7 +349,7 @@
 =sys-apps/calculate-desktop-2.2.12 xfce -gnome -kde
 =sys-apps/calculate-install-2.2.12-r2 -minimal
 =sys-apps/calculate-lib-2.2.12-r2 -minimal
-=sys-apps/calculate-utilities-2.2.12-r6 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.12-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.1 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
@@ -377,7 +377,7 @@
 =sys-apps/module-init-tools-3.5 -old-linux
 =sys-apps/net-tools-1.60_p20090728014017-r1 nls -static
 =sys-apps/openrc-0.8.0 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
-=sys-apps/pciutils-3.1.4 -network-cron -zlib
+=sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
 =sys-apps/portage-2.2.0_alpha29 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
@@ -540,7 +540,7 @@
 =x11-misc/xdg-utils-1.0.2_p20100618 -doc
 =x11-misc/xdialog-2.3.1 nls -doc -examples
 =x11-misc/xscreensaver-5.12-r1 pam xinerama -jpeg -new-login -opengl -suid
-=x11-plugins/pidgin-libnotify-0.14 nls -debug
+=x11-plugins/pidgin-libnotify-0.14-r1 nls -debug
 =x11-proto/bigreqsproto-1.1.1 -doc
 =x11-proto/fontsproto-2.1.1 -doc
 =x11-proto/recordproto-1.14.1 -doc

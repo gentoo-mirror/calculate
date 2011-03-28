@@ -82,7 +82,7 @@
 =app-misc/cl-graphics-meta-11.3
 =app-misc/cl-multimedia-meta-11.3
 =app-misc/cl-nettools-meta-11.3
-=app-misc/cl-network-meta-11.3-r2
+=app-misc/cl-network-meta-11.3-r3
 =app-misc/cl-office-meta-11.3
 =app-misc/cl-printer-meta-11.3
 =app-misc/cl-tools-meta-11.3-r3
@@ -248,7 +248,7 @@
 =dev-python/pygtk-2.22.0-r1
 =dev-python/pyopenssl-0.11
 =dev-python/pyrex-0.9.9
-=dev-python/python-ldap-2.3.12
+=dev-python/python-ldap-2.3.13
 =dev-python/pyxdg-0.19
 =dev-python/pyxml-0.8.4-r2
 =dev-python/reportlab-2.5
@@ -422,7 +422,7 @@
 =media-sound/twolame-0.3.12
 =media-video/dirac-1.0.2
 =media-video/ffmpeg-0.6_p25767
-=media-video/ffmpegthumbnailer-2.0.4
+=media-video/ffmpegthumbnailer-2.0.6
 =media-video/gnome-mplayer-1.0.0
 =media-video/mplayer-1.0_rc4_p20110322
 =media-video/xanim-2.80.1-r4
@@ -525,13 +525,13 @@
 =sys-apps/attr-2.4.44
 =sys-apps/baselayout-2.0.1-r1
 =sys-apps/busybox-1.17.4
-=sys-apps/calculate-builder-2.2.12-r1
+=sys-apps/calculate-builder-2.2.12-r2
 =sys-apps/calculate-client-2.2.12
 =sys-apps/calculate-desktop-2.2.12
 =sys-apps/calculate-install-2.2.12-r2
 =sys-apps/calculate-lib-2.2.12-r2
 =sys-apps/calculate-templates-2.2.12-r1
-=sys-apps/calculate-utilities-2.2.12-r6
+=sys-apps/calculate-utilities-2.2.12-r7
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.1
 =sys-apps/debianutils-3.2.3
@@ -565,7 +565,7 @@
 =sys-apps/module-init-tools-3.5
 =sys-apps/net-tools-1.60_p20090728014017-r1
 =sys-apps/openrc-0.8.0
-=sys-apps/pciutils-3.1.4
+=sys-apps/pciutils-3.1.7
 =sys-apps/pcmciautils-014-r1
 =sys-apps/portage-2.2.0_alpha29
 =sys-apps/preload-0.6.4-r2
@@ -689,6 +689,7 @@
 =virtual/libusb-0
 =virtual/libusb-1
 =virtual/mailx-0
+=virtual/mta-0
 =virtual/opengl-7.0
 =virtual/pager-0
 =virtual/perl-Archive-Tar-1.54
@@ -854,7 +855,7 @@
 =x11-misc/xorg-cf-files-1.0.4
 =x11-misc/xscreensaver-5.12-r1
 =x11-plugins/pidgin-hotkeys-0.2.4
-=x11-plugins/pidgin-libnotify-0.14
+=x11-plugins/pidgin-libnotify-0.14-r1
 =x11-proto/bigreqsproto-1.1.1
 =x11-proto/compositeproto-0.4.2
 =x11-proto/damageproto-1.2.1
