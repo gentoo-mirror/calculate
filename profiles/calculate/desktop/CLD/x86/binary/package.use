@@ -34,7 +34,7 @@
 =app-misc/cl-kde-meta-4.6.0-r1 -calculate_nodecoration -calculate_nographics -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork
 =app-misc/cl-multimedia-meta-11.3 cdistro_CLD -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-nettools-meta-11.3 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
-=app-misc/cl-network-meta-11.3-r2 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
+=app-misc/cl-network-meta-11.3-r3 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-office-meta-11.3 cdistro_CLD linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-tools-meta-11.3-r3 cdistro_CLD cdistro_desktop -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.3-r1 cdistro_desktop
@@ -147,7 +147,7 @@
 =dev-python/pygobject-2.26.0-r1 cairo threads -doc -examples -introspection -libffi -test
 =dev-python/pygtk-2.22.0-r1 -doc -examples -test
 =dev-python/pyopenssl-0.11 -doc
-=dev-python/python-ldap-2.3.12 ssl -doc -examples -sasl
+=dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-python/reportlab-2.5 -doc -examples -test
 =dev-python/sip-4.12 -debug -doc
@@ -436,7 +436,7 @@
 =media-video/dirac-1.0.2 mmx -debug -doc
 =media-video/dvgrab-3.5 jpeg quicktime
 =media-video/ffmpeg-0.6_p25767 3dnow 3dnowext X alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads v4l v4l2 vdpau vorbis x264 xvid zlib -altivec -bindist -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vaapi -video_cards_nvidia -vpx
-=media-video/ffmpegthumbnailer-2.0.4 jpeg png -gnome
+=media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/kdenlive-0.7.8 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_pt -linguas_sl -linguas_tr -linguas_zh
 =media-video/kffmpegthumbnailer-1.1.0 -aqua -debug -kdeenablefinal
 =media-video/mjpegtools-1.9.0-r1 X dv gtk mmx png quicktime sdl v4l -dga -yv12
@@ -514,7 +514,7 @@
 =sys-apps/calculate-desktop-2.2.12 kde -gnome -xfce
 =sys-apps/calculate-install-2.2.12-r2 -minimal
 =sys-apps/calculate-lib-2.2.12-r2 -minimal
-=sys-apps/calculate-utilities-2.2.12-r6 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.12-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.1 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
@@ -541,7 +541,7 @@
 =sys-apps/module-init-tools-3.5 -old-linux
 =sys-apps/net-tools-1.60_p20090728014017-r1 nls -static
 =sys-apps/openrc-0.8.0 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
-=sys-apps/pciutils-3.1.4 -network-cron -zlib
+=sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
 =sys-apps/portage-2.2.0_alpha29 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
