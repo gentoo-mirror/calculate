@@ -1,0 +1,74 @@
+commit 01c870a130e22b61e911259396f443d1979c50e3
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Mar 28 17:49:48 2011 +0400
+
+    Fix using own kernel config, fix translate.
+
+diff --git a/i18n/cl_builder_ru.mo b/i18n/cl_builder_ru.mo
+index ac6e11c..b3e23b8 100644
+Binary files a/i18n/cl_builder_ru.mo and b/i18n/cl_builder_ru.mo differ
+diff --git a/pym/cl_kernel.py b/pym/cl_kernel.py
+index 378ca2a..f13e301 100644
+--- a/pym/cl_kernel.py
++++ b/pym/cl_kernel.py
+@@ -29,6 +29,7 @@ from shutil import copy2 as copy_with_perm
+ from cl_kernel_utils import KernelConfig,InitRamFs
+ 
+ from cl_lang import lang
++lang().setLanguage(sys.modules[__name__])
+ 
+ class cl_kernel(color_print):
+     """Primary class for kernel manipulation"""
+@@ -81,7 +82,6 @@ class cl_kernel(color_print):
+             makeOpts = []
+         menuConfig = ["--menuconfig"] if showMenuConfig else []
+         noClean = ["--no-clean"] if noClean else []
+-        kernelConfig = ["--kernel-config=%s"%clVars.Get('cl_kernel_config')]
+         bootDir = clVars.Get('cl_kernel_boot_path')
+         if not path.exists(bootDir):
+             os.makedirs(bootDir,mode=0755)
+@@ -89,7 +89,17 @@ class cl_kernel(color_print):
+         lvmOpt = ["--lvm"] if lvmOpt else []
+         dmraidOpt = ["--dmraid"] if dmraidOpt else []
+         mdadmOpt = ["--mdadm"] if mdadmOpt else []
+-        mrproperOpt = ["--mrproper"] if mrproper else []
++        mrproperOpt = ["--mrproper"] if mrproper else ["--no-mrproper"]
++        stdConfigPath = \
++            path.join(clVars.Get('cl_kernel_src_path'), ".config")
++        if clVars.Get('cl_kernel_config') == stdConfigPath:
++            kernelConfig = []
++            if mrproper:
++                self.printERROR(_("Cann't use own config with '%s' option")%
++                    "--mrproper")
++                return False
++        else:
++            kernelConfig = ["--kernel-config=%s"%clVars.Get('cl_kernel_config')]
+         kernelName = ["--kernname=%s"%clVars.Get('os_linux_system')]
+         cachedir = ["--cachedir=%s"%clVars.Get('cl_kernel_cache_path')]
+         tempdir = ["--tempdir=%s"%clVars.Get('cl_kernel_temp_path')]
+diff --git a/pym/cl_kernel_cmd.py b/pym/cl_kernel_cmd.py
+index c5c4c1f..ceaf202 100644
+--- a/pym/cl_kernel_cmd.py
++++ b/pym/cl_kernel_cmd.py
+@@ -133,11 +133,7 @@ class kernel_cmd(share_cmd):
+             if not path.exists(values.c):
+                 self.optobj.error(_("kernel config '%s' not found")%values.c)
+             else:
+-                if values.c == path.join(
+-                    self.logicObj.clVars.Get('cl_kernel_src_path'),".config"):
+-                    configFile = "%s.bak"%values.c
+-                else:
+-                    configFile = values.c
++                configFile = values.c
+                 self.logicObj.clVars.Set('cl_kernel_config',configFile,True)
+         elif values.o:
+             if  path.exists(
+@@ -145,7 +141,7 @@ class kernel_cmd(share_cmd):
+                           ".config")):
+                 self.logicObj.clVars.Set('cl_kernel_config',
+                     path.join(self.logicObj.clVars.Get('cl_kernel_src_path'),
+-                          ".config.bak"),True)
++                          ".config"),True)
+ 
+         self.optobj.checkVarSyntax(values)
+         return (values, args)
