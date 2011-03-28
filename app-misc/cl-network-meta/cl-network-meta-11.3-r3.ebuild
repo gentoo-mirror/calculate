@@ -55,7 +55,8 @@ RDEPEND="
 	cdistro_CDS? (
 		app-text/wgetpaste
 		net-analyzer/fail2ban
-		net-analyzer/iptraf
+		!net-analyzer/iptraf
+		net-analyzer/iptraf-ng
 		net-analyzer/macchanger
 		net-analyzer/nmap
 		net-analyzer/sarg
