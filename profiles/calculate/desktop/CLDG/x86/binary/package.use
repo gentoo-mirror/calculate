@@ -61,7 +61,7 @@
 =app-text/libspectre-0.2.6 -debug -doc -static-libs -test
 =app-text/poppler-0.14.5 abiword cairo cxx jpeg jpeg2k lcms png utils xpdf-headers -cjk -curl -debug -doc -exceptions -qt4
 =app-text/rarian-0.8.1-r1 -debug
-=app-text/recode-3.6_p17-r2 nls
+=app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/stardict-3.0.1-r2 gnome spell -debug -espeak -festival -gucharmap -pronounce -qqwry
 =app-text/wgetpaste-2.17 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
@@ -377,7 +377,7 @@
 =net-misc/openssh-5.8_p1-r1 X hpn pam tcpd -X509 -kerberos -ldap -libedit -selinux -skey -static
 =net-misc/openvpn-2.1.4 ipv6 pam ssl -eurephia -examples -iproute2 -minimal -passwordsave -pkcs11 -selinux -static -userland_BSD
 =net-misc/rdesktop-1.6.0-r4 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite -rdpusb
-=net-misc/rsync-3.0.7 acl iconv ipv6 -static -xattr
+=net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/vinagre-2.30.3 ssh telepathy -applet -avahi -test
 =net-misc/vino-2.32.1 crypt gnome-keyring ipv6 jpeg libnotify networkmanager ssl telepathy zlib -avahi -debug
 =net-misc/vpnc-0.5.3 -bindist -hybrid-auth -resolvconf
@@ -413,7 +413,7 @@
 =sys-apps/calculate-desktop-2.2.12 gnome -kde -xfce
 =sys-apps/calculate-install-2.2.12-r2 -minimal
 =sys-apps/calculate-lib-2.2.12-r2 -minimal
-=sys-apps/calculate-utilities-2.2.12-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.12-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.1 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
