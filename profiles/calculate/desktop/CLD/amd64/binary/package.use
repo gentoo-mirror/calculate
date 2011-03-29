@@ -71,7 +71,7 @@
 =app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
 =app-text/libspectre-0.2.6 -debug -doc -static-libs -test
 =app-text/poppler-0.14.5 abiword cairo cxx jpeg jpeg2k lcms png qt4 utils xpdf-headers -cjk -curl -debug -doc -exceptions
-=app-text/recode-3.6_p17-r2 nls
+=app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/wgetpaste-2.17 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
 =dev-cpp/clucene-0.9.21b-r1 -debug -doc -static-libs -threads
@@ -423,6 +423,7 @@
 =media-libs/openexr-1.7.0 -examples -static-libs
 =media-libs/openjpeg-1.3-r3 -tools
 =media-libs/phonon-4.4.4 xine -debug -gstreamer -pulseaudio -vlc
+=media-libs/phonon-xine-4.4.4 xcb -debug
 =media-libs/portaudio-19_pre20071207 alsa cxx -debug -jack -oss
 =media-libs/qimageblitz-0.0.4 3dnow mmx sse sse2 -altivec -debug
 =media-libs/raptor-1.4.20 unicode -curl -debug -xml
@@ -440,7 +441,6 @@
 =media-sound/alsa-utils-1.0.23-r1 nls -doc -minimal
 =media-sound/amarok-2.4.0 embedded ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk opengl player semantic-desktop utils -cdda -daap -debug -kdeenablefinal -lastfm -linguas_ca -linguas_cs -linguas_da -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_ja -linguas_km -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_sl -linguas_sr -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_wa -linguas_zh_TW -mp3tunes -mtp
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
-=media-sound/phonon-xine-4.4.4 xcb -debug
 =media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
@@ -493,7 +493,7 @@
 =net-misc/openssh-5.8_p1-r1 X hpn ldap pam tcpd -X509 -kerberos -libedit -selinux -skey -static
 =net-misc/openvpn-2.1.4 ipv6 pam ssl -eurephia -examples -iproute2 -minimal -passwordsave -pkcs11 -selinux -static -userland_BSD
 =net-misc/rdesktop-1.6.0-r4 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite -rdpusb
-=net-misc/rsync-3.0.7 acl iconv ipv6 -static -xattr
+=net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/vpnc-0.5.3 -bindist -hybrid-auth -resolvconf
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
 =net-nds/openldap-2.4.24 berkdb crypt gnutls ipv6 perl samba ssl tcpd -cxx -debug -experimental -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
@@ -524,7 +524,7 @@
 =sys-apps/calculate-desktop-2.2.12 kde -gnome -xfce
 =sys-apps/calculate-install-2.2.12-r2 -minimal
 =sys-apps/calculate-lib-2.2.12-r2 -minimal
-=sys-apps/calculate-utilities-2.2.12-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.12-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
