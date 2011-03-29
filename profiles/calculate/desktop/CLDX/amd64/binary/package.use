@@ -65,7 +65,7 @@
 =app-text/libspectre-0.2.6 -debug -doc -static-libs -test
 =app-text/poppler-0.14.5 abiword cairo cxx jpeg jpeg2k lcms png utils xpdf-headers -cjk -curl -debug -doc -exceptions -qt4
 =app-text/rarian-0.8.1-r1 -debug
-=app-text/recode-3.6_p17-r2 nls
+=app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/stardict-3.0.1-r2 spell -debug -espeak -festival -gnome -gucharmap -pronounce -qqwry
 =app-text/wgetpaste-2.17 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
@@ -329,7 +329,7 @@
 =net-misc/openssh-5.8_p1-r1 X hpn ldap pam tcpd -X509 -kerberos -libedit -selinux -skey -static
 =net-misc/openvpn-2.1.4 ipv6 pam ssl -eurephia -examples -iproute2 -minimal -passwordsave -pkcs11 -selinux -static -userland_BSD
 =net-misc/rdesktop-1.6.0-r4 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite -rdpusb
-=net-misc/rsync-3.0.7 acl iconv ipv6 -static -xattr
+=net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/vpnc-0.5.3 -bindist -hybrid-auth -resolvconf
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
 =net-nds/openldap-2.4.24 berkdb crypt gnutls ipv6 perl samba ssl tcpd -cxx -debug -experimental -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
@@ -360,7 +360,7 @@
 =sys-apps/calculate-desktop-2.2.12 xfce -gnome -kde
 =sys-apps/calculate-install-2.2.12-r2 -minimal
 =sys-apps/calculate-lib-2.2.12-r2 -minimal
-=sys-apps/calculate-utilities-2.2.12-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.12-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
@@ -551,7 +551,7 @@
 =x11-misc/xdg-utils-1.1.0_rc1-r1 -doc
 =x11-misc/xdialog-2.3.1 nls -doc -examples
 =x11-misc/xscreensaver-5.12-r1 pam xinerama -jpeg -new-login -opengl -suid
-=x11-plugins/pidgin-libnotify-0.14 nls -debug
+=x11-plugins/pidgin-libnotify-0.14-r1 nls -debug
 =x11-proto/bigreqsproto-1.1.1 -doc
 =x11-proto/fontsproto-2.1.1 -doc
 =x11-proto/recordproto-1.14.1 -doc
