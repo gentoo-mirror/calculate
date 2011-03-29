@@ -13,11 +13,11 @@ index d4d7ace..4532cae 100644
  
  try:
 -    from magic import open as type_file, MAGIC_NONE as MAGIC_NONE
-+    from magic2 import open as type_file, MAGIC_NONE as MAGIC_NONE
++    from magic import open as type_file, MAGIC_NONE as MAGIC_NONE
  except ImportError:
 -    from magic import open as type_file, NONE as MAGIC_NONE
 +    try:
-+        from magic2 import open as type_file, NONE as MAGIC_NONE
++        from magic import open as type_file, NONE as MAGIC_NONE
 +    except:
 +        type_file = None
 +        MAGIC_NONE = None
@@ -48,7 +48,7 @@ index d4d7ace..4532cae 100644
 +                if processFile.success():
 +                    return processFile.read().rstrip()
 +            else:
-+                processFile = process("file","-b",filename)
++                processFile = process("file","-bz",filename)
 +                if processFile.success():
 +                    return processFile.read().rstrip()
 +        return None
