@@ -37,7 +37,7 @@
 =app-emulation/emul-linux-x86-xlibs-20110129 opengl -development
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.3 cdistro_CLDG -cdistro_CDS -cdistro_CLD -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
-=app-misc/cl-decoration-meta-11.3-r1 cdistro_CLDG cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDX -cdistro_CLS -cdistro_CMC
+=app-misc/cl-decoration-meta-11.3-r2 cdistro_CLDG cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/cl-gnome-meta-2.32 -calculate_nonetwork
 =app-misc/cl-graphics-meta-11.3 -cdistro_CLD -cdistro_CLDX
 =app-misc/cl-multimedia-meta-11.3 cdistro_CLDG -cdistro_CLD -cdistro_CLDX
@@ -168,6 +168,7 @@
 =dev-python/libgnomecanvas-python-2.28.1 -examples
 =dev-python/libwnck-python-2.32.0 -examples
 =dev-python/mako-0.3.6 -doc -test
+=dev-python/notify-python-0.1.1-r2 -examples
 =dev-python/numpy-1.5.1 -doc -lapack -test
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
@@ -432,7 +433,7 @@
 =sys-apps/file-5.05 python
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
-=sys-apps/gnome-disk-utility-2.32.0-r1 gnome-keyring -avahi -doc -fat -nautilus -remote-access
+=sys-apps/gnome-disk-utility-2.32.1 gnome-keyring -avahi -doc -fat -nautilus -remote-access
 =sys-apps/grep-2.5.4-r1 nls pcre
 =sys-apps/groff-1.20.1-r3 X -examples -linguas_ja
 =sys-apps/help2man-1.38.2 elibc_glibc nls
@@ -591,6 +592,7 @@
 =x11-libs/libdrm-2.4.23 libkms video_cards_intel video_cards_nouveau video_cards_radeon video_cards_vmware -static-libs
 =x11-libs/libfontenc-1.1.0 -static-libs
 =x11-libs/libgksu-2.0.12-r1 nls -doc
+=x11-libs/libnotify-0.7.2 -doc -introspection -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
 =x11-libs/libsexy-0.1.11-r1 -doc
 =x11-libs/libvdpau-0.4.1 -doc
