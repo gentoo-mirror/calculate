@@ -13,8 +13,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CLS cdistro_CMC cdistro_CDS"
 
-#x11-themes/xfce4-icon-theme (CLD, CLDX) needed for chromium
 RDEPEND="
+	!x11-themes/xfce4-icon-theme
 	media-gfx/splashutils
 
 	cdistro_desktop? (
