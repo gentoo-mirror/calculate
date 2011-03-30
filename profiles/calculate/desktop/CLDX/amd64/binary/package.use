@@ -34,7 +34,7 @@
 =app-emulation/emul-linux-x86-xlibs-20110129 opengl -development
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.3 cdistro_CLDX -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC -cdistro_CSS
-=app-misc/cl-decoration-meta-11.3-r1 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
+=app-misc/cl-decoration-meta-11.3-r2 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-graphics-meta-11.3 cdistro_CLDX -cdistro_CLD
 =app-misc/cl-multimedia-meta-11.3 cdistro_CLDX -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-nettools-meta-11.3 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
@@ -144,6 +144,7 @@
 =dev-python/gst-python-0.10.20 -examples -test
 =dev-python/imaging-1.1.7 X scanner -doc -examples -tk
 =dev-python/ipython-0.10.1 readline smp -doc -emacs -examples -gnuplot -test -wxwidgets
+=dev-python/notify-python-0.1.1-r2 -examples
 =dev-python/numpy-1.5.1 -doc -lapack -test
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
@@ -179,7 +180,7 @@
 =gnome-base/libgtop-2.28.2 -debug -doc
 =gnome-base/librsvg-2.32.1 gtk -doc -tools
 =gnome-base/orbit-2.14.19 -debug -doc -test
-=gnome-extra/nm-applet-0.8.2-r9 -bluetooth -debug
+=gnome-extra/nm-applet-0.8.2-r10 -bluetooth -debug
 =gnome-extra/polkit-gnome-0.99 -doc -examples -introspection
 =mail-client/claws-mail-3.7.8 crypt dbus gnutls imap ipv6 ldap session spell ssl -bogofilter -dillo -doc -nntp -pda -smime -spamassassin -startup-notification -xface
 =mail-client/claws-mail-rssyl-0.29 nls
@@ -273,11 +274,11 @@
 =media-libs/vigra-1.6.0 jpeg png tiff zlib -doc -fftw -test
 =media-libs/x264-0.0.20101029 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
-=media-plugins/audacious-plugins-2.4.0 aac alsa ffmpeg flac ipv6 mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cdda -cue -debug -fluidsynth -gnome -jack -lame -lirc -midi -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
+=media-plugins/audacious-plugins-2.4.4-r1 aac alsa ffmpeg flac ipv6 libnotify mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cdda -cue -fluidsynth -gnome -jack -lame -libsamplerate -lirc -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
 =media-plugins/gst-plugins-a52dec-0.10.16 orc
 =media-plugins/gst-plugins-meta-0.10-r4 X a52 alsa dvd ffmpeg flac mad mpeg ogg theora v4l v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib
 =media-sound/alsa-utils-1.0.23-r1 nls -doc -minimal
-=media-sound/audacious-2.4.0 nls session sse2 -altivec -chardet -debug
+=media-sound/audacious-2.4.4 nls session sse2 -altivec -chardet
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
 =media-sound/mpg123-1.12.1 alsa ipv6 nas portaudio sdl sse -3dnow -3dnowext -altivec -jack -mmx -oss -pulseaudio
 =media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
@@ -369,7 +370,7 @@
 =sys-apps/file-5.05 python
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
-=sys-apps/gnome-disk-utility-2.32.0-r1 gnome-keyring -avahi -doc -fat -nautilus -remote-access
+=sys-apps/gnome-disk-utility-2.32.1 gnome-keyring -avahi -doc -fat -nautilus -remote-access
 =sys-apps/grep-2.5.4-r1 nls pcre
 =sys-apps/groff-1.20.1-r3 X -examples -linguas_ja
 =sys-apps/help2man-1.38.2 elibc_glibc nls
@@ -526,6 +527,7 @@
 =x11-libs/libdrm-2.4.23 libkms video_cards_intel video_cards_nouveau video_cards_radeon video_cards_vmware -static-libs
 =x11-libs/libfontenc-1.1.0 -static-libs
 =x11-libs/libgksu-2.0.12-r1 nls -doc
+=x11-libs/libnotify-0.7.2 -doc -introspection -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
 =x11-libs/libvdpau-0.4.1 -doc
 =x11-libs/libwnck-2.30.6 -doc -introspection -startup-notification
@@ -562,7 +564,6 @@
 =x11-terms/terminal-0.4.6 dbus -debug
 =x11-themes/gtk-engines-xfce-2.8.1 -debug
 =x11-themes/tango-icon-theme-0.8.90 -png
-=x11-themes/xfce4-icon-theme-4.4.3 -minimal
 =xfce-base/exo-0.6.0 python -debug
 =xfce-base/garcon-0.1.5 -debug
 =xfce-base/libxfce4ui-4.8.0 -debug -glade -startup-notification
