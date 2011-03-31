@@ -234,7 +234,7 @@
 =gnome-extra/gnome-utils-2.32.0-r1 ipv6 -bonobo -debug -doc -test
 =gnome-extra/gucharmap-2.32.1 gnome python -cjk -debug -doc -introspection -test
 =gnome-extra/hamster-applet-2.32.1 libnotify -eds
-=gnome-extra/nm-applet-0.8.2-r9 -bluetooth -debug
+=gnome-extra/nm-applet-0.8.2-r10 -bluetooth -debug
 =gnome-extra/polkit-gnome-0.99 -doc -examples -introspection
 =gnome-extra/yelp-2.30.2-r1 -debug
 =gnome-extra/zenity-2.32.1 compat libnotify -debug
@@ -331,14 +331,14 @@
 =media-libs/x264-0.0.20101029 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/gst-plugins-a52dec-0.10.16 orc
-=media-plugins/gst-plugins-meta-0.10-r4 X a52 alsa dvd ffmpeg flac mad mpeg ogg theora v4l v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib
+=media-plugins/gst-plugins-meta-0.10-r4 X a52 alsa dvd ffmpeg flac mad mpeg ogg theora v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib
 =media-sound/alsa-utils-1.0.23-r1 nls -doc -minimal
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
-=media-sound/rhythmbox-0.12.8-r1 cdr gnome-keyring ipod libnotify nsplugin python -daap -debug -doc -hal -lirc -mtp -musicbrainz -test -udev -upnp -webkit
+=media-sound/rhythmbox-0.12.8-r1 cdr gnome-keyring ipod libnotify nsplugin python -daap -debug -doc -lirc -mtp -musicbrainz -test -udev -upnp -webkit
 =media-sound/sound-juicer-2.32.0 -debug -test
 =media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
 =media-sound/twolame-0.3.12 -static-libs
-=media-video/cheese-2.32.0 v4l -doc
+=media-video/cheese-2.32.0 -doc
 =media-video/dirac-1.0.2 mmx -debug -doc
 =media-video/ffmpeg-0.6_p25767 3dnow 3dnowext X alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads v4l v4l2 vdpau vorbis x264 xvid zlib -altivec -bindist -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vaapi -video_cards_nvidia -vpx
 =media-video/mplayer-1.0_rc4_p20110322 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vdpau video_cards_mga video_cards_tdfx video_cards_vesa vorbis x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -lirc -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vidix -vpx -win32codecs -zoran
@@ -602,7 +602,7 @@
 =x11-libs/libxklavier-5.0 -doc
 =x11-libs/pango-1.28.3-r1 X -debug -doc -introspection -test
 =x11-libs/pixman-0.20.2 mmx sse2 -altivec -static-libs
-=x11-libs/qt-core-4.7.2 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
+=x11-libs/qt-core-4.7.2-r1 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.2 exceptions -aqua -debug -pch
 =x11-libs/qt-gui-4.7.2 accessibility cups dbus exceptions glib gtk mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -nis -pch -raster -trace
 =x11-libs/qt-qt3support-4.7.2 accessibility exceptions -aqua -debug -kde -pch -phonon
