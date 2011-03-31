@@ -619,7 +619,7 @@
 =sys-process/procps-3.2.8 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r10 pam -debug -selinux
-=virtual/ffmpeg-0 X encode mp3 sdl theora threads vdpau x264 -vaapi
+=virtual/ffmpeg-0.6 X encode mp3 sdl theora threads vdpau x264 -vaapi
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
@@ -688,7 +688,7 @@
 =x11-libs/libxklavier-5.0 -doc
 =x11-libs/pango-1.28.3-r1 X -debug -doc -introspection -test
 =x11-libs/pixman-0.20.2 mmx sse2 -altivec -static-libs
-=x11-libs/qt-core-4.7.2 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
+=x11-libs/qt-core-4.7.2-r1 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.2 exceptions -aqua -debug -pch
 =x11-libs/qt-declarative-4.7.2 exceptions private-headers qt3support -aqua -debug -pch
 =x11-libs/qt-gui-4.7.2 accessibility cups dbus exceptions glib gtk mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -nis -pch -raster -trace
