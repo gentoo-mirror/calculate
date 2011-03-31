@@ -276,7 +276,7 @@
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/audacious-plugins-2.4.4-r1 aac alsa ffmpeg flac ipv6 libnotify mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cdda -cue -fluidsynth -gnome -jack -lame -libsamplerate -lirc -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
 =media-plugins/gst-plugins-a52dec-0.10.16 orc
-=media-plugins/gst-plugins-meta-0.10-r4 X a52 alsa dvd ffmpeg flac mad mpeg ogg theora v4l v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib
+=media-plugins/gst-plugins-meta-0.10-r4 X a52 alsa dvd ffmpeg flac mad mpeg ogg theora v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib
 =media-sound/alsa-utils-1.0.23-r1 nls -doc -minimal
 =media-sound/audacious-2.4.4 nls session sse2 -altivec -chardet
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
@@ -465,6 +465,7 @@
 =sys-process/procps-3.2.8 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r10 pam -debug -selinux
+=virtual/ffmpeg-0.6 X encode mp3 sdl theora threads vdpau x264 -vaapi
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
@@ -536,7 +537,7 @@
 =x11-libs/libxklavier-5.0 -doc
 =x11-libs/pango-1.28.3-r1 X -debug -doc -introspection -test
 =x11-libs/pixman-0.20.2 mmx sse2 -altivec -static-libs
-=x11-libs/qt-core-4.7.2 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
+=x11-libs/qt-core-4.7.2-r1 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.2 exceptions -aqua -debug -pch
 =x11-libs/qt-gui-4.7.2 accessibility cups dbus exceptions glib gtk mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -nis -pch -raster -trace
 =x11-libs/qt-qt3support-4.7.2 accessibility exceptions -aqua -debug -kde -pch -phonon
