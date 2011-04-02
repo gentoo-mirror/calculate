@@ -18,7 +18,7 @@ IUSE="minimal"
 DEPEND="~sys-apps/calculate-lib-2.2.12
 	app-portage/layman
 	!minimal? ( sys-boot/grub
-	sys-apps/gdisk
+	sys-apps/gptfdisk
 	sys-fs/dosfstools
 	sys-fs/squashfs-tools
 	sys-block/parted )"

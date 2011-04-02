@@ -61,7 +61,7 @@ RDEPEND="${RDEPEND}
 		app-portage/portage-utils
 		app-portage/ufed
 		sys-apps/acl
-		sys-apps/gdisk
+		sys-apps/gptfdisk
 		sys-apps/hdparm
 		sys-apps/lm_sensors
 		sys-apps/memtest86+
@@ -114,7 +114,7 @@ RDEPEND="${RDEPEND}
 		!calculate_nosamba? ( net-fs/samba )
 		sci-libs/fftw
 		sys-apps/acl
-		sys-apps/gdisk
+		sys-apps/gptfdisk
 		sys-apps/iproute2
 		sys-apps/lm_sensors
 		sys-apps/kexec-tools
