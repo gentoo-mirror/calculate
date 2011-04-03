@@ -40,7 +40,7 @@
 =app-misc/cl-nettools-meta-11.3 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-network-meta-11.3-r3 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-office-meta-11.3 cdistro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLD -cdistro_CLDG
-=app-misc/cl-tools-meta-11.3-r4 cdistro_CLDX cdistro_desktop -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
+=app-misc/cl-tools-meta-11.3-r5 cdistro_CLDX cdistro_desktop -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.3-r1 cdistro_desktop
 =app-misc/cldx-meta-11.3 -calculate_nodecoration -calculate_nographics -calculate_nokernel -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork -calculate_nooffice -calculate_noprinter -calculate_nowireless -calculate_noxfce -calculate_noxorg
 =app-misc/livecd-tools-1.0.42 X opengl
@@ -111,7 +111,7 @@
 =dev-libs/libnatspec-0.2.6 python -doc
 =dev-libs/libnl-1.1-r2 -doc
 =dev-libs/liboil-0.3.17 examples -doc -test
-=dev-libs/libpcre-8.02 bzip2 cxx unicode zlib -static-libs
+=dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libpthread-stubs-0.1 -static-libs
 =dev-libs/libsigc++-2.2.7 -doc -test
 =dev-libs/libtasn1-2.9-r1 -doc
