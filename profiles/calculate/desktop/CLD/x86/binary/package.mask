@@ -685,12 +685,11 @@ sys-apps/coreutils
 sys-apps/dbus
 sys-apps/debianutils
 sys-apps/diffutils
-sys-apps/eject
 sys-apps/ethtool
 sys-apps/file
 sys-apps/findutils
 sys-apps/gawk
-sys-apps/gdisk
+sys-apps/gptfdisk
 sys-apps/grep
 sys-apps/groff
 sys-apps/hdparm
@@ -742,6 +741,7 @@ sys-auth/polkit
 sys-auth/polkit-kde-agent
 sys-auth/polkit-qt
 sys-auth/thinkfinger
+sys-block/eject
 sys-block/parted
 sys-block/partitionmanager
 sys-boot/calcboot
