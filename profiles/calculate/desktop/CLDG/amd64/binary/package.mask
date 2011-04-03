@@ -638,13 +638,12 @@ sys-apps/dbus
 sys-apps/debianutils
 sys-apps/diffutils
 sys-apps/dmapi
-sys-apps/eject
 sys-apps/ethtool
 sys-apps/file
 sys-apps/findutils
 sys-apps/gawk
-sys-apps/gdisk
 sys-apps/gnome-disk-utility
+sys-apps/gptfdisk
 sys-apps/grep
 sys-apps/groff
 sys-apps/hdparm
@@ -694,6 +693,7 @@ sys-auth/pam_ldap
 sys-auth/pambase
 sys-auth/polkit
 sys-auth/thinkfinger
+sys-block/eject
 sys-block/gparted
 sys-block/parted
 sys-boot/calcboot
