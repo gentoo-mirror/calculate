@@ -27,7 +27,7 @@
 =app-misc/cl-decoration-meta-11.3-r2 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-nettools-meta-11.3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-network-meta-11.3-r3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
-=app-misc/cl-tools-meta-11.3-r4 cdistro_CDS -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
+=app-misc/cl-tools-meta-11.3-r5 cdistro_CDS -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-wireless-meta-11.3-r1 -cdistro_desktop
 =app-misc/livecd-tools-1.0.42 -X -opengl
 =app-misc/mc-4.7.0.3 edit gpm nls samba -X -slang
@@ -70,7 +70,7 @@
 =dev-libs/libksba-1.1.0 -static-libs
 =dev-libs/libnatspec-0.2.6 python -doc
 =dev-libs/libnl-1.1-r2 -doc
-=dev-libs/libpcre-8.02 bzip2 cxx unicode zlib -static-libs
+=dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libtasn1-2.9-r1 -doc
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
 =dev-libs/libxml2-2.7.8 ipv6 python readline -debug -doc -examples -icu -test
