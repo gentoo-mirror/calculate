@@ -27,7 +27,7 @@
 =app-misc/cl-decoration-meta-11.3-r2 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-nettools-meta-11.3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-network-meta-11.3-r3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
-=app-misc/cl-tools-meta-11.3-r3 cdistro_CDS -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
+=app-misc/cl-tools-meta-11.3-r4 cdistro_CDS -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-wireless-meta-11.3-r1 -cdistro_desktop
 =app-misc/livecd-tools-1.0.42 -X -opengl
 =app-misc/mc-4.7.0.3 edit gpm nls samba -X -slang
@@ -180,9 +180,9 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.1-r1 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-install-2.2.12-r2 -minimal
+=sys-apps/calculate-install-2.2.12-r3 -minimal
 =sys-apps/calculate-lib-2.2.12-r3 -minimal
-=sys-apps/calculate-utilities-2.2.12-r9 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-utilities-2.2.12-r10 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.2.3 kernel_linux -static
 =sys-apps/diffutils-2.8.7-r2 nls -static
