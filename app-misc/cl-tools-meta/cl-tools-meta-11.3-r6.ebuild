@@ -26,7 +26,6 @@ IUSE="
 "
 
 RDEPEND="${RDEPEND}
-	!sys-apps/gdisk
 	sys-apps/ethtool
 
 	cdistro_desktop? (
