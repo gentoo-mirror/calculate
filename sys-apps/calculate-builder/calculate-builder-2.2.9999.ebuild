@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,6 +15,9 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-install-2.2.9999"
+DEPEND="~sys-apps/calculate-install-2.2.9999
+	!<sys-apps/calculate-1.4.0_p20100921
+	app-cdr/cdrkit
+	sys-fs/squashfs-tools"
 
 RDEPEND="${DEPEND}"
