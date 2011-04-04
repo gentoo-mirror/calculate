@@ -1,0 +1,153 @@
+commit ced929a1261a4087c90338b2d9728a76d361c289
+Author: Самоукин Алексей <as@calculate.ru>
+Date:   Mon Apr 4 11:03:14 2011 +0400
+
+    Add header parametr exec.
+
+diff --git a/pym/cl_template.py b/pym/cl_template.py
+index a49a4d9..7ccb5f5 100644
+--- a/pym/cl_template.py
++++ b/pym/cl_template.py
+@@ -436,7 +436,7 @@ class fileHeader(_terms):
+     # Допустимые параметры заголовка
+     allowParam = ["format", "format_conf", "comment", "append", "force",
+                   "link", "mirror", "symbolic", "chmod", "chown", "name",
+-                  "path", "autoupdate"]
++                  "path", "autoupdate", "exec"]
+ 
+     # Тип шаблона
+     fileType = ""
+@@ -562,6 +562,9 @@ class fileHeader(_terms):
+                     self.headerTerm = False
+                     self.setError(_("incorrect header parameters - '%s'")\
+                                     %"append=%s"%self.params["append"])
++        if 'exec' in self.params:
++            self.execStr = "#!%s"%self.params['exec']
++
+         if not incorrectParams and self.params:
+             incorrectParams = set(self.params.keys()) - set(self.allowParam)
+         if incorrectParams:
+@@ -3549,9 +3552,16 @@ re.M|re.S)
+         self.autoUpdateFiles = []
+         self.autoUpdateDirs = []
+ 
++    
++    def executeTemplate(self, path, execPath):
++        """Execute template"""
++        if os.system("""%s %s %s"""%(execPath,path,'>/dev/null 2>&1')) == 0:
++            return True
++        else:
++            return False
+ 
+-    # Преобразование восьмеричного в целое (ввод строка, вывод число)
+     def __octToInt(self, strOct):
++        """Преобразование восьмеричного в целое (ввод строка, вывод число)"""
+         if strOct:
+             try:
+                 res = string.atoi(strOct, 8)
+@@ -4390,7 +4400,6 @@ variable 'cl_name'"))
+ 
+         # Родительская директория
+         path = optFile["path"]
+-
+         # Изменяем название родительской директории
+         if "path" in  objHeadNew.params:
+             path = objHeadNew.params['path']
+@@ -4422,6 +4431,20 @@ variable 'cl_name'"))
+         if realPath in self.filesFilter:
+             return ([], False)
+         typeAppendTemplate = objHeadNew.typeAppend
++        
++        # Параметр exec
++        if "exec" in  objHeadNew.params:
++            execPath = objHeadNew.params['exec']
++            if not os.access(execPath,os.X_OK):
++                self.setError(_("False value 'exec' in template") + ": " +\
++                                  nameFileTemplate)
++                self.setError(_("Can not execute %s") %execPath)
++                return ([], False)
++            if typeAppendTemplate == "join":
++                self.setError(_("False value 'append=join' in template") + ": " +\
++                                  nameFileTemplate)
++                return ([], False)
++        
+         # Очищаем оригинальный файл
+         if typeAppendTemplate == "clear":
+             try:
+@@ -4827,6 +4850,14 @@ variable 'cl_name'"))
+                 else:
+                     self.textConfig = title + self.textTemplate
+                 self.saveConfFile()
++                if  'exec' in objHeadNew.params:
++                    if not self.executeTemplate(self.nameFileConfig,
++                                                objHeadNew.params['exec']):
++                        self.setError(_("False template") + ": " +\
++                                      nameFileTemplate)
++                        self.setError(_("Can not execute") + ": " +\
++                                      self.nameFileConfig)
++                        return False
+                 return filesApply
+             # Создаем объект в случае параметра format в заголовке
+             if (typeAppendTemplate == "replace" or\
+@@ -4888,7 +4919,16 @@ variable 'cl_name'"))
+                                           self.textTemplate
+                     else:
+                         self.textConfig = title + self.textTemplate
++                
+                 self.saveConfFile()
++                if  'exec' in objHeadNew.params:
++                    if not self.executeTemplate(self.nameFileConfig,
++                                                objHeadNew.params['exec']):
++                        self.setError(_("False template") + ": " +\
++                                      nameFileTemplate)
++                        self.setError(_("Can not execute") + ": " +\
++                                      self.nameFileConfig)
++                        return False
+                 return filesApply
+             # Вверху
+             elif typeAppendTemplate == "before":
+@@ -4909,6 +4949,14 @@ variable 'cl_name'"))
+                     self.textConfig = title + tmpTemplate
+ 
+                 self.saveConfFile()
++                if  'exec' in objHeadNew.params:
++                    if not self.executeTemplate(self.nameFileConfig,
++                                                objHeadNew.params['exec']):
++                        self.setError(_("False template") + ": " +\
++                                      nameFileTemplate)
++                        self.setError(_("Can not execute") + ": " +\
++                                      self.nameFileConfig)
++                        return False
+                 return filesApply
+             # Внизу
+             elif typeAppendTemplate == "after":
+@@ -4928,6 +4976,14 @@ variable 'cl_name'"))
+                 else:
+                     self.textConfig = title + tmpTemplate
+                 self.saveConfFile()
++                if  'exec' in objHeadNew.params:
++                    if not self.executeTemplate(self.nameFileConfig,
++                                                objHeadNew.params['exec']):
++                        self.setError(_("False template") + ": " +\
++                                      nameFileTemplate)
++                        self.setError(_("Can not execute") + ": " +\
++                                      self.nameFileConfig)
++                        return False
+                 return filesApply
+             # Объединение
+             elif typeAppendTemplate == "join":
+@@ -5011,6 +5067,14 @@ variable 'cl_name'"))
+                     self.textTemplate = objTxtCoder.decode(self.textTemplate)
+                     self.textConfig = objTxtCoder.decode(self.textConfig)
+                 self.saveConfFile()
++                if  'exec' in objHeadNew.params:
++                    if not self.executeTemplate(self.nameFileConfig,
++                                                objHeadNew.params['exec']):
++                        self.setError(_("False template") + ": " +\
++                                      nameFileTemplate)
++                        self.setError(_("Can not execute") + ": " +\
++                                      self.nameFileConfig)
++                        return False
+                 return filesApply
+             else:
+                 self.setError(_("False (type append) template") + ": " +\
