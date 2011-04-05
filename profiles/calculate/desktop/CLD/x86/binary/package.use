@@ -95,6 +95,7 @@
 =dev-libs/klibc-1.5.12-r1 -debug -n32
 =dev-libs/libIDL-0.8.14 -debug
 =dev-libs/libassuan-2.0.1 -static-libs
+=dev-libs/libatasmart-0.17 -static-libs
 =dev-libs/libattica-0.2.0 -debug
 =dev-libs/libcdio-0.80 cddb cxx -minimal
 =dev-libs/libcroco-0.6.2 -doc -test
@@ -348,7 +349,7 @@
 =media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
 =media-gfx/ufraw-0.16 exif gimp gtk openmp -contrast -gnome -hotpixels -lensfun -timezone
 =media-gfx/xsane-0.996 jpeg nls png tiff -gimp -lcms
-=media-libs/a52dec-0.7.4-r6 -djbfft -oss
+=media-libs/a52dec-0.7.4-r6 -djbfft -oss -static-libs
 =media-libs/aalib-1.4_rc5 X gpm -slang
 =media-libs/alsa-lib-1.0.23 alsa_pcm_plugins_adpcm alsa_pcm_plugins_alaw alsa_pcm_plugins_asym alsa_pcm_plugins_copy alsa_pcm_plugins_dmix alsa_pcm_plugins_dshare alsa_pcm_plugins_dsnoop alsa_pcm_plugins_empty alsa_pcm_plugins_extplug alsa_pcm_plugins_file alsa_pcm_plugins_hooks alsa_pcm_plugins_iec958 alsa_pcm_plugins_ioplug alsa_pcm_plugins_ladspa alsa_pcm_plugins_lfloat alsa_pcm_plugins_linear alsa_pcm_plugins_meter alsa_pcm_plugins_mmap_emul alsa_pcm_plugins_mulaw alsa_pcm_plugins_multi alsa_pcm_plugins_null alsa_pcm_plugins_plug alsa_pcm_plugins_rate alsa_pcm_plugins_route alsa_pcm_plugins_share alsa_pcm_plugins_shm alsa_pcm_plugins_softvol python -alisp -debug -doc
 =media-libs/babl-0.0.22 mmx sse
@@ -356,14 +357,14 @@
 =media-libs/faad2-2.7-r2 -digitalradio -static-libs
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freeglut-2.6.0 -debug -mpx
+=media-libs/freeglut-2.6.0 -debug -mpx -static-libs
 =media-libs/freetype-2.4.4 X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.0.22 cairo ffmpeg jpeg mmx openexr png raw sdl sse svg v4l -debug -doc
 =media-libs/giflib-4.1.6-r1 X -rle
 =media-libs/ilmbase-1.0.2 -static-libs
 =media-libs/imlib2-1.4.4 X bzip2 gif jpeg mmx mp3 nls png tiff zlib -doc
-=media-libs/jasper-1.900.1-r3 jpeg opengl
+=media-libs/jasper-1.900.1-r3 jpeg opengl -static-libs
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
 =media-libs/lensfun-0.2.5-r1 -debug -doc
@@ -457,7 +458,7 @@
 =net-im/choqok-0.9.90-r1 linguas_bg linguas_de linguas_es linguas_fr linguas_pl linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_fi -linguas_ga -linguas_gl -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_lt -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_ro -linguas_sk -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW
 =net-im/skype-2.1.0.81 -qt-static
 =net-irc/konversation-1.3.1 crypt handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_et -linguas_fi -linguas_gl -linguas_hu -linguas_ja -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_sk -linguas_sr -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW
-=net-libs/gnutls-2.10.4 cxx lzo nls zlib -bindist -doc -examples -guile -test
+=net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
 =net-libs/libbluedevil-1.8 -aqua -debug -kdeenablefinal
 =net-libs/libktorrent-1.0.5.3 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -aqua -debug -doc -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ku -linguas_lt -linguas_lv -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_pt -linguas_ro -linguas_se -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -test
 =net-libs/libnfsidmap-0.21-r1 ldap
@@ -519,7 +520,7 @@
 =sys-apps/dbus-1.4.1 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
 =sys-apps/diffutils-2.8.7-r2 nls -static
-=sys-apps/file-5.05 python
+=sys-apps/file-5.05 python -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
 =sys-apps/grep-2.5.4-r1 nls pcre
@@ -538,7 +539,7 @@
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.5 -old-linux
-=sys-apps/net-tools-1.60_p20090728014017-r1 nls -static
+=sys-apps/net-tools-1.60_p20100815160931 nls -static
 =sys-apps/openrc-0.8.0 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
