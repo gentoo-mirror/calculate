@@ -98,6 +98,7 @@
 =dev-libs/klibc-1.5.12-r1 -debug -n32
 =dev-libs/libIDL-0.8.14 -debug
 =dev-libs/libassuan-2.0.1 -static-libs
+=dev-libs/libatasmart-0.17 -static-libs
 =dev-libs/libburn-1.0.0 -debug -track-src-odirect
 =dev-libs/libcdio-0.80 cddb cxx -minimal
 =dev-libs/libcroco-0.6.2 -doc -test
@@ -245,7 +246,7 @@
 =media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
 =media-gfx/ufraw-0.16 exif gimp gnome gtk openmp -contrast -hotpixels -lensfun -timezone
 =media-gfx/xsane-0.996 jpeg nls png tiff -gimp -lcms
-=media-libs/a52dec-0.7.4-r6 -djbfft -oss
+=media-libs/a52dec-0.7.4-r6 -djbfft -oss -static-libs
 =media-libs/aalib-1.4_rc5 X gpm -slang
 =media-libs/alsa-lib-1.0.23 alsa_pcm_plugins_adpcm alsa_pcm_plugins_alaw alsa_pcm_plugins_asym alsa_pcm_plugins_copy alsa_pcm_plugins_dmix alsa_pcm_plugins_dshare alsa_pcm_plugins_dsnoop alsa_pcm_plugins_empty alsa_pcm_plugins_extplug alsa_pcm_plugins_file alsa_pcm_plugins_hooks alsa_pcm_plugins_iec958 alsa_pcm_plugins_ioplug alsa_pcm_plugins_ladspa alsa_pcm_plugins_lfloat alsa_pcm_plugins_linear alsa_pcm_plugins_meter alsa_pcm_plugins_mmap_emul alsa_pcm_plugins_mulaw alsa_pcm_plugins_multi alsa_pcm_plugins_null alsa_pcm_plugins_plug alsa_pcm_plugins_rate alsa_pcm_plugins_route alsa_pcm_plugins_share alsa_pcm_plugins_shm alsa_pcm_plugins_softvol python -alisp -debug -doc
 =media-libs/babl-0.0.22 mmx sse
@@ -253,7 +254,7 @@
 =media-libs/faad2-2.7-r2 -digitalradio -static-libs
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freeglut-2.6.0 -debug -mpx
+=media-libs/freeglut-2.6.0 -debug -mpx -static-libs
 =media-libs/freetype-2.4.4 X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.0.22 cairo ffmpeg jpeg mmx openexr png raw sdl sse svg v4l -debug -doc
@@ -265,7 +266,7 @@
 =media-libs/gstreamer-0.10.31 nls -introspection -test
 =media-libs/ilmbase-1.0.2 -static-libs
 =media-libs/imlib2-1.4.4 X bzip2 gif jpeg mmx mp3 nls png tiff zlib -doc
-=media-libs/jasper-1.900.1-r3 jpeg opengl
+=media-libs/jasper-1.900.1-r3 jpeg opengl -static-libs
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
 =media-libs/libao-1.0.0-r1 alsa nas -mmap -pulseaudio -static-libs
@@ -350,7 +351,7 @@
 =net-im/skype-2.1.0.81 -qt-static
 =net-irc/xchat-2.8.8-r1 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -ntlm -tcl -xchatdccserver
 =net-libs/farsight2-0.0.20 python -msn -test -upnp
-=net-libs/gnutls-2.10.4 cxx lzo nls zlib -bindist -doc -examples -guile -test
+=net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
 =net-libs/gtk-vnc-0.4.2-r2 python -examples -introspection -sasl
 =net-libs/libnfsidmap-0.21-r1 -ldap
 =net-libs/libnice-0.0.13 gstreamer -upnp
@@ -418,7 +419,7 @@
 =sys-apps/dbus-1.4.1 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
 =sys-apps/diffutils-2.8.7-r2 nls -static
-=sys-apps/file-5.05 python
+=sys-apps/file-5.05 python -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
 =sys-apps/gnome-disk-utility-2.32.0-r1 gnome-keyring -avahi -doc -fat -nautilus -remote-access
@@ -438,7 +439,7 @@
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.5 -old-linux
-=sys-apps/net-tools-1.60_p20090728014017-r1 nls -static
+=sys-apps/net-tools-1.60_p20100815160931 nls -static
 =sys-apps/openrc-0.8.0 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
