@@ -118,7 +118,7 @@
 =media-libs/fontconfig-2.8.0-r1 -doc
 =media-libs/freetype-2.4.4 -X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype -fontconfig -xpm
-=media-libs/jasper-1.900.1-r3 jpeg -opengl
+=media-libs/jasper-1.900.1-r3 jpeg -opengl -static-libs
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
 =media-libs/libmng-1.0.10 -lcms
@@ -149,7 +149,7 @@
 =net-ftp/tftp-hpa-0.49-r1 ipv6 readline tcpd -selinux
 =net-im/ejabberd-2.1.6 ldap mod_muc pam ssl web zlib -captcha -debug -mod_irc -mod_proxy65 -mod_pubsub -mod_statsdx -odbc
 =net-irc/weechat-0.3.3 charset fifo irc logger ncurses nls perl python scripts spell ssl -doc -lua -relay -ruby -tcl
-=net-libs/gnutls-2.10.4 cxx nls zlib -bindist -doc -examples -guile -lzo -test
+=net-libs/gnutls-2.10.5 cxx nls zlib -bindist -doc -examples -guile -lzo -test
 =net-libs/libnfsidmap-0.21-r1 ldap
 =net-libs/libpcap-1.1.1 ipv6 -bluetooth -libnl
 =net-libs/libtirpc-0.2.1-r1 -kerberos
@@ -186,7 +186,7 @@
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.2.3 kernel_linux -static
 =sys-apps/diffutils-2.8.7-r2 nls -static
-=sys-apps/file-5.05 python
+=sys-apps/file-5.05 python -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
 =sys-apps/grep-2.5.4-r1 nls pcre
@@ -203,7 +203,7 @@
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.5 -old-linux
-=sys-apps/net-tools-1.60_p20090728014017-r1 nls -static
+=sys-apps/net-tools-1.60_p20100815160931 nls -static
 =sys-apps/openrc-0.8.0 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
 =sys-apps/portage-2.2.0_alpha29 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
