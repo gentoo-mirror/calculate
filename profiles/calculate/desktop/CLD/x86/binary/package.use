@@ -179,7 +179,7 @@
 =kde-base/freespacenotifier-4.6.1 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/gwenview-4.6.1 handbook kipi semantic-desktop -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kabcclient-4.4.10 handbook -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kaddressbook-4.4.10 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
+=kde-base/kaddressbook-4.4.10-r1 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kalarm-4.4.10 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kamera-4.6.1 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kate-4.6.1 handbook plasma -aqua -debug -kdeenablefinal -kdeprefix
@@ -246,7 +246,7 @@
 =kde-base/kjots-4.4.10 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kleopatra-4.4.10 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/klipper-4.6.1 handbook -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kmail-4.4.10 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix -test
+=kde-base/kmail-4.4.10-r1 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix -test
 =kde-base/kmenuedit-4.6.1 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kmimetypefinder-4.6.1 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kmix-4.6.1 alsa handbook -aqua -debug -kdeenablefinal -kdeprefix -pulseaudio
@@ -258,7 +258,7 @@
 =kde-base/konqueror-4.6.1 bookmarks handbook svg thumbnail -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/konsole-4.6.1 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/konsolekalendar-4.4.10 handbook -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kontact-4.4.10 handbook -aqua -debug -kdeenablefinal -kdeprefix
+=kde-base/kontact-4.4.10-r1 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kopete-4.6.1 addbookmarks autoreplace contactnotes handbook highlight history jabber jingle nowlistening oscar pipes privacy ssl statistics texteffect translator urlpicpreview v4l2 webpresence yahoo -aqua -debug -gadu -groupwise -kdeenablefinal -kdeprefix -latex -meanwhile -msn -otr -qq -skype -sms -testbed -winpopup -zeroconf
 =kde-base/korganizer-4.4.10 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kpasswdserver-4.6.1 -aqua -debug -kdeenablefinal -kdeprefix
@@ -369,7 +369,7 @@
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
 =media-libs/lensfun-0.2.5-r1 -debug -doc
 =media-libs/libao-1.0.0-r1 alsa nas -mmap -pulseaudio -static-libs
-=media-libs/libass-0.9.11 enca fontconfig
+=media-libs/libass-0.9.11 enca fontconfig -static-libs
 =media-libs/libcaca-0.99_beta17 X cxx ncurses opengl truetype -doc -elibc_FreeBSD -imlib -java -mono -ruby -slang -static-libs
 =media-libs/libcddb-1.3.2 -doc
 =media-libs/libdc1394-2.1.2 X -doc
@@ -515,7 +515,7 @@
 =sys-apps/calculate-desktop-2.2.12 kde -gnome -xfce
 =sys-apps/calculate-install-2.2.12-r3 -minimal
 =sys-apps/calculate-lib-2.2.12-r5 -minimal
-=sys-apps/calculate-utilities-2.2.12-r13 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.12-r14 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.1 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
