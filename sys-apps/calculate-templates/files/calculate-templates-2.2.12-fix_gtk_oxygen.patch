@@ -1,0 +1,60 @@
+commit f3d48604146834943e0a9e6e60224f6e11e1e843
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Apr 6 14:12:27 2011 +0400
+
+    Fix using gtk-oxygen package.
+
+diff --git desktop/00-desktop-init/empty_dir/0ini.env desktop/00-desktop-init/empty_dir/0ini.env
+index 42eb17b..fd0937a 100644
+--- desktop/00-desktop-init/empty_dir/0ini.env
++++ desktop/00-desktop-init/empty_dir/0ini.env
+@@ -4,7 +4,7 @@
+ update = on
+ 
+ [ver]
+-patch = 2.2.12
++patch = 2.2.13
+ 
+ [update]
+ patch = on
+diff --git desktop/desktop/00-patch-2.2.13/.calculate_directory desktop/desktop/00-patch-2.2.13/.calculate_directory
+new file mode 100644
+index 0000000..ea391de
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.13/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate append=skip belong(calculate-desktop)!=&&ini(update.patch)!=off&&ini(ver.patch)<2.2.13
+diff --git desktop/desktop/00-patch-2.2.13/gtk-qt-engine.rc.sh desktop/desktop/00-patch-2.2.13/gtk-qt-engine.rc.sh
+new file mode 100644
+index 0000000..c565a6a
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.13/gtk-qt-engine.rc.sh
+@@ -0,0 +1,5 @@
++# Calculate chmod=0700 pkg(x11-themes/gtk-engines-qtcurve)!=||pkg(x11-themes/oxygen-gtk)!= path=~/.kde4/env
++#!/bin/bash
++
++# включаем пользовательское оформление GTK приложений
++export GTK2_RC_FILES=/home/#-ur_login-#/.gtkrc-2.0-kde4
+diff --git desktop/desktop/00-patch-2.2.13/ini.env desktop/desktop/00-patch-2.2.13/ini.env
+new file mode 100644
+index 0000000..027f10e
+--- /dev/null
++++ desktop/desktop/00-patch-2.2.13/ini.env
+@@ -0,0 +1,7 @@
++# Calculate format=samba path=~/.calculate
++
++[ver]
++patch = 2.2.13
++
++[update]
++patch = on
+diff --git desktop/desktop/20-kde-4.6/.kde4/env/gtk-qt-engine.rc.sh desktop/desktop/20-kde-4.6/.kde4/env/gtk-qt-engine.rc.sh
+index d931465..10991b2 100644
+--- desktop/desktop/20-kde-4.6/.kde4/env/gtk-qt-engine.rc.sh
++++ desktop/desktop/20-kde-4.6/.kde4/env/gtk-qt-engine.rc.sh
+@@ -1,4 +1,4 @@
+-# Calculate chmod=0700 pkg(x11-themes/gtk-engines-qtcurve)!=
++# Calculate chmod=0700 pkg(x11-themes/gtk-engines-qtcurve)!=||pkg(x11-themes/oxygen-gtk)!=
+ #!/bin/bash
+ 
+ # включаем пользовательское оформление GTK приложений
