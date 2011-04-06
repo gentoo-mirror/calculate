@@ -207,7 +207,7 @@
 =media-libs/a52dec-0.7.4-r6 -djbfft -oss -static-libs
 =media-libs/aalib-1.4_rc5 X gpm -slang
 =media-libs/alsa-lib-1.0.23 alsa_pcm_plugins_adpcm alsa_pcm_plugins_alaw alsa_pcm_plugins_asym alsa_pcm_plugins_copy alsa_pcm_plugins_dmix alsa_pcm_plugins_dshare alsa_pcm_plugins_dsnoop alsa_pcm_plugins_empty alsa_pcm_plugins_extplug alsa_pcm_plugins_file alsa_pcm_plugins_hooks alsa_pcm_plugins_iec958 alsa_pcm_plugins_ioplug alsa_pcm_plugins_ladspa alsa_pcm_plugins_lfloat alsa_pcm_plugins_linear alsa_pcm_plugins_meter alsa_pcm_plugins_mmap_emul alsa_pcm_plugins_mulaw alsa_pcm_plugins_multi alsa_pcm_plugins_null alsa_pcm_plugins_plug alsa_pcm_plugins_rate alsa_pcm_plugins_route alsa_pcm_plugins_share alsa_pcm_plugins_shm alsa_pcm_plugins_softvol python -alisp -debug -doc
-=media-libs/babl-0.0.22 mmx sse
+=media-libs/babl-0.1.4 mmx sse -altivec -introspection
 =media-libs/faac-1.28-r1 -static-libs
 =media-libs/faad2-2.7-r2 -digitalradio -static-libs
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
@@ -215,7 +215,7 @@
 =media-libs/freeglut-2.6.0 -debug -mpx -static-libs
 =media-libs/freetype-2.4.4 X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
-=media-libs/gegl-0.0.22 cairo ffmpeg jpeg mmx openexr png raw sdl sse svg v4l -debug -doc
+=media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
 =media-libs/giflib-4.1.6-r1 X -rle
 =media-libs/gst-plugins-bad-0.10.19 -debug
 =media-libs/gst-plugins-base-0.10.31 nls orc -debug -introspection
@@ -227,7 +227,7 @@
 =media-libs/jasper-1.900.1-r3 jpeg opengl -static-libs
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
-=media-libs/libass-0.9.11 enca fontconfig
+=media-libs/libass-0.9.11 enca fontconfig -static-libs
 =media-libs/libcaca-0.99_beta17 X cxx ncurses opengl truetype -doc -elibc_FreeBSD -imlib -java -mono -ruby -slang -static-libs
 =media-libs/libcddb-1.3.2 -doc
 =media-libs/libdc1394-2.1.2 X -doc
@@ -362,7 +362,7 @@
 =sys-apps/calculate-desktop-2.2.12 xfce -gnome -kde
 =sys-apps/calculate-install-2.2.12-r3 -minimal
 =sys-apps/calculate-lib-2.2.12-r5 -minimal
-=sys-apps/calculate-utilities-2.2.12-r13 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.12-r14 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
