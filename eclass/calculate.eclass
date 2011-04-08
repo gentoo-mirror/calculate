@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header:
 
+EXPORT_FUNCTIONS pkg_postinst
+
 inherit eutils linux-info versionator
 
 # @FUNCTION: last_arg
@@ -465,4 +467,18 @@ calculate_get_current_initrd() {
 	else
 		get_last_filename /boot initr ${suffix}
 	fi
+}
+
+calculate_pkg_postinst() {
+	case "${PN}" in 
+		cld-themes|cmc-themes|cds-themes|cls-themes|cldg-themes|cldx-themes)
+			local initrdfile=$(calculate_get_current_initrd)
+			local initrdinstallfile=$(calculate_get_current_initrd -install)
+			[[ -f ${ROOT}${initrdfile} ]] &&
+				calculate_update_splash ${ROOT}${initrdfile}
+			[[ -f ${ROOT}${initrdinstallfile} &&
+				"${ROOT}${initrdinstallfile}" != "${ROOT}${initrdfile}" ]] &&
+				calculate_update_splash ${ROOT}${initrdinstallfile}
+			;;
+	esac
 }
