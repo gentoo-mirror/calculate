@@ -168,7 +168,7 @@
 =dev-tcltk/expect-5.44.1.15 X -debug -doc -threads
 =dev-util/bin_replace_string-0.2 -doc
 =dev-util/boost-build-1.42.0 python -examples
-=dev-util/cmake-2.8.4 ncurses -emacs -qt4 -vim-syntax
+=dev-util/cmake-2.8.4 ncurses -emacs -qt4 -test -vim-syntax
 =dev-util/cppunit-1.12.1 -doc -examples
 =dev-util/ctags-5.7 -ada
 =dev-util/desktop-file-utils-0.17 -emacs
@@ -208,7 +208,7 @@
 =kde-base/kdeartwork-desktopthemes-4.6.2 -aqua -kdeenablefinal -kdeprefix
 =kde-base/kdeartwork-emoticons-4.6.2 -aqua -kdeenablefinal -kdeprefix
 =kde-base/kdeartwork-iconthemes-4.6.2 -aqua -kdeenablefinal -kdeprefix
-=kde-base/kdeartwork-kscreensaver-4.6.2 eigen opengl -aqua -debug -kdeenablefinal -kdeprefix -xscreensaver
+=kde-base/kdeartwork-kscreensaver-4.6.2 eigen kexiv2 opengl -aqua -debug -kdeenablefinal -kdeprefix -xscreensaver
 =kde-base/kdeartwork-sounds-4.6.2 -aqua -kdeenablefinal -kdeprefix
 =kde-base/kdeartwork-styles-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdebase-cursors-4.6.2 -aqua -kdeenablefinal -kdeprefix
@@ -222,7 +222,7 @@
 =kde-base/kdebase-wallpapers-4.6.2 -aqua -kdeenablefinal -kdeprefix
 =kde-base/kdebugdialog-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdegraphics-strigi-analyzer-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kdelibs-4.6.2 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kdeprefix -kerberos -lzma -test -zeroconf
+=kde-base/kdelibs-4.6.2-r1 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kdeprefix -kerberos -lzma -test -zeroconf
 =kde-base/kdemultimedia-kioslaves-4.6.2 encode flac handbook vorbis -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdenetwork-filesharing-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdepasswd-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
@@ -236,7 +236,7 @@
 =kde-base/kdesu-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdf-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdialog-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kdm-4.6.2 consolekit handbook pam -aqua -debug -kdeenablefinal -kdeprefix -kerberos
+=kde-base/kdm-4.6.2-r1 consolekit handbook pam -aqua -debug -kdeenablefinal -kdeprefix -kerberos
 =kde-base/kdnssd-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix -zeroconf
 =kde-base/kdontchangethehostname-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/keditbookmarks-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
@@ -270,7 +270,7 @@
 =kde-base/konsole-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/konsolekalendar-4.4.10 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kontact-4.4.10-r1 handbook -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kopete-4.6.2 addbookmarks autoreplace contactnotes handbook highlight history jabber jingle nowlistening oscar pipes privacy ssl statistics texteffect translator urlpicpreview v4l2 webpresence yahoo -aqua -debug -gadu -groupwise -kdeenablefinal -kdeprefix -latex -meanwhile -msn -otr -qq -skype -sms -testbed -winpopup -zeroconf
+=kde-base/kopete-4.6.2 addbookmarks autoreplace contactnotes handbook highlight history jingle nowlistening oscar pipes privacy ssl statistics texteffect translator urlpicpreview v4l2 webpresence xmpp yahoo -aqua -debug -gadu -groupwise -kdeenablefinal -kdeprefix -latex -meanwhile -msn -otr -qq -skype -sms -testbed -winpopup -zeroconf
 =kde-base/korganizer-4.4.10 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kpasswdserver-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kppp-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
@@ -290,7 +290,7 @@
 =kde-base/kstart-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kstartupconfig-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kstyles-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/ksysguard-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix -lm_sensors -test
+=kde-base/ksysguard-4.6.2-r1 handbook -aqua -debug -kdeenablefinal -kdeprefix -lm_sensors -test
 =kde-base/ksystemlog-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix -test
 =kde-base/ksystraycmd-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/ktimezoned-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
@@ -352,7 +352,7 @@
 =media-fonts/urw-fonts-2.4.9 X
 =media-gfx/digikam-1.9.0 gphoto2 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk semantic-desktop thumbnails -addressbook -aqua -debug -doc -geolocation -handbook -kdeenablefinal -linguas_ar -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ko -linguas_lt -linguas_lv -linguas_ms -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_pa -linguas_pt -linguas_ro -linguas_se -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -themedesigner -video
 =media-gfx/exiv2-0.19 linguas_de linguas_es linguas_fr linguas_pl linguas_ru nls unicode zlib -contrib -doc -examples -linguas_fi -linguas_sk -xmp
-=media-gfx/gimp-2.6.11-r1 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff webkit wmf -altivec -curl -debug -doc -gnome -hal -lcms
+=media-gfx/gimp-2.6.11-r1 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff webkit wmf -altivec -curl -debug -doc -gnome -lcms
 =media-gfx/gtkimageview-1.6.4 -debug -doc -examples -test
 =media-gfx/imagemagick-6.6.5.6 X bzip2 corefonts cxx djvu jpeg jpeg2k openexr openmp perl png raw svg tiff truetype wmf zlib -autotrace -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -q32 -q8 -static-libs -video_cards_nvidia -xml
 =media-gfx/sane-backends-1.0.21-r1 gphoto2 ipv6 sane_backends_abaton sane_backends_agfafocus sane_backends_apple sane_backends_artec sane_backends_artec_eplus48u sane_backends_as6e sane_backends_avision sane_backends_bh sane_backends_canon sane_backends_canon630u sane_backends_canon_dr sane_backends_canon_pp sane_backends_cardscan sane_backends_coolscan sane_backends_coolscan2 sane_backends_coolscan3 sane_backends_dc210 sane_backends_dc240 sane_backends_dc25 sane_backends_dell1600n_net sane_backends_dmc sane_backends_epjitsu sane_backends_epson sane_backends_epson2 sane_backends_fujitsu sane_backends_genesys sane_backends_gt68xx sane_backends_hp sane_backends_hp3500 sane_backends_hp3900 sane_backends_hp4200 sane_backends_hp5400 sane_backends_hp5590 sane_backends_hpljm1005 sane_backends_hpsj5s sane_backends_hs2p sane_backends_ibm sane_backends_kodak sane_backends_kvs1025 sane_backends_leo sane_backends_lexmark sane_backends_ma1509 sane_backends_matsushita sane_backends_microtek sane_backends_microtek2 sane_backends_mustek sane_backends_mustek_pp sane_backends_mustek_usb sane_backends_nec sane_backends_net sane_backends_niash sane_backends_p5 sane_backends_pie sane_backends_pixma sane_backends_plustek sane_backends_plustek_pp sane_backends_qcam sane_backends_ricoh sane_backends_rts8891 sane_backends_s9036 sane_backends_sceptre sane_backends_sharp sane_backends_sm3600 sane_backends_sm3840 sane_backends_snapscan sane_backends_sp15c sane_backends_st400 sane_backends_stv680 sane_backends_tamarack sane_backends_teco1 sane_backends_teco2 sane_backends_teco3 sane_backends_test sane_backends_u12 sane_backends_umax sane_backends_umax1220u sane_backends_umax_pp sane_backends_xerox_mfp usb v4l -avahi -doc
