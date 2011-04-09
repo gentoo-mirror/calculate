@@ -51,7 +51,7 @@
 =app-portage/portage-utils-0.3.1 -static
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
 =app-text/aspell-0.60.6-r2 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk nls -examples -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
-=app-text/djvu-3.5.22-r1 jpeg nls tiff -debug -doc -linguas_ja -xml
+=app-text/djvu-3.5.23 jpeg nls tiff -debug -doc -linguas_ja -xml
 =app-text/enchant-1.6.0 hunspell -aspell -zemberek
 =app-text/evince-2.32.0-r1 dbus djvu gnome gnome-keyring tiff -debug -doc -dvi -introspection -nautilus -t1lib
 =app-text/fbreader-0.12.10 gtk -debug -qt4
@@ -364,10 +364,10 @@
 =net-libs/rb_libtorrent-0.15.5 python ssl -debug -doc -examples
 =net-libs/telepathy-glib-0.12.7 vala -debug -introspection
 =net-libs/webkit-gtk-1.2.7 gstreamer jit -aqua -coverage -debug -doc -introspection -test
-=net-libs/xulrunner-1.9.2.15 alsa custom-optimization dbus gnome ipc libnotify -debug -elibc_FreeBSD -java -startup-notification -system-sqlite -wifi
+=net-libs/xulrunner-1.9.2.16 alsa custom-optimization dbus gnome ipc libnotify -debug -elibc_FreeBSD -java -startup-notification -system-sqlite -wifi
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.20.0-r2 ipv6 ssl -ares -gnutls -idn -kerberos -ldap -libssh2 -nss -test
-=net-misc/dhcpcd-5.2.10-r2 elibc_glibc zeroconf
+=net-misc/dhcpcd-5.2.12 elibc_glibc zeroconf
 =net-misc/iputils-20100418-r1 ipv6 ssl -SECURITY_HAZARD -doc -idn -static
 =net-misc/modemmanager-0.4 policykit -doc -test
 =net-misc/networkmanager-0.8.2-r10 bluetooth dhcpcd kernel_linux -avahi -connection-sharing -dhclient -doc -gnutls -nss -resolvconf
