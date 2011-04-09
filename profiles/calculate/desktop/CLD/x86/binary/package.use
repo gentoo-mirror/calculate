@@ -55,7 +55,7 @@
 =app-portage/portage-utils-0.3.1 -static
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
 =app-text/aspell-0.60.6-r2 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk nls -examples -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
-=app-text/djvu-3.5.22-r1 jpeg nls tiff -debug -doc -linguas_ja -xml
+=app-text/djvu-3.5.23 jpeg nls tiff -debug -doc -linguas_ja -xml
 =app-text/enchant-1.6.0 hunspell -aspell -zemberek
 =app-text/fbreader-0.12.10 qt4 -debug -gtk
 =app-text/ghostscript-gpl-8.71-r6 X cairo cups djvu gtk jpeg2k -bindist -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
@@ -197,7 +197,7 @@
 =kde-base/kdeartwork-desktopthemes-4.6.2 -aqua -kdeenablefinal -kdeprefix
 =kde-base/kdeartwork-emoticons-4.6.2 -aqua -kdeenablefinal -kdeprefix
 =kde-base/kdeartwork-iconthemes-4.6.2 -aqua -kdeenablefinal -kdeprefix
-=kde-base/kdeartwork-kscreensaver-4.6.2 eigen opengl -aqua -debug -kdeenablefinal -kdeprefix -xscreensaver
+=kde-base/kdeartwork-kscreensaver-4.6.2 eigen kexiv2 opengl -aqua -debug -kdeenablefinal -kdeprefix -xscreensaver
 =kde-base/kdeartwork-sounds-4.6.2 -aqua -kdeenablefinal -kdeprefix
 =kde-base/kdeartwork-styles-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdebase-cursors-4.6.2 -aqua -kdeenablefinal -kdeprefix
@@ -211,7 +211,7 @@
 =kde-base/kdebase-wallpapers-4.6.2 -aqua -kdeenablefinal -kdeprefix
 =kde-base/kdebugdialog-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdegraphics-strigi-analyzer-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kdelibs-4.6.2 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kdeprefix -kerberos -lzma -test -zeroconf
+=kde-base/kdelibs-4.6.2-r1 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kdeprefix -kerberos -lzma -test -zeroconf
 =kde-base/kdemultimedia-kioslaves-4.6.2 encode flac handbook vorbis -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdenetwork-filesharing-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdepasswd-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
@@ -225,7 +225,7 @@
 =kde-base/kdesu-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdf-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdialog-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kdm-4.6.2 consolekit handbook pam -aqua -debug -kdeenablefinal -kdeprefix -kerberos
+=kde-base/kdm-4.6.2-r1 consolekit handbook pam -aqua -debug -kdeenablefinal -kdeprefix -kerberos
 =kde-base/kdnssd-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix -zeroconf
 =kde-base/kdontchangethehostname-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/keditbookmarks-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
@@ -259,7 +259,7 @@
 =kde-base/konsole-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/konsolekalendar-4.4.10 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kontact-4.4.10-r1 handbook -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kopete-4.6.2 addbookmarks autoreplace contactnotes handbook highlight history jabber jingle nowlistening oscar pipes privacy ssl statistics texteffect translator urlpicpreview v4l2 webpresence yahoo -aqua -debug -gadu -groupwise -kdeenablefinal -kdeprefix -latex -meanwhile -msn -otr -qq -skype -sms -testbed -winpopup -zeroconf
+=kde-base/kopete-4.6.2 addbookmarks autoreplace contactnotes handbook highlight history jingle nowlistening oscar pipes privacy ssl statistics texteffect translator urlpicpreview v4l2 webpresence xmpp yahoo -aqua -debug -gadu -groupwise -kdeenablefinal -kdeprefix -latex -meanwhile -msn -otr -qq -skype -sms -testbed -winpopup -zeroconf
 =kde-base/korganizer-4.4.10 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kpasswdserver-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kppp-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
@@ -279,7 +279,7 @@
 =kde-base/kstart-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kstartupconfig-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kstyles-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/ksysguard-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix -lm_sensors -test
+=kde-base/ksysguard-4.6.2-r1 handbook -aqua -debug -kdeenablefinal -kdeprefix -lm_sensors -test
 =kde-base/ksystemlog-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix -test
 =kde-base/ksystraycmd-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/ktimezoned-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
@@ -388,7 +388,7 @@
 =media-libs/liblqr-0.4.1 -doc
 =media-libs/libmad-0.15.1b-r6 -debug
 =media-libs/libmng-1.0.10 -lcms
-=media-libs/libmodplug-0.8.8.1 -static-libs
+=media-libs/libmodplug-0.8.8.2 -static-libs
 =media-libs/libmp4v2-1.9.1 -static-libs -utils
 =media-libs/libmpeg2-0.5.1 X sdl
 =media-libs/libogg-1.2.0 -static-libs
@@ -470,10 +470,10 @@
 =net-libs/neon-0.29.5 linguas_de linguas_fr linguas_pl linguas_ru nls ssl zlib -doc -expat -gnutls -kerberos -libproxy -linguas_cs -linguas_ja -linguas_nn -linguas_tr -linguas_zh_CN -pkcs11
 =net-libs/ortp-0.16.3 ipv6 ssl -debug -doc -examples -minimal -srtp
 =net-libs/webkit-gtk-1.2.7 jit -aqua -coverage -debug -doc -gstreamer -introspection -test
-=net-libs/xulrunner-1.9.2.15 alsa custom-optimization dbus ipc libnotify -debug -elibc_FreeBSD -gnome -java -startup-notification -system-sqlite -wifi
+=net-libs/xulrunner-1.9.2.16 alsa custom-optimization dbus ipc libnotify -debug -elibc_FreeBSD -gnome -java -startup-notification -system-sqlite -wifi
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.20.0-r2 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -test
-=net-misc/dhcpcd-5.2.10-r2 elibc_glibc zeroconf
+=net-misc/dhcpcd-5.2.12 elibc_glibc zeroconf
 =net-misc/iputils-20100418-r1 ipv6 ssl -SECURITY_HAZARD -doc -idn -static
 =net-misc/modemmanager-0.4 policykit -doc -test
 =net-misc/networkmanager-0.8.2-r10 bluetooth dhcpcd kernel_linux -avahi -connection-sharing -dhclient -doc -gnutls -nss -resolvconf
