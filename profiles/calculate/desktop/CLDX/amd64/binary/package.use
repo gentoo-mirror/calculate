@@ -528,7 +528,7 @@
 =x11-libs/libXxf86vm-1.1.1 -static-libs
 =x11-libs/libdrm-2.4.23 libkms video_cards_intel video_cards_nouveau video_cards_radeon video_cards_vmware -static-libs
 =x11-libs/libfontenc-1.1.0 -static-libs
-=x11-libs/libgksu-2.0.12-r1 nls -doc
+=x11-libs/libgksu-2.0.12-r1 nls -doc -static-libs
 =x11-libs/libnotify-0.7.2 -doc -introspection -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
 =x11-libs/libvdpau-0.4.1 -doc
