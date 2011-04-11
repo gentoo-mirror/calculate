@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header:
 
-EXPORT_FUNCTIONS pkg_postinst
-
 inherit eutils linux-info versionator
+
+EXPORT_FUNCTIONS pkg_postinst
 
 # @FUNCTION: last_arg
 # @USING: last_arg manyarguments
