@@ -1,0 +1,478 @@
+diff --git a/defaults/initrd.defaults b/defaults/initrd.defaults
+index fd6d9fc..3a5f5d3 100755
+--- a/defaults/initrd.defaults
++++ b/defaults/initrd.defaults
+@@ -68,6 +68,7 @@ fi
+ 
+ REAL_ROOT=''
+ CDROOT='0'
++SCRATCH='0'
+ CDROOT_DEV=''
+ CDROOT_TYPE='auto'
+ NEW_ROOT='/newroot'
+diff --git a/defaults/initrd.scripts b/defaults/initrd.scripts
+index b228a77..56ad0e9 100755
+--- a/defaults/initrd.scripts
++++ b/defaults/initrd.scripts
+@@ -187,23 +187,45 @@ cache_cd_contents() {
+ 			# TODO: Check the size of the image versus the size of our tmpfs
+ 			# along with the amount of available RAM and increase tmpfs size
+ 			# if necessary. (Not having awk sucks...)
+-			# z=0
+-			# for i in $(cat /proc/meminfo | grep -e ^MemFree -e ^Cached | \
+-			# cut -d: -f2 | cut -dk -f1 | sed -e "s/^\s*//") ; do
+-			# z=$(($z + $i)) ; done
+-			# echo $z
+-			good_msg "Copying loop file for caching..."
+-			# Verify that the needed directory exists
+-			mkdir -p "$(dirname ${NEW_ROOT}/mnt/${LOOP})"
+-			cp -a ${NEW_ROOT}/mnt/cdrom/${LOOP} ${NEW_ROOT}/mnt/${LOOP}
+-			if [ $? -ne 0 ]
++
++			# getting memory
++			allmemory=0
++			for i in $(cat /proc/meminfo | grep -e ^MemFree -e ^Cached | \
++				cut -d: -f2 | cut -dk -f1 | sed -e "s/^\s*//") ;
++			do
++				allmemory=$(($allmemory + $i))
++			done
++
++			# getting size tmpfs of default
++			let curtfs=$allmemory/2
++
++			# getting size of image
++			let imagesize=`ls -la ${NEW_ROOT}/mnt/cdrom/${LOOP} | sed -r -n 's/(\S*\s*){4}(\S*).*/\2/p'`/20000*21
++			addon=$imagesize/10
++			if [[ $curtfs -gt $(( ${imagesize} + ${addon} )) ]];
+ 			then
+-				bad_msg "Failed to cache the loop file! Lack of space?"
+-				rm -rf ${NEW_ROOT}/mnt/livecd.* 2>/dev/null
+-				rm -rf ${NEW_ROOT}/mnt/image.* 2>/dev/null
+-				rm -rf ${NEW_ROOT}/mnt/zisofs 2>/dev/null
++				let addon=$(( $curtfs - ${imagesize} ))
++			fi
++
++			if [[ $((${imagesize} + $addon)) -lt ${allmemory} ]];
++			then
++				mount -o remount,size=${addon}000 -t tmpfs tmpfs ${NEW_ROOT}
++				mkdir ${NEW_ROOT}/mnt/squash
++				mount -o size=${imagesize}000 -t tmpfs tmpfs ${NEW_ROOT}/mnt/squash
++				good_msg "Copying loop file for caching..."
++				cp -a ${NEW_ROOT}/mnt/cdrom/${LOOP} ${NEW_ROOT}/mnt/squash/${LOOP}
++				if [ $? -ne 0 ]
++				then
++					bad_msg "Failed to cache the loop file! Lack of space?"
++					umount ${NEW_ROOT}/mnt/squash
++					mount -o remount,size=${curtfs}000 -t tmpfs tmpfs ${NEW_ROOT}
++				else
++					LOOPEXT='../squash/'
++					good_msg "Unmounting media from ${NEW_ROOT}/mnt/cdrom"
++					umount ${NEW_ROOT}/mnt/cdrom
++				fi
+ 			else
+-				LOOPEXT='../'
++				bad_msg "Too low memory for cache the loop file."
+ 			fi
+ 		fi
+ 	fi
+@@ -1100,6 +1122,38 @@ getdvhoff() {
+ 	echo $(( $(hexdump -n 4 -s $((316 + 12 * $2)) -e '"%i"' $1) * 512))
+ }
+ 
++load_union_module() {
++	UNIONTYPE=""
++	# find module for union file system
++	[ -n "$(find /lib/ -name unionfs.ko)" ] && UNIONTYPE="unionfs"
++	[ -n "$(find /lib/ -name aufs.ko)" ] && UNIONTYPE="aufs"
++	# probably aufs in kernel
++	if [ -n "$(gzip -dc /proc/config.gz | grep CONFIG_AUFS_FS=y )" ]
++	then
++		UNIONTYPE="aufs"
++	else
++		if [ -z "${UNIONTYPE}" ]
++		then
++			bad_msg "Module for union file system is not found!"
++			run_shell
++		else
++			modprobe ${UNIONTYPE} > /dev/null 2>&1
++			# error on load union module
++			if [ -z "$(lsmod | grep $UNIONTYPE)" ]
++			then
++				bad_msg "Module for union file system is not correct!"
++				if [[ ${UNIONTYPE} = aufs ]]
++				then
++					bad_msg "Probably kernel compiled without standalone patch."
++				fi
++				run_shell
++			fi
++
++			good_msg "Loading ${UNIONTYPE}"
++		fi
++	fi
++}
++
+ setup_unionfs() {
+ 	local rw_dir=$1
+ 	local ro_dir=$2
+@@ -1119,6 +1173,7 @@ setup_unionfs() {
+ 		mkdir -p ${UNION}
+ 		good_msg "Loading fuse module"
+ 		modprobe fuse > /dev/null 2>&1
++		load_union_module
+ #                 if [ -n "${UNIONFS}" ] 	 
+ #                 then 	 
+ #                         CHANGESDEV=${UNIONFS} 	 
+@@ -1148,11 +1203,102 @@ setup_unionfs() {
+ 		mkdir /tmp
+ 		mkdir -p ${UNION}
+ #		mkdir -p $CHANGES
+-#		mount -t unionfs -o dirs=$CHANGES=rw unionfs ${UNION}
++##		mount -t unionfs -o dirs=$CHANGES=rw unionfs ${UNION}
++
++		if [ "${SCRATCH}" -ne 0 ];
++		then
++			good_msg "Loading in scratch mode"
++			BUILDERDIR=${UNION}/mnt/builder
++			SCRATCHDIR=${UNION}/mnt/scratch
++			DELTADIR=${rw_dir}/mnt/delta
++			WORKSPACEDIR=${rw_dir}/mnt/workspace
++			mount -o remount,rw ${rw_dir}/mnt/cdrom >/dev/null 2>&1
++			touch ${rw_dir}/mnt/cdrom/livecd >/dev/null 2>&1
++			if [ "$?" -ne 0 ];
++			then
++				ISRW=0
++			else
++				ISRW=1
++			fi
++
++			mkdir -p ${DELTADIR}
++			mkdir -p ${WORKSPACEDIR}
++			if [[ ${UNIONTYPE} = aufs ]]
++			then
++				if ! mount -t aufs -o udba=reval,br:${WORKSPACEDIR}=rw:${DELTADIR}=ro+wh:${rw_dir}/mnt/livecd=ro none ${UNION}
++				then
++					bad_msg "Can't setup union mount!"
++					run_shell
++				fi
++			else
++				mount -t unionfs -o dirs=${WORKSPACEDIR}=rw:${DELTADIR}=ro:${rw_dir}/mnt/livecd=ro unionfs ${UNION}
++			fi
++			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
++			mkdir -p ${SCRATCHDIR}/calculate
++			mkdir -p ${SCRATCHDIR}/delta
++			mkdir -p ${SCRATCHDIR}/workspace
++			mount -o bind ${rw_dir}/mnt/delta ${SCRATCHDIR}/delta
++			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
++			mount -o bind ${rw_dir}/mnt/workspace ${SCRATCHDIR}/workspace
++			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
++			mkdir -p ${BUILDERDIR}
++			if [[ ${UNIONTYPE} = aufs ]]
++			then
++				if ! mount -t aufs -o udba=reval,br:${DELTADIR}=rw:${rw_dir}/mnt/livecd=ro none ${BUILDERDIR}
++				then
++					bad_msg "Can't setup union mount!"
++					run_shell
++				fi
++			else
++				mount -t unionfs -o dirs=${DELTADIR}=rw:${rw_dir}/mnt/livecd=ro unionfs ${BUILDERDIR}
++			fi
++			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
++			mount -o bind ${rw_dir}/mnt/livecd ${SCRATCHDIR}/calculate
++			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
++			if [ "$ISRW" -ne 0 ];
++			then
++				FLASHDIR=${UNION}/mnt/flash
++				mkdir -p ${FLASHDIR}
++				mount -o bind ${rw_dir}/mnt/cdrom ${FLASHDIR}
++				tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
++			else
++				CDROMDIR=${UNION}/mnt/cdrom
++				mkdir -p ${CDROMDIR}
++				mount -o bind ${rw_dir}/mnt/cdrom ${CDROMDIR}
++				tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
++			fi
++		else
++			CDROMDIR=${UNION}/mnt/cdrom
++			LIVECDDIR=${UNION}/mnt/livecd
++
++			if [[ ${UNIONTYPE} = aufs ]]
++			then
++				if ! mount -t aufs -o udba=reval,br:${rw_dir}:${ro_dir}=ro none ${UNION}
++				then
++					bad_msg "Can't setup union mount!"
++					run_shell
++				fi
++			else
++				mount -t unionfs -o dirs=${rw_dir}:${ro_dir}=ro unionfs ${UNION}
++			fi
++
++			if [[ -n "$( echo ${LOOPEXT} | grep squash )" ]];
++			then
++				mkdir -p ${UNION}/mnt/squash
++				mount -o bind ${NEW_ROOT}/mnt/squash ${UNION}/mnt/squash
++			fi
++
++			chmod 0755 ${UNION}
++			mount -o bind ${rw_dir}/mnt/cdrom ${CDROMDIR}
++			mount -o bind ${rw_dir}/mnt/livecd ${LIVECDDIR}
++			ret=$?
++		fi
++
++		chmod 1777 ${UNION}/tmp
+ 		good_msg "Creating union mount"
+-		unionfs -o allow_other,cow,noinitgroups,suid,dev,default_permissions,use_ino ${rw_dir}=RW:${ro_dir}=RO ${UNION} 2>/dev/null
+-		ret=$?
+-		if [ ${ret} -ne 0 ]
++#		unionfs -o allow_other,cow,noinitgroups,suid,dev,default_permissions,use_ino ${rw_dir}=RW:${ro_dir}=RO ${UNION} 2>/dev/null
++#		ret=$?
++		if [ "${ret}" -ne 0 ]
+ 		then
+ 			bad_msg "Can't setup union mount!"
+ 			USE_UNIONFS_NORMAL=0
+@@ -1161,3 +1307,49 @@ setup_unionfs() {
+ 		USE_UNIONFS_NORMAL=0
+ 	fi
+ }
++
++load_videodrv() {
++	good_msg "Loading frame buffer video driver"
++	# find all available fb drivers
++	videodrv_count=$(find /lib/modules \
++		-name "nouveau.ko" -o \
++		-name "uvesafb.ko" -o \
++		-name "i915.ko" -o \
++		-name "radeon.ko" |
++		grep -c "")
++	# load specified videodrv
++	case "${VIDEODRV}" in
++		nouveau)
++			busybox modprobe nouveau modeset=1 &>/dev/null && return 0
++			;;
++		radeon)
++			busybox modprobe radeon modeset=1 &>/dev/null && return 0
++			;;
++		i915)
++			busybox modprobe i915 modeset=1 &>/dev/null && return 0
++			;;
++	esac
++	# if not livecd and initramfs otimized (aviailable only one video driver)
++	if [ "${CDROOT}" != '1' -a "${videodrv_count}" -le 2 ]
++	then
++		for x in nouveau i915 radeon
++		do
++			if [ "`find /lib/modules -name "${x}.ko" | grep -c ''`" -eq "1" ]
++			then
++				busybox modprobe "${x}" modeset=1 &>/dev/null
++				lsmod | grep -q "${x}" && return 0
++			fi
++		done
++	fi
++	# else load uvesafb with specified video resolution
++	if [ -n "${VIDEORES}" ]
++	then
++		if ! echo $VIDEORES | grep -q "\-"
++		then
++			VIDEORES="${VIDEORES}-32"
++		fi
++	else
++		VIDEORES="1024x768-32"
++	fi
++	busybox modprobe uvesafb mode_option=${VIDEORES} &>/dev/null
++}
+diff --git a/defaults/linuxrc b/defaults/linuxrc
+index 1819d9f..31cb47b 100755
+--- a/defaults/linuxrc
++++ b/defaults/linuxrc
+@@ -38,6 +38,7 @@ CMDLINE=`cat /proc/cmdline`
+ FAKE_ROOT=''
+ REAL_ROOTFLAGS=''
+ CRYPT_SILENT=0
++VIDEODRV=''
+ for x in ${CMDLINE}
+ do
+ 	case "${x}" in
+@@ -56,6 +57,29 @@ do
+ 		init_opts\=*)
+ 			INIT_OPTS=`parse_opt "${x}"`
+ 		;;
++		calculate\=*)
++			VIDEODRV=`parse_opt "${x}"`
++			RES=`echo "${VIDEODRV}" | cut -d, -f4`
++			if [ -n "${RES}" -a "${RES}" != "auto" ]
++			then
++				VIDEORES=${RES}-32
++			fi
++			VIDEODRV=`echo "${VIDEODRV}" | cut -d, -f5`
++		;;
++		video\=*)
++			VR=`parse_opt "${x}"`
++			for i in ${VR//,/ }
++			do
++				if [ -z "${i//[0-9-x@]}" ]
++				then
++					VIDEORES=${i}
++				fi
++			done
++		;;
++		# Scratch usbload
++		scratch)
++			SCRATCH=1
++		;;
+ 		# Livecd options
+ 		cdroot)
+ 			CDROOT=1
+@@ -253,6 +277,9 @@ then
+ 	REAL_ROOT="${FAKE_ROOT}"	
+ fi
+ 
++# load kernel video driver
++load_videodrv
++
+ splash 'init'
+ 
+ cmdline_hwopts
+@@ -510,9 +537,50 @@ do
+ 			then
+ 				break
+ 			else
+-				bad_msg "The filesystem mounted at ${REAL_ROOT} does not appear to be a valid /, try again"
+-				got_good_root=0
+-				REAL_ROOT=''
++				# check for scratch
++				if [ -e ${NEW_ROOT}/livecd.squashfs -a -d ${NEW_ROOT}/delta -a -d ${NEW_ROOT}/workspace ];
++				then
++					good_msg 'Found scratch data...'
++					load_union_module
++					modprobe squashfs >/dev/null
++					if mount -o remount,rw ${NEW_ROOT};
++					then
++						mkdir -p ${NEW_ROOT}/calculate && mkdir -p /union && mkdir -p ${NEW_ROOT}/workspace/mnt/builder && mkdir -p ${NEW_ROOT}/workspace/mnt/scratch
++						if mount -o loop,ro -t squashfs ${NEW_ROOT}/livecd.squashfs ${NEW_ROOT}/calculate;
++						then
++							if [[ ${UNIONTYPE} = aufs ]]
++							then
++								if mount -t aufs -o ro,udba=reval,br:${NEW_ROOT}/workspace=rw:${NEW_ROOT}/delta=ro+wh:${NEW_ROOT}/calculate=ro none /union;
++								then
++									mount -t aufs -o ro,udba=reval,br:${NEW_ROOT}/delta=rw:${NEW_ROOT}/calculate=ro none /union/mnt/builder
++									CHROOT=/union
++									break;
++								else
++									bad_msg 'Could not merge scratch layers!'
++									run_shell
++								fi
++							else
++								if mount -t unionfs -o ro,dirs=${NEW_ROOT}/workspace:${NEW_ROOT}/delta=ro:${NEW_ROOT}/calculate=ro unionfs /union;
++								then
++									mount -t unionfs -o ro,dirs=${NEW_ROOT}/delta:${NEW_ROOT}/calculate=ro unionfs /union/mnt/builder
++									CHROOT=/union
++									break;
++								else
++									bad_msg 'Could not merge scratch layers'
++									run_shell
++								fi
++							fi
++						else
++							bad_msg 'Could not mount scratch squashfs image'
++						fi
++					else
++						bad_msg 'Could not remount ${NEW_ROOT}'
++					fi
++				else
++					bad_msg "The filesystem mounted at ${REAL_ROOT} does not appear to be a valid /, try again"
++					got_good_root=0
++					REAL_ROOT=''
++				fi
+ 			fi
+ 		else
+ 			bad_msg "Could not mount specified ROOT, try again"
+diff --git a/gen_cmdline.sh b/gen_cmdline.sh
+index 9e4009e..b308050 100755
+--- a/gen_cmdline.sh
++++ b/gen_cmdline.sh
+@@ -22,6 +22,7 @@ longusage() {
+   echo "	--logfile=<outfile>	Output file for debug info"
+   echo "	--color			Output debug in color"
+   echo "	--no-color		Do not output debug in color"
++  echo "	--no-cleartmp		Do not clear temp directory"
+   echo "  Kernel Configuration settings"
+   echo "	--menuconfig		Run menuconfig after oldconfig"
+   echo "	--no-menuconfig		Do not run menuconfig after oldconfig"
+@@ -443,6 +444,10 @@ parse_cmdline() {
+ 			print_info 2 "USECOLOR: ${USECOLOR}"
+ 			setColorVars
+ 			;;
++		--no-cleartmp)
++			NOCLEARTMP=1
++			print_info 2 "NOCLEARTMP: ${NOCLEARTMP}"
++			;;
+ 		--logfile=*)
+ 			CMD_LOGFILE=`parse_opt "$*"`
+ 			LOGFILE=`parse_opt "$*"`
+diff --git a/gen_compile.sh b/gen_compile.sh
+index ec752ce..6e011b9 100755
+--- a/gen_compile.sh
++++ b/gen_compile.sh
+@@ -402,7 +402,10 @@ compile_busybox() {
+ 		yes '' 2>/dev/null | compile_generic oldconfig utils
+ 
+ 		print_info 1 'busybox: >> Compiling...'
++		OLDLOGLEVEL=$LOGLEVEL
++		LOGLEVEL=1
+ 		compile_generic all utils
++		LOGLEVEL=$OLDLOGLEVEL
+ 		print_info 1 'busybox: >> Copying to cache...'
+ 		[ -f "${TEMP}/${BUSYBOX_DIR}/busybox" ] ||
+ 			gen_die 'Busybox executable does not exist!'
+diff --git a/genkernel b/genkernel
+index b779032..df351f4 100755
+--- a/genkernel
++++ b/genkernel
+@@ -9,6 +9,7 @@ GK_V='3.4.15'
+ TMPDIR='/var/tmp/genkernel'
+ 
+ TODEBUGCACHE=1 # Until an error occurs or LOGFILE is fully qualified.
++NOCLEARTMP=0
+ 
+ small_die() {
+   echo $1
+@@ -55,21 +56,25 @@ trap_cleanup(){
+ }
+ 
+ cleanup(){
+-    if [ -n "$TEMP" -a -d "$TEMP" ]; then
+-	rm -rf "$TEMP"
+-    fi
+-
+-    if isTrue ${POSTCLEAR}
+-    then
+-	    echo
+-	    print_info 1 'RUNNING FINAL CACHE/TMP CLEANUP'
+-	    print_info 1 "CACHE_DIR: ${CACHE_DIR}"
+-	    CLEAR_CACHE_DIR='yes'
+-	    setup_cache_dir
+-	    echo
+-	    print_info 1 "TMPDIR: ${TMPDIR}"
+-	    clear_tmpdir
+-	    fi
++	if [[ ${NOCLEARTMP} -ne 0 ]]
++	then
++		return
++	fi
++	if [ -n "$TEMP" -a -d "$TEMP" ]; then
++		rm -rf "$TEMP" &>/dev/null
++	fi
++
++	if isTrue ${POSTCLEAR}
++	then
++		echo
++		print_info 1 'RUNNING FINAL CACHE/TMP CLEANUP'
++		print_info 1 "CACHE_DIR: ${CACHE_DIR}"
++		CLEAR_CACHE_DIR='yes'
++		setup_cache_dir
++		echo
++		print_info 1 "TMPDIR: ${TMPDIR}"
++		clear_tmpdir
++	fi
+ }
+ 
+ trap trap_cleanup SIGHUP SIGQUIT SIGINT SIGTERM SIGKILL
