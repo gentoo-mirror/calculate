@@ -221,7 +221,7 @@
 =kde-base/kdepim-runtime-4.4.10 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdepim-strigi-analyzer-4.4.10 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdepimlibs-4.6.2 handbook ldap semantic-desktop -aqua -debug -kdeenablefinal -kdeprefix -test
-=kde-base/kdeplasma-addons-4.6.2 exif semantic-desktop -aqua -debug -desktopglobe -kdeenablefinal -kdeprefix -qalculate -qwt -scim
+=kde-base/kdeplasma-addons-4.6.2 exif semantic-desktop -aqua -attica -debug -desktopglobe -kdeenablefinal -kdeprefix -qalculate -qwt -scim
 =kde-base/kdesu-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdf-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdialog-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
@@ -341,7 +341,7 @@
 =media-fonts/urw-fonts-2.4.9 X
 =media-gfx/digikam-1.9.0 gphoto2 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk semantic-desktop thumbnails -addressbook -aqua -debug -doc -geolocation -handbook -kdeenablefinal -linguas_ar -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ko -linguas_lt -linguas_lv -linguas_ms -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_pa -linguas_pt -linguas_ro -linguas_se -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -themedesigner -video
 =media-gfx/exiv2-0.19 linguas_de linguas_es linguas_fr linguas_pl linguas_ru nls unicode zlib -contrib -doc -examples -linguas_fi -linguas_sk -xmp
-=media-gfx/gimp-2.6.11-r1 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff webkit wmf -altivec -curl -debug -doc -gnome -hal -lcms
+=media-gfx/gimp-2.6.11-r1 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff webkit wmf -altivec -curl -debug -doc -gnome -lcms
 =media-gfx/gtkimageview-1.6.4 -debug -doc -examples -test
 =media-gfx/imagemagick-6.6.5.6 X bzip2 corefonts cxx djvu jpeg jpeg2k openexr openmp perl png raw svg tiff truetype wmf zlib -autotrace -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -q32 -q8 -static-libs -video_cards_nvidia -xml
 =media-gfx/sane-backends-1.0.21-r1 gphoto2 ipv6 sane_backends_abaton sane_backends_agfafocus sane_backends_apple sane_backends_artec sane_backends_artec_eplus48u sane_backends_as6e sane_backends_avision sane_backends_bh sane_backends_canon sane_backends_canon630u sane_backends_canon_dr sane_backends_canon_pp sane_backends_cardscan sane_backends_coolscan sane_backends_coolscan2 sane_backends_coolscan3 sane_backends_dc210 sane_backends_dc240 sane_backends_dc25 sane_backends_dell1600n_net sane_backends_dmc sane_backends_epjitsu sane_backends_epson sane_backends_epson2 sane_backends_fujitsu sane_backends_genesys sane_backends_gt68xx sane_backends_hp sane_backends_hp3500 sane_backends_hp3900 sane_backends_hp4200 sane_backends_hp5400 sane_backends_hp5590 sane_backends_hpljm1005 sane_backends_hpsj5s sane_backends_hs2p sane_backends_ibm sane_backends_kodak sane_backends_kvs1025 sane_backends_leo sane_backends_lexmark sane_backends_ma1509 sane_backends_matsushita sane_backends_microtek sane_backends_microtek2 sane_backends_mustek sane_backends_mustek_pp sane_backends_mustek_usb sane_backends_nec sane_backends_net sane_backends_niash sane_backends_p5 sane_backends_pie sane_backends_pixma sane_backends_plustek sane_backends_plustek_pp sane_backends_qcam sane_backends_ricoh sane_backends_rts8891 sane_backends_s9036 sane_backends_sceptre sane_backends_sharp sane_backends_sm3600 sane_backends_sm3840 sane_backends_snapscan sane_backends_sp15c sane_backends_st400 sane_backends_stv680 sane_backends_tamarack sane_backends_teco1 sane_backends_teco2 sane_backends_teco3 sane_backends_test sane_backends_u12 sane_backends_umax sane_backends_umax1220u sane_backends_umax_pp sane_backends_xerox_mfp usb v4l -avahi -doc
@@ -511,11 +511,11 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.1-r1 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-client-2.2.12 kde -gnome -xfce
-=sys-apps/calculate-desktop-2.2.12 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.12-r3 -minimal
-=sys-apps/calculate-lib-2.2.12-r5 -minimal
-=sys-apps/calculate-utilities-2.2.12-r14 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.13 kde -gnome -xfce
+=sys-apps/calculate-desktop-2.2.13 kde -gnome -xfce
+=sys-apps/calculate-install-2.2.13 -minimal
+=sys-apps/calculate-lib-2.2.13 -minimal
+=sys-apps/calculate-utilities-2.2.13 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.1 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
@@ -540,7 +540,7 @@
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.5 -old-linux
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
-=sys-apps/openrc-0.8.0 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
+=sys-apps/openrc-0.8.1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
 =sys-apps/portage-2.2.0_alpha29 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
@@ -593,8 +593,8 @@
 =sys-fs/udev-151-r4 extras -devfs-compat -old-hd-rules -selinux -test
 =sys-fs/udisks-1.0.2 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.14 bash-completion -ibm -selinux
-=sys-kernel/calculate-sources-2.6.37.4 symlink vmlinuz -bfq -bfs -build -deblob
+=sys-kernel/calckernel-3.4.15-r2 bash-completion -ibm -selinux
+=sys-kernel/calculate-sources-2.6.38.2 symlink vmlinuz -build -deblob
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
