@@ -358,11 +358,11 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.1-r1 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-client-2.2.12 xfce -gnome -kde
-=sys-apps/calculate-desktop-2.2.12 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.12-r3 -minimal
-=sys-apps/calculate-lib-2.2.12-r5 -minimal
-=sys-apps/calculate-utilities-2.2.12-r14 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.13 xfce -gnome -kde
+=sys-apps/calculate-desktop-2.2.13 xfce -gnome -kde
+=sys-apps/calculate-install-2.2.13 -minimal
+=sys-apps/calculate-lib-2.2.13 -minimal
+=sys-apps/calculate-utilities-2.2.13 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
@@ -388,7 +388,7 @@
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.5 -old-linux
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
-=sys-apps/openrc-0.8.0 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
+=sys-apps/openrc-0.8.1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
 =sys-apps/portage-2.2.0_alpha29 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
@@ -440,8 +440,8 @@
 =sys-fs/udev-151-r4 extras -devfs-compat -old-hd-rules -selinux -test
 =sys-fs/udisks-1.0.2 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.14 bash-completion -ibm -selinux
-=sys-kernel/calculate-sources-2.6.37.4 symlink vmlinuz -bfq -bfs -build -deblob
+=sys-kernel/calckernel-3.4.15-r2 bash-completion -ibm -selinux
+=sys-kernel/calculate-sources-2.6.38.2 symlink vmlinuz -build -deblob
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
