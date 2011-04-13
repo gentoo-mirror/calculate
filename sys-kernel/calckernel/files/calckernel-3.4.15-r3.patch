@@ -11,7 +11,7 @@ index fd6d9fc..3a5f5d3 100755
  CDROOT_TYPE='auto'
  NEW_ROOT='/newroot'
 diff --git a/defaults/initrd.scripts b/defaults/initrd.scripts
-index b228a77..1c2256f 100755
+index b228a77..c12ac0b 100755
 --- a/defaults/initrd.scripts
 +++ b/defaults/initrd.scripts
 @@ -187,23 +187,45 @@ cache_cd_contents() {
@@ -229,7 +229,7 @@ index b228a77..1c2256f 100755
  		then
  			bad_msg "Can't setup union mount!"
  			USE_UNIONFS_NORMAL=0
-@@ -1161,3 +1307,52 @@ setup_unionfs() {
+@@ -1161,3 +1307,54 @@ setup_unionfs() {
  		USE_UNIONFS_NORMAL=0
  	fi
  }
@@ -246,22 +246,24 @@ index b228a77..1c2256f 100755
 +	# load specified videodrv
 +	case "${VIDEODRV}" in
 +		nouveau)
-+			busybox modprobe nouveau modeset=1 &>/dev/null && return 0
++			modules_list="nouveau"
 +			;;
 +		radeon)
-+			busybox modprobe radeon modeset=1 &>/dev/null && return 0
++			modules_list="radeon"
 +			;;
-+		i915)
-+			busybox modprobe i915 modeset=1 &>/dev/null && return 0
++		i915|intel)
++			modules_list="i915"
++			;;
++		*)
++			# if not livecd and initramfs otimized (aviailable only one video driver)
++			if [ "${CDROOT}" != '1' -a "${videodrv_count}" -le 2 ]
++			then
++				modules_list="nouveau i915 radeon"
++			else
++				modules_list="i915"
++			fi
 +			;;
 +	esac
-+	# if not livecd and initramfs otimized (aviailable only one video driver)
-+	if [ "${CDROOT}" != '1' -a "${videodrv_count}" -le 2 ]
-+	then
-+		modules_list="nouveau i915 radeon"
-+	else
-+		modules_list="i915"
-+	fi
 +	for x in $modules_list
 +	do
 +		if [ "`find /lib/modules -name "${x}.ko" | grep -c ''`" -eq "1" ]
