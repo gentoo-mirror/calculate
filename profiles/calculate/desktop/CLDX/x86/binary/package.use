@@ -1,6 +1,6 @@
 =app-admin/eselect-1.2.11 bash-completion -doc
 =app-admin/hddtemp-0.3_beta15-r3 nls
-=app-admin/logrotate-3.7.8 -selinux
+=app-admin/logrotate-3.7.9-r1 -selinux
 =app-admin/sudo-1.7.4_p5 ldap pam -offensive -selinux -skey
 =app-admin/syslog-ng-3.1.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/testdisk-6.8-r1 jpeg ntfs reiserfs -static
@@ -368,7 +368,7 @@
 =sys-apps/iproute2-2.6.35-r2 berkdb ipv6 -atm -minimal
 =sys-apps/kbd-1.15 nls
 =sys-apps/keyexec-0.1.2-r4 -kde
-=sys-apps/less-436 unicode
+=sys-apps/less-441 unicode
 =sys-apps/lm_sensors-3.2.0 -sensord
 =sys-apps/man-db-2.5.9 berkdb gdbm nls
 =sys-apps/man-pages-3.28 linguas_de linguas_fr linguas_it linguas_pl linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_ro -linguas_zh_CN
@@ -440,7 +440,7 @@
 =sys-libs/libieee1284-0.2.11-r1 python -doc
 =sys-libs/libkudzu-1.2.57.1 zlib
 =sys-libs/libstdc++-v3-3.3.6 nls -multilib
-=sys-libs/ncurses-5.7-r3 cxx gpm unicode -ada -debug -doc -minimal -profile -trace
+=sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
 =sys-libs/pam-1.1.3 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.1 python -static-libs -tdbtest -tools
