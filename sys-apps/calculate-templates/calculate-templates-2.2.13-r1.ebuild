@@ -12,7 +12,7 @@ DESCRIPTION="Templates for calculate utilities 2.2"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 DEPEND="~sys-apps/calculate-lib-2.2.13"
 
@@ -24,6 +24,8 @@ src_unpack() {
 
 	# fix isolinux.cfg
 	epatch "${FILESDIR}/calculate-templates-2.2.13-fix_isolinuxcfg.patch"
+	# fix grub.cfg
+	epatch "${FILESDIR}/calculate-templates-2.2.13-fix_grub_conf.patch"
 }
 
 src_compile() {
