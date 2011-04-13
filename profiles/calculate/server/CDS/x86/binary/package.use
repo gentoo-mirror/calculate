@@ -1,7 +1,7 @@
 =app-admin/apache-tools-2.2.17 ssl
 =app-admin/eselect-1.2.11 bash-completion -doc
 =app-admin/hddtemp-0.3_beta15-r3 nls
-=app-admin/logrotate-3.7.8 -selinux
+=app-admin/logrotate-3.7.9-r1 -selinux
 =app-admin/syslog-ng-3.1.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/testdisk-6.8-r1 jpeg ntfs reiserfs -static
 =app-antivirus/clamav-0.97 bzip2 iconv ipv6 -clamdtop -milter -selinux
@@ -90,7 +90,7 @@
 =dev-perl/libwww-perl-5.836 ssl
 =dev-perl/perl-ldap-0.400.100 ssl -sasl -xml
 =dev-python/dnspython-1.9.2 -examples
-=dev-python/psycopg-2.3.2 -debug -doc -examples -mxdatetime
+=dev-python/psycopg-2.4 -debug -doc -examples -mxdatetime
 =dev-python/pycrypto-2.3 gmp -doc
 =dev-python/pyopenssl-0.11 -doc
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
@@ -196,7 +196,7 @@
 =sys-apps/iproute2-2.6.35-r2 berkdb ipv6 -atm -minimal
 =sys-apps/kbd-1.15 nls
 =sys-apps/kexec-tools-2.0.0-r1 zlib -xen
-=sys-apps/less-436 unicode
+=sys-apps/less-441 unicode
 =sys-apps/lm_sensors-3.2.0 -sensord
 =sys-apps/man-db-2.5.9 berkdb gdbm nls
 =sys-apps/man-pages-3.28 linguas_de linguas_fr linguas_it linguas_pl linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_ro -linguas_zh_CN
@@ -255,7 +255,7 @@
 =sys-libs/glibc-2.11.3 nls -crosscompile_opts_headers-only -debug -gd -glibc-omitfp -hardened -multilib -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
 =sys-libs/libcap-2.17 pam
-=sys-libs/ncurses-5.7-r3 cxx gpm unicode -ada -debug -doc -minimal -profile -trace
+=sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
 =sys-libs/pam-1.1.3 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.1 python -static-libs -tdbtest -tools
