@@ -167,7 +167,7 @@
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 curl iconv perl threads tk webdav -cgi -cvs -doc -emacs -gtk -ppcsha1 -subversion -xinetd
 =gnome-base/libglade-2.6.4 -doc -static-libs -test
 =gnome-base/librsvg-2.32.1 gtk -doc -tools
-=kde-base/activitymanager-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
+=kde-base/activitymanager-4.6.2 semantic-desktop -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/akonadi-4.4.9 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/akregator-4.4.10 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/ark-4.6.2 archive bzip2 handbook -aqua -debug -kdeenablefinal -kdeprefix -lzma
@@ -543,7 +543,7 @@
 =sys-apps/openrc-0.8.1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha29 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha30 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
