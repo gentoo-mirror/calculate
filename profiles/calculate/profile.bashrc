@@ -235,22 +235,24 @@ change_permissions() {
 	fi
 }
 
-# DISTDIR located at /var/calculate/remote
-[[ "${PORTAGE_ACTUAL_DISTDIR}" =~ ^/var/calculate/remote ]] &&
-# it resource isn't nfs and cifs
-[[ -z $(cat /proc/mounts | 
-	sed -rn '/\S+\s+\/var\/calculate\/remote (nfs|cifs)/p') ]] &&
-post_src_unpack() {
-	einfo "Performing permissions change for distdir directory"
-	change_permissions ${PORTAGE_ACTUAL_DISTDIR}
-}
+# system has "remote" share
+if grep "\[remote\]" /etc/samba/smb.conf &>/dev/null
+then
+    post_src_unpack() {
+        einfo "Performing permissions change for distdir directory"
+        change_permissions ${PORTAGE_ACTUAL_DISTDIR}
+    }
+else
+    post_src_unpack() { : }
+fi
 
-# PKGDIR located at /var/calculate/remote
-[[ "${PKGDIR}" =~ ^/var/calculate/remote ]] &&
-# it resource isn't nfs and cifs
-[[ -z $(cat /proc/mounts | 
-	sed -rn '/\S+\s+\/var\/calculate\/remote (nfs|cifs)/p') ]] &&
-pre_pkg_preinst() {
-	einfo "Performing permissions change for packages directory"
-	change_permissions ${PKGDIR}
-}
+if grep "\[remote\]" /etc/samba/smb.conf &>/dev/null
+then
+    pre_pkg_preinst() {
+        einfo "Performing permissions change for packages directory"
+        change_permissions ${PKGDIR}
+    }
+else
+    pre_pkg_preinst() { : }
+fi
+
