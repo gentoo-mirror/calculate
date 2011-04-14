@@ -243,7 +243,9 @@ then
         change_permissions ${PORTAGE_ACTUAL_DISTDIR}
     }
 else
-    post_src_unpack() { : }
+    post_src_unpack() {
+        :
+    }
 fi
 
 if grep "\[remote\]" /etc/samba/smb.conf &>/dev/null
@@ -253,6 +255,8 @@ then
         change_permissions ${PKGDIR}
     }
 else
-    pre_pkg_preinst() { : }
+    pre_pkg_preinst() {
+        :
+    }
 fi
 
