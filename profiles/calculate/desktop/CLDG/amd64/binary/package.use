@@ -606,7 +606,7 @@
 =x11-libs/pixman-0.20.2 mmx sse2 -altivec -static-libs
 =x11-libs/qt-core-4.7.2-r1 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.2 exceptions -aqua -debug -pch
-=x11-libs/qt-gui-4.7.2 accessibility cups dbus exceptions glib gtk mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -nis -pch -raster -trace
+=x11-libs/qt-gui-4.7.2 accessibility cups dbus exceptions glib mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -gtkstyle -nis -pch -raster -trace
 =x11-libs/qt-qt3support-4.7.2 accessibility exceptions -aqua -debug -kde -pch -phonon
 =x11-libs/qt-script-4.7.2 exceptions iconv jit private-headers -aqua -debug -pch
 =x11-libs/qt-sql-4.7.2 exceptions iconv qt3support sqlite -aqua -debug -firebird -freetds -mysql -odbc -pch -postgres
