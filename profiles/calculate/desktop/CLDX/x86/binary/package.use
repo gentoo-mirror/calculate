@@ -48,7 +48,7 @@
 =app-text/aspell-0.60.6-r2 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk nls -examples -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
 =app-text/djvu-3.5.23 jpeg nls tiff -debug -doc -linguas_ja -xml
 =app-text/enchant-1.6.0 hunspell -aspell -zemberek
-=app-text/evince-2.32.0-r1 dbus djvu gnome-keyring tiff -debug -doc -dvi -gnome -introspection -nautilus -t1lib
+=app-text/evince-2.32.0-r2 dbus djvu gnome-keyring tiff -debug -doc -dvi -gnome -introspection -nautilus -t1lib
 =app-text/fbreader-0.12.10 gtk -debug -qt4
 =app-text/ghostscript-gpl-8.71-r6 X cairo cups djvu gtk jpeg2k -bindist -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
 =app-text/gtkspell-2.0.16 -doc
@@ -527,7 +527,7 @@
 =x11-libs/pixman-0.20.2 mmx sse2 -altivec -static-libs
 =x11-libs/qt-core-4.7.2-r1 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.2 exceptions -aqua -debug -pch
-=x11-libs/qt-gui-4.7.2 accessibility cups dbus exceptions glib gtk mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -nis -pch -raster -trace
+=x11-libs/qt-gui-4.7.2 accessibility cups dbus exceptions glib mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -gtkstyle -nis -pch -raster -trace
 =x11-libs/qt-qt3support-4.7.2 accessibility exceptions -aqua -debug -kde -pch -phonon
 =x11-libs/qt-script-4.7.2 exceptions iconv jit private-headers -aqua -debug -pch
 =x11-libs/qt-sql-4.7.2 exceptions iconv qt3support sqlite -aqua -debug -firebird -freetds -mysql -odbc -pch -postgres
