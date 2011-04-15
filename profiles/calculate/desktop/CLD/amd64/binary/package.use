@@ -338,7 +338,7 @@
 =kde-base/system-config-printer-kde-4.6.2 -aqua -kdeenablefinal -kdeprefix
 =kde-base/systemsettings-4.6.2 handbook opengl usb xinerama -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/thumbnailers-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
-=kde-misc/knetworkmanager-4.4.0_p20110410 consolekit networkmanager -aqua -debug -kdeenablefinal -wicd
+=kde-misc/knetworkmanager-4.4.0_p20110415 consolekit -aqua -debug -kdeenablefinal
 =kde-misc/kwebkitpart-0.9.6 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_fi -linguas_ga -linguas_gl -linguas_hu -linguas_km -linguas_lt -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_ro -linguas_sk -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tg -linguas_th -linguas_tr -linguas_zh_CN -linguas_zh_TW
 =kde-misc/openofficeorg-thumbnail-1.0.0 -aqua -debug -kdeenablefinal
 =kde-misc/polkit-kde-kcmodules-0.98_pre20101127 -aqua -debug -kdeenablefinal
@@ -702,8 +702,8 @@
 =x11-libs/pixman-0.20.2 mmx sse2 -altivec -static-libs
 =x11-libs/qt-core-4.7.2-r1 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.2 exceptions -aqua -debug -pch
-=x11-libs/qt-declarative-4.7.2 exceptions private-headers qt3support -aqua -debug -pch
-=x11-libs/qt-gui-4.7.2 accessibility cups dbus exceptions glib gtk mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -nis -pch -raster -trace
+=x11-libs/qt-declarative-4.7.2-r1 exceptions private-headers qt3support webkit -aqua -debug -pch
+=x11-libs/qt-gui-4.7.2 accessibility cups dbus exceptions glib mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -gtkstyle -nis -pch -raster -trace
 =x11-libs/qt-multimedia-4.7.2 exceptions iconv -aqua -debug -pch
 =x11-libs/qt-opengl-4.7.2 exceptions qt3support -aqua -debug -egl -pch
 =x11-libs/qt-qt3support-4.7.2 accessibility exceptions kde -aqua -debug -pch -phonon
