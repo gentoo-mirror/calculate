@@ -41,7 +41,7 @@
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
 =app-text/aspell-0.60.6-r2 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk nls -examples -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
 =app-text/ghostscript-gpl-8.71-r6 cups jpeg2k -X -bindist -cairo -djvu -gtk -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
-=app-text/poppler-0.14.5 abiword cxx jpeg jpeg2k lcms png utils xpdf-headers -cairo -cjk -curl -debug -doc -exceptions -qt4
+=app-text/poppler-0.14.5-r1 cxx jpeg jpeg2k lcms png utils xpdf-headers -cairo -cjk -curl -debug -doc -exceptions -qt4
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/wgetpaste-2.17 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
@@ -204,7 +204,7 @@
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.5 -old-linux
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
-=sys-apps/openrc-0.8.1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
+=sys-apps/openrc-0.8.2 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
 =sys-apps/portage-2.2.0_alpha30 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
