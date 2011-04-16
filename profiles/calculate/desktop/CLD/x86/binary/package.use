@@ -62,7 +62,7 @@
 =app-text/goldendict-1.0.1 kde linguas_bg linguas_de linguas_it linguas_ru linguas_uk -debug -linguas_ar -linguas_cs -linguas_el -linguas_lt -linguas_vi -linguas_zh
 =app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
 =app-text/libspectre-0.2.6 -debug -doc -static-libs -test
-=app-text/poppler-0.14.5 abiword cairo cxx jpeg jpeg2k lcms png qt4 utils xpdf-headers -cjk -curl -debug -doc -exceptions
+=app-text/poppler-0.14.5-r1 cairo cxx jpeg jpeg2k lcms png qt4 utils xpdf-headers -cjk -curl -debug -doc -exceptions
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/wgetpaste-2.17 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
@@ -517,7 +517,7 @@
 =sys-apps/calculate-lib-2.2.13 -minimal
 =sys-apps/calculate-utilities-2.2.13-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
-=sys-apps/dbus-1.4.1 X -debug -doc -selinux -static-libs -test
+=sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
 =sys-apps/diffutils-2.8.7-r2 nls -static
 =sys-apps/file-5.05 python -static-libs
@@ -540,7 +540,7 @@
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.5 -old-linux
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
-=sys-apps/openrc-0.8.1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
+=sys-apps/openrc-0.8.2 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
 =sys-apps/portage-2.2.0_alpha30 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
@@ -557,7 +557,7 @@
 =sys-apps/util-linux-2.18-r1 cramfs crypt nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 -debug -x86emu
 =sys-apps/xinetd-2.3.14 perl tcpd
-=sys-auth/consolekit-0.4.3 kernel_linux pam policykit -debug -doc -test
+=sys-auth/consolekit-0.4.4 kernel_linux pam policykit -debug -doc -test
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
 =sys-auth/pam_ldap-183 ssl -sasl
 =sys-auth/pambase-20101024 consolekit cracklib sha512 -debug -gnome-keyring -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
@@ -716,4 +716,4 @@
 =x11-proto/xcmiscproto-1.2.1 -doc
 =x11-proto/xextproto-7.2.0 -doc
 =x11-proto/xproto-7.0.20 -doc
-=x11-themes/oxygen-gtk-1.0.3 -debug -doc
+=x11-themes/oxygen-gtk-1.0.4 -debug -doc
