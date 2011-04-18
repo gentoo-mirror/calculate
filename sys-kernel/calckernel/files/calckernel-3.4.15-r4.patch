@@ -1420,10 +1420,25 @@ index e680569..e13faf3 100755
  	set_config_with_override 1 EVMS                 CMD_EVMS
  	set_config_with_override 1 DMRAID               CMD_DMRAID
 diff --git gen_initramfs.sh gen_initramfs.sh
-index 543f484..41c9e10 100755
+index 543f484..4a733bf 100755
 --- gen_initramfs.sh
 +++ gen_initramfs.sh
-@@ -491,9 +491,47 @@ append_gpg() {
+@@ -56,7 +56,13 @@ append_busybox() {
+ 	chmod +x "${TEMP}/initramfs-busybox-temp/usr/share/udhcpc/default.script"
+ 
+ 	# Set up a few default symlinks
+-	for i in ${BUSYBOX_APPLETS:-[ ash sh mount uname echo cut cat}; do
++	if isTrue "${UDEV}"
++	then
++		BUSYBOX_APPLETS="${BUSYBOX_APPLETS:-[ ash sh uname echo cut cat}"
++	else
++		BUSYBOX_APPLETS="{$BUSYBOX_APPLETS:-[ ash sh mount uname echo cut cat}"
++	fi
++	for i in ${BUSYBOX_APPLETS}; do
+ 		rm -f ${TEMP}/initramfs-busybox-temp/bin/$i > /dev/null
+ 		ln -s busybox ${TEMP}/initramfs-busybox-temp/bin/$i ||
+ 			gen_die "Busybox error: could not link ${i}!"
+@@ -491,9 +497,47 @@ append_gpg() {
  	chmod a+x "${TEMP}/initramfs-gpg-temp/sbin/gpg"
  	cd "${TEMP}/initramfs-gpg-temp/"
  	find . -print | cpio ${CPIO_ARGS} --append -F "${CPIO}"
@@ -1471,7 +1486,7 @@ index 543f484..41c9e10 100755
  print_list()
  {
  	local x
-@@ -614,11 +652,14 @@ append_auxilary() {
+@@ -614,11 +658,14 @@ append_auxilary() {
  	done
  	echo '"' >> "${TEMP}/initramfs-aux-temp/etc/initrd.defaults"	
  
@@ -1490,7 +1505,7 @@ index 543f484..41c9e10 100755
  	fi
  	if isTrue $CMD_DOKEYMAPAUTO
  	then
-@@ -635,7 +676,7 @@ append_auxilary() {
+@@ -635,7 +682,7 @@ append_auxilary() {
  	chmod +x "${TEMP}/initramfs-aux-temp/init"
  	chmod +x "${TEMP}/initramfs-aux-temp/etc/initrd.scripts"
  	chmod +x "${TEMP}/initramfs-aux-temp/etc/initrd.defaults"
@@ -1499,7 +1514,7 @@ index 543f484..41c9e10 100755
  
  	if isTrue ${NETBOOT}
  	then
-@@ -672,6 +713,8 @@ create_initramfs() {
+@@ -672,6 +719,8 @@ create_initramfs() {
  
  	append_data 'base_layout'
  	append_data 'auxilary' "${BUSYBOX}"
