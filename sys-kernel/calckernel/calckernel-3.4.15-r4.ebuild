@@ -70,7 +70,8 @@ DEPEND="sys-fs/e2fsprogs
 	selinux? ( sys-libs/libselinux )
 	>=sys-apps/calculate-templates-2.2.13-r1
 	!sys-kernel/genkernel"
-RDEPEND="${DEPEND} app-arch/cpio"
+RDEPEND="${DEPEND} app-arch/cpio
+	x11-drivers/radeon-ucode"
 
 if [[ ${PV} == 9999* ]]; then
 	DEPEND="${DEPEND} app-text/asciidoc"
