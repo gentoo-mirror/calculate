@@ -137,6 +137,9 @@
 =dev-perl/Authen-SASL-2.15 -kerberos
 =dev-perl/DateManip-5.56 -test
 =dev-perl/Error-0.170.160 -test
+=dev-perl/File-BaseDir-0.03 -test
+=dev-perl/File-DesktopEntry-0.04 -test
+=dev-perl/File-MimeInfo-0.15-r1 -test
 =dev-perl/HTML-Parser-3.67 -test
 =dev-perl/IO-Socket-SSL-1.35 -idn
 =dev-perl/Text-CSV-1.210 -test
@@ -315,7 +318,7 @@
 =media-libs/speex-1.2_rc1 ogg sse -static-libs
 =media-libs/swfdec-0.8.4 alsa ffmpeg gtk -doc -gstreamer -pulseaudio
 =media-libs/taglib-1.6.3 asf mp4 -debug -examples -test
-=media-libs/tiff-3.9.4 cxx jpeg zlib -jbig -static-libs
+=media-libs/tiff-3.9.4-r1 cxx jpeg zlib -jbig -static-libs
 =media-libs/vigra-1.6.0 jpeg png tiff zlib -doc -fftw -test
 =media-libs/win32codecs-20071007-r4 -real
 =media-libs/x264-0.0.20101029 threads -debug -pic
@@ -490,7 +493,7 @@
 =sys-fs/ntfsprogs-2.0.0-r1 crypt gnome -debug -fuse -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/udev-151-r4 extras -devfs-compat -old-hd-rules -selinux -test
-=sys-fs/udisks-1.0.2 bash-completion nls -debug -doc -remote-access
+=sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r3 bash-completion -ibm -selinux
 =sys-kernel/calculate-sources-2.6.38.2 symlink vmlinuz -build -deblob
@@ -522,8 +525,9 @@
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
-=www-client/chromium-10.0.648.204 cups gecko-mediaplayer gnome gnome-keyring -test
-=www-plugins/adobe-flash-10.2.153.1 vdpau -nspluginwrapper
+=virtual/ssh-0 -minimal
+=www-client/chromium-10.0.648.205 cups gecko-mediaplayer gnome gnome-keyring -test
+=www-plugins/adobe-flash-10.2.159.1 vdpau
 =x11-apps/fusion-icon-0.1-r1 gtk -qt4
 =x11-apps/xauth-1.0.5 ipv6
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
@@ -584,7 +588,7 @@
 =x11-libs/libfontenc-1.1.0 -static-libs
 =x11-libs/libgksu-2.0.12-r1 nls -doc -static-libs
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
-=x11-libs/libsexy-0.1.11-r1 -doc
+=x11-libs/libsexy-0.1.11-r2 -doc -static-libs
 =x11-libs/libvdpau-0.4.1 -doc
 =x11-libs/libwnck-2.30.6 -doc -introspection -startup-notification
 =x11-libs/libxcb-1.7 -doc -selinux -static-libs
@@ -606,7 +610,7 @@
 =x11-misc/gccmakedep-1.0.2 -debug
 =x11-misc/notification-daemon-0.4.0-r1 -debug -gstreamer
 =x11-misc/xbindkeys-1.8.4 -guile -tk
-=x11-misc/xdg-utils-1.0.2_p20100618 -doc
+=x11-misc/xdg-utils-1.1.0_rc1-r1 -doc
 =x11-misc/xdialog-2.3.1 nls -doc -examples
 =x11-plugins/compiz-plugins-extra-0.8.6-r1 libnotify -gconf
 =x11-plugins/compiz-plugins-main-0.8.6-r1 -gconf
