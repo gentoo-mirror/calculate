@@ -210,7 +210,7 @@
 =gnome-base/gnome-session-2.32.1 ipv6 -debug -doc -elibc_FreeBSD
 =gnome-base/gnome-settings-daemon-2.32.1 libnotify policykit -debug -pulseaudio -smartcard
 =gnome-base/gnome-vfs-2.24.4-r1 acl ipv6 samba ssl -avahi -doc -fam -gnutls -kerberos -test
-=gnome-base/gvfs-1.6.6-r1 archive bash-completion bluetooth fuse gdu gnome gnome-keyring gphoto2 http samba udev -avahi -cdda -doc -hal -ios
+=gnome-base/gvfs-1.6.7 archive bash-completion bluetooth fuse gdu gnome gnome-keyring gphoto2 http samba udev -avahi -cdda -doc -ios
 =gnome-base/libbonobo-2.24.3 -debug -doc -examples -test
 =gnome-base/libbonoboui-2.24.4-r1 -doc -examples -test
 =gnome-base/libglade-2.6.4 -doc -static-libs -test
@@ -327,7 +327,7 @@
 =media-libs/speex-1.2_rc1 ogg sse -static-libs
 =media-libs/swfdec-0.8.4 alsa ffmpeg gtk -doc -gstreamer -pulseaudio
 =media-libs/taglib-1.6.3 asf mp4 -debug -examples -test
-=media-libs/tiff-3.9.4 cxx jpeg zlib -jbig -static-libs
+=media-libs/tiff-3.9.4-r1 cxx jpeg zlib -jbig -static-libs
 =media-libs/vigra-1.6.0 jpeg png tiff zlib -doc -fftw -test
 =media-libs/x264-0.0.20101029 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
@@ -501,7 +501,7 @@
 =sys-fs/ntfsprogs-2.0.0-r1 crypt gnome -debug -fuse -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/udev-151-r4 extras -devfs-compat -old-hd-rules -selinux -test
-=sys-fs/udisks-1.0.2 bash-completion nls -debug -doc -remote-access
+=sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r3 bash-completion -ibm -selinux
 =sys-kernel/calculate-sources-2.6.38.2 symlink vmlinuz -build -deblob
@@ -533,7 +533,8 @@
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
-=www-client/chromium-10.0.648.204 cups gecko-mediaplayer gnome gnome-keyring -test
+=virtual/ssh-0 -minimal
+=www-client/chromium-10.0.648.205 cups gecko-mediaplayer gnome gnome-keyring -test
 =www-plugins/adobe-flash-10.2.153.1 vdpau
 =x11-apps/fusion-icon-0.1-r1 gtk -qt4
 =x11-apps/xauth-1.0.5 ipv6
