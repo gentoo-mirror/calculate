@@ -1468,7 +1468,7 @@ index e680569..e13faf3 100755
  	set_config_with_override 1 EVMS                 CMD_EVMS
  	set_config_with_override 1 DMRAID               CMD_DMRAID
 diff --git gen_initramfs.sh gen_initramfs.sh
-index 543f484..a3379b4 100755
+index 543f484..8d96d08 100755
 --- gen_initramfs.sh
 +++ gen_initramfs.sh
 @@ -56,7 +56,13 @@ append_busybox() {
@@ -1540,17 +1540,19 @@ index 543f484..a3379b4 100755
  print_list()
  {
  	local x
-@@ -542,6 +592,9 @@ append_modules() {
+@@ -542,6 +592,11 @@ append_modules() {
  		print_list ${!group_modules} > "${TEMP}/initramfs-modules-${KV}-temp/etc/modules/${group}"
  	done
  	cd "${TEMP}/initramfs-modules-${KV}-temp/"
 +	# remove sound and media
-+	find . -type d -name sound -exec rm -rf {} \;
-+	find . -type d -name media -exec rm -rf {} \;
++	for x in `find . -type d -name media -o -type d -name sound`
++	do
++		rm -r "${x}" &>/dev/null
++	done
  	find . | cpio ${CPIO_ARGS} --append -F "${CPIO}" \
  			|| gen_die "compressing modules cpio"
  	cd "${TEMP}"
-@@ -614,11 +667,14 @@ append_auxilary() {
+@@ -614,11 +669,14 @@ append_auxilary() {
  	done
  	echo '"' >> "${TEMP}/initramfs-aux-temp/etc/initrd.defaults"	
  
@@ -1569,7 +1571,7 @@ index 543f484..a3379b4 100755
  	fi
  	if isTrue $CMD_DOKEYMAPAUTO
  	then
-@@ -635,7 +691,7 @@ append_auxilary() {
+@@ -635,7 +693,7 @@ append_auxilary() {
  	chmod +x "${TEMP}/initramfs-aux-temp/init"
  	chmod +x "${TEMP}/initramfs-aux-temp/etc/initrd.scripts"
  	chmod +x "${TEMP}/initramfs-aux-temp/etc/initrd.defaults"
@@ -1578,7 +1580,7 @@ index 543f484..a3379b4 100755
  
  	if isTrue ${NETBOOT}
  	then
-@@ -672,6 +728,11 @@ create_initramfs() {
+@@ -672,6 +730,11 @@ create_initramfs() {
  
  	append_data 'base_layout'
  	append_data 'auxilary' "${BUSYBOX}"
