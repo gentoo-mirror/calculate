@@ -20,7 +20,7 @@ DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.15-r5
 	sys-apps/v86d )"
 
 IUSE=""
-CL_KERNEL_OPTS="--udev --lspci --lvm --mdadm --dmraid"
+CL_KERNEL_OPTS="--lvm --mdadm --dmraid"
 
 src_unpack() {
 	calculate-kernel-2_src_unpack
