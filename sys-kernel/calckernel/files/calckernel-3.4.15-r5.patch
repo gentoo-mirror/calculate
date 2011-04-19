@@ -11,7 +11,7 @@ index fd6d9fc..3a5f5d3 100755
  CDROOT_TYPE='auto'
  NEW_ROOT='/newroot'
 diff --git defaults/initrd.scripts defaults/initrd.scripts
-index b228a77..5e4da48 100755
+index b228a77..df59a48 100755
 --- defaults/initrd.scripts
 +++ defaults/initrd.scripts
 @@ -187,23 +187,45 @@ cache_cd_contents() {
@@ -177,7 +177,7 @@ index b228a77..5e4da48 100755
 +				mount -t unionfs -o dirs=${DELTADIR}=rw:${rw_dir}/mnt/livecd=ro unionfs ${BUILDERDIR}
 +			fi
 +			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
-+			mount -o bind ${rw_dir}/mnt/livecd ${SCRATCHDIR}/calculate
++			mount -o bind,ro ${rw_dir}/mnt/livecd ${SCRATCHDIR}/calculate
 +			tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
 +			if [ "$ISRW" -ne 0 ];
 +			then
@@ -188,7 +188,7 @@ index b228a77..5e4da48 100755
 +			else
 +				CDROMDIR=${UNION}/mnt/cdrom
 +				mkdir -p ${CDROMDIR}
-+				mount -o bind ${rw_dir}/mnt/cdrom ${CDROMDIR}
++				mount -o bind,ro ${rw_dir}/mnt/cdrom ${CDROMDIR}
 +				tmpret=$?;[ "$tmpret" -ne 0 ] && ret=$tmpret
 +			fi
 +		else
@@ -209,12 +209,12 @@ index b228a77..5e4da48 100755
 +			if [[ -n "$( echo ${LOOPEXT} | grep squash )" ]];
 +			then
 +				mkdir -p ${UNION}/mnt/squash
-+				mount -o bind ${NEW_ROOT}/mnt/squash ${UNION}/mnt/squash
++				mount -o bind ${NEW_ROOT}/mnt/squash ${UNION}/mnt/squash &>/dev/null
 +			fi
 +
 +			chmod 0755 ${UNION}
-+			mount -o bind ${rw_dir}/mnt/cdrom ${CDROMDIR}
-+			mount -o bind ${rw_dir}/mnt/livecd ${LIVECDDIR}
++			mount -o bind ${rw_dir}/mnt/cdrom ${CDROMDIR} &>/dev/null
++			mount -o bind ${rw_dir}/mnt/livecd ${LIVECDDIR} &>/dev/null
 +			ret=$?
 +		fi
 +
@@ -229,7 +229,7 @@ index b228a77..5e4da48 100755
  		then
  			bad_msg "Can't setup union mount!"
  			USE_UNIONFS_NORMAL=0
-@@ -1161,3 +1307,104 @@ setup_unionfs() {
+@@ -1161,3 +1307,105 @@ setup_unionfs() {
  		USE_UNIONFS_NORMAL=0
  	fi
  }
@@ -262,13 +262,13 @@ index b228a77..5e4da48 100755
 +			else
 +				if [[ -x /usr/sbin/lspci ]]
 +				then
-+					if lspci | grep VGA | grep -qi intel
++					if lspci | grep -m1 VGA | grep -qi intel
 +					then
 +						modules_list="i915"
-+					elif lspci | grep VGA | grep -qi nvidia
++					elif lspci | grep -m1 VGA | grep -qi nvidia
 +					then
 +						modules_list="nouveau"
-+					elif lspci | grep VGA | grep -qi radeon
++					elif lspci | grep -m1 VGA | grep -qi radeon
 +					then
 +						modules_list="radeon"
 +					else
@@ -284,7 +284,7 @@ index b228a77..5e4da48 100755
 +	do
 +		if [ "`find /lib/modules -name "${x}.ko" | grep -c ''`" -eq "1" ]
 +		then
-+			modprobe "${x}" modeset=1 &>/dev/null
++			modprobe "${x}" modeset=${USE_MODESET} &>/dev/null
 +			lsmod | grep -q "${x}" && return 0
 +		fi
 +	done
@@ -323,6 +323,7 @@ index b228a77..5e4da48 100755
 +
 +populate_dev()
 +{
++	good_msg 'Activating udev'
 +	# Do not run any init-scripts
 +	udevadm control --property=do_not_run_plug_service=1
 +
@@ -335,22 +336,33 @@ index b228a77..5e4da48 100755
 +	udevadm settle --timeout=60
 +}
 diff --git defaults/linuxrc defaults/linuxrc
-index 1819d9f..3de4a0b 100755
+index 1819d9f..4264c6f 100755
 --- defaults/linuxrc
 +++ defaults/linuxrc
-@@ -38,6 +38,8 @@ CMDLINE=`cat /proc/cmdline`
+@@ -38,6 +38,13 @@ CMDLINE=`cat /proc/cmdline`
  FAKE_ROOT=''
  REAL_ROOTFLAGS=''
  CRYPT_SILENT=0
 +VIDEODRV=''
 +USE_UDEV=1
++USE_MODESET=1
++if [ -e "/etc/calculate/calculate.ini" ]
++then
++	source /etc/calculate/calculate.ini
++fi
  for x in ${CMDLINE}
  do
  	case "${x}" in
-@@ -56,6 +58,51 @@ do
+@@ -56,6 +63,57 @@ do
  		init_opts\=*)
  			INIT_OPTS=`parse_opt "${x}"`
  		;;
++		nokms)
++			USE_MODESET=0
++		;;
++		kms)
++			USE_MODESET=1
++		;;
 +		noudev)
 +			USE_UDEV=0
 +			;;
@@ -364,7 +376,7 @@ index 1819d9f..3de4a0b 100755
 +						video:*)
 +							VIDEODRV=`echo "${i}" | cut -d: -f2-`
 +							;;
-+						res:*)
++						resolution:*)
 +							RES=`echo "${i}" | cut -d: -f2-`
 +							if [ -n "${RES}" -a "${RES}" != "auto" ]
 +							then
@@ -399,7 +411,7 @@ index 1819d9f..3de4a0b 100755
  		# Livecd options
  		cdroot)
  			CDROOT=1
-@@ -253,15 +300,24 @@ then
+@@ -253,15 +311,24 @@ then
  	REAL_ROOT="${FAKE_ROOT}"	
  fi
  
@@ -428,7 +440,7 @@ index 1819d9f..3de4a0b 100755
  
  # Load modules listed in MY_HWOPTS if /lib/modules exists for the running kernel
  if [ -z "${DO_modules}" ]
-@@ -271,7 +327,7 @@ elif [ -d "/lib/modules/${KV}" ]
+@@ -271,7 +338,7 @@ elif [ -d "/lib/modules/${KV}" ]
  then
  	good_msg 'Loading modules'
  	# Load appropriate kernel modules
@@ -437,7 +449,7 @@ index 1819d9f..3de4a0b 100755
  	then
  		for modules in ${MY_HWOPTS}
  		do
-@@ -287,14 +343,20 @@ fi
+@@ -287,14 +354,20 @@ fi
  # Apply scan delay if specified
  sdelay
  
@@ -464,7 +476,7 @@ index 1819d9f..3de4a0b 100755
  
  # Start iSCSI
  if [ -e /bin/iscsistart ]
-@@ -510,9 +572,50 @@ do
+@@ -510,9 +583,50 @@ do
  			then
  				break
  			else
@@ -518,7 +530,7 @@ index 1819d9f..3de4a0b 100755
  			fi
  		else
  			bad_msg "Could not mount specified ROOT, try again"
-@@ -731,9 +834,12 @@ cd "${CHROOT}"
+@@ -731,9 +845,12 @@ cd "${CHROOT}"
  mkdir "${CHROOT}/proc" "${CHROOT}/sys" 2>/dev/null
  echo -ne "${BOLD}.${NORMAL}"
  
