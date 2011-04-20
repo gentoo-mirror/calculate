@@ -413,11 +413,11 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.1-r1 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-client-2.2.13 gnome -kde -xfce
-=sys-apps/calculate-desktop-2.2.13 gnome -kde -xfce
-=sys-apps/calculate-install-2.2.13 -minimal
-=sys-apps/calculate-lib-2.2.13 -minimal
-=sys-apps/calculate-utilities-2.2.13-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.14 gnome -kde -xfce
+=sys-apps/calculate-desktop-2.2.14 gnome -kde -xfce
+=sys-apps/calculate-install-2.2.14-r1 -minimal
+=sys-apps/calculate-lib-2.2.14 -minimal
+=sys-apps/calculate-utilities-2.2.14-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
@@ -495,8 +495,8 @@
 =sys-fs/udev-151-r4 extras -devfs-compat -old-hd-rules -selinux -test
 =sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r3 bash-completion -ibm -selinux
-=sys-kernel/calculate-sources-2.6.38.2 symlink vmlinuz -build -deblob
+=sys-kernel/calckernel-3.4.15-r5 bash-completion -ibm -selinux
+=sys-kernel/calculate-sources-2.6.38.3 symlink vmlinuz -build -deblob
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
