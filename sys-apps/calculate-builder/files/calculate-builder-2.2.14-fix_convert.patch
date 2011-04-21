@@ -1,0 +1,15 @@
+diff --git a/pym/cl_kernel.py b/pym/cl_kernel.py
+index ce63ef2..ad0d772 100644
+--- a/pym/cl_kernel.py
++++ b/pym/cl_kernel.py
+@@ -351,8 +351,8 @@ class cl_kernel(color_print):
+             up = lambda self,y: y.startswith('kernel') and \
+                                 "root=%s"%rootdev in y
+             def change(self,y):
+-                y = reChangeKernel.sub("\\1-%s\\2 "%clKernelUid,y)
+-                y = reChangeInitrd.sub("\\1initrd-%s\\2"%clKernelUid,y)
++                y = self.reChangeKernel.sub("\\1-%s\\2 "%clKernelUid,y)
++                return self.reChangeInitrd.sub("\\1initrd-%s\\2"%clKernelUid,y)
+ 
+         class grubchangeCONSOLE(grubsetUID):
+             up = lambda self,y: y.startswith('kernel') and \
