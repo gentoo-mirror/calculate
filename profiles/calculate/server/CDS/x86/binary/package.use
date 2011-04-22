@@ -73,6 +73,7 @@
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libtasn1-2.9-r1 -doc
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
+=dev-libs/libusb-1.0.8 -debug -doc
 =dev-libs/libxml2-2.7.8 ipv6 python readline -debug -doc -examples -icu -test
 =dev-libs/libxslt-1.1.26-r1 crypt python -debug
 =dev-libs/openssl-1.0.0d zlib -bindist -gmp -kerberos -rfc3779 -sse2 -test
@@ -215,7 +216,7 @@
 =sys-apps/sysvinit-2.88-r1 -ibm -kernel_FreeBSD -selinux -static
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
-=sys-apps/usbutils-0.90 zlib -network-cron
+=sys-apps/usbutils-001 zlib -network-cron
 =sys-apps/util-linux-2.18-r1 cramfs crypt nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 -debug -x86emu
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
