@@ -292,7 +292,7 @@
 =net-fs/samba-3.5.7 acl client cups ldap netapi pam quota readline server smbclient -addns -ads -aio -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
 =net-im/pidgin-2.7.11 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -qq -sasl -silc -tcl -tk -zephyr -zeroconf
-=net-im/skype-2.1.0.81 -qt-static
+=net-im/skype-2.2.0.25 -qt-static
 =net-irc/xchat-2.8.8-r1 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -ntlm -tcl -xchatdccserver
 =net-libs/farsight2-0.0.20 python -msn -test -upnp
 =net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
@@ -321,7 +321,7 @@
 =net-misc/ntp-4.2.4_p7-r1 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -vim-syntax -zeroconf
 =net-misc/openssh-5.8_p1-r1 X hpn ldap pam tcpd -X509 -kerberos -libedit -selinux -skey -static
 =net-misc/openvpn-2.1.4 ipv6 pam ssl -eurephia -examples -iproute2 -minimal -passwordsave -pkcs11 -selinux -static -userland_BSD
-=net-misc/rdesktop-1.6.0-r4 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite -rdpusb
+=net-misc/rdesktop-1.7.0 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite
 =net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/vpnc-0.5.3 -bindist -hybrid-auth -resolvconf
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
@@ -392,7 +392,7 @@
 =sys-apps/sysvinit-2.88-r1 -ibm -kernel_FreeBSD -selinux -static
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
-=sys-apps/usbutils-0.90 zlib -network-cron
+=sys-apps/usbutils-001 zlib -network-cron
 =sys-apps/util-linux-2.18-r1 cramfs crypt nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 -debug -x86emu
 =sys-apps/xinetd-2.3.14 perl tcpd
