@@ -9,6 +9,8 @@ sys-kernel/calculate-sources symlink vmlinuz
 #fix update xorg
 sys-fs/udev extras
 
+sys-fs/squashfs-tools gzip lzma
+
 #disable Xorg dependence
 media-fonts/terminus-font -pcf -X
 
