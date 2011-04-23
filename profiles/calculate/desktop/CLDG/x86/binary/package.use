@@ -286,7 +286,7 @@
 =media-libs/libggi-2.2.2 X aalib fbcon mmx -3dfx -debug -directfb -svga -vis
 =media-libs/libggiwmh-0.3.2 X
 =media-libs/libgii-1.0.2 X
-=media-libs/libgphoto2-2.4.10 cameras_adc65 cameras_agfa_cl20 cameras_aox cameras_ax203 cameras_barbie cameras_canon cameras_casio_qv cameras_clicksmart310 cameras_digigr8 cameras_digita cameras_dimagev cameras_dimera3500 cameras_directory cameras_enigma13 cameras_fuji cameras_gsmart300 cameras_hp215 cameras_iclick cameras_jamcam cameras_jd11 cameras_jl2005a cameras_jl2005c cameras_kodak_dc120 cameras_kodak_dc210 cameras_kodak_dc240 cameras_kodak_dc3200 cameras_kodak_ez200 cameras_konica cameras_konica_qm150 cameras_largan cameras_lg_gsm cameras_mars cameras_mustek cameras_panasonic_coolshot cameras_panasonic_dc1000 cameras_panasonic_dc1580 cameras_panasonic_l859 cameras_pccam300 cameras_pccam600 cameras_polaroid_pdc320 cameras_polaroid_pdc640 cameras_polaroid_pdc700 cameras_ptp2 cameras_ricoh cameras_ricoh_g3 cameras_samsung cameras_sierra cameras_sipix_blink cameras_sipix_blink2 cameras_sipix_web2 cameras_smal cameras_sonix cameras_sony_dscf1 cameras_sony_dscf55 cameras_soundvision cameras_spca50x cameras_sq905 cameras_st2205 cameras_stv0674 cameras_stv0680 cameras_sx330z cameras_template cameras_topfield cameras_toshiba_pdrm11 exif kernel_linux nls -doc -examples -hal -zeroconf
+=media-libs/libgphoto2-2.4.10 cameras_adc65 cameras_agfa_cl20 cameras_aox cameras_ax203 cameras_barbie cameras_canon cameras_casio_qv cameras_clicksmart310 cameras_digigr8 cameras_digita cameras_dimagev cameras_dimera3500 cameras_directory cameras_enigma13 cameras_fuji cameras_gsmart300 cameras_hp215 cameras_iclick cameras_jamcam cameras_jd11 cameras_jl2005a cameras_jl2005c cameras_kodak_dc120 cameras_kodak_dc210 cameras_kodak_dc240 cameras_kodak_dc3200 cameras_kodak_ez200 cameras_konica cameras_konica_qm150 cameras_largan cameras_lg_gsm cameras_mars cameras_mustek cameras_panasonic_coolshot cameras_panasonic_dc1000 cameras_panasonic_dc1580 cameras_panasonic_l859 cameras_pccam300 cameras_pccam600 cameras_polaroid_pdc320 cameras_polaroid_pdc640 cameras_polaroid_pdc700 cameras_ptp2 cameras_ricoh cameras_ricoh_g3 cameras_samsung cameras_sierra cameras_sipix_blink cameras_sipix_blink2 cameras_sipix_web2 cameras_smal cameras_sonix cameras_sony_dscf1 cameras_sony_dscf55 cameras_soundvision cameras_spca50x cameras_sq905 cameras_st2205 cameras_stv0674 cameras_stv0680 cameras_sx330z cameras_template cameras_topfield cameras_toshiba_pdrm11 exif kernel_linux nls -doc -examples -zeroconf
 =media-libs/libid3tag-0.15.1b-r2 -debug -static-libs
 =media-libs/libmad-0.15.1b-r6 -debug
 =media-libs/libmikmod-3.2.0_beta2-r1 oss
@@ -415,9 +415,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.14 gnome -kde -xfce
 =sys-apps/calculate-desktop-2.2.14 gnome -kde -xfce
-=sys-apps/calculate-install-2.2.14-r1 -minimal
-=sys-apps/calculate-lib-2.2.14 -minimal
-=sys-apps/calculate-utilities-2.2.14-r2 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.14-r2 -minimal
+=sys-apps/calculate-lib-2.2.14-r1 -minimal
+=sys-apps/calculate-utilities-2.2.14-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.2.3 kernel_linux -static
@@ -492,6 +492,7 @@
 =sys-fs/ntfs3g-2010.8.8 acl external-fuse udev -debug -suid
 =sys-fs/ntfsprogs-2.0.0-r1 crypt gnome -debug -fuse -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
+=sys-fs/squashfs-tools-4.2 gzip lzma lzo -xattr
 =sys-fs/udev-151-r4 extras -devfs-compat -old-hd-rules -selinux -test
 =sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
