@@ -117,7 +117,7 @@
 =dev-libs/nss-3.12.8 -utils
 =dev-libs/openobex-1.5 bluetooth usb -debug -irda -syslog
 =dev-libs/openssl-1.0.0d sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
-=dev-libs/popt-1.16 nls
+=dev-libs/popt-1.16-r1 nls -static-libs
 =dev-libs/pth-2.0.7-r2 -debug
 =dev-libs/rasqal-0.9.17 pcre -gmp -test -xml
 =dev-libs/redland-1.0.10-r1 berkdb ssl -iodbc -mysql -odbc -postgres -sqlite -xml
@@ -136,6 +136,7 @@
 =dev-python/gst-python-0.10.20 -examples -test
 =dev-python/imaging-1.1.7 X scanner -doc -examples -tk
 =dev-python/ipython-0.10.1 readline smp -doc -emacs -examples -gnuplot -test -wxwidgets
+=dev-python/notify-python-0.1.1-r2 -examples
 =dev-python/numpy-1.5.1 -doc -lapack -test
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
@@ -292,7 +293,7 @@
 =net-fs/samba-3.5.7 acl client cups ldap netapi pam quota readline server smbclient -addns -ads -aio -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
 =net-im/pidgin-2.7.11 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -qq -sasl -silc -tcl -tk -zephyr -zeroconf
-=net-im/skype-2.2.0.25 -qt-static
+=net-im/skype-2.1.0.81 -qt-static
 =net-irc/xchat-2.8.8-r1 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -ntlm -tcl -xchatdccserver
 =net-libs/farsight2-0.0.20 python -msn -test -upnp
 =net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
@@ -356,12 +357,12 @@
 =sys-apps/calculate-utilities-2.2.14-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
-=sys-apps/debianutils-3.2.3 kernel_linux -static
+=sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-2.8.7-r2 nls -static
 =sys-apps/file-5.05 python -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
-=sys-apps/gnome-disk-utility-2.32.0-r1 gnome-keyring -avahi -doc -fat -nautilus -remote-access
+=sys-apps/gnome-disk-utility-2.32.1 gnome-keyring -avahi -doc -fat -nautilus -remote-access
 =sys-apps/grep-2.5.4-r1 nls pcre
 =sys-apps/groff-1.20.1-r3 X -examples -linguas_ja
 =sys-apps/help2man-1.38.2 elibc_glibc nls
@@ -475,7 +476,7 @@
 =x11-base/xorg-drivers-1.9 input_devices_evdev input_devices_keyboard input_devices_mouse input_devices_synaptics video_cards_dummy video_cards_fbdev video_cards_glint video_cards_intel video_cards_mach64 video_cards_mga video_cards_neomagic video_cards_nouveau video_cards_nv video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_trident video_cards_v4l video_cards_vesa video_cards_via video_cards_vmware -input_devices_acecad -input_devices_aiptek -input_devices_elographics -input_devices_fpit -input_devices_joystick -input_devices_penmount -input_devices_tslib -input_devices_virtualbox -input_devices_vmmouse -input_devices_void -input_devices_wacom -video_cards_apm -video_cards_ark -video_cards_ast -video_cards_chips -video_cards_cirrus -video_cards_epson -video_cards_fglrx -video_cards_geode -video_cards_i128 -video_cards_i740 -video_cards_impact -video_cards_newport -video_cards_nvidia -video_cards_omapfb -video_cards_rendition -video_cards_s3 -video_cards_s3virge -video_cards_siliconmotion -video_cards_sisusb -video_cards_sunbw2 -video_cards_suncg14 -video_cards_suncg3 -video_cards_suncg6 -video_cards_sunffb -video_cards_sunleo -video_cards_suntcx -video_cards_tga -video_cards_tseng -video_cards_virtualbox -video_cards_voodoo
 =x11-base/xorg-server-1.9.4 ipv6 nptl udev xorg -dmx -doc -kdrive -minimal -static-libs -tslib
 =x11-drivers/xf86-video-glint-1.2.5 dri
-=x11-drivers/xf86-video-intel-2.14.0 dri
+=x11-drivers/xf86-video-intel-2.15.0 dri
 =x11-drivers/xf86-video-mach64-6.8.2 dri -debug
 =x11-drivers/xf86-video-mga-1.4.13 dri
 =x11-drivers/xf86-video-openchrome-0.2.904 dri -debug
@@ -522,6 +523,7 @@
 =x11-libs/libdrm-2.4.23 libkms video_cards_intel video_cards_nouveau video_cards_radeon video_cards_vmware -static-libs
 =x11-libs/libfontenc-1.1.0 -static-libs
 =x11-libs/libgksu-2.0.12-r1 nls -doc -static-libs
+=x11-libs/libnotify-0.7.2 -doc -introspection -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
 =x11-libs/libvdpau-0.4.1 -doc
 =x11-libs/libwnck-2.30.6 -doc -introspection -startup-notification
