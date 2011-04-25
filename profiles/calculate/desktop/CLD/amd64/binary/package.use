@@ -124,6 +124,7 @@
 =dev-libs/libusb-1.0.8 -debug -doc
 =dev-libs/libxml2-2.7.8 icu ipv6 python readline -debug -doc -examples -test
 =dev-libs/libxslt-1.1.26-r1 crypt python -debug
+=dev-libs/libzip-0.10 -static-libs
 =dev-libs/lzo-2.04 -examples -static-libs
 =dev-libs/nspr-4.8.6 -debug
 =dev-libs/nss-3.12.8 -utils
@@ -493,7 +494,7 @@
 =net-misc/ntp-4.2.4_p7-r1 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -vim-syntax -zeroconf
 =net-misc/openssh-5.8_p1-r1 X hpn ldap pam tcpd -X509 -kerberos -libedit -selinux -skey -static
 =net-misc/openvpn-2.1.4 ipv6 pam ssl -eurephia -examples -iproute2 -minimal -passwordsave -pkcs11 -selinux -static -userland_BSD
-=net-misc/rdesktop-1.6.0-r4 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite -rdpusb
+=net-misc/rdesktop-1.7.0 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite
 =net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/vpnc-0.5.3 -bindist -hybrid-auth -resolvconf
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
@@ -604,8 +605,8 @@
 =sys-fs/udev-151-r4 extras -devfs-compat -old-hd-rules -selinux -test
 =sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r5 bash-completion -ibm -selinux
-=sys-kernel/calculate-sources-2.6.38.3 symlink vmlinuz -build -deblob
+=sys-kernel/calckernel-3.4.15-r5 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calculate-sources-2.6.38.4 symlink vmlinuz -build -deblob
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
