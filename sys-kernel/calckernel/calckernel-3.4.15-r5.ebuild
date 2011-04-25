@@ -64,14 +64,14 @@ HOMEPAGE="http://www.calculate-linux.org/main/ru/calckernel"
 LICENSE="GPL-2"
 SLOT="0"
 RESTRICT=""
-IUSE="ibm selinux"
+IUSE="ibm selinux video_cards_radeon"
 
 DEPEND="sys-fs/e2fsprogs
 	selinux? ( sys-libs/libselinux )
 	>=sys-apps/calculate-templates-2.2.13-r1
 	!sys-kernel/genkernel"
 RDEPEND="${DEPEND} app-arch/cpio
-	x11-drivers/radeon-ucode"
+	video_cards_radeon? ( x11-drivers/radeon-ucode )"
 
 if [[ ${PV} == 9999* ]]; then
 	DEPEND="${DEPEND} app-text/asciidoc"
