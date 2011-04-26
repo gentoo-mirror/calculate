@@ -328,7 +328,7 @@
 =media-plugins/gst-plugins-meta-0.10-r4 X a52 alsa dvd ffmpeg flac mad mpeg ogg theora v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib
 =media-sound/alsa-utils-1.0.23-r1 nls -doc -minimal
 =media-sound/lame-3.98.4 mmx -debug -mp3rtp -sndfile -static-libs
-=media-sound/rhythmbox-0.12.8-r1 cdr gnome-keyring ipod libnotify nsplugin python -daap -debug -doc -hal -lirc -mtp -musicbrainz -test -udev -upnp -webkit
+=media-sound/rhythmbox-0.12.8-r1 cdr gnome-keyring ipod libnotify nsplugin python -daap -debug -doc -lirc -mtp -musicbrainz -test -udev -upnp -webkit
 =media-sound/sound-juicer-2.32.0 -debug -test
 =media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
 =media-sound/twolame-0.3.12 -static-libs
@@ -512,7 +512,7 @@
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
 =sys-libs/pam-1.1.3 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
-=sys-libs/tdb-1.2.1 python -static-libs -tdbtest -tools
+=sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
 =sys-libs/timezone-data-2011d elibc_glibc nls -elibc_FreeBSD
 =sys-power/cpufreqd-2.4.2 acpi nvidia -apm -lm_sensors -nforce2 -pmu
 =sys-power/cpufrequtils-007 nls -debug
