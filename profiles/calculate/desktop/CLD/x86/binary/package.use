@@ -89,7 +89,7 @@
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
-=dev-libs/glib-2.26.1-r1 static-libs -debug -doc -fam -introspection -selinux -test -xattr
+=dev-libs/glib-2.28.6 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-4.3.2 -nocxx
 =dev-libs/icu-4.6 -debug -doc -examples -static-libs
 =dev-libs/klibc-1.5.12-r1 -debug -n32
@@ -164,7 +164,7 @@
 =dev-util/cmake-2.8.1-r2 ncurses -emacs -qt4 -vim-syntax
 =dev-util/cppunit-1.12.1 -doc -examples
 =dev-util/ctags-5.7 -ada
-=dev-util/desktop-file-utils-0.17 -emacs
+=dev-util/desktop-file-utils-0.18 -emacs
 =dev-util/dialog-1.1.20100428 nls unicode -examples -minimal
 =dev-util/diffball-1.0 -debug
 =dev-util/pkgconfig-0.25-r2 -elibc_FreeBSD -hardened
@@ -173,7 +173,7 @@
 =gnome-base/librsvg-2.32.1 gtk -doc -tools
 =kde-base/activitymanager-4.6.2 semantic-desktop -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/akonadi-4.4.9 -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/akregator-4.4.11.1 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
+=kde-base/akregator-4.4.11.1-r1 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/ark-4.6.2 archive bzip2 handbook -aqua -debug -kdeenablefinal -kdeprefix -lzma
 =kde-base/attica-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/dolphin-4.6.2 handbook semantic-desktop thumbnail -aqua -debug -kdeenablefinal -kdeprefix
@@ -184,7 +184,7 @@
 =kde-base/gwenview-4.6.2 handbook kipi semantic-desktop -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kabcclient-4.4.11.1 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kaddressbook-4.4.11.1 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kalarm-4.4.11.1 handbook -aqua -debug -kdeenablefinal -kdeprefix
+=kde-base/kalarm-4.4.11.1-r1 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kamera-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kate-4.6.2 handbook plasma -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kcalc-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix -test
@@ -319,7 +319,7 @@
 =kde-base/plasma-apps-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/plasma-runtime-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/plasma-workspace-4.6.2-r1 handbook python rss semantic-desktop xinerama -aqua -debug -google-gadgets -gps -kdeenablefinal -kdeprefix -qalculate
-=kde-base/powerdevil-4.6.2 pm-utils -aqua -debug -kdeenablefinal -kdeprefix
+=kde-base/powerdevil-4.6.2-r1 pm-utils -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/printer-applet-4.6.2 handbook -aqua -kdeenablefinal -kdeprefix
 =kde-base/pykde4-4.6.2 semantic-desktop -aqua -debug -doc -examples -kdeenablefinal -kdeprefix
 =kde-base/qguiplatformplugin_kde-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
@@ -566,7 +566,7 @@
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
 =sys-auth/pam_ldap-183 ssl -sasl
 =sys-auth/pambase-20101024 consolekit cracklib sha512 -debug -gnome-keyring -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
-=sys-auth/polkit-0.99-r1 kde nls pam -debug -doc -examples -gtk -introspection
+=sys-auth/polkit-0.101-r1 kde nls pam -debug -doc -examples -gtk -introspection
 =sys-auth/polkit-kde-agent-0.99.0 linguas_de linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_en_GB -linguas_eo -linguas_et -linguas_fi -linguas_ga -linguas_gl -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_ro -linguas_sk -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
 =sys-auth/polkit-qt-0.99.0 -debug -examples
 =sys-auth/thinkfinger-0.3-r2 pam -debug
