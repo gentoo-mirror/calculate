@@ -98,10 +98,10 @@
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
-=dev-libs/glib-2.26.1-r1 static-libs -debug -doc -fam -introspection -selinux -test -xattr
+=dev-libs/glib-2.28.6 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmime-2.4.22 -doc -mono
 =dev-libs/gmp-4.3.2 -nocxx
-=dev-libs/gobject-introspection-0.10.2 -doc -test
+=dev-libs/gobject-introspection-0.10.8 -doc -test
 =dev-libs/icu-4.6.1 -debug -doc -examples -static-libs
 =dev-libs/klibc-1.5.12-r1 -debug -n32
 =dev-libs/libIDL-0.8.14 -debug
@@ -192,7 +192,7 @@
 =dev-util/cmake-2.8.4 ncurses -emacs -qt4 -test -vim-syntax
 =dev-util/cppunit-1.12.1 -doc -examples
 =dev-util/ctags-5.7 -ada
-=dev-util/desktop-file-utils-0.17 -emacs
+=dev-util/desktop-file-utils-0.18 -emacs
 =dev-util/dialog-1.1.20100428 nls unicode -examples -minimal
 =dev-util/diffball-1.0 -debug
 =dev-util/pkgconfig-0.25-r2 -elibc_FreeBSD -hardened
@@ -201,13 +201,13 @@
 =gnome-base/gconf-2.32.0-r1 policykit -debug -doc -introspection -ldap
 =gnome-base/gdm-2.20.11 consolekit elibc_glibc gnome-keyring ipv6 pam tcpd xinerama -accessibility -afs -branding -debug -dmx -remote -selinux
 =gnome-base/gnome-applets-2.32.1.1 gnome gstreamer ipv6 networkmanager policykit
-=gnome-base/gnome-control-center-2.32.1 -debug -eds
+=gnome-base/gnome-control-center-2.32.1-r1 -debug -eds
 =gnome-base/gnome-desktop-2.32.1 -debug -doc
 =gnome-base/gnome-keyring-2.32.1 pam -debug -doc -test
 =gnome-base/gnome-menus-2.30.5 python -debug -introspection
 =gnome-base/gnome-mime-data-2.18.0 -debug
 =gnome-base/gnome-panel-2.32.1-r1 bonobo networkmanager -doc -eds -introspection
-=gnome-base/gnome-session-2.32.1 ipv6 -debug -doc -elibc_FreeBSD
+=gnome-base/gnome-session-2.32.1-r2 ipv6 -debug -doc -elibc_FreeBSD
 =gnome-base/gnome-settings-daemon-2.32.1 libnotify policykit -debug -pulseaudio -smartcard
 =gnome-base/gnome-vfs-2.24.4-r1 acl ipv6 samba ssl -avahi -doc -fam -gnutls -kerberos -test
 =gnome-base/gvfs-1.6.7 archive bash-completion bluetooth fuse gdu gnome gnome-keyring gphoto2 http samba udev -avahi -cdda -doc -ios
@@ -236,7 +236,7 @@
 =gnome-extra/gucharmap-2.32.1 gnome python -cjk -debug -doc -introspection -test
 =gnome-extra/hamster-applet-2.32.1 libnotify -eds
 =gnome-extra/nm-applet-0.8.2-r10 -bluetooth -debug
-=gnome-extra/polkit-gnome-0.99 -doc -examples -introspection
+=gnome-extra/polkit-gnome-0.101-r1 -doc -examples -introspection
 =gnome-extra/yelp-2.30.2-r1 -debug
 =gnome-extra/zenity-2.32.1 compat libnotify -debug
 =mail-client/evolution-2.32.2 crypt networkmanager python ssl -clutter -doc -gstreamer -kerberos -ldap
@@ -355,7 +355,7 @@
 =net-dialup/rp-pppoe-3.8-r2 X
 =net-dns/avahi-0.6.28-r1 dbus gdbm ipv6 kernel_linux python -autoipd -bookmarks -doc -gtk -howl-compat -mdnsresponder-compat -mono -qt4 -test
 =net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
-=net-dns/libidn-1.19 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
+=net-dns/libidn-1.20 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.7 acl client cups netapi pam quota readline server smbclient -addns -ads -aio -avahi -caps -cluster -debug -doc -examples -fam -ldap -ldb -smbsharemodes -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
@@ -386,7 +386,7 @@
 =net-misc/networkmanager-openvpn-0.8.2-r1 gnome
 =net-misc/networkmanager-pptp-0.8.2 gnome -test
 =net-misc/networkmanager-vpnc-0.8.2 gnome
-=net-misc/ntp-4.2.4_p7-r1 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -vim-syntax -zeroconf
+=net-misc/ntp-4.2.6_p3 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -snmp -vim-syntax -zeroconf
 =net-misc/openssh-5.8_p1-r1 X hpn pam tcpd -X509 -kerberos -ldap -libedit -selinux -skey -static
 =net-misc/openvpn-2.1.4 ipv6 pam ssl -eurephia -examples -iproute2 -minimal -passwordsave -pkcs11 -selinux -static -userland_BSD
 =net-misc/rdesktop-1.7.0 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite
@@ -473,7 +473,7 @@
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
 =sys-auth/pam_ldap-183 ssl -sasl
 =sys-auth/pambase-20101024 consolekit cracklib gnome-keyring sha512 -debug -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
-=sys-auth/polkit-0.99-r1 gtk nls pam -debug -doc -examples -introspection -kde
+=sys-auth/polkit-0.101-r1 gtk nls pam -debug -doc -examples -introspection -kde
 =sys-auth/thinkfinger-0.3-r2 pam -debug
 =sys-block/eject-2.1.5-r2 nls
 =sys-block/gparted-0.5.2 dmraid fat gnome jfs ntfs reiserfs xfs -hfs -kde -mdadm -reiser4
@@ -536,7 +536,7 @@
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
 =virtual/ssh-0 -minimal
-=www-client/chromium-10.0.648.205 cups gecko-mediaplayer gnome gnome-keyring -test
+=www-client/chromium-11.0.696.57 cups gnome gnome-keyring -test
 =www-plugins/adobe-flash-10.2.159.1 vdpau
 =x11-apps/fusion-icon-0.1-r1 gtk -qt4
 =x11-apps/xauth-1.0.5 ipv6
@@ -614,7 +614,7 @@
 =x11-libs/qt-script-4.7.2 exceptions iconv jit private-headers -aqua -debug -pch
 =x11-libs/qt-sql-4.7.2 exceptions iconv qt3support sqlite -aqua -debug -firebird -freetds -mysql -odbc -pch -postgres
 =x11-libs/vte-0.26.2 python -debug -doc -glade -introspection
-=x11-libs/wxGTK-2.8.10.1-r5 X gnome opengl sdl -debug -doc -gstreamer -odbc -pch
+=x11-libs/wxGTK-2.8.11.0 X gnome opengl sdl tiff -debug -doc -gstreamer -odbc -pch
 =x11-libs/xcb-util-0.3.6 -debug -test
 =x11-libs/xosd-2.2.14-r1 xinerama
 =x11-libs/xtrans-1.2.6 -doc
