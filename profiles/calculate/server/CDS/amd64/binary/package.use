@@ -157,12 +157,12 @@
 =net-libs/libpcap-1.1.1 ipv6 -bluetooth -libnl
 =net-libs/libtirpc-0.2.1-r1 -kerberos
 =net-mail/dovecot-1.2.16 berkdb ipv6 ldap maildir pam ssl zlib -caps -cydir -dbox -doc -kerberos -managesieve -mbox -mysql -postgres -sieve -sqlite -suid -vpopmail
-=net-mail/fetchmail-6.3.17 nls ssl -hesiod -kerberos -tk
+=net-mail/fetchmail-6.3.19 nls ssl -hesiod -kerberos -tk
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.20.0-r2 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -test
 =net-misc/dhcp-3.1.3_p1 kernel_linux -doc -minimal -selinux -static
 =net-misc/iputils-20100418-r1 ipv6 ssl -SECURITY_HAZARD -doc -idn -static
-=net-misc/ntp-4.2.4_p7-r1 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -vim-syntax -zeroconf
+=net-misc/ntp-4.2.6_p3 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -snmp -vim-syntax -zeroconf
 =net-misc/openssh-5.8_p1-r1 hpn ldap pam tcpd -X -X509 -kerberos -libedit -selinux -skey -static
 =net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
