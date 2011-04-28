@@ -49,6 +49,7 @@
 =app-misc/realpath-1.15-r1 nls
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
 =app-office/libreoffice-3.3.2 bash-completion cups dbus gtk ldap linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gnome -gstreamer -java -kde -kdeenablefinal -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_pt -linguas_ro -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
+=app-pda/libplist-1.4 python
 =app-portage/eix-0.22.5 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools
 =app-portage/genlop-0.30.8-r2 bash-completion
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
@@ -90,7 +91,7 @@
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
-=dev-libs/glib-2.26.1-r1 static-libs -debug -doc -fam -introspection -selinux -test -xattr
+=dev-libs/glib-2.28.6 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-4.3.2 -nocxx
 =dev-libs/icu-4.6.1 -debug -doc -examples -static-libs
 =dev-libs/klibc-1.5.12-r1 -debug -n32
@@ -165,7 +166,7 @@
 =dev-util/cmake-2.8.4 ncurses -emacs -qt4 -test -vim-syntax
 =dev-util/cppunit-1.12.1 -doc -examples
 =dev-util/ctags-5.7 -ada
-=dev-util/desktop-file-utils-0.17 -emacs
+=dev-util/desktop-file-utils-0.18 -emacs
 =dev-util/dialog-1.1.20100428 nls unicode -examples -minimal
 =dev-util/diffball-1.0 -debug
 =dev-util/pkgconfig-0.25-r2 -elibc_FreeBSD -hardened
@@ -182,7 +183,7 @@
 =gnome-base/librsvg-2.32.1 gtk -doc -tools
 =gnome-base/orbit-2.14.19 -debug -doc -test
 =gnome-extra/nm-applet-0.8.2-r10 -bluetooth -debug
-=gnome-extra/polkit-gnome-0.99 -doc -examples -introspection
+=gnome-extra/polkit-gnome-0.101-r1 -doc -examples -introspection
 =mail-client/claws-mail-3.7.8 crypt dbus gnutls imap ipv6 ldap session spell ssl -bogofilter -dillo -doc -nntp -pda -smime -spamassassin -startup-notification -xface
 =mail-client/claws-mail-rssyl-0.29 nls
 =mail-mta/ssmtp-2.62-r8 ipv6 ssl -maxsysuid -md5sum
@@ -297,7 +298,7 @@
 =net-dialup/pptpclient-1.7.2-r2 -tk
 =net-dialup/rp-pppoe-3.8-r2 X
 =net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
-=net-dns/libidn-1.19 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
+=net-dns/libidn-1.20 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.7 acl client cups ldap netapi pam quota readline server smbclient -addns -ads -aio -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
@@ -328,7 +329,7 @@
 =net-misc/networkmanager-openvpn-0.8.2-r1 -gnome
 =net-misc/networkmanager-pptp-0.8.2 gnome -test
 =net-misc/networkmanager-vpnc-0.8.2 -gnome
-=net-misc/ntp-4.2.4_p7-r1 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -vim-syntax -zeroconf
+=net-misc/ntp-4.2.6_p3 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -snmp -vim-syntax -zeroconf
 =net-misc/openssh-5.8_p1-r1 X hpn ldap pam tcpd -X509 -kerberos -libedit -selinux -skey -static
 =net-misc/openvpn-2.1.4 ipv6 pam ssl -eurephia -examples -iproute2 -minimal -passwordsave -pkcs11 -selinux -static -userland_BSD
 =net-misc/rdesktop-1.7.0 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite
@@ -410,7 +411,7 @@
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
 =sys-auth/pam_ldap-183 ssl -sasl
 =sys-auth/pambase-20101024 consolekit cracklib gnome-keyring sha512 -debug -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
-=sys-auth/polkit-0.99-r1 gtk nls pam -debug -doc -examples -introspection -kde
+=sys-auth/polkit-0.101-r1 gtk nls pam -debug -doc -examples -introspection -kde
 =sys-auth/thinkfinger-0.3-r2 pam -debug
 =sys-block/eject-2.1.5-r2 nls
 =sys-block/gparted-0.5.2 dmraid fat jfs ntfs reiserfs xfs -gnome -hfs -kde -mdadm -reiser4
@@ -473,7 +474,7 @@
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
 =virtual/ssh-0 -minimal
-=www-client/chromium-10.0.648.205 cups gecko-mediaplayer gnome-keyring -gnome -test
+=www-client/chromium-11.0.696.57 cups gnome-keyring -gnome -test
 =www-plugins/adobe-flash-10.2.159.1 vdpau
 =x11-apps/xauth-1.0.5 ipv6
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
@@ -548,7 +549,7 @@
 =x11-libs/qt-script-4.7.2 exceptions iconv jit private-headers -aqua -debug -pch
 =x11-libs/qt-sql-4.7.2 exceptions iconv qt3support sqlite -aqua -debug -firebird -freetds -mysql -odbc -pch -postgres
 =x11-libs/vte-0.26.2 python -debug -doc -glade -introspection
-=x11-libs/wxGTK-2.8.10.1-r5 X opengl sdl -debug -doc -gnome -gstreamer -odbc -pch
+=x11-libs/wxGTK-2.8.11.0 X opengl sdl tiff -debug -doc -gnome -gstreamer -odbc -pch
 =x11-libs/xcb-util-0.3.6 -debug -test
 =x11-libs/xosd-2.2.14-r1 xinerama
 =x11-libs/xtrans-1.2.6 -doc
