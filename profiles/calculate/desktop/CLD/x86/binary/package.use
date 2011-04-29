@@ -64,7 +64,7 @@
 =app-text/libspectre-0.2.6 -debug -doc -static-libs -test
 =app-text/poppler-0.14.5-r1 cairo cxx jpeg jpeg2k lcms png qt4 utils xpdf-headers -cjk -curl -debug -doc -exceptions
 =app-text/recode-3.6_p17-r2 nls -static-libs
-=app-text/wgetpaste-2.17 -zsh-completion
+=app-text/wgetpaste-2.18 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
 =dev-cpp/clucene-0.9.21b-r1 -debug -doc -static-libs -threads
 =dev-cpp/eigen-2.0.13 -debug -doc -examples
@@ -656,7 +656,7 @@
 =x11-drivers/xf86-video-tdfx-1.4.3 dri -debug
 =x11-drivers/xf86-video-v4l-0.2.0 -debug
 =x11-drivers/xf86-video-vesa-2.3.0 -debug
-=x11-libs/cairo-1.10.2-r1 X opengl qt4 svg -aqua -debug -directfb -doc -drm -gallium -openvg -static-libs -xcb
+=x11-libs/cairo-1.10.2-r1 X glib opengl qt4 svg -aqua -debug -directfb -doc -drm -gallium -openvg -static-libs -xcb
 =x11-libs/gdk-pixbuf-2.22.1 X jpeg jpeg2k tiff -debug -doc -introspection -test
 =x11-libs/gtk+-2.22.1-r1 cups jpeg jpeg2k tiff xinerama -aqua -debug -doc -examples -introspection -test -vim-syntax
 =x11-libs/libICE-1.0.7 ipv6 -doc -static-libs
