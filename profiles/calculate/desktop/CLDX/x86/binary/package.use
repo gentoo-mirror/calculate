@@ -58,7 +58,7 @@
 =app-text/rarian-0.8.1-r1 -debug
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/stardict-3.0.1-r2 spell -debug -espeak -festival -gnome -gucharmap -pronounce -qqwry
-=app-text/wgetpaste-2.17 -zsh-completion
+=app-text/wgetpaste-2.18 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
 =dev-cpp/atkmm-2.22.2 -doc
 =dev-cpp/cairomm-1.8.6 svg -doc
@@ -488,7 +488,7 @@
 =x11-drivers/xf86-video-tdfx-1.4.3 dri -debug
 =x11-drivers/xf86-video-v4l-0.2.0 -debug
 =x11-drivers/xf86-video-vesa-2.3.0 -debug
-=x11-libs/cairo-1.10.2-r1 X opengl svg -aqua -debug -directfb -doc -drm -gallium -openvg -qt4 -static-libs -xcb
+=x11-libs/cairo-1.10.2-r1 X glib opengl svg -aqua -debug -directfb -doc -drm -gallium -openvg -qt4 -static-libs -xcb
 =x11-libs/gdk-pixbuf-2.22.1 X jpeg jpeg2k tiff -debug -doc -introspection -test
 =x11-libs/gksu-2.0.2 -doc -gnome
 =x11-libs/gtk+-2.22.1-r1 cups jpeg jpeg2k tiff xinerama -aqua -debug -doc -examples -introspection -test -vim-syntax
