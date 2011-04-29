@@ -20,11 +20,11 @@ index 0000000..ced47a5
 +# Calculate append=skip belong(chromium)!=&&ini(update.chromium)!=off&&ini(ver.chromium)<11.0&&pkg(www-client/chromium)>=11.0
 diff --git desktop/desktop/60-chromium-11.0/chromium-chromium.desktop desktop/desktop/60-chromium-11.0/chromium-chromium.desktop
 new file mode 100644
-index 0000000..83e6e9c
+index 0000000..29b8f6d
 --- /dev/null
 +++ desktop/desktop/60-chromium-11.0/chromium-chromium.desktop
 @@ -0,0 +1,4 @@
-+# Calculate append=join link=/usr/share/applications/chromium-browser-chromium.desktop mirror path=~/.local/share/applications
++# Calculate format=kde link=/usr/share/applications/chromium-browser-chromium.desktop mirror path=~/.local/share/applications
 +
 +[Desktop Entry]
 +OnlyShowIn=X-NeverShowThis;
