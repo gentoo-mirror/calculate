@@ -1,0 +1,33 @@
+commit 3623f4a617b1914fb800cfbc0a430499f8bbf375
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Apr 29 13:04:25 2011 +0400
+
+    Fix chromium link.
+
+diff --git desktop/desktop/60-chromium-11.0/.calculate/ini.env desktop/desktop/60-chromium-11.0/.calculate/ini.env
+new file mode 100644
+index 0000000..cf4fce5
+--- /dev/null
++++ desktop/desktop/60-chromium-11.0/.calculate/ini.env
+@@ -0,0 +1,7 @@
++# Calculate format=samba
++
++[ver]
++chromium = 11.0
++
++[update]
++chromium = on
+diff --git desktop/desktop/60-chromium-11.0/.calculate_directory desktop/desktop/60-chromium-11.0/.calculate_directory
+new file mode 100644
+index 0000000..ced47a5
+--- /dev/null
++++ desktop/desktop/60-chromium-11.0/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate append=skip belong(chromium)!=&&ini(update.chromium)!=off&&ini(ver.chromium)<11.0&&pkg(www-client/chromium)>=11.0
+diff --git desktop/desktop/60-chromium-11.0/chromium-chromium.desktop desktop/desktop/60-chromium-11.0/chromium-chromium.desktop
+new file mode 100644
+index 0000000..28ca563
+--- /dev/null
++++ desktop/desktop/60-chromium-11.0/chromium-chromium.desktop
+@@ -0,0 +1 @@
++# Calculate mirror link=/usr/share/applications/chromium-browser-chromium.desktop path=~/.local/share/applications
