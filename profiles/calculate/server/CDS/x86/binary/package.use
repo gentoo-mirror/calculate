@@ -43,7 +43,7 @@
 =app-text/ghostscript-gpl-8.71-r6 cups jpeg2k -X -bindist -cairo -djvu -gtk -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
 =app-text/poppler-0.14.5-r1 cxx jpeg jpeg2k lcms png utils xpdf-headers -cairo -cjk -curl -debug -doc -exceptions -qt4
 =app-text/recode-3.6_p17-r2 nls -static-libs
-=app-text/wgetpaste-2.17 -zsh-completion
+=app-text/wgetpaste-2.18 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
 =dev-db/mysql-5.1.51 community perl ssl -big-tables -cluster -debug -embedded -extraengine -latin1 -max-idx-128 -minimal -pbxt -profiling -selinux -static -test -xtradb
 =dev-db/postgresql-base-9.0.3 ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru nls pam readline ssl zlib -doc -kerberos -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -threads
@@ -64,6 +64,7 @@
 =dev-libs/klibc-1.5.12-r1 -debug -n32
 =dev-libs/libassuan-2.0.1 -static-libs
 =dev-libs/libdaemon-0.14-r1 -doc -examples
+=dev-libs/libevent-2.0.10 -static-libs -test
 =dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
 =dev-libs/libgcrypt-1.4.6 -static-libs
 =dev-libs/libgpg-error-1.10 nls -common-lisp -static-libs
@@ -183,7 +184,7 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-install-2.2.14-r2 -minimal
 =sys-apps/calculate-lib-2.2.14-r1 -minimal
-=sys-apps/calculate-utilities-2.2.14-r4 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-utilities-2.2.14-r6 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-2.8.7-r2 nls -static
@@ -205,7 +206,7 @@
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.5 -old-linux
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
-=sys-apps/openrc-0.8.2 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
+=sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
 =sys-apps/portage-2.2.0_alpha30 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
