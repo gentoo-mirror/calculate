@@ -103,6 +103,7 @@
 =dev-libs/libcdio-0.80 cddb cxx -minimal
 =dev-libs/libcroco-0.6.2 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
+=dev-libs/libevent-2.0.10 -static-libs -test
 =dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
 =dev-libs/libgcrypt-1.4.6 static-libs
 =dev-libs/libgdata-0.8.0 gnome -debug -doc -introspection
@@ -419,7 +420,7 @@
 =sys-apps/calculate-desktop-2.2.14 gnome -kde -xfce
 =sys-apps/calculate-install-2.2.14-r2 -minimal
 =sys-apps/calculate-lib-2.2.14-r1 -minimal
-=sys-apps/calculate-utilities-2.2.14-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.14-r6 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
