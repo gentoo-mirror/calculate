@@ -3,7 +3,7 @@
 =app-admin/eselect-boost-0.3
 =app-admin/eselect-ctags-1.13
 =app-admin/eselect-fontconfig-1.0
-=app-admin/eselect-mesa-0.0.9
+=app-admin/eselect-mesa-0.0.10
 =app-admin/eselect-opengl-1.2.1
 =app-admin/eselect-python-20100321
 =app-admin/eselect-vi-1.1.7-r1
@@ -543,7 +543,7 @@
 =media-libs/libvpx-0.9.5-r1
 =media-libs/libwmf-0.2.8.4-r3
 =media-libs/mediastreamer-2.6.0
-=media-libs/mesa-7.10.1
+=media-libs/mesa-7.10.2
 =media-libs/mlt-0.5.10
 =media-libs/musicbrainz-3.0.2
 =media-libs/mutagen-1.20
@@ -690,8 +690,8 @@
 =sys-apps/calculate-desktop-2.2.14
 =sys-apps/calculate-install-2.2.14-r2
 =sys-apps/calculate-lib-2.2.14-r1
-=sys-apps/calculate-templates-2.2.14-r1
-=sys-apps/calculate-utilities-2.2.14-r4
+=sys-apps/calculate-templates-2.2.14-r2
+=sys-apps/calculate-utilities-2.2.14-r5
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.6
 =sys-apps/debianutils-3.4.4
@@ -721,7 +721,7 @@
 =sys-apps/miscfiles-1.4.2-r1
 =sys-apps/module-init-tools-3.5
 =sys-apps/net-tools-1.60_p20100815160931
-=sys-apps/openrc-0.8.2
+=sys-apps/openrc-0.8.2-r1
 =sys-apps/pciutils-3.1.7
 =sys-apps/pcmciautils-014-r1
 =sys-apps/portage-2.2.0_alpha30
@@ -770,7 +770,7 @@
 =sys-devel/bison-2.4.2
 =sys-devel/flex-2.5.35
 =sys-devel/gcc-4.4.5
-=sys-devel/gcc-config-1.4.1
+=sys-devel/gcc-config-1.4.1-r1
 =sys-devel/gettext-0.18.1.1-r1
 =sys-devel/gnuconfig-20100924
 =sys-devel/libperl-5.10.1
@@ -927,7 +927,7 @@
 =x11-apps/xwininfo-1.1.1
 =x11-apps/xwud-1.0.3
 =x11-base/xorg-drivers-1.9
-=x11-base/xorg-server-1.9.4
+=x11-base/xorg-server-1.9.5
 =x11-drivers/radeon-ucode-20110302
 =x11-drivers/xf86-input-evdev-2.6.0
 =x11-drivers/xf86-input-keyboard-1.6.0
@@ -941,7 +941,7 @@
 =x11-drivers/xf86-video-mach64-6.8.2
 =x11-drivers/xf86-video-mga-1.4.13
 =x11-drivers/xf86-video-neomagic-1.2.5
-=x11-drivers/xf86-video-nouveau-0.0.16_pre20101130
+=x11-drivers/xf86-video-nouveau-0.0.16_pre20110323
 =x11-drivers/xf86-video-nv-2.1.18
 =x11-drivers/xf86-video-openchrome-0.2.904
 =x11-drivers/xf86-video-r128-6.8.1
@@ -957,7 +957,7 @@
 =x11-libs/gtk+-2.22.1-r1
 =x11-libs/libICE-1.0.7
 =x11-libs/libSM-1.2.0
-=x11-libs/libX11-1.4.1
+=x11-libs/libX11-1.4.3
 =x11-libs/libXScrnSaver-1.2.1
 =x11-libs/libXTrap-1.0.0
 =x11-libs/libXau-1.0.6
@@ -970,7 +970,7 @@
 =x11-libs/libXfixes-5.0
 =x11-libs/libXfont-1.4.3
 =x11-libs/libXft-2.2.0
-=x11-libs/libXi-1.4.1
+=x11-libs/libXi-1.4.2
 =x11-libs/libXinerama-1.1.1
 =x11-libs/libXmu-1.1.0
 =x11-libs/libXp-1.0.1
@@ -984,7 +984,7 @@
 =x11-libs/libXvMC-1.0.6
 =x11-libs/libXxf86dga-1.1.2
 =x11-libs/libXxf86vm-1.1.1
-=x11-libs/libdrm-2.4.23
+=x11-libs/libdrm-2.4.25
 =x11-libs/libfontenc-1.1.0
 =x11-libs/libnotify-0.7.2
 =x11-libs/libpciaccess-0.12.1
@@ -1021,7 +1021,7 @@
 =x11-misc/xbindkeys-1.8.4
 =x11-misc/xbitmaps-1.1.1
 =x11-misc/xdg-utils-1.1.0_rc1-r1
-=x11-misc/xkeyboard-config-2.1
+=x11-misc/xkeyboard-config-2.2.1-r1
 =x11-misc/xorg-cf-files-1.0.4
 =x11-proto/bigreqsproto-1.1.1
 =x11-proto/compositeproto-0.4.2
@@ -1050,7 +1050,7 @@
 =x11-proto/xf86rushproto-1.1.2
 =x11-proto/xf86vidmodeproto-2.3.1
 =x11-proto/xineramaproto-1.2.1
-=x11-proto/xproto-7.0.20
+=x11-proto/xproto-7.0.21
 =x11-themes/hicolor-icon-theme-0.12
 =x11-themes/oxygen-gtk-1.0.4
 =x11-themes/xcursor-themes-1.0.3
