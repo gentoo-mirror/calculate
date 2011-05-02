@@ -376,7 +376,7 @@
 =net-libs/rb_libtorrent-0.15.5 python ssl -debug -doc -examples
 =net-libs/telepathy-glib-0.12.7 vala -debug -introspection
 =net-libs/webkit-gtk-1.2.7 gstreamer jit -aqua -coverage -debug -doc -introspection -test
-=net-libs/xulrunner-1.9.2.16 alsa custom-optimization dbus gnome ipc libnotify -debug -elibc_FreeBSD -java -startup-notification -system-sqlite -wifi
+=net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus gnome ipc libnotify -debug -elibc_FreeBSD -java -startup-notification -system-sqlite -wifi
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.20.0-r2 ipv6 ssl -ares -gnutls -idn -kerberos -ldap -libssh2 -nss -test
 =net-misc/dhcpcd-5.2.12 elibc_glibc zeroconf
@@ -403,7 +403,7 @@
 =net-print/cndrvcups-capt-2.00-r2 -gtk
 =net-print/cndrvcups-common-2.00-r2 -cngplp
 =net-print/cnijfilter-3.20-r1 amd64 ip4700 mp250 mp270 mp490 mp550 mp560 -mp640 -nocupsdetection -servicetools
-=net-print/cups-1.4.6 X acl dbus gnutls jpeg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -ldap -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_pt -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
+=net-print/cups-1.4.6-r1 X acl dbus gnutls jpeg kernel_linux linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -ldap -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_pt -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.4 cups
 =net-print/gnome-cups-manager-0.33-r2 samba
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
@@ -413,7 +413,7 @@
 =net-wireless/blueman-1.21-r1 gnome network nls policykit -hal -pulseaudio
 =net-wireless/bluez-4.87 alsa consolekit cups usb -attrib -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
-=net-wireless/madwifi-ng-0.9.4.4133.20100621 kernel_linux -injection
+=net-wireless/madwifi-ng-0.9.4.4136.20110203 kernel_linux -injection
 =net-wireless/madwimax-0.1.1 -doc
 =net-wireless/rtl8192se-2.6.0019.1207.2010 kernel_linux
 =net-wireless/wireless-tools-29 nls -multicall
@@ -535,6 +535,7 @@
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
+=virtual/linux-sources-2.6 -hardened
 =virtual/ssh-0 -minimal
 =www-client/chromium-11.0.696.57 cups gnome gnome-keyring -test
 =www-plugins/adobe-flash-10.2.159.1 vdpau
