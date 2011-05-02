@@ -48,7 +48,7 @@
 =dev-db/mysql-5.1.51 community perl ssl -big-tables -cluster -debug -embedded -extraengine -latin1 -max-idx-128 -minimal -pbxt -profiling -selinux -static -test -xtradb
 =dev-db/postgresql-base-9.0.3 ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru nls pam readline ssl zlib -doc -kerberos -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -threads
 =dev-db/postgresql-server-9.0.3 kernel_linux linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru nls perl python -doc -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -selinux -tcl -uuid -xml
-=dev-lang/erlang-14.2-r1 ssl -doc -emacs -hipe -java -kpoll -odbc -sctp -smp -tk -wxwidgets
+=dev-lang/erlang-13.2.4 ssl -doc -emacs -hipe -java -kpoll -odbc -sctp -smp -tk -wxwidgets
 =dev-lang/nasm-2.09.04 -doc
 =dev-lang/perl-5.12.3-r1 berkdb gdbm -build -debug -doc -ithreads
 =dev-lang/python-2.7.1-r1 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -berkdb -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
@@ -173,7 +173,7 @@
 =net-proxy/havp-0.90-r1 ssl -clamav
 =net-proxy/squid-3.1.8 epoll icap-client ipv6 kernel_linux ldap logrotate pam radius samba ssl -caps -ecap -elibc_uclibc -ipf-transparent -kerberos -kqueue -mysql -nis -pf-transparent -postgres -sasl -selinux -snmp -sqlite -test -tproxy -zero-penalty-hit
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
-=net-wireless/madwifi-ng-0.9.4.4133.20100621 kernel_linux -injection
+=net-wireless/madwifi-ng-0.9.4.4136.20110203 kernel_linux -injection
 =net-wireless/rtl8192se-2.6.0019.1207.2010 kernel_linux
 =net-wireless/wireless-tools-29 nls -multicall
 =net-wireless/wpa_supplicant-0.7.3-r2 kernel_linux readline ssl -dbus -debug -eap-sim -fasteap -gnutls -kernel_FreeBSD -madwifi -ps3 -qt4 -wimax -wps
@@ -271,6 +271,7 @@
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
+=virtual/linux-sources-2.6 -hardened
 =virtual/mysql-5.1 -embedded -minimal -static
 =virtual/ssh-0 -minimal
 =www-client/links-2.3_pre1-r1 bzip2 gpm jpeg ssl tiff unicode zlib -X -directfb -fbcon -livecd -svga
