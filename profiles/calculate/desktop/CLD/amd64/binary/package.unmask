@@ -119,7 +119,7 @@
 =app-portage/emerge-delta-webrsync-3.5.1-r3
 =app-portage/genlop-0.30.8-r2
 =app-portage/gentoolkit-0.2.4.6.1-r1
-=app-portage/gentoolkit-dev-0.2.7
+=app-portage/gentoolkit-dev-0.2.8
 =app-portage/layman-1.4.1
 =app-portage/portage-utils-0.3.1
 =app-portage/ufed-0.40.1
@@ -334,7 +334,7 @@
 =kde-base/kdebase-wallpapers-4.6.2
 =kde-base/kdebugdialog-4.6.2
 =kde-base/kdegraphics-strigi-analyzer-4.6.2
-=kde-base/kdelibs-4.6.2-r2
+=kde-base/kdelibs-4.6.2-r3
 =kde-base/kdemultimedia-kioslaves-4.6.2
 =kde-base/kdenetwork-filesharing-4.6.2
 =kde-base/kdepasswd-4.6.2
@@ -542,7 +542,7 @@
 =media-libs/libvorbis-1.3.1
 =media-libs/libvpx-0.9.5-r1
 =media-libs/libwmf-0.2.8.4-r3
-=media-libs/mediastreamer-2.6.0
+=media-libs/mediastreamer-2.7.3-r3
 =media-libs/mesa-7.10.2
 =media-libs/mlt-0.5.10
 =media-libs/musicbrainz-3.0.2
@@ -570,7 +570,8 @@
 =media-plugins/frei0r-plugins-1.1.22-r1
 =media-plugins/kipi-plugins-1.9.0
 =media-plugins/live-2009.06.02
-=media-plugins/mediastreamer-x264-1.3.3
+=media-plugins/mediastreamer-amr-0.0.1
+=media-plugins/mediastreamer-x264-1.4.1
 =media-sound/alsa-headers-1.0.23
 =media-sound/alsa-utils-1.0.23-r1
 =media-sound/amarok-2.4.0
@@ -617,7 +618,7 @@
 =net-libs/libtirpc-0.2.1-r1
 =net-libs/libvncserver-0.9.7
 =net-libs/neon-0.29.5
-=net-libs/ortp-0.16.3
+=net-libs/ortp-0.16.5
 =net-libs/webkit-gtk-1.2.7
 =net-libs/xulrunner-1.9.2.17
 =net-mail/mailbase-1
@@ -644,7 +645,7 @@
 =net-print/cndrvcups-capt-2.00-r2
 =net-print/cndrvcups-common-2.00-r2
 =net-print/cnijfilter-3.20-r1
-=net-print/cups-1.4.6-r1
+=net-print/cups-1.4.6-r2
 =net-print/foomatic-db-4.0.20101123
 =net-print/foomatic-db-engine-4.0.4
 =net-print/foomatic-filters-4.0.4
@@ -856,6 +857,7 @@
 =virtual/man-0
 =virtual/mta-0
 =virtual/mysql-5.1
+=virtual/notification-daemon-0
 =virtual/opengl-7.0
 =virtual/os-headers-0
 =virtual/package-manager-0

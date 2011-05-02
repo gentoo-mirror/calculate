@@ -224,7 +224,7 @@
 =kde-base/kdebase-wallpapers-4.6.2 -aqua -kdeenablefinal -kdeprefix
 =kde-base/kdebugdialog-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdegraphics-strigi-analyzer-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kdelibs-4.6.2-r2 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kdeprefix -kerberos -lzma -test -zeroconf
+=kde-base/kdelibs-4.6.2-r3 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kdeprefix -kerberos -lzma -test -zeroconf
 =kde-base/kdemultimedia-kioslaves-4.6.2 encode flac handbook vorbis -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdenetwork-filesharing-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kdepasswd-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
@@ -417,7 +417,7 @@
 =media-libs/libvorbis-1.3.1 -static-libs
 =media-libs/libvpx-0.9.5-r1 mmx sse sse2 sse3 ssse3 threads -altivec -debug -doc -postproc
 =media-libs/libwmf-0.2.8.4-r3 X gtk -debug -doc -expat -xml
-=media-libs/mediastreamer-2.6.0 X alsa ipv6 portaudio speex theora v4l2 video x264 -coreaudio -debug -examples -gsm -ilbc -jack -oss -pulseaudio
+=media-libs/mediastreamer-2.7.3-r3 X alsa amr ipv6 portaudio sdl speex theora v4l2 video x264 xv -bindist -coreaudio -debug -examples -gsm -ilbc -jack -oss -pulseaudio
 =media-libs/mesa-7.10.2 classic gallium nptl video_cards_intel video_cards_mach64 video_cards_mga video_cards_nouveau video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_via video_cards_vmware -debug -gles -hardened -kernel_FreeBSD -llvm -motif -pic -selinux
 =media-libs/mlt-0.5.10 dv ffmpeg frei0r gtk kde melt python qt4 quicktime sdl sse sse2 vdpau vorbis xml -compressed-lumas -debug -jack -libsamplerate -lua -mmx -ruby -xine
 =media-libs/musicbrainz-3.0.2 -test
@@ -481,7 +481,7 @@
 =net-libs/libtirpc-0.2.1-r1 -kerberos
 =net-libs/libvncserver-0.9.7 jpeg zlib -no24bpp -test -threads
 =net-libs/neon-0.29.5 linguas_de linguas_fr linguas_pl linguas_ru nls ssl zlib -doc -expat -gnutls -kerberos -libproxy -linguas_cs -linguas_ja -linguas_nn -linguas_tr -linguas_zh_CN -pkcs11
-=net-libs/ortp-0.16.3 ipv6 ssl -debug -doc -examples -minimal -srtp
+=net-libs/ortp-0.16.5 ipv6 ssl -debug -doc -examples -minimal -srtp
 =net-libs/webkit-gtk-1.2.7 jit -aqua -coverage -debug -doc -gstreamer -introspection -test
 =net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus ipc libnotify -debug -elibc_FreeBSD -gnome -java -startup-notification -system-sqlite -wifi
 =net-mail/mailbase-1 pam
@@ -505,7 +505,7 @@
 =net-print/cndrvcups-capt-2.00-r2 -gtk
 =net-print/cndrvcups-common-2.00-r2 -cngplp
 =net-print/cnijfilter-3.20-r1 amd64 ip4700 mp250 mp270 mp490 mp550 mp560 -mp640 -nocupsdetection -servicetools
-=net-print/cups-1.4.6-r1 X acl dbus gnutls jpeg kernel_linux ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_pt -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
+=net-print/cups-1.4.6-r2 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_pt -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.4 cups
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
 =net-print/hplip-3.11.1-r2 fax hpcups hpijs kde libnotify policykit scanner static-ppds -X -doc -minimal -parport -qt4 -snmp -udev-acl
@@ -640,6 +640,7 @@
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
 =virtual/linux-sources-2.6 -hardened
 =virtual/mysql-5.1 embedded -minimal -static
+=virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
 =www-client/chromium-11.0.696.57 cups -gnome -gnome-keyring -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
