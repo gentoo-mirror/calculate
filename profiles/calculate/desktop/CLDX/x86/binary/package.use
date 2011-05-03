@@ -275,7 +275,7 @@
 =media-sound/alsa-utils-1.0.23-r1 nls -doc -minimal
 =media-sound/audacious-2.4.4 nls session sse2 -altivec -chardet
 =media-sound/lame-3.98.4 mmx -debug -mp3rtp -sndfile -static-libs
-=media-sound/mpg123-1.12.1 3dnow alsa ipv6 mmx nas portaudio sdl sse -3dnowext -altivec -jack -oss -pulseaudio
+=media-sound/mpg123-1.13.2 3dnow alsa ipv6 mmx nas portaudio sdl sse -3dnowext -altivec -coreaudio -jack -oss -pulseaudio
 =media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
@@ -360,7 +360,7 @@
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
-=sys-apps/diffutils-2.8.7-r2 nls -static
+=sys-apps/diffutils-3.0 nls -static
 =sys-apps/file-5.05 python -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
