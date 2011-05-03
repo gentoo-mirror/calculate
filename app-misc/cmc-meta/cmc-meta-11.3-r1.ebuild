@@ -31,6 +31,6 @@ RDEPEND="${RDEPEND}
 	media-tv/xbmc
 	net-dialup/mingetty
 	net-p2p/rtorrent
-	virtual/dhcpc
+	net-misc/dhcp
 "
 
