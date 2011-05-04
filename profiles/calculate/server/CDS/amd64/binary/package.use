@@ -20,8 +20,8 @@
 =app-crypt/gnupg-2.0.17 bzip2 ldap nls -adns -caps -doc -openct -pcsc-lite -selinux -smartcard -static
 =app-crypt/pinentry-0.8.0 ncurses -caps -gtk -qt4 -static
 =app-editors/nano-2.2.5 ncurses nls unicode -debug -justify -minimal -slang -spell
-=app-editors/vim-7.3.50 acl bash-completion gpm nls perl python -X -cscope -debug -minimal -ruby -vim-pager
-=app-editors/vim-core-7.3.50 acl bash-completion nls -livecd
+=app-editors/vim-7.3.135 acl bash-completion gpm nls perl python -X -cscope -debug -minimal -ruby -vim-pager
+=app-editors/vim-core-7.3.135 acl bash-completion nls -livecd
 =app-emulation/emul-linux-x86-baselibs-20110129 -development
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
@@ -103,7 +103,7 @@
 =dev-ruby/libxml-1.1.3 -doc
 =dev-ruby/rake-0.8.7-r5 bash-completion ruby_targets_ruby18 -doc -ruby_targets_jruby -ruby_targets_ree18 -test
 =dev-ruby/rubygems-1.3.7-r1 ruby_targets_ruby18 -doc -ruby_targets_jruby -ruby_targets_ree18 -server
-=dev-util/cmake-2.8.4 ncurses -emacs -qt4 -test -vim-syntax
+=dev-util/cmake-2.8.4-r1 ncurses -emacs -qt4 -test -vim-syntax
 =dev-util/ctags-5.7 -ada
 =dev-util/dialog-1.1.20100428 nls unicode -examples -minimal
 =dev-util/diffball-1.0 -debug
@@ -151,7 +151,7 @@
 =net-ftp/proftpd-1.3.3e caps ctrls ident ldap ncurses nls pam radius ssl tcpd -acl -authfile -ban -case -clamav -deflate -doc -exec -hardened -ifsession -ipv6 -kerberos -mysql -postgres -ratio -readme -rewrite -selinux -sftp -shaper -sitemisc -softquota -trace -vroot -xinetd
 =net-ftp/tftp-hpa-0.49-r1 ipv6 readline tcpd -selinux
 =net-im/ejabberd-2.1.5 ldap mod_muc mod_srl pam ssl web zlib -captcha -debug -mod_irc -mod_proxy65 -mod_pubsub -mod_statsdx -odbc
-=net-irc/weechat-0.3.3 charset fifo irc logger ncurses nls perl python scripts spell ssl -doc -lua -relay -ruby -tcl
+=net-irc/weechat-0.3.4 alias charset crypt fifo irc logger ncurses nls perl python relay rmodifier ruby_targets_ruby18 scripts spell ssl xfer -doc -lua -ruby -ruby_targets_ruby19 -tcl
 =net-libs/gnutls-2.10.5 cxx nls zlib -bindist -doc -examples -guile -lzo -test
 =net-libs/libnfsidmap-0.21-r1 ldap
 =net-libs/libpcap-1.1.1 ipv6 -bluetooth -libnl
@@ -188,7 +188,7 @@
 =sys-apps/calculate-utilities-2.2.14-r6 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
-=sys-apps/diffutils-2.8.7-r2 nls -static
+=sys-apps/diffutils-3.0 nls -static
 =sys-apps/file-5.05 python -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
@@ -219,7 +219,7 @@
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
 =sys-apps/usbutils-001 zlib -network-cron
-=sys-apps/util-linux-2.18-r1 cramfs crypt nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
+=sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 x86emu -debug
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
 =sys-auth/pam_ldap-183 ssl -sasl
