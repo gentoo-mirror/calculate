@@ -17,6 +17,7 @@ calculate_nokernel
 calculate_nowireless
 "
 
+#app-misc/lirc
 RDEPEND="${RDEPEND}
 	app-misc/cl-base-meta
 	app-misc/cl-tools-meta
@@ -26,7 +27,6 @@ RDEPEND="${RDEPEND}
 	!calculate_nokernel? ( sys-kernel/calculate-sources )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 
-	app-misc/lirc
 	app-text/wgetpaste
 	media-tv/xbmc
 	net-dialup/mingetty
