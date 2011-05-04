@@ -25,8 +25,8 @@
 =app-crypt/seahorse-2.32.0 libnotify -avahi -debug -doc -introspection -ldap -test
 =app-editors/gedit-2.30.4 python spell -doc
 =app-editors/nano-2.2.5 ncurses nls spell unicode -debug -justify -minimal -slang
-=app-editors/vim-7.3.50 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
-=app-editors/vim-core-7.3.50 acl bash-completion nls -livecd
+=app-editors/vim-7.3.135 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
+=app-editors/vim-core-7.3.135 acl bash-completion nls -livecd
 =app-emulation/emul-linux-x86-baselibs-20110129 -development
 =app-emulation/emul-linux-x86-compat-20100611 multilib
 =app-emulation/emul-linux-x86-gtklibs-20110129 -development
@@ -132,8 +132,8 @@
 =dev-libs/libxml2-2.7.8 icu ipv6 python readline -debug -doc -examples -test
 =dev-libs/libxslt-1.1.26-r1 crypt python -debug
 =dev-libs/lzo-2.04 -examples -static-libs
-=dev-libs/nspr-4.8.6 -debug
-=dev-libs/nss-3.12.8 -utils
+=dev-libs/nspr-4.8.7 -debug
+=dev-libs/nss-3.12.9-r1 -utils
 =dev-libs/openobex-1.5 bluetooth usb -debug -irda -syslog
 =dev-libs/openssl-1.0.0d sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
@@ -430,7 +430,7 @@
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
-=sys-apps/diffutils-2.8.7-r2 nls -static
+=sys-apps/diffutils-3.0 nls -static
 =sys-apps/file-5.05 python -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
@@ -466,7 +466,7 @@
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
 =sys-apps/usbutils-001 zlib -network-cron
-=sys-apps/util-linux-2.18-r1 cramfs crypt nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
+=sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 x86emu -debug
 =sys-apps/xinetd-2.3.14 perl tcpd
 =sys-auth/consolekit-0.4.4 kernel_linux pam policykit -debug -doc -test
