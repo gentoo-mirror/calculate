@@ -102,6 +102,7 @@
 =dev-libs/libcdio-0.80 cddb cxx -minimal
 =dev-libs/libcroco-0.6.2 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
+=dev-libs/libevent-2.0.10 -static-libs -test
 =dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
 =dev-libs/libgcrypt-1.4.6 static-libs
 =dev-libs/libgpg-error-1.10 nls -common-lisp -static-libs
@@ -349,7 +350,7 @@
 =net-print/hplip-3.11.1-r2 fax hpcups hpijs libnotify policykit scanner static-ppds -X -doc -kde -minimal -parport -qt4 -snmp -udev-acl
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/blueman-1.21-r1 network nls policykit -gnome -hal -pulseaudio
-=net-wireless/bluez-4.87 alsa consolekit cups usb -attrib -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
+=net-wireless/bluez-4.91 alsa consolekit cups usb -attrib -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
 =net-wireless/madwifi-ng-0.9.4.4136.20110203 kernel_linux -injection
 =net-wireless/madwimax-0.1.1 -doc
@@ -362,9 +363,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.14 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.14 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.14-r2 -minimal
+=sys-apps/calculate-install-2.2.14-r3 -minimal
 =sys-apps/calculate-lib-2.2.14-r1 -minimal
-=sys-apps/calculate-utilities-2.2.14-r6 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.14-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
