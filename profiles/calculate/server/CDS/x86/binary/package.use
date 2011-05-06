@@ -161,7 +161,7 @@
 =net-misc/curl-7.20.0-r2 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -test
 =net-misc/dhcp-3.1.3_p1 kernel_linux -doc -minimal -selinux -static
 =net-misc/iputils-20100418-r1 ipv6 ssl -SECURITY_HAZARD -doc -idn -static
-=net-misc/ntp-4.2.4_p7-r1 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -vim-syntax -zeroconf
+=net-misc/ntp-4.2.6_p3 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -snmp -vim-syntax -zeroconf
 =net-misc/openssh-5.8_p1-r1 hpn ldap pam tcpd -X -X509 -kerberos -libedit -selinux -skey -static
 =net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
@@ -192,7 +192,7 @@
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
 =sys-apps/grep-2.5.4-r1 nls pcre
-=sys-apps/groff-1.20.1-r3 -X -examples -linguas_ja
+=sys-apps/groff-1.21 -X -examples -linguas_ja
 =sys-apps/help2man-1.38.2 elibc_glibc nls
 =sys-apps/ifplugd-0.28-r9 -doc
 =sys-apps/iproute2-2.6.35-r2 berkdb ipv6 -atm -minimal
@@ -208,7 +208,7 @@
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha30 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha31 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
