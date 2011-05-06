@@ -91,7 +91,7 @@
 =dev-libs/eventlog-0.2.12 -static-libs
 =dev-libs/glib-2.28.6 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-4.3.2 -nocxx
-=dev-libs/icu-4.6 -debug -doc -examples -static-libs
+=dev-libs/icu-4.6.1 -debug -doc -examples -static-libs
 =dev-libs/klibc-1.5.12-r1 -debug -n32
 =dev-libs/libIDL-0.8.14 -debug
 =dev-libs/libassuan-2.0.1 -static-libs
@@ -486,7 +486,7 @@
 =net-misc/networkmanager-openvpn-0.8.2-r1 -gnome
 =net-misc/networkmanager-pptp-0.8.2 -gnome -test
 =net-misc/networkmanager-vpnc-0.8.2 -gnome
-=net-misc/ntp-4.2.4_p7-r1 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -vim-syntax -zeroconf
+=net-misc/ntp-4.2.6_p3 ipv6 ssl -caps -debug -openntpd -parse-clocks -selinux -snmp -vim-syntax -zeroconf
 =net-misc/openssh-5.8_p1-r1 X hpn ldap pam tcpd -X509 -kerberos -libedit -selinux -skey -static
 =net-misc/openvpn-2.1.4 ipv6 pam ssl -eurephia -examples -iproute2 -minimal -passwordsave -pkcs11 -selinux -static -userland_BSD
 =net-misc/rdesktop-1.7.0 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite
@@ -530,7 +530,7 @@
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.6 nls
 =sys-apps/grep-2.5.4-r1 nls pcre
-=sys-apps/groff-1.20.1-r3 X -examples -linguas_ja
+=sys-apps/groff-1.21 X -examples -linguas_ja
 =sys-apps/help2man-1.38.2 elibc_glibc nls
 =sys-apps/hwdata-gentoo-0.4 opengl -binary-drivers
 =sys-apps/hwsetup-1.2-r1 zlib
@@ -549,7 +549,7 @@
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha30 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha31 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
