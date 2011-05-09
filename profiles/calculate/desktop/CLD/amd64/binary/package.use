@@ -78,7 +78,7 @@
 =dev-cpp/clucene-0.9.21b-r1 -debug -doc -static-libs -threads
 =dev-cpp/eigen-2.0.13 -debug -doc -examples
 =dev-db/libiodbc-3.52.7 gtk
-=dev-db/mysql-5.1.51 community embedded perl ssl -big-tables -cluster -debug -extraengine -latin1 -max-idx-128 -minimal -pbxt -profiling -selinux -static -test -xtradb
+=dev-db/mysql-5.1.56 community embedded perl ssl -big-tables -cluster -debug -extraengine -latin1 -max-idx-128 -minimal -pbxt -profiling -selinux -static -test -xtradb
 =dev-db/sqlite-3.7.5 extensions fts3 readline secure-delete threadsafe -debug -doc -icu -soundex -tcl -test -unlock-notify
 =dev-db/virtuoso-odbc-6.1.2 -static-libs
 =dev-db/virtuoso-server-6.1.2 ldap readline -kerberos
@@ -166,8 +166,8 @@
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-python/reportlab-2.5 -doc -examples -test
 =dev-python/sip-4.12 -debug -doc
-=dev-python/twisted-10.2.0 crypt gtk -serial
-=dev-python/twisted-web-10.2.0 -soap
+=dev-python/twisted-11.0.0 crypt gtk -serial
+=dev-python/twisted-web-11.0.0 -soap
 =dev-tcltk/expect-5.44.1.15 X -debug -doc -threads
 =dev-util/bin_replace_string-0.2 -doc
 =dev-util/boost-build-1.42.0 python -examples
@@ -184,7 +184,7 @@
 =kde-base/activitymanager-4.6.2 semantic-desktop -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/akonadi-4.4.9 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/akregator-4.4.11.1-r1 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/ark-4.6.2 archive bzip2 handbook -aqua -debug -kdeenablefinal -kdeprefix -lzma
+=kde-base/ark-4.6.2-r1 archive bzip2 handbook -aqua -debug -kdeenablefinal -kdeprefix -lzma
 =kde-base/attica-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/dolphin-4.6.2 handbook semantic-desktop thumbnail -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/drkonqi-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
@@ -444,7 +444,7 @@
 =media-plugins/frei0r-plugins-1.1.22-r1 -doc -facedetect -scale0tilt
 =media-plugins/kipi-plugins-1.9.0 cdr crypt imagemagick ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk opengl scanner -aqua -calendar -debug -expoblending -handbook -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ko -linguas_lt -linguas_lv -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_pa -linguas_pt -linguas_ro -linguas_se -linguas_sk -linguas_sv -linguas_th -linguas_tr -linguas_zh_CN -linguas_zh_TW -mjpeg -redeyes
 =media-sound/alsa-utils-1.0.23-r1 nls -doc -minimal
-=media-sound/amarok-2.4.0 embedded ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk opengl player semantic-desktop utils -cdda -daap -debug -handbook -kdeenablefinal -lastfm -linguas_ca -linguas_cs -linguas_da -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_ja -linguas_km -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_sl -linguas_sr -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_wa -linguas_zh_TW -mp3tunes -mtp
+=media-sound/amarok-2.4.1 embedded ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk opengl player semantic-desktop utils -cdda -daap -debug -handbook -kdeenablefinal -lastfm -linguas_ca -linguas_cs -linguas_da -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_km -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_sl -linguas_sr -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_wa -linguas_zh_TW -mp3tunes -mtp -playdar -upnp
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
 =media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
 =media-sound/twolame-0.3.12 -static-libs
@@ -507,9 +507,9 @@
 =net-print/cndrvcups-common-2.00-r2 -cngplp
 =net-print/cnijfilter-3.20-r1 amd64 ip4700 mp250 mp270 mp490 mp550 mp560 -mp640 -nocupsdetection -servicetools
 =net-print/cups-1.4.6-r2 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_pt -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
-=net-print/foomatic-filters-4.0.4 cups
+=net-print/foomatic-filters-3.0.20080507 cups
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
-=net-print/hplip-3.11.1-r2 fax hpcups hpijs kde libnotify policykit scanner static-ppds -X -doc -minimal -parport -qt4 -snmp -udev-acl
+=net-print/hplip-3.11.3a fax hpcups hpijs kde libnotify policykit scanner static-ppds -X -doc -minimal -parport -qt4 -snmp -udev-acl
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/bluedevil-1.0.2 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_ga -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
 =net-wireless/bluez-4.91 alsa consolekit cups usb -attrib -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
@@ -523,7 +523,7 @@
 =sci-libs/clapack-3.2.1-r4 -test
 =sys-apps/acl-2.2.49 nls -nfs
 =sys-apps/attr-2.4.44 nls
-=sys-apps/baselayout-2.0.1-r1 -build
+=sys-apps/baselayout-2.0.2 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.14 kde -gnome -xfce
 =sys-apps/calculate-desktop-2.2.14 kde -gnome -xfce
@@ -557,7 +557,7 @@
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha31 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha32 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
@@ -643,7 +643,7 @@
 =virtual/mysql-5.1 embedded -minimal -static
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-11.0.696.57 cups -gnome -gnome-keyring -test
+=www-client/chromium-11.0.696.65 cups -gnome -gnome-keyring -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
 =www-plugins/adobe-flash-10.2.159.1 vdpau
 =x11-apps/xauth-1.0.5 ipv6
