@@ -27,7 +27,7 @@
 =app-misc/calculate-meta-11.3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cds-meta-11.3 -calculate_noapache -calculate_nobittorrent -calculate_nodecoration -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nokernel -calculate_nomail -calculate_nomysql -calculate_nonamed -calculate_nonettools -calculate_nonetwork -calculate_nopgsql -calculate_noproxy -calculate_nowireless
 =app-misc/cl-decoration-meta-11.3-r2 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
-=app-misc/cl-nettools-meta-11.3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
+=app-misc/cl-nettools-meta-11.3-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-network-meta-11.3-r3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-tools-meta-11.3-r6 cdistro_CDS -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-wireless-meta-11.3-r1 -cdistro_desktop
@@ -144,7 +144,9 @@
 =net-dns/bind-9.7.2_p3-r9 berkdb ipv6 ldap sdb-ldap ssl -dlz -doc -geoip -gssapi -idn -mysql -odbc -postgres -resolvconf -selinux -threads -urandom -xml
 =net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
 =net-dns/ddclient-3.7.3-r1 ssl
+=net-firewall/ipsec-tools-0.7.3-r1 iconv ipv6 ldap pam readline -hybrid -idea -kerberos -nat -rc5 -selinux
 =net-firewall/iptables-1.4.10 ipv6
+=net-firewall/shorewall-4.4.19.1 -doc
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.8-r1 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/ftp-0.17-r7 ipv6 ssl
@@ -184,9 +186,9 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.2 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-install-2.2.14-r3 -minimal
+=sys-apps/calculate-install-2.2.14-r4 -minimal
 =sys-apps/calculate-lib-2.2.14-r1 -minimal
-=sys-apps/calculate-utilities-2.2.14-r7 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-utilities-2.2.14-r8 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -252,7 +254,7 @@
 =sys-fs/udev-151-r4 extras -devfs-compat -old-hd-rules -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r6 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-2.6.38.4 symlink vmlinuz -build -deblob
+=sys-kernel/calculate-sources-2.6.38.6 symlink vmlinuz -build -deblob
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
