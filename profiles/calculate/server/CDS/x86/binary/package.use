@@ -112,7 +112,7 @@
 =mail-filter/postgrey-1.32 -targrey
 =mail-filter/procmail-3.22-r10 -mbox -selinux
 =mail-filter/spamassassin-3.3.1-r4 berkdb ipv6 ldap ssl -doc -mysql -postgres -qmail -sqlite
-=mail-mta/postfix-2.7.3-r1 ipv6 ldap pam ssl -cdb -doc -dovecot-sasl -examples -hardened -mbox -mysql -nis -postgres -sasl -selinux -vda
+=mail-mta/postfix-2.7.4 ipv6 ldap pam ssl -cdb -doc -dovecot-sasl -examples -hardened -mbox -mysql -nis -postgres -sasl -selinux -vda
 =media-fonts/corefonts-1-r4 -X
 =media-fonts/terminus-font-4.30 psf ru-g -X -a-like-o -bolddiag -pcf -quote -raw-font-data -ru-dv -ru-i -ru-k -width
 =media-fonts/urw-fonts-2.4.9 -X
