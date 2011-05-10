@@ -1,4 +1,5 @@
 USE=""
 
+EMERGE_DEFAULT_OPTS="--jobs=16"
 FEATURES="getbinpkg -news"
 
