@@ -46,7 +46,9 @@ RDEPEND="
 		net-dialup/rp-pppoe
 		net-dialup/xl2tpd
 		net-dns/ddclient
+		net-firewall/ipsec-tools
 		net-firewall/iptables
+		net-firewall/shorewall
 		net-fs/nfs-utils
 		net-fs/samba
 		net-misc/bridge-utils
