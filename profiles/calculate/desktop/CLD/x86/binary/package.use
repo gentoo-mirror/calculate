@@ -33,7 +33,7 @@
 =app-misc/cl-graphics-meta-11.3 cdistro_CLD -cdistro_CLDX
 =app-misc/cl-kde-meta-4.6.0-r1 -calculate_nodecoration -calculate_nographics -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork
 =app-misc/cl-multimedia-meta-11.3 cdistro_CLD -cdistro_CLDG -cdistro_CLDX
-=app-misc/cl-nettools-meta-11.3 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
+=app-misc/cl-nettools-meta-11.3-r1 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-network-meta-11.3-r3 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-office-meta-11.3 cdistro_CLD linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-tools-meta-11.3-r6 cdistro_CLD cdistro_desktop -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
@@ -519,9 +519,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.14 kde -gnome -xfce
 =sys-apps/calculate-desktop-2.2.14 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.14-r3 -minimal
+=sys-apps/calculate-install-2.2.14-r4 -minimal
 =sys-apps/calculate-lib-2.2.14-r1 -minimal
-=sys-apps/calculate-utilities-2.2.14-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.14-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -601,7 +601,7 @@
 =sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r6 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-2.6.38.4 symlink vmlinuz -build -deblob
+=sys-kernel/calculate-sources-2.6.38.6 symlink vmlinuz -build -deblob
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
