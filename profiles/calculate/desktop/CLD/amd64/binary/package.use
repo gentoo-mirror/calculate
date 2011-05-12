@@ -133,7 +133,7 @@
 =dev-libs/openobex-1.5 bluetooth usb -debug -irda -syslog
 =dev-libs/openssl-1.0.0d sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
-=dev-libs/pth-2.0.7-r2 -debug
+=dev-libs/pth-2.0.7-r3 -debug
 =dev-libs/qjson-0.6.3 -debug -doc -test
 =dev-libs/qoauth-1.0.1 -debug -doc -static-libs -test
 =dev-libs/rasqal-0.9.17 pcre -gmp -test -xml
@@ -154,7 +154,7 @@
 =dev-python/dbus-python-0.83.2 -doc -examples -test
 =dev-python/foolscap-0.6.1 ssl -doc
 =dev-python/imaging-1.1.7 X scanner -doc -examples -tk
-=dev-python/ipython-0.10.1 readline smp -doc -emacs -examples -gnuplot -test -wxwidgets
+=dev-python/ipython-0.10.2 readline smp -doc -emacs -examples -gnuplot -test -wxwidgets
 =dev-python/numpy-1.5.1 -doc -lapack -test
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
@@ -353,7 +353,7 @@
 =media-fonts/terminus-font-4.30 psf ru-g -X -a-like-o -bolddiag -pcf -quote -raw-font-data -ru-dv -ru-i -ru-k -width
 =media-fonts/ttf-bitstream-vera-1.10-r3 X
 =media-fonts/urw-fonts-2.4.9 X
-=media-gfx/digikam-1.9.0-r1 gphoto2 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk mysql semantic-desktop thumbnails -addressbook -aqua -debug -doc -geolocation -handbook -kdeenablefinal -linguas_ar -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ko -linguas_lt -linguas_lv -linguas_ms -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_pa -linguas_pt -linguas_ro -linguas_se -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -themedesigner -video
+=media-gfx/digikam-1.9.0-r1 gphoto2 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk mysql semantic-desktop thumbnails -addressbook -aqua -debug -doc -geolocation -kdeenablefinal -linguas_ar -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ko -linguas_lt -linguas_lv -linguas_ms -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_pa -linguas_pt -linguas_ro -linguas_se -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -themedesigner -video
 =media-gfx/exiv2-0.19 linguas_de linguas_es linguas_fr linguas_pl linguas_ru nls unicode zlib -contrib -doc -examples -linguas_fi -linguas_sk -xmp
 =media-gfx/gimp-2.6.11-r1 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff webkit wmf -altivec -curl -debug -doc -gnome -lcms
 =media-gfx/gtkimageview-1.6.4 -debug -doc -examples -test
@@ -552,7 +552,7 @@
 =sys-apps/man-pages-3.28 linguas_de linguas_fr linguas_it linguas_pl linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_ro -linguas_zh_CN
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
-=sys-apps/module-init-tools-3.5 -old-linux
+=sys-apps/module-init-tools-3.12-r1 -static
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
