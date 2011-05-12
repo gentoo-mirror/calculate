@@ -467,7 +467,7 @@
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
 =sys-apps/usbutils-001 zlib -network-cron
-=sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -old-linux -selinux -slang -uclibc
+=sys-apps/util-linux-2.18-r1 cramfs crypt nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 x86emu -debug
 =sys-apps/xinetd-2.3.14 perl tcpd
 =sys-auth/consolekit-0.4.4 kernel_linux pam policykit -debug -doc -test
@@ -482,6 +482,7 @@
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.65-r1 -emacs
+=sys-devel/bc-1.06.95 readline -libedit -static
 =sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -test -vanilla
 =sys-devel/bison-2.4.2 nls -static
 =sys-devel/flex-2.5.35 nls -static
