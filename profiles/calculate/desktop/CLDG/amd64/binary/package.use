@@ -426,8 +426,8 @@
 =sys-apps/calculate-client-2.2.14 gnome -kde -xfce
 =sys-apps/calculate-desktop-2.2.14 gnome -kde -xfce
 =sys-apps/calculate-install-2.2.14-r4 -minimal
-=sys-apps/calculate-lib-2.2.14-r1 -minimal
-=sys-apps/calculate-utilities-2.2.14-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-lib-2.2.14-r2 -minimal
+=sys-apps/calculate-utilities-2.2.14-r9 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -456,7 +456,7 @@
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha32 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha33 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
@@ -507,7 +507,7 @@
 =sys-fs/udev-151-r4 extras -devfs-compat -old-hd-rules -selinux -test
 =sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r7 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r8 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.38.6 symlink vmlinuz -build -deblob
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
