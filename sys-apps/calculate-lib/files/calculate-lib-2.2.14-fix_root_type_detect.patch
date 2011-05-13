@@ -1,0 +1,150 @@
+commit 44395261d8d44561228572e4ce8039960eb80465
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri May 13 11:58:43 2011 +0400
+
+    Fix detect root device.
+
+diff --git a/pym/cl_fill.py b/pym/cl_fill.py
+index 0f53c65..172b861 100644
+--- a/pym/cl_fill.py
++++ b/pym/cl_fill.py
+@@ -23,7 +23,8 @@ import cl_overriding
+ from cl_vars_share import varsShare, clLocale
+ from os.path import exists as pathexists
+ from os import path
+-from cl_utils import isMount, genpassword, getAvailableX11Drivers
++from cl_utils import isMount, genpassword, getAvailableX11Drivers, \
++                     listDirectory
+ from encrypt import getHash
+ 
+ class fillVars(varsShare):
+@@ -206,80 +207,59 @@ class fillVars(varsShare):
+ 
+     def get_os_root_dev(self):
+         """Root filesystem device"""
+-        for record in open('/proc/cmdline','rb').readlines():
+-            re_res=re.search('(?:^|\s)root=(\S+)(\s|$)',record.strip())
+-            if re_res:
+-                rootparam=re_res.group(1)
+-                # check root for /dev/sd view
+-                if re.match("^\/dev\/[a-z]+[0-9]$",rootparam):
+-                    return rootparam
+-                # check root set by uuid
+-                uuidpath = '/dev/disk/by-uuid'
+-                if os.access(uuidpath,os.R_OK):
+-                    uuidDevs = filter(path.islink,
+-                                  map(lambda x: path.join(uuidpath,x),
+-                                      os.listdir(uuidpath)))
+-                    mapUuidDev = dict(map(lambda x:(path.basename(x),
+-                                    path.normpath(path.join(uuidpath,
+-                                    os.readlink(x)))), uuidDevs))
+-                else:
+-                    mapUuidDev = {}
+-                if re.match("^UUID=.*$",rootparam):
+-                    uuid = rootparam[5:]
+-                    if uuid in mapUuidDev:
+-                        return mapUuidDev[uuid]
+-            mountLunes = self._runos("mount")
+-            if not mountLunes:
+-                return ""
+-            if type(mountLunes) == types.ListType:
+-                root_dev = mountLunes[0].split("on / type")[0].strip()
+-                if root_dev:
+-                    return root_dev
++        record = open('/proc/cmdline','rb').read().strip()
++        re_resRealRoot=re.search('(?:^|\s)real_root=(\S+)(\s|$)',record)
++        re_resFakeRoot=re.search('(?:^|\s)root=(\S+)(\s|$)',record)
++        # param real_root priority that root
++        re_res = re_resRealRoot or re_resFakeRoot
++        if re_res:
++            rootparam=re_res.group(1)
++            # check root for /dev/sd view
++            if re.match("^\/dev\/[a-z]+.*$", rootparam):
++                return rootparam
++            # check root set by uuid
++            uuidpath = '/dev/disk/by-uuid'
++            if os.access(uuidpath,os.R_OK):
++                uuidDevs = filter(path.islink,
++                              map(lambda x: path.join(uuidpath,x),
++                                  os.listdir(uuidpath)))
++                mapUuidDev = dict(map(lambda x:(path.basename(x),
++                                path.normpath(path.join(uuidpath,
++                                os.readlink(x)))), uuidDevs))
++            else:
++                mapUuidDev = {}
++            if re.match("^UUID=.*$",rootparam):
++                uuid = rootparam[5:]
++                if uuid in mapUuidDev:
++                    return mapUuidDev[uuid]
++        # get device mounted to root
++        dfLines = self._runos("LANG=C df /")
++        if not dfLines:
+             return ""
++        if type(dfLines) == types.ListType and len(dfLines)>1:
++            root_dev = dfLines[1].split(" ")[0].strip()
++            if root_dev:
++                return {'none':'/dev/ram0'}.get(root_dev,root_dev)
++        return ""
+ 
+     def get_os_root_type(self):
+         """Root device type (ram, hdd, livecd)"""
+-        mountLunes = self._runos("mount")
+-        if not mountLunes:
+-            return ""
+-        rootType = "hdd"
+-        if type(mountLunes) == types.ListType:
+-            flagCD = False
+-            for line in mountLunes:
+-                if "/dev/loop0 on / type" in line:
+-                    rootType = "ram"
+-                    break
+-                elif "/dev/loop0 on /newroot/mnt/livecd type" in line:
+-                    rootType = "ram"
+-                    flagCD = True
+-                    break
+-            if rootType == "ram":
+-                if path.exists("/mnt/livecd") or flagCD:
+-                    rootType = "livecd"
+-                    return rootType
+-            rootDev = self.Get("os_root_dev")
+-            if rootType != "ram" and rootDev:
+-                slpRootDev = rootDev.split("/dev/")
+-                if len(slpRootDev) == 2:
+-                    rDev = slpRootDev[1]
+-                    if os.path.exists('/dev/disk/by-id'):
+-                        devLines = os.listdir("/dev/disk/by-id")
+-                        for name in devLines:
+-                            pathname = path.join("/dev/disk/by-id", name)
+-                            if path.islink(pathname):
+-                                if rDev in os.readlink(pathname) and \
+-                                    "usb-" in name:
+-                                    rootType = "usb-hdd"
+-                                    break
+-                    else:
+-                        devLines = None
+-                    if not devLines:
+-                        return ""
+-            if rootType == "ram":
+-                rootType = "hdd"
+-            return rootType
+-        else:
+-            return ""
++        def link2pair(linkfile):
++            """Return pair (target,link) from link"""
++            basedir = os.path.dirname(linkfile)
++            targetfile = os.readlink(linkfile)
++            return (path.normpath(os.path.join(basedir,targetfile)),linkfile)
++        rootDev = self.Get("os_root_dev")
++        if rootDev:
++            if "/dev/ram" in rootDev:
++                return "livecd"
++            idDict = dict(map(link2pair,
++                     filter(lambda x:path.islink(x),
++                     map(lambda x:path.join('/dev/disk/by-id',x),
++                     listDirectory('/dev/disk/by-id')))))
++            if "usb-" in idDict.get(rootDev,""):
++                return "usb-hdd"
++        return "hdd"
+ 
+     def get_hr_cdrom_set(self):
+         """Cdrom variable"""
