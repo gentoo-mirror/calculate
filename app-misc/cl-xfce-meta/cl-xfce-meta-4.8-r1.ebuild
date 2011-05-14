@@ -18,6 +18,7 @@ RDEPEND="${RDEPEND}
 "
 
 RDEPEND="${RDEPEND}
+	app-arch/xarchiver
 	xfce-base/xfce4-meta
 	xfce-extra/thunar-archive-plugin
 	xfce-extra/thunar-volman
