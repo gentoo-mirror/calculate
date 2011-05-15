@@ -12,6 +12,7 @@
 =app-arch/p7zip-9.13 -doc -kde -rar -static -wxwidgets
 =app-arch/tar-1.23-r2 nls userland_GNU -static
 =app-arch/unzip-6.0-r9 bzip2 natspec unicode
+=app-arch/xarchiver-0.5.2-r2 -debug
 =app-arch/xz-utils-5.0.1 nls threads -static-libs
 =app-arch/zip-3.0 bzip2 crypt unicode
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
@@ -53,7 +54,7 @@
 =app-text/ghostscript-gpl-8.71-r6 X cairo cups djvu gtk jpeg2k -bindist -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
 =app-text/gtkspell-2.0.16 -doc
 =app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
-=app-text/libspectre-0.2.6 -debug -doc -static-libs -test
+=app-text/libspectre-0.2.6 -debug -doc -static-libs
 =app-text/poppler-0.14.5-r1 cairo cxx jpeg jpeg2k lcms png utils xpdf-headers -cjk -curl -debug -doc -exceptions -qt4
 =app-text/rarian-0.8.1-r1 -debug
 =app-text/recode-3.6_p17-r2 nls -static-libs
@@ -424,7 +425,7 @@
 =sys-fs/dmraid-1.0.0_rc14 -selinux -static
 =sys-fs/e2fsprogs-1.41.12 nls -elibc_FreeBSD
 =sys-fs/fuse-2.8.5 kernel_linux -kernel_FreeBSD
-=sys-fs/jfsutils-1.1.14 -static
+=sys-fs/jfsutils-1.1.15 -static
 =sys-fs/lvm2-2.02.73-r1 lvm1 readline static -clvm -cman -selinux
 =sys-fs/mdadm-3.1.4 -static
 =sys-fs/mtools-4.0.15 -X
@@ -483,7 +484,7 @@
 =x11-drivers/xf86-video-intel-2.15.0 dri
 =x11-drivers/xf86-video-mach64-6.8.2 dri -debug
 =x11-drivers/xf86-video-mga-1.4.13 dri
-=x11-drivers/xf86-video-openchrome-0.2.904 dri -debug
+=x11-drivers/xf86-video-openchrome-0.2.904_p916 dri -debug
 =x11-drivers/xf86-video-r128-6.8.1 dri -debug
 =x11-drivers/xf86-video-savage-2.3.2 dri
 =x11-drivers/xf86-video-sis-0.10.3 dri
