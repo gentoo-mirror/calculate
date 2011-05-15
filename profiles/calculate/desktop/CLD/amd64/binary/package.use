@@ -70,7 +70,7 @@
 =app-text/ghostscript-gpl-8.71-r6 X cairo cups djvu gtk jpeg2k -bindist -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
 =app-text/goldendict-1.0.1 kde linguas_bg linguas_de linguas_it linguas_ru linguas_uk -debug -linguas_ar -linguas_cs -linguas_el -linguas_lt -linguas_vi -linguas_zh
 =app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
-=app-text/libspectre-0.2.6 -debug -doc -static-libs -test
+=app-text/libspectre-0.2.6 -debug -doc -static-libs
 =app-text/poppler-0.14.5-r1 cairo cxx jpeg jpeg2k lcms png qt4 utils xpdf-headers -cjk -curl -debug -doc -exceptions
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/wgetpaste-2.18 -zsh-completion
@@ -249,7 +249,7 @@
 =kde-base/kfind-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kfmclient-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kgamma-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/kget-4.6.2 bittorrent handbook semantic-desktop webkit -aqua -debug -kdeenablefinal -kdeprefix -sqlite
+=kde-base/kget-4.6.2-r1 bittorrent handbook semantic-desktop webkit -aqua -debug -kdeenablefinal -kdeprefix -sqlite
 =kde-base/kglobalaccel-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kgpg-4.6.2 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/khelpcenter-4.6.2 -aqua -debug -kdeenablefinal -kdeprefix
@@ -644,7 +644,7 @@
 =virtual/mysql-5.1 embedded -minimal -static
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-11.0.696.65 cups -gnome -gnome-keyring -test
+=www-client/chromium-11.0.696.68 cups -gnome -gnome-keyring -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
 =www-plugins/adobe-flash-10.2.159.1 vdpau
 =x11-apps/xauth-1.0.5 ipv6
