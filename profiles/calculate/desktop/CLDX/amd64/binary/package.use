@@ -13,6 +13,7 @@
 =app-arch/p7zip-9.13 -doc -kde -rar -static -wxwidgets
 =app-arch/tar-1.23-r2 nls userland_GNU -static
 =app-arch/unzip-6.0-r9 bzip2 natspec unicode
+=app-arch/xarchiver-0.5.2-r2 -debug
 =app-arch/xz-utils-5.0.1 nls threads -static-libs
 =app-arch/zip-3.0 bzip2 crypt unicode
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
@@ -63,7 +64,7 @@
 =app-text/ghostscript-gpl-8.71-r6 X cairo cups djvu gtk jpeg2k -bindist -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
 =app-text/gtkspell-2.0.16 -doc
 =app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
-=app-text/libspectre-0.2.6 -debug -doc -static-libs -test
+=app-text/libspectre-0.2.6 -debug -doc -static-libs
 =app-text/poppler-0.14.5-r1 cairo cxx jpeg jpeg2k lcms png utils xpdf-headers -cjk -curl -debug -doc -exceptions -qt4
 =app-text/rarian-0.8.1-r1 -debug
 =app-text/recode-3.6_p17-r2 nls -static-libs
@@ -477,7 +478,7 @@
 =virtual/linux-sources-2.6 -hardened
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-11.0.696.65 cups gnome-keyring -gnome -test
+=www-client/chromium-11.0.696.68 cups gnome-keyring -gnome -test
 =www-plugins/adobe-flash-10.2.159.1 vdpau
 =x11-apps/xauth-1.0.5 ipv6
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
