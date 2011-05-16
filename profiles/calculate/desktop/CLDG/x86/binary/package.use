@@ -110,7 +110,7 @@
 =dev-libs/libgpg-error-1.10 nls -common-lisp -static-libs
 =dev-libs/libgweather-2.30.3 python -doc
 =dev-libs/libisofs-1.0.0 acl zlib -debug -verbose-debug -xattr
-=dev-libs/libksba-1.1.0 -static-libs
+=dev-libs/libksba-1.2.0 -static-libs
 =dev-libs/liblinebreak-2.0 -static-libs
 =dev-libs/libnatspec-0.2.6 python -doc
 =dev-libs/libnl-1.1-r2 -doc
@@ -386,7 +386,7 @@
 =net-misc/rdesktop-1.7.0 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite
 =net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/vinagre-2.30.3 ssh telepathy -applet -avahi -test
-=net-misc/vino-2.32.1 crypt gnome-keyring ipv6 jpeg libnotify networkmanager ssl telepathy zlib -avahi -debug
+=net-misc/vino-2.32.2 crypt gnome-keyring ipv6 jpeg libnotify networkmanager ssl telepathy zlib -avahi -debug
 =net-misc/vpnc-0.5.3 -bindist -hybrid-auth -resolvconf
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
 =net-misc/whois-5.0.8 iconv nls -idn
