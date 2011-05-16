@@ -63,7 +63,7 @@
 =dev-libs/eventlog-0.2.12 -static-libs
 =dev-libs/glib-2.28.6 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-4.3.2 -nocxx
-=dev-libs/klibc-1.5.12-r1 -debug -n32
+=dev-libs/klibc-1.5.20 -debug -n32
 =dev-libs/libassuan-2.0.1 -static-libs
 =dev-libs/libdaemon-0.14-r1 -doc -examples
 =dev-libs/libevent-2.0.10 -static-libs -test
@@ -269,7 +269,7 @@
 =sys-libs/timezone-data-2011e elibc_glibc nls -elibc_FreeBSD
 =sys-process/htop-0.8.3 -debug
 =sys-process/lsof-4.83 -selinux -static
-=sys-process/procps-3.2.8 unicode -n32
+=sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 ipv6 nls -X -selinux
 =sys-process/vixie-cron-4.1-r10 pam -debug -selinux
 =virtual/jpeg-0 static-libs
