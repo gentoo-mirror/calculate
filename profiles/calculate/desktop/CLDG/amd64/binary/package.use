@@ -393,7 +393,7 @@
 =net-misc/rdesktop-1.7.0 alsa ipv6 -ao -debug -libsamplerate -oss -pcsc-lite
 =net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/vinagre-2.30.3 ssh telepathy -applet -avahi -test
-=net-misc/vino-2.32.1 crypt gnome-keyring ipv6 jpeg libnotify networkmanager ssl telepathy zlib -avahi -debug
+=net-misc/vino-2.32.2 crypt gnome-keyring ipv6 jpeg libnotify networkmanager ssl telepathy zlib -avahi -debug
 =net-misc/vpnc-0.5.3 -bindist -hybrid-auth -resolvconf
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
 =net-misc/whois-5.0.8 iconv nls -idn
@@ -530,7 +530,7 @@
 =sys-power/powertop-1.13 unicode
 =sys-power/upower-0.9.8 kernel_linux -debug -doc -introspection -ios -kernel_FreeBSD
 =sys-process/htop-0.8.3 -debug
-=sys-process/procps-3.2.8 unicode -n32
+=sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r10 pam -debug -selinux
 =virtual/ffmpeg-0.6-r1 X encode mp3 sdl theora threads vdpau x264 -vaapi
