@@ -55,6 +55,8 @@ USE="${USE} bluetooth wimax"
 # Window manager and speciality
 USE="${USE} gtk libnotify qt3support"
 
+LIRC_DEVICES="devinput"
+
 VIDEO_CARDS="${VIDEO_CARDS} nouveau"
 
 CALCULATE="printer wireless"
