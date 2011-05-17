@@ -529,7 +529,7 @@
 =sys-apps/calculate-desktop-2.2.14 kde -gnome -xfce
 =sys-apps/calculate-install-2.2.14-r4 -minimal
 =sys-apps/calculate-lib-2.2.14-r2 -minimal
-=sys-apps/calculate-utilities-2.2.14-r9 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.14-r10 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -568,7 +568,7 @@
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
 =sys-apps/usbutils-001 zlib -network-cron
-=sys-apps/util-linux-2.18-r1 cramfs crypt nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
+=sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 x86emu -debug
 =sys-apps/xinetd-2.3.14 perl tcpd
 =sys-auth/consolekit-0.4.4 kernel_linux pam policykit -debug -doc -test
