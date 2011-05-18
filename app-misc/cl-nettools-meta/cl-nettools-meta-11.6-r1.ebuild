@@ -18,6 +18,7 @@ RDEPEND="
 	net-dialup/rp-pppoe
 	net-dns/bind-tools
 	net-misc/ntp
+	net-misc/vconfig
 
 	cdistro_desktop? (
 		net-fs/nfs-utils
