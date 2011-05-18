@@ -1,7 +1,7 @@
 USE=""
 
-# Hardware
-USE="${USE} lirc"
+# Audio
+USE="${USE} -gstreamer"
 
 # Network protocols
 USE="${USE} ldap rdesktop"
