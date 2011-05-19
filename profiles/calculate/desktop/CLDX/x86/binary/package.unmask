@@ -21,6 +21,7 @@
 =app-arch/cpio-2.11
 =app-arch/dump-0.4.41
 =app-arch/gzip-1.4
+=app-arch/libarchive-2.8.4-r1
 =app-arch/p7zip-9.13
 =app-arch/rar-3.9.3
 =app-arch/rpm2targz-9.0.0.4g
@@ -86,7 +87,7 @@
 =app-misc/cl-network-meta-11.6
 =app-misc/cl-office-meta-11.6
 =app-misc/cl-printer-meta-11.6
-=app-misc/cl-tools-meta-11.6
+=app-misc/cl-tools-meta-11.6-r1
 =app-misc/cl-wireless-meta-11.6
 =app-misc/cl-xfce-meta-4.8-r1
 =app-misc/cl-xorg-meta-7.4-r1
@@ -146,7 +147,7 @@
 =dev-cpp/gtkmm-2.22.0
 =dev-cpp/pangomm-2.26.3
 =dev-db/sqlite-3.7.5
-=dev-lang/nasm-2.09.04
+=dev-lang/nasm-2.09.08
 =dev-lang/orc-0.4.11
 =dev-lang/perl-5.12.3-r1
 =dev-lang/python-2.7.1-r1
@@ -264,7 +265,7 @@
 =dev-tcltk/expect-5.44.1.15
 =dev-util/bin_replace_string-0.2
 =dev-util/boost-build-1.42.0
-=dev-util/cmake-2.8.1-r2
+=dev-util/cmake-2.8.4-r1
 =dev-util/cppunit-1.12.1
 =dev-util/ctags-5.7
 =dev-util/desktop-file-utils-0.18
@@ -496,8 +497,8 @@
 =net-print/foomatic-db-engine-4.0.7
 =net-print/foomatic-filters-4.0.7
 =net-print/gutenprint-5.2.6
-=net-print/hplip-3.11.3a
-=net-print/hplip-plugin-3.11.3a
+=net-print/hplip-3.11.5
+=net-print/hplip-plugin-3.11.5
 =net-print/samsung-unified-linux-driver-1.01
 =net-wireless/b43-firmware-4.174.64.19
 =net-wireless/b43-fwcutter-013
@@ -720,7 +721,7 @@
 =virtual/perl-Scalar-List-Utils-1.23
 =virtual/perl-Storable-2.20
 =virtual/perl-Test-Harness-3.17
-=virtual/perl-digest-base-1.16
+=virtual/perl-digest-base-1.160.0
 =virtual/perl-libnet-1.22
 =virtual/ssh-0
 =virtual/ttf-fonts-1
@@ -936,4 +937,4 @@
 =xfce-extra/xfce4-power-manager-1.0.10
 =xfce-extra/xfce4-screenshooter-1.7.9-r1
 =xfce-extra/xfce4-taskmanager-1.0.0
-=xfce-extra/xfce4-xkb-plugin-0.5.3.3_p20110308
+=xfce-extra/xfce4-xkb-plugin-0.5.4.0
