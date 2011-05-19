@@ -142,7 +142,7 @@ RDEPEND="${RDEPEND}
 		sys-process/lsof
 	)
 	cdistro_CLS? (
-		virtual/dhcpc
+		net-misc/dhcpcd
 	)
 	cdistro_CMC? (
 		app-misc/screen
