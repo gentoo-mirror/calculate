@@ -75,7 +75,7 @@
 =dev-db/desktopcouch-0.6.4 -doc
 =dev-db/sqlite-3.7.5 extensions fts3 readline secure-delete threadsafe -debug -doc -icu -soundex -tcl -test -unlock-notify
 =dev-lang/erlang-13.2.4 smp ssl -doc -emacs -hipe -java -kpoll -odbc -sctp -tk -wxwidgets
-=dev-lang/nasm-2.09.04 -doc
+=dev-lang/nasm-2.09.08 -doc
 =dev-lang/orc-0.4.11 -examples -static-libs
 =dev-lang/perl-5.12.3-r1 berkdb gdbm -build -debug -doc -ithreads
 =dev-lang/python-2.7.1-r1 gdbm ipv6 ncurses readline sqlite ssl threads wide-unicode xml -berkdb -build -doc -elibc_uclibc -examples -tk -wininst
@@ -183,7 +183,7 @@
 =dev-tcltk/expect-5.44.1.15 X -debug -doc -threads
 =dev-util/bin_replace_string-0.2 -doc
 =dev-util/boost-build-1.42.0 python -examples
-=dev-util/cmake-2.8.1-r2 ncurses -emacs -qt4 -vim-syntax
+=dev-util/cmake-2.8.4-r1 ncurses -emacs -qt4 -test -vim-syntax
 =dev-util/cppunit-1.12.1 -doc -examples
 =dev-util/ctags-5.7 -ada
 =dev-util/desktop-file-utils-0.18 -emacs
@@ -403,7 +403,7 @@
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gnome-cups-manager-0.33-r2 samba
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
-=net-print/hplip-3.11.3a fax hpcups hpijs libnotify policykit scanner static-ppds -X -doc -kde -minimal -parport -qt4 -snmp -udev-acl
+=net-print/hplip-3.11.5 fax hpcups hpijs libnotify policykit scanner static-ppds -X -doc -kde -minimal -parport -qt4 -snmp -udev-acl
 =net-print/libgnomecups-0.2.3 -debug
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/blueman-1.21-r1 gnome network nls policykit -hal -pulseaudio
