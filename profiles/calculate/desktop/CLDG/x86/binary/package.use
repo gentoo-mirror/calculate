@@ -132,7 +132,7 @@
 =dev-libs/openssl-1.0.0d sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
 =dev-libs/protobuf-2.4.0a python -elibc_FreeBSD -emacs -examples -java -source -static-libs -vim-syntax
-=dev-libs/pth-2.0.7-r2 -debug
+=dev-libs/pth-2.0.7-r3 -debug
 =dev-libs/rasqal-0.9.17 pcre -gmp -test -xml
 =dev-libs/redland-1.0.10-r1 berkdb ssl -iodbc -mysql -odbc -postgres -sqlite -xml
 =dev-libs/totem-pl-parser-2.32.3 -doc -introspection
@@ -613,7 +613,7 @@
 =x11-libs/qt-script-4.7.2 exceptions iconv jit private-headers -aqua -debug -pch
 =x11-libs/qt-sql-4.7.2 exceptions iconv qt3support sqlite -aqua -debug -firebird -freetds -mysql -odbc -pch -postgres
 =x11-libs/vte-0.26.2 python -debug -doc -glade -introspection
-=x11-libs/wxGTK-2.8.10.1-r5 X gnome opengl sdl -debug -doc -gstreamer -odbc -pch
+=x11-libs/wxGTK-2.8.11.0 X gnome opengl sdl tiff -debug -doc -gstreamer -odbc -pch
 =x11-libs/xcb-util-0.3.6 -debug -test
 =x11-libs/xosd-2.2.14-r1 xinerama
 =x11-libs/xtrans-1.2.6 -doc
