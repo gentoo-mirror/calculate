@@ -349,7 +349,7 @@
 =media-gfx/gimp-2.6.11-r1 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff webkit wmf -altivec -curl -debug -doc -gnome -lcms
 =media-gfx/gtkimageview-1.6.4 -debug -doc -examples -test
 =media-gfx/imagemagick-6.6.5.6 X bzip2 corefonts cxx djvu jpeg jpeg2k openexr openmp perl png raw svg tiff truetype wmf zlib -autotrace -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -q32 -q8 -static-libs -video_cards_nvidia -xml
-=media-gfx/sane-backends-1.0.22 gphoto2 ipv6 sane_backends_abaton sane_backends_agfafocus sane_backends_apple sane_backends_artec sane_backends_artec_eplus48u sane_backends_as6e sane_backends_avision sane_backends_bh sane_backends_canon sane_backends_canon630u sane_backends_canon_dr sane_backends_canon_pp sane_backends_cardscan sane_backends_coolscan sane_backends_coolscan2 sane_backends_coolscan3 sane_backends_dc210 sane_backends_dc240 sane_backends_dc25 sane_backends_dell1600n_net sane_backends_dmc sane_backends_epjitsu sane_backends_epson sane_backends_epson2 sane_backends_fujitsu sane_backends_genesys sane_backends_gt68xx sane_backends_hp sane_backends_hp3500 sane_backends_hp3900 sane_backends_hp4200 sane_backends_hp5400 sane_backends_hp5590 sane_backends_hpljm1005 sane_backends_hpsj5s sane_backends_hs2p sane_backends_ibm sane_backends_kodak sane_backends_kvs1025 sane_backends_kvs20xx sane_backends_leo sane_backends_lexmark sane_backends_ma1509 sane_backends_magicolor sane_backends_matsushita sane_backends_microtek sane_backends_microtek2 sane_backends_mustek sane_backends_mustek_pp sane_backends_mustek_usb sane_backends_nec sane_backends_net sane_backends_niash sane_backends_p5 sane_backends_pie sane_backends_pixma sane_backends_plustek sane_backends_plustek_pp sane_backends_qcam sane_backends_ricoh sane_backends_rts8891 sane_backends_s9036 sane_backends_sceptre sane_backends_sharp sane_backends_sm3600 sane_backends_sm3840 sane_backends_snapscan sane_backends_sp15c sane_backends_st400 sane_backends_stv680 sane_backends_tamarack sane_backends_teco1 sane_backends_teco2 sane_backends_teco3 sane_backends_test sane_backends_u12 sane_backends_umax sane_backends_umax1220u sane_backends_umax_pp sane_backends_xerox_mfp usb -avahi -doc -v4l
+=media-gfx/sane-backends-1.0.22-r1 gphoto2 ipv6 sane_backends_abaton sane_backends_agfafocus sane_backends_apple sane_backends_artec sane_backends_artec_eplus48u sane_backends_as6e sane_backends_avision sane_backends_bh sane_backends_canon sane_backends_canon630u sane_backends_canon_dr sane_backends_canon_pp sane_backends_cardscan sane_backends_coolscan sane_backends_coolscan2 sane_backends_coolscan3 sane_backends_dc210 sane_backends_dc240 sane_backends_dc25 sane_backends_dell1600n_net sane_backends_dmc sane_backends_epjitsu sane_backends_epson sane_backends_epson2 sane_backends_fujitsu sane_backends_genesys sane_backends_gt68xx sane_backends_hp sane_backends_hp3500 sane_backends_hp3900 sane_backends_hp4200 sane_backends_hp5400 sane_backends_hp5590 sane_backends_hpljm1005 sane_backends_hpsj5s sane_backends_hs2p sane_backends_ibm sane_backends_kodak sane_backends_kvs1025 sane_backends_kvs20xx sane_backends_leo sane_backends_lexmark sane_backends_ma1509 sane_backends_magicolor sane_backends_matsushita sane_backends_microtek sane_backends_microtek2 sane_backends_mustek sane_backends_mustek_pp sane_backends_mustek_usb sane_backends_nec sane_backends_net sane_backends_niash sane_backends_p5 sane_backends_pie sane_backends_pixma sane_backends_plustek sane_backends_plustek_pp sane_backends_qcam sane_backends_ricoh sane_backends_rts8891 sane_backends_s9036 sane_backends_sceptre sane_backends_sharp sane_backends_sm3600 sane_backends_sm3840 sane_backends_snapscan sane_backends_sp15c sane_backends_st400 sane_backends_stv680 sane_backends_tamarack sane_backends_teco1 sane_backends_teco2 sane_backends_teco3 sane_backends_test sane_backends_u12 sane_backends_umax sane_backends_umax1220u sane_backends_umax_pp sane_backends_xerox_mfp usb -avahi -doc -v4l
 =media-gfx/scrot-0.8 bash-completion
 =media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
 =media-gfx/ufraw-0.16 exif gimp gtk openmp -contrast -gnome -hotpixels -lensfun -timezone
@@ -452,7 +452,7 @@
 =media-video/smplayer-0.6.9 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -debug -linguas_ar -linguas_ca -linguas_cs -linguas_el -linguas_en_US -linguas_et -linguas_eu -linguas_fi -linguas_gl -linguas_hu -linguas_ja -linguas_ka -linguas_ko -linguas_ku -linguas_mk -linguas_nl -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
 =media-video/transcode-1.1.5-r2 3dnow X a52 aac alsa dv dvd iconv imagemagick jpeg lzo mjpeg mmx mp3 mpeg ogg quicktime sdl sse sse2 theora truetype v4l2 vorbis x264 xvid -altivec -nuv -oss -postproc -xml
 =media-video/vcdimager-0.7.23 -minimal -xml
-=net-analyzer/nmap-5.21-r1 ssl -gtk -lua
+=net-analyzer/nmap-5.51 ssl -gtk -lua
 =net-analyzer/vnstat-1.10 gd
 =net-dialup/ppp-2.4.5-r1 gtk ipv6 pam -activefilter -atm -dhcp -eap-tls -radius
 =net-dialup/pptpclient-1.7.2-r2 -tk
@@ -522,7 +522,7 @@
 =sys-apps/calculate-desktop-2.2.15 kde -gnome -xfce
 =sys-apps/calculate-install-2.2.15 -minimal
 =sys-apps/calculate-lib-2.2.15 -minimal
-=sys-apps/calculate-utilities-2.2.15-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.15-r2 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -545,7 +545,7 @@
 =sys-apps/man-pages-3.28 linguas_de linguas_fr linguas_it linguas_pl linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_ro -linguas_zh_CN
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
-=sys-apps/module-init-tools-3.5 -old-linux
+=sys-apps/module-init-tools-3.12-r1 -static
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
@@ -608,7 +608,7 @@
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
 =sys-libs/gdbm-1.8.3-r4 berkdb
-=sys-libs/glibc-2.11.3 gd nls -crosscompile_opts_headers-only -debug -glibc-omitfp -hardened -multilib -profile -selinux -vanilla
+=sys-libs/glibc-2.12.2 gd nls -crosscompile_opts_headers-only -debug -glibc-omitfp -hardened -multilib -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
 =sys-libs/libcap-2.17 pam
 =sys-libs/libieee1284-0.2.11-r1 python -doc
