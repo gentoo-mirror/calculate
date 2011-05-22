@@ -129,7 +129,7 @@
 =media-libs/openjpeg-1.3-r3 -tools
 =media-libs/tiff-3.9.4-r1 cxx jpeg zlib -jbig -static-libs
 =net-analyzer/iptraf-ng-1.0.2 -static-libs
-=net-analyzer/nmap-5.21-r1 ssl -gtk -lua
+=net-analyzer/nmap-5.51 ssl -gtk -lua
 =net-analyzer/tcpdump-3.9.8-r1 ipv6 samba ssl -chroot
 =net-analyzer/traceroute-2.0.15 -static
 =net-analyzer/vnstat-1.10 -gd
@@ -158,7 +158,7 @@
 =net-libs/libnfsidmap-0.21-r1 ldap
 =net-libs/libpcap-1.1.1 ipv6 -bluetooth -libnl
 =net-libs/libtirpc-0.2.1-r1 -kerberos
-=net-mail/dovecot-1.2.16 berkdb ipv6 ldap maildir pam ssl zlib -caps -cydir -dbox -doc -kerberos -managesieve -mbox -mysql -postgres -sieve -sqlite -suid -vpopmail
+=net-mail/dovecot-2.0.11 berkdb bzip2 ipv6 ldap maildir pam ssl zlib -caps -cydir -doc -kerberos -managesieve -mbox -mdbox -mysql -postgres -sdbox -sieve -sqlite -suid -vpopmail
 =net-mail/fetchmail-6.3.17 nls ssl -hesiod -kerberos -tk
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.20.0-r2 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -test
@@ -188,7 +188,7 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-install-2.2.15 -minimal
 =sys-apps/calculate-lib-2.2.15 -minimal
-=sys-apps/calculate-utilities-2.2.15-r1 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-utilities-2.2.15-r2 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -208,7 +208,7 @@
 =sys-apps/man-pages-3.28 linguas_de linguas_fr linguas_it linguas_pl linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_ro -linguas_zh_CN
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
-=sys-apps/module-init-tools-3.5 -old-linux
+=sys-apps/module-init-tools-3.12-r1 -static
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
@@ -259,7 +259,7 @@
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
 =sys-libs/gdbm-1.8.3-r4 berkdb
-=sys-libs/glibc-2.11.3 nls -crosscompile_opts_headers-only -debug -gd -glibc-omitfp -hardened -multilib -profile -selinux -vanilla
+=sys-libs/glibc-2.12.2 nls -crosscompile_opts_headers-only -debug -gd -glibc-omitfp -hardened -multilib -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
 =sys-libs/libcap-2.17 pam
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
