@@ -80,7 +80,7 @@
 =dev-libs/libxslt-1.1.26-r1 crypt python -debug
 =dev-libs/openssl-1.0.0d zlib -bindist -gmp -kerberos -rfc3779 -sse2 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
-=dev-libs/pth-2.0.7-r2 -debug
+=dev-libs/pth-2.0.7-r3 -debug
 =dev-perl/Authen-SASL-2.15 -kerberos
 =dev-perl/BerkeleyDB-0.43 -test
 =dev-perl/DBI-1.615 -test
@@ -145,7 +145,7 @@
 =net-dns/ddclient-3.7.3-r1 ssl
 =net-firewall/ipsec-tools-0.7.3-r1 iconv ipv6 ldap pam readline -hybrid -idea -kerberos -nat -rc5 -selinux
 =net-firewall/iptables-1.4.10 ipv6
-=net-firewall/shorewall-4.4.19.1 -doc
+=net-firewall/shorewall-4.4.19.4 -doc
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.8-r1 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/ftp-0.17-r7 ipv6 ssl
