@@ -146,7 +146,7 @@
 =dev-python/dbus-python-0.83.2 -doc -examples -test
 =dev-python/foolscap-0.6.1 ssl -doc
 =dev-python/imaging-1.1.7 X scanner -doc -examples -tk
-=dev-python/ipython-0.10.1 readline smp -doc -emacs -examples -gnuplot -test -wxwidgets
+=dev-python/ipython-0.10.2 readline smp -doc -emacs -examples -gnuplot -test -wxwidgets
 =dev-python/numpy-1.5.1 -doc -lapack -test
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
@@ -551,7 +551,7 @@
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha34 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha35 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
