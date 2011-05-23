@@ -50,7 +50,7 @@
 =dev-db/mysql-5.1.56 community perl ssl -big-tables -cluster -debug -embedded -extraengine -latin1 -max-idx-128 -minimal -pbxt -profiling -selinux -static -test -xtradb
 =dev-db/postgresql-base-9.0.3 ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru nls pam readline ssl zlib -doc -kerberos -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -threads
 =dev-db/postgresql-server-9.0.3 kernel_linux linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru nls perl python -doc -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -selinux -tcl -uuid -xml
-=dev-lang/erlang-13.2.4 ssl -doc -emacs -hipe -java -kpoll -odbc -sctp -smp -tk -wxwidgets
+=dev-lang/erlang-14.2.2-r1 ssl -doc -elibc_FreeBSD -emacs -halfword -hipe -java -kpoll -odbc -sctp -smp -tk -wxwidgets
 =dev-lang/nasm-2.09.08 -doc
 =dev-lang/perl-5.12.3-r1 berkdb gdbm -build -debug -doc -ithreads
 =dev-lang/python-2.7.1-r1 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -berkdb -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
@@ -213,7 +213,7 @@
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha33 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha34 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
