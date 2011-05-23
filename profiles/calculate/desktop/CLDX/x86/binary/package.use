@@ -43,6 +43,7 @@
 =app-misc/realpath-1.15-r1 nls
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
 =app-office/libreoffice-3.3.2 bash-completion cups dbus gtk ldap linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gnome -gstreamer -java -kde -kdeenablefinal -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_pt -linguas_ro -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
+=app-pda/libplist-1.4 python
 =app-portage/eix-0.22.5 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools
 =app-portage/genlop-0.30.8-r2 bash-completion
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
@@ -298,7 +299,7 @@
 =net-fs/samba-3.5.8-r1 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
 =net-im/pidgin-2.7.11 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -qq -sasl -silc -tcl -tk -zephyr -zeroconf
-=net-im/skype-2.1.0.81 -qt-static
+=net-im/skype-2.2.0.25 -qt-static
 =net-irc/xchat-2.8.8-r1 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -ntlm -tcl -xchatdccserver
 =net-libs/farsight2-0.0.20 python -msn -test -upnp
 =net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
@@ -389,7 +390,7 @@
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha33 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha34 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -460,7 +461,7 @@
 =sys-power/cpufrequtils-007 nls -debug
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
 =sys-power/powertop-1.13 unicode
-=sys-power/upower-0.9.8 kernel_linux -debug -doc -introspection -ios -kernel_FreeBSD
+=sys-power/upower-0.9.9 kernel_linux -debug -doc -introspection -ios -kernel_FreeBSD
 =sys-process/htop-0.8.3 -debug
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
@@ -556,7 +557,7 @@
 =x11-misc/xdg-user-dirs-0.13 nls
 =x11-misc/xdg-utils-1.1.0_rc1-r1 -doc
 =x11-misc/xdialog-2.3.1 nls -doc -examples
-=x11-misc/xscreensaver-5.12-r1 pam xinerama -jpeg -new-login -opengl -suid
+=x11-misc/xscreensaver-5.12 pam xinerama -jpeg -new-login -opengl -suid
 =x11-plugins/pidgin-libnotify-0.14-r1 nls -debug
 =x11-proto/bigreqsproto-1.1.1 -doc
 =x11-proto/fontsproto-2.1.1 -doc
@@ -595,4 +596,4 @@
 =xfce-extra/xfce4-power-manager-1.0.10 kernel_linux networkmanager policykit xfce_plugins_brightness -debug
 =xfce-extra/xfce4-screenshooter-1.7.9-r1 -debug
 =xfce-extra/xfce4-taskmanager-1.0.0 -debug
-=xfce-extra/xfce4-xkb-plugin-0.5.4.0 -debug
+=xfce-extra/xfce4-xkb-plugin-0.5.4.1 -debug
