@@ -1,0 +1,39 @@
+diff --git a/pym/cl_fill.py b/pym/cl_fill.py
+index 172b861..bf45cb2 100644
+--- a/pym/cl_fill.py
++++ b/pym/cl_fill.py
+@@ -440,7 +440,7 @@ class fillVars(varsShare):
+             matchSect = re.search(r'Section "Device".*?EndSection',
+                                   open('/etc/X11/xorg.conf').read(),re.S)
+             if matchSect:
+-                resDriver = re.search(r'Driver\s*"([^"]+)"',
++                resDriver = re.search(r'^\S*Driver\s*"([^"]+)"',
+                                       matchSect.group(0),re.S)
+                 if resDriver and resDriver.group(1) in list_avialable_drivers:
+                     return resDriver.group(1)
+diff --git a/pym/cl_vars_share.py b/pym/cl_vars_share.py
+index 316193c..961aa01 100644
+--- a/pym/cl_vars_share.py
++++ b/pym/cl_vars_share.py
+@@ -358,16 +358,17 @@ class varsShare:
+         lineCompositeTmp = ""
+         lineComposite = ""
+         for line in confLines:
++            line = line.strip()
+             if flagStartExtensions:
+-                if 'EndSection' in line:
++                if line.startswith('EndSection'):
+                     lineComposite = lineCompositeTmp
+                     break
+-                elif 'Section' in line:
++                elif line.startswith('Section'):
+                     break
+-                if 'Option' in line and '"Composite"' in line:
++                if line.startswith('Option') and '"Composite"' in line:
+                     lineCompositeTmp = line
+             else:
+-                if '"Extensions"' in line and 'Section' in line:
++                if '"Extensions"' in line and line.startswith('Section'):
+                     flagStartExtensions = True
+         if lineComposite:
+             listOpt = filter(lambda x: x.strip(), lineComposite.split('"'))
