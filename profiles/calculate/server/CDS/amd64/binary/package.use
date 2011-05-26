@@ -65,6 +65,7 @@
 =dev-libs/gmp-4.3.2 -nocxx
 =dev-libs/klibc-1.5.20 -debug -n32
 =dev-libs/libassuan-2.0.1 -static-libs
+=dev-libs/libconfig-1.4.7 -examples -static-libs
 =dev-libs/libdaemon-0.14-r1 -doc -examples
 =dev-libs/libevent-2.0.10 -static-libs -test
 =dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
@@ -96,7 +97,7 @@
 =dev-python/dnspython-1.9.4 -examples
 =dev-python/psycopg-2.4 -debug -doc -examples -mxdatetime
 =dev-python/pycrypto-2.3 gmp -doc
-=dev-python/pyopenssl-0.11 -doc
+=dev-python/pyopenssl-0.12 -doc
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-python/twisted-11.0.0 crypt -gtk -serial
@@ -213,7 +214,7 @@
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha35 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha36 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
