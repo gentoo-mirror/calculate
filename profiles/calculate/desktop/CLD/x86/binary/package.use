@@ -496,7 +496,7 @@
 =net-misc/vpnc-0.5.3 -bindist -hybrid-auth -resolvconf
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
 =net-nds/openldap-2.4.24 berkdb crypt gnutls ipv6 perl samba ssl tcpd -cxx -debug -experimental -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
-=net-p2p/eiskaltdcpp-2.1.1 dbus emoticons libnotify linguas_bg linguas_en linguas_es linguas_fr linguas_pl linguas_ru linguas_uk pcre qt4 spell -examples -gnome -gtk -javascript -linguas_be -linguas_hu -linguas_sr -lua -sounds -upnp
+=net-p2p/eiskaltdcpp-2.2.1 cli dbus emoticons libnotify linguas_bg linguas_en linguas_es linguas_fr linguas_pl linguas_ru linguas_uk pcre qt4 spell -daemon -examples -gnome -gtk -javascript -linguas_be -linguas_cs -linguas_hu -linguas_sk -linguas_sr -lua -sound -sqlite -upnp
 =net-print/cndrvcups-capt-2.00-r2 -gtk
 =net-print/cndrvcups-common-2.00-r2 -cngplp
 =net-print/cnijfilter-3.20-r1 ip4700 mp250 mp270 mp490 mp550 mp560 -amd64 -mp640 -nocupsdetection -servicetools
@@ -506,7 +506,7 @@
 =net-print/hplip-3.11.5 fax hpcups hpijs kde libnotify policykit scanner static-ppds -X -doc -minimal -parport -qt4 -snmp -udev-acl
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/bluedevil-1.1-r1 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
-=net-wireless/bluez-4.87 alsa consolekit cups usb -attrib -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
+=net-wireless/bluez-4.91 alsa consolekit cups usb -attrib -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
 =net-wireless/madwifi-ng-0.9.4.4136.20110203 kernel_linux -injection
 =net-wireless/madwimax-0.1.1 -doc
@@ -551,7 +551,7 @@
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha35 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha36 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -638,7 +638,7 @@
 =virtual/mysql-5.1 embedded -minimal -static
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-11.0.696.68 cups -gnome -gnome-keyring -test
+=www-client/chromium-11.0.696.71 cups -gnome -gnome-keyring -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
 =www-plugins/adobe-flash-10.2.159.1 vdpau
 =x11-apps/xauth-1.0.5 ipv6
