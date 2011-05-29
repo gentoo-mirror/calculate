@@ -461,7 +461,7 @@
 =media-video/smplayer-0.6.9 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -debug -linguas_ar -linguas_ca -linguas_cs -linguas_el -linguas_en_US -linguas_et -linguas_eu -linguas_fi -linguas_gl -linguas_hu -linguas_ja -linguas_ka -linguas_ko -linguas_ku -linguas_mk -linguas_nl -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
 =media-video/transcode-1.1.5-r2 3dnow X a52 aac alsa dv dvd iconv imagemagick jpeg lzo mjpeg mmx mp3 mpeg ogg quicktime sdl sse sse2 theora truetype v4l2 vorbis x264 xvid -altivec -nuv -oss -postproc -xml
 =media-video/vcdimager-0.7.23 -minimal -xml
-=net-analyzer/nmap-5.21-r1 ssl -gtk -lua
+=net-analyzer/nmap-5.51 ssl -gtk -lua
 =net-analyzer/vnstat-1.10 gd
 =net-dialup/ppp-2.4.5-r1 gtk ipv6 pam -activefilter -atm -dhcp -eap-tls -radius
 =net-dialup/pptpclient-1.7.2-r2 -tk
@@ -559,7 +559,7 @@
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha36 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha37 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
@@ -646,9 +646,9 @@
 =virtual/mysql-5.1 embedded -minimal -static
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-11.0.696.68 cups -gnome -gnome-keyring -test
+=www-client/chromium-11.0.696.71 cups -gnome -gnome-keyring -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
-=www-plugins/adobe-flash-10.2.159.1 vdpau
+=www-plugins/adobe-flash-10.3.181.14-r1 vdpau -kde
 =x11-apps/xauth-1.0.5 ipv6
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
 =x11-apps/xhost-1.0.4 ipv6
