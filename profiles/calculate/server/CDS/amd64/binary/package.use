@@ -131,7 +131,7 @@
 =media-libs/openjpeg-1.3-r3 -tools
 =media-libs/tiff-3.9.4-r1 cxx jpeg zlib -jbig -static-libs
 =net-analyzer/iptraf-ng-1.0.2 -static-libs
-=net-analyzer/nmap-5.21-r1 ssl -gtk -lua
+=net-analyzer/nmap-5.51 ssl -gtk -lua
 =net-analyzer/tcpdump-3.9.8-r1 ipv6 samba ssl -chroot
 =net-analyzer/traceroute-2.0.15 -static
 =net-analyzer/vnstat-1.10 -gd
@@ -155,12 +155,12 @@
 =net-ftp/proftpd-1.3.3e caps ctrls ident ldap ncurses nls pam radius ssl tcpd -acl -authfile -ban -case -clamav -deflate -doc -exec -hardened -ifsession -ipv6 -kerberos -mysql -postgres -ratio -readme -rewrite -selinux -sftp -shaper -sitemisc -softquota -trace -vroot -xinetd
 =net-ftp/tftp-hpa-0.49-r1 ipv6 readline tcpd -selinux
 =net-im/ejabberd-2.1.5 ldap mod_muc mod_srl pam ssl web zlib -captcha -debug -mod_irc -mod_proxy65 -mod_pubsub -mod_statsdx -odbc
-=net-irc/weechat-0.3.4 alias charset crypt fifo irc logger ncurses nls perl python relay rmodifier ruby_targets_ruby18 scripts spell ssl xfer -doc -lua -ruby -ruby_targets_ruby19 -tcl
+=net-irc/weechat-0.3.5 alias charset crypt fifo irc logger ncurses nls perl python relay rmodifier ruby_targets_ruby18 scripts spell ssl xfer -doc -lua -ruby -ruby_targets_ruby19 -tcl
 =net-libs/gnutls-2.10.5 cxx nls zlib -bindist -doc -examples -guile -lzo -test
 =net-libs/libnfsidmap-0.21-r1 ldap
 =net-libs/libpcap-1.1.1 ipv6 -bluetooth -libnl
 =net-libs/libtirpc-0.2.1-r1 -kerberos
-=net-mail/dovecot-2.0.11 berkdb bzip2 ipv6 ldap maildir pam ssl zlib -caps -cydir -doc -kerberos -managesieve -mbox -mdbox -mysql -postgres -sdbox -sieve -sqlite -suid -vpopmail
+=net-mail/dovecot-2.0.13 bzip2 ipv6 ldap maildir pam ssl zlib -caps -cydir -doc -kerberos -managesieve -mbox -mdbox -mysql -postgres -sdbox -sieve -sqlite -suid -vpopmail
 =net-mail/fetchmail-6.3.19 nls ssl -hesiod -kerberos -tk
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.20.0-r2 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -test
@@ -214,7 +214,7 @@
 =sys-apps/net-tools-1.60_p20100815160931 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha36 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha37 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
