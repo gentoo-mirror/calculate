@@ -317,7 +317,7 @@
 =net-libs/wvstreams-4.6.1-r1 dbus pam ssl -debug -doc
 =net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus ipc libnotify -debug -elibc_FreeBSD -gnome -java -startup-notification -system-sqlite -wifi
 =net-mail/mailbase-1 pam
-=net-misc/curl-7.20.0-r2 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -test
+=net-misc/curl-7.21.4 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -static-libs -test -threads
 =net-misc/dhcpcd-5.2.12 elibc_glibc zeroconf
 =net-misc/iputils-20100418-r1 ipv6 ssl -SECURITY_HAZARD -doc -idn -static
 =net-misc/modemmanager-0.4 policykit -doc -test
@@ -390,7 +390,7 @@
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha36 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha37 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
