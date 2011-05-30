@@ -54,7 +54,7 @@
 =app-misc/realpath-1.15-r1 nls
 =app-misc/strigi-0.7.1 clucene dbus exif qt4 -debug -fam -hyperestraier -inotify -log -test
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
-=app-mobilephone/obexd-0.37 usb -debug -eds -nokia -server
+=app-mobilephone/obexd-0.40 usb -debug -eds -nokia -server
 =app-office/akonadi-server-1.5.2 mysql sqlite -postgres -test
 =app-office/libreoffice-3.3.2 bash-completion cups dbus gtk kde ldap linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gnome -gstreamer -java -kdeenablefinal -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_pt -linguas_ro -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
 =app-pda/libplist-1.4 python
@@ -487,7 +487,7 @@
 =net-libs/webkit-gtk-1.2.7 jit -aqua -coverage -debug -doc -gstreamer -introspection -test
 =net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus ipc libnotify -debug -elibc_FreeBSD -gnome -java -startup-notification -system-sqlite -wifi
 =net-mail/mailbase-1 pam
-=net-misc/curl-7.20.0-r2 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -test
+=net-misc/curl-7.21.4 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -static-libs -test -threads
 =net-misc/dhcpcd-5.2.12 elibc_glibc zeroconf
 =net-misc/iputils-20100418-r1 ipv6 ssl -SECURITY_HAZARD -doc -idn -static
 =net-misc/modemmanager-0.4 policykit -doc -test
@@ -513,7 +513,7 @@
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
 =net-print/hplip-3.11.5 fax hpcups hpijs kde libnotify policykit scanner static-ppds -X -doc -minimal -parport -qt4 -snmp -udev-acl
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
-=net-wireless/bluedevil-1.1-r1 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
+=net-wireless/bluedevil-1.1-r2 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
 =net-wireless/bluez-4.91 alsa consolekit cups usb -attrib -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
 =net-wireless/madwifi-ng-0.9.4.4136.20110203 kernel_linux -injection
@@ -531,7 +531,7 @@
 =sys-apps/calculate-desktop-2.2.15 kde -gnome -xfce
 =sys-apps/calculate-install-2.2.15-r1 -minimal
 =sys-apps/calculate-lib-2.2.15-r1 -minimal
-=sys-apps/calculate-utilities-2.2.15-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.15-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -555,7 +555,7 @@
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.12-r1 -static
-=sys-apps/net-tools-1.60_p20100815160931 nls -static
+=sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
@@ -595,7 +595,7 @@
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
 =sys-devel/libtool-2.2.10 -vanilla
 =sys-devel/m4-1.4.15 -examples
-=sys-devel/make-3.81-r2 nls -static
+=sys-devel/make-3.82 nls -static
 =sys-devel/patch-2.5.9 -static
 =sys-fs/dmraid-1.0.0_rc14 -selinux -static
 =sys-fs/e2fsprogs-1.41.12 nls -elibc_FreeBSD
