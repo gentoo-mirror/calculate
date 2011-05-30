@@ -31,6 +31,8 @@ DEPEND="=sys-apps/calculate-lib-9999
 	>=mail-filter/procmail-3.22
 	>=net-dns/bind-9.6.1_p1[sdb-ldap]
 	>=net-proxy/squid-3.0.14[ldap,pam,ssl]
-	>=net-misc/dhcp-3.1.2_p1"
+	>=net-misc/dhcp-3.1.2_p1
+	>=media-gfx/imagemagick-6.6
+	dev-python/pymilter"
 
 RDEPEND="${DEPEND}"
