@@ -382,7 +382,7 @@
 =net-libs/webkit-gtk-1.2.7 gstreamer jit -aqua -coverage -debug -doc -introspection -test
 =net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus gnome ipc libnotify -debug -elibc_FreeBSD -java -startup-notification -system-sqlite -wifi
 =net-mail/mailbase-1 pam
-=net-misc/curl-7.20.0-r2 ipv6 ssl -ares -gnutls -idn -kerberos -ldap -libssh2 -nss -test
+=net-misc/curl-7.21.4 ipv6 ssl -ares -gnutls -idn -kerberos -ldap -libssh2 -nss -static-libs -test -threads
 =net-misc/dhcpcd-5.2.12 elibc_glibc zeroconf
 =net-misc/iputils-20100418-r1 ipv6 ssl -SECURITY_HAZARD -doc -idn -static
 =net-misc/modemmanager-0.4 policykit -doc -test
@@ -431,7 +431,7 @@
 =sys-apps/calculate-desktop-2.2.15 gnome -kde -xfce
 =sys-apps/calculate-install-2.2.15-r1 -minimal
 =sys-apps/calculate-lib-2.2.15-r1 -minimal
-=sys-apps/calculate-utilities-2.2.15-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.15-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -456,7 +456,7 @@
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.12-r1 -static
-=sys-apps/net-tools-1.60_p20100815160931 nls -static
+=sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
@@ -495,7 +495,7 @@
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
 =sys-devel/libtool-2.2.10 -vanilla
 =sys-devel/m4-1.4.15 -examples
-=sys-devel/make-3.81-r2 nls -static
+=sys-devel/make-3.82 nls -static
 =sys-devel/patch-2.5.9 -static
 =sys-fs/dmraid-1.0.0_rc14 -selinux -static
 =sys-fs/e2fsprogs-1.41.12 nls -elibc_FreeBSD
