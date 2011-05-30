@@ -176,6 +176,7 @@
 =dev-python/psycopg-2.4
 =dev-python/py-smbpasswd-1.0.1
 =dev-python/pycrypto-2.3
+=dev-python/pymilter-0.9.3
 =dev-python/pyopenssl-0.12
 =dev-python/pyserial-2.5-r1
 =dev-python/python-ldap-2.3.13
@@ -198,6 +199,7 @@
 =mail-client/mailx-8.1.2.20050715-r2
 =mail-client/mailx-support-20060102-r1
 =mail-filter/clamsmtp-1.9
+=mail-filter/libmilter-1.0.1-r1
 =mail-filter/postgrey-1.32
 =mail-filter/procmail-3.22-r10
 =mail-filter/spamassassin-3.3.1-r4
@@ -259,7 +261,7 @@
 =net-mail/fetchmail-6.3.19
 =net-mail/mailbase-1
 =net-misc/bridge-utils-1.4
-=net-misc/curl-7.20.0-r2
+=net-misc/curl-7.21.4
 =net-misc/dhcp-3.1.3_p1
 =net-misc/ifenslave-1.1.0-r5
 =net-misc/iputils-20100418-r1
@@ -314,11 +316,11 @@
 =sys-apps/busybox-1.17.4
 =sys-apps/calculate-builder-2.2.15
 =sys-apps/calculate-install-2.2.15-r1
-=sys-apps/calculate-lib-2.1.8-r2
+=sys-apps/calculate-lib-2.1.11
 =sys-apps/calculate-lib-2.2.15-r1
-=sys-apps/calculate-server-2.1.13-r3
+=sys-apps/calculate-server-2.1.14
 =sys-apps/calculate-templates-2.2.15-r1
-=sys-apps/calculate-utilities-2.2.15-r4
+=sys-apps/calculate-utilities-2.2.15-r5
 =sys-apps/coreutils-8.7
 =sys-apps/debianutils-3.4.4
 =sys-apps/diffutils-3.0
@@ -344,7 +346,7 @@
 =sys-apps/memtest86+-4.00
 =sys-apps/miscfiles-1.4.2-r1
 =sys-apps/module-init-tools-3.12-r1
-=sys-apps/net-tools-1.60_p20100815160931
+=sys-apps/net-tools-1.60_p20110409135728
 =sys-apps/openrc-0.8.2-r1
 =sys-apps/pciutils-3.1.7
 =sys-apps/portage-2.2.0_alpha37
@@ -385,7 +387,7 @@
 =sys-devel/libperl-5.10.1
 =sys-devel/libtool-2.2.10
 =sys-devel/m4-1.4.15
-=sys-devel/make-3.81-r2
+=sys-devel/make-3.82
 =sys-devel/patch-2.5.9
 =sys-fs/dmraid-1.0.0_rc14
 =sys-fs/dosfstools-3.0.9
