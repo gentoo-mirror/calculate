@@ -99,6 +99,7 @@
 =dev-libs/libatasmart-0.17 -static-libs
 =dev-libs/libattica-0.2.0 -debug
 =dev-libs/libcdio-0.80 cddb cxx -minimal
+=dev-libs/libconfig-1.4.7 -examples -static-libs
 =dev-libs/libcroco-0.6.2 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
 =dev-libs/libdbusmenu-qt-0.6.2 -debug -test
@@ -153,7 +154,7 @@
 =dev-python/pycups-1.9.49 -doc -examples
 =dev-python/pygobject-2.26.0-r1 cairo threads -doc -examples -introspection -libffi -test
 =dev-python/pygtk-2.22.0-r1 -doc -examples -test
-=dev-python/pyopenssl-0.11 -doc
+=dev-python/pyopenssl-0.12 -doc
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-python/reportlab-2.5 -doc -examples -test
@@ -587,7 +588,7 @@
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
 =sys-devel/libtool-2.2.10 -vanilla
 =sys-devel/m4-1.4.15 -examples
-=sys-devel/make-3.81-r2 nls -static
+=sys-devel/make-3.82 nls -static
 =sys-devel/patch-2.5.9 -static
 =sys-fs/dmraid-1.0.0_rc14 -selinux -static
 =sys-fs/e2fsprogs-1.41.12 nls -elibc_FreeBSD
