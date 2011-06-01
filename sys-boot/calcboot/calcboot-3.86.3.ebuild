@@ -59,4 +59,5 @@ src_install() {
 	doins boot.jpg
 	insinto /boot/grub
 	doins grub-calculate.xpm.gz
+	doins grub-calculate.png
 }
