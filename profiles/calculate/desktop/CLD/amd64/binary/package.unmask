@@ -90,7 +90,7 @@
 =app-misc/ca-certificates-20090709
 =app-misc/calculate-install-gui-2.2.15
 =app-misc/calculate-meta-11.6
-=app-misc/cl-base-meta-11.6
+=app-misc/cl-base-meta-11.6-r1
 =app-misc/cl-decoration-meta-11.6
 =app-misc/cl-graphics-meta-11.6
 =app-misc/cl-kde-meta-4.6.0-r1
@@ -185,7 +185,7 @@
 =dev-libs/libassuan-2.0.1
 =dev-libs/libatasmart-0.17
 =dev-libs/libattica-0.2.0
-=dev-libs/libcdio-0.80
+=dev-libs/libcdio-0.82
 =dev-libs/libconfig-1.4.7
 =dev-libs/libcroco-0.6.2
 =dev-libs/libdaemon-0.14-r1
@@ -270,6 +270,7 @@
 =dev-python/sip-4.12.1
 =dev-python/twisted-11.0.0
 =dev-python/twisted-web-11.0.0
+=dev-scheme/guile-1.8.8-r1
 =dev-tcltk/expect-5.44.1.15
 =dev-util/automoc-0.9.88
 =dev-util/bin_replace_string-0.2
@@ -466,6 +467,7 @@
 =media-fonts/font-util-1.2.0
 =media-fonts/terminus-font-4.30
 =media-fonts/ttf-bitstream-vera-1.10-r3
+=media-fonts/unifont-5.1.20080914
 =media-fonts/urw-fonts-2.4.9
 =media-gfx/cld-themes-11.6
 =media-gfx/digikam-1.9.0-r1
@@ -760,12 +762,15 @@
 =sys-block/eject-2.1.5-r2
 =sys-block/parted-2.3
 =sys-block/partitionmanager-1.0.3
-=sys-boot/calcboot-3.86.2
+=sys-boot/calcboot-3.86.3
 =sys-boot/grub-0.97-r10
+=sys-boot/grub-1.99
+=sys-boot/os-prober-1.47
 =sys-boot/syslinux-3.86
 =sys-devel/autoconf-2.13
 =sys-devel/autoconf-2.65-r1
 =sys-devel/autoconf-wrapper-10-r1
+=sys-devel/autogen-5.11.5
 =sys-devel/automake-1.10.3
 =sys-devel/automake-1.11.1
 =sys-devel/automake-1.9.6-r3
@@ -832,7 +837,7 @@
 =sys-power/cpufrequtils-007
 =sys-power/pm-quirks-20100619
 =sys-power/pm-utils-1.4.1
-=sys-power/powernowd-0.97
+=sys-power/powernowd-1.00
 =sys-power/powertop-1.13
 =sys-power/upower-0.9.8
 =sys-process/cronbase-0.3.2-r1

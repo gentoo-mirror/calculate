@@ -270,6 +270,7 @@ dev-python/setuptools
 dev-python/sip
 dev-python/twisted
 dev-python/twisted-web
+dev-scheme/guile
 dev-tcltk/expect
 dev-util/automoc
 dev-util/bin_replace_string
@@ -466,6 +467,7 @@ media-fonts/font-misc-misc
 media-fonts/font-util
 media-fonts/terminus-font
 media-fonts/ttf-bitstream-vera
+media-fonts/unifont
 media-fonts/urw-fonts
 media-gfx/cld-themes
 media-gfx/digikam
@@ -762,10 +764,13 @@ sys-block/parted
 sys-block/partitionmanager
 sys-boot/calcboot
 sys-boot/grub
+sys-boot/grub
+sys-boot/os-prober
 sys-boot/syslinux
 sys-devel/autoconf
 sys-devel/autoconf
 sys-devel/autoconf-wrapper
+sys-devel/autogen
 sys-devel/automake
 sys-devel/automake
 sys-devel/automake
