@@ -14,7 +14,6 @@ HOMEPAGE="http://www.gnu.org/software/grub/"
 
 LICENSE="GPL-3"
 SLOT="2"
-use multislot && SLOT="2" || SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="custom-cflags debug truetype multislot static"
 
