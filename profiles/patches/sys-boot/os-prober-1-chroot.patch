@@ -1,0 +1,26 @@
+diff --git a/linux-boot-prober b/linux-boot-prober
+index e32dc84..0e358a5 100755
+--- a/linux-boot-prober
++++ b/linux-boot-prober
+@@ -33,7 +33,7 @@ if ! grep -q "^$mapped " "$OS_PROBER_TMP/mounted-map"; then
+ else
+ 	mpoint=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 2)
+ 	mpoint="$(unescape_mount "$mpoint")"
+-	if [ "$mpoint" != "/target/boot" ] && [ "$mpoint" != "/target" ] && [ "$mpoint" != "/" ]; then
++	if [ "$mpoint" != "/target/boot" ] && [ "$mpoint" != "/target" ] && [ "$mpoint" != "/${CHROOT_PATH#/}" ]; then
+ 		type=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 3)
+ 		if ! grep -q " $mpoint/boot " "$OS_PROBER_TMP/mounted-map"; then
+ 			linux_mount_boot "$partition" "$mpoint"
+diff --git a/os-prober b/os-prober
+index fc4de2c..34f3504 100755
+--- a/os-prober
++++ b/os-prober
+@@ -147,7 +147,7 @@ for partition in $(partitions); do
+ 	else
+ 		mpoint=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 2)
+ 		mpoint="$(unescape_mount "$mpoint")"
+-		if [ "$mpoint" != "/target/boot" ] && [ "$mpoint" != "/target" ] && [ "$mpoint" != "/" ]; then
++		if [ "$mpoint" != "/target/boot" ] && [ "$mpoint" != "/target" ] && [ "$mpoint" != "/${CHROOT_PATH#/}" ]; then
+ 			type=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 3)
+ 			for test in /usr/lib/os-probes/mounted/*; do
+ 				if [ -f "$test" ] && [ -x "$test" ]; then

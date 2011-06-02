@@ -35,3 +35,5 @@ virtual/jpeg static-libs
 #fix fails to compile (bug 36657 http://bugs.gentoo.org/show_bug.cgi?id=366557)
 media-gfx/sane-backends -v4l
 
+# grub multislot by default
+=sys-boot/grub-1.99 multislot

@@ -31,7 +31,7 @@ QA_EXECSTACK="sbin/grub-probe sbin/grub-setup sbin/grub-mkdevicemap bin/grub-scr
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	#epatch "${FILESDIR}"/${PN}-1.99-genkernel.patch #256335
+	epatch "${FILESDIR}"/${PN}-1.99-chroot.patch # CHROOT_PATH
 	epatch_user
 }
 
@@ -59,7 +59,7 @@ src_install() {
 	insinto /etc/default
 	newins "${FILESDIR}"/defaults grub || die
 	cat <<-EOF >> "${D}"/lib*/grub/grub-mkconfig_lib
-	GRUB_DISTRIBUTOR="Gentoo"
+	GRUB_DISTRIBUTOR=\${GRUB_DISTRIBUTOR:-"Calculate"}
 	EOF
 	if use multislot ; then
 		sed -i "s:grub-install:grub2-install:" "${D}"/sbin/grub-install || die
