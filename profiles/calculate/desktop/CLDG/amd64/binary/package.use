@@ -66,7 +66,7 @@
 =app-text/fbreader-0.12.10 gtk -debug -qt4
 =app-text/ghostscript-gpl-8.71-r6 X cairo cups djvu gtk jpeg2k -bindist -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
 =app-text/gtkspell-2.0.16 -doc
-=app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
+=app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
 =app-text/libspectre-0.2.6 -debug -doc -static-libs
 =app-text/poppler-0.14.5-r1 cairo cxx jpeg jpeg2k lcms png utils xpdf-headers -cjk -curl -debug -doc -exceptions -qt4
 =app-text/rarian-0.8.1-r1 -debug
@@ -109,7 +109,7 @@
 =dev-libs/libassuan-2.0.1 -static-libs
 =dev-libs/libatasmart-0.17 -static-libs
 =dev-libs/libburn-1.0.0 -debug -track-src-odirect
-=dev-libs/libcdio-0.80 cddb cxx -minimal
+=dev-libs/libcdio-0.82 cddb cxx -minimal -static-libs
 =dev-libs/libconfig-1.4.7 -examples -static-libs
 =dev-libs/libcroco-0.6.2 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
@@ -189,6 +189,7 @@
 =dev-python/simplejson-2.1.3 -doc
 =dev-python/twisted-11.0.0 crypt gtk -serial
 =dev-python/twisted-web-11.0.0 -soap
+=dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
 =dev-tcltk/expect-5.44.1.15 X -debug -doc -threads
 =dev-util/bin_replace_string-0.2 -doc
 =dev-util/boost-build-1.42.0 python -examples
@@ -250,6 +251,7 @@
 =media-fonts/font-misc-misc-1.1.2 X nls
 =media-fonts/terminus-font-4.30 psf ru-g -X -a-like-o -bolddiag -pcf -quote -raw-font-data -ru-dv -ru-i -ru-k -width
 =media-fonts/ttf-bitstream-vera-1.10-r3 X
+=media-fonts/unifont-5.1.20080914 X
 =media-fonts/urw-fonts-2.4.9 X
 =media-gfx/eog-2.32.1 dbus exif jpeg python svg tiff -debug -doc -lcms -xmp
 =media-gfx/exiv2-0.19 linguas_de linguas_es linguas_fr linguas_pl linguas_ru nls unicode zlib -contrib -doc -examples -linguas_fi -linguas_sk -xmp
@@ -484,6 +486,7 @@
 =sys-block/gparted-0.5.2 dmraid fat gnome jfs ntfs reiserfs xfs -hfs -kde -mdadm -reiser4
 =sys-block/parted-2.3 debug device-mapper nls readline -selinux
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
+=sys-boot/grub-1.99 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.65-r1 -emacs
 =sys-devel/bc-1.06.95 readline -libedit -static
