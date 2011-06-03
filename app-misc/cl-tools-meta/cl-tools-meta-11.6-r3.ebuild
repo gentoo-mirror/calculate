@@ -21,6 +21,7 @@ IUSE="
 	cdistro_CMC
 	calculate_noantivirus
 	calculate_noarch
+	calculate_noldap
 	calculate_nopgsql
 	calculate_nosamba
 "
@@ -123,8 +124,10 @@ RDEPEND="${RDEPEND}
 		sys-apps/pv
 		sys-apps/smartmontools
 		sys-apps/usbutils
-		sys-auth/nss_ldap
-		sys-auth/pam_ldap
+		!calculate_noldap? (
+			sys-auth/nss_ldap
+			sys-auth/pam_ldap
+		)
 		sys-block/parted
 		sys-block/tw_cli
 		sys-fs/dmraid

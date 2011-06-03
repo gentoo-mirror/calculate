@@ -22,6 +22,7 @@ calculate_nobittorrent
 calculate_nodhcp
 calculate_noftp
 calculate_nojabber
+calculate_noldap
 calculate_nomail
 calculate_nomysql
 calculate_nonamed
@@ -55,6 +56,7 @@ RDEPEND="${RDEPEND}
 		net-ftp/proftpd
 	)
 	!calculate_nojabber? ( net-im/ejabberd )
+	!calculate_noldap? ( net-nds/openldap )
 	!calculate_nomail? (
 		mail-filter/clamsmtp
 		mail-filter/postgrey
@@ -73,7 +75,3 @@ RDEPEND="${RDEPEND}
 	)
 "
 
-# LDAP
-RDEPEND="${RDEPEND}
-	net-nds/openldap
-"
