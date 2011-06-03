@@ -54,7 +54,7 @@ RDEPEND="${RDEPEND}
 		app-admin/testdisk
 		app-cdr/cdrkit
 		app-cdr/dvd+rw-tools
-		app-misc/mc
+		!calculate_nosamba? ( app-misc/mc )
 		app-portage/emerge-delta-webrsync
 		app-portage/genlop
 		app-portage/gentoolkit-dev
@@ -101,7 +101,7 @@ RDEPEND="${RDEPEND}
 		app-cdr/dvd+rw-tools
 		app-editors/vim
 		app-i18n/enca
-		app-misc/mc
+		!calculate_nosamba? ( app-misc/mc )
 		app-misc/screen
 		app-portage/emerge-delta-webrsync
 		app-portage/genlop
