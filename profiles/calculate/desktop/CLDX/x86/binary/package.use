@@ -93,7 +93,7 @@
 =dev-libs/libassuan-2.0.1 -static-libs
 =dev-libs/libatasmart-0.17 -static-libs
 =dev-libs/libburn-1.0.0 -debug -track-src-odirect
-=dev-libs/libcdio-0.80 cddb cxx -minimal
+=dev-libs/libcdio-0.82 cddb cxx -minimal -static-libs
 =dev-libs/libconfig-1.4.7 -examples -static-libs
 =dev-libs/libcroco-0.6.2 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
@@ -155,6 +155,7 @@
 =dev-python/reportlab-2.5 -doc -examples -test
 =dev-python/twisted-11.0.0 crypt gtk -serial
 =dev-python/twisted-web-11.0.0 -soap
+=dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
 =dev-tcltk/expect-5.44.1.15 X -debug -doc -threads
 =dev-util/bin_replace_string-0.2 -doc
 =dev-util/boost-build-1.42.0 python -examples
@@ -188,6 +189,7 @@
 =media-fonts/font-misc-misc-1.1.2 X nls
 =media-fonts/terminus-font-4.30 psf ru-g -X -a-like-o -bolddiag -pcf -quote -raw-font-data -ru-dv -ru-i -ru-k -width
 =media-fonts/ttf-bitstream-vera-1.10-r3 X
+=media-fonts/unifont-5.1.20080914 X
 =media-fonts/urw-fonts-2.4.9 X
 =media-gfx/exiv2-0.19 linguas_de linguas_es linguas_fr linguas_pl linguas_ru nls unicode zlib -contrib -doc -examples -linguas_fi -linguas_sk -xmp
 =media-gfx/gimp-2.6.11-r1 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff wmf -altivec -curl -debug -doc -gnome -lcms -webkit
@@ -387,7 +389,7 @@
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.12-r1 -static
-=sys-apps/net-tools-1.60_p20100815160931 nls -static
+=sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
@@ -415,6 +417,7 @@
 =sys-block/gparted-0.5.2 dmraid fat jfs ntfs reiserfs xfs -gnome -hfs -kde -mdadm -reiser4
 =sys-block/parted-2.3 debug device-mapper nls readline -selinux
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
+=sys-boot/grub-1.99 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.65-r1 -emacs
 =sys-devel/bc-1.06.95 readline -libedit -static
