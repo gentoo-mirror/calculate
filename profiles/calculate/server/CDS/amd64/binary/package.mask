@@ -125,6 +125,7 @@ dev-libs/libusb
 dev-libs/libusb
 dev-libs/libxml2
 dev-libs/libxslt
+dev-libs/lzo
 dev-libs/mpfr
 dev-libs/openssl
 dev-libs/popt
@@ -187,6 +188,7 @@ dev-python/twisted-web
 dev-ruby/libxml
 dev-ruby/rake
 dev-ruby/rubygems
+dev-scheme/guile
 dev-util/cmake
 dev-util/ctags
 dev-util/dialog
@@ -206,6 +208,7 @@ mail-filter/spamassassin
 mail-mta/postfix
 media-fonts/corefonts
 media-fonts/terminus-font
+media-fonts/unifont
 media-fonts/urw-fonts
 media-gfx/cds-themes
 media-gfx/fbgrab
@@ -369,9 +372,12 @@ sys-block/parted
 sys-block/tw_cli
 sys-boot/calcboot
 sys-boot/grub
+sys-boot/grub
+sys-boot/os-prober
 sys-boot/syslinux
 sys-devel/autoconf
 sys-devel/autoconf-wrapper
+sys-devel/autogen
 sys-devel/automake
 sys-devel/automake
 sys-devel/automake
