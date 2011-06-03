@@ -270,6 +270,7 @@ dev-python/reportlab
 dev-python/setuptools
 dev-python/twisted
 dev-python/twisted-web
+dev-scheme/guile
 dev-tcltk/expect
 dev-util/bin_replace_string
 dev-util/boost-build
@@ -314,6 +315,7 @@ media-fonts/font-misc-misc
 media-fonts/font-util
 media-fonts/terminus-font
 media-fonts/ttf-bitstream-vera
+media-fonts/unifont
 media-fonts/urw-fonts
 media-gfx/cldx-themes
 media-gfx/exiv2
@@ -613,10 +615,13 @@ sys-block/gparted
 sys-block/parted
 sys-boot/calcboot
 sys-boot/grub
+sys-boot/grub
+sys-boot/os-prober
 sys-boot/syslinux
 sys-devel/autoconf
 sys-devel/autoconf
 sys-devel/autoconf-wrapper
+sys-devel/autogen
 sys-devel/automake
 sys-devel/automake
 sys-devel/automake
