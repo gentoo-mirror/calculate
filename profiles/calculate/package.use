@@ -36,7 +36,7 @@ virtual/jpeg static-libs
 media-gfx/sane-backends -v4l
 
 # grub multislot by default
-=sys-boot/grub-1.99 multislot
+~sys-boot/grub-1.99 multislot
 
 # to solve the problem conflicts with app-dicts/aspell-pt-0.50.2-r1
 app-text/aspell -linguas_pt
