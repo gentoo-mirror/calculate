@@ -5,7 +5,7 @@
 EAPI=3
 
 DESCRIPTION="ioping is a simple disk I/O latency monitoring tool"
-HOMEPAGE="http://kir.sacred.ru/ioping/"
+HOMEPAGE="http://kir.sacred.ru/ioping/ http://code.google.com/p/ioping/"
 SRC_URI="http://ioping.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="GPL-3"
