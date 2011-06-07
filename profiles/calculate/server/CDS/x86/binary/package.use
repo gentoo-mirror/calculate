@@ -19,7 +19,6 @@
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-crypt/gnupg-2.0.17 bzip2 ldap nls -adns -caps -doc -openct -pcsc-lite -selinux -smartcard -static
 =app-crypt/pinentry-0.8.0 ncurses -caps -gtk -qt4 -static
-=app-editors/nano-2.2.5 ncurses nls unicode -debug -justify -minimal -slang -spell
 =app-editors/vim-7.3.135 acl bash-completion gpm nls perl python -X -cscope -debug -minimal -ruby -vim-pager
 =app-editors/vim-core-7.3.135 acl bash-completion nls -livecd
 =app-i18n/enca-1.13 recode -doc
@@ -217,7 +216,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha37 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha38 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
@@ -234,7 +233,7 @@
 =sys-auth/pambase-20101024 cracklib sha512 -consolekit -debug -gnome-keyring -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
 =sys-block/parted-2.3 debug device-mapper nls readline -selinux
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
-=sys-boot/grub-1.99 multislot truetype -custom-cflags -debug -static
+=sys-boot/grub-1.99-r1 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.65-r1 -emacs
 =sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -test -vanilla
