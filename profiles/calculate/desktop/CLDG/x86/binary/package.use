@@ -24,7 +24,6 @@
 =app-crypt/pinentry-0.8.0 gtk ncurses -caps -qt4 -static
 =app-crypt/seahorse-2.32.0 libnotify -avahi -debug -doc -introspection -ldap -test
 =app-editors/gedit-2.30.4 python spell -doc
-=app-editors/nano-2.2.5 ncurses nls spell unicode -debug -justify -minimal -slang
 =app-editors/vim-7.3.135 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
 =app-editors/vim-core-7.3.135 acl bash-completion nls -livecd
 =app-i18n/enca-1.13 recode -doc
@@ -455,7 +454,7 @@
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha37 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha38 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -479,7 +478,7 @@
 =sys-block/gparted-0.5.2 dmraid fat gnome jfs ntfs reiserfs xfs -hfs -kde -mdadm -reiser4
 =sys-block/parted-2.3 debug device-mapper nls readline -selinux
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
-=sys-boot/grub-1.99 multislot truetype -custom-cflags -debug -static
+=sys-boot/grub-1.99-r1 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.65-r1 -emacs
 =sys-devel/bc-1.06.95 readline -libedit -static
