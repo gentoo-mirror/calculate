@@ -4,7 +4,7 @@ USE=""
 USE="${USE} gnome-keyring networkmanager"
 
 # Window manager and speciality
-USE="${USE} gnome -kde"
+USE="${USE} gnome -kde nautilus"
 
 VIDEO_CARDS="${VIDEO_CARDS} radeonhd"
 CDISTRO="CLDG desktop"
