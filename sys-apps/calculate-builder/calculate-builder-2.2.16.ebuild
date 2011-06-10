@@ -4,26 +4,20 @@
 
 EAPI="3"
 
-inherit eutils
+inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="Templates for calculate utilities 2.2"
+DESCRIPTION="The utilities for builder tasks of Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-DEPEND="~sys-apps/calculate-lib-2.2.13"
+DEPEND=">=sys-kernel/calckernel-3.4.15-r5
+	~sys-apps/calculate-install-2.2.16
+	!<sys-apps/calculate-1.4.0_p20100921
+	app-cdr/cdrkit
+	sys-fs/squashfs-tools"
 
 RDEPEND="${DEPEND}"
-
-src_compile() {
-:
-}
-
-src_install() {
-	dodir /usr/share/calculate/templates
-	insinto /usr/share/calculate/templates
-	doins -r *
-}

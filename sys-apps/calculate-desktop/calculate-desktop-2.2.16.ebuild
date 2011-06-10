@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-templates-2.2.14
+DEPEND="~sys-apps/calculate-templates-2.2.16
 	>=dev-python/python-ldap-2.0[ssl]
 	xfce? ( x11-misc/xdialog )
 	gnome? ( x11-misc/xdialog )

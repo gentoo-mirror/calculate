@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="minimal"
 
-DEPEND="~sys-apps/calculate-templates-2.2.14
+DEPEND="~sys-apps/calculate-templates-2.2.16
 	app-portage/layman
 	!minimal? ( sys-boot/grub
 	sys-apps/gptfdisk
@@ -24,20 +24,6 @@ DEPEND="~sys-apps/calculate-templates-2.2.14
 	sys-block/parted )"
 
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# backport
-	epatch "${FILESDIR}/calculate-install-2.2.14-backport.patch"
-
-	# fix syntax error
-	epatch "${FILESDIR}/calculate-install-2.2.14-fix_syntax_error.patch"
-
-	# fix emerge --info error code
-	epatch "${FILESDIR}/calculate-install-2.2.14-fix_emerge_info_bug.patch"
-}
 
 pkg_postinst() {
 	einfo "For configure calculate-install perform:"

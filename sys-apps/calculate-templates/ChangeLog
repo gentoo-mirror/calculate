@@ -2,6 +2,24 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-templates-2.2.13.ebuild, -calculate-templates-2.2.13-r1.ebuild,
+  -files/calculate-templates-2.2.13-fix_grub_conf.patch,
+  -files/calculate-templates-2.2.13-fix_isolinuxcfg.patch,
+  -calculate-templates-2.2.14.ebuild, -calculate-templates-2.2.14-r1.ebuild,
+  -calculate-templates-2.2.14-r2.ebuild, -calculate-templates-2.2.14-r3.ebuild,
+  -files/calculate-templates-2.2.14-chromium11_fix.patch,
+  -files/calculate-templates-2.2.14-chromium11_newfix.patch,
+  -files/calculate-templates-2.2.14-grub_video_change.patch,
+  +calculate-templates-2.2.16.ebuild:
+  Remove old.
+
+*calculate-templates-2.2.16 (09 Jun 2011)
+
+  09 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-templates-2.2.16.ebuild:
+  Bump version.
+
 *calculate-templates-2.2.15-r1 (19 May 2011)
 
   19 May 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>

@@ -8,30 +8,27 @@ inherit eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="Templates for calculate utilities 2.2"
+DESCRIPTION="GUI frontend for the program of installation Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-DEPEND="~sys-apps/calculate-lib-2.2.14"
+DEPEND="~sys-apps/calculate-install-2.2.16
+	x11-libs/qtermwidget
+	x11-libs/qt-core"
 
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# change video
-	epatch "${FILESDIR}/calculate-templates-2.2.14-grub_video_change.patch"
+src_configure() {
+	CMAKE_PREFIX_PATH=/usr  cmake .
 }
 
 src_compile() {
-:
+	emake || die "make failed"
 }
 
 src_install() {
-	dodir /usr/share/calculate/templates
-	insinto /usr/share/calculate/templates
-	doins -r *
+	emake DESTDIR="${D}" install || die 'make install failed'
+	dodoc README
 }
