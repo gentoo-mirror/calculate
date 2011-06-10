@@ -7,7 +7,7 @@ index e32dc84..0e358a5 100755
  	mpoint=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 2)
  	mpoint="$(unescape_mount "$mpoint")"
 -	if [ "$mpoint" != "/target/boot" ] && [ "$mpoint" != "/target" ] && [ "$mpoint" != "/" ]; then
-+	if [ "$mpoint" != "/target/boot" ] && [ "$mpoint" != "/target" ] && [ "$mpoint" != "/${CHROOT_PATH#/}" ]; then
++	if [ "$mpoint" != "/target/boot" ] && [ "$mpoint" != "/target" ] && [ "$mpoint" != "/$(echo ${CHROOT_PATH%/} | cut -d/ -f 2-)" ]; then
  		type=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 3)
  		if ! grep -q " $mpoint/boot " "$OS_PROBER_TMP/mounted-map"; then
  			linux_mount_boot "$partition" "$mpoint"
@@ -20,7 +20,7 @@ index fc4de2c..34f3504 100755
  		mpoint=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 2)
  		mpoint="$(unescape_mount "$mpoint")"
 -		if [ "$mpoint" != "/target/boot" ] && [ "$mpoint" != "/target" ] && [ "$mpoint" != "/" ]; then
-+		if [ "$mpoint" != "/target/boot" ] && [ "$mpoint" != "/target" ] && [ "$mpoint" != "/${CHROOT_PATH#/}" ]; then
++		if [ "$mpoint" != "/target/boot" ] && [ "$mpoint" != "/target" ] && [ "$mpoint" != "/$(echo ${CHROOT_PATH%/} | cut -d/ -f 2-)" ]; then
  			type=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 3)
  			for test in /usr/lib/os-probes/mounted/*; do
  				if [ -f "$test" ] && [ -x "$test" ]; then
