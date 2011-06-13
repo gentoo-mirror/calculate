@@ -2,7 +2,7 @@
 =app-admin/hddtemp-0.3_beta15-r3 nls
 =app-admin/logrotate-3.7.9-r1 -selinux
 =app-admin/sudo-1.7.4_p5 ldap pam -offensive -selinux -skey
-=app-admin/syslog-ng-3.1.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
+=app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/system-config-printer-common-1.2.2 policykit -doc
 =app-admin/testdisk-6.8-r1 jpeg ntfs reiserfs -static
 =app-arch/bzip2-1.0.6 -static
@@ -114,6 +114,7 @@
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libpthread-stubs-0.1 -static-libs
 =dev-libs/libtasn1-2.9-r1 -doc
+=dev-libs/libtommath-0.42.0 -doc -examples -static-libs
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
 =dev-libs/libusb-1.0.8 -debug -doc
 =dev-libs/libxml2-2.7.8 icu ipv6 python readline -debug -doc -examples -test
@@ -371,7 +372,7 @@
 =media-libs/freetype-2.4.4 X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
-=media-libs/giflib-4.1.6-r1 X -rle
+=media-libs/giflib-4.1.6-r1 X -rle -static-libs
 =media-libs/ilmbase-1.0.2 -static-libs
 =media-libs/imlib2-1.4.4 X bzip2 gif jpeg mmx mp3 nls png tiff zlib -doc
 =media-libs/jasper-1.900.1-r3 jpeg opengl -static-libs
@@ -440,7 +441,7 @@
 =media-plugins/frei0r-plugins-1.1.22-r1 -doc -facedetect -scale0tilt
 =media-plugins/kipi-plugins-1.9.0 cdr crypt imagemagick ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk opengl scanner -aqua -calendar -debug -expoblending -handbook -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ko -linguas_lt -linguas_lv -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_pa -linguas_pt -linguas_ro -linguas_se -linguas_sk -linguas_sv -linguas_th -linguas_tr -linguas_zh_CN -linguas_zh_TW -mjpeg -redeyes
 =media-sound/alsa-utils-1.0.23-r1 nls -doc -minimal
-=media-sound/amarok-2.4.1 embedded ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk opengl player semantic-desktop utils -cdda -daap -debug -handbook -kdeenablefinal -lastfm -linguas_ca -linguas_cs -linguas_da -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_km -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_sl -linguas_sr -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_wa -linguas_zh_TW -mp3tunes -mtp -playdar -upnp
+=media-sound/amarok-2.4.1 cdda embedded ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk opengl player semantic-desktop utils -daap -debug -handbook -kdeenablefinal -lastfm -linguas_ca -linguas_cs -linguas_da -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_km -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_pt -linguas_sl -linguas_sr -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_wa -linguas_zh_TW -mp3tunes -mtp -playdar -upnp
 =media-sound/lame-3.98.4 mmx -debug -mp3rtp -sndfile -static-libs
 =media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
 =media-sound/twolame-0.3.12 -static-libs
@@ -477,7 +478,7 @@
 =net-libs/libssh-0.4.8 sftp zlib -debug -examples -gcrypt -pcap -server -ssh1 -static-libs
 =net-libs/libtirpc-0.2.1-r1 -kerberos
 =net-libs/libvncserver-0.9.7 jpeg zlib -no24bpp -test -threads
-=net-libs/neon-0.29.5 linguas_de linguas_fr linguas_pl linguas_ru nls ssl zlib -doc -expat -gnutls -kerberos -libproxy -linguas_cs -linguas_ja -linguas_nn -linguas_tr -linguas_zh_CN -pkcs11
+=net-libs/neon-0.29.6 linguas_de linguas_fr linguas_pl linguas_ru nls ssl zlib -doc -expat -gnutls -kerberos -libproxy -linguas_cs -linguas_ja -linguas_nn -linguas_tr -linguas_zh_CN -pkcs11 -static-libs
 =net-libs/ortp-0.16.5 ipv6 ssl -debug -doc -examples -minimal -srtp
 =net-libs/webkit-gtk-1.2.7 jit -aqua -coverage -debug -doc -gstreamer -introspection -test
 =net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus ipc libnotify -debug -elibc_FreeBSD -gnome -java -startup-notification -system-sqlite -wifi
