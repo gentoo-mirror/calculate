@@ -1,5 +1,8 @@
 USE=""
 
+# Audio
+USE="${USE} cdda"
+
 # Network protocols
 USE="${USE} ldap rdesktop"
 

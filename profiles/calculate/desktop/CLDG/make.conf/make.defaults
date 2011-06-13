@@ -1,5 +1,8 @@
 USE=""
 
+# Audio
+USE="${USE} cdda"
+
 # System
 USE="${USE} gnome-keyring networkmanager"
 

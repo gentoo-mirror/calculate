@@ -1,7 +1,7 @@
 USE=""
 
 # Audio
-USE="${USE} -gstreamer"
+USE="${USE} cdda -gstreamer"
 
 # Network protocols
 USE="${USE} ldap rdesktop"
