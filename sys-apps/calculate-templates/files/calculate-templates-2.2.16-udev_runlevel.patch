@@ -1,0 +1,21 @@
+commit 902b8fdcb3a3918e343189e8eb993ec699196096
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Jun 14 09:15:01 2011 +0400
+
+    Add udev to sysinit runlevel.
+
+diff --git install/1merge/udev/sysinit/.calculate_directory install/1merge/udev/sysinit/.calculate_directory
+new file mode 100644
+index 0000000..0f7257b
+--- /dev/null
++++ install/1merge/udev/sysinit/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate path=/etc/runlevels
++
+diff --git install/1merge/udev/sysinit/udev install/1merge/udev/sysinit/udev
+new file mode 100644
+index 0000000..568c5de
+--- /dev/null
++++ install/1merge/udev/sysinit/udev
+@@ -0,0 +1 @@
++# Calculate link=/etc/init.d/udev symbolic
