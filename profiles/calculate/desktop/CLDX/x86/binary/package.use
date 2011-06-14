@@ -170,7 +170,7 @@
 =gnome-base/gconf-2.32.0-r1 ldap policykit -debug -doc -introspection
 =gnome-base/gdm-2.20.11 consolekit elibc_glibc gnome-keyring ipv6 pam tcpd xinerama -accessibility -afs -branding -debug -dmx -remote -selinux
 =gnome-base/gnome-keyring-2.32.1 pam -debug -doc -test
-=gnome-base/gvfs-1.6.7 bash-completion bluetooth gdu gnome-keyring gphoto2 http samba udev -archive -avahi -cdda -doc -fuse -gnome -ios
+=gnome-base/gvfs-1.6.7 bash-completion bluetooth cdda gdu gnome-keyring gphoto2 http samba udev -archive -avahi -doc -fuse -gnome -ios
 =gnome-base/libglade-2.6.4 -doc -static-libs -test
 =gnome-base/libgnome-keyring-2.32.0 -debug -doc -test
 =gnome-base/libgnomecanvas-2.30.3 -doc -glade -test
@@ -274,7 +274,7 @@
 =media-libs/win32codecs-20071007-r4 -real
 =media-libs/x264-0.0.20101029 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
-=media-plugins/audacious-plugins-2.4.4-r1 aac alsa ffmpeg flac ipv6 libnotify lirc mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cdda -cue -fluidsynth -gnome -jack -lame -libsamplerate -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
+=media-plugins/audacious-plugins-2.4.4-r1 aac alsa cdda ffmpeg flac ipv6 libnotify lirc mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cue -fluidsynth -gnome -jack -lame -libsamplerate -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
 =media-plugins/gst-plugins-a52dec-0.10.17 orc
 =media-plugins/gst-plugins-ffmpeg-0.10.11-r1 orc
 =media-plugins/gst-plugins-meta-0.10-r4 X a52 alsa dvd ffmpeg flac mad mpeg ogg theora v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib
@@ -296,7 +296,7 @@
 =net-dialup/pptpclient-1.7.2-r2 -tk
 =net-dialup/rp-pppoe-3.8-r2 X
 =net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
-=net-dns/libidn-1.20 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
+=net-dns/libidn-1.22 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.8-r1 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
@@ -362,8 +362,8 @@
 =sys-apps/calculate-client-2.2.16 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.16 xfce -gnome -kde
 =sys-apps/calculate-install-2.2.16 -minimal
-=sys-apps/calculate-lib-2.2.16 -minimal
-=sys-apps/calculate-utilities-2.2.16-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-lib-2.2.16-r1 -minimal
+=sys-apps/calculate-utilities-2.2.16-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -392,7 +392,7 @@
 =sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha40 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha41 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -444,7 +444,7 @@
 =sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r8 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-2.6.38.6 symlink vmlinuz -build -deblob
+=sys-kernel/calculate-sources-2.6.38.8 symlink vmlinuz -build -deblob
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
