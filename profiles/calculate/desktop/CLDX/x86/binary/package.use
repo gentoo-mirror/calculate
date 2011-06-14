@@ -2,7 +2,7 @@
 =app-admin/hddtemp-0.3_beta15-r3 nls
 =app-admin/logrotate-3.7.9-r1 -selinux
 =app-admin/sudo-1.7.4_p5 ldap pam -offensive -selinux -skey
-=app-admin/syslog-ng-3.1.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
+=app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/testdisk-6.8-r1 jpeg ntfs reiserfs -static
 =app-arch/bzip2-1.0.6 -static
 =app-arch/cabextract-1.3 -extra-tools
@@ -214,7 +214,7 @@
 =media-libs/freetype-2.4.4 X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
-=media-libs/giflib-4.1.6-r1 X -rle
+=media-libs/giflib-4.1.6-r1 X -rle -static-libs
 =media-libs/gst-plugins-bad-0.10.21 orc
 =media-libs/gst-plugins-base-0.10.32 nls orc -debug -introspection
 =media-libs/gst-plugins-good-0.10.28 orc -debug
@@ -313,7 +313,7 @@
 =net-libs/libsoup-2.32.2 ssl -debug -doc -introspection -test
 =net-libs/libsoup-gnome-2.32.2 -debug -doc -introspection
 =net-libs/libtirpc-0.2.1-r1 -kerberos
-=net-libs/neon-0.29.5 linguas_de linguas_fr linguas_pl linguas_ru nls ssl zlib -doc -expat -gnutls -kerberos -libproxy -linguas_cs -linguas_ja -linguas_nn -linguas_tr -linguas_zh_CN -pkcs11
+=net-libs/neon-0.29.6 linguas_de linguas_fr linguas_pl linguas_ru nls ssl zlib -doc -expat -gnutls -kerberos -libproxy -linguas_cs -linguas_ja -linguas_nn -linguas_tr -linguas_zh_CN -pkcs11 -static-libs
 =net-libs/rb_libtorrent-0.15.6 python ssl -debug -doc -examples
 =net-libs/webkit-gtk-1.2.7 gstreamer jit -aqua -coverage -debug -doc -introspection -test
 =net-libs/wvstreams-4.6.1-r1 dbus pam ssl -debug -doc
