@@ -123,7 +123,7 @@
 =dev-libs/libunique-1.1.6 dbus -debug -doc -introspection -test
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
 =dev-libs/libusb-1.0.8 -debug -doc
-=dev-libs/libxml2-2.7.8 icu ipv6 python readline -debug -doc -examples -test
+=dev-libs/libxml2-2.7.8-r1 icu ipv6 python readline -debug -doc -examples -test
 =dev-libs/libxslt-1.1.26-r1 crypt python -debug
 =dev-libs/lzo-2.04 -examples -static-libs
 =dev-libs/nspr-4.8.7 -debug
@@ -168,7 +168,7 @@
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
 =dev-python/pycurl-7.19.0 -examples
-=dev-python/pygame-1.9.1 X -doc -examples
+=dev-python/pygame-1.9.2_pre3082 X -doc -examples -test
 =dev-python/pygobject-2.26.0-r1 cairo threads -doc -examples -introspection -libffi -test
 =dev-python/pygtk-2.22.0-r1 -doc -examples -test
 =dev-python/pygtksourceview-2.10.1 -debug -doc
@@ -503,7 +503,7 @@
 =sys-fs/ntfsprogs-2.0.0-r1 crypt gnome -debug -fuse -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/squashfs-tools-4.2 gzip lzma lzo -xattr
-=sys-fs/udev-151-r4 extras -devfs-compat -old-hd-rules -selinux -test
+=sys-fs/udev-164-r2 extras -selinux -test
 =sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r8 bash-completion video_cards_radeon -ibm -selinux
