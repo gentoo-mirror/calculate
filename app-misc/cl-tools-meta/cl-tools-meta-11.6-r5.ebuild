@@ -27,6 +27,7 @@ IUSE="
 "
 
 RDEPEND="${RDEPEND}
+	app-editors/nano
 	sys-apps/ethtool
 
 	cdistro_desktop? (
