@@ -236,7 +236,7 @@
 =gnome-extra/yelp-2.30.2-r1 -debug
 =gnome-extra/zenity-2.32.1 compat libnotify -debug
 =mail-client/evolution-2.32.2 crypt networkmanager python ssl -clutter -doc -gstreamer -kerberos -ldap
-=mail-mta/ssmtp-2.62-r8 ipv6 ssl -maxsysuid -md5sum
+=mail-mta/ssmtp-2.64-r2 ipv6 mta ssl -gnutls
 =media-fonts/corefonts-1-r4 X
 =media-fonts/dejavu-2.32 X -fontforge
 =media-fonts/droid-113-r1 X
@@ -341,8 +341,8 @@
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/cheese-2.32.0 -doc
 =media-video/dirac-1.0.2 mmx -debug -doc
-=media-video/ffmpeg-0.6_p25767 3dnow 3dnowext X alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads v4l v4l2 vdpau vorbis x264 xvid zlib -altivec -bindist -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vaapi -video_cards_nvidia -vpx
-=media-video/mplayer-1.0_rc4_p20110322 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
+=media-video/ffmpeg-0.6_p25767 3dnow 3dnowext X alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads v4l v4l2 vaapi vdpau vorbis x264 xvid zlib -altivec -bindist -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -video_cards_nvidia -vpx
+=media-video/mplayer-1.0_rc4_p20110322-r50 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
 =media-video/totem-2.32.0 bluetooth lirc nautilus nsplugin python youtube -debug -doc -galago -iplayer -tracker -upnp
 =net-analyzer/gnome-netstatus-2.28.2 -debug
 =net-analyzer/gnome-nettool-2.32.0 -debug
@@ -533,7 +533,7 @@
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r10 pam -debug -selinux
-=virtual/ffmpeg-0.6-r1 X encode mp3 sdl theora threads vdpau x264 -vaapi
+=virtual/ffmpeg-0.6-r1 X encode mp3 sdl theora threads vaapi vdpau x264
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
@@ -604,6 +604,7 @@
 =x11-libs/libnotify-0.7.2 -doc -introspection -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
 =x11-libs/libsexy-0.1.11-r2 -doc -static-libs
+=x11-libs/libva-0.31.1_p4 opengl video_cards_dummy video_cards_intel -video_cards_nvidia
 =x11-libs/libvdpau-0.4.1 -doc
 =x11-libs/libwnck-2.30.6 -doc -introspection -startup-notification
 =x11-libs/libxcb-1.7 -doc -selinux -static-libs
