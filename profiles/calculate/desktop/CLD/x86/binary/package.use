@@ -288,7 +288,7 @@
 =kde-base/kstart-4.6.3 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kstartupconfig-4.6.3 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kstyles-4.6.3 -aqua -debug -kdeenablefinal -kdeprefix
-=kde-base/ksysguard-4.6.3 handbook -aqua -debug -kdeenablefinal -kdeprefix -lm_sensors -test
+=kde-base/ksysguard-4.6.3 handbook lm_sensors -aqua -debug -kdeenablefinal -kdeprefix -test
 =kde-base/ksystemlog-4.6.3 handbook -aqua -debug -kdeenablefinal -kdeprefix -test
 =kde-base/ksystraycmd-4.6.3 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/ktimezoned-4.6.3 -aqua -debug -kdeenablefinal -kdeprefix
@@ -341,7 +341,7 @@
 =kde-misc/kwebkitpart-0.9.6 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_fi -linguas_ga -linguas_gl -linguas_hu -linguas_km -linguas_lt -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_ro -linguas_sk -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tg -linguas_th -linguas_tr -linguas_zh_CN -linguas_zh_TW
 =kde-misc/openofficeorg-thumbnail-1.0.0 -aqua -debug -kdeenablefinal
 =kde-misc/polkit-kde-kcmodules-0.98_pre20101127 -aqua -debug -kdeenablefinal
-=mail-mta/ssmtp-2.62-r8 ipv6 ssl -maxsysuid -md5sum
+=mail-mta/ssmtp-2.64-r2 ipv6 mta ssl -gnutls
 =media-fonts/corefonts-1-r4 X
 =media-fonts/dejavu-2.32 X -fontforge
 =media-fonts/droid-113-r1 X
@@ -448,12 +448,12 @@
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
 =media-video/dvgrab-3.5 jpeg quicktime
-=media-video/ffmpeg-0.6_p25767 3dnow 3dnowext X alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads v4l v4l2 vdpau vorbis x264 xvid zlib -altivec -bindist -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vaapi -video_cards_nvidia -vpx
+=media-video/ffmpeg-0.6_p25767 3dnow 3dnowext X alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads v4l v4l2 vaapi vdpau vorbis x264 xvid zlib -altivec -bindist -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -video_cards_nvidia -vpx
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/kdenlive-0.7.8 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh
 =media-video/kffmpegthumbnailer-1.1.0 -aqua -debug -kdeenablefinal
 =media-video/mjpegtools-1.9.0-r1 dv gtk mmx png quicktime sdl v4l -dga -yv12
-=media-video/mplayer-1.0_rc4_p20110322 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
+=media-video/mplayer-1.0_rc4_p20110322-r50 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
 =media-video/recordmydesktop-0.3.8.1-r4 alsa -jack
 =media-video/smplayer-0.6.9 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -debug -linguas_ar -linguas_ca -linguas_cs -linguas_el -linguas_en_US -linguas_et -linguas_eu -linguas_fi -linguas_gl -linguas_hu -linguas_ja -linguas_ka -linguas_ko -linguas_ku -linguas_mk -linguas_nl -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
 =media-video/transcode-1.1.5-r2 3dnow X a52 aac alsa dv dvd iconv imagemagick jpeg lzo mjpeg mmx mp3 mpeg ogg quicktime sdl sse sse2 theora truetype v4l2 vorbis x264 xvid -altivec -nuv -oss -postproc -xml
@@ -636,7 +636,7 @@
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r10 pam -debug -selinux
-=virtual/ffmpeg-0.6-r1 X encode mp3 sdl theora threads vdpau x264 -vaapi
+=virtual/ffmpeg-0.6-r1 X encode mp3 sdl theora threads vaapi vdpau x264
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
@@ -703,6 +703,7 @@
 =x11-libs/libfontenc-1.1.0 -static-libs
 =x11-libs/libnotify-0.7.2 -doc -introspection -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
+=x11-libs/libva-0.31.1_p4 opengl video_cards_dummy video_cards_intel -video_cards_nvidia
 =x11-libs/libvdpau-0.4.1 -doc
 =x11-libs/libxcb-1.7 -doc -selinux -static-libs
 =x11-libs/libxkbfile-1.0.7 -static-libs
