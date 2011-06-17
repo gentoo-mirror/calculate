@@ -26,7 +26,7 @@ index 6ec85ea..ea6fe6f 100644
 +        for node,mode,major,minor in [("console",0600|stat.S_IFCHR,5,1),
 +                                      ("null",0666|stat.S_IFCHR,1,3),
 +                                      ("zero",0666|stat.S_IFCHR,1,5)]:
-+            os.mknod(path.join(directory,node),mode,os.makedev(major,minor))
++            os.mknod(path.join(devPath,node),mode,os.makedev(major,minor))
 +
      def applyTemplatesForSquash(self,directory):
          """Apply templates for root of system."""
