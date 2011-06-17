@@ -26,7 +26,7 @@ RDEPEND="${RDEPEND}
 	=sys-apps/calculate-lib-2.2.16-r1
 
 	cl_assemble? ( =sys-apps/calculate-assemble-2.2.16 )
-	cl_builder? ( =sys-apps/calculate-builder-2.2.16-r1 )
+	cl_builder? ( =sys-apps/calculate-builder-2.2.16-r2 )
 	cl_client? ( =sys-apps/calculate-client-2.2.16 )
 	cl_desktop? ( =sys-apps/calculate-desktop-2.2.16 )
 	cl_installgui? ( =app-misc/calculate-install-gui-2.2.16 )
