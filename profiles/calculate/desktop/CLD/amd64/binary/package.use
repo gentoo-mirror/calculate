@@ -534,7 +534,7 @@
 =sys-apps/calculate-desktop-2.2.16 kde -gnome -xfce
 =sys-apps/calculate-install-2.2.16 -minimal
 =sys-apps/calculate-lib-2.2.16-r1 -minimal
-=sys-apps/calculate-utilities-2.2.16-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.16-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -583,7 +583,7 @@
 =sys-auth/polkit-0.101-r1 kde nls pam -debug -doc -examples -gtk -introspection
 =sys-auth/polkit-kde-agent-0.99.0 linguas_de linguas_es linguas_fr linguas_it linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_en_GB -linguas_eo -linguas_et -linguas_fi -linguas_ga -linguas_gl -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_ro -linguas_sk -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
 =sys-auth/polkit-qt-0.99.0 -debug -examples
-=sys-auth/thinkfinger-0.3-r2 pam -debug
+=sys-auth/thinkfinger-0.3-r3 pam -debug
 =sys-block/eject-2.1.5-r2 nls
 =sys-block/parted-2.3 debug device-mapper nls readline -selinux
 =sys-block/partitionmanager-1.0.3 linguas_bg linguas_de linguas_es linguas_fr linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_da -linguas_el -linguas_en_GB -linguas_et -linguas_gl -linguas_ja -linguas_lt -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_pa -linguas_ro -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW
@@ -743,4 +743,4 @@
 =x11-proto/xcmiscproto-1.2.1 -doc
 =x11-proto/xextproto-7.2.0 -doc
 =x11-proto/xproto-7.0.21 -doc
-=x11-themes/oxygen-gtk-1.0.4 -debug -doc
+=x11-themes/oxygen-gtk-1.0.5 -debug -doc
