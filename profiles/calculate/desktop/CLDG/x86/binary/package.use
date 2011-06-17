@@ -426,7 +426,7 @@
 =sys-apps/calculate-desktop-2.2.16 gnome -kde -xfce
 =sys-apps/calculate-install-2.2.16 -minimal
 =sys-apps/calculate-lib-2.2.16-r1 -minimal
-=sys-apps/calculate-utilities-2.2.16-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.16-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -474,7 +474,7 @@
 =sys-auth/pam_ldap-183 ssl -sasl
 =sys-auth/pambase-20101024 consolekit cracklib gnome-keyring sha512 -debug -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
 =sys-auth/polkit-0.101-r1 gtk nls pam -debug -doc -examples -introspection -kde
-=sys-auth/thinkfinger-0.3-r2 pam -debug
+=sys-auth/thinkfinger-0.3-r3 pam -debug
 =sys-block/eject-2.1.5-r2 nls
 =sys-block/gparted-0.5.2 dmraid fat gnome jfs ntfs reiserfs xfs -hfs -kde -mdadm -reiser4
 =sys-block/parted-2.3 debug device-mapper nls readline -selinux
