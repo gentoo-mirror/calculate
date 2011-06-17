@@ -1,0 +1,13 @@
+commit c937509b08e142d6e682c15ce09865c267ccd18a
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Jun 17 12:16:00 2011 +0400
+
+    Clean dev path.
+
+diff --git builder/clean/dev/.calculate_directory builder/clean/dev/.calculate_directory
+new file mode 100644
+index 0000000..f116a07
+--- /dev/null
++++ builder/clean/dev/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate path=/ name=dev append=clear

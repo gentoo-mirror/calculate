@@ -2,6 +2,13 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-builder-2.2.16-r1 (17 Jun 2011)
+
+  17 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-builder-2.2.16-r1.ebuild,
+  +files/calculate-builder-2.2.16-fix_dev.patch:
+  Update for bugfix.
+
   09 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
   -calculate-builder-2.2.13.ebuild, -calculate-builder-2.2.14.ebuild,
   -calculate-builder-2.2.14-r1.ebuild, -calculate-builder-2.2.14-r2.ebuild,
