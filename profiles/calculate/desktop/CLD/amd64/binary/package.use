@@ -2,7 +2,7 @@
 =app-admin/hddtemp-0.3_beta15-r3 nls
 =app-admin/logrotate-3.7.9-r1 -selinux
 =app-admin/sudo-1.7.4_p5 ldap pam -offensive -selinux -skey
-=app-admin/syslog-ng-3.1.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
+=app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/system-config-printer-common-1.2.2 policykit -doc
 =app-admin/testdisk-6.11.3 jpeg ntfs reiserfs -static
 =app-arch/bzip2-1.0.6 -static
@@ -20,7 +20,7 @@
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-cdr/k3b-2.0.2-r1 dvd encode ffmpeg flac linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk mad musepack vcd vorbis wav -aqua -debug -emovix -hal -kdeenablefinal -lame -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_csb -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ko -linguas_ku -linguas_lt -linguas_mai -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_pa -linguas_pt -linguas_ro -linguas_se -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_CN -linguas_zh_TW -musicbrainz -sndfile -sox -taglib
 =app-crypt/gnupg-2.0.17 bzip2 ldap nls -adns -caps -doc -openct -pcsc-lite -selinux -smartcard -static
-=app-crypt/gpgme-1.3.0 -common-lisp -pth
+=app-crypt/gpgme-1.3.0-r1 -common-lisp -pth
 =app-crypt/pinentry-0.8.0 gtk ncurses qt4 -caps -static
 =app-crypt/qca-2.0.3 -aqua -debug -doc -examples
 =app-crypt/qca-ossl-2.0.0_beta3-r2 -debug
@@ -123,6 +123,7 @@
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libpthread-stubs-0.1 -static-libs
 =dev-libs/libtasn1-2.9-r1 -doc
+=dev-libs/libtommath-0.42.0 -doc -examples -static-libs
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
 =dev-libs/libusb-1.0.8 -debug -doc
 =dev-libs/libxml2-2.7.8-r1 icu ipv6 python readline -debug -doc -examples -test
@@ -156,7 +157,7 @@
 =dev-python/foolscap-0.6.1 ssl -doc
 =dev-python/imaging-1.1.7 X scanner -doc -examples -tk
 =dev-python/ipython-0.10.2 readline smp -doc -emacs -examples -gnuplot -test -wxwidgets
-=dev-python/numpy-1.5.1 -doc -lapack -test
+=dev-python/numpy-1.6.0 -doc -lapack -test
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
 =dev-python/pycups-1.9.49 -doc -examples
@@ -421,6 +422,7 @@
 =media-libs/libtheora-1.1.1 encode -doc -examples -static-libs
 =media-libs/libvorbis-1.3.1 -static-libs
 =media-libs/libvpx-0.9.5-r1 mmx sse sse2 sse3 ssse3 threads -altivec -debug -doc -postproc
+=media-libs/libwebp-0.1.2 -static-libs
 =media-libs/libwmf-0.2.8.4-r3 X gtk -debug -doc -expat -xml
 =media-libs/mediastreamer-2.7.3-r3 X alsa amr ipv6 portaudio sdl speex theora v4l2 video x264 -bindist -coreaudio -debug -examples -gsm -ilbc -jack -oss -pulseaudio
 =media-libs/mesa-7.10.2 classic gallium nptl video_cards_intel video_cards_mach64 video_cards_mga video_cards_nouveau video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_via video_cards_vmware -debug -gles -hardened -kernel_FreeBSD -llvm -motif -pic -selinux
@@ -517,7 +519,7 @@
 =net-print/hplip-3.11.5 acl fax hpcups hpijs kde libnotify policykit scanner static-ppds -X -doc -minimal -parport -qt4 -snmp
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/bluedevil-1.1-r2 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
-=net-wireless/bluez-4.91 alsa consolekit cups usb -attrib -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
+=net-wireless/bluez-4.93 alsa consolekit cups usb -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
 =net-wireless/madwifi-ng-0.9.4.4136.20110203 kernel_linux -injection
 =net-wireless/madwimax-0.1.1 -doc
@@ -536,7 +538,7 @@
 =sys-apps/calculate-lib-2.2.16-r1 -minimal
 =sys-apps/calculate-utilities-2.2.16-r9 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
-=sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
+=sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
 =sys-apps/file-5.05 python -static-libs
@@ -573,7 +575,7 @@
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
 =sys-apps/usbutils-001 zlib -network-cron
-=sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -old-linux -selinux -slang -uclibc
+=sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 x86emu -debug
 =sys-apps/xinetd-2.3.14 perl tcpd
 =sys-auth/consolekit-0.4.4 kernel_linux pam policykit -debug -doc -test
@@ -650,7 +652,7 @@
 =virtual/mysql-5.1 embedded -minimal -static
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-11.0.696.71 cups -gnome -gnome-keyring -test
+=www-client/chromium-12.0.742.91-r1 cups xinerama -gnome -gnome-keyring -kerberos -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
 =www-plugins/adobe-flash-10.3.181.26 vdpau -kde
 =x11-apps/xauth-1.0.5 ipv6
