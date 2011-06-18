@@ -2,7 +2,7 @@
 =app-admin/hddtemp-0.3_beta15-r3 nls
 =app-admin/logrotate-3.7.9-r1 -selinux
 =app-admin/sudo-1.7.4_p5 pam -ldap -offensive -selinux -skey
-=app-admin/syslog-ng-3.1.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
+=app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/testdisk-6.11.3 jpeg ntfs reiserfs -static
 =app-arch/bzip2-1.0.6 -static
 =app-arch/cabextract-1.3 -extra-tools
@@ -20,7 +20,7 @@
 =app-cdr/cdrdao-1.2.3-r1 encode mad vorbis -gcdmaster -pccts
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-crypt/gnupg-2.0.17 bzip2 nls -adns -caps -doc -ldap -openct -pcsc-lite -selinux -smartcard -static
-=app-crypt/gpgme-1.3.0 -common-lisp -pth
+=app-crypt/gpgme-1.3.0-r1 -common-lisp -pth
 =app-crypt/pinentry-0.8.0 gtk ncurses -caps -qt4 -static
 =app-crypt/seahorse-2.32.0 libnotify -avahi -debug -doc -introspection -ldap -test
 =app-editors/gedit-2.30.4 python spell -doc
@@ -173,7 +173,7 @@
 =dev-python/libwnck-python-2.32.0 -examples
 =dev-python/mako-0.4.1 -doc -test
 =dev-python/notify-python-0.1.1-r2 -examples
-=dev-python/numpy-1.5.1 -doc -lapack -test
+=dev-python/numpy-1.6.0 -doc -lapack -test
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
 =dev-python/pycurl-7.19.0 -examples
@@ -186,7 +186,6 @@
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-python/reportlab-2.5 -doc -examples -test
-=dev-python/simplejson-2.1.3 -doc
 =dev-python/twisted-11.0.0 crypt gtk -serial
 =dev-python/twisted-web-11.0.0 -soap
 =dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
@@ -317,6 +316,7 @@
 =media-libs/libtheora-1.1.1 encode -doc -examples -static-libs
 =media-libs/libvorbis-1.3.1 -static-libs
 =media-libs/libvpx-0.9.5-r1 mmx sse sse2 sse3 ssse3 threads -altivec -debug -doc -postproc
+=media-libs/libwebp-0.1.2 -static-libs
 =media-libs/libwmf-0.2.8.4-r3 X gtk -debug -doc -expat -xml
 =media-libs/mesa-7.10.2 classic gallium nptl video_cards_intel video_cards_mach64 video_cards_mga video_cards_nouveau video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_via video_cards_vmware -debug -gles -hardened -kernel_FreeBSD -llvm -motif -pic -selinux
 =media-libs/musicbrainz-3.0.2 -test
@@ -418,7 +418,7 @@
 =net-print/libgnomecups-0.2.3 -debug
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/blueman-1.21-r1 gnome network nls policykit -hal -pulseaudio
-=net-wireless/bluez-4.91 alsa consolekit cups usb -attrib -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
+=net-wireless/bluez-4.93 alsa consolekit cups usb -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
 =net-wireless/madwifi-ng-0.9.4.4136.20110203 kernel_linux -injection
 =net-wireless/madwimax-0.1.1 -doc
@@ -435,7 +435,7 @@
 =sys-apps/calculate-lib-2.2.16-r1 -minimal
 =sys-apps/calculate-utilities-2.2.16-r9 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
-=sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
+=sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
 =sys-apps/file-5.05 python -static-libs
@@ -473,7 +473,7 @@
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
 =sys-apps/usbutils-001 zlib -network-cron
-=sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -old-linux -selinux -slang -uclibc
+=sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 x86emu -debug
 =sys-apps/xinetd-2.3.14 perl tcpd
 =sys-auth/consolekit-0.4.4 kernel_linux pam policykit -debug -doc -test
@@ -547,7 +547,7 @@
 =virtual/linux-sources-2.6 -hardened
 =virtual/notification-daemon-0 gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-11.0.696.71 cups gnome gnome-keyring -test
+=www-client/chromium-12.0.742.91-r1 cups gnome gnome-keyring xinerama -kerberos -test
 =www-plugins/adobe-flash-10.3.181.26 vdpau -kde
 =x11-apps/fusion-icon-0.1-r1 gtk -qt4
 =x11-apps/xauth-1.0.5 ipv6
