@@ -25,8 +25,8 @@
 =app-crypt/seahorse-2.32.0 libnotify -avahi -debug -doc -introspection -ldap -test
 =app-editors/gedit-2.30.4 python spell -doc
 =app-editors/nano-2.2.5 ncurses nls spell unicode -debug -justify -minimal -slang
-=app-editors/vim-7.3.135 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
-=app-editors/vim-core-7.3.135 acl bash-completion nls -livecd
+=app-editors/vim-7.3.189 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
+=app-editors/vim-core-7.3.189 acl bash-completion nls -livecd
 =app-emulation/emul-linux-x86-baselibs-20110129 -development
 =app-emulation/emul-linux-x86-compat-20100611 multilib
 =app-emulation/emul-linux-x86-gtklibs-20110129 -development
@@ -243,7 +243,7 @@
 =gnome-extra/yelp-2.30.2-r1 -debug
 =gnome-extra/zenity-2.32.1 compat libnotify -debug
 =mail-client/evolution-2.32.2 crypt networkmanager python ssl -clutter -doc -gstreamer -kerberos -ldap
-=mail-mta/ssmtp-2.62-r8 ipv6 ssl -maxsysuid -md5sum
+=mail-mta/ssmtp-2.64-r2 ipv6 mta ssl -gnutls
 =media-fonts/corefonts-1-r4 X
 =media-fonts/dejavu-2.32 X -fontforge
 =media-fonts/droid-113-r1 X
@@ -361,7 +361,7 @@
 =net-dialup/rp-pppoe-3.8-r2 X
 =net-dns/avahi-0.6.28-r1 dbus gdbm ipv6 kernel_linux python -autoipd -bookmarks -doc -gtk -howl-compat -mdnsresponder-compat -mono -qt4 -test
 =net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
-=net-dns/libidn-1.20 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
+=net-dns/libidn-1.22 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.8-r1 acl aio client cups netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldap -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
@@ -414,7 +414,7 @@
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gnome-cups-manager-0.33-r2 samba
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
-=net-print/hplip-3.11.5 acl fax hpcups hpijs libnotify policykit scanner static-ppds -X -doc -kde -minimal -parport -qt4 -snmp
+=net-print/hplip-3.11.5-r1 acl fax hpcups hpijs libnotify policykit scanner static-ppds -X -doc -kde -minimal -parport -qt4 -snmp
 =net-print/libgnomecups-0.2.3 -debug
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/blueman-1.21-r1 gnome network nls policykit -hal -pulseaudio
