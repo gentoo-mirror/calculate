@@ -25,8 +25,8 @@
 =app-crypt/qca-2.0.3 -aqua -debug -doc -examples
 =app-crypt/qca-ossl-2.0.0_beta3-r2 -debug
 =app-editors/nano-2.2.5 ncurses nls spell unicode -debug -justify -minimal -slang
-=app-editors/vim-7.3.135 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
-=app-editors/vim-core-7.3.135 acl bash-completion nls -livecd
+=app-editors/vim-7.3.189 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
+=app-editors/vim-core-7.3.189 acl bash-completion nls -livecd
 =app-emulation/emul-linux-x86-baselibs-20110129 -development
 =app-emulation/emul-linux-x86-compat-20100611 multilib
 =app-emulation/emul-linux-x86-gtklibs-20110129 -development
@@ -349,7 +349,7 @@
 =kde-misc/kwebkitpart-0.9.6 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_fi -linguas_ga -linguas_gl -linguas_hu -linguas_km -linguas_lt -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_ro -linguas_sk -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tg -linguas_th -linguas_tr -linguas_zh_CN -linguas_zh_TW
 =kde-misc/openofficeorg-thumbnail-1.0.0 -aqua -debug -kdeenablefinal
 =kde-misc/polkit-kde-kcmodules-0.98_pre20101127 -aqua -debug -kdeenablefinal
-=mail-mta/ssmtp-2.62-r8 ipv6 ssl -maxsysuid -md5sum
+=mail-mta/ssmtp-2.64-r2 ipv6 mta ssl -gnutls
 =media-fonts/corefonts-1-r4 X
 =media-fonts/dejavu-2.32 X -fontforge
 =media-fonts/droid-113-r1 X
@@ -460,7 +460,7 @@
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/kdenlive-0.7.8 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh
 =media-video/kffmpegthumbnailer-1.1.0 -aqua -debug -kdeenablefinal
-=media-video/mjpegtools-1.9.0-r1 dv gtk mmx png quicktime sdl v4l -dga -yv12
+=media-video/mjpegtools-2.0.0-r1 X dv gtk mmx png quicktime sdl v4l -dga -sdlgfx -static-libs
 =media-video/mplayer-1.0_rc4_p20110322-r50 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vorbis x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vidix -vpx -win32codecs -zoran
 =media-video/recordmydesktop-0.3.8.1-r4 alsa -jack
 =media-video/smplayer-0.6.9 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -debug -linguas_ar -linguas_ca -linguas_cs -linguas_el -linguas_en_US -linguas_et -linguas_eu -linguas_fi -linguas_gl -linguas_hu -linguas_ja -linguas_ka -linguas_ko -linguas_ku -linguas_mk -linguas_nl -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
@@ -472,7 +472,7 @@
 =net-dialup/pptpclient-1.7.2-r2 -tk
 =net-dialup/rp-pppoe-3.8-r2 X
 =net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
-=net-dns/libidn-1.20 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
+=net-dns/libidn-1.22 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.8-r1 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-im/choqok-1.1 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -indicate -kdeenablefinal -linguas_da -linguas_en_GB -linguas_et -linguas_ja -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW
@@ -516,7 +516,7 @@
 =net-print/cups-1.4.6-r21 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
-=net-print/hplip-3.11.5 acl fax hpcups hpijs kde libnotify policykit scanner static-ppds -X -doc -minimal -parport -qt4 -snmp
+=net-print/hplip-3.11.5-r1 acl fax hpcups hpijs kde libnotify policykit scanner static-ppds -X -doc -minimal -parport -qt4 -snmp
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/bluedevil-1.1-r2 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
 =net-wireless/bluez-4.93 alsa consolekit cups usb -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
