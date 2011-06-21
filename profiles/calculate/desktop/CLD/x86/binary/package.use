@@ -20,13 +20,13 @@
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-cdr/k3b-2.0.2-r1 dvd encode ffmpeg flac linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk mad musepack vcd vorbis wav -aqua -debug -emovix -hal -kdeenablefinal -lame -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_csb -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ko -linguas_ku -linguas_lt -linguas_mai -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_pa -linguas_pt -linguas_ro -linguas_se -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_CN -linguas_zh_TW -musicbrainz -sndfile -sox -taglib
 =app-crypt/gnupg-2.0.17 bzip2 ldap nls -adns -caps -doc -openct -pcsc-lite -selinux -smartcard -static
-=app-crypt/gpgme-1.3.0 -common-lisp -pth
+=app-crypt/gpgme-1.3.0-r1 -common-lisp -pth
 =app-crypt/pinentry-0.8.0 gtk ncurses qt4 -caps -static
 =app-crypt/qca-2.0.3 -aqua -debug -doc -examples
 =app-crypt/qca-ossl-2.0.0_beta3-r2 -debug
 =app-editors/nano-2.2.5 ncurses nls spell unicode -debug -justify -minimal -slang
-=app-editors/vim-7.3.135 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
-=app-editors/vim-core-7.3.135 acl bash-completion nls -livecd
+=app-editors/vim-7.3.189 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
+=app-editors/vim-core-7.3.189 acl bash-completion nls -livecd
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.6 cdistro_CLD -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cl-decoration-meta-11.6 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
@@ -71,7 +71,7 @@
 =dev-cpp/eigen-2.0.13 -debug -doc -examples
 =dev-db/libiodbc-3.52.7 gtk
 =dev-db/mysql-5.1.56 community embedded perl ssl -big-tables -cluster -debug -extraengine -latin1 -max-idx-128 -minimal -pbxt -profiling -selinux -static -test -xtradb
-=dev-db/sqlite-3.7.5 extensions fts3 readline secure-delete threadsafe -debug -doc -icu -soundex -tcl -test -unlock-notify
+=dev-db/sqlite-3.7.6.3 extensions fts3 readline secure-delete threadsafe -debug -doc -icu -soundex -tcl -test -unlock-notify
 =dev-db/virtuoso-odbc-6.1.2 -static-libs
 =dev-db/virtuoso-server-6.1.2 ldap readline -kerberos
 =dev-lang/nasm-2.09.08 -doc
@@ -149,7 +149,7 @@
 =dev-python/foolscap-0.6.1 ssl -doc
 =dev-python/imaging-1.1.7 X scanner -doc -examples -tk
 =dev-python/ipython-0.10.2 readline smp -doc -emacs -examples -gnuplot -test -wxwidgets
-=dev-python/numpy-1.5.1 -doc -lapack -test
+=dev-python/numpy-1.6.0 -doc -lapack -test
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
 =dev-python/pycups-1.9.49 -doc -examples
@@ -453,7 +453,7 @@
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/kdenlive-0.7.8 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh
 =media-video/kffmpegthumbnailer-1.1.0 -aqua -debug -kdeenablefinal
-=media-video/mjpegtools-1.9.0-r1 dv gtk mmx png quicktime sdl v4l -dga -yv12
+=media-video/mjpegtools-2.0.0-r1 X dv gtk mmx png quicktime sdl v4l -dga -sdlgfx -static-libs
 =media-video/mplayer-1.0_rc4_p20110322-r50 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
 =media-video/recordmydesktop-0.3.8.1-r4 alsa -jack
 =media-video/smplayer-0.6.9 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk -debug -linguas_ar -linguas_ca -linguas_cs -linguas_el -linguas_en_US -linguas_et -linguas_eu -linguas_fi -linguas_gl -linguas_hu -linguas_ja -linguas_ka -linguas_ko -linguas_ku -linguas_mk -linguas_nl -linguas_pt -linguas_ro -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
@@ -512,7 +512,7 @@
 =net-print/hplip-3.11.5-r1 acl fax hpcups hpijs kde libnotify policykit scanner static-ppds -X -doc -minimal -parport -qt4 -snmp
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/bluedevil-1.1-r2 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_ro -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
-=net-wireless/bluez-4.91 alsa consolekit cups usb -attrib -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
+=net-wireless/bluez-4.93 alsa consolekit cups usb -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
 =net-wireless/madwifi-ng-0.9.4.4136.20110203 kernel_linux -injection
 =net-wireless/madwimax-0.1.1 -doc
