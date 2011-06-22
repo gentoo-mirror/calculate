@@ -34,7 +34,7 @@
 =app-misc/cl-network-meta-11.6 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-office-meta-11.6 cdistro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-tools-meta-11.6-r5 cdistro_CLDX cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
-=app-misc/cl-wireless-meta-11.6 cdistro_desktop
+=app-misc/cl-wireless-meta-11.6-r1 cdistro_desktop
 =app-misc/cldx-meta-11.6 -calculate_nodecoration -calculate_nographics -calculate_nokernel -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork -calculate_nooffice -calculate_noprinter -calculate_nowireless -calculate_noxfce -calculate_noxorg
 =app-misc/lirc-0.8.7 X kernel_linux lirc_devices_devinput -debug -doc -hardware-carrier -lirc_devices_accent -lirc_devices_act200l -lirc_devices_act220l -lirc_devices_adaptec -lirc_devices_all -lirc_devices_alsa_usb -lirc_devices_animax -lirc_devices_asusdh -lirc_devices_atilibusb -lirc_devices_atiusb -lirc_devices_audio -lirc_devices_audio_alsa -lirc_devices_avermedia -lirc_devices_avermedia98 -lirc_devices_avermedia_vdomate -lirc_devices_awlibusb -lirc_devices_bestbuy -lirc_devices_bestbuy2 -lirc_devices_breakoutbox -lirc_devices_bte -lirc_devices_bw6130 -lirc_devices_caraca -lirc_devices_chronos -lirc_devices_commandir -lirc_devices_cph06x -lirc_devices_creative -lirc_devices_creative_infracd -lirc_devices_digimatrix -lirc_devices_dsp -lirc_devices_dvico -lirc_devices_ea65 -lirc_devices_ene0100 -lirc_devices_exaudio -lirc_devices_flyvideo -lirc_devices_ftdi -lirc_devices_gvbctv5pci -lirc_devices_hauppauge -lirc_devices_hauppauge_dvb -lirc_devices_hercules_smarttv_stereo -lirc_devices_i2cuser -lirc_devices_igorplugusb -lirc_devices_iguanaIR -lirc_devices_imon -lirc_devices_imon_24g -lirc_devices_imon_knob -lirc_devices_imon_lcd -lirc_devices_imon_pad -lirc_devices_imon_rsc -lirc_devices_inputlirc -lirc_devices_irdeo -lirc_devices_irdeo_remote -lirc_devices_irlink -lirc_devices_irman -lirc_devices_irreal -lirc_devices_it87 -lirc_devices_ite8709 -lirc_devices_knc_one -lirc_devices_kworld -lirc_devices_leadtek_0007 -lirc_devices_leadtek_0010 -lirc_devices_leadtek_pvr2000 -lirc_devices_livedrive_midi -lirc_devices_livedrive_seq -lirc_devices_logitech -lirc_devices_macmini -lirc_devices_mceusb -lirc_devices_mediafocusI -lirc_devices_mouseremote -lirc_devices_mouseremote_ps2 -lirc_devices_mp3anywhere -lirc_devices_mplay -lirc_devices_nslu2 -lirc_devices_packard_bell -lirc_devices_parallel -lirc_devices_pcmak -lirc_devices_pcmak_usb -lirc_devices_pctv -lirc_devices_pixelview_bt878 -lirc_devices_pixelview_pak -lirc_devices_pixelview_pro -lirc_devices_provideo -lirc_devices_realmagic -lirc_devices_remote_wonder_plus -lirc_devices_remotemaster -lirc_devices_sa1100 -lirc_devices_samsung -lirc_devices_sasem -lirc_devices_sb0540 -lirc_devices_serial -lirc_devices_serial_igor_cesko -lirc_devices_silitek -lirc_devices_sir -lirc_devices_slinke -lirc_devices_streamzap -lirc_devices_tekram -lirc_devices_tekram_bt829 -lirc_devices_tira -lirc_devices_ttusbir -lirc_devices_tuxbox -lirc_devices_tvbox -lirc_devices_udp -lirc_devices_uirt2 -lirc_devices_uirt2_raw -lirc_devices_usb_uirt_raw -lirc_devices_usbirboy -lirc_devices_usbx -lirc_devices_userspace -lirc_devices_wpc8769l -lirc_devices_xboxusb -transmitter
 =app-misc/livecd-tools-1.0.42 X opengl
@@ -79,7 +79,7 @@
 =dev-lang/tcl-8.5.9 -debug -threads
 =dev-lang/tk-8.5.9-r1 truetype -aqua -debug -threads -xscreensaver
 =dev-lang/yasm-1.1.0-r1 nls python
-=dev-libs/atk-1.32.0 nls -doc -introspection
+=dev-libs/atk-1.32.0-r1 introspection nls -doc
 =dev-libs/boost-1.42.0-r2 eselect python -debug -doc -icu -mpi -static-libs -test -tools
 =dev-libs/cyrus-sasl-2.1.23-r1 berkdb crypt gdbm ldap pam ssl -authdaemond -elibc_FreeBSD -java -kerberos -mysql -ntlm_unsupported_patch -postgres -sample -sqlite -srp -urandom
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
@@ -87,6 +87,7 @@
 =dev-libs/eventlog-0.2.12 -static-libs
 =dev-libs/glib-2.28.6 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-4.3.2 -nocxx
+=dev-libs/gobject-introspection-0.10.8 -doc -test
 =dev-libs/icu-4.6.1 -debug -doc -examples -static-libs
 =dev-libs/klibc-1.5.12-r1 -debug -n32
 =dev-libs/libIDL-0.8.14 -debug
@@ -361,11 +362,11 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.2 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-client-2.2.16 xfce -gnome -kde
-=sys-apps/calculate-desktop-2.2.16 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.16 -minimal
-=sys-apps/calculate-lib-2.2.16-r1 -minimal
-=sys-apps/calculate-utilities-2.2.16-r9 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.17 xfce -gnome -kde
+=sys-apps/calculate-desktop-2.2.17 xfce -gnome -kde
+=sys-apps/calculate-install-2.2.17 -minimal
+=sys-apps/calculate-lib-2.2.17 -minimal
+=sys-apps/calculate-utilities-2.2.17 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -425,7 +426,7 @@
 =sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35 nls -static
-=sys-devel/gcc-4.4.5 fortran gtk mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -hardened -libffi -multilib -multislot -n32 -n64 -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
+=sys-devel/gcc-4.4.5 fortran gtk mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -hardened -libffi -multilib -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
 =sys-devel/libtool-2.2.10 -vanilla
 =sys-devel/m4-1.4.15 -examples
@@ -445,8 +446,9 @@
 =sys-fs/udev-164-r2 extras -selinux -test
 =sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r8 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r9 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.38.8 symlink vmlinuz -build -deblob
+=sys-kernel/linux-firmware-20110604 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
@@ -501,9 +503,9 @@
 =x11-drivers/xf86-video-v4l-0.2.0 -debug
 =x11-drivers/xf86-video-vesa-2.3.0 -debug
 =x11-libs/cairo-1.10.2-r1 X glib opengl svg -aqua -debug -directfb -doc -drm -gallium -openvg -qt4 -static-libs -xcb
-=x11-libs/gdk-pixbuf-2.22.1 X jpeg jpeg2k tiff -debug -doc -introspection -test
+=x11-libs/gdk-pixbuf-2.22.1-r1 X introspection jpeg jpeg2k tiff -debug -doc -test
 =x11-libs/gksu-2.0.2 -doc -gnome
-=x11-libs/gtk+-2.22.1-r1 cups jpeg jpeg2k tiff xinerama -aqua -debug -doc -examples -introspection -test -vim-syntax
+=x11-libs/gtk+-2.24.4 cups introspection xinerama -aqua -debug -doc -examples -test -vim-syntax
 =x11-libs/libICE-1.0.7 ipv6 -doc -static-libs
 =x11-libs/libSM-1.2.0 ipv6 uuid -doc -static-libs
 =x11-libs/libX11-1.4.3 ipv6 -doc -static-libs -test
@@ -545,7 +547,7 @@
 =x11-libs/libxcb-1.7 -doc -selinux -static-libs
 =x11-libs/libxkbfile-1.0.7 -static-libs
 =x11-libs/libxklavier-5.0 -doc
-=x11-libs/pango-1.28.3-r1 X -debug -doc -introspection -test
+=x11-libs/pango-1.28.4 X introspection -debug -doc -test
 =x11-libs/pixman-0.20.2 mmx sse2 -altivec -static-libs
 =x11-libs/qt-core-4.7.3 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.3 exceptions -aqua -debug -pch
@@ -553,7 +555,7 @@
 =x11-libs/qt-qt3support-4.7.3 accessibility exceptions -aqua -debug -kde -pch -phonon
 =x11-libs/qt-script-4.7.3 exceptions iconv jit private-headers -aqua -debug -pch
 =x11-libs/qt-sql-4.7.3 exceptions iconv qt3support sqlite -aqua -debug -firebird -freetds -mysql -odbc -pch -postgres
-=x11-libs/vte-0.26.2 python -debug -doc -glade -introspection
+=x11-libs/vte-0.28.1-r200 introspection python -debug -doc -glade
 =x11-libs/wxGTK-2.8.11.0 X opengl sdl tiff -debug -doc -gnome -gstreamer -odbc -pch
 =x11-libs/xcb-util-0.3.6 -debug -test
 =x11-libs/xosd-2.2.14-r1 xinerama
