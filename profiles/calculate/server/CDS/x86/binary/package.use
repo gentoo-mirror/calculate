@@ -29,7 +29,7 @@
 =app-misc/cl-nettools-meta-11.6-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-network-meta-11.6 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-tools-meta-11.6-r5 cdistro_CDS ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
-=app-misc/cl-wireless-meta-11.6 -cdistro_desktop
+=app-misc/cl-wireless-meta-11.6-r1 -cdistro_desktop
 =app-misc/livecd-tools-1.0.42 -X -opengl
 =app-misc/mc-4.7.0.3 edit gpm nls samba -X -slang
 =app-misc/pax-utils-0.2.2 -caps
@@ -191,9 +191,9 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.2 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-install-2.2.16 -minimal
-=sys-apps/calculate-lib-2.2.16-r1 -minimal
-=sys-apps/calculate-utilities-2.2.16-r9 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-install-2.2.17 -minimal
+=sys-apps/calculate-lib-2.2.17 -minimal
+=sys-apps/calculate-utilities-2.2.17 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -240,7 +240,7 @@
 =sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35 nls -static
-=sys-devel/gcc-4.4.5 fortran mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -gtk -hardened -libffi -multilib -multislot -n32 -n64 -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
+=sys-devel/gcc-4.4.5 fortran mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -gtk -hardened -libffi -multilib -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
 =sys-devel/libtool-2.2.10 -vanilla
 =sys-devel/m4-1.4.15 -examples
@@ -259,8 +259,9 @@
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
 =sys-fs/udev-164-r2 extras -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r8 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r9 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.38.8 symlink vmlinuz -build -deblob
+=sys-kernel/linux-firmware-20110604 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
@@ -278,6 +279,7 @@
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 ipv6 nls -X -selinux
 =sys-process/vixie-cron-4.1-r10 pam -debug -selinux
+=virtual/fortran-0 openmp
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
