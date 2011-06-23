@@ -255,7 +255,7 @@
 =media-libs/libsndfile-1.0.23 alsa -minimal -sqlite
 =media-libs/libtheora-1.1.1 encode -doc -examples -static-libs
 =media-libs/libvorbis-1.3.1 -static-libs
-=media-libs/libvpx-0.9.5-r1 mmx sse sse2 sse3 ssse3 threads -altivec -debug -doc -postproc
+=media-libs/libvpx-0.9.6 mmx sse sse2 sse3 ssse3 threads -altivec -debug -doc -postproc
 =media-libs/libwebp-0.1.2 -static-libs
 =media-libs/libwmf-0.2.8.4-r3 X gtk -debug -doc -expat -xml
 =media-libs/mesa-7.10.2 classic gallium nptl video_cards_intel video_cards_mach64 video_cards_mga video_cards_nouveau video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_via video_cards_vmware -debug -gles -hardened -kernel_FreeBSD -llvm -motif -pic -selinux
@@ -364,9 +364,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.17 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.17 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.17 -minimal
-=sys-apps/calculate-lib-2.2.17 -minimal
-=sys-apps/calculate-utilities-2.2.17 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.17-r1 -minimal
+=sys-apps/calculate-lib-2.2.17-r1 -minimal
+=sys-apps/calculate-utilities-2.2.17-r2 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -443,7 +443,7 @@
 =sys-fs/ntfsprogs-2.0.0-r1 crypt -debug -fuse -gnome -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/squashfs-tools-4.2 gzip lzma lzo -xattr
-=sys-fs/udev-164-r2 extras -selinux -test
+=sys-fs/udev-164-r2 extras -build -selinux -test
 =sys-fs/udisks-1.0.2-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r9 bash-completion video_cards_radeon -ibm -selinux
@@ -495,7 +495,7 @@
 =x11-drivers/xf86-video-intel-2.15.0-r1 dri
 =x11-drivers/xf86-video-mach64-6.8.2 dri -debug
 =x11-drivers/xf86-video-mga-1.4.13 dri
-=x11-drivers/xf86-video-openchrome-0.2.904_p916 dri -debug
+=x11-drivers/xf86-video-openchrome-0.2.904_p930 dri -debug
 =x11-drivers/xf86-video-r128-6.8.1 dri -debug
 =x11-drivers/xf86-video-savage-2.3.2 dri
 =x11-drivers/xf86-video-sis-0.10.3 dri
