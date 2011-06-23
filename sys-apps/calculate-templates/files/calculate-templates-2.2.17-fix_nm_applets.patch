@@ -1,0 +1,42 @@
+commit 03d33a463c49fd4f7431aedf6b3bdce01068aa19
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Thu Jun 23 17:15:17 2011 +0400
+
+    Remove networkmanager applet from kde,gnome,xfce if use openrc.
+
+diff --git install/1merge/networkmanager/plasma-applet-networkmanagement.desktop install/1merge/networkmanager/plasma-applet-networkmanagement.desktop
+new file mode 100644
+index 0000000..2b3b677
+--- /dev/null
++++ install/1merge/networkmanager/plasma-applet-networkmanagement.desktop
+@@ -0,0 +1,8 @@
++# Calculate path=/usr/share/kde4/services pkg(kde-base/kdelibs)!= format=kde
++[Desktop Entry]
++#?os_install_net_conf==networkmanager#
++X-KDE-Library=plasma_applet_networkmanagement
++#os_install_net_conf#
++#?os_install_net_conf!=networkmanager#
++X-KDE-Library=
++#os_install_net_conf#
+diff --git install/1merge/nm-applet/.calculate_directory install/1merge/nm-applet/.calculate_directory
+new file mode 100644
+index 0000000..6f79f0c
+--- /dev/null
++++ install/1merge/nm-applet/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate belong()!=&&cl_chroot_status==off&&pkg(gnome-extra/nm-applet)!= path=/etc/xdg name=autostart
++
+diff --git install/1merge/nm-applet/nm-applet.desktop install/1merge/nm-applet/nm-applet.desktop
+new file mode 100644
+index 0000000..d32af0f
+--- /dev/null
++++ install/1merge/nm-applet/nm-applet.desktop
+@@ -0,0 +1,8 @@
++# Calculate format=kde
++[Desktop Entry]
++#?os_install_net_conf==networkmanager#
++X-GNOME-Autostart-enabled=true
++#os_install_net_conf#
++#?os_install_net_conf!=networkmanager#
++X-GNOME-Autostart-enabled=false
++#os_install_net_conf#
