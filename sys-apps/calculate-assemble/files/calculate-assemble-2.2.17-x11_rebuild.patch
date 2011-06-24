@@ -1,0 +1,21 @@
+commit a61c4a0027e6493742e6af341d1b7fa60511cf2c
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Jun 24 16:57:53 2011 +0400
+
+    Add x11 modules rebuild if emerged xorg-server
+
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index 6540c51..de13da6 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -155,6 +155,10 @@ class cl_assemble(color_print):
+               'step':'module',
+               'condition':'sys-kernel/.*source.*',
+               'progname':'module-rebuild'},
++             # xorg module rebuild
++             {'command':'emerge @x11-module-rebuild',
++              'step':'x11module',
++              'condition':'x11-base/xorg-server*'},
+              # revdep-rebuild
+              {'command':'revdepRebuild()',
+               'step':'revdep',
