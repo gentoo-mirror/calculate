@@ -1,0 +1,37 @@
+commit 65d15784982b020953cc131947893efed6360f26
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Jun 24 10:26:29 2011 +0400
+
+    Remove empty route from conf.d/net.
+
+diff --git a/install/1merge/openrc/conf.d/net b/install/1merge/openrc/conf.d/net
+index a40ea98..ab11f5b 100644
+--- a/install/1merge/openrc/conf.d/net
++++ b/install/1merge/openrc/conf.d/net
+@@ -5,18 +5,26 @@ modules="!plug"
+ #os_install_linux_system#
+ #?list(os_install_net_interfaces,0)!=&&list(os_install_net_dhcp_set,0)!=on&&list(os_install_net_ip,0)!=#
+ config_#-list(os_install_net_interfaces,0)-#=( "#-list(os_install_net_ip,0)-#/#-list(os_install_net_cidr,0)-#" )
++#list#
++#?list(os_install_net_interfaces,0)!=&&list(os_install_net_dhcp_set,0)!=on&&list(os_install_net_ip,0)!=&&list(os_install_net_route,0)!=#
+ routes_#-list(os_install_net_interfaces,0)-#="#-list(os_install_net_route,0)-#"
+ #list#
+ #?list(os_install_net_interfaces,1)!=&&list(os_install_net_dhcp_set,1)!=on&&list(os_install_net_ip,1)!=#
+ config_#-list(os_install_net_interfaces,1)-#=( "#-list(os_install_net_ip,1)-#/#-list(os_install_net_cidr,1)-#" )
++#list#
++#?list(os_install_net_interfaces,1)!=&&list(os_install_net_dhcp_set,1)!=on&&list(os_install_net_ip,1)!=&&list(os_install_net_route,1)!=#
+ routes_#-list(os_install_net_interfaces,1)-#="#-list(os_install_net_route,1)-#"
+ #list#
+ #?list(os_install_net_interfaces,2)!=&&list(os_install_net_dhcp_set,2)!=on&&list(os_install_net_ip,2)!=#
+ config_#-list(os_install_net_interfaces,2)-#=( "#-list(os_install_net_ip,2)-#/#-list(os_install_net_cidr,2)-#" )
++#list#
++#?list(os_install_net_interfaces,2)!=&&list(os_install_net_dhcp_set,2)!=on&&list(os_install_net_ip,2)!=&&list(os_install_net_route,2)!=#
+ routes_#-list(os_install_net_interfaces,2)-#="#-list(os_install_net_route,2)-#"
+ #list#
+ #?list(os_install_net_interfaces,3)!=&&list(os_install_net_dhcp_set,3)!=on&&list(os_install_net_ip,3)!=#
+ config_#-list(os_install_net_interfaces,3)-#=( "#-list(os_install_net_ip,3)-#/#-list(os_install_net_cidr,3)-#" )
++#list#
++#?list(os_install_net_interfaces,3)!=&&list(os_install_net_dhcp_set,3)!=on&&list(os_install_net_ip,3)!=&&list(os_install_net_route,3)!=#
+ routes_#-list(os_install_net_interfaces,3)-#="#-list(os_install_net_route,3)-#"
+ #list#
+ #?os_install_net_dns!=#
