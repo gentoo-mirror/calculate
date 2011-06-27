@@ -71,8 +71,7 @@ DEPEND="sys-fs/e2fsprogs
 	>=sys-apps/calculate-templates-2.2.13-r1
 	!sys-kernel/genkernel"
 RDEPEND="${DEPEND} app-arch/cpio
-	video_cards_radeon? ( || ( x11-drivers/radeon-ucode 
-	sys-kernel/linux-firmware ) )"
+	video_cards_radeon? ( sys-kernel/linux-firmware )"
 
 if [[ ${PV} == 9999* ]]; then
 	DEPEND="${DEPEND} app-text/asciidoc"

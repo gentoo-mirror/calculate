@@ -530,11 +530,11 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.17 kde -gnome -xfce
 =sys-apps/calculate-desktop-2.2.17 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.17-r1 -minimal
-=sys-apps/calculate-lib-2.2.17-r2 -minimal
-=sys-apps/calculate-utilities-2.2.17-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.17-r2 -minimal
+=sys-apps/calculate-lib-2.2.17-r3 -minimal
+=sys-apps/calculate-utilities-2.2.17-r9 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
-=sys-apps/dbus-1.4.6 X -debug -doc -selinux -static-libs -test
+=sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
 =sys-apps/file-5.05 python -static-libs
@@ -588,7 +588,7 @@
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
 =sys-boot/grub-1.99-r2 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
-=sys-devel/autoconf-2.65-r1 -emacs
+=sys-devel/autoconf-2.68 -emacs
 =sys-devel/bc-1.06.95 readline -libedit -static
 =sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
@@ -674,7 +674,7 @@
 =x11-drivers/xf86-video-v4l-0.2.0 -debug
 =x11-drivers/xf86-video-vesa-2.3.0 -debug
 =x11-libs/cairo-1.10.2-r1 X glib opengl qt4 svg -aqua -debug -directfb -doc -drm -gallium -openvg -static-libs -xcb
-=x11-libs/gdk-pixbuf-2.22.1-r1 X introspection jpeg jpeg2k tiff -debug -doc -test
+=x11-libs/gdk-pixbuf-2.22.1-r1 X introspection jpeg jpeg2k svg tiff -debug -doc -test
 =x11-libs/gtk+-2.24.4 cups introspection xinerama -aqua -debug -doc -examples -test -vim-syntax
 =x11-libs/libICE-1.0.7 ipv6 -doc -static-libs
 =x11-libs/libSM-1.2.0 ipv6 uuid -doc -static-libs
