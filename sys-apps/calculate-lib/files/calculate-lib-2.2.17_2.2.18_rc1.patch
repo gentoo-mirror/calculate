@@ -1,0 +1,118 @@
+diff --git pym/cl_fill.py pym/cl_fill.py
+index 639e100..a846970 100644
+--- pym/cl_fill.py
++++ pym/cl_fill.py
+@@ -24,7 +24,7 @@ from cl_vars_share import varsShare, clLocale
+ from os.path import exists as pathexists
+ from os import path
+ from cl_utils import isMount, genpassword, getAvailableX11Drivers, \
+-                     listDirectory,isPkgInstalled
++                     listDirectory,isPkgInstalled,lspci
+ from utils import ip
+ from encrypt import getHash
+ 
+@@ -529,19 +529,21 @@ class fillVars(varsShare):
+             return valBoardName or "unknown"
+         return ""
+ 
++    def get_hr_video_name(self):
++        """Get video name"""
++        pciVideo = list(sorted(lspci("VGA compatible").items()))
++        if pciVideo:
++            pciVideo = pciVideo[0][1]
++            vendor=pciVideo.get("vendor","").split(" ")[0]
++            name=pciVideo.get("name","")
++            if "[" in name and "]" in name:
++                name = name.partition("[")[2].partition("]")[0]
++            return "{vendor} {name}".format(vendor=vendor,name=name)
++        return ""
++
+     def get_hr_video(self):
+         """Videocard vendor"""
+-        lines=self._runos("lspci")
+-        if not lines:
+-            return ""
+-        reVGA = re.compile("vga",re.I)
+-        foundVGA = False
+-        for line in lines:
+-            if reVGA.search(line):
+-                foundVGA = True
+-                break
+-        if not foundVGA:
+-            return "vesa"
++        line = self.Get('hr_video_name')
+         if "nVidia" in line or "GeForce" in line:
+             return "nvidia"
+         elif "ATI" in line:
+diff --git pym/cl_utils.py pym/cl_utils.py
+index 24760c9..025b051 100644
+--- pym/cl_utils.py
++++ pym/cl_utils.py
+@@ -967,16 +967,10 @@ def getSquashList():
+ 
+ def getAvailableX11Drivers(prefix="/"):
+     """Get available x11 drivers"""
+-    distfiles = path.join(prefix,'usr/portage/distfiles')
+     xorg_modules_dir = path.join(prefix,'usr/lib/xorg/modules/drivers')
+-    return list(set(
+-           map(lambda x:'fglrx' if x.startswith('ati-driver') else "nvidia",
+-           filter(lambda x:x.startswith('ati-driver-installer') or
+-                           x.startswith('NVIDIA-Linux'),
+-           listDirectory(distfiles))) + \
+-           map(lambda x: x[:-7],
++    return map(lambda x: x[:-7],
+            filter(lambda x:x.endswith('_drv.so'),
+-           listDirectory(xorg_modules_dir)))))
++           listDirectory(xorg_modules_dir)))
+ 
+ def lspci(filtername=None,shortInfo=False):
+     """Get hash of lspci, filtred by filtername. If shortInfo, then
+diff --git pym/cl_vars.py pym/cl_vars.py
+index 3ffa1db..4d7f9f2 100644
+--- pym/cl_vars.py
++++ pym/cl_vars.py
+@@ -185,6 +185,9 @@ class Data:
+     # video verdor name
+     hr_video = {'hide':True}
+ 
++    # videocard name
++    hr_video_name = {'hide':True}
++
+     # Video driver used by xorg
+     os_x11_video_drv = {'hide':True}
+ 
+diff --git pym/cl_vars_share.py pym/cl_vars_share.py
+index 66e1567..755ae89 100644
+--- pym/cl_vars_share.py
++++ pym/cl_vars_share.py
+@@ -144,6 +144,15 @@ class clLocale:
+                 'xkblayout':'pt,us',
+                 'language':'pt',
+         },
++    #Romanian
++    'ro_RO' : {
++                'locale':'ro_RO.UTF-8',
++                'keymap':'ro_win',
++                'dumpkeys_charset':'',
++                'consolefont':'lat2-16',
++                'xkblayout':'ro,us',
++                'language':'ro',
++        },
+     #Russian
+     'ru_RU' : {
+                 'locale':'ru_RU.UTF-8',
+diff --git pym/utils/ip.py pym/utils/ip.py
+index bec371d..a1ec1be 100644
+--- pym/utils/ip.py
++++ pym/utils/ip.py
+@@ -179,6 +179,7 @@ def getRouteTable(onlyIface=[]):
+             yield (network,dict(zip(routeParams[0::2],routeParams[1::2])))
+ 
+ def getInterfaces():
+-    """Get available interfaces"""
+-    return filter(lambda x:x != "lo",
+-           listDirectory('/sys/class/net'))
++    """Get available interfaces (discard which hasn't device)"""
++    sysNet = "/sys/class/net"
++    return filter(lambda x:path.exists(path.join(sysNet,x,"device")),
++           listDirectory(sysNet))
