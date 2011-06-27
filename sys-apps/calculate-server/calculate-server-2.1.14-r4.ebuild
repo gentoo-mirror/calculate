@@ -48,7 +48,7 @@ src_unpack() {
 	# rename param
 	epatch "${FILESDIR}/calculate-server-2.1.14-rename_param.patch"
 	# add maildomain group to unix for mail service
-	epatch "${FILESDIR}calculate-server-2.1.14-add_maildomain_group.patch"
+	epatch "${FILESDIR}/calculate-server-2.1.14-add_maildomain_group.patch"
 }
 
 
