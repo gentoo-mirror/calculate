@@ -1,0 +1,183 @@
+diff --git i18n/cl_install_ru.mo i18n/cl_install_ru.mo
+index f65db0b..e8ea763 100644
+Binary files i18n/cl_install_ru.mo and i18n/cl_install_ru.mo differ
+diff --git pym/cl_fill_install.py pym/cl_fill_install.py
+index 80ca597..fb9434e 100644
+--- pym/cl_fill_install.py
++++ pym/cl_fill_install.py
+@@ -1104,13 +1104,21 @@ class fillVars(object, glob_attr):
+         else:
+             return ""
+ 
++    def isDNSByDHCP(self):
++        """If first interface get ip by DHCP dns must be DHCP"""
++        dhcps = self.Get('os_install_net_dhcp_set')
++        if dhcps:
++            if dhcps[0] == "on":
++                return True
++        return False
++
+     def get_os_install_net_dns(self):
+         """Get current name servers"""
+         dnsIps = filter(ip.checkIp,
+                  map(lambda x:x.strip().partition("nameserver")[2].strip(),
+                  filter(lambda x:x.lstrip().startswith("nameserver"),
+                  readLinesFile('/etc/resolv.conf'))))
+-        return " ".join(dnsIps)
++        return "" if self.isDNSByDHCP() else " ".join(dnsIps)
+ 
+     def get_os_install_net_dns_search(self):
+         """Get current name servers"""
+@@ -1118,7 +1126,7 @@ class fillVars(object, glob_attr):
+                     map(lambda x:x.strip().partition("search")[2].strip(),
+                     filter(lambda x:x.lstrip().startswith("search"),
+                     readLinesFile('/etc/resolv.conf'))))
+-        return dnsSearch
++        return "" if self.isDNSByDHCP() else dnsSearch
+ 
+     def get_os_install_net_conf(self):
+         """Net setup (networkmanager or openrc)"""
+diff --git pym/cl_install.py pym/cl_install.py
+index 966b881..e1bf83e 100644
+--- pym/cl_install.py
++++ pym/cl_install.py
+@@ -864,6 +864,12 @@ class cl_install(color_print, SignalInterrupt):
+         else:
+             musers = _("none")
+ 
++        dnsNoValue = _("none")
++        dhcps = self.clVars.Get('os_install_net_dhcp_set')
++        if dhcps:
++            if dhcps[0] == "on":
++                dnsNoValue = _("DHCP")
++                
+         self.printSUCCESS(_("Installation") + " Calculate Linux")
+         printData = [ 
+             [(_("System"),True),
+@@ -883,13 +889,13 @@ class cl_install(color_print, SignalInterrupt):
+              (_("PROXY"),
+               clGet('os_install_proxy') or _("none"),True),
+              (_("NTP"),clGet('os_install_ntp') or _("none"),True),
+-             (_("DNS"),clGet('os_install_net_dns') or _("none"),True)
++             (_("DNS"),clGet('os_install_net_dns') or dnsNoValue,True)
+             ],
+             [(_("Hardware"),True),
+              (_("Machine hardware name"),
+               clGet('os_install_arch_machine'),True),
+              (_("Quantity processors"),clGet('hr_cpu_num'),hdd),
+-             (_("Videocard vendor"),clGet('hr_video'),hdd),
++             (_("Videocard"),clGet('hr_video_name'),hdd),
+              (_("{0} video driver").format("Xorg"),
+               clGet('os_install_x11_video_drv'),hdd),
+              (_("Screen resolution"),clGet('os_install_x11_resolution'),hdd)
+@@ -1153,7 +1159,8 @@ class cl_install(color_print, SignalInterrupt):
+                    map(lambda x:x[NET],routes)+map(lambda x:x[NET],routedata))
+             routes = filter(lambda x:x[GW] or x[SRC],routes)
+             wrongGws = map(lambda x:x[GW],
+-                       filter(lambda x:not ip.isIpInNet(x[GW],*nets),
++                       filter(lambda x:not ip.isIpInNet(x[GW],
++                                              *(set(nets)-set([x[NET]]))),
+                        filter(lambda x:x[GW],
+                        routes)))
+             if wrongGws:
+@@ -1170,7 +1177,12 @@ class cl_install(color_print, SignalInterrupt):
+                 if not dev:
+                     gwnetwork = ip.isIpInNet(gw,*nets)[0] 
+                     dev = filter(lambda x:x[NET]==gwnetwork,
+-                          routedata+newroutes)[0][DEV]
++                          routedata+newroutes)
++                    if not dev:
++                        raise InstallError(
++                            _("Can not determine device for network %s")%
++                                network)
++                    dev = dev[0][DEV]
+                 if not gw and not src:
+                     continue
+                 newroutes.append((network,gw,dev,src))
+@@ -1820,7 +1832,7 @@ class cl_install(color_print, SignalInterrupt):
+                                       clGet('os_install_net_route_network'),
+                                       clGet('os_install_net_route_gw'),
+                                       clGet('os_install_net_route_src')) + \
+-            map(lambda x:(x[0],_("DHCP")),
++            map(lambda x:(x[0],_("DHCP"),_("DHCP"),_("DHCP")),
+             filter(lambda x:x[1]=='on',zip(clGet('os_install_net_interfaces'),
+                                            clGet('os_install_net_dhcp_set'))))
+ 
+diff --git pym/cl_install_cmd.py pym/cl_install_cmd.py
+index 67a049a..d1424d3 100644
+--- pym/cl_install_cmd.py
++++ pym/cl_install_cmd.py
+@@ -228,8 +228,8 @@ class install_cmd(share_cmd):
+                        " " + _("ip specifing error: '{ip}' "
+                                "(example: '{example}')").format(\
+                                ip=ipaddr,example="eth0:192.168.0.21/16"))
+-        if values.dns:
+-            if not re.match("^{0}(,{0})*$".format(iputils.IP_ADDR),values.dns):
++        if not values.dns is None:
++            if not re.match("(^{0}(,{0})*|)$".format(iputils.IP_ADDR),values.dns):
+                 self.optobj.error(_("option %s:") %"--dns" +\
+                            " " + _("dns specifing error: '%s'") %\
+                            values.dns)
+@@ -319,7 +319,7 @@ class install_cmd(share_cmd):
+ 
+     def setNetworkParams(self,ipaddrs,routes,dns,setup,dhcps):
+         """Set nework params"""
+-        if dns:
++        if not dns is None:
+             self.logicObj.clVars.Set("os_install_net_dns",dns,True)
+         ipaddrs = map(lambda x:x.split(":"),ipaddrs or [])
+         routes = map(lambda x:x+[""]*(4-len(x)),
+diff --git pym/cl_migrate_users.py pym/cl_migrate_users.py
+index 877dff0..6a8552a 100644
+--- pym/cl_migrate_users.py
++++ pym/cl_migrate_users.py
+@@ -38,7 +38,7 @@ class migrateGroups(_shareData):
+     """Migrate group to new system"""
+ 
+     maxGid = 65000
+-    minGid = 500
++    minGid = 1000
+     fileGroups = "/etc/group"
+ 
+     def __init__(self, prefixNewSystem):
+@@ -93,7 +93,7 @@ class migrateUsers(_shareData):
+     """Migrate users to new system"""
+ 
+     maxId = 65000
+-    minId = 500
++    minId = 1000
+     filePasswd = "/etc/passwd"
+ 
+     def __init__(self, prefixNewSystem):
+@@ -249,7 +249,7 @@ class migrate(color_print):
+     minId = 1000
+     maxGid = 65000
+     minGid = 1000
+-    minSysId = 500
++    minSysId = 1000
+ 
+     newUserGroups = ["audio", "cdrom", "cdrw", "games", "lp", "plugdev",
+                      "scanner" "usb", "users", "video", "wheel"]
+diff --git pym/cl_vars_install.py pym/cl_vars_install.py
+index 77ae323..5238f7b 100644
+--- pym/cl_vars_install.py
++++ pym/cl_vars_install.py
+@@ -299,6 +299,10 @@ class Data:
+     # net setup (networkmanager or openrc)
+     os_install_net_conf = {}
+ 
++    # net service configured
++    os_install_net_settings = {'mode':'w',
++                               'value':''}
++
+     # dhcp or not
+     os_install_net_dhcp_set = {}
+ 
+@@ -376,6 +380,7 @@ class Data:
+     # lib vars
+     os_locale_xkb = {}
+     hr_video = {}
++    hr_video_name = {}
+     os_linux_name = {}
+     os_scratch = {}
+     os_x11_video_drv = {}
