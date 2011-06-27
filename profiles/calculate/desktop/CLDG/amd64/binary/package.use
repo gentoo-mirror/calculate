@@ -537,7 +537,7 @@
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
 =sys-power/powertop-1.13 unicode
 =sys-power/upower-0.9.9 kernel_linux -debug -doc -introspection -ios -kernel_FreeBSD
-=sys-process/htop-0.8.3 -debug
+=sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r10 pam -debug -selinux
