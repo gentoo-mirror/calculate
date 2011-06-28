@@ -11,7 +11,8 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS"
+IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS
+networkmanager"
 
 RDEPEND="
 	net-dialup/pptpclient
@@ -22,14 +23,18 @@ RDEPEND="
 
 	cdistro_desktop? (
 		net-fs/nfs-utils
-		net-misc/cnetworkmanager
-		net-misc/networkmanager
-		net-misc/networkmanager-openvpn
-		net-misc/networkmanager-pptp
-		net-misc/networkmanager-vpnc
+		networkmanager? (
+			net-misc/cnetworkmanager
+			net-misc/networkmanager
+			net-misc/networkmanager-openvpn
+			net-misc/networkmanager-pptp
+			net-misc/networkmanager-vpnc
+		)
 	)
 	cdistro_CLD? (
-		kde-misc/knetworkmanager
+		networkmanager? (
+			kde-misc/knetworkmanager
+		)
 	)
 	cdistro_CLDG? (
 		gnome-extra/nm-applet
