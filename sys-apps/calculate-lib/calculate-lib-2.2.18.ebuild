@@ -19,5 +19,6 @@ DEPEND="!<sys-apps/calculate-lib-2.1.8-r1
 	!=sys-apps/calculate-lib-2.1.10
 	!minimal? ( dev-python/py-smbpasswd )
 	>=dev-python/pyxml-0.8
+	sys-apps/iproute2
 	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
