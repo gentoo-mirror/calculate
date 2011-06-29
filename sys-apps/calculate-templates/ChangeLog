@@ -2,6 +2,36 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-templates-2.2.18 (29 Jun 2011)
+
+  29 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-templates-2.2.15.ebuild, -calculate-templates-2.2.15-r1.ebuild,
+  -files/calculate-templates-2.2.15-ntfs_mount.patch,
+  -calculate-templates-2.2.16.ebuild, -calculate-templates-2.2.16-r1.ebuild,
+  -calculate-templates-2.2.16-r2.ebuild, -calculate-templates-2.2.16-r3.ebuild,
+  -calculate-templates-2.2.16-r4.ebuild, -calculate-templates-2.2.16-r5.ebuild,
+  -calculate-templates-2.2.16-r6.ebuild,
+  -files/calculate-templates-2.2.16-clean_dev.patch,
+  -files/calculate-templates-2.2.16-fix_update_grub2.patch,
+  -files/calculate-templates-2.2.16-fix_variable_bug.patch,
+  -files/calculate-templates-2.2.16-many_fix.patch,
+  -files/calculate-templates-2.2.16-udev_runlevel.patch,
+  -calculate-templates-2.2.17.ebuild, -calculate-templates-2.2.17-r1.ebuild,
+  -calculate-templates-2.2.17-r2.ebuild, -calculate-templates-2.2.17-r3.ebuild,
+  -calculate-templates-2.2.17-r4.ebuild, -calculate-templates-2.2.17-r5.ebuild,
+  -calculate-templates-2.2.17-r6.ebuild, -calculate-templates-2.2.17-r7.ebuild,
+  -calculate-templates-2.2.17-r8.ebuild,
+  -files/calculate-templates-2.2.17-add_ro_locale.patch,
+  -files/calculate-templates-2.2.17-fix_confdnet.patch,
+  -files/calculate-templates-2.2.17-fix_default_grub.patch,
+  -files/calculate-templates-2.2.17-fix_nm_applets.patch,
+  -files/calculate-templates-2.2.17_2.2.18_rc1.patch,
+  -files/calculate-templates-2.2.17_2.2.18_rc2.patch,
+  -files/calculate-templates-2.2.17_2.2.18_rc3.patch,
+  -files/calculate-templates-2.2.17_2.2.18_rc4.patch,
+  +calculate-templates-2.2.18.ebuild:
+  Bump version
+
 *calculate-templates-2.2.17-r8 (28 Jun 2011)
 
   28 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>

@@ -2,6 +2,23 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-lib-2.2.18 (29 Jun 2011)
+
+  29 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -files/calculate-lib-2.1.8-fix_fifo.patch,
+  -files/calculate-lib-2.2.8-file.patch, -calculate-lib-2.2.15.ebuild,
+  -calculate-lib-2.2.15-r2.ebuild,
+  -files/calculate-lib-2.2.15-fix_get_from_xorg.patch,
+  -files/lib_i18n_path.patch, -calculate-lib-2.2.15-r1.ebuild,
+  -files/calculate-lib-2.2.15-fix_update_config.patch,
+  -calculate-lib-2.2.16.ebuild, -calculate-lib-2.2.16-r1.ebuild,
+  -files/calculate-lib-2.2.16-fix_get_uid.patch, -calculate-lib-2.2.17.ebuild,
+  -calculate-lib-2.2.17-r1.ebuild, -calculate-lib-2.2.17-r2.ebuild,
+  -calculate-lib-2.2.17-r3.ebuild, -files/calculate-lib-2.2.17-backport.patch,
+  -files/calculate-lib-2.2.17-fix_videodetect.patch,
+  -files/calculate-lib-2.2.17_2.2.18_rc1.patch, +calculate-lib-2.2.18.ebuild:
+  Bump version
+
 *calculate-lib-2.2.17-r3 (27 Jun 2011)
 
   27 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>

@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="minimal"
 
-DEPEND="~sys-apps/calculate-templates-2.2.15
+DEPEND="~sys-apps/calculate-templates-2.2.18
 	app-portage/layman
 	!minimal? ( sys-boot/grub
 	sys-apps/gptfdisk
@@ -24,14 +24,6 @@ DEPEND="~sys-apps/calculate-templates-2.2.15
 	sys-block/parted )"
 
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# fix some bugs
-	epatch "${FILESDIR}/calculate-install-2.2.15-fix_some_bugs.patch"
-}
 
 pkg_postinst() {
 	einfo "For configure calculate-install perform:"

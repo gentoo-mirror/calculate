@@ -14,19 +14,9 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-DEPEND="~sys-apps/calculate-lib-2.2.16"
+DEPEND="~sys-apps/calculate-lib-2.2.18"
 
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# fix variable bug
-	epatch "${FILESDIR}/calculate-templates-2.2.16-fix_variable_bug.patch"
-	# add udev to sysinit runlevel
-	epatch "${FILESDIR}/calculate-templates-2.2.16-udev_runlevel.patch"
-}
 
 src_compile() {
 :
