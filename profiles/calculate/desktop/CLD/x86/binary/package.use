@@ -546,7 +546,7 @@
 =sys-apps/hwdata-gentoo-0.4 opengl -binary-drivers
 =sys-apps/hwsetup-1.2-r1 zlib
 =sys-apps/ifplugd-0.28-r9 -doc
-=sys-apps/iproute2-2.6.35-r2 berkdb ipv6 -atm -minimal
+=sys-apps/iproute2-2.6.38 berkdb -atm -minimal
 =sys-apps/kbd-1.15 nls
 =sys-apps/keyexec-0.1.2-r4 kde
 =sys-apps/less-441 unicode
@@ -637,7 +637,7 @@
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
 =sys-power/powertop-1.13 unicode
 =sys-power/upower-0.9.9 kernel_linux -debug -doc -introspection -ios -kernel_FreeBSD
-=sys-process/htop-0.8.3 -debug
+=sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r10 pam -debug -selinux
@@ -650,7 +650,7 @@
 =virtual/mysql-5.1 embedded -minimal -static
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-12.0.742.91-r1 cups xinerama -gnome -gnome-keyring -kerberos -test
+=www-client/chromium-12.0.742.112 cups xinerama -gnome -gnome-keyring -kerberos -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
 =www-plugins/adobe-flash-10.3.181.26 kde vdpau
 =x11-apps/xauth-1.0.5 ipv6
