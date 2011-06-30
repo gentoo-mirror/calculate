@@ -179,6 +179,7 @@ dev-libs/expat
 dev-libs/fribidi
 dev-libs/glib
 dev-libs/gmp
+dev-libs/gobject-introspection
 dev-libs/icu
 dev-libs/iniparser
 dev-libs/klibc
@@ -413,6 +414,8 @@ media-libs/smpeg
 media-libs/speex
 media-libs/tiff
 media-libs/vigra
+media-libs/vo-aacenc
+media-libs/vo-amrwbenc
 media-libs/x264
 media-libs/xvid
 media-plugins/audacious-plugins
@@ -819,6 +822,7 @@ x11-drivers/xf86-video-vmware
 x11-libs/cairo
 x11-libs/gdk-pixbuf
 x11-libs/gksu
+x11-libs/gnome-pty-helper
 x11-libs/gtk+
 x11-libs/libICE
 x11-libs/libSM
