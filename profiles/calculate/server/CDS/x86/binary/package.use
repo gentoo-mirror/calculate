@@ -178,7 +178,7 @@
 =net-misc/wol-0.7.1 nls
 =net-nds/openldap-2.4.24 berkdb crypt ipv6 perl samba ssl tcpd -cxx -debug -experimental -gnutls -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
 =net-p2p/bittorrent-5.2.2 -gtk
-=net-print/cups-1.3.11-r4 acl jpeg ldap linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl pam perl png python samba ssl tiff -X -avahi -dbus -gnutls -java -kerberos -linguas_et -linguas_he -linguas_id -linguas_ja -linguas_sv -linguas_zh_TW -php -ppds -slp -static -xinetd -zeroconf
+=net-print/cups-1.4.6-r2 acl jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff -X -dbus -debug -elibc_FreeBSD -gnutls -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-proxy/havp-0.90-r1 ssl -clamav
 =net-proxy/squid-3.1.8 epoll icap-client ipv6 kernel_linux ldap logrotate pam radius samba ssl -caps -ecap -elibc_uclibc -ipf-transparent -kerberos -kqueue -mysql -nis -pf-transparent -postgres -sasl -selinux -snmp -sqlite -test -tproxy -zero-penalty-hit
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
@@ -204,7 +204,7 @@
 =sys-apps/groff-1.21 -X -examples -linguas_ja
 =sys-apps/help2man-1.38.2 elibc_glibc nls
 =sys-apps/ifplugd-0.28-r9 -doc
-=sys-apps/iproute2-2.6.35-r2 berkdb ipv6 -atm -minimal
+=sys-apps/iproute2-2.6.38 berkdb -atm -minimal
 =sys-apps/kbd-1.15 nls
 =sys-apps/kexec-tools-2.0.0-r1 zlib -xen
 =sys-apps/less-441 unicode
@@ -274,7 +274,7 @@
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
 =sys-libs/timezone-data-2011e elibc_glibc nls -elibc_FreeBSD
-=sys-process/htop-0.8.3 -debug
+=sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
 =sys-process/lsof-4.83 -selinux -static
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 ipv6 nls -X -selinux
