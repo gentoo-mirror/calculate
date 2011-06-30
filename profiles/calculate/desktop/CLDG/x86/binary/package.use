@@ -360,7 +360,7 @@
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.8-r1 acl aio client cups netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldap -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
-=net-im/pidgin-2.7.11 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -qq -sasl -silc -tcl -tk -zephyr -zeroconf
+=net-im/pidgin-2.9.0 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
 =net-im/skype-2.2.0.35-r1 -qt-static
 =net-irc/xchat-2.8.8-r1 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -ntlm -tcl -xchatdccserver
 =net-libs/farsight2-0.0.20 python -msn -test -upnp
@@ -443,7 +443,7 @@
 =sys-apps/hwdata-gentoo-0.4 opengl -binary-drivers
 =sys-apps/hwsetup-1.2-r1 zlib
 =sys-apps/ifplugd-0.28-r9 -doc
-=sys-apps/iproute2-2.6.35-r2 berkdb ipv6 -atm -minimal
+=sys-apps/iproute2-2.6.38 berkdb -atm -minimal
 =sys-apps/kbd-1.15 nls
 =sys-apps/keyexec-0.1.2-r4 -kde
 =sys-apps/less-441 unicode
@@ -532,7 +532,7 @@
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
 =sys-power/powertop-1.13 unicode
 =sys-power/upower-0.9.9 kernel_linux -debug -doc -introspection -ios -kernel_FreeBSD
-=sys-process/htop-0.8.3 -debug
+=sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r10 pam -debug -selinux
@@ -543,7 +543,7 @@
 =virtual/linux-sources-2.6 -hardened
 =virtual/notification-daemon-0 gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-12.0.742.91-r1 cups gnome gnome-keyring xinerama -kerberos -test
+=www-client/chromium-12.0.742.112 cups gnome gnome-keyring xinerama -kerberos -test
 =www-plugins/adobe-flash-10.3.181.26 vdpau -kde
 =x11-apps/fusion-icon-0.1-r1 gtk -qt4
 =x11-apps/xauth-1.0.5 ipv6
