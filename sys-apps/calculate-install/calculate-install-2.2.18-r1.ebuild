@@ -16,6 +16,7 @@ KEYWORDS="amd64 x86"
 IUSE="minimal"
 
 DEPEND="~sys-apps/calculate-templates-2.2.18
+	~sys-apps/calculate-lib-2.2.18
 	app-portage/layman
 	!minimal? ( sys-boot/grub
 	sys-apps/gptfdisk
