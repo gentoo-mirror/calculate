@@ -74,11 +74,11 @@
 =app-text/stardict-3.0.1-r2 gnome spell -debug -espeak -festival -gucharmap -pronounce -qqwry
 =app-text/wgetpaste-2.18 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
-=dev-cpp/atkmm-2.22.2 -doc
+=dev-cpp/atkmm-2.22.5 -doc
 =dev-cpp/cairomm-1.8.6 svg -doc
-=dev-cpp/glibmm-2.24.2-r1 -debug -doc -examples -test
-=dev-cpp/gtkmm-2.22.0 -doc -examples -test
-=dev-cpp/pangomm-2.26.3 -doc
+=dev-cpp/glibmm-2.28.2 -debug -doc -examples -test
+=dev-cpp/gtkmm-2.24.0 -doc -examples -test
+=dev-cpp/pangomm-2.28.2 -doc
 =dev-db/couchdb-1.0.2 -test
 =dev-db/desktopcouch-0.6.4 -doc
 =dev-db/sqlite-3.7.6.3 extensions fts3 readline secure-delete threadsafe -debug -doc -icu -soundex -tcl -test -unlock-notify
@@ -127,7 +127,7 @@
 =dev-libs/liboil-0.3.17 examples -doc -test
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libpthread-stubs-0.3 -static-libs
-=dev-libs/libsigc++-2.2.7 -doc -test
+=dev-libs/libsigc++-2.2.9 -doc -static-libs -test
 =dev-libs/libtasn1-2.9-r1 -doc
 =dev-libs/libunique-1.1.6 dbus -debug -doc -introspection -test
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
@@ -433,9 +433,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.18 gnome -kde -xfce
 =sys-apps/calculate-desktop-2.2.18 gnome -kde -xfce
-=sys-apps/calculate-install-2.2.18 -minimal
-=sys-apps/calculate-lib-2.2.18 -minimal
-=sys-apps/calculate-utilities-2.2.18 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.18-r1 -minimal
+=sys-apps/calculate-lib-2.2.18-r1 -minimal
+=sys-apps/calculate-utilities-2.2.18-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
