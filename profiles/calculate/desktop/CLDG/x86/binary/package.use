@@ -45,7 +45,7 @@
 =app-misc/pax-utils-0.2.2 -caps
 =app-misc/realpath-1.15-r1 nls
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
-=app-office/libreoffice-3.3.3 bash-completion cups dbus gnome gtk linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gstreamer -java -kde -kdeenablefinal -ldap -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_ro -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
+=app-office/libreoffice-3.3.3 bash-completion cups dbus gnome gtk linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gstreamer -hardened -java -kde -kdeenablefinal -ldap -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_ro -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
 =app-portage/eix-0.22.5 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools
 =app-portage/genlop-0.30.8-r2 bash-completion
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
@@ -91,7 +91,7 @@
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
-=dev-libs/glib-2.28.6 static-libs -debug -doc -fam -introspection -selinux -test -xattr
+=dev-libs/glib-2.28.6 static-libs -debug -doc -fam -hardened -introspection -selinux -test -xattr
 =dev-libs/gmime-2.4.22 -doc -mono
 =dev-libs/gmp-4.3.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
@@ -361,7 +361,7 @@
 =net-fs/samba-3.5.8-r1 acl aio client cups netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldap -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
 =net-im/pidgin-2.9.0 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
-=net-im/skype-2.2.0.35-r1 -qt-static
+=net-im/skype-2.2.0.35-r1 -hardened -qt-static
 =net-irc/xchat-2.8.8-r1 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -ntlm -tcl -xchatdccserver
 =net-libs/farsight2-0.0.20 python -msn -test -upnp
 =net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
@@ -377,7 +377,7 @@
 =net-libs/rb_libtorrent-0.15.6 python ssl -debug -doc -examples
 =net-libs/telepathy-glib-0.12.7 vala -debug -introspection
 =net-libs/webkit-gtk-1.2.7 gstreamer jit -aqua -coverage -debug -doc -introspection -test
-=net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus gnome ipc libnotify -debug -elibc_FreeBSD -java -startup-notification -system-sqlite -wifi
+=net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus gnome ipc libnotify -debug -elibc_FreeBSD -hardened -java -startup-notification -system-sqlite -wifi
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.21.4 ipv6 ssl -ares -gnutls -idn -kerberos -ldap -libssh2 -nss -static-libs -test -threads
 =net-misc/dhcpcd-5.2.12 elibc_glibc zeroconf
@@ -399,7 +399,7 @@
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
 =net-misc/whois-5.0.8 iconv nls -idn
 =net-nds/openldap-2.4.24 berkdb crypt gnutls ipv6 perl samba ssl tcpd -cxx -debug -experimental -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
-=net-news/liferea-1.7.4 dbus libnotify networkmanager
+=net-news/liferea-1.7.4 dbus libnotify networkmanager -hardened
 =net-p2p/deluge-1.3.1 gtk libnotify -webinterface
 =net-p2p/linuxdcpp-1.0.3 -debug
 =net-print/cndrvcups-capt-2.00-r2 -gtk
@@ -454,10 +454,10 @@
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.12-r1 -static
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
-=sys-apps/openrc-0.8.2-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
+=sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha41 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha43 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -480,7 +480,7 @@
 =sys-block/eject-2.1.5-r2 nls
 =sys-block/gparted-0.5.2 dmraid fat gnome jfs ntfs reiserfs xfs -hfs -kde -mdadm -reiser4
 =sys-block/parted-2.3 debug device-mapper nls readline -selinux
-=sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
+=sys-boot/grub-0.97-r10 ncurses -custom-cflags -hardened -netboot -static
 =sys-boot/grub-1.99-r2 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.68 -emacs
@@ -543,7 +543,7 @@
 =virtual/linux-sources-2.6 -hardened
 =virtual/notification-daemon-0 gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-12.0.742.112 cups gnome gnome-keyring xinerama -kerberos -test
+=www-client/chromium-12.0.742.112 cups gnome gnome-keyring xinerama -hardened -kerberos -test
 =www-plugins/adobe-flash-10.3.181.26 vdpau -kde
 =x11-apps/fusion-icon-0.1-r1 gtk -qt4
 =x11-apps/xauth-1.0.5 ipv6
