@@ -34,7 +34,7 @@
 =app-emulation/emul-linux-x86-soundlibs-20110129 alsa -development -pulseaudio
 =app-emulation/emul-linux-x86-xlibs-20110129 opengl -development
 =app-i18n/enca-1.13 recode -doc
-=app-misc/calculate-meta-11.6 cdistro_CLDX -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC -cdistro_CSS
+=app-misc/calculate-meta-11.6-r1 cdistro_CLDX -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cl-decoration-meta-11.6 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-graphics-meta-11.6 cdistro_CLDX -cdistro_CLD
 =app-misc/cl-multimedia-meta-11.6 cdistro_CLDX -cdistro_CLD -cdistro_CLDG
@@ -382,7 +382,7 @@
 =sys-apps/diffutils-3.0 nls -static
 =sys-apps/file-5.05 python -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
-=sys-apps/gawk-3.1.6 nls
+=sys-apps/gawk-3.1.8 nls
 =sys-apps/gnome-disk-utility-2.32.1-r1 gnome-keyring -avahi -doc -fat -nautilus -remote-access
 =sys-apps/grep-2.5.4-r1 nls pcre
 =sys-apps/groff-1.21 X -examples -linguas_ja
