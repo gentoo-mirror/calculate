@@ -386,7 +386,7 @@
 =net-libs/rb_libtorrent-0.15.6 python ssl -debug -doc -examples
 =net-libs/telepathy-glib-0.14.7 introspection vala -debug -test
 =net-libs/webkit-gtk-1.2.7 gstreamer jit -aqua -coverage -debug -doc -introspection -test
-=net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus gnome ipc libnotify -debug -elibc_FreeBSD -java -startup-notification -system-sqlite -wifi
+=net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus gnome ipc libnotify -custom-cflags -debug -elibc_FreeBSD -java -startup-notification -system-sqlite -wifi
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.21.4 ipv6 ssl -ares -gnutls -idn -kerberos -ldap -libssh2 -nss -static-libs -test -threads
 =net-misc/dhcpcd-5.2.12 elibc_glibc zeroconf
@@ -435,9 +435,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.18 gnome -kde -xfce
 =sys-apps/calculate-desktop-2.2.18 gnome -kde -xfce
-=sys-apps/calculate-install-2.2.18-r1 -minimal
-=sys-apps/calculate-lib-2.2.18-r1 -minimal
-=sys-apps/calculate-utilities-2.2.18-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.18 -minimal
+=sys-apps/calculate-lib-2.2.18 -minimal
+=sys-apps/calculate-utilities-2.2.18 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
