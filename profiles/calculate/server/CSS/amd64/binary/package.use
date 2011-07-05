@@ -8,7 +8,7 @@
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-editors/nano-2.2.5 ncurses nls unicode -debug -justify -minimal -slang -spell
 =app-emulation/emul-linux-x86-baselibs-20110129 -development
-=app-misc/calculate-meta-11.6 cdistro_CSS -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
+=app-misc/calculate-meta-11.6-r1 cdistro_CSS -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/css-meta-11.6 -calculate_nokernel
 =app-misc/livecd-tools-1.0.42 -X -opengl
 =app-misc/pax-utils-0.2.2 -caps
@@ -65,7 +65,7 @@
 =sys-apps/diffutils-3.0 nls -static
 =sys-apps/file-5.05 python -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
-=sys-apps/gawk-3.1.6 nls
+=sys-apps/gawk-3.1.8 nls
 =sys-apps/grep-2.5.4-r1 nls pcre
 =sys-apps/groff-1.21 -X -examples -linguas_ja
 =sys-apps/help2man-1.38.2 elibc_glibc nls
