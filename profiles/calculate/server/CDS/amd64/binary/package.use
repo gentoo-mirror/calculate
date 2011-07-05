@@ -24,7 +24,7 @@
 =app-editors/vim-core-7.3.189 acl bash-completion nls -livecd
 =app-emulation/emul-linux-x86-baselibs-20110129 -development
 =app-i18n/enca-1.13 recode -doc
-=app-misc/calculate-meta-11.6 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
+=app-misc/calculate-meta-11.6-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cds-meta-11.6-r2 ldap -calculate_noapache -calculate_nobittorrent -calculate_nodecoration -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nokernel -calculate_nomail -calculate_nomysql -calculate_nonamed -calculate_nonettools -calculate_nonetwork -calculate_nopgsql -calculate_noproxy -calculate_nowireless
 =app-misc/cl-decoration-meta-11.6 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-nettools-meta-11.6-r2 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop -networkmanager
@@ -200,7 +200,7 @@
 =sys-apps/diffutils-3.0 nls -static
 =sys-apps/file-5.05 python -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
-=sys-apps/gawk-3.1.6 nls
+=sys-apps/gawk-3.1.8 nls
 =sys-apps/grep-2.5.4-r1 nls pcre
 =sys-apps/groff-1.21 -X -examples -linguas_ja
 =sys-apps/help2man-1.38.2 elibc_glibc nls
