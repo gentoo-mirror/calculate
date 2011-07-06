@@ -12,7 +12,7 @@ EGIT_REPO_URI="git://git.mercenariesguild.net/obvious.git"
 
 unset EGIT_MASTER EGIT_BRANCH EGIT_COMMIT
 if [[ ${PV} == *9999* ]]; then
-	KEYWORDS="x86"
+	KEYWORDS=""
 else
 	KEYWORDS="~amd64 ~x86"
 	EGIT_COMMIT="v${PV}"
