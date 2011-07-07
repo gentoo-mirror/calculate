@@ -8,7 +8,7 @@ inherit toolchain-funcs flag-o-matic
 
 DESCRIPTION="Unhide is a forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs or by another hidden technique."
 HOMEPAGE="http://security-projects.com/?Unhide"
-SRC_URI="mirror://sourceforge/${PN}/${PN}${PV}.tgz"
+SRC_URI="mirror://sourceforge/${PN}/${PN}-${PV}.tgz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -33,9 +33,8 @@ src_compile() {
     ${PN}-tcp.c -o ${PN}-tcp || die "Failed to compile ${PN}-tcp"
 }
 
-
 src_install() {
     dosbin ${PN} ${PN}-linux26 ${PN}-tcp
-    dodoc COPYING README.txt
+    dodoc README.txt
     doman man/*
 }
