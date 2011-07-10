@@ -10,7 +10,7 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="
 calculate_nodecoration
 calculate_nographics
@@ -198,6 +198,8 @@ RDEPEND="${RDEPEND}
 #kde-base/ktimetracker
 RDEPEND="${RDEPEND}
 	!calculate_nonetwork? (
+		!kde-base/kdepim-l10n
+		kde-base/akonadiconsole
 		kde-base/akregator
 		kde-base/kabcclient
 		kde-base/kaddressbook
@@ -213,10 +215,6 @@ RDEPEND="${RDEPEND}
 		kde-base/konsolekalendar
 		kde-base/kontact
 		kde-base/korganizer
-		kde-base/libkdepim
-		kde-base/libkleo
-		kde-base/libkpgp
-		kde-base/akonadi
 	)
 "
 
