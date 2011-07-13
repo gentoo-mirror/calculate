@@ -302,7 +302,7 @@
 =media-libs/libmpeg2-0.5.1 X sdl
 =media-libs/libogg-1.2.0 -static-libs
 =media-libs/libopenraw-0.0.8 gtk -static-libs -test
-=media-libs/libpng-1.4.5 static-libs
+=media-libs/libpng-1.4.8 static-libs -apng
 =media-libs/libsdl-1.2.14-r6 X aalib alsa audio custom-cflags fbcon ggi joystick libcaca nas opengl video xinerama xv -dga -directfb -oss -ps3 -pulseaudio -static-libs -svga -tslib
 =media-libs/libsndfile-1.0.23 alsa -minimal -sqlite
 =media-libs/libtheora-1.1.1 encode -doc -examples -static-libs
