@@ -363,11 +363,11 @@
 =net-im/pidgin-2.9.0 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
 =net-im/skype-2.2.0.35-r1 -qt-static
 =net-irc/xchat-2.8.8-r1 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -ntlm -tcl -xchatdccserver
-=net-libs/farsight2-0.0.20 python -msn -test -upnp
+=net-libs/farsight2-0.0.26 python -msn -test -upnp
 =net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
 =net-libs/gtk-vnc-0.4.2-r2 python -examples -introspection -sasl
 =net-libs/libnfsidmap-0.21-r1 -ldap
-=net-libs/libnice-0.0.13 gstreamer -upnp
+=net-libs/libnice-0.1.0 gstreamer -upnp
 =net-libs/libpcap-1.1.1 bluetooth ipv6 -libnl
 =net-libs/libproxy-0.4.6 gnome networkmanager perl python -kde -mono -test -webkit -xulrunner
 =net-libs/libsoup-2.32.2 ssl -debug -doc -introspection -test
@@ -457,7 +457,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha43 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha44 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -544,7 +544,7 @@
 =virtual/notification-daemon-0 gnome
 =virtual/ssh-0 -minimal
 =www-client/chromium-12.0.742.112 cups gnome gnome-keyring xinerama -kerberos -test
-=www-plugins/adobe-flash-10.3.181.26 vdpau -kde
+=www-plugins/adobe-flash-10.3.181.34 vdpau -kde
 =x11-apps/fusion-icon-0.1-r1 gtk -qt4
 =x11-apps/xauth-1.0.5 ipv6
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
