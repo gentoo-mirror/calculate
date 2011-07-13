@@ -160,7 +160,7 @@
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-python/reportlab-2.5 -doc -examples -test
-=dev-python/sip-4.12.1 -debug -doc
+=dev-python/sip-4.12.3-r2 -debug -doc
 =dev-python/twisted-11.0.0 crypt gtk -serial
 =dev-python/twisted-web-11.0.0 -soap
 =dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
@@ -234,7 +234,7 @@
 =kde-base/kdesu-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kdf-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kdialog-4.6.5 -aqua -debug -kdeenablefinal
-=kde-base/kdm-4.6.5 consolekit handbook pam -aqua -debug -kdeenablefinal -kerberos
+=kde-base/kdm-4.6.5-r1 consolekit handbook pam -aqua -debug -kdeenablefinal -kerberos
 =kde-base/kdnssd-4.6.5 -aqua -debug -kdeenablefinal -zeroconf
 =kde-base/kdontchangethehostname-4.6.5 -aqua -debug -kdeenablefinal
 =kde-base/keditbookmarks-4.6.5 -aqua -debug -kdeenablefinal
@@ -406,7 +406,7 @@
 =media-libs/libogg-1.2.0 -static-libs
 =media-libs/libopenraw-0.0.8 gtk -static-libs -test
 =media-libs/libpgf-6.09.44-r1 -doc
-=media-libs/libpng-1.4.5 static-libs
+=media-libs/libpng-1.4.8 static-libs -apng
 =media-libs/libquicktime-1.2.2 X aac alsa dv encode ffmpeg gtk jpeg mmx opengl png vorbis x264 -doc -lame -schroedinger
 =media-libs/libsamplerate-0.1.7 -sndfile
 =media-libs/libsdl-1.2.14-r6 X aalib alsa audio custom-cflags fbcon ggi joystick libcaca nas opengl video xinerama xv -dga -directfb -oss -ps3 -pulseaudio -static-libs -svga -tslib
