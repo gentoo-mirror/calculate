@@ -242,7 +242,7 @@
 =kde-base/kdesu-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kdf-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kdialog-4.6.5 -aqua -debug -kdeenablefinal
-=kde-base/kdm-4.6.5 consolekit handbook pam -aqua -debug -kdeenablefinal -kerberos
+=kde-base/kdm-4.6.5-r1 consolekit handbook pam -aqua -debug -kdeenablefinal -kerberos
 =kde-base/kdnssd-4.6.5 -aqua -debug -kdeenablefinal -zeroconf
 =kde-base/kdontchangethehostname-4.6.5 -aqua -debug -kdeenablefinal
 =kde-base/keditbookmarks-4.6.5 -aqua -debug -kdeenablefinal
@@ -414,7 +414,7 @@
 =media-libs/libogg-1.2.0 -static-libs
 =media-libs/libopenraw-0.0.8 gtk -static-libs -test
 =media-libs/libpgf-6.09.44-r1 -doc
-=media-libs/libpng-1.4.5 static-libs
+=media-libs/libpng-1.4.8 static-libs -apng
 =media-libs/libquicktime-1.2.2 X aac alsa dv encode ffmpeg gtk jpeg mmx opengl png vorbis x264 -doc -lame -schroedinger
 =media-libs/libsamplerate-0.1.7 -sndfile
 =media-libs/libsdl-1.2.14-r6 X aalib alsa audio custom-cflags fbcon ggi joystick libcaca nas opengl video xinerama xv -dga -directfb -oss -ps3 -pulseaudio -static-libs -svga -tslib
@@ -745,7 +745,7 @@
 =x11-libs/xtrans-1.2.6 -doc
 =x11-misc/gccmakedep-1.0.2 -debug
 =x11-misc/xbindkeys-1.8.4 -guile -tk
-=x11-misc/xdg-utils-1.1.0_rc1-r1 -doc
+=x11-misc/xdg-utils-1.1.0_rc1_p20110519 -doc
 =x11-proto/bigreqsproto-1.1.1 -doc
 =x11-proto/fontsproto-2.1.1 -doc
 =x11-proto/recordproto-1.14.1 -doc
