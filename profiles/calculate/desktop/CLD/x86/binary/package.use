@@ -40,7 +40,6 @@
 =app-misc/cl-wireless-meta-11.6-r1 cdistro_desktop
 =app-misc/cld-meta-11.6 -calculate_nodecoration -calculate_nographics -calculate_nokde -calculate_nokernel -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork -calculate_nooffice -calculate_noprinter -calculate_nowireless -calculate_noxorg
 =app-misc/lirc-0.8.7 X kernel_linux lirc_devices_devinput -debug -doc -hardware-carrier -lirc_devices_accent -lirc_devices_act200l -lirc_devices_act220l -lirc_devices_adaptec -lirc_devices_all -lirc_devices_alsa_usb -lirc_devices_animax -lirc_devices_asusdh -lirc_devices_atilibusb -lirc_devices_atiusb -lirc_devices_audio -lirc_devices_audio_alsa -lirc_devices_avermedia -lirc_devices_avermedia98 -lirc_devices_avermedia_vdomate -lirc_devices_awlibusb -lirc_devices_bestbuy -lirc_devices_bestbuy2 -lirc_devices_breakoutbox -lirc_devices_bte -lirc_devices_bw6130 -lirc_devices_caraca -lirc_devices_chronos -lirc_devices_commandir -lirc_devices_cph06x -lirc_devices_creative -lirc_devices_creative_infracd -lirc_devices_digimatrix -lirc_devices_dsp -lirc_devices_dvico -lirc_devices_ea65 -lirc_devices_ene0100 -lirc_devices_exaudio -lirc_devices_flyvideo -lirc_devices_ftdi -lirc_devices_gvbctv5pci -lirc_devices_hauppauge -lirc_devices_hauppauge_dvb -lirc_devices_hercules_smarttv_stereo -lirc_devices_i2cuser -lirc_devices_igorplugusb -lirc_devices_iguanaIR -lirc_devices_imon -lirc_devices_imon_24g -lirc_devices_imon_knob -lirc_devices_imon_lcd -lirc_devices_imon_pad -lirc_devices_imon_rsc -lirc_devices_inputlirc -lirc_devices_irdeo -lirc_devices_irdeo_remote -lirc_devices_irlink -lirc_devices_irman -lirc_devices_irreal -lirc_devices_it87 -lirc_devices_ite8709 -lirc_devices_knc_one -lirc_devices_kworld -lirc_devices_leadtek_0007 -lirc_devices_leadtek_0010 -lirc_devices_leadtek_pvr2000 -lirc_devices_livedrive_midi -lirc_devices_livedrive_seq -lirc_devices_logitech -lirc_devices_macmini -lirc_devices_mceusb -lirc_devices_mediafocusI -lirc_devices_mouseremote -lirc_devices_mouseremote_ps2 -lirc_devices_mp3anywhere -lirc_devices_mplay -lirc_devices_nslu2 -lirc_devices_packard_bell -lirc_devices_parallel -lirc_devices_pcmak -lirc_devices_pcmak_usb -lirc_devices_pctv -lirc_devices_pixelview_bt878 -lirc_devices_pixelview_pak -lirc_devices_pixelview_pro -lirc_devices_provideo -lirc_devices_realmagic -lirc_devices_remote_wonder_plus -lirc_devices_remotemaster -lirc_devices_sa1100 -lirc_devices_samsung -lirc_devices_sasem -lirc_devices_sb0540 -lirc_devices_serial -lirc_devices_serial_igor_cesko -lirc_devices_silitek -lirc_devices_sir -lirc_devices_slinke -lirc_devices_streamzap -lirc_devices_tekram -lirc_devices_tekram_bt829 -lirc_devices_tira -lirc_devices_ttusbir -lirc_devices_tuxbox -lirc_devices_tvbox -lirc_devices_udp -lirc_devices_uirt2 -lirc_devices_uirt2_raw -lirc_devices_usb_uirt_raw -lirc_devices_usbirboy -lirc_devices_usbx -lirc_devices_userspace -lirc_devices_wpc8769l -lirc_devices_xboxusb -transmitter
-=app-misc/livecd-tools-1.0.42 X opengl
 =app-misc/mc-4.7.0.3 X edit gpm nls samba -slang
 =app-misc/pax-utils-0.2.2 -caps
 =app-misc/realpath-1.15-r1 nls
@@ -86,7 +85,7 @@
 =dev-libs/atk-1.32.0-r1 introspection nls -doc
 =dev-libs/boost-1.42.0-r2 eselect python -debug -doc -icu -mpi -static-libs -test -tools
 =dev-libs/chmlib-0.40-r1 -examples -static-libs
-=dev-libs/cyrus-sasl-2.1.23-r1 berkdb crypt gdbm ldap mysql pam ssl -authdaemond -elibc_FreeBSD -java -kerberos -ntlm_unsupported_patch -postgres -sample -sqlite -srp -urandom
+=dev-libs/cyrus-sasl-2.1.23-r4 berkdb crypt gdbm mysql pam ssl -authdaemond -elibc_FreeBSD -java -kerberos -ntlm_unsupported_patch -openldap -postgres -sample -srp -urandom
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
@@ -114,7 +113,7 @@
 =dev-libs/libnatspec-0.2.6 python -doc
 =dev-libs/libnl-1.1-r2 -doc
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
-=dev-libs/libpthread-stubs-0.1 -static-libs
+=dev-libs/libpthread-stubs-0.3 -static-libs
 =dev-libs/libtasn1-2.9-r1 -doc
 =dev-libs/libtommath-0.42.0 -doc -examples -static-libs
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
@@ -417,7 +416,7 @@
 =media-libs/libwebp-0.1.2 -static-libs
 =media-libs/libwmf-0.2.8.4-r3 X gtk -debug -doc -expat -xml
 =media-libs/mediastreamer-2.7.3-r3 X alsa amr ipv6 portaudio sdl speex theora v4l2 video x264 -bindist -coreaudio -debug -examples -gsm -ilbc -jack -oss -pulseaudio
-=media-libs/mesa-7.10.2 classic gallium nptl video_cards_intel video_cards_mach64 video_cards_mga video_cards_nouveau video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_via video_cards_vmware -debug -gles -hardened -kernel_FreeBSD -llvm -motif -pic -selinux
+=media-libs/mesa-7.10.3 classic gallium nptl video_cards_intel video_cards_mach64 video_cards_mga video_cards_nouveau video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_via video_cards_vmware -debug -gles -hardened -kernel_FreeBSD -llvm -motif -pic -selinux
 =media-libs/mlt-0.5.10 dv ffmpeg frei0r gtk kde melt mmx python qt4 quicktime sdl sse sse2 vdpau vorbis xml -compressed-lumas -debug -jack -libsamplerate -lua -ruby -xine
 =media-libs/musicbrainz-3.0.2 -test
 =media-libs/mutagen-1.20 -test
@@ -542,8 +541,6 @@
 =sys-apps/grep-2.5.4-r1 nls pcre
 =sys-apps/groff-1.21 X -examples -linguas_ja
 =sys-apps/help2man-1.38.2 elibc_glibc nls
-=sys-apps/hwdata-gentoo-0.4 opengl -binary-drivers
-=sys-apps/hwsetup-1.2-r1 zlib
 =sys-apps/ifplugd-0.28-r9 -doc
 =sys-apps/iproute2-2.6.38 berkdb -atm -minimal
 =sys-apps/kbd-1.15 nls
@@ -559,7 +556,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha44 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha45 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -623,7 +620,6 @@
 =sys-libs/gpm-1.20.6 -selinux
 =sys-libs/libcap-2.17 pam
 =sys-libs/libieee1284-0.2.11-r1 python -doc
-=sys-libs/libkudzu-1.2.57.1 zlib
 =sys-libs/libstdc++-v3-3.3.6 nls -multilib
 =sys-libs/libutempter-1.1.5 -elibc_FreeBSD
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
@@ -652,7 +648,7 @@
 =www-client/chromium-12.0.742.112 cups xinerama -gnome -gnome-keyring -kerberos -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
 =www-plugins/adobe-flash-10.3.181.34 kde vdpau
-=x11-apps/xauth-1.0.5 ipv6
+=x11-apps/xauth-1.0.6 ipv6
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
 =x11-apps/xhost-1.0.4 ipv6
 =x11-apps/xinit-1.3.0-r2 minimal
@@ -682,15 +678,15 @@
 =x11-libs/libXTrap-1.0.0 -debug
 =x11-libs/libXau-1.0.6 -static-libs
 =x11-libs/libXaw-1.0.9 -doc -static-libs
-=x11-libs/libXcomposite-0.4.3 -doc -static-libs
+=x11-libs/libXcomposite-0.4.3-r1 -doc -static-libs
 =x11-libs/libXcursor-1.1.11 -static-libs
 =x11-libs/libXdamage-1.1.3 -static-libs
 =x11-libs/libXdmcp-1.1.0 -doc -static-libs
-=x11-libs/libXext-1.2.0 -doc -static-libs
+=x11-libs/libXext-1.3.0 -doc -static-libs
 =x11-libs/libXfixes-5.0 -static-libs
 =x11-libs/libXfont-1.4.3 ipv6 -doc -static-libs
 =x11-libs/libXft-2.2.0 -static-libs
-=x11-libs/libXi-1.4.2 -doc -static-libs
+=x11-libs/libXi-1.4.3 -doc -static-libs
 =x11-libs/libXinerama-1.1.1 -static-libs
 =x11-libs/libXmu-1.1.0 ipv6 -doc -static-libs
 =x11-libs/libXp-1.0.1 -static-libs
@@ -704,7 +700,7 @@
 =x11-libs/libXvMC-1.0.6 -static-libs
 =x11-libs/libXxf86dga-1.1.2 -static-libs
 =x11-libs/libXxf86vm-1.1.1 -static-libs
-=x11-libs/libdrm-2.4.25 libkms video_cards_intel video_cards_nouveau video_cards_radeon video_cards_vmware -static-libs
+=x11-libs/libdrm-2.4.26 libkms video_cards_intel video_cards_nouveau video_cards_radeon video_cards_vmware -static-libs
 =x11-libs/libfontenc-1.1.0 -static-libs
 =x11-libs/libnotify-0.7.2 -doc -introspection -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
@@ -729,7 +725,11 @@
 =x11-libs/qt-webkit-4.7.3 dbus exceptions jit kde -aqua -debug -pch
 =x11-libs/qt-xmlpatterns-4.7.3 -aqua -debug -pch
 =x11-libs/qtscriptgenerator-0.1.0 kde -debug
-=x11-libs/xcb-util-0.3.6 -debug -test
+=x11-libs/xcb-util-0.3.8 -doc -static-libs -test
+=x11-libs/xcb-util-image-0.3.8 -doc -static-libs -test
+=x11-libs/xcb-util-keysyms-0.3.8 -doc -static-libs -test
+=x11-libs/xcb-util-renderutil-0.3.8 -doc -static-libs -test
+=x11-libs/xcb-util-wm-0.3.8 -doc -static-libs -test
 =x11-libs/xosd-2.2.14-r1 xinerama
 =x11-libs/xtrans-1.2.6 -doc
 =x11-misc/gccmakedep-1.0.2 -debug
