@@ -15,7 +15,6 @@ IUSE=""
 
 # Developer
 RDEPEND="
-	app-misc/livecd-tools
 	app-portage/eix
 	app-portage/gentoolkit
 	app-portage/layman
