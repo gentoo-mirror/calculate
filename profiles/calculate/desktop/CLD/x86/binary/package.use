@@ -89,7 +89,7 @@
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
-=dev-libs/glib-2.28.6 static-libs -debug -doc -fam -introspection -selinux -test -xattr
+=dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-4.3.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
 =dev-libs/icu-4.6.1 -debug -doc -examples -static-libs
@@ -153,8 +153,8 @@
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
 =dev-python/pycups-1.9.49 -doc -examples
-=dev-python/pygobject-2.26.0-r1 cairo threads -doc -examples -introspection -libffi -test
-=dev-python/pygtk-2.22.0-r1 -doc -examples -test
+=dev-python/pygobject-2.28.6 cairo -doc -examples -introspection -libffi -test
+=dev-python/pygtk-2.24.0-r1 -doc -examples -test
 =dev-python/pyopenssl-0.12 -doc
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
@@ -175,7 +175,7 @@
 =dev-util/pkgconfig-0.25-r2 -elibc_FreeBSD -hardened
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 curl iconv perl threads tk webdav -cgi -cvs -doc -emacs -gtk -ppcsha1 -subversion -xinetd
 =gnome-base/libglade-2.6.4 -doc -static-libs -test
-=gnome-base/librsvg-2.32.1 gtk -doc -tools
+=gnome-base/librsvg-2.34.0 gtk -doc -tools
 =kde-base/activitymanager-4.6.5 semantic-desktop -aqua -debug -kdeenablefinal
 =kde-base/akonadi-4.4.11.1 -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/akregator-4.4.11.1-r1 handbook kontact -aqua -debug -kdeenablefinal -kdeprefix
@@ -192,7 +192,7 @@
 =kde-base/kalarm-4.4.11.1-r1 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kamera-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kate-4.6.5 handbook plasma -aqua -debug -kdeenablefinal
-=kde-base/kcalc-4.6.5 handbook -aqua -debug -kdeenablefinal -test
+=kde-base/kcalc-4.6.5-r1 handbook -aqua -debug -kdeenablefinal -test
 =kde-base/kcharselect-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kcheckpass-4.6.5 pam -aqua -debug -kdeenablefinal
 =kde-base/kcminit-4.6.5 -aqua -debug -kdeenablefinal
@@ -528,9 +528,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.18 kde -gnome -xfce
 =sys-apps/calculate-desktop-2.2.18 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.18 -minimal
-=sys-apps/calculate-lib-2.2.18 -minimal
-=sys-apps/calculate-utilities-2.2.18 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.18-r2 -minimal
+=sys-apps/calculate-lib-2.2.18-r2 -minimal
+=sys-apps/calculate-utilities-2.2.18-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
