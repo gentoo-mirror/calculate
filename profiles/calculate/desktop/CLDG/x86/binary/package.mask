@@ -159,6 +159,7 @@ dev-db/couchdb
 dev-db/desktopcouch
 dev-db/sqlite
 dev-lang/erlang
+dev-lang/lua
 dev-lang/nasm
 dev-lang/orc
 dev-lang/perl
@@ -431,6 +432,7 @@ media-libs/libass
 media-libs/libcaca
 media-libs/libcanberra
 media-libs/libcddb
+media-libs/libcuefile
 media-libs/libdc1394
 media-libs/libdca
 media-libs/libdiscid
@@ -453,6 +455,7 @@ media-libs/libmpeg2
 media-libs/libogg
 media-libs/libopenraw
 media-libs/libpng
+media-libs/libreplaygain
 media-libs/libsdl
 media-libs/libsndfile
 media-libs/libtheora
@@ -469,6 +472,7 @@ media-libs/opencore-amr
 media-libs/openexr
 media-libs/openjpeg
 media-libs/portaudio
+media-libs/quvi
 media-libs/raptor
 media-libs/schroedinger
 media-libs/sdl-image
@@ -488,7 +492,9 @@ media-libs/xvid
 media-plugins/gst-plugins-a52dec
 media-plugins/gst-plugins-alsa
 media-plugins/gst-plugins-cdparanoia
+media-plugins/gst-plugins-dv
 media-plugins/gst-plugins-dvdread
+media-plugins/gst-plugins-faad
 media-plugins/gst-plugins-ffmpeg
 media-plugins/gst-plugins-flac
 media-plugins/gst-plugins-gconf
@@ -497,6 +503,7 @@ media-plugins/gst-plugins-libmms
 media-plugins/gst-plugins-mad
 media-plugins/gst-plugins-meta
 media-plugins/gst-plugins-mpeg2dec
+media-plugins/gst-plugins-musepack
 media-plugins/gst-plugins-ogg
 media-plugins/gst-plugins-pango
 media-plugins/gst-plugins-resindvd
@@ -513,6 +520,7 @@ media-sound/alsa-utils
 media-sound/cdparanoia
 media-sound/gsm
 media-sound/lame
+media-sound/musepack-tools
 media-sound/rhythmbox
 media-sound/sound-juicer
 media-sound/sox
