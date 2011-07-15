@@ -320,7 +320,7 @@
 =net-libs/libnfsidmap-0.21-r1 ldap
 =net-libs/libnice-0.1.0 gstreamer -upnp
 =net-libs/libpcap-1.1.1 bluetooth ipv6 -libnl
-=net-libs/libproxy-0.4.6 networkmanager perl python -gnome -kde -mono -test -webkit -xulrunner
+=net-libs/libproxy-0.4.6-r3 networkmanager perl python -gnome -kde -mono -test -vala
 =net-libs/libsoup-2.32.2 ssl -debug -doc -introspection -test
 =net-libs/libsoup-gnome-2.32.2 -debug -doc -introspection
 =net-libs/libtirpc-0.2.1-r1 -kerberos
@@ -372,9 +372,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.18 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.18 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.18 -minimal
-=sys-apps/calculate-lib-2.2.18 -minimal
-=sys-apps/calculate-utilities-2.2.18 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.18-r2 -minimal
+=sys-apps/calculate-lib-2.2.18-r2 -minimal
+=sys-apps/calculate-utilities-2.2.18-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
