@@ -200,7 +200,7 @@
 =kde-base/kalarm-4.4.11.1-r1 handbook -aqua -debug -kdeenablefinal -kdeprefix
 =kde-base/kamera-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kate-4.6.5 handbook plasma -aqua -debug -kdeenablefinal
-=kde-base/kcalc-4.6.5 handbook -aqua -debug -kdeenablefinal -test
+=kde-base/kcalc-4.6.5-r1 handbook -aqua -debug -kdeenablefinal -test
 =kde-base/kcharselect-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kcheckpass-4.6.5 pam -aqua -debug -kdeenablefinal
 =kde-base/kcminit-4.6.5 -aqua -debug -kdeenablefinal
@@ -535,9 +535,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.18 kde -gnome -xfce
 =sys-apps/calculate-desktop-2.2.18 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.18 -minimal
-=sys-apps/calculate-lib-2.2.18 -minimal
-=sys-apps/calculate-utilities-2.2.18 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.18-r2 -minimal
+=sys-apps/calculate-lib-2.2.18-r2 -minimal
+=sys-apps/calculate-utilities-2.2.18-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
