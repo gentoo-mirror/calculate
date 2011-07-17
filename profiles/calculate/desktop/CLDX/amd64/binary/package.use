@@ -188,8 +188,8 @@
 =gnome-base/orbit-2.14.19-r1 -debug -doc -test
 =gnome-extra/nm-applet-0.8.2-r10 -bluetooth -debug
 =gnome-extra/polkit-gnome-0.101-r1 -doc -examples -introspection
-=mail-client/claws-mail-3.7.8 crypt dbus gnutls imap ipv6 ldap session spell ssl -bogofilter -dillo -doc -nntp -pda -smime -spamassassin -startup-notification -xface
-=mail-client/claws-mail-rssyl-0.29 nls
+=mail-client/claws-mail-3.7.9-r1 crypt dbus gnutls imap ipv6 ldap session spell ssl -bogofilter -dillo -doc -nntp -pda -smime -spamassassin -startup-notification -xface
+=mail-client/claws-mail-rssyl-0.30 nls
 =mail-mta/ssmtp-2.64-r2 ipv6 mta ssl -gnutls
 =media-fonts/corefonts-1-r4 X
 =media-fonts/dejavu-2.32 X -fontforge
@@ -320,7 +320,7 @@
 =net-libs/libnfsidmap-0.21-r1 ldap
 =net-libs/libnice-0.1.0 gstreamer -upnp
 =net-libs/libpcap-1.1.1 bluetooth ipv6 -libnl
-=net-libs/libproxy-0.4.6-r3 networkmanager perl python -gnome -kde -mono -test -vala
+=net-libs/libproxy-0.4.6-r3 networkmanager perl python -gnome -kde -mono -test
 =net-libs/libsoup-2.32.2 ssl -debug -doc -introspection -test
 =net-libs/libsoup-gnome-2.32.2 -debug -doc -introspection
 =net-libs/libtirpc-0.2.1-r1 -kerberos
@@ -372,9 +372,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.18 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.18 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.18-r2 -minimal
+=sys-apps/calculate-install-2.2.18-r3 -minimal
 =sys-apps/calculate-lib-2.2.18-r2 -minimal
-=sys-apps/calculate-utilities-2.2.18-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.18-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -415,7 +415,7 @@
 =sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 x86emu -debug
 =sys-apps/xinetd-2.3.14 perl tcpd
-=sys-auth/consolekit-0.4.4 kernel_linux pam policykit -debug -doc -test
+=sys-auth/consolekit-0.4.5-r1 kernel_linux pam policykit -debug -doc -test
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
 =sys-auth/pam_ldap-183 ssl -sasl
 =sys-auth/pambase-20101024 consolekit cracklib gnome-keyring sha512 -debug -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
