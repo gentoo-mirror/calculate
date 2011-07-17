@@ -49,7 +49,7 @@
 =app-portage/portage-utils-0.3.1 -static
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
 =app-text/aspell-0.60.6-r2 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk nls -examples -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
-=app-text/djvu-3.5.23 jpeg nls tiff -debug -doc -linguas_ja -xml
+=app-text/djvu-3.5.24 jpeg nls tiff -debug -doc -linguas_ja -xml
 =app-text/enchant-1.6.0 hunspell -aspell -zemberek
 =app-text/evince-2.32.0-r3 dbus djvu gnome-keyring tiff -debug -doc -dvi -gnome -introspection -nautilus -t1lib
 =app-text/fbreader-0.12.10 gtk -debug -qt4
@@ -63,11 +63,11 @@
 =app-text/stardict-3.0.1-r2 spell -debug -espeak -festival -gnome -gucharmap -pronounce -qqwry
 =app-text/wgetpaste-2.18 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
-=dev-cpp/atkmm-2.22.2 -doc
+=dev-cpp/atkmm-2.22.5 -doc
 =dev-cpp/cairomm-1.8.6 svg -doc
-=dev-cpp/glibmm-2.24.2-r1 -debug -doc -examples -test
-=dev-cpp/gtkmm-2.22.0 -doc -examples -test
-=dev-cpp/pangomm-2.26.3 -doc
+=dev-cpp/glibmm-2.28.2 -debug -doc -examples -test
+=dev-cpp/gtkmm-2.24.0 -doc -examples -test
+=dev-cpp/pangomm-2.28.2 -doc
 =dev-db/sqlite-3.7.6.3 extensions fts3 readline secure-delete threadsafe -debug -doc -icu -soundex -tcl -test -unlock-notify
 =dev-lang/nasm-2.09.08 -doc
 =dev-lang/orc-0.4.11 -examples -static-libs
@@ -110,7 +110,7 @@
 =dev-libs/libnl-1.1-r2 -doc
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libpthread-stubs-0.3 -static-libs
-=dev-libs/libsigc++-2.2.7 -doc -test
+=dev-libs/libsigc++-2.2.9 -doc -static-libs -test
 =dev-libs/libtasn1-2.9-r1 -doc
 =dev-libs/libunique-1.1.6 dbus -debug -doc -introspection -test
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
@@ -365,9 +365,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.18 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.18 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.18-r2 -minimal
+=sys-apps/calculate-install-2.2.18-r3 -minimal
 =sys-apps/calculate-lib-2.2.18-r2 -minimal
-=sys-apps/calculate-utilities-2.2.18-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.18-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
