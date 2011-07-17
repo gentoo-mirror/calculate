@@ -107,7 +107,6 @@
 =dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
 =dev-util/cmake-2.8.4-r1 ncurses -emacs -qt4 -test -vim-syntax
 =dev-util/ctags-5.7 -ada
-=dev-util/dialog-1.1.20100428 nls unicode -examples -minimal
 =dev-util/diffball-1.0 -debug
 =dev-util/pkgconfig-0.25-r2 -elibc_FreeBSD -hardened
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 cgi curl iconv perl threads webdav -cvs -doc -emacs -gtk -ppcsha1 -subversion -tk -xinetd
@@ -190,9 +189,9 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.2 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-install-2.2.18-r2 -minimal
+=sys-apps/calculate-install-2.2.18-r3 -minimal
 =sys-apps/calculate-lib-2.2.18-r2 -minimal
-=sys-apps/calculate-utilities-2.2.18-r3 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-utilities-2.2.18-r4 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
