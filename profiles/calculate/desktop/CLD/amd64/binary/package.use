@@ -380,7 +380,7 @@
 =media-libs/freetype-2.4.4 X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
-=media-libs/giflib-4.1.6-r1 X -rle -static-libs
+=media-libs/giflib-4.1.6-r2 X -rle -static-libs
 =media-libs/ilmbase-1.0.2 -static-libs
 =media-libs/imlib2-1.4.4 X bzip2 gif jpeg mp3 nls png tiff zlib -doc -mmx
 =media-libs/jasper-1.900.1-r3 jpeg opengl -static-libs
@@ -533,11 +533,11 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.2 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-client-2.2.18 kde -gnome -xfce
-=sys-apps/calculate-desktop-2.2.18 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.18-r3 -minimal
-=sys-apps/calculate-lib-2.2.18-r2 -minimal
-=sys-apps/calculate-utilities-2.2.18-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.19 kde -gnome -xfce
+=sys-apps/calculate-desktop-2.2.19 kde -gnome -xfce
+=sys-apps/calculate-install-2.2.19 -minimal
+=sys-apps/calculate-lib-2.2.19 -minimal
+=sys-apps/calculate-utilities-2.2.19 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
