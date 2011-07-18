@@ -32,6 +32,6 @@ RDEPEND="${RDEPEND}
 	cl_desktop? ( =sys-apps/calculate-desktop-2.2.19 )
 	cl_installgui? ( =app-misc/calculate-install-gui-2.2.19 )
 
-	cl_server? ( =sys-apps/calculate-server-2.1.14-r5 )
+	cl_server? ( =sys-apps/calculate-server-2.1.14-r6 )
 "
 
