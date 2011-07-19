@@ -15,6 +15,8 @@ IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS"
 
 #net-misc/pino
 RDEPEND="
+	net-misc/whois
+
 	cdistro_desktop? (
 		app-text/wgetpaste
 		net-analyzer/nmap
@@ -66,7 +68,6 @@ RDEPEND="
 		net-dialup/minicom
 		net-irc/weechat
 		net-ftp/tftp-hpa
-		net-misc/whois
 		www-client/links
 	)
 "
