@@ -456,7 +456,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha45 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha46 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -505,7 +505,7 @@
 =sys-fs/ntfsprogs-2.0.0-r1 crypt gnome -debug -fuse -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/squashfs-tools-4.2 gzip lzma lzo -xattr
-=sys-fs/udev-164-r2 extras -build -selinux -test
+=sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/udisks-1.0.3-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r10 bash-completion video_cards_radeon -ibm -selinux
@@ -631,7 +631,7 @@
 =x11-libs/xtrans-1.2.6 -doc
 =x11-misc/gccmakedep-1.0.2 -debug
 =x11-misc/xbindkeys-1.8.4 -guile -tk
-=x11-misc/xdg-utils-1.1.0_rc1-r1 -doc
+=x11-misc/xdg-utils-1.1.0_rc1_p20110519 -doc
 =x11-misc/xdialog-2.3.1 nls -doc -examples
 =x11-plugins/compiz-plugins-extra-0.8.6-r1 libnotify -gconf
 =x11-plugins/compiz-plugins-main-0.8.6-r1 -gconf
