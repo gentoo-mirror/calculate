@@ -74,7 +74,7 @@ index a846970..2e2bb65 100644
      def get_os_x11_height(self):
          """Get screen height in pixeles"""
 diff --git pym/cl_utils.py pym/cl_utils.py
-index 5d4d51a..8d8578f 100644
+index 5d4d51a..0d72762 100644
 --- pym/cl_utils.py
 +++ pym/cl_utils.py
 @@ -805,6 +805,27 @@ def listDirectory(directory,fullPath=False):
@@ -105,20 +105,15 @@ index 5d4d51a..8d8578f 100644
  def readLinesFile(filename):
      """Read file by line"""
      try:
-@@ -965,13 +986,6 @@ def getSquashList():
-         return map(lambda x:{"lzma":"xz"}.get(x,x),
+@@ -966,7 +987,7 @@ def getSquashList():
                 list(set(usesSquashFs) & wantMethod))
  
--def getAvailableX11Drivers(prefix="/"):
+ def getAvailableX11Drivers(prefix="/"):
 -    """Get available x11 drivers"""
--    xorg_modules_dir = path.join(prefix,'usr/lib/xorg/modules/drivers')
--    return map(lambda x: x[:-7],
--           filter(lambda x:x.endswith('_drv.so'),
--           listDirectory(xorg_modules_dir)))
--
- def lspci(filtername=None,shortInfo=False):
-     """Get hash of lspci, filtred by filtername. If shortInfo, then
-     type,vendor and name get only first word
++    """Get available x11 drivers (Depricated Function)"""
+     xorg_modules_dir = path.join(prefix,'usr/lib/xorg/modules/drivers')
+     return map(lambda x: x[:-7],
+            filter(lambda x:x.endswith('_drv.so'),
 diff --git pym/cl_vars_share.py pym/cl_vars_share.py
 index 755ae89..71cadd8 100644
 --- pym/cl_vars_share.py
