@@ -1,13 +1,16 @@
-commit 0b04de81481615520fe913005d8a79397c4427c3
-Author: Mike Hiretsky <mh@calculate.ru>
-Date:   Fri Jul 22 10:17:36 2011 +0400
-
-    Add scan delay for live image boot.
-
 diff --git a/builder/iso/calcboot/isolinux/isolinux.cfg.desktop b/builder/iso/calcboot/isolinux/isolinux.cfg.desktop
-index 433c1f6..0681bc1 100644
+index 433c1f6..c85569c 100644
 --- a/builder/iso/calcboot/isolinux/isolinux.cfg.desktop
 +++ b/builder/iso/calcboot/isolinux/isolinux.cfg.desktop
+@@ -12,7 +12,7 @@ LABEL cld
+ 	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-#
+ #os_builder_linux_subname#
+ 	KERNEL /boot/vmlinuz
+-	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume doscsi
++	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume doscsi scandelay=2
+ 
+ LABEL cld-docache
+ #?os_builder_linux_subname!=#
 @@ -22,7 +22,7 @@ LABEL cld-docache
  	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-# (RAM)
  #os_builder_linux_subname#
