@@ -87,7 +87,7 @@
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-4.3.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
-=dev-libs/icu-4.6.1 -debug -doc -examples -static-libs
+=dev-libs/icu-4.8 -debug -doc -examples -static-libs
 =dev-libs/klibc-1.5.20 -debug
 =dev-libs/libIDL-0.8.14 -debug
 =dev-libs/libassuan-2.0.1 -static-libs
@@ -362,13 +362,13 @@
 =net-wireless/wpa_supplicant-0.7.3-r2 dbus kernel_linux readline ssl wimax -debug -eap-sim -fasteap -gnutls -kernel_FreeBSD -madwifi -ps3 -qt4 -wps
 =sys-apps/acl-2.2.49 nls -nfs
 =sys-apps/attr-2.4.44 nls
-=sys-apps/baselayout-2.0.2 -build
+=sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.19 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.19 xfce -gnome -kde
 =sys-apps/calculate-install-2.2.19-r1 -minimal
-=sys-apps/calculate-lib-2.2.19-r2 -minimal
-=sys-apps/calculate-utilities-2.2.19-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-lib-2.2.19-r3 -minimal
+=sys-apps/calculate-utilities-2.2.19-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -446,7 +446,7 @@
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/udisks-1.0.3-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r11 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r12 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.38.8 symlink vmlinuz -build -deblob
 =sys-kernel/linux-firmware-20110604 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
