@@ -55,9 +55,9 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-install-2.2.19-r2 -minimal
-=sys-apps/calculate-lib-2.2.19-r4 -minimal
-=sys-apps/calculate-utilities-2.2.19-r6 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-install-2.2.19-r3 -minimal
+=sys-apps/calculate-lib-2.2.19-r5 -minimal
+=sys-apps/calculate-utilities-2.2.19-r7 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -91,7 +91,7 @@
 =sys-auth/pambase-20101024 cracklib sha512 -consolekit -debug -gnome-keyring -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
 =sys-block/parted-2.3 debug device-mapper nls readline -selinux
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
-=sys-boot/grub-1.99-r2 multislot truetype -custom-cflags -debug -static
+=sys-boot/grub-1.99-r3 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.68 -emacs
 =sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -test -vanilla
@@ -105,6 +105,7 @@
 =sys-devel/patch-2.5.9 -static
 =sys-fs/e2fsprogs-1.41.12 nls -elibc_FreeBSD
 =sys-fs/lvm2-2.02.73-r1 lvm1 readline static -clvm -cman -selinux
+=sys-fs/mdadm-3.1.4 -static
 =sys-fs/mtools-4.0.15 -X
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
