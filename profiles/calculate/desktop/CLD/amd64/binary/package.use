@@ -536,9 +536,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.19 kde -gnome -xfce
 =sys-apps/calculate-desktop-2.2.19 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.19-r3 -minimal
+=sys-apps/calculate-install-2.2.19-r4 -minimal
 =sys-apps/calculate-lib-2.2.19-r5 -minimal
-=sys-apps/calculate-utilities-2.2.19-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.19-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -590,7 +590,7 @@
 =sys-block/parted-2.3 debug device-mapper nls readline -selinux
 =sys-block/partitionmanager-1.0.3 linguas_bg linguas_de linguas_es linguas_fr linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_da -linguas_el -linguas_en_GB -linguas_et -linguas_gl -linguas_ja -linguas_lt -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_pa -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
-=sys-boot/grub-1.99-r3 multislot truetype -custom-cflags -debug -static
+=sys-boot/grub-1.99-r4 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.68 -emacs
 =sys-devel/bc-1.06.95 readline -libedit -static
