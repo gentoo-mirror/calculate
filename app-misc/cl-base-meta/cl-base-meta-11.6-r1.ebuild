@@ -26,7 +26,7 @@ RDEPEND="
 	sys-apps/v86d
 	sys-boot/calcboot
 	sys-boot/grub:0
-	sys-boot/grub:2
+	>=sys-boot/grub-1.99-r4:2
 	sys-boot/os-prober
 	sys-fs/reiserfsprogs
 	sys-kernel/calckernel
