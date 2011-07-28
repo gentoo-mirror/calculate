@@ -30,5 +30,5 @@ src_unpack() {
 	cd "${S}"
 
 	# fix determining partition size
-	epatch "${FILESDIR}/calculate-lib-2.2.18-part_size.patch"
+	epatch "${FILESDIR}/calculate-lib-2.2.20-fix_getsize.patch"
 }
