@@ -2,6 +2,12 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calckernel-3.4.15-r13 (29 Jul 2011)
+
+  29 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calckernel-3.4.15-r13.ebuild, +files/calckernel-3.4.15-r13.patch:
+  Update for fix loading fireware for radeon in ramfs.
+
 *calckernel-3.4.15-r12 (25 Jul 2011)
 
   25 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
