@@ -1,3 +1,4 @@
+#kde 4.7
 ~app-misc/cl-kde-meta-4.7.0 amd64 x86
 ~dev-libs/grantlee-0.1.8 amd64 x86
 ~dev-libs/soprano-2.6.51 amd64 x86
@@ -12,4 +13,12 @@
 ~media-gfx/digikam-2.0.0 amd64 x86
 ~media-plugins/kipi-plugins-2.0.0 amd64 x86
 
+#required by media-gfx/digikam-2.0.0
+~media-libs/libkface-2.0.0 amd64 x86
+#required by media-gfx/digikam-2.0.0
+~media-libs/libkgeomap-2.0.0 amd64 x86
+#required by media-gfx/digikam-2.0.0
+~media-libs/libpgf-6.11.28 amd64 x86
+#required by media-plugins/kipi-plugins-2.0.0[mediawiki]
+~media-libs/libmediawiki-2.0.0 amd64 x86
 
