@@ -56,9 +56,9 @@
 =sys-apps/attr-2.4.44 nls
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-install-2.2.20-r2 -minimal
+=sys-apps/calculate-install-2.2.20-r3 -minimal
 =sys-apps/calculate-lib-2.2.20-r2 -minimal
-=sys-apps/calculate-utilities-2.2.20-r3 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-utilities-2.2.20-r4 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
