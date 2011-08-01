@@ -2,6 +2,13 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-install-2.2.20-r3 (01 Aug 2011)
+
+  01 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-install-2.2.20-r3.ebuild,
+  +files/calculate-install-2.2.20-fix_iso_add_btrfs.patch:
+  Add btrfs support, fix --iso param.
+
 *calculate-install-2.2.20-r2 (28 Jul 2011)
 
   28 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
