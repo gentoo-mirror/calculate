@@ -1,0 +1,40 @@
+diff --git a/pym/cl_fill_install.py b/pym/cl_fill_install.py
+index 10d8e5d..a03b841 100644
+--- a/pym/cl_fill_install.py
++++ b/pym/cl_fill_install.py
+@@ -121,6 +121,10 @@ class fillVars(object, glob_attr):
+             mapInterface = {}
+             mapInterface["ip"] = ipaddr
+             mapInterface["cidr"] = str(ip.maskToCidr(mask)) if mask else ""
++            if ipaddr and mask:
++                mapInterface["network"] = ip.getIpNet(ipaddr,mask=mask)
++            else:
++                mapInterface["network"] = ""
+             mapInterface["dhcp"] = "on" if dhcp else "off"
+             mapInterface["mac"] = mac
+             mapInterface["name"] = "{vendor} {name}".format(**pciInfo)
+@@ -1102,6 +1106,10 @@ class fillVars(object, glob_attr):
+         """Current mask"""
+         return self.getAttributeFromHash('os_install_net_hash','cidr')
+ 
++    def get_os_install_net_network(self):
++        """Current network"""
++        return self.getAttributeFromHash('os_install_net_hash','network')
++
+     def get_os_install_net_mac(self):
+         """Current mac"""
+         return self.getAttributeFromHash('os_install_net_hash','mac')
+diff --git a/pym/cl_vars_install.py b/pym/cl_vars_install.py
+index fdcb803..84c43a6 100644
+--- a/pym/cl_vars_install.py
++++ b/pym/cl_vars_install.py
+@@ -278,6 +278,9 @@ class Data:
+     # ip for all network interfaces
+     os_install_net_ip = {}
+ 
++    # network for ip
++    os_install_net_network = {}
++
+     # ip cidr
+     os_install_net_cidr = {}
+ 
