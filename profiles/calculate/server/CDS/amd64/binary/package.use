@@ -152,7 +152,7 @@
 =net-firewall/iptables-1.4.11.1-r2 ipv6 -netlink
 =net-firewall/shorewall-4.4.19.4 -doc
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
-=net-fs/samba-3.5.9 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
+=net-fs/samba-3.5.9-r1 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/ftp-0.17-r7 ipv6 ssl
 =net-ftp/ftpbase-0.01-r2 pam
 =net-ftp/proftpd-1.3.3e caps ctrls ident ldap ncurses nls pam radius ssl tcpd -acl -authfile -ban -case -clamav -deflate -doc -exec -ifsession -ipv6 -kerberos -mysql -postgres -ratio -readme -rewrite -selinux -sftp -shaper -sitemisc -softquota -trace -vroot -xinetd
