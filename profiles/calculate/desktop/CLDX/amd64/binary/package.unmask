@@ -106,7 +106,7 @@
 =app-misc/cl-xorg-meta-7.4-r1
 =app-misc/cldx-meta-11.6
 =app-misc/lirc-0.8.7
-=app-misc/mc-4.7.0.3
+=app-misc/mc-4.7.5.2
 =app-misc/mime-types-8
 =app-misc/pax-utils-0.2.2
 =app-misc/realpath-1.15-r1
@@ -219,8 +219,8 @@
 =dev-libs/openssl-1.0.0d
 =dev-libs/popt-1.16-r1
 =dev-libs/pth-2.0.7-r3
-=dev-libs/rasqal-0.9.17
-=dev-libs/redland-1.0.10-r1
+=dev-libs/rasqal-0.9.19
+=dev-libs/redland-1.0.10-r2
 =dev-perl/Archive-Zip-1.30
 =dev-perl/Authen-SASL-2.15
 =dev-perl/Crypt-PasswdMD5-1.3
@@ -406,7 +406,7 @@
 =media-libs/openexr-1.7.0
 =media-libs/openjpeg-1.3-r3
 =media-libs/portaudio-19_pre20071207
-=media-libs/raptor-1.4.20
+=media-libs/raptor-1.4.21-r1
 =media-libs/schroedinger-1.0.10
 =media-libs/sdl-image-1.2.10-r1
 =media-libs/sdl-mixer-1.2.11-r1
@@ -466,7 +466,7 @@
 =net-dns/libidn-1.22
 =net-fs/fusesmb-0.8.7
 =net-fs/nfs-utils-1.2.3-r1
-=net-fs/samba-3.5.9
+=net-fs/samba-3.5.9-r1
 =net-ftp/filezilla-3.3.4.1
 =net-im/pidgin-2.9.0
 =net-im/skype-2.2.0.35-r1
@@ -544,7 +544,8 @@
 =net-wireless/wpa_supplicant-0.7.3-r2
 =net-wireless/zd1201-firmware-0.14
 =net-wireless/zd1211-firmware-1.4
-=net-zope/zope-interface-3.5.3
+=net-zope/zope-fixers-1.0
+=net-zope/zope-interface-3.6.2
 =perl-core/ExtUtils-CBuilder-0.27.03
 =perl-core/ExtUtils-ParseXS-2.22.05
 =perl-core/File-Spec-3.31
@@ -559,11 +560,11 @@
 =sys-apps/calculate-builder-2.2.20
 =sys-apps/calculate-client-2.2.20
 =sys-apps/calculate-desktop-2.2.20
-=sys-apps/calculate-i18n-2.2.20-r1
-=sys-apps/calculate-install-2.2.20-r3
-=sys-apps/calculate-lib-2.2.20-r2
+=sys-apps/calculate-i18n-2.2.20-r2
+=sys-apps/calculate-install-2.2.20-r8
+=sys-apps/calculate-lib-2.2.20-r3
 =sys-apps/calculate-templates-2.2.20-r1
-=sys-apps/calculate-utilities-2.2.20-r4
+=sys-apps/calculate-utilities-2.2.20-r9
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.12
 =sys-apps/debianutils-3.4.4
@@ -596,7 +597,7 @@
 =sys-apps/openrc-0.8.3-r1
 =sys-apps/pciutils-3.1.7
 =sys-apps/pcmciautils-014-r1
-=sys-apps/portage-2.2.0_alpha49
+=sys-apps/portage-2.2.0_alpha50
 =sys-apps/preload-0.6.4-r2
 =sys-apps/pv-1.2.0
 =sys-apps/rescan-scsi-bus-1.29
@@ -609,7 +610,7 @@
 =sys-apps/sysvinit-2.88-r1
 =sys-apps/tcp-wrappers-7.6-r8
 =sys-apps/texinfo-4.13
-=sys-apps/usb_modeswitch-1.1.4
+=sys-apps/usb_modeswitch-1.1.7
 =sys-apps/usbutils-001
 =sys-apps/util-linux-2.19.1
 =sys-apps/v86d-0.1.10
@@ -648,7 +649,7 @@
 =sys-devel/gettext-0.18.1.1-r1
 =sys-devel/gnuconfig-20100924
 =sys-devel/libperl-5.10.1
-=sys-devel/libtool-2.2.10
+=sys-devel/libtool-2.4-r1
 =sys-devel/m4-1.4.15
 =sys-devel/make-3.82
 =sys-devel/patch-2.5.9
@@ -675,7 +676,7 @@
 =sys-fs/xfsprogs-3.1.4
 =sys-kernel/calckernel-3.4.15-r13
 =sys-kernel/calculate-sources-2.6.38.8
-=sys-kernel/linux-firmware-20110604
+=sys-kernel/linux-firmware-20110731
 =sys-kernel/linux-headers-2.6.38
 =sys-kernel/module-rebuild-0.5
 =sys-libs/cracklib-2.8.16
@@ -751,7 +752,7 @@
 =virtual/perl-libnet-1.220.0-r1
 =virtual/ssh-0
 =virtual/ttf-fonts-1
-=www-client/chromium-12.0.742.112
+=www-client/chromium-13.0.782.107
 =www-plugins/adobe-flash-10.3.181.34
 =www-plugins/nspluginwrapper-1.4.4
 =x11-apps/appres-1.0.3

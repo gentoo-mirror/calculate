@@ -100,7 +100,7 @@
 =app-misc/cl-xorg-meta-7.4-r1
 =app-misc/cldg-meta-11.6
 =app-misc/lirc-0.8.7
-=app-misc/mc-4.7.0.3
+=app-misc/mc-4.7.5.2
 =app-misc/mime-types-8
 =app-misc/pax-utils-0.2.2
 =app-misc/realpath-1.15-r1
@@ -542,7 +542,7 @@
 =net-dns/bind-tools-9.7.3
 =net-dns/libidn-1.22
 =net-fs/nfs-utils-1.2.3-r1
-=net-fs/samba-3.5.9
+=net-fs/samba-3.5.9-r1
 =net-ftp/filezilla-3.3.4.1
 =net-im/pidgin-2.9.0
 =net-im/skype-2.2.0.35-r1
@@ -641,11 +641,11 @@
 =sys-apps/calculate-builder-2.2.20
 =sys-apps/calculate-client-2.2.20
 =sys-apps/calculate-desktop-2.2.20
-=sys-apps/calculate-i18n-2.2.20-r1
-=sys-apps/calculate-install-2.2.20-r3
-=sys-apps/calculate-lib-2.2.20-r2
+=sys-apps/calculate-i18n-2.2.20-r2
+=sys-apps/calculate-install-2.2.20-r8
+=sys-apps/calculate-lib-2.2.20-r3
 =sys-apps/calculate-templates-2.2.20-r1
-=sys-apps/calculate-utilities-2.2.20-r4
+=sys-apps/calculate-utilities-2.2.20-r9
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.12
 =sys-apps/debianutils-3.4.4
@@ -678,7 +678,7 @@
 =sys-apps/openrc-0.8.3-r1
 =sys-apps/pciutils-3.1.7
 =sys-apps/pcmciautils-014-r1
-=sys-apps/portage-2.2.0_alpha49
+=sys-apps/portage-2.2.0_alpha50
 =sys-apps/preload-0.6.4-r2
 =sys-apps/pv-1.2.0
 =sys-apps/rescan-scsi-bus-1.29
@@ -731,7 +731,7 @@
 =sys-devel/gettext-0.18.1.1-r1
 =sys-devel/gnuconfig-20100924
 =sys-devel/libperl-5.10.1
-=sys-devel/libtool-2.2.10
+=sys-devel/libtool-2.4-r1
 =sys-devel/m4-1.4.15
 =sys-devel/make-3.82
 =sys-devel/patch-2.5.9
@@ -758,7 +758,7 @@
 =sys-fs/xfsprogs-3.1.4
 =sys-kernel/calckernel-3.4.15-r13
 =sys-kernel/calculate-sources-2.6.38.8
-=sys-kernel/linux-firmware-20110604
+=sys-kernel/linux-firmware-20110731
 =sys-kernel/linux-headers-2.6.38
 =sys-kernel/module-rebuild-0.5
 =sys-libs/cracklib-2.8.16
@@ -833,7 +833,7 @@
 =virtual/perl-libnet-1.220.0-r1
 =virtual/ssh-0
 =virtual/ttf-fonts-1
-=www-client/chromium-12.0.742.112
+=www-client/chromium-13.0.782.107
 =www-plugins/adobe-flash-10.3.181.34
 =x11-apps/appres-1.0.3
 =x11-apps/bdftopcf-1.0.3

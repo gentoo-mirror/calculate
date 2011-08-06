@@ -220,7 +220,7 @@
 =kde-base/kdebase-wallpapers-4.6.5 -aqua -kdeenablefinal
 =kde-base/kdebugdialog-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kdegraphics-strigi-analyzer-4.6.5 -aqua -debug -kdeenablefinal
-=kde-base/kdelibs-4.6.5 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev udisks upower -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kerberos -lzma -test -zeroconf
+=kde-base/kdelibs-4.6.5-r1 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev udisks upower -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kerberos -lzma -test -zeroconf
 =kde-base/kdemultimedia-kioslaves-4.6.5 encode flac handbook vorbis -aqua -debug -kdeenablefinal
 =kde-base/kdenetwork-filesharing-4.6.5 -aqua -debug -kdeenablefinal
 =kde-base/kdepasswd-4.6.5 handbook -aqua -debug -kdeenablefinal
@@ -468,7 +468,7 @@
 =net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
 =net-dns/libidn-1.22 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
-=net-fs/samba-3.5.9 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
+=net-fs/samba-3.5.9-r1 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-im/choqok-1.1 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -indicate -kdeenablefinal -linguas_da -linguas_en_GB -linguas_et -linguas_ja -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW
 =net-im/skype-2.2.0.35-r1 -qt-static
 =net-irc/konversation-1.3.1 crypt handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_et -linguas_fi -linguas_gl -linguas_hu -linguas_ja -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sk -linguas_sr -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW
@@ -529,9 +529,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.20 kde -gnome -xfce
 =sys-apps/calculate-desktop-2.2.20 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.20-r4 -minimal
+=sys-apps/calculate-install-2.2.20-r8 -minimal
 =sys-apps/calculate-lib-2.2.20-r3 -minimal
-=sys-apps/calculate-utilities-2.2.20-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.20-r9 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -557,7 +557,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha49 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha50 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -613,7 +613,7 @@
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r13 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.38.8 symlink vmlinuz -build -deblob
-=sys-kernel/linux-firmware-20110604 -savedconfig
+=sys-kernel/linux-firmware-20110731 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
@@ -647,7 +647,7 @@
 =virtual/mysql-5.1 embedded -minimal -static
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-12.0.742.112 cups xinerama -gnome -gnome-keyring -kerberos -test
+=www-client/chromium-13.0.782.107 cups linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk xinerama -gnome -gnome-keyring -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
 =www-plugins/adobe-flash-10.3.181.34 kde vdpau
 =x11-apps/xauth-1.0.6 ipv6

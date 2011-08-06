@@ -1,0 +1,738 @@
+diff --git man/ru/cl-install.1 man/ru/cl-install.1
+new file mode 100644
+index 0000000..6b06ed1
+--- /dev/null
++++ man/ru/cl-install.1
+@@ -0,0 +1,227 @@
++.TH CL-INSTALL 1  "27 июля 2011" "Calculate Utilities" "Установка Calculate Linux"
++.SH НАЗВАНИЕ
++.PP
++cl-install - Установка Calculate Linux на жесткий диск, USB-Flash или USB-HDD
++.SH СИНТАКСИС
++[-d] [-w] [--mbr] [--type] [--iso] [-s] [--march] [--build] [-l] [-u] [--hostname]
++[--netconf] [--dhcp] [--ip] [--route] [--dns] [--proxy] [--ntp] [--nouuid] [--set] [-U] [-f]
++[--live] [--install] [--uninstall] [--nospinner]
++[-P] [-p] [-v] [--filter] [--xml] [--color] [--version] [-h]
++.SH ОПИСАНИЕ
++.PP
++cl-install - программа установки дистрибутива Calculate Linux. Поддерживается установка на жесткий диск HDD, переносной жесткий диск USB-HDD и флеш-накопитель USB-Flash. Для установки используется образ, расположенный в директориях '/var/calculate/linux' и '/var/calculate/remote/linux'. В случае установки с LiveCD/USB, может использоваться образ загруженной системы.
++.PP
++Установка на жесткий диск может быть выполнена в обычном режиме и в режиме интерактивной сборки сборки для созданеия измененного образа дистрибутива. Для установки в режиме интерактивной сборки используйте параметр '--build'.
++.PP
++Установка на переносной жесткий диск отличается отсутствием привязки к аппаратному обеспечению.
++.PP
++По умолчанию, установка на флеш-накопитель производится путем копирования liveusb образа системы с использованием файловой системы fat32 и загрузчика syslinux. При желании, по аналогии с установкой на жесткий диск, можно полностью распаковать файлы системы. Для этого используется параметр '--type'.
++.SH ПАРАМЕТРЫ
++.PP
++Параметры команды
++\fBcl-install\fR:
++.PP
++\fB\-d\fR, \fB\-\-disk\fR \fIDISK[:[DIR:FILESYSTEM:OPTIONS]]\fR
++.RS 4
++DISK - раздел для установки или директория, в случае перемонтирования части файловой иерархии. DIR - точка монтирования, значение 'none' отменяет перенос точки монтирования. FILESYSTEM - файловая система, доступные значения ext2, ext3, ext4, reiserfs, xfs, jfs, btrfs. OPTIONS - опции монтирования, см. 'man fstab'. Для указания нескольких разделов для установки используйте параметр несколько раз.
++.RE
++.PP
++\fB\-w\fR, \fB\-\-swap\fR \fIраздел подкачки\fR
++.RS 4
++.RE
++.PP
++\fB\-\-mbr\fR \fIзагрузочный диск\fR
++.RS 4
++Диск для записи Master Boot Record (MBR). Значение 'off' отключает изменение загрузочной записи.
++.RE
++.PP
++\fB\-\-type\fR \fIтип устройства\fR
++.RS 4
++Тип устройства. Поддерживаемые значения значения: hdd, usb-hdd, flash.
++.RE
++.PP
++\fB\-\-iso\fR \fIпуть к файлу\fR
++.RS 4
++Путь к файлу с ISO образом дистрибутива. В случае, если параметр не задан, образ той же архитектуры ищется в '/var/calculate/linux' и '/var/calculate/remote/linux', либо используется livecd в случае загрузки системы с LiveCD/USB. При нахождении нескольких образов, приоритет отдаётся более свежей версии.
++.RE
++.PP
++\fB\-s\fR, \fB\-\-os\fR \fIдистрибутив\fR
++.RS 4
++Выбор дистрибутива, допустимые значения "CDS", "CLD", "CLDG", "CLDX", "CLS", "CMC" и "CSS". В случае использования параметра, будет выполнен поиск необходимого дистрибутива из исходных директорий.
++.RE
++.PP
++\fB\-\-march\fR \fIархитектура\fR
++.RS 4
++Выбор архитектуры процессора, допустимые значения "i686", "x86_64". В случае использования параметра будет выполнен поиск необходимого дистрибутива из исходных директорий.
++.RE
++.PP
++\fB\-\-build\fR
++.RS 4
++Установка системы в режиме сборки. Поддерживается при установке системы на жесткий диск компьютера. В случае использования этого параметра, live-образ дистрибутива будет монтироваться во время загрузки в отдельный слой файловой системы aufs2. Дополнительные слои позволяют отделить вносимые изменения от результатов работы.
++.RE
++.PP
++\fB\-l\fR, \fB\-\-lang\fR \fIязык\fR
++.RS 4
++Выбор языка. Допустимые значения: 'bg_BG' - болгарский, 'de_DE' - немецкий, 'en_US' - английский, 'es_ES' - польский, 'fr_FR' - французский, 'it_IT' - итальянский, 'pl_PL' - польский, 'pt_BR' - португальский бразильский, 'pt_PT' - португальский, 'ro_RO' - румынский, 'ru_RU' - русский, 'uk_UA' - украинский.
++.RE
++.PP
++\fB\-u\fR, \fB\-\-user\fR \fIпользователь\fR
++.RS 4
++Пользователи, добавляемые в устанавливаемоую систему. Для добавления нескольких пользователей используйте параметр несколько раз.
++.RE
++.PP
++\fB\-\-hostname\fR \fIсетевое имя\fR
++.RS 4
++Короткая либо полная форма сетевого имени компьютера.
++.RE
++.PP
++\fB\-\-netconf\fR \fIменеджер сети\fR
++.RS 4
++Выбор сетевого менеджера. Допустимые значения: 'openrc' и 'networkmanager'. Последний может быть выбран, если программа NetworkManager входит в состав дистрибутива.
++.RE
++.PP
++\fB\-\-dhcp\fR \fIинтерфейс\fR
++.RS 4
++Получить IP адрес по DHCP для указанного интерфейса. Для указания двух и более интерфейсов используйте несколько параметров.
++.RE
++.PP
++\fB\-\-ip\fR \fB[IFACE:]\fR\fIIP\fR
++.RS 4
++IPv4 адрес сети с указанием CIDR. IFACE может обозначать сетевой интерфейс. По умолчанию IFACE равен eth0. Пример 192.168.0.1/24. Допустимо указывать несколько сетевых интерфейсов.
++.RE
++.PP
++\fB\-\-route\fR NETWORK:[GATEWAY][:IFACE[:SOURCE]]
++.RS 4
++Правило маршрутизации: сеть, шлюз, интерфейс, исходящий IP. Для указания шлюза по умолчанию NETWORK может быть указан как 'default'.
++.RE
++.PP
++\fB\-\-dns\fR \fIDNS\fR
++.RS 4
++Сетевой адрес сервера имен DNS.
++.RE
++.PP
++\fB\-\-proxy\fR \fIPROXY\fR
++.RS 4
++Сетевой адрес proxy-сервера.
++.RE
++.PP
++\fB\-\-ntp\fR \fINTP\fR
++.RS 4
++Сетевой адрес сервера времени NTP.
++.RE
++.PP
++\fB\-\-nouuid\fR
++.RS 4
++Не использовать UUID имена устройств. При установке параметра будут использоваться привычные имена устройств (/dev/sda1 и т.п.). Используйте данный параметр если уверены.
++.RE
++.PP
++\fB\-\-set\fR \fIVAR=VALUE\fR
++.RS 4
++Изменение значения внутренней переменной утилит Calculate. Для изменения значений нескольких переменных используйте параметр несколько раз.
++.RE
++.PP
++\fB\-U\fR, \fB\-\-update\fR
++.RS 4
++Выполнять установку только новых версий системы. Удобно использовать при наличии второго раздела под систему, совместно с опцией '--force'.
++.RE
++.PP
++\fB\-f\fR, \fB\-\-force\fR
++.RS 4
++Не задавать вопросы в процессе установки системы.
++.RE
++.PP
++\fB\-\-live\fR
++.RS 4
++Выполнить настройку текущей системы. При выполнении команды производится настройка системы шаблонами, утилиты Calculate подключаются к автоконфигурированию устанавливаемых пакетным менеджером програм. Команда выполняется при загрузке с livecd и при первом запуске системы. При помощи нее можно восставновить первичные настройки системы. Совместно с опциями настройки языка, сети, видео и т.п. можно изменить настройки системы.
++.RE
++.PP
++\fB\-\-install\fR
++.RS 4
++Настройка calculate-install для конфигурирования пакетов. Выполение команды в Calculate Linux системах приведет к подключению пакета для автоконфигурирования устанавливаемых пакетным менеджером програм. Вызов утилиты происходит при помощи profile.bashrc скрипта из оверлея calculate.
++.RE
++.PP
++\fB\-\-uninstall\fR
++.RS 4
++Отключение calculate-install от конфигурирования пакетов.
++.RE
++.PP
++\fB\-\-nospinner\fR
++.RS 4
++Отключить индикатор процесса установки системы.
++.RE
++.PP
++\fB\-P\fR
++.RS 4
++Читать пароли из стандартного ввода. При указании одного и более пользователей пароли будут читаться со стандартного ввода.
++.RE
++.PP
++\fB\-p\fR, \fB\-\-show-partitions\fR
++.RS 4
++Вывести информацию о имеющихся разделах. В табличном виде будет отображена следующая информация: размер, устройство, метка, точка монтирования, формат файловой системы, тип, установленная система.
++.RE
++.PP
++\fB\-v\fR, \fB\-\-show-variables\fR
++.RS 4
++Вывести список внутренних переменных утилит Calculate с их текущим значением и флагом доступа на изменение. Для полного вывода используйте '-vv'.
++.RE
++.PP
++\fB\-\-filter\fR \fIфильтр\fR
++.RS 4
++Фильтрация переменных. Используется совместно с '--show-variables'. Пример: 'cl-install -v --filter=*video*'.
++.RE
++.PP
++\fB\-\-xml\fR
++.RS 4
++Вывод переменных в формате XML. Используется совместно с '--show-variables'.
++.RE
++.PP
++\fB\-\-color\fR \fIWHEN\fR
++.RS 4
++Контроль использования цвета. WHEN может принимать значения 'never', 'always', или 'auto' для отображения выводимых сообщений без использования или с использованием цвета.
++.RE
++.PP
++\fB\-\-version\fR
++.RS 4
++Вывод версии программы и выход.
++.RE
++.PP
++\fB\-h\fR, \fB\-\-help\fR
++.RS 4
++Показать краткую справку и закончить работу.
++.RE
++.SH СМ. ТАКЖЕ
++.PP
++cl-builder(1), cl-image(1)
++.SH ПРИМЕРЫ
++.PP
++Установка системы в раздел /dev/sda2
++.nf
++cl-install -d /dev/sda2
++.fi
++.PP
++Смена видеодрайвера на 'fglrx'. Перед выполнением убедитесь, что у вас установлен пакет 'x11-drivers/ati-drivers'.
++.nf
++cl-install --live --set os_install_x11_video_drv=fglrx
++.fi
++.PP
++Установка системы на несколько разделов. В примере система будет установлена на раздел sda2, все настройки, в том числе данные пользователя будут вынесены в раздел sda5. Раздел sda1 будет использован в качестве 'swap'.
++.nf
++cl-install -d /dev/sda2 -d /dev/sda5:/var/calculate -d /var/calculate/home:/home -w /dev/sda1 --hostname calculatelinux
++.fi
++.PP
++Установка системы указанием настроек сети: ip адрес 192.168.1.20, маска 255.255.255.0, шлюз по умолчанию 192.168.1.1, адрес DNS 192.168.1.2. В качестве менеджера сети будет использован OpenRC.
++.nf
++cl-install -d /dev/sda2 --ip 192.168.1.20/24 --route default:192.168.1.1 --dns 192.168.1.2 --netconf openrc
++.fi
++.PP
++Установка маршрутизатора. В примере настраиваются два сетевых интерфейса, внешний eth0: ip адрес 1.2.3.6, маска 255.255.255.252, шлюз 1.2.3.5 и внутренний eth1: ip адрес 192.168.1.1, маска 255.255.255.0. Адрес DNS 8.8.8.8. Маршрутизация в сеть 192.168.3.0/24 осуществляется через шлюз 192.168.1.2.
++.nf
++cl-install -d /dev/sda2 --ip eth0:1.2.3.6/30 --route default:1.2.3.5:eth0 --ip eth1:192.168.1.1 --route 192.168.3.0/24:192.168.1.2:eth1 --dns 8.8.8.8
++.fi
++.SH АВТОРЫ
++.PP
++Calculate Utilities разрабатываются компанией Калкулэйт http://www.calculate.ru
++.SH АВТОР
++.PP
++Компания "Калкулэйт" http://www.calculate.ru
++
+diff --git pym/cl_distr.py pym/cl_distr.py
+index 9045f76..057e50d 100644
+--- pym/cl_distr.py
++++ pym/cl_distr.py
+@@ -457,7 +457,6 @@ class Distributive(object, SignalInterrupt):
+ 
+     def _removeDirectory(self,directory):
+         """Remove directory and files contained in it"""
+-        #print "removeDirectory:",directory
+         try:
+             removeDir(directory)
+         except Exception, e:
+@@ -566,8 +565,9 @@ class Distributive(object, SignalInterrupt):
+         return None
+ 
+ 
+-    def _mountToDirectory(self,file,directory,mountopts=""):
++    def _mountToDirectory(self,file,directory,mountopts="",count=2):
+         """Mount squashfs to directory"""
++        NO_SUCH_DEVICE = 2816
+         if isMount(directory):
+             raise DistributiveError(_("Cann't mount to directory: %s\n")\
+                                      %directory+ _("Directory already mounted"))
+@@ -578,6 +578,12 @@ class Distributive(object, SignalInterrupt):
+         if mountProcess.success():
+             return True
+         else:
++            # 2816 code return by mount if device is absent (update /dev by udev)
++            # try mount 3 times with interval 0.5 second
++            if mountProcess.returncode() == NO_SUCH_DEVICE and count:
++                sleep(0.5)
++                mountProcess.close()
++                return self._mountToDirectory(file,directory,mountopts,count-1)
+             try:
+                 self._removeDirectory(directory)
+             except:
+@@ -722,6 +728,7 @@ class PartitionDistributive(Distributive):
+                         'ext4':'/sbin/mkfs.ext4 %s %s',
+                         'jfs':'/sbin/mkfs.jfs %s -f %s',
+                         'reiserfs':'/sbin/mkfs.reiserfs %s -f %s',
++                        'btrfs':'/sbin/mkfs.btrfs %s %s',
+                         'xfs':'/sbin/mkfs.xfs %s -f %s',
+                         'vfat':'/usr/sbin/mkfs.vfat %s -F 32 %s',
+                         'ntfs-3g':'/usr/sbin/mkfs.ntfs %s -FQ %s',
+@@ -731,6 +738,7 @@ class PartitionDistributive(Distributive):
+     labelForUtilities = { 'ext2':'-L %s',
+                         'ext3':'-L %s',
+                         'ext4':'-L %s',
++                        'btrfs':'-L %s',
+                         'jfs':'-L %s',
+                         'reiserfs':'-l %s',
+                         'xfs':'-L %s',
+@@ -743,6 +751,7 @@ class PartitionDistributive(Distributive):
+                  'ext3' : '83',
+                  'ext4' : '83',
+                  'reiserfs' : '83',
++                 'btrfs' : '83',
+                  'jfs' : '83',
+                  'xfs' : '83',
+                  'vfat' : '0b',
+@@ -753,6 +762,7 @@ class PartitionDistributive(Distributive):
+                     'ext3' : '0700',
+                     'ext4' : '0700',
+                     'reiserfs' : '0700',
++                    'btrfs' : '0700',
+                     'jfs' : '0700',
+                     'xfs' : '0700',
+                     'vfat' : '0700',
+@@ -969,13 +979,19 @@ class PartitionDistributive(Distributive):
+             pipe = Popen([gdiskProg,deviceName],
+                     stdin=PIPE, stdout=PIPE,stderr=PIPE)
+             if devicePartitionCount > 1:
+-                pipe.stdin.write("t\n%s\n%s\nw\ny\n"%(devicePartitionCount,
++                pipe.stdin.write("t\n%s\n%s\nw\ny\n"%(partitionNumber,
+                                                       systemid))
+             else:
+                 pipe.stdin.write("t\n%s\nw\ny\n"%systemid)
+             pipe.stdin.close()
+             pipe.wait()
+-        return True
++        for waittime in (0.1,0.2,0.5,1,2,4):
++            if path.exists(dev):
++                return True
++            else:
++                sleep(waittime)
++        raise DistributiveError(
++            _("Can not found partition %s after change system id")%dev)
+ 
+     def formatSwapPartition(self, dev):
+         """Format swap partition"""
+diff --git pym/cl_fill_install.py pym/cl_fill_install.py
+index fdefcbf..a03b841 100644
+--- pym/cl_fill_install.py
++++ pym/cl_fill_install.py
+@@ -28,7 +28,8 @@ from cl_utils import isMount,typeFile,getTupleVersion,pathJoin,isFstabMount,\
+                      isPkgInstalled, process, checkUtils, readLinesFile, \
+                      FStab, lspci, getInstalledVideo,getDeviceType, \
+                      getPartitionType, getOsProberHash, getProgPath, \
+-                     getRaidPartitions, getLvmPartitions, getLvmGroups
++                     getRaidPartitions, getLvmPartitions, getLvmGroups, \
++                     refreshLVM, refreshUdev
+ from cl_distr import DistributiveRepository,PartitionDistributive
+ from cl_fill import clLocale
+ from operator import itemgetter
+@@ -120,6 +121,10 @@ class fillVars(object, glob_attr):
+             mapInterface = {}
+             mapInterface["ip"] = ipaddr
+             mapInterface["cidr"] = str(ip.maskToCidr(mask)) if mask else ""
++            if ipaddr and mask:
++                mapInterface["network"] = ip.getIpNet(ipaddr,mask=mask)
++            else:
++                mapInterface["network"] = ""
+             mapInterface["dhcp"] = "on" if dhcp else "off"
+             mapInterface["mac"] = mac
+             mapInterface["name"] = "{vendor} {name}".format(**pciInfo)
+@@ -229,11 +234,29 @@ class fillVars(object, glob_attr):
+         return ", ".join(map(lambda x:"%s (%s)"%(x[0],x[1]),
+                              listInterfacesInfo))
+ 
++    
++    def getTableByChild(self,device):
++        """Get table by child partitions"""
++        syspath = getUdevDeviceInfo(name=device).get('DEVPATH','')
++        if not syspath.startswith('/sys'):
++            syspath = pathJoin('/sys',syspath)
++        shortnameDevice = path.basename(device)
++        childs = filter(lambda x:x.startswith(shortnameDevice),
++                 listDirectory(syspath))
++        if childs:
++            child = pathJoin(syspath,childs[0])
++            return getUdevDeviceInfo(path=child).get('ID_PART_ENTRY_SCHEME','')
++        return ""
++                 
+     def get_os_device_hash(self):
++        """Generate hash information about device"""
+         def onlyDisk(devpath):
++            """Check by udevadm that devpath is device (disk)"""
+             prop = getUdevDeviceInfo(devpath)
+             return prop.get("ID_TYPE","")=="disk" and \
+                    prop.get("DEVTYPE","")=="disk"
++
++        # get usb device by '/dev/disk/by-id' (usb devices contain 'usb' in name)
+         diskIdPath = '/dev/disk/by-id'
+         if path.exists(diskIdPath):
+             usbdevices = \
+@@ -241,30 +264,39 @@ class fillVars(object, glob_attr):
+              filter(lambda x: x.startswith('usb-'),listDirectory(diskIdPath)))
+         else:
+             usbdevices = []
++        # get devices from /sys/block directories (discard mem,sr,loop and other)
+         sysBlockPath = '/sys/block'
+         devices = map(lambda x:path.join(sysBlockPath,x),
+                   filter(lambda x: onlyDisk(path.join(sysBlockPath,x)),
+                   filter(lambda x: not self.reWrongDevice.search(x),
+                   listDirectory(sysBlockPath))))
+         device_hash = {}
++        # filling hash
+         for mapnum,device in enumerate(sorted(devices,key=self.separateDevice)):
++            # get information by udev
+             props = getUdevDeviceInfo(device)
+             if not "DEVNAME" in props:
+                 continue
++            # DEVNAME - /dev/(device_name)
+             device = props['DEVNAME']
+             device_hash[device] = {}
+-            device_hash[device]['table'] = props.get('ID_PART_TABLE_TYPE','')
++            # get partition table (if PART_TABLE_TYPE absent then get by child partition)
++            device_hash[device]['table'] = props.get('ID_PART_TABLE_TYPE',
++                                           self.getTableByChild(device))
++            # enumerate disk for legecy grub
+             device_hash[device]['map'] = mapnum
+-            
++            # if device is usb device
+             if path.basename(device) in usbdevices:
++                # check for usb flash (removeable fiel in sysfs contains "1")
+                 removablePath = '/sys/block/%s/removable'%path.basename(device)
+                 if os.access(removablePath,R_OK) and \
+                     open(removablePath,'r').read().strip() == "1":
+-                    devtype = "flash"
++                    devtype = "flash" 
+                 else:
+-                    devtype = "usb-hdd"
++                    devtype = "usb-hdd" 
+             else:
+-                devtype = "hdd"
++                devtype = "hdd" 
++            # set detect device type (hdd,flash or usb-hdd)
+             device_hash[device]['type'] = devtype
+         return device_hash
+ 
+@@ -273,9 +305,11 @@ class fillVars(object, glob_attr):
+         def selfOrPartition(devpath):
+             """Return self device or partitions if it has them"""
+             # search partition in device
++            # get devices in sysfs which startswith devname
+             partitions = \
+                 filter(lambda x:x.startswith(path.basename(devpath)),
+                 listDirectory(devpath))
++            # if partition found then return them or partition on them
+             if partitions:
+                 return filter(lambda x:x,
+                        map(lambda x:selfOrPartition(path.join(devpath,x)),
+@@ -283,17 +317,14 @@ class fillVars(object, glob_attr):
+             else:
+                 return devpath
+ 
+-        # refresh LVM
+-        vgscan = getProgPath('/sbin/vgscan')
+-        vgchange = getProgPath('/sbin/vgchange')
+-        lvchange = getProgPath('/sbin/lvchange')
+-        if vgscan and vgchange and lvchange:
+-            process(vgscan).success()
+-            process(vgchange,'-ay','--refresh').success()
+-            for group in getLvmGroups():
+-                process(lvchange,'-ay','--refresh',group).success()
++        # refresh information about LVM
++        refreshLVM()
++        # refresh information about device in udevadm info
++        refreshUdev()
++
+         devicesHash = self.Get('os_device_hash')
+         sysBlockPath = '/sys/block'
++        # get disks from sys block which not contains partitions
+         new_disks = reduce(lambda x,y:x+ ([y] if type(y) == str else y),
+                     map(lambda x:selfOrPartition(path.join(sysBlockPath,x)),
+                     filter(lambda x: not self.reWrongDevice.search(x),
+@@ -303,6 +334,11 @@ class fillVars(object, glob_attr):
+         fstab = FStab('/etc/fstab')
+         raidUsedDisks = []
+         lvmUsedDisks = []
++        mapTypeUUID = {'ebd0a0a2-b9e5-4433-87c0-68b6b72699c7':'0700',
++                       '0657fd6d-a4ab-43c4-84e5-0933c84b4f4f':'8200',
++                       'a19d880f-05fc-4d3b-a006-743f0f84911e':'FD00',
++                       '21686148-6449-6e6f-744e-656564454649':'EF02'}
++        # filling information about disks
+         for disk in new_disks:
+             props = getUdevDeviceInfo(disk)
+             if not "DEVNAME" in props:
+@@ -315,12 +351,17 @@ class fillVars(object, glob_attr):
+                                  props.get('ID_FS_TYPE','')
+             dev_hash['name'] = props.get('ID_FS_LABEL','')
+             dev_hash['table'] = props.get('ID_PART_ENTRY_SCHEME','')
++            # schema device (disk-partition or disk-partition-raid and etc)
+             dev_hash['type'] = getDeviceType(disk)
+-            dev_hash['id'] =props.get('ID_PART_ENTRY_TYPE','').partition("x")[2]
++            dev_hash['id'] = props.get('ID_PART_ENTRY_TYPE','').rpartition("x")[2]
++            dev_hash['id'] = mapTypeUUID.get(dev_hash['id'],dev_hash['id'])
+             devParent = getPartitionDevice(disk)
+             dev_hash['parent'] = devParent
++            # primary, extended or logical
+             dev_hash['part'] = getPartitionType(props)
++            # get options from fstab
+             dev_hash['options'] = fstab.getBy(what=fstab.OPTS,eq=devName) or ""
++            # get disk size
+             dev_hash['size'] = getPartitionSize(disk)
+             if devParent in devicesHash and 'ID_PART_ENTRY_NUMBER' in props:
+                 dev_hash['grub'] = "%s,%d"%(devicesHash[devParent]['map'],
+@@ -328,17 +369,21 @@ class fillVars(object, glob_attr):
+             else:
+                 dev_hash['grub'] = ""
+             disk_hash[devName] = dev_hash
++            # if device raid then get its partition and add to raid partitions list
+             if "raid" in dev_hash['type']:
+                 raidUsedDisks.extend(map(lambda x:(devName,x),getRaidPartitions(disk)))
++            # if device lvm then get its partition and add to lvm partitions list
+             if dev_hash['type'].endswith("lvm"):
+                 prop = getUdevDeviceInfo(path=disk)
+                 lvmUsedDisks.extend(map(lambda x:(devName,x),
+                                     getLvmPartitions(prop.get('DM_VG_NAME',''),
+                                                      prop.get('DM_LV_NAME',''))))
++        # fix type information for raid disks
+         for disk,part in raidUsedDisks:
+             if part in disk_hash:
+                 disk_hash[part]['type'] = "%s-raidmember(%s)"%(
+                                           disk_hash[part]['type'],disk)
++        # fix type information for lvm disks
+         for disk,part in lvmUsedDisks:
+             if part in disk_hash:
+                 disk_hash[part]['type'] = "%s-lvmmember(%s)"%(
+@@ -736,9 +781,10 @@ class fillVars(object, glob_attr):
+                 livedistr = ['/mnt/cdrom']
+         else:
+             livedistr = []
++        rootDev = self.Get('os_install_root_dev')
+         livedistr += \
+             map(lambda x:x[0],
+-            filter(lambda x:" live" in x[1],
++            filter(lambda x:" live" in x[1] and x[0] != rootDev,
+             zip(self.Get('os_disk_dev'),
+                 self.Get('os_disk_content'))))
+         return ['/var/calculate/remote/linux',
+@@ -1060,6 +1106,10 @@ class fillVars(object, glob_attr):
+         """Current mask"""
+         return self.getAttributeFromHash('os_install_net_hash','cidr')
+ 
++    def get_os_install_net_network(self):
++        """Current network"""
++        return self.getAttributeFromHash('os_install_net_hash','network')
++
+     def get_os_install_net_mac(self):
+         """Current mac"""
+         return self.getAttributeFromHash('os_install_net_hash','mac')
+diff --git pym/cl_install.py pym/cl_install.py
+index 29865e1..5d9b6b3 100644
+--- pym/cl_install.py
++++ pym/cl_install.py
+@@ -97,7 +97,7 @@ class DataVarsInstall(DataVars):
+ class convertDictOpt:
+     """Convert dict install option"""
+ 
+-    _defaultFS = "reiserfs"
++    _defaultFS = "ext4"
+     _defaultFlashFS = "vfat"
+ 
+     _diskDefaultMountPoints = { "default":{"fileSystem":_defaultFS,
+@@ -301,6 +301,10 @@ class convertDictOpt:
+                                       "incompatible":["uni_xlate"]}},
+                               "incompatible":[],
+                               "makefs":"/usr/sbin/mkfs.vfat"},
++                      "btrfs":{"options":[],
++                              "pair":{},
++                              "incompatible":[],
++                              "makefs":"/sbin/mkfs.btrfs"},
+                       "ntfs":{"options":["uni_xlate","posix","nls",
+                                          "utf8","iocharset",
+                                          "uid","gid","umask"],
+@@ -642,7 +646,9 @@ class convertDictOpt:
+             availableFS = self.getAllAvailableFileSystemOpt()
+             # if fs not specified and current fs not supported
+             if not optFileSystem:
+-                if not (format and format in set(supportedFS)-excludeFS):
++                if not (format and format in \
++                    set(availableFS)&set(supportedFS)-excludeFS) \
++                    and optMountPoint == '/':
+                     optFileSystem = "default"
+                 else:
+                     dictUpdateProperty["fileSystem"] = format
+@@ -1613,12 +1619,22 @@ class cl_install(color_print, SignalInterrupt):
+                             where="os_install_disk_mount", eq="/boot")
+         rootDiskType = self.varSelect("os_disk_type",
+                             where="os_install_disk_mount", eq="/")
++        bootDiskFormat = self.varSelect("os_install_disk_format",
++                            where="os_install_disk_mount", eq="/boot")
++        rootDiskFormat = self.varSelect("os_install_disk_format",
++                            where="os_install_disk_mount", eq="/")
+         bootDiskType = bootDiskType or rootDiskType
++        bootDiskFormat = bootDiskFormat or rootDiskFormat
+         if "lvm" in bootDiskType or "raid" in bootDiskType:
+             self.printERROR(
+               _("Legacy grub not support boot from raid or lvm without"
+                 " separate /boot partition"))
+             return False
++        if bootDiskFormat == "btrfs":
++            self.printERROR(
++              _("Legacy grub not support boot from btrfs without"
++                " separate /boot partition"))
++            return False
+         return True
+ 
+     def setUsers(self,listUsers):
+@@ -2613,8 +2629,12 @@ the system") + " (yes/no)"
+             "march" in imageData:
+             self.clVars.Set('os_install_arch_machine',
+                             imageData['march'],True)
++            self.clVars.Set('os_install_linux_build',
++                            imageData['build'],True)
++            self.clVars.Set('os_install_linux_ver',
++                            imageData['ver'],True)
+             self.setLinuxName(imageData['name'].upper())
+-            self.clVars.Set('cl_image',True)
++            self.clVars.Set('cl_image',isoimage,True)
+             return True
+         else:
+             self.printERROR(_("Wrong image file"))
+diff --git pym/cl_vars_install.py pym/cl_vars_install.py
+index fdcb803..84c43a6 100644
+--- pym/cl_vars_install.py
++++ pym/cl_vars_install.py
+@@ -278,6 +278,9 @@ class Data:
+     # ip for all network interfaces
+     os_install_net_ip = {}
+ 
++    # network for ip
++    os_install_net_network = {}
++
+     # ip cidr
+     os_install_net_cidr = {}
+ 
+diff --git setup.cfg setup.cfg
+index 79ca716..1b8519f 100644
+--- setup.cfg
++++ setup.cfg
+@@ -1,3 +1,6 @@
++[install_man]
++install_dir=/usr/share
++
+ [install]
+ install-scripts=/usr/bin
+ install-purelib=/usr/lib/calculate-2.2
+diff --git setup.py setup.py
+index 2509acf..dedfee4 100755
+--- setup.py
++++ setup.py
+@@ -21,6 +21,11 @@ import os
+ import stat
+ from distutils.core import setup, Extension
+ from distutils.command.install_data import install_data
++import distutils.command.build
++import distutils.command.install
++from os import system,path
++import glob
++import sys
+ 
+ data_files = []
+ 
+@@ -31,6 +36,12 @@ data_files += [('/etc/init.d', ['data/calculate']),
+                                              'data/handbook-ru.html']),
+                ('/bin',['data/bashlogin'])]
+ 
++BUILD_MAN_PATH = "build/man"
++
++def cout(string):
++    sys.stdout.write(string)
++    sys.stdout.flush()
++
+ def __scanDir(scanDir, prefix, replace_dirname, dirData, flagDir=False):
+     """Scan directory"""
+     files = []
+@@ -62,6 +73,42 @@ def create_data_files(data_dirs, prefix="", replace_dirname=""):
+         data_files += __scanDir(data_dir, prefix, replace_dirname, data)
+     return data_files
+ 
++class build_man( distutils.core.Command ) :
++
++    description = "build man files"
++    user_options = []
++
++    def initialize_options( self ) :
++        pass
++    def finalize_options( self ) :
++        pass
++
++    def run( self ) :
++        buildManPath = BUILD_MAN_PATH
++        self.mkpath(buildManPath)
++        for locale in glob.glob("man/*"):
++            baseLocale = path.basename(locale)
++            for man in glob.glob("%s/*.[12345678]"%locale) :
++                baseMan = path.basename(man)
++                man_num = man[-1]
++                manPath = path.join(buildManPath,baseLocale,"man%s"%man_num)
++                self.mkpath(manPath)
++                manPath = path.join(manPath,baseMan)
++                self.copy_file(man,manPath)
++                cout("compress %s\n"% manPath)
++                system("bzip2 -f %s"%manPath)
++
++class install_man( install_data ) :
++    description = "install man files"
++    user_options = []
++
++    def finalize_options(self):
++        install_data.finalize_options(self)
++        for root,dirs,files in os.walk(BUILD_MAN_PATH):
++            for filename in files:
++                self.data_files += [(path.join(self.install_dir,root[6:]),
++                                    [path.join(root,filename)])]
++
+ class cl_install_data(install_data):
+     def run (self):
+         install_data.run(self)
+@@ -92,6 +139,24 @@ class cl_install_data(install_data):
+                 if flagFound:
+                     os.chmod(path, mode)
+ 
++
++class install(distutils.command.install.install):
++    def has_man(self):
++        return len(glob.glob("build/man/*")) > 0
++
++    sub_commands = distutils.command.install.install.sub_commands + [
++        ('install_man',has_man),
++    ]
++
++
++class build( distutils.command.build.build ) :
++    def has_man(self):
++        return len(glob.glob("man/*")) > 0
++
++    sub_commands = distutils.command.build.build.sub_commands + [
++        ('build_man',has_man)]
++
++
+ setup(
+     name = 'calculate-install',
+     version = "2.2.20",
+@@ -105,5 +170,7 @@ setup(
+     data_files = data_files,
+     scripts=["./scripts/cl-install",
+              "./scripts/cl-template"],
+-    cmdclass={'install_data': cl_install_data},
++    cmdclass={'install_data': cl_install_data,
++              'build':build,'build_man':build_man,
++              'install':install,'install_man':install_man},
+ )
