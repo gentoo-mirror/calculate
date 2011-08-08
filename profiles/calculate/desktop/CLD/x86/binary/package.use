@@ -62,7 +62,7 @@
 =app-text/goldendict-1.0.1 kde linguas_bg linguas_de linguas_it linguas_ru linguas_uk -debug -linguas_ar -linguas_cs -linguas_el -linguas_lt -linguas_vi -linguas_zh
 =app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_ro linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
 =app-text/libspectre-0.2.6 -debug -doc -static-libs
-=app-text/poppler-0.14.5-r1 cairo cxx jpeg jpeg2k lcms png qt4 utils xpdf-headers -cjk -curl -debug -doc -exceptions
+=app-text/poppler-0.16.7 cairo cxx jpeg jpeg2k lcms png qt4 utils xpdf-headers -cjk -curl -debug -doc -exceptions -introspection
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/wgetpaste-2.18 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
@@ -130,8 +130,8 @@
 =dev-libs/pth-2.0.7-r3 -debug
 =dev-libs/qjson-0.6.3 -debug -doc -test
 =dev-libs/qoauth-1.0.1 -debug -doc -static-libs -test
-=dev-libs/rasqal-0.9.17 pcre -gmp -test -xml
-=dev-libs/redland-1.0.10-r1 berkdb mysql ssl -iodbc -odbc -postgres -sqlite -xml
+=dev-libs/rasqal-0.9.19 pcre -gmp -test -xml
+=dev-libs/redland-1.0.10-r2 berkdb mysql ssl -iodbc -odbc -postgres -sqlite -static-libs -xml
 =dev-libs/soprano-2.6.0 dbus raptor redland virtuoso -clucene -debug -doc -elibc_FreeBSD -test
 =dev-perl/Authen-SASL-2.15 -kerberos
 =dev-perl/DBI-1.615 -test
@@ -428,7 +428,7 @@
 =media-libs/phonon-xine-4.4.4 xcb -debug
 =media-libs/portaudio-19_pre20071207 alsa cxx -debug -jack -oss
 =media-libs/qimageblitz-0.0.4 3dnow mmx sse sse2 -altivec -debug
-=media-libs/raptor-1.4.20 unicode -curl -debug -xml
+=media-libs/raptor-1.4.21-r1 curl unicode xml -debug -static-libs
 =media-libs/sdl-image-1.2.10-r1 gif jpeg png tiff -static-libs
 =media-libs/speex-1.2_rc1 ogg sse -static-libs
 =media-libs/taglib-1.6.3 asf mp4 -debug -examples -test
@@ -536,7 +536,7 @@
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
-=sys-apps/file-5.05 python -static-libs
+=sys-apps/file-5.07-r3 python zlib -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.8 nls
 =sys-apps/grep-2.5.4-r1 nls pcre
@@ -552,7 +552,7 @@
 =sys-apps/man-pages-3.28 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
-=sys-apps/module-init-tools-3.12-r1 -static
+=sys-apps/module-init-tools-3.16-r1 -static
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
