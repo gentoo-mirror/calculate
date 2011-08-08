@@ -45,7 +45,7 @@
 =media-fonts/terminus-font-4.30 psf ru-g -X -a-like-o -bolddiag -pcf -quote -raw-font-data -ru-dv -ru-i -ru-k -width
 =media-fonts/unifont-5.1.20080914 -X
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freetype-2.4.4 -X -auto-hinter -bindist -debug -doc -fontforge -utils
+=media-libs/freetype-2.4.6 -X -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
 =net-misc/curl-7.21.4 ipv6 ssl -ares -gnutls -idn -kerberos -ldap -libssh2 -nss -static-libs -test -threads
 =net-misc/dhcp-3.1.3_p1 kernel_linux -doc -minimal -selinux -static
 =net-misc/iputils-20100418-r1 ipv6 ssl -SECURITY_HAZARD -doc -idn -static
@@ -62,7 +62,7 @@
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
-=sys-apps/file-5.05 python -static-libs
+=sys-apps/file-5.07-r3 python zlib -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.8 nls
 =sys-apps/grep-2.5.4-r1 nls pcre
@@ -100,7 +100,7 @@
 =sys-devel/flex-2.5.35 nls -static
 =sys-devel/gcc-4.4.5 fortran mudflap multilib nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -gtk -hardened -libffi -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
-=sys-devel/libtool-2.2.10 -vanilla
+=sys-devel/libtool-2.4-r1 -vanilla
 =sys-devel/m4-1.4.15 -examples
 =sys-devel/make-3.82 nls -static
 =sys-devel/patch-2.5.9 -static
