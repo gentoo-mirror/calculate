@@ -377,7 +377,7 @@
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
 =media-libs/fontconfig-2.8.0-r1 -doc
 =media-libs/freeglut-2.6.0 -debug -mpx -static-libs
-=media-libs/freetype-2.4.4 X -auto-hinter -bindist -debug -doc -fontforge -utils
+=media-libs/freetype-2.4.6 X -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
 =media-libs/giflib-4.1.6-r2 X -rle -static-libs
@@ -543,7 +543,7 @@
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
-=sys-apps/file-5.05 python -static-libs
+=sys-apps/file-5.07-r3 python zlib -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.8 nls
 =sys-apps/grep-2.5.4-r1 nls pcre
