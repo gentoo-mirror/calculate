@@ -124,7 +124,7 @@
 =media-gfx/imagemagick-6.6.5.6 bzip2 corefonts cxx jpeg jpeg2k openmp perl png tiff truetype zlib -X -autotrace -djvu -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -openexr -q32 -q8 -raw -static-libs -svg -video_cards_nvidia -wmf -xml
 =media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freetype-2.4.4 -X -auto-hinter -bindist -debug -doc -fontforge -utils
+=media-libs/freetype-2.4.6 -X -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype -fontconfig -xpm
 =media-libs/jasper-1.900.1-r3 jpeg -opengl -static-libs
 =media-libs/jpeg-8b static-libs
@@ -197,7 +197,7 @@
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
-=sys-apps/file-5.05 python -static-libs
+=sys-apps/file-5.07-r3 python zlib -static-libs
 =sys-apps/findutils-4.4.2 nls -selinux -static
 =sys-apps/gawk-3.1.8 nls
 =sys-apps/grep-2.5.4-r1 nls pcre
