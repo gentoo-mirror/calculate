@@ -124,7 +124,7 @@
 =media-gfx/imagemagick-6.6.5.6 bzip2 corefonts cxx jpeg jpeg2k openmp perl png tiff truetype zlib -X -autotrace -djvu -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -openexr -q32 -q8 -raw -static-libs -svg -video_cards_nvidia -wmf -xml
 =media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freetype-2.4.4 -X -auto-hinter -bindist -debug -doc -fontforge -utils
+=media-libs/freetype-2.4.6 -X -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype -fontconfig -xpm
 =media-libs/jasper-1.900.1-r3 jpeg -opengl -static-libs
 =media-libs/jpeg-8b static-libs
@@ -261,7 +261,7 @@
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r13 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-2.6.38.8 symlink vmlinuz -build -deblob
+=sys-kernel/calculate-sources-2.6.39.4 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110731 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
