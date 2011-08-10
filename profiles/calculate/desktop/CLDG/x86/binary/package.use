@@ -359,7 +359,7 @@
 =net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
 =net-dns/libidn-1.22 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
-=net-fs/samba-3.5.9-r1 acl aio client cups netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldap -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
+=net-fs/samba-3.5.11 acl aio client cups netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldap -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
 =net-im/pidgin-2.9.0 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
 =net-im/skype-2.2.0.35-r1 -qt-static
@@ -543,7 +543,7 @@
 =virtual/notification-daemon-0 gnome
 =virtual/ssh-0 -minimal
 =www-client/chromium-13.0.782.107-r1 cups gnome gnome-keyring linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk xinerama -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -test
-=www-plugins/adobe-flash-10.3.181.34 vdpau -kde
+=www-plugins/adobe-flash-11.0.1.60_beta201107131-r1 vdpau -32bit -64bit -bindist -kde -multilib
 =x11-apps/fusion-icon-0.1-r1 gtk -qt4
 =x11-apps/xauth-1.0.6 ipv6
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
