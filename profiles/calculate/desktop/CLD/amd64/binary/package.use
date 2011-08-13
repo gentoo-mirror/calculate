@@ -457,7 +457,7 @@
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
 =media-video/dvgrab-3.5 jpeg quicktime
-=media-video/ffmpeg-0.7_rc1 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -video_cards_nvidia -vpx
+=media-video/ffmpeg-0.7_rc1 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/kdenlive-0.7.8 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh
 =media-video/kffmpegthumbnailer-1.1.0 -aqua -debug -kdeenablefinal
@@ -713,7 +713,7 @@
 =x11-libs/libfontenc-1.1.0 -static-libs
 =x11-libs/libnotify-0.7.2 -doc -introspection -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
-=x11-libs/libva-0.32.0_p2 opengl video_cards_dummy video_cards_intel -video_cards_fglrx -video_cards_nvidia
+=x11-libs/libva-0.32.0_p2 opengl video_cards_dummy video_cards_intel video_cards_nvidia -video_cards_fglrx
 =x11-libs/libvdpau-0.4.1 -doc
 =x11-libs/libxcb-1.7 -doc -selinux -static-libs
 =x11-libs/libxkbfile-1.0.7 -static-libs
@@ -734,6 +734,7 @@
 =x11-libs/qt-webkit-4.7.3 dbus exceptions jit kde -aqua -debug -pch
 =x11-libs/qt-xmlpatterns-4.7.3 -aqua -debug -pch
 =x11-libs/qtscriptgenerator-0.1.0 kde -debug
+=x11-libs/vdpau-video-0.7.3 opengl -debug
 =x11-libs/xcb-util-0.3.8 -doc -static-libs -test
 =x11-libs/xcb-util-image-0.3.8 -doc -static-libs -test
 =x11-libs/xcb-util-keysyms-0.3.8 -doc -static-libs -test

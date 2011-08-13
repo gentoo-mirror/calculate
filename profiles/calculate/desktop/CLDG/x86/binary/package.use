@@ -344,7 +344,7 @@
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/cheese-2.32.0 -doc
 =media-video/dirac-1.0.2 mmx -debug -doc
-=media-video/ffmpeg-0.7_rc1 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -video_cards_nvidia -vpx
+=media-video/ffmpeg-0.7_rc1 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/mplayer-1.0_rc4_p20110322-r50 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
 =media-video/totem-2.32.0-r2 bluetooth lirc nautilus nsplugin python youtube -debug -doc -galago -iplayer -tracker -upnp
 =net-analyzer/gnome-netstatus-2.28.2 -debug
@@ -606,7 +606,7 @@
 =x11-libs/libnotify-0.7.2 -doc -introspection -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
 =x11-libs/libsexy-0.1.11-r2 -doc -static-libs
-=x11-libs/libva-0.32.0_p2 opengl video_cards_dummy video_cards_intel -video_cards_fglrx -video_cards_nvidia
+=x11-libs/libva-0.32.0_p2 opengl video_cards_dummy video_cards_intel video_cards_nvidia -video_cards_fglrx
 =x11-libs/libvdpau-0.4.1 -doc
 =x11-libs/libwnck-2.30.6 -doc -introspection -startup-notification
 =x11-libs/libxcb-1.7 -doc -selinux -static-libs
@@ -621,6 +621,7 @@
 =x11-libs/qt-script-4.7.3 exceptions iconv jit private-headers -aqua -debug -pch
 =x11-libs/qt-sql-4.7.3 exceptions iconv qt3support sqlite -aqua -debug -firebird -freetds -mysql -odbc -pch -postgres
 =x11-libs/startup-notification-0.12 -static-libs
+=x11-libs/vdpau-video-0.7.3 opengl -debug
 =x11-libs/vte-0.28.1-r200 introspection python -debug -doc -glade
 =x11-libs/wxGTK-2.8.11.0 X gnome opengl sdl tiff -debug -doc -gstreamer -odbc -pch
 =x11-libs/xcb-util-0.3.8 -doc -static-libs -test
