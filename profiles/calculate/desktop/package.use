@@ -33,6 +33,7 @@ sys-fs/mtools -X
 sys-fs/ntfs3g udev
 sys-power/cpufreqd nvidia
 www-client/links -X
+x11-base/xorg-drivers -video_cards_nvidia
 x11-libs/cairo cleartype glitz svg
 x11-libs/libX11 xcb
 x11-misc/xscreensaver -opengl -jpeg
