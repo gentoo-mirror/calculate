@@ -1,5 +1,5 @@
 =app-admin/eselect-1.2.11 bash-completion -doc
-=app-arch/bzip2-1.0.6 -static
+=app-arch/bzip2-1.0.6-r2 -static
 =app-arch/cpio-2.11 nls
 =app-arch/gzip-1.4 nls -pic -static
 =app-arch/libarchive-2.8.4-r1 acl bzip2 kernel_linux lzma zlib -expat -static -static-libs -xattr
@@ -52,13 +52,13 @@
 =net-misc/openssh-5.8_p1-r1 hpn pam tcpd -X -X509 -kerberos -ldap -libedit -selinux -skey -static
 =net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
-=sys-apps/acl-2.2.49 nls -nfs
-=sys-apps/attr-2.4.44 nls
+=sys-apps/acl-2.2.51 nls -nfs -static-libs
+=sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-install-2.2.20-r8 -minimal
 =sys-apps/calculate-lib-2.2.20-r3 -minimal
-=sys-apps/calculate-utilities-2.2.20-r9 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-utilities-2.2.20-r10 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -105,7 +105,7 @@
 =sys-devel/make-3.82 nls -static
 =sys-devel/patch-2.5.9 -static
 =sys-fs/btrfs-progs-0.19-r3 acl -debug-utils
-=sys-fs/e2fsprogs-1.41.12 nls -elibc_FreeBSD
+=sys-fs/e2fsprogs-1.41.14 nls -elibc_FreeBSD
 =sys-fs/lvm2-2.02.73-r1 lvm1 readline static -clvm -cman -selinux
 =sys-fs/mdadm-3.1.4 -static
 =sys-fs/mtools-4.0.15 -X
@@ -116,7 +116,7 @@
 =sys-kernel/linux-firmware-20110731 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
-=sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
+=sys-libs/e2fsprogs-libs-1.41.14 elibc_glibc nls
 =sys-libs/gdbm-1.8.3-r4 berkdb
 =sys-libs/glibc-2.12.2 multilib nls -crosscompile_opts_headers-only -debug -gd -glibc-omitfp -hardened -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
