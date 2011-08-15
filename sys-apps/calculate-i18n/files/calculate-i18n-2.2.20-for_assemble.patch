@@ -1,0 +1,26 @@
+commit 2baf3873d9cc8cf05472ed860e1f606e794714fe
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Aug 15 16:24:11 2011 +0400
+
+    Update translate for assemble.
+
+diff --git a/ru/cl_assemble_ru.po b/ru/cl_assemble_ru.po
+index ca58591..a2bb9e5 100644
+--- a/ru/cl_assemble_ru.po
++++ b/ru/cl_assemble_ru.po
+@@ -3,7 +3,7 @@ msgstr ""
+ "Project-Id-Version: calculate-assemble 2.2.20\n"
+ "Report-Msgid-Bugs-To: support@calculate.ru\n"
+ "POT-Creation-Date: 2010-10-18 13:00+0400\n"
+-"PO-Revision-Date: 2011-07-18 17:12+0400\n"
++"PO-Revision-Date: 2011-08-15 16:23+0400\n"
+ "Last-Translator: Calculate Ltd. <support@calculate.ru>\n"
+ "Language-Team: Russian <support@calculate.ru>\n"
+ "Language: ru\n"
+@@ -516,3 +516,6 @@ msgstr ""
+ 
+ msgid "configure by %s templates"
+ msgstr "настроить шаблонами %s"
++
++msgid "For installation '%s' will be installed follow packages"
++msgstr "При установке '%s' будут устанавливаться следующие пакеты"
