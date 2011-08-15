@@ -211,7 +211,6 @@ RDEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	!calculate_nonetwork? (
 		semantic-desktop? (
-			!kde-base/kdepim-l10n
 			kde-base/akonadiconsole
 			kde-base/akregator
 			kde-base/kabcclient
@@ -237,6 +236,7 @@ RDEPEND="${RDEPEND}
 #-----------------------------------------------------------------------------
 RDEPEND="${RDEPEND}
 	kde-base/kde-l10n
+	kde-base/kdepim-l10n
 "
 
 #-----------------------------------------------------------------------------
