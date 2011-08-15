@@ -50,7 +50,7 @@
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
 =app-text/aspell-0.60.6-r2 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk nls -examples -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
 =app-text/djvu-3.5.24 jpeg nls tiff -debug -doc -linguas_ja -xml
-=app-text/enchant-1.6.0 hunspell -aspell -zemberek
+=app-text/enchant-1.6.0 hunspell -aspell -static-libs -zemberek
 =app-text/evince-2.32.0-r3 dbus djvu gnome-keyring tiff -debug -doc -dvi -gnome -introspection -nautilus -t1lib
 =app-text/fbreader-0.12.10 gtk -debug -qt4
 =app-text/ghostscript-gpl-8.71-r6 X cairo cups djvu gtk jpeg2k -bindist -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
@@ -61,7 +61,7 @@
 =app-text/rarian-0.8.1-r1 -debug
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/stardict-3.0.1-r2 spell -debug -espeak -festival -gnome -gucharmap -pronounce -qqwry
-=app-text/wgetpaste-2.18 -zsh-completion
+=app-text/wgetpaste-2.18-r1 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
 =dev-cpp/atkmm-2.22.5 -doc
 =dev-cpp/cairomm-1.8.6 svg -doc
@@ -368,7 +368,7 @@
 =sys-apps/calculate-desktop-2.2.20 xfce -gnome -kde
 =sys-apps/calculate-install-2.2.20-r8 -minimal
 =sys-apps/calculate-lib-2.2.20-r3 -minimal
-=sys-apps/calculate-utilities-2.2.20-r9 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.20-r10 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -434,7 +434,7 @@
 =sys-devel/patch-2.5.9 -static
 =sys-fs/btrfs-progs-0.19-r3 acl -debug-utils
 =sys-fs/dmraid-1.0.0_rc14 -selinux -static
-=sys-fs/e2fsprogs-1.41.12 nls -elibc_FreeBSD
+=sys-fs/e2fsprogs-1.41.14 nls -elibc_FreeBSD
 =sys-fs/fuse-2.8.5 kernel_linux -kernel_FreeBSD
 =sys-fs/jfsutils-1.1.15 -static
 =sys-fs/lvm2-2.02.73-r1 lvm1 readline static -clvm -cman -selinux
@@ -452,7 +452,7 @@
 =sys-kernel/linux-firmware-20110731 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
-=sys-libs/e2fsprogs-libs-1.41.12 elibc_glibc nls
+=sys-libs/e2fsprogs-libs-1.41.14 elibc_glibc nls
 =sys-libs/gdbm-1.8.3-r4 berkdb
 =sys-libs/glibc-2.12.2 gd nls -crosscompile_opts_headers-only -debug -glibc-omitfp -hardened -multilib -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
@@ -519,7 +519,7 @@
 =x11-libs/libXdmcp-1.1.0 -doc -static-libs
 =x11-libs/libXext-1.3.0 -doc -static-libs
 =x11-libs/libXfixes-5.0 -static-libs
-=x11-libs/libXfont-1.4.3 ipv6 -doc -static-libs
+=x11-libs/libXfont-1.4.4 ipv6 -doc -static-libs
 =x11-libs/libXft-2.2.0 -static-libs
 =x11-libs/libXi-1.4.3 -doc -static-libs
 =x11-libs/libXinerama-1.1.1 -static-libs
@@ -551,7 +551,7 @@
 =x11-libs/pixman-0.22.0 mmx sse2 -altivec -neon -static-libs
 =x11-libs/qt-core-4.7.3 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.3 exceptions -aqua -debug -pch
-=x11-libs/qt-gui-4.7.3 accessibility cups dbus exceptions glib mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -gtkstyle -nis -pch -raster -trace
+=x11-libs/qt-gui-4.7.3-r1 accessibility cups dbus exceptions glib mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -gtkstyle -nis -pch -raster -trace
 =x11-libs/qt-qt3support-4.7.3 accessibility exceptions -aqua -debug -kde -pch -phonon
 =x11-libs/qt-script-4.7.3 exceptions iconv jit private-headers -aqua -debug -pch
 =x11-libs/qt-sql-4.7.3 exceptions iconv qt3support sqlite -aqua -debug -firebird -freetds -mysql -odbc -pch -postgres
