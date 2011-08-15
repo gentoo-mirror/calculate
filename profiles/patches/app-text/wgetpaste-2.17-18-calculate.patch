@@ -27,9 +27,9 @@ index 00eea19..7bb9998 100755
 +# calculate
 +ENGINE_calculate=calculate
 +if [[ "$LANG" =~ 'ru_RU' ]]; then
-+        URL_calculate="http://pastebin.calculate-linux.ru/ru"
++        URL_calculate="http://pastebin.calculate-linux.ru"
 +else
-+	URL_calculate="http://pastebin.calculate-linux.org/en"	
++	URL_calculate="http://pastebin.calculate-linux.org"	
 +fi
 +DEFAULT_LANGUAGE_calculate="Text"
 +DEFAULT_PARENT_calculate=""
