@@ -192,8 +192,8 @@
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-install-2.2.20-r8 -minimal
-=sys-apps/calculate-lib-2.2.20-r3 -minimal
-=sys-apps/calculate-utilities-2.2.20-r10 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-lib-2.2.20-r4 -minimal
+=sys-apps/calculate-utilities-2.2.20-r12 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -213,7 +213,7 @@
 =sys-apps/man-pages-3.28 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
-=sys-apps/module-init-tools-3.12-r1 -static
+=sys-apps/module-init-tools-3.16-r1 -static
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
