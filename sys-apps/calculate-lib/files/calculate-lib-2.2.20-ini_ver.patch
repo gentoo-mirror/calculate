@@ -1,0 +1,189 @@
+commit 8e35f4df5645fa6af0f7ae84d6811657050e0fc3
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Aug 16 17:09:11 2011 +0400
+
+    Improve ini function. Fix version compare.
+    
+    Ini function execute by merge action use /etc/calculate/ini.env instead
+    of /root/.calculate.
+    Empty second argument for ini function mean that variable in ini file
+    must be delete. Empty string (string in quotes) remove value of ini file
+    variable.
+    Version compare support version similar to 1.0_rc4_p20111212-r5 (some
+    suffix).
+
+diff --git pym/cl_template.py pym/cl_template.py
+index 757c493..ef1e516 100644
+--- pym/cl_template.py
++++ pym/cl_template.py
+@@ -72,30 +72,50 @@ class _terms(_error, _shareTermsFunction):
+     _letters = list(string.ascii_lowercase)
+ 
+     def _splitVersion(self, strVersion):
+-        """Split version"""
++        """
++        Split version. Version, addition letter, list suffixes with version,
++        revision.
++        Examples:
++          2.2.0
++            ("2.2.0","",[],"")
++          2.2.0-r1
++            ("2.2.0","",[],"r1")
++          2.2.0a-r1
++            ("2.2.0","a",[],"r1")
++          2.2.0a_rc1-r1
++            ("2.2.0","a",[("rc","1")],"r1")
++          2.2.0a_rc1_p20111212-r1 
++            ("2.2.0","a",[("rc1","1"),("p","20111212")],"r1")
++        """
++        # get revision from version
+         strWorkVersion, spl, rVersion = strVersion.rpartition("-")
+         if rVersion == strVersion:
+             strWorkVersion = rVersion
+             rVersion = ""
+-        numberVersion, spl, suffix = strWorkVersion.partition("_")
+-        suffSpl = ""
+-        suffixVersion = ""
+-        if suffix:
++
++        suffixes = []
++        # get suffixes from version
++        while "_" in strWorkVersion:
++            # 2.3_p45 ('2.3','_','p43')
++            # 2.3_rc4_p45 ('2.3_rc4','_','p43')
++            strWorkVersion, spl, suffix = strWorkVersion.rpartition("_")
+             suffSplList = filter(lambda x: suffix.startswith(x),
+                                  self._suffixDict.keys())
+             if suffSplList:
+                 suffSpl = suffSplList[0]
+                 lenSuffSpl = len(suffSpl)
+                 suffixVersion = suffix[lenSuffSpl:]
++                suffixes.append((suffSpl,suffixVersion))
+         letters = ""
++        numberVersion = strWorkVersion
+         if numberVersion and numberVersion[-1:] in self._letters:
+             letters = numberVersion[-1:]
+             numberVersion = numberVersion[:-1]
+-        return numberVersion, letters, suffSpl, suffixVersion, rVersion
++        return numberVersion, letters, suffixes, rVersion
+ 
+     def _notVersion(self, strVersion):
+         """strVersion is not version - True"""
+-        numberVersion, letters, suffSpl, suffixVersion, rVersion =\
++        numberVersion, letters, suffixes, rVersion =\
+             self._splitVersion(strVersion)
+         if not numberVersion.strip():
+             return True
+@@ -103,8 +123,9 @@ class _terms(_error, _shareTermsFunction):
+             return True
+         if letters and not letters in self._letters:
+             return True
+-        if suffixVersion and self._re_not_Number.search(suffixVersion):
+-            return True
++        for suffix,suffixVersion in suffixes:
++            if suffixVersion and self._re_not_Number.search(suffixVersion):
++                return True
+         if rVersion:
+             if rVersion[0] != "r" or len(rVersion) == 1:
+                 return True
+@@ -141,9 +162,19 @@ class _terms(_error, _shareTermsFunction):
+                     for z in range(res):
+                         elemA[i] = "0" + elemA[i]
+ 
++        def fillSuffix(elemA,elemB,sA,svA,sB,svB):
++            if str(sA) or str(sB):
++                svA, svB =  map(lambda x: [x] if x else ['0'], (svA, svB))
++                fillZero(svA, svB)
++                sA, sB = map(lambda x: x if x else 0, (sA, sB))
++                elemA.append(str(self._lenSuffixDict + sA))
++                elemA.extend(svA)
++                elemB.append(str(self._lenSuffixDict + sB))
++                elemB.extend(svB)
++
+         #Version, letters, suffix, suffixVersion, rVersion
+-        vA, lA, sA, svA, rvA = self._splitVersion(verA)
+-        vB, lB, sB, svB, rvB = self._splitVersion(verB)
++        vA, lA, ssA, rvA = self._splitVersion(verA)
++        vB, lB, ssB, rvB = self._splitVersion(verB)
+         elemA = vA.split(".")
+         elemB = vB.split(".")
+         fillZero(elemA, elemB)
+@@ -151,14 +182,20 @@ class _terms(_error, _shareTermsFunction):
+             lA, lB = map(lambda x: x if x else '0', (lA, lB))
+             elemA.append(lA)
+             elemB.append(lB)
+-        if sA or sB:
+-            svA, svB =  map(lambda x: [x] if x else ['0'], (svA, svB))
+-            fillZero(svA, svB)
+-            sA, sB = map(lambda x: x if x else 'p', (sA, sB))
+-            elemA.append(str(self._lenSuffixDict + self._suffixDict[sA]))
+-            elemA += svA
+-            elemB.append(str(self._lenSuffixDict + self._suffixDict[sB]))
+-            elemB += svB
++
++        # dereferencing suffix in suffixes list
++        ssA = map(lambda x:(self._suffixDict.get(x[0],0),x[1]),ssA)
++        ssB = map(lambda x:(self._suffixDict.get(x[0],0),x[1]),ssB)
++        for suffix,sufVer in reversed(ssA):
++            if ssB:
++                sB,svB = ssB.pop()
++            else:
++                sB,svB = "",""
++            fillSuffix(elemA,elemB,suffix,sufVer,sB,svB)
++        while ssB:
++            sB,svB = ssB.pop()
++            fillSuffix(elemA,elemB,"","",sB,svB)
++
+         if rvA or rvB:
+             rvA, rvB = map(lambda x: [x[1:]], (rvA, rvB))
+             fillZero(rvA, rvB)
+@@ -2462,8 +2499,15 @@ class templateFunction(_error, _shareTemplate, _shareTermsFunction):
+             self.getDataUser(groupsInfo=True)
+         # Домашняя директория, плюс базовая директория
+         self.homeDir = pathJoin(self._baseDir, self.homeDir)
+-        # Путь к конфигурационному файлу для ini()
+-        self.pathConfigIni = os.path.join(self.homeDir, ".calculate")
++        # path to configuration file for ini() function
++        # if action is desktop configuration, then path in user directory
++        # else config file place in /etc/calculate
++        if self.objVar.Get('cl_action') == "desktop":
++            self.pathConfigIni = os.path.join(self.homeDir, ".calculate")
++            self.modeConfigIni = 0640
++        else:
++            self.pathConfigIni = pathJoin(self._baseDir,'/etc/calculate')
++            self.modeConfigIni = 0644
+         self.fileConfigIni = os.path.join(self.pathConfigIni,"ini.env")
+         # Словарь времен модификации env файлов
+         self.timeConfigsIni = {}
+@@ -2952,7 +2996,10 @@ or 'lower' or 'capitalize'"))
+                         flagNotFoundQuote = False
+                         break
+                 if flagNotFoundQuote:
+-                    terms.append(val)
++                    if not val:
++                        terms.append(None)
++                    else:
++                        terms.append(val)
+         # Название локальной переменной
+         nameLocVar = terms[0]
+         namesVar = nameLocVar.split(".")
+@@ -3423,6 +3470,8 @@ os_disk_install not found mount point '\' and '\%s'")%mountPoint)
+                 # Запишем переменные в конфигурационный файл
+                 # Создание объекта парсера
+                 config = iniParser(self.fileConfigIni)
++                # set specified mode for ini file
++                config.setMode(self.modeConfigIni)
+                 # секции будущего конфигурационного файла
+                 sects = list(set(map(lambda x: x.split(".")[0],\
+                                      self.currDictIni.keys())))
+@@ -3433,7 +3482,9 @@ os_disk_install not found mount point '\' and '\%s'")%mountPoint)
+                         if varName.startswith("%s."%sect):
+                             nameVar = varName.rpartition(".")[2]
+                             valueVar = self.currDictIni[varName]
+-                            if valueVar:
++                            if valueVar is None:
++                                config.delVar(sect,nameVar)
++                            else:
+                                 dictVar[nameVar] = valueVar
+                     if dictVar:
+                         # Запись переменных в секцию

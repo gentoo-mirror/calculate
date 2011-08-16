@@ -1,0 +1,87 @@
+commit 3424f6ca4998c2d3ea5d0329dbcd1e2a76078aba
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Aug 16 12:38:58 2011 +0400
+
+    Fix playing video by mplayer. (IssueID #308)
+    
+    Fix syntax bug with font configure for kdm and xmessage.
+    For mplayer config set default font.
+
+diff --git install/1merge/kdm/kdmrc install/1merge/kdm/kdmrc
+index fbc04b2..60bfe0e 100644
+--- install/1merge/kdm/kdmrc
++++ install/1merge/kdm/kdmrc
+@@ -32,18 +32,18 @@ AntiAliasing=true
+ ColorScheme=Oxygen
+ FaceDir=/var/calculate/remote/share/faces/kdm
+ FaceSource=AdminOnly
+-#pkg(media-fonts/droid)==#
++#?pkg(media-fonts/droid)==#
+ FailFont=Verdana,10,-1,5,75,0,0,0,0,0
+ #pkg#
+-#pkg(media-fonts/droid)!=#
++#?pkg(media-fonts/droid)!=#
+ FailFont=Droid Sans,10,-1,5,75,0,0,0,0,0
+ #pkg#
+ ForgingSeed=1224337366
+ GUIStyle=Oxygen
+-#pkg(media-fonts/droid)==#
++#?pkg(media-fonts/droid)==#
+ GreetFont=Verdana,20,-1,5,50,0,0,0,0,0
+ #pkg#
+-#pkg(media-fonts/droid)!=#
++#?pkg(media-fonts/droid)!=#
+ GreetFont=Droid Sans,20,-1,5,50,0,0,0,0,0
+ #pkg#
+ GreetString=
+@@ -56,10 +56,10 @@ Preloader=/usr/bin/preloadkde
+ SelectedUsers=
+ ShowUsers=NotHidden
+ SortUsers=true
+-#pkg(media-fonts/droid)==#
++#?pkg(media-fonts/droid)==#
+ StdFont=Verdana,10,-1,5,50,0,0,0,0,0
+ #pkg#
+-#pkg(media-fonts/droid)!=#
++#?pkg(media-fonts/droid)!=#
+ StdFont=Droid Sans,10,-1,5,50,0,0,0,0,0
+ #pkg#
+ Theme=
+diff --git install/1merge/mplayer/.calculate_directory install/1merge/mplayer/.calculate_directory
+new file mode 100644
+index 0000000..a55026a
+--- /dev/null
++++ install/1merge/mplayer/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate belong()!=&&cl_chroot_status==off&&pkg(media-video/mplayer)!= name=etc
++
+diff --git install/1merge/mplayer/mplayer.conf install/1merge/mplayer/mplayer.conf
+new file mode 100644
+index 0000000..6601d60
+--- /dev/null
++++ install/1merge/mplayer/mplayer.conf
+@@ -0,0 +1,8 @@
++# Calculate format=samba path=/etc/mplayer autoupdate
++[default]
++#?pkg(media-fonts/droid)!=#
++font="Droid Sans"
++#pkg#
++#?pkg(media-fonts/droid)==#
++font="Verdana"
++#pkg#
+diff --git install/1merge/xmessage/Xmessage install/1merge/xmessage/Xmessage
+index 867859a..f4cae3a 100644
+--- install/1merge/xmessage/Xmessage
++++ install/1merge/xmessage/Xmessage
+@@ -11,9 +11,9 @@
+ # thickness highlight
+ *Command.highlightThickness:	1
+ # font for messages
+-#pkg(media-fonts/droid)==#
++#?pkg(media-fonts/droid)==#
+ *font: -*-verdana-medium-r-*-*-*-*-*-*-*-*-*-uni
+ #pkg#
+-#pkg(media-fonts/droid)!=#
++#?pkg(media-fonts/droid)!=#
+ *font: -*-droid sans-medium-r-*-*-*-*-*-*-*-*-*-uni
+ #pkg#
