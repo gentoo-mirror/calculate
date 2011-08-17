@@ -59,7 +59,7 @@
 =app-text/gtkspell-2.0.16 -doc
 =app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_ro linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
 =app-text/libspectre-0.2.6 -debug -doc -static-libs
-=app-text/poppler-0.16.7 cairo cxx jpeg jpeg2k lcms png utils xpdf-headers -cjk -curl -debug -doc -exceptions -introspection -qt4
+=app-text/poppler-0.16.7 cairo cxx introspection jpeg jpeg2k lcms png utils xpdf-headers -cjk -curl -debug -doc -exceptions -qt4
 =app-text/rarian-0.8.1-r1 -debug
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/stardict-3.0.1-r2 gnome spell -debug -espeak -festival -gucharmap -pronounce -qqwry
@@ -91,7 +91,7 @@
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
-=dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
+=dev-libs/glib-2.28.8 introspection static-libs -debug -doc -fam -selinux -test -xattr
 =dev-libs/gmime-2.4.24 -doc -mono
 =dev-libs/gmp-4.3.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
@@ -170,7 +170,7 @@
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
 =dev-python/pycurl-7.19.0 -examples
 =dev-python/pygame-1.9.2_pre3082 X -doc -examples -test
-=dev-python/pygobject-2.28.6 cairo -doc -examples -introspection -libffi -test
+=dev-python/pygobject-2.28.6 cairo introspection -doc -examples -libffi -test
 =dev-python/pygtk-2.24.0-r1 -doc -examples -test
 =dev-python/pygtksourceview-2.10.1 -debug -doc
 =dev-python/pyopenssl-0.12 -doc
@@ -216,7 +216,7 @@
 =gnome-base/libgnomeprint-2.18.8 cups -doc
 =gnome-base/libgnomeprintui-2.18.6 -doc
 =gnome-base/libgnomeui-2.24.5 -doc -test
-=gnome-base/libgtop-2.28.3 -debug -doc -introspection
+=gnome-base/libgtop-2.28.3 introspection -debug -doc
 =gnome-base/librsvg-2.34.0 gtk -doc -tools
 =gnome-base/nautilus-2.32.2.1-r1 gnome -doc -introspection -test -xmp
 =gnome-base/orbit-2.14.19-r1 -debug -doc -test
@@ -231,7 +231,7 @@
 =gnome-extra/gucharmap-2.32.1 gnome python -cjk -debug -doc -introspection -test
 =gnome-extra/hamster-applet-2.32.1 libnotify -eds
 =gnome-extra/nm-applet-0.8.2-r10 -bluetooth -debug
-=gnome-extra/polkit-gnome-0.101-r1 -doc -examples -introspection
+=gnome-extra/polkit-gnome-0.101-r1 introspection -doc -examples
 =gnome-extra/yelp-2.30.2-r5 -debug
 =gnome-extra/zenity-2.32.1 compat libnotify -debug
 =mail-client/evolution-2.32.2-r3 crypt networkmanager python ssl -clutter -doc -gstreamer -kerberos -ldap
@@ -258,7 +258,7 @@
 =media-libs/aalib-1.4_rc5 X gpm -slang
 =media-libs/alsa-lib-1.0.23 alsa_pcm_plugins_adpcm alsa_pcm_plugins_alaw alsa_pcm_plugins_asym alsa_pcm_plugins_copy alsa_pcm_plugins_dmix alsa_pcm_plugins_dshare alsa_pcm_plugins_dsnoop alsa_pcm_plugins_empty alsa_pcm_plugins_extplug alsa_pcm_plugins_file alsa_pcm_plugins_hooks alsa_pcm_plugins_iec958 alsa_pcm_plugins_ioplug alsa_pcm_plugins_ladspa alsa_pcm_plugins_lfloat alsa_pcm_plugins_linear alsa_pcm_plugins_meter alsa_pcm_plugins_mmap_emul alsa_pcm_plugins_mulaw alsa_pcm_plugins_multi alsa_pcm_plugins_null alsa_pcm_plugins_plug alsa_pcm_plugins_rate alsa_pcm_plugins_route alsa_pcm_plugins_share alsa_pcm_plugins_shm alsa_pcm_plugins_softvol python -alisp -debug -doc
 =media-libs/audiofile-0.2.7 -static-libs
-=media-libs/babl-0.1.4 mmx sse -altivec -introspection
+=media-libs/babl-0.1.4 introspection mmx sse -altivec
 =media-libs/faac-1.28-r1 -static-libs
 =media-libs/faad2-2.7-r2 -digitalradio -static-libs
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
@@ -427,9 +427,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.20 gnome -kde -xfce
 =sys-apps/calculate-desktop-2.2.20 gnome -kde -xfce
-=sys-apps/calculate-install-2.2.20-r8 -minimal
+=sys-apps/calculate-install-2.2.20-r9 -minimal
 =sys-apps/calculate-lib-2.2.20-r4 -minimal
-=sys-apps/calculate-utilities-2.2.20-r12 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.20-r14 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -474,7 +474,7 @@
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
 =sys-auth/pam_ldap-183 ssl -sasl
 =sys-auth/pambase-20101024 consolekit cracklib gnome-keyring sha512 -debug -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
-=sys-auth/polkit-0.101-r1 gtk nls pam -debug -doc -examples -introspection -kde
+=sys-auth/polkit-0.101-r1 gtk introspection nls pam -debug -doc -examples -kde
 =sys-auth/thinkfinger-0.3-r3 pam -debug
 =sys-block/eject-2.1.5-r2 nls
 =sys-block/gparted-0.5.2 dmraid fat gnome jfs ntfs reiserfs xfs -hfs -kde -mdadm -reiser4
@@ -509,7 +509,7 @@
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/udisks-1.0.3-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r13 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r14 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.39.4 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110731 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
@@ -530,7 +530,7 @@
 =sys-power/cpufrequtils-008-r1 nls -debug
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
 =sys-power/powertop-1.13 unicode
-=sys-power/upower-0.9.12 kernel_linux -debug -doc -introspection -ios -kernel_FreeBSD
+=sys-power/upower-0.9.12 introspection kernel_linux -debug -doc -ios -kernel_FreeBSD
 =sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
