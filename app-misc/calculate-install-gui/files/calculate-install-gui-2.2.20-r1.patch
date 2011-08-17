@@ -1,0 +1,69 @@
+commit 0de8143d615685790d1559eeea57881a957ded4f
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Aug 17 10:29:07 2011 +0400
+
+    Discard adding prefix "/dev/" for devices values.
+
+diff --git a/src/calculateconfig.cpp b/src/calculateconfig.cpp
+index f223e12..65fb77c 100644
+--- a/src/calculateconfig.cpp
++++ b/src/calculateconfig.cpp
+@@ -69,7 +69,7 @@ bool CalculateConfig::getDefaultConfig()
+ 
+ 	QStringList	devs = m_Config["os_device_dev"].toStringList();
+ 	m_Config.remove("os_device_dev");
+-	m_Config["os_device_dev"] = preparePartitions(devs);
++	m_Config["os_device_dev"] = devs;
+ 
+ 	if ( !m_Config["os_device_dev"].toStringList().isEmpty() )
+ 		m_Config["gui_os_device_dev"] = m_Config["os_device_dev"].toStringList().at(0);
+@@ -146,7 +146,7 @@ bool CalculateConfig::getNewPartitioning()
+ 	QStringList	devs = confDisk["os_device_dev"].toStringList();
+ 
+ 	m_Config.remove("os_device_dev");
+-	m_Config["os_device_dev"] = preparePartitions(devs);
++	m_Config["os_device_dev"] = devs;
+ 
+ 	m_Config.remove("os_disk_dev");
+ 	m_Config["os_disk_dev"] = confDisk["os_disk_dev"];
+@@ -225,20 +225,6 @@ bool CalculateConfig::getNewMountpoints()
+ 	return true;
+ }
+ 
+-QStringList CalculateConfig::preparePartitions(const QStringList& parts)
+-{
+-	QStringList	devs(parts);
+-	QStringList::iterator	dev = devs.begin();
+-
+-	while ( dev != devs.end() )
+-	{
+-		*dev = "/dev/"+*dev;
+-		++dev;
+-	}
+-
+-	return devs;
+-}
+-
+ QStringList CalculateConfig::getPasswordUsers()
+ {
+ 	QStringList	result;
+diff --git a/src/calculateconfig.h b/src/calculateconfig.h
+index 77931a7..47a3f46 100644
+--- a/src/calculateconfig.h
++++ b/src/calculateconfig.h
+@@ -39,8 +39,6 @@ private:
+ 	CalculateConfig(const CalculateConfig&);
+ 	CalculateConfig& operator=(const CalculateConfig&);
+ 
+-	QStringList	preparePartitions(const QStringList& parts);
+-
+ 	void		parseVariables(const QDomNode& node, MapConfig& cfg);
+ 	void		parseVar(const QDomNode& node, MapConfig& cfg);
+ 	void		parseVarList(const QDomNode& node, MapConfig& cfg);
+@@ -51,4 +49,4 @@ private:
+ 	static CalculateConfig*	_instance;
+ 
+ 	MapConfig	m_Config;
+-};
+\ No newline at end of file
++};
