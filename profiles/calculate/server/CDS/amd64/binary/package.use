@@ -4,7 +4,7 @@
 =app-admin/logrotate-3.8.0 acl -selinux
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/testdisk-6.8-r1 jpeg ntfs reiserfs -static
-=app-antivirus/clamav-0.97.1 bzip2 iconv ipv6 -clamdtop -milter -selinux -static-libs
+=app-antivirus/clamav-0.97.2 bzip2 iconv ipv6 -clamdtop -milter -selinux -static-libs
 =app-arch/bzip2-1.0.6-r2 -static
 =app-arch/cabextract-1.4 -extra-tools
 =app-arch/cpio-2.11 nls
@@ -14,7 +14,7 @@
 =app-arch/p7zip-9.13 -doc -kde -rar -static -wxwidgets
 =app-arch/tar-1.23-r2 nls userland_GNU -static
 =app-arch/unzip-6.0-r9 bzip2 natspec unicode
-=app-arch/xz-utils-5.0.1 nls threads -static-libs
+=app-arch/xz-utils-5.0.3 nls threads -static-libs
 =app-arch/zip-3.0 bzip2 crypt unicode
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-crypt/gnupg-2.0.17 bzip2 ldap nls -adns -caps -doc -openct -pcsc-lite -selinux -smartcard -static
@@ -35,7 +35,7 @@
 =app-misc/pax-utils-0.2.2 -caps
 =app-misc/realpath-1.15-r1 nls
 =app-misc/screen-4.0.3-r4 pam -debug -multiuser -nethack -selinux
-=app-portage/eix-0.22.5 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools
+=app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
 =app-portage/genlop-0.30.8-r2 bash-completion
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
 =app-portage/portage-utils-0.3.1 -static
@@ -192,8 +192,8 @@
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-install-2.2.20-r9 -minimal
-=sys-apps/calculate-lib-2.2.20-r4 -minimal
-=sys-apps/calculate-utilities-2.2.20-r14 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-lib-2.2.20-r5 -minimal
+=sys-apps/calculate-utilities-2.2.20-r15 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -260,7 +260,7 @@
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r14 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r15 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.39.4-r1 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110731 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
