@@ -283,7 +283,7 @@
 =media-libs/vigra-1.6.0 jpeg png tiff zlib -doc -fftw -test
 =media-libs/vo-aacenc-0.1.1 -examples -neon -static-libs
 =media-libs/vo-amrwbenc-0.1.0 -examples -static-libs
-=media-libs/x264-0.0.20101029 threads -debug -pic
+=media-libs/x264-0.0.20110426 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/audacious-plugins-2.4.4-r1 aac alsa cdda ffmpeg flac ipv6 libnotify lirc mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cue -fluidsynth -gnome -jack -lame -libsamplerate -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
 =media-plugins/gst-plugins-a52dec-0.10.17 orc
@@ -296,7 +296,7 @@
 =media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
-=media-video/ffmpeg-0.7_rc1 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
+=media-video/ffmpeg-0.7.3 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/gnome-mplayer-1.0.3-r2 alsa dbus ipod libnotify -gnome -musicbrainz -pulseaudio
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vorbis x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vidix -vpx -win32codecs -zoran
@@ -371,11 +371,11 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-client-2.2.20 xfce -gnome -kde
-=sys-apps/calculate-desktop-2.2.20 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.20-r9 -minimal
-=sys-apps/calculate-lib-2.2.20-r5 -minimal
-=sys-apps/calculate-utilities-2.2.20-r15 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.21 xfce -gnome -kde
+=sys-apps/calculate-desktop-2.2.21 xfce -gnome -kde
+=sys-apps/calculate-install-2.2.21 -minimal
+=sys-apps/calculate-lib-2.2.21 -minimal
+=sys-apps/calculate-utilities-2.2.21 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
