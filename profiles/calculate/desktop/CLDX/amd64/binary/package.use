@@ -14,7 +14,7 @@
 =app-arch/tar-1.23-r2 nls userland_GNU -static
 =app-arch/unzip-6.0-r9 bzip2 natspec unicode
 =app-arch/xarchiver-0.5.2-r2 -debug
-=app-arch/xz-utils-5.0.1 nls threads -static-libs
+=app-arch/xz-utils-5.0.3 nls threads -static-libs
 =app-arch/zip-3.0 bzip2 crypt unicode
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-cdr/xfburn-0.4.3-r1 dbus -debug -gstreamer -thunar
@@ -51,7 +51,7 @@
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
 =app-office/libreoffice-3.3.3 bash-completion cups dbus gtk ldap linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gnome -gstreamer -java -kde -kdeenablefinal -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_ro -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
 =app-pda/libplist-1.4 python
-=app-portage/eix-0.22.5 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools
+=app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
 =app-portage/genlop-0.30.8-r2 bash-completion
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
 =app-portage/portage-utils-0.3.1 -static
@@ -212,7 +212,7 @@
 =media-gfx/xsane-0.996 jpeg nls png tiff -gimp -lcms
 =media-libs/a52dec-0.7.4-r6 -djbfft -oss -static-libs
 =media-libs/aalib-1.4_rc5 X gpm -slang
-=media-libs/alsa-lib-1.0.23 alsa_pcm_plugins_adpcm alsa_pcm_plugins_alaw alsa_pcm_plugins_asym alsa_pcm_plugins_copy alsa_pcm_plugins_dmix alsa_pcm_plugins_dshare alsa_pcm_plugins_dsnoop alsa_pcm_plugins_empty alsa_pcm_plugins_extplug alsa_pcm_plugins_file alsa_pcm_plugins_hooks alsa_pcm_plugins_iec958 alsa_pcm_plugins_ioplug alsa_pcm_plugins_ladspa alsa_pcm_plugins_lfloat alsa_pcm_plugins_linear alsa_pcm_plugins_meter alsa_pcm_plugins_mmap_emul alsa_pcm_plugins_mulaw alsa_pcm_plugins_multi alsa_pcm_plugins_null alsa_pcm_plugins_plug alsa_pcm_plugins_rate alsa_pcm_plugins_route alsa_pcm_plugins_share alsa_pcm_plugins_shm alsa_pcm_plugins_softvol python -alisp -debug -doc
+=media-libs/alsa-lib-1.0.24.1 alsa_pcm_plugins_adpcm alsa_pcm_plugins_alaw alsa_pcm_plugins_asym alsa_pcm_plugins_copy alsa_pcm_plugins_dmix alsa_pcm_plugins_dshare alsa_pcm_plugins_dsnoop alsa_pcm_plugins_empty alsa_pcm_plugins_extplug alsa_pcm_plugins_file alsa_pcm_plugins_hooks alsa_pcm_plugins_iec958 alsa_pcm_plugins_ioplug alsa_pcm_plugins_ladspa alsa_pcm_plugins_lfloat alsa_pcm_plugins_linear alsa_pcm_plugins_meter alsa_pcm_plugins_mmap_emul alsa_pcm_plugins_mulaw alsa_pcm_plugins_multi alsa_pcm_plugins_null alsa_pcm_plugins_plug alsa_pcm_plugins_rate alsa_pcm_plugins_route alsa_pcm_plugins_share alsa_pcm_plugins_shm alsa_pcm_plugins_softvol python -alisp -debug -doc -static-libs
 =media-libs/audiofile-0.2.7 -static-libs
 =media-libs/babl-0.1.4 introspection mmx sse -altivec
 =media-libs/faac-1.28-r1 -static-libs
@@ -289,7 +289,7 @@
 =media-plugins/gst-plugins-a52dec-0.10.17 orc
 =media-plugins/gst-plugins-ffmpeg-0.10.11-r1 orc
 =media-plugins/gst-plugins-meta-0.10-r5 X a52 aac alsa dv dvd ffmpeg flac mp3 mpeg musepack ogg theora v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib -wavpack
-=media-sound/alsa-utils-1.0.23-r1 nls -doc -minimal
+=media-sound/alsa-utils-1.0.24.2-r1 nls -doc -minimal
 =media-sound/audacious-2.4.4 nls session sse2 -altivec -chardet
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
 =media-sound/mpg123-1.13.2 alsa ipv6 nas portaudio sdl sse -3dnow -3dnowext -altivec -coreaudio -jack -mmx -oss -pulseaudio
@@ -374,8 +374,8 @@
 =sys-apps/calculate-client-2.2.20 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.20 xfce -gnome -kde
 =sys-apps/calculate-install-2.2.20-r9 -minimal
-=sys-apps/calculate-lib-2.2.20-r4 -minimal
-=sys-apps/calculate-utilities-2.2.20-r14 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-lib-2.2.20-r5 -minimal
+=sys-apps/calculate-utilities-2.2.20-r15 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -454,7 +454,7 @@
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/udisks-1.0.3-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r14 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r15 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.39.4-r1 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110731 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
