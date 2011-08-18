@@ -445,7 +445,7 @@
 =media-libs/vigra-1.6.0 jpeg png tiff zlib -doc -fftw -test
 =media-libs/vo-aacenc-0.1.1 -examples -neon -static-libs
 =media-libs/vo-amrwbenc-0.1.0 -examples -static-libs
-=media-libs/x264-0.0.20101029 threads -debug -pic
+=media-libs/x264-0.0.20110426 threads -debug -pic
 =media-libs/xine-lib-1.1.19 X a52 aac aalib alsa css dts fbcon flac gtk imagemagick ipv6 libcaca mad mng modplug musepack nls opengl samba sdl speex theora truetype v4l vcd vorbis xcb xinerama xv xvmc -altivec -directfb -dxr3 -esd -gnome -jack -mmap -oss -pulseaudio -real -vidix -vis -wavpack -win32codecs
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/frei0r-plugins-1.1.22-r1 -doc -facedetect -scale0tilt
@@ -457,7 +457,7 @@
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
 =media-video/dvgrab-3.5 jpeg quicktime
-=media-video/ffmpeg-0.7_rc1 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
+=media-video/ffmpeg-0.7.3 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/kdenlive-0.7.8 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh
 =media-video/kffmpegthumbnailer-1.1.0 -aqua -debug -kdeenablefinal
@@ -534,11 +534,11 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-client-2.2.20 kde -gnome -xfce
-=sys-apps/calculate-desktop-2.2.20 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.20-r9 -minimal
-=sys-apps/calculate-lib-2.2.20-r5 -minimal
-=sys-apps/calculate-utilities-2.2.20-r15 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.21 kde -gnome -xfce
+=sys-apps/calculate-desktop-2.2.21 kde -gnome -xfce
+=sys-apps/calculate-install-2.2.21 -minimal
+=sys-apps/calculate-lib-2.2.21 -minimal
+=sys-apps/calculate-utilities-2.2.21 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
