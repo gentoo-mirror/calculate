@@ -1,0 +1,28 @@
+commit 71456c2c67431006fdf49cd7e9cc17103a387d40
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Aug 19 10:54:23 2011 +0400
+
+    Bugfix caching of param detected images and installed system.
+
+diff --git a/pym/cl_distr.py b/pym/cl_distr.py
+index 057e50d..b622e6d 100644
+--- a/pym/cl_distr.py
++++ b/pym/cl_distr.py
+@@ -136,7 +136,7 @@ class DistributiveRepository:
+         """Get info from content"""
+         origfilename = filename
+         if filename in DistributiveRepository.contentCache:
+-            return DistributiveRepository.contentCache[filename]
++            return DistributiveRepository.contentCache[filename].copy()
+         varsShare = self.varsShare
+         distr = None
+         # may be directory is isodir (directory which contains iso image)
+@@ -184,7 +184,7 @@ class DistributiveRepository:
+         if distr:
+             distr.close()
+         DistributiveRepository.contentCache[origfilename] = d
+-        return d
++        return d.copy()
+ 
+     def _getdistrinfo(self,filename):
+         """Get information by distributive"""
