@@ -286,7 +286,7 @@
 =media-sound/audacious-2.4.4 nls session sse2 -altivec -chardet
 =media-sound/lame-3.98.4 mmx -debug -mp3rtp -sndfile -static-libs
 =media-sound/mpg123-1.13.2 3dnow alsa ipv6 mmx nas portaudio sdl sse -3dnowext -altivec -coreaudio -jack -oss -pulseaudio
-=media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
+=media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
 =media-video/ffmpeg-0.7_rc1 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
