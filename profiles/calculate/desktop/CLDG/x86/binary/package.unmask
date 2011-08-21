@@ -17,7 +17,7 @@
 =app-admin/syslog-ng-3.2.4
 =app-admin/testdisk-6.8-r1
 =app-arch/arj-3.10.22-r3
-=app-arch/bzip2-1.0.6
+=app-arch/bzip2-1.0.6-r2
 =app-arch/cabextract-1.3
 =app-arch/cpio-2.11
 =app-arch/dump-0.4.41
@@ -32,7 +32,7 @@
 =app-arch/unarj-2.65
 =app-arch/unrar-3.9.10
 =app-arch/unzip-6.0-r9
-=app-arch/xz-utils-5.0.1
+=app-arch/xz-utils-5.0.3
 =app-arch/zip-3.0
 =app-cdr/brasero-2.32.1
 =app-cdr/cdrdao-1.2.3-r1
@@ -98,7 +98,7 @@
 =app-misc/cl-wireless-meta-11.6-r1
 =app-misc/cl-xorg-meta-7.4-r1
 =app-misc/cldg-meta-11.6
-=app-misc/editor-wrapper-2
+=app-misc/editor-wrapper-3
 =app-misc/lirc-0.8.7
 =app-misc/mc-4.7.5.2
 =app-misc/mime-types-8
@@ -106,7 +106,7 @@
 =app-misc/realpath-1.15-r1
 =app-mobilephone/obex-data-server-0.4.5
 =app-office/libreoffice-3.3.3
-=app-portage/eix-0.22.5
+=app-portage/eix-0.22.11
 =app-portage/emerge-delta-webrsync-3.5.1-r3
 =app-portage/genlop-0.30.8-r2
 =app-portage/gentoolkit-0.3.0.4
@@ -486,7 +486,7 @@
 =media-libs/vo-aacenc-0.1.1
 =media-libs/vo-amrwbenc-0.1.1
 =media-libs/win32codecs-20071007-r4
-=media-libs/x264-0.0.20101029
+=media-libs/x264-0.0.20110426
 =media-libs/xvid-1.2.2-r2
 =media-plugins/gst-plugins-a52dec-0.10.17
 =media-plugins/gst-plugins-alsa-0.10.32
@@ -526,7 +526,7 @@
 =media-sound/twolame-0.3.12
 =media-video/cheese-2.32.0
 =media-video/dirac-1.0.2
-=media-video/ffmpeg-0.7_rc1
+=media-video/ffmpeg-0.7.3
 =media-video/mplayer-1.0_rc4_p20110322-r51
 =media-video/totem-2.32.0-r2
 =media-video/xanim-2.80.1-r4
@@ -546,7 +546,7 @@
 =net-ftp/filezilla-3.3.4.1
 =net-im/pidgin-2.9.0
 =net-im/skype-2.2.0.35-r1
-=net-irc/xchat-2.8.8-r1
+=net-irc/xchat-2.8.8-r2
 =net-libs/farsight2-0.0.26
 =net-libs/gnutls-2.10.5
 =net-libs/gtk-vnc-0.4.3
@@ -634,18 +634,18 @@
 =perl-core/Module-Build-0.36.07
 =perl-core/Scalar-List-Utils-1.230.0
 =perl-core/Storable-2.20
-=sys-apps/acl-2.2.49
-=sys-apps/attr-2.4.44
+=sys-apps/acl-2.2.51
+=sys-apps/attr-2.4.46
 =sys-apps/baselayout-2.0.3
-=sys-apps/busybox-1.17.4
+=sys-apps/busybox-1.19.0
 =sys-apps/calculate-builder-2.2.21
 =sys-apps/calculate-client-2.2.21
 =sys-apps/calculate-desktop-2.2.21
 =sys-apps/calculate-i18n-2.2.21
-=sys-apps/calculate-install-2.2.21
+=sys-apps/calculate-install-2.2.21-r1
 =sys-apps/calculate-lib-2.2.21
 =sys-apps/calculate-templates-2.2.21
-=sys-apps/calculate-utilities-2.2.21
+=sys-apps/calculate-utilities-2.2.21-r1
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.12
 =sys-apps/debianutils-3.4.4
@@ -746,7 +746,7 @@
 =sys-fs/mdadm-3.1.4
 =sys-fs/mtools-4.0.15
 =sys-fs/multipath-tools-0.4.8-r1
-=sys-fs/ntfs3g-2010.8.8
+=sys-fs/ntfs3g-2011.4.12
 =sys-fs/ntfsprogs-2.0.0-r1
 =sys-fs/progsreiserfs-0.3.1_rc8
 =sys-fs/reiserfsprogs-3.6.21
@@ -758,7 +758,7 @@
 =sys-fs/xfsprogs-3.1.4
 =sys-kernel/calckernel-3.4.15-r15
 =sys-kernel/calculate-sources-2.6.39.4
-=sys-kernel/linux-firmware-20110731
+=sys-kernel/linux-firmware-20110818
 =sys-kernel/linux-headers-2.6.38
 =sys-kernel/module-rebuild-0.5
 =sys-libs/cracklib-2.8.16
@@ -986,7 +986,7 @@
 =x11-misc/makedepend-1.0.3
 =x11-misc/notification-daemon-0.5.0
 =x11-misc/shared-mime-info-0.90
-=x11-misc/util-macros-1.14.0
+=x11-misc/util-macros-1.15.0
 =x11-misc/xbindkeys-1.8.4
 =x11-misc/xbitmaps-1.1.1
 =x11-misc/xdg-utils-1.1.0_rc1_p20110519
