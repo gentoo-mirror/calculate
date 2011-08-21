@@ -4,7 +4,7 @@
 =app-admin/sudo-1.7.4_p5 ldap pam -offensive -selinux -skey
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/testdisk-6.8-r1 jpeg ntfs reiserfs -static
-=app-arch/bzip2-1.0.6 -static
+=app-arch/bzip2-1.0.6-r2 -static
 =app-arch/cabextract-1.3 -extra-tools
 =app-arch/cpio-2.11 nls
 =app-arch/dump-0.4.41 readline -ermt -static
@@ -14,7 +14,7 @@
 =app-arch/tar-1.23-r2 nls userland_GNU -static
 =app-arch/unzip-6.0-r9 bzip2 natspec unicode
 =app-arch/xarchiver-0.5.2-r2 -debug
-=app-arch/xz-utils-5.0.1 nls threads -static-libs
+=app-arch/xz-utils-5.0.3 nls threads -static-libs
 =app-arch/zip-3.0 bzip2 crypt unicode
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-cdr/xfburn-0.4.3-r1 dbus -debug -gstreamer -thunar
@@ -43,7 +43,7 @@
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
 =app-office/libreoffice-3.3.3 bash-completion cups dbus gtk ldap linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gnome -gstreamer -java -kde -kdeenablefinal -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_ro -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
 =app-pda/libplist-1.4 python
-=app-portage/eix-0.22.5 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools
+=app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
 =app-portage/genlop-0.30.8-r2 bash-completion
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
 =app-portage/portage-utils-0.3.1 -static
@@ -84,7 +84,7 @@
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
-=dev-libs/glib-2.28.8 introspection static-libs -debug -doc -fam -selinux -test -xattr
+=dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-4.3.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
 =dev-libs/icu-4.8 -debug -doc -examples -static-libs
@@ -276,7 +276,7 @@
 =media-libs/vo-aacenc-0.1.1 -examples -neon -static-libs
 =media-libs/vo-amrwbenc-0.1.1 -examples -static-libs
 =media-libs/win32codecs-20071007-r4 -real
-=media-libs/x264-0.0.20101029 threads -debug -pic
+=media-libs/x264-0.0.20110426 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/audacious-plugins-2.4.4-r1 aac alsa cdda ffmpeg flac ipv6 libnotify lirc mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cue -fluidsynth -gnome -jack -lame -libsamplerate -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
 =media-plugins/gst-plugins-a52dec-0.10.17 orc
@@ -289,7 +289,7 @@
 =media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
-=media-video/ffmpeg-0.7_rc1 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
+=media-video/ffmpeg-0.7.3 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/gnome-mplayer-1.0.3-r2 alsa dbus ipod libnotify -gnome -musicbrainz -pulseaudio
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
@@ -306,7 +306,7 @@
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
 =net-im/pidgin-2.9.0 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
 =net-im/skype-2.2.0.35-r1 -qt-static
-=net-irc/xchat-2.8.8-r1 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -ntlm -tcl -xchatdccserver
+=net-irc/xchat-2.8.8-r2 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -hires-icons -ntlm -tcl -xchatdccserver
 =net-libs/farsight2-0.0.26 python -msn -test -upnp
 =net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
 =net-libs/libetpan-1.0 berkdb ipv6 ssl -debug -gnutls -liblockfile -sasl
@@ -360,15 +360,15 @@
 =net-wireless/rtl8192se-2.6.0019.1207.2010 kernel_linux
 =net-wireless/wireless-tools-29 nls -multicall
 =net-wireless/wpa_supplicant-0.7.3-r2 dbus kernel_linux readline ssl wimax -debug -eap-sim -fasteap -gnutls -kernel_FreeBSD -madwifi -ps3 -qt4 -wps
-=sys-apps/acl-2.2.49 nls -nfs
-=sys-apps/attr-2.4.44 nls
+=sys-apps/acl-2.2.51 nls -nfs -static-libs
+=sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
-=sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
+=sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.21 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.21 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.21 -minimal
+=sys-apps/calculate-install-2.2.21-r1 -minimal
 =sys-apps/calculate-lib-2.2.21 -minimal
-=sys-apps/calculate-utilities-2.2.21 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.21-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -440,7 +440,7 @@
 =sys-fs/lvm2-2.02.73-r1 lvm1 readline static -clvm -cman -selinux
 =sys-fs/mdadm-3.1.4 -static
 =sys-fs/mtools-4.0.15 -X
-=sys-fs/ntfs3g-2010.8.8 acl external-fuse udev -debug -suid
+=sys-fs/ntfs3g-2011.4.12 acl crypt external-fuse udev -debug -ntfsprogs -static-libs -suid -xattr
 =sys-fs/ntfsprogs-2.0.0-r1 crypt -debug -fuse -gnome -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/squashfs-tools-4.2 gzip lzma lzo -xattr
@@ -449,7 +449,7 @@
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.15-r15 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.39.4 symlink vmlinuz -build
-=sys-kernel/linux-firmware-20110731 -savedconfig
+=sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.14 elibc_glibc nls
