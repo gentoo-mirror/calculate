@@ -68,7 +68,10 @@ RDEPEND="${RDEPEND}
 	)
 	!calculate_nomysql? ( dev-db/mysql )
 	!calculate_nonamed? ( net-dns/bind )
-	!calculate_nopgsql? ( dev-db/postgresql-server )
+	!calculate_nopgsql? (
+		dev-db/postgresql-server
+		sys-apps/most
+	)
 	!calculate_noproxy? (
 		net-proxy/havp
 		net-proxy/squid
