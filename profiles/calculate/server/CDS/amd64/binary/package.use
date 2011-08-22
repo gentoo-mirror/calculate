@@ -25,10 +25,10 @@
 =app-emulation/emul-linux-x86-baselibs-20110129 -development
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.6-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
-=app-misc/cds-meta-11.6-r2 ldap -calculate_noapache -calculate_nobittorrent -calculate_nodecoration -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nokernel -calculate_nomail -calculate_nomysql -calculate_nonamed -calculate_nonettools -calculate_nonetwork -calculate_nopgsql -calculate_noproxy -calculate_nowireless
+=app-misc/cds-meta-11.6-r3 ldap -calculate_noapache -calculate_nobittorrent -calculate_nodecoration -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nokernel -calculate_nomail -calculate_nomysql -calculate_nonamed -calculate_nonettools -calculate_nonetwork -calculate_nopgsql -calculate_noproxy -calculate_nowireless
 =app-misc/cl-decoration-meta-11.6 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-nettools-meta-11.6-r2 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop -networkmanager
-=app-misc/cl-network-meta-11.6-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
+=app-misc/cl-network-meta-11.6-r2 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-tools-meta-11.6-r5 cdistro_CDS ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-wireless-meta-11.6-r1 -cdistro_desktop
 =app-misc/mc-4.7.5.2 edit gpm ncurses nls samba -X -slang
@@ -254,6 +254,7 @@
 =sys-fs/lvm2-2.02.73-r1 lvm1 readline static -clvm -cman -selinux
 =sys-fs/mdadm-3.1.4 -static
 =sys-fs/mtools-4.0.15 -X
+=sys-fs/nilfs-utils-2.0.21 -static-libs
 =sys-fs/ntfs3g-2011.4.12 acl crypt external-fuse udev -debug -ntfsprogs -static-libs -suid -xattr
 =sys-fs/ntfsprogs-2.0.0-r1 crypt -debug -fuse -gnome -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
@@ -272,6 +273,7 @@
 =sys-libs/libcap-2.17 pam
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
 =sys-libs/pam-1.1.3 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -selinux -test -vim-syntax
+=sys-libs/slang-2.2.2 pcre png readline zlib -cjk
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
 =sys-libs/timezone-data-2011e elibc_glibc nls -elibc_FreeBSD
