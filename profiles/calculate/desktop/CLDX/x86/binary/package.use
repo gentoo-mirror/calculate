@@ -31,7 +31,7 @@
 =app-misc/cl-graphics-meta-11.6 cdistro_CLDX -cdistro_CLD
 =app-misc/cl-multimedia-meta-11.6 cdistro_CLDX -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-nettools-meta-11.6-r2 cdistro_CLDX cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLD -cdistro_CLDG
-=app-misc/cl-network-meta-11.6-r1 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
+=app-misc/cl-network-meta-11.6-r2 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-office-meta-11.6 cdistro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-tools-meta-11.6-r5 cdistro_CLDX cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.6-r1 cdistro_desktop
@@ -440,6 +440,7 @@
 =sys-fs/lvm2-2.02.73-r1 lvm1 readline static -clvm -cman -selinux
 =sys-fs/mdadm-3.1.4 -static
 =sys-fs/mtools-4.0.15 -X
+=sys-fs/nilfs-utils-2.0.21 -static-libs
 =sys-fs/ntfs3g-2011.4.12 acl crypt external-fuse udev -debug -ntfsprogs -static-libs -suid -xattr
 =sys-fs/ntfsprogs-2.0.0-r1 crypt -debug -fuse -gnome -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
@@ -567,6 +568,7 @@
 =x11-libs/xosd-2.2.14-r1 xinerama
 =x11-libs/xtrans-1.2.6 -doc
 =x11-misc/gccmakedep-1.0.2 -debug
+=x11-misc/x11vnc-0.9.9 crypt fbcon jpeg ssl v4l xinerama zlib -avahi -system-libvncserver -threads
 =x11-misc/xbindkeys-1.8.4 -guile -tk
 =x11-misc/xdg-user-dirs-0.13 nls
 =x11-misc/xdg-utils-1.1.0_rc1_p20110519 -doc
