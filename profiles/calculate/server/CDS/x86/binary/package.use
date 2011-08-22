@@ -124,7 +124,7 @@
 =media-gfx/imagemagick-6.6.5.6 bzip2 corefonts cxx jpeg jpeg2k openmp perl png tiff truetype zlib -X -autotrace -djvu -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -openexr -q32 -q8 -raw -static-libs -svg -video_cards_nvidia -wmf -xml
 =media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freetype-2.4.6 -X -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
+=media-libs/freetype-2.4.6 bzip2 -X -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype -fontconfig -xpm
 =media-libs/jasper-1.900.1-r3 jpeg -opengl -static-libs
 =media-libs/jpeg-8b static-libs
