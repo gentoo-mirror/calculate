@@ -29,6 +29,7 @@ RDEPEND="
 	>=sys-boot/grub-1.99-r4:2
 	sys-boot/os-prober
 	sys-fs/btrfs-progs
+	sys-fs/nilfs-utils
 	sys-fs/reiserfsprogs
 	sys-kernel/calckernel
 "
