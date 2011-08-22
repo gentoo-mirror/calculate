@@ -1,0 +1,155 @@
+diff --git data/calculate data/calculate
+index 1ad6e8d..b6ad94a 100755
+--- data/calculate
++++ data/calculate
+@@ -66,7 +66,8 @@ install_video_driver()
+ 
+ # create user guest if system has not non-root user
+ create_nonroot_user() {
+-	if [[ -z $(variable_value cl_migrate_user | sed -r "s/[][,']|root//g") ]] &&
++	if which cl-desktop &>/dev/null &&
++	  [[ -z $(variable_value cl_migrate_user | sed -r "s/[][,']|root//g") ]] &&
+ 		[[  `variable_value os_install_linux_system` != "server" ]]
+ 	then
+ 		# passwd of non root user
+@@ -83,16 +84,19 @@ create_nonroot_user() {
+ 
+ # create/update all user profile
+ configure_users() {
+-	for user in $(variable_value cl_migrate_user | sed -r "s/[][,']//g")
+-	do
+-		cl-desktop $user
+-	done
++	if which cl-desktop &>/dev/null
++	then
++		for user in $(variable_value cl_migrate_user | sed -r "s/[][,']//g")
++		do
++			cl-desktop $user
++		done
++	fi
+ }
+ 
+ start() {
+ 	install_video_driver
+-	LANG=C /usr/bin/cl-install --startup
+ 	LANG=C create_nonroot_user
++	LANG=C /usr/bin/cl-install --startup
+ 	LANG=C configure_users
+ 
+ 	/usr/sbin/env-update
+diff --git pym/cl_distr.py pym/cl_distr.py
+index 057e50d..b8775ad 100644
+--- pym/cl_distr.py
++++ pym/cl_distr.py
+@@ -136,7 +136,7 @@ class DistributiveRepository:
+         """Get info from content"""
+         origfilename = filename
+         if filename in DistributiveRepository.contentCache:
+-            return DistributiveRepository.contentCache[filename]
++            return DistributiveRepository.contentCache[filename].copy()
+         varsShare = self.varsShare
+         distr = None
+         # may be directory is isodir (directory which contains iso image)
+@@ -184,7 +184,7 @@ class DistributiveRepository:
+         if distr:
+             distr.close()
+         DistributiveRepository.contentCache[origfilename] = d
+-        return d
++        return d.copy()
+ 
+     def _getdistrinfo(self,filename):
+         """Get information by distributive"""
+@@ -729,6 +729,7 @@ class PartitionDistributive(Distributive):
+                         'jfs':'/sbin/mkfs.jfs %s -f %s',
+                         'reiserfs':'/sbin/mkfs.reiserfs %s -f %s',
+                         'btrfs':'/sbin/mkfs.btrfs %s %s',
++                        'nilfs2':'/sbin/mkfs.nilfs2 %s %s',
+                         'xfs':'/sbin/mkfs.xfs %s -f %s',
+                         'vfat':'/usr/sbin/mkfs.vfat %s -F 32 %s',
+                         'ntfs-3g':'/usr/sbin/mkfs.ntfs %s -FQ %s',
+@@ -739,6 +740,7 @@ class PartitionDistributive(Distributive):
+                         'ext3':'-L %s',
+                         'ext4':'-L %s',
+                         'btrfs':'-L %s',
++                        'nilfs2':'-L %s',
+                         'jfs':'-L %s',
+                         'reiserfs':'-l %s',
+                         'xfs':'-L %s',
+@@ -752,6 +754,7 @@ class PartitionDistributive(Distributive):
+                  'ext4' : '83',
+                  'reiserfs' : '83',
+                  'btrfs' : '83',
++                 'nilfs2' : '83',
+                  'jfs' : '83',
+                  'xfs' : '83',
+                  'vfat' : '0b',
+@@ -763,6 +766,7 @@ class PartitionDistributive(Distributive):
+                     'ext4' : '0700',
+                     'reiserfs' : '0700',
+                     'btrfs' : '0700',
++                    'nilfs2' : '0700',
+                     'jfs' : '0700',
+                     'xfs' : '0700',
+                     'vfat' : '0700',
+diff --git pym/cl_install.py pym/cl_install.py
+index 4f83b51..2358f7f 100644
+--- pym/cl_install.py
++++ pym/cl_install.py
+@@ -305,6 +305,10 @@ class convertDictOpt:
+                               "pair":{},
+                               "incompatible":[],
+                               "makefs":"/sbin/mkfs.btrfs"},
++                      "nilfs2":{"options":[],
++                              "pair":{},
++                              "incompatible":[],
++                              "makefs":"/sbin/mkfs.nilfs2"},
+                       "jfs":{"options":[],
+                               "pair":{},
+                               "incompatible":[],
+@@ -1634,10 +1638,10 @@ class cl_install(color_print, SignalInterrupt):
+               _("Legacy grub not support boot from raid or lvm without"
+                 " separate /boot partition"))
+             return False
+-        if bootDiskFormat == "btrfs":
++        if bootDiskFormat in ("btrfs","nilfs2"):
+             self.printERROR(
+-              _("Legacy grub not support boot from btrfs without"
+-                " separate /boot partition"))
++              _("Legacy grub not support boot from %s without"
++                " separate /boot partition")%bootDiskFormat)
+             return False
+         return True
+ 
+diff --git pym/cl_install_cmd.py pym/cl_install_cmd.py
+index 3cfa6dd..8ef2078 100644
+--- pym/cl_install_cmd.py
++++ pym/cl_install_cmd.py
+@@ -508,3 +508,15 @@ class install_cmd(share_cmd):
+             return True
+         else:
+             return False
++
++    def parse_args(self, args=None, values=None):
++        """
++        Preparse for catch non option --live
++        """
++        rargs = self.optobj._get_args(args)
++        if rargs:
++            for arg in rargs:
++                if arg == "--live":
++                    self.optobj.error(_("option %s:") %"--live" +\
++                       " " + _("option is depricated, use '--startup' option"))
++        return self.optobj.parse_args(args,values)
+diff --git scripts/cl-install scripts/cl-install
+index 441f504..e8e572d 100644
+--- scripts/cl-install
++++ scripts/cl-install
+@@ -32,7 +32,7 @@ if __name__ == "__main__":
+     install = install_cmd()
+     install.logicObj.initVars()
+     # set lang 
+-    ret = install.optobj.parse_args()
++    ret = install.parse_args()
+     if ret is False:
+         sys.exit(1)
+     options, args = ret

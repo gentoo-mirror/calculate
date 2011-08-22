@@ -1,0 +1,13 @@
+diff --git pym/cl_template.py pym/cl_template.py
+index 66a2634..f282401 100644
+--- pym/cl_template.py
++++ pym/cl_template.py
+@@ -2506,7 +2506,7 @@ class templateFunction(_error, _shareTemplate, _shareTermsFunction):
+             self.pathConfigIni = os.path.join(self.homeDir, ".calculate")
+             self.modeConfigIni = 0640
+         else:
+-            self.pathConfigIni = pathJoin(self._baseDir,'/etc/calculate')
++            self.pathConfigIni = pathJoin(self._chrootDir,'/etc/calculate')
+             self.modeConfigIni = 0644
+         self.fileConfigIni = os.path.join(self.pathConfigIni,"ini.env")
+         # Словарь времен модификации env файлов
