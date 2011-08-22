@@ -24,6 +24,7 @@ RDEPEND="
 		net-im/skype
 		www-client/chromium
 		www-plugins/adobe-flash
+		x11-misc/x11vnc
 	)
 	cdistro_CLD? (
 		net-im/choqok
