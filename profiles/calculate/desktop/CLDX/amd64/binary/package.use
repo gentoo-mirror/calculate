@@ -220,7 +220,7 @@
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
 =media-libs/fontconfig-2.8.0-r1 -doc
 =media-libs/freeglut-2.6.0 -debug -mpx -static-libs
-=media-libs/freetype-2.4.6 X -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
+=media-libs/freetype-2.4.6 X bzip2 -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
 =media-libs/giflib-4.1.6-r2 X -rle -static-libs
