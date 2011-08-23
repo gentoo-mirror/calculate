@@ -11,7 +11,7 @@ index fd6d9fc..3a5f5d3 100755
  CDROOT_TYPE='auto'
  NEW_ROOT='/newroot'
 diff --git defaults/initrd.scripts defaults/initrd.scripts
-index b228a77..e80409a 100755
+index b228a77..fdbfaa1 100755
 --- defaults/initrd.scripts
 +++ defaults/initrd.scripts
 @@ -187,23 +187,45 @@ cache_cd_contents() {
@@ -247,7 +247,7 @@ index b228a77..e80409a 100755
  		then
  			bad_msg "Can't setup union mount!"
  			USE_UNIONFS_NORMAL=0
-@@ -1161,3 +1307,112 @@ setup_unionfs() {
+@@ -1161,3 +1307,106 @@ setup_unionfs() {
  		USE_UNIONFS_NORMAL=0
  	fi
  }
@@ -346,14 +346,8 @@ index b228a77..e80409a 100755
 +	# Do not run any init-scripts
 +	udevadm control --property=do_not_run_plug_service=1
 +
-+	# only create device nodes
-+	# discard net graphics tty and sound devices, because it may has firmware
-+	# on real root device. We can n't use "block" match subsystem, because 
-+	# some devices need "scsi" subsystem and other
-+	udevadm trigger --action="add" --subsystem-nomatch="net" \
-+                                 --subsystem-nomatch="graphics" \
-+                                 --subsystem-nomatch="tty" \
-+                                 --subsystem-nomatch="sound"
++	# discarding net drivers placed into blacklist.conf
++	udevadm trigger --action="add"
 +
 +	# we can speed up booting under these conditions:
 +	#  * using devtmpfs so kernel creates device nodes for us
