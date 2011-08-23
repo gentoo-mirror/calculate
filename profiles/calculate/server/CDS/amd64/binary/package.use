@@ -210,7 +210,7 @@
 =sys-apps/less-441 unicode
 =sys-apps/lm_sensors-3.2.0 -sensord
 =sys-apps/man-db-2.5.9 berkdb gdbm nls
-=sys-apps/man-pages-3.28 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
+=sys-apps/man-pages-3.32 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.16-r1 -static
@@ -237,7 +237,7 @@
 =sys-boot/grub-1.99-r4 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.68 -emacs
-=sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -test -vanilla
+=sys-devel/binutils-2.21.1 nls -multislot -multitarget -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35 nls -static
 =sys-devel/gcc-4.4.5 fortran mudflap multilib nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -gtk -hardened -libffi -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
@@ -261,7 +261,7 @@
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r15 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r16 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.39.4-r1 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
