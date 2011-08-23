@@ -1,7 +1,7 @@
 =app-admin/eselect-1.2.11 bash-completion -doc
 =app-admin/hddtemp-0.3_beta15-r3 nls
 =app-admin/logrotate-3.8.0 acl -selinux
-=app-admin/sudo-1.7.4_p5 ldap pam -offensive -selinux -skey
+=app-admin/sudo-1.8.1_p2 ldap pam -offensive -selinux -skey
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/testdisk-6.11.3 jpeg ntfs reiserfs -static
 =app-arch/bzip2-1.0.6-r2 -static
@@ -87,7 +87,7 @@
 =dev-lang/tk-8.5.9-r1 truetype -aqua -debug -threads -xscreensaver
 =dev-lang/yasm-1.1.0-r1 nls python
 =dev-libs/atk-1.32.0-r1 introspection nls -doc
-=dev-libs/boost-1.42.0-r2 eselect python -debug -doc -icu -mpi -static-libs -test -tools
+=dev-libs/boost-1.46.1 eselect python -debug -doc -icu -mpi -static-libs -test -tools
 =dev-libs/cyrus-sasl-2.1.23-r4 berkdb crypt gdbm pam ssl -authdaemond -elibc_FreeBSD -java -kerberos -mysql -ntlm_unsupported_patch -openldap -postgres -sample -srp -urandom
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
@@ -98,6 +98,7 @@
 =dev-libs/icu-4.8 -debug -doc -examples -static-libs
 =dev-libs/klibc-1.5.20 -debug -n32
 =dev-libs/libIDL-0.8.14 -debug
+=dev-libs/libaio-0.3.109-r2 -static-libs
 =dev-libs/libassuan-2.0.1 -static-libs
 =dev-libs/libatasmart-0.17 -static-libs
 =dev-libs/libburn-1.0.0 -debug -track-src-odirect
@@ -166,7 +167,7 @@
 =dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
 =dev-tcltk/expect-5.44.1.15 X -debug -doc -threads
 =dev-util/bin_replace_string-0.2 -doc
-=dev-util/boost-build-1.42.0 python -examples
+=dev-util/boost-build-1.46.1 python -examples
 =dev-util/cmake-2.8.4-r1 ncurses -emacs -qt4 -test -vim-syntax
 =dev-util/cppunit-1.12.1 -doc -examples
 =dev-util/ctags-5.7 -ada
@@ -186,7 +187,7 @@
 =gnome-base/libgtop-2.28.3 introspection -debug -doc
 =gnome-base/librsvg-2.34.0 gtk -doc -tools
 =gnome-base/orbit-2.14.19-r1 -debug -doc -test
-=gnome-extra/nm-applet-0.8.2-r10 -bluetooth -debug
+=gnome-extra/nm-applet-0.8.4 -bluetooth
 =gnome-extra/polkit-gnome-0.101-r1 introspection -doc -examples
 =mail-client/claws-mail-3.7.9-r1 crypt dbus gnutls imap ipv6 ldap session spell ssl -bogofilter -dillo -doc -nntp -pda -smime -spamassassin -startup-notification -xface
 =mail-client/claws-mail-rssyl-0.30 nls
@@ -394,7 +395,7 @@
 =sys-apps/less-441 unicode
 =sys-apps/lm_sensors-3.2.0 -sensord
 =sys-apps/man-db-2.5.9 berkdb gdbm nls
-=sys-apps/man-pages-3.28 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
+=sys-apps/man-pages-3.32 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.16-r1 -static
@@ -430,7 +431,7 @@
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.68 -emacs
 =sys-devel/bc-1.06.95 readline -libedit -static
-=sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -test -vanilla
+=sys-devel/binutils-2.21.1 nls -multislot -multitarget -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35 nls -static
 =sys-devel/gcc-4.4.5 fortran gtk mudflap multilib nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -hardened -libffi -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
@@ -455,7 +456,7 @@
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/udisks-1.0.3-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r15 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r16 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.39.4-r1 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
