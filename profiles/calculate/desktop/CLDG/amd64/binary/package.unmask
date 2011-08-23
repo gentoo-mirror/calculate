@@ -13,7 +13,7 @@
 =app-admin/perl-cleaner-2.7
 =app-admin/pessulus-2.30.4
 =app-admin/python-updater-0.9
-=app-admin/sudo-1.7.4_p5
+=app-admin/sudo-1.8.1_p2
 =app-admin/syslog-ng-3.2.4
 =app-admin/testdisk-6.11.3
 =app-arch/arj-3.10.22-r3
@@ -176,7 +176,7 @@
 =dev-lang/vala-0.12.1
 =dev-lang/yasm-1.1.0-r1
 =dev-libs/atk-1.32.0-r1
-=dev-libs/boost-1.42.0-r2
+=dev-libs/boost-1.46.1
 =dev-libs/dbus-glib-0.92
 =dev-libs/elfutils-0.149
 =dev-libs/eventlog-0.2.12
@@ -190,7 +190,7 @@
 =dev-libs/iniparser-3.0b-r1
 =dev-libs/klibc-1.5.20
 =dev-libs/libIDL-0.8.14
-=dev-libs/libaio-0.3.107
+=dev-libs/libaio-0.3.109-r2
 =dev-libs/libassuan-2.0.1
 =dev-libs/libatasmart-0.17
 =dev-libs/libburn-1.0.0
@@ -313,7 +313,7 @@
 =dev-scheme/guile-1.8.8-r1
 =dev-tcltk/expect-5.44.1.15
 =dev-util/bin_replace_string-0.2
-=dev-util/boost-build-1.42.0
+=dev-util/boost-build-1.46.1
 =dev-util/cmake-2.8.4-r1
 =dev-util/cppunit-1.12.1
 =dev-util/ctags-5.7
@@ -370,7 +370,7 @@
 =gnome-extra/gtkhtml-3.32.2
 =gnome-extra/gucharmap-2.32.1
 =gnome-extra/hamster-applet-2.32.1
-=gnome-extra/nm-applet-0.8.2-r10
+=gnome-extra/nm-applet-0.8.4
 =gnome-extra/polkit-gnome-0.101-r1
 =gnome-extra/swfdec-gnome-2.30.1
 =gnome-extra/yelp-2.30.2-r5
@@ -670,7 +670,7 @@
 =sys-apps/less-441
 =sys-apps/lm_sensors-3.2.0
 =sys-apps/man-db-2.5.9
-=sys-apps/man-pages-3.28
+=sys-apps/man-pages-3.32
 =sys-apps/man-pages-posix-2003a
 =sys-apps/memtest86+-4.00
 =sys-apps/miscfiles-1.4.2-r1
@@ -722,7 +722,7 @@
 =sys-devel/automake-1.9.6-r3
 =sys-devel/automake-wrapper-4
 =sys-devel/bc-1.06.95
-=sys-devel/binutils-2.20.1-r1
+=sys-devel/binutils-2.21.1
 =sys-devel/binutils-config-2-r1
 =sys-devel/bison-2.4.3
 =sys-devel/flex-2.5.35
@@ -758,7 +758,7 @@
 =sys-fs/udisks-1.0.3-r1
 =sys-fs/xfsdump-3.0.1
 =sys-fs/xfsprogs-3.1.4
-=sys-kernel/calckernel-3.4.15-r15
+=sys-kernel/calckernel-3.4.15-r16
 =sys-kernel/calculate-sources-2.6.39.4-r1
 =sys-kernel/linux-firmware-20110818
 =sys-kernel/linux-headers-2.6.38
@@ -835,6 +835,7 @@
 =virtual/perl-libnet-1.220.0-r1
 =virtual/ssh-0
 =virtual/ttf-fonts-1
+=virtual/yacc-0
 =www-client/chromium-13.0.782.107-r1
 =www-plugins/adobe-flash-11.0.1.60_beta201108082
 =x11-apps/appres-1.0.3
