@@ -31,10 +31,10 @@
 =app-misc/calculate-meta-11.6-r1 cdistro_CLD -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cl-decoration-meta-11.6 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/cl-graphics-meta-11.6 cdistro_CLD -cdistro_CLDX
-=app-misc/cl-kde-meta-4.6.0-r3 -calculate_nodecoration -calculate_nographics -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork
+=app-misc/cl-kde-meta-4.6.0-r4 -calculate_nodecoration -calculate_nographics -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork
 =app-misc/cl-multimedia-meta-11.6 cdistro_CLD -cdistro_CLDG -cdistro_CLDX
-=app-misc/cl-nettools-meta-11.6-r2 cdistro_CLD cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
-=app-misc/cl-network-meta-11.6-r2 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
+=app-misc/cl-nettools-meta-11.6-r3 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
+=app-misc/cl-network-meta-11.6-r3 cdistro_CLD cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-office-meta-11.6 cdistro_CLD linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-tools-meta-11.6-r5 cdistro_CLD cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.6-r1 cdistro_desktop
@@ -89,6 +89,7 @@
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
+=dev-libs/geoip-1.4.8 ipv6 -perl-geoipupdate -static-libs
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-4.3.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
@@ -243,7 +244,6 @@
 =kde-base/kfind-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kfmclient-4.6.5 -aqua -debug -kdeenablefinal
 =kde-base/kgamma-4.6.5 handbook -aqua -debug -kdeenablefinal
-=kde-base/kget-4.6.5 bittorrent handbook semantic-desktop webkit -aqua -debug -kdeenablefinal -sqlite
 =kde-base/kglobalaccel-4.6.5 -aqua -debug -kdeenablefinal
 =kde-base/kgpg-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/khelpcenter-4.6.5 -aqua -debug -kdeenablefinal
@@ -276,6 +276,7 @@
 =kde-base/kreadconfig-4.6.5 -aqua -debug -kdeenablefinal
 =kde-base/kremotecontrol-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/krfb-4.6.5 handbook -aqua -debug -kdeenablefinal
+=kde-base/krosspython-4.6.5 -aqua -debug -kdeenablefinal
 =kde-base/kruler-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/krunner-4.6.5 opengl -aqua -debug -kdeenablefinal
 =kde-base/ksaneplugin-4.6.5 -aqua -debug -kdeenablefinal
@@ -337,7 +338,6 @@
 =kde-base/thumbnailers-4.6.5 -aqua -debug -kdeenablefinal
 =kde-misc/kcm-gtk-config-1.5 linguas_es linguas_fr linguas_it -aqua -kdeenablefinal -linguas_ca -linguas_cs -linguas_el -linguas_gl -linguas_id
 =kde-misc/knetworkmanager-4.4.0_p20110714 consolekit -aqua -debug -kdeenablefinal
-=kde-misc/kwebkitpart-0.9.6 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_fi -linguas_ga -linguas_gl -linguas_hu -linguas_km -linguas_lt -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sk -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tg -linguas_th -linguas_tr -linguas_zh_CN -linguas_zh_TW
 =kde-misc/openofficeorg-thumbnail-1.0.0 -aqua -debug -kdeenablefinal
 =kde-misc/polkit-kde-kcmodules-0.98_pre20101127 -aqua -debug -kdeenablefinal
 =mail-mta/ssmtp-2.64-r2 ipv6 mta ssl -gnutls
@@ -505,6 +505,7 @@
 =net-misc/whois-5.0.8 iconv nls -idn
 =net-nds/openldap-2.4.24 berkdb crypt gnutls ipv6 perl samba ssl tcpd -cxx -debug -experimental -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
 =net-p2p/eiskaltdcpp-2.2.1 cli dbus emoticons libnotify linguas_bg linguas_en linguas_es linguas_fr linguas_pl linguas_ru linguas_uk pcre qt4 spell -daemon -examples -gnome -gtk -javascript -linguas_be -linguas_cs -linguas_hu -linguas_sk -linguas_sr -lua -sound -sqlite -upnp
+=net-p2p/ktorrent-4.1.1 bwscheduler downloadorder handbook infowidget ipfilter kross linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk logviewer magnetgenerator mediaplayer scanfolder search shutdown stats upnp zeroconf -aqua -debug -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_lt -linguas_lv -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_se -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -plasma -rss -webinterface
 =net-print/cndrvcups-capt-2.00-r2 -gtk
 =net-print/cndrvcups-common-2.00-r2 -cngplp
 =net-print/cnijfilter-3.20-r1 ip4700 mp250 mp270 mp490 mp550 mp560 -amd64 -mp640 -nocupsdetection -servicetools
@@ -612,7 +613,7 @@
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/udisks-1.0.3-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r15 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r16 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.39.4 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python

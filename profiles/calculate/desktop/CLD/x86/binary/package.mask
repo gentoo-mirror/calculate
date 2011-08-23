@@ -171,6 +171,7 @@ dev-libs/elfutils
 dev-libs/eventlog
 dev-libs/expat
 dev-libs/fribidi
+dev-libs/geoip
 dev-libs/glib
 dev-libs/gmp
 dev-libs/gobject-introspection
@@ -355,7 +356,6 @@ kde-base/kfile
 kde-base/kfind
 kde-base/kfmclient
 kde-base/kgamma
-kde-base/kget
 kde-base/kglobalaccel
 kde-base/kgpg
 kde-base/khelpcenter
@@ -388,6 +388,7 @@ kde-base/krdc
 kde-base/kreadconfig
 kde-base/kremotecontrol
 kde-base/krfb
+kde-base/krosspython
 kde-base/kruler
 kde-base/krunner
 kde-base/ksaneplugin
@@ -449,7 +450,6 @@ kde-base/systemsettings
 kde-base/thumbnailers
 kde-misc/kcm-gtk-config
 kde-misc/knetworkmanager
-kde-misc/kwebkitpart
 kde-misc/openofficeorg-thumbnail
 kde-misc/polkit-kde-kcmodules
 mail-client/mailx
@@ -647,6 +647,7 @@ net-misc/whois
 net-nds/openldap
 net-nds/rpcbind
 net-p2p/eiskaltdcpp
+net-p2p/ktorrent
 net-print/cndrvcups-capt
 net-print/cndrvcups-common
 net-print/cnijfilter

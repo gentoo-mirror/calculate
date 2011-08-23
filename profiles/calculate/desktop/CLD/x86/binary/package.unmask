@@ -87,10 +87,10 @@
 =app-misc/cl-base-meta-11.6-r3
 =app-misc/cl-decoration-meta-11.6
 =app-misc/cl-graphics-meta-11.6
-=app-misc/cl-kde-meta-4.6.0-r3
+=app-misc/cl-kde-meta-4.6.0-r4
 =app-misc/cl-multimedia-meta-11.6
-=app-misc/cl-nettools-meta-11.6-r2
-=app-misc/cl-network-meta-11.6-r2
+=app-misc/cl-nettools-meta-11.6-r3
+=app-misc/cl-network-meta-11.6-r3
 =app-misc/cl-office-meta-11.6
 =app-misc/cl-printer-meta-11.6
 =app-misc/cl-tools-meta-11.6-r5
@@ -171,6 +171,7 @@
 =dev-libs/eventlog-0.2.12
 =dev-libs/expat-2.0.1-r3
 =dev-libs/fribidi-0.10.7
+=dev-libs/geoip-1.4.8
 =dev-libs/glib-2.28.8
 =dev-libs/gmp-4.3.2
 =dev-libs/gobject-introspection-0.10.8
@@ -355,7 +356,6 @@
 =kde-base/kfind-4.6.5
 =kde-base/kfmclient-4.6.5
 =kde-base/kgamma-4.6.5
-=kde-base/kget-4.6.5
 =kde-base/kglobalaccel-4.6.5
 =kde-base/kgpg-4.6.5
 =kde-base/khelpcenter-4.6.5
@@ -388,6 +388,7 @@
 =kde-base/kreadconfig-4.6.5
 =kde-base/kremotecontrol-4.6.5
 =kde-base/krfb-4.6.5
+=kde-base/krosspython-4.6.5
 =kde-base/kruler-4.6.5
 =kde-base/krunner-4.6.5
 =kde-base/ksaneplugin-4.6.5
@@ -449,7 +450,6 @@
 =kde-base/thumbnailers-4.6.5
 =kde-misc/kcm-gtk-config-1.5
 =kde-misc/knetworkmanager-4.4.0_p20110714
-=kde-misc/kwebkitpart-0.9.6
 =kde-misc/openofficeorg-thumbnail-1.0.0
 =kde-misc/polkit-kde-kcmodules-0.98_pre20101127
 =mail-client/mailx-8.1.2.20050715-r3
@@ -647,6 +647,7 @@
 =net-nds/openldap-2.4.24
 =net-nds/rpcbind-0.2.0
 =net-p2p/eiskaltdcpp-2.2.1
+=net-p2p/ktorrent-4.1.1
 =net-print/cndrvcups-capt-2.00-r2
 =net-print/cndrvcups-common-2.00-r2
 =net-print/cnijfilter-3.20-r1
@@ -809,7 +810,7 @@
 =sys-fs/udev-171-r1
 =sys-fs/udisks-1.0.3-r1
 =sys-fs/xfsprogs-3.1.4
-=sys-kernel/calckernel-3.4.15-r15
+=sys-kernel/calckernel-3.4.15-r16
 =sys-kernel/calculate-sources-2.6.39.4
 =sys-kernel/linux-firmware-20110818
 =sys-kernel/linux-headers-2.6.38
