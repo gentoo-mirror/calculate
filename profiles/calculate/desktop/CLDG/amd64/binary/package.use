@@ -41,8 +41,8 @@
 =app-misc/cl-gnome-meta-2.32 -calculate_nonetwork
 =app-misc/cl-graphics-meta-11.6 -cdistro_CLD -cdistro_CLDX
 =app-misc/cl-multimedia-meta-11.6 cdistro_CLDG -cdistro_CLD -cdistro_CLDX
-=app-misc/cl-nettools-meta-11.6-r2 cdistro_CLDG cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLD -cdistro_CLDX
-=app-misc/cl-network-meta-11.6-r2 cdistro_CLDG cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDX
+=app-misc/cl-nettools-meta-11.6-r3 cdistro_CLDG cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDX
+=app-misc/cl-network-meta-11.6-r3 cdistro_CLDG cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLD -cdistro_CLDX
 =app-misc/cl-office-meta-11.6 cdistro_CLDG linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLD -cdistro_CLDX
 =app-misc/cl-tools-meta-11.6-r5 cdistro_CLDG cdistro_desktop -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDX -cdistro_CLS -cdistro_CMC -ldap
 =app-misc/cl-wireless-meta-11.6-r1 cdistro_desktop
@@ -429,9 +429,9 @@
 =sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
 =sys-apps/calculate-client-2.2.21 gnome -kde -xfce
 =sys-apps/calculate-desktop-2.2.21 gnome -kde -xfce
-=sys-apps/calculate-install-2.2.21-r2 -minimal
+=sys-apps/calculate-install-2.2.21-r3 -minimal
 =sys-apps/calculate-lib-2.2.21-r1 -minimal
-=sys-apps/calculate-utilities-2.2.21-r2 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.21-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
