@@ -17,7 +17,6 @@ calculate_nographics
 calculate_nomultimedia
 calculate_nonettools
 calculate_nonetwork
-cups ffmpeg mplayer ppp scanner semantic-desktop
 "
 
 #-----------------------------------------------------------------------------
@@ -28,9 +27,7 @@ RDEPEND="${RDEPEND}
 	kde-base/kcron
 	kde-base/ksystemlog
 	kde-base/kuser
-	cups? (
-		kde-base/system-config-printer-kde
-	)
+	kde-base/system-config-printer-kde
 "
 #-----------------------------------------------------------------------------
 # kdeartwork-meta
@@ -51,17 +48,17 @@ RDEPEND="${RDEPEND}
 #-----------------------------------------------------------------------------
 # kdebase-meta
 #-----------------------------------------------------------------------------
-#kde-base/konq-plugins
+#kde-base/nsplugins
 RDEPEND="${RDEPEND}
 	!<kde-base/kdebase-wallpapers-4.6.0
 	kde-base/dolphin
 	kde-base/freespacenotifier
 	kde-base/kcheckpass
 	kde-base/kcminit
-	kde-base/kde-wallpapers
 	kde-base/kdebase-cursors
 	kde-base/kdebase-runtime-meta
 	kde-base/kdebase-startkde
+	kde-base/kdebase-wallpapers
 	kde-base/kdepasswd
 	kde-base/kdialog
 	kde-base/keditbookmarks
@@ -126,10 +123,8 @@ RDEPEND="${RDEPEND}
 		kde-base/okular
 		kde-base/svgpart
 		kde-base/thumbnailers
-		scanner? (
-			kde-base/ksaneplugin
-			kde-base/libksane
-		)
+		kde-base/ksaneplugin
+		kde-base/libksane
 	)
 "
 
@@ -145,12 +140,8 @@ RDEPEND="${RDEPEND}
 		kde-base/kscd
 		kde-base/libkcddb
 		kde-base/libkcompactdisc
-		mplayer? (
-			kde-base/mplayerthumbs
-		)
-		ffmpeg? (
-			kde-base/ffmpegthumbs
-		)
+		kde-base/mplayerthumbs
+		kde-base/ffmpegthumbs
 	)
 "
 
@@ -165,9 +156,7 @@ RDEPEND="${RDEPEND}
 		kde-base/kopete
 		kde-base/krdc
 		kde-base/krfb
-		ppp? (
-			kde-base/kppp
-		)
+		kde-base/kppp
 	)
 "
 #-----------------------------------------------------------------------------
@@ -184,6 +173,7 @@ RDEPEND="${RDEPEND}
 # kdeutils-meta
 #-----------------------------------------------------------------------------
 #kde-base/ktimer
+#kde-base/okteta
 #kde-base/superkaramba
 #kde-base/kfloppy
 RDEPEND="${RDEPEND}
@@ -196,9 +186,7 @@ RDEPEND="${RDEPEND}
 	kde-base/kremotecontrol
 	kde-base/kwallet
 	kde-base/sweeper
-	cups? (
-		kde-base/printer-applet
-	)
+	kde-base/printer-applet
 "
 
 #-----------------------------------------------------------------------------
@@ -210,24 +198,23 @@ RDEPEND="${RDEPEND}
 #kde-base/ktimetracker
 RDEPEND="${RDEPEND}
 	!calculate_nonetwork? (
-		semantic-desktop? (
-			kde-base/akonadiconsole
-			kde-base/akregator
-			kde-base/kabcclient
-			kde-base/kaddressbook
-			kde-base/kalarm
-			kde-base/kdepim-icons
-			kde-base/kdepim-kresources
-			kde-base/kdepim-runtime
-			kde-base/kdepim-strigi-analyzer
-			kde-base/kjots
-			kde-base/kleopatra
-			kde-base/kmail
-			kde-base/knotes
-			kde-base/konsolekalendar
-			kde-base/kontact
-			kde-base/korganizer
-		)
+		!kde-base/kdepim-l10n
+		kde-base/akonadiconsole
+		kde-base/akregator
+		kde-base/kabcclient
+		kde-base/kaddressbook
+		kde-base/kalarm
+		kde-base/kdepim-icons
+		kde-base/kdepim-kresources
+		kde-base/kdepim-runtime
+		kde-base/kdepim-strigi-analyzer
+		kde-base/kjots
+		kde-base/kleopatra
+		kde-base/kmail
+		kde-base/knotes
+		kde-base/konsolekalendar
+		kde-base/kontact
+		kde-base/korganizer
 	)
 "
 
@@ -236,7 +223,6 @@ RDEPEND="${RDEPEND}
 #-----------------------------------------------------------------------------
 RDEPEND="${RDEPEND}
 	kde-base/kde-l10n
-	kde-base/kdepim-l10n
 "
 
 #-----------------------------------------------------------------------------
