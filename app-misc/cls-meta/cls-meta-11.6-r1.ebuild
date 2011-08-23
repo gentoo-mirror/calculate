@@ -33,7 +33,7 @@ RDEPEND="${RDEPEND}
 
 	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
 	!calculate_nokernel? ( sys-kernel/calculate-sources )
-	!calculate_nonetwork? ( app-misc/cl-network-meta )
+	!calculate_nonetwork? ( app-misc/cl-nettools-meta )
 	!calculate_noopenbox? ( app-misc/cl-openbox-meta )
 	!calculate_noprinter? ( app-misc/cl-printer-meta )
 	!calculate_noxorg? ( app-misc/cl-xorg-meta )
