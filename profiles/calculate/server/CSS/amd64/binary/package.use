@@ -7,7 +7,7 @@
 =app-arch/xz-utils-5.0.3 nls threads -static-libs
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-editors/nano-2.2.5 ncurses nls unicode -debug -justify -minimal -slang -spell
-=app-emulation/emul-linux-x86-baselibs-20110129 -development
+=app-emulation/emul-linux-x86-baselibs-20110722 -development
 =app-misc/calculate-meta-11.6-r1 cdistro_CSS -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/css-meta-11.6 -calculate_nokernel
 =app-misc/pax-utils-0.2.2 -caps
@@ -55,10 +55,10 @@
 =sys-apps/acl-2.2.51 nls -nfs -static-libs
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
-=sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-install-2.2.21-r3 -minimal
-=sys-apps/calculate-lib-2.2.21-r1 -minimal
-=sys-apps/calculate-utilities-2.2.21-r4 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
+=sys-apps/calculate-install-2.2.21-r4 -minimal
+=sys-apps/calculate-lib-2.2.21-r2 -minimal
+=sys-apps/calculate-utilities-2.2.21-r5 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
