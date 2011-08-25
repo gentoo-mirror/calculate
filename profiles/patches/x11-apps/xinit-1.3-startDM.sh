@@ -1,4 +1,5 @@
 
+# problem detect with sys-apps/openrc-0.8.3-r1
 if [[ ${EBUILD_PHASE} == preinst ]]
 then
     # when the xinit runs by start-stop-daemon, the console is running start-stop-daemon
