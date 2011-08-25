@@ -22,7 +22,7 @@
 =app-editors/nano-2.2.5 ncurses nls unicode -debug -justify -minimal -slang -spell
 =app-editors/vim-7.3.189 acl bash-completion gpm nls perl python -X -cscope -debug -minimal -ruby -vim-pager
 =app-editors/vim-core-7.3.189 acl bash-completion nls -livecd
-=app-emulation/emul-linux-x86-baselibs-20110129 -development
+=app-emulation/emul-linux-x86-baselibs-20110722 -development
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.6-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cds-meta-11.6-r3 ldap -calculate_noapache -calculate_nobittorrent -calculate_nodecoration -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nokernel -calculate_nomail -calculate_nomysql -calculate_nonamed -calculate_nonettools -calculate_nonetwork -calculate_nopgsql -calculate_noproxy -calculate_nowireless
@@ -182,7 +182,7 @@
 =net-proxy/havp-0.90-r1 ssl -clamav
 =net-proxy/squid-3.1.8 epoll icap-client ipv6 kernel_linux ldap logrotate pam radius samba ssl -caps -ecap -elibc_uclibc -ipf-transparent -kerberos -kqueue -mysql -nis -pf-transparent -postgres -sasl -selinux -snmp -sqlite -test -tproxy -zero-penalty-hit
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
-=net-wireless/madwifi-ng-0.9.4.4136.20110203 kernel_linux -injection
+=net-wireless/madwifi-ng-0.9.4.4165.20110816 kernel_linux -injection
 =net-wireless/rtl8192se-2.6.0019.1207.2010 kernel_linux
 =net-wireless/wireless-tools-29 nls -multicall
 =net-wireless/wpa_supplicant-0.7.3-r2 kernel_linux readline ssl -dbus -debug -eap-sim -fasteap -gnutls -kernel_FreeBSD -madwifi -ps3 -qt4 -wimax -wps
@@ -190,10 +190,10 @@
 =sys-apps/acl-2.2.51 nls -nfs -static-libs
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
-=sys-apps/busybox-1.17.4 elibc_glibc ipv6 mdev pam -debug -make-symlinks -savedconfig -selinux -static
-=sys-apps/calculate-install-2.2.21-r3 -minimal
-=sys-apps/calculate-lib-2.2.21-r1 -minimal
-=sys-apps/calculate-utilities-2.2.21-r4 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
+=sys-apps/calculate-install-2.2.21-r4 -minimal
+=sys-apps/calculate-lib-2.2.21-r2 -minimal
+=sys-apps/calculate-utilities-2.2.21-r5 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -281,7 +281,7 @@
 =sys-process/lsof-4.83 -selinux -static
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 ipv6 nls -X -selinux
-=sys-process/vixie-cron-4.1-r10 pam -debug -selinux
+=sys-process/vixie-cron-4.1-r11 pam -debug -selinux
 =virtual/fortran-0 openmp
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
