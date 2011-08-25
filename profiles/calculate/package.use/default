@@ -49,3 +49,6 @@ app-text/aspell -linguas_pt
 =app-cdr/k3b-2.0.2-r1 -linguas_pt -linguas_ro
 =media-video/smplayer-0.6.9 -linguas_pt -linguas_ro
 
+# to be able to run independently of glibc
+sys-apps/busybox static
+
