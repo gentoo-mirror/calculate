@@ -1,7 +1,7 @@
 =app-admin/eselect-1.2.11 bash-completion -doc
 =app-admin/hddtemp-0.3_beta15-r3 nls
 =app-admin/logrotate-3.8.0 acl -selinux
-=app-admin/sudo-1.7.4_p5 ldap pam -offensive -selinux -skey
+=app-admin/sudo-1.8.1_p2 ldap pam -offensive -selinux -skey
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/testdisk-6.8-r1 jpeg ntfs reiserfs -static
 =app-arch/bzip2-1.0.6-r2 -static
@@ -90,6 +90,7 @@
 =dev-libs/icu-4.8 -debug -doc -examples -static-libs
 =dev-libs/klibc-1.5.20 -debug
 =dev-libs/libIDL-0.8.14 -debug
+=dev-libs/libaio-0.3.109-r2 -static-libs
 =dev-libs/libassuan-2.0.1 -static-libs
 =dev-libs/libatasmart-0.17 -static-libs
 =dev-libs/libburn-1.0.0 -debug -track-src-odirect
@@ -206,7 +207,7 @@
 =media-libs/aalib-1.4_rc5 X gpm -slang
 =media-libs/alsa-lib-1.0.23 alsa_pcm_plugins_adpcm alsa_pcm_plugins_alaw alsa_pcm_plugins_asym alsa_pcm_plugins_copy alsa_pcm_plugins_dmix alsa_pcm_plugins_dshare alsa_pcm_plugins_dsnoop alsa_pcm_plugins_empty alsa_pcm_plugins_extplug alsa_pcm_plugins_file alsa_pcm_plugins_hooks alsa_pcm_plugins_iec958 alsa_pcm_plugins_ioplug alsa_pcm_plugins_ladspa alsa_pcm_plugins_lfloat alsa_pcm_plugins_linear alsa_pcm_plugins_meter alsa_pcm_plugins_mmap_emul alsa_pcm_plugins_mulaw alsa_pcm_plugins_multi alsa_pcm_plugins_null alsa_pcm_plugins_plug alsa_pcm_plugins_rate alsa_pcm_plugins_route alsa_pcm_plugins_share alsa_pcm_plugins_shm alsa_pcm_plugins_softvol python -alisp -debug -doc
 =media-libs/audiofile-0.2.7 -static-libs
-=media-libs/babl-0.1.4 introspection mmx sse -altivec
+=media-libs/babl-0.1.4 mmx sse -altivec -introspection
 =media-libs/faac-1.28-r1 -static-libs
 =media-libs/faad2-2.7-r2 -digitalradio -static-libs
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
@@ -304,7 +305,7 @@
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.11 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
-=net-im/pidgin-2.9.0 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
+=net-im/pidgin-2.10.0 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
 =net-im/skype-2.2.0.35-r1 -qt-static
 =net-irc/xchat-2.8.8-r2 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -hires-icons -ntlm -tcl -xchatdccserver
 =net-libs/farsight2-0.0.26 python -msn -test -upnp
@@ -347,7 +348,7 @@
 =net-print/cndrvcups-capt-2.00-r2 -gtk
 =net-print/cndrvcups-common-2.00-r2 -cngplp
 =net-print/cnijfilter-3.20-r1 ip4700 mp250 mp270 mp490 mp550 mp560 -amd64 -mp640 -nocupsdetection -servicetools
-=net-print/cups-1.4.6-r21 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
+=net-print/cups-1.4.8-r21 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
 =net-print/hplip-3.11.5 acl fax hpcups hpijs libnotify policykit scanner static-ppds -X -doc -kde -minimal -parport -qt4 -snmp
@@ -355,7 +356,7 @@
 =net-wireless/blueman-1.21-r1 network nls policykit -gnome -pulseaudio
 =net-wireless/bluez-4.93 alsa consolekit cups usb -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
-=net-wireless/madwifi-ng-0.9.4.4136.20110203 kernel_linux -injection
+=net-wireless/madwifi-ng-0.9.4.4165.20110816 kernel_linux -injection
 =net-wireless/madwimax-0.1.1 -doc
 =net-wireless/rtl8192se-2.6.0019.1207.2010 kernel_linux
 =net-wireless/wireless-tools-29 nls -multicall
@@ -363,12 +364,12 @@
 =sys-apps/acl-2.2.51 nls -nfs -static-libs
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
-=sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam -debug -make-symlinks -savedconfig -selinux -static
+=sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
 =sys-apps/calculate-client-2.2.21 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.21 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.21-r3 -minimal
-=sys-apps/calculate-lib-2.2.21-r1 -minimal
-=sys-apps/calculate-utilities-2.2.21-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.21-r4 -minimal
+=sys-apps/calculate-lib-2.2.21-r2 -minimal
+=sys-apps/calculate-utilities-2.2.21-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -387,7 +388,7 @@
 =sys-apps/less-441 unicode
 =sys-apps/lm_sensors-3.2.0 -sensord
 =sys-apps/man-db-2.5.9 berkdb gdbm nls
-=sys-apps/man-pages-3.28 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
+=sys-apps/man-pages-3.32 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
 =sys-apps/memtest86+-4.00 -floppy -serial
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.16-r1 -static
@@ -481,7 +482,7 @@
 =virtual/linux-sources-2.6 -hardened
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-13.0.782.107-r1 cups gnome-keyring linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk xinerama -gnome -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -test
+=www-client/chromium-13.0.782.215 cups gnome-keyring linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk xinerama -gnome -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -test
 =www-plugins/adobe-flash-11.0.1.60_beta201108082 vdpau -32bit -64bit -bindist -kde -multilib
 =x11-apps/xauth-1.0.6 ipv6
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
