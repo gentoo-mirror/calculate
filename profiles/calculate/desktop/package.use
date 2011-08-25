@@ -26,7 +26,7 @@ media-video/ffmpeg custom-cflags threads
 virtual/ffmpeg threads
 net-libs/xulrunner custom-optimization
 net-print/cndrvcups-capt -gtk
-net-print/hplip fax -X -qt3 -qt4 gtk ppds static-ppds new-hpcups hpijs
+net-print/hplip fax -X -qt3 -qt4 gtk ppds snmp static-ppds new-hpcups hpijs
 net-wireless/wpa_supplicant -qt4
 sys-apps/pciutils -zlib
 sys-apps/hal laptop
@@ -69,3 +69,4 @@ x11-libs/qt-core private-headers
 x11-libs/qt-declarative private-headers
 x11-libs/qt-gui private-headers
 x11-libs/qt-script private-headers
+
