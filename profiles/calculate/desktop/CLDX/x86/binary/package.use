@@ -68,7 +68,7 @@
 =dev-cpp/glibmm-2.28.2 -debug -doc -examples -test
 =dev-cpp/gtkmm-2.24.0 -doc -examples -test
 =dev-cpp/pangomm-2.28.2 -doc
-=dev-db/sqlite-3.7.6.3 extensions fts3 readline secure-delete threadsafe -debug -doc -icu -soundex -tcl -test -unlock-notify
+=dev-db/sqlite-3.7.7.1 extensions fts3 readline secure-delete threadsafe -debug -doc -icu -soundex -tcl -test -unlock-notify
 =dev-lang/nasm-2.09.08 -doc
 =dev-lang/orc-0.4.11 -examples -static-libs
 =dev-lang/perl-5.12.3-r1 berkdb gdbm -build -debug -doc -ithreads
@@ -294,6 +294,7 @@
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/gnome-mplayer-1.0.3-r2 alsa dbus ipod libnotify -gnome -musicbrainz -pulseaudio
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
+=net-analyzer/net-snmp-5.4.2.1-r4 X bzip2 ipv6 kernel_linux perl python ssl tcpd zlib -diskio -doc -elf -extensible -lm_sensors -mfd-rewrites -minimal -rpm -selinux -sendmail -smux
 =net-analyzer/nmap-5.51 ssl -gtk -lua
 =net-analyzer/vnstat-1.10 gd
 =net-dialup/gnome-ppp-0.3.23-r1 -debug
@@ -351,7 +352,7 @@
 =net-print/cups-1.4.8-r21 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
-=net-print/hplip-3.11.5 acl fax hpcups hpijs libnotify policykit scanner static-ppds -X -doc -kde -minimal -parport -qt4 -snmp
+=net-print/hplip-3.11.5 acl fax hpcups hpijs libnotify policykit scanner snmp static-ppds -X -doc -kde -minimal -parport -qt4
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/blueman-1.21-r1 network nls policykit -gnome -pulseaudio
 =net-wireless/bluez-4.93 alsa consolekit cups usb -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
@@ -365,11 +366,11 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-client-2.2.21 xfce -gnome -kde
-=sys-apps/calculate-desktop-2.2.21 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.21-r4 -minimal
-=sys-apps/calculate-lib-2.2.21-r2 -minimal
-=sys-apps/calculate-utilities-2.2.21-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.22 xfce -gnome -kde
+=sys-apps/calculate-desktop-2.2.22 xfce -gnome -kde
+=sys-apps/calculate-install-2.2.22 -minimal
+=sys-apps/calculate-lib-2.2.22 -minimal
+=sys-apps/calculate-utilities-2.2.22 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
