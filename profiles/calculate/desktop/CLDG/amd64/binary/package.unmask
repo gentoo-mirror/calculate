@@ -92,7 +92,7 @@
 =app-i18n/man-pages-ru-3.27.2066.1435.20101003
 =app-laptop/radeontool-1.5-r3
 =app-misc/ca-certificates-20090709
-=app-misc/calculate-install-gui-2.2.21
+=app-misc/calculate-install-gui-2.2.22
 =app-misc/calculate-meta-11.6-r1
 =app-misc/cl-base-meta-11.6-r3
 =app-misc/cl-decoration-meta-11.6
@@ -184,7 +184,7 @@
 =dev-libs/fribidi-0.10.7
 =dev-libs/glib-2.28.8
 =dev-libs/gmime-2.4.24
-=dev-libs/gmp-4.3.2
+=dev-libs/gmp-5.0.2
 =dev-libs/gobject-introspection-0.10.8
 =dev-libs/icu-4.8
 =dev-libs/iniparser-3.0b-r1
@@ -221,7 +221,7 @@
 =dev-libs/libxml2-2.7.8-r1
 =dev-libs/libxslt-1.1.26-r1
 =dev-libs/lzo-2.04
-=dev-libs/mpfr-3.0.0_p3
+=dev-libs/mpfr-3.0.1_p4
 =dev-libs/nspr-4.8.7
 =dev-libs/nss-3.12.9-r1
 =dev-libs/openobex-1.5
@@ -250,6 +250,7 @@
 =dev-perl/Locale-gettext-1.05-r1
 =dev-perl/Net-SMTP-SSL-1.01
 =dev-perl/Net-SSLeay-1.36
+=dev-perl/TermReadKey-2.30
 =dev-perl/Text-CSV-1.210
 =dev-perl/URI-1.55
 =dev-perl/XML-LibXML-1.70
@@ -259,6 +260,7 @@
 =dev-perl/XML-Simple-2.18
 =dev-perl/YAML-Tiny-1.41
 =dev-perl/libwww-perl-5.836
+=dev-perl/perl-tk-804.029
 =dev-python/argparse-1.2.1
 =dev-python/beaker-1.5.4-r1
 =dev-python/bug-buddy-python-2.32.0
@@ -534,6 +536,7 @@
 =media-video/xanim-2.80.1-r4
 =net-analyzer/gnome-netstatus-2.28.2
 =net-analyzer/gnome-nettool-2.32.0
+=net-analyzer/net-snmp-5.4.2.1-r4
 =net-analyzer/nmap-5.51
 =net-analyzer/traceroute-2.0.15
 =net-analyzer/vnstat-1.10
@@ -639,14 +642,14 @@
 =sys-apps/attr-2.4.46
 =sys-apps/baselayout-2.0.3
 =sys-apps/busybox-1.19.0
-=sys-apps/calculate-builder-2.2.21
-=sys-apps/calculate-client-2.2.21
-=sys-apps/calculate-desktop-2.2.21
-=sys-apps/calculate-i18n-2.2.21-r1
-=sys-apps/calculate-install-2.2.21-r4
-=sys-apps/calculate-lib-2.2.21-r2
-=sys-apps/calculate-templates-2.2.21-r4
-=sys-apps/calculate-utilities-2.2.21-r5
+=sys-apps/calculate-builder-2.2.22
+=sys-apps/calculate-client-2.2.22
+=sys-apps/calculate-desktop-2.2.22
+=sys-apps/calculate-i18n-2.2.22
+=sys-apps/calculate-install-2.2.22
+=sys-apps/calculate-lib-2.2.22
+=sys-apps/calculate-templates-2.2.22-r1
+=sys-apps/calculate-utilities-2.2.22-r1
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.12
 =sys-apps/debianutils-3.4.4
@@ -722,7 +725,7 @@
 =sys-devel/automake-1.9.6-r3
 =sys-devel/automake-wrapper-4
 =sys-devel/bc-1.06.95
-=sys-devel/binutils-2.21.1
+=sys-devel/binutils-2.21.1-r1
 =sys-devel/binutils-config-2-r1
 =sys-devel/bison-2.4.3
 =sys-devel/flex-2.5.35

@@ -93,7 +93,7 @@
 =dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
-=dev-libs/gmp-4.3.2 -nocxx
+=dev-libs/gmp-5.0.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
 =dev-libs/icu-4.8 -debug -doc -examples -static-libs
 =dev-libs/klibc-1.5.20 -debug -n32
@@ -114,7 +114,7 @@
 =dev-libs/libksba-1.2.0 -static-libs
 =dev-libs/liblinebreak-2.0 -static-libs
 =dev-libs/libmcs-0.7.1-r2 -gnome
-=dev-libs/libmowgli-0.7.0 -examples
+=dev-libs/libmowgli-0.9.50 -examples
 =dev-libs/libnatspec-0.2.6 python -doc
 =dev-libs/libnl-1.1-r2 -doc
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
@@ -286,12 +286,12 @@
 =media-libs/vo-amrwbenc-0.1.0 -examples -static-libs
 =media-libs/x264-0.0.20110426 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
-=media-plugins/audacious-plugins-2.4.4-r1 aac alsa cdda ffmpeg flac ipv6 libnotify lirc mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cue -fluidsynth -gnome -jack -lame -libsamplerate -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
+=media-plugins/audacious-plugins-2.5.4 aac alsa cdda ffmpeg flac ipv6 libnotify lirc mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cue -fluidsynth -gnome -jack -lame -libsamplerate -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
 =media-plugins/gst-plugins-a52dec-0.10.17 orc
 =media-plugins/gst-plugins-ffmpeg-0.10.11-r1 orc
 =media-plugins/gst-plugins-meta-0.10-r5 X a52 aac alsa dv dvd ffmpeg flac mp3 mpeg musepack ogg theora v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib -wavpack
 =media-sound/alsa-utils-1.0.24.2-r1 nls -doc -minimal
-=media-sound/audacious-2.4.4 nls session sse2 -altivec -chardet
+=media-sound/audacious-2.5.4 nls session sse2 -altivec -chardet
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
 =media-sound/mpg123-1.13.2 alsa ipv6 nas portaudio sdl sse -3dnow -3dnowext -altivec -coreaudio -jack -mmx -oss -pulseaudio
 =media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
@@ -301,6 +301,7 @@
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/gnome-mplayer-1.0.3-r2 alsa dbus ipod libnotify -gnome -musicbrainz -pulseaudio
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vorbis x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vidix -vpx -win32codecs -zoran
+=net-analyzer/net-snmp-5.4.2.1-r4 X bzip2 ipv6 kernel_linux perl python ssl tcpd zlib -diskio -doc -elf -extensible -lm_sensors -mfd-rewrites -minimal -rpm -selinux -sendmail -smux
 =net-analyzer/nmap-5.51 ssl -gtk -lua
 =net-analyzer/vnstat-1.10 gd
 =net-dialup/gnome-ppp-0.3.23-r1 -debug
@@ -358,7 +359,7 @@
 =net-print/cups-1.4.8-r21 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
-=net-print/hplip-3.11.5 acl fax hpcups hpijs libnotify policykit scanner static-ppds -X -doc -kde -minimal -parport -qt4 -snmp
+=net-print/hplip-3.11.5 acl fax hpcups hpijs libnotify policykit scanner snmp static-ppds -X -doc -kde -minimal -parport -qt4
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/blueman-1.21-r1 network nls policykit -gnome -pulseaudio
 =net-wireless/bluez-4.93 alsa consolekit cups usb -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
@@ -372,11 +373,11 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-client-2.2.21 xfce -gnome -kde
-=sys-apps/calculate-desktop-2.2.21 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.21-r4 -minimal
-=sys-apps/calculate-lib-2.2.21-r2 -minimal
-=sys-apps/calculate-utilities-2.2.21-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.22 xfce -gnome -kde
+=sys-apps/calculate-desktop-2.2.22 xfce -gnome -kde
+=sys-apps/calculate-install-2.2.22 -minimal
+=sys-apps/calculate-lib-2.2.22 -minimal
+=sys-apps/calculate-utilities-2.2.22-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -431,7 +432,7 @@
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.68 -emacs
 =sys-devel/bc-1.06.95 readline -libedit -static
-=sys-devel/binutils-2.21.1 nls -multislot -multitarget -test -vanilla
+=sys-devel/binutils-2.21.1-r1 nls -multislot -multitarget -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35 nls -static
 =sys-devel/gcc-4.4.5 fortran gtk mudflap multilib nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -hardened -libffi -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla

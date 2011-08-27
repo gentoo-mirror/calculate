@@ -97,7 +97,7 @@
 =dev-libs/eventlog-0.2.12 -static-libs
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmime-2.4.24 -doc -mono
-=dev-libs/gmp-4.3.2 -nocxx
+=dev-libs/gmp-5.0.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
 =dev-libs/icu-4.8 -debug -doc -examples -static-libs
 =dev-libs/klibc-1.5.20 -debug -n32
@@ -352,6 +352,7 @@
 =media-video/totem-2.32.0-r2 bluetooth lirc nautilus nsplugin python youtube -debug -doc -galago -iplayer -tracker -upnp
 =net-analyzer/gnome-netstatus-2.28.2 -debug
 =net-analyzer/gnome-nettool-2.32.0 -debug
+=net-analyzer/net-snmp-5.4.2.1-r4 X bzip2 ipv6 kernel_linux perl python ssl tcpd zlib -diskio -doc -elf -extensible -lm_sensors -mfd-rewrites -minimal -rpm -selinux -sendmail -smux
 =net-analyzer/nmap-5.51 ssl -gtk -lua
 =net-analyzer/traceroute-2.0.15 -static
 =net-analyzer/vnstat-1.10 gd
@@ -412,7 +413,7 @@
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gnome-cups-manager-0.33-r2 samba
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
-=net-print/hplip-3.11.5 acl fax hpcups hpijs libnotify policykit scanner static-ppds -X -doc -kde -minimal -parport -qt4 -snmp
+=net-print/hplip-3.11.5 acl fax hpcups hpijs libnotify policykit scanner snmp static-ppds -X -doc -kde -minimal -parport -qt4
 =net-print/libgnomecups-0.2.3-r1 -debug
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/blueman-1.21-r1 gnome network nls policykit -pulseaudio
@@ -427,11 +428,11 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-client-2.2.21 gnome -kde -xfce
-=sys-apps/calculate-desktop-2.2.21 gnome -kde -xfce
-=sys-apps/calculate-install-2.2.21-r4 -minimal
-=sys-apps/calculate-lib-2.2.21-r2 -minimal
-=sys-apps/calculate-utilities-2.2.21-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.22 gnome -kde -xfce
+=sys-apps/calculate-desktop-2.2.22 gnome -kde -xfce
+=sys-apps/calculate-install-2.2.22 -minimal
+=sys-apps/calculate-lib-2.2.22 -minimal
+=sys-apps/calculate-utilities-2.2.22-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -486,7 +487,7 @@
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.68 -emacs
 =sys-devel/bc-1.06.95 readline -libedit -static
-=sys-devel/binutils-2.21.1 nls -multislot -multitarget -test -vanilla
+=sys-devel/binutils-2.21.1-r1 nls -multislot -multitarget -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35 nls -static
 =sys-devel/gcc-4.4.5 fortran gtk mudflap multilib nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -hardened -libffi -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla

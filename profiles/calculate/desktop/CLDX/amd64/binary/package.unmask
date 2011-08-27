@@ -89,7 +89,7 @@
 =app-i18n/man-pages-ru-3.27.2066.1435.20101003
 =app-laptop/radeontool-1.5-r3
 =app-misc/ca-certificates-20090709
-=app-misc/calculate-install-gui-2.2.21
+=app-misc/calculate-install-gui-2.2.22
 =app-misc/calculate-meta-11.6-r1
 =app-misc/cl-base-meta-11.6-r3
 =app-misc/cl-decoration-meta-11.6
@@ -177,7 +177,7 @@
 =dev-libs/expat-2.0.1-r3
 =dev-libs/fribidi-0.10.7
 =dev-libs/glib-2.28.8
-=dev-libs/gmp-4.3.2
+=dev-libs/gmp-5.0.2
 =dev-libs/gobject-introspection-0.10.8
 =dev-libs/icu-4.8
 =dev-libs/iniparser-3.0b-r1
@@ -199,7 +199,7 @@
 =dev-libs/libksba-1.2.0
 =dev-libs/liblinebreak-2.0
 =dev-libs/libmcs-0.7.1-r2
-=dev-libs/libmowgli-0.7.0
+=dev-libs/libmowgli-0.9.50
 =dev-libs/libnatspec-0.2.6
 =dev-libs/libnl-1.1-r2
 =dev-libs/libpcre-8.12
@@ -212,7 +212,7 @@
 =dev-libs/libxml2-2.7.8-r1
 =dev-libs/libxslt-1.1.26-r1
 =dev-libs/lzo-2.04
-=dev-libs/mpfr-3.0.0_p3
+=dev-libs/mpfr-3.0.1_p4
 =dev-libs/nspr-4.8.7
 =dev-libs/nss-3.12.9-r1
 =dev-libs/openobex-1.5
@@ -239,6 +239,7 @@
 =dev-perl/Locale-gettext-1.05-r1
 =dev-perl/Net-SMTP-SSL-1.01
 =dev-perl/Net-SSLeay-1.36
+=dev-perl/TermReadKey-2.30
 =dev-perl/URI-1.55
 =dev-perl/XML-LibXML-1.70
 =dev-perl/XML-NamespaceSupport-1.11
@@ -250,6 +251,7 @@
 =dev-perl/extutils-pkgconfig-1.07
 =dev-perl/glib-perl-1.223
 =dev-perl/libwww-perl-5.836
+=dev-perl/perl-tk-804.029
 =dev-python/argparse-1.2.1
 =dev-python/chardet-2.0.1
 =dev-python/cython-0.14.1
@@ -419,7 +421,7 @@
 =media-libs/vo-amrwbenc-0.1.0
 =media-libs/x264-0.0.20110426
 =media-libs/xvid-1.2.2-r2
-=media-plugins/audacious-plugins-2.4.4-r1
+=media-plugins/audacious-plugins-2.5.4
 =media-plugins/gst-plugins-a52dec-0.10.17
 =media-plugins/gst-plugins-alsa-0.10.32
 =media-plugins/gst-plugins-dv-0.10.28
@@ -442,7 +444,7 @@
 =media-plugins/live-2009.06.02
 =media-sound/alsa-headers-1.0.24
 =media-sound/alsa-utils-1.0.24.2-r1
-=media-sound/audacious-2.4.4
+=media-sound/audacious-2.5.4
 =media-sound/gsm-1.0.13
 =media-sound/lame-3.98.4
 =media-sound/mpg123-1.13.2
@@ -455,6 +457,7 @@
 =media-video/gnome-mplayer-1.0.3-r2
 =media-video/mplayer-1.0_rc4_p20110322-r51
 =media-video/xanim-2.80.1-r4
+=net-analyzer/net-snmp-5.4.2.1-r4
 =net-analyzer/nmap-5.51
 =net-analyzer/vnstat-1.10
 =net-dialup/gnome-ppp-0.3.23-r1
@@ -557,14 +560,14 @@
 =sys-apps/attr-2.4.46
 =sys-apps/baselayout-2.0.3
 =sys-apps/busybox-1.19.0
-=sys-apps/calculate-builder-2.2.21
-=sys-apps/calculate-client-2.2.21
-=sys-apps/calculate-desktop-2.2.21
-=sys-apps/calculate-i18n-2.2.21-r1
-=sys-apps/calculate-install-2.2.21-r4
-=sys-apps/calculate-lib-2.2.21-r2
-=sys-apps/calculate-templates-2.2.21-r4
-=sys-apps/calculate-utilities-2.2.21-r5
+=sys-apps/calculate-builder-2.2.22
+=sys-apps/calculate-client-2.2.22
+=sys-apps/calculate-desktop-2.2.22
+=sys-apps/calculate-i18n-2.2.22
+=sys-apps/calculate-install-2.2.22
+=sys-apps/calculate-lib-2.2.22
+=sys-apps/calculate-templates-2.2.22-r1
+=sys-apps/calculate-utilities-2.2.22-r1
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.12
 =sys-apps/debianutils-3.4.4
@@ -640,7 +643,7 @@
 =sys-devel/automake-1.9.6-r3
 =sys-devel/automake-wrapper-4
 =sys-devel/bc-1.06.95
-=sys-devel/binutils-2.21.1
+=sys-devel/binutils-2.21.1-r1
 =sys-devel/binutils-config-2-r1
 =sys-devel/bison-2.4.3
 =sys-devel/flex-2.5.35
