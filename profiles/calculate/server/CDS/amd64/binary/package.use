@@ -12,6 +12,7 @@
 =app-arch/gzip-1.4 nls -pic -static
 =app-arch/libarchive-2.8.4-r1 acl bzip2 kernel_linux lzma zlib -expat -static -static-libs -xattr
 =app-arch/p7zip-9.13 -doc -kde -rar -static -wxwidgets
+=app-arch/rar-4.0.1 -all_sfx -static
 =app-arch/tar-1.23-r2 nls userland_GNU -static
 =app-arch/unzip-6.0-r9 bzip2 natspec unicode
 =app-arch/xz-utils-5.0.3 nls threads -static-libs
@@ -26,7 +27,7 @@
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.6-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cds-meta-11.6-r3 ldap -calculate_noapache -calculate_nobittorrent -calculate_nodecoration -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nokernel -calculate_nomail -calculate_nomysql -calculate_nonamed -calculate_nonettools -calculate_nonetwork -calculate_nopgsql -calculate_noproxy -calculate_nowireless
-=app-misc/cl-decoration-meta-11.6 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
+=app-misc/cl-decoration-meta-11.6-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-nettools-meta-11.6-r3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-network-meta-11.6-r3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop -networkmanager
 =app-misc/cl-tools-meta-11.6-r5 cdistro_CDS ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
@@ -121,7 +122,7 @@
 =media-fonts/terminus-font-4.30 psf ru-g -X -a-like-o -bolddiag -pcf -quote -raw-font-data -ru-dv -ru-i -ru-k -width
 =media-fonts/unifont-5.1.20080914 -X
 =media-fonts/urw-fonts-2.4.9 -X
-=media-gfx/imagemagick-6.6.5.6 bzip2 corefonts cxx jpeg jpeg2k openmp perl png tiff truetype zlib -X -autotrace -djvu -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -openexr -q32 -q8 -raw -static-libs -svg -video_cards_nvidia -wmf -xml
+=media-gfx/imagemagick-6.7.1.0 bzip2 corefonts cxx jpeg jpeg2k openmp perl png tiff truetype zlib -X -autotrace -djvu -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -openexr -q32 -q64 -q8 -raw -static-libs -svg -webp -wmf -xml
 =media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
 =media-libs/fontconfig-2.8.0-r1 -doc
 =media-libs/freetype-2.4.6 bzip2 -X -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
@@ -164,7 +165,7 @@
 =net-libs/libpcap-1.1.1 ipv6 -bluetooth -libnl
 =net-libs/libtirpc-0.2.1-r1 -kerberos
 =net-mail/dovecot-2.0.13 bzip2 ipv6 ldap maildir pam ssl zlib -caps -cydir -doc -kerberos -managesieve -mbox -mdbox -mysql -postgres -sdbox -sieve -sqlite -suid -vpopmail
-=net-mail/fetchmail-6.3.20 nls ssl -hesiod -kerberos -tk
+=net-mail/fetchmail-6.3.21 nls ssl -hesiod -kerberos -socks -tk
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.21.4 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -static-libs -test -threads
 =net-misc/dhcp-3.1.3_p1 kernel_linux -doc -minimal -selinux -static
@@ -178,7 +179,7 @@
 =net-misc/wol-0.7.1 nls
 =net-nds/openldap-2.4.24 berkdb crypt ipv6 perl samba ssl tcpd -cxx -debug -experimental -gnutls -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
 =net-p2p/bittorrent-5.2.2 -gtk
-=net-print/cups-1.4.6-r2 acl jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff -X -dbus -debug -elibc_FreeBSD -gnutls -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
+=net-print/cups-1.4.8-r1 acl jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff -X -dbus -debug -elibc_FreeBSD -gnutls -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-proxy/havp-0.90-r1 ssl -clamav
 =net-proxy/squid-3.1.8 epoll icap-client ipv6 kernel_linux ldap logrotate pam radius samba ssl -caps -ecap -elibc_uclibc -ipf-transparent -kerberos -kqueue -mysql -nis -pf-transparent -postgres -sasl -selinux -snmp -sqlite -test -tproxy -zero-penalty-hit
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
@@ -191,9 +192,9 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-install-2.2.22 -minimal
-=sys-apps/calculate-lib-2.2.22 -minimal
-=sys-apps/calculate-utilities-2.2.22-r1 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-install-2.2.22-r1 -minimal
+=sys-apps/calculate-lib-2.2.22-r1 -minimal
+=sys-apps/calculate-utilities-2.2.22-r2 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -261,7 +262,7 @@
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r16 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r17 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.39.4-r1 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
