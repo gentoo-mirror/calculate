@@ -139,7 +139,6 @@
 =dev-python/cython-0.14.1 -doc -examples
 =dev-python/dbus-python-0.83.2 -doc -examples -test
 =dev-python/foolscap-0.6.1 ssl -doc
-=dev-python/gst-python-0.10.21 -examples -test
 =dev-python/imaging-1.1.7 X scanner -doc -examples -tk
 =dev-python/ipython-0.10.2 readline smp -doc -emacs -examples -gnuplot -test -wxwidgets
 =dev-python/notify-python-0.1.1-r2 -examples
@@ -217,10 +216,7 @@
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
 =media-libs/giflib-4.1.6-r2 X -rle -static-libs
-=media-libs/gst-plugins-bad-0.10.21 orc
 =media-libs/gst-plugins-base-0.10.32 nls orc -debug -introspection
-=media-libs/gst-plugins-good-0.10.28 orc -debug
-=media-libs/gst-plugins-ugly-0.10.17 -debug
 =media-libs/gstreamer-0.10.32-r1 nls -introspection -test
 =media-libs/ilmbase-1.0.2 -static-libs
 =media-libs/imlib2-1.4.4 X bzip2 gif jpeg mmx mp3 nls png tiff zlib -doc
@@ -247,7 +243,6 @@
 =media-libs/libmikmod-3.2.0_beta2-r1 oss
 =media-libs/libmng-1.0.10 -lcms
 =media-libs/libmp4v2-1.9.1 -static-libs -utils
-=media-libs/libmpeg2-0.5.1 X sdl
 =media-libs/libogg-1.2.0 -static-libs
 =media-libs/libopenraw-0.0.8 gtk -static-libs -test
 =media-libs/libpng-1.4.8 static-libs -apng
@@ -280,9 +275,6 @@
 =media-libs/x264-0.0.20110426 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/audacious-plugins-2.4.4-r1 aac alsa cdda ffmpeg flac ipv6 libnotify lirc mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cue -fluidsynth -gnome -jack -lame -libsamplerate -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
-=media-plugins/gst-plugins-a52dec-0.10.17 orc
-=media-plugins/gst-plugins-ffmpeg-0.10.11-r1 orc
-=media-plugins/gst-plugins-meta-0.10-r5 X a52 aac alsa dv dvd ffmpeg flac mp3 mpeg musepack ogg theora v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib -wavpack
 =media-sound/alsa-utils-1.0.23-r1 nls -doc -minimal
 =media-sound/audacious-2.4.4 nls session sse2 -altivec -chardet
 =media-sound/lame-3.98.4 mmx -debug -mp3rtp -sndfile -static-libs
@@ -306,14 +298,12 @@
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.11 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
-=net-im/pidgin-2.10.0 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
+=net-im/pidgin-2.10.0 dbus gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -gstreamer -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
 =net-im/skype-2.2.0.35-r1 -qt-static
 =net-irc/xchat-2.8.8-r2 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -hires-icons -ntlm -tcl -xchatdccserver
-=net-libs/farsight2-0.0.26 python -msn -test -upnp
 =net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
 =net-libs/libetpan-1.0 berkdb ipv6 ssl -debug -gnutls -liblockfile -sasl
 =net-libs/libnfsidmap-0.21-r1 ldap
-=net-libs/libnice-0.1.0 gstreamer -upnp
 =net-libs/libpcap-1.1.1 bluetooth ipv6 -libnl
 =net-libs/libproxy-0.4.6-r3 networkmanager perl python -gnome -kde -mono -test
 =net-libs/libsoup-2.32.2 ssl -debug -doc -introspection -test
@@ -321,7 +311,7 @@
 =net-libs/libtirpc-0.2.1-r1 -kerberos
 =net-libs/neon-0.29.6 linguas_de linguas_fr linguas_pl linguas_ru nls ssl zlib -doc -expat -gnutls -kerberos -libproxy -linguas_cs -linguas_ja -linguas_nn -linguas_tr -linguas_zh_CN -pkcs11 -static-libs
 =net-libs/rb_libtorrent-0.15.6 python ssl -debug -doc -examples
-=net-libs/webkit-gtk-1.2.7 gstreamer jit -aqua -coverage -debug -doc -introspection -test
+=net-libs/webkit-gtk-1.2.7 jit -aqua -coverage -debug -doc -gstreamer -introspection -test
 =net-libs/wvstreams-4.6.1-r1 dbus pam ssl -debug -doc
 =net-libs/xulrunner-1.9.2.17 alsa custom-optimization dbus ipc libnotify -custom-cflags -debug -elibc_FreeBSD -gnome -java -startup-notification -system-sqlite -wifi
 =net-mail/mailbase-1 pam
