@@ -1,0 +1,43 @@
+commit 3ca3bdbf08970e46f4f7b5996b49170a49cffc1a
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Aug 29 12:11:33 2011 +0400
+
+    Add os_clock_timezone variable for store current timezone.
+
+diff --git pym/cl_fill.py pym/cl_fill.py
+index c2300b7..31bbc61 100644
+--- pym/cl_fill.py
++++ pym/cl_fill.py
+@@ -715,3 +715,18 @@ class fillVars(varsShare):
+     def get_cl_ca_path(self):
+         """CA path"""
+         return '/var/calculate/ssl/main'
++
++    def get_os_clock_timezone(self):
++        """Current clock timezone"""
++        zoneinfodir = "/usr/share/zoneinfo/"
++        localtimefile = "/etc/localtime"
++        timezonefile = "/etc/timezone"
++        # try get timezone from kernel calculate param
++        timezone = self.getValueFromCmdLine("calculate",2)
++        if timezone and \
++            path.exists(path.join(zoneinfodir,timezone)):
++            return timezone
++        # get timezone from /etc/timezone
++        if path.exists(timezonefile):
++            return open(timezonefile,"r").read().strip()
++        return "UTC"
+diff --git pym/cl_vars.py pym/cl_vars.py
+index 3194ff8..0466cc5 100644
+--- pym/cl_vars.py
++++ pym/cl_vars.py
+@@ -103,6 +103,9 @@ class Data:
+     # system (desktop or server)
+     os_linux_system = {'hide':True}
+ 
++    # current timezone
++    os_clock_timezone = {'hide':True}
++
+     # motherboard model
+     hr_board_model = {'hide':True}
+ 
