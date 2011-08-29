@@ -17,10 +17,6 @@ RDEPEND="
 	!x11-themes/xfce4-icon-theme
 	media-gfx/splashutils
 
-	cdistro_desktop? (
-		app-vim/colorschemes
-		app-vim/vimcommander
-	)
 	cdistro_CLD? (
 		!x11-themes/gtk-engines-qtcurve
 		media-gfx/cld-themes
@@ -42,8 +38,6 @@ RDEPEND="
 		media-gfx/cmc-themes
 	)
 	cdistro_CDS? (
-		app-vim/colorschemes
-		app-vim/vimcommander
 		media-gfx/cds-themes
 	)
 "
