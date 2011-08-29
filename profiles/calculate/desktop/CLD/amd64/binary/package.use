@@ -12,6 +12,7 @@
 =app-arch/gzip-1.4 nls -pic -static
 =app-arch/libarchive-2.8.4-r1 acl bzip2 kernel_linux lzma zlib -expat -static -static-libs -xattr
 =app-arch/p7zip-9.13-r3 pch -doc -kde -rar -static -wxwidgets
+=app-arch/rar-4.0.1 -all_sfx -static
 =app-arch/tar-1.23-r2 nls userland_GNU -static
 =app-arch/unzip-6.0-r9 bzip2 natspec unicode
 =app-arch/xz-utils-5.0.3 nls threads -static-libs
@@ -37,9 +38,9 @@
 =app-emulation/emul-linux-x86-xlibs-20110722 opengl -development
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.6-r1 cdistro_CLD -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
-=app-misc/cl-decoration-meta-11.6 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
+=app-misc/cl-decoration-meta-11.6-r1 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/cl-graphics-meta-11.6 cdistro_CLD -cdistro_CLDX
-=app-misc/cl-kde-meta-4.6.0-r4 -calculate_nodecoration -calculate_nographics -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork
+=app-misc/cl-kde-meta-4.6.0-r5 -calculate_nodecoration -calculate_nographics -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork
 =app-misc/cl-multimedia-meta-11.6 cdistro_CLD -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-nettools-meta-11.6-r3 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-network-meta-11.6-r3 cdistro_CLD cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
@@ -78,7 +79,7 @@
 =dev-cpp/eigen-2.0.13 -debug -doc -examples
 =dev-db/libiodbc-3.52.7 gtk
 =dev-db/mysql-5.1.56 community embedded perl ssl -big-tables -cluster -debug -extraengine -latin1 -max-idx-128 -minimal -pbxt -profiling -selinux -static -test -xtradb
-=dev-db/sqlite-3.7.6.3 extensions fts3 readline secure-delete threadsafe -debug -doc -icu -soundex -tcl -test -unlock-notify
+=dev-db/sqlite-3.7.7.1 extensions fts3 readline secure-delete threadsafe -debug -doc -icu -soundex -tcl -test -unlock-notify
 =dev-db/virtuoso-odbc-6.1.2 -static-libs
 =dev-db/virtuoso-server-6.1.2 ldap readline -kerberos
 =dev-lang/nasm-2.09.08 -doc
@@ -91,7 +92,7 @@
 =dev-lang/tk-8.5.9-r1 truetype -aqua -debug -threads -xscreensaver
 =dev-lang/yasm-1.1.0-r1 nls python
 =dev-libs/atk-1.32.0-r1 introspection nls -doc
-=dev-libs/boost-1.46.1 eselect python -debug -doc -icu -mpi -static-libs -test -tools
+=dev-libs/boost-1.46.1-r1 eselect python -debug -doc -icu -mpi -static-libs -test -tools
 =dev-libs/chmlib-0.40-r1 -examples -static-libs
 =dev-libs/cyrus-sasl-2.1.23-r4 berkdb crypt gdbm mysql pam ssl -authdaemond -elibc_FreeBSD -java -kerberos -ntlm_unsupported_patch -openldap -postgres -sample -srp -urandom
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
@@ -131,8 +132,8 @@
 =dev-libs/libxslt-1.1.26-r1 crypt python -debug
 =dev-libs/libzip-0.10 -static-libs
 =dev-libs/lzo-2.04 -examples -static-libs
-=dev-libs/nspr-4.8.7 -debug
-=dev-libs/nss-3.12.9-r1 -utils
+=dev-libs/nspr-4.8.8 -debug
+=dev-libs/nss-3.12.10 -utils
 =dev-libs/openobex-1.5 bluetooth usb -debug -irda -syslog
 =dev-libs/openssl-1.0.0d sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
@@ -283,7 +284,6 @@
 =kde-base/krdc-4.6.5 handbook jpeg rdesktop vnc -aqua -debug -kdeenablefinal -zeroconf
 =kde-base/kreadconfig-4.6.5 -aqua -debug -kdeenablefinal
 =kde-base/kremotecontrol-4.6.5 handbook -aqua -debug -kdeenablefinal
-=kde-base/krfb-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/krosspython-4.6.5 -aqua -debug -kdeenablefinal
 =kde-base/kruler-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/krunner-4.6.5 opengl -aqua -debug -kdeenablefinal
@@ -361,7 +361,7 @@
 =media-gfx/exiv2-0.21.1-r1 linguas_de linguas_es linguas_fr linguas_pl linguas_ru nls zlib -contrib -doc -examples -linguas_fi -linguas_sk -xmp
 =media-gfx/gimp-2.6.11-r1 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff webkit wmf -altivec -curl -debug -doc -gnome -lcms
 =media-gfx/gtkimageview-1.6.4 -debug -doc -examples -test
-=media-gfx/imagemagick-6.6.5.6 X bzip2 corefonts cxx djvu jpeg jpeg2k openexr openmp perl png raw svg tiff truetype wmf zlib -autotrace -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -q32 -q8 -static-libs -video_cards_nvidia -xml
+=media-gfx/imagemagick-6.7.1.0 X bzip2 corefonts cxx djvu jpeg jpeg2k openexr openmp perl png raw svg tiff truetype wmf zlib -autotrace -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -q32 -q64 -q8 -static-libs -webp -xml
 =media-gfx/sane-backends-1.0.22-r1 gphoto2 ipv6 sane_backends_abaton sane_backends_agfafocus sane_backends_apple sane_backends_artec sane_backends_artec_eplus48u sane_backends_as6e sane_backends_avision sane_backends_bh sane_backends_canon sane_backends_canon630u sane_backends_canon_dr sane_backends_canon_pp sane_backends_cardscan sane_backends_coolscan sane_backends_coolscan2 sane_backends_coolscan3 sane_backends_dc210 sane_backends_dc240 sane_backends_dc25 sane_backends_dell1600n_net sane_backends_dmc sane_backends_epjitsu sane_backends_epson sane_backends_epson2 sane_backends_fujitsu sane_backends_genesys sane_backends_gt68xx sane_backends_hp sane_backends_hp3500 sane_backends_hp3900 sane_backends_hp4200 sane_backends_hp5400 sane_backends_hp5590 sane_backends_hpljm1005 sane_backends_hpsj5s sane_backends_hs2p sane_backends_ibm sane_backends_kodak sane_backends_kvs1025 sane_backends_kvs20xx sane_backends_leo sane_backends_lexmark sane_backends_ma1509 sane_backends_magicolor sane_backends_matsushita sane_backends_microtek sane_backends_microtek2 sane_backends_mustek sane_backends_mustek_pp sane_backends_mustek_usb sane_backends_nec sane_backends_net sane_backends_niash sane_backends_p5 sane_backends_pie sane_backends_pixma sane_backends_plustek sane_backends_plustek_pp sane_backends_qcam sane_backends_ricoh sane_backends_rts8891 sane_backends_s9036 sane_backends_sceptre sane_backends_sharp sane_backends_sm3600 sane_backends_sm3840 sane_backends_snapscan sane_backends_sp15c sane_backends_st400 sane_backends_stv680 sane_backends_tamarack sane_backends_teco1 sane_backends_teco2 sane_backends_teco3 sane_backends_test sane_backends_u12 sane_backends_umax sane_backends_umax1220u sane_backends_umax_pp sane_backends_xerox_mfp usb -avahi -doc -v4l
 =media-gfx/scrot-0.8 bash-completion
 =media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
@@ -517,7 +517,7 @@
 =net-print/cndrvcups-capt-2.00-r2 -gtk
 =net-print/cndrvcups-common-2.00-r2 -cngplp
 =net-print/cnijfilter-3.20-r1 amd64 ip4700 mp250 mp270 mp490 mp550 mp560 -mp640 -nocupsdetection -servicetools
-=net-print/cups-1.4.8-r21 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
+=net-print/cups-1.4.8-r22 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
 =net-print/hplip-3.11.5 acl fax hpcups hpijs kde libnotify policykit scanner snmp static-ppds -X -doc -minimal -parport -qt4
@@ -538,9 +538,9 @@
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
 =sys-apps/calculate-client-2.2.22 kde -gnome -xfce
 =sys-apps/calculate-desktop-2.2.22 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.22 -minimal
-=sys-apps/calculate-lib-2.2.22 -minimal
-=sys-apps/calculate-utilities-2.2.22-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.22-r1 -minimal
+=sys-apps/calculate-lib-2.2.22-r1 -minimal
+=sys-apps/calculate-utilities-2.2.22-r2 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -621,7 +621,7 @@
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/udisks-1.0.3-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.15-r16 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calckernel-3.4.15-r17 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-2.6.39.4-r1 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
