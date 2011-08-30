@@ -1,0 +1,25 @@
+commit f7c6a747a1a2a54b34725ce5bb1c577b24a365ef
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Aug 30 09:34:54 2011 +0400
+
+    Add support 3.0 kernel compiling.
+
+diff --git pym/cl_fill_builder.py pym/cl_fill_builder.py
+index 2b4d512..5835c08 100644
+--- pym/cl_fill_builder.py
++++ pym/cl_fill_builder.py
+@@ -110,7 +110,13 @@ class fillVars(object, varsShare):
+         kernelDirs = self.Get('cl_kernel_config_path')
+         if not access(kernelDirs,R_OK):
+             return ""
+-        shortVerSearch = re.search("^\d+\.\d+.\d+",self.Get('cl_kernel_ver'),re.I)
++        # check first number (3 or other kernel)
++        tupleKernelVer = self.Get('cl_kernel_ver').split('.')
++        if tupleKernelVer and tupleKernelVer[0] == '3':
++            shortVerSearch = re.search("^\d+\.\d+",
++                self.Get('cl_kernel_ver'),re.I)
++        else:
++            shortVerSearch = re.search("^\d+\.\d+.\d+",self.Get('cl_kernel_ver'),re.I)
+         if shortVerSearch:
+             shortVer = shortVerSearch.group()
+         else:
