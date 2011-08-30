@@ -15,7 +15,13 @@ IUSE="vmlinuz"
 detect_version
 detect_arch
 
-CKV=$(get_version_component_range 1-3)
+
+if [[ "$(get_version_component_range 1)" == "3" ]]
+then
+	CKV=$(get_version_component_range 1-2)
+else
+	CKV=$(get_version_component_range 1-3)
+fi
 SLOT=$(get_version_component_range 1-4)
 KV_FULL="${PV}-calculate"
 S="${WORKDIR}/linux-${KV_FULL}"
