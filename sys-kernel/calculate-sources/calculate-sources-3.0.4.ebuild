@@ -17,7 +17,9 @@ UNIPATCH_LIST="${DISTDIR}/${PN}-${CL_PATCH}.tar.bz2"
 DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.18
 	>=sys-apps/calculate-builder-2.2.22-r2
 	|| ( app-arch/xz-utils app-arch/lzma-utils )
-	sys-apps/v86d )"
+	sys-apps/v86d
+	!<net-wireless/rtl8192se-3.0
+	)"
 
 IUSE=""
 CL_KERNEL_OPTS="--lvm --mdadm --dmraid"
