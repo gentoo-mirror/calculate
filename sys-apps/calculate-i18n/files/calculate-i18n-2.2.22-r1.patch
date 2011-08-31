@@ -1,0 +1,75 @@
+diff --git ru/cl_assemble_ru.po ru/cl_assemble_ru.po
+index a2bb9e5..a2b6e0c 100644
+--- ru/cl_assemble_ru.po
++++ ru/cl_assemble_ru.po
+@@ -519,3 +519,6 @@ msgstr "настроить шаблонами %s"
+ 
+ msgid "For installation '%s' will be installed follow packages"
+ msgstr "При установке '%s' будут устанавливаться следующие пакеты"
++
++msgid "Directory for assembling: %s"
++msgstr "Директория для сборки: %s"
+diff --git ru/cl_builder_ru.po ru/cl_builder_ru.po
+index 1d6e66a..aec0ca7 100644
+--- ru/cl_builder_ru.po
++++ ru/cl_builder_ru.po
+@@ -435,3 +435,6 @@ msgid ""
+ msgstr ""
+ "Если вы хотите вручную устанавливать пакеты в собираемой системе, пожалуйста "
+ "выполните:"
++
++msgid "Execute '%s'"
++msgstr "Выполнение '%s'"
+diff --git ru/cl_install_ru.po ru/cl_install_ru.po
+index cc1688b..8a02369 100644
+--- ru/cl_install_ru.po
++++ ru/cl_install_ru.po
+@@ -966,3 +966,48 @@ msgstr ""
+ 
+ msgid "option is depricated, use '--startup' option"
+ msgstr "параметр устарел, используйте параметр '--startup'"
++
++msgid "set video driver"
++msgstr "установить видео драйвер"
++
++msgid "set Xorg resolution"
++msgstr "установить Xorg разрешение"
++
++msgid "set frame buffer resolution"
++msgstr "установить разрешение для фрейм буффера"
++
++msgid "set timezone"
++msgstr "установить часовой пояс"
++
++msgid "option {optname}: {errormess}: '{value}' (example: '{example}')"
++msgstr "опция {optname}: {errormess}: '{value}' (пример: '{example}')"
++
++msgid "%s specifing error"
++msgstr "ошибка указания %s"
++
++msgid "X resolution"
++msgstr "Xorg разрешения"
++
++msgid "route"
++msgstr "маршрута"
++
++msgid "disk"
++msgstr "диска"
++
++msgid "frame buffer resolution"
++msgstr "разрешения фрейм буффера"
++
++msgid "%s videodriver is unavailable"
++msgstr "%s видеодрайвер недоступен"
++
++msgid "Install %s driver by command:"
++msgstr "Установите %s драйвер командой:"
++
++msgid "To apply changes you must reboot the system"
++msgstr "Для применения изменений необходимо перезагрузить систему"
++
++msgid "To apply changes you must restart the X server"
++msgstr "Для применения изменений необходимо перезагрузить X сервер"
++
++msgid "%s timezone is wrong"
++msgstr "Неправильный часовой пояс %s"
