@@ -56,9 +56,9 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-install-2.2.22-r1 -minimal
-=sys-apps/calculate-lib-2.2.22-r1 -minimal
-=sys-apps/calculate-utilities-2.2.22-r3 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-install-2.2.22-r2 -minimal
+=sys-apps/calculate-lib-2.2.22-r2 -minimal
+=sys-apps/calculate-utilities-2.2.22-r4 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -102,7 +102,7 @@
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
 =sys-devel/libtool-2.4-r1 -vanilla
 =sys-devel/m4-1.4.15 -examples
-=sys-devel/make-3.82 nls -static
+=sys-devel/make-3.82-r1 nls -static
 =sys-devel/patch-2.5.9 -static
 =sys-fs/btrfs-progs-0.19-r3 acl -debug-utils
 =sys-fs/e2fsprogs-1.41.14 nls -elibc_FreeBSD
@@ -113,7 +113,7 @@
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-kernel/calckernel-3.4.18 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-2.6.39.4-r1 symlink vmlinuz -build
+=sys-kernel/calculate-sources-3.0.4 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
