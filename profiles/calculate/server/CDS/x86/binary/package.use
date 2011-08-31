@@ -29,7 +29,7 @@
 =app-misc/cl-nettools-meta-11.6-r3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-network-meta-11.6-r3 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop -networkmanager
 =app-misc/cl-tools-meta-11.6-r5 cdistro_CDS ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
-=app-misc/cl-wireless-meta-11.6-r1 -cdistro_desktop
+=app-misc/cl-wireless-meta-11.6-r2 -cdistro_desktop
 =app-misc/mc-4.7.5.2 edit gpm ncurses nls samba -X -slang
 =app-misc/pax-utils-0.2.2 -caps
 =app-misc/realpath-1.15-r1 nls
@@ -175,14 +175,13 @@
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
 =net-misc/whois-5.0.8 iconv nls -idn
 =net-misc/wol-0.7.1 nls
-=net-nds/openldap-2.4.24 berkdb crypt ipv6 perl samba ssl tcpd -cxx -debug -experimental -gnutls -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
+=net-nds/openldap-2.4.24 berkdb crypt ipv6 perl samba ssl syslog tcpd -cxx -debug -experimental -gnutls -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd
 =net-p2p/bittorrent-5.2.2 -gtk
 =net-print/cups-1.4.8-r1 acl jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff -X -dbus -debug -elibc_FreeBSD -gnutls -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-proxy/havp-0.90-r1 ssl -clamav
 =net-proxy/squid-3.1.8 epoll icap-client ipv6 kernel_linux ldap logrotate pam radius samba ssl -caps -ecap -elibc_uclibc -ipf-transparent -kerberos -kqueue -mysql -nis -pf-transparent -postgres -sasl -selinux -snmp -sqlite -test -tproxy -zero-penalty-hit
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
 =net-wireless/madwifi-ng-0.9.4.4165.20110816 kernel_linux -injection
-=net-wireless/rtl8192se-2.6.0019.1207.2010 kernel_linux
 =net-wireless/wireless-tools-29 nls -multicall
 =net-wireless/wpa_supplicant-0.7.3-r2 kernel_linux readline ssl -dbus -debug -eap-sim -fasteap -gnutls -kernel_FreeBSD -madwifi -ps3 -qt4 -wimax -wps
 =sci-libs/fftw-3.2.2 fortran openmp -altivec -doc -sse -sse2 -threads
@@ -190,9 +189,9 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-install-2.2.22-r1 -minimal
-=sys-apps/calculate-lib-2.2.22-r1 -minimal
-=sys-apps/calculate-utilities-2.2.22-r3 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-install-2.2.22-r2 -minimal
+=sys-apps/calculate-lib-2.2.22-r2 -minimal
+=sys-apps/calculate-utilities-2.2.22-r4 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -261,7 +260,7 @@
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.18 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-2.6.39.4 symlink vmlinuz -build
+=sys-kernel/calculate-sources-3.0.4 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
@@ -285,7 +284,7 @@
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
-=virtual/linux-sources-2.6 -hardened
+=virtual/linux-sources-0 -hardened
 =virtual/mysql-5.1 -embedded -minimal -static
 =virtual/ssh-0 -minimal
 =www-client/links-2.3_pre1-r1 bzip2 gpm jpeg ssl tiff unicode zlib -X -directfb -fbcon -livecd -svga
