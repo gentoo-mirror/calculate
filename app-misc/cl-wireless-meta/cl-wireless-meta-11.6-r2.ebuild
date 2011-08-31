@@ -15,24 +15,31 @@ IUSE="cdistro_desktop"
 
 # wi-fi
 RDEPEND="${RDEPEND}
+	!net-wireless/iwl1000-ucode
+	!net-wireless/iwl3945-ucode
+	!net-wireless/iwl4965-ucode
+	!net-wireless/iwl5000-ucode
+	!net-wireless/iwl5150-ucode
+	!net-wireless/iwl6000-ucode
+	!net-wireless/iwl6050-ucode
+	!net-wireless/rt73-firmware
+	sys-kernel/linux-firmware
+
 	net-wireless/b43-firmware
+	net-wireless/bluez-firmware
 	net-wireless/broadcom-sta
 	net-wireless/ipw2100-firmware
 	net-wireless/ipw2200-firmware
-	net-wireless/iwl1000-ucode
-	net-wireless/iwl3945-ucode
-	net-wireless/iwl4965-ucode
-	net-wireless/iwl5000-ucode
-	net-wireless/iwl5150-ucode
-	net-wireless/iwl6000-ucode
-	net-wireless/iwl6050-ucode
+	net-wireless/linux-wlan-ng-firmware
 	net-wireless/madwifi-ng
 	net-wireless/madwifi-ng-tools
-	net-wireless/rt73-firmware
-	net-wireless/rtl8192se
+	net-wireless/prism54-firmware
 	net-wireless/rtl8192se-firmware
+	net-wireless/rtl8192su-firmware
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
+	net-wireless/zd1201-firmware
+	net-wireless/zd1211-firmware
 "
 # wi-max
 RDEPEND="${RDEPEND}
