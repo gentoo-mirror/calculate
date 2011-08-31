@@ -1,0 +1,362 @@
+diff --git man/cl-install.1 man/cl-install.1
+index a843c0b..d8ab5c0 100644
+--- man/cl-install.1
++++ man/cl-install.1
+@@ -115,6 +115,26 @@ Network address of NTP timeserver.
+ Don't use UUID device names. If specified, usual device names (/dev/sda1, etc.) will be used. Use if you sure in what you do.
+ .RE
+ .PP
++\fB\-\-video\fR \fIVIDEODRV\fR
++.RS 4
++Change Xorg video driver.
++.RE
++.PP
++\fB\-X\fR \fI<width>x<height>\fR
++.RS 4
++Change Xorg server resolution.
++.RE
++.PP
++\fB\-\-fb\fR \fI<widht>x<height>\fR
++.RS 4
++Change frame buffer resolution.
++.RE
++.PP
++\fB\-\-timezone\fR \fITIMEZONE\fR
++.RS 4
++Changes timezone.
++.RE
++.PP
+ \fB\-\-set\fR \fIVAR=VALUE\fR
+ .RS 4
+ Changes internal variable value of Calculate utilities. For multiple values changing use the option required number of times.
+diff --git man/ru/cl-install.1 man/ru/cl-install.1
+index 57993a7..f0b90b3 100644
+--- man/ru/cl-install.1
++++ man/ru/cl-install.1
+@@ -110,6 +110,26 @@ IPv4 адрес сети с указанием CIDR. IFACE может обозн
+ Сетевой адрес сервера времени NTP.
+ .RE
+ .PP
++\fB\-\-video\fR \fIVIDEODRV\fR
++.RS 4
++Изменить видео драйвер для Xorg сервера.
++.RE
++.PP
++\fB\-X\fR \fI<ширина>x<высота>\fR
++.RS 4
++Изменить разрешение для Xorg сервера.
++.RE
++.PP
++\fB\-\-fb\fR \fI<ширина>x<высота>\fR
++.RS 4
++Изменить разрешение для frame buffer.
++.RE
++.PP
++\fB\-\-timezone\fR \fITIMEZONE\fR
++.RS 4
++Изменить часовой пояс.
++.RE
++.PP
+ \fB\-\-nouuid\fR
+ .RS 4
+ Не использовать UUID имена устройств. При установке параметра будут использоваться привычные имена устройств (/dev/sda1 и т.п.). Используйте данный параметр если уверены.
+@@ -201,7 +221,7 @@ cl-install -d /dev/sda2
+ .PP
+ Смена видеодрайвера на 'fglrx'. Перед выполнением убедитесь, что у вас установлен пакет 'x11-drivers/ati-drivers'.
+ .nf
+-cl-install --startup --set os_install_x11_video_drv=fglrx
++cl-install --startup --video fglrx
+ .fi
+ .PP
+ Установка системы на несколько разделов. В примере система будет установлена на раздел sda2, все настройки, в том числе данные пользователя будут вынесены в раздел sda5. Раздел sda1 будет использован в качестве 'swap'.
+diff --git pym/cl_distr.py pym/cl_distr.py
+index b8775ad..eebfac1 100644
+--- pym/cl_distr.py
++++ pym/cl_distr.py
+@@ -644,6 +644,17 @@ class DirectoryDistributive(Distributive):
+         else:
+             return self
+ 
++    def performFormat(self):
++        """Format for directory - removing all files"""
++        execStr = '/bin/rm -rf --one-file-system %s'%self.directory
++        res,errmes = self.runOsCommand(execStr)
++        if res == 0:
++            return True
++        else:
++            raise DistributiveError(_("Cann't format partition") + " %s:\n%s"%
++                                    (dev,errmes))
++        self._makeDirectory(self.directory)
++
+     def installFrom(self, source):
+         """Install distributive to directory from source distributive"""
+         if isinstance(source,ArchiveDistributive):
+diff --git pym/cl_fill_install.py pym/cl_fill_install.py
+index 6756b70..c92d3d4 100644
+--- pym/cl_fill_install.py
++++ pym/cl_fill_install.py
+@@ -911,18 +911,7 @@ class fillVars(object, glob_attr):
+ 
+     def get_os_install_clock_timezone(self):
+         """timezone for clock"""
+-        zoneinfodir = "/usr/share/zoneinfo/"
+-        localtimefile = "/etc/localtime"
+-        timezonefile = "/etc/timezone"
+-        # try get timezone from kernel calculate param
+-        timezone = self.getValueFromCmdLine("calculate",2)
+-        if timezone and \
+-            path.exists(path.join(zoneinfodir,timezone)):
+-            return timezone
+-        # get timezone from /etc/timezone
+-        if path.exists(timezonefile):
+-            return open(timezonefile,"r").read().strip()
+-        return "UTC"
++        return self.Get('os_clock_timezone')
+ 
+     def get_os_install_clock_type(self):
+         """type of clock (UTC or local)"""
+diff --git pym/cl_install.py pym/cl_install.py
+index 9b07add..43752b9 100644
+--- pym/cl_install.py
++++ pym/cl_install.py
+@@ -27,7 +27,7 @@ from cl_utils import runOsCommand,appendProgramToEnvFile, \
+                         scanDirectory,process,getTupleVersion, \
+                         detectDeviceForPartition,listDirectory, \
+                         cmpVersion,STDOUT,getUdevDeviceInfo, \
+-                        getLvmPartitions
++                        getLvmPartitions,getInstalledVideo
+ from cl_vars_share import varsShare
+ 
+ from cl_kernel_utils import KernelConfig,InitRamFs
+@@ -2291,6 +2291,19 @@ class cl_install(color_print, SignalInterrupt):
+                         self.printMessageForTest(_("Restore initramfs"))
+                         self.printByResult(InitRamFs(initrdInstallPath)\
+                                 .cleanInitRamFs(initrdPath))
++                oldXdrv = self.clVars.Get('os_x11_video_drv')
++                newXdrv = self.clVars.Get('os_install_x11_video_drv')
++                if oldXdrv != newXdrv:
++                    kmsDrv = ("radeon","i915","intel","nouveau","ati")
++                    self.defaultPrint("\n")
++                    if oldXdrv in kmsDrv or newXdrv in kmsDrv:
++                        self.defaultPrint(
++                            _("To apply changes you must reboot the system")
++                            +".\n")
++                    else:
++                        self.defaultPrint(
++                            _("To apply changes you must restart the X server")
++                            +".\n")
+             except (InstallError,DistributiveError),e:
+                 error = e
+             except Exception,e:
+@@ -2640,3 +2653,29 @@ the system") + " (yes/no)"
+         else:
+             self.printERROR(_("Wrong image file"))
+             return False
++
++    def setVideo(self,video,startup=False):
++        """Set video driver"""
++        if startup:
++            if not video in getInstalledVideo(prefix="/") and \
++                not video in ("auto","other"):
++                self.printERROR(_("%s videodriver is unavailable")%video)
++                if video == "nvidia":
++                    self.printERROR(_("Install %s driver by command:")%"NVidia")
++                    self.printERROR("  emerge x11-drivers/nvidia-drivers")
++                if video == "fglrx":
++                    self.printERROR(_("Install %s driver by command:")%"ATI")
++                    self.printERROR("  emerge x11-drivers/ati-drivers")
++                return False
++        self.clVars.Set('os_install_x11_video_drv',video,force=True)
++        return True
++
++    def setTimezone(self,timezone):
++        """Set timezone"""
++        if not path.exists(path.join("/usr/share/zoneinfo",timezone)) or \
++            timezone.startswith('/usr/share/zoneinfo'):
++            self.printERROR(_("%s timezone is wrong")%timezone)
++            return False
++        else:
++            self.clVars.Set('os_install_clock_timezone',timezone,force=True)
++            return True
+diff --git pym/cl_install_cmd.py pym/cl_install_cmd.py
+index 8ef2078..91e8bae 100644
+--- pym/cl_install_cmd.py
++++ pym/cl_install_cmd.py
+@@ -124,6 +124,22 @@ CMD_OPTIONS = [{'shortOption':"d",
+                 'optVal':"NTP",
+                 'help':_("set ntp server for system")
+                },
++               {'longOption':"video",
++                'optVal':"VIDEODRV",
++                'help':_("set video driver")
++               },
++               {'shortOption':"X",
++                'optVal':"<width>x<height>",
++                'help':_("set Xorg resolution")
++               },
++               {'longOption':"fb",
++                'optVal':"<width>x<height>",
++                'help':_("set frame buffer resolution")
++               },
++               {'longOption':"timezone",
++                'optVal':"TIMEZONE",
++                'help':_("set timezone")
++               },
+                {'longOption':"nouuid",
+                 'help':_("do not use UUID")
+                },
+@@ -177,6 +193,9 @@ class install_cmd(share_cmd):
+         self.optionsStartupIncompatible = ["type","d", "b", "mbr",
+             "w", "f","U", "s","install","uninstall","build","u"]
+         self.optionsDhcpIncompatible = ["ip","gateway","dns"]
++        self.errorWithExample = \
++                _("option {optname}: {errormess}:"
++                  " '{value}' (example: '{example}')")
+ 
+     def _getNamesAllSetOptions(self):
+         """Get list set options"""
+@@ -214,6 +233,17 @@ class install_cmd(share_cmd):
+             self.optobj.error(_("incompatible options")+":"+" %s"\
+                     %self.getStringIncompatibleOptions(opts))
+ 
++    def __checkByReg(self,reg="",value="",valueopt="",valuename="",example=""):
++        """Check option specifed by value"""
++        if value:
++            if not re.match(reg,value):
++                self.optobj.error(self.errorWithExample.format(
++                      optname=valueopt,
++                      errormess=_("%s specifing error")%valuename,
++                      value=value,
++                      example=example))
++
++
+     def checkOpts(self, values, args):
+         """Check values all specified options."""
+         if len(args) > 0:
+@@ -233,28 +263,36 @@ class install_cmd(share_cmd):
+                 errMsg = _("incorrect option") + ":" + " %s" %"--xml" +\
+                 ": " + _("use with option '-v'")
+                 self.optobj.error(errMsg)
++        self.__checkByReg(reg="^\d+x\d+$",value=values.X,valueopt="-X",
++                        valuename=_("X resolution"),example="1024x768")
++        self.__checkByReg(reg="^\d+x\d+$",value=values.fb,valueopt="--fb",
++                        valuename=_("frame buffer resolution"),
++                        example="1024x768")
+         if values.ip:
+             for ipaddr in values.ip:
+                 if not re.match("^(\w+:)?%s$"%iputils.IP_ADDR_NET,ipaddr):
+-                    self.optobj.error(_("option %s:") %"--ip" +\
+-                       " " + _("ip specifing error: '{ip}' "
+-                               "(example: '{example}')").format(\
+-                               ip=ipaddr,example="eth0:192.168.0.21/16"))
++                    self.optobj.error(self.errorWithExample.format(
++                        optname="--ip",
++                        errormess=_("%s specifing error")%"ip",
++                        value=ipaddr,
++                        example="eth0:192.168.0.21/16"))
+         if not values.dns is None:
+             if not re.match("(^{0}(,{0})*|)$".format(iputils.IP_ADDR),values.dns):
+-                self.optobj.error(_("option %s:") %"--dns" +\
+-                           " " + _("dns specifing error: '%s'") %\
+-                           values.dns)
++                self.optobj.error(self.errorWithExample.format(
++                    optname="--dns",
++                    errormess=_("%s specifing error")%"dns",
++                    value=values.dns,
++                    example="8.8.8.8"))
+         if values.route:
+             for route in values.route:
+                 if not re.match("^({net}|default):(({ipaddr})?"
+                                 "(:\w+(:{ipaddr})?)?)?$".format(
+                         net=iputils.IP_ADDR_NET,ipaddr=iputils.IP_ADDR),route):
+-                    self.optobj.error(_("option %s:") %"--route" +\
+-                               " " + _("route specifing error: '{route}'"
+-                                       "(example: '{example}'").format(
+-                                       route=route,
+-                                       example="default:192.168.1.1"))
++                    self.optobj.error(self.errorWithExample.format(
++                        optname="--route",
++                        errormess=_("%s specifing error")%_("route"),
++                        value=route,
++                        example="default:192.168.1.1"))
+         if not (values.install or values.uninstall or values.startup):
+             if values.v is False and \
+                not values.p and \
+@@ -266,17 +304,21 @@ class install_cmd(share_cmd):
+                 reTrueDisk = re.compile("^[^:]+(:[^:]*){0,3}$")
+                 wrongValue = filter(lambda x: not reTrueDisk.match(x),values.d)
+                 if wrongValue:
+-                    self.optobj.error(_("option %s:") %"d" +\
+-                               " " + _("disk specifing error: '%s'")\
+-                               %", ".join(wrongValue))
++                    self.optobj.error(self.errorWithExample.format(
++                        optname="-d",
++                        errormess=_("%s specifing error")%_("disk"),
++                        value=", ".join(wrongValue),
++                        example="/dev/sda2:/:ext4"))
+             # check syntax SWAP_DISK
+             if values.w:
+                 reTrueBind = re.compile("^[^:]+$")
+                 wrongValue = filter(lambda x: not reTrueBind.match(x),values.w)
+                 if wrongValue:
+-                    self.optobj.error(_("option %s:") %"w" +\
+-                               " " + _("mount bind specifing error: '%s'")\
+-                               %", ".join(wrongValue))
++                    self.optobj.error(self.errorWithExample.format(
++                        optname="-w",
++                        errormess=_("%s specifing error")%_("disk"),
++                        value=", ".join(wrongValue),
++                        example="/dev/sda1"))
+             #check boot device
+             if values.mbr:
+                 bootDisk = values.mbr
+@@ -324,7 +366,8 @@ class install_cmd(share_cmd):
+     def setNetworkParams(self,ipaddrs,routes,dns,setup,dhcps):
+         """Set nework params"""
+         if not dns is None:
+-            self.logicObj.clVars.Set("os_install_net_dns",dns,True)
++            self.logicObj.clVars.Set("os_install_net_dns",
++                dns.replace(',',' '), True)
+         ipaddrs = map(lambda x:x.split(":"),ipaddrs or [])
+         routes = map(lambda x:x+[""]*(4-len(x)),
+                  map(lambda x:x.split(":"),routes or []))
+@@ -340,6 +383,23 @@ class install_cmd(share_cmd):
+ 
+     def setVars(self,options):
+         """Process setting values for variables"""
++        values = self.optobj.values
++        if values.video:
++            if not self.logicObj.setVideo(values.video,
++                    startup=values.startup):
++                return False
++        if values.X:
++            if not self.clVars.Set('os_install_x11_resolution', values.X,
++                                   force=True):
++                return False
++        if values.fb:
++            if not self.clVars.Set('os_install_fb_resolution', 
++                                   "%s-32"%values.fb,
++                                   force=True):
++                return False
++        if values.timezone:
++            if not self.logicObj.setTimezone(values.timezone):
++                return False
+         if options.set:
+             for vals in options.set:
+                 for val in vals.split(','):
+diff --git setup.py setup.py
+index fb3670a..748151f 100755
+--- setup.py
++++ setup.py
+@@ -111,9 +111,10 @@ class install_man( install_data ) :
+ 
+     def finalize_options(self):
+         install_data.finalize_options(self)
++        self.data_files = []
+         for root,dirs,files in os.walk(BUILD_MAN_PATH):
+             for filename in files:
+-                self.data_files = [(path.join(self.install_dir,root[6:]),
++                self.data_files += [(path.join(self.install_dir,root[6:]),
+                                     [path.join(root,filename)])]
+ 
+ class cl_install_data(install_data):

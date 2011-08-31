@@ -1,0 +1,47 @@
+diff --git pym/cl_assemble.py pym/cl_assemble.py
+index 98daa34..f1e77f1 100644
+--- pym/cl_assemble.py
++++ pym/cl_assemble.py
+@@ -320,9 +320,13 @@ class cl_assemble(color_print):
+                     self.clVars.Get('os_assemble_linux_ver'))
+         self.printSUCCESS(_("Machine hardware name")+": %s"%
+                 self.clVars.Get('os_assemble_arch_machine'))
+-        self.printSUCCESS(_("Partition for assembling: %s")%
++        if path.isdir(self.clVars.Get('os_assemble_root_dev')):
++            self.printSUCCESS(_("Directory for assembling: %s")%
++                    self.clVars.Get('os_assemble_root_dev'))
++        else:
++            self.printSUCCESS(_("Partition for assembling: %s")%
+                     self.clVars.Get('os_assemble_root_dev'))
+-        self.printSUCCESS(_("File system: %s")%
++            self.printSUCCESS(_("File system: %s")%
+                     self.clVars.Get('os_assemble_root_format'))
+         if self.clVars.Get('cl_assemble_sync'):
+             self.printSUCCESS(_("Portage rsync mirror: %s")%
+@@ -466,14 +470,18 @@ class cl_assemble(color_print):
+         rootPartdev = self.clVars.Get('os_assemble_root_dev')
+         formatId = PartitionDistributive.formatId
+         fileSystem = self.clVars.Get('os_assemble_root_format')
+-        return PartitionDistributive(rootPartdev,
+-                        mdirectory=self.clVars.Get('cl_assemble_path'),
+-                        check=True, fileSystem=fileSystem, isFormat=True,
+-                        systemId=formatId.get(fileSystem,"83"),
+-                        flagRemoveDir=False,
+-                        rootLabel="%s-%s"%
+-                            (self.clVars.Get('os_assemble_linux_shortname'),
+-                            self.clVars.Get('os_assemble_linux_ver')))
++        if rootPartdev.startswith('/dev'):
++            return PartitionDistributive(rootPartdev,
++                            mdirectory=self.clVars.Get('cl_assemble_path'),
++                            check=True, fileSystem=fileSystem, isFormat=True,
++                            systemId=formatId.get(fileSystem,"83"),
++                            flagRemoveDir=False,
++                            rootLabel="%s-%s"%
++                                (self.clVars.Get('os_assemble_linux_shortname'),
++                                self.clVars.Get('os_assemble_linux_ver')))
++        else:
++            return DirectoryDistributive(rootPartdev,
++                            mdirectory=self.clVars.Get('cl_assemble_path'))
+ 
+     def _prepareMount(self):
+         """Mount /proc,/sys, remote, /dev to chroot"""
