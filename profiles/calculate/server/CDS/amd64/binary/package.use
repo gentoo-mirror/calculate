@@ -261,8 +261,8 @@
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
 =sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
-=sys-kernel/calckernel-3.4.18 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-3.0.4 symlink vmlinuz -build
+=sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
+=sys-kernel/calculate-sources-3.0.4-r1 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
