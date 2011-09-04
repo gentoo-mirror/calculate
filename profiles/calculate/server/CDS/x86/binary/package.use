@@ -1,4 +1,4 @@
-=app-admin/apache-tools-2.2.17 ssl
+=app-admin/apache-tools-2.2.20 ssl
 =app-admin/eselect-1.2.11 bash-completion -doc
 =app-admin/hddtemp-0.3_beta15-r3 nls
 =app-admin/logrotate-3.8.0 acl -selinux
@@ -84,15 +84,15 @@
 =dev-libs/openssl-1.0.0d zlib -bindist -gmp -kerberos -rfc3779 -sse2 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
 =dev-libs/pth-2.0.7-r3 -debug
-=dev-perl/Authen-SASL-2.15 -kerberos
-=dev-perl/BerkeleyDB-0.43 -test
+=dev-perl/Authen-SASL-2.150.0 -kerberos
+=dev-perl/BerkeleyDB-0.430.0 -test
 =dev-perl/DBI-1.615 -test
 =dev-perl/DateManip-5.56 -test
 =dev-perl/Error-0.170.160 -test
-=dev-perl/HTML-Parser-3.67 -test
+=dev-perl/HTML-Parser-3.670.0 -test
 =dev-perl/IO-Socket-SSL-1.35 -idn
 =dev-perl/MailTools-2.06 -test
-=dev-perl/Net-DNS-0.66-r1 ipv6 -test
+=dev-perl/Net-DNS-0.660.0 ipv6 -test
 =dev-perl/libwww-perl-5.836 ssl
 =dev-perl/perl-ldap-0.400.100 ssl -sasl -xml
 =dev-python/dnspython-1.9.4 -examples
@@ -215,7 +215,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha52 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha53 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
@@ -288,4 +288,4 @@
 =virtual/mysql-5.1 -embedded -minimal -static
 =virtual/ssh-0 -minimal
 =www-client/links-2.3_pre1-r1 bzip2 gpm jpeg ssl tiff unicode zlib -X -directfb -fbcon -livecd -svga
-=www-servers/apache-2.2.17 apache2_modules_actions apache2_modules_alias apache2_modules_auth_basic apache2_modules_authn_alias apache2_modules_authn_anon apache2_modules_authn_dbm apache2_modules_authn_default apache2_modules_authn_file apache2_modules_authz_dbm apache2_modules_authz_default apache2_modules_authz_groupfile apache2_modules_authz_host apache2_modules_authz_owner apache2_modules_authz_user apache2_modules_autoindex apache2_modules_cache apache2_modules_cgi apache2_modules_cgid apache2_modules_dav apache2_modules_dav_fs apache2_modules_dav_lock apache2_modules_deflate apache2_modules_dir apache2_modules_disk_cache apache2_modules_env apache2_modules_expires apache2_modules_ext_filter apache2_modules_file_cache apache2_modules_filter apache2_modules_headers apache2_modules_include apache2_modules_info apache2_modules_log_config apache2_modules_logio apache2_modules_mem_cache apache2_modules_mime apache2_modules_mime_magic apache2_modules_negotiation apache2_modules_rewrite apache2_modules_setenvif apache2_modules_speling apache2_modules_status apache2_modules_unique_id apache2_modules_userdir apache2_modules_usertrack apache2_modules_vhost_alias ldap ssl -apache2_modules_asis -apache2_modules_auth_digest -apache2_modules_authn_dbd -apache2_modules_cern_meta -apache2_modules_charset_lite -apache2_modules_dbd -apache2_modules_dumpio -apache2_modules_ident -apache2_modules_imagemap -apache2_modules_log_forensic -apache2_modules_proxy -apache2_modules_proxy_ajp -apache2_modules_proxy_balancer -apache2_modules_proxy_connect -apache2_modules_proxy_ftp -apache2_modules_proxy_http -apache2_modules_proxy_scgi -apache2_modules_reqtimeout -apache2_modules_substitute -apache2_modules_version -apache2_mpms_event -apache2_mpms_itk -apache2_mpms_peruser -apache2_mpms_prefork -apache2_mpms_worker -debug -doc -selinux -static -suexec -threads
+=www-servers/apache-2.2.20 apache2_modules_actions apache2_modules_alias apache2_modules_auth_basic apache2_modules_authn_alias apache2_modules_authn_anon apache2_modules_authn_dbm apache2_modules_authn_default apache2_modules_authn_file apache2_modules_authz_dbm apache2_modules_authz_default apache2_modules_authz_groupfile apache2_modules_authz_host apache2_modules_authz_owner apache2_modules_authz_user apache2_modules_autoindex apache2_modules_cache apache2_modules_cgi apache2_modules_cgid apache2_modules_dav apache2_modules_dav_fs apache2_modules_dav_lock apache2_modules_deflate apache2_modules_dir apache2_modules_disk_cache apache2_modules_env apache2_modules_expires apache2_modules_ext_filter apache2_modules_file_cache apache2_modules_filter apache2_modules_headers apache2_modules_include apache2_modules_info apache2_modules_log_config apache2_modules_logio apache2_modules_mem_cache apache2_modules_mime apache2_modules_mime_magic apache2_modules_negotiation apache2_modules_rewrite apache2_modules_setenvif apache2_modules_speling apache2_modules_status apache2_modules_unique_id apache2_modules_userdir apache2_modules_usertrack apache2_modules_vhost_alias ldap ssl -apache2_modules_asis -apache2_modules_auth_digest -apache2_modules_authn_dbd -apache2_modules_cern_meta -apache2_modules_charset_lite -apache2_modules_dbd -apache2_modules_dumpio -apache2_modules_ident -apache2_modules_imagemap -apache2_modules_log_forensic -apache2_modules_proxy -apache2_modules_proxy_ajp -apache2_modules_proxy_balancer -apache2_modules_proxy_connect -apache2_modules_proxy_ftp -apache2_modules_proxy_http -apache2_modules_proxy_scgi -apache2_modules_reqtimeout -apache2_modules_substitute -apache2_modules_version -apache2_mpms_event -apache2_mpms_itk -apache2_mpms_peruser -apache2_mpms_prefork -apache2_mpms_worker -debug -doc -selinux -static -suexec -threads
