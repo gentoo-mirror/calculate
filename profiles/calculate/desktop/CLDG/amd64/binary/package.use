@@ -143,13 +143,13 @@
 =dev-libs/rasqal-0.9.19 pcre -gmp -test -xml
 =dev-libs/redland-1.0.10-r2 berkdb ssl -iodbc -mysql -odbc -postgres -sqlite -static-libs -xml
 =dev-libs/totem-pl-parser-2.32.5 quvi -archive -doc -introspection
-=dev-perl/Authen-SASL-2.15 -kerberos
+=dev-perl/Authen-SASL-2.150.0 -kerberos
 =dev-perl/DateManip-5.56 -test
 =dev-perl/Error-0.170.160 -test
-=dev-perl/File-BaseDir-0.03 -test
-=dev-perl/File-DesktopEntry-0.04 -test
-=dev-perl/File-MimeInfo-0.15-r1 -test
-=dev-perl/HTML-Parser-3.67 -test
+=dev-perl/File-BaseDir-0.30.0 -test
+=dev-perl/File-DesktopEntry-0.40.0 -test
+=dev-perl/File-MimeInfo-0.150.0 -test
+=dev-perl/HTML-Parser-3.670.0 -test
 =dev-perl/IO-Socket-SSL-1.35 -idn
 =dev-perl/Text-CSV-1.210 -test
 =dev-perl/libwww-perl-5.836 ssl
@@ -459,7 +459,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha52 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha53 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
