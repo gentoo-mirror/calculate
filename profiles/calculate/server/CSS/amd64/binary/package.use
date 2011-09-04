@@ -33,7 +33,7 @@
 =dev-libs/lzo-2.04 -examples -static-libs
 =dev-libs/openssl-1.0.0d sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
-=dev-perl/Authen-SASL-2.15 -kerberos
+=dev-perl/Authen-SASL-2.150.0 -kerberos
 =dev-perl/Error-0.170.160 -test
 =dev-perl/IO-Socket-SSL-1.35 -idn
 =dev-python/pyxml-0.8.4-r2 -doc -examples
@@ -79,7 +79,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha52 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha53 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/sandbox-2.4 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
 =sys-apps/shadow-4.1.4.3 cracklib nls pam -audit -selinux -skey
