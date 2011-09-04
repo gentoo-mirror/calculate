@@ -179,7 +179,7 @@
 =net-p2p/bittorrent-5.2.2 -gtk
 =net-print/cups-1.4.8-r1 acl jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff -X -dbus -debug -elibc_FreeBSD -gnutls -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-proxy/havp-0.90-r1 ssl -clamav
-=net-proxy/squid-3.1.8 epoll icap-client ipv6 kernel_linux ldap logrotate pam radius samba ssl -caps -ecap -elibc_uclibc -ipf-transparent -kerberos -kqueue -mysql -nis -pf-transparent -postgres -sasl -selinux -snmp -sqlite -test -tproxy -zero-penalty-hit
+=net-proxy/squid-3.1.15 epoll icap-client ipv6 kernel_linux ldap logrotate pam radius samba ssl -caps -ecap -elibc_uclibc -ipf-transparent -kerberos -kqueue -mysql -nis -pf-transparent -postgres -sasl -selinux -snmp -sqlite -test -tproxy -zero-penalty-hit
 =net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
 =net-wireless/madwifi-ng-0.9.4.4165.20110816 kernel_linux -injection
 =net-wireless/wireless-tools-29 nls -multicall
@@ -215,7 +215,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha51 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha52 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
