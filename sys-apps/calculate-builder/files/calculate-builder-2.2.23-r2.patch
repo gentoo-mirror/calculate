@@ -1,0 +1,53 @@
+diff --git pym/cl_builder.py pym/cl_builder.py
+index 0fc4d6e..ad792c3 100644
+--- pym/cl_builder.py
++++ pym/cl_builder.py
+@@ -786,3 +786,12 @@ class cl_builder(color_print):
+         self.printERROR(_("'{0}' is not supported by {1}")\
+                    .format(compress,"squashfs"))
+         return False
++
++    def setLive(self,live):
++        """Set variable for activate patch init.d/calculate:
++        
++        discard --live from cl-install --startup"""
++        if live:
++            self.clVars.Set('cl_builder_live_set',"on",True)
++        else:
++            self.clVars.Set('cl_builder_live_set',"off",True)
+diff --git pym/cl_image_cmd.py pym/cl_image_cmd.py
+index c7d7332..8a35528 100644
+--- pym/cl_image_cmd.py
++++ pym/cl_image_cmd.py
+@@ -58,6 +58,9 @@ CMD_OPTIONS = [{'shortOption':"p",
+                {'longOption':'notree',
+                 'help':_("exclude portage tree from image")
+                },
++               {'longOption':'live',
++                'help':_("use only live templates on startup")
++               },
+                {'longOption':'noisohybrid',
+                 'help':_("create iso image without isohybrid")
+                },
+@@ -146,6 +149,9 @@ class image_cmd(share_cmd):
+             if not self.logicObj.setCompression(values.compress):
+                 sys.exit(1)
+ 
++        if values.live:
++            self.logicObj.setLive(values.live)
++
+         if not self.isScratch(False) \
+             and self.logicObj.clVars.Get('cl_builder_distro'):
+             if not self.logicObj.setAssembleData(values.p,values.v):
+diff --git pym/cl_vars_builder.py pym/cl_vars_builder.py
+index d4e621c..bd5595e 100644
+--- pym/cl_vars_builder.py
++++ pym/cl_vars_builder.py
+@@ -153,6 +153,7 @@ class Data:
+     # path which contains images
+     cl_builder_image_path = {}
+ 
++    cl_builder_live_set = {'value':'off'}
+     # lib vars
+     cl_chroot_path = {}
+     cl_env_path = {}
