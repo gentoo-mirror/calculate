@@ -45,7 +45,7 @@
 =media-fonts/terminus-font-4.30 psf ru-g -X -a-like-o -bolddiag -pcf -quote -raw-font-data -ru-dv -ru-i -ru-k -width
 =media-fonts/unifont-5.1.20080914 -X
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freetype-2.4.6 bzip2 -X -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
+=media-libs/freetype-2.4.6 bzip2 static-libs -X -auto-hinter -bindist -debug -doc -fontforge -utils
 =net-misc/curl-7.21.4 ipv6 ssl -ares -gnutls -idn -kerberos -ldap -libssh2 -nss -static-libs -test -threads
 =net-misc/dhcp-3.1.3_p1 kernel_linux -doc -minimal -selinux -static
 =net-misc/iputils-20100418-r1 ipv6 ssl -SECURITY_HAZARD -doc -idn -static
@@ -56,9 +56,9 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-install-2.2.22-r2 -minimal
-=sys-apps/calculate-lib-2.2.22-r2 -minimal
-=sys-apps/calculate-utilities-2.2.22-r4 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-install-2.2.23 -minimal
+=sys-apps/calculate-lib-2.2.23 -minimal
+=sys-apps/calculate-utilities-2.2.23-r2 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
