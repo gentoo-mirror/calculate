@@ -1,0 +1,9 @@
+diff --git builder/squash/etc/init.d/calculate builder/squash/etc/init.d/calculate
+new file mode 100644
+index 0000000..35c0c98
+--- /dev/null
++++ builder/squash/etc/init.d/calculate
+@@ -0,0 +1,3 @@
++# Calculate format=patch cl_builder_live_set==off
++<reg>LANG=C /usr/bin/cl-install --startup --live</reg>
++<text>LANG=C /usr/bin/cl-install --startup</text>
