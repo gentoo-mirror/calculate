@@ -12,6 +12,7 @@
 =app-arch/gzip-1.4 nls -pic -static
 =app-arch/libarchive-2.8.4-r1 acl bzip2 kernel_linux lzma zlib -expat -static -static-libs -xattr
 =app-arch/p7zip-9.13 -doc -kde -rar -static -wxwidgets
+=app-arch/rar-4.0.1 -all_sfx -static
 =app-arch/tar-1.23-r2 nls userland_GNU -static
 =app-arch/unzip-6.0-r9 bzip2 natspec unicode
 =app-arch/xz-utils-5.0.3 nls threads -static-libs
@@ -60,7 +61,7 @@
 =dev-libs/apr-util-1.3.11 berkdb gdbm ldap -doc -freetds -mysql -odbc -postgres -sqlite -sqlite3
 =dev-libs/eventlog-0.2.12 -static-libs
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
-=dev-libs/gmp-4.3.2 -nocxx
+=dev-libs/gmp-5.0.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
 =dev-libs/klibc-1.5.20 -debug -n32
 =dev-libs/libassuan-2.0.1 -static-libs
@@ -123,7 +124,7 @@
 =media-gfx/imagemagick-6.7.1.0 bzip2 corefonts cxx jpeg jpeg2k openmp perl png tiff truetype zlib -X -autotrace -djvu -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -openexr -q32 -q64 -q8 -raw -static-libs -svg -webp -wmf -xml
 =media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freetype-2.4.6 bzip2 -X -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
+=media-libs/freetype-2.4.6 bzip2 static-libs -X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype -fontconfig -xpm
 =media-libs/jasper-1.900.1-r3 jpeg -opengl -static-libs
 =media-libs/jpeg-8b static-libs
@@ -189,9 +190,9 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-install-2.2.22-r2 -minimal
-=sys-apps/calculate-lib-2.2.22-r2 -minimal
-=sys-apps/calculate-utilities-2.2.22-r4 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-install-2.2.23 -minimal
+=sys-apps/calculate-lib-2.2.23 -minimal
+=sys-apps/calculate-utilities-2.2.23-r2 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -221,7 +222,7 @@
 =sys-apps/sed-4.2.1 acl nls -selinux -static
 =sys-apps/shadow-4.1.4.3 cracklib nls pam -audit -selinux -skey
 =sys-apps/smartmontools-5.40 -caps -minimal -static
-=sys-apps/sysvinit-2.88-r1 -ibm -kernel_FreeBSD -selinux -static
+=sys-apps/sysvinit-2.88-r2 -ibm -kernel_FreeBSD -selinux -static
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
 =sys-apps/usbutils-001 zlib -network-cron
@@ -242,7 +243,7 @@
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
 =sys-devel/libtool-2.4-r1 -vanilla
 =sys-devel/m4-1.4.15 -examples
-=sys-devel/make-3.82 nls -static
+=sys-devel/make-3.82-r1 nls -static
 =sys-devel/patch-2.5.9 -static
 =sys-fs/btrfs-progs-0.19-r3 acl -debug-utils
 =sys-fs/dmraid-1.0.0_rc14 -selinux -static
@@ -279,7 +280,7 @@
 =sys-process/lsof-4.83 -selinux -static
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 ipv6 nls -X -selinux
-=sys-process/vixie-cron-4.1-r10 pam -debug -selinux
+=sys-process/vixie-cron-4.1-r11 pam -debug -selinux
 =virtual/fortran-0 openmp
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc

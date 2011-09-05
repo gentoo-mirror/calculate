@@ -21,7 +21,7 @@
 =app-arch/gzip-1.4
 =app-arch/libarchive-2.8.4-r1
 =app-arch/p7zip-9.13
-=app-arch/rar-3.9.3
+=app-arch/rar-4.0.1
 =app-arch/rpm2targz-9.0.0.4g
 =app-arch/tar-1.23-r2
 =app-arch/unace-1.2b-r1
@@ -105,7 +105,7 @@
 =dev-libs/eventlog-0.2.12
 =dev-libs/expat-2.0.1-r3
 =dev-libs/glib-2.28.8
-=dev-libs/gmp-4.3.2
+=dev-libs/gmp-5.0.2
 =dev-libs/gobject-introspection-0.10.8
 =dev-libs/iniparser-3.0b-r1
 =dev-libs/klibc-1.5.20
@@ -127,7 +127,7 @@
 =dev-libs/libxml2-2.7.8-r1
 =dev-libs/libxslt-1.1.26-r1
 =dev-libs/lzo-2.04
-=dev-libs/mpfr-3.0.0_p3
+=dev-libs/mpfr-3.0.1_p4
 =dev-libs/openssl-1.0.0d
 =dev-libs/popt-1.16-r1
 =dev-libs/pth-2.0.7-r3
@@ -314,14 +314,14 @@
 =sys-apps/attr-2.4.46
 =sys-apps/baselayout-2.0.3
 =sys-apps/busybox-1.19.0
-=sys-apps/calculate-builder-2.2.22-r3
-=sys-apps/calculate-i18n-2.2.22-r1
-=sys-apps/calculate-install-2.2.22-r2
+=sys-apps/calculate-builder-2.2.23-r2
+=sys-apps/calculate-i18n-2.2.23-r1
+=sys-apps/calculate-install-2.2.23
 =sys-apps/calculate-lib-2.1.11
-=sys-apps/calculate-lib-2.2.22-r2
+=sys-apps/calculate-lib-2.2.23
 =sys-apps/calculate-server-2.1.14-r6
-=sys-apps/calculate-templates-2.2.22-r2
-=sys-apps/calculate-utilities-2.2.22-r4
+=sys-apps/calculate-templates-2.2.23-r1
+=sys-apps/calculate-utilities-2.2.23-r2
 =sys-apps/coreutils-8.7
 =sys-apps/debianutils-3.4.4
 =sys-apps/diffutils-3.0
@@ -357,7 +357,7 @@
 =sys-apps/sed-4.2.1
 =sys-apps/shadow-4.1.4.3
 =sys-apps/smartmontools-5.40
-=sys-apps/sysvinit-2.88-r1
+=sys-apps/sysvinit-2.88-r2
 =sys-apps/tcp-wrappers-7.6-r8
 =sys-apps/texinfo-4.13
 =sys-apps/usbutils-001
@@ -392,7 +392,7 @@
 =sys-devel/libperl-5.10.1
 =sys-devel/libtool-2.4-r1
 =sys-devel/m4-1.4.15
-=sys-devel/make-3.82
+=sys-devel/make-3.82-r1
 =sys-devel/patch-2.5.9
 =sys-fs/btrfs-progs-0.19-r3
 =sys-fs/dmraid-1.0.0_rc14
@@ -439,9 +439,10 @@
 =sys-process/lsof-4.83
 =sys-process/procps-3.2.8-r2
 =sys-process/psmisc-22.12
-=sys-process/vixie-cron-4.1-r10
+=sys-process/vixie-cron-4.1-r11
 =virtual/acl-0
 =virtual/cdrtools-0
+=virtual/cron-0
 =virtual/dev-manager-0
 =virtual/editor-0
 =virtual/fortran-0
