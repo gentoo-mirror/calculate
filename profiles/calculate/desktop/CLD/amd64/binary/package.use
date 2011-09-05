@@ -56,7 +56,7 @@
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
 =app-mobilephone/obexd-0.42 usb -debug -eds -nokia -server
 =app-office/akonadi-server-1.5.2 mysql sqlite -postgres -test
-=app-office/libreoffice-3.3.3 bash-completion cups dbus gtk kde ldap linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gnome -gstreamer -java -kdeenablefinal -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_ro -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
+=app-office/libreoffice-3.3.4 bash-completion cups dbus gtk kde ldap linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gnome -gstreamer -java -kdeenablefinal -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
 =app-pda/libplist-1.4 python
 =app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
 =app-portage/genlop-0.30.8-r2 bash-completion
@@ -359,7 +359,7 @@
 =media-fonts/urw-fonts-2.4.9 X
 =media-gfx/digikam-1.9.0-r1 gphoto2 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ru linguas_uk mysql semantic-desktop thumbnails -addressbook -aqua -debug -doc -geolocation -kdeenablefinal -linguas_ar -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ko -linguas_lt -linguas_lv -linguas_ms -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_pa -linguas_pt -linguas_ro -linguas_se -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -themedesigner -video
 =media-gfx/exiv2-0.21.1-r1 linguas_de linguas_es linguas_fr linguas_pl linguas_ru nls zlib -contrib -doc -examples -linguas_fi -linguas_sk -xmp
-=media-gfx/gimp-2.6.11-r1 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff webkit wmf -altivec -curl -debug -doc -gnome -lcms
+=media-gfx/gimp-2.6.11-r5 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff webkit wmf -altivec -curl -debug -doc -gnome -lcms
 =media-gfx/gtkimageview-1.6.4 -debug -doc -examples -test
 =media-gfx/imagemagick-6.7.1.0 X bzip2 corefonts cxx djvu jpeg jpeg2k openexr openmp perl png raw svg tiff truetype wmf zlib -autotrace -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -q32 -q64 -q8 -static-libs -webp -xml
 =media-gfx/sane-backends-1.0.22-r1 gphoto2 ipv6 sane_backends_abaton sane_backends_agfafocus sane_backends_apple sane_backends_artec sane_backends_artec_eplus48u sane_backends_as6e sane_backends_avision sane_backends_bh sane_backends_canon sane_backends_canon630u sane_backends_canon_dr sane_backends_canon_pp sane_backends_cardscan sane_backends_coolscan sane_backends_coolscan2 sane_backends_coolscan3 sane_backends_dc210 sane_backends_dc240 sane_backends_dc25 sane_backends_dell1600n_net sane_backends_dmc sane_backends_epjitsu sane_backends_epson sane_backends_epson2 sane_backends_fujitsu sane_backends_genesys sane_backends_gt68xx sane_backends_hp sane_backends_hp3500 sane_backends_hp3900 sane_backends_hp4200 sane_backends_hp5400 sane_backends_hp5590 sane_backends_hpljm1005 sane_backends_hpsj5s sane_backends_hs2p sane_backends_ibm sane_backends_kodak sane_backends_kvs1025 sane_backends_kvs20xx sane_backends_leo sane_backends_lexmark sane_backends_ma1509 sane_backends_magicolor sane_backends_matsushita sane_backends_microtek sane_backends_microtek2 sane_backends_mustek sane_backends_mustek_pp sane_backends_mustek_usb sane_backends_nec sane_backends_net sane_backends_niash sane_backends_p5 sane_backends_pie sane_backends_pixma sane_backends_plustek sane_backends_plustek_pp sane_backends_qcam sane_backends_ricoh sane_backends_rts8891 sane_backends_s9036 sane_backends_sceptre sane_backends_sharp sane_backends_sm3600 sane_backends_sm3840 sane_backends_snapscan sane_backends_sp15c sane_backends_st400 sane_backends_stv680 sane_backends_tamarack sane_backends_teco1 sane_backends_teco2 sane_backends_teco3 sane_backends_test sane_backends_u12 sane_backends_umax sane_backends_umax1220u sane_backends_umax_pp sane_backends_xerox_mfp usb -avahi -doc -v4l
@@ -377,7 +377,7 @@
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
 =media-libs/fontconfig-2.8.0-r1 -doc
 =media-libs/freeglut-2.6.0 -debug -mpx -static-libs
-=media-libs/freetype-2.4.6 X bzip2 -auto-hinter -bindist -debug -doc -fontforge -static-libs -utils
+=media-libs/freetype-2.4.6 X bzip2 static-libs -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
 =media-libs/giflib-4.1.6-r2 X -rle -static-libs
@@ -414,7 +414,7 @@
 =media-libs/libopenraw-0.0.8 gtk -static-libs -test
 =media-libs/libpgf-6.09.44-r1 -doc
 =media-libs/libpng-1.4.8 static-libs -apng
-=media-libs/libquicktime-1.2.2 X aac alsa dv encode ffmpeg gtk jpeg mmx opengl png vorbis x264 -doc -lame -schroedinger
+=media-libs/libquicktime-1.2.3 X aac alsa dv encode ffmpeg gtk jpeg mmx opengl png vorbis x264 -doc -lame -schroedinger
 =media-libs/libsamplerate-0.1.7 -sndfile
 =media-libs/libsdl-1.2.14-r6 X aalib alsa audio custom-cflags fbcon ggi joystick libcaca nas opengl video xinerama xv -dga -directfb -oss -ps3 -pulseaudio -static-libs -svga -tslib
 =media-libs/libsndfile-1.0.23 alsa -minimal -sqlite
@@ -480,12 +480,14 @@
 =net-im/choqok-1.1 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -indicate -kdeenablefinal -linguas_da -linguas_en_GB -linguas_et -linguas_ja -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW
 =net-im/skype-2.2.0.35-r1 -qt-static
 =net-irc/konversation-1.3.1 crypt handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_et -linguas_fi -linguas_gl -linguas_hu -linguas_ja -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sk -linguas_sr -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW
+=net-libs/glib-networking-2.28.7 libproxy ssl -gnome
 =net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
 =net-libs/libbluedevil-1.9 -aqua -debug -kdeenablefinal
 =net-libs/libktorrent-1.1.1 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ku -linguas_lt -linguas_lv -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_se -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -test
 =net-libs/libnfsidmap-0.21-r1 ldap
 =net-libs/libpcap-1.1.1 bluetooth ipv6 -libnl
-=net-libs/libsoup-2.32.2 ssl -debug -doc -introspection -test
+=net-libs/libproxy-0.4.6-r3 kde networkmanager perl python -gnome -mono -test
+=net-libs/libsoup-2.34.3 introspection ssl -debug -doc -test
 =net-libs/libssh-0.4.8 sftp zlib -debug -examples -gcrypt -pcap -server -ssh1 -static-libs
 =net-libs/libtirpc-0.2.1-r1 -kerberos
 =net-libs/libvncserver-0.9.7 jpeg zlib -no24bpp -test -threads
@@ -535,11 +537,11 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-client-2.2.22 kde -gnome -xfce
-=sys-apps/calculate-desktop-2.2.22 kde -gnome -xfce
-=sys-apps/calculate-install-2.2.22-r2 -minimal
-=sys-apps/calculate-lib-2.2.22-r2 -minimal
-=sys-apps/calculate-utilities-2.2.22-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-client-2.2.23 kde -gnome -xfce
+=sys-apps/calculate-desktop-2.2.23 kde -gnome -xfce
+=sys-apps/calculate-install-2.2.23 -minimal
+=sys-apps/calculate-lib-2.2.23 -minimal
+=sys-apps/calculate-utilities-2.2.23-r2 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -657,7 +659,7 @@
 =virtual/mysql-5.1 embedded -minimal -static
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-13.0.782.215 cups linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk xinerama -gnome -gnome-keyring -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -test
+=www-client/chromium-13.0.782.220 cups linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk xinerama -gnome -gnome-keyring -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
 =www-plugins/adobe-flash-11.0.1.60_beta201108082 32bit 64bit kde multilib vdpau -bindist
 =x11-apps/xauth-1.0.6 ipv6
