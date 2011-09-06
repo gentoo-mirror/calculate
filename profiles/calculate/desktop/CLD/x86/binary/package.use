@@ -298,7 +298,7 @@
 =kde-base/kuser-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kwallet-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kwalletd-4.6.5 -aqua -debug -kdeenablefinal
-=kde-base/kwin-4.6.5 opengl xcomposite xinerama -aqua -debug -kdeenablefinal
+=kde-base/kwin-4.6.5-r1 opengl xcomposite xinerama -aqua -debug -kdeenablefinal
 =kde-base/kwrite-4.6.5 handbook -aqua -debug -kdeenablefinal
 =kde-base/kwrited-4.6.5 -aqua -debug -kdeenablefinal
 =kde-base/libkcddb-4.6.5 -aqua -debug -kdeenablefinal -musicbrainz
@@ -530,11 +530,11 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-client-2.2.23 kde -gnome -xfce
-=sys-apps/calculate-desktop-2.2.23 kde -gnome -xfce
+=sys-apps/calculate-client-2.2.23-r1 kde -gnome -xfce
+=sys-apps/calculate-desktop-2.2.23-r1 kde -gnome -xfce
 =sys-apps/calculate-install-2.2.23 -minimal
 =sys-apps/calculate-lib-2.2.23 -minimal
-=sys-apps/calculate-utilities-2.2.23-r2 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.23-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
