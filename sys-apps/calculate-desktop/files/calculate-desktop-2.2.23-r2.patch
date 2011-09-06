@@ -1,0 +1,69 @@
+diff --git pym/cl_desktop.py pym/cl_desktop.py
+index e230d28..20fa699 100644
+--- pym/cl_desktop.py
++++ pym/cl_desktop.py
+@@ -105,6 +105,7 @@ class desktop(share):
+     """Методы работы с профилем пользователя"""
+     # Имя пользователя
+     userName = ""
++    verbose = False
+ 
+     def installProg(self):
+         """Наложение шаблонов на систему при инсталяции"""
+@@ -165,6 +166,17 @@ class desktop(share):
+             self.printERROR(_("Path %s exists") %userDir)
+             return False
+ 
++    def displayTemplatesApplied(self,dirsFiles):
++        """
++        Display templates are applied (--verbose)
++        """
++        self.printWARNING(_("Following files were changed")+":")
++        for nameF in dirsFiles[1]:
++            nameFile = nameF
++            if nameFile[:1] != "/":
++                nameFile = "/" + nameFile
++            self.printWARNING(" "*5 + nameFile)
++
+     def applyTemplatesFromUser(self, progress=False):
+         """Применяем шаблоны для пользователя"""
+         # Cоздаем объект обработки шаблонов
+@@ -180,11 +192,14 @@ class desktop(share):
+             self.printERROR(clTempl.getError().strip())
+             return False
+         else:
++            if self.verbose:
++                self.displayTemplatesApplied(dirsFiles)
+             return dirsFiles
+ 
+-    def createHome(self, progress=False, live=False):
++    def createHome(self, progress=False, live=False, verbose=False):
+         """Создание профиля пользователя (пользовательской директории)"""
+         # Имя пользователя
++        self.verbose = verbose
+         uid = os.getuid()
+         try:
+             realUserName = pwd.getpwuid(uid).pw_name
+diff --git pym/cl_desktop_cmd.py pym/cl_desktop_cmd.py
+index e27d7f7..0dab534 100644
+--- pym/cl_desktop_cmd.py
++++ pym/cl_desktop_cmd.py
+@@ -37,6 +37,8 @@ DESCRIPTION = _("Create home directory for the new user account")
+ # Опции командной строки
+ CMD_OPTIONS = [{'longOption':"live",
+                 'help':_("update only mutable parameters of user profile")},
++               {'longOption':"verbose",
++                'help':_("display the template is applied")},
+                {'longOption':"set"},
+                {'longOption':"install",
+                 'help':_("install package")},
+@@ -143,7 +145,8 @@ class desktop_cmd(share_cmd):
+ 
+     def createHome(self, optObj):
+         """Создание домашней директории"""
+-        return self.logicObj.createHome(optObj.progress,optObj.live)
++        return self.logicObj.createHome(optObj.progress,optObj.live,
++            optObj.verbose)
+ 
+     def install(self):
+         """Инсталяция программы"""
