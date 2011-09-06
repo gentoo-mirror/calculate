@@ -1,0 +1,58 @@
+diff --git bg/cl_install_bg.po bg/cl_install_bg.po
+index 9548095..e0d03a6 100644
+--- bg/cl_install_bg.po
++++ bg/cl_install_bg.po
+@@ -39,7 +39,7 @@ msgid "Bind mounts"
+ msgstr "Точка за монтиране на bind"
+ 
+ msgid "Builder mode is not support multipartition"
+-msgstr "Режим "builder" не поддържа multipartition"
++msgstr "Режим \"builder\" не поддържа multipartition"
+ 
+ msgid "Can not copy '%(src)s' to '%(dst)s'"
+ msgstr "Не мога да копирам от '%(src)s' в '%(dst)s'"
+diff --git ru/cl_builder_ru.po ru/cl_builder_ru.po
+index aec0ca7..729d7d3 100644
+--- ru/cl_builder_ru.po
++++ ru/cl_builder_ru.po
+@@ -438,3 +438,6 @@ msgstr ""
+ 
+ msgid "Execute '%s'"
+ msgstr "Выполнение '%s'"
++
++msgid "use only live templates on startup"
++msgstr "при первой загрузке использовать только live шаблоны"
+diff --git ru/cl_desktop_ru.po ru/cl_desktop_ru.po
+index d60a962..bb46f45 100644
+--- ru/cl_desktop_ru.po
++++ ru/cl_desktop_ru.po
+@@ -68,9 +68,6 @@ msgstr "Пользователь не root"
+ msgid "User %s not exists"
+ msgstr "Пользователь %s не существует"
+ 
+-msgid "User account is configured"
+-msgstr "Пользовательская учетная запись настроена"
+-
+ msgid "incompatible options"
+ msgstr "несовместимые параметры"
+ 
+@@ -86,9 +83,6 @@ msgstr "установить пакет"
+ msgid "invalid argument"
+ msgstr "неправильный аргумент"
+ 
+-msgid "invalid username"
+-msgstr "неправильное имя пользователя"
+-
+ msgid "no such argument"
+ msgstr "нет такого аргумента"
+ 
+@@ -112,3 +106,9 @@ msgstr "Учетная запись пользователя %s настроен
+ 
+ msgid "update only mutable parameters of user profile"
+ msgstr "обновить только изменяемые параметры пользовательского профиля"
++
++msgid "display the template is applied"
++msgstr "показать применнные шаблоны"
++
++msgid "Following files were changed"
++msgstr "Следующие файлы были изменены"

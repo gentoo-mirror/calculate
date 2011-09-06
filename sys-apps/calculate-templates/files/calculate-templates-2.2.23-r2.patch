@@ -1,0 +1,49 @@
+diff --git builder/squash/etc/init.d/calculate builder/squash/etc/init.d/calculate
+new file mode 100644
+index 0000000..35c0c98
+--- /dev/null
++++ builder/squash/etc/init.d/calculate
+@@ -0,0 +1,3 @@
++# Calculate format=patch cl_builder_live_set==off
++<reg>LANG=C /usr/bin/cl-install --startup --live</reg>
++<text>LANG=C /usr/bin/cl-install --startup</text>
+diff --git desktop/desktop/99-final/.dmrc desktop/desktop/99-final/.dmrc
+index 1406119..0894b2b 100644
+--- desktop/desktop/99-final/.dmrc
++++ desktop/desktop/99-final/.dmrc
+@@ -1,2 +1,2 @@
+-# Calculate path=~ name=.dmrc append=remove
++# Calculate path=~ name=.dmrc append=remove belong(calculate-desktop)!=
+ # To delete a file necessary when changing the system
+diff --git install/1merge/Desktop/300-ImageEdit/gimp/calculate/zzz-gimp-2.6.11.desktop install/1merge/Desktop/300-ImageEdit/gimp/calculate/zzz-gimp-2.6.11.desktop
+new file mode 100644
+index 0000000..71984f2
+--- /dev/null
++++ install/1merge/Desktop/300-ImageEdit/gimp/calculate/zzz-gimp-2.6.11.desktop
+@@ -0,0 +1,9 @@
++# Calculate format=kde link=/usr/share/applications/zzz-gimp.desktop name=calculate-imageedit.desktop mirror pkg(media-gfx/gimp)>=2.6.11&&exists(/usr/share/applications/zzz-gimp.desktop)!=
++
++# Update info
++#-ini(desktop.imageedit, gimp)-#
++
++# Hide icon
++[Desktop Entry]
++OnlyShowIn=X-NeverShowThis;
++
+diff --git install/1merge/gimp/.calculate_directory install/1merge/gimp/.calculate_directory
+new file mode 100644
+index 0000000..d2e799d
+--- /dev/null
++++ install/1merge/gimp/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate belong()!=&&pkg(media-gfx/gimp)!= path=/etc name=env.d
++
+diff --git install/1merge/gimp/99gimp install/1merge/gimp/99gimp
+new file mode 100644
+index 0000000..615128e
+--- /dev/null
++++ install/1merge/gimp/99gimp
+@@ -0,0 +1,3 @@
++# discard /usr/lib64/gimp/2.0/plug-ins/hot due to an segfault prelink
++# prelink (20110106-20110511), gimp (2.6.11) (CLD-64)
++PRELINK_PATH_MASK=/usr/lib64/gimp/2.0/plug-ins/hot
