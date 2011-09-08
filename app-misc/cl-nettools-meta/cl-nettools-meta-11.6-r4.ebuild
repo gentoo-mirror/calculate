@@ -23,6 +23,7 @@ RDEPEND="
 		net-analyzer/vnstat
 		net-im/skype
 		www-client/chromium
+		www-apps/chromium-adblock
 		www-plugins/adobe-flash
 		x11-misc/x11vnc
 	)
