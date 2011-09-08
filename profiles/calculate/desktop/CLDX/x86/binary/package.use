@@ -31,7 +31,7 @@
 =app-misc/cl-decoration-meta-11.6-r1 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-graphics-meta-11.6 cdistro_CLDX -cdistro_CLD
 =app-misc/cl-multimedia-meta-11.6 cdistro_CLDX -cdistro_CLD -cdistro_CLDG
-=app-misc/cl-nettools-meta-11.6-r3 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
+=app-misc/cl-nettools-meta-11.6-r4 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-network-meta-11.6-r3 cdistro_CLDX cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-office-meta-11.6 cdistro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-tools-meta-11.6-r5 cdistro_CLDX cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
@@ -361,7 +361,7 @@
 =sys-apps/calculate-desktop-2.2.23-r2 xfce -gnome -kde
 =sys-apps/calculate-install-2.2.23 -minimal
 =sys-apps/calculate-lib-2.2.23 -minimal
-=sys-apps/calculate-utilities-2.2.23-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.23-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -476,7 +476,7 @@
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
 =www-client/chromium-13.0.782.215 cups gnome-keyring linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk xinerama -gnome -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -test
-=www-plugins/adobe-flash-11.0.1.60_beta201108082 vdpau -32bit -64bit -bindist -kde -multilib
+=www-plugins/adobe-flash-11.0.1.129_rc201109061 vdpau -32bit -64bit -bindist -kde -multilib
 =x11-apps/xauth-1.0.6 ipv6
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
 =x11-apps/xhost-1.0.4 ipv6
@@ -544,7 +544,7 @@
 =x11-libs/libxklavier-5.0 -doc
 =x11-libs/pango-1.28.4 X introspection -debug -doc -test
 =x11-libs/pixman-0.22.2 mmx sse2 -altivec -neon -static-libs
-=x11-libs/qt-core-4.7.3 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
+=x11-libs/qt-core-4.7.3-r1 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.3 exceptions -aqua -debug -pch
 =x11-libs/qt-gui-4.7.3-r1 accessibility cups dbus exceptions glib mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -gtkstyle -nis -pch -raster -trace
 =x11-libs/qt-qt3support-4.7.3 accessibility exceptions -aqua -debug -kde -pch -phonon
