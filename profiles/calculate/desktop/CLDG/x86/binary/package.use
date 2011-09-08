@@ -423,11 +423,11 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-client-2.2.23-r1 gnome -kde -xfce
+=sys-apps/calculate-client-2.2.23-r2 gnome -kde -xfce
 =sys-apps/calculate-desktop-2.2.23-r2 gnome -kde -xfce
 =sys-apps/calculate-install-2.2.23 -minimal
 =sys-apps/calculate-lib-2.2.23 -minimal
-=sys-apps/calculate-utilities-2.2.23-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.23-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
