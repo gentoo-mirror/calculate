@@ -48,8 +48,8 @@
 =app-text/wgetpaste-2.18-r1 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
 =dev-db/mysql-5.1.56 community perl ssl -big-tables -cluster -debug -embedded -extraengine -latin1 -max-idx-128 -minimal -pbxt -profiling -selinux -static -test -xtradb
-=dev-db/postgresql-base-9.0.4-r2 ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru nls pam readline ssl zlib -doc -kerberos -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -threads
-=dev-db/postgresql-server-9.0.4-r1 kernel_linux linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru nls pam perl python -doc -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -selinux -tcl -uuid -xml
+=dev-db/postgresql-base-9.0.4-r3 ldap linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru nls pam readline ssl zlib -doc -kerberos -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -threads
+=dev-db/postgresql-server-9.0.4-r2 kernel_linux linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru nls pam perl python -doc -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -selinux -tcl -uuid -xml
 =dev-lang/erlang-14.2.2-r1 ssl -doc -elibc_FreeBSD -emacs -halfword -hipe -java -kpoll -odbc -sctp -smp -tk -wxwidgets
 =dev-lang/nasm-2.09.08 -doc
 =dev-lang/perl-5.12.3-r1 berkdb gdbm -build -debug -doc -ithreads
