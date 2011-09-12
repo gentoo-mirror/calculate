@@ -291,8 +291,8 @@
 =media-libs/libcddb-1.3.2 -doc
 =media-libs/libdc1394-2.1.2 X -doc
 =media-libs/libdca-0.0.5-r2 -debug -oss -static-libs
-=media-libs/libdv-1.0.0-r2 sdl xv -debug
-=media-libs/libdvdcss-1.2.10 -doc
+=media-libs/libdv-1.0.0-r2 sdl xv -debug -static-libs
+=media-libs/libdvdcss-1.2.10 -doc -static-libs
 =media-libs/libdvdread-4.1.3_p1168 css
 =media-libs/libexif-0.6.19 nls -doc -static-libs
 =media-libs/libggi-2.2.2 X aalib fbcon mmx -3dfx -debug -directfb -svga -vis
@@ -613,7 +613,7 @@
 =x11-libs/libnotify-0.7.2 -doc -introspection -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
 =x11-libs/libsexy-0.1.11-r2 -doc -static-libs
-=x11-libs/libva-0.32.0_p2 opengl video_cards_dummy video_cards_intel video_cards_nvidia -video_cards_fglrx
+=x11-libs/libva-1.0.14 opengl video_cards_dummy video_cards_intel video_cards_nvidia -video_cards_fglrx
 =x11-libs/libvdpau-0.4.1 -doc
 =x11-libs/libwnck-2.30.6 -doc -introspection -startup-notification
 =x11-libs/libxcb-1.7 -doc -selinux -static-libs
