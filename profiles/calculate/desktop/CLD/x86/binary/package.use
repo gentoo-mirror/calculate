@@ -127,7 +127,7 @@
 =dev-libs/nspr-4.8.8 -debug
 =dev-libs/nss-3.12.10 -utils
 =dev-libs/openobex-1.5 bluetooth usb -debug -irda -syslog
-=dev-libs/openssl-1.0.0d sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
+=dev-libs/openssl-1.0.0e sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
 =dev-libs/pth-2.0.7-r3 -debug
 =dev-libs/qjson-0.6.3 -debug -doc -test
@@ -409,7 +409,7 @@
 =media-libs/libquicktime-1.2.3 X aac alsa dv encode ffmpeg gtk jpeg mmx opengl png vorbis x264 -doc -lame -schroedinger
 =media-libs/libsamplerate-0.1.7 -sndfile
 =media-libs/libsdl-1.2.14-r6 X aalib alsa audio custom-cflags fbcon ggi joystick libcaca nas opengl video xinerama xv -dga -directfb -oss -ps3 -pulseaudio -static-libs -svga -tslib
-=media-libs/libsndfile-1.0.23 alsa -minimal -sqlite
+=media-libs/libsndfile-1.0.25 alsa -minimal -sqlite -static-libs
 =media-libs/libtheora-1.1.1 encode -doc -examples -static-libs
 =media-libs/libvorbis-1.3.1 -static-libs
 =media-libs/libvpx-0.9.6 mmx sse sse2 sse3 ssse3 threads -altivec -debug -doc -postproc
@@ -450,7 +450,7 @@
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
 =media-video/dvgrab-3.5 jpeg quicktime
-=media-video/ffmpeg-0.7.3 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
+=media-video/ffmpeg-0.7.4 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/kdenlive-0.7.8 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh
 =media-video/kffmpegthumbnailer-1.1.0 -aqua -debug -kdeenablefinal
@@ -534,7 +534,7 @@
 =sys-apps/calculate-desktop-2.2.23-r2 kde -gnome -xfce
 =sys-apps/calculate-install-2.2.23 -minimal
 =sys-apps/calculate-lib-2.2.23 -minimal
-=sys-apps/calculate-utilities-2.2.23-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.23-r9 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
