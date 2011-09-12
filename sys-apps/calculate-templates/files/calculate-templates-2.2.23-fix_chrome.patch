@@ -1,0 +1,18 @@
+commit 7d6e627e8e51d84777ee8d3fcd94ba6c88853ca9
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Sep 12 12:53:59 2011 +0400
+
+    Restore custom chrome frame param.
+
+diff --git a/desktop/desktop/60-chromium-6.0/.config/chromium/Default/Preferences b/desktop/desktop/60-chromium-6.0/.config/chromium/Default/Preferences
+index f018d5d..32e55f2 100644
+--- a/desktop/desktop/60-chromium-6.0/.config/chromium/Default/Preferences
++++ b/desktop/desktop/60-chromium-6.0/.config/chromium/Default/Preferences
+@@ -3,6 +3,7 @@
+       "show_on_all_tabs": true
+    },
+    "browser": {
++      "custom_chrome_frame": false,
+       "check_default_browser": false,
+       "enable_spellchecking": true,
+       "show_home_button": true
