@@ -36,5 +36,6 @@ RDEPEND="${RDEPEND}
 	xfce-extra/xfce4-screenshooter
 	xfce-extra/xfce4-taskmanager
 	xfce-extra/xfce4-xkb-plugin
+	xfce-extra/xfswitch-plugin
 "
 
