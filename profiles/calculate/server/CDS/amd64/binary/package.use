@@ -133,7 +133,7 @@
 =media-libs/libmng-1.0.10 -lcms
 =media-libs/libpng-1.4.8 static-libs -apng
 =media-libs/openjpeg-1.3-r3 -tools
-=media-libs/tiff-3.9.4-r1 cxx jpeg zlib -jbig -static-libs
+=media-libs/tiff-3.9.5 cxx jpeg zlib -jbig -static-libs
 =net-analyzer/iptraf-ng-1.0.2 -static-libs
 =net-analyzer/nmap-5.51 ssl -gtk -lua
 =net-analyzer/tcpdump-3.9.8-r1 ipv6 samba ssl -chroot
@@ -150,7 +150,7 @@
 =net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
 =net-dns/ddclient-3.7.3-r1 ssl
 =net-firewall/ipsec-tools-0.7.3-r1 iconv ipv6 ldap pam readline -hybrid -idea -kerberos -nat -rc5 -selinux
-=net-firewall/iptables-1.4.11.1-r2 ipv6 -netlink
+=net-firewall/iptables-1.4.12.1 ipv6 -netlink
 =net-firewall/shorewall-4.4.22.3 -doc
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.11 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
@@ -178,7 +178,6 @@
 =net-misc/whois-5.0.8 iconv nls -idn
 =net-misc/wol-0.7.1 nls
 =net-nds/openldap-2.4.24 berkdb crypt ipv6 perl samba ssl syslog tcpd -cxx -debug -experimental -gnutls -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd
-=net-p2p/bittorrent-5.2.2 -gtk
 =net-print/cups-1.4.8-r1 acl jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff -X -dbus -debug -elibc_FreeBSD -gnutls -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-proxy/havp-0.90-r1 ssl -clamav
 =net-proxy/squid-3.1.15 epoll icap-client ipv6 kernel_linux ldap logrotate pam radius samba ssl -caps -ecap -elibc_uclibc -ipf-transparent -kerberos -kqueue -mysql -nis -pf-transparent -postgres -sasl -selinux -snmp -sqlite -test -tproxy -zero-penalty-hit
@@ -193,7 +192,7 @@
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
 =sys-apps/calculate-install-2.2.23 -minimal
 =sys-apps/calculate-lib-2.2.23 -minimal
-=sys-apps/calculate-utilities-2.2.23-r9 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-utilities-2.2.23-r11 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -217,7 +216,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha54 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha57 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
@@ -259,7 +258,7 @@
 =sys-fs/ntfsprogs-2.0.0-r1 crypt -debug -fuse -gnome -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
-=sys-fs/udev-171-r1 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
+=sys-fs/udev-171-r2 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-3.0.4-r1 symlink vmlinuz -build
