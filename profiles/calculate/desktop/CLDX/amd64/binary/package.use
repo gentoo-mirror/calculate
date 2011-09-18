@@ -62,7 +62,7 @@
 =app-text/enchant-1.6.0 hunspell -aspell -static-libs -zemberek
 =app-text/evince-2.32.0-r3 dbus djvu gnome-keyring tiff -debug -doc -dvi -gnome -introspection -nautilus -t1lib
 =app-text/fbreader-0.12.10 gtk -debug -qt4
-=app-text/ghostscript-gpl-8.71-r6 X cairo cups djvu gtk jpeg2k -bindist -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
+=app-text/ghostscript-gpl-9.04-r3 X cups dbus djvu gtk jpeg2k -bindist -idn -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW -static-libs
 =app-text/gtkspell-2.0.16 -doc
 =app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_ro linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
 =app-text/libspectre-0.2.6 -debug -doc -static-libs
@@ -395,7 +395,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha57 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha58 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
