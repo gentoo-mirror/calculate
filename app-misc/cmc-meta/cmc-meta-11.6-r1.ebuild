@@ -32,5 +32,6 @@ RDEPEND="${RDEPEND}
 	net-dialup/mingetty
 	net-p2p/rtorrent
 	net-misc/dhcp
+	sys-power/upower
 "
 
