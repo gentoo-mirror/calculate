@@ -1,4 +1,4 @@
-=app-admin/eselect-1.2.11 bash-completion -doc
+=app-admin/eselect-1.2.15 -doc
 =app-admin/hddtemp-0.3_beta15-r3 nls
 =app-admin/logrotate-3.8.0 acl -selinux
 =app-admin/sudo-1.8.1_p2 ldap pam -offensive -selinux -skey
@@ -56,7 +56,7 @@
 =app-text/fbreader-0.12.10 gtk -debug -qt4
 =app-text/ghostscript-gpl-8.71-r6 X cairo cups djvu gtk jpeg2k -bindist -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW
 =app-text/gtkspell-2.0.16 -doc
-=app-text/hunspell-1.2.11 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_ro linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu
+=app-text/hunspell-1.3.2-r1 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_ro linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_ia -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu -static-libs
 =app-text/libspectre-0.2.6 -debug -doc -static-libs
 =app-text/poppler-0.16.7 cairo cxx introspection jpeg jpeg2k lcms png utils xpdf-headers -cjk -curl -debug -doc -exceptions -qt4
 =app-text/rarian-0.8.1-r1 -debug
