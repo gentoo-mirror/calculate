@@ -8,29 +8,29 @@
 ~media-gfx/exiv2-0.21.1 amd64 x86
 
 # for KDE 4.7
-~app-misc/cl-kde-meta-4.7.0 ~amd64 ~x86
-~dev-libs/grantlee-0.1.8 ~amd64 ~x86
-~dev-libs/soprano-2.6.51 ~amd64 ~x86
-~app-office/akonadi-server-1.6.0 ~amd64 ~x86
-~dev-libs/shared-desktop-ontologies-0.7.0 ~amd64 ~x86
+~app-misc/cl-kde-meta-4.7.0 amd64 x86
+~dev-libs/grantlee-0.1.8 amd64 x86
+~dev-libs/soprano-2.6.51 amd64 x86
+~app-office/akonadi-server-1.6.0 amd64 x86
+~dev-libs/shared-desktop-ontologies-0.7.0 amd64 x86
 
-~media-gfx/digikam-2.1.0 ~amd64 ~x86
-~media-plugins/kipi-plugins-2.1.0 ~amd64 ~x86
-~media-libs/libmediawiki-2.1.0 ~amd64 ~x86
-~media-libs/libkgeomap-2.1.0 ~amd64 ~x86
-~media-libs/libkface-2.1.0 ~amd64 ~x86
+~media-gfx/digikam-2.1.0 amd64 x86
+~media-plugins/kipi-plugins-2.1.0 amd64 x86
+~media-libs/libmediawiki-2.1.0 amd64 x86
+~media-libs/libkgeomap-2.1.0 amd64 x86
+~media-libs/libkface-2.1.0 amd64 x86
 
 #required by media-gfx/digikam-2.1.0
-~media-libs/libkface-2.1.0 ~amd64 ~x86
+~media-libs/libkface-2.1.0 amd64 x86
 #required by media-gfx/digikam-2.1.0
-~media-libs/libkgeomap-2.1.0 ~amd64 ~x86
+~media-libs/libkgeomap-2.1.0 amd64 x86
 #required by media-gfx/digikam-2.1.0
-~media-libs/libpgf-6.11.32 ~amd64 ~x86
+~media-libs/libpgf-6.11.32 amd64 x86
 #required by media-plugins/kipi-plugins-2.0.0[mediawiki]
-~media-libs/libmediawiki-2.1.0 ~amd64 ~x86
+~media-libs/libmediawiki-2.1.0 amd64 x86
 
 #required by media-plugins/kipi-plugins-2.1.0[vkontakte], required by media-gfx/digikam-2.1.0-r2, required by app-misc/cl-graphics-meta-11.6, required by app-misc/cld-meta-11.6[-calculate_nographics], required by app-misc/calculate-meta-11.6-r1, required by @selected, required by @world (argument)
-~net-libs/libkvkontakte-2.1.0 ~amd64 ~x86
+~net-libs/libkvkontakte-2.1.0 amd64 x86
 #required by media-plugins/kipi-plugins-2.1.0, required by media-gfx/digikam-2.1.0-r2, required by app-misc/cl-graphics-meta-11.6, required by app-misc/cld-meta-11.6[-calculate_nographics], required by app-misc/calculate-meta-11.6-r1, required by @selected, required by @world (argument)
-~dev-libs/qjson-0.7.1 ~amd64 ~x86
+~dev-libs/qjson-0.7.1 amd64 x86
 
