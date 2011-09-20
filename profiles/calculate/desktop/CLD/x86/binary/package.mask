@@ -1,8 +1,10 @@
 app-admin/eselect
 app-admin/eselect-blas
 app-admin/eselect-boost
+app-admin/eselect-cblas
 app-admin/eselect-ctags
 app-admin/eselect-fontconfig
+app-admin/eselect-lapack
 app-admin/eselect-mesa
 app-admin/eselect-opengl
 app-admin/eselect-python
@@ -138,6 +140,7 @@ app-text/ispell
 app-text/libpaper
 app-text/libspectre
 app-text/poppler
+app-text/poppler-data
 app-text/recode
 app-text/rman
 app-text/sgml-common
@@ -173,6 +176,7 @@ dev-libs/geoip
 dev-libs/glib
 dev-libs/gmp
 dev-libs/gobject-introspection
+dev-libs/grantlee
 dev-libs/icu
 dev-libs/iniparser
 dev-libs/klibc
@@ -289,7 +293,7 @@ gnome-base/gnome-common
 gnome-base/libglade
 gnome-base/librsvg
 kde-base/activitymanager
-kde-base/akonadi
+kde-base/akonadiconsole
 kde-base/akregator
 kde-base/ark
 kde-base/attica
@@ -304,6 +308,7 @@ kde-base/kaddressbook
 kde-base/kalarm
 kde-base/kamera
 kde-base/kate
+kde-base/katepart
 kde-base/kcalc
 kde-base/kcharselect
 kde-base/kcheckpass
@@ -314,6 +319,7 @@ kde-base/kcontrol
 kde-base/kcron
 kde-base/kde-env
 kde-base/kde-l10n
+kde-base/kde-wallpapers
 kde-base/kdeartwork-colorschemes
 kde-base/kdeartwork-desktopthemes
 kde-base/kdeartwork-emoticons
@@ -330,15 +336,16 @@ kde-base/kdebase-menu-icons
 kde-base/kdebase-pam
 kde-base/kdebase-runtime-meta
 kde-base/kdebase-startkde
-kde-base/kdebase-wallpapers
 kde-base/kdebugdialog
 kde-base/kdegraphics-strigi-analyzer
 kde-base/kdelibs
 kde-base/kdemultimedia-kioslaves
 kde-base/kdenetwork-filesharing
 kde-base/kdepasswd
+kde-base/kdepim-common-libs
 kde-base/kdepim-icons
 kde-base/kdepim-kresources
+kde-base/kdepim-l10n
 kde-base/kdepim-runtime
 kde-base/kdepim-strigi-analyzer
 kde-base/kdepimlibs
@@ -415,18 +422,16 @@ kde-base/kwrited
 kde-base/libkcddb
 kde-base/libkcompactdisc
 kde-base/libkdcraw
-kde-base/libkdepim
 kde-base/libkexiv2
 kde-base/libkipi
-kde-base/libkleo
 kde-base/libkonq
-kde-base/libkpgp
 kde-base/libksane
 kde-base/libkworkspace
 kde-base/liboxygenstyle
 kde-base/libplasmaclock
 kde-base/libplasmagenericshell
 kde-base/libtaskmanager
+kde-base/marble
 kde-base/mplayerthumbs
 kde-base/nepomuk
 kde-base/okular
@@ -520,8 +525,11 @@ media-libs/libgphoto2
 media-libs/libgpod
 media-libs/libid3tag
 media-libs/libiec61883
+media-libs/libkface
+media-libs/libkgeomap
 media-libs/liblqr
 media-libs/libmad
+media-libs/libmediawiki
 media-libs/libmng
 media-libs/libmodplug
 media-libs/libmp4v2
@@ -538,7 +546,6 @@ media-libs/libsndfile
 media-libs/libtheora
 media-libs/libv4l
 media-libs/libvorbis
-media-libs/libvpx
 media-libs/libwebp
 media-libs/libwmf
 media-libs/mediastreamer
@@ -549,6 +556,7 @@ media-libs/mutagen
 media-libs/nas
 media-libs/openal
 media-libs/opencore-amr
+media-libs/opencv
 media-libs/openexr
 media-libs/openjpeg
 media-libs/phonon
@@ -614,6 +622,7 @@ net-libs/glib-networking
 net-libs/gnutls
 net-libs/libbluedevil
 net-libs/libktorrent
+net-libs/libkvkontakte
 net-libs/liblockfile
 net-libs/libnfsidmap
 net-libs/libpcap
@@ -689,8 +698,13 @@ perl-core/File-Spec
 perl-core/Module-Build
 perl-core/Scalar-List-Utils
 perl-core/Storable
+sci-libs/blas-atlas
 sci-libs/blas-reference
 sci-libs/clapack
+sci-libs/flann
+sci-libs/hdf5
+sci-libs/lapack-atlas
+sci-libs/lapack-reference
 sys-apps/acl
 sys-apps/attr
 sys-apps/baselayout
@@ -769,6 +783,7 @@ sys-boot/grub
 sys-boot/grub
 sys-boot/os-prober
 sys-boot/syslinux
+sys-cluster/openmpi
 sys-devel/autoconf
 sys-devel/autoconf
 sys-devel/autoconf-wrapper
@@ -849,9 +864,11 @@ sys-process/cronbase
 sys-process/htop
 sys-process/procps
 sys-process/psmisc
+sys-process/time
 sys-process/vixie-cron
 virtual/acl
 virtual/blas
+virtual/cblas
 virtual/cdrtools
 virtual/cron
 virtual/dev-manager
@@ -862,6 +879,7 @@ virtual/fortran
 virtual/glu
 virtual/init
 virtual/jpeg
+virtual/lapack
 virtual/libc
 virtual/libffi
 virtual/libiconv
