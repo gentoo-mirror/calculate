@@ -37,3 +37,13 @@ kde-base/mplayerthumbs -mplayer
 # remove gstreamer dep
 net-libs/webkit-gtk -gstreamer
 
+media-plugins/kipi-plugins vkontakte
+
+# for digikam
+#required by sci-libs/flann-1.6.8, required by media-libs/opencv-2.2.0, required by media-libs/libkface-2.1.0, required by media-gfx/digikam-2.1.0-r2, required by app-misc/cl-graphics-meta-11.6, required by app-misc/cld-meta-11.6[-calculate_nographics], required by app-misc/calculate-meta-11.6-r1, required by @selected, required by @world (argument)
+sci-libs/hdf5 threads mpi
+#required by media-gfx/digikam-2.1.0-r2, required by app-misc/cl-graphics-meta-11.6, required by app-misc/cld-meta-11.6[-calculate_nographics], required by app-misc/calculate-meta-11.6-r1, required by @selected, required by @world (argument)
+kde-base/marble plasma
+#required by sci-libs/hdf5-1.8.4-r1[mpi], required by sci-libs/flann-1.6.8, required by media-libs/opencv-2.2.0, required by media-libs/libkface-2.1.0, required by media-gfx/digikam-2.1.0-r2, required by app-misc/cl-graphics-meta-11.6, required by app-misc/cld-meta-11.6[-calculate_nographics], required by app-misc/calculate-meta-11.6-r1, required by @selected, required by @world (argument)
+sys-cluster/openmpi romio
+
