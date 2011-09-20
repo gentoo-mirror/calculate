@@ -6,7 +6,7 @@ inherit calculate
 
 DESCRIPTION="The theme for Calculate Linux Desktop KDE"
 HOMEPAGE="http://www.calculate-linux.org/calcualte-cld-themes"
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}-r1.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0"
