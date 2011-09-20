@@ -141,8 +141,8 @@
 =dev-libs/popt-1.16-r1 nls -static-libs
 =dev-libs/protobuf-2.4.0a python -elibc_FreeBSD -emacs -examples -java -source -static-libs -vim-syntax
 =dev-libs/pth-2.0.7-r3 -debug
-=dev-libs/rasqal-0.9.19 pcre -gmp -test -xml
-=dev-libs/redland-1.0.10-r2 berkdb ssl -iodbc -mysql -odbc -postgres -sqlite -static-libs -xml
+=dev-libs/rasqal-0.9.27 crypt mhash pcre -doc -gmp -static-libs -test -xml
+=dev-libs/redland-1.0.14 berkdb ssl xml -iodbc -mysql -odbc -postgres -sqlite -static-libs
 =dev-libs/totem-pl-parser-2.32.5 quvi -archive -doc -introspection
 =dev-perl/Authen-SASL-2.150.0 -kerberos
 =dev-perl/DateManip-5.56 -test
@@ -286,7 +286,7 @@
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
 =media-libs/libao-1.0.0-r1 alsa nas -mmap -pulseaudio -static-libs
-=media-libs/libass-0.9.11 enca fontconfig -static-libs
+=media-libs/libass-0.9.13 enca fontconfig -static-libs
 =media-libs/libcaca-0.99_beta17 X cxx ncurses opengl truetype -doc -elibc_FreeBSD -imlib -java -mono -ruby -slang -static-libs
 =media-libs/libcanberra-0.26 alsa gtk sound -gstreamer -oss -pulseaudio -tdb
 =media-libs/libcddb-1.3.2 -doc
@@ -324,7 +324,7 @@
 =media-libs/openjpeg-1.3-r3 -tools
 =media-libs/portaudio-19_pre20071207 alsa cxx -debug -jack -oss
 =media-libs/quvi-0.2.15 -doc -examples -offensive -static-libs -test
-=media-libs/raptor-1.4.21-r1 curl unicode xml -debug -static-libs
+=media-libs/raptor-2.0.4 curl unicode xml -debug -json -static-libs
 =media-libs/sdl-image-1.2.10-r1 gif jpeg png tiff -static-libs
 =media-libs/sdl-mixer-1.2.11-r1 flac mad midi mikmod mp3 vorbis wav -static-libs -timidity
 =media-libs/sdl-ttf-2.0.10 X -static-libs
@@ -434,7 +434,7 @@
 =sys-apps/calculate-desktop-2.2.23-r2 gnome -kde -xfce
 =sys-apps/calculate-install-2.2.23 -minimal
 =sys-apps/calculate-lib-2.2.23 -minimal
-=sys-apps/calculate-utilities-2.2.23-r12 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.23-r13 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
