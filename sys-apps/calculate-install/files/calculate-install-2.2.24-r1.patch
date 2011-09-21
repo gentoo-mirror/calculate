@@ -1,0 +1,80 @@
+diff --git data/bashlogin data/bashlogin
+index ea9493a..4152a1c 100644
+--- data/bashlogin
++++ data/bashlogin
+@@ -1,7 +1,26 @@
+ #!/bin/bash
++# Copyright 2011 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
+ 
+ export HOME=/root
+ cat /etc/motd 2>/dev/null
+-cd /root
+-[[ -e .bash_profile ]] && source .bash_profile
+-exec -l /bin/bash -i
++cd $HOME
++if [[ -f .bashrc ]]
++then 
++    source .bashrc
++elif [[ -f .bash_profile ]]
++then
++    source .bash_profile
++fi
++exec -l -a bash /bin/bash
+diff --git data/calculate data/calculate
+index f213a07..b320228 100644
+--- data/calculate
++++ data/calculate
+@@ -1,4 +1,17 @@
+ #!/sbin/runscript
++# Copyright 2011 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
+ 
+ depend() {
+ 	need localmount root fsck modules
+diff --git data/xautologin data/xautologin
+index c33a1bf..8604572 100644
+--- data/xautologin
++++ data/xautologin
+@@ -1,5 +1,5 @@
+ #!/bin/bash
+-# Copyright 2010 Calculate Ltd. http://www.calculate-linux.org
++# Copyright 2011 Calculate Ltd. http://www.calculate-linux.org
+ #
+ #  Licensed under the Apache License, Version 2.0 (the "License");
+ #  you may not use this file except in compliance with the License.
+diff --git pym/cl_fill_install.py pym/cl_fill_install.py
+index f7e861c..ed47357 100644
+--- pym/cl_fill_install.py
++++ pym/cl_fill_install.py
+@@ -845,6 +845,8 @@ class fillVars(object, glob_attr):
+                                   self.Get('os_install_linux_shortname'))
+         if not imagename and self.Get('cl_action') != 'merge':
+             return ""
++        if self.Get('cl_action') != "system":
++            return self.Get('os_linux_ver')
+         d = DistributiveRepository()._getfromcontent(imagename)
+         if "linuxver" in d and d['linuxver'] != "0":
+             return d['linuxver']
