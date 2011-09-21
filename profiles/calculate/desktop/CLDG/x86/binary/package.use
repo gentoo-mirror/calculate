@@ -423,11 +423,11 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-client-2.2.24 gnome -kde -xfce
+=sys-apps/calculate-client-2.2.24-r1 gnome -kde -xfce
 =sys-apps/calculate-desktop-2.2.24 gnome -kde -xfce
-=sys-apps/calculate-install-2.2.24-r1 -minimal
-=sys-apps/calculate-lib-2.2.24 -minimal
-=sys-apps/calculate-utilities-2.2.24-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-install-2.2.24-r2 -minimal
+=sys-apps/calculate-lib-2.2.24-r1 -minimal
+=sys-apps/calculate-utilities-2.2.24-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -441,7 +441,7 @@
 =sys-apps/help2man-1.38.2 elibc_glibc nls
 =sys-apps/ifplugd-0.28-r9 -doc
 =sys-apps/iproute2-2.6.38 berkdb -atm -minimal
-=sys-apps/kbd-1.15 nls
+=sys-apps/kbd-1.15.3 nls
 =sys-apps/keyexec-0.1.2-r4 -kde
 =sys-apps/less-441 unicode
 =sys-apps/lm_sensors-3.2.0 -sensord
