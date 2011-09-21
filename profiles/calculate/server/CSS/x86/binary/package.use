@@ -56,9 +56,9 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-install-2.2.24-r1 -minimal
-=sys-apps/calculate-lib-2.2.24 -minimal
-=sys-apps/calculate-utilities-2.2.24-r1 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-install-2.2.24-r2 -minimal
+=sys-apps/calculate-lib-2.2.24-r1 -minimal
+=sys-apps/calculate-utilities-2.2.24-r3 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -70,7 +70,7 @@
 =sys-apps/help2man-1.38.2 elibc_glibc nls
 =sys-apps/ifplugd-0.28-r9 -doc
 =sys-apps/iproute2-2.6.38 berkdb -atm -minimal
-=sys-apps/kbd-1.15 nls
+=sys-apps/kbd-1.15.3 nls
 =sys-apps/less-441 unicode
 =sys-apps/man-db-2.5.9 berkdb gdbm nls
 =sys-apps/man-pages-3.32 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
