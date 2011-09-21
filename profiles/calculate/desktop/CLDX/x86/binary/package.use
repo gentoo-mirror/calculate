@@ -27,7 +27,7 @@
 =app-editors/vim-7.3.189 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
 =app-editors/vim-core-7.3.189 acl bash-completion nls -livecd
 =app-i18n/enca-1.13 recode -doc
-=app-misc/calculate-meta-11.9 cdistro_CLDX -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC -cdistro_CSS
+=app-misc/calculate-meta-11.9-r1 cdistro_CLDX -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cl-decoration-meta-11.9 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-graphics-meta-11.9 cdistro_CLDX -cdistro_CLD
 =app-misc/cl-multimedia-meta-11.9 cdistro_CLDX -cdistro_CLD -cdistro_CLDG
@@ -359,9 +359,9 @@
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
 =sys-apps/calculate-client-2.2.24 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.24 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.24 -minimal
+=sys-apps/calculate-install-2.2.24-r1 -minimal
 =sys-apps/calculate-lib-2.2.24 -minimal
-=sys-apps/calculate-utilities-2.2.24 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.24-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
