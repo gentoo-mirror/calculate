@@ -1,0 +1,40 @@
+diff --git pym/cl_client.py pym/cl_client.py
+index f3499c3..9d14a4e 100644
+--- pym/cl_client.py
++++ pym/cl_client.py
+@@ -43,6 +43,7 @@ from convertenv import convertEnv
+ from encrypt import encrypt
+ from cl_client_cache import userCache
+ from shutil import copy2
++from socket import gethostbyname
+ 
+ lang().setLanguage(sys.modules[__name__])
+ 
+@@ -218,6 +219,13 @@ class ldapData(ldapUser):
+             return resSearch
+         return False
+ 
++    def _gethostbyname(self,hostname):
++        try:
++            return gethostbyname(hostname)
++        except:
++            pass
++        return None
++
+     def getNameRemoteServer(self,userName, osLinuxShort, curHost):
+         """Если профиль на удаленном сервере, то выдать DNS имя этого сервера
+         """
+@@ -226,9 +234,12 @@ class ldapData(ldapUser):
+             prevHost = searchPrevHost[0][0][1]['host'][0]
+         else:
+             prevHost = None
++        # get ip address of previous server and current server
++        prevIp = self._gethostbyname(prevHost)
++        curIp = self._gethostbyname(curHost)
+         # если местоположение актуального профиля найти не удалось
+         # или его местоположение не на локальном сервере
+-        if not prevHost or prevHost == curHost:
++        if not prevHost or curIp and prevIp == curIp:
+             return False
+         else:
+             return prevHost

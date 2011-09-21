@@ -1,0 +1,156 @@
+diff --git data/bashlogin data/bashlogin
+index ea9493a..4152a1c 100644
+--- data/bashlogin
++++ data/bashlogin
+@@ -1,7 +1,26 @@
+ #!/bin/bash
++# Copyright 2011 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
+ 
+ export HOME=/root
+ cat /etc/motd 2>/dev/null
+-cd /root
+-[[ -e .bash_profile ]] && source .bash_profile
+-exec -l /bin/bash -i
++cd $HOME
++if [[ -f .bashrc ]]
++then 
++    source .bashrc
++elif [[ -f .bash_profile ]]
++then
++    source .bash_profile
++fi
++exec -l -a bash /bin/bash
+diff --git data/calculate data/calculate
+index f213a07..b320228 100644
+--- data/calculate
++++ data/calculate
+@@ -1,4 +1,17 @@
+ #!/sbin/runscript
++# Copyright 2011 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
+ 
+ depend() {
+ 	need localmount root fsck modules
+diff --git data/xautologin data/xautologin
+index c33a1bf..8604572 100644
+--- data/xautologin
++++ data/xautologin
+@@ -1,5 +1,5 @@
+ #!/bin/bash
+-# Copyright 2010 Calculate Ltd. http://www.calculate-linux.org
++# Copyright 2011 Calculate Ltd. http://www.calculate-linux.org
+ #
+ #  Licensed under the Apache License, Version 2.0 (the "License");
+ #  you may not use this file except in compliance with the License.
+diff --git man/cl-install.1 man/cl-install.1
+index 8e64242..f2ddcee 100644
+--- man/cl-install.1
++++ man/cl-install.1
+@@ -52,7 +52,7 @@ Lets you choose your distribution. Valid values are "CDS",  "CLD",  "CLDG", "CLD
+ .PP
+ \fB\-\-march\fR \fIarchitecture\fR
+ .RS 4
+-Lets you choose your CPU's architecture. Valid values are "i686" and "x86_64". If specified, the required distro will be searched for in '/var/calculate/linux' and '/var/calculate/remote/linux'.
++Lets you choose your CPU's architecture. Valid values are "i686", "x86_64" and "auto". If specified, the required distro will be searched for in '/var/calculate/linux' and '/var/calculate/remote/linux'.
+ .RE
+ .PP
+ \fB\-\-build\fR
+diff --git man/ru/cl-install.1 man/ru/cl-install.1
+index 94c5cdd..6aeb790 100644
+--- man/ru/cl-install.1
++++ man/ru/cl-install.1
+@@ -52,7 +52,7 @@ DISK - раздел для установки или директория, в с
+ .PP
+ \fB\-\-march\fR \fIархитектура\fR
+ .RS 4
+-Выбор архитектуры процессора, допустимые значения "i686", "x86_64". В случае использования параметра будет выполнен поиск необходимого дистрибутива из исходных директорий.
++Выбор архитектуры процессора, допустимые значения "i686", "x86_64", "auto". В случае использования параметра будет выполнен поиск необходимого дистрибутива из исходных директорий.
+ .RE
+ .PP
+ \fB\-\-build\fR
+diff --git pym/cl_fill_install.py pym/cl_fill_install.py
+index f7e861c..ed47357 100644
+--- pym/cl_fill_install.py
++++ pym/cl_fill_install.py
+@@ -845,6 +845,8 @@ class fillVars(object, glob_attr):
+                                   self.Get('os_install_linux_shortname'))
+         if not imagename and self.Get('cl_action') != 'merge':
+             return ""
++        if self.Get('cl_action') != "system":
++            return self.Get('os_linux_ver')
+         d = DistributiveRepository()._getfromcontent(imagename)
+         if "linuxver" in d and d['linuxver'] != "0":
+             return d['linuxver']
+diff --git pym/cl_install.py pym/cl_install.py
+index 1d68c9b..a9e0c45 100644
+--- pym/cl_install.py
++++ pym/cl_install.py
+@@ -27,7 +27,8 @@ from cl_utils import runOsCommand,appendProgramToEnvFile, \
+                         scanDirectory,process,getTupleVersion, \
+                         detectDeviceForPartition,listDirectory, \
+                         cmpVersion,STDOUT,getUdevDeviceInfo, \
+-                        getLvmPartitions,getInstalledVideo
++                        getLvmPartitions,getInstalledVideo, \
++                        getSupportArch
+ from cl_vars_share import varsShare
+ 
+ from cl_kernel_utils import KernelConfig,InitRamFs
+@@ -2693,3 +2694,9 @@ the system") + " (yes/no)"
+         else:
+             self.clVars.Set('os_install_clock_timezone',timezone,force=True)
+             return True
++
++    def setArchitecture(self,march):
++        """Set architecture by march (support auto keyword)"""
++        if march == "auto":
++            march = getSupportArch()[-1]
++        self.clVars.Set('os_install_arch_machine', march, True)
+diff --git pym/cl_install_cmd.py pym/cl_install_cmd.py
+index 570ecbe..6f5e7ec 100644
+--- pym/cl_install_cmd.py
++++ pym/cl_install_cmd.py
+@@ -70,8 +70,9 @@ CMD_OPTIONS = [{'shortOption':"d",
+                {'longOption':"march",
+                 'optVal':"ARCH",
+                 'type':'choice',
+-                'choices':['i686','x86_64'],
+-                'help':_("select processor architecture")
++                'choices':['i686','x86_64','auto'],
++                'help':_("select processor architecture")+ \
++                         " (i686,x86_64 or auto)"
+                },
+                {'longOption':"build",
+                 'help':_("installation for assembling")
+@@ -446,8 +447,7 @@ class install_cmd(share_cmd):
+         if self.optobj.values.s:
+             self.logicObj.setLinuxName(self.optobj.values.s.upper())
+         if self.optobj.values.march:
+-            self.logicObj.clVars.Set('os_install_arch_machine',
+-                                      self.optobj.values.march,True)
++            self.logicObj.setArchitecture(self.optobj.values.march)
+         if self.optobj.values.nouuid:
+             self.logicObj.clVars.Set('cl_uuid_set','off',True)
+         if self.optobj.values.build:
