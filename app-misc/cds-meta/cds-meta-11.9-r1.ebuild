@@ -17,8 +17,6 @@ calculate_nokernel
 calculate_nonettools
 calculate_nonetwork
 calculate_nowireless
-calculate_noapache
-calculate_nobittorrent
 calculate_nodhcp
 calculate_noftp
 calculate_nojabber
@@ -28,11 +26,6 @@ calculate_nonamed
 calculate_nopgsql
 calculate_noproxy
 ldap
-"
-
-RDEPEND="
-	!sys-apps/calculate
-	!net-im/calculate-ejabberd
 "
 
 RDEPEND="${RDEPEND}
@@ -45,11 +38,6 @@ RDEPEND="${RDEPEND}
 	!calculate_nonetwork? ( app-misc/cl-network-meta )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 
-	!calculate_noapache? ( www-servers/apache )
-	!calculate_nobittorrent? (
-		net-p2p/bittorrent
-		net-p2p/btpd
-	)
 	!calculate_nodhcp? ( net-misc/dhcp )
 	!calculate_noftp? (
 		net-ftp/ftp
