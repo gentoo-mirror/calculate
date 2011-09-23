@@ -1,3 +1,4 @@
+#
 app-admin/testdisk ntfs reiserfs
 dev-vcs/git -gtk perl
 net-print/cnijfilter ip4700 mp250 mp270 mp490 mp550 mp560 mp64
@@ -44,14 +45,8 @@ media-gfx/sane-backends -v4l
 # to solve the problem conflicts with app-dicts/aspell-pt-0.50.2-r1
 app-text/aspell -linguas_pt
 
-# for a gradual transition
-=media-gfx/digikam-1.9.0-r1 -linguas_pt -linguas_ro
-=media-plugins/kipi-plugins-1.9.0 -linguas_pt -linguas_ro
-=app-office/libreoffice-3.3.3 -linguas_ro
-=media-sound/amarok-2.4.1 -linguas_pt -linguas_ro
-=app-cdr/k3b-2.0.2-r1 -linguas_pt -linguas_ro
-=media-video/smplayer-0.6.9 -linguas_pt -linguas_ro
-
 # to be able to run independently of glibc
 sys-apps/busybox static
 
+#resolve
+dev-lang/php gd xml
