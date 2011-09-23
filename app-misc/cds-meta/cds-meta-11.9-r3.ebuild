@@ -44,6 +44,7 @@ RDEPEND="${RDEPEND}
 	ldap? ( net-nds/openldap )
 	!calculate_nomail? (
 		mail-filter/clamsmtp
+		mail-filter/dkim-milter
 		mail-filter/postgrey
 		mail-filter/procmail
 		mail-filter/spamassassin
