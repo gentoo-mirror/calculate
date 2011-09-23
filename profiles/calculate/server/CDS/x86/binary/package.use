@@ -1,4 +1,3 @@
-=app-admin/apache-tools-2.2.21 ssl
 =app-admin/eselect-1.2.15 -doc
 =app-admin/hddtemp-0.3_beta15-r3 nls
 =app-admin/logrotate-3.8.0 acl -selinux
@@ -25,12 +24,11 @@
 =app-editors/vim-core-7.3.189 acl bash-completion nls -livecd
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.9-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
-=app-misc/cds-meta-11.9 ldap -calculate_noapache -calculate_nobittorrent -calculate_nodecoration -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nokernel -calculate_nomail -calculate_nomysql -calculate_nonamed -calculate_nonettools -calculate_nonetwork -calculate_nopgsql -calculate_noproxy -calculate_nowireless
+=app-misc/cds-meta-11.9-r3 ldap -calculate_nodecoration -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nokernel -calculate_nomail -calculate_nonamed -calculate_nonettools -calculate_nonetwork -calculate_nopgsql -calculate_noproxy
 =app-misc/cl-decoration-meta-11.9 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-nettools-meta-11.9 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-network-meta-11.9 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop -networkmanager
 =app-misc/cl-tools-meta-11.9 cdistro_CDS ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
-=app-misc/cl-wireless-meta-11.9 -cdistro_desktop
 =app-misc/mc-4.7.5.2 edit gpm ncurses nls samba -X -slang
 =app-misc/pax-utils-0.2.2 -caps
 =app-misc/realpath-1.15-r1 nls
@@ -46,7 +44,6 @@
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/wgetpaste-2.18-r1 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
-=dev-db/mysql-5.1.56 community perl ssl -big-tables -cluster -debug -embedded -extraengine -latin1 -max-idx-128 -minimal -pbxt -profiling -selinux -static -test -xtradb
 =dev-db/postgresql-base-9.0.4-r3 ldap linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru nls pam readline ssl zlib -doc -kerberos -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -threads
 =dev-db/postgresql-server-9.0.4-r2 kernel_linux linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru nls pam perl python -doc -linguas_af -linguas_cs -linguas_fa -linguas_hr -linguas_hu -linguas_ko -linguas_nb -linguas_sk -linguas_sl -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -pg_legacytimestamp -selinux -tcl -uuid -xml
 =dev-lang/erlang-14.2.2-r1 ssl -doc -elibc_FreeBSD -emacs -halfword -hipe -java -kpoll -odbc -sctp -smp -tk -wxwidgets
@@ -57,8 +54,6 @@
 =dev-lang/ruby-1.8.7_p334-r1 berkdb gdbm ipv6 ncurses readline ssl -debug -doc -examples -libedit -rubytests -socks5 -threads -tk -xemacs
 =dev-lang/swig-2.0.2 pcre -ccache -doc
 =dev-lang/tcl-8.5.9 -debug -threads
-=dev-libs/apr-1.4.4 urandom uuid -doc -elibc_FreeBSD -older-kernels-compatibility
-=dev-libs/apr-util-1.3.11 berkdb gdbm ldap -doc -freetds -mysql -odbc -postgres -sqlite -sqlite3
 =dev-libs/eventlog-0.2.12 -static-libs
 =dev-libs/expat-2.0.1-r5 -elibc_FreeBSD -examples -static-libs
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
@@ -74,7 +69,6 @@
 =dev-libs/libgpg-error-1.10 nls -common-lisp -static-libs
 =dev-libs/libksba-1.2.0 -static-libs
 =dev-libs/libnatspec-0.2.6 python -doc
-=dev-libs/libnl-1.1-r2 -doc
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libtasn1-2.9-r1 -doc
 =dev-libs/libtommath-0.42.0 -doc -examples -static-libs
@@ -88,7 +82,6 @@
 =dev-libs/pth-2.0.7-r3 -debug
 =dev-perl/Authen-SASL-2.150.0 -kerberos
 =dev-perl/BerkeleyDB-0.430.0 -test
-=dev-perl/DBI-1.615 -test
 =dev-perl/DateManip-5.56 -test
 =dev-perl/Error-0.170.160 -test
 =dev-perl/HTML-Parser-3.670.0 -test
@@ -97,14 +90,9 @@
 =dev-perl/Net-DNS-0.660.0 ipv6 -test
 =dev-perl/libwww-perl-5.836 ssl
 =dev-perl/perl-ldap-0.400.100 ssl -sasl -xml
-=dev-python/dnspython-1.9.4 -examples
 =dev-python/psycopg-2.4.1 -debug -doc -examples -mxdatetime
-=dev-python/pycrypto-2.3 gmp -doc
-=dev-python/pyopenssl-0.12 -doc
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
-=dev-python/twisted-11.0.0 crypt -gtk -serial
-=dev-python/twisted-web-11.0.0 -soap
 =dev-ruby/libxml-2.0.5 ruby_targets_ruby18 -doc -ruby_targets_ree18 -test
 =dev-ruby/rubygems-1.3.7-r1 ruby_targets_ruby18 -doc -ruby_targets_jruby -ruby_targets_ree18 -server
 =dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
@@ -113,6 +101,7 @@
 =dev-util/diffball-1.0 -debug
 =dev-util/pkgconfig-0.26 -elibc_FreeBSD -hardened
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 cgi curl iconv perl threads webdav -cvs -doc -emacs -gtk -ppcsha1 -subversion -tk -xinetd
+=mail-filter/dkim-milter-2.8.3-r1 ipv6 -diffheaders
 =mail-filter/libmilter-1.0.1-r1 ipv6 -poll
 =mail-filter/postgrey-1.32 -targrey
 =mail-filter/procmail-3.22-r10 -mbox -selinux
@@ -181,10 +170,6 @@
 =net-print/cups-1.4.8-r1 acl jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff -X -dbus -debug -elibc_FreeBSD -gnutls -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-proxy/havp-0.90-r1 ssl -clamav
 =net-proxy/squid-3.1.15 epoll icap-client ipv6 kernel_linux ldap logrotate pam radius samba ssl -caps -ecap -elibc_uclibc -ipf-transparent -kerberos -kqueue -mysql -nis -pf-transparent -postgres -sasl -selinux -snmp -sqlite -test -tproxy -zero-penalty-hit
-=net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
-=net-wireless/madwifi-ng-0.9.4.4165.20110816 kernel_linux -injection
-=net-wireless/wireless-tools-29 nls -multicall
-=net-wireless/wpa_supplicant-0.7.3-r2 kernel_linux readline ssl -dbus -debug -eap-sim -fasteap -gnutls -kernel_FreeBSD -madwifi -ps3 -qt4 -wimax -wps
 =sci-libs/fftw-3.2.2 fortran openmp -altivec -doc -sse -sse2 -threads
 =sys-apps/acl-2.2.51 nls -nfs -static-libs
 =sys-apps/attr-2.4.46 nls -static-libs
@@ -285,8 +270,5 @@
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
-=virtual/linux-sources-0 -hardened
-=virtual/mysql-5.1 -embedded -minimal -static
 =virtual/ssh-0 -minimal
 =www-client/links-2.3_pre1-r1 bzip2 gpm jpeg ssl tiff unicode zlib -X -directfb -fbcon -livecd -svga
-=www-servers/apache-2.2.21 apache2_modules_actions apache2_modules_alias apache2_modules_auth_basic apache2_modules_authn_alias apache2_modules_authn_anon apache2_modules_authn_dbm apache2_modules_authn_default apache2_modules_authn_file apache2_modules_authz_dbm apache2_modules_authz_default apache2_modules_authz_groupfile apache2_modules_authz_host apache2_modules_authz_owner apache2_modules_authz_user apache2_modules_autoindex apache2_modules_cache apache2_modules_cgi apache2_modules_cgid apache2_modules_dav apache2_modules_dav_fs apache2_modules_dav_lock apache2_modules_deflate apache2_modules_dir apache2_modules_disk_cache apache2_modules_env apache2_modules_expires apache2_modules_ext_filter apache2_modules_file_cache apache2_modules_filter apache2_modules_headers apache2_modules_include apache2_modules_info apache2_modules_log_config apache2_modules_logio apache2_modules_mem_cache apache2_modules_mime apache2_modules_mime_magic apache2_modules_negotiation apache2_modules_rewrite apache2_modules_setenvif apache2_modules_speling apache2_modules_status apache2_modules_unique_id apache2_modules_userdir apache2_modules_usertrack apache2_modules_vhost_alias ldap ssl -apache2_modules_asis -apache2_modules_auth_digest -apache2_modules_authn_dbd -apache2_modules_cern_meta -apache2_modules_charset_lite -apache2_modules_dbd -apache2_modules_dumpio -apache2_modules_ident -apache2_modules_imagemap -apache2_modules_log_forensic -apache2_modules_proxy -apache2_modules_proxy_ajp -apache2_modules_proxy_balancer -apache2_modules_proxy_connect -apache2_modules_proxy_ftp -apache2_modules_proxy_http -apache2_modules_proxy_scgi -apache2_modules_reqtimeout -apache2_modules_substitute -apache2_modules_version -apache2_mpms_event -apache2_mpms_itk -apache2_mpms_peruser -apache2_mpms_prefork -apache2_mpms_worker -debug -doc -selinux -static -suexec -threads
