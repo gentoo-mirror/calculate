@@ -116,6 +116,7 @@
 =dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
 =dev-libs/libgcrypt-1.4.6 static-libs
 =dev-libs/libgdata-0.8.1 gnome -debug -doc -introspection
+=dev-libs/libgee-0.6.1 -debug -introspection
 =dev-libs/libgpg-error-1.10 nls -common-lisp -static-libs
 =dev-libs/libgweather-2.30.3 python -doc
 =dev-libs/libisofs-1.0.0 acl zlib -debug -verbose-debug -xattr
@@ -199,6 +200,7 @@
 =dev-util/pkgconfig-0.26 -elibc_FreeBSD -hardened
 =dev-util/scons-2.0.1 -doc
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 curl iconv perl threads tk webdav -cgi -cvs -doc -emacs -gtk -ppcsha1 -subversion -xinetd
+=gnome-base/dconf-0.5.1-r2 -doc -introspection -vala
 =gnome-base/gconf-2.32.3 policykit -debug -doc -introspection -ldap
 =gnome-base/gdm-2.20.11 consolekit elibc_glibc gnome-keyring ipv6 pam tcpd xinerama -accessibility -afs -branding -debug -dmx -remote -selinux
 =gnome-base/gnome-applets-2.32.1.1 gnome gstreamer ipv6 networkmanager policykit
@@ -349,7 +351,7 @@
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/cheese-2.32.0 -doc
 =media-video/dirac-1.0.2 mmx -debug -doc
-=media-video/ffmpeg-0.7.4 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
+=media-video/ffmpeg-0.7.5 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vorbis x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vidix -vpx -win32codecs -zoran
 =media-video/totem-2.32.0-r2 bluetooth lirc nautilus nsplugin python youtube -debug -doc -galago -iplayer -tracker -upnp
 =net-analyzer/gnome-netstatus-2.28.2 -debug
