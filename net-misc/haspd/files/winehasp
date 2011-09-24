@@ -1,0 +1,20 @@
+#!/sbin/runscript
+# Copyright 1999-2004 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+depend () {
+    need net
+    after aksusbd 
+}
+
+start() {
+	ebegin "Starting Wine HASP support"
+	eval start-stop-daemon --start --quiet --exec /opt/sbin/winehasp
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping Wine HASP support"
+	start-stop-daemon --stop --quiet --exec /opt/sbin/winehasp
+	eend $?
+}

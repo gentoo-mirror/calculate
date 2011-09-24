@@ -1,0 +1,17 @@
+#!/sbin/runscript
+# Copyright 1999-2004 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+
+
+start() {
+	ebegin "Starting HARDLOCK daemon"
+	eval start-stop-daemon --start --quiet --exec /opt/sbin/aksusbd -- ${AKSUSBD_ARGS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping HARDLOCK daemon"
+	start-stop-daemon --stop --quiet --exec /opt/sbin/aksusbd
+	eend $?
+}

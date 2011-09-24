@@ -1,0 +1,22 @@
+#!/sbin/runscript
+# Copyright 1999-2004 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+depend () {
+    need net
+    after aksusbd
+}
+
+start() {
+	ebegin "Starting Sentinel keys daemon"
+	eval start-stop-daemon --start --quiet --exec /opt/lib/sentinel/usbsentinel
+	eval start-stop-daemon --start --quiet --exec /opt/lib/sentinel/SntlKeysSrvrlnx
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping Sentinel keys daemon"
+	eval start-stop-daemon --stop --quiet --exec /opt/lib/sentinel/usbsentinel
+	eval start-stop-daemon --stop --quiet --exec /opt/lib/sentinel/SntlKeysSrvrlnx
+	eend $?
+}

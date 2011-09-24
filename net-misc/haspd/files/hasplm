@@ -1,0 +1,20 @@
+#!/sbin/runscript
+# Copyright 1999-2004 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+depend () {
+    need net
+    after aksusbd
+}
+
+start() {
+	ebegin "Starting HASP License manager"
+	eval start-stop-daemon --start --quiet --exec /opt/sbin/hasplm -- ${HASPLM_ARGS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping HASP License manager"
+	start-stop-daemon --stop --quiet --exec /opt/sbin/hasplm
+	eend $?
+}

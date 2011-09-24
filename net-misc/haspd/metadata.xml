@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>no-herd</herd>
+	<maintainer>
+		<email>daks12@gmail.com</email>
+		<name>Dmitry 'daks' Fomenko</name>
+	</maintainer>
+	<longdescription lang="ru">
+		Драйверы поддержки LPT и USB ключей HASP.
+	</longdescription>
+	<longdescription>
+		Drivers for LPT and USB HASP keys.
+	</longdescription>
+	<use>
+		<flag name='lpt-hasp'>Install source code of the LPT HASP driver aksparlnx</flag>
+		<flag name='skey'>Install Eutron Smartkey 3 USB/LPT driver</flag>
+		<flag name='sentinel'>Install SafeNet Sentinel driver</flag>
+		<flag name='wine'>Install HASP keys support for wine</flag>
+	</use>
+</pkgmetadata>
