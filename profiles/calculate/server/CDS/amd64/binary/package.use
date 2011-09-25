@@ -121,7 +121,7 @@
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
 =media-libs/libmng-1.0.10 -lcms
-=media-libs/libpng-1.4.8 static-libs -apng
+=media-libs/libpng-1.4.8-r1 static-libs -apng
 =media-libs/openjpeg-1.3-r3 -tools
 =media-libs/tiff-3.9.5 cxx jpeg zlib -jbig -static-libs
 =net-analyzer/iptraf-ng-1.0.2 -static-libs
@@ -190,7 +190,7 @@
 =sys-apps/help2man-1.38.2 elibc_glibc nls
 =sys-apps/ifplugd-0.28-r9 -doc
 =sys-apps/iproute2-2.6.38 berkdb -atm -minimal
-=sys-apps/kbd-1.15 nls
+=sys-apps/kbd-1.15.3 nls
 =sys-apps/kexec-tools-2.0.2-r1 zlib -lzma -xen
 =sys-apps/less-441 unicode
 =sys-apps/lm_sensors-3.2.0 -sensord
