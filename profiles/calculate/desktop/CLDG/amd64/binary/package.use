@@ -311,7 +311,7 @@
 =media-libs/libmpeg2-0.5.1 X sdl
 =media-libs/libogg-1.2.0 -static-libs
 =media-libs/libopenraw-0.0.8 gtk -static-libs -test
-=media-libs/libpng-1.4.8 static-libs -apng
+=media-libs/libpng-1.4.8-r1 static-libs -apng
 =media-libs/libsdl-1.2.14-r6 X aalib alsa audio custom-cflags fbcon ggi joystick libcaca nas opengl video xinerama xv -dga -directfb -oss -ps3 -pulseaudio -static-libs -svga -tslib
 =media-libs/libsndfile-1.0.25 alsa -minimal -sqlite -static-libs
 =media-libs/libtheora-1.1.1 encode -doc -examples -static-libs
@@ -450,7 +450,7 @@
 =sys-apps/help2man-1.38.2 elibc_glibc nls
 =sys-apps/ifplugd-0.28-r9 -doc
 =sys-apps/iproute2-2.6.38 berkdb -atm -minimal
-=sys-apps/kbd-1.15 nls
+=sys-apps/kbd-1.15.3 nls
 =sys-apps/keyexec-0.1.2-r4 -kde
 =sys-apps/less-441 unicode
 =sys-apps/lm_sensors-3.2.0 -sensord
