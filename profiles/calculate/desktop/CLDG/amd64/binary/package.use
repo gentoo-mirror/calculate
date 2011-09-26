@@ -277,11 +277,11 @@
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
 =media-libs/giflib-4.1.6-r2 X -rle -static-libs
-=media-libs/gst-plugins-bad-0.10.21 orc
-=media-libs/gst-plugins-base-0.10.32 nls orc -debug -introspection
-=media-libs/gst-plugins-good-0.10.28 orc -debug
-=media-libs/gst-plugins-ugly-0.10.17 -debug
-=media-libs/gstreamer-0.10.32-r1 nls -introspection -test
+=media-libs/gst-plugins-bad-0.10.22 orc
+=media-libs/gst-plugins-base-0.10.35 introspection nls orc
+=media-libs/gst-plugins-good-0.10.30 orc -debug
+=media-libs/gst-plugins-ugly-0.10.18 -debug
+=media-libs/gstreamer-0.10.35 introspection nls -test
 =media-libs/ilmbase-1.0.2 -static-libs
 =media-libs/imlib2-1.4.4 X bzip2 gif jpeg mp3 nls png tiff zlib -doc -mmx
 =media-libs/jasper-1.900.1-r3 jpeg opengl -static-libs
@@ -340,7 +340,7 @@
 =media-libs/vo-amrwbenc-0.1.0 -examples -static-libs
 =media-libs/x264-0.0.20110426 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
-=media-plugins/gst-plugins-a52dec-0.10.17 orc
+=media-plugins/gst-plugins-a52dec-0.10.18 orc
 =media-plugins/gst-plugins-ffmpeg-0.10.11-r1 orc
 =media-plugins/gst-plugins-meta-0.10-r5 X a52 aac alsa dv dvd ffmpeg flac mp3 mpeg musepack ogg theora v4l2 vorbis xv -dvb -esd -lame -mythtv -oss -pulseaudio -taglib -wavpack
 =media-sound/alsa-utils-1.0.24.2-r1 nls -doc -minimal
@@ -493,7 +493,7 @@
 =sys-devel/bc-1.06.95 readline -libedit -static
 =sys-devel/binutils-2.21.1-r1 nls -multislot -multitarget -static-libs -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
-=sys-devel/flex-2.5.35 nls -static -test
+=sys-devel/flex-2.5.35_p10 nls -static -test
 =sys-devel/gcc-4.5.3-r1 fortran gtk mudflap multilib nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -hardened -libffi -lto -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
 =sys-devel/gdb-7.2 nls python -expat -multitarget -test -vanilla
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
