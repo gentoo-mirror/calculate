@@ -226,8 +226,8 @@
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
 =media-libs/giflib-4.1.6-r2 X -rle -static-libs
-=media-libs/gst-plugins-base-0.10.32 nls orc -debug -introspection
-=media-libs/gstreamer-0.10.32-r1 nls -introspection -test
+=media-libs/gst-plugins-base-0.10.35 introspection nls orc
+=media-libs/gstreamer-0.10.35 introspection nls -test
 =media-libs/ilmbase-1.0.2 -static-libs
 =media-libs/imlib2-1.4.4 X bzip2 gif jpeg mp3 nls png tiff zlib -doc -mmx
 =media-libs/jasper-1.900.1-r3 jpeg opengl -static-libs
