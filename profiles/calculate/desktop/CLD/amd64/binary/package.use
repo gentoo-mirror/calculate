@@ -632,7 +632,7 @@
 =sys-fs/ntfsprogs-2.0.0-r1 crypt -debug -fuse -gnome -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/squashfs-tools-4.2 gzip lzma lzo -xattr
-=sys-fs/udev-171-r2 acl extras rule_generator -action_modeswitch -build -debug -edd -floppy -gudev -hwdb -introspection -keymap -selinux -test
+=sys-fs/udev-164-r2 extras -build -selinux -test
 =sys-fs/udisks-1.0.3-r1 bash-completion nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
