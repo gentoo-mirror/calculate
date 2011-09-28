@@ -1,5 +1,3 @@
-~www-client/chromium-13.0.782.107 amd64 x86
-
 ~sys-apps/keyexec-0.1.2 amd64 x86
 ~sys-auth/pam_keystore-0.1.3 amd64 x86
 ~sys-auth/thinkfinger-0.3 amd64 x86
@@ -30,27 +28,15 @@
 ~net-misc/networkmanager-vpnc-0.8.2 amd64 x86
 =gnome-extra/nm-applet-0.8.2-r10 amd64 x86
 ~net-dialup/ppp-2.4.5 amd64 x86
-~dev-libs/liblinebreak-1.2 amd64 x86
+~dev-libs/liblinebreak-2.1 amd64 x86
+~dev-perl/Locale-gettext-1.50.0 amd64 x86
 ~net-wireless/blueman-1.21 amd64 x86
 
 ~net-im/skype-2.2.0.35 amd64 x86
 
 ~x11-libs/qtermwidget-0.1 amd64 x86
 
-~app-emulation/virtualbox-4.0.12 amd64 x86
-~app-emulation/virtualbox-additions-4.0.12 amd64 x86
-~app-emulation/virtualbox-bin-4.0.12 amd64 x86
-~app-emulation/virtualbox-extpack-oracle-4.0.12 amd64 x86
-~app-emulation/virtualbox-guest-additions-4.0.12 amd64 x86
-~app-emulation/virtualbox-modules-4.0.12 amd64 x86
-~app-emulation/virtualbox-ose-4.0.12 amd64 x86
-~app-emulation/virtualbox-ose-additions-4.0.12 amd64 x86
-~x11-drivers/xf86-input-virtualbox-4.0.12 amd64 x86
-~x11-drivers/xf86-video-virtualbox-4.0.12 amd64 x86
-
 ~net-misc/cnetworkmanager-0.21.1 amd64 x86
-
-~media-libs/libvpx-0.9.5 amd64 x86
 
 ~app-dicts/ispell-pt-br-2.4 amd64 x86
 
@@ -58,28 +44,11 @@
 ~x11-proto/dri2proto-2.6 amd64 x86
 
 ~x11-drivers/xf86-video-ati-6.14.2 amd64 x86
-~x11-drivers/xf86-video-openchrome-0.2.904_p930 amd64 x86
-~x11-drivers/ati-drivers-11.8 amd64 x86
+~x11-drivers/xf86-video-openchrome-0.2.904_p952 amd64 x86
 
-~app-office/libreoffice-3.3.3 amd64 x86
-~app-office/libreoffice-3.3.2 amd64 x86
-
-~dev-libs/liblinebreak-2.0 amd64 x86
-
-~x11-drivers/nvidia-drivers-275.09.07 amd64 x86
 ~media-video/nvidia-settings-270.41.06 amd64 x86
 
 ~app-emulation/wine-1.3.24 amd64 x86
 
 ~www-plugins/adobe-flash-11.0.1.129_rc201109061 amd64 x86
-
-# unmask xorg-server for x86
-~x11-libs/pixman-0.22.0 x86
-~x11-base/xorg-server-1.10.2 x86
-~x11-base/xorg-drivers-1.10 x86
-~x11-drivers/xf86-video-mach64-6.9.0 x86
-~x11-drivers/xf86-input-synaptics-1.4.0 x86
-
-#~net-libs/libsoup-2.32.2 required by (net-libs/libsoup-gnome-2.32.2::gentoo, ebuild scheduled for merge)
-~net-libs/libsoup-gnome-2.34.3 amd64 x86
 
