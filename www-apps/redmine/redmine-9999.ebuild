@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="2"
-inherit eutils confutils git depend.apache
+inherit eutils confutils git-2 depend.apache
 
 DESCRIPTION="Redmine is a flexible project management web application written
 using Ruby on Rails framework"

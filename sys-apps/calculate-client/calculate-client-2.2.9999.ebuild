@@ -4,7 +4,7 @@
 
 EAPI="3"
 
-inherit distutils git
+inherit distutils git-2
 
 EGIT_REPO_URI="git://git.calculate.ru/calculate-client.git"
 

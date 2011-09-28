@@ -4,7 +4,7 @@
 
 EAPI="3"
 
-inherit git kde4-base
+inherit git-2 kde4-base
 
 DESCRIPTION="A Qt wrapper for bluez used in the KDE bluetooth stack"
 HOMEPAGE="http://gitorious.org/libbluedevil"
@@ -20,5 +20,5 @@ RDEPEND="
 "
 
 src_unpack() {
-	git_src_unpack
+	git-2_src_unpack
 }

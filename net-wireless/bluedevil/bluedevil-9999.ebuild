@@ -4,7 +4,7 @@
 
 EAPI="3"
 
-inherit git kde4-base
+inherit git-2 kde4-base
 
 DESCRIPTION="Bluetooth stack for KDE"
 HOMEPAGE="http://gitorious.org/bluedevil"
@@ -26,5 +26,5 @@ RDEPEND="${DEPEND}
 "
 
 src_unpack() {
-	git_src_unpack
+	git-2_src_unpack
 }

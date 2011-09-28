@@ -4,7 +4,7 @@
 
 EAPI="3"
 
-inherit distutils git
+inherit distutils git-2
 
 EGIT_COMMIT=""
 EGIT_REPO_URI="git://git.calculate.ru/calculate-assemble.git"

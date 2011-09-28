@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit git
+inherit git-2
 
 EGIT_COMMIT="c0bcf1b7ed94a937ce79f840014439458bb2031f"
 EGIT_REPO_URI="git://git.calculate.ru/calculate.git"

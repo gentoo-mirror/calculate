@@ -5,7 +5,7 @@
 EAPI="3"
 
 KMNAME="kdesdk"
-inherit kde4-meta git
+inherit kde4-meta git-2
 
 DESCRIPTION="Provides Dropbox integration in Dolphin."
 EGIT_REPO_URI="git://anongit.kde.org/scratch/trichard/dolphin-box-plugin"
@@ -24,13 +24,13 @@ RDEPEND="${DEPEND}
 #	$(add_kdebase_dep kompare)
 
 src_unpack() {
-	git_src_unpack
+	git-2_src_unpack
 }
 
 src_prepare() {
-        git_src_prepare
-        cd "${S}"
-        cmake-utils_src_configure || die "cmake failed"
+	git-2_src_prepare
+	cd "${S}"
+	cmake-utils_src_configure || die "cmake failed"
 }
 
 pkg_postinst() {

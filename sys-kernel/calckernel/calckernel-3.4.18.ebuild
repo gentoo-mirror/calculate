@@ -43,7 +43,7 @@ if [[ ${PV} == 9999* ]]
 then
 	EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/genkernel.git"
 	[[ ${PV} == 99999* ]] && EGIT_BRANCH=experimental
-	inherit git bash-completion eutils
+	inherit git-2 bash-completion eutils
 	S="${WORKDIR}/${PN}"
 	SRC_URI="${COMMON_URI}"
 	KEYWORDS=""
@@ -79,7 +79,7 @@ fi
 
 src_unpack() {
 	if [[ ${PV} == 9999* ]] ; then
-		git_src_unpack
+		git-2_src_unpack
 	else
 		unpack ${MY_P}.tar.bz2
 	fi
