@@ -28,7 +28,7 @@
 =dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
-=dev-libs/libusb-1.0.8 -debug -doc
+=dev-libs/libusb-1.0.8 -debug -doc -static-libs
 =dev-libs/libxml2-2.7.8-r1 ipv6 python readline -debug -doc -examples -icu -test
 =dev-libs/lzo-2.04 -examples -static-libs
 =dev-libs/openssl-1.0.0e sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
@@ -56,9 +56,9 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-install-2.2.24-r3 -minimal
-=sys-apps/calculate-lib-2.2.24-r1 -minimal
-=sys-apps/calculate-utilities-2.2.24-r4 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-install-2.2.24-r4 -minimal
+=sys-apps/calculate-lib-2.2.24-r2 -minimal
+=sys-apps/calculate-utilities-2.2.24-r6 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
