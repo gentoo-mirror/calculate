@@ -1,0 +1,360 @@
+diff --git data/bashlogin data/bashlogin
+index ea9493a..4152a1c 100644
+--- data/bashlogin
++++ data/bashlogin
+@@ -1,7 +1,26 @@
+ #!/bin/bash
++# Copyright 2011 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
+ 
+ export HOME=/root
+ cat /etc/motd 2>/dev/null
+-cd /root
+-[[ -e .bash_profile ]] && source .bash_profile
+-exec -l /bin/bash -i
++cd $HOME
++if [[ -f .bashrc ]]
++then 
++    source .bashrc
++elif [[ -f .bash_profile ]]
++then
++    source .bash_profile
++fi
++exec -l -a bash /bin/bash
+diff --git data/calculate data/calculate
+index f213a07..4f350a8 100644
+--- data/calculate
++++ data/calculate
+@@ -1,4 +1,17 @@
+ #!/sbin/runscript
++# Copyright 2011 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
+ 
+ depend() {
+ 	need localmount root fsck modules
+@@ -112,7 +125,12 @@ stop() {
+ 	if [[ $roottype == "hdd" ]] && rc-config list boot | grep -q calculate
+ 	then
+ 		rc-update del calculate boot
++		# remove needless files (videodrivers dist archives, user caches)
+ 		local distdir="/usr/portage/distfiles"
+-		[[ -d "${distdir}" ]] && [[ -n "`ls ${distdir}`" ]] && rm ${distdir}/*
++		local cachedir="/var/cache/calculate"
++		for removedir in $distdir $cachedir
++		do
++			[[ -d "${removedir}" ]] && [[ -n "`ls ${removedir}`" ]] && rm ${removedir}/*
++		done
+ 	fi
+ }
+diff --git data/handbook-en.html data/handbook-en.html
+index 971fb57..baf868f 100644
+--- data/handbook-en.html
++++ data/handbook-en.html
+@@ -23,10 +23,10 @@ pre {font-size:133% }
+ 	<h2 id="Thank-you-for-using-Calculate-Linux">Thank you for using Calculate Linux!<a href="#Thank-you-for-using-Calculate-Linux" class="wiki-anchor">&para;</a></h2>
+ 
+ 
+-	<p>We have tried to do for you the most convenient system for work, using the original installer, redesigned user interface, templates, Calculate utilities and Gentoo Portages. The system distributed as installation image, which contains best software. Most of software have an free license, which allows you to install, distribute and modify the source code.</p>
++	<p>We do our best to offer you a most convenient system for work, using the original installer, redesigned user interface, templates, Calculate utilities and Gentoo Portages. The system is distributed as an installation image, which contains chosen software. Most of the software we have included come under the free license, thus allowing you to install, distribute and modify the source code.</p>
+ 
+ 
+-	<p>In the description you may see the following abbreviations for distributions:</p>
++	<p>Below is the complete list of our distributions with their abbreviations:</p>
+ 
+ 
+ 	<ul>
+@@ -40,16 +40,16 @@ pre {font-size:133% }
+ 	</ul>
+ 
+ 
+-	<p>To obtain administrator rights in system running from livecd use login root with password <strong>root</strong>. Access to the desktop CLD, CLDG and CLDX obtains by the user guest with password <strong>guest</strong>.</p>
++	<p>To obtain administrator rights in the system running from livecd use login root with password <strong>root</strong>. Access to the desktop CLD, CLDG and CLDX can be obtained by the user guest with password <strong>guest</strong>.</p>
+ 
+ 
+ 	<h2 id="Network-configuration">Network configuration<a href="#Network-configuration" class="wiki-anchor">&para;</a></h2>
+ 
+ 
+-	<p>In CLD, CLDG and CLDX Network Setup performs Networkmanager. The program has a graphical interface with which you can customize both wired and wireless networks. When you load the program, it tries to bring up a network interface and obtain an IP address from a DHCP server. Start the program using the icon in the upper right corner of the screen.</p>
++	<p>Network Setup in CLD, CLDG and CLDX is performed with the Networkmanager. The program has a graphical interface with which you can configure both wired and wireless networks. When you load the program, it tries to bring up a network interface and obtain an IP address from a DHCP server. Start the program using the icon in the upper right corner of the screen.</p>
+ 
+ 
+-	<p>Network Configuration of CLS, CDS and CSS is performed through a configuration file <em>/etc/conf.d/net</em>, help on setting up a network can be found in the file <em>/usr/share/doc/openrc/net.example</em>. After changing the settings, restart the network interface:</p>
++	<p>Network Configuration of CLS, CDS and CSS is performed through a configuration file <em>/etc/conf.d/net</em>, help on setting up a network can be found in <em>/usr/share/doc/openrc/net.example</em>. After changing the settings, restart the network interface:</p>
+ 
+ 
+ <pre>
+@@ -59,10 +59,10 @@ pre {font-size:133% }
+ 	<h2 id="Partition-management">Partition management<a href="#Partition-management" class="wiki-anchor">&para;</a></h2>
+ 
+ 
+-	<p>Before installing, you may need to change the partitions on your hard disk. To set the CLD, CLDG and CLDX we recommend that you use the partition at least 10 GB. More detailed hardware requirements can be found <a href="http://www.calculate-linux.org/main/en/hardware_requirements" class="external">here</a>. The swap partition (swap) usually released in two large size of RAM. If the swap partition already exists, the system will use it. It is useful to have a separate partition for personal files (/home). Our recommendations on partitioning described <a href="http://www.calculate-linux.org/main/en/disk_partitioning" class="external">here</a>.</p>
++	<p>Before installing, you may need to change the partitions on your hard disk. To set the CLD, CLDG and CLDX, we recommend that you use the partition of at least 10 GB. More detailed hardware requirements can be found <a href="http://www.calculate-linux.org/main/en/hardware_requirements" class="external">here</a>. The swap partition (swap) will normally be twice the size of RAM. If the swap partition already exists, the system will use it. It is wise to have a separate partition for personal files (/home). See more detailed recommendations on partitioning <a href="http://www.calculate-linux.org/main/en/disk_partitioning" class="external">here</a>.</p>
+ 
+ 
+-	<p>In the CLD to change the disk partition included the program <em>Partitionmanager</em>, for CLDG and CLDX - <em>Gparted</em>. You can also perform disk partitioning in the graphical installer, that uses utilities <em>cfdisk</em>. CLS and CDS contains only the command line utilities: <em>fdisk</em> or <em>cfdisk</em>.</p>
++	<p>The CLD distro uses <em>Partitionmanager</em> to change the disk partitioning, while CLDG and CLDX use <em>Gparted</em>. You can also partition the disk in the graphical installer, using <em>cfdisk</em> utilities. Note that CLS and CDS contain only the command line utilities: <em>fdisk</em> or <em>cfdisk</em>.</p>
+ 
+ 
+ 	<p>To view a list of existing partitions, open a console as user <em>root</em> and type:<br /><pre>
+@@ -70,16 +70,16 @@ fdisk -l
+ </pre></p>
+ 
+ 
+-	<p>Note: To obtain <em>root</em> permissions in the console, use su or sudo.</p>
++	<p>Note: To obtain <em>root</em> permissions in console, use su or sudo.</p>
+ 
+ 
+-	<p>If you never used Linux, you will need a bit of time trying to get used to the other headings.<br />In Linux, partitions are referred to as <em>sda1, sda2, ...</em> instead of the usual C:\, D:\, ...</p>
++	<p>If you are new to Linux, you will need a bit of time getting used to the headings differences.<br />In Linux, partitions are referred to as <em>sda1, sda2, ...</em> instead of the usual C:\, D:\, ...</p>
+ 
+ 
+-	<p>You can also use already prepared partition or create it from <em>Windows</em>. To determine the selected partition in Linux, remember the sequence of its location and size. Usualy, drive, C:\ corresponds sda1, disk D:\ - sda2.</p>
++	<p>You can also use the existing partition or create it from <em>Windows</em>. To determine the selected partition in Linux, remember the sequence of its location and size. Usually, drive C:\ corresponds to sda1, disk D:\, to sda2.</p>
+ 
+ 
+-	<h2 id="Installation">Installation<a href="#Installation" class="wiki-anchor">&para;</a></h2>
++	<p><h2 id="Installation">Installation<a href="#Installation" class="wiki-anchor">&para;</a></h2>
+ 
+ 
+ 	<p>Installing Calculate Linux 10.9 or higher performs by program <code>cl-install</code>. CLD, CLDG, CLDX and CLS distros have a graphical front-end <code>cl-install-gui</code>. The program can be run by clicking on the icon "Calculate Linux Install" on the desktop.</p>
+@@ -98,21 +98,21 @@ List of most commonly used parameters:
+ 	</ul>
+ 
+ 
+-	<p>During installation, the program will extract <em>stage4</em> - the image of the system - and performs the initial configuration using templates.</p>
++	<p>During installation, the program will extract <em>stage4</em> - the image of the system - and performs the initial configuration using templates.</p></p>
+ 
+ 
+ 	<h2 id="Installing-on-USB-Flash">Installing on USB-Flash<a href="#Installing-on-USB-Flash" class="wiki-anchor">&para;</a></h2>
+ 
+ 
+-	<p><em>Before you begin, make a backup of your data on a flash drive.</em></p>
++	<p><em>Before you begin, we highly recommend that you make a backup of your data on a flash drive.</em></p>
+ 
+ 
+-	<p>To install the system on the USB-Flash uses a command line utility <code>cl-install</code>. Plug the flash drive to your computer. To determine the device name of your stick, run following command in console with the rights <em>root</em>:<br /><pre>
++	<p>To install the system on the USB-Flash uses a command line utility <code>cl-install</code>. Plug the flash drive to your computer. If you don't know the device name of your stick, run the following in console with the rights <em>root</em>:<br /><pre>
+ fdisk -l
+ </pre></p>
+ 
+ 
+-	<p>If your flash drive was defined as device /dev/sdb, to make installation of the system to it, type in console:<br /><pre>
++	<p>If your flash drive was defined as device /dev/sdb, type in console to install the system on it:<br /><pre>
+ cl-install -d /dev/sdb1
+ </pre></p>
+ 
+@@ -120,24 +120,24 @@ cl-install -d /dev/sdb1
+ 	<h2 id="The-first-launch">The first launch<a href="#The-first-launch" class="wiki-anchor">&para;</a></h2>
+ 
+ 
+-	<p>After installing the CLD, CLDX and CLSG in the system are two users: <em>root</em> and <em>guest</em> (if you do not specify other users). Access to the graphical session can get the user <em>guest</em>. Use the username <em>guest</em> with password <strong>guest</strong> to login.</p>
++	<p>After installing the CLD, CLDX and CLSG you get two users: <em>root</em> and <em>guest</em> (if you have not specified other user accounts). The user <em>guest</em> can get access to the graphical environment: use the username <em>guest</em> with password <strong>guest</strong> to login.</p>
+ 
+ 
+-	<p>In CLS by default have no graphical invitation to enter the password. After installation you can login as root and launch window manager with command:<br /><pre>
++	<p>CLS has by default no graphical invitation to enter the password. After installation you can login as root and launch window manager typing:<br /><pre>
+ startx
+ </pre></p>
+ 
+ 
+-	<p>For <em>root</em> user, use the command "su". Create users described in detail <a href="http://www.calculate-linux.org/main/en/create_system_users" class="external">here</a>.</p>
++	<p>To become the <em>root</em> user, use the command "su". More details on creating user accounts can be found <a href="http://www.calculate-linux.org/main/en/create_system_users" class="external">here</a>.</p>
+ 
+ 
+-	<p>By default, you can log into the system remotely using ssh only by root. You can add a space to other users or to replace the root user edit the options AllowUsers file <em>/etc/ssh/sshd_config</em>. We recommend to remove the right to remotely access the system for the user <em>root</em>.</p>
++	<p>By default, you can log into the system remotely using ssh only by root. To add a space for other users or to replace the root user edit the options AllowUsers in <em>/etc/ssh/sshd_config</em>. We recommend to deny the remote access for the <em>root</em> user.</p>
+ 
+ 
+ 	<h2 id="Update">Update<a href="#Update" class="wiki-anchor">&para;</a></h2>
+ 
+ 
+-	<p>Calculate Linux uses a rolling-release model updates. You can update the system virtually unlimited number of times, using manager software installation "emerge". To update the packages in the distribution, execute:<br /><pre>
++	<p>Calculate Linux is a rolling-release distribution. You can update the system virtually unlimited number of times, using the "emerge" software manager. To update all of the installed packages, execute:<br /><pre>
+ layman -s calculate
+ eix-update
+ emerge -uD world
+@@ -149,13 +149,13 @@ eix-sync
+ </pre></p>
+ 
+ 
+-	<p>After that, you can upgrade existing or install new versions of programs, using the program "emerge". Quick reference shows the <a href="http://www.calculate-linux.org/main/en/add_and_remove_programs" class="external">here</a>. Read also the <a href="http://www.calculate-linux.org/main/en/system_update_guide" class="external">System Update Guide</a>.</p>
++	<p>After that, you can upgrade existing or install new versions of programs with "emerge". A quick reference can be found <a href="http://www.calculate-linux.org/main/en/add_and_remove_programs" class="external">here</a>. Read also the <a href="http://www.calculate-linux.org/main/en/system_update_guide" class="external">System Update Guide</a>.</p>
+ 
+ 
+ 	<h2 id="Help">Help<a href="#Help" class="wiki-anchor">&para;</a></h2>
+ 
+ 
+-	<p>If your installation has any difficulties, or you want to share your impressions, visit the IRC channel <em>#calculate</em> (server FreeNode) user community Calculate Linux. It's enough to use Xchat icon on your desktop.</p>
++	<p>If you have any difficulties installing Calculate Linux, or if you want to share your impressions, visit the IRC channel <em>#calculate</em> (server FreeNode) of our user community. You just have to click on the Xchat icon on your desktop.</p>
+ 
+ 
+ 	<p>Website: <a class="external" href="http://www.calculate-linux.org">http://www.calculate-linux.org</a><br />Newsletter: <a class="external" href="http://www.calculate-linux.org/main/en/maillist">http://www.calculate-linux.org/main/en/maillist</a><br />IRC chat: <a class="external" href="http://www.calculate-linux.org/irc">http://www.calculate-linux.org/irc</a></p>
+diff --git data/xautologin data/xautologin
+index c33a1bf..8604572 100644
+--- data/xautologin
++++ data/xautologin
+@@ -1,5 +1,5 @@
+ #!/bin/bash
+-# Copyright 2010 Calculate Ltd. http://www.calculate-linux.org
++# Copyright 2011 Calculate Ltd. http://www.calculate-linux.org
+ #
+ #  Licensed under the Apache License, Version 2.0 (the "License");
+ #  you may not use this file except in compliance with the License.
+diff --git man/cl-install.1 man/cl-install.1
+index 8e64242..f2ddcee 100644
+--- man/cl-install.1
++++ man/cl-install.1
+@@ -52,7 +52,7 @@ Lets you choose your distribution. Valid values are "CDS",  "CLD",  "CLDG", "CLD
+ .PP
+ \fB\-\-march\fR \fIarchitecture\fR
+ .RS 4
+-Lets you choose your CPU's architecture. Valid values are "i686" and "x86_64". If specified, the required distro will be searched for in '/var/calculate/linux' and '/var/calculate/remote/linux'.
++Lets you choose your CPU's architecture. Valid values are "i686", "x86_64" and "auto". If specified, the required distro will be searched for in '/var/calculate/linux' and '/var/calculate/remote/linux'.
+ .RE
+ .PP
+ \fB\-\-build\fR
+diff --git man/ru/cl-install.1 man/ru/cl-install.1
+index 94c5cdd..6aeb790 100644
+--- man/ru/cl-install.1
++++ man/ru/cl-install.1
+@@ -52,7 +52,7 @@ DISK - раздел для установки или директория, в с
+ .PP
+ \fB\-\-march\fR \fIархитектура\fR
+ .RS 4
+-Выбор архитектуры процессора, допустимые значения "i686", "x86_64". В случае использования параметра будет выполнен поиск необходимого дистрибутива из исходных директорий.
++Выбор архитектуры процессора, допустимые значения "i686", "x86_64", "auto". В случае использования параметра будет выполнен поиск необходимого дистрибутива из исходных директорий.
+ .RE
+ .PP
+ \fB\-\-build\fR
+diff --git pym/cl_fill_install.py pym/cl_fill_install.py
+index f7e861c..27b0881 100644
+--- pym/cl_fill_install.py
++++ pym/cl_fill_install.py
+@@ -29,7 +29,7 @@ from cl_utils import isMount,typeFile,getTupleVersion,pathJoin,isFstabMount,\
+                      FStab, lspci, getInstalledVideo,getDeviceType, \
+                      getPartitionType, getOsProberHash, getProgPath, \
+                      getRaidPartitions, getLvmPartitions, getLvmGroups, \
+-                     refreshLVM, refreshUdev, getPasswdUsers
++                     getPasswdUsers
+ from cl_distr import DistributiveRepository,PartitionDistributive
+ from cl_fill import clLocale
+ from operator import itemgetter
+@@ -325,11 +325,6 @@ class fillVars(object, glob_attr):
+             else:
+                 return devpath
+ 
+-        # refresh information about LVM
+-        refreshLVM()
+-        # refresh information about device in udevadm info
+-        refreshUdev()
+-
+         devicesHash = self.Get('os_device_hash')
+         sysBlockPath = '/sys/block'
+         # get disks from sys block which not contains partitions
+@@ -838,6 +833,8 @@ class fillVars(object, glob_attr):
+ 
+     def get_os_install_linux_ver(self):
+         """Linux version of installation os"""
++        if self.Get('cl_action') != "system":
++            return self.Get('os_linux_ver')
+         imagename = self.getImage(self.Get('os_install_scratch'),
+                                   self.Get('os_install_root_type'),
+                                   self.Get('cl_image_path'),
+diff --git pym/cl_install.py pym/cl_install.py
+index 1d68c9b..c723dc5 100644
+--- pym/cl_install.py
++++ pym/cl_install.py
+@@ -27,7 +27,8 @@ from cl_utils import runOsCommand,appendProgramToEnvFile, \
+                         scanDirectory,process,getTupleVersion, \
+                         detectDeviceForPartition,listDirectory, \
+                         cmpVersion,STDOUT,getUdevDeviceInfo, \
+-                        getLvmPartitions,getInstalledVideo
++                        getLvmPartitions,getInstalledVideo, \
++                        getSupportArch, refreshLVM, refreshUdev
+ from cl_vars_share import varsShare
+ 
+ from cl_kernel_utils import KernelConfig,InitRamFs
+@@ -800,6 +801,11 @@ class cl_install(color_print, SignalInterrupt):
+         Spinner().setWriteFunc(self.defaultPrint)
+         cl_overriding.exit = installExit
+         cl_overriding.printERROR = overprintERROR
++        # refresh information about LVM
++        refreshLVM()
++        # refresh information about device in udevadm info
++        refreshUdev()
++
+ 
+     def setNoColor(self):
+         self.color = False
+@@ -2403,10 +2409,12 @@ class cl_install(color_print, SignalInterrupt):
+     def checkCorrectBootRecordDisk(self):
+         """Check boot record disk"""
+         mbr = self.clVars.Get('os_install_mbr')
++        if mbr == "off" or mbr == "":
++            return True
+         tableOnBootDisk = self.varSelect('os_device_table',
+                 where="os_device_dev",eq=mbr)
+         if not tableOnBootDisk:
+-            self.printERROR(_("Disk '%s' without partition table cann't "
++            self.printERROR(_("Disk '%s' without partition table can't "
+               "contains boot record")%mbr)
+             return False
+         return True
+@@ -2693,3 +2701,9 @@ the system") + " (yes/no)"
+         else:
+             self.clVars.Set('os_install_clock_timezone',timezone,force=True)
+             return True
++
++    def setArchitecture(self,march):
++        """Set architecture by march (support auto keyword)"""
++        if march == "auto":
++            march = getSupportArch()[-1]
++        self.clVars.Set('os_install_arch_machine', march, True)
+diff --git pym/cl_install_cmd.py pym/cl_install_cmd.py
+index 570ecbe..6f5e7ec 100644
+--- pym/cl_install_cmd.py
++++ pym/cl_install_cmd.py
+@@ -70,8 +70,9 @@ CMD_OPTIONS = [{'shortOption':"d",
+                {'longOption':"march",
+                 'optVal':"ARCH",
+                 'type':'choice',
+-                'choices':['i686','x86_64'],
+-                'help':_("select processor architecture")
++                'choices':['i686','x86_64','auto'],
++                'help':_("select processor architecture")+ \
++                         " (i686,x86_64 or auto)"
+                },
+                {'longOption':"build",
+                 'help':_("installation for assembling")
+@@ -446,8 +447,7 @@ class install_cmd(share_cmd):
+         if self.optobj.values.s:
+             self.logicObj.setLinuxName(self.optobj.values.s.upper())
+         if self.optobj.values.march:
+-            self.logicObj.clVars.Set('os_install_arch_machine',
+-                                      self.optobj.values.march,True)
++            self.logicObj.setArchitecture(self.optobj.values.march)
+         if self.optobj.values.nouuid:
+             self.logicObj.clVars.Set('cl_uuid_set','off',True)
+         if self.optobj.values.build:

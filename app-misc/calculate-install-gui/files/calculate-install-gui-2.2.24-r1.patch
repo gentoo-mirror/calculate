@@ -1,0 +1,17 @@
+diff --git src/mountpointdialog.cpp src/mountpointdialog.cpp
+index 49c2867..e736d82 100644
+--- src/mountpointdialog.cpp
++++ src/mountpointdialog.cpp
+@@ -101,10 +101,12 @@ void MountPointDialog::setupUi()
+ 
+ 	m_labFS = new QLabel( tr("File system: ") );
+ 	m_cmbboxFS = new QComboBox;
++	m_cmbboxFS->addItem( "btrfs" );
+ 	m_cmbboxFS->addItem( "ext2" );
+ 	m_cmbboxFS->addItem( "ext3" );
+ 	m_cmbboxFS->addItem( "ext4" );
+ 	m_cmbboxFS->addItem( "jfs" );
++	m_cmbboxFS->addItem( "nilfs2" );
+ 	m_cmbboxFS->addItem( "reiserfs" );
+ 	m_cmbboxFS->addItem( "xfs" );
+ 	m_cmbboxFS->addItem( "swap" );

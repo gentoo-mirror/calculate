@@ -1,0 +1,76 @@
+diff --git ru/cl_builder_ru.po ru/cl_builder_ru.po
+index 729d7d3..6c9623a 100644
+--- ru/cl_builder_ru.po
++++ ru/cl_builder_ru.po
+@@ -441,3 +441,6 @@ msgstr "Выполнение '%s'"
+ 
+ msgid "use only live templates on startup"
+ msgstr "при первой загрузке использовать только live шаблоны"
++
++msgid "Create cache for %s home directory"
++msgstr "Создание кэша для домашней директории пользователя %s"
+diff --git ru/cl_desktop_ru.po ru/cl_desktop_ru.po
+index bb46f45..2f1ecc4 100644
+--- ru/cl_desktop_ru.po
++++ ru/cl_desktop_ru.po
+@@ -112,3 +112,39 @@ msgstr "показать применнные шаблоны"
+ 
+ msgid "Following files were changed"
+ msgstr "Следующие файлы были изменены"
++
++msgid "create cache of user home directory"
++msgstr "создать кэш пользовательсокй домашней директории"
++
++msgid "Can not create cache for user %s"
++msgstr "Не удалось создать кэш для пользователя %s"
++
++msgid "because home directory exists"
++msgstr "так как домашняя директория уже существует"
++
++msgid "Can not create cache"
++msgstr "Не удалось создать кэш"
++
++msgid "Cache for user %s home directory is created"
++msgstr "Кэш для домашней директории пользователя %s создан"
++
++msgid "Can not create user home directory from cache"
++msgstr "Не удалось создать домашнюю директорию из кэша"
++
++msgid "Created home dir %s from cache"
++msgstr "Домашняя директория %s создана из кэша"
++
++msgid "Can not remove user home directory %s"
++msgstr "Не удалось удалить пользовательскую домашнюю директорию %s"
++
++msgid "Can not remove cache file %s"
++msgstr "Не удалось удалить файл кэша %s"
++
++msgid "Can not create %s directory"
++msgstr "Не удалось создать %s директорию"
++
++msgid "Write permission denied for %s directory"
++msgstr "Нет прав на запись в директорию %s"
++
++msgid "Can not create %s cache archive"
++msgstr "Не удалось создать архив %s для кэша"
+diff --git ru/cl_install_ru.po ru/cl_install_ru.po
+index ef5104a..b5440b1 100644
+--- ru/cl_install_ru.po
++++ ru/cl_install_ru.po
+@@ -854,9 +854,6 @@ msgstr ""
+ "Legacy grub не поддерживает загрузки с raid или lvm без выделенного /boot "
+ "раздела"
+ 
+-msgid "Disk '%s' without partition table cann't contains boot record"
+-msgstr "Диск '%s' без таблицы разделов не может содержать загрузчик"
+-
+ msgid "For creating bind mount point need specify source directory as DISK"
+ msgstr ""
+ "Для создания bind точки монтирования необходимо указать исходную директорию "
+@@ -1033,3 +1030,6 @@ msgstr "Пользователь с автовходом не может быт
+ 
+ msgid "User %s is not exists"
+ msgstr "Пользователь %s не существует"
++
++msgid "Disk '%s' without partition table can't contains boot record"
++msgstr "Диск '%s' без таблицы разделов не может содержать загрузчик"
