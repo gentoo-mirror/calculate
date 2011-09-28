@@ -33,5 +33,6 @@ RDEPEND="${RDEPEND}
 	net-p2p/rtorrent
 	net-misc/dhcp
 	sys-power/upower
+	x11-libs/xvba-video
 "
 
