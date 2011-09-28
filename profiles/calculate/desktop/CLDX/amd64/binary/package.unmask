@@ -70,8 +70,8 @@
 =app-dicts/myspell-uk-20060316
 =app-editors/leafpad-0.8.18.1
 =app-editors/nano-2.2.5
-=app-editors/vim-7.3.189
-=app-editors/vim-core-7.3.189
+=app-editors/vim-7.3.266
+=app-editors/vim-core-7.3.266
 =app-emulation/emul-linux-x86-baselibs-20110722
 =app-emulation/emul-linux-x86-bjdeps-0.1-r2
 =app-emulation/emul-linux-x86-compat-20110722
@@ -161,7 +161,7 @@
 =dev-db/sqlite-3.7.7.1
 =dev-lang/nasm-2.09.08
 =dev-lang/orc-0.4.11
-=dev-lang/perl-5.12.3-r1
+=dev-lang/perl-5.12.4-r1
 =dev-lang/python-2.7.1-r1
 =dev-lang/python-3.1.3-r1
 =dev-lang/swig-2.0.2
@@ -181,6 +181,7 @@
 =dev-libs/gobject-introspection-0.10.8
 =dev-libs/icu-4.8
 =dev-libs/iniparser-3.0b-r1
+=dev-libs/json-glib-0.12.4
 =dev-libs/klibc-1.5.20
 =dev-libs/libIDL-0.8.14
 =dev-libs/libaio-0.3.109-r2
@@ -197,7 +198,7 @@
 =dev-libs/libgpg-error-1.10
 =dev-libs/libisofs-1.0.0
 =dev-libs/libksba-1.2.0
-=dev-libs/liblinebreak-2.0
+=dev-libs/liblinebreak-2.1
 =dev-libs/libmcs-0.7.1-r2
 =dev-libs/libmowgli-0.9.50
 =dev-libs/libnatspec-0.2.6
@@ -237,16 +238,16 @@
 =dev-perl/HTML-Tagset-3.200.0
 =dev-perl/HTML-Tree-3.23
 =dev-perl/IO-Socket-SSL-1.35
-=dev-perl/Locale-gettext-1.05-r1
+=dev-perl/Locale-gettext-1.50.0
 =dev-perl/Net-SMTP-SSL-1.10.0
 =dev-perl/Net-SSLeay-1.360.0
 =dev-perl/TermReadKey-2.300.0
 =dev-perl/URI-1.55
 =dev-perl/XML-LibXML-1.70
-=dev-perl/XML-NamespaceSupport-1.11
+=dev-perl/XML-NamespaceSupport-1.110.0
 =dev-perl/XML-Parser-2.36-r1
 =dev-perl/XML-SAX-0.16
-=dev-perl/XML-Simple-2.18
+=dev-perl/XML-Simple-2.180.0
 =dev-perl/YAML-Tiny-1.41
 =dev-perl/extutils-depends-0.302
 =dev-perl/extutils-pkgconfig-1.07
@@ -331,7 +332,7 @@
 =media-gfx/gqview-2.1.5
 =media-gfx/gtkam-0.1.16.1
 =media-gfx/gtkimageview-1.6.4
-=media-gfx/imagemagick-6.6.5.6
+=media-gfx/imagemagick-6.7.1.0
 =media-gfx/sane-backends-1.0.22-r1
 =media-gfx/scrot-0.8
 =media-gfx/splashutils-1.5.4.3-r3
@@ -485,7 +486,7 @@
 =net-misc/whois-5.0.8
 =net-nds/openldap-2.4.24
 =net-nds/rpcbind-0.2.0
-=net-news/liferea-1.7.4
+=net-news/liferea-1.7.6-r1
 =net-p2p/deluge-1.3.3
 =net-p2p/linuxdcpp-1.0.3
 =net-print/cndrvcups-capt-2.00-r2
@@ -668,7 +669,7 @@
 =sys-libs/libstdc++-v3-3.3.6
 =sys-libs/ncurses-5.7-r7
 =sys-libs/pam-1.1.3
-=sys-libs/readline-6.1_p2
+=sys-libs/readline-6.2_p1
 =sys-libs/talloc-2.0.1-r1
 =sys-libs/tdb-1.2.7-r1
 =sys-libs/timezone-data-2011h
@@ -796,7 +797,7 @@
 =x11-drivers/xf86-video-neomagic-1.2.5
 =x11-drivers/xf86-video-nouveau-0.0.16_pre20110801
 =x11-drivers/xf86-video-nv-2.1.18
-=x11-drivers/xf86-video-openchrome-0.2.904_p930
+=x11-drivers/xf86-video-openchrome-0.2.904_p952
 =x11-drivers/xf86-video-r128-6.8.1
 =x11-drivers/xf86-video-savage-2.3.2
 =x11-drivers/xf86-video-sis-0.10.3
