@@ -44,7 +44,7 @@
 =app-misc/mc-4.7.5.2 X edit gpm ncurses nls samba -slang
 =app-misc/pax-utils-0.2.2 -caps
 =app-misc/realpath-1.15-r1 nls
-=app-misc/strigi-0.7.1 clucene dbus exif qt4 -debug -fam -hyperestraier -inotify -log -test
+=app-misc/strigi-0.7.6 dbus exif ffmpeg qt4 -clucene -debug -fam -hyperestraier -inotify -log -test
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
 =app-mobilephone/obexd-0.42 usb -debug -eds -nokia -server
 =app-office/akonadi-server-1.6.0-r1 mysql sqlite -postgres -test
@@ -67,7 +67,6 @@
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/wgetpaste-2.18-r1 -zsh-completion
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
-=dev-cpp/clucene-0.9.21b-r1 -debug -doc -static-libs -threads
 =dev-cpp/eigen-2.0.13 -debug -doc -examples
 =dev-db/libiodbc-3.52.7 gtk
 =dev-db/mysql-5.1.56 community embedded perl ssl -big-tables -cluster -debug -extraengine -latin1 -max-idx-128 -minimal -pbxt -profiling -selinux -static -test -xtradb
@@ -76,7 +75,7 @@
 =dev-db/virtuoso-server-6.1.2 ldap readline -kerberos
 =dev-lang/nasm-2.09.08 -doc
 =dev-lang/orc-0.4.11 -examples -static-libs
-=dev-lang/perl-5.12.3-r1 berkdb gdbm -build -debug -doc -ithreads
+=dev-lang/perl-5.12.4-r1 berkdb gdbm -build -debug -doc -ithreads
 =dev-lang/python-2.7.1-r1 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -berkdb -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
 =dev-lang/python-3.1.3-r1 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
 =dev-lang/swig-2.0.2 pcre -ccache -doc
@@ -113,7 +112,7 @@
 =dev-libs/libgcrypt-1.4.6 static-libs
 =dev-libs/libgpg-error-1.10 nls -common-lisp -static-libs
 =dev-libs/libksba-1.2.0 -static-libs
-=dev-libs/liblinebreak-2.0 -static-libs
+=dev-libs/liblinebreak-2.1 -static-libs
 =dev-libs/libnatspec-0.2.6 python -doc
 =dev-libs/libnl-1.1-r2 -doc
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
@@ -192,6 +191,7 @@
 =kde-base/freespacenotifier-4.7.1 -aqua -debug -kdeenablefinal
 =kde-base/gwenview-4.7.1 handbook kipi semantic-desktop -aqua -debug -kdeenablefinal
 =kde-base/kabcclient-4.7.1 handbook -aqua -debug -kdeenablefinal
+=kde-base/kactivities-4.7.1 -aqua -kdeenablefinal
 =kde-base/kaddressbook-4.7.1 handbook kontact -aqua -debug -kdeenablefinal
 =kde-base/kalarm-4.7.1 handbook -aqua -debug -kdeenablefinal
 =kde-base/kamera-4.7.1 handbook -aqua -debug -kdeenablefinal
@@ -225,7 +225,7 @@
 =kde-base/kdebase-startkde-4.7.1 wallpapers -aqua -kdeenablefinal
 =kde-base/kdebugdialog-4.7.1 handbook -aqua -debug -kdeenablefinal
 =kde-base/kdegraphics-strigi-analyzer-4.7.1 -aqua -debug -kdeenablefinal
-=kde-base/kdelibs-4.7.1-r1 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev udisks upower -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kerberos -lzma -test -upnp -zeroconf
+=kde-base/kdelibs-4.7.1-r2 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev udisks upower -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kerberos -lzma -test -upnp -zeroconf
 =kde-base/kdemultimedia-kioslaves-4.7.1 encode flac handbook vorbis -aqua -debug -kdeenablefinal
 =kde-base/kdenetwork-filesharing-4.7.1 -aqua -debug -kdeenablefinal
 =kde-base/kdepasswd-4.7.1 handbook -aqua -debug -kdeenablefinal
@@ -233,7 +233,7 @@
 =kde-base/kdepim-icons-4.7.1 -aqua -kdeenablefinal
 =kde-base/kdepim-kresources-4.7.1 -aqua -debug -kdeenablefinal
 =kde-base/kdepim-l10n-4.4.11.1-r1 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -kdeenablefinal -kdeprefix -linguas_ar -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_csb -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_fy -linguas_ga -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_pa -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_tg -linguas_tr -linguas_wa -linguas_zh_CN -linguas_zh_TW
-=kde-base/kdepim-runtime-4.7.1 -aqua -debug -kdeenablefinal
+=kde-base/kdepim-runtime-4.7.1-r1 -aqua -debug -kdeenablefinal
 =kde-base/kdepim-strigi-analyzer-4.7.1 -aqua -debug -kdeenablefinal
 =kde-base/kdepimlibs-4.7.1 handbook ldap semantic-desktop -aqua -debug -kdeenablefinal -test
 =kde-base/kdeplasma-addons-4.7.1 exif semantic-desktop -aqua -attica -debug -desktopglobe -kdeenablefinal -qalculate -qwt -scim
@@ -326,7 +326,7 @@
 =kde-base/phonon-kde-4.7.1 alsa xine -aqua -debug -kdeenablefinal -pulseaudio
 =kde-base/plasma-apps-4.7.1 -aqua -debug -kdeenablefinal
 =kde-base/plasma-runtime-4.7.1 -aqua -debug -kdeenablefinal
-=kde-base/plasma-workspace-4.7.1 handbook python rss semantic-desktop xinerama -aqua -debug -google-gadgets -gps -kdeenablefinal -qalculate
+=kde-base/plasma-workspace-4.7.1-r1 handbook python rss semantic-desktop xinerama -aqua -debug -google-gadgets -gps -kdeenablefinal -qalculate
 =kde-base/powerdevil-4.7.1 pm-utils -aqua -debug -kdeenablefinal
 =kde-base/printer-applet-4.7.1 handbook -aqua -kdeenablefinal
 =kde-base/pykde4-4.7.1 semantic-desktop -aqua -debug -doc -examples -kdeenablefinal
@@ -681,7 +681,7 @@
 =x11-drivers/xf86-video-intel-2.16.0 dri -sna
 =x11-drivers/xf86-video-mach64-6.9.0 dri
 =x11-drivers/xf86-video-mga-1.4.13 dri
-=x11-drivers/xf86-video-openchrome-0.2.904_p930 dri -debug
+=x11-drivers/xf86-video-openchrome-0.2.904_p952 dri -debug
 =x11-drivers/xf86-video-r128-6.8.1 dri -debug
 =x11-drivers/xf86-video-savage-2.3.2 dri
 =x11-drivers/xf86-video-sis-0.10.3 dri
