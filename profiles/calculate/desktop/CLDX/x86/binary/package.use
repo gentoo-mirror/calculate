@@ -118,7 +118,7 @@
 =dev-libs/libtasn1-2.9-r1 -doc
 =dev-libs/libunique-1.1.6 dbus -debug -doc -introspection -test
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
-=dev-libs/libusb-1.0.8 -debug -doc
+=dev-libs/libusb-1.0.8 -debug -doc -static-libs
 =dev-libs/libxml2-2.7.8-r1 icu ipv6 python readline -debug -doc -examples -test
 =dev-libs/libxslt-1.1.26-r1 crypt python -debug
 =dev-libs/lzo-2.04 -examples -static-libs
@@ -359,10 +359,10 @@
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
 =sys-apps/calculate-client-2.2.24-r1 xfce -gnome -kde
-=sys-apps/calculate-desktop-2.2.24 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.24-r3 -minimal
-=sys-apps/calculate-lib-2.2.24-r1 -minimal
-=sys-apps/calculate-utilities-2.2.24-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-desktop-2.2.24-r1 xfce -gnome -kde
+=sys-apps/calculate-install-2.2.24-r4 -minimal
+=sys-apps/calculate-lib-2.2.24-r2 -minimal
+=sys-apps/calculate-utilities-2.2.24-r6 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
