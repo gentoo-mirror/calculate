@@ -2,6 +2,13 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calculate-desktop-2.2.24-r2 (29 Sep 2011)
+
+  29 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-desktop-2.2.24-r2.ebuild,
+  +files/calculate-desktop-2.2.24-r2.patch:
+  Undo cache. Remove --live
+
 *calculate-desktop-2.2.24-r1 (28 Sep 2011)
 
   28 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>

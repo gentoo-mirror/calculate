@@ -1,0 +1,171 @@
+diff --git data/login.d/20desktop data/login.d/20desktop
+index 43a0138..c55f333 100644
+--- data/login.d/20desktop
++++ data/login.d/20desktop
+@@ -27,24 +27,16 @@ then
+      [[ -z "`ls ${userHome}`" ]] ||
+      diff -uq <(ls -A1 /etc/skel | wc) <(ls -A1 ${userHome} | sort) &>/dev/null
+   then
+-    APPENDCMD=""
+-  # run configure only mutable params of user profile if it is live system
+-  # and profile already configured
+-  elif [[ "`desktop_variable_value os_root_type`" != "hdd" ]]
+-  then
+-    APPENDCMD="--live"
+-  else
+-    exit 0
+-  fi
+-  ERRORLOG=`/usr/bin/cl-desktop $APPENDCMD --progress --color=never $USER 2>&1`
+-  # raise xmessage error if cl-desktop failed
+-  if [ "$?" -gt "0" ];
+-  then
+-    # write error message to logfile
+-    echo "$ERRORLOG" >> $FILE_LOG
+-    # display error by xmessage
+-    xmes cl-desktop "$ERRORLOG"
+-    exit 1
++    ERRORLOG=`/usr/bin/cl-desktop --progress --color=never $USER 2>&1`
++    # raise xmessage error if cl-desktop failed
++    if [ "$?" -gt "0" ];
++    then
++      # write error message to logfile
++      echo "$ERRORLOG" >> $FILE_LOG
++      # display error by xmessage
++      xmes cl-desktop "$ERRORLOG"
++      exit 1
++    fi
+   fi
+ fi
+ exit 0
+diff --git pym/cl_desktop.py pym/cl_desktop.py
+index 321f90a..3c8fdd4 100644
+--- pym/cl_desktop.py
++++ pym/cl_desktop.py
+@@ -196,7 +196,7 @@ class desktop(share):
+                 self.displayTemplatesApplied(dirsFiles)
+             return dirsFiles
+ 
+-    def createHome(self, progress=False, live=False, verbose=False):
++    def createHome(self, progress=False, verbose=False):
+         """Создание профиля пользователя (пользовательской директории)"""
+         # Имя пользователя
+         self.verbose = verbose
+@@ -240,12 +240,8 @@ class desktop(share):
+         if not os.path.exists(homeDir):
+             flagHomeExists = False
+             self.createUserDir(uid, gid, homeDir)
+-        # if live action then action update mutable params of profile (live)
+-        # else action is update user profile
+-        if live:
+-            self.clVars.Set("cl_action", "live", True)
+-        else:
+-            self.clVars.Set("cl_action", "desktop", True)
++        # Действие -  шаблоны пользователя
++        self.clVars.Set("cl_action", "desktop", True)
+         # Применяем профили для пользователя
+         dirsAndFiles = self.applyTemplatesFromUser(progress)
+         if not dirsAndFiles:
+diff --git pym/cl_desktop_cmd.py pym/cl_desktop_cmd.py
+index 0dab534..c5ff655 100644
+--- pym/cl_desktop_cmd.py
++++ pym/cl_desktop_cmd.py
+@@ -35,9 +35,7 @@ EXAMPLES = _("%prog user_name")
+ DESCRIPTION = _("Create home directory for the new user account")
+ 
+ # Опции командной строки
+-CMD_OPTIONS = [{'longOption':"live",
+-                'help':_("update only mutable parameters of user profile")},
+-               {'longOption':"verbose",
++CMD_OPTIONS = [{'longOption':"verbose",
+                 'help':_("display the template is applied")},
+                {'longOption':"set"},
+                {'longOption':"install",
+@@ -145,8 +143,7 @@ class desktop_cmd(share_cmd):
+ 
+     def createHome(self, optObj):
+         """Создание домашней директории"""
+-        return self.logicObj.createHome(optObj.progress,optObj.live,
+-            optObj.verbose)
++        return self.logicObj.createHome(optObj.progress, optObj.verbose)
+ 
+     def install(self):
+         """Инсталяция программы"""
+diff --git pym/cl_fill_desktop.py pym/cl_fill_desktop.py
+index 8b3a753..9637744 100644
+--- pym/cl_fill_desktop.py
++++ pym/cl_fill_desktop.py
+@@ -34,9 +34,7 @@ class fillVars():
+         return ""
+ 
+     def get_ac_desktop_install(self):
+-        """
+-        Trigger for templates of package installation and uninstallation
+-        """
++        """переключатель для шаблонов инсталяции и удаления программы"""
+         ret = ""
+         action = self.Get("cl_action")
+         if action in ("install","merge"):
+@@ -46,9 +44,7 @@ class fillVars():
+         return ret
+ 
+     def get_ac_desktop_merge(self):
+-        """
+-        Trigger for the merge templates
+-        """
++        """переключатель для шаблонов merge"""
+         ret = ""
+         action = self.Get("cl_action")
+         if action in ("install","merge"):
+@@ -56,25 +52,13 @@ class fillVars():
+         return ret
+ 
+     def get_ac_desktop_desktop(self):
+-        """
+-        Trigger for templates of user profile creating
+-        """
++        """переключатель для шаблонов создания пользовательского профиля"""
+         ret = ""
+         action = self.Get("cl_action")
+         if action in ("desktop",):
+             ret = "up"
+         return ret
+ 
+-    def get_ac_desktop_live(self):
+-        """
+-        Trigger for templates update live configuration of profile
+-        """
+-        ret = ""
+-        action = self.Get("cl_action")
+-        if action in ("desktop","live"):
+-            ret = "up"
+-        return ret
+-
+     def get_ur_domain_set(self):
+         '''доменный пользователь "on", "off"'''
+         ret = "off"
+diff --git pym/cl_vars_desktop.py pym/cl_vars_desktop.py
+index 8d19381..bcd6715 100644
+--- pym/cl_vars_desktop.py
++++ pym/cl_vars_desktop.py
+@@ -54,18 +54,15 @@ class Data:
+     # Host Jabber пользователя
+     ur_jid_host = {'mode':"w"}
+ 
+-    # trigger for the merge templates
++    # переключатель для шаблонов merge
+     ac_desktop_merge = {}
+ 
+-    # trigger for templates of package installation and uninstallation
++    # переключатель для шаблонов инсталяции и удаления программы
+     ac_desktop_install = {}
+ 
+-    # trigger for templates of user profile creating
++    # переключатель для шаблонов создания пользовательского профиля
+     ac_desktop_desktop = {}
+ 
+-    # trigger for templates update live configuration of profile
+-    ac_desktop_live = {}
+-
+     # доменный пользователь "on", "off"
+     ur_domain_set = {}
+ 

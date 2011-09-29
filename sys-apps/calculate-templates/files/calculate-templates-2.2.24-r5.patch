@@ -1,0 +1,619 @@
+diff --git desktop/desktop-live/.calculate_directory desktop/desktop-live/.calculate_directory
+deleted file mode 100644
+index 5f296ea..0000000
+--- desktop/desktop-live/.calculate_directory
++++ /dev/null
+@@ -1 +0,0 @@
+-# Calculate path=~ name= chmod=0700 chown=#-ur_login-#:#-ur_group-# cl_chroot_status==off&&ac_desktop_live==up&&ini(main.update)!=off
+diff --git desktop/desktop-live/20-kde-always/.calculate_directory desktop/desktop-live/20-kde-always/.calculate_directory
+deleted file mode 100644
+index 339dc6c..0000000
+--- desktop/desktop-live/20-kde-always/.calculate_directory
++++ /dev/null
+@@ -1 +0,0 @@
+-# Calculate append=skip belong(kdelibs)!=&&ini(update.kde)!=off&&pkg(kde-base/kdelibs)>=4.4
+diff --git desktop/desktop-live/20-kde-always/.kde4/share/config/plasma-desktop-appletsrc.panel-resize desktop/desktop-live/20-kde-always/.kde4/share/config/plasma-desktop-appletsrc.panel-resize
+deleted file mode 100644
+index 23079d0..0000000
+--- desktop/desktop-live/20-kde-always/.kde4/share/config/plasma-desktop-appletsrc.panel-resize
++++ /dev/null
+@@ -1,19 +0,0 @@
+-# Calculate name=plasma-desktop-appletsrc format=plasma ini(resolution)!=#-os_x11_standart-#
+-#------------------------------------------------------------------------------
+-#рабочий стол
+-#------------------------------------------------------------------------------
+-
+-[Containments][#-sum(cont,1)-#]
+-geometry=0,0,#-os_x11_width-#,#-os_x11_height-#
+-
+-#------------------------------------------------------------------------------
+-#верхняя панель
+-#------------------------------------------------------------------------------
+-#-sum(panel,,31)-#
+-
+-[Containments][#-sum(cont,cont+1)-#]
+-geometry=0,0,#-os_x11_width-#,#-sum(panel,panel)-#
+-
+-[Containments][#-sum(cont,cont)-#][Configuration]
+-maximumSize=#-os_x11_width-#,#-sum(panel,panel)-#
+-minimumSize=#-os_x11_width-#,#-sum(panel,panel)-#
+diff --git desktop/desktop-live/30-gnome-2.30/.calculate_directory desktop/desktop-live/30-gnome-2.30/.calculate_directory
+deleted file mode 100644
+index 70fd6c5..0000000
+--- desktop/desktop-live/30-gnome-2.30/.calculate_directory
++++ /dev/null
+@@ -1 +0,0 @@
+-# Calculate append=skip belong(libgnome)!=&&ini(update.gnome)!=off&&pkg(gnome-base/libgnome)>=2.30
+diff --git desktop/desktop-live/30-gnome-2.30/.gconf/%gconf.xml desktop/desktop-live/30-gnome-2.30/.gconf/%gconf.xml
+deleted file mode 100644
+index e69de29..0000000
+diff --git desktop/desktop-live/30-gnome-2.30/.gconf/desktop/%gconf.xml desktop/desktop-live/30-gnome-2.30/.gconf/desktop/%gconf.xml
+deleted file mode 100644
+index e69de29..0000000
+diff --git desktop/desktop-live/30-gnome-2.30/.gconf/desktop/gnome/%gconf.xml desktop/desktop-live/30-gnome-2.30/.gconf/desktop/gnome/%gconf.xml
+deleted file mode 100644
+index e69de29..0000000
+diff --git desktop/desktop-live/30-gnome-2.30/.gconf/desktop/gnome/background/%gconf.xml desktop/desktop-live/30-gnome-2.30/.gconf/desktop/gnome/background/%gconf.xml
+deleted file mode 100644
+index 2090917..0000000
+--- desktop/desktop-live/30-gnome-2.30/.gconf/desktop/gnome/background/%gconf.xml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-# Calculate format=xml_gconf
+-<?xml version="1.0"?>
+-<gconf>
+-	<entry name="picture_filename" type="string">
+-		<stringvalue>/usr/share/pixmaps/backgrounds/gnome/calculate/#-os_x11_standart-#.jpg</stringvalue>
+-	</entry>
+-	<entry name="picture_options" type="string">
+-		<stringvalue>stretched</stringvalue>
+-	</entry>
+-</gconf>
+diff --git desktop/desktop-live/40-xfce-always/.calculate_directory desktop/desktop-live/40-xfce-always/.calculate_directory
+deleted file mode 100644
+index 1ee8d52..0000000
+--- desktop/desktop-live/40-xfce-always/.calculate_directory
++++ /dev/null
+@@ -1 +0,0 @@
+-# Calculate append=skip belong(xfdesktop)!=&&ini(update.xfce)!=off&&pkg(xfce-base/xfdesktop)>=4.8
+diff --git desktop/desktop-live/40-xfce-always/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml desktop/desktop-live/40-xfce-always/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+deleted file mode 100644
+index 3a5122a..0000000
+--- desktop/desktop-live/40-xfce-always/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
++++ /dev/null
+@@ -1,26 +0,0 @@
+-# Calculate format=xml_xfce
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<channel name="xfce4-desktop" version="1.0">
+-  <property name="desktop-icons" type="empty">
+-    <property name="file-icons" type="empty">
+-      <property name="show-trash" type="bool" value="false"/>
+-      <property name="show-removable" type="bool" value="false"/>
+-      <property name="show-filesystem" type="bool" value="false"/>
+-#?env(client.os_remote_auth)==||ur_domain_set==off#
+-      <property name="show-home" type="bool" value="true"/>
+-#env#
+-#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+-      <property name="show-home" type="bool" value="false"/>
+-#env#
+-    </property>
+-    <property name="icon-size" type="uint" value="48"/>
+-  </property>
+-  <property name="backdrop" type="empty">
+-    <property name="screen0" type="empty">
+-      <property name="monitor0" type="empty">
+-        <property name="image-path" type="string" value="/usr/share/wallpapers/Calculate_Linux/contents/images/#-os_x11_standart-#.jpg"/>
+-      </property>
+-    </property>
+-  </property>
+-</channel>
+diff --git desktop/desktop/20-kde-4.7/.kde4/share/apps/konsole/Shell.profile desktop/desktop/20-kde-4.7/.kde4/share/apps/konsole/Shell.profile
+index d36b414..1249796 100644
+--- desktop/desktop/20-kde-4.7/.kde4/share/apps/konsole/Shell.profile
++++ desktop/desktop/20-kde-4.7/.kde4/share/apps/konsole/Shell.profile
+@@ -1,7 +1,7 @@
+ # Calculate format=kde
+ [Appearance]
+ #тема
+-ColorScheme=WhiteOnBlack
++ColorScheme=DarkPastels
+ 
+ [General]
+ #формат заголовка вкладки (заголовок окна устанавливается оболочкой)
+diff --git desktop/desktop/20-kde-4.7/Desktop/calculate-community.desktop desktop/desktop/20-kde-4.7/Desktop/calculate-community.desktop
+index 400f158..4eca333 100644
+--- desktop/desktop/20-kde-4.7/Desktop/calculate-community.desktop
++++ desktop/desktop/20-kde-4.7/Desktop/calculate-community.desktop
+@@ -1,2 +1,5 @@
+ # Calculate format=kde link=/usr/share/applications/calculate-chat.desktop mirror os_root_type==livecd chmod=0755
+ #!/usr/bin/env xdg-open
++
++[Desktop Entry]
++!NoDisplay=
+diff --git desktop/desktop/20-plasma-4.7/plasma-desktop-appletsrc desktop/desktop/20-plasma-4.7/plasma-desktop-appletsrc
+index f23decf..f4bfe4f 100644
+--- desktop/desktop/20-plasma-4.7/plasma-desktop-appletsrc
++++ desktop/desktop/20-plasma-4.7/plasma-desktop-appletsrc
+@@ -152,6 +152,8 @@ maxRows=1
+ showOnlyCurrentDesktop=true
+ #сортировка
+ sortingStrategy=0
++# не показывать всплывающие подсказки на панели задач
++showTooltip=false
+ [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][LayoutInformation]
+ Order=#-sum(apporder,apporder+1)-#
+ 
+diff --git desktop/desktop/30-gnome-2.30/.gconf/apps/gnome-terminal/profiles/Default/%gconf.xml desktop/desktop/30-gnome-2.30/.gconf/apps/gnome-terminal/profiles/Default/%gconf.xml
+index 02ccbc9..3ffad19 100644
+--- desktop/desktop/30-gnome-2.30/.gconf/apps/gnome-terminal/profiles/Default/%gconf.xml
++++ desktop/desktop/30-gnome-2.30/.gconf/apps/gnome-terminal/profiles/Default/%gconf.xml
+@@ -7,7 +7,7 @@
+ 	<entry name="use_system_font" type="bool" value="false"/>
+ 	<entry name="scrollback_lines" type="int" value="5000"/>
+ 	<entry name="palette" type="string">
+-		<stringvalue>#2E2E34343636:#CCCC00000000:#4E4E9A9A0606:#C4C4A0A00000:#34346565A4A4:#757550507B7B:#060698209A9A:#D3D3D7D7CFCF:#555557575353:#EFEF29292929:#8A8AE2E23434:#FCFCE9E94F4F:#72729F9FCFCF:#ADAD7F7FA8A8:#3434E2E2E2E2:#EEEEEEEEECEC</stringvalue>
++		<stringvalue>#3F3F3F3F3F3F:#707050505050:#6060B4B48A8A:#DFDFAFAF8F8F:#9A9AB8B8D7D7:#DCDC8C8CC3C3:#8C8CD0D0D3D3:#DCDCDCDCCCCC:#707090908080:#DCDCA3A3A3A3:#7272D5D5A3A3:#F0F0DFDFAFAF:#9494BFBFF3F3:#ECEC9393D3D3:#9393E0E0E3E3:#FFFFFFFFFFFF</stringvalue>
+ 	</entry>
+ 	<entry name="use_theme_colors" type="bool" value="false"/>
+ 	<entry name="visible_name" type="string">
+@@ -15,9 +15,9 @@
+ 	</entry>
+ 	<entry name="login_shell" type="bool" value="true"/>
+ 	<entry name="background_color" type="string">
+-		<stringvalue>#000000000000</stringvalue>
++		<stringvalue>#2C2C2C2C2C2C</stringvalue>
+ 	</entry>
+ 	<entry name="foreground_color" type="string">
+-		<stringvalue>#FFFFFFFFFFFF</stringvalue>
++		<stringvalue>#DCDCDCDCCCCC</stringvalue>
+ 	</entry>
+ </gconf>
+diff --git desktop/desktop/40-xfce-4.8/.config/Terminal/terminalrc desktop/desktop/40-xfce-4.8/.config/Terminal/terminalrc
+index 2ff75a9..75c9cd2 100644
+--- desktop/desktop/40-xfce-4.8/.config/Terminal/terminalrc
++++ desktop/desktop/40-xfce-4.8/.config/Terminal/terminalrc
+@@ -3,10 +3,23 @@
+ FontName=Droid Sans Mono 10
+ MiscSingleClick=TRUE
+ ShortcutsNoMenukey=TRUE
+-ColorBackground=#273a273a273a
+-ColorPalette5=#50665066ce38
+-ColorPalette13=#88428842ffff
+-ColorPalette10=#e72f77c777c7
+-ColorPalette2=#c7fd3c233c23
+-ColorPalette4=#c50b69a20e39
+-
++ColorPalette1=#3f3f3f3f3f3f
++ColorPalette2=#707050505050
++ColorPalette3=#6060b4b48a8a
++ColorPalette4=#dfdfafaf8f8f
++ColorPalette5=#9a9ab8b8d7d7
++ColorPalette6=#dcdc8c8cc3c3
++ColorPalette7=#8c8cd0d0d3d3
++ColorPalette8=#dcdcdcdccccc
++ColorPalette9=#707090908080
++ColorPalette10=#dcdca3a3a3a3
++ColorPalette11=#7272d5d5a3a3
++ColorPalette12=#f0f0dfdfafaf
++ColorPalette13=#9494bfbff3f3
++ColorPalette14=#ecec9393d3d3
++ColorPalette15=#9393e0e0e3e3
++ColorPalette16=#ffffffffffff
++ColorCursor=#dcdcdcdccccc
++ColorForeground=#dcdcdcdccccc
++ColorBackground=#2c2c2c2c2c2c
++TabActivityColor=#2c2c2c2c2c2c
+diff --git desktop/desktop/60-bash-3.0/.bash_profile desktop/desktop/60-bash-3.0/.bash_profile
+new file mode 100644
+index 0000000..f03143d
+--- /dev/null
++++ desktop/desktop/60-bash-3.0/.bash_profile
+@@ -0,0 +1,3 @@
++#Calculate os_root_type==livecd
++alias su="sudo su -"
++
+diff --git desktop/desktop/60-mc-4.7/.mc/ini desktop/desktop/60-mc-4.7/.mc/ini
+index 1994d7a..d36eb71 100644
+--- desktop/desktop/60-mc-4.7/.mc/ini
++++ desktop/desktop/60-mc-4.7/.mc/ini
+@@ -1,4 +1,7 @@
+ # Calculate format=kde
++[Colors]
++base_color=,black:normal=,black:selected=black,cyan:marked=,black:markselect=yellow,cyan:errors=white,red:menu=white,cyan:reverse=black,lightgray:dnormal=black,lightgray:dfocus=black,cyan:dhotnormal=blue,lightgray:dhotfocus=blue,cyan:viewunderline=,black:menuhot=yellow,cyan:menusel=white,black:menuhotsel=yellow,black:helpnormal=black,lightgray:helpitalic=red,lightgray:helpbold=blue,lightgray:helplink=black,cyan:helpslink=yellow,blue:gauge=white,black:input=black,cyan:directory=white,black:executable=green,black:link=gray,black:stalelink=brightred,blue:device=,black:core=red,blue:special=red,black:editnormal=lightgray,black:editbold=yellow,blue:editmarked=black,cyan:errdhotnormal=yellow,red:errdhotfocus=yellow,lightgray
++
+ [Layout]
+ #видимость верхней строчки меню
+ menubar_visible=0
+diff --git install/1live/baselayout/motd.en install/1live/baselayout/motd.en
+index 0eace80..b1aefc7 100644
+--- install/1live/baselayout/motd.en
++++ install/1live/baselayout/motd.en
+@@ -4,9 +4,8 @@ Welcome to the #-os_install_linux_name-# Installation CD!
+ If any ethernet adapters were detected at boot, they should be auto-configured
+ if DHCP is available on your network.
+ To specify network settings, use utility "cl_install".
+-Example:"cl-install --live --ip 192.168.1.100/24 \
+-          --route default:192.168.1.1 \
+-          --dns 192.168.1.1"
++Example:"cl-install --startup --ip 192.168.1.100/24 \
++          --route default:192.168.1.1 --dns 192.168.1.1"
+ #?os_install_linux_system==server||os_install_linux_shortname==CLS#
+ And restart net.eth0 by command "/etc/init.d/net.eth0 restart".
+ #os_install_linux_system#
+diff --git install/1live/baselayout/motd.ru install/1live/baselayout/motd.ru
+index c9fbad8..8aa4559 100644
+--- install/1live/baselayout/motd.ru
++++ install/1live/baselayout/motd.ru
+@@ -4,9 +4,8 @@
+ Если какой-либо из сетевых адаπтеров был обнаружен πри загрузке, он будет
+ автоматически сконфигурирован, если в сети достуπен DHCP сервер.
+ Для указания сетевых настроек используйте утилиту "cl-install".
+-Пример:"cl-install --live --ip 192.168.1.100/24 \
+-        --route default:192.168.1.1 \
+-        --dns 192.168.1.1"
++Пример:"cl-install --startup --ip 192.168.1.100/24 \
++        --route default:192.168.1.1 --dns 192.168.1.1"
+ #?os_install_linux_system==server||os_install_linux_shortname==CLS#
+ И перезапустите net.eth0 командой "/etc/init.d/net.eth0 restart".
+ #os_install_linux_system#
+diff --git install/1live/portage/portage/package.keywords/custom install/1live/portage/portage/package.keywords/custom
+new file mode 100644
+index 0000000..e69de29
+diff --git install/1live/portage/portage/package.mask/custom install/1live/portage/portage/package.mask/custom
+new file mode 100644
+index 0000000..e69de29
+diff --git install/1live/portage/portage/package.unmask/custom install/1live/portage/portage/package.unmask/custom
+new file mode 100644
+index 0000000..e69de29
+diff --git install/1live/portage/portage/package.use/custom install/1live/portage/portage/package.use/custom
+new file mode 100644
+index 0000000..e69de29
+diff --git install/1live/portage/portage/sets/.calculate_directory install/1live/portage/portage/sets/.calculate_directory
+new file mode 100644
+index 0000000..484da65
+--- /dev/null
++++ install/1live/portage/portage/sets/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate exists(/etc/portage/sets,root)==
+diff --git install/1merge/Desktop/100-Browser/chromium/calculate/.calculate_directory install/1merge/Desktop/100-Browser/chromium/calculate/.calculate_directory
+index ed0a326..9c2b262 100644
+--- install/1merge/Desktop/100-Browser/chromium/calculate/.calculate_directory
++++ install/1merge/Desktop/100-Browser/chromium/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-browser.desktop)==||ini(desktop.browser)==||ini(desktop.browser)==chromium
++# Calculate append=skip exists(/usr/share/applications/calculate-browser.desktop,root)==||ini(desktop.browser)==||ini(desktop.browser)==chromium
+diff --git install/1merge/Desktop/100-Browser/firefox-bin/calculate/.calculate_directory install/1merge/Desktop/100-Browser/firefox-bin/calculate/.calculate_directory
+index c710cde..4bb95fa 100644
+--- install/1merge/Desktop/100-Browser/firefox-bin/calculate/.calculate_directory
++++ install/1merge/Desktop/100-Browser/firefox-bin/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-browser.desktop)==||ini(desktop.browser)==||ini(desktop.browser)==firefox-bin
++# Calculate append=skip exists(/usr/share/applications/calculate-browser.desktop,root)==||ini(desktop.browser)==||ini(desktop.browser)==firefox-bin
+diff --git install/1merge/Desktop/100-Browser/firefox/calculate/.calculate_directory install/1merge/Desktop/100-Browser/firefox/calculate/.calculate_directory
+index 19c7fe4..9991f06 100644
+--- install/1merge/Desktop/100-Browser/firefox/calculate/.calculate_directory
++++ install/1merge/Desktop/100-Browser/firefox/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-browser.desktop)==||ini(desktop.browser)==||ini(desktop.browser)==firefox
++# Calculate append=skip exists(/usr/share/applications/calculate-browser.desktop,root)==||ini(desktop.browser)==||ini(desktop.browser)==firefox
+diff --git install/1merge/Desktop/100-Browser/opera/calculate/.calculate_directory install/1merge/Desktop/100-Browser/opera/calculate/.calculate_directory
+index c98ebd6..444a81d 100644
+--- install/1merge/Desktop/100-Browser/opera/calculate/.calculate_directory
++++ install/1merge/Desktop/100-Browser/opera/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-browser.desktop)==||ini(desktop.browser)==||ini(desktop.browser)==opera
++# Calculate append=skip exists(/usr/share/applications/calculate-browser.desktop,root)==||ini(desktop.browser)==||ini(desktop.browser)==opera
+diff --git install/1merge/Desktop/110-Mail/claws-mail/calculate/.calculate_directory install/1merge/Desktop/110-Mail/claws-mail/calculate/.calculate_directory
+index 4c71763..7acc7a0 100644
+--- install/1merge/Desktop/110-Mail/claws-mail/calculate/.calculate_directory
++++ install/1merge/Desktop/110-Mail/claws-mail/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-mail.desktop)==||ini(desktop.mail)==||ini(desktop.mail)==claws-mail
++# Calculate append=skip exists(/usr/share/applications/calculate-mail.desktop,root)==||ini(desktop.mail)==||ini(desktop.mail)==claws-mail
+diff --git install/1merge/Desktop/110-Mail/evolution/calculate/.calculate_directory install/1merge/Desktop/110-Mail/evolution/calculate/.calculate_directory
+index 47c90ee..f94cebc 100644
+--- install/1merge/Desktop/110-Mail/evolution/calculate/.calculate_directory
++++ install/1merge/Desktop/110-Mail/evolution/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-mail.desktop)==||ini(desktop.mail)==||ini(desktop.mail)==evolution
++# Calculate append=skip exists(/usr/share/applications/calculate-mail.desktop,root)==||ini(desktop.mail)==||ini(desktop.mail)==evolution
+diff --git install/1merge/Desktop/110-Mail/kmail/calculate/.calculate_directory install/1merge/Desktop/110-Mail/kmail/calculate/.calculate_directory
+index 655bc70..622ac45 100644
+--- install/1merge/Desktop/110-Mail/kmail/calculate/.calculate_directory
++++ install/1merge/Desktop/110-Mail/kmail/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-mail.desktop)==||ini(desktop.mail)==||ini(desktop.mail)==kmail
++# Calculate append=skip exists(/usr/share/applications/calculate-mail.desktop,root)==||ini(desktop.mail)==||ini(desktop.mail)==kmail
+diff --git install/1merge/Desktop/120-Chat/konversation/calculate/.calculate_directory install/1merge/Desktop/120-Chat/konversation/calculate/.calculate_directory
+index ff6ad44..30abc59 100644
+--- install/1merge/Desktop/120-Chat/konversation/calculate/.calculate_directory
++++ install/1merge/Desktop/120-Chat/konversation/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-chat.desktop)==||ini(desktop.chat)==||ini(desktop.chat)==konversation
++# Calculate append=skip exists(/usr/share/applications/calculate-chat.desktop,root)==||ini(desktop.chat)==||ini(desktop.chat)==konversation
+diff --git install/1merge/Desktop/120-Chat/xchat/calculate/.calculate_directory install/1merge/Desktop/120-Chat/xchat/calculate/.calculate_directory
+index 5551734..e758207 100644
+--- install/1merge/Desktop/120-Chat/xchat/calculate/.calculate_directory
++++ install/1merge/Desktop/120-Chat/xchat/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-chat.desktop)==||ini(desktop.chat)==||ini(desktop.chat)==xchat
++# Calculate append=skip exists(/usr/share/applications/calculate-chat.desktop,root)==||ini(desktop.chat)==||ini(desktop.chat)==xchat
+diff --git install/1merge/Desktop/130-IM/kopete/calculate/.calculate_directory install/1merge/Desktop/130-IM/kopete/calculate/.calculate_directory
+index 6ae3660..70109a6 100644
+--- install/1merge/Desktop/130-IM/kopete/calculate/.calculate_directory
++++ install/1merge/Desktop/130-IM/kopete/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-im.desktop)==||ini(desktop.im)==||ini(desktop.im)==kopete
++# Calculate append=skip exists(/usr/share/applications/calculate-im.desktop,root)==||ini(desktop.im)==||ini(desktop.im)==kopete
+diff --git install/1merge/Desktop/130-IM/pidgin/calculate/.calculate_directory install/1merge/Desktop/130-IM/pidgin/calculate/.calculate_directory
+index b23036d..55f2d3b 100644
+--- install/1merge/Desktop/130-IM/pidgin/calculate/.calculate_directory
++++ install/1merge/Desktop/130-IM/pidgin/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-im.desktop)==||ini(desktop.im)==||ini(desktop.im)==pidgin
++# Calculate append=skip exists(/usr/share/applications/calculate-im.desktop,root)==||ini(desktop.im)==||ini(desktop.im)==pidgin
+diff --git install/1merge/Desktop/200-Writer/libreoffice-bin/calculate/.calculate_directory install/1merge/Desktop/200-Writer/libreoffice-bin/calculate/.calculate_directory
+index 1b735b4..bba3ab4 100644
+--- install/1merge/Desktop/200-Writer/libreoffice-bin/calculate/.calculate_directory
++++ install/1merge/Desktop/200-Writer/libreoffice-bin/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-writer.desktop)==||ini(desktop.writer)==||ini(desktop.writer)==libreoffice-bin
++# Calculate append=skip exists(/usr/share/applications/calculate-writer.desktop,root)==||ini(desktop.writer)==||ini(desktop.writer)==libreoffice-bin
+diff --git install/1merge/Desktop/200-Writer/libreoffice/calculate/.calculate_directory install/1merge/Desktop/200-Writer/libreoffice/calculate/.calculate_directory
+index ec584c9..8cb4ff4 100644
+--- install/1merge/Desktop/200-Writer/libreoffice/calculate/.calculate_directory
++++ install/1merge/Desktop/200-Writer/libreoffice/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-writer.desktop)==||ini(desktop.writer)==||ini(desktop.writer)==libreoffice
++# Calculate append=skip exists(/usr/share/applications/calculate-writer.desktop,root)==||ini(desktop.writer)==||ini(desktop.writer)==libreoffice
+diff --git install/1merge/Desktop/210-Calc/libreoffice-bin/calculate/.calculate_directory install/1merge/Desktop/210-Calc/libreoffice-bin/calculate/.calculate_directory
+index 5bb79da..e64d7fc 100644
+--- install/1merge/Desktop/210-Calc/libreoffice-bin/calculate/.calculate_directory
++++ install/1merge/Desktop/210-Calc/libreoffice-bin/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-calc.desktop)==||ini(desktop.calc)==||ini(desktop.calc)==libreoffice-bin
++# Calculate append=skip exists(/usr/share/applications/calculate-calc.desktop,root)==||ini(desktop.calc)==||ini(desktop.calc)==libreoffice-bin
+diff --git install/1merge/Desktop/210-Calc/libreoffice/calculate/.calculate_directory install/1merge/Desktop/210-Calc/libreoffice/calculate/.calculate_directory
+index 62739f6..829e038 100644
+--- install/1merge/Desktop/210-Calc/libreoffice/calculate/.calculate_directory
++++ install/1merge/Desktop/210-Calc/libreoffice/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-calc.desktop)==||ini(desktop.calc)==||ini(desktop.calc)==libreoffice
++# Calculate append=skip exists(/usr/share/applications/calculate-calc.desktop,root)==||ini(desktop.calc)==||ini(desktop.calc)==libreoffice
+diff --git install/1merge/Desktop/220-Calculator/galculator/calculate/.calculate_directory install/1merge/Desktop/220-Calculator/galculator/calculate/.calculate_directory
+index f0ef9db..845035e 100644
+--- install/1merge/Desktop/220-Calculator/galculator/calculate/.calculate_directory
++++ install/1merge/Desktop/220-Calculator/galculator/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-calculator.desktop)==||ini(desktop.calculator)==||ini(desktop.calculator)==galculator
++# Calculate append=skip exists(/usr/share/applications/calculate-calculator.desktop,root)==||ini(desktop.calculator)==||ini(desktop.calculator)==galculator
+diff --git install/1merge/Desktop/220-Calculator/gcalctool/calculate/.calculate_directory install/1merge/Desktop/220-Calculator/gcalctool/calculate/.calculate_directory
+index 1708ed8..dd26126 100644
+--- install/1merge/Desktop/220-Calculator/gcalctool/calculate/.calculate_directory
++++ install/1merge/Desktop/220-Calculator/gcalctool/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-calculator.desktop)==||ini(desktop.calculator)==||ini(desktop.calculator)==gcalctool
++# Calculate append=skip exists(/usr/share/applications/calculate-calculator.desktop,root)==||ini(desktop.calculator)==||ini(desktop.calculator)==gcalctool
+diff --git install/1merge/Desktop/220-Calculator/kcalc/calculate/.calculate_directory install/1merge/Desktop/220-Calculator/kcalc/calculate/.calculate_directory
+index e1ee67a..65e263c 100644
+--- install/1merge/Desktop/220-Calculator/kcalc/calculate/.calculate_directory
++++ install/1merge/Desktop/220-Calculator/kcalc/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-calculator.desktop)==||ini(desktop.calculator)==||ini(desktop.calculator)==kcalc
++# Calculate append=skip exists(/usr/share/applications/calculate-calculator.desktop,root)==||ini(desktop.calculator)==||ini(desktop.calculator)==kcalc
+diff --git install/1merge/Desktop/300-ImageEdit/gimp/calculate/.calculate_directory install/1merge/Desktop/300-ImageEdit/gimp/calculate/.calculate_directory
+index 5e5bc33..c986788 100644
+--- install/1merge/Desktop/300-ImageEdit/gimp/calculate/.calculate_directory
++++ install/1merge/Desktop/300-ImageEdit/gimp/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-imageedit.desktop)==||ini(desktop.imageedit)==||ini(desktop.imageedit)==gimp
++# Calculate append=skip exists(/usr/share/applications/calculate-imageedit.desktop,root)==||ini(desktop.imageedit)==||ini(desktop.imageedit)==gimp
+diff --git install/1merge/Desktop/310-ImageView/digikam/calculate/.calculate_directory install/1merge/Desktop/310-ImageView/digikam/calculate/.calculate_directory
+index fd78d65..dce8286 100644
+--- install/1merge/Desktop/310-ImageView/digikam/calculate/.calculate_directory
++++ install/1merge/Desktop/310-ImageView/digikam/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-imageview.desktop)==||ini(desktop.imageview)==||ini(desktop.imageview)==digikam
++# Calculate append=skip exists(/usr/share/applications/calculate-imageview.desktop,root)==||ini(desktop.imageview)==||ini(desktop.imageview)==digikam
+diff --git install/1merge/Desktop/310-ImageView/eog/calculate/.calculate_directory install/1merge/Desktop/310-ImageView/eog/calculate/.calculate_directory
+index cfa5649..0ad8b12 100644
+--- install/1merge/Desktop/310-ImageView/eog/calculate/.calculate_directory
++++ install/1merge/Desktop/310-ImageView/eog/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-imageview.desktop)==||ini(desktop.imageview)==||ini(desktop.imageview)==eog
++# Calculate append=skip exists(/usr/share/applications/calculate-imageview.desktop,root)==||ini(desktop.imageview)==||ini(desktop.imageview)==eog
+diff --git install/1merge/Desktop/310-ImageView/gqview/calculate/.calculate_directory install/1merge/Desktop/310-ImageView/gqview/calculate/.calculate_directory
+index 231681b..5148562 100644
+--- install/1merge/Desktop/310-ImageView/gqview/calculate/.calculate_directory
++++ install/1merge/Desktop/310-ImageView/gqview/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-imageview.desktop)==||ini(desktop.imageview)==||ini(desktop.imageview)==gqview
++# Calculate append=skip exists(/usr/share/applications/calculate-imageview.desktop,root)==||ini(desktop.imageview)==||ini(desktop.imageview)==gqview
+diff --git install/1merge/Desktop/400-AudioPlayer/amarok/calculate/.calculate_directory install/1merge/Desktop/400-AudioPlayer/amarok/calculate/.calculate_directory
+index 809976d..e1140f5 100644
+--- install/1merge/Desktop/400-AudioPlayer/amarok/calculate/.calculate_directory
++++ install/1merge/Desktop/400-AudioPlayer/amarok/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-audioplayer.desktop)==||ini(desktop.audioplayer)==||ini(desktop.audioplayer)==amarok
++# Calculate append=skip exists(/usr/share/applications/calculate-audioplayer.desktop,root)==||ini(desktop.audioplayer)==||ini(desktop.audioplayer)==amarok
+diff --git install/1merge/Desktop/400-AudioPlayer/audacious/calculate/.calculate_directory install/1merge/Desktop/400-AudioPlayer/audacious/calculate/.calculate_directory
+index ec7962d..c076834 100644
+--- install/1merge/Desktop/400-AudioPlayer/audacious/calculate/.calculate_directory
++++ install/1merge/Desktop/400-AudioPlayer/audacious/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-audioplayer.desktop)==||ini(desktop.audioplayer)==||ini(desktop.audioplayer)==audacious
++# Calculate append=skip exists(/usr/share/applications/calculate-audioplayer.desktop,root)==||ini(desktop.audioplayer)==||ini(desktop.audioplayer)==audacious
+diff --git install/1merge/Desktop/400-AudioPlayer/deadbeef/calculate/.calculate_directory install/1merge/Desktop/400-AudioPlayer/deadbeef/calculate/.calculate_directory
+index d4a2fb1..6855f3d 100644
+--- install/1merge/Desktop/400-AudioPlayer/deadbeef/calculate/.calculate_directory
++++ install/1merge/Desktop/400-AudioPlayer/deadbeef/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-audioplayer.desktop)==||ini(desktop.audioplayer)==||ini(desktop.audioplayer)==deadbeef
++# Calculate append=skip exists(/usr/share/applications/calculate-audioplayer.desktop,root)==||ini(desktop.audioplayer)==||ini(desktop.audioplayer)==deadbeef
+diff --git install/1merge/Desktop/400-AudioPlayer/quodlibet/calculate/.calculate_directory install/1merge/Desktop/400-AudioPlayer/quodlibet/calculate/.calculate_directory
+index 23a5228..cb426d5 100644
+--- install/1merge/Desktop/400-AudioPlayer/quodlibet/calculate/.calculate_directory
++++ install/1merge/Desktop/400-AudioPlayer/quodlibet/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-audioplayer.desktop)==||ini(desktop.audioplayer)==||ini(desktop.audioplayer)==quodlibet
++# Calculate append=skip exists(/usr/share/applications/calculate-audioplayer.desktop,root)==||ini(desktop.audioplayer)==||ini(desktop.audioplayer)==quodlibet
+diff --git install/1merge/Desktop/400-AudioPlayer/rhythmbox/calculate/.calculate_directory install/1merge/Desktop/400-AudioPlayer/rhythmbox/calculate/.calculate_directory
+index 46d23b0..808b57f 100644
+--- install/1merge/Desktop/400-AudioPlayer/rhythmbox/calculate/.calculate_directory
++++ install/1merge/Desktop/400-AudioPlayer/rhythmbox/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-audioplayer.desktop)==||ini(desktop.audioplayer)==||ini(desktop.audioplayer)==rhythmbox
++# Calculate append=skip exists(/usr/share/applications/calculate-audioplayer.desktop,root)==||ini(desktop.audioplayer)==||ini(desktop.audioplayer)==rhythmbox
+diff --git install/1merge/Desktop/500-VideoPlayer/gnome-mplayer/calculate/.calculate_directory install/1merge/Desktop/500-VideoPlayer/gnome-mplayer/calculate/.calculate_directory
+index c93e440..9b6176c 100644
+--- install/1merge/Desktop/500-VideoPlayer/gnome-mplayer/calculate/.calculate_directory
++++ install/1merge/Desktop/500-VideoPlayer/gnome-mplayer/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-videoplayer.desktop)==||ini(desktop.videoplayer)==||ini(desktop.videoplayer)==gnome-mplayer
++# Calculate append=skip exists(/usr/share/applications/calculate-videoplayer.desktop,root)==||ini(desktop.videoplayer)==||ini(desktop.videoplayer)==gnome-mplayer
+diff --git install/1merge/Desktop/500-VideoPlayer/smplayer/calculate/.calculate_directory install/1merge/Desktop/500-VideoPlayer/smplayer/calculate/.calculate_directory
+index ec3963a..2ac5a8c 100644
+--- install/1merge/Desktop/500-VideoPlayer/smplayer/calculate/.calculate_directory
++++ install/1merge/Desktop/500-VideoPlayer/smplayer/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-videoplayer.desktop)==||ini(desktop.videoplayer)==||ini(desktop.videoplayer)==smplayer
++# Calculate append=skip exists(/usr/share/applications/calculate-videoplayer.desktop,root)==||ini(desktop.videoplayer)==||ini(desktop.videoplayer)==smplayer
+diff --git install/1merge/Desktop/500-VideoPlayer/totem/calculate/.calculate_directory install/1merge/Desktop/500-VideoPlayer/totem/calculate/.calculate_directory
+index 2371094..4544c05 100644
+--- install/1merge/Desktop/500-VideoPlayer/totem/calculate/.calculate_directory
++++ install/1merge/Desktop/500-VideoPlayer/totem/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-videoplayer.desktop)==||ini(desktop.videoplayer)==||ini(desktop.videoplayer)==totem
++# Calculate append=skip exists(/usr/share/applications/calculate-videoplayer.desktop,root)==||ini(desktop.videoplayer)==||ini(desktop.videoplayer)==totem
+diff --git install/1merge/Desktop/600-ImageBurn/brasero/calculate/.calculate_directory install/1merge/Desktop/600-ImageBurn/brasero/calculate/.calculate_directory
+index 0881619..4e4c9ec 100644
+--- install/1merge/Desktop/600-ImageBurn/brasero/calculate/.calculate_directory
++++ install/1merge/Desktop/600-ImageBurn/brasero/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-imageburn.desktop)==||ini(desktop.imageburn)==||ini(desktop.imageburn)==brasero
++# Calculate append=skip exists(/usr/share/applications/calculate-imageburn.desktop,root)==||ini(desktop.imageburn)==||ini(desktop.imageburn)==brasero
+diff --git install/1merge/Desktop/600-ImageBurn/k3b/calculate/.calculate_directory install/1merge/Desktop/600-ImageBurn/k3b/calculate/.calculate_directory
+index 47dbc69..f124176 100644
+--- install/1merge/Desktop/600-ImageBurn/k3b/calculate/.calculate_directory
++++ install/1merge/Desktop/600-ImageBurn/k3b/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-imageburn.desktop)==||ini(desktop.imageburn)==||ini(desktop.imageburn)==k3b
++# Calculate append=skip exists(/usr/share/applications/calculate-imageburn.desktop,root)==||ini(desktop.imageburn)==||ini(desktop.imageburn)==k3b
+diff --git install/1merge/Desktop/600-ImageBurn/xfburn/calculate/.calculate_directory install/1merge/Desktop/600-ImageBurn/xfburn/calculate/.calculate_directory
+index 25abb2c..2bcbaec 100644
+--- install/1merge/Desktop/600-ImageBurn/xfburn/calculate/.calculate_directory
++++ install/1merge/Desktop/600-ImageBurn/xfburn/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-imageburn.desktop)==||ini(desktop.imageburn)==||ini(desktop.imageburn)==xfburn
++# Calculate append=skip exists(/usr/share/applications/calculate-imageburn.desktop,root)==||ini(desktop.imageburn)==||ini(desktop.imageburn)==xfburn
+diff --git install/1merge/Desktop/700-Dict/goldendict/calculate/.calculate_directory install/1merge/Desktop/700-Dict/goldendict/calculate/.calculate_directory
+index 7bbbdd2..7992626 100644
+--- install/1merge/Desktop/700-Dict/goldendict/calculate/.calculate_directory
++++ install/1merge/Desktop/700-Dict/goldendict/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-dict.desktop)==||ini(desktop.dict)==||ini(desktop.dict)==goldendict
++# Calculate append=skip exists(/usr/share/applications/calculate-dict.desktop,root)==||ini(desktop.dict)==||ini(desktop.dict)==goldendict
+diff --git install/1merge/Desktop/700-Dict/stardict/calculate/.calculate_directory install/1merge/Desktop/700-Dict/stardict/calculate/.calculate_directory
+index 7150a7e..bcdb4c4 100644
+--- install/1merge/Desktop/700-Dict/stardict/calculate/.calculate_directory
++++ install/1merge/Desktop/700-Dict/stardict/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-dict.desktop)==||ini(desktop.dict)==||ini(desktop.dict)==stardict
++# Calculate append=skip exists(/usr/share/applications/calculate-dict.desktop,root)==||ini(desktop.dict)==||ini(desktop.dict)==stardict
+diff --git install/1merge/Desktop/800-TextEdit/gedit/calculate/.calculate_directory install/1merge/Desktop/800-TextEdit/gedit/calculate/.calculate_directory
+index 8b8af31..7f3a6e2 100644
+--- install/1merge/Desktop/800-TextEdit/gedit/calculate/.calculate_directory
++++ install/1merge/Desktop/800-TextEdit/gedit/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-textedit.desktop)==||ini(desktop.textedit)==||ini(desktop.textedit)==gedit
++# Calculate append=skip exists(/usr/share/applications/calculate-textedit.desktop,root)==||ini(desktop.textedit)==||ini(desktop.textedit)==gedit
+diff --git install/1merge/Desktop/800-TextEdit/kwrite/calculate/.calculate_directory install/1merge/Desktop/800-TextEdit/kwrite/calculate/.calculate_directory
+index 04bd479..32244bc 100644
+--- install/1merge/Desktop/800-TextEdit/kwrite/calculate/.calculate_directory
++++ install/1merge/Desktop/800-TextEdit/kwrite/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-textedit.desktop)==||ini(desktop.textedit)==||ini(desktop.textedit)==kwrite
++# Calculate append=skip exists(/usr/share/applications/calculate-textedit.desktop,root)==||ini(desktop.textedit)==||ini(desktop.textedit)==kwrite
+diff --git install/1merge/Desktop/800-TextEdit/leafpad/calculate/.calculate_directory install/1merge/Desktop/800-TextEdit/leafpad/calculate/.calculate_directory
+index 05304bd..f9a1833 100644
+--- install/1merge/Desktop/800-TextEdit/leafpad/calculate/.calculate_directory
++++ install/1merge/Desktop/800-TextEdit/leafpad/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-textedit.desktop)==||ini(desktop.textedit)==||ini(desktop.textedit)==leafpad
++# Calculate append=skip exists(/usr/share/applications/calculate-textedit.desktop,root)==||ini(desktop.textedit)==||ini(desktop.textedit)==leafpad
+diff --git install/1merge/Desktop/900-Terminal/gnome-terminal/calculate/.calculate_directory install/1merge/Desktop/900-Terminal/gnome-terminal/calculate/.calculate_directory
+index 362fd07..00ae274 100644
+--- install/1merge/Desktop/900-Terminal/gnome-terminal/calculate/.calculate_directory
++++ install/1merge/Desktop/900-Terminal/gnome-terminal/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-terminal.desktop)==||ini(desktop.terminal)==||ini(desktop.terminal)==gnome-terminal
++# Calculate append=skip exists(/usr/share/applications/calculate-terminal.desktop,root)==||ini(desktop.terminal)==||ini(desktop.terminal)==gnome-terminal
+diff --git install/1merge/Desktop/900-Terminal/konsole/calculate/.calculate_directory install/1merge/Desktop/900-Terminal/konsole/calculate/.calculate_directory
+index 418dcf3..95fc9cf 100644
+--- install/1merge/Desktop/900-Terminal/konsole/calculate/.calculate_directory
++++ install/1merge/Desktop/900-Terminal/konsole/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-terminal.desktop)==||ini(desktop.terminal)==||ini(desktop.terminal)==konsole
++# Calculate append=skip exists(/usr/share/applications/calculate-terminal.desktop,root)==||ini(desktop.terminal)==||ini(desktop.terminal)==konsole
+diff --git install/1merge/Desktop/900-Terminal/terminal/calculate/.calculate_directory install/1merge/Desktop/900-Terminal/terminal/calculate/.calculate_directory
+index f89de45..b452ffe 100644
+--- install/1merge/Desktop/900-Terminal/terminal/calculate/.calculate_directory
++++ install/1merge/Desktop/900-Terminal/terminal/calculate/.calculate_directory
+@@ -1 +1 @@
+-# Calculate append=skip exists(/usr/share/applications/calculate-terminal.desktop)==||ini(desktop.terminal)==||ini(desktop.terminal)==terminal
++# Calculate append=skip exists(/usr/share/applications/calculate-terminal.desktop,root)==||ini(desktop.terminal)==||ini(desktop.terminal)==terminal
+diff --git install/1system/calculate-install/calculate2.env install/1system/calculate-install/calculate2.env
+index 2077d51..29baa6d 100644
+--- install/1system/calculate-install/calculate2.env
++++ install/1system/calculate-install/calculate2.env
+@@ -1,21 +1,19 @@
+-# Calculate format=raw comment=# os_root_type==hdd||os_install_linux_ver>10.8.81
+-#?os_root_type==hdd||cl_autologin!=&&os_install_linux_shortname!=CMC&&os_install_root_type!=livecd||cl_autologin==&&os_install_linux_shortname==CMC&&os_install_root_type!=livecd#
++# Calculate format=raw comment=# os_install_root_type==hdd||os_install_linux_ver>10.8.81
++
++#?os_root_type==hdd||os_install_root_type==hdd&&pkg(sys-apps/calculate-install)>2.2.17-r1||cl_autologin!=&&os_install_linux_shortname!=CMC&&os_install_root_type!=livecd&&pkg(sys-apps/calculate-install)>2.2.24||cl_autologin==&&os_install_linux_shortname==CMC&&os_install_root_type!=livecd&&pkg(sys-apps/calculate-install)>2.2.24#
+ [install]
+ #os_root_type#
+ #?os_root_type==hdd#
+-# Set previous hdd root device.
+ os_install_dev_from = #-os_root_dev-#
+-# NTP is a protocol designed to synchronize the clocks of computers over a network.
+ os_install_ntp = #-os_install_ntp-#
+ #os_root_type#
+-#?pkg(sys-apps/calculate-install)>2.2.17-r1&&os_root_type==hdd#
+-# name of net manager which is used
++#?os_install_root_type==hdd&&pkg(sys-apps/calculate-install)>2.2.17-r1#
+ os_install_net_settings = #-os_install_net_conf-#
+-#pkg#
+-#?cl_autologin!=&&os_install_linux_shortname!=CMC&&os_install_root_type!=livecd#
++#os_install_root_type#
++#?cl_autologin!=&&os_install_linux_shortname!=CMC&&os_install_root_type!=livecd&&pkg(sys-apps/calculate-install)>2.2.24#
+ cl_autologin = #-cl_autologin-#
+ #cl_autologin#
+-#?cl_autologin==&&os_install_linux_shortname==CMC&&os_install_root_type!=livecd#
++#?cl_autologin==&&os_install_linux_shortname==CMC&&os_install_root_type!=livecd&&pkg(sys-apps/calculate-install)>2.2.24#
+ cl_autologin =
+ #cl_autologin#
+ 
+@@ -24,11 +22,11 @@ cl_autologin =
+ # Set auto-update configuration files.
+ cl_autoupdate_set = off
+ #os_install_linux_ver#
+-#?os_install_linux_ver>10.8.91#
++#?os_install_linux_ver>10.8.91&&os_install_root_type!=livecd#
+ # keep value of root dev uuid (8 char) for kernel symlink
+ cl_kernel_uid = #-cl_install_kernel_uid-#
+ #os_install_linux_ver#
+-#?os_install_linux_build!=#
++#?os_install_linux_build!=&&os_install_linux_ver>10.8.81#
+ # current linux build
+ os_linux_build = #-os_install_linux_build-#
+ #os_install_linux_build#
+diff --git install/1system/calculate-install/linux/.calculate_directory install/1system/calculate-install/linux/.calculate_directory
+new file mode 100644
+index 0000000..814ccaf
+--- /dev/null
++++ install/1system/calculate-install/linux/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate path=/var/calculate

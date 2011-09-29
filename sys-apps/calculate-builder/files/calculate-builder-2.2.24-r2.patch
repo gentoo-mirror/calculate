@@ -1,0 +1,25 @@
+diff --git pym/cl_builder.py pym/cl_builder.py
+index 4745b47..bece647 100644
+--- pym/cl_builder.py
++++ pym/cl_builder.py
+@@ -188,7 +188,11 @@ class cl_builder(color_print):
+             envdict.update(os.environ)
+             commandLine = ["chroot",chroot,
+                                 "/bin/bash","-c",command]
+-            chrootCommand = process(*commandLine,stderr=PIPE,
++            if self.clVars.Get('os_builder_arch_machine') != \
++                self.clVars.Get('os_arch_machine') and \
++                self.clVars.Get('os_arch_machine') == 'x86_64':
++                commandLine = ["linux32"]+commandLine
++            chrootCommand = process(*commandLine,stderr=STDOUT,
+                                 stdout=PIPE,envdict=envdict)
+         except KeyboardInterrupt:
+             chrootCommand.kill()
+@@ -275,7 +279,6 @@ class cl_builder(color_print):
+             os.unlink(curProfileFile)
+             os.symlink(newProfile,curProfileFile)
+ 
+-
+     def restoreProfile(self):
+         """Restore profile"""
+         if not self.curProfile:
