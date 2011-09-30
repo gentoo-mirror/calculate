@@ -1,0 +1,28 @@
+diff --git builder/squash/etc/init.d/net.eth0 builder/squash/etc/init.d/net.eth0
+new file mode 100644
+index 0000000..9e6b506
+--- /dev/null
++++ builder/squash/etc/init.d/net.eth0
+@@ -0,0 +1 @@
++# Calculate name=net.eth0 link=net.lo symbolic pkg(net-misc/networkmanager)==
+diff --git desktop/desktop-root/60-mc-4.7/.mc/ini desktop/desktop-root/60-mc-4.7/.mc/ini
+index 1994d7a..d36eb71 100644
+--- desktop/desktop-root/60-mc-4.7/.mc/ini
++++ desktop/desktop-root/60-mc-4.7/.mc/ini
+@@ -1,4 +1,7 @@
+ # Calculate format=kde
++[Colors]
++base_color=,black:normal=,black:selected=black,cyan:marked=,black:markselect=yellow,cyan:errors=white,red:menu=white,cyan:reverse=black,lightgray:dnormal=black,lightgray:dfocus=black,cyan:dhotnormal=blue,lightgray:dhotfocus=blue,cyan:viewunderline=,black:menuhot=yellow,cyan:menusel=white,black:menuhotsel=yellow,black:helpnormal=black,lightgray:helpitalic=red,lightgray:helpbold=blue,lightgray:helplink=black,cyan:helpslink=yellow,blue:gauge=white,black:input=black,cyan:directory=white,black:executable=green,black:link=gray,black:stalelink=brightred,blue:device=,black:core=red,blue:special=red,black:editnormal=lightgray,black:editbold=yellow,blue:editmarked=black,cyan:errdhotnormal=yellow,red:errdhotfocus=yellow,lightgray
++
+ [Layout]
+ #видимость верхней строчки меню
+ menubar_visible=0
+diff --git desktop/desktop/20-kde-4.7/Desktop/calculate-community.desktop desktop/desktop/20-kde-4.7/Desktop/calculate-community.desktop
+index 4eca333..3960914 100644
+--- desktop/desktop/20-kde-4.7/Desktop/calculate-community.desktop
++++ desktop/desktop/20-kde-4.7/Desktop/calculate-community.desktop
+@@ -3,3 +3,4 @@
+ 
+ [Desktop Entry]
+ !NoDisplay=
++OnlyShowIn=KDE;
