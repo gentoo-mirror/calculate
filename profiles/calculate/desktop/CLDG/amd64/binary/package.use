@@ -113,7 +113,7 @@
 =dev-libs/libconfig-1.4.7 -examples -static-libs
 =dev-libs/libcroco-0.6.2 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
-=dev-libs/libevent-2.0.12 -static-libs -test
+=dev-libs/libevent-2.0.13 -static-libs -test
 =dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
 =dev-libs/libgcrypt-1.4.6 static-libs
 =dev-libs/libgdata-0.8.1 gnome -debug -doc -introspection
@@ -464,7 +464,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha59 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha60 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
@@ -517,7 +517,7 @@
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/squashfs-tools-4.2 gzip lzma lzo -xattr
 =sys-fs/udev-164-r2 extras -build -selinux -test
-=sys-fs/udisks-1.0.3-r1 bash-completion nls -debug -doc -remote-access
+=sys-fs/udisks-1.0.4-r1 nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-3.0.4-r1 symlink vmlinuz -build
