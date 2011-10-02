@@ -411,7 +411,7 @@
 =media-libs/libogg-1.2.0 -static-libs
 =media-libs/libopenraw-0.0.8 gtk -static-libs -test
 =media-libs/libpgf-6.11.32 -doc -static-libs
-=media-libs/libpng-1.4.8 static-libs -apng
+=media-libs/libpng-1.4.8-r1 static-libs -apng
 =media-libs/libquicktime-1.2.3 X aac alsa dv encode ffmpeg gtk jpeg mmx opengl png vorbis x264 -doc -lame -schroedinger
 =media-libs/libsamplerate-0.1.7 -sndfile
 =media-libs/libsdl-1.2.14-r6 X aalib alsa audio custom-cflags fbcon ggi joystick libcaca nas opengl video xinerama xv -dga -directfb -oss -ps3 -pulseaudio -static-libs -svga -tslib
@@ -420,7 +420,7 @@
 =media-libs/libvorbis-1.3.1 -static-libs
 =media-libs/libwebp-0.1.2 -static-libs
 =media-libs/libwmf-0.2.8.4-r4 X -debug -doc -expat -xml
-=media-libs/mediastreamer-2.7.3-r3 X alsa amr ipv6 portaudio sdl speex theora v4l2 video x264 -bindist -coreaudio -debug -examples -gsm -ilbc -jack -oss -pulseaudio
+=media-libs/mediastreamer-2.7.3-r3 X alsa amr ipv6 portaudio sdl speex theora v4l video x264 -bindist -coreaudio -debug -examples -gsm -ilbc -jack -oss -pulseaudio
 =media-libs/mesa-7.11 classic egl gallium llvm nptl shared-glapi video_cards_intel video_cards_mach64 video_cards_mga video_cards_nouveau video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_via video_cards_vmware -bindist -debug -gbm -gles -kernel_FreeBSD -motif -openvg -pax_kernel -pic -selinux -shared-dricore
 =media-libs/mlt-0.5.10 dv ffmpeg frei0r gtk kde melt mmx python qt4 quicktime sdl sse sse2 vdpau vorbis xml -compressed-lumas -debug -jack -libsamplerate -lua -ruby -xine
 =media-libs/musicbrainz-3.0.2 -test
@@ -464,7 +464,7 @@
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
 =media-video/recordmydesktop-0.3.8.1-r4 alsa -jack
 =media-video/smplayer-0.6.9 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -debug -linguas_ar -linguas_ca -linguas_cs -linguas_el -linguas_en_US -linguas_et -linguas_eu -linguas_fi -linguas_gl -linguas_hu -linguas_ja -linguas_ka -linguas_ko -linguas_ku -linguas_mk -linguas_nl -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
-=media-video/transcode-1.1.5-r2 3dnow X a52 aac alsa dv dvd iconv imagemagick jpeg lzo mjpeg mmx mp3 mpeg ogg quicktime sdl sse sse2 theora truetype v4l2 vorbis x264 xvid -altivec -nuv -oss -postproc -xml
+=media-video/transcode-1.1.5-r2 3dnow X a52 aac alsa dv dvd iconv imagemagick jpeg lzo mjpeg mmx mp3 mpeg ogg quicktime sdl sse sse2 theora truetype v4l vorbis x264 xvid -altivec -nuv -oss -postproc -xml
 =media-video/vcdimager-0.7.23 -minimal -xml
 =net-analyzer/net-snmp-5.4.2.1-r4 X bzip2 ipv6 kernel_linux perl python ssl tcpd zlib -diskio -doc -elf -extensible -lm_sensors -mfd-rewrites -minimal -rpm -selinux -sendmail -smux
 =net-analyzer/nmap-5.51 ssl -gtk -lua
@@ -572,7 +572,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha59 ipc less linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha60 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
