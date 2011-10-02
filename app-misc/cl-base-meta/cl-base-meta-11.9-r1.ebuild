@@ -22,6 +22,7 @@ RDEPEND="
 	media-fonts/terminus-font
 	sys-apps/calculate-utilities
 	sys-apps/ifplugd
+	sys-apps/less
 	sys-apps/openrc
 	sys-apps/v86d
 	sys-boot/calcboot
