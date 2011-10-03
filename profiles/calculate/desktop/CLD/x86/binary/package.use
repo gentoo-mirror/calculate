@@ -225,7 +225,7 @@
 =kde-base/kdebase-startkde-4.7.1 wallpapers -aqua -kdeenablefinal
 =kde-base/kdebugdialog-4.7.1 handbook -aqua -debug -kdeenablefinal
 =kde-base/kdegraphics-strigi-analyzer-4.7.1 -aqua -debug -kdeenablefinal
-=kde-base/kdelibs-4.7.1-r2 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev udisks upower -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kerberos -lzma -test -upnp -zeroconf
+=kde-base/kdelibs-4.7.1-r3 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev udisks upower -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kerberos -lzma -test -upnp -zeroconf
 =kde-base/kdemultimedia-kioslaves-4.7.1 encode flac handbook vorbis -aqua -debug -kdeenablefinal
 =kde-base/kdenetwork-filesharing-4.7.1 -aqua -debug -kdeenablefinal
 =kde-base/kdepasswd-4.7.1 handbook -aqua -debug -kdeenablefinal
@@ -546,7 +546,7 @@
 =sys-apps/calculate-desktop-2.2.24-r2 kde -gnome -xfce
 =sys-apps/calculate-install-2.2.24-r7 -minimal
 =sys-apps/calculate-lib-2.2.24-r2 -minimal
-=sys-apps/calculate-utilities-2.2.24-r15 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.24-r16 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -609,7 +609,7 @@
 =sys-devel/gcc-4.5.3-r1 fortran gtk mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -hardened -libffi -lto -multilib -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
 =sys-devel/libtool-2.4-r1 -vanilla
-=sys-devel/llvm-2.8-r2 libffi -alltargets -debug -llvm-gcc -ocaml -test -udis86
+=sys-devel/llvm-2.8-r2 libffi -debug -llvm-gcc -multitarget -ocaml -test -udis86
 =sys-devel/m4-1.4.15 -examples
 =sys-devel/make-3.82-r1 nls -static
 =sys-devel/patch-2.5.9 -static
