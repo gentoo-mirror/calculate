@@ -14,4 +14,7 @@
 	<use>
 		<flag name='bfs'>Apply kernel patch for BF scheduler</flag>
 	</use>
+	<use>
+		<flag name='hardened'>Apply Gentoo's hardened patchset</flag>
+	</use>
 </pkgmetadata>
