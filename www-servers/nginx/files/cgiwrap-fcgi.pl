@@ -6,7 +6,7 @@ use Socket;
 use POSIX qw(setsid);
 require 'syscall.ph';
 
-my $PROCESSES = 100;
+my $PROCESSES = $ARGV[0] || 5;
 
 #&daemonize;
 
@@ -33,8 +33,12 @@ sub main {
 	$socket = FCGI::OpenSocket( "/var/run/nginx/cgiwrap-dispatch.sock", 10 ); #use UNIX sockets - user running this script must have w access to the 'nginx' folder!!
 	`/bin/chown nginx:nginx /var/run/nginx/cgiwrap-dispatch.sock`;
 	$request = FCGI::Request( \*STDIN, \*STDOUT, \*STDERR, \%req_params, $socket, FCGI::FAIL_ACCEPT_ON_INTR );
+	open(FPID, "> /var/run/cgiwrap.pid");
+	print(FPID $$);
+	close(FPID);
 	if ($request) { request_loop()};
 	FCGI::CloseSocket( $socket );
+	unlink('/var/run/cgiwrap.pid');
 }
 
 sub request_loop {

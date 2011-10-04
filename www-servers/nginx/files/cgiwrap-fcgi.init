@@ -8,7 +8,7 @@ depend() {
 }
 
 start() {
-	ebegin "starting cgiwrap"
+	ebegin "Starting cgi-wrapper"
 
 	[[ -d /var/run/nginx ]] || mkdir -p /var/run/nginx
 
@@ -21,7 +21,7 @@ start() {
 stop() {
 	local retval
 
-	ebegin "Stopping cgiwrap"
+	ebegin "Stopping cgi-wrapper"
 
 	start-stop-daemon --quiet --stop --retry TERM/5/TERM/10 \
 		--pidfile /var/run/cgiwrap.pid
