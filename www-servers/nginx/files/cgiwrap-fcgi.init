@@ -1,0 +1,34 @@
+#!/sbin/runscript
+# Copyright 1999-2011 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License, v2
+# $Header: $
+
+depend() {
+	need nginx
+}
+
+start() {
+	ebegin "starting cgiwrap"
+
+	[[ -d /var/run/nginx ]] || mkdir -p /var/run/nginx
+
+	start-stop-daemon --background --start --exec /usr/bin/cgiwrap-fcgi.pl \
+		--name cgiwrap \
+		--pidfile /var/run/cgiwrap.pid -- ${PROCESSES:-5}
+	eend 0
+}
+
+stop() {
+	local retval
+
+	ebegin "Stopping cgiwrap"
+
+	start-stop-daemon --quiet --stop --retry TERM/5/TERM/10 \
+		--pidfile /var/run/cgiwrap.pid
+	retval=${?}
+
+	eend ${retval} "Error stopping cgiwrap"
+	return ${retval}
+}
+
+# vim: set ts=4 :

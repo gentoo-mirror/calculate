@@ -113,7 +113,9 @@ CDEPEND="
 	nginx_modules_http_gzip? ( sys-libs/zlib )
 	nginx_modules_http_gzip_static? ( sys-libs/zlib )
 	nginx_modules_http_image_filter? ( media-libs/gd[jpeg,png] )
-	nginx_modules_http_perl? ( >=dev-lang/perl-5.8 )
+	nginx_modules_http_perl? ( >=dev-lang/perl-5.8
+		dev-perl/FCGI
+		dev-perl/FCGI-ProcManager )
 	nginx_modules_http_rewrite? ( >=dev-libs/libpcre-4.2 )
 	nginx_modules_http_secure_link? ( userland_GNU? ( dev-libs/openssl ) )
 	nginx_modules_http_xslt? ( dev-libs/libxml2 dev-libs/libxslt )
@@ -318,6 +320,9 @@ src_install() {
 	newins "${FILESDIR}"/nginx.logrotate nginx
 
 	if use nginx_modules_http_perl; then
+		# perl wrapper
+		dobin "${FILESDIR}/cgiwrap-fcgi.pl"
+		newinitd "${FILESDIR}/cgiwrap-fcgi.init" cgiwrap-fcgi
 		cd "objs/src/http/modules/perl/"
 		einstall DESTDIR="${D}" INSTALLDIRS=vendor || die "failed to install perl stuff"
 		fixlocalpod

@@ -2,6 +2,13 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/www-servers/nginx/ChangeLog,v 1.289 2011/09/09 16:44:14 hollow Exp $
 
+*nginx-1.1.2-r10 (04 Oct 2011)
+
+  04 Oct 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -nginx-1.1.2-r9.ebuild, +nginx-1.1.2-r10.ebuild, +files/cgiwrap-fcgi.init,
+  +files/cgiwrap-fcgi.pl:
+  Add cgiwrap-fcgi daemon.
+
 *nginx-1.1.2-r9 (04 Oct 2011)
 
   04 Oct 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
