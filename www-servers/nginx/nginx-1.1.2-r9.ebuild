@@ -119,7 +119,7 @@ CDEPEND="
 	nginx_modules_http_xslt? ( dev-libs/libxml2 dev-libs/libxslt )
 	nginx_modules_http_passenger? (
 		$(ruby_implementation_depend ruby18)
-		=www-servers/${HTTP_PASSENGER_MODULE_P}
+		=www-appache/${HTTP_PASSENGER_MODULE_P}
 		>=dev-ruby/rubygems-0.9.0
 		>=dev-ruby/rake-0.8.1
 		>=dev-ruby/fastthread-1.0.1
