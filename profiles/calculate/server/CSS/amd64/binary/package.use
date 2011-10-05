@@ -90,7 +90,7 @@
 =sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 x86emu -debug
 =sys-auth/pambase-20101024 cracklib sha512 -consolekit -debug -gnome-keyring -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
-=sys-block/parted-2.3 debug device-mapper nls readline -selinux
+=sys-block/parted-3.0 debug device-mapper nls readline -selinux -static-libs
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
 =sys-boot/grub-1.99-r4 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
