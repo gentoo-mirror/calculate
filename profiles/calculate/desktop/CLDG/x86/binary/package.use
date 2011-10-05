@@ -26,8 +26,8 @@
 =app-crypt/seahorse-2.32.0 libnotify -avahi -debug -doc -introspection -ldap -test
 =app-editors/gedit-2.30.4 python spell -doc
 =app-editors/nano-2.2.5 ncurses nls spell unicode -debug -justify -minimal -slang
-=app-editors/vim-7.3.189 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
-=app-editors/vim-core-7.3.189 acl bash-completion nls -livecd
+=app-editors/vim-7.3.266 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
+=app-editors/vim-core-7.3.266 acl bash-completion nls -livecd
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.9-r1 cdistro_CLDG -cdistro_CDS -cdistro_CLD -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cl-decoration-meta-11.9 cdistro_CLDG cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDX -cdistro_CLS -cdistro_CMC
@@ -86,7 +86,7 @@
 =dev-libs/atk-1.32.0-r1 introspection nls -doc
 =dev-libs/boost-1.46.1-r1 eselect python -debug -doc -icu -mpi -static-libs -test -tools
 =dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
-=dev-libs/elfutils-0.149 bzip2 elibc_glibc nls zlib -lzma
+=dev-libs/elfutils-0.149 bzip2 nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
 =dev-libs/expat-2.0.1-r5 -elibc_FreeBSD -examples -static-libs
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
@@ -105,7 +105,7 @@
 =dev-libs/libconfig-1.4.7 -examples -static-libs
 =dev-libs/libcroco-0.6.2 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
-=dev-libs/libevent-2.0.12 -static-libs -test
+=dev-libs/libevent-2.0.13 -static-libs -test
 =dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
 =dev-libs/libgcrypt-1.4.6 static-libs
 =dev-libs/libgdata-0.8.1 gnome -debug -doc -introspection
@@ -280,6 +280,7 @@
 =media-libs/jasper-1.900.1-r3 jpeg opengl -static-libs
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
+=media-libs/lcms-2.0a jpeg static-libs tiff zlib
 =media-libs/libao-1.0.0-r1 alsa nas -mmap -pulseaudio -static-libs
 =media-libs/libass-0.9.13 enca fontconfig -static-libs
 =media-libs/libcaca-0.99_beta17 X cxx ncurses opengl truetype -doc -elibc_FreeBSD -imlib -java -mono -ruby -slang -static-libs
@@ -316,7 +317,7 @@
 =media-libs/nas-1.9.2 -doc
 =media-libs/openal-1.11.753 alsa portaudio -debug -oss -pulseaudio
 =media-libs/openexr-1.7.0 -examples -static-libs
-=media-libs/openjpeg-1.3-r3 -tools
+=media-libs/openjpeg-1.4-r1 -doc -test
 =media-libs/portaudio-19_pre20071207 alsa cxx -debug -jack -oss
 =media-libs/quvi-0.2.15 -doc -examples -offensive -static-libs -test
 =media-libs/raptor-1.4.21-r1 curl unicode xml -debug -static-libs
@@ -328,7 +329,7 @@
 =media-libs/swfdec-0.8.4 alsa ffmpeg gtk -doc -gstreamer -pulseaudio
 =media-libs/taglib-1.6.3 asf mp4 -debug -examples -test
 =media-libs/tiff-3.9.5 cxx jpeg zlib -jbig -static-libs
-=media-libs/vigra-1.6.0 jpeg png tiff zlib -doc -fftw -test
+=media-libs/vigra-1.7.1 fftw hdf5 jpeg png python tiff -doc -test
 =media-libs/vo-aacenc-0.1.1 -examples -neon -static-libs
 =media-libs/vo-amrwbenc-0.1.1 -examples -static-libs
 =media-libs/win32codecs-20071007-r4 -real
@@ -362,7 +363,7 @@
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.11 acl aio client cups netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldap -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
 =net-ftp/filezilla-3.3.4.1 dbus nls -test
-=net-im/pidgin-2.10.0 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
+=net-im/pidgin-2.10.0-r1 dbus gstreamer gtk ncurses networkmanager nls perl python spell xscreensaver -debug -doc -eds -gadu -gnutls -groupwise -idn -meanwhile -prediction -sasl -silc -tcl -tk -zephyr -zeroconf
 =net-im/skype-2.2.0.35-r1 -qt-static
 =net-irc/xchat-2.8.8-r2 dbus gtk ipv6 libnotify mmx nls perl python spell ssl -debug -fastscroll -hires-icons -ntlm -tcl -xchatdccserver
 =net-libs/farsight2-0.0.26 python -msn -test -upnp
@@ -422,6 +423,8 @@
 =net-wireless/madwimax-0.1.1 -doc
 =net-wireless/wireless-tools-29 nls -multicall
 =net-wireless/wpa_supplicant-0.7.3-r2 dbus kernel_linux readline ssl wimax -debug -eap-sim -fasteap -gnutls -kernel_FreeBSD -madwifi -ps3 -qt4 -wps
+=sci-libs/fftw-3.2.2 fortran openmp sse sse2 -altivec -doc -threads
+=sci-libs/hdf5-1.8.4-r1 cxx fortran zlib -examples -mpi -szip -threads
 =sys-apps/acl-2.2.51 nls -nfs -static-libs
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
@@ -491,7 +494,7 @@
 =sys-devel/gcc-4.5.3-r1 fortran gtk mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -hardened -libffi -lto -multilib -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
 =sys-devel/gdb-7.2 nls python -expat -multitarget -test -vanilla
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
-=sys-devel/libtool-2.4-r1 -vanilla
+=sys-devel/libtool-2.4-r1 -test -vanilla
 =sys-devel/llvm-2.8-r2 libffi -debug -llvm-gcc -multitarget -ocaml -test -udis86
 =sys-devel/m4-1.4.15 -examples
 =sys-devel/make-3.82-r1 nls -static
@@ -510,7 +513,7 @@
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/squashfs-tools-4.2 gzip lzma lzo -xattr
 =sys-fs/udev-164-r2 extras -build -selinux -test
-=sys-fs/udisks-1.0.3-r1 bash-completion nls -debug -doc -remote-access
+=sys-fs/udisks-1.0.4-r1 nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
 =sys-kernel/calculate-sources-3.0.4-r1 symlink vmlinuz -build
@@ -533,12 +536,13 @@
 =sys-power/cpufrequtils-008-r1 nls -debug
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
 =sys-power/powertop-1.13 unicode
-=sys-power/upower-0.9.12 introspection kernel_linux -debug -doc -ios -kernel_FreeBSD
+=sys-power/upower-0.9.13-r1 introspection kernel_linux -debug -doc -ios -kernel_FreeBSD
 =sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
 =sys-process/procps-3.2.8-r2 unicode -n32
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r11 pam -debug -selinux
 =virtual/ffmpeg-0.6.90 X encode jpeg2k mp3 sdl theora threads vaapi vdpau x264
+=virtual/fortran-0 openmp
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
@@ -552,7 +556,6 @@
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
 =x11-apps/xhost-1.0.4 ipv6
 =x11-apps/xinit-1.3.1 minimal
-=x11-apps/xmessage-1.0.3 -debug
 =x11-apps/xpr-1.0.3 -debug
 =x11-apps/xsetmode-1.0.0 -debug
 =x11-base/xorg-drivers-1.10 input_devices_evdev input_devices_keyboard input_devices_mouse input_devices_synaptics video_cards_dummy video_cards_fbdev video_cards_glint video_cards_intel video_cards_mach64 video_cards_mga video_cards_neomagic video_cards_nouveau video_cards_nv video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_trident video_cards_v4l video_cards_vesa video_cards_via video_cards_vmware -input_devices_acecad -input_devices_aiptek -input_devices_joystick -input_devices_tslib -input_devices_virtualbox -input_devices_vmmouse -input_devices_void -input_devices_wacom -video_cards_apm -video_cards_ark -video_cards_ast -video_cards_chips -video_cards_cirrus -video_cards_epson -video_cards_fglrx -video_cards_geode -video_cards_i128 -video_cards_i740 -video_cards_impact -video_cards_newport -video_cards_nvidia -video_cards_omapfb -video_cards_qxl -video_cards_rendition -video_cards_s3 -video_cards_s3virge -video_cards_siliconmotion -video_cards_sisusb -video_cards_sunbw2 -video_cards_suncg14 -video_cards_suncg3 -video_cards_suncg6 -video_cards_sunffb -video_cards_sunleo -video_cards_suntcx -video_cards_tga -video_cards_tseng -video_cards_virtualbox -video_cards_voodoo
