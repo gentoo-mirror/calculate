@@ -73,8 +73,8 @@
 =app-dicts/myspell-ru-20060316
 =app-dicts/myspell-uk-20060316
 =app-editors/nano-2.2.5
-=app-editors/vim-7.3.189
-=app-editors/vim-core-7.3.189
+=app-editors/vim-7.3.266
+=app-editors/vim-core-7.3.266
 =app-i18n/enca-1.13
 =app-i18n/man-pages-de-0.5-r1
 =app-i18n/man-pages-fr-2.39.0
@@ -188,7 +188,7 @@
 =dev-libs/libcroco-0.6.2
 =dev-libs/libdaemon-0.14-r1
 =dev-libs/libdbusmenu-qt-0.8.2
-=dev-libs/libevent-2.0.12
+=dev-libs/libevent-2.0.13
 =dev-libs/libf2c-20090407-r1
 =dev-libs/libffi-3.0.9-r2
 =dev-libs/libgcrypt-1.4.6
@@ -504,7 +504,8 @@
 =media-libs/jasper-1.900.1-r3
 =media-libs/jpeg-8b
 =media-libs/lcms-1.19
-=media-libs/lensfun-0.2.5-r1
+=media-libs/lcms-2.0a
+=media-libs/lensfun-0.2.5-r2
 =media-libs/libao-1.0.0-r1
 =media-libs/libart_lgpl-2.3.21-r1
 =media-libs/libass-0.9.13
@@ -559,7 +560,7 @@
 =media-libs/opencore-amr-0.1.2
 =media-libs/opencv-2.2.0
 =media-libs/openexr-1.7.0
-=media-libs/openjpeg-1.3-r3
+=media-libs/openjpeg-1.4-r1
 =media-libs/phonon-4.5.0
 =media-libs/phonon-xine-4.4.4
 =media-libs/portaudio-19_pre20071207
@@ -571,7 +572,7 @@
 =media-libs/taglib-1.6.3
 =media-libs/taglib-extras-1.0.1
 =media-libs/tiff-3.9.5
-=media-libs/vigra-1.6.0
+=media-libs/vigra-1.7.1
 =media-libs/vo-aacenc-0.1.1
 =media-libs/vo-amrwbenc-0.1.1
 =media-libs/win32codecs-20071007-r4
@@ -702,6 +703,7 @@
 =sci-libs/blas-atlas-3.8.0
 =sci-libs/blas-reference-20070226
 =sci-libs/clapack-3.2.1-r4
+=sci-libs/fftw-3.2.2
 =sci-libs/flann-1.6.8
 =sci-libs/hdf5-1.8.4-r1
 =sci-libs/lapack-atlas-3.8.0
@@ -761,7 +763,7 @@
 =sys-apps/sysvinit-2.88-r2
 =sys-apps/tcp-wrappers-7.6-r8
 =sys-apps/texinfo-4.13
-=sys-apps/usb_modeswitch-1.1.7
+=sys-apps/usb_modeswitch-1.1.9
 =sys-apps/usbutils-001
 =sys-apps/util-linux-2.19.1
 =sys-apps/v86d-0.1.10
@@ -826,7 +828,7 @@
 =sys-fs/squashfs-tools-4.2
 =sys-fs/sysfsutils-2.1.0
 =sys-fs/udev-164-r2
-=sys-fs/udisks-1.0.3-r1
+=sys-fs/udisks-1.0.4-r1
 =sys-fs/xfsprogs-3.1.4
 =sys-kernel/calckernel-3.4.18-r1
 =sys-kernel/calculate-sources-3.0.4-r1
@@ -853,14 +855,14 @@
 =sys-libs/timezone-data-2011h
 =sys-libs/zlib-1.2.5-r2
 =sys-power/acpi-1.5
-=sys-power/acpid-2.0.9
+=sys-power/acpid-2.0.12
 =sys-power/cpufreqd-2.4.2
 =sys-power/cpufrequtils-008-r1
 =sys-power/pm-quirks-20100619
 =sys-power/pm-utils-1.4.1
 =sys-power/powernowd-1.00
 =sys-power/powertop-1.13
-=sys-power/upower-0.9.12
+=sys-power/upower-0.9.13-r1
 =sys-process/cronbase-0.3.3
 =sys-process/htop-0.9
 =sys-process/procps-3.2.8-r2
