@@ -30,8 +30,8 @@ sub daemonize() {
 
 sub main {
 	$proc_manager = new FCGI::ProcManager({ n_processes => $PROCESSES, die_timeout => 10 }); #!!!
-	$socket = FCGI::OpenSocket( "/var/run/nginx/cgiwrap-dispatch.sock", 10 ); #use UNIX sockets - user running this script must have w access to the 'nginx' folder!!
-	`/bin/chown nginx:nginx /var/run/nginx/cgiwrap-dispatch.sock`;
+	$socket = FCGI::OpenSocket( "/var/run/cgiwrap-dispatch.sock", 10 ); #use UNIX sockets - user running this script must have w access to the 'nginx' folder!!
+	`/bin/chown nginx:nginx /var/run/cgiwrap-dispatch.sock`;
 	$request = FCGI::Request( \*STDIN, \*STDOUT, \*STDERR, \%req_params, $socket, FCGI::FAIL_ACCEPT_ON_INTR );
 	open(FPID, "> /var/run/cgiwrap.pid");
 	print(FPID $$);
@@ -91,8 +91,9 @@ sub request_loop {
 					syscall(&SYS_dup2, fileno(CHILD_RD), 0);
 					#open(STDIN, "<&CHILD_RD");
 					my $SCRIPTUSER = $req_params{SCRIPT_USER} or "";
-					if($SCRIPTUSER eq "")
+					if($SCRIPTUSER eq "") {
 						exec($req_params{SCRIPT_FILENAME});
+					}
 					else {
 						exec("su -c \"$req_params{SCRIPT_FILENAME}\" -s /bin/sh ${SCRIPTUSER}");
 					}
