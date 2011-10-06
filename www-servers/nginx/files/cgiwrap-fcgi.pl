@@ -90,7 +90,12 @@ sub request_loop {
 					#fcntl(CHILD_RD, F_DUPFD, 0);
 					syscall(&SYS_dup2, fileno(CHILD_RD), 0);
 					#open(STDIN, "<&CHILD_RD");
-					exec($req_params{SCRIPT_FILENAME});
+					my $SCRIPTUSER = $req_params{SCRIPT_USER} or "";
+					if($SCRIPTUSER eq "")
+						exec($req_params{SCRIPT_FILENAME});
+					else {
+						exec("su -c \"$req_params{SCRIPT_FILENAME}\" -s /bin/sh ${SCRIPTUSER}");
+					}
 					die("exec failed");
 				}
 			}
