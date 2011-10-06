@@ -69,8 +69,8 @@
 =app-dicts/myspell-uk-20060316
 =app-editors/leafpad-0.8.18.1
 =app-editors/nano-2.2.5
-=app-editors/vim-7.3.189
-=app-editors/vim-core-7.3.189
+=app-editors/vim-7.3.266
+=app-editors/vim-core-7.3.266
 =app-i18n/enca-1.13
 =app-i18n/man-pages-de-0.5-r1
 =app-i18n/man-pages-fr-2.39.0
@@ -182,7 +182,7 @@
 =dev-libs/libconfig-1.4.7
 =dev-libs/libcroco-0.6.2
 =dev-libs/libdaemon-0.14-r1
-=dev-libs/libevent-2.0.12
+=dev-libs/libevent-2.0.13
 =dev-libs/libffi-3.0.9-r2
 =dev-libs/libgcrypt-1.4.6
 =dev-libs/libgpg-error-1.10
@@ -351,6 +351,7 @@
 =media-libs/jasper-1.900.1-r3
 =media-libs/jpeg-8b
 =media-libs/lcms-1.19
+=media-libs/lcms-2.0a
 =media-libs/libart_lgpl-2.3.21-r1
 =media-libs/libass-0.9.13
 =media-libs/libcaca-0.99_beta17
@@ -390,7 +391,7 @@
 =media-libs/openal-1.11.753
 =media-libs/opencore-amr-0.1.2
 =media-libs/openexr-1.7.0
-=media-libs/openjpeg-1.3-r3
+=media-libs/openjpeg-1.4-r1
 =media-libs/portaudio-19_pre20071207
 =media-libs/raptor-1.4.21-r1
 =media-libs/schroedinger-1.0.10
@@ -400,7 +401,7 @@
 =media-libs/smpeg-0.4.4-r9
 =media-libs/speex-1.2_rc1
 =media-libs/tiff-3.9.5
-=media-libs/vigra-1.6.0
+=media-libs/vigra-1.7.1
 =media-libs/vo-aacenc-0.1.1
 =media-libs/vo-amrwbenc-0.1.1
 =media-libs/win32codecs-20071007-r4
@@ -437,7 +438,7 @@
 =net-fs/nfs-utils-1.2.3-r1
 =net-fs/samba-3.5.11
 =net-ftp/filezilla-3.3.4.1
-=net-im/pidgin-2.10.0
+=net-im/pidgin-2.10.0-r1
 =net-im/skype-2.2.0.35-r1
 =net-irc/xchat-2.8.8-r2
 =net-libs/glib-networking-2.28.7
@@ -520,6 +521,8 @@
 =perl-core/Scalar-List-Utils-1.230.0
 =perl-core/Storable-2.20
 =sci-calculators/galculator-1.3.4
+=sci-libs/fftw-3.2.2
+=sci-libs/hdf5-1.8.4-r1
 =sys-apps/acl-2.2.51
 =sys-apps/attr-2.4.46
 =sys-apps/baselayout-2.0.3
@@ -577,7 +580,7 @@
 =sys-apps/sysvinit-2.88-r2
 =sys-apps/tcp-wrappers-7.6-r8
 =sys-apps/texinfo-4.13
-=sys-apps/usb_modeswitch-1.1.7
+=sys-apps/usb_modeswitch-1.1.9
 =sys-apps/usbutils-001
 =sys-apps/util-linux-2.19.1
 =sys-apps/v86d-0.1.10
@@ -640,7 +643,7 @@
 =sys-fs/squashfs-tools-4.2
 =sys-fs/sysfsutils-2.1.0
 =sys-fs/udev-164-r2
-=sys-fs/udisks-1.0.3-r1
+=sys-fs/udisks-1.0.4-r1
 =sys-fs/xfsdump-3.0.1
 =sys-fs/xfsprogs-3.1.4
 =sys-kernel/calckernel-3.4.18-r1
@@ -666,18 +669,19 @@
 =sys-libs/timezone-data-2011h
 =sys-libs/zlib-1.2.5-r2
 =sys-power/acpi-1.5
-=sys-power/acpid-2.0.9
+=sys-power/acpid-2.0.12
 =sys-power/cpufreqd-2.4.2
 =sys-power/cpufrequtils-008-r1
 =sys-power/pm-quirks-20100619
 =sys-power/pm-utils-1.4.1
 =sys-power/powernowd-1.00
 =sys-power/powertop-1.13
-=sys-power/upower-0.9.12
+=sys-power/upower-0.9.13-r1
 =sys-process/cronbase-0.3.3
 =sys-process/htop-0.9
 =sys-process/procps-3.2.8-r2
 =sys-process/psmisc-22.12
+=sys-process/time-1.7-r1
 =sys-process/vixie-cron-4.1-r11
 =virtual/acl-0
 =virtual/c++-tr1-functional-0
@@ -687,6 +691,7 @@
 =virtual/editor-0
 =virtual/eject-0
 =virtual/ffmpeg-0.6.90
+=virtual/fortran-0
 =virtual/freedesktop-icon-theme-0
 =virtual/glu-7.0
 =virtual/init-0
