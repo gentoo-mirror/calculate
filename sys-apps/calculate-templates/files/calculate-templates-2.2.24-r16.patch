@@ -90,10 +90,11 @@ index 1e6fad0..04633df 100644
 +chown #-ur_login-#:#-ur_group-# -R #-ur_home_path-#/.config/chromium/Default/Extensions/gighmmpiobklfepjocnamgkkbiglidom &>/dev/null
  exit 0
 diff --git desktop/desktop/60-chromium-6.0/.config/chromium/First Run desktop/desktop/60-chromium-6.0/.config/chromium/First Run
-index 8b3bbff..e69de29 100644
+index 8b3bbff..8d1c8b6 100644
 --- desktop/desktop/60-chromium-6.0/.config/chromium/First Run	
 +++ desktop/desktop/60-chromium-6.0/.config/chromium/First Run	
-@@ -1,2 +0,0 @@
+@@ -1,2 +1 @@
 -# Calculate exists(~/.mozilla)==
 -# will not migrate if Firefox had not run
 \ No newline at end of file
++ 
