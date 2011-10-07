@@ -133,7 +133,8 @@ DEPEND="${CDEPEND}
 	libatomic? ( dev-libs/libatomic_ops )"
 PDEPEND="vim-syntax? ( app-vim/nginx-syntax )"
 
-S="${WORKDIR}/all/${P}"
+ALLWORKDIR="${WORKDIR}/all"
+S="${ALLWORKDIR}/${P}"
 
 pkg_setup() {
 	ebegin "Creating nginx user and group"
@@ -168,7 +169,7 @@ src_prepare() {
 	sed -i 's/ make/ \\$(MAKE)/' "${S}"/auto/lib/perl/make
 
 	if use nginx_modules_http_passenger; then
-		cd "${WORKDIR}/all/${HTTP_PASSENGER_MODULE_P}"
+		cd "${ALLWORKDIR}/${HTTP_PASSENGER_MODULE_P}"
 		pwd
 		epatch "${FILESDIR}/passenger-CFLAGS-headers.patch"
 	fi
@@ -206,37 +207,37 @@ src_configure() {
 	# third-party modules
 	if use nginx_modules_http_upload_progress; then
 		http_enabled=1
-		myconf+=" --add-module=${WORKDIR}/masterzen-nginx-upload-progress-module-${HTTP_UPLOAD_PROGRESS_MODULE_SHA1}"
+		myconf+=" --add-module=${ALLWORKDIR}/masterzen-nginx-upload-progress-module-${HTTP_UPLOAD_PROGRESS_MODULE_SHA1}"
 	fi
 
 	if use nginx_modules_http_headers_more; then
 		http_enabled=1
-		myconf+=" --add-module=${WORKDIR}/agentzh-headers-more-nginx-module-${HTTP_HEADERS_MORE_MODULE_SHA1}"
+		myconf+=" --add-module=${ALLWORKDIR}/agentzh-headers-more-nginx-module-${HTTP_HEADERS_MORE_MODULE_SHA1}"
 	fi
 
 	if use nginx_modules_http_push; then
 		http_enabled=1
-		myconf+=" --add-module=${WORKDIR}/${HTTP_PUSH_MODULE_P}"
+		myconf+=" --add-module=${ALLWORKDIR}/${HTTP_PUSH_MODULE_P}"
 	fi
 
 	if use nginx_modules_http_cache_purge; then
 		http_enabled=1
-		myconf+=" --add-module=${WORKDIR}/${HTTP_CACHE_PURGE_MODULE_P}"
+		myconf+=" --add-module=${ALLWORKDIR}/${HTTP_CACHE_PURGE_MODULE_P}"
 	fi
 
 	if use nginx_modules_http_upload; then
 		http_enabled=1
-		myconf+=" --add-module=${WORKDIR}/${HTTP_UPLOAD_MODULE_P}"
+		myconf+=" --add-module=${ALLWORKDIR}/${HTTP_UPLOAD_MODULE_P}"
 	fi
 
 	if use nginx_modules_http_slowfs_cache; then
 		http_enabled=1
-		myconf+=" --add-module=${WORKDIR}/${HTTP_SLOWFS_CACHE_MODULE_P}"
+		myconf+=" --add-module=${ALLWORKDIR}/${HTTP_SLOWFS_CACHE_MODULE_P}"
 	fi
 
 	if use nginx_modules_http_passenger; then
 		http_enabled=1
-		myconf="${myconf} --add-module=${WORKDIR}/all/${HTTP_PASSENGER_MODULE_P}/ext/nginx"
+		myconf="${myconf} --add-module=${ALLWORKDIR}/${HTTP_PASSENGER_MODULE_P}/ext/nginx"
 	fi
 
 	if use http || use http-cache; then
@@ -330,22 +331,22 @@ src_install() {
 
 	if use nginx_modules_http_push; then
 		docinto ${HTTP_PUSH_MODULE_P}
-		dodoc "${WORKDIR}"/${HTTP_PUSH_MODULE_P}/{changelog.txt,protocol.txt,README}
+		dodoc "${ALLWORKDIR}"/${HTTP_PUSH_MODULE_P}/{changelog.txt,protocol.txt,README}
 	fi
 
 	if use nginx_modules_http_cache_purge; then
 		docinto ${HTTP_CACHE_PURGE_MODULE_P}
-		dodoc "${WORKDIR}"/${HTTP_CACHE_PURGE_MODULE_P}/{CHANGES,README}
+		dodoc "${ALLWORKDIR}"/${HTTP_CACHE_PURGE_MODULE_P}/{CHANGES,README}
 	fi
 
 	if use nginx_modules_http_upload; then
 		docinto ${HTTP_UPLOAD_MODULE_P}
-		dodoc "${WORKDIR}"/${HTTP_UPLOAD_MODULE_P}/{Changelog,README}
+		dodoc "${ALLWORKDIR}"/${HTTP_UPLOAD_MODULE_P}/{Changelog,README}
 	fi
 
 	if use nginx_modules_http_slowfs_cache; then
 		docinto ${HTTP_SLOWFS_CACHE_MODULE_P}
-		dodoc "${WORKDIR}"/${HTTP_SLOWFS_CACHE_MODULE_P}/{CHANGES,README}
+		dodoc "${ALLWORKDIR}"/${HTTP_SLOWFS_CACHE_MODULE_P}/{CHANGES,README}
 	fi
 }
 
