@@ -240,7 +240,7 @@
 =kde-base/kdepim-icons-4.7.2 -aqua -kdeenablefinal
 =kde-base/kdepim-kresources-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/kdepim-l10n-4.4.11.1-r1 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -kdeenablefinal -kdeprefix -linguas_ar -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_csb -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_fy -linguas_ga -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_pa -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_tg -linguas_tr -linguas_wa -linguas_zh_CN -linguas_zh_TW
-=kde-base/kdepim-runtime-4.7.2 -aqua -debug -kdeenablefinal
+=kde-base/kdepim-runtime-4.7.2-r1 -aqua -debug -kdeenablefinal
 =kde-base/kdepim-strigi-analyzer-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/kdepimlibs-4.7.2 handbook ldap semantic-desktop -aqua -debug -kdeenablefinal -test
 =kde-base/kdeplasma-addons-4.7.2 exif semantic-desktop -aqua -attica -debug -desktopglobe -kdeenablefinal -qalculate -qwt -scim
@@ -459,7 +459,7 @@
 =media-sound/alsa-utils-1.0.24.2-r1 nls -doc -minimal
 =media-sound/amarok-2.4.3 cdda embedded ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk opengl player semantic-desktop utils -daap -debug -kdeenablefinal -lastfm -linguas_ca -linguas_cs -linguas_da -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_ja -linguas_km -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sl -linguas_sr -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_wa -linguas_zh_TW -mp3tunes -mtp
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
-=media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
+=media-sound/sox-14.3.2-r1 alsa amr encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -static-libs -wavpack
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
 =media-video/dvgrab-3.5 jpeg quicktime
@@ -580,7 +580,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha62 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha63 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
