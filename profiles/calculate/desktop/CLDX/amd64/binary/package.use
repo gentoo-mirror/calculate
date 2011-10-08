@@ -289,7 +289,7 @@
 =media-sound/audacious-2.5.4 nls session sse2 -altivec -chardet
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
 =media-sound/mpg123-1.13.2 alsa ipv6 nas portaudio sdl sse -3dnow -3dnowext -altivec -coreaudio -jack -mmx -oss -pulseaudio
-=media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
+=media-sound/sox-14.3.2-r1 alsa amr encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -static-libs -wavpack
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
 =media-video/ffmpeg-0.7.6 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
@@ -399,7 +399,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha62 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha63 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
