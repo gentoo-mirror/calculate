@@ -31,7 +31,7 @@
 =app-misc/cl-network-meta-11.9 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop -networkmanager
 =app-misc/cl-tools-meta-11.9 cdistro_CDS ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/mc-4.7.5.2 edit gpm ncurses nls samba -X -slang
-=app-misc/pax-utils-0.2.2 -caps
+=app-misc/pax-utils-0.2.3 -caps
 =app-misc/realpath-1.15-r1 nls
 =app-misc/screen-4.0.3-r4 pam -debug -multiuser -nethack -selinux
 =app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
@@ -52,7 +52,7 @@
 =dev-lang/perl-5.12.4-r1 berkdb gdbm -build -debug -doc -ithreads
 =dev-lang/python-2.7.1-r1 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -berkdb -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
 =dev-lang/python-3.1.3-r1 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
-=dev-lang/ruby-1.8.7_p334-r1 berkdb gdbm ipv6 ncurses readline ssl -debug -doc -examples -libedit -rubytests -socks5 -threads -tk -xemacs
+=dev-lang/ruby-1.8.7_p352 berkdb gdbm ipv6 ncurses readline ssl -debug -doc -examples -libedit -rubytests -socks5 -threads -tk -xemacs
 =dev-lang/swig-2.0.2 pcre -ccache -doc
 =dev-lang/tcl-8.5.9 -debug -threads
 =dev-libs/eventlog-0.2.12 -static-libs
@@ -120,7 +120,7 @@
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
 =media-libs/lcms-2.0a jpeg static-libs tiff zlib
-=media-libs/libmng-1.0.10 -lcms
+=media-libs/libmng-1.0.10-r1 static-libs -lcms
 =media-libs/libpng-1.4.8-r1 static-libs -apng
 =media-libs/openjpeg-1.4-r1 -doc -test
 =media-libs/tiff-3.9.5 cxx jpeg zlib -jbig -static-libs
@@ -202,7 +202,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha63 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha64 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
@@ -257,7 +257,7 @@
 =sys-libs/gpm-1.20.6 -selinux
 =sys-libs/libcap-2.17 pam
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
-=sys-libs/pam-1.1.3 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -selinux -test -vim-syntax
+=sys-libs/pam-1.1.4 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/slang-2.2.2 pcre png readline zlib -cjk
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
