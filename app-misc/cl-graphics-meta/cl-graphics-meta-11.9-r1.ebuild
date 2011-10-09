@@ -17,6 +17,7 @@ RDEPEND="
 	media-gfx/gimp
 	cdistro_CLD? (
 		media-gfx/digikam
+		sci-libs/clapack
 	)
 	cdistro_CLDX? (
 		media-gfx/gqview
