@@ -1,0 +1,25 @@
+diff --git pym/cl_fill_assemble.py pym/cl_fill_assemble.py
+index b729ca3..5a7baa1 100644
+--- pym/cl_fill_assemble.py
++++ pym/cl_fill_assemble.py
+@@ -120,7 +120,10 @@ class fillVars(installFillVars):
+         distRep = DistributiveRepository(self.Get('cl_assemble_image_path'))
+         shortname = self.Get('cl_assemble_source').lower()
+         if shortname == "stage":
+-            return distRep.getBestStage(march=archMachine)
++            hardened = None \
++                       if "hardened" in self.Get('os_assemble_profile') \
++                       else False
++            return distRep.getBestStage(march=archMachine,hardened=hardened)
+         else:
+             return distRep.getBestDistributive(march=archMachine,
+                                            shortname=shortname,
+@@ -147,7 +150,7 @@ class fillVars(installFillVars):
+         if image:
+             if image.endswith('.iso'):
+                 return "iso"
+-            elif re.match(r'^.*/stage\d-[^-]+-\d+.tar.(bz2|gz|lzma|7z)$',image):
++            elif re.match(r'^.*/stage\d-[^-]+(-hardened)?-\d+.tar.(bz2|gz|lzma|7z)$',image):
+                 return "stage"
+         return ""
+ 

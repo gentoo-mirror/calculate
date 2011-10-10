@@ -29,7 +29,7 @@
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.9-r1 cdistro_CLDX -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cl-decoration-meta-11.9 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
-=app-misc/cl-graphics-meta-11.9 cdistro_CLDX -cdistro_CLD
+=app-misc/cl-graphics-meta-11.9-r1 cdistro_CLDX -cdistro_CLD
 =app-misc/cl-multimedia-meta-11.9 cdistro_CLDX -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-nettools-meta-11.9 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-network-meta-11.9 cdistro_CLDX cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLD -cdistro_CLDG
@@ -39,7 +39,7 @@
 =app-misc/cldx-meta-11.9 -calculate_nodecoration -calculate_nographics -calculate_nokernel -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork -calculate_nooffice -calculate_noprinter -calculate_nowireless -calculate_noxfce -calculate_noxorg
 =app-misc/lirc-0.8.7 X kernel_linux lirc_devices_devinput -debug -doc -hardware-carrier -lirc_devices_accent -lirc_devices_act200l -lirc_devices_act220l -lirc_devices_adaptec -lirc_devices_all -lirc_devices_alsa_usb -lirc_devices_animax -lirc_devices_asusdh -lirc_devices_atilibusb -lirc_devices_atiusb -lirc_devices_audio -lirc_devices_audio_alsa -lirc_devices_avermedia -lirc_devices_avermedia98 -lirc_devices_avermedia_vdomate -lirc_devices_awlibusb -lirc_devices_bestbuy -lirc_devices_bestbuy2 -lirc_devices_breakoutbox -lirc_devices_bte -lirc_devices_bw6130 -lirc_devices_caraca -lirc_devices_chronos -lirc_devices_commandir -lirc_devices_cph06x -lirc_devices_creative -lirc_devices_creative_infracd -lirc_devices_digimatrix -lirc_devices_dsp -lirc_devices_dvico -lirc_devices_ea65 -lirc_devices_ene0100 -lirc_devices_exaudio -lirc_devices_flyvideo -lirc_devices_ftdi -lirc_devices_gvbctv5pci -lirc_devices_hauppauge -lirc_devices_hauppauge_dvb -lirc_devices_hercules_smarttv_stereo -lirc_devices_i2cuser -lirc_devices_igorplugusb -lirc_devices_iguanaIR -lirc_devices_imon -lirc_devices_imon_24g -lirc_devices_imon_knob -lirc_devices_imon_lcd -lirc_devices_imon_pad -lirc_devices_imon_rsc -lirc_devices_inputlirc -lirc_devices_irdeo -lirc_devices_irdeo_remote -lirc_devices_irlink -lirc_devices_irman -lirc_devices_irreal -lirc_devices_it87 -lirc_devices_ite8709 -lirc_devices_knc_one -lirc_devices_kworld -lirc_devices_leadtek_0007 -lirc_devices_leadtek_0010 -lirc_devices_leadtek_pvr2000 -lirc_devices_livedrive_midi -lirc_devices_livedrive_seq -lirc_devices_logitech -lirc_devices_macmini -lirc_devices_mceusb -lirc_devices_mediafocusI -lirc_devices_mouseremote -lirc_devices_mouseremote_ps2 -lirc_devices_mp3anywhere -lirc_devices_mplay -lirc_devices_nslu2 -lirc_devices_packard_bell -lirc_devices_parallel -lirc_devices_pcmak -lirc_devices_pcmak_usb -lirc_devices_pctv -lirc_devices_pixelview_bt878 -lirc_devices_pixelview_pak -lirc_devices_pixelview_pro -lirc_devices_provideo -lirc_devices_realmagic -lirc_devices_remote_wonder_plus -lirc_devices_remotemaster -lirc_devices_sa1100 -lirc_devices_samsung -lirc_devices_sasem -lirc_devices_sb0540 -lirc_devices_serial -lirc_devices_serial_igor_cesko -lirc_devices_silitek -lirc_devices_sir -lirc_devices_slinke -lirc_devices_streamzap -lirc_devices_tekram -lirc_devices_tekram_bt829 -lirc_devices_tira -lirc_devices_ttusbir -lirc_devices_tuxbox -lirc_devices_tvbox -lirc_devices_udp -lirc_devices_uirt2 -lirc_devices_uirt2_raw -lirc_devices_usb_uirt_raw -lirc_devices_usbirboy -lirc_devices_usbx -lirc_devices_userspace -lirc_devices_wpc8769l -lirc_devices_xboxusb -transmitter
 =app-misc/mc-4.7.5.2 X edit gpm ncurses nls samba -slang
-=app-misc/pax-utils-0.2.2 -caps
+=app-misc/pax-utils-0.2.3 -caps
 =app-misc/realpath-1.15-r1 nls
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
 =app-office/libreoffice-3.3.4 bash-completion cups dbus gtk ldap linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gnome -gstreamer -java -kde -kdeenablefinal -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
@@ -181,7 +181,7 @@
 =gnome-base/libgtop-2.28.3 introspection -debug -doc
 =gnome-base/librsvg-2.34.1 gtk -doc -tools
 =gnome-base/orbit-2.14.19-r1 -debug -doc -test
-=gnome-extra/nm-applet-0.8.2-r10 -bluetooth -debug
+=gnome-extra/nm-applet-0.8.4 -bluetooth
 =gnome-extra/polkit-gnome-0.101-r1 introspection -doc -examples
 =mail-client/claws-mail-3.7.9-r1 crypt dbus gnutls imap ipv6 ldap session spell ssl -bogofilter -dillo -doc -nntp -pda -smime -spamassassin -startup-notification -xface
 =mail-client/claws-mail-rssyl-0.30 nls
@@ -282,10 +282,10 @@
 =media-sound/audacious-2.5.4 nls session sse2 -altivec -chardet
 =media-sound/lame-3.98.4 mmx -debug -mp3rtp -sndfile -static-libs
 =media-sound/mpg123-1.13.2 3dnow alsa ipv6 mmx nas portaudio sdl sse -3dnowext -altivec -coreaudio -jack -oss -pulseaudio
-=media-sound/sox-14.3.0 alsa encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -wavpack
+=media-sound/sox-14.3.2-r1 alsa amr encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -static-libs -wavpack
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc
-=media-video/ffmpeg-0.7.5 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
+=media-video/ffmpeg-0.7.6 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
 =media-video/gnome-mplayer-1.0.3-r2 alsa dbus ipod libnotify -gnome -musicbrainz -pulseaudio
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
@@ -363,9 +363,9 @@
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
 =sys-apps/calculate-client-2.2.24-r1 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.24-r2 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.24-r7 -minimal
+=sys-apps/calculate-install-2.2.24-r8 -minimal
 =sys-apps/calculate-lib-2.2.24-r2 -minimal
-=sys-apps/calculate-utilities-2.2.24-r20 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.24-r22 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -392,7 +392,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha63 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha64 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
