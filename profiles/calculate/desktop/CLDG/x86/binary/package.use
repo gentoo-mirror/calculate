@@ -232,7 +232,7 @@
 =gnome-extra/gnome-utils-2.32.0-r2 ipv6 -bonobo -debug -doc -test
 =gnome-extra/gucharmap-2.32.1 gnome python -cjk -debug -doc -introspection -test
 =gnome-extra/hamster-applet-2.32.1 libnotify -eds
-=gnome-extra/nm-applet-0.8.2-r10 -bluetooth -debug
+=gnome-extra/nm-applet-0.8.4 -bluetooth
 =gnome-extra/polkit-gnome-0.101-r1 introspection -doc -examples
 =gnome-extra/yelp-2.30.2-r5 -debug
 =gnome-extra/zenity-2.32.1 compat libnotify -debug
@@ -433,7 +433,7 @@
 =sys-apps/calculate-desktop-2.2.24-r2 gnome -kde -xfce
 =sys-apps/calculate-install-2.2.24-r7 -minimal
 =sys-apps/calculate-lib-2.2.24-r2 -minimal
-=sys-apps/calculate-utilities-2.2.24-r20 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.24-r21 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
