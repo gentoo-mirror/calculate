@@ -181,7 +181,7 @@
 =gnome-base/libgtop-2.28.3 introspection -debug -doc
 =gnome-base/librsvg-2.34.1 gtk -doc -tools
 =gnome-base/orbit-2.14.19-r1 -debug -doc -test
-=gnome-extra/nm-applet-0.8.2-r10 -bluetooth -debug
+=gnome-extra/nm-applet-0.8.4 -bluetooth
 =gnome-extra/polkit-gnome-0.101-r1 introspection -doc -examples
 =mail-client/claws-mail-3.7.9-r1 crypt dbus gnutls imap ipv6 ldap session spell ssl -bogofilter -dillo -doc -nntp -pda -smime -spamassassin -startup-notification -xface
 =mail-client/claws-mail-rssyl-0.30 nls
@@ -365,7 +365,7 @@
 =sys-apps/calculate-desktop-2.2.24-r2 xfce -gnome -kde
 =sys-apps/calculate-install-2.2.24-r7 -minimal
 =sys-apps/calculate-lib-2.2.24-r2 -minimal
-=sys-apps/calculate-utilities-2.2.24-r20 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.24-r21 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
