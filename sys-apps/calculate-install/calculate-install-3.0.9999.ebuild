@@ -6,16 +6,16 @@ EAPI="3"
 
 inherit distutils git-2
 
-EGIT_REPO_URI="git://git.calculate.ru/calculate-2.2/calculate-install.git"
+EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-install.git"
 
 DESCRIPTION="The program of installation Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="3"
 KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
-DEPEND="~sys-apps/calculate-lib-2.2.9999
+DEPEND="~sys-apps/calculate-lib-3.0.9999
 	app-portage/layman
 	!minimal? ( sys-boot/grub
 	sys-apps/gptfdisk

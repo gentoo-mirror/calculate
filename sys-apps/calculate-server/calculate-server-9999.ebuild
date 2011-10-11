@@ -6,7 +6,7 @@ EAPI="3"
 
 inherit distutils git-2
 
-EGIT_REPO_URI="git://git.calculate.ru/calculate2/calculate-server.git"
+EGIT_REPO_URI="git://git.calculate.ru/calculate-2.1/calculate-server.git"
 
 DESCRIPTION="The program for configuring services Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"

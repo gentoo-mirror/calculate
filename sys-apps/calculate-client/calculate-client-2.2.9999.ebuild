@@ -6,7 +6,7 @@ EAPI="3"
 
 inherit distutils git-2
 
-EGIT_REPO_URI="git://git.calculate.ru/calculate-client.git"
+EGIT_REPO_URI="git://git.calculate.ru/calculate-2.2/calculate-client.git"
 
 DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
@@ -28,36 +28,3 @@ DEPEND="~sys-apps/calculate-desktop-2.2.9999
 	kde? ( kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
-
-ISUPDATE=/tmp/${PN}.ebuild.update
-
-# for fixing bug of ebuild calculate-client-2.0.17
-OLDISUPDATEPATH="${PORTAGE_TMPDIR}/portage/${CATEGORY}/${PN}-2.0.17/temp/"
-OLDISUPDATE="${OLDISUPDATEPATH}/${PN}.update"
-
-pkg_preinst() {
-	touch ${ISUPDATE}
-	rm -f /etc/init.d/client
-
-	# for fixing bug of ebuild calculate-client-2.0.17
-	mkdir -p ${OLDISUPDATEPATH}
-	touch ${OLDISUPDATE}
-}
-
-pkg_postinst() {
-	#/usr/lib/calculate-2.2/calculate-client/bin/install
-	rm ${ISUPDATE}
-
-	# for fixing bug of ebuild calculate-client-2.0.17
-	rm -rf ${PORTAGE_TMPDIR}/portage/${CATEGORY}/${PN}-2.0.17
-	rmdir ${PORTAGE_TMPDIR}/portage/${CATEGORY} &>/dev/null
-}
-
-pkg_prerm() {
-	# for fixing bug of ebuild calculate-client-2.0.17 (|| -e ${OLDISUPDATE} )
-	if ! [[ -e ${ISUPDATE} || -e ${OLDISUPDATE} ]];
-	then
-		:
-		#/usr/lib/calculate-2.2/calculate-client/bin/uninstall
-	fi
-}
