@@ -424,7 +424,7 @@
 =media-libs/libwmf-0.2.8.4-r4 X -debug -doc -expat -xml
 =media-libs/mediastreamer-2.7.3-r3 X alsa amr ipv6 portaudio sdl speex theora v4l video x264 -bindist -coreaudio -debug -examples -gsm -ilbc -jack -oss -pulseaudio
 =media-libs/mesa-7.11 classic egl gallium llvm nptl shared-glapi video_cards_intel video_cards_mach64 video_cards_mga video_cards_nouveau video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_via video_cards_vmware -bindist -debug -gbm -gles -kernel_FreeBSD -motif -openvg -pax_kernel -pic -selinux -shared-dricore
-=media-libs/mlt-0.5.10 dv ffmpeg frei0r gtk kde melt mmx python qt4 quicktime sdl sse sse2 vdpau vorbis xml -compressed-lumas -debug -jack -libsamplerate -lua -ruby -xine
+=media-libs/mlt-0.7.2 dv ffmpeg frei0r gtk kde melt mmx python qt4 quicktime sdl sse sse2 vdpau vorbis xml -compressed-lumas -debug -jack -libsamplerate -lua -ruby -xine
 =media-libs/musicbrainz-3.0.2 -test
 =media-libs/mutagen-1.20 -test
 =media-libs/nas-1.9.2 -doc
@@ -460,7 +460,7 @@
 =media-video/dvgrab-3.5 jpeg quicktime
 =media-video/ffmpeg-0.7.6 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
-=media-video/kdenlive-0.7.8 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh
+=media-video/kdenlive-0.8 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_et -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh -linguas_zh_CN -linguas_zh_TW
 =media-video/kffmpegthumbnailer-1.1.0 -aqua -debug -kdeenablefinal
 =media-video/mjpegtools-2.0.0-r1 X dv gtk mmx png quicktime sdl v4l -dga -sdlgfx -static-libs
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
