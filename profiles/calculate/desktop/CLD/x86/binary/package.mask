@@ -185,7 +185,6 @@ dev-libs/libassuan
 dev-libs/libatasmart
 dev-libs/libattica
 dev-libs/libcdio
-dev-libs/libconfig
 dev-libs/libcroco
 dev-libs/libdaemon
 dev-libs/libdbusmenu-qt
@@ -705,10 +704,8 @@ sci-libs/blas-atlas
 sci-libs/blas-reference
 sci-libs/clapack
 sci-libs/fftw
-sci-libs/flann
 sci-libs/hdf5
 sci-libs/lapack-atlas
-sci-libs/lapack-reference
 sys-apps/acl
 sys-apps/attr
 sys-apps/baselayout
@@ -823,7 +820,6 @@ sys-fs/mdadm
 sys-fs/mtools
 sys-fs/nilfs-utils
 sys-fs/ntfs3g
-sys-fs/ntfsprogs
 sys-fs/progsreiserfs
 sys-fs/reiserfsprogs
 sys-fs/squashfs-tools
@@ -883,7 +879,6 @@ virtual/fortran
 virtual/glu
 virtual/init
 virtual/jpeg
-virtual/lapack
 virtual/libc
 virtual/libffi
 virtual/libiconv
@@ -975,6 +970,7 @@ x11-base/xorg-server
 x11-drivers/xf86-input-evdev
 x11-drivers/xf86-input-keyboard
 x11-drivers/xf86-input-mouse
+x11-drivers/xf86-input-mutouch
 x11-drivers/xf86-input-synaptics
 x11-drivers/xf86-video-ati
 x11-drivers/xf86-video-dummy

@@ -4,7 +4,7 @@
 =app-admin/sudo-1.8.1_p2 ldap pam -offensive -selinux -skey
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/system-config-printer-common-1.3.3 policykit -doc
-=app-admin/testdisk-6.8-r1 jpeg ntfs reiserfs -static
+=app-admin/testdisk-6.12 jpeg ntfs reiserfs -static
 =app-arch/bzip2-1.0.6-r2 -static
 =app-arch/cabextract-1.3 -extra-tools
 =app-arch/cpio-2.11 nls
@@ -52,10 +52,11 @@
 =app-pda/libplist-1.4 python
 =app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
 =app-portage/genlop-0.30.8-r2 bash-completion
+=app-portage/gentoolkit-0.3.0.4-r4
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
 =app-portage/portage-utils-0.3.1 -static
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
-=app-text/aspell-0.60.6-r2 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk nls -examples -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
+=app-text/aspell-0.60.6.1 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk nls -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
 =app-text/djvu-3.5.24 jpeg nls tiff -debug -doc -linguas_ja -xml
 =app-text/enchant-1.6.0 hunspell -aspell -static-libs -zemberek
 =app-text/fbreader-0.12.10 qt4 -debug -gtk
@@ -102,7 +103,6 @@
 =dev-libs/libatasmart-0.17 -static-libs
 =dev-libs/libattica-0.2.0 -debug
 =dev-libs/libcdio-0.82 cddb cxx -minimal -static-libs
-=dev-libs/libconfig-1.4.7 -examples -static-libs
 =dev-libs/libcroco-0.6.2 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
 =dev-libs/libdbusmenu-qt-0.8.2 -debug -doc -test
@@ -162,6 +162,7 @@
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-python/reportlab-2.5 -doc -examples -test
+=dev-python/setuptools-0.6.21
 =dev-python/sip-4.12.3-r2 -debug -doc
 =dev-python/twisted-11.0.0 crypt gtk -serial
 =dev-python/twisted-web-11.0.0 -soap
@@ -268,7 +269,7 @@
 =kde-base/knewstuff-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/knotes-4.7.2 handbook kontact -aqua -debug -kdeenablefinal
 =kde-base/knotify-4.7.2 -aqua -debug -kdeenablefinal
-=kde-base/kolourpaint-4.7.2 handbook -aqua -debug -kdeenablefinal
+=kde-base/kolourpaint-4.7.2 handbook scanner -aqua -debug -kdeenablefinal
 =kde-base/konqueror-4.7.2 bookmarks handbook svg -aqua -debug -kdeenablefinal
 =kde-base/konsole-4.7.2 handbook -aqua -debug -kdeenablefinal
 =kde-base/konsolekalendar-4.7.2 handbook -aqua -debug -kdeenablefinal
@@ -340,7 +341,7 @@
 =kde-base/systemsettings-4.7.2 gtk handbook opengl usb xinerama -aqua -debug -kdeenablefinal
 =kde-base/thumbnailers-4.7.2 -aqua -debug -kdeenablefinal
 =kde-misc/kcm-gtk-config-1.5 linguas_es linguas_fr linguas_it -aqua -kdeenablefinal -linguas_ca -linguas_cs -linguas_el -linguas_gl -linguas_id
-=kde-misc/knetworkmanager-4.4.0_p20110714 consolekit -aqua -debug -kdeenablefinal
+=kde-misc/knetworkmanager-0.8_p20110714 consolekit -aqua -debug -kdeenablefinal
 =kde-misc/openofficeorg-thumbnail-1.0.0 -aqua -debug -kdeenablefinal
 =kde-misc/polkit-kde-kcmodules-0.98_pre20101127 -aqua -debug -kdeenablefinal
 =mail-mta/ssmtp-2.64-r2 ipv6 mta ssl -gnutls
@@ -359,8 +360,8 @@
 =media-gfx/imagemagick-6.7.1.0 X bzip2 corefonts cxx djvu jpeg jpeg2k openexr openmp perl png raw svg tiff truetype wmf zlib -autotrace -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -q32 -q64 -q8 -static-libs -webp -xml
 =media-gfx/sane-backends-1.0.22-r1 gphoto2 ipv6 sane_backends_abaton sane_backends_agfafocus sane_backends_apple sane_backends_artec sane_backends_artec_eplus48u sane_backends_as6e sane_backends_avision sane_backends_bh sane_backends_canon sane_backends_canon630u sane_backends_canon_dr sane_backends_canon_pp sane_backends_cardscan sane_backends_coolscan sane_backends_coolscan2 sane_backends_coolscan3 sane_backends_dc210 sane_backends_dc240 sane_backends_dc25 sane_backends_dell1600n_net sane_backends_dmc sane_backends_epjitsu sane_backends_epson sane_backends_epson2 sane_backends_fujitsu sane_backends_genesys sane_backends_gt68xx sane_backends_hp sane_backends_hp3500 sane_backends_hp3900 sane_backends_hp4200 sane_backends_hp5400 sane_backends_hp5590 sane_backends_hpljm1005 sane_backends_hpsj5s sane_backends_hs2p sane_backends_ibm sane_backends_kodak sane_backends_kvs1025 sane_backends_kvs20xx sane_backends_leo sane_backends_lexmark sane_backends_ma1509 sane_backends_magicolor sane_backends_matsushita sane_backends_microtek sane_backends_microtek2 sane_backends_mustek sane_backends_mustek_pp sane_backends_mustek_usb sane_backends_nec sane_backends_net sane_backends_niash sane_backends_p5 sane_backends_pie sane_backends_pixma sane_backends_plustek sane_backends_plustek_pp sane_backends_qcam sane_backends_ricoh sane_backends_rts8891 sane_backends_s9036 sane_backends_sceptre sane_backends_sharp sane_backends_sm3600 sane_backends_sm3840 sane_backends_snapscan sane_backends_sp15c sane_backends_st400 sane_backends_stv680 sane_backends_tamarack sane_backends_teco1 sane_backends_teco2 sane_backends_teco3 sane_backends_test sane_backends_u12 sane_backends_umax sane_backends_umax1220u sane_backends_umax_pp sane_backends_xerox_mfp usb -avahi -doc -v4l
 =media-gfx/scrot-0.8 bash-completion
-=media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
-=media-gfx/ufraw-0.16 exif gimp gtk openmp -contrast -gnome -hotpixels -lensfun -timezone
+=media-gfx/splashutils-1.5.4.4 fbcondecor gpm mng png truetype -hardened
+=media-gfx/ufraw-0.18 gimp gtk openmp -contrast -fits -gnome -timezone
 =media-gfx/xsane-0.998 jpeg nls png tiff -gimp -lcms -ocr
 =media-libs/a52dec-0.7.4-r6 -djbfft -oss -static-libs
 =media-libs/aalib-1.4_rc5 X gpm -slang
@@ -405,7 +406,7 @@
 =media-libs/liblqr-0.4.1 -doc
 =media-libs/libmad-0.15.1b-r6 -debug
 =media-libs/libmediawiki-2.2.0 -aqua -kdeenablefinal
-=media-libs/libmng-1.0.10 -lcms
+=media-libs/libmng-1.0.10-r1 static-libs -lcms
 =media-libs/libmodplug-0.8.8.4 -static-libs
 =media-libs/libmp4v2-1.9.1 -static-libs -utils
 =media-libs/libmpeg2-0.5.1 X sdl
@@ -428,7 +429,7 @@
 =media-libs/mutagen-1.20 -test
 =media-libs/nas-1.9.2 -doc
 =media-libs/openal-1.11.753 alsa portaudio -debug -oss -pulseaudio
-=media-libs/opencv-2.2.0 ffmpeg gtk ieee1394 jpeg jpeg2k openexr opengl png python qt4 sse sse2 sse3 ssse3 tiff v4l xine -doc -eigen -examples -gstreamer -test
+=media-libs/opencv-2.3.0 ffmpeg gtk ieee1394 jpeg jpeg2k openexr opengl png python qt4 sse sse2 sse3 ssse3 tiff v4l xine -cuda -doc -eigen -examples -gstreamer
 =media-libs/openexr-1.7.0 -examples -static-libs
 =media-libs/openjpeg-1.4-r1 -doc -test
 =media-libs/phonon-4.5.0 xine -aqua -debug -gstreamer -pulseaudio -vlc
@@ -449,13 +450,13 @@
 =media-libs/xine-lib-1.1.19 X a52 aac aalib alsa css dts fbcon flac gtk imagemagick ipv6 libcaca mad mng modplug musepack nls opengl samba sdl speex theora truetype v4l vcd vidix vorbis win32codecs xcb xinerama xv xvmc -altivec -directfb -dxr3 -esd -gnome -jack -mmap -oss -pulseaudio -real -vis -wavpack
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/frei0r-plugins-1.1.22-r1 -doc -facedetect -scale0tilt
-=media-plugins/kipi-plugins-2.2.0 cdr crypt imagemagick ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk mediawiki opengl scanner vkontakte -aqua -calendar -debug -expoblending -gpssync -handbook -kdeenablefinal -linguas_ar -linguas_az -linguas_be -linguas_bn -linguas_br -linguas_bs -linguas_ca -linguas_cs -linguas_csb -linguas_cy -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_fo -linguas_fy -linguas_ga -linguas_gl -linguas_ha -linguas_he -linguas_hi -linguas_hr -linguas_hsb -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_ko -linguas_ku -linguas_lb -linguas_lo -linguas_lt -linguas_lv -linguas_mi -linguas_mk -linguas_mn -linguas_ms -linguas_mt -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_nso -linguas_oc -linguas_pa -linguas_rw -linguas_se -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_sv -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tr -linguas_tt -linguas_uz -linguas_ven -linguas_vi -linguas_wa -linguas_xh -linguas_zh_CN -linguas_zh_HK -linguas_zh_TW -linguas_zu -mjpeg -panorama -redeyes
+=media-plugins/kipi-plugins-2.2.0 cdr crypt handbook imagemagick ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk mediawiki opengl scanner vkontakte -aqua -calendar -debug -expoblending -gpssync -kdeenablefinal -linguas_ar -linguas_az -linguas_be -linguas_bn -linguas_br -linguas_bs -linguas_ca -linguas_cs -linguas_csb -linguas_cy -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_fo -linguas_fy -linguas_ga -linguas_gl -linguas_ha -linguas_he -linguas_hi -linguas_hr -linguas_hsb -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_ko -linguas_ku -linguas_lb -linguas_lo -linguas_lt -linguas_lv -linguas_mi -linguas_mk -linguas_mn -linguas_ms -linguas_mt -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_nso -linguas_oc -linguas_pa -linguas_rw -linguas_se -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_sv -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tr -linguas_tt -linguas_uz -linguas_ven -linguas_vi -linguas_wa -linguas_xh -linguas_zh_CN -linguas_zh_HK -linguas_zh_TW -linguas_zu -mjpeg -panorama -redeyes
 =media-sound/alsa-utils-1.0.24.2-r1 nls -doc -minimal
 =media-sound/amarok-2.4.3 cdda embedded ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk opengl player semantic-desktop utils -daap -debug -kdeenablefinal -lastfm -linguas_ca -linguas_cs -linguas_da -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_ja -linguas_km -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sl -linguas_sr -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_wa -linguas_zh_TW -mp3tunes -mtp
 =media-sound/lame-3.98.4 mmx -debug -mp3rtp -sndfile -static-libs
 =media-sound/sox-14.3.2-r1 alsa amr encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -static-libs -wavpack
 =media-sound/twolame-0.3.12 -static-libs
-=media-video/dirac-1.0.2 mmx -debug -doc
+=media-video/dirac-1.0.2 mmx -debug -doc -static-libs
 =media-video/dvgrab-3.5 jpeg quicktime
 =media-video/ffmpeg-0.7.6 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
@@ -522,7 +523,7 @@
 =net-print/cnijfilter-3.20-r1 ip4700 mp250 mp270 mp490 mp550 mp560 -amd64 -mp640 -nocupsdetection -servicetools
 =net-print/cups-1.4.8-r22 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.7 cups
-=net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
+=net-print/gutenprint-5.2.7-r1 cups foomaticdb gimp gtk nls readline -ppds -static-libs
 =net-print/hplip-3.11.5 acl fax hpcups hpijs kde libnotify policykit scanner snmp static-ppds -X -doc -minimal -parport -qt4
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/bluedevil-1.1-r2 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
@@ -532,14 +533,13 @@
 =net-wireless/madwimax-0.1.1 -doc
 =net-wireless/wireless-tools-29 nls -multicall
 =net-wireless/wpa_supplicant-0.7.3-r2 dbus kernel_linux readline ssl wimax -debug -eap-sim -fasteap -gnutls -kernel_FreeBSD -madwifi -ps3 -qt4 -wps
+=net-zope/zope-interface-3.7.0
 =sci-libs/blas-atlas-3.8.0 -doc
 =sci-libs/blas-reference-20070226 -doc
 =sci-libs/clapack-3.2.1-r4 -test
 =sci-libs/fftw-3.2.2 fortran openmp sse sse2 -altivec -doc -threads
-=sci-libs/flann-1.6.8 python -test
 =sci-libs/hdf5-1.8.4-r1 cxx fortran mpi threads zlib -examples -szip
 =sci-libs/lapack-atlas-3.8.0 -doc
-=sci-libs/lapack-reference-3.1.1-r1 -doc
 =sys-apps/acl-2.2.51 nls -nfs -static-libs
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
@@ -574,7 +574,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha65 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha68 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -597,8 +597,8 @@
 =sys-auth/polkit-qt-0.99.0 -debug -examples
 =sys-auth/thinkfinger-0.3-r3 pam -debug
 =sys-block/eject-2.1.5-r2 nls
-=sys-block/parted-2.3 debug device-mapper nls readline -selinux
-=sys-block/partitionmanager-1.0.3 linguas_bg linguas_de linguas_es linguas_fr linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_da -linguas_el -linguas_en_GB -linguas_et -linguas_gl -linguas_ja -linguas_lt -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_pa -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW
+=sys-block/parted-3.0 debug device-mapper nls readline -selinux -static-libs
+=sys-block/partitionmanager-1.0.3_p20110912 -aqua -debug -kdeenablefinal
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
 =sys-boot/grub-1.99-r4 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
@@ -625,7 +625,6 @@
 =sys-fs/mtools-4.0.15 -X
 =sys-fs/nilfs-utils-2.0.21 -static-libs
 =sys-fs/ntfs3g-2011.4.12 acl crypt external-fuse udev -debug -ntfsprogs -static-libs -suid -xattr
-=sys-fs/ntfsprogs-2.0.0-r1 crypt -debug -fuse -gnome -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/squashfs-tools-4.2 gzip lzma lzo -xattr
 =sys-fs/udev-164-r2 extras -build -selinux -test
@@ -645,7 +644,7 @@
 =sys-libs/libstdc++-v3-3.3.6 nls -multilib
 =sys-libs/libutempter-1.1.5 -elibc_FreeBSD
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
-=sys-libs/pam-1.1.3 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -selinux -test -vim-syntax
+=sys-libs/pam-1.1.4 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
 =sys-libs/timezone-data-2011h elibc_glibc nls -elibc_FreeBSD
@@ -676,8 +675,9 @@
 =x11-apps/xinit-1.3.1 minimal
 =x11-apps/xpr-1.0.3 -debug
 =x11-apps/xsetmode-1.0.0 -debug
-=x11-base/xorg-drivers-1.10 input_devices_evdev input_devices_keyboard input_devices_mouse input_devices_synaptics video_cards_dummy video_cards_fbdev video_cards_glint video_cards_intel video_cards_mach64 video_cards_mga video_cards_neomagic video_cards_nouveau video_cards_nv video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_trident video_cards_v4l video_cards_vesa video_cards_via video_cards_vmware -input_devices_acecad -input_devices_aiptek -input_devices_joystick -input_devices_tslib -input_devices_virtualbox -input_devices_vmmouse -input_devices_void -input_devices_wacom -video_cards_apm -video_cards_ark -video_cards_ast -video_cards_chips -video_cards_cirrus -video_cards_epson -video_cards_fglrx -video_cards_geode -video_cards_i128 -video_cards_i740 -video_cards_impact -video_cards_newport -video_cards_nvidia -video_cards_omapfb -video_cards_qxl -video_cards_rendition -video_cards_s3 -video_cards_s3virge -video_cards_siliconmotion -video_cards_sisusb -video_cards_sunbw2 -video_cards_suncg14 -video_cards_suncg3 -video_cards_suncg6 -video_cards_sunffb -video_cards_sunleo -video_cards_suntcx -video_cards_tga -video_cards_tseng -video_cards_virtualbox -video_cards_voodoo
+=x11-base/xorg-drivers-1.10 input_devices_evdev input_devices_keyboard input_devices_mouse input_devices_mutouch input_devices_synaptics video_cards_dummy video_cards_fbdev video_cards_glint video_cards_intel video_cards_mach64 video_cards_mga video_cards_neomagic video_cards_nouveau video_cards_nv video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_trident video_cards_v4l video_cards_vesa video_cards_via video_cards_vmware -input_devices_acecad -input_devices_aiptek -input_devices_elographics -input_devices_fpit -input_devices_hyperpen -input_devices_joystick -input_devices_penmount -input_devices_tslib -input_devices_virtualbox -input_devices_vmmouse -input_devices_void -input_devices_wacom -video_cards_apm -video_cards_ark -video_cards_ast -video_cards_chips -video_cards_cirrus -video_cards_epson -video_cards_fglrx -video_cards_geode -video_cards_i128 -video_cards_i740 -video_cards_impact -video_cards_newport -video_cards_nvidia -video_cards_omapfb -video_cards_qxl -video_cards_rendition -video_cards_s3 -video_cards_s3virge -video_cards_siliconmotion -video_cards_sisusb -video_cards_sunbw2 -video_cards_suncg14 -video_cards_suncg3 -video_cards_suncg6 -video_cards_sunffb -video_cards_sunleo -video_cards_suntcx -video_cards_tga -video_cards_tseng -video_cards_virtualbox -video_cards_voodoo
 =x11-base/xorg-server-1.10.4 ipv6 nptl udev xorg -dmx -doc -kdrive -minimal -static-libs -tslib -xnest -xvfb
+=x11-drivers/xf86-input-mutouch-1.3.0
 =x11-drivers/xf86-video-glint-1.2.5 dri
 =x11-drivers/xf86-video-intel-2.16.0 dri -sna
 =x11-drivers/xf86-video-mach64-6.9.0 dri
@@ -723,7 +723,7 @@
 =x11-libs/libXxf86vm-1.1.1 -static-libs
 =x11-libs/libdrm-2.4.26 libkms video_cards_intel video_cards_nouveau video_cards_radeon video_cards_vmware -static-libs
 =x11-libs/libfontenc-1.1.0 -static-libs
-=x11-libs/libnotify-0.7.2 -doc -introspection -test
+=x11-libs/libnotify-0.7.4 introspection -doc -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
 =x11-libs/libva-1.0.14 opengl video_cards_dummy video_cards_intel video_cards_nvidia -video_cards_fglrx
 =x11-libs/libvdpau-0.4.1 -doc
