@@ -3,7 +3,7 @@
 =app-admin/logrotate-3.8.0 acl -selinux
 =app-admin/sudo-1.8.1_p2 pam -ldap -offensive -selinux -skey
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
-=app-admin/testdisk-6.8-r1 jpeg ntfs reiserfs -static
+=app-admin/testdisk-6.12 jpeg ntfs reiserfs -static
 =app-arch/bzip2-1.0.6-r2 -static
 =app-arch/cabextract-1.3 -extra-tools
 =app-arch/cpio-2.11 nls
@@ -48,10 +48,11 @@
 =app-office/libreoffice-3.3.4 bash-completion cups dbus gnome gtk linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk nsplugin opengl -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gstreamer -java -kde -kdeenablefinal -ldap -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be_BY -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_US -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gd -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_ky -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_ms -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_ns -linguas_oc -linguas_om -linguas_or -linguas_pa_IN -linguas_pap -linguas_ps -linguas_rw -linguas_sa_IN -linguas_sat -linguas_sd -linguas_sh -linguas_si -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_ti -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -odk -templates
 =app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
 =app-portage/genlop-0.30.8-r2 bash-completion
+=app-portage/gentoolkit-0.3.0.4-r4
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
 =app-portage/portage-utils-0.3.1 -static
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
-=app-text/aspell-0.60.6-r2 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk nls -examples -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
+=app-text/aspell-0.60.6.1 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk nls -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
 =app-text/djvu-3.5.24 jpeg nls tiff -debug -doc -linguas_ja -xml
 =app-text/enchant-1.6.0 hunspell -aspell -static-libs -zemberek
 =app-text/evince-2.32.0-r3 dbus djvu gnome gnome-keyring nautilus tiff -debug -doc -dvi -introspection -t1lib
@@ -163,7 +164,8 @@
 =dev-python/libgnome-python-2.28.1 -examples
 =dev-python/libgnomecanvas-python-2.28.1 -examples
 =dev-python/libwnck-python-2.32.0 -examples
-=dev-python/mako-0.4.1 -doc -test
+=dev-python/mako-0.4.2 -doc -test
+=dev-python/markupsafe-0.15
 =dev-python/notify-python-0.1.1-r2 -examples
 =dev-python/numpy-1.6.0 -doc -lapack -test
 =dev-python/pexpect-2.4 -doc -examples
@@ -178,6 +180,8 @@
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-python/reportlab-2.5 -doc -examples -test
+=dev-python/setuptools-0.6.21
+=dev-python/simplejson-2.2.1
 =dev-python/twisted-11.0.0 crypt gtk -serial
 =dev-python/twisted-web-11.0.0 -soap
 =dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
@@ -253,7 +257,7 @@
 =media-gfx/imagemagick-6.7.1.0 X bzip2 corefonts cxx djvu jpeg jpeg2k openexr openmp perl png raw svg tiff truetype wmf zlib -autotrace -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -q32 -q64 -q8 -static-libs -webp -xml
 =media-gfx/sane-backends-1.0.22-r1 gphoto2 ipv6 sane_backends_abaton sane_backends_agfafocus sane_backends_apple sane_backends_artec sane_backends_artec_eplus48u sane_backends_as6e sane_backends_avision sane_backends_bh sane_backends_canon sane_backends_canon630u sane_backends_canon_dr sane_backends_canon_pp sane_backends_cardscan sane_backends_coolscan sane_backends_coolscan2 sane_backends_coolscan3 sane_backends_dc210 sane_backends_dc240 sane_backends_dc25 sane_backends_dell1600n_net sane_backends_dmc sane_backends_epjitsu sane_backends_epson sane_backends_epson2 sane_backends_fujitsu sane_backends_genesys sane_backends_gt68xx sane_backends_hp sane_backends_hp3500 sane_backends_hp3900 sane_backends_hp4200 sane_backends_hp5400 sane_backends_hp5590 sane_backends_hpljm1005 sane_backends_hpsj5s sane_backends_hs2p sane_backends_ibm sane_backends_kodak sane_backends_kvs1025 sane_backends_kvs20xx sane_backends_leo sane_backends_lexmark sane_backends_ma1509 sane_backends_magicolor sane_backends_matsushita sane_backends_microtek sane_backends_microtek2 sane_backends_mustek sane_backends_mustek_pp sane_backends_mustek_usb sane_backends_nec sane_backends_net sane_backends_niash sane_backends_p5 sane_backends_pie sane_backends_pixma sane_backends_plustek sane_backends_plustek_pp sane_backends_qcam sane_backends_ricoh sane_backends_rts8891 sane_backends_s9036 sane_backends_sceptre sane_backends_sharp sane_backends_sm3600 sane_backends_sm3840 sane_backends_snapscan sane_backends_sp15c sane_backends_st400 sane_backends_stv680 sane_backends_tamarack sane_backends_teco1 sane_backends_teco2 sane_backends_teco3 sane_backends_test sane_backends_u12 sane_backends_umax sane_backends_umax1220u sane_backends_umax_pp sane_backends_xerox_mfp usb -avahi -doc -v4l
 =media-gfx/scrot-0.8 bash-completion
-=media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
+=media-gfx/splashutils-1.5.4.4 fbcondecor gpm mng png truetype -hardened
 =media-gfx/ufraw-0.16 exif gimp gnome gtk openmp -contrast -hotpixels -lensfun -timezone
 =media-gfx/xsane-0.998 jpeg nls png tiff -gimp -lcms -ocr
 =media-libs/a52dec-0.7.4-r6 -djbfft -oss -static-libs
@@ -300,7 +304,7 @@
 =media-libs/libmad-0.15.1b-r6 -debug
 =media-libs/libmikmod-3.2.0_beta2-r1 oss
 =media-libs/libmms-0.6.2 -static-libs
-=media-libs/libmng-1.0.10 -lcms
+=media-libs/libmng-1.0.10-r1 static-libs -lcms
 =media-libs/libmp4v2-1.9.1 -static-libs -utils
 =media-libs/libmpeg2-0.5.1 X sdl
 =media-libs/libogg-1.2.0 -static-libs
@@ -319,7 +323,7 @@
 =media-libs/openexr-1.7.0 -examples -static-libs
 =media-libs/openjpeg-1.4-r1 -doc -test
 =media-libs/portaudio-19_pre20071207 alsa cxx -debug -jack -oss
-=media-libs/quvi-0.2.15 -doc -examples -offensive -static-libs -test
+=media-libs/quvi-0.2.19 -examples -offensive -static-libs -test
 =media-libs/raptor-2.0.4 curl unicode xml -debug -json -static-libs
 =media-libs/sdl-image-1.2.10-r1 gif jpeg png tiff -static-libs
 =media-libs/sdl-mixer-1.2.11-r1 flac mad midi mikmod mp3 vorbis wav -static-libs -timidity
@@ -345,7 +349,7 @@
 =media-sound/sox-14.3.2-r1 alsa amr encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -static-libs -wavpack
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/cheese-2.32.0 -doc
-=media-video/dirac-1.0.2 mmx -debug -doc
+=media-video/dirac-1.0.2 mmx -debug -doc -static-libs
 =media-video/ffmpeg-0.7.6 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
 =media-video/totem-2.32.0-r2 bluetooth lirc nautilus nsplugin python youtube -debug -doc -galago -iplayer -tracker -upnp
@@ -423,6 +427,7 @@
 =net-wireless/madwimax-0.1.1 -doc
 =net-wireless/wireless-tools-29 nls -multicall
 =net-wireless/wpa_supplicant-0.7.3-r2 dbus kernel_linux readline ssl wimax -debug -eap-sim -fasteap -gnutls -kernel_FreeBSD -madwifi -ps3 -qt4 -wps
+=net-zope/zope-interface-3.7.0
 =sci-libs/fftw-3.2.2 fortran openmp sse sse2 -altivec -doc -threads
 =sci-libs/hdf5-1.8.4-r1 cxx fortran zlib -examples -mpi -szip -threads
 =sys-apps/acl-2.2.51 nls -nfs -static-libs
@@ -460,7 +465,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha65 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha67 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -481,8 +486,8 @@
 =sys-auth/polkit-0.101-r1 gtk introspection nls pam -debug -doc -examples -kde
 =sys-auth/thinkfinger-0.3-r3 pam -debug
 =sys-block/eject-2.1.5-r2 nls
-=sys-block/gparted-0.8.0 dmraid fat gtk jfs ntfs reiserfs xfs -btrfs -hfs -kde -mdadm -reiser4
-=sys-block/parted-2.3 debug device-mapper nls readline -selinux
+=sys-block/gparted-0.9.1 dmraid fat gtk jfs ntfs reiserfs xfs -btrfs -hfs -kde -mdadm -reiser4
+=sys-block/parted-3.0 debug device-mapper nls readline -selinux -static-libs
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
 =sys-boot/grub-1.99-r4 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
@@ -528,7 +533,7 @@
 =sys-libs/libieee1284-0.2.11-r1 python -doc
 =sys-libs/libstdc++-v3-3.3.6 nls -multilib
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
-=sys-libs/pam-1.1.3 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -selinux -test -vim-syntax
+=sys-libs/pam-1.1.4 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
 =sys-libs/timezone-data-2011h elibc_glibc nls -elibc_FreeBSD
@@ -558,8 +563,9 @@
 =x11-apps/xinit-1.3.1 minimal
 =x11-apps/xpr-1.0.3 -debug
 =x11-apps/xsetmode-1.0.0 -debug
-=x11-base/xorg-drivers-1.10 input_devices_evdev input_devices_keyboard input_devices_mouse input_devices_synaptics video_cards_dummy video_cards_fbdev video_cards_glint video_cards_intel video_cards_mach64 video_cards_mga video_cards_neomagic video_cards_nouveau video_cards_nv video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_trident video_cards_v4l video_cards_vesa video_cards_via video_cards_vmware -input_devices_acecad -input_devices_aiptek -input_devices_joystick -input_devices_tslib -input_devices_virtualbox -input_devices_vmmouse -input_devices_void -input_devices_wacom -video_cards_apm -video_cards_ark -video_cards_ast -video_cards_chips -video_cards_cirrus -video_cards_epson -video_cards_fglrx -video_cards_geode -video_cards_i128 -video_cards_i740 -video_cards_impact -video_cards_newport -video_cards_nvidia -video_cards_omapfb -video_cards_qxl -video_cards_rendition -video_cards_s3 -video_cards_s3virge -video_cards_siliconmotion -video_cards_sisusb -video_cards_sunbw2 -video_cards_suncg14 -video_cards_suncg3 -video_cards_suncg6 -video_cards_sunffb -video_cards_sunleo -video_cards_suntcx -video_cards_tga -video_cards_tseng -video_cards_virtualbox -video_cards_voodoo
+=x11-base/xorg-drivers-1.10 input_devices_evdev input_devices_keyboard input_devices_mouse input_devices_mutouch input_devices_synaptics video_cards_dummy video_cards_fbdev video_cards_glint video_cards_intel video_cards_mach64 video_cards_mga video_cards_neomagic video_cards_nouveau video_cards_nv video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_trident video_cards_v4l video_cards_vesa video_cards_via video_cards_vmware -input_devices_acecad -input_devices_aiptek -input_devices_elographics -input_devices_fpit -input_devices_hyperpen -input_devices_joystick -input_devices_penmount -input_devices_tslib -input_devices_virtualbox -input_devices_vmmouse -input_devices_void -input_devices_wacom -video_cards_apm -video_cards_ark -video_cards_ast -video_cards_chips -video_cards_cirrus -video_cards_epson -video_cards_fglrx -video_cards_geode -video_cards_i128 -video_cards_i740 -video_cards_impact -video_cards_newport -video_cards_nvidia -video_cards_omapfb -video_cards_qxl -video_cards_rendition -video_cards_s3 -video_cards_s3virge -video_cards_siliconmotion -video_cards_sisusb -video_cards_sunbw2 -video_cards_suncg14 -video_cards_suncg3 -video_cards_suncg6 -video_cards_sunffb -video_cards_sunleo -video_cards_suntcx -video_cards_tga -video_cards_tseng -video_cards_virtualbox -video_cards_voodoo
 =x11-base/xorg-server-1.10.4 ipv6 nptl udev xorg -dmx -doc -kdrive -minimal -static-libs -tslib -xnest -xvfb
+=x11-drivers/xf86-input-mutouch-1.3.0
 =x11-drivers/xf86-video-glint-1.2.5 dri
 =x11-drivers/xf86-video-intel-2.16.0 dri -sna
 =x11-drivers/xf86-video-mach64-6.9.0 dri
@@ -609,7 +615,7 @@
 =x11-libs/libdrm-2.4.26 libkms video_cards_intel video_cards_nouveau video_cards_radeon video_cards_vmware -static-libs
 =x11-libs/libfontenc-1.1.0 -static-libs
 =x11-libs/libgksu-2.0.12-r1 nls -doc -static-libs
-=x11-libs/libnotify-0.7.2 -doc -introspection -test
+=x11-libs/libnotify-0.7.4 introspection -doc -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
 =x11-libs/libsexy-0.1.11-r2 -doc -static-libs
 =x11-libs/libva-1.0.14 opengl video_cards_dummy video_cards_intel video_cards_nvidia -video_cards_fglrx
