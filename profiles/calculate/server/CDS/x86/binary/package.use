@@ -2,7 +2,7 @@
 =app-admin/hddtemp-0.3_beta15-r3 nls
 =app-admin/logrotate-3.8.0 acl -selinux
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
-=app-admin/testdisk-6.8-r1 jpeg ntfs reiserfs -static
+=app-admin/testdisk-6.12 jpeg ntfs reiserfs -static
 =app-antivirus/clamav-0.97.2 bzip2 iconv ipv6 -clamdtop -milter -selinux -static-libs
 =app-arch/bzip2-1.0.6-r2 -static
 =app-arch/cabextract-1.3 -extra-tools
@@ -35,10 +35,11 @@
 =app-misc/screen-4.0.3-r4 pam -debug -multiuser -nethack -selinux
 =app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
 =app-portage/genlop-0.30.8-r2 bash-completion
+=app-portage/gentoolkit-0.3.0.4-r4
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
 =app-portage/portage-utils-0.3.1 -static
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
-=app-text/aspell-0.60.6-r2 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk nls -examples -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
+=app-text/aspell-0.60.6.1 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk nls -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
 =app-text/ghostscript-gpl-9.04-r3 cups jpeg2k -X -bindist -dbus -djvu -gtk -idn -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW -static-libs
 =app-text/poppler-0.16.7 cxx introspection jpeg jpeg2k lcms png utils xpdf-headers -cairo -cjk -curl -debug -doc -exceptions -qt4
 =app-text/recode-3.6_p17-r2 nls -static-libs
@@ -51,7 +52,7 @@
 =dev-lang/perl-5.12.4-r1 berkdb gdbm -build -debug -doc -ithreads
 =dev-lang/python-2.7.1-r1 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -berkdb -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
 =dev-lang/python-3.1.3-r1 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
-=dev-lang/ruby-1.8.7_p334-r1 berkdb gdbm ipv6 ncurses readline ssl -debug -doc -examples -libedit -rubytests -socks5 -threads -tk -xemacs
+=dev-lang/ruby-1.8.7_p352 berkdb gdbm ipv6 ncurses readline ssl -debug -doc -examples -libedit -rubytests -socks5 -threads -tk -xemacs
 =dev-lang/swig-2.0.2 pcre -ccache -doc
 =dev-lang/tcl-8.5.9 -debug -threads
 =dev-libs/eventlog-0.2.12 -static-libs
@@ -60,7 +61,6 @@
 =dev-libs/gmp-5.0.2 -nocxx
 =dev-libs/klibc-1.5.20 -debug -n32
 =dev-libs/libassuan-2.0.1 -static-libs
-=dev-libs/libconfig-1.4.7 -examples -static-libs
 =dev-libs/libdaemon-0.14-r1 -doc -examples
 =dev-libs/libevent-2.0.13 -static-libs -test
 =dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
@@ -111,7 +111,7 @@
 =media-fonts/unifont-5.1.20080914 -X
 =media-fonts/urw-fonts-2.4.9 -X
 =media-gfx/imagemagick-6.7.1.0 bzip2 corefonts cxx jpeg jpeg2k openmp perl png tiff truetype zlib -X -autotrace -djvu -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -openexr -q32 -q64 -q8 -raw -static-libs -svg -webp -wmf -xml
-=media-gfx/splashutils-1.5.4.3-r3 fbcondecor gpm mng png truetype -hardened
+=media-gfx/splashutils-1.5.4.4 fbcondecor gpm mng png truetype -hardened
 =media-libs/fontconfig-2.8.0-r1 -doc
 =media-libs/freetype-2.4.6 bzip2 static-libs -X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype -fontconfig -xpm
@@ -119,7 +119,7 @@
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
 =media-libs/lcms-2.0a jpeg static-libs tiff zlib
-=media-libs/libmng-1.0.10 -lcms
+=media-libs/libmng-1.0.10-r1 static-libs -lcms
 =media-libs/libpng-1.4.8-r1 static-libs -apng
 =media-libs/openjpeg-1.4-r1 -doc -test
 =media-libs/tiff-3.9.5 cxx jpeg zlib -jbig -static-libs
@@ -128,7 +128,7 @@
 =net-analyzer/tcpdump-3.9.8-r1 ipv6 samba ssl -chroot
 =net-analyzer/traceroute-2.0.15 -static
 =net-analyzer/vnstat-1.10 -gd
-=net-dialup/freeradius-2.0.5 ldap pam ssl udpfromto -bindist -debug -edirectory -firebird -frascend -frxp -kerberos -mysql -postgres -snmp -threads
+=net-dialup/freeradius-2.1.11 ldap pam ssl udpfromto -bindist -debug -edirectory -firebird -frascend -frxp -kerberos -mysql -postgres -snmp -threads
 =net-dialup/lrzsz-0.12.20-r3 nls
 =net-dialup/minicom-2.4 linguas_de linguas_es linguas_fr linguas_pl linguas_pt_BR linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_fi -linguas_hu -linguas_id -linguas_ja -linguas_nb -linguas_rw -linguas_sv -linguas_vi -linguas_zh_TW
 =net-dialup/ppp-2.4.5-r1 ipv6 pam radius -activefilter -atm -dhcp -eap-tls -gtk
@@ -201,7 +201,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha65 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha67 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
@@ -216,7 +216,7 @@
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
 =sys-auth/pam_ldap-183 ssl -sasl
 =sys-auth/pambase-20101024 cracklib sha512 -consolekit -debug -gnome-keyring -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
-=sys-block/parted-2.3 debug device-mapper nls readline -selinux
+=sys-block/parted-3.0 debug device-mapper nls readline -selinux -static-libs
 =sys-boot/grub-0.97-r10 ncurses -custom-cflags -netboot -static
 =sys-boot/grub-1.99-r4 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
@@ -240,7 +240,6 @@
 =sys-fs/mtools-4.0.15 -X
 =sys-fs/nilfs-utils-2.0.21 -static-libs
 =sys-fs/ntfs3g-2011.4.12 acl crypt external-fuse udev -debug -ntfsprogs -static-libs -suid -xattr
-=sys-fs/ntfsprogs-2.0.0-r1 crypt -debug -fuse -gnome -minimal
 =sys-fs/progsreiserfs-0.3.1_rc8 nls -debug
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
 =sys-fs/udev-164-r2 extras -build -selinux -test
@@ -256,7 +255,7 @@
 =sys-libs/gpm-1.20.6 -selinux
 =sys-libs/libcap-2.17 pam
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
-=sys-libs/pam-1.1.3 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -selinux -test -vim-syntax
+=sys-libs/pam-1.1.4 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/slang-2.2.2 pcre png readline zlib -cjk
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools

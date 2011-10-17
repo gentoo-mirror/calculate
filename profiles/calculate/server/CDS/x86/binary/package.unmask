@@ -10,7 +10,7 @@
 =app-admin/perl-cleaner-2.7
 =app-admin/python-updater-0.9
 =app-admin/syslog-ng-3.2.4
-=app-admin/testdisk-6.8-r1
+=app-admin/testdisk-6.12
 =app-antivirus/clamav-0.97.2
 =app-arch/arj-3.10.22-r3
 =app-arch/bzip2-1.0.6-r2
@@ -69,14 +69,14 @@
 =app-portage/eix-0.22.11
 =app-portage/emerge-delta-webrsync-3.5.1-r3
 =app-portage/genlop-0.30.8-r2
-=app-portage/gentoolkit-0.3.0.4
+=app-portage/gentoolkit-0.3.0.4-r4
 =app-portage/layman-1.4.1
 =app-portage/portage-utils-0.3.1
 =app-portage/ufed-0.40.1
 =app-shells/bash-4.1_p9
 =app-shells/bash-completion-1.3
 =app-shells/gentoo-bashcomp-20101217
-=app-text/aspell-0.60.6-r2
+=app-text/aspell-0.60.6.1
 =app-text/build-docbook-catalog-1.4
 =app-text/docbook-xsl-stylesheets-1.75.2
 =app-text/ghostscript-gpl-9.04-r3
@@ -93,7 +93,7 @@
 =dev-lang/perl-5.12.4-r1
 =dev-lang/python-2.7.1-r1
 =dev-lang/python-3.1.3-r1
-=dev-lang/ruby-1.8.7_p334-r1
+=dev-lang/ruby-1.8.7_p352
 =dev-lang/swig-2.0.2
 =dev-lang/tcl-8.5.9
 =dev-libs/eventlog-0.2.12
@@ -103,7 +103,6 @@
 =dev-libs/iniparser-3.0b-r1
 =dev-libs/klibc-1.5.20
 =dev-libs/libassuan-2.0.1
-=dev-libs/libconfig-1.4.7
 =dev-libs/libdaemon-0.14-r1
 =dev-libs/libevent-2.0.13
 =dev-libs/libffi-3.0.9-r2
@@ -197,7 +196,7 @@
 =media-gfx/cds-themes-11.9
 =media-gfx/fbgrab-1.0
 =media-gfx/imagemagick-6.7.1.0
-=media-gfx/splashutils-1.5.4.3-r3
+=media-gfx/splashutils-1.5.4.4
 =media-libs/fontconfig-2.8.0-r1
 =media-libs/freetype-2.4.6
 =media-libs/gd-2.0.35-r1
@@ -205,7 +204,7 @@
 =media-libs/jpeg-8b
 =media-libs/lcms-1.19
 =media-libs/lcms-2.0a
-=media-libs/libmng-1.0.10
+=media-libs/libmng-1.0.10-r1
 =media-libs/libpng-1.4.8-r1
 =media-libs/openjpeg-1.4-r1
 =media-libs/tiff-3.9.5
@@ -217,7 +216,7 @@
 =net-analyzer/tcpdump-3.9.8-r1
 =net-analyzer/traceroute-2.0.15
 =net-analyzer/vnstat-1.10
-=net-dialup/freeradius-2.0.5
+=net-dialup/freeradius-2.1.11
 =net-dialup/lrzsz-0.12.20-r3
 =net-dialup/minicom-2.4
 =net-dialup/ppp-2.4.5-r1
@@ -316,7 +315,7 @@
 =sys-apps/net-tools-1.60_p20110409135728
 =sys-apps/openrc-0.8.3-r1
 =sys-apps/pciutils-3.1.7
-=sys-apps/portage-2.2.0_alpha65
+=sys-apps/portage-2.2.0_alpha67
 =sys-apps/pv-1.2.0
 =sys-apps/sandbox-2.4
 =sys-apps/sed-4.2.1
@@ -332,7 +331,7 @@
 =sys-auth/nss_ldap-264-r1
 =sys-auth/pam_ldap-183
 =sys-auth/pambase-20101024
-=sys-block/parted-2.3
+=sys-block/parted-3.0
 =sys-block/tw_cli-10.2
 =sys-boot/calcboot-3.86.3
 =sys-boot/grub-0.97-r10
@@ -342,9 +341,7 @@
 =sys-devel/autoconf-2.68
 =sys-devel/autoconf-wrapper-10-r1
 =sys-devel/autogen-5.11.9
-=sys-devel/automake-1.10.3
 =sys-devel/automake-1.11.1
-=sys-devel/automake-1.9.6-r3
 =sys-devel/automake-wrapper-4
 =sys-devel/binutils-2.20.1-r1
 =sys-devel/binutils-config-2-r1
@@ -370,7 +367,6 @@
 =sys-fs/mtools-4.0.15
 =sys-fs/nilfs-utils-2.0.21
 =sys-fs/ntfs3g-2011.4.12
-=sys-fs/ntfsprogs-2.0.0-r1
 =sys-fs/progsreiserfs-0.3.1_rc8
 =sys-fs/reiserfsprogs-3.6.21
 =sys-fs/squashfs-tools-4.2
@@ -391,7 +387,7 @@
 =sys-libs/gpm-1.20.6
 =sys-libs/libcap-2.17
 =sys-libs/ncurses-5.7-r7
-=sys-libs/pam-1.1.3
+=sys-libs/pam-1.1.4
 =sys-libs/readline-6.2_p1
 =sys-libs/slang-2.2.2
 =sys-libs/talloc-2.0.1-r1
