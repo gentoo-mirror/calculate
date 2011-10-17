@@ -82,6 +82,7 @@ app-emulation/emul-linux-x86-gtklibs
 app-emulation/emul-linux-x86-medialibs
 app-emulation/emul-linux-x86-opengl
 app-emulation/emul-linux-x86-qtlibs
+app-emulation/emul-linux-x86-sdl
 app-emulation/emul-linux-x86-soundlibs
 app-emulation/emul-linux-x86-xlibs
 app-i18n/enca
@@ -203,7 +204,6 @@ dev-libs/libevent
 dev-libs/libffi
 dev-libs/libgcrypt
 dev-libs/libgdata
-dev-libs/libgee
 dev-libs/libgpg-error
 dev-libs/libgweather
 dev-libs/libical
@@ -254,7 +254,6 @@ dev-perl/Locale-gettext
 dev-perl/Net-SMTP-SSL
 dev-perl/Net-SSLeay
 dev-perl/TermReadKey
-dev-perl/Text-CSV
 dev-perl/URI
 dev-perl/XML-LibXML
 dev-perl/XML-NamespaceSupport
@@ -436,6 +435,7 @@ media-libs/jasper
 media-libs/jpeg
 media-libs/lcms
 media-libs/lcms
+media-libs/lensfun
 media-libs/libao
 media-libs/libart_lgpl
 media-libs/libass
@@ -465,6 +465,7 @@ media-libs/libmpeg2
 media-libs/libogg
 media-libs/libopenraw
 media-libs/libpng
+media-libs/libquicktime
 media-libs/libreplaygain
 media-libs/libsdl
 media-libs/libsndfile
@@ -511,6 +512,7 @@ media-plugins/gst-plugins-libmms
 media-plugins/gst-plugins-mad
 media-plugins/gst-plugins-meta
 media-plugins/gst-plugins-mpeg2dec
+media-plugins/gst-plugins-mplex
 media-plugins/gst-plugins-musepack
 media-plugins/gst-plugins-ogg
 media-plugins/gst-plugins-pango
@@ -536,6 +538,7 @@ media-sound/twolame
 media-video/cheese
 media-video/dirac
 media-video/ffmpeg
+media-video/mjpegtools
 media-video/mplayer
 media-video/totem
 media-video/xanim
@@ -729,7 +732,6 @@ sys-devel/autoconf-wrapper
 sys-devel/autogen
 sys-devel/automake
 sys-devel/automake
-sys-devel/automake
 sys-devel/automake-wrapper
 sys-devel/bc
 sys-devel/binutils
@@ -906,6 +908,7 @@ x11-base/xorg-server
 x11-drivers/xf86-input-evdev
 x11-drivers/xf86-input-keyboard
 x11-drivers/xf86-input-mouse
+x11-drivers/xf86-input-mutouch
 x11-drivers/xf86-input-synaptics
 x11-drivers/xf86-video-ati
 x11-drivers/xf86-video-dummy
@@ -932,6 +935,7 @@ x11-libs/compizconfig-backend-gconf
 x11-libs/gdk-pixbuf
 x11-libs/gksu
 x11-libs/gnome-pty-helper
+x11-libs/gtk+
 x11-libs/gtk+
 x11-libs/gtksourceview
 x11-libs/libICE
@@ -989,6 +993,7 @@ x11-libs/qtermwidget
 x11-libs/startup-notification
 x11-libs/vdpau-video
 x11-libs/vte
+x11-libs/vte
 x11-libs/wxGTK
 x11-libs/xcb-util
 x11-libs/xcb-util-image
@@ -1009,6 +1014,8 @@ x11-misc/util-macros
 x11-misc/x11vnc
 x11-misc/xbindkeys
 x11-misc/xbitmaps
+x11-misc/xdg-user-dirs
+x11-misc/xdg-user-dirs-gtk
 x11-misc/xdg-utils
 x11-misc/xdialog
 x11-misc/xkeyboard-config
