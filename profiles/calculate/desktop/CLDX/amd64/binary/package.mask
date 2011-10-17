@@ -79,6 +79,7 @@ app-emulation/emul-linux-x86-gtklibs
 app-emulation/emul-linux-x86-medialibs
 app-emulation/emul-linux-x86-opengl
 app-emulation/emul-linux-x86-qtlibs
+app-emulation/emul-linux-x86-sdl
 app-emulation/emul-linux-x86-soundlibs
 app-emulation/emul-linux-x86-xlibs
 app-i18n/enca
@@ -296,6 +297,7 @@ dev-util/scons
 dev-util/xfce4-dev-tools
 dev-util/yacc
 dev-vcs/git
+gnome-base/dconf
 gnome-base/gconf
 gnome-base/gdm
 gnome-base/gnome-common
@@ -362,6 +364,7 @@ media-libs/jasper
 media-libs/jpeg
 media-libs/lcms
 media-libs/lcms
+media-libs/lensfun
 media-libs/libart_lgpl
 media-libs/libass
 media-libs/libcaca
@@ -616,7 +619,6 @@ sys-devel/autoconf-wrapper
 sys-devel/autogen
 sys-devel/automake
 sys-devel/automake
-sys-devel/automake
 sys-devel/automake-wrapper
 sys-devel/bc
 sys-devel/binutils
@@ -792,6 +794,7 @@ x11-base/xorg-server
 x11-drivers/xf86-input-evdev
 x11-drivers/xf86-input-keyboard
 x11-drivers/xf86-input-mouse
+x11-drivers/xf86-input-mutouch
 x11-drivers/xf86-input-synaptics
 x11-drivers/xf86-video-ati
 x11-drivers/xf86-video-dummy
@@ -816,6 +819,7 @@ x11-libs/cairo
 x11-libs/gdk-pixbuf
 x11-libs/gksu
 x11-libs/gnome-pty-helper
+x11-libs/gtk+
 x11-libs/gtk+
 x11-libs/libICE
 x11-libs/libSM
