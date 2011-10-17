@@ -7,12 +7,13 @@
 =app-arch/xz-utils-5.0.3 nls threads -static-libs
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-editors/nano-2.2.5 ncurses nls unicode -debug -justify -minimal -slang -spell
-=app-emulation/emul-linux-x86-baselibs-20110722 -development
+=app-emulation/emul-linux-x86-baselibs-20110928 -development
 =app-misc/calculate-meta-11.9-r1 cdistro_CSS -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/css-meta-11.9 -calculate_nokernel
 =app-misc/pax-utils-0.2.3 -caps
 =app-misc/realpath-1.15-r1 nls
 =app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
+=app-portage/gentoolkit-0.3.0.4-r4
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
 =app-portage/portage-utils-0.3.1 -static
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
@@ -25,11 +26,11 @@
 =dev-libs/gmp-5.0.2 -nocxx
 =dev-libs/klibc-1.5.20 -debug
 =dev-libs/libdaemon-0.14-r1 -doc -examples
-=dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
+=dev-libs/libffi-3.0.10 -debug -static-libs -test
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
 =dev-libs/libusb-1.0.8 -debug -doc -static-libs
-=dev-libs/libxml2-2.7.8-r1 ipv6 python readline -debug -doc -examples -icu -test
+=dev-libs/libxml2-2.7.8-r2 ipv6 python readline -debug -doc -examples -icu -static-libs -test
 =dev-libs/lzo-2.04 -examples -static-libs
 =dev-libs/openssl-1.0.0e sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
@@ -79,7 +80,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha65 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha67 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/sandbox-2.4 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
 =sys-apps/shadow-4.1.4.3 cracklib nls pam -audit -selinux -skey
