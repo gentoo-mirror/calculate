@@ -429,7 +429,7 @@
 =net-print/cups-1.4.8-r22 X acl dbus gnutls jpeg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -ldap -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gnome-cups-manager-0.33-r2 samba
-=net-print/gutenprint-5.2.6 cups foomaticdb gimp gtk readline -ppds
+=net-print/gutenprint-5.2.7-r1 cups foomaticdb gimp gtk nls readline -ppds -static-libs
 =net-print/hplip-3.11.5 acl fax hpcups hpijs libnotify policykit scanner snmp static-ppds -X -doc -kde -minimal -parport -qt4
 =net-print/libgnomecups-0.2.3-r1 -debug
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
@@ -477,7 +477,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha67 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha68 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
@@ -631,7 +631,7 @@
 =x11-libs/libgksu-2.0.12-r1 nls -doc -static-libs
 =x11-libs/libnotify-0.7.4 introspection -doc -test
 =x11-libs/libpciaccess-0.12.1 zlib -minimal -static-libs
-=x11-libs/libsexy-0.1.11-r2 -doc -static-libs
+=x11-libs/libsexy-0.1.11-r3 -doc -static-libs
 =x11-libs/libva-1.0.14 opengl video_cards_dummy video_cards_intel video_cards_nvidia -video_cards_fglrx
 =x11-libs/libvdpau-0.4.1 -doc
 =x11-libs/libwnck-2.30.7 introspection -doc -startup-notification
