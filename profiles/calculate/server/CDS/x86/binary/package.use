@@ -4,7 +4,7 @@
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/testdisk-6.12 jpeg ntfs reiserfs -static
 =app-antivirus/clamav-0.97.2 bzip2 iconv ipv6 -clamdtop -milter -selinux -static-libs
-=app-arch/bzip2-1.0.6-r2 -static
+=app-arch/bzip2-1.0.6-r3 static-libs -static
 =app-arch/cabextract-1.3 -extra-tools
 =app-arch/cpio-2.11 nls
 =app-arch/dump-0.4.41 readline -ermt -static
@@ -62,8 +62,8 @@
 =dev-libs/klibc-1.5.20 -debug -n32
 =dev-libs/libassuan-2.0.1 -static-libs
 =dev-libs/libdaemon-0.14-r1 -doc -examples
-=dev-libs/libevent-2.0.13 -static-libs -test
-=dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
+=dev-libs/libevent-2.0.14 -static-libs -test
+=dev-libs/libffi-3.0.10 -debug -static-libs -test
 =dev-libs/libgcrypt-1.4.6 -static-libs
 =dev-libs/libgpg-error-1.10 nls -common-lisp -static-libs
 =dev-libs/libksba-1.2.0 -static-libs
@@ -96,7 +96,7 @@
 =dev-ruby/rubygems-1.3.7-r1 ruby_targets_ruby18 -doc -ruby_targets_jruby -ruby_targets_ree18 -server
 =dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
 =dev-util/cmake-2.8.4-r1 ncurses -emacs -qt4 -test -vim-syntax
-=dev-util/ctags-5.7 -ada
+=dev-util/ctags-5.8 -ada
 =dev-util/diffball-1.0 -debug
 =dev-util/pkgconfig-0.26 -elibc_FreeBSD -hardened
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 cgi curl iconv perl threads webdav -cvs -doc -emacs -gtk -ppcsha1 -subversion -tk -xinetd
@@ -204,7 +204,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha68 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha69 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
@@ -224,6 +224,7 @@
 =sys-boot/grub-1.99-r4 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.68 -emacs
+=sys-devel/automake-wrapper-5
 =sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -static-libs -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35_p10 nls -static -test
