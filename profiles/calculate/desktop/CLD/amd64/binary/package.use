@@ -5,7 +5,7 @@
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/system-config-printer-common-1.3.6 policykit -doc
 =app-admin/testdisk-6.12 jpeg ntfs reiserfs -static
-=app-arch/bzip2-1.0.6-r2 -static
+=app-arch/bzip2-1.0.6-r3 static-libs -static
 =app-arch/cabextract-1.4 -extra-tools
 =app-arch/cpio-2.11 nls
 =app-arch/dump-0.4.41 readline -ermt -static
@@ -587,7 +587,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha68 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha69 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
