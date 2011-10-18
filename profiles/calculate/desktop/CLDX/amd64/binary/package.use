@@ -36,6 +36,7 @@
 =app-emulation/emul-linux-x86-soundlibs-20110928 alsa -development -pulseaudio
 =app-emulation/emul-linux-x86-xlibs-20110928 opengl -development
 =app-i18n/enca-1.13 recode -doc
+=app-misc/calculate-install-gui-2.2.25
 =app-misc/calculate-meta-11.9-r1 cdistro_CLDX -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cl-decoration-meta-11.9 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-graphics-meta-11.9-r1 cdistro_CLDX -cdistro_CLD
@@ -100,7 +101,7 @@
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-5.0.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
-=dev-libs/icu-4.8 -debug -doc -examples -static-libs
+=dev-libs/icu-4.8.1-r2 -debug -doc -examples -static-libs
 =dev-libs/json-glib-0.12.6 introspection -debug -doc
 =dev-libs/klibc-1.5.20 -debug -n32
 =dev-libs/libIDL-0.8.14 -debug
@@ -112,7 +113,7 @@
 =dev-libs/libconfig-1.4.7 -examples -static-libs
 =dev-libs/libcroco-0.6.2-r1 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
-=dev-libs/libevent-2.0.13 -static-libs -test
+=dev-libs/libevent-2.0.14 -static-libs -test
 =dev-libs/libffi-3.0.10 -debug -static-libs -test
 =dev-libs/libgcrypt-1.4.6 static-libs
 =dev-libs/libgpg-error-1.10 nls -common-lisp -static-libs
@@ -376,11 +377,14 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-client-2.2.24-r1 xfce -gnome -kde
-=sys-apps/calculate-desktop-2.2.24-r2 xfce -gnome -kde
-=sys-apps/calculate-install-2.2.24-r8 -minimal
-=sys-apps/calculate-lib-2.2.24-r2 -minimal
-=sys-apps/calculate-utilities-2.2.24-r22 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-builder-2.2.25
+=sys-apps/calculate-client-2.2.25 xfce -gnome -kde
+=sys-apps/calculate-desktop-2.2.25 xfce -gnome -kde
+=sys-apps/calculate-i18n-2.2.25
+=sys-apps/calculate-install-2.2.25 -minimal
+=sys-apps/calculate-lib-2.2.25 -minimal
+=sys-apps/calculate-templates-2.2.25
+=sys-apps/calculate-utilities-2.2.25 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
