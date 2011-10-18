@@ -4,7 +4,7 @@
 =app-admin/sudo-1.8.1_p2 ldap pam -offensive -selinux -skey
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
 =app-admin/testdisk-6.12 jpeg ntfs reiserfs -static
-=app-arch/bzip2-1.0.6-r2 -static
+=app-arch/bzip2-1.0.6-r3 static-libs -static
 =app-arch/cabextract-1.3 -extra-tools
 =app-arch/cpio-2.11 nls
 =app-arch/dump-0.4.41 readline -ermt -static
@@ -91,7 +91,7 @@
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-5.0.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
-=dev-libs/icu-4.8 -debug -doc -examples -static-libs
+=dev-libs/icu-4.8.1-r2 -debug -doc -examples -static-libs
 =dev-libs/json-glib-0.12.4 introspection -debug -doc
 =dev-libs/klibc-1.5.20 -debug
 =dev-libs/libIDL-0.8.14 -debug
@@ -103,8 +103,8 @@
 =dev-libs/libconfig-1.4.7 -examples -static-libs
 =dev-libs/libcroco-0.6.2 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
-=dev-libs/libevent-2.0.13 -static-libs -test
-=dev-libs/libffi-3.0.9-r2 -debug -static-libs -test
+=dev-libs/libevent-2.0.14 -static-libs -test
+=dev-libs/libffi-3.0.10 -debug -static-libs -test
 =dev-libs/libgcrypt-1.4.6 static-libs
 =dev-libs/libgpg-error-1.10 nls -common-lisp -static-libs
 =dev-libs/libisofs-1.0.0 acl zlib -debug -verbose-debug -xattr
@@ -167,7 +167,7 @@
 =dev-util/boost-build-1.46.1 python -examples
 =dev-util/cmake-2.8.4-r1 ncurses -emacs -qt4 -test -vim-syntax
 =dev-util/cppunit-1.12.1 -doc -examples
-=dev-util/ctags-5.7 -ada
+=dev-util/ctags-5.8 -ada
 =dev-util/desktop-file-utils-0.18 -emacs
 =dev-util/dialog-1.1.20100428 nls unicode -examples -minimal
 =dev-util/diffball-1.0 -debug
@@ -399,7 +399,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha68 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha69 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
@@ -417,7 +417,7 @@
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
 =sys-auth/pam_ldap-183 ssl -sasl
 =sys-auth/pambase-20101024 consolekit cracklib gnome-keyring sha512 -debug -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
-=sys-auth/polkit-0.101-r1 gtk introspection nls pam -debug -doc -examples -kde
+=sys-auth/polkit-0.102 gtk introspection nls pam -debug -doc -examples -kde
 =sys-auth/thinkfinger-0.3-r3 pam -debug
 =sys-block/eject-2.1.5-r2 nls
 =sys-block/gparted-0.9.1 dmraid fat gtk jfs ntfs reiserfs xfs -btrfs -hfs -kde -mdadm -reiser4
@@ -426,6 +426,7 @@
 =sys-boot/grub-1.99-r4 multislot truetype -custom-cflags -debug -static
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.68 -emacs
+=sys-devel/automake-wrapper-5
 =sys-devel/bc-1.06.95 readline -libedit -static
 =sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -static-libs -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
@@ -577,7 +578,7 @@
 =x11-misc/x11vnc-0.9.9 crypt fbcon jpeg ssl v4l xinerama zlib -avahi -system-libvncserver -threads
 =x11-misc/xbindkeys-1.8.4 -guile -tk
 =x11-misc/xdg-user-dirs-0.13 nls
-=x11-misc/xdg-utils-1.1.0_rc1_p20110519 -doc
+=x11-misc/xdg-utils-1.1.0_rc1_p20111003 -doc
 =x11-misc/xdialog-2.3.1 nls -doc -examples
 =x11-misc/xscreensaver-5.14 pam xinerama -jpeg -new-login -opengl -suid
 =x11-plugins/pidgin-libnotify-0.14-r1 nls -debug
