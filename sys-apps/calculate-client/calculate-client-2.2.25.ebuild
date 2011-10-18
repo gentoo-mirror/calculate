@@ -8,15 +8,20 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The program of the desktop configuration Calculate Linux"
+DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-templates-2.2.24
+DEPEND="~sys-apps/calculate-desktop-2.2.25
 	>=dev-python/python-ldap-2.0[ssl]
+	>=sys-auth/pam_ldap-180[ssl]
+	>=sys-auth/nss_ldap-239
+	>=sys-apps/keyexec-0.1.2
+	sys-apps/keyutils
+	sys-auth/pam_keystore
 	xfce? ( x11-misc/xdialog )
 	gnome? ( x11-misc/xdialog )
 	kde? ( kde-base/kdialog )"
@@ -24,11 +29,6 @@ DEPEND="~sys-apps/calculate-templates-2.2.24
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {
-	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
-	einfo "For configure calculate-desktop perform:"
-	einfo "  cl-desktop --install"
-	if use kde || use xfce || use gnome
-	then
-		einfo "  /etc/init.d/xdm restart"
-	fi
+	einfo "For configure calculate-client perform:"
+	einfo "  cl-client --install"
 }

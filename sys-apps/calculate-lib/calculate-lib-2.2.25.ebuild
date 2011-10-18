@@ -8,24 +8,20 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The utilities for builder tasks of Calculate Linux"
+DESCRIPTION="The library for Calculate 2"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="2.2"
 KEYWORDS="amd64 x86"
-
-DEPEND=">=sys-kernel/calckernel-3.4.18
-	~sys-apps/calculate-install-2.2.24
-	!<sys-apps/calculate-1.4.0_p20100921
-	app-cdr/cdrkit
-	sys-fs/squashfs-tools"
-
+IUSE="minimal"
+DEPEND="!<sys-apps/calculate-lib-2.1.8-r1
+	!=sys-apps/calculate-lib-2.1.9
+	!=sys-apps/calculate-lib-2.1.10
+	!minimal? ( dev-python/py-smbpasswd )
+	>=dev-python/pyxml-0.8
+	sys-apps/iproute2
+	sys-apps/pciutils
+	sys-fs/lvm2
+	sys-fs/mdadm
+	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# fix run chroot command
-	epatch "${FILESDIR}/calculate-builder-2.2.24-r2.patch"
-}

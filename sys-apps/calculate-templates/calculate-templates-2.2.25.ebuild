@@ -6,7 +6,7 @@ EAPI="3"
 
 inherit eutils
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}-r9.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="Templates for calculate utilities 2.2"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
@@ -14,7 +14,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-DEPEND="~sys-apps/calculate-lib-2.2.24"
+DEPEND="~sys-apps/calculate-lib-2.2.25"
 
 RDEPEND="${DEPEND}"
 

@@ -15,8 +15,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="minimal"
 
-DEPEND="~sys-apps/calculate-templates-2.2.24
-	~sys-apps/calculate-lib-2.2.24
+DEPEND="~sys-apps/calculate-templates-2.2.25
+	~sys-apps/calculate-lib-2.2.25
 	app-portage/layman
 	!app-misc/livecd-tools
 	!minimal? ( sys-boot/grub
@@ -27,14 +27,6 @@ DEPEND="~sys-apps/calculate-templates-2.2.24
 	sys-block/parted )"
 
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# support auto march, re-fix detect current version
-	epatch "${FILESDIR}/calculate-install-2.2.24-r3.patch"
-}
 
 pkg_postinst() {
 	einfo "For configure calculate-install perform:"

@@ -14,7 +14,6 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-DEPEND="~sys-apps/calculate-builder-2.2.24"
+DEPEND="~sys-apps/calculate-builder-2.2.25"
 
 RDEPEND="${DEPEND}"
-
