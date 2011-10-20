@@ -1,10 +1,8 @@
 app-admin/eselect
 app-admin/eselect-blas
 app-admin/eselect-boost
-app-admin/eselect-cblas
 app-admin/eselect-ctags
 app-admin/eselect-fontconfig
-app-admin/eselect-lapack
 app-admin/eselect-mesa
 app-admin/eselect-opengl
 app-admin/eselect-python
@@ -700,12 +698,10 @@ perl-core/File-Spec
 perl-core/Module-Build
 perl-core/Scalar-List-Utils
 perl-core/Storable
-sci-libs/blas-atlas
 sci-libs/blas-reference
 sci-libs/clapack
 sci-libs/fftw
 sci-libs/hdf5
-sci-libs/lapack-atlas
 sys-apps/acl
 sys-apps/attr
 sys-apps/baselayout
@@ -868,7 +864,6 @@ sys-process/time
 sys-process/vixie-cron
 virtual/acl
 virtual/blas
-virtual/cblas
 virtual/cdrtools
 virtual/cron
 virtual/dev-manager

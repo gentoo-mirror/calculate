@@ -45,7 +45,7 @@
 =app-misc/mc-4.7.5.2 X edit gpm ncurses nls samba -slang
 =app-misc/pax-utils-0.2.3 -caps
 =app-misc/realpath-1.15-r1 nls
-=app-misc/strigi-0.7.6 dbus exif ffmpeg qt4 -clucene -debug -fam -hyperestraier -inotify -log -test
+=app-misc/strigi-0.7.6-r1 dbus exif ffmpeg qt4 -clucene -debug -fam -hyperestraier -inotify -log -test
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
 =app-mobilephone/obexd-0.42 usb -debug -eds -nokia -server
 =app-office/akonadi-server-1.6.0-r1 mysql sqlite -postgres -test
@@ -61,7 +61,7 @@
 =app-text/djvu-3.5.24 jpeg nls tiff -debug -doc -linguas_ja -xml
 =app-text/enchant-1.6.0 hunspell -aspell -static-libs -zemberek
 =app-text/fbreader-0.12.10 qt4 -debug -gtk
-=app-text/ghostscript-gpl-9.04-r3 X cups dbus djvu gtk jpeg2k -bindist -idn -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW -static-libs
+=app-text/ghostscript-gpl-9.04-r4 X cups dbus djvu gtk jpeg2k -bindist -idn -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW -static-libs
 =app-text/goldendict-1.0.1 kde linguas_bg linguas_de linguas_it linguas_ru linguas_uk -debug -linguas_ar -linguas_cs -linguas_el -linguas_lt -linguas_vi -linguas_zh
 =app-text/hunspell-1.3.2-r1 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_ro linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_ia -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu -static-libs
 =app-text/libspectre-0.2.6 -debug -doc -static-libs
@@ -184,7 +184,7 @@
 =kde-base/activitymanager-4.7.2 semantic-desktop -aqua -debug -kdeenablefinal
 =kde-base/akonadiconsole-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/akregator-4.7.2 handbook kontact -aqua -debug -kdeenablefinal
-=kde-base/ark-4.7.2 archive bzip2 handbook -aqua -debug -kdeenablefinal -lzma
+=kde-base/ark-4.7.2-r1 archive bzip2 handbook -aqua -debug -kdeenablefinal -lzma
 =kde-base/attica-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/dolphin-4.7.2 handbook semantic-desktop thumbnail -aqua -debug -kdeenablefinal
 =kde-base/drkonqi-4.7.2 -aqua -debug -kdeenablefinal
@@ -535,12 +535,10 @@
 =net-wireless/wireless-tools-29 nls -multicall
 =net-wireless/wpa_supplicant-0.7.3-r2 dbus kernel_linux readline ssl wimax -debug -eap-sim -fasteap -gnutls -kernel_FreeBSD -madwifi -ps3 -qt4 -wps
 =net-zope/zope-interface-3.7.0
-=sci-libs/blas-atlas-3.8.0 -doc
 =sci-libs/blas-reference-20070226 -doc
-=sci-libs/clapack-3.2.1-r4 -test
+=sci-libs/clapack-3.2.1-r6 -test
 =sci-libs/fftw-3.2.2 fortran openmp sse sse2 -altivec -doc -threads
 =sci-libs/hdf5-1.8.4-r1 cxx fortran mpi threads zlib -examples -szip
-=sci-libs/lapack-atlas-3.8.0 -doc
 =sys-apps/acl-2.2.51 nls -nfs -static-libs
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
@@ -636,7 +634,7 @@
 =sys-fs/udisks-1.0.4-r1 nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-3.0.4-r1 symlink vmlinuz -build
+=sys-kernel/calculate-sources-3.0.7 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
@@ -652,7 +650,7 @@
 =sys-libs/pam-1.1.4 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
-=sys-libs/timezone-data-2011h elibc_glibc nls -elibc_FreeBSD
+=sys-libs/timezone-data-2011j elibc_glibc nls -elibc_FreeBSD
 =sys-power/cpufreqd-2.4.2 acpi nvidia -apm -lm_sensors -nforce2 -pmu
 =sys-power/cpufrequtils-008-r1 nls -debug
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
