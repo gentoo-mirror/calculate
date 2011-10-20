@@ -116,7 +116,7 @@
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
 =sys-fs/udev-164-r2 extras -build -selinux -test
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-3.0.4-r1 symlink vmlinuz -build
+=sys-kernel/calculate-sources-3.0.7 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
@@ -127,7 +127,7 @@
 =sys-libs/libcap-2.17 pam
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
 =sys-libs/pam-1.1.4 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
-=sys-libs/timezone-data-2011h elibc_glibc nls -elibc_FreeBSD
+=sys-libs/timezone-data-2011j elibc_glibc nls -elibc_FreeBSD
 =sys-process/procps-3.2.8-r2 unicode
 =sys-process/psmisc-22.12 ipv6 nls -X -selinux
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
