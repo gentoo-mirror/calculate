@@ -40,7 +40,7 @@
 =app-portage/portage-utils-0.3.1 -static
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
 =app-text/aspell-0.60.6.1 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk nls -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
-=app-text/ghostscript-gpl-9.04-r3 cups jpeg2k -X -bindist -dbus -djvu -gtk -idn -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW -static-libs
+=app-text/ghostscript-gpl-9.04-r4 cups jpeg2k -X -bindist -dbus -djvu -gtk -idn -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW -static-libs
 =app-text/poppler-0.16.7 cxx introspection jpeg jpeg2k lcms png utils xpdf-headers -cairo -cjk -curl -debug -doc -exceptions -qt4
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/wgetpaste-2.18-r1 -zsh-completion
@@ -180,7 +180,7 @@
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25 -minimal
 =sys-apps/calculate-templates-2.2.25
-=sys-apps/calculate-utilities-2.2.25 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-utilities-2.2.25-r1 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -249,7 +249,7 @@
 =sys-fs/udev-164-r2 extras -build -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-3.0.4-r1 symlink vmlinuz -build
+=sys-kernel/calculate-sources-3.0.7 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
@@ -263,7 +263,7 @@
 =sys-libs/slang-2.2.2 pcre png readline zlib -cjk
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
-=sys-libs/timezone-data-2011h elibc_glibc nls -elibc_FreeBSD
+=sys-libs/timezone-data-2011j elibc_glibc nls -elibc_FreeBSD
 =sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
 =sys-process/lsof-4.83 -selinux -static
 =sys-process/procps-3.2.8-r2 unicode -n32
