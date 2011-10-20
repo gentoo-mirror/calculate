@@ -56,7 +56,7 @@
 =app-text/enchant-1.6.0 hunspell -aspell -static-libs -zemberek
 =app-text/evince-2.32.0-r3 dbus djvu gnome-keyring tiff -debug -doc -dvi -gnome -introspection -nautilus -t1lib
 =app-text/fbreader-0.12.10 gtk -debug -qt4
-=app-text/ghostscript-gpl-9.04-r3 X cups dbus djvu gtk jpeg2k -bindist -idn -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW -static-libs
+=app-text/ghostscript-gpl-9.04-r4 X cups dbus djvu gtk jpeg2k -bindist -idn -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW -static-libs
 =app-text/gtkspell-2.0.16 -doc
 =app-text/hunspell-1.3.2-r1 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_ro linguas_ru linguas_uk ncurses nls readline -linguas_af -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_ia -linguas_id -linguas_ku -linguas_lt -linguas_lv -linguas_mk -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_sk -linguas_sl -linguas_sv -linguas_sw -linguas_tn -linguas_zu -static-libs
 =app-text/libspectre-0.2.6 -debug -doc -static-libs
@@ -455,7 +455,7 @@
 =sys-fs/udisks-1.0.4-r1 nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-3.0.4-r1 symlink vmlinuz -build
+=sys-kernel/calculate-sources-3.0.7 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
@@ -470,7 +470,7 @@
 =sys-libs/pam-1.1.4 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
-=sys-libs/timezone-data-2011h elibc_glibc nls -elibc_FreeBSD
+=sys-libs/timezone-data-2011j elibc_glibc nls -elibc_FreeBSD
 =sys-power/cpufreqd-2.4.2 acpi nvidia -apm -lm_sensors -nforce2 -pmu
 =sys-power/cpufrequtils-008-r1 nls -debug
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
