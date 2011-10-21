@@ -131,7 +131,7 @@
 =dev-libs/libtommath-0.42.0 -doc -examples -static-libs
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
 =dev-libs/libusb-1.0.8 -debug -doc -static-libs
-=dev-libs/libxml2-2.7.8-r2 icu ipv6 python readline -debug -doc -examples -static-libs -test
+=dev-libs/libxml2-2.7.8-r3 icu ipv6 python readline -debug -doc -examples -static-libs -test
 =dev-libs/libxslt-1.1.26-r2 crypt python -debug -static-libs
 =dev-libs/libzip-0.10 -static-libs
 =dev-libs/lzo-2.04 -examples -static-libs
@@ -385,7 +385,7 @@
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
 =media-libs/fontconfig-2.8.0-r1 -doc
 =media-libs/freeglut-2.6.0 -debug -mpx -static-libs
-=media-libs/freetype-2.4.6 X bzip2 static-libs -auto-hinter -bindist -debug -doc -fontforge -utils
+=media-libs/freetype-2.4.7 X bzip2 static-libs -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r3 jpeg png truetype xpm zlib -fontconfig -static-libs
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
 =media-libs/giflib-4.1.6-r2 X -rle -static-libs
@@ -560,7 +560,7 @@
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25 -minimal
 =sys-apps/calculate-templates-2.2.25
-=sys-apps/calculate-utilities-2.2.25 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.25-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
