@@ -74,7 +74,7 @@
 =dev-libs/libtommath-0.42.0 -doc -examples -static-libs
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
 =dev-libs/libusb-1.0.8 -debug -doc -static-libs
-=dev-libs/libxml2-2.7.8-r2 ipv6 python readline -debug -doc -examples -icu -static-libs -test
+=dev-libs/libxml2-2.7.8-r3 ipv6 python readline -debug -doc -examples -icu -static-libs -test
 =dev-libs/libxslt-1.1.26-r1 crypt python -debug
 =dev-libs/lzo-2.04 -examples -static-libs
 =dev-libs/openssl-1.0.0e sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
@@ -115,7 +115,7 @@
 =media-gfx/imagemagick-6.7.1.0 bzip2 corefonts cxx jpeg jpeg2k openmp perl png tiff truetype zlib -X -autotrace -djvu -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -openexr -q32 -q64 -q8 -raw -static-libs -svg -webp -wmf -xml
 =media-gfx/splashutils-1.5.4.4 fbcondecor gpm mng png truetype -hardened
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freetype-2.4.6 bzip2 static-libs -X -auto-hinter -bindist -debug -doc -fontforge -utils
+=media-libs/freetype-2.4.7 bzip2 static-libs -X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r3 jpeg png truetype zlib -fontconfig -static-libs -xpm
 =media-libs/jasper-1.900.1-r3 jpeg -opengl -static-libs
 =media-libs/jpeg-8b static-libs
