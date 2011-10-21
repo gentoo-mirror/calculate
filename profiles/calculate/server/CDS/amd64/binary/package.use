@@ -275,5 +275,6 @@
 =virtual/jpeg-0 static-libs
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
+=virtual/rubygems-1 ruby_targets_ruby18 -elibc_FreeBSD
 =virtual/ssh-0 -minimal
 =www-client/links-2.3_pre1-r1 bzip2 gpm jpeg ssl tiff unicode zlib -X -directfb -fbcon -livecd -svga
