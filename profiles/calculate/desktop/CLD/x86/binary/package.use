@@ -3,7 +3,7 @@
 =app-admin/logrotate-3.8.0 acl -selinux
 =app-admin/sudo-1.8.1_p2 ldap pam -offensive -selinux -skey
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
-=app-admin/system-config-printer-common-1.3.3 policykit -doc
+=app-admin/system-config-printer-common-1.3.6 policykit -doc
 =app-admin/testdisk-6.12 jpeg ntfs reiserfs -static
 =app-arch/bzip2-1.0.6-r3 static-libs -static
 =app-arch/cabextract-1.3 -extra-tools
@@ -38,7 +38,7 @@
 =app-misc/cl-nettools-meta-11.9 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-network-meta-11.9 cdistro_CLD cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-office-meta-11.9 cdistro_CLD linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLDG -cdistro_CLDX
-=app-misc/cl-tools-meta-11.9 cdistro_CLD cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
+=app-misc/cl-tools-meta-11.9-r1 cdistro_CLD cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.9 cdistro_desktop
 =app-misc/cld-meta-11.9 -calculate_nodecoration -calculate_nographics -calculate_nokde -calculate_nokernel -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork -calculate_nooffice -calculate_noprinter -calculate_nowireless -calculate_noxorg
 =app-misc/lirc-0.8.7 X kernel_linux lirc_devices_devinput -debug -doc -hardware-carrier -lirc_devices_accent -lirc_devices_act200l -lirc_devices_act220l -lirc_devices_adaptec -lirc_devices_all -lirc_devices_alsa_usb -lirc_devices_animax -lirc_devices_asusdh -lirc_devices_atilibusb -lirc_devices_atiusb -lirc_devices_audio -lirc_devices_audio_alsa -lirc_devices_avermedia -lirc_devices_avermedia98 -lirc_devices_avermedia_vdomate -lirc_devices_awlibusb -lirc_devices_bestbuy -lirc_devices_bestbuy2 -lirc_devices_breakoutbox -lirc_devices_bte -lirc_devices_bw6130 -lirc_devices_caraca -lirc_devices_chronos -lirc_devices_commandir -lirc_devices_cph06x -lirc_devices_creative -lirc_devices_creative_infracd -lirc_devices_digimatrix -lirc_devices_dsp -lirc_devices_dvico -lirc_devices_ea65 -lirc_devices_ene0100 -lirc_devices_exaudio -lirc_devices_flyvideo -lirc_devices_ftdi -lirc_devices_gvbctv5pci -lirc_devices_hauppauge -lirc_devices_hauppauge_dvb -lirc_devices_hercules_smarttv_stereo -lirc_devices_i2cuser -lirc_devices_igorplugusb -lirc_devices_iguanaIR -lirc_devices_imon -lirc_devices_imon_24g -lirc_devices_imon_knob -lirc_devices_imon_lcd -lirc_devices_imon_pad -lirc_devices_imon_rsc -lirc_devices_inputlirc -lirc_devices_irdeo -lirc_devices_irdeo_remote -lirc_devices_irlink -lirc_devices_irman -lirc_devices_irreal -lirc_devices_it87 -lirc_devices_ite8709 -lirc_devices_knc_one -lirc_devices_kworld -lirc_devices_leadtek_0007 -lirc_devices_leadtek_0010 -lirc_devices_leadtek_pvr2000 -lirc_devices_livedrive_midi -lirc_devices_livedrive_seq -lirc_devices_logitech -lirc_devices_macmini -lirc_devices_mceusb -lirc_devices_mediafocusI -lirc_devices_mouseremote -lirc_devices_mouseremote_ps2 -lirc_devices_mp3anywhere -lirc_devices_mplay -lirc_devices_nslu2 -lirc_devices_packard_bell -lirc_devices_parallel -lirc_devices_pcmak -lirc_devices_pcmak_usb -lirc_devices_pctv -lirc_devices_pixelview_bt878 -lirc_devices_pixelview_pak -lirc_devices_pixelview_pro -lirc_devices_provideo -lirc_devices_realmagic -lirc_devices_remote_wonder_plus -lirc_devices_remotemaster -lirc_devices_sa1100 -lirc_devices_samsung -lirc_devices_sasem -lirc_devices_sb0540 -lirc_devices_serial -lirc_devices_serial_igor_cesko -lirc_devices_silitek -lirc_devices_sir -lirc_devices_slinke -lirc_devices_streamzap -lirc_devices_tekram -lirc_devices_tekram_bt829 -lirc_devices_tira -lirc_devices_ttusbir -lirc_devices_tuxbox -lirc_devices_tvbox -lirc_devices_udp -lirc_devices_uirt2 -lirc_devices_uirt2_raw -lirc_devices_usb_uirt_raw -lirc_devices_usbirboy -lirc_devices_usbx -lirc_devices_userspace -lirc_devices_wpc8769l -lirc_devices_xboxusb -transmitter
@@ -104,7 +104,7 @@
 =dev-libs/libatasmart-0.17 -static-libs
 =dev-libs/libattica-0.2.0 -debug
 =dev-libs/libcdio-0.82 cddb cxx -minimal -static-libs
-=dev-libs/libcroco-0.6.2 -doc -test
+=dev-libs/libcroco-0.6.2-r1 -doc -test
 =dev-libs/libdaemon-0.14-r1 -doc -examples
 =dev-libs/libdbusmenu-qt-0.8.2 -debug -doc -test
 =dev-libs/libevent-2.0.14 -static-libs -test
@@ -122,8 +122,8 @@
 =dev-libs/libtommath-0.42.0 -doc -examples -static-libs
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
 =dev-libs/libusb-1.0.8 -debug -doc -static-libs
-=dev-libs/libxml2-2.7.8-r1 icu ipv6 python readline -debug -doc -examples -test
-=dev-libs/libxslt-1.1.26-r1 crypt python -debug
+=dev-libs/libxml2-2.7.8-r3 icu ipv6 python readline -debug -doc -examples -static-libs -test
+=dev-libs/libxslt-1.1.26-r2 crypt python -debug -static-libs
 =dev-libs/libzip-0.10 -static-libs
 =dev-libs/lzo-2.04 -examples -static-libs
 =dev-libs/nspr-4.8.8 -debug
@@ -177,10 +177,11 @@
 =dev-util/desktop-file-utils-0.18 -emacs
 =dev-util/dialog-1.1.20100428 nls unicode -examples -minimal
 =dev-util/diffball-1.0 -debug
+=dev-util/gtk-doc-am-1.18
 =dev-util/pkgconfig-0.26 -elibc_FreeBSD -hardened
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 curl iconv perl threads tk webdav -cgi -cvs -doc -emacs -gtk -ppcsha1 -subversion -xinetd
 =gnome-base/libglade-2.6.4 -doc -static-libs -test
-=gnome-base/librsvg-2.34.1 gtk -doc -tools
+=gnome-base/librsvg-2.34.1-r1 gtk -doc -gtk3 -tools
 =kde-base/activitymanager-4.7.2 semantic-desktop -aqua -debug -kdeenablefinal
 =kde-base/akonadiconsole-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/akregator-4.7.2 handbook kontact -aqua -debug -kdeenablefinal
@@ -367,14 +368,14 @@
 =media-libs/a52dec-0.7.4-r6 -djbfft -oss -static-libs
 =media-libs/aalib-1.4_rc5 X gpm -slang
 =media-libs/alsa-lib-1.0.24.1 alsa_pcm_plugins_adpcm alsa_pcm_plugins_alaw alsa_pcm_plugins_asym alsa_pcm_plugins_copy alsa_pcm_plugins_dmix alsa_pcm_plugins_dshare alsa_pcm_plugins_dsnoop alsa_pcm_plugins_empty alsa_pcm_plugins_extplug alsa_pcm_plugins_file alsa_pcm_plugins_hooks alsa_pcm_plugins_iec958 alsa_pcm_plugins_ioplug alsa_pcm_plugins_ladspa alsa_pcm_plugins_lfloat alsa_pcm_plugins_linear alsa_pcm_plugins_meter alsa_pcm_plugins_mmap_emul alsa_pcm_plugins_mulaw alsa_pcm_plugins_multi alsa_pcm_plugins_null alsa_pcm_plugins_plug alsa_pcm_plugins_rate alsa_pcm_plugins_route alsa_pcm_plugins_share alsa_pcm_plugins_shm alsa_pcm_plugins_softvol python -alisp -debug -doc -static-libs
-=media-libs/audiofile-0.2.7 -static-libs
+=media-libs/audiofile-0.3.1 -static-libs
 =media-libs/babl-0.1.4 mmx sse -altivec -introspection
 =media-libs/faac-1.28-r1 -static-libs
 =media-libs/faad2-2.7-r2 -digitalradio -static-libs
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
 =media-libs/fontconfig-2.8.0-r1 -doc
 =media-libs/freeglut-2.6.0 -debug -mpx -static-libs
-=media-libs/freetype-2.4.6 X bzip2 static-libs -auto-hinter -bindist -debug -doc -fontforge -utils
+=media-libs/freetype-2.4.7 X bzip2 static-libs -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
 =media-libs/giflib-4.1.6-r2 X -rle -static-libs
@@ -398,7 +399,7 @@
 =media-libs/libggi-2.2.2 X aalib fbcon mmx -3dfx -debug -directfb -svga -vis
 =media-libs/libggiwmh-0.3.2 X
 =media-libs/libgii-1.0.2 X
-=media-libs/libgphoto2-2.4.10 cameras_adc65 cameras_agfa_cl20 cameras_aox cameras_ax203 cameras_barbie cameras_canon cameras_casio_qv cameras_clicksmart310 cameras_digigr8 cameras_digita cameras_dimagev cameras_dimera3500 cameras_directory cameras_enigma13 cameras_fuji cameras_gsmart300 cameras_hp215 cameras_iclick cameras_jamcam cameras_jd11 cameras_jl2005a cameras_jl2005c cameras_kodak_dc120 cameras_kodak_dc210 cameras_kodak_dc240 cameras_kodak_dc3200 cameras_kodak_ez200 cameras_konica cameras_konica_qm150 cameras_largan cameras_lg_gsm cameras_mars cameras_mustek cameras_panasonic_coolshot cameras_panasonic_dc1000 cameras_panasonic_dc1580 cameras_panasonic_l859 cameras_pccam300 cameras_pccam600 cameras_polaroid_pdc320 cameras_polaroid_pdc640 cameras_polaroid_pdc700 cameras_ptp2 cameras_ricoh cameras_ricoh_g3 cameras_samsung cameras_sierra cameras_sipix_blink cameras_sipix_blink2 cameras_sipix_web2 cameras_smal cameras_sonix cameras_sony_dscf1 cameras_sony_dscf55 cameras_soundvision cameras_spca50x cameras_sq905 cameras_st2205 cameras_stv0674 cameras_stv0680 cameras_sx330z cameras_template cameras_topfield cameras_toshiba_pdrm11 exif kernel_linux nls -doc -examples -zeroconf
+=media-libs/libgphoto2-2.4.11-r1 cameras_adc65 cameras_agfa_cl20 cameras_aox cameras_ax203 cameras_barbie cameras_canon cameras_casio_qv cameras_clicksmart310 cameras_digigr8 cameras_digita cameras_dimagev cameras_dimera3500 cameras_directory cameras_enigma13 cameras_fuji cameras_gsmart300 cameras_hp215 cameras_iclick cameras_jamcam cameras_jd11 cameras_jl2005a cameras_jl2005c cameras_kodak_dc120 cameras_kodak_dc210 cameras_kodak_dc240 cameras_kodak_dc3200 cameras_kodak_ez200 cameras_konica cameras_konica_qm150 cameras_largan cameras_lg_gsm cameras_mars cameras_mustek cameras_panasonic_coolshot cameras_panasonic_dc1000 cameras_panasonic_dc1580 cameras_panasonic_l859 cameras_pccam300 cameras_pccam600 cameras_polaroid_pdc320 cameras_polaroid_pdc640 cameras_polaroid_pdc700 cameras_ptp2 cameras_ricoh cameras_ricoh_g3 cameras_samsung cameras_sierra cameras_sipix_blink cameras_sipix_blink2 cameras_sipix_web2 cameras_smal cameras_sonix cameras_sony_dscf1 cameras_sony_dscf55 cameras_soundvision cameras_spca50x cameras_sq905 cameras_st2205 cameras_stv0674 cameras_stv0680 cameras_sx330z cameras_template cameras_topfield cameras_toshiba_pdrm11 exif gd jpeg kernel_linux nls -doc -examples -zeroconf
 =media-libs/libgpod-0.8.0 gtk python udev -ios -mono -static-libs
 =media-libs/libid3tag-0.15.1b-r2 -debug -static-libs
 =media-libs/libiec61883-1.1.0 -examples
