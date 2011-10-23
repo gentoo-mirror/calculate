@@ -92,7 +92,7 @@ RDEPEND="${RDEPEND}
 	)
 	cdistro_CLDX? (
 		sys-block/gparted
-		x11-misc/ktsuss
+		!x11-misc/ktsuss
 		x11-terms/terminal
 	)
 	cdistro_CDS? (
