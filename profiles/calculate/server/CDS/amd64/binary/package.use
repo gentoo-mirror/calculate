@@ -70,7 +70,7 @@
 =dev-libs/libksba-1.2.0 -static-libs
 =dev-libs/libnatspec-0.2.6 python -doc
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
-=dev-libs/libtasn1-2.9-r1 -doc
+=dev-libs/libtasn1-2.9-r1 -doc -static-libs
 =dev-libs/libtommath-0.42.0 -doc -examples -static-libs
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
 =dev-libs/libusb-1.0.8 -debug -doc -static-libs
@@ -206,7 +206,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha70 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha71 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
