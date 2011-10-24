@@ -1,0 +1,24 @@
+diff --git desktop/desktop/40-xfce-4.6/.local/share/applications/gparted.desktop desktop/desktop/40-xfce-4.6/.local/share/applications/gparted.desktop
+index c8a8ff6..12db8d9 100644
+--- desktop/desktop/40-xfce-4.6/.local/share/applications/gparted.desktop
++++ desktop/desktop/40-xfce-4.6/.local/share/applications/gparted.desktop
+@@ -4,6 +4,6 @@
+ Exec=sudo /usr/sbin/gparted %f
+ #os_root_type#
+ #?os_root_type!=livecd#
+-Exec=ktsuss /usr/sbin/gparted %f
++Exec=gksu /usr/sbin/gparted %f
+ #os_root_type#
+ !OnlyShowIn=
+diff --git desktop/desktop/40-xfce-4.8/.local/share/applications/gparted.desktop desktop/desktop/40-xfce-4.8/.local/share/applications/gparted.desktop
+index c8a8ff6..12db8d9 100644
+--- desktop/desktop/40-xfce-4.8/.local/share/applications/gparted.desktop
++++ desktop/desktop/40-xfce-4.8/.local/share/applications/gparted.desktop
+@@ -4,6 +4,6 @@
+ Exec=sudo /usr/sbin/gparted %f
+ #os_root_type#
+ #?os_root_type!=livecd#
+-Exec=ktsuss /usr/sbin/gparted %f
++Exec=gksu /usr/sbin/gparted %f
+ #os_root_type#
+ !OnlyShowIn=
