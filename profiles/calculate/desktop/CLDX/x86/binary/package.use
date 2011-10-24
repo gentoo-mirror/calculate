@@ -75,8 +75,8 @@
 =dev-lang/nasm-2.09.08 -doc
 =dev-lang/orc-0.4.11 -examples -static-libs
 =dev-lang/perl-5.12.4-r1 berkdb gdbm -build -debug -doc -ithreads
-=dev-lang/python-2.7.1-r1 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -berkdb -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
-=dev-lang/python-3.1.3-r1 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
+=dev-lang/python-2.7.2-r3 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -berkdb -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
+=dev-lang/python-3.1.4-r3 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
 =dev-lang/swig-2.0.2 pcre -ccache -doc
 =dev-lang/tcl-8.5.9 -debug -threads
 =dev-lang/tk-8.5.9-r1 truetype -aqua -debug -threads -xscreensaver
@@ -84,10 +84,11 @@
 =dev-libs/atk-1.32.0-r1 introspection nls -doc
 =dev-libs/boost-1.46.1-r1 eselect python -debug -doc -icu -mpi -static-libs -test -tools
 =dev-libs/cyrus-sasl-2.1.23-r4 berkdb crypt gdbm pam ssl -authdaemond -elibc_FreeBSD -java -kerberos -mysql -ntlm_unsupported_patch -openldap -postgres -sample -srp -urandom
-=dev-libs/dbus-glib-0.92 bash-completion -debug -doc -static-libs -test
+=dev-libs/dbus-glib-0.98 -debug -doc -static-libs -test
 =dev-libs/elfutils-0.149 bzip2 nls zlib -lzma
 =dev-libs/eventlog-0.2.12 -static-libs
 =dev-libs/expat-2.0.1-r5 -elibc_FreeBSD -examples -static-libs
+=dev-libs/fribidi-0.19.2-r1 -static-libs
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-5.0.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
@@ -117,7 +118,7 @@
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libpthread-stubs-0.3 -static-libs
 =dev-libs/libsigc++-2.2.10 -doc -static-libs -test
-=dev-libs/libtasn1-2.9-r1 -doc
+=dev-libs/libtasn1-2.9-r1 -doc -static-libs
 =dev-libs/libunique-1.1.6-r1 dbus introspection -debug -doc -test
 =dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
 =dev-libs/libusb-1.0.8 -debug -doc -static-libs
@@ -142,7 +143,7 @@
 =dev-perl/IO-Socket-SSL-1.35 -idn
 =dev-perl/libwww-perl-5.836 ssl
 =dev-python/cython-0.14.1 -doc -examples
-=dev-python/dbus-python-0.83.2 -doc -examples -test
+=dev-python/dbus-python-0.84.0 -doc -examples -test
 =dev-python/foolscap-0.6.1 ssl -doc
 =dev-python/imaging-1.1.7 X scanner -doc -examples -tk
 =dev-python/ipython-0.10.2 readline smp -doc -emacs -examples -gnuplot -test -wxwidgets
@@ -175,6 +176,7 @@
 =dev-util/pkgconfig-0.26 -elibc_FreeBSD -hardened
 =dev-util/scons-2.0.1 -doc
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 curl iconv perl threads tk webdav -cgi -cvs -doc -emacs -gtk -ppcsha1 -subversion -xinetd
+=gnome-base/dconf-0.8.0 X bash-completion -doc -vala
 =gnome-base/gconf-2.32.4 introspection ldap policykit -debug -doc
 =gnome-base/gdm-2.20.11-r1 consolekit elibc_glibc gnome-keyring ipv6 pam tcpd xinerama -accessibility -afs -branding -dmx -remote -selinux
 =gnome-base/gnome-keyring-2.32.1-r1 pam -debug -doc -test
@@ -272,7 +274,7 @@
 =media-libs/sdl-image-1.2.10-r1 gif jpeg png tiff -static-libs
 =media-libs/sdl-mixer-1.2.11-r1 flac mad midi mikmod mp3 vorbis wav -static-libs -timidity
 =media-libs/sdl-ttf-2.0.10 X -static-libs
-=media-libs/smpeg-0.4.4-r9 X mmx opengl -debug
+=media-libs/smpeg-0.4.4-r9 X mmx opengl -debug -static-libs
 =media-libs/speex-1.2_rc1 ogg sse -static-libs
 =media-libs/tiff-3.9.5 cxx jpeg zlib -jbig -static-libs
 =media-libs/vigra-1.7.1 fftw hdf5 jpeg png python tiff -doc -test
@@ -291,7 +293,7 @@
 =media-video/dirac-1.0.2 mmx -debug -doc -static-libs
 =media-video/ffmpeg-0.7.6 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
-=media-video/gnome-mplayer-1.0.3-r2 alsa dbus ipod libnotify -gnome -musicbrainz -pulseaudio
+=media-video/gnome-mplayer-1.0.4 alsa dbus ipod libnotify -gnome -musicbrainz -pulseaudio
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
 =net-analyzer/net-snmp-5.4.2.1-r4 X bzip2 ipv6 kernel_linux perl python ssl tcpd zlib -diskio -doc -elf -extensible -lm_sensors -mfd-rewrites -minimal -rpm -selinux -sendmail -smux
 =net-analyzer/nmap-5.51 ssl -gtk -lua
@@ -354,7 +356,7 @@
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/blueman-1.21-r1 network nls policykit -gnome -pulseaudio
 =net-wireless/bluez-4.96 alsa consolekit cups usb -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
-=net-wireless/broadcom-sta-5.100.82.38-r1 kernel_linux
+=net-wireless/broadcom-sta-5.100.82.111 kernel_linux
 =net-wireless/madwifi-ng-0.9.4.4165.20110816 kernel_linux -injection
 =net-wireless/madwimax-0.1.1 -doc
 =net-wireless/wireless-tools-29 nls -multicall
@@ -375,7 +377,7 @@
 =sys-apps/calculate-templates-2.2.25
 =sys-apps/calculate-utilities-2.2.25-r1 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
-=sys-apps/dbus-1.4.12 X -debug -doc -selinux -static-libs -test
+=sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
 =sys-apps/file-5.07-r3 python zlib -static-libs
@@ -400,7 +402,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha70 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha71 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.4 -multilib
