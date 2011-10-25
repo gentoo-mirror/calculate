@@ -23,5 +23,6 @@ src_unpack() {
 	cd "${S}"
 
 	# Fix module-rebuild, combine two action to one
-	epatch "${FILESDIR}/calculate-assemble-2.2.25-r2.patch"
+	# improve cl-make -D
+	epatch "${FILESDIR}/calculate-assemble-2.2.25-r3.patch"
 }
