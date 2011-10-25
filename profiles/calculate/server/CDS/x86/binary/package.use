@@ -164,7 +164,7 @@
 =net-misc/rsync-3.0.8 acl iconv ipv6 -static -xattr
 =net-misc/vconfig-1.9 -static
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
-=net-misc/whois-5.0.8 iconv nls -idn
+=net-misc/whois-5.0.11 iconv nls -idn
 =net-misc/wol-0.7.1 nls
 =net-nds/openldap-2.4.24 berkdb crypt ipv6 perl samba ssl syslog tcpd -cxx -debug -experimental -gnutls -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd
 =net-print/cups-1.4.8-r1 acl jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff -X -dbus -debug -elibc_FreeBSD -gnutls -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
@@ -179,8 +179,8 @@
 =sys-apps/calculate-i18n-2.2.25
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25 -minimal
-=sys-apps/calculate-templates-2.2.25-r1
-=sys-apps/calculate-utilities-2.2.25-r2 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-templates-2.2.25-r2
+=sys-apps/calculate-utilities-2.2.25-r3 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
