@@ -462,7 +462,7 @@
 =media-video/dirac-1.0.2 mmx -debug -doc -static-libs
 =media-video/dvgrab-3.5 jpeg quicktime
 =media-video/ffmpeg-0.7.6 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
-=media-video/ffmpegthumbnailer-2.0.6 gtk jpeg png
+=media-video/ffmpegthumbnailer-2.0.7 gtk jpeg png
 =media-video/kdenlive-0.8 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_et -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh -linguas_zh_CN -linguas_zh_TW
 =media-video/kffmpegthumbnailer-1.1.0 -aqua -debug -kdeenablefinal
 =media-video/mjpegtools-2.0.0-r1 dv gtk mmx png quicktime sdl v4l -dga -sdlgfx -static-libs
@@ -517,7 +517,7 @@
 =net-misc/vconfig-1.9 -static
 =net-misc/vpnc-0.5.3 -bindist -hybrid-auth -resolvconf
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
-=net-misc/whois-5.0.8 iconv nls -idn
+=net-misc/whois-5.0.11 iconv nls -idn
 =net-nds/openldap-2.4.24 berkdb crypt gnutls ipv6 perl samba ssl tcpd -cxx -debug -experimental -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
 =net-p2p/eiskaltdcpp-2.2.1 cli dbus emoticons libnotify linguas_bg linguas_en linguas_es linguas_fr linguas_pl linguas_ru linguas_uk pcre qt4 spell -daemon -examples -gnome -gtk -javascript -linguas_be -linguas_cs -linguas_hu -linguas_sk -linguas_sr -lua -sound -sqlite -upnp
 =net-p2p/ktorrent-4.1.1 bwscheduler downloadorder handbook infowidget ipfilter kross linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk logviewer magnetgenerator mediaplayer scanfolder search shutdown stats upnp zeroconf -aqua -debug -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_lt -linguas_lv -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_se -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -plasma -rss -webinterface
@@ -551,8 +551,8 @@
 =sys-apps/calculate-i18n-2.2.25
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25 -minimal
-=sys-apps/calculate-templates-2.2.25-r1
-=sys-apps/calculate-utilities-2.2.25-r2 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-templates-2.2.25-r2
+=sys-apps/calculate-utilities-2.2.25-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
