@@ -142,6 +142,7 @@
 =dev-perl/HTML-Parser-3.670.0 -test
 =dev-perl/IO-Socket-SSL-1.35 -idn
 =dev-perl/libwww-perl-5.836 ssl
+=dev-perl/perl-tk-804.29.0
 =dev-python/cython-0.14.1 -doc -examples
 =dev-python/dbus-python-0.84.0 -doc -examples -test
 =dev-python/foolscap-0.6.1 ssl -doc
@@ -201,6 +202,7 @@
 =media-fonts/unifont-5.1.20080914 X
 =media-fonts/urw-fonts-2.4.9 X
 =media-gfx/exiv2-0.21.1-r1 linguas_de linguas_es linguas_fr linguas_pl linguas_ru nls zlib -contrib -doc -examples -linguas_fi -linguas_sk -xmp
+=media-gfx/fbgrab-1.0
 =media-gfx/gimp-2.6.11-r5 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff wmf -altivec -curl -debug -doc -gnome -lcms -webkit
 =media-gfx/gqview-2.1.5 -lcms
 =media-gfx/gtkam-0.1.16.1 nls -debug -gimp -gnome
@@ -209,7 +211,7 @@
 =media-gfx/sane-backends-1.0.22-r1 gphoto2 ipv6 sane_backends_abaton sane_backends_agfafocus sane_backends_apple sane_backends_artec sane_backends_artec_eplus48u sane_backends_as6e sane_backends_avision sane_backends_bh sane_backends_canon sane_backends_canon630u sane_backends_canon_dr sane_backends_canon_pp sane_backends_cardscan sane_backends_coolscan sane_backends_coolscan2 sane_backends_coolscan3 sane_backends_dc210 sane_backends_dc240 sane_backends_dc25 sane_backends_dell1600n_net sane_backends_dmc sane_backends_epjitsu sane_backends_epson sane_backends_epson2 sane_backends_fujitsu sane_backends_genesys sane_backends_gt68xx sane_backends_hp sane_backends_hp3500 sane_backends_hp3900 sane_backends_hp4200 sane_backends_hp5400 sane_backends_hp5590 sane_backends_hpljm1005 sane_backends_hpsj5s sane_backends_hs2p sane_backends_ibm sane_backends_kodak sane_backends_kvs1025 sane_backends_kvs20xx sane_backends_leo sane_backends_lexmark sane_backends_ma1509 sane_backends_magicolor sane_backends_matsushita sane_backends_microtek sane_backends_microtek2 sane_backends_mustek sane_backends_mustek_pp sane_backends_mustek_usb sane_backends_nec sane_backends_net sane_backends_niash sane_backends_p5 sane_backends_pie sane_backends_pixma sane_backends_plustek sane_backends_plustek_pp sane_backends_qcam sane_backends_ricoh sane_backends_rts8891 sane_backends_s9036 sane_backends_sceptre sane_backends_sharp sane_backends_sm3600 sane_backends_sm3840 sane_backends_snapscan sane_backends_sp15c sane_backends_st400 sane_backends_stv680 sane_backends_tamarack sane_backends_teco1 sane_backends_teco2 sane_backends_teco3 sane_backends_test sane_backends_u12 sane_backends_umax sane_backends_umax1220u sane_backends_umax_pp sane_backends_xerox_mfp usb -avahi -doc -v4l
 =media-gfx/scrot-0.8 bash-completion
 =media-gfx/splashutils-1.5.4.4 fbcondecor gpm mng png truetype -hardened
-=media-gfx/ufraw-0.16 exif gimp gtk openmp -contrast -gnome -hotpixels -lensfun -timezone
+=media-gfx/ufraw-0.18 gimp gtk openmp -contrast -fits -gnome -timezone
 =media-gfx/xsane-0.998 jpeg nls png tiff -gimp -lcms -ocr
 =media-libs/a52dec-0.7.4-r6 -djbfft -oss -static-libs
 =media-libs/aalib-1.4_rc5 X gpm -slang
@@ -233,6 +235,7 @@
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
 =media-libs/lcms-2.0a jpeg static-libs tiff zlib
+=media-libs/lensfun-0.2.5-r2 -debug -doc
 =media-libs/libass-0.9.13 enca fontconfig -static-libs
 =media-libs/libcaca-0.99_beta17 X cxx ncurses opengl truetype -doc -elibc_FreeBSD -imlib -java -mono -ruby -slang -static-libs
 =media-libs/libcddb-1.3.2 -doc
@@ -492,9 +495,10 @@
 =virtual/linux-sources-0 -hardened
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-14.0.835.202 cups gnome-keyring linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk -bindist -gnome -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -test
+=www-client/chromium-15.0.874.102 cups gnome-keyring linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk -bindist -gnome -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -pulseaudio -test
 =www-plugins/adobe-flash-11.0.1.152 vdpau -32bit -64bit -bindist -kde -multilib
 =x11-apps/xauth-1.0.6 ipv6
+=x11-apps/xcursorgen-1.0.4
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
 =x11-apps/xhost-1.0.4 ipv6
 =x11-apps/xinit-1.3.1 minimal
