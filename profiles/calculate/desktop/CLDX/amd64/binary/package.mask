@@ -114,6 +114,7 @@ app-misc/pax-utils
 app-misc/realpath
 app-mobilephone/obex-data-server
 app-office/libreoffice
+app-office/libreoffice-l10n
 app-pda/libplist
 app-portage/eix
 app-portage/emerge-delta-webrsync
@@ -143,6 +144,10 @@ app-text/iso-codes
 app-text/ispell
 app-text/libpaper
 app-text/libspectre
+app-text/libwpd
+app-text/libwpg
+app-text/libwps
+app-text/mythes
 app-text/poppler
 app-text/poppler-data
 app-text/rarian
@@ -160,6 +165,7 @@ dev-cpp/glibmm
 dev-cpp/gtkmm
 dev-cpp/pangomm
 dev-db/sqlite
+dev-db/unixODBC
 dev-lang/nasm
 dev-lang/orc
 dev-lang/perl
@@ -180,6 +186,7 @@ dev-libs/fribidi
 dev-libs/glib
 dev-libs/gmp
 dev-libs/gobject-introspection
+dev-libs/hyphen
 dev-libs/icu
 dev-libs/iniparser
 dev-libs/json-glib
@@ -284,7 +291,6 @@ dev-tcltk/expect
 dev-util/bin_replace_string
 dev-util/boost-build
 dev-util/cmake
-dev-util/cppunit
 dev-util/ctags
 dev-util/desktop-file-utils
 dev-util/dialog
@@ -292,6 +298,7 @@ dev-util/diffball
 dev-util/gperf
 dev-util/gtk-doc-am
 dev-util/intltool
+dev-util/mdds
 dev-util/pkgconfig
 dev-util/scons
 dev-util/xfce4-dev-tools
@@ -533,8 +540,11 @@ perl-core/Module-Build
 perl-core/Scalar-List-Utils
 perl-core/Storable
 sci-calculators/galculator
+sci-libs/colamd
 sci-libs/fftw
 sci-libs/hdf5
+sci-libs/ufconfig
+sci-mathematics/lpsolve
 sys-apps/acl
 sys-apps/attr
 sys-apps/baselayout
@@ -617,7 +627,6 @@ sys-devel/autoconf
 sys-devel/autoconf
 sys-devel/autoconf-wrapper
 sys-devel/autogen
-sys-devel/automake
 sys-devel/automake
 sys-devel/automake-wrapper
 sys-devel/bc
