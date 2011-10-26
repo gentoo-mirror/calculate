@@ -59,6 +59,7 @@
 =app-shells/bash-4.1_p9 net nls -afs -bashlogger -examples -mem-scramble -plugins -vanilla
 =app-text/aspell-0.60.6.1 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk nls -linguas_af -linguas_be -linguas_br -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_eo -linguas_et -linguas_fi -linguas_fo -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_is -linguas_la -linguas_lt -linguas_nl -linguas_no -linguas_pt -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_vi
 =app-text/djvu-3.5.24 jpeg nls tiff -debug -doc -linguas_ja -xml
+=app-text/docbook-xsl-stylesheets-1.76.1
 =app-text/enchant-1.6.0 hunspell -aspell -static-libs -zemberek
 =app-text/fbreader-0.12.10 qt4 -debug -gtk
 =app-text/ghostscript-gpl-9.04-r4 X cups dbus djvu gtk jpeg2k -bindist -idn -linguas_ja -linguas_ko -linguas_zh_CN -linguas_zh_TW -static-libs
@@ -148,6 +149,7 @@
 =dev-perl/HTML-Parser-3.670.0 -test
 =dev-perl/IO-Socket-SSL-1.35 -idn
 =dev-perl/libwww-perl-5.836 ssl
+=dev-perl/perl-tk-804.29.0
 =dev-python/PyQt4-4.8.4 X dbus declarative kde opengl sql svg webkit -assistant -debug -doc -examples -multimedia -phonon -xmlpatterns
 =dev-python/cython-0.14.1 -doc -examples
 =dev-python/dbus-python-0.84.0 -doc -examples -test
@@ -358,6 +360,7 @@
 =media-fonts/urw-fonts-2.4.9 X
 =media-gfx/digikam-2.2.0 gphoto2 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk mysql semantic-desktop thumbnails -addressbook -aqua -debug -doc -kdeenablefinal -linguas_af -linguas_ar -linguas_az -linguas_be -linguas_bn -linguas_br -linguas_bs -linguas_ca -linguas_cs -linguas_csb -linguas_cy -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_fo -linguas_fy -linguas_ga -linguas_gl -linguas_ha -linguas_he -linguas_hi -linguas_hr -linguas_hsb -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_ko -linguas_ku -linguas_lb -linguas_lo -linguas_lt -linguas_lv -linguas_mi -linguas_mk -linguas_mn -linguas_ms -linguas_mt -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_nso -linguas_oc -linguas_pa -linguas_rw -linguas_se -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_sr@Latn -linguas_ss -linguas_sv -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tr -linguas_tt -linguas_uz -linguas_uz@cyrillic -linguas_ven -linguas_vi -linguas_wa -linguas_xh -linguas_zh_CN -linguas_zh_HK -linguas_zh_TW -linguas_zu -themedesigner -video
 =media-gfx/exiv2-0.21.1-r2 linguas_de linguas_es linguas_fr linguas_pl linguas_ru nls zlib -contrib -doc -examples -linguas_fi -linguas_sk -xmp
+=media-gfx/fbgrab-1.0
 =media-gfx/gimp-2.6.11-r5 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff webkit wmf -altivec -curl -debug -doc -gnome -lcms
 =media-gfx/gtkimageview-1.6.4 -debug -doc -examples -test
 =media-gfx/imagemagick-6.7.1.0 X bzip2 corefonts cxx djvu jpeg jpeg2k openexr openmp perl png raw svg tiff truetype wmf zlib -autotrace -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -q32 -q64 -q8 -static-libs -webp -xml
@@ -460,6 +463,7 @@
 =media-sound/sox-14.3.2-r1 alsa amr encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -static-libs -wavpack
 =media-sound/twolame-0.3.12 -static-libs
 =media-video/dirac-1.0.2 mmx -debug -doc -static-libs
+=media-video/dvdauthor-0.6.18
 =media-video/dvgrab-3.5 jpeg quicktime
 =media-video/ffmpeg-0.7.6 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l v4l2 vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.7 gtk jpeg png
@@ -671,10 +675,11 @@
 =virtual/mysql-5.1 embedded -minimal -static
 =virtual/notification-daemon-0 -gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-14.0.835.202 cups linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk -bindist -gnome -gnome-keyring -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -test
+=www-client/chromium-15.0.874.102 cups linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk -bindist -gnome -gnome-keyring -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -pulseaudio -test
 =www-misc/htdig-3.2.0_beta6-r3 ssl
 =www-plugins/adobe-flash-11.0.1.152 kde vdpau -32bit -64bit -bindist -multilib
 =x11-apps/xauth-1.0.6 ipv6
+=x11-apps/xcursorgen-1.0.4
 =x11-apps/xdpyinfo-1.2.0 xinerama -dga -dmx
 =x11-apps/xhost-1.0.4 ipv6
 =x11-apps/xinit-1.3.1 minimal
