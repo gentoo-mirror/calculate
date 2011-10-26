@@ -108,7 +108,8 @@
 =app-mobilephone/obex-data-server-0.4.5
 =app-mobilephone/obexd-0.42
 =app-office/akonadi-server-1.6.0-r1
-=app-office/libreoffice-3.3.4
+=app-office/libreoffice-3.4.3.2-r1
+=app-office/libreoffice-l10n-3.4.3-r3
 =app-pda/libplist-1.4
 =app-portage/eix-0.22.11
 =app-portage/emerge-delta-webrsync-3.5.1-r3
@@ -138,6 +139,10 @@
 =app-text/ispell-3.3.02-r1
 =app-text/libpaper-1.1.23
 =app-text/libspectre-0.2.6
+=app-text/libwpd-0.9.3
+=app-text/libwpg-0.2.1
+=app-text/libwps-0.2.2
+=app-text/mythes-1.2.1
 =app-text/poppler-0.16.7
 =app-text/poppler-data-0.4.4
 =app-text/recode-3.6_p17-r2
@@ -148,8 +153,10 @@
 =dev-cpp/eigen-2.0.13
 =dev-db/libiodbc-3.52.7
 =dev-db/mysql-5.1.56
+=dev-db/mysql-connector-c++-1.1.0-r1
 =dev-db/mysql-init-scripts-1.2
 =dev-db/sqlite-3.7.7.1
+=dev-db/unixODBC-2.3.0-r1
 =dev-db/virtuoso-odbc-6.1.2
 =dev-db/virtuoso-server-6.1.2
 =dev-lang/nasm-2.09.08
@@ -175,6 +182,7 @@
 =dev-libs/gmp-5.0.2
 =dev-libs/gobject-introspection-0.10.8
 =dev-libs/grantlee-0.1.8
+=dev-libs/hyphen-2.8.3
 =dev-libs/icu-4.8.1-r2
 =dev-libs/iniparser-3.0b-r1
 =dev-libs/klibc-1.5.20
@@ -276,7 +284,6 @@
 =dev-util/bin_replace_string-0.2
 =dev-util/boost-build-1.46.1
 =dev-util/cmake-2.8.4-r1
-=dev-util/cppunit-1.12.1
 =dev-util/ctags-5.8
 =dev-util/desktop-file-utils-0.18
 =dev-util/dialog-1.1.20100428
@@ -284,6 +291,7 @@
 =dev-util/gperf-3.0.4
 =dev-util/gtk-doc-am-1.18
 =dev-util/intltool-0.41.1
+=dev-util/mdds-0.5.3-r1
 =dev-util/pkgconfig-0.26
 =dev-util/yacc-1.9.1-r4
 =dev-vcs/git-1.7.3.4-r1
@@ -700,8 +708,11 @@
 =perl-core/Storable-2.20
 =sci-libs/blas-reference-20070226
 =sci-libs/clapack-3.2.1-r6
+=sci-libs/colamd-2.7.1
 =sci-libs/fftw-3.2.2
 =sci-libs/hdf5-1.8.4-r1
+=sci-libs/ufconfig-3.5.0
+=sci-mathematics/lpsolve-5.5.2.0
 =sys-apps/acl-2.2.51
 =sys-apps/attr-2.4.46
 =sys-apps/baselayout-2.0.3
@@ -787,7 +798,6 @@
 =sys-devel/autogen-5.11.9
 =sys-devel/automake-1.10.3
 =sys-devel/automake-1.11.1
-=sys-devel/automake-1.9.6-r3
 =sys-devel/automake-wrapper-5
 =sys-devel/bc-1.06.95
 =sys-devel/binutils-2.20.1-r1

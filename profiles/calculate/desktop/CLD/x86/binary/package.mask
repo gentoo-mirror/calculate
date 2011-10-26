@@ -109,6 +109,7 @@ app-mobilephone/obex-data-server
 app-mobilephone/obexd
 app-office/akonadi-server
 app-office/libreoffice
+app-office/libreoffice-l10n
 app-pda/libplist
 app-portage/eix
 app-portage/emerge-delta-webrsync
@@ -138,6 +139,10 @@ app-text/iso-codes
 app-text/ispell
 app-text/libpaper
 app-text/libspectre
+app-text/libwpd
+app-text/libwpg
+app-text/libwps
+app-text/mythes
 app-text/poppler
 app-text/poppler-data
 app-text/recode
@@ -148,8 +153,10 @@ app-vim/gentoo-syntax
 dev-cpp/eigen
 dev-db/libiodbc
 dev-db/mysql
+dev-db/mysql-connector-c++
 dev-db/mysql-init-scripts
 dev-db/sqlite
+dev-db/unixODBC
 dev-db/virtuoso-odbc
 dev-db/virtuoso-server
 dev-lang/nasm
@@ -175,6 +182,7 @@ dev-libs/glib
 dev-libs/gmp
 dev-libs/gobject-introspection
 dev-libs/grantlee
+dev-libs/hyphen
 dev-libs/icu
 dev-libs/iniparser
 dev-libs/klibc
@@ -276,7 +284,6 @@ dev-util/automoc
 dev-util/bin_replace_string
 dev-util/boost-build
 dev-util/cmake
-dev-util/cppunit
 dev-util/ctags
 dev-util/desktop-file-utils
 dev-util/dialog
@@ -284,6 +291,7 @@ dev-util/diffball
 dev-util/gperf
 dev-util/gtk-doc-am
 dev-util/intltool
+dev-util/mdds
 dev-util/pkgconfig
 dev-util/yacc
 dev-vcs/git
@@ -700,8 +708,11 @@ perl-core/Scalar-List-Utils
 perl-core/Storable
 sci-libs/blas-reference
 sci-libs/clapack
+sci-libs/colamd
 sci-libs/fftw
 sci-libs/hdf5
+sci-libs/ufconfig
+sci-mathematics/lpsolve
 sys-apps/acl
 sys-apps/attr
 sys-apps/baselayout
@@ -785,7 +796,6 @@ sys-devel/autoconf
 sys-devel/autoconf
 sys-devel/autoconf-wrapper
 sys-devel/autogen
-sys-devel/automake
 sys-devel/automake
 sys-devel/automake
 sys-devel/automake-wrapper
