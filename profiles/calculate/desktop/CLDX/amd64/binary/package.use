@@ -72,7 +72,7 @@
 =app-text/libspectre-0.2.6 -debug -doc -static-libs
 =app-text/libwpd-0.9.3 tools -doc -test
 =app-text/libwpg-0.2.1 -doc -static-libs
-=app-text/libwps-0.2.2 -debug -doc
+=app-text/libwps-0.2.3 -debug -doc -static-libs
 =app-text/mythes-1.2.1 -static-libs
 =app-text/poppler-0.16.7 cairo cxx introspection jpeg jpeg2k lcms png utils xpdf-headers -cjk -curl -debug -doc -exceptions -qt4
 =app-text/rarian-0.8.1-r1 -debug
@@ -260,7 +260,7 @@
 =media-libs/libdvdcss-1.2.10 -doc -static-libs
 =media-libs/libdvdread-4.1.3_p1168 css
 =media-libs/libexif-0.6.19 nls -doc -static-libs
-=media-libs/libexif-gtk-0.3.5-r2 nls
+=media-libs/libexif-gtk-0.3.5-r2 nls -static-libs
 =media-libs/libggi-2.2.2 X aalib fbcon mmx -3dfx -debug -directfb -svga -vis
 =media-libs/libggiwmh-0.3.2 X
 =media-libs/libgii-1.0.2 X
@@ -295,7 +295,7 @@
 =media-libs/smpeg-0.4.4-r9 X opengl -debug -mmx -static-libs
 =media-libs/speex-1.2_rc1 ogg sse -static-libs
 =media-libs/tiff-3.9.5 cxx jpeg zlib -jbig -static-libs
-=media-libs/vigra-1.7.1 fftw hdf5 jpeg png python tiff -doc -test
+=media-libs/vigra-1.7.1-r1 fftw hdf5 jpeg png python tiff -doc -test
 =media-libs/vo-aacenc-0.1.1 -examples -neon -static-libs
 =media-libs/vo-amrwbenc-0.1.0 -examples -static-libs
 =media-libs/x264-0.0.20110426 threads -debug -pic
@@ -387,14 +387,14 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-builder-2.2.25
+=sys-apps/calculate-builder-2.2.25-r1
 =sys-apps/calculate-client-2.2.25 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.25 xfce -gnome -kde
 =sys-apps/calculate-i18n-2.2.25
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25 -minimal
-=sys-apps/calculate-templates-2.2.25-r3
-=sys-apps/calculate-utilities-2.2.25-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-templates-2.2.25-r4
+=sys-apps/calculate-utilities-2.2.25-r6 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
