@@ -1,0 +1,11 @@
+diff --git install/1live/portage/make.conf install/1live/portage/make.conf
+index 3630cbf..3118ec0 100644
+--- install/1live/portage/make.conf
++++ install/1live/portage/make.conf
+@@ -131,5 +131,5 @@ MAKEOPTS="#-os_install_makeopts-#"
+ #?os_install_locale_language==bg#
+ # Количество пакети за едновременно компилиране.
+ #os_install_locale_language#
+-#EMERGE_DEFAULT_OPTS="--jobs=4"
++#EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --jobs=4"
+ 
