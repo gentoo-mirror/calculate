@@ -235,7 +235,7 @@
 =gnome-base/libgnome-2.32.1 -branding -debug -doc -esd
 =gnome-base/libgnome-keyring-2.32.0 -debug -doc -test
 =gnome-base/libgnomecanvas-2.30.3 -doc -glade -test
-=gnome-base/libgnomekbd-2.32.0 -test
+=gnome-base/libgnomekbd-2.32.0-r1 -test
 =gnome-base/libgnomeprint-2.18.8 cups -doc
 =gnome-base/libgnomeprintui-2.18.6 -doc
 =gnome-base/libgnomeui-2.24.5 -doc -test
@@ -339,7 +339,7 @@
 =media-libs/mesa-7.11 classic egl gallium llvm nptl shared-glapi video_cards_intel video_cards_mach64 video_cards_mga video_cards_nouveau video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_via video_cards_vmware -bindist -debug -gbm -gles -kernel_FreeBSD -motif -openvg -pax_kernel -pic -selinux -shared-dricore
 =media-libs/musicbrainz-3.0.2 -test
 =media-libs/nas-1.9.2 -doc
-=media-libs/openal-1.11.753 alsa portaudio -debug -oss -pulseaudio
+=media-libs/openal-1.13 alsa portaudio -debug -oss -pulseaudio
 =media-libs/openexr-1.7.0 -examples -static-libs
 =media-libs/openjpeg-1.4-r1 -doc -test
 =media-libs/portaudio-19_pre20071207 alsa cxx -debug -jack -oss
