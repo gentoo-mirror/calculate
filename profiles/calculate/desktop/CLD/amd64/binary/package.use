@@ -143,8 +143,8 @@
 =dev-libs/libxslt-1.1.26-r2 crypt python -debug -static-libs
 =dev-libs/libzip-0.10 -static-libs
 =dev-libs/lzo-2.04 -examples -static-libs
-=dev-libs/nspr-4.8.8 -debug
-=dev-libs/nss-3.12.10 -utils
+=dev-libs/nspr-4.8.9 -debug
+=dev-libs/nss-3.12.11-r1 -utils
 =dev-libs/openobex-1.5 bluetooth usb -debug -irda -syslog
 =dev-libs/openssl-1.0.0e sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
@@ -260,7 +260,7 @@
 =kde-base/kdesu-4.7.2 handbook -aqua -debug -kdeenablefinal
 =kde-base/kdf-4.7.2 handbook -aqua -debug -kdeenablefinal
 =kde-base/kdialog-4.7.2 -aqua -debug -kdeenablefinal
-=kde-base/kdm-4.7.2 consolekit handbook pam -aqua -debug -kdeenablefinal -kerberos
+=kde-base/kdm-4.7.2-r1 consolekit handbook pam -aqua -debug -kdeenablefinal -kerberos
 =kde-base/kdnssd-4.7.2 -aqua -debug -kdeenablefinal -zeroconf
 =kde-base/kdontchangethehostname-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/keditbookmarks-4.7.2 -aqua -debug -kdeenablefinal
@@ -356,7 +356,7 @@
 =kde-base/solid-runtime-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/svgpart-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/sweeper-4.7.2 handbook -aqua -debug -kdeenablefinal
-=kde-base/system-config-printer-kde-4.7.2 -aqua -kdeenablefinal
+=kde-base/system-config-printer-kde-4.7.2-r1 -aqua -kdeenablefinal
 =kde-base/systemsettings-4.7.2 gtk handbook opengl usb xinerama -aqua -debug -kdeenablefinal
 =kde-base/thumbnailers-4.7.2 -aqua -debug -kdeenablefinal
 =kde-misc/kcm-gtk-config-1.5 linguas_es linguas_fr linguas_it -aqua -kdeenablefinal -linguas_ca -linguas_cs -linguas_el -linguas_gl -linguas_id
