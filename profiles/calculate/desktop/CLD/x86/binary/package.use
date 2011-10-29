@@ -220,8 +220,8 @@
 =kde-base/kcontrol-4.7.2 handbook -aqua -debug -kdeenablefinal
 =kde-base/kcron-4.7.2 handbook -aqua -debug -kdeenablefinal
 =kde-base/kde-env-4.7.2 -aqua -kdeenablefinal
-=kde-base/kde-l10n-4.7.2 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -kdeenablefinal -linguas_ar -linguas_bs -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_ia -linguas_id -linguas_is -linguas_ja -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_pa -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_th -linguas_tr -linguas_ug -linguas_wa -linguas_zh_CN -linguas_zh_TW
-=kde-base/kde-wallpapers-4.7.2 -aqua -kdeenablefinal
+=kde-base/kde-l10n-4.7.2-r1 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -kdeenablefinal -linguas_ar -linguas_bs -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_ia -linguas_id -linguas_is -linguas_ja -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_pa -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_th -linguas_tr -linguas_ug -linguas_wa -linguas_zh_CN -linguas_zh_TW
+=kde-base/kde-wallpapers-4.7.2-r1 -aqua -kdeenablefinal
 =kde-base/kdeartwork-colorschemes-4.7.2 -aqua -kdeenablefinal
 =kde-base/kdeartwork-desktopthemes-4.7.2 -aqua -kdeenablefinal
 =kde-base/kdeartwork-emoticons-4.7.2 -aqua -kdeenablefinal
@@ -239,7 +239,7 @@
 =kde-base/kdebase-startkde-4.7.2 wallpapers -aqua -kdeenablefinal
 =kde-base/kdebugdialog-4.7.2 handbook -aqua -debug -kdeenablefinal
 =kde-base/kdegraphics-strigi-analyzer-4.7.2 -aqua -debug -kdeenablefinal
-=kde-base/kdelibs-4.7.2 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev udisks upower -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kerberos -lzma -test -upnp -zeroconf
+=kde-base/kdelibs-4.7.2-r1 3dnow acl alsa bzip2 handbook jpeg2k mmx nls openexr opengl policykit semantic-desktop spell sse sse2 ssl udev udisks upower -altivec -aqua -bindist -debug -doc -fam -kdeenablefinal -kerberos -lzma -test -upnp -zeroconf
 =kde-base/kdemultimedia-kioslaves-4.7.2 encode flac handbook vorbis -aqua -debug -kdeenablefinal
 =kde-base/kdenetwork-filesharing-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/kdepasswd-4.7.2 handbook -aqua -debug -kdeenablefinal
@@ -295,7 +295,7 @@
 =kde-base/krdc-4.7.2 handbook jpeg rdesktop vnc -aqua -debug -kdeenablefinal -zeroconf
 =kde-base/kreadconfig-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/kremotecontrol-4.7.2 handbook -aqua -debug -kdeenablefinal
-=kde-base/krosspython-4.7.2 -aqua -debug -kdeenablefinal
+=kde-base/krosspython-4.7.2-r1 -aqua -debug -kdeenablefinal
 =kde-base/kruler-4.7.2 handbook -aqua -debug -kdeenablefinal
 =kde-base/krunner-4.7.2 opengl -aqua -debug -kdeenablefinal
 =kde-base/ksaneplugin-4.7.2 -aqua -debug -kdeenablefinal
@@ -332,7 +332,7 @@
 =kde-base/libplasmaclock-4.7.2 holidays opengl -aqua -debug -kdeenablefinal
 =kde-base/libplasmagenericshell-4.7.2 -aqua -debug -kdeenablefinal -test
 =kde-base/libtaskmanager-4.7.2 -aqua -debug -kdeenablefinal
-=kde-base/marble-4.7.2 handbook kde plasma python -aqua -debug -designer-plugin -gps -kdeenablefinal -test
+=kde-base/marble-4.7.2-r1 handbook kde plasma python -aqua -debug -designer-plugin -gps -kdeenablefinal -test
 =kde-base/mplayerthumbs-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/nepomuk-4.7.2 handbook -aqua -debug -kdeenablefinal
 =kde-base/okular-4.7.2 chm crypt djvu ebook handbook jpeg pdf ps tiff -aqua -debug -kdeenablefinal
@@ -340,10 +340,10 @@
 =kde-base/phonon-kde-4.7.2 alsa xine -aqua -debug -kdeenablefinal -pulseaudio
 =kde-base/plasma-apps-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/plasma-runtime-4.7.2 -aqua -debug -kdeenablefinal
-=kde-base/plasma-workspace-4.7.2 handbook python rss semantic-desktop xinerama -aqua -debug -google-gadgets -gps -kdeenablefinal -qalculate
+=kde-base/plasma-workspace-4.7.2-r1 handbook python rss semantic-desktop xinerama -aqua -debug -google-gadgets -gps -kdeenablefinal -qalculate
 =kde-base/powerdevil-4.7.2 pm-utils -aqua -debug -kdeenablefinal
 =kde-base/printer-applet-4.7.2 handbook -aqua -kdeenablefinal
-=kde-base/pykde4-4.7.2 semantic-desktop -aqua -debug -doc -examples -kdeenablefinal
+=kde-base/pykde4-4.7.2-r1 semantic-desktop -aqua -debug -doc -examples -kdeenablefinal
 =kde-base/qguiplatformplugin_kde-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/renamedlg-plugins-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/solid-4.7.2 bluetooth networkmanager -aqua -debug -kdeenablefinal -wicd
@@ -664,7 +664,7 @@
 =sys-libs/libstdc++-v3-3.3.6 nls -multilib
 =sys-libs/libutempter-1.1.5 -elibc_FreeBSD
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
-=sys-libs/pam-1.1.4 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
+=sys-libs/pam-1.1.5 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
 =sys-libs/timezone-data-2011j elibc_glibc nls -elibc_FreeBSD
