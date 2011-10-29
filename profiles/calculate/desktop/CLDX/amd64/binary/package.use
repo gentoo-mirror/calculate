@@ -205,8 +205,8 @@
 =gnome-base/orbit-2.14.19-r1 -debug -doc -test
 =gnome-extra/nm-applet-0.8.4 -bluetooth
 =gnome-extra/polkit-gnome-0.101-r1 introspection -doc -examples
-=mail-client/claws-mail-3.7.9-r1 crypt dbus gnutls imap ipv6 ldap session spell ssl -bogofilter -dillo -doc -nntp -pda -smime -spamassassin -startup-notification -xface
-=mail-client/claws-mail-rssyl-0.30 nls
+=mail-client/claws-mail-3.7.10 crypt dbus gnutls imap ipv6 ldap session spell ssl -bogofilter -dillo -doc -nntp -pda -smime -spamassassin -startup-notification -xface
+=mail-client/claws-mail-rssyl-0.31 nls
 =mail-mta/ssmtp-2.64-r2 ipv6 mta ssl -gnutls
 =media-fonts/corefonts-1-r4 X
 =media-fonts/dejavu-2.32 X -fontforge
@@ -284,7 +284,7 @@
 =media-libs/mutagen-1.20 -test
 =media-libs/nas-1.9.2 -doc
 =media-libs/netpbm-10.51.00-r2 X jpeg jpeg2k png tiff zlib -jbig -rle -svga -xml
-=media-libs/openal-1.11.753 alsa portaudio -debug -oss -pulseaudio
+=media-libs/openal-1.13 alsa portaudio -debug -oss -pulseaudio
 =media-libs/openexr-1.7.0 -examples -static-libs
 =media-libs/openjpeg-1.4-r1 -doc -test
 =media-libs/portaudio-19_pre20071207 alsa cxx -debug -jack -oss
