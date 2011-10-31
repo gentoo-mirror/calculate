@@ -45,7 +45,7 @@
 =app-misc/cl-graphics-meta-11.9-r1 -cdistro_CLD -cdistro_CLDX
 =app-misc/cl-multimedia-meta-11.9 cdistro_CLDG -cdistro_CLD -cdistro_CLDX
 =app-misc/cl-nettools-meta-11.9 cdistro_CLDG cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDX
-=app-misc/cl-network-meta-11.9 cdistro_CLDG cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLD -cdistro_CLDX
+=app-misc/cl-network-meta-11.9-r1 cdistro_CLDG cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLD -cdistro_CLDX
 =app-misc/cl-office-meta-11.9 cdistro_CLDG linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLD -cdistro_CLDX
 =app-misc/cl-tools-meta-11.9-r1 cdistro_CLDG cdistro_desktop -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDX -cdistro_CLS -cdistro_CMC -ldap
 =app-misc/cl-wireless-meta-11.9 cdistro_desktop
@@ -360,7 +360,7 @@
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/gst-plugins-a52dec-0.10.18 orc
 =media-plugins/gst-plugins-ffmpeg-0.10.11-r1 orc
-=media-plugins/gst-plugins-meta-0.10-r6 X a52 aac alsa dv dvd ffmpeg flac mp3 mpeg musepack ogg theora v4l2 vcd vorbis xv -dts -dvb -esd -lame -mms -mythtv -oss -pulseaudio -taglib -vpx -wavpack
+=media-plugins/gst-plugins-meta-0.10-r6 X a52 aac alsa dv dvd ffmpeg flac mp3 mpeg musepack ogg theora v4l vcd vorbis xv -dts -dvb -esd -lame -mms -mythtv -oss -pulseaudio -taglib -vpx -wavpack
 =media-plugins/gst-plugins-mplex-0.10.22
 =media-sound/alsa-utils-1.0.24.2-r1 nls -doc -minimal
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
@@ -510,7 +510,7 @@
 =sys-auth/pam_ldap-183 ssl -sasl
 =sys-auth/pambase-20101024 consolekit cracklib gnome-keyring sha512 -debug -minimal -mktemp -pam_krb5 -pam_ssh -passwdqc -selinux
 =sys-auth/polkit-0.102 gtk introspection nls pam -debug -doc -examples -kde
-=sys-auth/thinkfinger-0.3-r3 pam -debug
+=sys-auth/thinkfinger-0.3-r3 pam -debug -static-libs
 =sys-block/eject-2.1.5-r2 nls
 =sys-block/gparted-0.9.1 dmraid fat gtk jfs ntfs reiserfs xfs -btrfs -hfs -kde -mdadm -reiser4
 =sys-block/parted-3.0 debug device-mapper nls readline -selinux -static-libs
@@ -563,7 +563,7 @@
 =sys-libs/pam-1.1.5 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
-=sys-libs/timezone-data-2011j elibc_glibc nls -elibc_FreeBSD
+=sys-libs/timezone-data-2011l elibc_glibc nls -elibc_FreeBSD
 =sys-power/cpufreqd-2.4.2 acpi nvidia -apm -lm_sensors -nforce2 -pmu
 =sys-power/cpufrequtils-008-r1 nls -debug
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
