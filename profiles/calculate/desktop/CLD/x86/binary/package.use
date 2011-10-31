@@ -36,7 +36,7 @@
 =app-misc/cl-kde-meta-4.7.0-r3 cups ffmpeg mplayer ppp scanner semantic-desktop -calculate_nodecoration -calculate_nographics -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork
 =app-misc/cl-multimedia-meta-11.9 cdistro_CLD -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-nettools-meta-11.9 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
-=app-misc/cl-network-meta-11.9 cdistro_CLD cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
+=app-misc/cl-network-meta-11.9-r1 cdistro_CLD cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-office-meta-11.9 cdistro_CLD linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-tools-meta-11.9-r1 cdistro_CLD cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.9 cdistro_desktop
@@ -136,8 +136,8 @@
 =dev-libs/libxslt-1.1.26-r2 crypt python -debug -static-libs
 =dev-libs/libzip-0.10 -static-libs
 =dev-libs/lzo-2.04 -examples -static-libs
-=dev-libs/nspr-4.8.8 -debug
-=dev-libs/nss-3.12.10 -utils
+=dev-libs/nspr-4.8.9 -debug
+=dev-libs/nss-3.12.11-r1 -utils
 =dev-libs/openobex-1.5 bluetooth usb -debug -irda -syslog
 =dev-libs/openssl-1.0.0e sse2 zlib -bindist -gmp -kerberos -rfc3779 -test
 =dev-libs/popt-1.16-r1 nls -static-libs
@@ -287,7 +287,7 @@
 =kde-base/konsole-4.7.2 handbook -aqua -debug -kdeenablefinal
 =kde-base/konsolekalendar-4.7.2 handbook -aqua -debug -kdeenablefinal
 =kde-base/kontact-4.7.2 handbook -aqua -debug -kdeenablefinal
-=kde-base/kopete-4.7.2 addbookmarks autoreplace contactnotes handbook highlight history jingle nowlistening oscar pipes privacy ssl statistics texteffect translator urlpicpreview v4l2 webpresence xmpp yahoo -aqua -debug -gadu -groupwise -kdeenablefinal -latex -meanwhile -msn -otr -qq -skype -sms -testbed -winpopup -zeroconf
+=kde-base/kopete-4.7.2 addbookmarks autoreplace contactnotes handbook highlight history jingle nowlistening oscar pipes privacy ssl statistics texteffect translator urlpicpreview v4l webpresence xmpp yahoo -aqua -debug -gadu -groupwise -kdeenablefinal -latex -meanwhile -msn -otr -qq -skype -sms -testbed -winpopup -zeroconf
 =kde-base/korganizer-4.7.2 handbook kontact -aqua -debug -kdeenablefinal
 =kde-base/kpasswdserver-4.7.2 -aqua -debug -kdeenablefinal
 =kde-base/kppp-4.7.2 handbook -aqua -debug -kdeenablefinal
@@ -354,7 +354,7 @@
 =kde-base/systemsettings-4.7.2 gtk handbook opengl usb xinerama -aqua -debug -kdeenablefinal
 =kde-base/thumbnailers-4.7.2 -aqua -debug -kdeenablefinal
 =kde-misc/kcm-gtk-config-1.5 linguas_es linguas_fr linguas_it -aqua -kdeenablefinal -linguas_ca -linguas_cs -linguas_el -linguas_gl -linguas_id
-=kde-misc/knetworkmanager-0.8_p20110714 consolekit -aqua -debug -kdeenablefinal
+=kde-misc/networkmanagement-0.8_p20110714 consolekit -aqua -debug -kdeenablefinal
 =kde-misc/openofficeorg-thumbnail-1.0.0 -aqua -debug -kdeenablefinal
 =kde-misc/polkit-kde-kcmodules-0.98_pre20101127 -aqua -debug -kdeenablefinal
 =mail-mta/ssmtp-2.64-r2 ipv6 mta ssl -gnutls
@@ -541,7 +541,7 @@
 =net-print/gutenprint-5.2.7-r1 cups foomaticdb gimp gtk nls readline -ppds -static-libs
 =net-print/hplip-3.11.5 acl fax hpcups hpijs kde libnotify policykit scanner snmp static-ppds -X -doc -minimal -parport -qt4
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
-=net-wireless/bluedevil-1.1-r2 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sk -linguas_sl -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
+=net-wireless/bluedevil-1.2.1 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_bs -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_ug -linguas_zh_CN -linguas_zh_TW
 =net-wireless/bluez-4.96 alsa consolekit cups usb -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
 =net-wireless/broadcom-sta-5.100.82.111 kernel_linux
 =net-wireless/madwifi-ng-0.9.4.4165.20110816 kernel_linux -injection
@@ -614,7 +614,7 @@
 =sys-auth/polkit-0.102 introspection kde nls pam -debug -doc -examples -gtk
 =sys-auth/polkit-kde-agent-0.99.0 linguas_de linguas_es linguas_fr linguas_it linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_en_GB -linguas_eo -linguas_et -linguas_fi -linguas_ga -linguas_gl -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sk -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_zh_TW
 =sys-auth/polkit-qt-0.99.0 -debug -examples
-=sys-auth/thinkfinger-0.3-r3 pam -debug
+=sys-auth/thinkfinger-0.3-r3 pam -debug -static-libs
 =sys-block/eject-2.1.5-r2 nls
 =sys-block/parted-3.0 debug device-mapper nls readline -selinux -static-libs
 =sys-block/partitionmanager-1.0.3_p20110912 -aqua -debug -kdeenablefinal
@@ -667,7 +667,7 @@
 =sys-libs/pam-1.1.5 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
-=sys-libs/timezone-data-2011j elibc_glibc nls -elibc_FreeBSD
+=sys-libs/timezone-data-2011l elibc_glibc nls -elibc_FreeBSD
 =sys-power/cpufreqd-2.4.2 acpi nvidia -apm -lm_sensors -nforce2 -pmu
 =sys-power/cpufrequtils-008-r1 nls -debug
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
