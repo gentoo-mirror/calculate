@@ -101,7 +101,7 @@
 =sys-devel/automake-wrapper-5
 =sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -static-libs -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
-=sys-devel/flex-2.5.35 nls -static -test
+=sys-devel/flex-2.5.35_p10 nls -static -test
 =sys-devel/gcc-4.5.3-r1 fortran mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -gtk -hardened -libffi -lto -multilib -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
 =sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
 =sys-devel/libtool-2.4-r1 -test -vanilla
@@ -127,8 +127,8 @@
 =sys-libs/gpm-1.20.6 -selinux
 =sys-libs/libcap-2.17 pam
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
-=sys-libs/pam-1.1.4 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
-=sys-libs/timezone-data-2011j elibc_glibc nls -elibc_FreeBSD
+=sys-libs/pam-1.1.5 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
+=sys-libs/timezone-data-2011l elibc_glibc nls -elibc_FreeBSD
 =sys-process/procps-3.2.8-r2 unicode
 =sys-process/psmisc-22.12 ipv6 nls -X -selinux
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
