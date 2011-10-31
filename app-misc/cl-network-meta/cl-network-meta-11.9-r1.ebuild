@@ -33,7 +33,7 @@ RDEPEND="
 	)
 	cdistro_CLD? (
 		networkmanager? (
-			kde-misc/knetworkmanager
+			kde-misc/networkmanagement
 		)
 	)
 	cdistro_CLDG? (
