@@ -56,3 +56,6 @@ sys-apps/busybox static
 
 #resolve
 dev-lang/php gd xml
+#
+#Suppoft UTF8 (IssueID 295)
+net-ftp/pure-ftpd charconv
