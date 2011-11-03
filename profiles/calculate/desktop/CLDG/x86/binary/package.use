@@ -46,7 +46,7 @@
 =app-misc/pax-utils-0.2.3 -caps
 =app-misc/realpath-1.15-r1 nls
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
-=app-office/libreoffice-3.4.3.2-r1 bash-completion branding dbus gnome gtk linguas_de linguas_es linguas_fr linguas_it nsplugin opengl python vba -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -graphite -gstreamer -java -kde -kdeenablefinal -ldap -linguas_en_GB -linguas_en_ZA -linguas_hu -mysql -odk -templates -test -webdav
+=app-office/libreoffice-3.4.3.2-r1 bash-completion branding dbus gnome gtk linguas_de linguas_es linguas_fr linguas_it nsplugin opengl python vba -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -graphite -gstreamer -java -kde -kdeenablefinal -ldap -linguas_en_GB -linguas_en_ZA -linguas_hu -mysql -odk -pdfimport -templates -test -webdav
 =app-office/libreoffice-l10n-3.4.3-r3 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_nso -linguas_oc -linguas_or -linguas_pa_IN -linguas_rw -linguas_sat -linguas_sd -linguas_sh -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -offlinehelp
 =app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
 =app-portage/genlop-0.30.8-r2 bash-completion
@@ -332,7 +332,7 @@
 =media-libs/mesa-7.11 classic egl gallium llvm nptl shared-glapi video_cards_intel video_cards_mach64 video_cards_mga video_cards_nouveau video_cards_r128 video_cards_radeon video_cards_savage video_cards_sis video_cards_tdfx video_cards_via video_cards_vmware -bindist -debug -gbm -gles -kernel_FreeBSD -motif -openvg -pax_kernel -pic -selinux -shared-dricore
 =media-libs/musicbrainz-3.0.2 -test
 =media-libs/nas-1.9.2 -doc
-=media-libs/openal-1.11.753 alsa portaudio -debug -oss -pulseaudio
+=media-libs/openal-1.13 alsa portaudio -debug -oss -pulseaudio
 =media-libs/openexr-1.7.0 -examples -static-libs
 =media-libs/openjpeg-1.4-r1 -doc -test
 =media-libs/portaudio-19_pre20071207 alsa cxx -debug -jack -oss
@@ -434,7 +434,8 @@
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gnome-cups-manager-0.33-r2 samba
 =net-print/gutenprint-5.2.7-r1 cups foomaticdb gimp gtk nls readline -ppds -static-libs
-=net-print/hplip-3.11.5 acl fax hpcups hpijs libnotify policykit scanner snmp static-ppds -X -doc -kde -minimal -parport -qt4
+=net-print/hplip-3.11.10-r1 acl fax hpcups hpijs libnotify policykit scanner snmp static-ppds -X -doc -kde -minimal -parport -qt4
+=net-print/hplip-plugin-3.11.10
 =net-print/libgnomecups-0.2.3-r1 -debug
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/blueman-1.21-r1 gnome network nls policykit -pulseaudio
@@ -460,8 +461,8 @@
 =sys-apps/calculate-i18n-2.2.25
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25 -minimal
-=sys-apps/calculate-templates-2.2.25-r4
-=sys-apps/calculate-utilities-2.2.25-r6 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-templates-2.2.25-r5
+=sys-apps/calculate-utilities-2.2.25-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
