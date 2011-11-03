@@ -4,7 +4,7 @@
 
 EAPI=2
 
-DESCRIPTION="Calculate Linux Desktop XFCE (meta package)"
+DESCRIPTION="Calculate Linux Desktop GNOME (meta package)"
 HOMEPAGE="http://www.calculate-linux.org/main/en/cld"
 SRC_URI=""
 
@@ -12,7 +12,9 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="
+calculate_nocompiz
 calculate_nodecoration
+calculate_nognome
 calculate_nographics
 calculate_nokernel
 calculate_nomultimedia
@@ -20,25 +22,21 @@ calculate_nonetwork
 calculate_nonettools
 calculate_noprinter
 calculate_nooffice
-calculate_noxfce
 calculate_noxorg
 calculate_nowireless
 "
 
 RDEPEND="
-	!app-misc/cls-meta
-	!app-misc/cl-dict-meta
-	!app-misc/cl-desktop-meta
-	!app-misc/cl-useful-meta
-	!mail-client/claws-mail-gtkhtml
-"
-
-RDEPEND="${RDEPEND}
 	app-misc/cl-base-meta
 	app-misc/cl-tools-meta
 
-	!calculate_noxfce? ( app-misc/cl-xfce-meta )
+	!calculate_nocompiz? (
+		x11-apps/ccsm
+		x11-apps/fusion-icon
+		x11-wm/compiz-fusion
+	)
 	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
+	!calculate_nognome? ( app-misc/cl-gnome-meta )
 	!calculate_nographics? ( app-misc/cl-graphics-meta )
 	!calculate_nokernel? ( sys-kernel/calculate-sources )
 	!calculate_nomultimedia? ( app-misc/cl-multimedia-meta )
@@ -49,7 +47,9 @@ RDEPEND="${RDEPEND}
 	!calculate_noxorg? ( app-misc/cl-xorg-meta )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 "
-# Base
+
+#for compile gnome-base/gnome-settings-daemon-2.32.1-r2
 RDEPEND="${RDEPEND}
-	gnome-base/gdm
+	media-libs/libpng:1.4
 "
+
