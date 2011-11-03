@@ -49,7 +49,7 @@
 =app-mobilephone/obex-data-server-0.4.5 gtk imagemagick usb -debug
 =app-mobilephone/obexd-0.42 usb -debug -eds -nokia -server
 =app-office/akonadi-server-1.6.0-r1 mysql sqlite -postgres -test
-=app-office/libreoffice-3.4.3.2-r1 bash-completion branding dbus gtk kde ldap linguas_de linguas_es linguas_fr linguas_it mysql nsplugin opengl python vba -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gnome -graphite -gstreamer -java -kdeenablefinal -linguas_en_GB -linguas_en_ZA -linguas_hu -odk -templates -test -webdav
+=app-office/libreoffice-3.4.3.2-r1 bash-completion branding dbus gtk kde ldap linguas_de linguas_es linguas_fr linguas_it mysql nsplugin opengl python vba -aqua -binfilter -custom-cflags -debug -eds -elibc_FreeBSD -gnome -graphite -gstreamer -java -kdeenablefinal -linguas_en_GB -linguas_en_ZA -linguas_hu -odk -pdfimport -templates -test -webdav
 =app-office/libreoffice-l10n-3.4.3-r3 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_nso -linguas_oc -linguas_or -linguas_pa_IN -linguas_rw -linguas_sat -linguas_sd -linguas_sh -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -offlinehelp
 =app-pda/libplist-1.4 python
 =app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
@@ -442,7 +442,7 @@
 =media-libs/musicbrainz-3.0.2 -test
 =media-libs/mutagen-1.20 -test
 =media-libs/nas-1.9.2 -doc
-=media-libs/openal-1.11.753 alsa portaudio -debug -oss -pulseaudio
+=media-libs/openal-1.13 alsa portaudio -debug -oss -pulseaudio
 =media-libs/opencv-2.3.0 ffmpeg gtk ieee1394 jpeg jpeg2k openexr opengl png python qt4 sse sse2 sse3 ssse3 tiff v4l xine -cuda -doc -eigen -examples -gstreamer
 =media-libs/openexr-1.7.0 -examples -static-libs
 =media-libs/openjpeg-1.4-r1 -doc -test
@@ -475,7 +475,7 @@
 =media-video/dvgrab-3.5 jpeg quicktime
 =media-video/ffmpeg-0.7.6 3dnow 3dnowext X aac alsa amr bzip2 cpudetection custom-cflags encode hardcoded-tables ieee1394 jpeg2k mmx mmxext mp3 sdl speex ssse3 theora threads truetype v4l vaapi vdpau video_cards_nvidia vorbis x264 xvid zlib -altivec -avx -bindist -celt -debug -dirac -doc -faac -frei0r -gsm -jack -network -oss -pic -qt-faststart -rtmp -schroedinger -static-libs -test -vpx
 =media-video/ffmpegthumbnailer-2.0.7 gtk jpeg png
-=media-video/kdenlive-0.8.2 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_et -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh -linguas_zh_CN -linguas_zh_TW
+=media-video/kdenlive-0.8.2 handbook linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk semantic-desktop -aqua -debug -kdeenablefinal -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_et -linguas_fi -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_nl -linguas_sl -linguas_tr -linguas_zh -linguas_zh_CN -linguas_zh_TW
 =media-video/kffmpegthumbnailer-1.1.0 -aqua -debug -kdeenablefinal
 =media-video/mjpegtools-2.0.0-r1 dv gtk mmx png quicktime sdl v4l -dga -sdlgfx -static-libs
 =media-video/mplayer-1.0_rc4_p20110322-r51 3dnow X a52 aalib alsa amr ass cddb cdio cdparanoia cpudetection dga dirac dts dv dvd dvdnav enca encode faac faad fbcon ftp ggi gif iconv ipv6 jpeg jpeg2k kernel_linux libcaca lirc live lzo mad md5sum mmx mmxext mng mp3 nas network openal opengl osdmenu png quicktime radio rar real rtc samba schroedinger sdl shm speex sse sse2 ssse3 tga theora toolame tremor truetype twolame unicode v4l v4l2 vaapi vdpau video_cards_mga video_cards_tdfx video_cards_vesa vidix vorbis win32codecs x264 xanim xinerama xscreensaver xv xvid xvmc -3dnowext -altivec -aqua -bidi -bindist -bl -bluray -bs2b -custom-cpuopts -debug -directfb -doc -dvb -dxr3 -esd -gsm -jack -joystick -ladspa -libmpeg2 -mpg123 -nut -oss -pnm -pulseaudio -pvr -rtmp -video_cards_s3virge -vpx -zoran
@@ -539,7 +539,8 @@
 =net-print/cups-1.4.8-r22 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gutenprint-5.2.7-r1 cups foomaticdb gimp gtk nls readline -ppds -static-libs
-=net-print/hplip-3.11.5 acl fax hpcups hpijs kde libnotify policykit scanner snmp static-ppds -X -doc -minimal -parport -qt4
+=net-print/hplip-3.11.10-r1 acl fax hpcups hpijs kde libnotify policykit scanner snmp static-ppds -X -doc -minimal -parport -qt4
+=net-print/hplip-plugin-3.11.10
 =net-print/samsung-unified-linux-driver-1.01 -doc -test
 =net-wireless/bluedevil-1.2.1 linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_bs -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_hu -linguas_ja -linguas_ko -linguas_lt -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_ug -linguas_zh_CN -linguas_zh_TW
 =net-wireless/bluez-4.96 alsa consolekit cups usb -caps -debug -gstreamer -health -maemo6 -old-daemons -pcmcia -pnat -test-programs
@@ -566,8 +567,8 @@
 =sys-apps/calculate-i18n-2.2.25
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25 -minimal
-=sys-apps/calculate-templates-2.2.25-r4
-=sys-apps/calculate-utilities-2.2.25-r6 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-templates-2.2.25-r5
+=sys-apps/calculate-utilities-2.2.25-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
