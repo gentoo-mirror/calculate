@@ -33,7 +33,8 @@ media-libs/lcms static-libs
 sys-block/parted device-mapper
 
 #need for media-gfx/splashutils-1.5.4.3-r3
-media-libs/libpng static-libs
+#USE=apng for firefox 7
+media-libs/libpng static-libs apng
 
 #need for media-gfx/splashutils-1.5.4.3-r3
 virtual/jpeg static-libs
