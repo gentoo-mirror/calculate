@@ -427,7 +427,7 @@
 =media-libs/libogg-1.2.0 -static-libs
 =media-libs/libopenraw-0.0.8 gtk -static-libs -test
 =media-libs/libpgf-6.11.32 -doc -static-libs
-=media-libs/libpng-1.4.8-r1 static-libs -apng
+=media-libs/libpng-1.5.5 apng static-libs
 =media-libs/libquicktime-1.2.3 X aac alsa dv encode ffmpeg gtk jpeg mmx opengl png vorbis x264 -doc -lame -schroedinger
 =media-libs/libsamplerate-0.1.7 -sndfile
 =media-libs/libsdl-1.2.14-r6 X aalib alsa audio custom-cflags fbcon ggi joystick libcaca nas opengl video xinerama xv -dga -directfb -oss -ps3 -pulseaudio -static-libs -svga -tslib
@@ -535,7 +535,7 @@
 =net-p2p/ktorrent-4.1.1 bwscheduler downloadorder handbook infowidget ipfilter kross linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk logviewer magnetgenerator mediaplayer scanfolder search shutdown stats upnp zeroconf -aqua -debug -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_lt -linguas_lv -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_se -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -plasma -rss -webinterface
 =net-print/cndrvcups-capt-2.00-r2 -gtk
 =net-print/cndrvcups-common-2.00-r2 -cngplp
-=net-print/cnijfilter-3.20-r1 ip4700 mp250 mp270 mp490 mp550 mp560 -amd64 -mp640 -nocupsdetection -servicetools
+=net-print/cnijfilter-3.50 mx360 mx410 mx420 mx880 net nocupsdetection -amd64 -ix6550 -servicetools
 =net-print/cups-1.4.8-r22 X acl dbus gnutls jpeg ldap linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.7 cups
 =net-print/gutenprint-5.2.7-r1 cups foomaticdb gimp gtk nls readline -ppds -static-libs
