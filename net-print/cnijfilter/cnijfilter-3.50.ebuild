@@ -12,7 +12,7 @@ SRC_URI="http://files.canon-europe.com/files/soft40869/software/cnijfilter-sourc
 LICENSE="UNKNOWN" # GPL-2 source and proprietary binaries
 
 SLOT="2"
-KEYWORDS="x86 amd64"
+KEYWORDS="~x86 ~amd64"
 IUSE="amd64
 	servicetools
 	nocupsdetection
