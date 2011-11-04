@@ -246,7 +246,7 @@
 =kde-base/kdepim-common-libs-4.7.3 -aqua -debug -kdeenablefinal
 =kde-base/kdepim-icons-4.7.3 -aqua -kdeenablefinal
 =kde-base/kdepim-kresources-4.7.3 -aqua -debug -kdeenablefinal
-=kde-base/kdepim-l10n-4.4.11.1-r1 linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -kdeenablefinal -kdeprefix -linguas_ar -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_csb -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_fy -linguas_ga -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_pa -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_tg -linguas_tr -linguas_wa -linguas_zh_CN -linguas_zh_TW
+=kde-base/kdepim-l10n-4.7.3 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -kdeenablefinal -linguas_ar -linguas_bs -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_he -linguas_hr -linguas_hu -linguas_ia -linguas_id -linguas_is -linguas_ja -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_pa -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_th -linguas_tr -linguas_ug -linguas_wa -linguas_zh_CN -linguas_zh_TW
 =kde-base/kdepim-runtime-4.7.3 -aqua -debug -kdeenablefinal
 =kde-base/kdepim-strigi-analyzer-4.7.3 -aqua -debug -kdeenablefinal
 =kde-base/kdepimlibs-4.7.3 handbook ldap semantic-desktop -aqua -debug -kdeenablefinal -test
@@ -567,8 +567,8 @@
 =sys-apps/calculate-i18n-2.2.25
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25 -minimal
-=sys-apps/calculate-templates-2.2.25-r5
-=sys-apps/calculate-utilities-2.2.25-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-templates-2.2.25-r6
+=sys-apps/calculate-utilities-2.2.25-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
