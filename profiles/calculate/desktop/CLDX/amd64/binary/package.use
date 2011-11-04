@@ -395,8 +395,8 @@
 =sys-apps/calculate-i18n-2.2.25
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25 -minimal
-=sys-apps/calculate-templates-2.2.25-r5
-=sys-apps/calculate-utilities-2.2.25-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-templates-2.2.25-r6
+=sys-apps/calculate-utilities-2.2.25-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -487,7 +487,7 @@
 =sys-libs/gdbm-1.8.3-r4 berkdb
 =sys-libs/glibc-2.12.2 gd multilib nls -crosscompile_opts_headers-only -debug -glibc-omitfp -hardened -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
-=sys-libs/libcap-2.17 pam
+=sys-libs/libcap-2.22 pam
 =sys-libs/libieee1284-0.2.11-r1 python -doc
 =sys-libs/libstdc++-v3-3.3.6 multilib nls
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
