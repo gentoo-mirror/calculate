@@ -239,7 +239,7 @@
 =gnome-extra/bug-buddy-2.32.0-r2 -eds
 =gnome-extra/deskbar-applet-2.32.0 spell -eds
 =gnome-extra/evolution-data-server-2.32.3-r1 gnome-keyring ipv6 weather -doc -kerberos -ldap -test
-=gnome-extra/gnome-media-2.32.0-r1 -pulseaudio
+=gnome-extra/gnome-media-2.32.0-r1 aac flac mp3 speex vorbis -pulseaudio -twolame
 =gnome-extra/gnome-power-manager-2.32.0-r2 applet policykit -doc -test
 =gnome-extra/gnome-screensaver-2.30.2-r1 kernel_linux libnotify opengl pam -branding -debug -doc
 =gnome-extra/gnome-user-docs-2.32.0 -test
@@ -354,9 +354,12 @@
 =media-libs/x264-0.0.20110426 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/gst-plugins-a52dec-0.10.18 orc
+=media-plugins/gst-plugins-faac-0.10.22
 =media-plugins/gst-plugins-ffmpeg-0.10.11-r1 orc
+=media-plugins/gst-plugins-lame-0.10.18
 =media-plugins/gst-plugins-meta-0.10-r6 X a52 aac alsa dv dvd ffmpeg flac mp3 mpeg musepack ogg theora v4l vcd vorbis xv -dts -dvb -esd -lame -mms -mythtv -oss -pulseaudio -taglib -vpx -wavpack
 =media-plugins/gst-plugins-mplex-0.10.22
+=media-plugins/gst-plugins-speex-0.10.30
 =media-sound/alsa-utils-1.0.24.2-r1 nls -doc -minimal
 =media-sound/lame-3.98.4 mmx -debug -mp3rtp -sndfile -static-libs
 =media-sound/rhythmbox-0.12.8-r1 cdr gnome-keyring ipod libnotify lirc nsplugin python -daap -debug -doc -mtp -musicbrainz -test -udev -upnp -webkit
@@ -462,8 +465,8 @@
 =sys-apps/calculate-i18n-2.2.25
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25 -minimal
-=sys-apps/calculate-templates-2.2.25-r5
-=sys-apps/calculate-utilities-2.2.25-r7 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-templates-2.2.25-r6
+=sys-apps/calculate-utilities-2.2.25-r8 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
