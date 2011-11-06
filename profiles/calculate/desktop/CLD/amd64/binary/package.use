@@ -47,7 +47,7 @@
 =app-misc/cl-nettools-meta-11.9 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-network-meta-11.9-r1 cdistro_CLD cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-office-meta-11.9 cdistro_CLD linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLDG -cdistro_CLDX
-=app-misc/cl-tools-meta-11.9-r1 cdistro_CLD cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
+=app-misc/cl-tools-meta-11.9-r2 cdistro_CLD cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.9 cdistro_desktop
 =app-misc/cld-meta-11.9 -calculate_nodecoration -calculate_nographics -calculate_nokde -calculate_nokernel -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork -calculate_nooffice -calculate_noprinter -calculate_nowireless -calculate_noxorg
 =app-misc/lirc-0.8.7 X kernel_linux lirc_devices_devinput -debug -doc -hardware-carrier -lirc_devices_accent -lirc_devices_act200l -lirc_devices_act220l -lirc_devices_adaptec -lirc_devices_all -lirc_devices_alsa_usb -lirc_devices_animax -lirc_devices_asusdh -lirc_devices_atilibusb -lirc_devices_atiusb -lirc_devices_audio -lirc_devices_audio_alsa -lirc_devices_avermedia -lirc_devices_avermedia98 -lirc_devices_avermedia_vdomate -lirc_devices_awlibusb -lirc_devices_bestbuy -lirc_devices_bestbuy2 -lirc_devices_breakoutbox -lirc_devices_bte -lirc_devices_bw6130 -lirc_devices_caraca -lirc_devices_chronos -lirc_devices_commandir -lirc_devices_cph06x -lirc_devices_creative -lirc_devices_creative_infracd -lirc_devices_digimatrix -lirc_devices_dsp -lirc_devices_dvico -lirc_devices_ea65 -lirc_devices_ene0100 -lirc_devices_exaudio -lirc_devices_flyvideo -lirc_devices_ftdi -lirc_devices_gvbctv5pci -lirc_devices_hauppauge -lirc_devices_hauppauge_dvb -lirc_devices_hercules_smarttv_stereo -lirc_devices_i2cuser -lirc_devices_igorplugusb -lirc_devices_iguanaIR -lirc_devices_imon -lirc_devices_imon_24g -lirc_devices_imon_knob -lirc_devices_imon_lcd -lirc_devices_imon_pad -lirc_devices_imon_rsc -lirc_devices_inputlirc -lirc_devices_irdeo -lirc_devices_irdeo_remote -lirc_devices_irlink -lirc_devices_irman -lirc_devices_irreal -lirc_devices_it87 -lirc_devices_ite8709 -lirc_devices_knc_one -lirc_devices_kworld -lirc_devices_leadtek_0007 -lirc_devices_leadtek_0010 -lirc_devices_leadtek_pvr2000 -lirc_devices_livedrive_midi -lirc_devices_livedrive_seq -lirc_devices_logitech -lirc_devices_macmini -lirc_devices_mceusb -lirc_devices_mediafocusI -lirc_devices_mouseremote -lirc_devices_mouseremote_ps2 -lirc_devices_mp3anywhere -lirc_devices_mplay -lirc_devices_nslu2 -lirc_devices_packard_bell -lirc_devices_parallel -lirc_devices_pcmak -lirc_devices_pcmak_usb -lirc_devices_pctv -lirc_devices_pixelview_bt878 -lirc_devices_pixelview_pak -lirc_devices_pixelview_pro -lirc_devices_provideo -lirc_devices_realmagic -lirc_devices_remote_wonder_plus -lirc_devices_remotemaster -lirc_devices_sa1100 -lirc_devices_samsung -lirc_devices_sasem -lirc_devices_sb0540 -lirc_devices_serial -lirc_devices_serial_igor_cesko -lirc_devices_silitek -lirc_devices_sir -lirc_devices_slinke -lirc_devices_streamzap -lirc_devices_tekram -lirc_devices_tekram_bt829 -lirc_devices_tira -lirc_devices_ttusbir -lirc_devices_tuxbox -lirc_devices_tvbox -lirc_devices_udp -lirc_devices_uirt2 -lirc_devices_uirt2_raw -lirc_devices_usb_uirt_raw -lirc_devices_usbirboy -lirc_devices_usbx -lirc_devices_userspace -lirc_devices_wpc8769l -lirc_devices_xboxusb -transmitter
@@ -62,7 +62,6 @@
 =app-office/libreoffice-l10n-3.4.3-r3 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_nso -linguas_oc -linguas_or -linguas_pa_IN -linguas_rw -linguas_sat -linguas_sd -linguas_sh -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -offlinehelp
 =app-pda/libplist-1.4 python
 =app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
-=app-portage/genlop-0.30.8-r2 bash-completion
 =app-portage/gentoolkit-0.3.0.4-r4
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
 =app-portage/portage-utils-0.3.1 -static
@@ -108,7 +107,6 @@
 =dev-libs/eventlog-0.2.12 -static-libs
 =dev-libs/expat-2.0.1-r5 -elibc_FreeBSD -examples -static-libs
 =dev-libs/fribidi-0.19.2-r1 -static-libs
-=dev-libs/geoip-1.4.8 ipv6 -perl-geoipupdate -static-libs
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
 =dev-libs/gmp-5.0.2 -nocxx
 =dev-libs/gobject-introspection-0.10.8 -doc -test
@@ -154,16 +152,10 @@
 =dev-libs/rasqal-0.9.27 crypt mhash pcre -doc -gmp -static-libs -test -xml
 =dev-libs/redland-1.0.14 berkdb mysql ssl xml -iodbc -odbc -postgres -sqlite -static-libs
 =dev-libs/soprano-2.7.0 dbus raptor redland virtuoso -clucene -debug -doc -elibc_FreeBSD -test
-=dev-perl/Authen-SASL-2.150.0 -kerberos
 =dev-perl/DBI-1.615 -test
-=dev-perl/DateManip-5.56 -test
-=dev-perl/Error-0.170.160 -test
 =dev-perl/File-BaseDir-0.30.0 -test
 =dev-perl/File-DesktopEntry-0.40.0 -test
 =dev-perl/File-MimeInfo-0.150.0 -test
-=dev-perl/HTML-Parser-3.670.0 -test
-=dev-perl/IO-Socket-SSL-1.35 -idn
-=dev-perl/libwww-perl-5.836 ssl
 =dev-perl/perl-tk-804.29.0
 =dev-python/PyQt4-4.8.4 X dbus declarative kde opengl sql svg webkit -assistant -debug -doc -examples -multimedia -phonon -xmlpatterns
 =dev-python/cython-0.14.1 -doc -examples
@@ -196,7 +188,7 @@
 =dev-util/gtk-doc-am-1.18
 =dev-util/mdds-0.5.3-r1
 =dev-util/pkgconfig-0.26 -elibc_FreeBSD -hardened
-=dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 curl iconv perl threads tk webdav -cgi -cvs -doc -emacs -gtk -ppcsha1 -subversion -xinetd
+=dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 curl iconv threads tk webdav -cgi -cvs -doc -emacs -gtk -perl -ppcsha1 -subversion -xinetd
 =gnome-base/libglade-2.6.4 -doc -static-libs -test
 =gnome-base/librsvg-2.34.1-r1 gtk -doc -gtk3 -tools
 =kde-base/activitymanager-4.7.3 semantic-desktop -aqua -debug -kdeenablefinal
@@ -469,7 +461,7 @@
 =media-libs/xine-lib-1.1.19 X a52 aac aalib alsa css dts fbcon flac gtk imagemagick ipv6 libcaca mad mng modplug musepack nls opengl samba sdl speex theora truetype v4l vcd vorbis xcb xinerama xv xvmc -altivec -directfb -dxr3 -esd -gnome -jack -mmap -oss -pulseaudio -real -vidix -vis -wavpack -win32codecs
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/frei0r-plugins-1.1.22-r1 -doc -facedetect -scale0tilt
-=media-plugins/kipi-plugins-2.2.0 cdr crypt handbook imagemagick ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk mediawiki opengl scanner vkontakte -aqua -calendar -debug -expoblending -gpssync -kdeenablefinal -linguas_ar -linguas_az -linguas_be -linguas_bn -linguas_br -linguas_bs -linguas_ca -linguas_cs -linguas_csb -linguas_cy -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_fo -linguas_fy -linguas_ga -linguas_gl -linguas_ha -linguas_he -linguas_hi -linguas_hr -linguas_hsb -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_ko -linguas_ku -linguas_lb -linguas_lo -linguas_lt -linguas_lv -linguas_mi -linguas_mk -linguas_mn -linguas_ms -linguas_mt -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_nso -linguas_oc -linguas_pa -linguas_rw -linguas_se -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_sv -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tr -linguas_tt -linguas_uz -linguas_ven -linguas_vi -linguas_wa -linguas_xh -linguas_zh_CN -linguas_zh_HK -linguas_zh_TW -linguas_zu -mjpeg -panorama -redeyes
+=media-plugins/kipi-plugins-2.2.0-r1 cdr crypt handbook imagemagick ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk mediawiki opengl scanner vkontakte -aqua -calendar -debug -expoblending -gpssync -kdeenablefinal -linguas_ar -linguas_az -linguas_be -linguas_bn -linguas_br -linguas_bs -linguas_ca -linguas_cs -linguas_csb -linguas_cy -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_fo -linguas_fy -linguas_ga -linguas_gl -linguas_ha -linguas_he -linguas_hi -linguas_hr -linguas_hsb -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_ko -linguas_ku -linguas_lb -linguas_lo -linguas_lt -linguas_lv -linguas_mi -linguas_mk -linguas_mn -linguas_ms -linguas_mt -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_nso -linguas_oc -linguas_pa -linguas_rw -linguas_se -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_sv -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tr -linguas_tt -linguas_uz -linguas_ven -linguas_vi -linguas_wa -linguas_xh -linguas_zh_CN -linguas_zh_HK -linguas_zh_TW -linguas_zu -mjpeg -panorama -redeyes
 =media-sound/alsa-utils-1.0.24.2-r1 nls -doc -minimal
 =media-sound/amarok-2.4.3 cdda embedded ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk opengl player semantic-desktop utils -daap -debug -kdeenablefinal -lastfm -linguas_ca -linguas_cs -linguas_da -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_ja -linguas_km -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sl -linguas_sr -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_wa -linguas_zh_TW -mp3tunes -mtp
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
@@ -537,7 +529,7 @@
 =net-misc/whois-5.0.11 iconv nls -idn
 =net-nds/openldap-2.4.24 berkdb crypt gnutls ipv6 perl samba ssl tcpd -cxx -debug -experimental -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
 =net-p2p/eiskaltdcpp-2.2.1 cli dbus emoticons libnotify linguas_bg linguas_en linguas_es linguas_fr linguas_pl linguas_ru linguas_uk pcre qt4 spell -daemon -examples -gnome -gtk -javascript -linguas_be -linguas_cs -linguas_hu -linguas_sk -linguas_sr -lua -sound -sqlite -upnp
-=net-p2p/ktorrent-4.1.1 bwscheduler downloadorder handbook infowidget ipfilter kross linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk logviewer magnetgenerator mediaplayer scanfolder search shutdown stats upnp zeroconf -aqua -debug -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_lt -linguas_lv -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_se -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -plasma -rss -webinterface
+=net-p2p/ktorrent-4.1.1 bwscheduler downloadorder handbook ipfilter kross linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk logviewer magnetgenerator mediaplayer scanfolder search shutdown stats upnp zeroconf -aqua -debug -infowidget -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_lt -linguas_lv -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_se -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -plasma -rss -webinterface
 =net-print/cndrvcups-capt-2.00-r2 -gtk
 =net-print/cndrvcups-common-2.00-r2 -cngplp
 =net-print/cnijfilter-3.20-r1 amd64 ip4700 mp250 mp270 mp490 mp550 mp560 nocupsdetection -mp640 -servicetools
