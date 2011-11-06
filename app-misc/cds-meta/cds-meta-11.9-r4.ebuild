@@ -47,7 +47,6 @@ RDEPEND="${RDEPEND}
 		mail-filter/dkim-milter
 		mail-filter/postgrey
 		mail-filter/procmail
-		mail-filter/spamassassin
 		mail-mta/postfix
 		net-mail/dovecot
 		net-mail/fetchmail
