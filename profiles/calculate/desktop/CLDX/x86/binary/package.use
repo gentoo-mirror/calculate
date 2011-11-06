@@ -35,7 +35,7 @@
 =app-misc/cl-nettools-meta-11.9 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-network-meta-11.9-r1 cdistro_CLDX cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-office-meta-11.9 cdistro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLD -cdistro_CLDG
-=app-misc/cl-tools-meta-11.9-r1 cdistro_CLDX cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
+=app-misc/cl-tools-meta-11.9-r2 cdistro_CLDX cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.9 cdistro_desktop
 =app-misc/cldx-meta-11.9-r1 -calculate_nodecoration -calculate_nographics -calculate_nokernel -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork -calculate_nooffice -calculate_noprinter -calculate_nowireless -calculate_noxfce -calculate_noxorg
 =app-misc/lirc-0.8.7 X kernel_linux lirc_devices_devinput -debug -doc -hardware-carrier -lirc_devices_accent -lirc_devices_act200l -lirc_devices_act220l -lirc_devices_adaptec -lirc_devices_all -lirc_devices_alsa_usb -lirc_devices_animax -lirc_devices_asusdh -lirc_devices_atilibusb -lirc_devices_atiusb -lirc_devices_audio -lirc_devices_audio_alsa -lirc_devices_avermedia -lirc_devices_avermedia98 -lirc_devices_avermedia_vdomate -lirc_devices_awlibusb -lirc_devices_bestbuy -lirc_devices_bestbuy2 -lirc_devices_breakoutbox -lirc_devices_bte -lirc_devices_bw6130 -lirc_devices_caraca -lirc_devices_chronos -lirc_devices_commandir -lirc_devices_cph06x -lirc_devices_creative -lirc_devices_creative_infracd -lirc_devices_digimatrix -lirc_devices_dsp -lirc_devices_dvico -lirc_devices_ea65 -lirc_devices_ene0100 -lirc_devices_exaudio -lirc_devices_flyvideo -lirc_devices_ftdi -lirc_devices_gvbctv5pci -lirc_devices_hauppauge -lirc_devices_hauppauge_dvb -lirc_devices_hercules_smarttv_stereo -lirc_devices_i2cuser -lirc_devices_igorplugusb -lirc_devices_iguanaIR -lirc_devices_imon -lirc_devices_imon_24g -lirc_devices_imon_knob -lirc_devices_imon_lcd -lirc_devices_imon_pad -lirc_devices_imon_rsc -lirc_devices_inputlirc -lirc_devices_irdeo -lirc_devices_irdeo_remote -lirc_devices_irlink -lirc_devices_irman -lirc_devices_irreal -lirc_devices_it87 -lirc_devices_ite8709 -lirc_devices_knc_one -lirc_devices_kworld -lirc_devices_leadtek_0007 -lirc_devices_leadtek_0010 -lirc_devices_leadtek_pvr2000 -lirc_devices_livedrive_midi -lirc_devices_livedrive_seq -lirc_devices_logitech -lirc_devices_macmini -lirc_devices_mceusb -lirc_devices_mediafocusI -lirc_devices_mouseremote -lirc_devices_mouseremote_ps2 -lirc_devices_mp3anywhere -lirc_devices_mplay -lirc_devices_nslu2 -lirc_devices_packard_bell -lirc_devices_parallel -lirc_devices_pcmak -lirc_devices_pcmak_usb -lirc_devices_pctv -lirc_devices_pixelview_bt878 -lirc_devices_pixelview_pak -lirc_devices_pixelview_pro -lirc_devices_provideo -lirc_devices_realmagic -lirc_devices_remote_wonder_plus -lirc_devices_remotemaster -lirc_devices_sa1100 -lirc_devices_samsung -lirc_devices_sasem -lirc_devices_sb0540 -lirc_devices_serial -lirc_devices_serial_igor_cesko -lirc_devices_silitek -lirc_devices_sir -lirc_devices_slinke -lirc_devices_streamzap -lirc_devices_tekram -lirc_devices_tekram_bt829 -lirc_devices_tira -lirc_devices_ttusbir -lirc_devices_tuxbox -lirc_devices_tvbox -lirc_devices_udp -lirc_devices_uirt2 -lirc_devices_uirt2_raw -lirc_devices_usb_uirt_raw -lirc_devices_usbirboy -lirc_devices_usbx -lirc_devices_userspace -lirc_devices_wpc8769l -lirc_devices_xboxusb -transmitter
@@ -47,7 +47,6 @@
 =app-office/libreoffice-l10n-3.4.3-r3 linguas_bg linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -linguas_af -linguas_ar -linguas_as -linguas_ast -linguas_be -linguas_bn -linguas_bo -linguas_br -linguas_brx -linguas_bs -linguas_ca -linguas_ca_XV -linguas_cs -linguas_cy -linguas_da -linguas_dgo -linguas_dz -linguas_el -linguas_en_GB -linguas_en_ZA -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_ga -linguas_gl -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_kn -linguas_ko -linguas_kok -linguas_ks -linguas_ku -linguas_lo -linguas_lt -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mn -linguas_mni -linguas_mr -linguas_my -linguas_nb -linguas_ne -linguas_nl -linguas_nn -linguas_nr -linguas_nso -linguas_oc -linguas_or -linguas_pa_IN -linguas_rw -linguas_sat -linguas_sd -linguas_sh -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_st -linguas_sv -linguas_sw_TZ -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tn -linguas_tr -linguas_ts -linguas_ug -linguas_uz -linguas_ve -linguas_vi -linguas_xh -linguas_zh_CN -linguas_zh_TW -linguas_zu -offlinehelp
 =app-pda/libplist-1.4 python
 =app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
-=app-portage/genlop-0.30.8-r2 bash-completion
 =app-portage/gentoolkit-0.3.0.4-r4
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
 =app-portage/portage-utils-0.3.1 -static
@@ -140,15 +139,9 @@
 =dev-libs/pth-2.0.7-r3 -debug
 =dev-libs/rasqal-0.9.27 crypt mhash pcre -doc -gmp -static-libs -test -xml
 =dev-libs/redland-1.0.14 berkdb ssl xml -iodbc -mysql -odbc -postgres -sqlite -static-libs
-=dev-perl/Authen-SASL-2.150.0 -kerberos
-=dev-perl/DateManip-5.56 -test
-=dev-perl/Error-0.170.160 -test
 =dev-perl/File-BaseDir-0.30.0 -test
 =dev-perl/File-DesktopEntry-0.40.0 -test
 =dev-perl/File-MimeInfo-0.150.0 -test
-=dev-perl/HTML-Parser-3.670.0 -test
-=dev-perl/IO-Socket-SSL-1.35 -idn
-=dev-perl/libwww-perl-5.836 ssl
 =dev-perl/perl-tk-804.29.0
 =dev-python/cython-0.14.1 -doc -examples
 =dev-python/dbus-python-0.84.0 -doc -examples -test
@@ -183,7 +176,7 @@
 =dev-util/mdds-0.5.3-r1
 =dev-util/pkgconfig-0.26 -elibc_FreeBSD -hardened
 =dev-util/scons-2.0.1 -doc
-=dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 curl iconv perl threads tk webdav -cgi -cvs -doc -emacs -gtk -ppcsha1 -subversion -xinetd
+=dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 curl iconv threads tk webdav -cgi -cvs -doc -emacs -gtk -perl -ppcsha1 -subversion -xinetd
 =gnome-base/dconf-0.8.0 X bash-completion -doc -vala
 =gnome-base/gconf-2.32.4 introspection ldap policykit -debug -doc
 =gnome-base/gdm-2.20.11-r1 consolekit elibc_glibc gnome-keyring ipv6 pam tcpd xinerama -accessibility -afs -branding -dmx -remote -selinux
@@ -481,7 +474,7 @@
 =sys-libs/gdbm-1.8.3-r4 berkdb
 =sys-libs/glibc-2.12.2 gd nls -crosscompile_opts_headers-only -debug -glibc-omitfp -hardened -multilib -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
-=sys-libs/libcap-2.17 pam
+=sys-libs/libcap-2.22 pam
 =sys-libs/libieee1284-0.2.11-r1 python -doc
 =sys-libs/libstdc++-v3-3.3.6 nls -multilib
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
