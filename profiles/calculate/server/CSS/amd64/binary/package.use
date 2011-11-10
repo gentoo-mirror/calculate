@@ -36,7 +36,7 @@
 =dev-libs/popt-1.16-r1 nls -static-libs
 =dev-perl/Authen-SASL-2.150.0 -kerberos
 =dev-perl/Error-0.170.160 -test
-=dev-perl/IO-Socket-SSL-1.35 -idn
+=dev-perl/IO-Socket-SSL-1.440.0 -idn
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
 =dev-util/cmake-2.8.4-r1 ncurses -emacs -qt4 -test -vim-syntax
@@ -122,7 +122,7 @@
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
-=sys-libs/e2fsprogs-libs-1.41.14 elibc_glibc nls
+=sys-libs/e2fsprogs-libs-1.41.14 nls
 =sys-libs/gdbm-1.8.3-r4 berkdb
 =sys-libs/glibc-2.12.2 multilib nls -crosscompile_opts_headers-only -debug -gd -glibc-omitfp -hardened -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
