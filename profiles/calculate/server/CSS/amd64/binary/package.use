@@ -36,7 +36,7 @@
 =dev-libs/popt-1.16-r1 nls -static-libs
 =dev-perl/Authen-SASL-2.150.0 -kerberos
 =dev-perl/Error-0.170.160 -test
-=dev-perl/IO-Socket-SSL-1.35 -idn
+=dev-perl/IO-Socket-SSL-1.440.0 -idn
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-scheme/guile-1.8.8-r1 deprecated nls regex threads -debug -debug-freelist -debug-malloc -discouraged -emacs -networking
 =dev-util/cmake-2.8.4-r1 ncurses -emacs -qt4 -test -vim-syntax
@@ -57,12 +57,12 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-builder-2.2.25-r1
-=sys-apps/calculate-i18n-2.2.25
+=sys-apps/calculate-builder-2.2.25-r2
+=sys-apps/calculate-i18n-2.2.25-r1
 =sys-apps/calculate-install-2.2.25 -minimal
-=sys-apps/calculate-lib-2.2.25 -minimal
-=sys-apps/calculate-templates-2.2.25-r6
-=sys-apps/calculate-utilities-2.2.25-r8 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-lib-2.2.25-r1 -minimal
+=sys-apps/calculate-templates-2.2.25-r7
+=sys-apps/calculate-utilities-2.2.25-r10 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -122,7 +122,7 @@
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
-=sys-libs/e2fsprogs-libs-1.41.14 elibc_glibc nls
+=sys-libs/e2fsprogs-libs-1.41.14 nls
 =sys-libs/gdbm-1.8.3-r4 berkdb
 =sys-libs/glibc-2.12.2 multilib nls -crosscompile_opts_headers-only -debug -gd -glibc-omitfp -hardened -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
