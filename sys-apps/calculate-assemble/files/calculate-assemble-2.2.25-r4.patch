@@ -1,5 +1,5 @@
 diff --git pym/cl_assemble.py pym/cl_assemble.py
-index 7b88b52..dd48810 100644
+index 7b88b52..2ca1e8a 100644
 --- pym/cl_assemble.py
 +++ pym/cl_assemble.py
 @@ -25,7 +25,8 @@ from os import path
@@ -72,7 +72,7 @@ index 7b88b52..dd48810 100644
                        'cl_assemble_buildpkg_set',
                        'cl_assemble_pkgdir')
  
-@@ -509,8 +519,77 @@ class cl_assemble(color_print):
+@@ -509,8 +519,79 @@ class cl_assemble(color_print):
                  DirectoryDistributive(target,parent=self.targetDistr)
              self.printByResult(True)
  
@@ -139,10 +139,12 @@ index 7b88b52..dd48810 100644
 +            if path.exists(gitConfig):
 +                removeDir(portagePath)
 +        if self.clVars.Get('cl_assemble_branch') in ('master','develop'):
-+            updateBranch= "cd {portage};git checkout {branch}".format(
-+                    portage='/var/lib/layman/calculate',
-+                    branch=self.clVars.Get('cl_assemble_branch'))
-+            self.runChroot(updateBranch)
++            pathOverlay = pathJoin(self.assemblePath,'var/lib/layman/calculate')
++            if path.exists(pathOverlay):
++                updateBranch= "cd {portage};git checkout {branch}".format(
++                        portage='/var/lib/layman/calculate',
++                        branch=self.clVars.Get('cl_assemble_branch'))
++                self.runChroot(updateBranch)
 +
      def _updatePackages(self):
          """Update portage and calculate overlay"""
@@ -150,7 +152,7 @@ index 7b88b52..dd48810 100644
          emergeSync = "emerge --sync"
          self.printMessageForTest(_("Updating portages"))
          self.runChroot(emergeSync)
-@@ -525,6 +604,11 @@ class cl_assemble(color_print):
+@@ -525,6 +606,11 @@ class cl_assemble(color_print):
          else:
              self.runChroot("layman -L")
              self.runChroot("layman -a calculate")
@@ -162,7 +164,7 @@ index 7b88b52..dd48810 100644
  
      def _updateMan(self):
          """Remove man, install man-db"""
-@@ -610,7 +694,8 @@ class cl_assemble(color_print):
+@@ -610,7 +696,8 @@ class cl_assemble(color_print):
              pathAppMisc = pathJoin(self.assemblePath,'/var/db/pkg/app-misc')
              metaPackage = self.clVars.Get('cl_assemble_meta').rpartition('/')[2]
  
@@ -172,7 +174,7 @@ index 7b88b52..dd48810 100644
                  self._unpackPortage()
  
              self._prepareMount()
-@@ -738,10 +823,14 @@ class cl_assemble(color_print):
+@@ -738,10 +825,14 @@ class cl_assemble(color_print):
  
      def setSyncMirror(self,mirror):
          """Set sync mirror"""
@@ -189,7 +191,7 @@ index 7b88b52..dd48810 100644
              return True
          else:
              return False
-@@ -838,7 +927,7 @@ class cl_assemble(color_print):
+@@ -838,7 +929,7 @@ class cl_assemble(color_print):
                               % "Calculate Linux")
          self.printConfInfo()
          
@@ -198,7 +200,7 @@ index 7b88b52..dd48810 100644
                                      "world")
          self.printSUCCESS(_("Checking dependencies")+ " ...")
          if self.runChroot(command, showProcess=True,
-@@ -1267,6 +1356,21 @@ class cl_assemble(color_print):
+@@ -1267,6 +1358,21 @@ class cl_assemble(color_print):
                  _("An error occurred when executing the command")+
                    ":\n    %s"%self._getCommand(cmd.command))
  
