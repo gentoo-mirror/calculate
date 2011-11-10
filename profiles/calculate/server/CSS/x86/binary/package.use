@@ -121,7 +121,7 @@
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
-=sys-libs/e2fsprogs-libs-1.41.14 elibc_glibc nls
+=sys-libs/e2fsprogs-libs-1.41.14 nls
 =sys-libs/gdbm-1.8.3-r4 berkdb
 =sys-libs/glibc-2.12.2 nls -crosscompile_opts_headers-only -debug -gd -glibc-omitfp -hardened -multilib -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
