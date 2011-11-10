@@ -105,7 +105,6 @@ RDEPEND="${RDEPEND}
 		!calculate_nosamba? ( app-misc/mc )
 		app-misc/screen
 		app-portage/emerge-delta-webrsync
-		app-portage/genlop
 		app-portage/portage-utils
 		app-portage/ufed
 		dev-libs/klibc
