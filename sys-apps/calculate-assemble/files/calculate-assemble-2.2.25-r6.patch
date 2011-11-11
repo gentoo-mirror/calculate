@@ -1,5 +1,5 @@
 diff --git pym/cl_assemble.py pym/cl_assemble.py
-index 7b88b52..e347550 100644
+index 7b88b52..9f70954 100644
 --- pym/cl_assemble.py
 +++ pym/cl_assemble.py
 @@ -25,7 +25,8 @@ from os import path
@@ -30,7 +30,7 @@ index 7b88b52..e347550 100644
               # install meta package
               {'command':'emerge --noreplace calculate-meta',
 +              'checkcommand':'find /var/db/pkg/app-misc -name "calculate-meta*"',
-+              'condition':'app-misc/calculate-meta',
++              'condition':'^$',
                'step':'meta'},
               # update packages with fix newuse
 -             {'command':'emerge -D --newuse world',
