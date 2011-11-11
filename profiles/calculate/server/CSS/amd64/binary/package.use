@@ -57,12 +57,12 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-builder-2.2.25-r2
+=sys-apps/calculate-builder-2.2.25-r3
 =sys-apps/calculate-i18n-2.2.25-r1
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25-r1 -minimal
 =sys-apps/calculate-templates-2.2.25-r7
-=sys-apps/calculate-utilities-2.2.25-r10 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-utilities-2.2.25-r11 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -75,7 +75,7 @@
 =sys-apps/ifplugd-0.28-r9 -doc
 =sys-apps/iproute2-2.6.38 berkdb -atm -minimal
 =sys-apps/kbd-1.15.3 nls
-=sys-apps/less-441 unicode
+=sys-apps/less-444 unicode
 =sys-apps/man-db-2.5.9 berkdb gdbm nls
 =sys-apps/man-pages-3.32 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
 =sys-apps/miscfiles-1.4.2-r1 -minimal
@@ -83,8 +83,8 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha72 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
-=sys-apps/sandbox-2.4 multilib
+=sys-apps/portage-2.2.0_alpha73 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/sandbox-2.5 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
 =sys-apps/shadow-4.1.4.3 cracklib nls pam -audit -selinux -skey
 =sys-apps/sysvinit-2.88-r2 -ibm -kernel_FreeBSD -selinux -static
@@ -129,8 +129,8 @@
 =sys-libs/libcap-2.22 pam
 =sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
 =sys-libs/pam-1.1.5 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
-=sys-libs/timezone-data-2011l elibc_glibc nls -elibc_FreeBSD
-=sys-process/procps-3.2.8-r2 unicode
+=sys-libs/timezone-data-2011n elibc_glibc nls -elibc_FreeBSD
+=sys-process/procps-3.2.8_p11 unicode
 =sys-process/psmisc-22.12 ipv6 nls -X -selinux
 =virtual/libiconv-0 elibc_glibc -elibc_uclibc
 =virtual/libintl-0 elibc_glibc -elibc_uclibc
