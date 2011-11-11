@@ -475,7 +475,7 @@
 =sys-apps/iproute2-2.6.38 berkdb -atm -minimal
 =sys-apps/kbd-1.15.3 nls
 =sys-apps/keyexec-0.1.2-r4 -kde
-=sys-apps/less-441 unicode
+=sys-apps/less-444 unicode
 =sys-apps/lm_sensors-3.2.0 -sensord
 =sys-apps/man-db-2.5.9 berkdb gdbm nls
 =sys-apps/man-pages-3.32 linguas_de linguas_fr linguas_it linguas_pl linguas_ro linguas_ru nls -linguas_cs -linguas_da -linguas_ja -linguas_nl -linguas_zh_CN
@@ -489,7 +489,7 @@
 =sys-apps/portage-2.2.0_alpha73 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
-=sys-apps/sandbox-2.4 -multilib
+=sys-apps/sandbox-2.5 -multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
 =sys-apps/shadow-4.1.4.3 cracklib nls pam -audit -selinux -skey
 =sys-apps/smartmontools-5.40 -caps -minimal -static
@@ -565,7 +565,7 @@
 =sys-power/powertop-1.13 unicode
 =sys-power/upower-0.9.13-r1 introspection kernel_linux -debug -doc -ios -kernel_FreeBSD
 =sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
-=sys-process/procps-3.2.8-r2 unicode -n32
+=sys-process/procps-3.2.8_p11 unicode
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r11 pam -debug -selinux
 =virtual/ffmpeg-0.6.90 X encode jpeg2k mp3 sdl theora threads vaapi vdpau x264
@@ -576,7 +576,7 @@
 =virtual/linux-sources-0 -hardened
 =virtual/notification-daemon-0 gnome
 =virtual/ssh-0 -minimal
-=www-client/chromium-15.0.874.102 cups gnome gnome-keyring linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk -bindist -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -pulseaudio -test
+=www-client/chromium-15.0.874.120 cups gnome gnome-keyring linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt_BR linguas_ro linguas_ru linguas_uk -bindist -kerberos -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_nb -linguas_nl -linguas_pt_PT -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW -pulseaudio -test
 =www-plugins/adobe-flash-11.0.1.152 vdpau -32bit -64bit -bindist -kde -multilib
 =x11-apps/fusion-icon-0.1-r1 gtk -qt4
 =x11-apps/xauth-1.0.6 ipv6
