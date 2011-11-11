@@ -94,7 +94,7 @@
 =app-misc/cl-network-meta-11.9-r1
 =app-misc/cl-office-meta-11.9
 =app-misc/cl-printer-meta-11.9
-=app-misc/cl-tools-meta-11.9-r2
+=app-misc/cl-tools-meta-11.9-r4
 =app-misc/cl-wireless-meta-11.9
 =app-misc/cl-xorg-meta-7.4-r1
 =app-misc/cld-meta-11.9
@@ -107,7 +107,7 @@
 =app-misc/strigi-0.7.6-r1
 =app-mobilephone/obex-data-server-0.4.5
 =app-mobilephone/obexd-0.42
-=app-office/akonadi-server-1.6.0-r1
+=app-office/akonadi-server-1.6.2
 =app-office/libreoffice-3.4.3.2-r1
 =app-office/libreoffice-l10n-3.4.3-r3
 =app-pda/libplist-1.4
@@ -189,6 +189,7 @@
 =dev-libs/libatasmart-0.17
 =dev-libs/libattica-0.2.0
 =dev-libs/libcdio-0.82
+=dev-libs/libconfig-1.4.7
 =dev-libs/libcroco-0.6.2-r1
 =dev-libs/libdaemon-0.14-r1
 =dev-libs/libdbusmenu-qt-0.8.2
@@ -224,7 +225,7 @@
 =dev-libs/qoauth-1.0.1
 =dev-libs/rasqal-0.9.27
 =dev-libs/redland-1.0.14
-=dev-libs/shared-desktop-ontologies-0.7.0
+=dev-libs/shared-desktop-ontologies-0.7.1
 =dev-libs/soprano-2.7.0
 =dev-perl/Archive-Zip-1.300.0
 =dev-perl/Crypt-PasswdMD5-1.300.0
@@ -469,7 +470,7 @@
 =media-gfx/gimp-2.6.11-r5
 =media-gfx/gtkimageview-1.6.4
 =media-gfx/imagemagick-6.7.1.0
-=media-gfx/sane-backends-1.0.22-r1
+=media-gfx/sane-backends-1.0.22-r2
 =media-gfx/scrot-0.8
 =media-gfx/splashutils-1.5.4.4
 =media-gfx/ufraw-0.18
@@ -697,14 +698,14 @@
 =sys-apps/attr-2.4.46
 =sys-apps/baselayout-2.0.3
 =sys-apps/busybox-1.19.0
-=sys-apps/calculate-builder-2.2.25-r2
+=sys-apps/calculate-builder-2.2.25-r3
 =sys-apps/calculate-client-2.2.25
 =sys-apps/calculate-desktop-2.2.25
 =sys-apps/calculate-i18n-2.2.25-r1
 =sys-apps/calculate-install-2.2.25
 =sys-apps/calculate-lib-2.2.25-r1
 =sys-apps/calculate-templates-2.2.25-r7
-=sys-apps/calculate-utilities-2.2.25-r10
+=sys-apps/calculate-utilities-2.2.25-r11
 =sys-apps/coreutils-8.7
 =sys-apps/dbus-1.4.16
 =sys-apps/debianutils-3.4.4
@@ -735,7 +736,7 @@
 =sys-apps/openrc-0.8.3-r1
 =sys-apps/pciutils-3.1.7
 =sys-apps/pcmciautils-014-r1
-=sys-apps/portage-2.2.0_alpha72
+=sys-apps/portage-2.2.0_alpha73
 =sys-apps/preload-0.6.4-r2
 =sys-apps/pv-1.2.0
 =sys-apps/rescan-scsi-bus-1.29
@@ -806,6 +807,7 @@
 =sys-fs/mtools-4.0.15
 =sys-fs/nilfs-utils-2.0.21
 =sys-fs/ntfs3g-2011.4.12
+=sys-fs/ntfsprogs-2.0.0-r1
 =sys-fs/progsreiserfs-0.3.1_rc8
 =sys-fs/reiserfsprogs-3.6.21
 =sys-fs/squashfs-tools-4.2
@@ -835,7 +837,7 @@
 =sys-libs/readline-6.2_p1
 =sys-libs/talloc-2.0.1-r1
 =sys-libs/tdb-1.2.7-r1
-=sys-libs/timezone-data-2011l
+=sys-libs/timezone-data-2011n
 =sys-libs/zlib-1.2.5-r2
 =sys-power/acpi-1.5
 =sys-power/acpid-2.0.12
