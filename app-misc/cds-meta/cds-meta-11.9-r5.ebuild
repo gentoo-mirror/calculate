@@ -59,6 +59,7 @@ RDEPEND="${RDEPEND}
 	!calculate_noproxy? (
 		net-proxy/havp
 		net-proxy/squid
+		net-proxy/squidguard
 	)
 "
 
