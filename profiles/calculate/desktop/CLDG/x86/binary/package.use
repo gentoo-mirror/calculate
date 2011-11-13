@@ -486,7 +486,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha73 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha74 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.5 -multilib
@@ -703,6 +703,6 @@
 =x11-themes/gnome-themes-extras-2.22.0-r1 -debug
 =x11-themes/gtk-engines-2.20.2 -accessibility -lua
 =x11-themes/tango-icon-theme-0.8.90 png
-=x11-wm/compiz-0.8.6-r3 cairo dbus gconf gnome gtk svg -fuse -kde
+=x11-wm/compiz-0.8.6-r3 cairo gconf gnome gtk svg -fuse -kde
 =x11-wm/compiz-fusion-0.8.6 gnome -emerald -kde -unsupported
 =x11-wm/metacity-2.30.3 xinerama -test
