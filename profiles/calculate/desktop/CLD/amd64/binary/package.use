@@ -340,7 +340,7 @@
 =kde-base/phonon-kde-4.7.3 alsa xine -aqua -debug -kdeenablefinal -pulseaudio
 =kde-base/plasma-apps-4.7.3 -aqua -debug -kdeenablefinal
 =kde-base/plasma-runtime-4.7.3 -aqua -debug -kdeenablefinal
-=kde-base/plasma-workspace-4.7.3 handbook python rss semantic-desktop xinerama -aqua -debug -google-gadgets -gps -kdeenablefinal -qalculate
+=kde-base/plasma-workspace-4.7.3-r2 handbook python rss semantic-desktop xinerama -aqua -debug -google-gadgets -gps -kdeenablefinal -qalculate
 =kde-base/powerdevil-4.7.3 pm-utils -aqua -debug -kdeenablefinal
 =kde-base/printer-applet-4.7.3 handbook -aqua -kdeenablefinal
 =kde-base/pykde4-4.7.3 semantic-desktop -aqua -debug -doc -examples -kdeenablefinal
@@ -366,7 +366,7 @@
 =media-fonts/ttf-bitstream-vera-1.10-r3 X
 =media-fonts/unifont-5.1.20080914 X
 =media-fonts/urw-fonts-2.4.9 X
-=media-gfx/digikam-2.2.0 gphoto2 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk mysql semantic-desktop thumbnails -addressbook -aqua -debug -doc -kdeenablefinal -linguas_af -linguas_ar -linguas_az -linguas_be -linguas_bn -linguas_br -linguas_bs -linguas_ca -linguas_cs -linguas_csb -linguas_cy -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_fo -linguas_fy -linguas_ga -linguas_gl -linguas_ha -linguas_he -linguas_hi -linguas_hr -linguas_hsb -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_ko -linguas_ku -linguas_lb -linguas_lo -linguas_lt -linguas_lv -linguas_mi -linguas_mk -linguas_mn -linguas_ms -linguas_mt -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_nso -linguas_oc -linguas_pa -linguas_rw -linguas_se -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_sr@Latn -linguas_ss -linguas_sv -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tr -linguas_tt -linguas_uz -linguas_uz@cyrillic -linguas_ven -linguas_vi -linguas_wa -linguas_xh -linguas_zh_CN -linguas_zh_HK -linguas_zh_TW -linguas_zu -themedesigner -video
+=media-gfx/digikam-2.3.0 gphoto2 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk mysql semantic-desktop thumbnails -addressbook -aqua -debug -doc -kdeenablefinal -linguas_af -linguas_ar -linguas_az -linguas_be -linguas_bn -linguas_br -linguas_bs -linguas_ca -linguas_cs -linguas_csb -linguas_cy -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_fo -linguas_fy -linguas_ga -linguas_gl -linguas_ha -linguas_he -linguas_hi -linguas_hr -linguas_hsb -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_ko -linguas_ku -linguas_lb -linguas_lo -linguas_lt -linguas_lv -linguas_mi -linguas_mk -linguas_mn -linguas_ms -linguas_mt -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_nso -linguas_oc -linguas_pa -linguas_rw -linguas_se -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_sr@Latn -linguas_ss -linguas_sv -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tr -linguas_tt -linguas_uz -linguas_uz@cyrillic -linguas_ven -linguas_vi -linguas_wa -linguas_xh -linguas_zh_CN -linguas_zh_HK -linguas_zh_TW -linguas_zu -themedesigner -video
 =media-gfx/exiv2-0.21.1-r2 linguas_de linguas_es linguas_fr linguas_pl linguas_ru nls zlib -contrib -doc -examples -linguas_fi -linguas_sk -xmp
 =media-gfx/fbgrab-1.0
 =media-gfx/gimp-2.6.11-r5 aalib alsa dbus exif jpeg mmx mng pdf png python smp sse svg tiff wmf -altivec -curl -debug -doc -gnome -lcms -webkit
@@ -415,11 +415,11 @@
 =media-libs/libgpod-0.8.0 gtk python udev -ios -mono -static-libs
 =media-libs/libid3tag-0.15.1b-r2 -debug -static-libs
 =media-libs/libiec61883-1.1.0 -examples
-=media-libs/libkface-2.2.0 -aqua -kdeenablefinal
-=media-libs/libkgeomap-2.2.0 -aqua -kdeenablefinal
+=media-libs/libkface-2.3.0 -aqua -kdeenablefinal
+=media-libs/libkgeomap-2.3.0 -aqua -kdeenablefinal
 =media-libs/liblqr-0.4.1 -doc
 =media-libs/libmad-0.15.1b-r6 -debug
-=media-libs/libmediawiki-2.2.0 -aqua -kdeenablefinal
+=media-libs/libmediawiki-2.3.0 -aqua -kdeenablefinal
 =media-libs/libmng-1.0.10-r1 static-libs -lcms
 =media-libs/libmodplug-0.8.8.4 -static-libs
 =media-libs/libmp4v2-1.9.1 -static-libs -utils
@@ -463,7 +463,7 @@
 =media-libs/xine-lib-1.1.19 X a52 aac aalib alsa css dts fbcon flac gtk imagemagick ipv6 libcaca mad mng modplug musepack nls opengl samba sdl speex theora truetype v4l vcd vorbis xcb xinerama xv xvmc -altivec -directfb -dxr3 -esd -gnome -jack -mmap -oss -pulseaudio -real -vidix -vis -wavpack -win32codecs
 =media-libs/xvid-1.2.2-r2 -examples -pic
 =media-plugins/frei0r-plugins-1.1.22-r1 -doc -facedetect -scale0tilt
-=media-plugins/kipi-plugins-2.2.0-r1 cdr crypt handbook imagemagick ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk mediawiki opengl scanner vkontakte -aqua -calendar -debug -expoblending -gpssync -kdeenablefinal -linguas_ar -linguas_az -linguas_be -linguas_bn -linguas_br -linguas_bs -linguas_ca -linguas_cs -linguas_csb -linguas_cy -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_fo -linguas_fy -linguas_ga -linguas_gl -linguas_ha -linguas_he -linguas_hi -linguas_hr -linguas_hsb -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_ko -linguas_ku -linguas_lb -linguas_lo -linguas_lt -linguas_lv -linguas_mi -linguas_mk -linguas_mn -linguas_ms -linguas_mt -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_nso -linguas_oc -linguas_pa -linguas_rw -linguas_se -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_sv -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tr -linguas_tt -linguas_uz -linguas_ven -linguas_vi -linguas_wa -linguas_xh -linguas_zh_CN -linguas_zh_HK -linguas_zh_TW -linguas_zu -mjpeg -panorama -redeyes
+=media-plugins/kipi-plugins-2.3.0 cdr crypt handbook imagemagick ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk mediawiki opengl scanner vkontakte -aqua -calendar -debug -expoblending -gpssync -kdeenablefinal -linguas_ar -linguas_az -linguas_be -linguas_bn -linguas_br -linguas_bs -linguas_ca -linguas_cs -linguas_csb -linguas_cy -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fa -linguas_fi -linguas_fo -linguas_fy -linguas_ga -linguas_gl -linguas_ha -linguas_he -linguas_hi -linguas_hr -linguas_hsb -linguas_hu -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kk -linguas_km -linguas_ko -linguas_ku -linguas_lb -linguas_lo -linguas_lt -linguas_lv -linguas_mi -linguas_mk -linguas_mn -linguas_ms -linguas_mt -linguas_nb -linguas_nds -linguas_ne -linguas_nl -linguas_nn -linguas_nso -linguas_oc -linguas_pa -linguas_rw -linguas_se -linguas_sk -linguas_sl -linguas_sq -linguas_sr -linguas_ss -linguas_sv -linguas_ta -linguas_te -linguas_tg -linguas_th -linguas_tr -linguas_tt -linguas_uz -linguas_ven -linguas_vi -linguas_wa -linguas_xh -linguas_zh_CN -linguas_zh_HK -linguas_zh_TW -linguas_zu -mjpeg -panorama -redeyes
 =media-sound/alsa-utils-1.0.24.2-r1 nls -doc -minimal
 =media-sound/amarok-2.4.3 cdda embedded ipod linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru linguas_uk opengl player semantic-desktop utils -daap -debug -kdeenablefinal -lastfm -linguas_ca -linguas_cs -linguas_da -linguas_en_GB -linguas_et -linguas_eu -linguas_fi -linguas_ja -linguas_km -linguas_nb -linguas_nds -linguas_nl -linguas_pa -linguas_sl -linguas_sr -linguas_sr@latin -linguas_sv -linguas_th -linguas_tr -linguas_wa -linguas_zh_TW -mp3tunes -mtp
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
@@ -498,7 +498,7 @@
 =net-libs/gnutls-2.10.5 cxx lzo nls zlib -bindist -doc -examples -guile -test
 =net-libs/libbluedevil-1.9 -aqua -debug -kdeenablefinal
 =net-libs/libktorrent-1.1.1 handbook linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -aqua -debug -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_ku -linguas_lt -linguas_lv -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_se -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -test
-=net-libs/libkvkontakte-2.2.0 -aqua -kdeenablefinal
+=net-libs/libkvkontakte-2.3.0 -aqua -kdeenablefinal
 =net-libs/libnfsidmap-0.21-r1 ldap
 =net-libs/libpcap-1.1.1 bluetooth ipv6 -libnl
 =net-libs/libssh-0.5.1 sftp zlib -debug -doc -examples -gcrypt -pcap -server -ssh1 -static-libs -test
@@ -588,7 +588,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha73 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha74 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.5 multilib
