@@ -22,7 +22,7 @@
 =dev-lang/python-3.1.4-r3 gdbm ipv6 ncurses readline ssl threads wide-unicode xml -build -doc -elibc_uclibc -examples -sqlite -tk -wininst
 =dev-libs/expat-2.0.1-r5 -elibc_FreeBSD -examples -static-libs
 =dev-libs/glib-2.28.8 static-libs -debug -doc -fam -introspection -selinux -test -xattr
-=dev-libs/gmp-5.0.2 -nocxx
+=dev-libs/gmp-5.0.2 cxx
 =dev-libs/klibc-1.5.20 -debug
 =dev-libs/libdaemon-0.14-r1 -doc -examples
 =dev-libs/libffi-3.0.10 -debug -static-libs -test
@@ -56,12 +56,12 @@
 =sys-apps/attr-2.4.46 nls -static-libs
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
-=sys-apps/calculate-builder-2.2.25-r3
+=sys-apps/calculate-builder-2.2.25-r5
 =sys-apps/calculate-i18n-2.2.25-r1
 =sys-apps/calculate-install-2.2.25 -minimal
 =sys-apps/calculate-lib-2.2.25-r1 -minimal
 =sys-apps/calculate-templates-2.2.25-r7
-=sys-apps/calculate-utilities-2.2.25-r14 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-utilities-2.2.25-r16 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -103,7 +103,7 @@
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35_p10 nls -static -test
 =sys-devel/gcc-4.5.3-r1 fortran mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -gtk -hardened -libffi -lto -multilib -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
-=sys-devel/gettext-0.18.1.1-r1 acl elibc_glibc git nls openmp -doc -emacs -nocxx
+=sys-devel/gettext-0.18.1.1-r1 acl cxx elibc_glibc git nls openmp -doc -emacs
 =sys-devel/libtool-2.4-r1 -test -vanilla
 =sys-devel/m4-1.4.15 -examples
 =sys-devel/make-3.82-r1 nls -static
@@ -120,7 +120,7 @@
 =sys-kernel/calculate-sources-3.0.7 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
-=sys-libs/db-4.8.30 -doc -elibc_FreeBSD -examples -java -nocxx -tcl -test
+=sys-libs/db-4.8.30 cxx -doc -elibc_FreeBSD -examples -java -tcl -test
 =sys-libs/e2fsprogs-libs-1.41.14 nls
 =sys-libs/gdbm-1.8.3-r4 berkdb
 =sys-libs/glibc-2.12.2 nls -crosscompile_opts_headers-only -debug -gd -glibc-omitfp -hardened -multilib -profile -selinux -vanilla
