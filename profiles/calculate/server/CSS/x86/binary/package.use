@@ -102,7 +102,7 @@
 =sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -static-libs -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35_p10 nls -static -test
-=sys-devel/gcc-4.5.3-r1 fortran mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -gtk -hardened -libffi -lto -multilib -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
+=sys-devel/gcc-4.5.3-r1 cxx fortran mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -gtk -hardened -libffi -lto -multilib -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
 =sys-devel/gettext-0.18.1.1-r1 acl cxx elibc_glibc git nls openmp -doc -emacs
 =sys-devel/libtool-2.4-r1 -test -vanilla
 =sys-devel/m4-1.4.15 -examples
