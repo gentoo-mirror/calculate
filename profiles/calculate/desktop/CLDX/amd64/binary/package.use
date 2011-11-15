@@ -263,6 +263,7 @@
 =media-libs/libmad-0.15.1b-r6 -debug
 =media-libs/libmikmod-3.2.0_beta2-r1 oss
 =media-libs/libmng-1.0.10-r1 static-libs -lcms
+=media-libs/libmodplug-0.8.8.4 -static-libs
 =media-libs/libmp4v2-1.9.1 -static-libs -utils
 =media-libs/libogg-1.2.0 -static-libs
 =media-libs/libopenraw-0.0.8 gtk -static-libs -test
@@ -294,9 +295,9 @@
 =media-libs/vo-amrwbenc-0.1.0 -examples -static-libs
 =media-libs/x264-0.0.20110426 threads -debug -pic
 =media-libs/xvid-1.2.2-r2 -examples -pic
-=media-plugins/audacious-plugins-2.5.4 aac alsa cdda ffmpeg flac ipv6 libnotify lirc mp3 nls sdl sse2 vorbis -adplug -aqua -bs2b -cue -fluidsynth -gnome -jack -lame -libsamplerate -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
+=media-plugins/audacious-plugins-3.1 aac alsa cdda ffmpeg flac ipv6 libnotify mp3 nls sse2 vorbis -adplug -aqua -bs2b -cue -fluidsynth -gnome -jack -lame -libsamplerate -midi -mms -mtp -oss -pulseaudio -scrobbler -sid -sndfile -wavpack
 =media-sound/alsa-utils-1.0.24.2-r1 nls -doc -minimal
-=media-sound/audacious-2.5.4 nls session sse2 -altivec -chardet
+=media-sound/audacious-3.1 nls session sse2 -altivec -chardet
 =media-sound/lame-3.98.4 -debug -mmx -mp3rtp -sndfile -static-libs
 =media-sound/mpg123-1.13.2 alsa ipv6 nas portaudio sdl sse -3dnow -3dnowext -altivec -coreaudio -jack -mmx -oss -pulseaudio
 =media-sound/sox-14.3.2-r1 alsa amr encode ffmpeg flac id3tag mad ogg openmp png -ao -debug -ladspa -oss -pulseaudio -sndfile -static-libs -wavpack
