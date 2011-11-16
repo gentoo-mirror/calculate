@@ -13,7 +13,8 @@ SRC_URI="mirror://berlios/${PN}/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ~ppc64 s390 sh sparc x86 ~ppc-aix ~sparc-fbsd ~x86-fbsd ~x86-freebsd ~ia64-hpux ~x86-interix ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x86-solaris"
-IUSE="bzip2 debug doc hardened nls optimization strong-optimization sqlite tools zsh-completion"
+IUSE="bzip2 debug doc hardened nls optimization strong-optimization sqlite tools zsh-completion
+linguas_ru linguas_de"
 
 RDEPEND="sqlite? ( >=dev-db/sqlite-3 )
 	nls? ( virtual/libintl )
@@ -27,12 +28,18 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 
-	cp "${FILESDIR}/ru.po" ${S}/po/
+	if use linguas_ru;
+	then
+		cp "${FILESDIR}/ru.po" ${S}/po/
+	fi
 }
 
 src_configure() {
-	echo ru >>${S}/po/LINGUAS
-	msgfmt -o ${S}/po/ru.gmo ${S}/po/ru.po
+	if use linguas_ru;
+	then
+		echo ru >>${S}/po/LINGUAS
+		msgfmt -o ${S}/po/ru.gmo ${S}/po/ru.po
+	fi
 	econf $(use_with bzip2) $(use_with sqlite) $(use_with doc extra-doc) \
 		$(use_with zsh-completion) \
 		$(use_enable nls) $(use_enable tools separate-tools) \
