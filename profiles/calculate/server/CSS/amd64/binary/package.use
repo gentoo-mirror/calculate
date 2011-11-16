@@ -12,7 +12,7 @@
 =app-misc/css-meta-11.9 -calculate_nokernel
 =app-misc/pax-utils-0.2.3 -caps
 =app-misc/realpath-1.15-r1 nls
-=app-portage/eix-0.22.11 bzip2 nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
+=app-portage/eix-0.22.11-r2 bzip2 linguas_de linguas_ru nls -debug -doc -hardened -optimization -sqlite -strong-optimization -tools -zsh-completion
 =app-portage/gentoolkit-0.3.0.4-r4
 =app-portage/layman-1.4.1 -bazaar -cvs -darcs -git -mercurial -subversion -test
 =app-portage/portage-utils-0.3.1 -static
@@ -28,7 +28,7 @@
 =dev-libs/libdaemon-0.14-r1 -doc -examples
 =dev-libs/libffi-3.0.10 -debug -static-libs -test
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
-=dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
+=dev-libs/libusb-0.1.12-r7 cxx -debug -doc -static-libs
 =dev-libs/libusb-1.0.8 -debug -doc -static-libs
 =dev-libs/libxml2-2.7.8-r3 ipv6 python readline -debug -doc -examples -icu -static-libs -test
 =dev-libs/lzo-2.04 -examples -static-libs
