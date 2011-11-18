@@ -90,6 +90,7 @@
 =dev-util/diffball-1.0 -debug
 =dev-util/pkgconfig-0.26 -elibc_FreeBSD -hardened
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 cgi curl iconv perl threads webdav -cvs -doc -emacs -gtk -ppcsha1 -subversion -tk -xinetd
+=mail-client/mailx-8.1.2.20050715-r2
 =mail-filter/dkim-milter-2.8.3-r1 ipv6 -diffheaders
 =mail-filter/libmilter-1.0.1-r1 ipv6 -poll
 =mail-filter/postgrey-1.32 -targrey
@@ -108,7 +109,7 @@
 =media-libs/jasper-1.900.1-r3 jpeg -opengl -static-libs
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
-=media-libs/lcms-2.0a jpeg static-libs tiff zlib
+=media-libs/lcms-2.2-r1 jpeg static-libs tiff zlib -doc -test
 =media-libs/libmng-1.0.10-r1 static-libs -lcms
 =media-libs/libpng-1.5.5 apng static-libs
 =media-libs/openjpeg-1.4-r1 -doc -test
