@@ -57,10 +57,8 @@ RDEPEND="${RDEPEND}
 		app-cdr/cdrkit
 		app-cdr/dvd+rw-tools
 		!calculate_nosamba? ( app-misc/mc )
-		app-portage/emerge-delta-webrsync
 		app-portage/gentoolkit-dev
 		app-portage/portage-utils
-		app-portage/ufed
 		sys-apps/acl
 		sys-apps/gptfdisk
 		sys-apps/hdparm
