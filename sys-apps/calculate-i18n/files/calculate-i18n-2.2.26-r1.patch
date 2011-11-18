@@ -1,0 +1,22 @@
+diff --git ru/cl_builder_ru.po ru/cl_builder_ru.po
+index 21184c0..d7d4e69 100644
+--- ru/cl_builder_ru.po
++++ ru/cl_builder_ru.po
+@@ -452,3 +452,6 @@ msgstr "Изменение ветки репозитория на '%s'"
+ 
+ msgid "Changing {repname} repository branch to '{branch}'"
+ msgstr "Изменение ветки репозитория {repname} на '{branch}'"
++
++msgid "Updating portage metadata"
++msgstr "Обновление метаданных портежей"
+diff --git ru/cl_install_ru.po ru/cl_install_ru.po
+index b5428e9..6565aa8 100644
+--- ru/cl_install_ru.po
++++ ru/cl_install_ru.po
+@@ -1036,3 +1036,6 @@ msgstr "Диск '%s' без таблицы разделов не может с
+ 
+ msgid "{0} or {1}"
+ msgstr "{0} или {1}"
++
++msgid "set I/O scheduler"
++msgstr "установить I/O планировщик"
