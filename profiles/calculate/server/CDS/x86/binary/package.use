@@ -26,7 +26,7 @@
 =app-misc/cl-decoration-meta-11.9 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-nettools-meta-11.9 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-network-meta-11.9-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop -networkmanager
-=app-misc/cl-tools-meta-11.9-r4 cdistro_CDS ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
+=app-misc/cl-tools-meta-11.9-r5 cdistro_CDS ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/mc-4.7.5.2 edit gpm ncurses nls samba -X -slang
 =app-misc/pax-utils-0.2.3 -caps
 =app-misc/realpath-1.15-r1 nls
@@ -66,7 +66,7 @@
 =dev-libs/libpcre-8.12 bzip2 cxx recursion-limit unicode zlib -static-libs
 =dev-libs/libtasn1-2.9-r1 -doc -static-libs
 =dev-libs/libtommath-0.42.0 -doc -examples -static-libs
-=dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
+=dev-libs/libusb-0.1.12-r7 cxx -debug -doc -static-libs
 =dev-libs/libusb-1.0.8 -debug -doc -static-libs
 =dev-libs/libxml2-2.7.8-r3 ipv6 python readline -debug -doc -examples -icu -static-libs -test
 =dev-libs/libxslt-1.1.26-r1 crypt python -debug
@@ -168,12 +168,12 @@
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
 =sys-apps/calculate-builder-2.2.26
-=sys-apps/calculate-i18n-2.2.26
-=sys-apps/calculate-install-2.2.26 -minimal
+=sys-apps/calculate-i18n-2.2.26-r1
+=sys-apps/calculate-install-2.2.26-r1 -minimal
 =sys-apps/calculate-lib-2.2.26 -minimal
 =sys-apps/calculate-server-2.1.15 -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nomail -calculate_nonamed -calculate_noproxy -calculate_nosamba
-=sys-apps/calculate-templates-2.2.26
-=sys-apps/calculate-utilities-2.2.26 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-templates-2.2.26-r2
+=sys-apps/calculate-utilities-2.2.26-r2 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -207,7 +207,7 @@
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
 =sys-apps/usbutils-001 zlib -network-cron
-=sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
+=sys-apps/util-linux-2.19.1-r1 cramfs crypt ncurses nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 -debug -x86emu
 =sys-auth/nss_ldap-264-r1 ssl -debug -kerberos -sasl
 =sys-auth/pam_ldap-183 ssl -sasl
@@ -218,7 +218,7 @@
 =sys-boot/syslinux-3.86 -custom-cflags
 =sys-devel/autoconf-2.68 -emacs
 =sys-devel/automake-wrapper-5
-=sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -static-libs -test -vanilla
+=sys-devel/binutils-2.21.1-r1 nls -multislot -multitarget -static-libs -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35_p10 nls -static -test
 =sys-devel/gcc-4.5.3-r1 cxx fortran mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -gtk -hardened -libffi -lto -multilib -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
