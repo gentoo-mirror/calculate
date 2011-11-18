@@ -23,7 +23,7 @@ src_unpack() {
 	cd "${S}"
 
 	# fix for libreoffice
-	epatch "${FILESDIR}/calculate-templates-2.2.26-r1.patch"
+	epatch "${FILESDIR}/calculate-templates-2.2.26-r2.patch"
 }
 
 src_compile() {
