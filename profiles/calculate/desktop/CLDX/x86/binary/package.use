@@ -191,6 +191,7 @@
 =gnome-extra/polkit-gnome-0.101-r1 introspection -doc -examples
 =mail-client/claws-mail-3.7.10 crypt dbus gnutls imap ipv6 ldap session spell ssl -bogofilter -dillo -doc -nntp -pda -smime -spamassassin -startup-notification -xface
 =mail-client/claws-mail-rssyl-0.31 nls
+=mail-client/mailx-8.1.2.20050715-r3
 =mail-mta/ssmtp-2.64-r2 ipv6 mta ssl -gnutls
 =media-fonts/corefonts-1-r4 X
 =media-fonts/dejavu-2.32 X -fontforge
@@ -519,7 +520,7 @@
 =x11-drivers/xf86-video-dummy-0.3.4
 =x11-drivers/xf86-video-fbdev-0.4.2
 =x11-drivers/xf86-video-glint-1.2.5 dri
-=x11-drivers/xf86-video-intel-2.16.0 dri -sna
+=x11-drivers/xf86-video-intel-2.17.0 dri -sna
 =x11-drivers/xf86-video-mach64-6.9.0 dri
 =x11-drivers/xf86-video-mga-1.4.13 dri
 =x11-drivers/xf86-video-neomagic-1.2.5
@@ -581,7 +582,7 @@
 =x11-libs/libxkbfile-1.0.7 -static-libs
 =x11-libs/libxklavier-5.0 -doc
 =x11-libs/pango-1.28.4 X introspection -debug -doc -test
-=x11-libs/pixman-0.22.2 mmx sse2 -altivec -neon -static-libs
+=x11-libs/pixman-0.24.0 mmx sse2 -altivec -iwmmxt -neon -static-libs
 =x11-libs/qt-core-4.7.4 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.4 exceptions -aqua -debug -pch
 =x11-libs/qt-gui-4.7.4 accessibility cups dbus exceptions glib mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -gtkstyle -nis -pch -raster -trace
