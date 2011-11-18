@@ -27,7 +27,7 @@
 =app-misc/cl-decoration-meta-11.9 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/cl-nettools-meta-11.9 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop
 =app-misc/cl-network-meta-11.9-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_desktop -networkmanager
-=app-misc/cl-tools-meta-11.9-r4 cdistro_CDS ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
+=app-misc/cl-tools-meta-11.9-r5 cdistro_CDS ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_desktop
 =app-misc/mc-4.7.5.2 edit gpm ncurses nls samba -X -slang
 =app-misc/pax-utils-0.2.3 -caps
 =app-misc/realpath-1.15-r1 nls
@@ -169,12 +169,12 @@
 =sys-apps/baselayout-2.0.3 -build
 =sys-apps/busybox-1.19.0 elibc_glibc ipv6 mdev nfs pam static -debug -make-symlinks -savedconfig -selinux
 =sys-apps/calculate-builder-2.2.26
-=sys-apps/calculate-i18n-2.2.26
-=sys-apps/calculate-install-2.2.26 -minimal
+=sys-apps/calculate-i18n-2.2.26-r1
+=sys-apps/calculate-install-2.2.26-r1 -minimal
 =sys-apps/calculate-lib-2.2.26 -minimal
 =sys-apps/calculate-server-2.1.15 -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nomail -calculate_nonamed -calculate_noproxy -calculate_nosamba
-=sys-apps/calculate-templates-2.2.26
-=sys-apps/calculate-utilities-2.2.26 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-templates-2.2.26-r2
+=sys-apps/calculate-utilities-2.2.26-r2 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
