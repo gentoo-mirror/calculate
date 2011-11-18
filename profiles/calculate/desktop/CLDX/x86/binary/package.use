@@ -35,7 +35,7 @@
 =app-misc/cl-nettools-meta-11.9 cdistro_CLDX cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-network-meta-11.9-r1 cdistro_CLDX cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLD -cdistro_CLDG
 =app-misc/cl-office-meta-11.9 cdistro_CLDX linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLD -cdistro_CLDG
-=app-misc/cl-tools-meta-11.9-r4 cdistro_CLDX cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
+=app-misc/cl-tools-meta-11.9-r5 cdistro_CLDX cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLS -cdistro_CMC
 =app-misc/cl-wireless-meta-11.9 cdistro_desktop
 =app-misc/cldx-meta-11.9-r1 -calculate_nodecoration -calculate_nographics -calculate_nokernel -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork -calculate_nooffice -calculate_noprinter -calculate_nowireless -calculate_noxfce -calculate_noxorg
 =app-misc/lirc-0.8.7 X kernel_linux lirc_devices_devinput -debug -doc -hardware-carrier -lirc_devices_accent -lirc_devices_act200l -lirc_devices_act220l -lirc_devices_adaptec -lirc_devices_all -lirc_devices_alsa_usb -lirc_devices_animax -lirc_devices_asusdh -lirc_devices_atilibusb -lirc_devices_atiusb -lirc_devices_audio -lirc_devices_audio_alsa -lirc_devices_avermedia -lirc_devices_avermedia98 -lirc_devices_avermedia_vdomate -lirc_devices_awlibusb -lirc_devices_bestbuy -lirc_devices_bestbuy2 -lirc_devices_breakoutbox -lirc_devices_bte -lirc_devices_bw6130 -lirc_devices_caraca -lirc_devices_chronos -lirc_devices_commandir -lirc_devices_cph06x -lirc_devices_creative -lirc_devices_creative_infracd -lirc_devices_digimatrix -lirc_devices_dsp -lirc_devices_dvico -lirc_devices_ea65 -lirc_devices_ene0100 -lirc_devices_exaudio -lirc_devices_flyvideo -lirc_devices_ftdi -lirc_devices_gvbctv5pci -lirc_devices_hauppauge -lirc_devices_hauppauge_dvb -lirc_devices_hercules_smarttv_stereo -lirc_devices_i2cuser -lirc_devices_igorplugusb -lirc_devices_iguanaIR -lirc_devices_imon -lirc_devices_imon_24g -lirc_devices_imon_knob -lirc_devices_imon_lcd -lirc_devices_imon_pad -lirc_devices_imon_rsc -lirc_devices_inputlirc -lirc_devices_irdeo -lirc_devices_irdeo_remote -lirc_devices_irlink -lirc_devices_irman -lirc_devices_irreal -lirc_devices_it87 -lirc_devices_ite8709 -lirc_devices_knc_one -lirc_devices_kworld -lirc_devices_leadtek_0007 -lirc_devices_leadtek_0010 -lirc_devices_leadtek_pvr2000 -lirc_devices_livedrive_midi -lirc_devices_livedrive_seq -lirc_devices_logitech -lirc_devices_macmini -lirc_devices_mceusb -lirc_devices_mediafocusI -lirc_devices_mouseremote -lirc_devices_mouseremote_ps2 -lirc_devices_mp3anywhere -lirc_devices_mplay -lirc_devices_nslu2 -lirc_devices_packard_bell -lirc_devices_parallel -lirc_devices_pcmak -lirc_devices_pcmak_usb -lirc_devices_pctv -lirc_devices_pixelview_bt878 -lirc_devices_pixelview_pak -lirc_devices_pixelview_pro -lirc_devices_provideo -lirc_devices_realmagic -lirc_devices_remote_wonder_plus -lirc_devices_remotemaster -lirc_devices_sa1100 -lirc_devices_samsung -lirc_devices_sasem -lirc_devices_sb0540 -lirc_devices_serial -lirc_devices_serial_igor_cesko -lirc_devices_silitek -lirc_devices_sir -lirc_devices_slinke -lirc_devices_streamzap -lirc_devices_tekram -lirc_devices_tekram_bt829 -lirc_devices_tira -lirc_devices_ttusbir -lirc_devices_tuxbox -lirc_devices_tvbox -lirc_devices_udp -lirc_devices_uirt2 -lirc_devices_uirt2_raw -lirc_devices_usb_uirt_raw -lirc_devices_usbirboy -lirc_devices_usbx -lirc_devices_userspace -lirc_devices_wpc8769l -lirc_devices_xboxusb -transmitter
@@ -126,7 +126,7 @@
 =dev-libs/libsigc++-2.2.10 -doc -static-libs -test
 =dev-libs/libtasn1-2.9-r1 -doc -static-libs
 =dev-libs/libunique-1.1.6-r1 dbus introspection -debug -doc -test
-=dev-libs/libusb-0.1.12-r5 -debug -doc -nocxx
+=dev-libs/libusb-0.1.12-r7 cxx -debug -doc -static-libs
 =dev-libs/libusb-1.0.8 -debug -doc -static-libs
 =dev-libs/libxml2-2.7.8-r3 icu ipv6 python readline -debug -doc -examples -static-libs -test
 =dev-libs/libxslt-1.1.26-r2 crypt python -debug -static-libs
@@ -171,7 +171,6 @@
 =dev-util/ctags-5.8 -ada
 =dev-util/desktop-file-utils-0.18 -emacs
 =dev-util/dialog-1.1.20100428 nls unicode -examples -minimal
-=dev-util/diffball-1.0 -debug
 =dev-util/gtk-doc-am-1.18
 =dev-util/mdds-0.5.3-r1
 =dev-util/pkgconfig-0.26 -elibc_FreeBSD -hardened
@@ -379,11 +378,11 @@
 =sys-apps/calculate-builder-2.2.26
 =sys-apps/calculate-client-2.2.26 xfce -gnome -kde
 =sys-apps/calculate-desktop-2.2.26 xfce -gnome -kde
-=sys-apps/calculate-i18n-2.2.26
-=sys-apps/calculate-install-2.2.26 -minimal
+=sys-apps/calculate-i18n-2.2.26-r1
+=sys-apps/calculate-install-2.2.26-r1 -minimal
 =sys-apps/calculate-lib-2.2.26 -minimal
-=sys-apps/calculate-templates-2.2.26
-=sys-apps/calculate-utilities-2.2.26 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-templates-2.2.26-r2
+=sys-apps/calculate-utilities-2.2.26-r2 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -421,7 +420,7 @@
 =sys-apps/tcp-wrappers-7.6-r8 ipv6
 =sys-apps/texinfo-4.13 nls -static
 =sys-apps/usbutils-001 zlib -network-cron
-=sys-apps/util-linux-2.19.1 cramfs crypt ncurses nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
+=sys-apps/util-linux-2.19.1-r1 cramfs crypt ncurses nls perl unicode -loop-aes -old-linux -selinux -slang -uclibc
 =sys-apps/v86d-0.1.10 -debug -x86emu
 =sys-apps/xinetd-2.3.14 perl tcpd
 =sys-auth/consolekit-0.4.5-r1 kernel_linux pam policykit -debug -doc -test
@@ -439,13 +438,13 @@
 =sys-devel/autoconf-2.68 -emacs
 =sys-devel/automake-wrapper-5
 =sys-devel/bc-1.06.95 readline -libedit -static
-=sys-devel/binutils-2.20.1-r1 nls -multislot -multitarget -static-libs -test -vanilla
+=sys-devel/binutils-2.21.1-r1 nls -multislot -multitarget -static-libs -test -vanilla
 =sys-devel/bison-2.4.3 nls -static
 =sys-devel/flex-2.5.35_p10 nls -static -test
 =sys-devel/gcc-4.5.3-r1 cxx fortran gtk mudflap nls nptl openmp -altivec -bootstrap -build -doc -fixed-point -gcj -graphite -hardened -libffi -lto -multilib -multislot -nocxx -nopie -nossp -objc -objc++ -objc-gc -test -vanilla
 =sys-devel/gettext-0.18.1.1-r1 acl cxx elibc_glibc git nls openmp -doc -emacs
 =sys-devel/libtool-2.4-r1 -test -vanilla
-=sys-devel/llvm-2.8-r2 libffi -debug -llvm-gcc -multitarget -ocaml -test -udis86
+=sys-devel/llvm-2.9-r2 libffi -debug -llvm-gcc -multitarget -ocaml -test -udis86 -vim-syntax
 =sys-devel/m4-1.4.15 -examples
 =sys-devel/make-3.82-r1 nls -static
 =sys-devel/patch-2.5.9 -static
