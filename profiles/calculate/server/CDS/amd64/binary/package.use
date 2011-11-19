@@ -80,6 +80,7 @@
 =dev-perl/IO-Socket-SSL-1.440.0 -idn
 =dev-perl/Net-DNS-0.660.0 ipv6 -test
 =dev-python/psycopg-2.4.1 -debug -doc -examples -mxdatetime
+=dev-python/pymilter-0.9.3
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-ruby/libxml-2.0.5 ruby_targets_ruby18 -doc -ruby_targets_ree18 -test
@@ -92,7 +93,7 @@
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 cgi curl iconv perl threads webdav -cvs -doc -emacs -gtk -ppcsha1 -subversion -tk -xinetd
 =mail-client/mailx-8.1.2.20050715-r2
 =mail-filter/dkim-milter-2.8.3-r1 ipv6 -diffheaders
-=mail-filter/libmilter-1.0.1-r1 ipv6 -poll
+=mail-filter/libmilter-1.0.2 ipv6 -poll
 =mail-filter/postgrey-1.32 -targrey
 =mail-filter/procmail-3.22-r10 -mbox -selinux
 =mail-mta/postfix-2.8.4 ipv6 ldap pam ssl -cdb -doc -dovecot-sasl -hardened -ldap-bind -mbox -mysql -nis -postgres -sasl -selinux -sqlite -vda
@@ -104,7 +105,7 @@
 =media-gfx/imagemagick-6.7.1.0 bzip2 corefonts cxx jpeg jpeg2k openmp perl png tiff truetype zlib -X -autotrace -djvu -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -openexr -q32 -q64 -q8 -raw -static-libs -svg -webp -wmf -xml
 =media-gfx/splashutils-1.5.4.4 fbcondecor gpm mng png truetype -hardened
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freetype-2.4.7 bzip2 static-libs -X -auto-hinter -bindist -debug -doc -fontforge -utils
+=media-libs/freetype-2.4.8 bzip2 static-libs -X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r3 jpeg png truetype zlib -fontconfig -static-libs -xpm
 =media-libs/jasper-1.900.1-r3 jpeg -opengl -static-libs
 =media-libs/jpeg-8b static-libs
@@ -199,7 +200,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha75 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha76 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.5 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
@@ -259,7 +260,7 @@
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
 =sys-libs/timezone-data-2011n elibc_glibc nls -elibc_FreeBSD
-=sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
+=sys-process/htop-0.9-r2 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
 =sys-process/lsof-4.83 -selinux -static
 =sys-process/procps-3.2.8_p11 unicode
 =sys-process/psmisc-22.12 ipv6 nls -X -selinux
