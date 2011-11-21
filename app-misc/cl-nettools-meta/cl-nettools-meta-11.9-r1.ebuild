@@ -30,7 +30,6 @@ RDEPEND="
 	cdistro_CLD? (
 		net-im/choqok
 		net-irc/konversation
-		net-p2p/eiskaltdcpp
 		net-p2p/ktorrent
 	)
 	cdistro_CLDG? (
