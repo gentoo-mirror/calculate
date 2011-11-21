@@ -7,7 +7,7 @@ opts="${opts} upgrade reload configtest"
 
 depend() {
 	need net
-	use dns logger netmount
+	use dns logger netmount cgiwrap-fcgi
 }
 
 start() {
