@@ -35,7 +35,7 @@
 =app-misc/cl-graphics-meta-11.9-r1 cdistro_CLD -cdistro_CLDX
 =app-misc/cl-kde-meta-4.7.0-r3 cups ffmpeg mplayer ppp scanner semantic-desktop -calculate_nodecoration -calculate_nographics -calculate_nomultimedia -calculate_nonettools -calculate_nonetwork
 =app-misc/cl-multimedia-meta-11.9 cdistro_CLD -cdistro_CLDG -cdistro_CLDX
-=app-misc/cl-nettools-meta-11.9 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
+=app-misc/cl-nettools-meta-11.9-r1 cdistro_CLD cdistro_desktop -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-network-meta-11.9-r1 cdistro_CLD cdistro_desktop networkmanager -cdistro_CDS -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-office-meta-11.9 cdistro_CLD linguas_de linguas_en linguas_es linguas_fr linguas_it linguas_pt_BR linguas_ru -cdistro_CLDG -cdistro_CLDX
 =app-misc/cl-tools-meta-11.9-r5 cdistro_CLD cdistro_desktop ldap -calculate_noantivirus -calculate_noarch -calculate_nopgsql -calculate_nosamba -cdistro_CDS -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC
@@ -521,7 +521,6 @@
 =net-misc/wget-1.12-r3 ipv6 nls ssl -debug -idn -ntlm -static
 =net-misc/whois-5.0.11 iconv nls -idn
 =net-nds/openldap-2.4.24 berkdb crypt gnutls ipv6 perl samba ssl tcpd -cxx -debug -experimental -icu -iodbc -kerberos -minimal -odbc -overlays -sasl -selinux -slp -smbkrb5passwd -syslog
-=net-p2p/eiskaltdcpp-2.2.1 cli dbus emoticons libnotify linguas_bg linguas_en linguas_es linguas_fr linguas_pl linguas_ru linguas_uk pcre qt4 spell -daemon -examples -gnome -gtk -javascript -linguas_be -linguas_cs -linguas_hu -linguas_sk -linguas_sr -lua -sound -sqlite -upnp
 =net-p2p/ktorrent-4.1.1 bwscheduler downloadorder handbook ipfilter kross linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk logviewer magnetgenerator mediaplayer scanfolder search shutdown stats upnp zeroconf -aqua -debug -infowidget -kdeenablefinal -linguas_ar -linguas_ast -linguas_be -linguas_ca -linguas_ca@valencia -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_eo -linguas_et -linguas_eu -linguas_fi -linguas_ga -linguas_gl -linguas_hi -linguas_hne -linguas_hr -linguas_hu -linguas_is -linguas_ja -linguas_km -linguas_lt -linguas_lv -linguas_mai -linguas_ms -linguas_nb -linguas_nds -linguas_nl -linguas_nn -linguas_oc -linguas_se -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sr@ijekavian -linguas_sr@ijekavianlatin -linguas_sr@latin -linguas_sv -linguas_tr -linguas_zh_CN -linguas_zh_TW -plasma -rss -webinterface
 =net-print/cndrvcups-capt-2.00-r2 -gtk
 =net-print/cndrvcups-common-2.00-r2 -cngplp
