@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="calculate_nonetwork"
+IUSE="calculate_nonetwork cups"
 
 #removed:
 #  gnome-extra/gnome-games
@@ -19,6 +19,8 @@ IUSE="calculate_nonetwork"
 #  app-admin/sabayon
 #  all accessibility and mono
 RDEPEND="$RDEPEND
+		!net-print/gnome-cups-manager
+
         >=dev-libs/glib-2.26.1:2
         >=x11-libs/gtk+-2.22.1-r1:2
         >=x11-libs/gdk-pixbuf-2.22.1:2
@@ -134,7 +136,7 @@ RDEPEND="$RDEPEND
         !calculate_nonetwork? ( >=net-misc/vinagre-2.30.3 )
         >=gnome-extra/swfdec-gnome-2.30.1
 
-        >=net-print/gnome-cups-manager-0.33-r2
+        cups? ( >=app-admin/system-config-printer-gnome-1.3.3 )
 
         gnome-extra/polkit-gnome
 "

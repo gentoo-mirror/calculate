@@ -2,6 +2,15 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*cl-gnome-meta-2.32-r1 (22 Nov 2011)
+
+  22 Nov 2011; Alexander Tratsevskiy (L'autre) <at@calculate.ru>
+  -cl-gnome-meta-2.28.ebuild, -cl-gnome-meta-2.28-r1.ebuild,
+  -cl-gnome-meta-2.28-r2.ebuild, -cl-gnome-meta-2.32.ebuild,
+  +cl-gnome-meta-2.32-r1.ebuild:
+  Add app-admin/system-config-printer-gnome and remove
+  net-print/gnome-cups-manager
+
 *cl-gnome-meta-2.32 (24 Feb 2011)
 
   24 Feb 2011; Alexander Tratsevskiy (L'autre) <at@calculate.ru>
