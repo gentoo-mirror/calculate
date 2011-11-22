@@ -3,6 +3,8 @@
 =app-admin/logrotate-3.8.0 acl -selinux
 =app-admin/sudo-1.8.1_p2 pam -ldap -offensive -selinux -skey
 =app-admin/syslog-ng-3.2.4 ipv6 pcre ssl tcpd -caps -hardened -selinux -spoof-source -sql -static
+=app-admin/system-config-printer-common-1.3.6 policykit -doc
+=app-admin/system-config-printer-gnome-1.3.6 gnome-keyring linguas_bg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ro linguas_ru linguas_uk -linguas_ar -linguas_as -linguas_bn -linguas_bn_IN -linguas_br -linguas_bs -linguas_ca -linguas_cs -linguas_cy -linguas_da -linguas_el -linguas_en_GB -linguas_et -linguas_fa -linguas_fi -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_hy -linguas_id -linguas_is -linguas_ja -linguas_ka -linguas_kn -linguas_ko -linguas_lo -linguas_lv -linguas_mai -linguas_mk -linguas_ml -linguas_mr -linguas_ms -linguas_nb -linguas_nl -linguas_nn -linguas_or -linguas_pa -linguas_si -linguas_sk -linguas_sl -linguas_sr -linguas_sr@latin -linguas_sv -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
 =app-admin/testdisk-6.12 jpeg ntfs reiserfs -static
 =app-arch/bzip2-1.0.6-r3 static-libs -static
 =app-arch/cabextract-1.4 -extra-tools
@@ -41,7 +43,7 @@
 =app-misc/calculate-install-gui-2.2.26
 =app-misc/calculate-meta-11.9-r1 cdistro_CLDG -cdistro_CDS -cdistro_CLD -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
 =app-misc/cl-decoration-meta-11.9 cdistro_CLDG cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDX -cdistro_CLS -cdistro_CMC
-=app-misc/cl-gnome-meta-2.32 -calculate_nonetwork
+=app-misc/cl-gnome-meta-2.32-r1 cups -calculate_nonetwork
 =app-misc/cl-graphics-meta-11.9-r1 -cdistro_CLD -cdistro_CLDX
 =app-misc/cl-multimedia-meta-11.9 cdistro_CLDG -cdistro_CLD -cdistro_CLDX
 =app-misc/cl-nettools-meta-11.9-r1 cdistro_CLDG cdistro_desktop -cdistro_CDS -cdistro_CLD -cdistro_CLDX
@@ -80,6 +82,7 @@
 =app-text/recode-3.6_p17-r2 nls -static-libs
 =app-text/stardict-3.0.1-r2 gnome spell -debug -espeak -festival -gucharmap -pronounce -qqwry
 =app-text/wgetpaste-2.18-r1 -zsh-completion
+=app-text/xmlto-0.0.24-r1 -latex
 =app-vim/gentoo-syntax-20101212 -ignore-glep31
 =dev-cpp/atkmm-2.22.5 -doc
 =dev-cpp/cairomm-1.10.0 svg -doc
@@ -179,6 +182,7 @@
 =dev-python/numpy-1.6.0 -doc -lapack -test
 =dev-python/pexpect-2.4 -doc -examples
 =dev-python/pycairo-1.8.10 svg -doc -examples -test
+=dev-python/pycups-1.9.57 -doc -examples
 =dev-python/pycurl-7.19.0 -examples
 =dev-python/pygame-1.9.2_pre3082 X -doc -examples -test
 =dev-python/pygobject-2.28.6 cairo introspection -doc -examples -libffi -test
@@ -433,7 +437,6 @@
 =net-print/cnijfilter-3.20-r1 amd64 ip4700 mp250 mp270 mp490 mp550 mp560 nocupsdetection -mp640 -servicetools
 =net-print/cups-1.4.8-r22 X acl dbus gnutls jpeg linguas_de linguas_es linguas_fr linguas_it linguas_pl linguas_pt linguas_pt_BR linguas_ru pam perl png python samba ssl threads tiff usb -debug -elibc_FreeBSD -java -kerberos -ldap -linguas_da -linguas_eu -linguas_fi -linguas_id -linguas_ja -linguas_ko -linguas_nl -linguas_no -linguas_sv -linguas_zh -linguas_zh_TW -php -slp -static-libs -xinetd
 =net-print/foomatic-filters-4.0.7 cups
-=net-print/gnome-cups-manager-0.33-r2 samba
 =net-print/gutenprint-5.2.7-r1 cups foomaticdb gimp gtk nls readline -ppds -static-libs
 =net-print/hplip-3.11.10-r1 acl fax hpcups hpijs libnotify policykit scanner snmp static-ppds -X -doc -kde -minimal -parport -qt4
 =net-print/hplip-plugin-3.11.10
@@ -489,7 +492,7 @@
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
-=sys-apps/portage-2.2.0_alpha76 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha77 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/preload-0.6.4-r2 -vanilla
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.5 multilib
