@@ -246,5 +246,6 @@ RDEPEND="${RDEPEND}
 #- kde-misc/kgtk
 RDEPEND="${RDEPEND}
 	kde-base/kate
+	kde-misc/synaptiks
 "
 
