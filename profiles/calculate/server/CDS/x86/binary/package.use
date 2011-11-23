@@ -79,6 +79,7 @@
 =dev-perl/IO-Socket-SSL-1.440.0 -idn
 =dev-perl/Net-DNS-0.660.0 ipv6 -test
 =dev-python/psycopg-2.4.1 -debug -doc -examples -mxdatetime
+=dev-python/pymilter-0.9.3
 =dev-python/python-ldap-2.3.13 ssl -doc -examples -sasl
 =dev-python/pyxml-0.8.4-r2 -doc -examples
 =dev-ruby/libxml-2.0.5 ruby_targets_ruby18 -doc -ruby_targets_ree18 -test
@@ -91,8 +92,8 @@
 =dev-vcs/git-1.7.3.4-r1 bash-completion blksha1 cgi curl iconv perl threads webdav -cvs -doc -emacs -gtk -ppcsha1 -subversion -tk -xinetd
 =mail-client/mailx-8.1.2.20050715-r3
 =mail-filter/dkim-milter-2.8.3-r1 ipv6 -diffheaders
-=mail-filter/libmilter-1.0.1-r1 ipv6 -poll
-=mail-filter/postgrey-1.32 -targrey
+=mail-filter/libmilter-1.0.2 ipv6 -poll
+=mail-filter/postgrey-1.34
 =mail-filter/procmail-3.22-r10 -mbox -selinux
 =mail-mta/postfix-2.8.4 ipv6 ldap pam ssl -cdb -doc -dovecot-sasl -hardened -ldap-bind -mbox -mysql -nis -postgres -sasl -selinux -sqlite -vda
 =media-fonts/corefonts-1-r4 -X
@@ -103,12 +104,12 @@
 =media-gfx/imagemagick-6.7.1.0 bzip2 corefonts cxx jpeg jpeg2k openmp perl png tiff truetype zlib -X -autotrace -djvu -fftw -fontconfig -fpx -graphviz -gs -hdri -jbig -lcms -lqr -lzma -opencl -openexr -q32 -q64 -q8 -raw -static-libs -svg -webp -wmf -xml
 =media-gfx/splashutils-1.5.4.4 fbcondecor gpm mng png truetype -hardened
 =media-libs/fontconfig-2.8.0-r1 -doc
-=media-libs/freetype-2.4.7 bzip2 static-libs -X -auto-hinter -bindist -debug -doc -fontforge -utils
+=media-libs/freetype-2.4.8 bzip2 static-libs -X -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype -fontconfig -xpm
 =media-libs/jasper-1.900.1-r3 jpeg -opengl -static-libs
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
-=media-libs/lcms-2.0a jpeg static-libs tiff zlib
+=media-libs/lcms-2.2-r1 jpeg static-libs tiff zlib -doc -test
 =media-libs/libmng-1.0.10-r1 static-libs -lcms
 =media-libs/libpng-1.5.5 apng static-libs
 =media-libs/openjpeg-1.4-r1 -doc -test
@@ -127,7 +128,7 @@
 =net-dialup/pptpd-1.3.4-r1 tcpd -gre-extreme-debug
 =net-dialup/rp-pppoe-3.8-r2 -X
 =net-dialup/xl2tpd-1.3.0 -dnsretry
-=net-dns/bind-9.7.3_p3-r1 berkdb ipv6 ldap sdb-ldap ssl -dlz -doc -geoip -gssapi -idn -mysql -odbc -postgres -resolvconf -selinux -threads -urandom -xml
+=net-dns/bind-9.7.4_p1 berkdb ipv6 ldap sdb-ldap ssl -dlz -doc -geoip -gssapi -idn -mysql -odbc -postgres -resolvconf -selinux -threads -urandom -xml
 =net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
 =net-dns/ddclient-3.8.1-r3 -hardened
 =net-firewall/ipsec-tools-0.7.3-r1 iconv ipv6 ldap pam readline -hybrid -idea -kerberos -nat -rc5 -selinux
@@ -145,7 +146,7 @@
 =net-libs/libnfsidmap-0.21-r1 ldap
 =net-libs/libpcap-1.1.1 ipv6 -bluetooth -libnl
 =net-libs/libtirpc-0.2.1-r1 -kerberos
-=net-mail/dovecot-2.0.15 bzip2 ipv6 ldap maildir pam ssl zlib -caps -cydir -doc -kerberos -managesieve -mbox -mdbox -mysql -postgres -sdbox -sieve -sqlite -suid -vpopmail
+=net-mail/dovecot-2.0.16 bzip2 ipv6 ldap maildir pam ssl zlib -caps -cydir -doc -kerberos -managesieve -mbox -mdbox -mysql -postgres -sdbox -sieve -sqlite -static-libs -suid -vpopmail
 =net-mail/fetchmail-6.3.21 nls ssl -hesiod -kerberos -socks -tk
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.21.4 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -static-libs -test -threads
@@ -258,7 +259,7 @@
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
 =sys-libs/timezone-data-2011n elibc_glibc nls -elibc_FreeBSD
-=sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
+=sys-process/htop-0.9-r2 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
 =sys-process/lsof-4.83 -selinux -static
 =sys-process/procps-3.2.8_p11 unicode
 =sys-process/psmisc-22.12 ipv6 nls -X -selinux
