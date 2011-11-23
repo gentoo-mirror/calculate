@@ -279,7 +279,7 @@
 =media-libs/flac-1.2.1-r3 3dnow cxx ogg sse -altivec -debug -static-libs
 =media-libs/fontconfig-2.8.0-r1 -doc
 =media-libs/freeglut-2.6.0 -debug -mpx -static-libs
-=media-libs/freetype-2.4.7 X bzip2 static-libs -auto-hinter -bindist -debug -doc -fontforge -utils
+=media-libs/freetype-2.4.8 X bzip2 static-libs -auto-hinter -bindist -debug -doc -fontforge -utils
 =media-libs/gd-2.0.35-r1 jpeg png truetype xpm -fontconfig
 =media-libs/gegl-0.1.6 cairo exif ffmpeg jpeg jpeg2k mmx openexr png raw sdl sse svg v4l -debug -graphviz -lua -umfpack
 =media-libs/giflib-4.1.6-r2 X -rle -static-libs
@@ -293,7 +293,7 @@
 =media-libs/jasper-1.900.1-r3 jpeg opengl -static-libs
 =media-libs/jpeg-8b static-libs
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
-=media-libs/lcms-2.0a jpeg static-libs tiff zlib
+=media-libs/lcms-2.2-r1 jpeg static-libs tiff zlib -doc -test
 =media-libs/lensfun-0.2.5-r2 -debug -doc
 =media-libs/libao-1.0.0-r1 alsa nas -mmap -pulseaudio -static-libs
 =media-libs/libass-0.9.13 enca fontconfig -static-libs
@@ -568,7 +568,7 @@
 =sys-power/pm-utils-1.4.1 alsa networkmanager video_cards_intel video_cards_radeon -debug -ntp
 =sys-power/powertop-1.13 unicode
 =sys-power/upower-0.9.13-r1 introspection kernel_linux -debug -doc -ios -kernel_FreeBSD
-=sys-process/htop-0.9 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
+=sys-process/htop-0.9-r2 kernel_linux unicode -debug -elibc_FreeBSD -openvz -vserver
 =sys-process/procps-3.2.8_p11 unicode
 =sys-process/psmisc-22.12 X ipv6 nls -selinux
 =sys-process/vixie-cron-4.1-r11 pam -debug -selinux
