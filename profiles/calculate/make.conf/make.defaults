@@ -31,4 +31,4 @@ NPTL_KERN_VER="2.6.32"
 PORTAGE_NICENESS=19
 PORTAGE_TMPDIR="/var/calculate/tmp"
 USE_EXPAND="CALCULATE CDISTRO CL"
-EMERGE_DEFAULT_OPTS="--binpkg-respect-use=y"
+EMERGE_DEFAULT_OPTS="--binpkg-respect-use=y --quiet-build=n"
