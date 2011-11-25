@@ -1,0 +1,38 @@
+diff --git pym/cl_fill_assemble.py pym/cl_fill_assemble.py
+index 29b543a..6947d0d 100644
+--- pym/cl_fill_assemble.py
++++ pym/cl_fill_assemble.py
+@@ -25,7 +25,7 @@ from cl_template import iniParser
+ from cl_fill_install import fillVars as installFillVars
+ from cl_vars import Data as libData
+ from cl_utils import (_toUNICODE,isMount,pathJoin,listDirectory,readFile,
+-                      readLinesFile)
++                      readLinesFile,getProgPath)
+ from datetime import datetime
+ 
+ class fillVars(installFillVars):
+@@ -374,3 +374,11 @@ class fillVars(installFillVars):
+         if profile and  profile.endswith(discardName):
+             return profile[:-len(discardName)]
+         return profile
++
++    def get_os_assemble_root_format(self):
++        """Get default file system format"""
++        for fs in ['ext4','reiserfs','ext3']:
++            mkfsUtil = "/sbin/mkfs.%s"%fs
++            if getProgPath(mkfsUtil):
++                return fs
++        return "ext2"
+diff --git pym/cl_vars_assemble.py pym/cl_vars_assemble.py
+index 693c5d5..0659b90 100644
+--- pym/cl_vars_assemble.py
++++ pym/cl_vars_assemble.py
+@@ -142,7 +142,7 @@ class Data:
+     os_assemble_root_dev = {}
+ 
+     # filesystem format of assemble partition
+-    os_assemble_root_format = {'mode':'w', 'value':'reiserfs'}
++    os_assemble_root_format = {'mode':'w'}
+ 
+     # infomation about disk in hash
+     os_device_hash = {'hide':True}
