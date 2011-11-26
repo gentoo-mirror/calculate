@@ -175,7 +175,7 @@
 =sys-apps/calculate-lib-2.2.26 -minimal
 =sys-apps/calculate-server-2.1.15 -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nomail -calculate_nonamed -calculate_noproxy -calculate_nosamba
 =sys-apps/calculate-templates-2.2.26-r3
-=sys-apps/calculate-utilities-2.2.26-r3 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-utilities-2.2.26-r4 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -244,7 +244,7 @@
 =sys-fs/udev-164-r2 extras -build -selinux -test
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-3.0.7 symlink vmlinuz -build
+=sys-kernel/calculate-sources-3.1.2 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 cxx -doc -elibc_FreeBSD -examples -java -tcl -test
