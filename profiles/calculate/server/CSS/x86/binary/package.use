@@ -61,7 +61,7 @@
 =sys-apps/calculate-install-2.2.26-r2 -minimal
 =sys-apps/calculate-lib-2.2.26 -minimal
 =sys-apps/calculate-templates-2.2.26-r3
-=sys-apps/calculate-utilities-2.2.26-r3 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
+=sys-apps/calculate-utilities-2.2.26-r4 cl_builder -cl_assemble -cl_client -cl_desktop -cl_installgui -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
@@ -117,7 +117,7 @@
 =sys-fs/squashfs-tools-4.2 gzip lzma -lzo -xattr
 =sys-fs/udev-164-r2 extras -build -selinux -test
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-3.0.7 symlink vmlinuz -build
+=sys-kernel/calculate-sources-3.1.2 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 cxx -doc -elibc_FreeBSD -examples -java -tcl -test
