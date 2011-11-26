@@ -147,7 +147,7 @@
 =net-libs/libnfsidmap-0.21-r1 ldap
 =net-libs/libpcap-1.1.1 ipv6 -bluetooth -libnl
 =net-libs/libtirpc-0.2.1-r1 -kerberos
-=net-mail/dovecot-2.0.15 bzip2 ipv6 ldap maildir pam ssl zlib -caps -cydir -doc -kerberos -managesieve -mbox -mdbox -mysql -postgres -sdbox -sieve -sqlite -suid -vpopmail
+=net-mail/dovecot-2.0.16 bzip2 ipv6 ldap maildir pam ssl zlib -caps -cydir -doc -kerberos -managesieve -mbox -mdbox -mysql -postgres -sdbox -sieve -sqlite -static-libs -suid -vpopmail
 =net-mail/fetchmail-6.3.21 nls ssl -hesiod -kerberos -socks -tk
 =net-mail/mailbase-1 pam
 =net-misc/curl-7.21.4 ipv6 ldap ssl -ares -gnutls -idn -kerberos -libssh2 -nss -static-libs -test -threads
@@ -200,7 +200,7 @@
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
 =sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
-=sys-apps/portage-2.2.0_alpha77 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
+=sys-apps/portage-2.2.0_alpha78 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/pv-1.2.0 nls
 =sys-apps/sandbox-2.5 multilib
 =sys-apps/sed-4.2.1 acl nls -selinux -static
