@@ -465,7 +465,7 @@
 =sys-apps/calculate-install-2.2.26-r2 -minimal
 =sys-apps/calculate-lib-2.2.26 -minimal
 =sys-apps/calculate-templates-2.2.26-r3
-=sys-apps/calculate-utilities-2.2.26-r3 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-utilities-2.2.26-r4 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -549,7 +549,7 @@
 =sys-fs/udisks-1.0.4-r1 nls -debug -doc -remote-access
 =sys-fs/xfsprogs-3.1.4 nls readline -libedit -static -static-libs
 =sys-kernel/calckernel-3.4.18-r1 bash-completion video_cards_radeon -ibm -selinux
-=sys-kernel/calculate-sources-3.0.7 symlink vmlinuz -build
+=sys-kernel/calculate-sources-3.1.2 symlink vmlinuz -build
 =sys-kernel/linux-firmware-20110818 -savedconfig
 =sys-libs/cracklib-2.8.16 nls python
 =sys-libs/db-4.8.30 cxx -doc -elibc_FreeBSD -examples -java -tcl -test
