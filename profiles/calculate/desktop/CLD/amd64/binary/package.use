@@ -458,7 +458,7 @@
 =media-libs/raptor-2.0.4 curl unicode xml -debug -json -static-libs
 =media-libs/sdl-image-1.2.10-r1 gif jpeg png tiff -static-libs
 =media-libs/speex-1.2_rc1 ogg sse -static-libs
-=media-libs/taglib-1.6.3 asf mp4 -debug -examples -test
+=media-libs/taglib-1.7 asf mp4 -debug -examples -test
 =media-libs/taglib-extras-1.0.1 -debug
 =media-libs/tiff-3.9.5 cxx jpeg zlib -jbig -static-libs
 =media-libs/vigra-1.7.1-r1 fftw hdf5 jpeg png python tiff -doc -test
@@ -493,7 +493,7 @@
 =net-dialup/ppp-2.4.5-r1 gtk ipv6 pam -activefilter -atm -dhcp -eap-tls -radius
 =net-dialup/pptpclient-1.7.2-r2 -tk
 =net-dialup/rp-pppoe-3.8-r2 X
-=net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
+=net-dns/bind-tools-9.8.1 ipv6 ssl -doc -gssapi -idn -pkcs11 -urandom -xml
 =net-dns/libidn-1.22 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.11 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
@@ -589,7 +589,7 @@
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.16-r1 -static
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
-=sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
+=sys-apps/openrc-0.9.4 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
 =sys-apps/portage-2.2.0_alpha78 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
@@ -708,7 +708,7 @@
 =x11-drivers/xf86-video-dummy-0.3.4
 =x11-drivers/xf86-video-fbdev-0.4.2
 =x11-drivers/xf86-video-glint-1.2.5 dri
-=x11-drivers/xf86-video-intel-2.17.0-r1 dri -sna
+=x11-drivers/xf86-video-intel-2.17.0-r2 dri -sna
 =x11-drivers/xf86-video-mach64-6.9.0 dri
 =x11-drivers/xf86-video-mga-1.4.13 dri
 =x11-drivers/xf86-video-neomagic-1.2.5
