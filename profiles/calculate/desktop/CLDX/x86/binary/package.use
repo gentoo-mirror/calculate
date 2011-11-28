@@ -306,7 +306,7 @@
 =net-dialup/ppp-2.4.5-r1 gtk ipv6 pam -activefilter -atm -dhcp -eap-tls -radius
 =net-dialup/pptpclient-1.7.2-r2 -tk
 =net-dialup/rp-pppoe-3.8-r2 X
-=net-dns/bind-tools-9.7.3 ipv6 ssl -doc -idn -urandom -xml
+=net-dns/bind-tools-9.8.1 ipv6 ssl -doc -gssapi -idn -pkcs11 -urandom -xml
 =net-dns/libidn-1.22 nls -doc -elibc_FreeBSD -emacs -java -mono -static-libs
 =net-fs/nfs-utils-1.2.3-r1 elibc_glibc ipv6 nfsv3 nfsv4 tcpd -caps -kerberos
 =net-fs/samba-3.5.11 acl aio client cups ldap netapi pam quota readline server smbclient -addns -ads -avahi -caps -cluster -debug -doc -examples -fam -ldb -smbsharemodes -smbtav2 -swat -syslog -winbind
@@ -407,7 +407,7 @@
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.16-r1 -static
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
-=sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
+=sys-apps/openrc-0.9.4 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 -network-cron -zlib
 =sys-apps/pcmciautils-014-r1 -debug -static -staticsocket
 =sys-apps/portage-2.2.0_alpha79 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
@@ -448,7 +448,7 @@
 =sys-devel/llvm-2.9-r2 libffi -debug -llvm-gcc -multitarget -ocaml -test -udis86 -vim-syntax
 =sys-devel/m4-1.4.15 -examples
 =sys-devel/make-3.82-r1 nls -static
-=sys-devel/patch-2.5.9 -static
+=sys-devel/patch-2.6.1 -static -test
 =sys-fs/btrfs-progs-0.19-r3 acl -debug-utils
 =sys-fs/dmraid-1.0.0_rc14 -selinux -static
 =sys-fs/e2fsprogs-1.41.14 nls -elibc_FreeBSD
@@ -477,7 +477,7 @@
 =sys-libs/libcap-2.22 pam
 =sys-libs/libieee1284-0.2.11-r1 python -doc
 =sys-libs/libstdc++-v3-3.3.6 nls -multilib
-=sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
+=sys-libs/ncurses-5.9 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
 =sys-libs/pam-1.1.5 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/talloc-2.0.1-r1 -compat -doc -static-libs -swig
 =sys-libs/tdb-1.2.7-r1 python -static-libs -tdbtest -tools
