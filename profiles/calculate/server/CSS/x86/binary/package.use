@@ -80,7 +80,7 @@
 =sys-apps/miscfiles-1.4.2-r1 -minimal
 =sys-apps/module-init-tools-3.16-r1 -static
 =sys-apps/net-tools-1.60_p20110409135728 nls -static
-=sys-apps/openrc-0.8.3-r1 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
+=sys-apps/openrc-0.9.4 elibc_glibc kernel_linux ncurses pam unicode -debug -kernel_FreeBSD -selinux
 =sys-apps/pciutils-3.1.7 zlib -network-cron
 =sys-apps/portage-2.2.0_alpha79 ipc linguas_pl -build -doc -epydoc -python2 -python3 -selinux
 =sys-apps/sandbox-2.5 -multilib
@@ -107,7 +107,7 @@
 =sys-devel/libtool-2.4-r1 -test -vanilla
 =sys-devel/m4-1.4.15 -examples
 =sys-devel/make-3.82-r1 nls -static
-=sys-devel/patch-2.5.9 -static
+=sys-devel/patch-2.6.1 -static -test
 =sys-fs/btrfs-progs-0.19-r3 acl -debug-utils
 =sys-fs/e2fsprogs-1.41.14 nls -elibc_FreeBSD
 =sys-fs/lvm2-2.02.73-r1 lvm1 readline static -clvm -cman -selinux
@@ -126,7 +126,7 @@
 =sys-libs/glibc-2.12.2 nls -crosscompile_opts_headers-only -debug -gd -glibc-omitfp -hardened -multilib -profile -selinux -vanilla
 =sys-libs/gpm-1.20.6 -selinux
 =sys-libs/libcap-2.22 pam
-=sys-libs/ncurses-5.7-r7 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
+=sys-libs/ncurses-5.9 cxx gpm unicode -ada -debug -doc -minimal -profile -static-libs -trace
 =sys-libs/pam-1.1.5 berkdb cracklib elibc_glibc nls -audit -debug -elibc_FreeBSD -nis -selinux -test -vim-syntax
 =sys-libs/timezone-data-2011n elibc_glibc nls -elibc_FreeBSD
 =sys-process/procps-3.2.8_p11 unicode
