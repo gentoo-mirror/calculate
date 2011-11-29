@@ -48,8 +48,3 @@ RDEPEND="
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 "
 
-#for compile gnome-base/gnome-settings-daemon-2.32.1-r2
-RDEPEND="${RDEPEND}
-	media-libs/libpng:1.4
-"
-

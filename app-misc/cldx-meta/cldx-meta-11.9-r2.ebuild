@@ -54,8 +54,3 @@ RDEPEND="${RDEPEND}
 	gnome-base/gdm
 "
 
-# for compile gdm-2.20.11-r1
-RDEPEND="${RDEPEND}
-	media-libs/libpng:1.4
-"
-
