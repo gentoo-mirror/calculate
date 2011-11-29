@@ -27,8 +27,8 @@
 =app-crypt/qca-2.0.3 -aqua -debug -doc -examples
 =app-crypt/qca-ossl-2.0.0_beta3-r2 -debug
 =app-editors/nano-2.2.5 ncurses nls spell unicode -debug -justify -minimal -slang
-=app-editors/vim-7.3.266 X acl bash-completion gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
-=app-editors/vim-core-7.3.266 acl bash-completion nls -livecd
+=app-editors/vim-7.3.266 X acl gpm nls perl python -cscope -debug -minimal -ruby -vim-pager
+=app-editors/vim-core-7.3.266 acl nls -livecd
 =app-emulation/emul-linux-x86-baselibs-20110928 -development
 =app-emulation/emul-linux-x86-compat-20110928 multilib -development
 =app-emulation/emul-linux-x86-gtklibs-20110928 -development
@@ -432,7 +432,7 @@
 =media-libs/libogg-1.2.0 -static-libs
 =media-libs/libopenraw-0.0.8 gtk -static-libs -test
 =media-libs/libpgf-6.11.32 -doc -static-libs
-=media-libs/libpng-1.5.5 apng static-libs
+=media-libs/libpng-1.5.6 apng static-libs
 =media-libs/libquicktime-1.2.3 X aac alsa dv encode ffmpeg gtk jpeg mmx opengl png vorbis x264 -doc -lame -schroedinger
 =media-libs/libsamplerate-0.1.7 -sndfile
 =media-libs/libsdl-1.2.14-r6 X aalib alsa audio custom-cflags fbcon ggi joystick libcaca nas opengl video xinerama xv -dga -directfb -oss -ps3 -pulseaudio -static-libs -svga -tslib
@@ -565,8 +565,8 @@
 =sys-apps/calculate-i18n-2.2.26-r1
 =sys-apps/calculate-install-2.2.26-r3 -minimal
 =sys-apps/calculate-lib-2.2.26 -minimal
-=sys-apps/calculate-templates-2.2.26-r4
-=sys-apps/calculate-utilities-2.2.26-r5 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
+=sys-apps/calculate-templates-2.2.26-r5
+=sys-apps/calculate-utilities-2.2.26-r6 cl_builder cl_client cl_desktop cl_installgui -cl_assemble -cl_server
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/dbus-1.4.16 X -debug -doc -selinux -static-libs -test
 =sys-apps/debianutils-3.4.4 kernel_linux -static
@@ -766,10 +766,10 @@
 =x11-libs/libxklavier-5.0 -doc
 =x11-libs/pango-1.28.4 X introspection -debug -doc -test
 =x11-libs/pixman-0.24.0 mmx sse2 -altivec -iwmmxt -neon -static-libs
-=x11-libs/qt-core-4.7.4 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
+=x11-libs/qt-core-4.7.4-r1 exceptions glib iconv jit private-headers qt3support ssl -aqua -debug -optimized-qmake -pch
 =x11-libs/qt-dbus-4.7.4 exceptions -aqua -debug -pch
 =x11-libs/qt-declarative-4.7.4 exceptions private-headers qt3support webkit -aqua -debug -pch
-=x11-libs/qt-gui-4.7.4 accessibility cups dbus exceptions glib mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -gtkstyle -nis -pch -raster -trace
+=x11-libs/qt-gui-4.7.4-r1 accessibility cups dbus exceptions glib mng nas private-headers qt3support tiff xinerama -aqua -debug -egl -gtkstyle -nis -pch -raster -trace
 =x11-libs/qt-multimedia-4.7.4 exceptions iconv -aqua -debug -pch
 =x11-libs/qt-opengl-4.7.4 exceptions qt3support -aqua -debug -egl -pch
 =x11-libs/qt-qt3support-4.7.4 accessibility exceptions kde -aqua -debug -pch -phonon
