@@ -18,8 +18,8 @@
 =app-arch/zip-3.0 bzip2 crypt unicode
 =app-cdr/cdrkit-1.1.11 unicode -debug -hfs
 =app-editors/nano-2.2.5 ncurses nls unicode -debug -justify -minimal -slang -spell
-=app-editors/vim-7.3.266 acl bash-completion gpm nls perl python -X -cscope -debug -minimal -ruby -vim-pager
-=app-editors/vim-core-7.3.266 acl bash-completion nls -livecd
+=app-editors/vim-7.3.266 acl gpm nls perl python -X -cscope -debug -minimal -ruby -vim-pager
+=app-editors/vim-core-7.3.266 acl nls -livecd
 =app-emulation/emul-linux-x86-baselibs-20110928 -development
 =app-i18n/enca-1.13 recode -doc
 =app-misc/calculate-meta-11.9-r1 cdistro_CDS -cdistro_CLD -cdistro_CLDG -cdistro_CLDX -cdistro_CLS -cdistro_CMC -cdistro_CSS
@@ -112,7 +112,7 @@
 =media-libs/lcms-1.19 jpeg python static-libs tiff zlib
 =media-libs/lcms-2.2-r1 jpeg static-libs tiff zlib -doc -test
 =media-libs/libmng-1.0.10-r1 static-libs -lcms
-=media-libs/libpng-1.5.5 apng static-libs
+=media-libs/libpng-1.5.6 apng static-libs
 =media-libs/openjpeg-1.4-r1 -doc -test
 =media-libs/tiff-3.9.5 cxx jpeg zlib -jbig -static-libs
 =net-analyzer/iptraf-ng-1.0.2 -static-libs
@@ -175,8 +175,8 @@
 =sys-apps/calculate-install-2.2.26-r3 -minimal
 =sys-apps/calculate-lib-2.2.26 -minimal
 =sys-apps/calculate-server-2.1.15 -calculate_nodhcp -calculate_noftp -calculate_nojabber -calculate_nomail -calculate_nonamed -calculate_noproxy -calculate_nosamba
-=sys-apps/calculate-templates-2.2.26-r4
-=sys-apps/calculate-utilities-2.2.26-r5 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
+=sys-apps/calculate-templates-2.2.26-r5
+=sys-apps/calculate-utilities-2.2.26-r6 cl_builder cl_server -cl_assemble -cl_client -cl_desktop -cl_installgui
 =sys-apps/coreutils-8.7 acl nls unicode -caps -gmp -selinux -static -vanilla -xattr
 =sys-apps/debianutils-3.4.4 kernel_linux -static
 =sys-apps/diffutils-3.0 nls -static
