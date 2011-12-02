@@ -18,6 +18,8 @@ IUSE="calculate_nonetwork cups"
 #  www-client/epiphany
 #  app-admin/sabayon
 #  all accessibility and mono
+#  app-admin/pessulus
+#  gnome-extra/bug-buddy
 RDEPEND="$RDEPEND
 		!net-print/gnome-cups-manager
 
@@ -53,7 +55,6 @@ RDEPEND="$RDEPEND
         >=gnome-base/libgnomecanvas-2.30.2
         >=gnome-base/libglade-2.6.4
 
-        >=gnome-extra/bug-buddy-2.32.0
         >=gnome-base/libgnomekbd-2.32.0
         >=gnome-base/gnome-settings-daemon-2.32.1
         >=gnome-base/gnome-control-center-2.32.0
@@ -126,8 +127,6 @@ RDEPEND="$RDEPEND
         >=gnome-extra/evolution-webcal-2.32.0
 
         >=net-misc/vino-2.32.0
-
-        >=app-admin/pessulus-2.30.4
 
         >=gnome-extra/gnome-screensaver-2.30.2
         >=x11-misc/alacarte-0.13.2
