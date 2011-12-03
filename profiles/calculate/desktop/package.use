@@ -72,3 +72,7 @@ x11-libs/qt-declarative private-headers
 x11-libs/qt-gui private-headers
 x11-libs/qt-script private-headers
 
+#required by net-libs/rb_libtorrent-0.15.6
+#need for media-libs/vigra
+dev-libs/boost python
+
