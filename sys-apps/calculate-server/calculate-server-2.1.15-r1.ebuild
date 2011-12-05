@@ -39,8 +39,8 @@ DEPEND="=sys-apps/calculate-lib-2.1.11
 		>=mail-mta/postfix-2.2[ldap,pam,ssl]
 	)
 	!calculate_noftp? (
-		|| ( <net-ftp/proftpd-1.3.3[-acl,ldap,ncurses,nls,pam,radius,ssl,tcpd]
-			>=net-ftp/proftpd-1.3.3[-acl,ident,ldap,ncurses,nls,pam,radius,ssl,tcpd]
+		|| ( <net-ftp/proftpd-1.3.3[-acl,ldap,ncurses,nls,pam,ssl,tcpd]
+			>=net-ftp/proftpd-1.3.3[-acl,ident,ldap,ncurses,nls,pam,ssl,tcpd]
 		)
 	)
 	!calculate_nojabber? (
