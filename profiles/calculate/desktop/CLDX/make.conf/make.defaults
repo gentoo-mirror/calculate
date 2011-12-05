@@ -4,7 +4,7 @@ USE=""
 USE="${USE} cdda -gstreamer"
 
 # Network protocols
-USE="${USE} ldap rdesktop"
+USE="${USE} rdesktop"
 
 # System
 USE="${USE} gnome-keyring networkmanager"

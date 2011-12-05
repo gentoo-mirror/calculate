@@ -45,7 +45,6 @@ RDEPEND="
 		net-wireless/blueman
 	)
 	cdistro_CDS? (
-		net-dialup/freeradius
 		net-dialup/ppp
 		net-dialup/pptpclient
 		net-dialup/pptpd
