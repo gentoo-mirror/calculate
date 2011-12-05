@@ -1,14 +1,15 @@
 app-text/fbreader gtk -qt4
 net-print/gutenprint gimp
+dev-lang/python sqlite
 dev-libs/pwlib ldap
 gnome-base/gvfs archive fuse gdu
+gnome-base/gnome-applets gstreamer
+gnome-base/gnome-volume-manager automount
 net-dns/avahi -gtk
 sys-fs/udev extras
 sys-block/gparted dmraid fat jfs ntfs reiserfs xfs
-gnome-base/gnome-applets gstreamer
-gnome-base/gnome-volume-manager automount
 sys-block/parted device-mapper
-dev-lang/python sqlite
+x11-drivers/ati-drivers qt4
 
 #need for net-voip/ekiga-3.2.7
 net-libs/opal sip
