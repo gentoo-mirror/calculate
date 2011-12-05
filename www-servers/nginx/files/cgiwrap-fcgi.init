@@ -4,17 +4,21 @@
 # $Header: $
 
 depend() {
-	:
+	need nginx
 }
 
 start() {
 	ebegin "Starting cgi-wrapper"
 
 	[[ -d /var/run/nginx ]] || mkdir -p /var/run/nginx
-
-	start-stop-daemon --background --start --exec /usr/bin/cgiwrap-fcgi.pl \
-		--name cgiwrap \
-		--pidfile /var/run/cgiwrap.pid -- ${PROCESSES:-5}
+	
+	for port in `seq ${STARTPORT:-9999} ${ENDPORT:-10039}`
+	do
+		start-stop-daemon --background --start --exec /usr/bin/cgiwrap-fcgi.pl \
+			--name cgiwrap${port} \
+			--pidfile /var/run/cgiwrap${port}.pid \
+			-- $port ${QUEUE:-2000}
+	done
 	eend 0
 }
 
@@ -23,8 +27,13 @@ stop() {
 
 	ebegin "Stopping cgi-wrapper"
 
-	start-stop-daemon --quiet --stop --retry TERM/5/TERM/10 \
-		--pidfile /var/run/cgiwrap.pid
+	STARTPORT=${STARTPORT:-9999}
+	ENDPORT=${ENDPORT:-10039}
+	for port in `seq ${STARTPORT:-9999} ${ENDPORT:-10039}`
+	do
+		start-stop-daemon --quiet --stop --retry TERM/5/TERM/10 \
+			--pidfile /var/run/cgiwrap${port}.pid
+	done
 	retval=${?}
 
 	eend ${retval} "Error stopping cgiwrap"

@@ -6,7 +6,8 @@ use Socket;
 use POSIX qw(setsid);
 require 'syscall.ph';
 
-my $PROCESSES = $ARGV[0] || 5;
+my $SPORT = $ARGV[0] || 9999;
+my $QUEUE = $ARGV[1] || 2000;
 
 #&daemonize;
 
@@ -29,16 +30,15 @@ sub daemonize() {
 }
 
 sub main {
-	$proc_manager = new FCGI::ProcManager({ n_processes => $PROCESSES, die_timeout => 10 }); #!!!
-	$socket = FCGI::OpenSocket( "/var/run/cgiwrap-dispatch.sock", 10 ); #use UNIX sockets - user running this script must have w access to the 'nginx' folder!!
-	`/bin/chown nginx:nginx /var/run/cgiwrap-dispatch.sock`;
+	$proc_manager = new FCGI::ProcManager({ n_processes => 1, die_timeout => 10 }); #!!!
+	$socket = FCGI::OpenSocket( ":${SPORT}", $QUEUE ); # use TCP socket
 	$request = FCGI::Request( \*STDIN, \*STDOUT, \*STDERR, \%req_params, $socket, FCGI::FAIL_ACCEPT_ON_INTR );
-	open(FPID, "> /var/run/cgiwrap.pid");
+	open(FPID, "> /var/run/cgiwrap${SPORT}.pid");
 	print(FPID $$);
 	close(FPID);
 	if ($request) { request_loop()};
 	FCGI::CloseSocket( $socket );
-	unlink('/var/run/cgiwrap.pid');
+	unlink("/var/run/cgiwrap${SPORT}.pid");
 }
 
 sub request_loop {
