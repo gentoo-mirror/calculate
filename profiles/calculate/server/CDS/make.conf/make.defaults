@@ -8,7 +8,7 @@ USE="${USE} exif gif jpeg jpeg2k png tiff"
 USE="${USE} imap maildir"
 
 # Network protocols
-USE="${USE} ldap radius"
+#USE="${USE} ldap radius"
 
 # Window managers and speciality
 USE="${USE} -gnome -gtk -kde -qt3 -qt4 -qt3support -X"
