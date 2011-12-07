@@ -3,7 +3,6 @@
 # $Header: /var/cvsroot/gentoo-x86/www-servers/nginx/nginx-1.1.2.ebuild,v 1.2 2011/09/09 16:44:14 hollow Exp $
 
 EAPI="4"
-USE_RUBY="ruby18"
 
 # Maintainer notes:
 # - http_rewrite-independent pcre-support makes sense for matching locations without an actual rewrite
@@ -135,6 +134,8 @@ PDEPEND="vim-syntax? ( app-vim/nginx-syntax )"
 
 ALLWORKDIR="${WORKDIR}/all"
 S="${ALLWORKDIR}/${P}"
+
+use nginx_modules_http_passenger && USE_RUBY="ruby18"
 
 pkg_setup() {
 	ebegin "Creating nginx user and group"
