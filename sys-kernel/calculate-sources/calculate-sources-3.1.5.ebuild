@@ -7,7 +7,7 @@ ETYPE="sources"
 inherit calculate-kernel-3 eutils
 
 DESCRIPTION="Full sources including the Calculate patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 HOMEPAGE="http://www.calculate-linux.org"
 
 IUSE=""
@@ -18,6 +18,13 @@ HGPV="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}-5"
 #http://dev.gentoo.org/~blueness/hardened-sources/hardened-patches/hardened-patches-${HGPV}.extras.tar.bz2
 #)"
 HGPV_URI=""
+
+CL_PATCH="3.1.5"
+
+CALC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
+        ftp://ftp.calculate-linux.org/pub/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
+		http://mirror.yandex.ru/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
+		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2"
 
 SRC_URI="${KERNEL_URI} ${ARCH_URI} ${CALC_URI} ${HGPV_URI}"
 
