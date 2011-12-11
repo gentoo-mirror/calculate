@@ -10,8 +10,15 @@ DESCRIPTION="Full sources including the Calculate patchset for the ${KV_MAJOR}.$
 KEYWORDS="~amd64 ~x86"
 HOMEPAGE="http://www.calculate-linux.org"
 
+IUSE=""
+#IUSE="hardened"
+
 HGPV="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}-5"
-HGPV_URI="http://dev.gentoo.org/~blueness/hardened-sources/hardened-patches/hardened-patches-${HGPV}.extras.tar.bz2"
+#HGPV_URI="hardened? (
+#http://dev.gentoo.org/~blueness/hardened-sources/hardened-patches/hardened-patches-${HGPV}.extras.tar.bz2
+#)"
+HGPV_URI=""
+
 SRC_URI="${KERNEL_URI} ${ARCH_URI} ${CALC_URI} ${HGPV_URI}"
 
 UNIPATCH_LIST="${DISTDIR}/${PN}-${CL_PATCH}.tar.bz2"
@@ -23,7 +30,6 @@ DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.18
 	!<net-wireless/rtl8192se-3.0
 	)"
 
-IUSE="hardened"
 CL_KERNEL_OPTS="--lvm --mdadm --dmraid"
 
 src_unpack() {
