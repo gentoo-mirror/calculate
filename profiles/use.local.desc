@@ -3,6 +3,7 @@
 # $Header: $
 
 sys-apps/calculate-install:minimal - Without Calculate Linux install support
+sys-apps/calculate-install:pxe - Enables support for PXE installation
 sys-kernel/calculate-sources:vmlinuz - Build kernel, modules and initramfs
 sys-kernel/calculate-sources:bfq - Apply kernel patch for BFQ I/O scheduler
 sys-kernel/calculate-sources:bfs - Apply kernel patch for BF scheduler
