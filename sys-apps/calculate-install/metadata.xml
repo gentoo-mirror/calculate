@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>maintainer-wanted</herd>
-<longdescription lang="en">
+	<herd>maintainer-wanted</herd>
+	<longdescription lang="en">
 The program for installation and configuration of Calculate Linux. Part of Calculate Linux.
 </longdescription>
+	<use>
+		<flag name="minimal">Use minimal depends for calculate install.</flag>
+		<flag name="pxe">Enables support for PXE installation.</flag>
+	</use>
 </pkgmetadata>
 
