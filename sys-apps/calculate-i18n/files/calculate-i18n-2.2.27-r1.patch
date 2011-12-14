@@ -1,0 +1,14 @@
+diff --git ru/cl_install_ru.po ru/cl_install_ru.po
+index 4647d79..9a12e30 100644
+--- ru/cl_install_ru.po
++++ ru/cl_install_ru.po
+@@ -1051,3 +1051,9 @@ msgstr "Конфигурирование PXE установки"
+ 
+ msgid "You must to install %s package for PXE installation"
+ msgstr "Для PXE установки Вы должны установить %s пакет"
++
++msgid "PXE installation directory"
++msgstr "Директория PXE установки"
++
++msgid "Failed to found partition %s after changing the activity"
++msgstr "Не удалось найти раздел %s после смены флага активности"
