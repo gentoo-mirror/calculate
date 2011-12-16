@@ -1,0 +1,105 @@
+diff --git pym/cl_client.py pym/cl_client.py
+index eea7ccc..011e8e5 100644
+--- pym/cl_client.py
++++ pym/cl_client.py
+@@ -37,13 +37,15 @@ from cl_print import color_print
+ from cl_ldap import ldapUser
+ from client.progressbar import ProgressBar
+ from cl_utils import runOsCommand, getpathenv, getModeFile, removeDir, isMount,\
+-                     appendProgramToEnvFile, removeProgramToEnvFile, pathJoin
++                     appendProgramToEnvFile, removeProgramToEnvFile, pathJoin, \
++                     tarLinks
+ from _cl_keys import getKey, clearKey
+ from convertenv import convertEnv
+ from encrypt import encrypt
+ from cl_client_cache import userCache
+ from shutil import copy2
+ from socket import gethostbyname
++import tarfile
+ 
+ lang().setLanguage(sys.modules[__name__])
+ 
+@@ -1335,6 +1337,8 @@ class client(share, commandServer, encrypt):
+             # Отмонтируем пользовательские ресурсы в случае ошибки
+             self.umountUserRes(homeDir)
+             return False
++        
++        self.unpackLinks(homeDir)
+ 
+         if sync:
+             logOutFile = os.path.join(homeDir,self.logOutFile)
+@@ -1366,6 +1370,33 @@ class client(share, commandServer, encrypt):
+                     break
+         return xSession
+ 
++    def tarSymLinks(self,userHome,uid,gid):
++        """Create tar archive of symlinks"""
++        linkArch = pathJoin(userHome,".calculate/links.tar.bz2")
++        try:
++            for filename in tarLinks(userHome,linkArch,
++                                 skip=self.clVars.Get("cl_sync_del_path")+
++                                 self.clVars.Get("cl_sync_skip_path")):
++                try:
++                    os.unlink(filename)
++                except OSError:
++                    self.printWARNING(_("Failed to remove %s")%filename)
++        except:
++            self.printWARNING(_("Failed to make links archive"))
++        if os.path.exists(linkArch):
++            os.chown(uid,gid)
++
++    def unpackLinks(self,userHome):
++        """Unpack archive of symlinks"""
++        linksArch = pathJoin(userHome,".calculate/links.tar.bz2")
++        try:
++            if os.path.exists(linksArch):
++                tf = tarfile.open(linksArch)
++                tf.extractall(userHome)
++                tf.close()
++        except:
++            self.printWARNING(_("Failed to unpack links archive"))
++
+     def moveHomeDir(self, userHome):
+         """Переносим файлы пользователя в Home/Moved"""
+         # Находим директории и файлы в домашней директории
+@@ -1644,6 +1675,8 @@ class client(share, commandServer, encrypt):
+                             configFileName, uid, gid)
+         if os.path.exists(homeDir):
+             self.moveHomeDir(homeDir)
++            if sync:
++                self.tarSymLinks(homeDir,uid,gid)
+         else:
+             # Отмонтируем пользовательские ресурсы в случае ошибки
+             self.printERROR(_("Directory %s not found") % homeDir)
+@@ -1807,6 +1840,13 @@ class client(share, commandServer, encrypt):
+             if not self.addDaemonAutostart("client"):
+                 return False
+         if onlyEnv:
++            # apply templates (this appling client templates need
++            # for safety executing cl-install --startup for 
++            # already domained computers
++            if self.clVars.Get("os_remote_auth") and \
++                not self.applyTemplatesFromSystem():
++                self.printERROR(_("Failed to apply install templates"))
++                return False
+             return True
+         if domain and not self.mountRemote():
+                 return False
+@@ -2187,7 +2227,7 @@ class client(share, commandServer, encrypt):
+                 if not pathUserList:
+                     continue
+                 pathUser = "/".join(pathUserList[1:])
+-		srcDir = pathJoin(previousHome, pathUser)
++                srcDir = pathJoin(previousHome, pathUser)
+                 if os.path.exists(srcDir) and not os.path.exists(homeDir):
+                     flagMovedUsers = True
+                     destDir = os.path.dirname(homeDir)
+@@ -2195,7 +2235,7 @@ class client(share, commandServer, encrypt):
+                                       %{"src":srcDir,"dest":homeDir})
+                     if not self.copyTemplateDir(srcDir, destDir):
+                         return False
+-	    if flagMovedUsers and not os.listdir(previousHome):
++            if flagMovedUsers and not os.listdir(previousHome):
+                 os.rmdir(previousHome)
+         return True
+ 
