@@ -1,0 +1,56 @@
+diff --git pym/cl_fill.py pym/cl_fill.py
+index 9faee1b..cccb95c 100644
+--- pym/cl_fill.py
++++ pym/cl_fill.py
+@@ -19,10 +19,11 @@ import os
+ import types
+ import pwd, grp
+ import cl_overriding
++import socket
+ 
+ from cl_vars_share import varsShare, clLocale
+ from os.path import exists as pathexists
+-from os import path
++from os import path,readlink
+ from cl_utils import isMount, genpassword, \
+                      getAvailableVideo, process, \
+                      listDirectory,isPkgInstalled,lspci, readLinesFile, \
+@@ -79,6 +80,10 @@ class fillVars(varsShare):
+ 
+     def get_os_net_domain(self):
+         """Get net domain name"""
++        if path.exists('/proc/self/fd/1') and \
++            readlink('/proc/self/fd/1') == '/dev/console' and \
++            self.Get('os_root_dev') == '/dev/nfs':
++            return "local"
+         textLines = self._runos("hostname -d 2>&1")
+         if textLines is False:
+             cl_overriding.printERROR(_("Error executing 'hostname -d'"))
+@@ -125,6 +130,10 @@ class fillVars(varsShare):
+ 
+     def get_os_net_hostname(self):
+         """Get hostname of computer"""
++        if path.exists('/proc/self/fd/1') and \
++            readlink('/proc/self/fd/1') == '/dev/console' and \
++            self.Get('os_root_dev') == '/dev/nfs':
++            return socket.gethostname()
+         textLines = self._runos("hostname -s 2>&1")
+         hostname = ""
+         if textLines:
+diff --git pym/cl_utils.py pym/cl_utils.py
+index 1fb3743..90245e1 100644
+--- pym/cl_utils.py
++++ pym/cl_utils.py
+@@ -1333,6 +1333,12 @@ def refreshUdev():
+     """Run command which refresh information about device in udev"""
+     udevadm = getProgPath('/sbin/udevadm')
+     if udevadm:
++        blkidFile = '/etc/blkid.tab'
++        if path.exists(blkidFile):
++            try:
++                os.unlink(blkidFile)
++            except OSError:
++                pass
+         process(udevadm,"trigger","--subsystem-match","block").success()
+ 
+ def getPasswdUsers(minId=1000,maxId=65000):

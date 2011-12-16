@@ -1,0 +1,103 @@
+diff --git desktop/desktop/20-kwallet-4.6/kwalletrc desktop/desktop/20-kwallet-4.6/kwalletrc
+index 38aa932..3a023bb 100644
+--- desktop/desktop/20-kwallet-4.6/kwalletrc
++++ desktop/desktop/20-kwallet-4.6/kwalletrc
+@@ -6,37 +6,37 @@
+ kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Akonadi Resource,KDE Daemon,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==ru_RU#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Источник данных Akonadi,Служба KDE,IMAP Account 1 of type Почтовый сервер IMAP
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Источник данных Akonadi,Служба KDE,IMAP Account 1 of type Почтовый сервер IMAP,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==de_DE#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Akonadi-Ressource,KDE-Dienst,IMAP Account 1 of type IMAP-E-Mail-Server
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Akonadi-Ressource,KDE-Dienst,IMAP Account 1 of type IMAP-E-Mail-Server,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==es_ES#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Recurso de Akonadi,Servicio de KDE,IMAP Account 1 of type Servidor de correo IMAP
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Recurso de Akonadi,Servicio de KDE,IMAP Account 1 of type Servidor de correo IMAP,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==it_IT#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Risorsa Akonadi,Demone KDE,IMAP Account 1 of type Server di posta IMAP
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Risorsa Akonadi,Demone KDE,IMAP Account 1 of type Server di posta IMAP,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==fr_FR#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Ressource Akonadi,Démon de KDE,IMAP Account 1 of type Serveur de courriels IMAP
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Ressource Akonadi,Démon de KDE,IMAP Account 1 of type Serveur de courriels IMAP,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==pl_PL#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Zasób Akonadi,KDE Daemon,IMAP Account 1 of type Serwer poczty IMAP
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Zasób Akonadi,KDE Daemon,IMAP Account 1 of type Serwer poczty IMAP,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==pt_PT#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Recurso do Akonadi,Servidor do KDE,IMAP Account 1 of type Servidor de E-Mail IMAP
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Recurso do Akonadi,Servidor do KDE,IMAP Account 1 of type Servidor de E-Mail IMAP,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==pt_BR#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Recurso do Akonadi,Serviço do KDE IMAP Account 1 of type Servidor de e-mails IMAP
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Recurso do Akonadi,Serviço do KDE IMAP Account 1 of type Servidor de e-mails IMAP,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==bg_BG#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Akonadi Resource,KDE Daemon,IMAP Account 1 of type IMAP E-Mail Server
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Akonadi Resource,KDE Daemon,IMAP Account 1 of type IMAP E-Mail Server,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==ro_RO#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Akonadi Resource,Demon KDE,IMAP Account 1 of type Server de poștă IMAP
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Akonadi Resource,Demon KDE,IMAP Account 1 of type Server de poștă IMAP,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ #?os_locale_lang==uk_UA#
+-kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Ресурс Akonadi,Фонова служба KDE,IMAP Account 1 of type Сервер пошти IMAP
++kdewallet=Kopete,KMail,Konqueror,Chromium,Chrome,Network Management,Ресурс Akonadi,Фонова служба KDE,IMAP Account 1 of type Сервер пошти IMAP,IMAP Account 1 of type IMAP E-Mail Server
+ #os_locale_lang#
+ 
+ [Wallet]
+diff --git install/1live/nvidia-drivers/.calculate_directory install/1live/nvidia-drivers/.calculate_directory
+new file mode 100644
+index 0000000..6307c9b
+--- /dev/null
++++ install/1live/nvidia-drivers/.calculate_directory
+@@ -0,0 +1,2 @@
++# Calculate belong()!=&&pkg(x11-drivers/nvidia-drivers)!= path=/etc name=env.d
++
+diff --git install/1live/nvidia-drivers/99nvidia install/1live/nvidia-drivers/99nvidia
+new file mode 100644
+index 0000000..7aba4d7
+--- /dev/null
++++ install/1live/nvidia-drivers/99nvidia
+@@ -0,0 +1,8 @@
++# discard /usr/lib64/*nvidia*, because prelink call segafault
++# for some applications (chromium,libreoffice and etc)
++#?os_install_arch_machine==x86_64#
++PRELINK_PATH_MASK=/usr/lib64/*nvidia*
++#os_install_arch_machine#
++#?os_install_arch_machine!=x86_64#
++PRELINK_PATH_MASK=/usr/lib/*nvidia*
++#os_install_arch_machine#
+diff --git install/1system/calculate-client/.calculate_directory install/1system/calculate-client/.calculate_directory
+new file mode 100644
+index 0000000..5472da6
+--- /dev/null
++++ install/1system/calculate-client/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate pkg(sys-apps/calculate-client)!=&&env(client.os_remote_auth)!= path=/var name=calculate
+diff --git install/1system/calculate-client/calculate2.env install/1system/calculate-client/calculate2.env
+new file mode 100644
+index 0000000..4846569
+--- /dev/null
++++ install/1system/calculate-client/calculate2.env
+@@ -0,0 +1,5 @@
++# Calculate format=raw exists(/var/calculate/calculate2.env)==||load(empty,/var/calculate/calculate2.env)==
++
++[client]
++cl_remote_host = #-env(client.cl_remote_host)-#
++cl_remote_pw = #-env(client.cl_remote_pw)-#
+diff --git install/3pxe/syslinux/pxelinux.cfg/default.patch install/3pxe/syslinux/pxelinux.cfg/default.patch
+index 89c5863..01957db 100644
+--- install/3pxe/syslinux/pxelinux.cfg/default.patch
++++ install/3pxe/syslinux/pxelinux.cfg/default.patch
+@@ -7,3 +7,5 @@
+ <text>\1/calculate\2</text>
+ <reg> (common.cfg|calcmenu.c32)</reg>
+ <text> pxelinux.cfg/\1</text>
++<reg> scandelay=\d+</reg>
++<text></text>

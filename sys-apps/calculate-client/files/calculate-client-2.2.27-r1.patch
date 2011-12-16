@@ -1,0 +1,36 @@
+diff --git pym/cl_client.py pym/cl_client.py
+index eea7ccc..ca2e11d 100644
+--- pym/cl_client.py
++++ pym/cl_client.py
+@@ -1807,6 +1807,13 @@ class client(share, commandServer, encrypt):
+             if not self.addDaemonAutostart("client"):
+                 return False
+         if onlyEnv:
++            # apply templates (this appling client templates need
++            # for safety executing cl-install --startup for 
++            # already domained computers
++            if self.clVars.Get("os_remote_auth") and \
++                not self.applyTemplatesFromSystem():
++                self.printERROR(_("Failed to apply install templates"))
++                return False
+             return True
+         if domain and not self.mountRemote():
+                 return False
+@@ -2187,7 +2194,7 @@ class client(share, commandServer, encrypt):
+                 if not pathUserList:
+                     continue
+                 pathUser = "/".join(pathUserList[1:])
+-		srcDir = pathJoin(previousHome, pathUser)
++                srcDir = pathJoin(previousHome, pathUser)
+                 if os.path.exists(srcDir) and not os.path.exists(homeDir):
+                     flagMovedUsers = True
+                     destDir = os.path.dirname(homeDir)
+@@ -2195,7 +2202,7 @@ class client(share, commandServer, encrypt):
+                                       %{"src":srcDir,"dest":homeDir})
+                     if not self.copyTemplateDir(srcDir, destDir):
+                         return False
+-	    if flagMovedUsers and not os.listdir(previousHome):
++            if flagMovedUsers and not os.listdir(previousHome):
+                 os.rmdir(previousHome)
+         return True
+ 
