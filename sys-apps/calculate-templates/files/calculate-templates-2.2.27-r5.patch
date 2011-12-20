@@ -1,0 +1,19 @@
+commit 8edc552017cbd024a05876bce715acae8cec4135
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Dec 20 17:22:09 2011 +0400
+
+    Update rc.conf for pxe shutdown.
+
+diff --git a/install/1live/openrc/rc.conf b/install/1live/openrc/rc.conf
+index 4b526df..56f1ca6 100644
+--- a/install/1live/openrc/rc.conf
++++ b/install/1live/openrc/rc.conf
+@@ -1,5 +1,8 @@
+ # Calculate format=openrc
+ 
++#?os_install_root_dev==/dev/nfs#
++rc_nostop="netmount#?list(os_install_net_ip,0)!=# net.#-list(os_install_net_interfaces,0)-##list##?list(os_install_net_ip,1)!=# net.#-list(os_install_net_interfaces,1)-##list##?list(os_install_net_ip,2)!=# net.#-list(os_install_net_interfaces,2)-##list##?list(os_install_net_ip,3)!=# net.#-list(os_install_net_interfaces,3)-##list#"
++#os_install_root_dev#
+ #?pkg(net-dns/bind)!=&&pkg(net-nds/openldap)!=#
+ rc_named_after="ldap"
+ #pkg#
