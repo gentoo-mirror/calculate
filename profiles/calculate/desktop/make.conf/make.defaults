@@ -57,7 +57,7 @@ USE="${USE} gtk libnotify qt3support"
 
 LIRC_DEVICES="devinput"
 
-VIDEO_CARDS="${VIDEO_CARDS} nouveau nvidia"
+VIDEO_CARDS="${VIDEO_CARDS} nouveau nvidia -vmware"
 
 CALCULATE="printer wireless"
 
