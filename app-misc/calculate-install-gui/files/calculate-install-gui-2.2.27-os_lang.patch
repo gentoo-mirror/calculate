@@ -1,0 +1,19 @@
+commit b266bc0b87b1c583ca52bded3bc0fa477a52e69f
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Dec 26 11:36:30 2011 +0400
+
+    Fix lang variable.
+
+diff --git a/src/calculateconfig.cpp b/src/calculateconfig.cpp
+index ae94b5d..4fca24d 100644
+--- a/src/calculateconfig.cpp
++++ b/src/calculateconfig.cpp
+@@ -34,7 +34,7 @@ bool CalculateConfig::getDefaultConfig()
+ 	qDebug() << "Start cl-install -v --xml --filter \"os_install|os_locale_lang$|os_disk|os_device|^cl_migrate_user$\"";
+ 
+ 	cl_install.start(
+-		"cl-install -v --xml --filter \"os_install|os_locale_lang|os_disk|os_device|^cl_migrate_user$\""
++		"cl-install -v --xml --filter \"os_install|os_locale_lang|^os_lang$|os_disk|os_device|^cl_migrate_user$\""
+ 	);
+ 
+ 	if ( !cl_install.waitForStarted() )
