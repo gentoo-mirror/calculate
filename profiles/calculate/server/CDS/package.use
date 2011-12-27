@@ -10,7 +10,7 @@ net-mail/dovecot pop3d ldap
 net-nds/openldap syslog
 net-proxy/squid icap-client ldap
 net-ftp/proftpd -ipv6 -acl ldap
-net-fs/samba -samba
+net-fs/samba ldap
 
 net-misc/asterisk alsa dahdi span speex vorbis
 net-misc/asterisk-extra-sounds alaw g722 g729 siren14 siren7 sln16 ulaw wav
