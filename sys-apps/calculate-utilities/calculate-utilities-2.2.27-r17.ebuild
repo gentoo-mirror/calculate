@@ -22,7 +22,7 @@ cl_server
 
 RDEPEND="${RDEPEND}
 	=sys-apps/calculate-install-2.2.27-r3
-	=sys-apps/calculate-templates-2.2.27-r6
+	=sys-apps/calculate-templates-2.2.27-r7
 	=sys-apps/calculate-lib-2.2.27-r3
 	=sys-apps/calculate-i18n-2.2.27-r2
 
