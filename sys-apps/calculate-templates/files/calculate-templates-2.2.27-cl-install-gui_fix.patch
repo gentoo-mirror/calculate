@@ -1,0 +1,14 @@
+commit 55d1b928a45a09f5a4b8979a9b3d9c163cafa335
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Dec 28 09:17:06 2011 +0400
+
+    Fix calculate-install-gui templates.
+
+diff --git a/install/1live/calculate-install-gui/.calculate_directory b/install/1live/calculate-install-gui/.calculate_directory
+index b7ab639..aab120b 100644
+--- a/install/1live/calculate-install-gui/.calculate_directory
++++ b/install/1live/calculate-install-gui/.calculate_directory
+@@ -1,2 +1,2 @@
+-# Calculate belong()!=&&pkg(app-misc/calculate-install-gui)!=&&os_install_root_type==livecd append=skip
++# Calculate belong()!=&&pkg(app-misc/calculate-install-gui)!=&&os_install_root_type==livecd path=/usr/share name=applications
+ 
