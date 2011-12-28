@@ -17,7 +17,7 @@ SRC_URI="mirror://kernel/linux/utils/boot/syslinux/${SYSLINUX_PV:0:1}.xx/${SYSLI
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="~sys-boot/${SYSLINUX_P}"
