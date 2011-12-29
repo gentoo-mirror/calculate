@@ -12,7 +12,7 @@ start() {
 
 	[[ -d /var/run/nginx ]] || mkdir -p /var/run/nginx
 	
-	for port in `seq ${STARTPORT:-9999} ${ENDPORT:-10039}`
+	for port in `seq ${STARTPORT:-10040} ${ENDPORT:-10079}`
 	do
 		start-stop-daemon --background --start --exec /usr/bin/cgiwrap-fcgi.pl \
 			--name cgiwrap${port} \
@@ -27,9 +27,9 @@ stop() {
 
 	ebegin "Stopping cgi-wrapper"
 
-	STARTPORT=${STARTPORT:-9999}
-	ENDPORT=${ENDPORT:-10039}
-	for port in `seq ${STARTPORT:-9999} ${ENDPORT:-10039}`
+	STARTPORT=${STARTPORT:-10040}
+	ENDPORT=${ENDPORT:-10079}
+	for port in `seq ${STARTPORT:-10040} ${ENDPORT:-10079}`
 	do
 		start-stop-daemon --quiet --stop --retry TERM/5/TERM/10 \
 			--pidfile /var/run/cgiwrap${port}.pid
