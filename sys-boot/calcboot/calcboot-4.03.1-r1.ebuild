@@ -23,7 +23,6 @@ IUSE=""
 RDEPEND="~sys-boot/${SYSLINUX_P}"
 DEPEND="${RDEPEND}"
 
-
 # This ebuild is a departure from the old way of rebuilding everything in syslinux
 # This departure is necessary since hpa doesn't support the rebuilding of anything other
 # than the installers.
