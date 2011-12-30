@@ -39,8 +39,6 @@ src_unpack() {
 	cd ../..
 	# Fix building on hardened
 	pwd
-	pwd
-	pwd
 	epatch "${FILESDIR}"/${SYSLINUX_PN}-4.00-nopie.patch
 
 	rm -f gethostip #bug 137081
