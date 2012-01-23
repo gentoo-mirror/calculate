@@ -22,7 +22,7 @@ DEPEND="~sys-apps/calculate-templates-2.2.27
 	!minimal? ( sys-boot/grub
 	sys-apps/gptfdisk
 	>=sys-apps/util-linux-2.19.1
-	sys-apps/iproute2
+	sys-apps/iproute2[-minimal]
 	sys-fs/dosfstools
 	sys-fs/squashfs-tools
 	sys-block/parted )
