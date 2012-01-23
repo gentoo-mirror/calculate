@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,7 +18,6 @@ RDEPEND="
 	media-gfx/splashutils
 
 	cdistro_CLD? (
-		!x11-themes/gtk-engines-qtcurve
 		media-gfx/cld-themes
 		x11-themes/oxygen-gtk
 	)
