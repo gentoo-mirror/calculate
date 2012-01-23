@@ -1,6 +1,10 @@
 ~app-misc/cl-gnome-meta-3.2 amd64 x86
 ~gnome-base/gnome-3.2.1 amd64 x86
 
+#required by games-board/aisleriot-3.2.2[gnome], required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required cl-gnome-meta-3.2, required by cl-gnome-meta (argument)
+~app-text/yelp-tools-3.2.1 amd64 x86
+#required by app-misc/tracker-0.12.9[nautilus], required by gnome-extra/gnome-documents-0.2.1, required by gnome-base/gnome-extra-apps-3.2.1[tracker] gnome-base/gnome-3.2.1[extras], required by app-misc/cl-gnome-meta-3.2, required by cl-gnome-meta (argument)
+~gnome-extra/nautilus-tracker-tags-0.12.9 amd64 x86
 #required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
 ~gnome-extra/gnome-utils-3.2.1 amd64 x86
 #required by gnome-extra/gnome-system-monitor-3.2.1, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
