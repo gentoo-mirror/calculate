@@ -1,0 +1,7 @@
+net-libs/webkit-gtk gstreamer
+gnome-extra/nm-applet bluetooth
+
+#required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+gnome-base/gvfs gdu
+#required by net-misc/vinagre-3.2.2, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+net-libs/gtk-vnc gtk3

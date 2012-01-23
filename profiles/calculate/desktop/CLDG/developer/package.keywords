@@ -1,2 +1,186 @@
 ~app-misc/cl-gnome-meta-3.2 amd64 x86
 ~gnome-base/gnome-3.2.1 amd64 x86
+
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gnome-utils-3.2.1 amd64 x86
+#required by gnome-extra/gnome-system-monitor-3.2.1, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~x11-libs/libwnck-3.2.1 amd64 x86
+#required by app-editors/gedit-3.2.6[python], required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~x11-libs/gtksourceview-3.2.3 amd64 x86
+#required by gnome-extra/gnome-contacts-3.2.2, required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-desktop-3.2.1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gconf-editor-3.0.1 amd64 x86
+#required by gnome-base/gnome-fallback-3.2.1, required by gnome-base/gnome-3.2.1[fallback], required by =gnome-base/gnome-3.2.1 (argument)
+~x11-misc/notification-daemon-0.7.3 amd64 x86
+#required by media-gfx/shotwell-0.11.6, required by gnome-base/gnome-extra-apps-3.2.1[shotwell], required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~media-libs/libraw-0.14.5 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~x11-themes/gnome-themes-standard-3.2.1 amd64 x86
+#required by gnome-base/gnome-core-libs-3.2.1, required by gnome-base/gnome-fallback-3.2.1, required by gnome-base/gnome-3.2.1[fallback], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/libgnomekbd-3.2.0-r1 amd64 x86
+#required by media-libs/clutter-1.8.2-r1, required by gnome-base/gnome-core-libs-3.2.1, required by gnome-base/gnome-fallback-3.2.1, required by gnome-base/gnome-3.2.1[fallback], required by =gnome-base/gnome-3.2.1 (argument)
+~media-libs/cogl-1.8.2 amd64 x86
+#required by gnome-extra/gnome-documents-0.2.1, required by gnome-base/gnome-extra-apps-3.2.1[tracker], required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~net-libs/gnome-online-accounts-3.2.1 amd64 x86
+#required by media-video/cheese-3.2.2, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~media-libs/clutter-1.8.2-r1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-session-3.2.1 amd64 x86
+#required by gnome-extra/gnome-documents-0.2.1, required by gnome-base/gnome-extra-apps-3.2.1[tracker], required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~app-misc/tracker-0.12.9 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-menus-3.2.0.1-r1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-settings-daemon-3.2.2-r1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~games-board/aisleriot-3.2.2 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~app-editors/gedit-3.2.6 amd64 x86
+#required by gnome-base/gnome-core-libs-3.2.1, required by gnome-base/gnome-fallback-3.2.1, required by gnome-base/gnome-3.2.1[fallback], required by =gnome-base/gnome-3.2.1 (argument)
+~x11-libs/pango-1.29.4 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~x11-terms/gnome-terminal-3.2.1 amd64 x86
+#required by gnome-base/gnome-core-libs-3.2.1, required by gnome-base/gnome-fallback-3.2.1, required by gnome-base/gnome-3.2.1[fallback], required by =gnome-base/gnome-3.2.1 (argument)
+~dev-libs/atk-2.2.0 amd64 x86
+#required by media-gfx/shotwell-0.11.6, required by gnome-base/gnome-extra-apps-3.2.1[shotwell], required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~media-libs/gexiv2-0.3.1 amd64 x86
+#required by gnome-base/gnome-shell-3.2.2.1, required by gnome-extra/gnome-tweak-tool-3.2.2-r2, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~sys-apps/accountsservice-0.6.15 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~net-misc/vino-3.2.2 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gcalctool-6.2.0 amd64 x86
+#required by gnome-base/gnome-settings-daemon-3.2.2-r1, required by gnome-base/gnome-control-center-3.2.2, required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~x11-libs/gtk+-3.2.3 amd64 x86
+#required by gnome-base/gnome-shell-3.2.2.1, required by gnome-extra/gnome-tweak-tool-3.2.2-r2, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~app-accessibility/caribou-0.4.1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~media-gfx/eog-3.2.2 amd64 x86
+#required by gnome-extra/yelp-3.2.1, required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/yelp-xsl-3.2.1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1[networkmanager], required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/nm-applet-0.9.2.0-r1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gnome-games-3.2.1-r1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-core-libs-3.2.1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-keyring-3.2.2 amd64 x86
+#required by media-video/totem-3.2.1, required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~dev-libs/libpeas-1.2.0-r1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~app-text/evince-3.2.1-r1 amd64 x86
+#required by gnome-base/gnome-fallback-3.2.1, required by gnome-base/gnome-3.2.1[fallback], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-panel-3.2.1 amd64 x86
+#required by dev-libs/libgdata-0.10.1, required by gnome-extra/gnome-documents-0.2.1, required by gnome-base/gnome-extra-apps-3.2.1[tracker], required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~net-libs/liboauth-0.9.6 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gnome-contacts-3.2.2 amd64 x86
+#required by gnome-extra/nm-applet-0.9.2.0-r1, required by gnome-base/gnome-core-apps-3.2.1[networkmanager], required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~net-misc/networkmanager-0.9.2.0-r2 amd64 x86
+#required by net-misc/vinagre-3.2.2[ssh], required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~x11-libs/vte-0.30.1-r2 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~net-analyzer/gnome-nettool-3.0.1 amd64 x86
+#required by gnome-base/gnome-control-center-3.2.2[socialweb], required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~net-libs/libsocialweb-0.25.20 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gnome-screensaver-3.2.0 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gnome-tweak-tool-3.2.2-r2 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~net-im/empathy-3.2.2 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~mail-client/evolution-3.2.3 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gnome-user-docs-3.2.1 amd64 x86
+#required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-extra-apps-3.2.1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/sushi-0.2.1 amd64 x86
+#required by net-im/empathy-3.2.2[map], required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~media-libs/libchamplain-0.12.1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/libgnome-keyring-3.2.2 amd64 x86
+#required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gdm-3.2.1.1-r2 amd64 x86
+#required by mail-client/evolution-3.2.3, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/evolution-data-server-3.2.3 amd64 x86
+#required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~x11-themes/gnome-backgrounds-3.2.0 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1[bluetooth], required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~net-wireless/gnome-bluetooth-3.2.1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~net-misc/vinagre-3.2.2 amd64 x86
+#required by media-sound/sound-juicer-2.99.0_pre20111001, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~media-libs/libgnome-media-profiles-3.0.0 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-control-center-3.2.2 amd64 x86
+#required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-shell-3.2.2.1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1[tracker], required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gnome-documents-0.2.1 amd64 x86
+#required by app-accessibility/caribou-0.4.1, required by gnome-base/gnome-shell-3.2.2.1, required by gnome-extra/gnome-tweak-tool-3.2.2-r2, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~dev-python/pyatspi-2.2.1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1[cdr], required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~app-cdr/brasero-3.2.0-r1 amd64 x86
+#required by media-video/totem-3.2.1, required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~x11-libs/mx-1.3.1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~x11-themes/gnome-icon-theme-symbolic-3.2.2 amd64 x86
+#required by gnome-extra/gnome-documents-0.2.1, required by gnome-base/gnome-extra-apps-3.2.1[tracker], required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~dev-libs/libgdata-0.10.1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gnome-system-monitor-3.2.1 amd64 x86
+#required by gnome-base/gnome-fallback-3.2.1, required by gnome-base/gnome-3.2.1[fallback], required by =gnome-base/gnome-3.2.1 (argument)
+~x11-wm/metacity-2.34.1 amd64 x86
+#required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-3.2.1 amd64 x86
+#required by gnome-base/gnome-keyring-3.2.2, required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~app-crypt/p11-kit-0.10 amd64 x86
+#required by gnome-base/gnome-3.2.1[fallback], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-applets-3.2.1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1[shotwell], required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~media-gfx/shotwell-0.11.6 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~app-arch/file-roller-3.2.1 amd64 x86
+#required by gnome-base/gnome-shell-3.2.2.1, required by gnome-extra/gnome-tweak-tool-3.2.2-r2, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~x11-wm/mutter-3.2.2 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~www-client/epiphany-3.2.1 amd64 x86
+#required by gnome-base/gnome-shell-3.2.2.1, required by gnome-extra/gnome-tweak-tool-3.2.2-r2, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~dev-libs/gjs-1.30.1 amd64 x86
+#required by dev-python/pyatspi-2.2.1, required by app-accessibility/caribou-0.4.1, required by gnome-base/gnome-shell-3.2.2.1, required by gnome-extra/gnome-tweak-tool-3.2.2-r2, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~app-accessibility/at-spi2-core-2.2.3 amd64 x86
+#required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-core-apps-3.2.1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~media-video/cheese-3.2.2 amd64 x86
+#required by gnome-base/gnome-control-center-3.2.2[cups], required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~net-print/cups-pk-helper-0.2.1 amd64 x86
+#required by dev-libs/gjs-1.30.1, required by gnome-extra/gnome-documents-0.2.1, required by gnome-base/gnome-extra-apps-3.2.1[tracker], required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~dev-lang/spidermonkey-1.8.5-r1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/nautilus-3.2.1-r1 amd64 x86
+#required by gnome-base/gnome-3.2.1[fallback], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-base/gnome-fallback-3.2.1 amd64 x86
+#required by gnome-extra/gnome-system-monitor-3.2.1, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~dev-cpp/gtkmm-3.2.0 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~media-sound/sound-juicer-2.99.0_pre20111001 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/yelp-3.2.1 amd64 x86
+#required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gucharmap-3.2.2 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~app-crypt/seahorse-3.2.2 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~media-video/totem-3.2.1 amd64 x86
+#required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~gnome-extra/gnome-power-manager-3.2.1 amd64 x86
+#required by gnome-base/gnome-panel-3.2.1, required by gnome-base/gnome-fallback-3.2.1, required by gnome-base/gnome-3.2.1[fallback], required by =gnome-base/gnome-3.2.1 (argument)
+~dev-libs/libgweather-3.2.1 amd64 x86
+#required by net-im/empathy-3.2.2, required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+~dev-libs/folks-0.6.6 amd64 x86
+
