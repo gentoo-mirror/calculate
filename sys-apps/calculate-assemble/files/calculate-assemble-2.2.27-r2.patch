@@ -1,0 +1,66 @@
+diff --git pym/cl_assemble.py pym/cl_assemble.py
+index 4f7c5f8..55f3e68 100644
+--- pym/cl_assemble.py
++++ pym/cl_assemble.py
+@@ -388,7 +388,7 @@ class cl_assemble(color_print):
+                                   ":\n")
+                 for system in self.clVars.Get('cl_assemble_distro'):
+                     self.printSUCCESS(self.__profileShortname(system))
+-            self.removeDistroInfo()
++                self.removeDistroInfo()
+             return False
+         return True
+ 
+@@ -605,6 +605,11 @@ class cl_assemble(color_print):
+         self.printMessageForTest(_("Installing %s")%"layman")
+         self.runChroot(emergeLayman)
+ 
++        # stage3 contains python-2.7 without USE="xml" need for layman
++        emergePython = "USE='xml' emerge -1 python:2.7"
++        self.printMessageForTest(_("Installing %s")%"python")
++        self.runChroot(emergePython)
++
+         self.printMessageForTest(_("Loading calculate overlay"))
+         if filter(lambda x:"calculate" in x,self.runChroot("layman -l")):
+             self.runChroot("layman -s calculate")
+@@ -686,6 +691,7 @@ class cl_assemble(color_print):
+             self.sourceDistr = distRep.getDistributiveByFile(distName)
+             if not self._askUser(force, _("Continue system assemble")):
+                 self.printERROR(_("Assemble interrupted"))
++                self.removeDistroInfo()
+                 return False
+             self.writeVar('cl_assemble_make','configure')
+             # test /mnt
+@@ -720,6 +726,10 @@ class cl_assemble(color_print):
+             self.printMessageForTest(
+                 _("Enabling calculate-install to configure packages"))
+             if "calculate" in self.clVars.Get('os_assemble_system_profile'):
++                # emerge sys-apps/iproute2, because calculate-install
++                # need emerge with USE="minimal", but emerging 
++                # will install iproute2 with USE="minimal" also
++                self.runChroot("emerge -1 sys-apps/iproute2")
+                 self.runChroot("USE='minimal -pxe' emerge "
+                                'sys-apps/calculate-install')
+                 self.runChroot("cl-install --install")
+@@ -1504,10 +1514,11 @@ class cl_assemble(color_print):
+         assembleEnv = iniParser(self.assembleEnvFile)
+         discardEmpty = lambda x : filter(lambda y:y,x)
+         busyDevs = \
++            map(lambda x:x.encode('utf-8') if type(x) == unicode else x,
+             discardEmpty(
+             map(lambda x:assembleEnv.getVar(x,'os_assemble_root_dev'),
+-            distros))
+-        discardBusy = lambda x : filter(lambda y:not (x in busyDevs 
++            distros)))
++        discardBusy = lambda x : filter(lambda y:not (y in busyDevs 
+                                                       or isMount(y)),x)
+         availableDev = self.clVars.Get('cl_assemble_available_dev').split(',')
+         availableDev = discardEmpty(availableDev)
+@@ -1515,6 +1526,7 @@ class cl_assemble(color_print):
+         if freeDev:
+             rootDev = random.choice(freeDev)
+             self.clVars.Set('os_assemble_root_dev',rootDev,True)
++            self.saveVars('os_assemble_root_dev')
+             return True
+         return False
+ 
