@@ -1,0 +1,47 @@
+commit 17ba2d699ec151dc2ae28426baddf445d22eaec9
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Jan 24 16:05:00 2012 +0400
+
+    Fix xkeyboard-config.
+
+diff --git install/1live/calculate-utilities/reconfigurePackages install/1live/calculate-utilities/reconfigurePackages
+index c127bc5..3e9b251 100644
+--- install/1live/calculate-utilities/reconfigurePackages
++++ install/1live/calculate-utilities/reconfigurePackages
+@@ -1,4 +1,13 @@
+-# Calculate path=/tmp name=reconfigureLibre exec=/bin/bash ac_install_system!=up&&cl_belong_pkg!=&&pkg(app-office/libreoffice)!=
++# Calculate path=/tmp name=reconfigureLibre exec=/bin/bash ac_install_system!=up&&cl_belong_pkg!=&&pkg(app-office/libreoffice)!=||ac_install_system!=up&&cl_belong_pkg!=&&pkg(x11-misc/xkeyboard-config)!=
+ 
++#?pkg(app-office/libreoffice)!=#
+ cl-template -l all --merge app-office/libreoffice &>/dev/null
++#pkg#
++#?pkg(x11-misc/xkeyboard-config)!=#
++cl-template -l all --merge x11-misc/xkeyboard-config &>/dev/null
++who | grep " :" |  awk '{print $2" "$1}' | while read disp user
++do
++    su $user -c "setxkbmap -display $disp \$(setxkbmap -display $disp -query | grep layout | awk '{print \$2}')"
++done
++#pkg#
+ true
+diff --git install/1merge/xkeyboard-config/.calculate_directory install/1merge/xkeyboard-config/.calculate_directory
+new file mode 100644
+index 0000000..987b3b2
+--- /dev/null
++++ install/1merge/xkeyboard-config/.calculate_directory
+@@ -0,0 +1 @@
++# Calculate belong()!=&&pkg(x11-misc/xkeyboard-config)!= append=skip
+diff --git install/1merge/xkeyboard-config/xfree86 install/1merge/xkeyboard-config/xfree86
+new file mode 100644
+index 0000000..65c3dd8
+--- /dev/null
++++ install/1merge/xkeyboard-config/xfree86
+@@ -0,0 +1,9 @@
++# Calculate format=patch path=/usr/share/X11/xkb/compat
++<reg>\s*interpret\s+XF86_Ungrab\s+{
++\s*action = Private\([^)]+\);
++\s*};</reg>
++<text></text>
++<reg>interpret\s+XF86_ClearGrab\s+{
++\s*action = Private\([^)]+\);
++\s*};</reg>
++<text></text>
