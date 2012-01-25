@@ -1,0 +1,28 @@
+diff --git a/pym/cl_install_cmd.py b/pym/cl_install_cmd.py
+index ae58080..48c2216 100644
+--- a/pym/cl_install_cmd.py
++++ b/pym/cl_install_cmd.py
+@@ -308,6 +308,7 @@ class install_cmd(share_cmd):
+                         valuename=_("frame buffer resolution"),
+                         example="1024x768")
+         if values.ip:
++            self.clVars.Set('os_install_net_settings','',True)
+             for ipaddr in values.ip:
+                 if not re.match("^(\w+:)?%s$"%iputils.IP_ADDR_NET,ipaddr):
+                     self.optobj.error(self.errorWithExample.format(
+@@ -316,6 +317,7 @@ class install_cmd(share_cmd):
+                         value=ipaddr,
+                         example="eth0:192.168.0.21/16"))
+         if not values.dns is None:
++            self.clVars.Set('os_install_net_settings','',True)
+             if not re.match("(^{0}(,{0})*|)$".format(iputils.IP_ADDR),
+                             values.dns):
+                 self.optobj.error(self.errorWithExample.format(
+@@ -324,6 +326,7 @@ class install_cmd(share_cmd):
+                     value=values.dns,
+                     example="8.8.8.8"))
+         if values.route:
++            self.clVars.Set('os_install_net_settings','',True)
+             for route in values.route:
+                 if not re.match("^({net}|default):(({ipaddr})?"
+                                 "(:\w+(:{ipaddr})?)?)?$".format(
