@@ -1,5 +1,5 @@
 diff --git a/pym/cl_install_cmd.py b/pym/cl_install_cmd.py
-index ae58080..48c2216 100644
+index ae58080..1d84629 100644
 --- a/pym/cl_install_cmd.py
 +++ b/pym/cl_install_cmd.py
 @@ -308,6 +308,7 @@ class install_cmd(share_cmd):
@@ -26,3 +26,12 @@ index ae58080..48c2216 100644
              for route in values.route:
                  if not re.match("^({net}|default):(({ipaddr})?"
                                  "(:\w+(:{ipaddr})?)?)?$".format(
+@@ -334,6 +337,8 @@ class install_cmd(share_cmd):
+                         value=route,
+                         example="default:192.168.1.1"))
+         # if system installation
++        if values.dhcp:
++            self.logicObj.clVars.Set('os_install_net_settings','',True)
+         if values.scheduler:
+             if not values.scheduler in \
+                 self.logicObj.clVars.Get('os_kernel_schedulers'):
