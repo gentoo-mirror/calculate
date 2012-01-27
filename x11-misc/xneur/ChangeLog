@@ -1,6 +1,13 @@
 # ChangeLog for x11-misc/xneur
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*xneur-0.15.0 (27 Jan 2012)
+
+  27 Jan 2012; Alexander Tratsevskiy (L'autre) <at@calculate.ru>
+  +files/0.15.0-select-gtk.patch, -xneur-0.12.0-r1.ebuild,
+  -files/xneur-0.12.0-libnotify-0.7.patch, +xneur-0.15.0.ebuild, -metadata.xml:
+  version bump
 
   12 Mar 2011; Alexandre Rostovtsev (tetromino) <tetromino@gmail.com>
   -xneur-0.12.0.ebuild, +xneur-0.12.0-r1.ebuild,
