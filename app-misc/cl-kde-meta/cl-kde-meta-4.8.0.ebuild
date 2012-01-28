@@ -115,7 +115,7 @@ RDEPEND="${RDEPEND}
 	    kde-base/gwenview
 		kde-base/kamera
 		kde-base/kcolorchooser
-		kdegraphics-mobipocket
+		kde-base/kdegraphics-mobipocket
 		kde-base/kdegraphics-strigi-analyzer
 		kde-base/kgamma
 		kde-base/kolourpaint
