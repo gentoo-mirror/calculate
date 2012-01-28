@@ -10,7 +10,7 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="
 calculate_nodecoration
 calculate_nographics
@@ -115,6 +115,7 @@ RDEPEND="${RDEPEND}
 	    kde-base/gwenview
 		kde-base/kamera
 		kde-base/kcolorchooser
+		kdegraphics-mobipocket
 		kde-base/kdegraphics-strigi-analyzer
 		kde-base/kgamma
 		kde-base/kolourpaint
@@ -194,6 +195,7 @@ RDEPEND="${RDEPEND}
 	kde-base/kdf
 	kde-base/kgpg
 	kde-base/kremotecontrol
+	kde-base/ksecrets
 	kde-base/kwallet
 	kde-base/sweeper
 	cups? (
@@ -205,7 +207,6 @@ RDEPEND="${RDEPEND}
 # kdepim-meta
 #-----------------------------------------------------------------------------
 #kde-base/blogilo
-#kde-base/kdepim-wizards
 #kde-base/knode
 #kde-base/ktimetracker
 RDEPEND="${RDEPEND}
