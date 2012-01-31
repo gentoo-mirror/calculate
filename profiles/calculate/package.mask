@@ -1,9 +1,6 @@
 # mask all device-mapper for using lvm2
 sys-fs/device-mapper
 
-# hasn't patch for Calculate profiles
->app-admin/eselect-1.2.17
-
 #for support sys-boot/unetbootin
 >=sys-boot/calcboot-4.04
 >=sys-boot/syslinux-4.04
