@@ -1,0 +1,41 @@
+commit 6442ff44c2667dc161588704138157927247423b
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Jan 31 11:19:15 2012 +0400
+
+    Rename branch develop to update.
+
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index 55f3e68..68ccab1 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -585,7 +585,7 @@ class cl_assemble(color_print):
+             gitConfig = pathJoin(portagePath, '.git/config')
+             if path.exists(gitConfig):
+                 removeDir(portagePath)
+-        if self.clVars.Get('cl_assemble_branch') in ('master','develop'):
++        if self.clVars.Get('cl_assemble_branch') in ('master','update'):
+             pathOverlay = pathJoin(self.assemblePath,'var/lib/layman/calculate')
+             if path.exists(pathOverlay):
+                 updateBranch= \
+@@ -616,7 +616,7 @@ class cl_assemble(color_print):
+         else:
+             self.runChroot("layman -L")
+             self.runChroot("layman -a calculate")
+-        if self.clVars.Get('cl_assemble_branch') in ('master','develop'):
++        if self.clVars.Get('cl_assemble_branch') in ('master','update'):
+             updateBranch= "cd {portage};git checkout {branch}".format(
+                     portage='/var/lib/layman/calculate',
+                     branch=self.clVars.Get('cl_assemble_branch'))
+diff --git a/pym/cl_fill_assemble.py b/pym/cl_fill_assemble.py
+index 6947d0d..8467c6c 100644
+--- a/pym/cl_fill_assemble.py
++++ b/pym/cl_fill_assemble.py
+@@ -224,7 +224,7 @@ class fillVars(installFillVars):
+         return convert.get(arch,arch)
+ 
+     def get_os_assemble_system_profile(self):
+-        """Detect developer or stable profile"""
++        """Detect update or stable profile"""
+         makeProfileFile = '/etc/make.profile'
+         if self.Get('cl_action') in ('configure','setup') \
+             and path.exists(makeProfileFile):
