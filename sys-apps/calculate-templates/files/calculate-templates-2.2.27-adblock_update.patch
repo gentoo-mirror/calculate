@@ -1,0 +1,132 @@
+diff --git a/desktop/desktop/60-chromium-6.0/.config/chromium/Default/Preferences b/desktop/desktop/60-chromium-6.0/.config/chromium/Default/Preferences
+index 32e55f2..c83c481 100644
+--- a/desktop/desktop/60-chromium-6.0/.config/chromium/Default/Preferences
++++ b/desktop/desktop/60-chromium-6.0/.config/chromium/Default/Preferences
+@@ -46,7 +46,7 @@
+             },
+             "path": "hnfhcmjkebafbfikmbkhdpbmfpfjgiog/1.0",
+             "state": 1
+-#?pkg(www-apps/chromium-adblock)!=#
++#?pkg(www-apps/chromium-adblock)>=2.4&&pkg(www-apps/chromium-adblock)<2.5#
+          },
+          "gighmmpiobklfepjocnamgkkbiglidom": {
+             "allowFileAccess": true,
+@@ -106,6 +106,118 @@
+             "path": "gighmmpiobklfepjocnamgkkbiglidom/2.4.27_0",
+             "state": 1
+ #pkg#
++#?pkg(www-apps/chromium-adblock)>2.5#
++         },
++         "gighmmpiobklfepjocnamgkkbiglidom": {
++            "active_permissions": {
++               "api": [ "contextMenus", "idle", "tabs", "webNavigation", "webRequest" ],
++               "explicit_host": [ "http://*/*", "https://*/*" ],
++               "scriptable_host": [ "*://*.hk-pub.com/forum/thread-*", "*://*.mail.live.com/*", "*://*.youtube.com/*", "http://*/*", "https://*/*" ]
++            },
++            "delayNetworkRequests": true,
++            "from_bookmark": false,
++            "from_webstore": true,
++            "granted_permissions": {
++               "api": [ "contextMenus", "idle", "tabs", "webNavigation", "webRequest" ],
++               "explicit_host": [ "http://*/*", "https://*/*" ],
++               "scriptable_host": [ "*://*.hk-pub.com/forum/thread-*", "*://*.mail.live.com/*", "*://*.youtube.com/*", "http://*/*", "https://*/*" ]
++            },
++            "install_time": "12972662975777747",
++            "location": 1,
++            "manifest": {
++               "background_page": "background.html",
++               "browser_action": {
++                  "default_icon": "img/icon19.png",
++                  "default_title": "AdBlock Options",
++                  "popup": "button/popup.html"
++               },
++               "content_scripts": [ {
++                  "all_frames": true,
++                  "js": [ "port.js", "functions.js", "filtering/filteroptions.js", "filtering/filtertypes.js", "filtering/filterset.js", "adblock_start_common.js", "adblock_start.js", "adblock_start_new_style.js" ],
++                  "matches": [ "http://*/*", "https://*/*" ],
++                  "run_at": "document_start"
++               }, {
++                  "all_frames": true,
++                  "js": [ "bandaids.js" ],
++                  "matches": [ "*://*.mail.live.com/*", "*://*.hk-pub.com/forum/thread-*", "*://*.youtube.com/*" ],
++                  "run_at": "document_start"
++               }, {
++                  "all_frames": true,
++                  "js": [ "adblock.js" ],
++                  "matches": [ "http://*/*", "https://*/*" ],
++                  "run_at": "document_end"
++               }, {
++                  "all_frames": false,
++                  "js": [ "uiscripts/blacklisting/rightclick_hook.js" ],
++                  "matches": [ "http://*/*", "https://*/*" ],
++                  "run_at": "document_end"
++               } ],
++               "content_security_policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src *; frame-src 'self' http://chromeadblock.com",
++               "current_locale": "#-os_locale_lang-#",
++               "default_locale": "en",
++               "description": "The most popular Chrome extension, with over 3 million users!  Blocks ads all over the web.",
++               "icons": {
++                  "128": "img/icon128.png",
++                  "16": "img/icon16.png",
++                  "48": "img/icon48.png"
++               },
++               "incognito": "spanning",
++               "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZWWNkerYNFB0SIg87WwcrcniMYkCqxLz4OB3CLNoogUUsHN+Rk9vRB7o3Jjc4shlz2LBvAbtPbrGkU+NK9Hc3ubVydzpnoRDEl1RKz3GhqKFkECvTyAxrsKainXH+4Ni2+K7bg1U0tLoQMPJ9f3ieYLIwXeHh9+lYXQi6soq0pwIDAQAB",
++               "minimum_chrome_version": "6",
++               "name": "AdBlock",
++               "options_page": "options/index.html",
++               "permissions": [ "http://*/*", "https://*/*", "contextMenus", "tabs", "idle", "webRequest", "webRequestBlocking", "webNavigation" ],
++               "update_url": "http://clients2.google.com/service/update2/crx",
++               "version": "2.5.15"
++            },
++            "path": "gighmmpiobklfepjocnamgkkbiglidom/2.5.15_0",
++            "state": 1
++         },
++         "hcpndbchnlgojmnijaldkicigmihmdca": {
++            "blacklist": true
++         },
++         "hgjgaeknhmidehalnmokomhpfhbfmpcm": {
++            "blacklist": true
++         },
++         "hhfiljkpjapjjphcocclhhaldpfkkjbi": {
++            "blacklist": true
++         },
++         "hnfhcmjkebafbfikmbkhdpbmfpfjgiog": {
++            "install_time": "12968323243115960",
++            "lastpingday": "12972643200628765",
++            "location": 1,
++            "manifest": {
++               "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCndMu10pCnXVJNSCvmc8K0CXEZZ8DU2DNgt77nkTQ2flcGgmf4yCY5QAKHMv2K9mDos38iVIcUSxuUruIXdOuQIY5JZy7Bitb5WzHQ6UfWWqoc/tEpVYi/k/+8TvORflKfgbmNX2kxrbI7gxkaTssMLYrgbrlG3KlwI7k890T2KQIDAQAB",
++               "name": "Minimal",
++               "theme": {
++                  "colors": {
++                     "bookmark_text": [ 149, 149, 149 ],
++                     "frame": [ 255, 255, 255 ],
++                     "ntp_background": [ 255, 255, 255 ],
++                     "ntp_link": [ 170, 170, 170 ],
++                     "ntp_section": [ 235, 235, 235, 1 ],
++                     "ntp_section_link": [ 149, 149, 149 ],
++                     "ntp_section_text": [ 149, 149, 149 ],
++                     "ntp_text": [ 149, 149, 149 ],
++                     "tab_background_text": [ 149, 149, 149 ],
++                     "tab_text": [ 149, 149, 149 ],
++                     "toolbar": [ 255, 255, 255 ]
++                  },
++                  "images": {
++                     "theme_button_background": "i/agxjaHJvbWV0aGVtZXNyDAsSBEZpbGUYktsBDA",
++                     "theme_frame": "i/agxjaHJvbWV0aGVtZXNyDAsSBEZpbGUYoaQBDA",
++                     "theme_tab_background": "i/agxjaHJvbWV0aGVtZXNyDAsSBEZpbGUYmtMBDA",
++                     "theme_toolbar": "i/agxjaHJvbWV0aGVtZXNyDAsSBEZpbGUYltMBDA"
++                  },
++                  "tints": {
++                     "buttons": [ 0.001, 0, 0.706 ]
++                  }
++               },
++               "version": "1.0"
++            },
++            "path": "hnfhcmjkebafbfikmbkhdpbmfpfjgiog/1.0",
++            "state": 1
++#pkg#
+          }
+       },
+       "theme": {
