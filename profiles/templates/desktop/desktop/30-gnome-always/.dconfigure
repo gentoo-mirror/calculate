@@ -1,0 +1,10 @@
+# Calculate path=~ name=.dconfigure chmod=700 append=after
+#!/bin/bash
+
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+dconf write /org/gnome/org/gnome/nautilus/desktop/home-icon-visible true
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+dconf write /org/gnome/org/gnome/nautilus/desktop/home-icon-visible false
+#env#
+rm ~/.dconfigure

@@ -1,4 +1,5 @@
 # Calculate path=~ name=.dconfigure chmod=700
+#!/bin/bash
 
 # background picture
 dconf write /org/gnome/desktop/background/picture-uri \'file:///usr/share/pixmaps/backgrounds/gnome/calculate/#-os_x11_standart-#.jpg\'
@@ -10,7 +11,20 @@ dconf write /org/gnome/desktop/interface/cursor-theme \'neutral\'
 dconf write /org/gnome/desktop/interface/icon-theme \'Calculate\'
 # show desktop icons
 dconf write /org/gnome/desktop/background/show-desktop-icons true
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+dconf write /org/gnome/org/gnome/nautilus/desktop/home-icon-visible true
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
 dconf write /org/gnome/org/gnome/nautilus/desktop/home-icon-visible false
+#env#
+
+#?os_root_type==livecd#
+dconf write /org/gnome/desktop/screensaver/lock-enabled false
+#os_root_type#
+#?os_root_type!=livecd#
+dconf write /org/gnome/desktop/screensaver/lock-enabled true
+#os_root_type#
+
 # favorite panel
 dconf write /org/gnome/shell/favorite-apps \[\'calculate-browser.desktop\',\'calculate-mail.desktop\',\'calculate-chat.desktop\',\'calculate-im.desktop\',\'calculate-writer.desktop\',\'calculate-calc.desktop\',\'calculate-calculator.desktop\',\'calculate-imageedit.desktop\',\'calculate-imageview.desktop\',\'calculate-audioplayer.desktop\',\'calculate-videoplayer.desktop\',\'calculate-imageburn.desktop\',\'calculate-dict.desktop\',\'calculate-textedit.desktop\',\'calculate-terminal.desktop\'\]
 dconf write /org/gnome/shell/enabled-extensions \[\'dashbottom@calculate-linux.org\',\'windowlist@o2net.cl\',\'hide-dash@zacbarton.com\',\'extend-left-box@linuxdeepin.com\',\'removeaccesibility@lomegor\',\'alternate-tab@gnome-shell-extensions.gcampax.github.com\',\'Move_Clock@rmy.pobox.com\',\'Applications_Menu@rmy.pobox.com\',\'removeusername@alex.derhofbauer.at\',\'Static_Workspaces@rmy.pobox.com\',\'QuickLaunch@wwwdotorg.org\',\'movehotcorner@fpmurphy.com\',\'trayicons@gnome-shell-extensions.russianfedora.ru\',\'show-desktop@l300lvl.tk\',\'user-theme@gnome-shell-extensions.gcampax.github.com\',\'quitbutton@azathoth92.hotmail.it\',\'panel_workspaces@calculate-linux.org\',\'drive-menu@gnome-shell-extensions.gcampax.github.com\',\'QuickLaunch@wwwdotorg.org\'\]
@@ -24,3 +38,4 @@ dconf write /org/gnome/shell/extensions/alternate-tab/first-time false
 dconf write /org/gnome/libgnomekbd/desktop/group-per-window true
 
 dconf write /org/gnome/shell/extensions/user-theme/name \'Calculate\'
+rm ~/.dconfigure
