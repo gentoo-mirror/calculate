@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="minimal pxe"
 
-DEPEND="~sys-apps/calculate-lib-2.2.27
+DEPEND="~sys-apps/calculate-lib-2.2.28
 	app-portage/layman
 	!app-misc/livecd-tools
 	sys-apps/iproute2[-minimal]
