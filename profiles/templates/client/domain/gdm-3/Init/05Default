@@ -1,6 +1,0 @@
-# Calculate append=replace chmod=755 name=Default force
-#!/bin/bash
-
-/usr/share/calculate/xdm/wait_domain
-OLDDEFAULT=/etc/X11/gdm/Init/Default.old
-[[ -f $OLDDEFAULT ]] && source $OLDDEFAULT
