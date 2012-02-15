@@ -1,0 +1,101 @@
+# Calculate format=kde
+#создадим учетную запись
+#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(mail.type)==imap#
+[Account 1]
+#автоматически очищать удаленные сообщения
+auto-expunge=true
+Id=1
+Name=IMAP
+#обозначение директории IMAP
+Namespace:=.
+Type=Imap
+auth=*
+#периодическая проверка почты
+check-interval=5
+host=#-server(mail.host)-#
+#загружать вложения по требованию
+loadondemand=true
+login=#-ur_login-#
+port=#-server(mail.port)-#
+trash=.1.directory/Trash
+use-tls=true
+
+[Composer]
+#фиксированный шрифт в окне нового сообщения
+use-fixed-font=true
+
+[Folder-1]
+Id=1
+#открывать папку при входе
+isOpen=true
+#env#
+
+[General]
+#значек в системном лотке
+SystemTrayEnabled=true
+#режим отображения значка
+SystemTrayPolicy=ShowAlways
+#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(mail.type)==imap#
+#количество учётных записей
+accounts=1
+#проверять почту при запуске
+checkmail-startup=true
+#запускать программу настройки
+first-start=false
+#папка, открываемая при запуске
+startupFolder=.1.directory/INBOX
+#env#
+
+[Geometry]
+#размер окна редактора письма
+composer=750,550
+#сортировка по дискуссиям
+nestedMessages=true
+
+#размер окна приложения
+[Main Window]
+Height 768=650
+Height 800=650
+Height 900=650
+Height 1024=650
+Height 1050=650
+Height 1200=650
+Width 1024=950
+Width 1280=950
+Width 1440=950
+Width 1600=950
+Width 1680=950
+Width 1920=950
+
+[Reader]
+#кодировка по умолчанию при просмотре сообщения
+FallbackCharacterEncoding=UTF-8
+#просмотр структуры сообщения (never - никогда)
+MimeTreeMode=never
+#обрабатывать HTML в сообщениях
+htmlMail=true
+#использовать фиксированный шрифт в окне письма
+useFixedFont=true
+
+#окно просмотра сообщения
+[Separate Reader Window]
+Height 768=550
+Height 800=550
+Height 900=550
+Height 1024=550
+Height 1050=550
+Height 1200=550
+Width 1024=750
+Width 1280=750
+Width 1440=750
+Width 1600=750
+Width 1680=750
+Width 1920=750
+
+[Spelling]
+defaultLanguage=#-os_locale_language-#
+
+[TipOfDay]
+#показывать подсказку при старте
+RunOnStart=false
+

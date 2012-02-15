@@ -1,0 +1,8 @@
+# Calculate pkg(gnome-base/libgnome)>=2.26&&pkg(gnome-base/libgnome)<2.30
+<?xml version="1.0"?>
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+<directory><file name="home" timestamp="1267778829" icon_position="64,22" icon_scale="1" icon_position_timestamp="1267778829"/></directory>
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+<directory><file name="Home.volume" icon_position="64,22" custom_icon="file:///usr/share/icons/gnome/scalable/places/user-home.svg"/><file name="FTP.volume" icon_position="220,22" custom_icon="file:///usr/share/icons/gnome/scalable/apps/update-manager.svg" icon_scale="1"/><file name="Share.volume" icon_position="142,22" custom_icon="file:///usr/share/icons/gnome/scalable/places/folder-remote.svg" icon_scale="1"/></directory>
+#env#

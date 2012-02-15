@@ -1,0 +1,8 @@
+# Calculate format=kde link=/usr/share/applications/kde4/k3b.desktop name=calculate-imageburn.desktop mirror pkg(app-cdr/k3b)>=2.0
+
+# Update info
+#-ini(desktop.imageburn, k3b)-#
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true

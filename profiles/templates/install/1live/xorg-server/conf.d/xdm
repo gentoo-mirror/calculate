@@ -1,0 +1,20 @@
+# Calculate comment=#
+
+CHECKVT=7
+#?cl_autologin!=#
+XUSER=#-cl_autologin-#
+DISPLAYMANAGER="bash"
+START_STOP_ARGS="--background -- /usr/bin/xautologin $XUSER $CHECKVT"
+#cl_autologin#
+#?cl_autologin==&&pkg(kde-base/kdm)!=#
+DISPLAYMANAGER="kdm"
+START_STOP_ARGS=
+#cl_autologin#
+#?cl_autologin==&&pkg(gnome-base/gdm)!=&&pkg(kde-base/kdm)==#
+DISPLAYMANAGER="gdm"
+START_STOP_ARGS=
+#cl_autologin#
+#?cl_autologin==&&pkg(x11-misc/slim)!=&&pkg(kde-base/kdm)==&&pkg(gnome-base/gdm)==#
+DISPLAYMANAGER="slim"
+START_STOP_ARGS=
+#cl_autologin#

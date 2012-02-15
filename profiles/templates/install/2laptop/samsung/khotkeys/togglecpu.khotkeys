@@ -1,0 +1,49 @@
+[Data]
+DataCount=1
+
+[Data_1]
+Comment=This group contains actions that are set up for laptop.
+Comment[ru]=Группа действий для ноутбуков.
+DataCount=1
+Enabled=true
+Name=Laptop Actions
+Name[ru]=Действия для ноутбука
+SystemGroup=0
+Type=ACTION_DATA_GROUP
+AllowMerge=true
+
+[Data_1Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_1_1]
+Comment=Toggle cpu mode.
+Comment[ru]=Переключить режим работы процессора.
+Enabled=true
+Name=Toggle cpu
+Name[ru]=Переключить процессор
+Type=COMMAND_URL_SHORTCUT_ACTION_DATA
+
+[Data_1_1Actions]
+ActionsCount=1
+
+[Data_1_1Actions0]
+CommandURL=/usr/bin/cpufreq_toggle_kde
+Type=COMMAND_URL
+
+[Data_1_1Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_1_1Triggers]
+Comment=Simple_action
+Comment[ru]=Простое действие
+TriggersCount=1
+
+[Data_1_1Triggers0]
+Key=Launch (5)
+Type=SHORTCUT
+
+[Main]
+Version=2
+ImportId=togglecpu

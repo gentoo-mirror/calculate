@@ -1,0 +1,10 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+#?os_root_type==livecd#
+	<entry name="lock_enabled" type="bool" value="false"/>
+#os_root_type#
+#?os_root_type!=livecd#
+	<entry name="lock_enabled" type="bool" value="true"/>
+#os_root_type#
+</gconf>

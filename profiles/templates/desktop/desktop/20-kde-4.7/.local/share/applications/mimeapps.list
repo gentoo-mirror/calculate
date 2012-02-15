@@ -1,0 +1,19 @@
+# Calculate format=compiz
+[Added Associations]
+application/rss+xml=chromium-chromium.desktop;mozilla-firefox.desktop;kde4-kfmclient_html.desktop;kde4-kwrite.desktop;writer.desktop;kde4-kate.desktop;
+application/vnd.mozilla.xul+xml=chromium-chromium.desktop;mozilla-firefox.desktop;kde4-kfmclient_html.desktop;kde4-kwrite.desktop;writer.desktop;kde4-kate.desktop;
+application/x-font-ttx=chromium-chromium.desktop;mozilla-firefox.desktop;
+application/x-ufraw=chromium-chromium.desktop;mozilla-firefox.desktop;
+application/xhtml+xml=chromium-chromium.desktop;mozilla-firefox.desktop;kde4-kfmclient_html.desktop;kde4-kwrite.desktop;writer.desktop;kde4-kate.desktop;
+application/xml=chromium-chromium.desktop;mozilla-firefox.desktop;kde4-kfmclient_html.desktop;kde4-kwrite.desktop;writer.desktop;kde4-kate.desktop;
+application/xml-external-parsed-entity=chromium-chromium.desktop;mozilla-firefox.desktop;kde4-kfmclient_html.desktop;kde4-kwrite.desktop;writer.desktop;kde4-kate.desktop;
+application/xsd=chromium-chromium.desktop;mozilla-firefox.desktop;kde4-kfmclient_html.desktop;kde4-kwrite.desktop;writer.desktop;kde4-kate.desktop;
+application/xslt+xml=chromium-chromium.desktop;mozilla-firefox.desktop;kde4-kfmclient_html.desktop;kde4-kwrite.desktop;writer.desktop;kde4-kate.desktop;
+text/html=calculate-browser.desktop;
+
+# for glib-2.28 based
+
+x-scheme-handler/http=calculate-browser.desktop;
+x-scheme-handler/https=calculate-browser.desktop;
+x-scheme-handler/mailto=calculate-mail.desktop;
+

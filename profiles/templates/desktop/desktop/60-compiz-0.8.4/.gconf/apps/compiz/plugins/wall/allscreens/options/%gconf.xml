@@ -1,0 +1,12 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="allow_wraparound" type="bool" value="true"/>
+	<entry name="show_switcher" type="bool" value="false"/>
+	<entry name="flip_down_edge" type="string">
+		<stringvalue></stringvalue>
+	</entry>
+	<entry name="flip_up_edge" type="string">
+		<stringvalue></stringvalue>
+	</entry>
+</gconf>

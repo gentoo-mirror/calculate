@@ -1,0 +1,5 @@
+# Calculate format=patch
+<reg>^(s[01])</reg>
+<text>#\1</text>
+<reg>(c[0-9]:.*agetty).*(tty\d linux)</reg>
+<text>\1 -nl /bin/bashlogin 38400 \2</text>

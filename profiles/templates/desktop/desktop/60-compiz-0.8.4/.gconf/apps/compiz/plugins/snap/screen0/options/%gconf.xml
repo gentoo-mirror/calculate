@@ -1,0 +1,12 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="edges_categories" type="list" ltype="int">
+		<li type="int" value="0"/>
+		<li type="int" value="1"/>
+	</entry>
+	<entry name="snap_type" type="list" ltype="int">
+		<li type="int" value="0"/>
+		<li type="int" value="1"/>
+	</entry>
+</gconf>

@@ -1,0 +1,26 @@
+# Calculate name=feedlist.opml os_locale_language==ru
+<?xml version='1.0'?>
+<opml version="1.0">
+    <head>
+        <title>Liferea Feed List Export</title>
+    </head>
+    <body>
+        <outline title="Calculate Linux" expanded="true" description="Calculate Linux" viewMode="0" sortColumn="time" type="folder" id="yytpavw" text="Calculate Linux">
+            <outline title="Планета Calculate" description="Планета Calculate" viewMode="0" sortColumn="time" collapsed="true" htmlUrl="http://www.calculate-linux.ru/blogs/ru" type="atom" xmlUrl="http://www.calculate-linux.ru/blogs/ru?format=atom&amp;amp;key=#-os_linux_shortname-##-os_linux_ver-#" id="qfaepdt" text="Планета Calculate" updateInterval="-1"/>
+            <outline title="Форумы Calculate" description="Форумы Calculate" viewMode="0" sortColumn="time" collapsed="true" htmlUrl="http://www.calculate-linux.ru/ru/projects/ru/activity?show_messages=1" type="atom" xmlUrl="http://www.calculate-linux.ru/ru/projects/ru/activity.atom?key=#-os_linux_shortname-##-os_linux_ver-#&amp;amp;show_messages=1" id="alawxja" text="Форумы Calculate" updateInterval="-1"/>
+            <outline title="Уведомления о безопасности GLSA" description="Уведомления о безопасности GLSA" viewMode="0" sortColumn="time" collapsed="true" htmlUrl="http://www.calculate-linux.ru/glsa" type="atom" xmlUrl="http://www.calculate-linux.ru/glsa?format=atom&amp;amp;key=#-os_linux_shortname-##-os_linux_ver-#" id="ajoknip" text="Уведомления о безопасности GLSA" updateInterval="-1"/>
+            <outline title="Новые пакеты Calculate" description="Новые пакеты Calculate" viewMode="0" sortColumn="time" collapsed="true" htmlUrl="http://www.calculate-linux.ru/packages/newset" type="atom" xmlUrl="http://www.calculate-linux.ru/packages/newset?format=atom&amp;amp;key=#-os_linux_shortname-##-os_linux_ver-#" id="utfyjqq" text="Новые пакеты Calculate" updateInterval="-1"/>
+            <outline title="Новости Calculate" description="Новости Calculate" viewMode="0" sortColumn="time" collapsed="true" htmlUrl="http://www.calculate-linux.ru/news" type="atom" xmlUrl="http://www.calculate-linux.ru/news.atom?key=#-os_linux_shortname-##-os_linux_ver-#" id="wypvblr" text="Новости Calculate" updateInterval="-1"/>
+            <outline title="Задачи Calculate" description="Задачи Calculate" viewMode="0" sortColumn="time" collapsed="true" htmlUrl="http://www.calculate-linux.ru/projects/calculatelinux/issues" type="atom" xmlUrl="http://www.calculate-linux.ru/projects/calculatelinux/issues.atom?key=#-os_linux_shortname-##-os_linux_ver-#" id="lvjfgrg" text="Задачи Calculate" updateInterval="-1"/>
+        </outline>
+        <outline title="Свободное программное обеспечение" expanded="true" description="Свободное программное обеспечение" viewMode="0" sortColumn="time" type="folder" id="wfprebg" text="Свободное программное обеспечение">
+            <outline title="Linuxoid - все что знаю о Туксе" description="Linuxoid - все что знаю о Туксе" viewMode="0" sortColumn="time" collapsed="true" htmlUrl="http://www.tux.in.ua" type="rss" xmlUrl="http://feeds.feedburner.com/in/JEEz" id="pmuqwdn" text="Linuxoid - все что знаю о Туксе" updateInterval="-1"/>
+        </outline>
+        <outline title="Непрочитанные" description="Непрочитанные" viewMode="0" sortColumn="time" collapsed="true" type="vfolder" id="nnuxkke" matchType="any" text="Непрочитанные">
+            <outline additive="true" type="rule" value="" rule="unread" text="Статус прочтения"/>
+        </outline>
+        <outline title="Важные" description="Важные" viewMode="0" sortColumn="time" collapsed="true" type="vfolder" id="tfpllyd" matchType="any" text="Важные">
+            <outline additive="true" type="rule" value="" rule="flagged" text="Важность"/>
+        </outline>
+    </body>
+</opml>

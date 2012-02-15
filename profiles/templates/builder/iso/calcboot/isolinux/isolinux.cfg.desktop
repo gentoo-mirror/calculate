@@ -1,0 +1,57 @@
+# Calculate name=isolinux.cfg os_builder_linux_system==desktop&&pkg(sys-kernel/calculate-sources)>=2.6.32.33&&pkg(sys-kernel/calculate-sources)<2.6.33||os_builder_linux_system==desktop&&pkg(sys-kernel/calculate-sources)>=2.6.37.4
+DEFAULT calcmenu.c32
+#?pkg(sys-boot/calcboot)>=3.86.5&&cl_builder_kernel_cmd!=#
+DEFAULTPARAM #-cl_builder_kernel_cmd-#
+#pkg#
+INCLUDE common.cfg
+
+MENU TITLE Welcome to Calculate Linux (#-os_builder_arch_machine-#)
+
+LABEL cld
+#?os_builder_linux_subname!=#
+	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# #-os_builder_linux_subname-# Live#-cl_builder_cdname-#
+#os_builder_linux_subname#
+#?os_builder_linux_subname==#
+	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-#
+#os_builder_linux_subname#
+	KERNEL /boot/vmlinuz
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume doscsi scandelay=3
+
+LABEL cld-docache
+#?os_builder_linux_subname!=#
+	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# #-os_builder_linux_subname-# Live#-cl_builder_cdname-# (RAM)
+#os_builder_linux_subname#
+#?os_builder_linux_subname==#
+	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-# (RAM)
+#os_builder_linux_subname#
+	KERNEL /boot/vmlinuz
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume doscsi docache scandelay=3
+
+LABEL cld-nox
+#?os_builder_linux_subname!=#
+	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# #-os_builder_linux_subname-# Live#-cl_builder_cdname-# (No-X)
+#os_builder_linux_subname#
+#?os_builder_linux_subname==#
+	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-# (No-X)
+#os_builder_linux_subname#
+	KERNEL /boot/vmlinuz
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume doscsi nox scandelay=3
+
+LABEL cld-builder
+#?os_builder_linux_subname!=#
+	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# #-os_builder_linux_subname-# Live#-cl_builder_cdname-# Builder
+#os_builder_linux_subname#
+#?os_builder_linux_subname==#
+	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-# Builder
+#os_builder_linux_subname#
+	KERNEL /boot/vmlinuz
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume doscsi scratch scandelay=3
+
+LABEL memtest
+	MENU LABEL Memtest86+
+	KERNEL memtest
+
+LABEL harddisk
+	MENU LABEL Boot from first hard disk
+	localboot 0x80
+	append SLX=0x80 

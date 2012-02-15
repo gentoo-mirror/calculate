@@ -1,0 +1,12 @@
+# Calculate format=samba env(client.os_remote_auth)!=&&ur_domain_set==on chmod=0755
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=Share
+Comment=Browser Share
+Categories=Application;
+Exec=nautilus /home/#-ur_login-#/Share
+Icon=folder-publicshare
+Terminal=false
+StartupNotify=false

@@ -1,0 +1,27 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="hour_format" schema="/schemas/apps/clock_applet/prefs/hour_format"/>
+	<entry name="temperature_unit" schema="/schemas/apps/clock_applet/prefs/temperature_unit"/>
+	<entry name="expand_locations" schema="/schemas/apps/clock_applet/prefs/expand_locations"/>
+	<entry name="unix_time" schema="/schemas/apps/clock_applet/prefs/unix_time"/>
+	<entry name="show_temperature" schema="/schemas/apps/clock_applet/prefs/show_temperature" type="bool" value="false"/>
+	<entry name="format" schema="/schemas/apps/clock_applet/prefs/format" type="string">
+		<stringvalue>24-hour</stringvalue>
+	</entry>
+	<entry name="config_tool" schema="/schemas/apps/clock_applet/prefs/config_tool"/>
+	<entry name="expand_birthdays" schema="/schemas/apps/clock_applet/prefs/expand_birthdays"/>
+	<entry name="show_date" schema="/schemas/apps/clock_applet/prefs/show_date" type="bool" value="false"/>
+	<entry name="expand_appointments" schema="/schemas/apps/clock_applet/prefs/expand_appointments"/>
+	<entry name="speed_unit" schema="/schemas/apps/clock_applet/prefs/speed_unit"/>
+	<entry name="expand_weather" schema="/schemas/apps/clock_applet/prefs/expand_weather"/>
+	<entry name="show_seconds" schema="/schemas/apps/clock_applet/prefs/show_seconds"/>
+	<entry name="internet_time" schema="/schemas/apps/clock_applet/prefs/internet_time"/>
+	<entry name="show_week_numbers" schema="/schemas/apps/clock_applet/prefs/show_week_numbers"/>
+	<entry name="expand_tasks" schema="/schemas/apps/clock_applet/prefs/expand_tasks"/>
+	<entry name="show_weather" schema="/schemas/apps/clock_applet/prefs/show_weather" type="bool" value="false"/>
+	<entry name="gmt_time" schema="/schemas/apps/clock_applet/prefs/gmt_time"/>
+	<entry name="show_tooltip" schema="/schemas/apps/clock_applet/prefs/show_tooltip"/>
+	<entry name="custom_format" schema="/schemas/apps/clock_applet/prefs/custom_format"/>
+	<entry name="cities" schema="/schemas/apps/clock_applet/prefs/cities"/>
+</gconf>

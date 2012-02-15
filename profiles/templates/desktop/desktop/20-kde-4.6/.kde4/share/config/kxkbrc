@@ -1,0 +1,18 @@
+# Calculate format=kde
+#Раскладка клавиатуры
+[Layout]
+DisplayNames=#-os_locale_xkbname-#
+IndicatorOnly=false
+LayoutList=#-os_locale_xkb-#
+Model=pc104
+#?os_locale_xkb==us#
+Options=terminate:ctrl_alt_bksp
+#os_locale_xkb#
+#?os_locale_xkb!=us#
+Options=grp:caps_toggle,grp_led:scroll,terminate:ctrl_alt_bksp
+#os_locale_xkb#
+ResetOldOptions=true
+ShowFlag=false
+ShowSingle=false
+SwitchMode=WinClass
+Use=true

@@ -1,0 +1,10 @@
+# Calculate exec=/bin/bash os_install_scratch==on path=/tmp
+
+find #-cl_chroot_path-#/boot -exec touch {} \; &>/dev/null
+find #-cl_chroot_path-#/lib* -maxdepth 1 -name "ld*so" -exec touch {} \; &>/dev/null
+find #-cl_chroot_path-#/usr/share/grub -exec touch {} \; &>/dev/null
+find #-cl_chroot_grub-#/workspace -maxdepth 1 -regextype posix-egrep -regex ".*(bin|lib.*|etc|usr|var|opt|boot)$" |
+while read line;do
+    linkname="workspace/`basename $line`"
+    [[ -L ${linkname} ]] || ln -sf ${linkname} #-cl_chroot_grub-#/`basename $line`
+done &>/dev/null

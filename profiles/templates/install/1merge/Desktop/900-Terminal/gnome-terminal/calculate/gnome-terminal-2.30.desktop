@@ -1,0 +1,8 @@
+# Calculate format=kde link=/usr/share/applications/gnome-terminal.desktop name=calculate-terminal.desktop mirror pkg(x11-terms/gnome-terminal)>=2.30
+
+# Update info
+#-ini(desktop.terminal, gnome-terminal)-#
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true

@@ -1,0 +1,8 @@
+# Calculate path=/etc/xdg/autostart chmod=755
+
+[Desktop Entry]
+Type=Application
+Exec=/bin/bash /home/$USER/.dconfigure
+Hidden=false
+X-GNOME-Autostart-enabled=true
+Name=Userautoconfig

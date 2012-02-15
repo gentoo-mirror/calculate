@@ -1,0 +1,15 @@
+# Calculate comment=#
+
+CHECKVT=7
+#?pkg(kde-base/kdm)!=#
+DISPLAYMANAGER="kdm"
+START_STOP_ARGS=
+#pkg#
+#?pkg(gnome-base/gdm)!=&&pkg(kde-base/kdm)==#
+DISPLAYMANAGER="gdm"
+START_STOP_ARGS=
+#pkg#
+#?pkg(x11-misc/slim)!=&&pkg(kde-base/kdm)==&&pkg(gnome-base/gdm)==#
+DISPLAYMANAGER="slim"
+START_STOP_ARGS=
+#pkg#

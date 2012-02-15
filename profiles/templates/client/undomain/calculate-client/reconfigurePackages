@@ -1,0 +1,5 @@
+# Calculate path=/tmp pkg(x11-base/xorg-server)!=&&os_root_type==livecd name=reconfigureXorg exec=/bin/bash
+
+# reconfigure conf.d/xdm after undomain action on livecd
+cl-template -l all --merge x11-base/xorg-server &>/dev/null
+true

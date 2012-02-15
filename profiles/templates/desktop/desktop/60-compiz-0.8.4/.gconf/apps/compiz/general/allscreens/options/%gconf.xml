@@ -1,0 +1,51 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="active_plugins" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>core</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>decoration</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>gnomecompat</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>mousepoll</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>move</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>place</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>regex</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>resize</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>showdesktop</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>snap</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>staticswitcher</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>thumbnail</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>vpswitch</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>wall</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>animation</stringvalue>
+		</li>
+	</entry>
+</gconf>

@@ -1,0 +1,1 @@
+# Calculate append=skip belong(libgnome)!=&&ini(update.gnome)!=off&&pkg(gnome-base/libgnome)>=2.26&&ini(domain)!=#-env(client.os_remote_auth)-#||belong(libgnome)!=&&ini(update.gnome)!=off&&pkg(gnome-base/libgnome)>=2.26&&ini(xsession)!=#-cl_desktop_xsession-#
