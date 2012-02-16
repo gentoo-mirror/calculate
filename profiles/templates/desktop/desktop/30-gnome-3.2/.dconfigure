@@ -17,6 +17,12 @@ dconf write /org/gnome/org/gnome/nautilus/desktop/home-icon-visible true
 #?env(client.os_remote_auth)!=&&ur_domain_set==on#
 dconf write /org/gnome/org/gnome/nautilus/desktop/home-icon-visible false
 #env#
+dconf write /org/gnome/nautilus/preferences/click-policy \'single\'
+dconf write /org/gnome/nautilus/preferences/enable-delete true
+dconf write /org/gnome/nautilus/desktop/computer-icon-visible false
+dconf write /org/gnome/nautilus/desktop/volumes-visible false
+dconf write /org/gnome/nautilus/desktop/network-icon-visible false
+dconf write /org/gnome/nautilus/desktop/trash-icon-visible false
 
 #?os_root_type==livecd#
 dconf write /org/gnome/desktop/screensaver/lock-enabled false
