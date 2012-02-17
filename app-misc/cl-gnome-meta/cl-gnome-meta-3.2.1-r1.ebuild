@@ -78,7 +78,9 @@ RDEPEND="$RDEPEND
 	>=media-gfx/shotwell-0.11
 	>=app-misc/tracker-0.12
 	>=gnome-extra/gnome-documents-0.2.1
-	gnome-extra/gnome-shell-calculate"
+	gnome-extra/gnome-shell-calculate
+	>=gnome-base/gnome-applets-${PV}
+	>=gnome-base/gnome-fallback-${PV}"
 DEPEND="${RDEPEND}"
 PDEPEND=">=gnome-base/gvfs-1.10.1[gdu]"
 
