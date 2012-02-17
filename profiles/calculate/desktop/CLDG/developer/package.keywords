@@ -212,7 +212,12 @@
 ~dev-libs/libgweather-3.2.1 amd64 x86
 #required by net-im/empathy-3.2.2, required by gnome-base/gnome-core-apps-3.2.1, required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
 ~dev-libs/folks-0.6.6 amd64 x86
-#required by gnome-shell-calculate
-~gnome-extra/gnome-shell-extensions-3.2.2
-~gnome-extra/gnome-shell-frippery-0.3.6
-~gnome-extra/gnome-shell-frippery-3.2.2
+#required by gnome-extra/gnome-shell-calculate-3.2.2, required by app-misc/cl-gnome-meta-3.2.1, required by app-misc/cldg-meta-11.12-r1[-calculate_nognome], required by app-misc/calculate-meta-11.12, required by @selected, required by @world (argument)
+~gnome-extra/gnome-shell-frippery-0.3.6 amd64 x86
+#required by app-misc/cl-gnome-meta-3.2.1, required by app-misc/cldg-meta-11.12-r1[-calculate_nognome], required by app-misc/calculate-meta-11.12, required by @selected, required by @world (argument)
+~gnome-extra/gnome-shell-calculate-3.2.2 amd64 x86
+#required by gnome-extra/gnome-shell-calculate-3.2.2, required by app-misc/cl-gnome-meta-3.2.1, required by app-misc/cldg-meta-11.12-r1[-calculate_nognome], required by app-misc/calculate-meta-11.12, required by @selected, required by @world (argument)
+~gnome-extra/gnome-shell-extensions-3.2.2 amd64 x86
+#required by gnome-extra/gnome-shell-extensions-3.2.2, required by gnome-extra/gnome-shell-calculate-3.2.2, required by app-misc/cl-gnome-meta-3.2.1, required by app-misc/cldg-meta-11.12-r1[-calculate_nognome], required by app-misc/calculate-meta-11.12, required by @selected, required by @world (argument)
+~app-admin/eselect-gnome-shell-extensions-20111211 amd64 x86
+
