@@ -60,7 +60,7 @@ RDEPEND="${RDEPEND}
 	)
 	!calculate_nographics? (
 		media-gfx/feh
-		media-gfx/comix
+		media-gfx/mcomix
 	)
 	!calculate_nokernel? ( sys-kernel/calculate-sources )
 	!calculate_nomultimedia?
