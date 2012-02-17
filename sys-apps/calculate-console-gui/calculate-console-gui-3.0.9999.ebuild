@@ -6,7 +6,7 @@ EAPI="3"
 
 inherit distutils git-2
 
-EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-api.git"
+EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-console-gui.git"
 
 DESCRIPTION="Qt gui console client for WSDL Calculate 3"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
