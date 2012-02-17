@@ -28,6 +28,7 @@ calculate_nowireless
 RDEPEND="
 	app-misc/cl-base-meta
 	app-misc/cl-tools-meta
+	x11-drivers/xf86-video-virtualbox
 
 	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
 	!calculate_nognome? ( app-misc/cl-gnome-meta )
