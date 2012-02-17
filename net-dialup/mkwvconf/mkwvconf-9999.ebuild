@@ -13,7 +13,8 @@ HOMEPAGE="https://github.com/schuay/mkwvconf"
 SLOT="0"
 IUSE=""
 
-RDEPEND="net-dialup/wvdial"
+RDEPEND="net-dialup/wvdial
+net-misc/mobile-broadband-provider-info"
 DEPEND="${RDEPEND}"
 
 src_install() {
