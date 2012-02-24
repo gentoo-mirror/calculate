@@ -1,0 +1,30 @@
+commit 662651098212affe711ed8331a08e80db0acfd3b
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Fri Feb 24 13:36:36 2012 +0400
+
+    Restore dbus restarting. Add mount remote resouce on userSync.
+
+diff --git a/pym/cl_client.py b/pym/cl_client.py
+index a484126..c7b26a8 100644
+--- a/pym/cl_client.py
++++ b/pym/cl_client.py
+@@ -916,6 +916,11 @@ class client(share, commandServer, encrypt):
+         # Проверяем на root
+         if not self.isRoot():
+             return False
++        domain = self.clVars.Get("cl_remote_host")
++        if domain:
++            foundMountRemote = isMount("/var/calculate/remote")
++            if not foundMountRemote:
++                self.mountRemote();
+         # Проверка на повторный вход пользователя
+         if self.isTwoSessionsUser(userName):
+             return False
+@@ -1977,7 +1982,6 @@ class client(share, commandServer, encrypt):
+ 
+     def restartDBus(self):
+         """Перезапускаем службу D-Bus"""
+-        return True
+         dbusDaemon = 'rc-service -i dbus'
+         existsDaemon = 'rc-service -e dbus'
+         # если установлена и запущена
