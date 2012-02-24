@@ -22,7 +22,7 @@ DEPEND=""
 
 src_install() {
 	insinto /usr/share/gnome-shell/extensions
-	doins -r extensions/*@*
+	doins -r extensions/*
 	insinto /usr/share/themes
 	doins -r themes/Calculate
 }

@@ -45,4 +45,6 @@ dconf write /org/gnome/libgnomekbd/desktop/group-per-window true
 dconf write /org/gnome/libgnomekbd/desktop/default-group 0
 
 dconf write /org/gnome/shell/extensions/user-theme/name \'Calculate\'
+
+dconf write /org/gnome/settings-daemon/plugins/power/idle-dim-battery false
 rm ~/.dconfigure
