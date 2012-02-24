@@ -12,11 +12,11 @@ wait_dbus() {
 change_params() {
     wait_dbus
 #?env(client.os_remote_auth)==||ur_domain_set==off#
-    gdbus call -e -d org.gnome.Shell --object-path /org/gnome/Shell -m org.gnome.Shell.DisableExtension "Shut_Down_Menu@rmy.pobox.com"
+    gdbus call -e -d org.gnome.Shell --object-path /org/gnome/Shell -m org.gnome.Shell.EnableExtension "Shut_Down_Menu@rmy.pobox.com"
     gdbus call -e -d org.gnome.Shell --object-path /org/gnome/Shell -m org.gnome.Shell.DisableExtension "remove_shutdown@calculate-linux.org"
 #env#
 #?env(client.os_remote_auth)!=&&ur_domain_set==on#
-    gdbus call -e -d org.gnome.Shell --object-path /org/gnome/Shell -m org.gnome.Shell.EnableExtension "Shut_Down_Menu@rmy.pobox.com"
+    gdbus call -e -d org.gnome.Shell --object-path /org/gnome/Shell -m org.gnome.Shell.DisableExtension "Shut_Down_Menu@rmy.pobox.com"
     gdbus call -e -d org.gnome.Shell --object-path /org/gnome/Shell -m org.gnome.Shell.EnableExtension "remove_shutdown@calculate-linux.org"
 #env#
 }
