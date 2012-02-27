@@ -1,1 +1,1 @@
-# Calculate append=skip belong(libgnome)!=&&ini(update.gnome)!=off&&ini(ver.gnome)==&&pkg(gnome-base/gnome-core-libs)>=3.2
+# Calculate append=skip belong(gnome-core-libs)!=&&ini(update.gnome)!=off&&ini(ver.gnome)<3.2&&pkg(gnome-base/gnome-core-libs)>=3.2
