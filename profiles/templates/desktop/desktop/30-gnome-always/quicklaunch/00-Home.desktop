@@ -12,6 +12,6 @@ Exec=nautilus /home/#-ur_login-#/Home
 #?env(client.os_remote_auth)==||ur_domain_set==off#
 Exec=nautilus /home/#-ur_login-#
 #env#
-Icon=user-home
+Icon=user-home-symbolic
 Terminal=false
 StartupNotify=false
