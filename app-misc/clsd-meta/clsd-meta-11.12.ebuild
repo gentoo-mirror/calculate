@@ -78,7 +78,6 @@ RDEPEND="${RDEPEND}
 		app-misc/cl-nettools-meta
 		net-im/pidgin
 		net-irc/xchat
-		www-client/firefox-bin
 		app-portage/fetchcommandwrapper
 	)
 	!calculate_noprinter? ( app-misc/cl-printer-meta )
