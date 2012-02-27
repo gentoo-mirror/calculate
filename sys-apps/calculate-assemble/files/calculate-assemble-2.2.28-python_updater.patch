@@ -1,0 +1,28 @@
+commit f2aeba3fc1c088ef1d9b9823ef7e0cf2ff35324c
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Mon Feb 27 08:59:44 2012 +0400
+
+    Add python updater.
+
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index 7a1b64d..a7521d6 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -135,6 +135,17 @@ class cl_assemble(color_print):
+               'hideout':True,
+               'step':"eixsync",
+               'foraction':('syncupdate',)},
++             # try install python
++             {'command':'emerge -u python',
++              'step':'updatepython',
++              'condition':'dev-lang/python',
++              'checkcommand':'emerge -uOp python'
++             },
++             # update python
++             {'command':'python-updater',
++              'step':'fixpython',
++              'condition':'dev-lang/python',
++              'progname':'python-updater'},
+              # try install perl
+              {'command':'emerge -u perl',
+               'step':'updateperl',
