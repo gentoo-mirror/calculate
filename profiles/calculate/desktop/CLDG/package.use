@@ -25,3 +25,15 @@ net-libs/rb_libtorrent python
 #required by x11-misc/alacarte-0.13.2
 gnome-base/gnome-menus python
 
+
+#need for gnome3
+net-libs/webkit-gtk gstreamer introspection
+gnome-extra/nm-applet bluetooth
+
+#required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)
+gnome-base/gvfs gdu
+#required by net-misc/vinagre-3.2.2, required by gnome-base/gnome-extra-apps-3.2.1, required by gnome-base/gnome-3.2.1[extras], required by =gnome-base/gnome-3.2.1 (argument)
+net-libs/gtk-vnc gtk3
+
+#required by x11-misc/glipper-2.1, required by =x11-misc/glipper-2.1 (argument)
+dev-libs/keybinder python
