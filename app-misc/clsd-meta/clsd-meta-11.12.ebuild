@@ -50,6 +50,7 @@ RDEPEND="${RDEPEND}
 	x11-misc/slim
 	sys-fs/ntfs3g
 	app-misc/screen
+	dev-util/gsimplecal
 	!calculate_nodecoration? ( 
 		x11-themes/hicolor-icon-theme
 		x11-themes/gnome-icon-theme
