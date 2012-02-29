@@ -58,5 +58,5 @@ sys-cluster/openmpi romio
 sci-libs/hdf5 threads mpi
 
 #required by media-video/vlc-2.0.0, required by =media-video/vlc-2.0.0 (argument)
->=sys-libs/zlib-1.2.6 minizip
+>=sys-libs/zlib-1.2.6 minizip static-libs
 
