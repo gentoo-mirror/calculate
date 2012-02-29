@@ -1,0 +1,21 @@
+commit f96e31c211c1da1e1bde3f09932fb0b451454471
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Feb 29 10:13:43 2012 +0400
+
+    Fix for work update with running gdm.
+
+diff --git a/pym/update_config/cl_update_config.py b/pym/update_config/cl_update_config.py
+index b5d6811..a50a9d1 100644
+--- a/pym/update_config/cl_update_config.py
++++ b/pym/update_config/cl_update_config.py
+@@ -241,8 +241,8 @@ class updateUserConfigs(shareUpdateConfigs):
+         flagUpdate, mergePrograms = self.getFlagUpdAndInstPrograms()
+         # X session user + configured local users (if user profile was not
+         # configured then there is no need setup package for this user
+-        xUsers = list((set(self.getXUsers()) |
+-                       set(self.getConfiguredPasswdUsers())))
++        xUsers = filter(lambda x:not "(unknown)" in x,list((set(self.getXUsers()) |
++                       set(self.getConfiguredPasswdUsers()))))
+         if not xUsers:
+             self.logger.info(_("Package %s") %nameProgram)
+             self.logger.warn(_("X sessions users not found"))
