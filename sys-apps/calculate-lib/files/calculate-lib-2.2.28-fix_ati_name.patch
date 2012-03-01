@@ -1,0 +1,21 @@
+commit eceb006ad0fc9cf776e8cb27d0a098a65ba4cf21
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Thu Mar 1 19:10:07 2012 +0400
+
+    Fix ati driver name.
+
+diff --git a/pym/cl_utils.py b/pym/cl_utils.py
+index 4a021cc..063d5a2 100644
+--- a/pym/cl_utils.py
++++ b/pym/cl_utils.py
+@@ -870,8 +870,8 @@ def getDistfilesVideo(prefix="/"):
+     """Get video drivers from distfiles"""
+     distFiles = path.join(prefix,"usr/portage/distfiles")
+     return list(set(
+-           map(lambda x:'fglrx' if x.startswith('ati-driver') else "nvidia",
+-           filter(lambda x:x.startswith('ati-driver-installer') or
++           map(lambda x:'fglrx' if "amd" in x else "nvidia",
++           filter(lambda x:"amd" in x or
+                            x.startswith('NVIDIA-Linux'),
+            listDirectory(distFiles)))))
+ 
