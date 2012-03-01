@@ -21,3 +21,5 @@ sys-apps/calculate-install pxe
 
 www-apps/redmine -mysql git mongrel openid postgres imagemagick
 
+#fix compile
+net-dns/bind static-libs
