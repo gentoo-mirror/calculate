@@ -80,7 +80,19 @@ RDEPEND="$RDEPEND
 	>=gnome-extra/gnome-documents-0.2.1
 	gnome-extra/gnome-shell-calculate
 	>=gnome-base/gnome-applets-${PV}
-	>=gnome-base/gnome-fallback-${PV}"
+	>=gnome-base/gnome-fallback-${PV}
+	
+	!x11-wm/compiz-fusion
+	!x11-apps/fusion-icon
+	!x11-libs/compizconfig-backend-gconf
+	!x11-apps/ccsm
+	!x11-plugins/compiz-plugins-extra
+	!dev-python/compizconfig-python
+	!x11-plugins/compiz-plugins-main
+	!x11-libs/libcompizconfig
+	!x11-libs/compiz-bcop
+	!x11-wm/compiz"
+
 DEPEND="${RDEPEND}"
 PDEPEND=">=gnome-base/gvfs-1.10.1[gdu]"
 
