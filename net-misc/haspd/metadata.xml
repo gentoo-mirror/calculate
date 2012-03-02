@@ -13,7 +13,8 @@
 		Drivers for LPT and USB HASP keys.
 	</longdescription>
 	<use>
-		<flag name='lpt-hasp'>Install source code of the LPT HASP driver aksparlnx</flag>
+		<flag name='demo'>Install haspdemo and nethaspdemo utilities</flag>
+		<flag name='lpt-hasp'>Compile and install aksparlnx, module for LPT HASP driver</flag>
 		<flag name='skey'>Install Eutron Smartkey 3 USB/LPT driver</flag>
 		<flag name='sentinel'>Install SafeNet Sentinel driver</flag>
 		<flag name='wine'>Install HASP keys support for wine</flag>
