@@ -7,7 +7,7 @@ USE="${USE} cdda -gstreamer"
 USE="${USE} rdesktop"
 
 # System
-USE="${USE} gnome-keyring networkmanager"
+USE="${USE} -dconf gnome-keyring networkmanager"
 
 # Window manager and specialities
 USE="${USE} -eds -gnome -kde"
