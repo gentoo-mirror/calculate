@@ -1,20 +1,18 @@
 #!/sbin/runscript
-# Copyright 1999-2004 Gentoo Foundation
+# Copyright 2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+command="/opt/sbin/hasplm"
+command_args="${HASPLM_ARGS}"
+description="HASP License manager"
+
+if [ "${RC_VERSION:-0}" = "0" ]; then
+        start() {
+		eerror "This script cannot be used for baselayout-1."
+		return 1
+	}
+fi
+
 depend () {
-    need net
-    after aksusbd
-}
-
-start() {
-	ebegin "Starting HASP License manager"
-	eval start-stop-daemon --start --quiet --exec /opt/sbin/hasplm -- ${HASPLM_ARGS}
-	eend $?
-}
-
-stop() {
-	ebegin "Stopping HASP License manager"
-	start-stop-daemon --stop --quiet --exec /opt/sbin/hasplm
-	eend $?
+    need net aksusbd
 }

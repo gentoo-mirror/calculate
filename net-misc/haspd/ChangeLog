@@ -1,6 +1,12 @@
 # ChangeLog for app-office/1C_Enterprise-server
 # Copyright 2002-2011 Gentoo Foundation; Distributed under the GPL v2
 
+*net-misc/haspd-3.2.10-r1.ebuild
+
+  02 Mar 2012; Dmitry 'daks' Fomenko <daks12@gmail.com>
+  +haspd-3.2.10.ebuild, -haspd-3.2.7.ebuild, -haspd-3.2.ebuild:
+  Ebuild has been mostly rewritten. Purged old, non-working versions.
+
 *net-misc/haspd-3.2.7.ebuild
 
   20 Sep 2011; Dmitry 'daks' Fomenko <daks12@gmail.com>

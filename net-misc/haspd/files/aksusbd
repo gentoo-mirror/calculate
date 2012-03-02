@@ -1,17 +1,18 @@
 #!/sbin/runscript
-# Copyright 1999-2004 Gentoo Foundation
+# Copyright 2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+command="/opt/sbin/aksusbd"
+command_args="${AKSUSBD_ARGS}"
+description="HARDLOCK aksusbd service"
 
+if [ "${RC_VERSION:-0}" = "0" ]; then
+        start() {
+		eerror "This script cannot be used for baselayout-1."
+		return 1
+	}
+fi
 
-start() {
-	ebegin "Starting HARDLOCK daemon"
-	eval start-stop-daemon --start --quiet --exec /opt/sbin/aksusbd -- ${AKSUSBD_ARGS}
-	eend $?
-}
-
-stop() {
-	ebegin "Stopping HARDLOCK daemon"
-	start-stop-daemon --stop --quiet --exec /opt/sbin/aksusbd
-	eend $?
+depend () {
+    need net
 }

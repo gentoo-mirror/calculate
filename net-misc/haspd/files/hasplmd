@@ -1,20 +1,18 @@
 #!/sbin/runscript
-# Copyright 1999-2004 Gentoo Foundation
+# Copyright 2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+command="/opt/sbin/hasplmd"
+command_args="${HASPLMD_ARGS}"
+description="HASP SRM service"
+
+if [ "${RC_VERSION:-0}" = "0" ]; then
+        start() {
+		eerror "This script cannot be used for baselayout-1."
+		return 1
+	}
+fi
+
 depend () {
-    need net
-    after hasplmd
-}
-
-start() {
-	ebegin "Starting HASP SRM"
-	eval start-stop-daemon --start --quiet --exec /opt/sbin/hasplmd -- ${HASPLMD_ARGS}
-	eend $?
-}
-
-stop() {
-	ebegin "Stopping HASP SRM"
-	start-stop-daemon --stop --quiet --exec /opt/sbin/hasplmd
-	eend $?
+    need net aksusbd
 }
