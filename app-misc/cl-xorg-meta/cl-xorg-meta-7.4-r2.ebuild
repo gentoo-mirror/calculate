@@ -88,3 +88,8 @@ RDEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	x11-libs/xosd
 "
+
+pkg_postinst() {
+	eselect mesa set r300 gallium
+	eselect mesa set r600 gallium
+}
