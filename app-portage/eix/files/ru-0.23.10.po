@@ -13,12 +13,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: TODO: translate
-#: src/eix-functions.sh.in:86 src/eix-update.cc:115 src/eix-update.cc:746
-#: src/eix-update.cc:783
-msgid "Finished"
-msgstr ""
-
-#: TODO: translate
 #: src/eix-functions.sh.in:87 src/eix-update.cc:122
 msgid "Failure"
 msgstr ""
@@ -852,11 +846,6 @@ msgstr "Не удалось выполнить rm -rf ${local_varcache}/var/cach
 #, sh-format
 msgid "Could not rsync from ${hostdir}"
 msgstr "Не удалось выполнить rsync с ${hostdir}"
-
-#: TODO: translate
-#: src/eix-sync.sh:489
-msgid "eix-cache format has changed."
-msgstr ""
 
 #: src/eix-sync.sh:371
 #, sh-format
