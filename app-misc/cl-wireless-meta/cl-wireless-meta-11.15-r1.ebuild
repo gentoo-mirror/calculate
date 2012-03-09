@@ -34,7 +34,6 @@ RDEPEND="${RDEPEND}
 	net-wireless/madwifi-ng
 	net-wireless/madwifi-ng-tools
 	net-wireless/prism54-firmware
-	net-wireless/rtl8192se-firmware
 	net-wireless/rtl8192su-firmware
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
