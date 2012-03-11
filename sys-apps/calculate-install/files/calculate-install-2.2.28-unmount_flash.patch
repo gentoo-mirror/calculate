@@ -1,0 +1,50 @@
+commit 37d7483d3ad901c93bfd700ac852f1a0b55266c6
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Sun Mar 11 15:58:34 2012 +0400
+
+    Add unmount flash before flash install.
+
+diff --git a/pym/cl_distr.py b/pym/cl_distr.py
+index 0e99639..220fac7 100644
+--- a/pym/cl_distr.py
++++ b/pym/cl_distr.py
+@@ -932,6 +932,12 @@ class PartitionDistributive(Distributive):
+             self.changeSystemID(dev,systemid,partTable)
+         return True
+ 
++    def _checkMount(self,dev):
++        """Checking mount point"""
++        if isMount(dev):
++            raise DistributiveError(
++                _("Failed to format partition %s, because it is mounted")%dev)
++
+     def formatPartition(self, dev,format="reiserfs",label=""):
+         """Format partition"""
+         if not format in self.formatUtilities:
+@@ -943,9 +949,7 @@ class PartitionDistributive(Distributive):
+             raise DistributiveError(\
+                 _("Failed to format partition %s, because it is used as swap")%
+                 dev)
+-        if isMount(dev):
+-            raise DistributiveError(
+-                _("Failed to format partition %s, because it is mounted")%dev)
++        self._checkMount(dev)
+         if not os.access(dev,os.W_OK):
+             raise DistributiveError(_("Failed to format the partition") +
+                                     " %s:\n%s"%(dev,_("Permission denied")))
+@@ -1347,6 +1351,15 @@ class IsoDistributive(Distributive):
+             self._removeDirectory(self.bdirectory)
+ 
+ class FlashDistributive(PartitionDistributive):
++    def _checkMount(self,dev):
++        """Checking mount point"""
++        mp = isMount(dev)
++        if mp:
++            if mp.startswith('/media'):
++                self._umountDirectory(mp)
++            else:
++                raise DistributiveError(
++                    _("Failed to format partition %s, because it is mounted")%dev)
+ 
+     def installFrom(self, source):
+         """Install distributive to partition from source distributive"""
