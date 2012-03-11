@@ -49,32 +49,38 @@
 #?pkg(www-apps/chromium-adblock)!=#
          },
          "gighmmpiobklfepjocnamgkkbiglidom": {
-            "allowFileAccess": true,
-            "app_launcher_index": 0,
-            "granted_permissions": {
-               "api": [ "contextMenus", "tabs" ],
-               "full": false,
-               "host": [ "*://*.hk-pub.com/forum/thread-*", "*://*.mail.live.com/*", "*://*.youtube.com/*", "http://*/*", "https://*/*" ]
+            "active_permissions": {
+               "api": [ "contextMenus", "idle", "tabs", "webRequest", "webRequestBlocking" ],
+               "explicit_host": [ "http://*/*", "https://*/*" ],
+               "scriptable_host": [ "*://*.hk-pub.com/forum/thread-*", "*://*.mail.live.com/*", "*://*.youtube.com/*", "http://*/*", "https://*/*" ]
             },
-	    "install_time": "12959953182540259",
+            "delayNetworkRequests": true,
+            "from_bookmark": false,
+            "from_webstore": true,
+            "granted_permissions": {
+               "api": [ "contextMenus", "idle", "tabs", "webRequest", "webRequestBlocking" ],
+               "explicit_host": [ "http://*/*", "https://*/*" ],
+               "scriptable_host": [ "*://*.hk-pub.com/forum/thread-*", "*://*.mail.live.com/*", "*://*.youtube.com/*", "http://*/*", "https://*/*" ]
+            },
+            "install_time": "12975930521854205",
             "location": 1,
             "manifest": {
                "background_page": "background.html",
                "browser_action": {
                   "default_icon": "img/icon19.png",
-                  "default_title": "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B AdBlock",
+                  "default_title": "AdBlock",
                   "popup": "button/popup.html"
                },
                "content_scripts": [ {
                   "all_frames": true,
-                  "js": [ "port.js", "jquery/jquery.min.js", "functions.js", "filtering/filteroptions.js", "filtering/filtertypes.js", "filtering/filterset.js", "adblock_start.js" ],
+                  "js": [ "port.js", "functions.js", "filtering/filteroptions.js", "filtering/filtertypes.js", "filtering/filterset.js", "adblock_start_common.js", "adblock_start.js", "adblock_start_new_style.js" ],
                   "matches": [ "http://*/*", "https://*/*" ],
                   "run_at": "document_start"
                }, {
                   "all_frames": true,
                   "js": [ "bandaids.js" ],
                   "matches": [ "*://*.mail.live.com/*", "*://*.hk-pub.com/forum/thread-*", "*://*.youtube.com/*" ],
-                  "run_at": "document_end"
+                  "run_at": "document_start"
                }, {
                   "all_frames": true,
                   "js": [ "adblock.js" ],
@@ -99,11 +105,11 @@
                "minimum_chrome_version": "6",
                "name": "AdBlock",
                "options_page": "options/index.html",
-               "permissions": [ "http://*/*", "https://*/*", "contextMenus", "tabs" ],
+               "permissions": [ "http://*/*", "https://*/*", "contextMenus", "tabs", "idle", "webRequest", "webRequestBlocking" ],
                "update_url": "http://clients2.google.com/service/update2/crx",
-               "version": "2.4.27"
+               "version": "2.5.20"
             },
-            "path": "gighmmpiobklfepjocnamgkkbiglidom/2.4.27_0",
+            "path": "gighmmpiobklfepjocnamgkkbiglidom/2.5.15_0",
             "state": 1
 #pkg#
          }
