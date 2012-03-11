@@ -11,6 +11,9 @@ x11-libs/qt-gui gtkstyle
 xfce-base/thunar xfce_plugins_trash
 xfce-base/xfdesktop thunar xfce_plugins_menu
 
+#for suspend and hibernate support
+xfce-base/xfce4-session udev
+
 #need for xfce-extra/thunar-volman
 xfce-base/thunar udev
 
