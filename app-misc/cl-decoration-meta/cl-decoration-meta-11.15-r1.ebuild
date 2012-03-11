@@ -28,6 +28,7 @@ RDEPEND="
 	)
 	cdistro_CLDX? (
 		media-gfx/cldx-themes
+		x11-themes/gnome-themes-standard
 		x11-themes/tango-icon-theme
 	)
 	cdistro_CLS? (
