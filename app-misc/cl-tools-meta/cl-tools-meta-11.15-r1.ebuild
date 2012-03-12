@@ -27,6 +27,7 @@ IUSE="
 "
 
 RDEPEND="${RDEPEND}
+	!sys-fs/ntfsprogs
 	app-editors/nano
 	sys-apps/ethtool
 
