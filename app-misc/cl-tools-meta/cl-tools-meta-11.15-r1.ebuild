@@ -76,7 +76,6 @@ RDEPEND="${RDEPEND}
 		sys-fs/mdadm
 		sys-fs/mtools
 		sys-fs/ntfs3g
-		sys-fs/ntfsprogs
 		sys-fs/xfsprogs
 		sys-kernel/module-rebuild
 		sys-process/htop
