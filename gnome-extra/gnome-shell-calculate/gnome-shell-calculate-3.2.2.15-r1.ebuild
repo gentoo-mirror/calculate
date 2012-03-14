@@ -4,6 +4,8 @@
 
 EAPI="4"
 
+inherit eutils
+
 DESCRIPTION="Extension pack Calculate-like features for GNOME 3"
 HOMEPAGE="http://www.calculate-linux.org"
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
