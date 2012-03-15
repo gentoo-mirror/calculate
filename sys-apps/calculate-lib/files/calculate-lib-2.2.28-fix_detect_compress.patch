@@ -1,0 +1,23 @@
+commit cd60886fd866e4fc44516cc9af1f1609ef7eea17
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Thu Mar 15 11:21:45 2012 +0400
+
+    Fix detect gzip compress for squashfs-tools.
+
+diff --git a/pym/cl_utils.py b/pym/cl_utils.py
+index 063d5a2..7ae5015 100644
+--- a/pym/cl_utils.py
++++ b/pym/cl_utils.py
+@@ -1047,6 +1047,12 @@ def getSquashList():
+     if not usesSquashFs:
+         return ["gzip"]
+     else:
++        pkgInfo = getPkgInstalled('sys-fs/squashfs-tools')
++        if pkgInfo and pkgInfo[0]['PV']:
++            pkgVer = getTupleVersion(pkgInfo[0]['PV'])
++            gzipVer = getTupleVersion('4.2')
++            if pkgVer >= gzipVer:
++                usesSquashFs.append('gzip')
+         return map(lambda x:{"lzma":"xz"}.get(x,x),
+                list(set(usesSquashFs) & wantMethod))
+ 
