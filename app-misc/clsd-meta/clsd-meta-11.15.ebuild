@@ -46,9 +46,7 @@ RDEPEND="${RDEPEND}
 	x11-misc/obdevicemenu
 	x11-misc/trayfreq
 	sys-apps/uam
-	sys-power/acpid
 	x11-misc/slim
-	sys-fs/ntfs3g
 	app-misc/screen
 	dev-util/gsimplecal
 	!calculate_nodecoration? ( 
@@ -78,6 +76,8 @@ RDEPEND="${RDEPEND}
 	!calculate_nonettools? ( 
 		app-misc/cl-nettools-meta
 		net-im/pidgin
+		x11-plugins/pidgin-hotkeys
+		x11-plugins/pidgin-libnotify
 		net-irc/xchat
 		app-portage/fetchcommandwrapper
 	)
