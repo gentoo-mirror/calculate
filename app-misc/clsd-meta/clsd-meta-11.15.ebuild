@@ -53,6 +53,7 @@ RDEPEND="${RDEPEND}
 		x11-themes/hicolor-icon-theme
 		x11-themes/gnome-icon-theme
 		media-gfx/cldx-themes
+		x11-misc/xscreensaver
 		app-misc/cl-decoration-meta
 	)
 	!calculate_nographics? (
