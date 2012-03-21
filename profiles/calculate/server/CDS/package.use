@@ -9,7 +9,7 @@ net-im/ejabberd ldap mod_muc mod_pubsub mod_srl
 net-mail/dovecot pop3d ldap
 net-nds/openldap syslog
 net-proxy/squid icap-client ldap
-net-ftp/proftpd -ipv6 -acl ldap
+net-ftp/proftpd -ipv6 -acl ldap openssl
 net-fs/samba ldap
 
 net-misc/asterisk alsa dahdi span speex vorbis
