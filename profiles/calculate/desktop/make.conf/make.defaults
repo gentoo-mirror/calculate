@@ -2,7 +2,7 @@
 #USE="${USE} xscreensaver"
 
 # Audio
-USE="${USE} alsa amr -arts audiofile id3tag flac mad mp3 mpeg nas ogg oggvorbis openal opencore-amr portaudio vorbis mikmod"
+USE="${USE} alsa amr -arts audiofile id3tag flac mad mikmod mp3 mpeg nas ogg oggvorbis openal opencore-amr portaudio wavpack vorbis"
 
 # CD and DVD
 USE="${USE} cdparanoia cdr css dvd dvdr dvdread vcd"
