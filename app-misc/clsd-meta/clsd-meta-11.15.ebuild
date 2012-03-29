@@ -81,6 +81,7 @@ RDEPEND="${RDEPEND}
 		x11-plugins/pidgin-libnotify
 		net-irc/xchat
 		app-portage/fetchcommandwrapper
+		net-p2p/qbittorrent
 	)
 	!calculate_noprinter? ( app-misc/cl-printer-meta )
 	!calculate_nooffice? (
