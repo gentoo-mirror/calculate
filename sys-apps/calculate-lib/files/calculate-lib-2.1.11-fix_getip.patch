@@ -1,0 +1,185 @@
+diff --git a/pym/cl_fill.py b/pym/cl_fill.py
+index c5dea91..e86343d 100644
+--- a/pym/cl_fill.py
++++ b/pym/cl_fill.py
+@@ -129,57 +129,22 @@ class fillVars(object, cl_base.glob_attr):
+     # все ip
+     def get_os_net_ip(self):
+         """все ip компьютера, разделитель запятая"""
+-        IPs = []
+-        netInterfaces=cl_utils.getdirlist("/sys/class/net/")
+-        for i in netInterfaces:
+-            res = self._runos("/sbin/ifconfig %s"%i)
+-            if not res:
+-                break
+-            for line in res:
+-                searchIP = re.search('addr:([0-9\.]+).+Bcast:', line)
+-                if searchIP:
+-                    # ip адрес
+-                    ip = searchIP.groups()[0]
+-                    IPs.append(ip)
+-        return ",".join(IPs)
++        return ",".join(map(cl_utils.getIp,
++                        cl_utils.getInterfaces()))
+ 
+     # Разрешенные сети (в данном случае все сети)
+     def get_os_net_allow(self):
+         """Разрешенные сети разделитель запятая"""
+-
+-        def getNet(ip, mask):
+-            """По ip и маске получаем сеть"""
+-            octetsMult = (0x1, 0x100, 0x10000, 0x1000000)
+-            octetsIp = map(lambda x: int(x), ip.split("."))
+-            octetsMask = map(lambda x: int(x), mask.split("."))
+-            ipNumb = 0
+-            for i in octetsMult:
+-                ipNumb += octetsIp.pop()*i
+-            maskNumb = 0
+-            for i in octetsMult:
+-                maskNumb += octetsMask.pop()*i
+-            startIpNumber = maskNumb&ipNumb
+-            x = startIpNumber
+-            nMask = lambda y: len(filter(lambda x: y >> x &1 ,range(32)))
+-            return "%s.%s.%s.%s/%s"\
+-                   %(x>>24, x>>16&255, x>>8&255, x&255, nMask(maskNumb))
+-
+         networks=[]
+-        netInterfaces=cl_utils.getdirlist("/sys/class/net/")
+-        flagError = False
++        netInterfaces=cl_utils.getInterfaces()
+         for i in netInterfaces:
+-            res = self._runos("/sbin/ifconfig %s"%i)
+-            if not res:
+-                flagError = True
+-                break
+-            for j in res:
+-                s_ip=re.search('addr:([0-9\.]+).+Bcast:.+Mask:([0-9\.]+)' ,j)
+-                if s_ip:
+-                    ip, mask = s_ip.groups()
+-                    networks.append(getNet(ip, mask))
+-        if flagError:
+-            return ""
+-        return ",".join(networks)
++            ipaddr, mask = cl_utils.getIp(i), \
++                cl_utils.cidrToMask(cl_utils.getMask(i))
++            if ipaddr and mask:
++                networks.append(cl_utils.getIpNet(ipaddr, mask))
++            else:
++                networks.append("")
++        return ",".join(filter(lambda x:x,networks))
+ 
+     def get_os_locale_locale(self):
+         """локаль (прим: ru_RU.UTF-8)"""
+diff --git a/pym/cl_utils.py b/pym/cl_utils.py
+index 195d4d5..8f25ffd 100644
+--- a/pym/cl_utils.py
++++ b/pym/cl_utils.py
+@@ -21,6 +21,11 @@ from re import search, compile, S
+ import os
+ import types
+ import subprocess
++import socket
++import struct
++import fcntl
++import math
++import ctypes
+ 
+ def getdirlist(s_path):
+     #Получить список директорий по указаному пути
+@@ -508,3 +513,96 @@ def _toUNICODE(val):
+         return val
+     else:
+         return str(val).decode('UTF-8')
++
++SYSFS_NET_PATH = "/sys/class/net"
++
++# From linux/sockios.h
++SIOCGIFADDR = 0x8915
++SIOCGIFNETMASK = 0x891B
++SIOCGIFHWADDR = 0x8927
++
++def getInterfaces():
++    """
++    Get available interfaces (discard which hasn't device)
++    """
++    try:
++        return filter(lambda x:os.path.exists(
++                        os.path.join(SYSFS_NET_PATH,x,"device")),
++               os.listdir(SYSFS_NET_PATH))
++    except:
++        return []
++
++def getIp(iface):
++    sockfd = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
++    ifreq = struct.pack('16sH14s', iface, socket.AF_INET, '\x00'*14)
++    try:
++        res = fcntl.ioctl(sockfd, SIOCGIFADDR, ifreq)
++    except IOError:
++        return ""
++    finally:
++        sockfd.close()
++    ip = struct.unpack('16sH2x4s8x', res)[2]
++    return socket.inet_ntoa(ip)
++
++def getMask(iface):
++    """
++    Get mask for interface
++    """
++    sockfd = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
++    ifreq = struct.pack('16sH14s', iface, socket.AF_INET, '\x00'*14)
++    try:
++        res = fcntl.ioctl(sockfd, SIOCGIFNETMASK, ifreq)
++    except IOError:
++        return 0
++    finally:
++        sockfd.close()
++    netmask = socket.ntohl(struct.unpack('16sH2xI8x', res)[2])
++    return 32 - int(math.log(ctypes.c_uint32(~netmask).value + 1, 2))
++
++def getMac(iface):
++    """
++    Get mac for interface
++    """
++    sockfd = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
++    ifreq = struct.pack('16sH14s', iface, socket.AF_UNIX, '\x00'*14)
++    res = fcntl.ioctl(sockfd, SIOCGIFHWADDR, ifreq)
++    address = struct.unpack('16sH14s', res)[2]
++    mac = struct.unpack('6B8x', address)
++    sockfd.close()
++    return ":".join(['%02X' % i for i in mac])
++
++def intIpToStrIp(addr):
++    """Convert ip specified by integer to string"""
++    return "{0}.{1}.{2}.{3}".format(
++            addr>>24,(addr>>16)&0xff,(addr>>8)&0xff,addr&0xff)
++
++def maskToCidr(mask):
++    """Convert mask specified by str to net"""
++    mask = strIpToIntIp(mask)
++    return 32-int(math.log(((~mask) & 0xffffffff)+1,2))
++
++def cidrToMask(cidr):
++    """Convert net to mask specified by str"""
++    return intIpToStrIp((2**cidr-1)<<(32-cidr))
++
++def strIpToIntIp(addr):
++    """Convert ip specified by string to integer"""
++    addr = addr.split('.')
++    return ((int(addr[0])<<24)|
++           (int(addr[1])<<16)|
++           (int(addr[2])<<8)|
++           (int(addr[3])))
++    return reduce(lambda x,y:x+(int(y[1])<<(y[0]*8)),
++           enumerate(reversed(addr.split("."))),0)
++
++def getIpNet(ip,mask=None,cidr=None):
++    """Get net (xx.xx.xx.xx/xx) by ip address and mask"""
++    ip = strIpToIntIp(ip)
++    if not mask is None:
++        net = maskToCidr(mask)
++    else:
++        net = int(cidr)
++        mask = cidrToMask(net)
++    mask = strIpToIntIp(mask)
++    return "{ip}/{net}".format(ip=intIpToStrIp(ip&mask),
++                               net=net)
