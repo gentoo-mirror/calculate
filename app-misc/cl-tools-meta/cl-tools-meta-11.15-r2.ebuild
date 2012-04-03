@@ -30,6 +30,7 @@ RDEPEND="${RDEPEND}
 	!sys-fs/ntfsprogs
 	app-editors/nano
 	sys-apps/ethtool
+	sys-kernel/module-rebuild
 
 	cdistro_desktop? (
 		net-misc/dhcpcd
@@ -78,7 +79,6 @@ RDEPEND="${RDEPEND}
 		sys-fs/mtools
 		sys-fs/ntfs3g
 		sys-fs/xfsprogs
-		sys-kernel/module-rebuild
 		sys-process/htop
 	)
 	cdistro_CLD? (
@@ -137,7 +137,6 @@ RDEPEND="${RDEPEND}
 		sys-fs/ntfs3g
 		sys-fs/xfsdump
 		sys-fs/xfsprogs
-		sys-kernel/module-rebuild
 		sys-process/htop
 		sys-process/iotop
 		sys-process/lsof
