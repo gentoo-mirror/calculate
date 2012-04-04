@@ -1,0 +1,23 @@
+commit bff5b35c4466d593eacc7b902298ccabffdf4884
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Wed Apr 4 10:48:25 2012 +0400
+
+    Add downgrade checking.
+
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index a7521d6..2c52d6a 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -227,7 +227,11 @@ class cl_assemble(color_print):
+              {'command':'eselect news read new',
+               'step':'readnews',
+               'message':_("Reading news"),
+-              'progname':'eselect'}]
++              'progname':'eselect'},
++             {'command':"FORMAT='{downgrade}%{FORMAT_ALL}{}' eix -I",
++              'message':_("Checking downgrades"),
++              'step':'showdowngrade',
++              'progname':'eix'}]
+ 
+     reVerSplit = re.compile(r"^(.*?)-(([^-]+?)(?:-(r\d+))?)(?:.(tbz2))?$",re.S)
+ 
