@@ -195,7 +195,6 @@ RDEPEND="${RDEPEND}
 	kde-base/kdf
 	kde-base/kgpg
 	kde-base/kremotecontrol
-	kde-base/ksecrets
 	kde-base/kwallet
 	kde-base/sweeper
 	cups? (
