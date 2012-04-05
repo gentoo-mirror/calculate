@@ -1,11 +1,11 @@
-commit 8209e9c924976a32d0dd9f39ac45358ed18a21e9
+commit c389ce74128d9c01fa65f49a2d082aa881d3c07a
 Author: Хирецкий Михаил <mh@calculate.ru>
 Date:   Wed Apr 4 10:48:25 2012 +0400
 
     Add downgrade checking.
 
 diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
-index a7521d6..2704099 100644
+index a7521d6..dd8110a 100644
 --- a/pym/cl_assemble.py
 +++ b/pym/cl_assemble.py
 @@ -227,7 +227,11 @@ class cl_assemble(color_print):
@@ -21,13 +21,14 @@ index a7521d6..2704099 100644
  
      reVerSplit = re.compile(r"^(.*?)-(([^-]+?)(?:-(r\d+))?)(?:.(tbz2))?$",re.S)
  
-@@ -1388,6 +1392,12 @@ class cl_assemble(color_print):
+@@ -1388,6 +1392,13 @@ class cl_assemble(color_print):
                  _("An error occurred when executing the command")+
                    ":\n    %s"%self._getCommand(cmd.command))
  
 +    def checkDowngrades(self):
 +        """Run check downgrades"""
 +        cmd = self.runChroot("FORMAT='{downgrade}%{FORMAT_ALL}{}' eix -I",
++                             raiseError=False,
 +                             showProcess=True)
 +        return True
 +
