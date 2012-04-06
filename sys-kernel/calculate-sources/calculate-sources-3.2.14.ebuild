@@ -35,6 +35,7 @@ DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.18
 	|| ( app-arch/xz-utils app-arch/lzma-utils )
 	sys-apps/v86d
 	!<net-wireless/rtl8192se-3.0
+	sys-boot/grub
 	)"
 
 CL_KERNEL_OPTS="--lvm --mdadm --dmraid"
