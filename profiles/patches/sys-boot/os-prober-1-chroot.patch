@@ -1,7 +1,7 @@
-diff --git a/linux-boot-prober b/linux-boot-prober
-index e32dc84..0e358a5 100755
---- a/linux-boot-prober
-+++ b/linux-boot-prober
+diff --git linux-boot-prober linux-boot-prober
+index e32dc84..b522567 100755
+--- linux-boot-prober
++++ linux-boot-prober
 @@ -33,7 +33,7 @@ if ! grep -q "^$mapped " "$OS_PROBER_TMP/mounted-map"; then
  else
  	mpoint=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 2)
@@ -11,10 +11,26 @@ index e32dc84..0e358a5 100755
  		type=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 3)
  		if ! grep -q " $mpoint/boot " "$OS_PROBER_TMP/mounted-map"; then
  			linux_mount_boot "$partition" "$mpoint"
-diff --git a/os-prober b/os-prober
-index fc4de2c..34f3504 100755
---- a/os-prober
-+++ b/os-prober
+diff --git linux-boot-probes/mounted/common/90fallback linux-boot-probes/mounted/common/90fallback
+index 9ff78e1..9a5cf1a 100755
+--- linux-boot-probes/mounted/common/90fallback
++++ linux-boot-probes/mounted/common/90fallback
+@@ -34,8 +34,10 @@ for kernpat in /vmlinuz /vmlinux /boot/vmlinuz /boot/vmlinux "/boot/vmlinuz*" \
+ 			initrdname3=$(echo "$kernfile" | sed "s/vmlinu[zx]/initramfs\*/" | sed 's/$/.img/')
+ 			# And Gentoo's also
+ 			initrdname4=$(echo "$kernfile" | sed "s/kernel/initramfs\*/")
++			# And Calculate's also
++			initrdname5=$(echo "$kernfile" | sed "s/vmlinu[zx]/initramfs\*/ | sed 's/$/-install/")
+ 			foundinitrd=0
+-			for initrd in $(eval ls "$initrdname" "$initrdname1" "$initrdname2" "$initrdname3" "$initrdname4" 2>/dev/null); do
++			for initrd in $(eval ls "$initrdname" "$initrdname1" "$initrdname2" "$initrdname3" "$initrdname4" "$initrdname5" 2>/dev/null); do
+ 				if [ "$initrd" != "$kernfile" ] && [ -f "$initrd" ] && [ ! -L "$initrd" ]; then
+ 					initrd=$(echo "$initrd" | sed "s!^$mpoint!!")
+ 					result "$partition:$kernbootpart::$kernbasefile:$initrd:root=$mappedpartition"
+diff --git os-prober os-prober
+index fc4de2c..55dc20b 100755
+--- os-prober
++++ os-prober
 @@ -147,7 +147,7 @@ for partition in $(partitions); do
  	else
  		mpoint=$(grep "^$mapped " "$OS_PROBER_TMP/mounted-map" | head -n1 | cut -d " " -f 2)
