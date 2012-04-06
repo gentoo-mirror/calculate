@@ -188,7 +188,6 @@ RDEPEND="${RDEPEND}
 #kde-base/superkaramba
 #kde-base/kfloppy
 RDEPEND="${RDEPEND}
-	!kde-base/ksecrets
     kde-base/ark
 	kde-base/filelight
 	kde-base/kcalc
