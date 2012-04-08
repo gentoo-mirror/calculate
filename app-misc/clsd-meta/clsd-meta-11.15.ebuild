@@ -66,7 +66,7 @@ RDEPEND="${RDEPEND}
 	(
 		app-misc/cl-multimedia-meta
 		media-video/smplayer
-		media-sound/deadbeef
+		media-sound/audacious
 		media-sound/volumeicon
 	)
 	!calculate_nonetwork? ( 
