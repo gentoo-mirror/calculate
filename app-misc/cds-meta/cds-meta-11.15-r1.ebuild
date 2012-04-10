@@ -43,7 +43,9 @@ RDEPEND="${RDEPEND}
 	!calculate_nojabber? ( net-im/ejabberd )
 	ldap? ( net-nds/openldap )
 	!calculate_nomail? (
+		!mail-filter/dkim-milter
 		mail-filter/clamsmtp
+		mail-filter/opendkim
 		mail-filter/postgrey
 		mail-filter/procmail
 		mail-mta/postfix
