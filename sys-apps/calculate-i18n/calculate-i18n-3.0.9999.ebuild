@@ -7,7 +7,7 @@ EAPI="3"
 inherit distutils git-2
 
 EGIT_COMMIT=""
-EGIT_REPO_URI="git://git.calculate.ru/calculate-3.0/calculate-i18n.git"
+EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-i18n.git"
 
 DESCRIPTION="The internationalization package for calculate utilities"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
