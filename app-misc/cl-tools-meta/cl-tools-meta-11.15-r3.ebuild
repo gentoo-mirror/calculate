@@ -80,6 +80,7 @@ RDEPEND="${RDEPEND}
 		sys-fs/ntfs3g
 		sys-fs/xfsprogs
 		sys-process/htop
+		sys-process/lsof
 	)
 	cdistro_CLD? (
 		sys-block/partitionmanager
