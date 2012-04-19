@@ -1,9 +1,10 @@
 #default
-~app-arch/p7zip-9.13 amd64 x86
-~media-sound/amarok-2.5.0 x86 amd64
+~kde-misc/networkmanagement-0.9.0.1 amd64 x86
+~app-arch/p7zip-9.20.1 amd64 x86
+~media-sound/amarok-2.5.0 amd64 x86
 
-~kde-misc/synaptiks-0.8.0 amd64 x86
-~dev-python/pyudev-0.13 amd64 x86
+~kde-misc/synaptiks-0.8.1 amd64 x86
+~dev-python/pyudev-0.15 amd64 x86
 
 #for KDE 4.5.4
 ~media-gfx/exiv2-0.21.1 amd64 x86
@@ -15,15 +16,8 @@
 ~net-libs/libkvkontakte-2.5.0 amd64 x86
 
 ~media-video/kdenlive-0.8.2.1 amd64 x86
-~media-libs/mlt-0.7.6 amd64 x86
 
 ~dev-db/virtuoso-odbc-6.1.4 amd64 x86
-
-~dev-libs/soprano-2.7.4 amd64 x86
-~sys-auth/polkit-qt-0.103.0 amd64 x86
-~media-libs/libdmtx-0.7.4 amd64 x86
-~app-office/akonadi-server-1.7.0 amd64 x86
-~media-libs/prison-1.0 amd64 x86
 
 #need for correct install vlc-2.0.0
 =dev-db/virtuoso-server-6.1.4 amd64 x86
