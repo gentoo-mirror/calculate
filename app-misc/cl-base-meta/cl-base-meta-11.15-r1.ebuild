@@ -19,6 +19,7 @@ RDEPEND="
 	app-portage/eix
 	app-portage/gentoolkit
 	app-portage/layman
+	dev-lang/python:3.2
 	dev-vcs/git
 	media-fonts/terminus-font
 	sys-apps/calculate-utilities
