@@ -24,6 +24,7 @@ RDEPEND="${RDEPEND}
 
 #Applications
 RDEPEND="${RDEPEND}
+	!x11-apps/xsetmode
 	x11-apps/appres
 	x11-apps/bitmap
 	x11-apps/iceauth
@@ -58,7 +59,6 @@ RDEPEND="${RDEPEND}
 	x11-apps/xrdb
 	x11-apps/xrefresh
 	x11-apps/xset
-	x11-apps/xsetmode
 	x11-apps/xsetroot
 	x11-apps/xvinfo
 	x11-apps/xwd
