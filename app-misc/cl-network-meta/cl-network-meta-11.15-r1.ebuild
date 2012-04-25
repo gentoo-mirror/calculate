@@ -11,18 +11,25 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="cdistro_desktop cdistro_CLD cdistro_CLDG cdistro_CLDX cdistro_CDS
+IUSE="cdistro_desktop
+cdistro_CLD
+cdistro_CLDG
+cdistro_CLDX
+cdistro_CLS
+cdistro_CMC
+cdistro_CDS
+cdistro_CSS
 networkmanager"
 
 RDEPEND="
-	net-dialup/pptpclient
-	net-dialup/rp-pppoe
-	net-dns/bind-tools
-	net-misc/ntp
-	net-misc/vconfig
+	net-fs/nfs-utils
 
 	cdistro_desktop? (
-		net-fs/nfs-utils
+		net-dialup/pptpclient
+		net-dialup/rp-pppoe
+		net-dns/bind-tools
+		net-misc/ntp
+		net-misc/vconfig
 		networkmanager? (
 			net-misc/cnetworkmanager
 			net-misc/networkmanager
@@ -50,14 +57,16 @@ RDEPEND="
 		net-dialup/pptpd
 		net-dialup/rp-pppoe
 		net-dialup/xl2tpd
+		net-dns/bind-tools
 		net-dns/ddclient
 		net-firewall/ipsec-tools
 		net-firewall/iptables
 		net-firewall/shorewall
-		net-fs/nfs-utils
 		net-fs/samba
 		net-misc/bridge-utils
 		net-misc/ifenslave
+		net-misc/ntp
+		net-misc/vconfig
 		net-misc/wol
 	)
 "
