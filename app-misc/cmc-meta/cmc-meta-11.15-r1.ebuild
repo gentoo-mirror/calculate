@@ -14,6 +14,7 @@ KEYWORDS="x86 amd64"
 IUSE="
 calculate_nodecoration
 calculate_nokernel
+calculate_nonetwork
 calculate_nowireless
 "
 
@@ -24,6 +25,7 @@ RDEPEND="${RDEPEND}
 
 	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
 	!calculate_nokernel? ( sys-kernel/calculate-sources )
+	!calculate_nonetwork? ( app-misc/cl-network-meta )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
 
 	app-misc/lirc
