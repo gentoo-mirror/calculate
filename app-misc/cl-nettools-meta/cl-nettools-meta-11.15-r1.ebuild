@@ -51,6 +51,7 @@ RDEPEND="
 		net-fs/fusesmb
 		net-im/pidgin
 		net-irc/xchat
+		net-misc/remmina
 		net-p2p/deluge
 		net-p2p/linuxdcpp
 		x11-plugins/pidgin-hotkeys
