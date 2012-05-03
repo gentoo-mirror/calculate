@@ -21,7 +21,7 @@ DEPEND=""
 HPLIP_HOME=/usr/share/hplip
 
 # Binary prebuilt package
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 QA_PRESTRIPPED="
 /usr/share/hplip/scan/plugins/bb_marvell.so
 /usr/share/hplip/scan/plugins/bb_soapht.so
