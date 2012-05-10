@@ -26,11 +26,11 @@ DEPEND="
 RDEPEND="${DEPEND}
         >=dev-ruby/ruby-net-ldap-0.0.4
         >=dev-ruby/coderay-0.7.6.227
-        cvs? ( >=dev-util/cvs-1.12 )
-        darcs? ( dev-util/darcs )
+        cvs? ( >=dev-vcs/cvs-1.12 )
+        darcs? ( dev-vcs/darcs )
         git? ( dev-vcs/git )
-        mercurial? ( dev-util/mercurial )
-        subversion? ( >=dev-util/subversion-1.3 )
+        mercurial? ( dev-vcs/mercurial )
+        subversion? ( >=dev-vcs/subversion-1.3 )
         mongrel? (
 			www-servers/mongrel_cluster
 			www-servers/apache[apache2_modules_proxy,apache2_modules_proxy_http,apache2_modules_proxy_balancer]
