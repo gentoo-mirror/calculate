@@ -1,0 +1,42 @@
+commit fa0045eb2d30cfafa45e423cfe2f40f0d65660b0
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri May 11 16:25:25 2012 +0400
+
+    Add variable os_linux_filesnum. For compatible with 3.0.
+
+diff --git a/pym/cl_utils.py b/pym/cl_utils.py
+index 93580e8..d49c6fb 100644
+--- a/pym/cl_utils.py
++++ b/pym/cl_utils.py
+@@ -1445,3 +1445,17 @@ def tarLinks(rootpath,archpath,skip=[]):
+         removeDirs)
+     tar.close()
+     return links
++
++def countFiles(dirpath,onefilesystem=True):
++    """
++    Count files in dirpath
++    """
++    num = 1
++    for dirpath,dirnames,filenames in os.walk(dirpath):
++        num += len(set(dirnames) | set(filenames))
++        if onefilesystem:
++            mountDirs = filter(lambda x:path.ismount(path.join(dirpath,x)),
++                        dirnames)
++            for dirname in mountDirs:
++                dirnames.remove(dirname)
++    return num
+diff --git a/pym/cl_vars.py b/pym/cl_vars.py
+index 0e35f3f..23d0074 100644
+--- a/pym/cl_vars.py
++++ b/pym/cl_vars.py
+@@ -127,6 +127,9 @@ class Data:
+     # system version
+     os_linux_build = {'hide':True}
+ 
++    # files number
++    os_linux_filesnum = {'hide':True}
++
+     # user login
+     ur_login = {'hide':True}
+ 

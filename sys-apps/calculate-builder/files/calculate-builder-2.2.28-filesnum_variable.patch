@@ -1,0 +1,60 @@
+diff --git a/pym/cl_builder.py b/pym/cl_builder.py
+index 0454986..d6477c7 100644
+--- a/pym/cl_builder.py
++++ b/pym/cl_builder.py
+@@ -14,7 +14,7 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-__version__ = "2.2.28"
++__version__ = "2.2.28.1"
+ __app__ = "calculate-builder"
+ 
+ import os
+@@ -242,6 +242,7 @@ class cl_builder(color_print):
+         # run dispatch conf interactive
+         os.system("chroot %s /bin/bash -c '/usr/sbin/dispatch-conf'"%
+                   distrPath)
++        self.printByResult(True);
+ 
+     def prepareSourceDistributive(self,distr):
+         """Unmount all bind,proc mount points from source distribute"""
+diff --git a/pym/cl_fill_builder.py b/pym/cl_fill_builder.py
+index 00ce478..fbaf6df 100644
+--- a/pym/cl_fill_builder.py
++++ b/pym/cl_fill_builder.py
+@@ -23,7 +23,7 @@ from os import access, R_OK,W_OK
+ from os import path
+ from cl_distr import Distributive
+ from cl_utils import getTupleVersion,genpassword,pathJoin,_toUNICODE, \
+-                     getFilesCount,getCmdLineParam
++                     getFilesCount,getCmdLineParam,countFiles
+ from operator import itemgetter
+ from types import ListType
+ from cl_datavars import iniParser
+@@ -276,6 +276,11 @@ class fillVars(object, varsShare):
+                self.detectOtherShortname(systemRoot) or \
+                "Linux"
+ 
++    def get_os_builder_linux_filesnum(self):
++        """Files number in image system"""
++        systemRoot = self.Get('cl_builder_path')
++        return str(countFiles(systemRoot))
++
+     def get_os_builder_linux_ver(self):
+         """Build system ver"""
+         linuxShortName = self.Get("os_builder_linux_shortname")
+diff --git a/pym/cl_vars_builder.py b/pym/cl_vars_builder.py
+index 8be43e7..44e4965 100644
+--- a/pym/cl_vars_builder.py
++++ b/pym/cl_vars_builder.py
+@@ -117,6 +117,9 @@ class Data:
+     # build system build
+     os_builder_linux_build = {'mode':'r','value':''}
+ 
++    # filesnum in build system
++    os_builder_linux_filesnum = {'mode':'r'}
++
+     # build system arch
+     os_builder_arch_machine = {}
+ 
