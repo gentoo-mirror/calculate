@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit calculate
 EAPI=2
+inherit calculate
 
 DESCRIPTION="Calculate Linux (meta package)"
 HOMEPAGE="http://www.calculate-linux.org"

@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
 inherit multilib eutils rpm versionator
 MY_PF=${PF/-r/-}
 DESCRIPTION="Common files for the Canon CUPS Capt driver"
@@ -12,7 +13,6 @@ RESTRICT="mirror"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="-cngplp"    # enable or disable cngplp compilation, may cause build break on ~amd64, don't really know if cngplp is ever needed
-EAPI="2"
 
 DEPEND=">=net-print/cups-1.1.17"
 S=${WORKDIR}/${PN}-$(get_version_component_range 1-2)
