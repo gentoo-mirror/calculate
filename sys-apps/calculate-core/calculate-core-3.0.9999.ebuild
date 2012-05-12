@@ -6,7 +6,7 @@ EAPI="3"
 
 inherit distutils git-2
 
-EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-api.git"
+EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-core.git"
 
 DESCRIPTION="The WSDL api for Calculate 3"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"

@@ -17,5 +17,6 @@ RDEPEND="${RDEPEND}
 	=sys-apps/calculate-install-3.0.9999
 	=sys-apps/calculate-i18n-3.0.9999
 	=sys-apps/calculate-lib-3.0.9999
+	=sys-apps/calculate-core-3.0.9999
 "
 
