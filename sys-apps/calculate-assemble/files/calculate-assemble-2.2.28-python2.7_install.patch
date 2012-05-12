@@ -1,0 +1,22 @@
+commit f8d45d5ecd38a553efccd8a71a0d41d46fda53dd
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Sat May 12 10:42:39 2012 +0400
+
+    Add python 2.7 installation and set 2.7 as default python.
+
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index d0455c4..067917a 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -622,8 +622,10 @@ class cl_assemble(color_print):
+ 
+         # stage3 contains python-2.7 without USE="xml" need for layman
+         emergePython = "USE='xml' emerge -1 python:2.7"
+-        self.printMessageForTest(_("Installing %s")%"python")
++        self.printMessageForTest(_("Installing %s")%"python:2.7")
+         self.runChroot(emergePython)
++        self.printMessageForTest(_("Set %s as default")%"python:2.7")
++        self.runChroot('eselect python set python2.7')
+ 
+         self.printMessageForTest(_("Loading calculate overlay"))
+         if filter(lambda x:"calculate" in x,self.runChroot("layman -l")):
