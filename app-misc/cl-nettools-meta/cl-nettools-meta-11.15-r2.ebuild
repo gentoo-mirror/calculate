@@ -43,12 +43,13 @@ RDEPEND="
 		x11-plugins/pidgin-hotkeys
 	)
 	cdistro_CLDX? (
+		!net-fs/fusesmb
 		net-ftp/filezilla
 		net-news/liferea
 		mail-client/claws-mail
 		mail-client/claws-mail-rssyl
 		net-dialup/gnome-ppp
-		net-fs/fusesmb
+		net-fs/smbnetfs
 		net-im/pidgin
 		net-irc/xchat
 		net-misc/remmina
