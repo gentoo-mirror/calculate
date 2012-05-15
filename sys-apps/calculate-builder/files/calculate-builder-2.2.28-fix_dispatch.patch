@@ -1,0 +1,20 @@
+diff --git a/pym/cl_builder.py b/pym/cl_builder.py
+index d6477c7..5ee99fa 100644
+--- a/pym/cl_builder.py
++++ b/pym/cl_builder.py
+@@ -247,6 +247,7 @@ class cl_builder(color_print):
+     def prepareSourceDistributive(self,distr):
+         """Unmount all bind,proc mount points from source distribute"""
+         mp = self.clVars.Get('cl_builder_path')
++        self.dispatchConf(distrPath)
+         mps = filter(lambda x:x!=mp,map(lambda x:x[1],childMounts(mp)))
+         for target in sorted(mps, reverse=True):
+             self.printMessageForTest(_("Unmounting %s")%(target[len(mp):]))
+@@ -258,7 +259,6 @@ class cl_builder(color_print):
+         self.clVars.Set('cl_builder_squash_path',
+                         os.path.basename(os.path.normpath(distrPath)))
+         self.cleanNeedlessKernelData(distrPath)
+-        self.dispatchConf(distrPath)
+ 
+         builderPath = self.clVars.Get('cl_builder_path')
+         if self.assembleIso:
