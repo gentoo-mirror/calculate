@@ -22,7 +22,7 @@ RDEPEND="
 	dev-lang/python:3.2
 	dev-vcs/git
 	media-fonts/terminus-font
-	sys-apps/calculate-utilities
+	sys-apps/calculate-utilities:0
 	sys-apps/calculate-utilities:3
 	sys-apps/ifplugd
 	sys-apps/less
