@@ -23,6 +23,7 @@ RDEPEND="
 	dev-vcs/git
 	media-fonts/terminus-font
 	sys-apps/calculate-utilities
+	sys-apps/calculate-utilities:3
 	sys-apps/ifplugd
 	sys-apps/less
 	sys-apps/openrc

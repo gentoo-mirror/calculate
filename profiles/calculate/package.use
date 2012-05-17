@@ -73,3 +73,6 @@ sys-apps/file python
 #required by virtual/jpeg-0
 media-libs/libjpeg-turbo static-libs
 
+#required by sys-apps/calculate-console-gui-3.0.0_alpha1
+dev-python/pyside script
+
