@@ -11,13 +11,13 @@ SRC_URI=""
 LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="~amd64 ~x86"
-IUSE="cl_console_gui"
+IUSE="cl_consolegui"
 
 RDEPEND="${RDEPEND}
 	=sys-apps/calculate-install-3.0.0_alpha1
 	=sys-apps/calculate-i18n-3.0.0_alpha1
 	=sys-apps/calculate-lib-3.0.0_alpha1
 	=sys-apps/calculate-core-3.0.0_alpha1
-	cl_console_gui? ( =sys-apps/calculate-console-gui-3.0.0_alpha1 )
+	cl_consolegui? ( =sys-apps/calculate-console-gui-3.0.0_alpha1 )
 "
 
