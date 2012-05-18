@@ -34,8 +34,7 @@
 		}\\n\
 	\}\\n\
 \}\\n\
-/" ${alsastatedir}/asound.state
-			restore
+/" ${alsastatedir}/asound.state &amp;&amp; restore
 		fi
 \3</text>
 <reg>(\s*ebegin "Loading ALSA modules"
