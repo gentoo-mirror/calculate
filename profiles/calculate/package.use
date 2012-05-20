@@ -76,3 +76,9 @@ media-libs/libjpeg-turbo static-libs
 #required by sys-apps/calculate-console-gui-3.0.0_alpha1
 dev-python/pyside script
 
+#required by media-gfx/splashutils-1.5.4.4[truetype]
+sys-libs/zlib static-libs
+
+#required by sys-power/upower-0.9.16
+sys-fs/udev gudev
+
