@@ -23,6 +23,7 @@
         <value type="int" value="4"/>
         <value type="int" value="8"/>
         <value type="int" value="3"/>
+	<value type="int" value="12"/>
         <value type="int" value="9"/>
         <value type="int" value="6"/>
         <value type="int" value="10"/>
@@ -211,6 +212,8 @@
       <property name="settings" type="empty">
         <property name="add-primary-clipboard" type="bool" value="true"/>
       </property>
+    <property name="plugin-12" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
     </property>
   </property>
 </channel>
