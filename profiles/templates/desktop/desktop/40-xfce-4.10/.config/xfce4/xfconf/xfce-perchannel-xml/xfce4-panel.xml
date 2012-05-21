@@ -23,6 +23,7 @@
         <value type="int" value="4"/>
         <value type="int" value="8"/>
         <value type="int" value="3"/>
+	<value type="int" value="12"/>
         <value type="int" value="9"/>
         <value type="int" value="6"/>
         <value type="int" value="10"/>
@@ -31,6 +32,7 @@
         <value type="int" value="7"/>
         <value type="int" value="2"/>
       </property>
+      <property name="background-alpha" type="uint" value="95"/>
     </property>
     <property name="panel-1" type="empty">
       <property name="position" type="string" value="p=10;x=0;y=0"/>
@@ -85,6 +87,7 @@
       </property>
       <property name="length" type="uint" value="10"/>
       <property name="autohide" type="bool" value="true"/>
+      <property name="background-alpha" type="uint" value="95"/>
     </property>
   </property>
   <property name="plugins" type="empty">
@@ -93,7 +96,9 @@
       <property name="button-icon" type="string" value="start-here-xfce"/>
     </property>
     <property name="plugin-2" type="string" value="actions"/>
-    <property name="plugin-3" type="string" value="tasklist"/>
+    <property name="plugin-3" type="string" value="tasklist">
+      <property name="flat-buttons" type="bool" value="true"/>
+    </property>
     <property name="plugin-4" type="string" value="pager"/>
     <property name="plugin-5" type="string" value="clock">
       <property name="show-frame" type="bool" value="false"/>
@@ -207,6 +212,9 @@
       <property name="settings" type="empty">
         <property name="add-primary-clipboard" type="bool" value="true"/>
       </property>
+    </property>
+    <property name="plugin-12" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
     </property>
   </property>
 </channel>
