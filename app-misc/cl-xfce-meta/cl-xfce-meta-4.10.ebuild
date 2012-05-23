@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -27,6 +27,7 @@ RDEPEND="${RDEPEND}
 	xfce-extra/xfce4-clipman-plugin
 	xfce-extra/xfce4-cpugraph-plugin
 	xfce-extra/xfce4-datetime-plugin
+	xfce-extra/xfce4-gvfs-mount
 	xfce-extra/xfce4-mailwatch-plugin
 	xfce-extra/xfce4-mixer
 	xfce-extra/xfce4-netload-plugin
@@ -35,6 +36,7 @@ RDEPEND="${RDEPEND}
 	xfce-extra/xfce4-power-manager
 	xfce-extra/xfce4-screenshooter
 	xfce-extra/xfce4-taskmanager
+	xfce-extra/xfce4-quicklauncher-plugin
 	xfce-extra/xfce4-xkb-plugin
 	xfce-extra/xfswitch-plugin
 "
