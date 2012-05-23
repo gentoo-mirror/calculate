@@ -14,7 +14,7 @@ LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-lib-3.0.0_alpha2
+DEPEND="~sys-apps/calculate-lib-3.0.0_alpha3
 	>=dev-python/soaplib-1.0
 	dev-python/suds
 	dev-python/pyopenssl
