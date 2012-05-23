@@ -1,0 +1,14 @@
+diff --git a/pym/cl_profile.py b/pym/cl_profile.py
+index 5e57685..7c28b27 100644
+--- a/pym/cl_profile.py
++++ b/pym/cl_profile.py
+@@ -20,6 +20,9 @@ import cl_base
+ import stat
+ import re
+ import xml.dom.minidom
++import xml
++if hasattr(xml,"use_pyxml"):
++    xml.use_pyxml()
+ from xml import xpath
+ import subprocess
+ import types
