@@ -1,0 +1,150 @@
+commit 5e9b63544a0ecd92dd26973b8c4f0e766a150977
+Author: Спиридонов Денис <ds@calculate.ru>
+Date:   Thu May 24 17:10:00 2012 +0400
+
+    add key force, remove test methods
+
+diff --git a/core/server/bootstrap.py b/core/server/bootstrap.py
+index 62c4af1..f6209a0 100644
+--- a/core/server/bootstrap.py
++++ b/core/server/bootstrap.py
+@@ -76,6 +76,9 @@ def check(cert, key, cert_path, data_path, certbase, args):
+     sys.exit(error_flag)
+ 
+ def init(cert, key, cert_path, data_path, certbase, args, port, user_name):
++    if args.force:
++        key_force(cert_path, data_path)
++    return
+     try:
+         pwdObj = pwd.getpwnam(user_name)
+     except KeyError, e:
+@@ -300,3 +303,5 @@ def change_owner(pwdObj, user_name):
+         for file in path[2]:
+             os.chown('/'.join([path[0], file]), pwdObj.pw_uid, pwdObj.pw_gid)
+ 
++def key_force(cert_path, data_path):
++    pass
+diff --git a/core/server/cert_cmd.py b/core/server/cert_cmd.py
+index 70eb354..1eba865 100644
+--- a/core/server/cert_cmd.py
++++ b/core/server/cert_cmd.py
+@@ -1200,6 +1200,10 @@ def parse():
+         '-b', '--bootstrap',  type=str, dest='bootstrap_user_name',
+         help=_('bootstrap action'))
+     parser.add_argument(
++        '--force',  action='store_true', default=False, dest = 'force',
++        help=_('use with key --bootstrap, remove all certificates, requests'
++               'and config files on server'))
++    parser.add_argument(
+         '-d', '--dump',  action='store_true', default=False, dest = 'dump',
+         help=_('dump (using with -c [ID])'))
+     parser.add_argument(
+diff --git a/core/server/func_metaclass.py b/core/server/func_metaclass.py
+index c0891f4..0bd9863 100644
+--- a/core/server/func_metaclass.py
++++ b/core/server/func_metaclass.py
+@@ -39,8 +39,8 @@ class Table (ClassSerializer):
+         body = Array (String)
+         values = Array (Array (String))
+ 
+-list_module = ["clean", "gen_pid", "check_rights", "cl_template", \
+-               "sid_pid_file", "gen_sid", "func", "api_types", 'test', 'test2', \
++list_module = ["clean", "gen_pid", "check_rights", \
++               "sid_pid_file", "gen_sid", "func", "api_types", \
+                'system_update', 'request', 'certificate', 'edit_groups']
+ 
+ imported_modules = []
+diff --git a/core/server/test.py b/core/server/test.py
+index 56ca0ba..7cc85ff 100644
+--- a/core/server/test.py
++++ b/core/server/test.py
+@@ -55,17 +55,20 @@ class SH (ClassSerializer):
+ 
+ class CoreWsdl:
+     def say_hello_meth (self, name, times, town) :
+-	    print 'name = ', name, 'times = ', times, 'town = ',town
+-	    times = 4
+-	    town = 'Piter'
+-        #try:
++        print 'name = ', name, 'times = ', times, 'town = ',town
++        times = 4
++        town = 'Piter'
++        try:
+             results = []
+             self.writeFile()
+             for i in range( 0, times ) :
+                 results.append('Hello!!!, %s %d'%(name, i))
+             # Помещение данных в словарь процессов
+-            self.briefParams('say_hello_view')
+-            self.setData (results)
++            #self.briefParams('test_view')
++            #ask = self.askQuestion('start method? yes/[no]:')
++            #if not ask.lower() in ['y', 'yes']:
++                #return True
++            #self.setData (results)
+ 
+             # ask password
+             #passwd = self.askPassword(_('Enter Your Password: '), True)
+@@ -89,10 +92,11 @@ class CoreWsdl:
+                 #self.addMessage(type = 'warning', message = '%s%%' %perc)
+                 # Увеличение процента выполнения процесса
+                 if perc < 50:
+-                    print 'looooong long message=)', perc
+-                    self.setProgress (perc, 'hello %d perc!' %perc)
++                    #print 'looooong long message=)', perc
++                    self.setProgress (perc, 'hello %d perc!' %perc, \
++                                      'looooong long message=)')
+                 else:
+-                    print 'looooong long message=) veeeery', perc
++                    #print 'looooong long message=) veeeery', perc
+                     self.setProgress (perc, 'hello %d perc!' %perc, \
+                         'looooong long message=) veeeery long gfgdg dgdf '\
+                         'gdfg df,gg dfgdf,gdfgergergregerg,ergerg re g ge '\
+@@ -131,15 +135,15 @@ class CoreWsdl:
+             # necessary for correct complete the process
+             return True
+         # Обработка сигнала прерывания работы процесса
+-        #except KeyboardInterrupt:
+-            #try:
+-                ## Необходимо передать Fasle для сохранения данных о процессе
+-                #self.printERROR(_('Interrupted by user'))
+-                #return False
+-            #except KeyboardInterrupt:
+-                #return False
+-        #except:
+-            #return False
++        except KeyboardInterrupt:
++            try:
++                # Необходимо передать Fasle для сохранения данных о процессе
++                self.printERROR(_('Interrupted by user'))
++                return False
++            except KeyboardInterrupt:
++                return False
++        except:
++            return False
+ 
+ 
+ 
+@@ -180,6 +184,9 @@ class CoreWsdl:
+         name_meth = 'test'
+         #print "Default = ", rrr.Default
+         self.set_cache(sid, name_meth, 'object', rrr)
++        #if not rrr or not rrr.name and not rrr.times:
++            #return [ReturnedMessage(type = 'error', field = 'name',
++                                    #message = 'not sent value name')]
+         if rrr.name == 'qqq':
+             errors = []
+             errors.append(ReturnedMessage(type = 'error', field = 'name', \
+@@ -232,9 +239,9 @@ class CoreWsdl:
+         self.set_cache(sid, name_meth, 'object', rrr)
+         say_hello_meth = type("CommonInstall",(self.Common, CoreWsdl, object), {})
+         name = sh.name
+-        pid = self.startprocess(sid, target=say_hello_meth, method="say_hello_meth",\
+-                                        method_name='test', \
+-                                      args_proc = (name, times, town))
++        pid = self.startprocess(sid, target=say_hello_meth, \
++                                method="say_hello_meth", method_name='test', \
++                                args_proc = (name, times, town))
+         returnmess = ReturnedMessage(type = 'pid', message = pid)
+         #returnmess.type = "pid"
+         #returnmess.message = pid
