@@ -1,5 +1,4 @@
-# Calculate format=kde chmod=0755 link=/usr/share/applications/cl-install-gui-kde.desktop os_root_type==livecd mirror
+# Calculate format=kde chmod=0755 link=/usr/share/applications/cl-console-gui-install.desktop os_root_type==livecd mirror
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Exec=sudo cl-install-gui
-
+NoDisplay=false
