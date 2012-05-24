@@ -1,11 +1,11 @@
-commit 8e9b38a1bea5dacdada0944716a26ff41da8a033
+commit d2b396202524ba3022fdda2b74c8bda438f87db9
 Author: Mike Hiretsky <mh@calculate.ru>
 Date:   Thu May 24 08:59:28 2012 +0400
 
     Fix using /dev/urandom by portage
 
 diff --git a/pym/cl_builder.py b/pym/cl_builder.py
-index d6477c7..567ce7b 100644
+index d6477c7..793e8fd 100644
 --- a/pym/cl_builder.py
 +++ b/pym/cl_builder.py
 @@ -244,24 +244,18 @@ class cl_builder(color_print):
@@ -34,7 +34,7 @@ index d6477c7..567ce7b 100644
          if self.assembleIso:
 +            # restore resolv conf if needed
 +            resolvFile = "etc/resolv.conf"
-+            if not path.exists(path.join(builderPath,resolvFile):
++            if not path.exists(path.join(builderPath,resolvFile)):
 +                if path.exists('/%s'%resolvFile):
 +                    try:
 +                        shutil.copyfile('/%s'%resolvFile,
