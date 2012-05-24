@@ -1,3 +1,8 @@
 # Calculate os_install_root_type==livecd&&pkg(sys-apps/openrc)>=0.8.0 comment=# chmod=0755
 # fix system time on livecd
-hwclock --hctosys
+#?os_install_clock_type==local#
+hwclock --hctosys --localtime
+#os_install_clock_type#
+#?os_install_clock_type!=local#
+hwclock --hctosys --utc
+#os_install_clock_type#
