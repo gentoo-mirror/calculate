@@ -17,7 +17,7 @@ RDEPEND="${RDEPEND}
 	=sys-apps/calculate-install-3.0.0_alpha4-r1
 	=sys-apps/calculate-i18n-3.0.0_alpha4
 	=sys-apps/calculate-lib-3.0.0_alpha4-r1
-	=sys-apps/calculate-core-3.0.0_alpha4-r2
+	=sys-apps/calculate-core-3.0.0_alpha4-r3
 	cl_consolegui? ( =sys-apps/calculate-console-gui-3.0.0_alpha4-r1 )
 "
 
