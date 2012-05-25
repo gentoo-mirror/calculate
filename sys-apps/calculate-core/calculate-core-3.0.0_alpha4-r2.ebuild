@@ -38,4 +38,7 @@ src_unpack() {
 
 	# remove test methods, update to alpha5
 	epatch "${FILESDIR}/calculate-core-3.0.0_alpha4-r2.patch"
+
+	# remove cl-console
+	epatch "${FILESDIR}/calculate-core-3.0.0_alpha4-fixsetup.patch"
 }

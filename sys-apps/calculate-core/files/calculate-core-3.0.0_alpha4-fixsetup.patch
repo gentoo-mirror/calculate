@@ -1,0 +1,13 @@
+diff --git a/setup.py b/setup.py
+index e67ff5c..5bfe383 100755
+--- a/setup.py
++++ b/setup.py
+@@ -183,7 +183,7 @@ setup(
+     package_dir = {'calculate.core': "core"},
+     packages = ['calculate.core','calculate.core.variables',
+                 'calculate.core.server','calculate.core.client'],
+-    scripts = ['./scripts/cl-core', './scripts/cl-console'],
++    scripts = ['./scripts/cl-core'],
+     cmdclass={'cl_core_data': cl_core_data,'build': build,'build_po':build_po, \
+                 'install_egg_info':empty_egg_info,'build_man':build_man, \
+               'install':install,'install_man':install_man}
