@@ -38,5 +38,7 @@ src_unpack() {
 	cd "${S}"
 
 	# fix SSD device detect
-	epatch "${FILESDIR}/calculate-install-2.2.24-r8.patch"
+	epatch "${FILESDIR}/calculate-install-3.0.0_alpha4-r1.patch"
+	# hide cl-install3
+	epatch "${FILESDIR}/calculate-install-3.0.0_alpha4-fixsetup.patch"
 }

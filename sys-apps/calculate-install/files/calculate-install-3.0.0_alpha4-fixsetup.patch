@@ -1,0 +1,13 @@
+diff --git a/setup.py b/setup.py
+index 106a922..2bd2b7f 100755
+--- a/setup.py
++++ b/setup.py
+@@ -176,7 +176,7 @@ setup(
+     package_dir = {'calculate.install': "install"},
+     packages = ['calculate.install','calculate.install.variables'],
+     data_files = data_files,
+-    scripts=['scripts/cl-install3'],
++    scripts=[],
+     cmdclass={'install_data': cl_install_data,
+               'build':build,'build_man':build_man,
+               'install':install,'install_man':install_man},
