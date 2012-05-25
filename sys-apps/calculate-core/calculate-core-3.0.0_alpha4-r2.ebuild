@@ -27,9 +27,9 @@ pkg_postinst() {
 	einfo "For autoconfigure calculate-core for adminuser perform:"
 	einfo "  cl-core --bootstrap <username>"
 	einfo "For run calculate-core perform:"
-	einfo "  /etc/init.d/calculate3 start"
+	einfo "  /etc/init.d/calculate-core start"
 	einfo "Add calcualte core to autorun:"
-	einfo "  rc-update add calculate3 boot"
+	einfo "  rc-update add calculate-core boot"
 }
 
 src_unpack() {
