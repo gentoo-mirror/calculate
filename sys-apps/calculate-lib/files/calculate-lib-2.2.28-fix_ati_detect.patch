@@ -1,0 +1,33 @@
+commit 1dde2642fc409a6ea7ad1e8a8e4bb15a9175f733
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri May 25 09:45:42 2012 +0400
+
+    Fix detect ati video cards
+
+diff --git a/pym/cl_fill.py b/pym/cl_fill.py
+index fb21ae7..08e854d 100644
+--- a/pym/cl_fill.py
++++ b/pym/cl_fill.py
+@@ -607,16 +607,16 @@ class fillVars(varsShare):
+ 
+     def get_hr_video(self):
+         """Videocard vendor"""
+-        line = self.Get('hr_video_name')
+-        if "nVidia" in line or "GeForce" in line:
++        line = self.Get('hr_video_name').lower()
++        if any(x in line for x in ("nvidia","geforce")):
+             return "nvidia"
+-        elif "ATI" in line:
++        if any(x in line for x in ("ati","radeon")):
+             return "ati"
+-        elif "Intel" in line:
++        elif "intel" in line:
+             return "intel"
+-        elif "VIA" in line:
++        elif "via" in line:
+             return "via"
+-        elif "VMware" in line:
++        elif "vmware" in line:
+             return "vmware"
+         else:
+             return "other"

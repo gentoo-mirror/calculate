@@ -1,0 +1,19 @@
+commit 06a19315601db4fa828c058cac3826d2faf3ca50
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri May 25 10:06:51 2012 +0400
+
+    Fix detect SSD drives
+
+diff --git a/install/variables/kernel.py b/install/variables/kernel.py
+index b1b8702..8de058b 100644
+--- a/install/variables/kernel.py
++++ b/install/variables/kernel.py
+@@ -53,7 +53,7 @@ class VariableOsInstallKernelScheduler(Variable):
+                 dev_name = self.Select('os_device_name',
+                                        where='os_device_dev',
+                                        eq=root_dev,limit=1)
+-                if "OCZ" in root_dev or "SSD" in root_dev:
++                if "OCZ" in dev_name or "SSD" in dev_name:
+                     return "noop"
+         else:
+             return getValueFromCmdLine('elevator',0) or "cfq"
