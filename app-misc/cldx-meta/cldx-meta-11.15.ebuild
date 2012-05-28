@@ -51,6 +51,6 @@ RDEPEND="${RDEPEND}
 "
 # Base
 RDEPEND="${RDEPEND}
-	gnome-base/gdm
+	lxde-base/lxdm
 "
 
