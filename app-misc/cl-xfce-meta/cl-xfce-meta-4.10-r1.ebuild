@@ -38,6 +38,5 @@ RDEPEND="${RDEPEND}
 	xfce-extra/xfce4-taskmanager
 	xfce-extra/xfce4-quicklauncher-plugin
 	xfce-extra/xfce4-xkb-plugin
-	xfce-extra/xfswitch-plugin
 "
 
