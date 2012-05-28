@@ -1,6 +1,6 @@
-# Calculate path=/tmp name=reconfigureLxdm exec=/bin/bash ac_install_system!=up&&cl_belong_pkg!=&&pkg(lxdm-base/lxdm)!=
+# Calculate path=/tmp name=reconfigureLxdm exec=/bin/bash ac_install_system!=up&&cl_belong_pkg!=&&pkg(lxde-base/lxdm)!=
 
 cl-template -l all --merge x11-base/xorg-server &>/dev/null
-cl-template -l all --merge lxde-base/lxde &>/dev/null
+cl-template -l all --merge lxde-base/lxdm &>/dev/null
 
 true
