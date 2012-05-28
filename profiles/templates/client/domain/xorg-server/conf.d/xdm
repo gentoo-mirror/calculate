@@ -5,11 +5,15 @@ CHECKVT=7
 DISPLAYMANAGER="kdm"
 START_STOP_ARGS=
 #pkg#
-#?pkg(gnome-base/gdm)!=&&pkg(kde-base/kdm)==#
+#?pkg(lxde-base/lxdm)!=&&pkg(kde-base/kdm)==#
+DISPLAYMANAGER="lxdm"
+START_STOP_ARGS=
+#pkg#
+#?pkg(gnome-base/gdm)!=&&pkg(kde-base/kdm)==&&pkg(lxde-base/lxdm)==#
 DISPLAYMANAGER="gdm"
 START_STOP_ARGS=
 #pkg#
-#?pkg(x11-misc/slim)!=&&pkg(kde-base/kdm)==&&pkg(gnome-base/gdm)==#
+#?pkg(x11-misc/slim)!=&&pkg(kde-base/kdm)==&&pkg(gnome-base/gdm)==&&pkg(lxde-base/lxdm)==#
 DISPLAYMANAGER="slim"
 START_STOP_ARGS=
 #pkg#
