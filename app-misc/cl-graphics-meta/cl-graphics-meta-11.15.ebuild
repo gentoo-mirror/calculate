@@ -20,7 +20,8 @@ RDEPEND="
 		sci-libs/clapack
 	)
 	cdistro_CLDX? (
-		media-gfx/gqview
+		!media-gfx/gqview
+		media-gfx/geeqie
 		media-gfx/gtkam
 	)
 "
