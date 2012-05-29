@@ -1,0 +1,32 @@
+commit 8e6e624d56802932eae46c2ea36b49967f557040
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue May 29 09:58:07 2012 +0400
+
+    Add mandb execute before pack iso image
+
+diff --git a/pym/cl_builder.py b/pym/cl_builder.py
+index dd1c672..80e21aa 100644
+--- a/pym/cl_builder.py
++++ b/pym/cl_builder.py
+@@ -244,6 +244,13 @@ class cl_builder(color_print):
+                   distrPath)
+         self.printByResult(True);
+ 
++    def updateMan(self, distrPath):
++        """Execute update man"""
++        self.printMessageForTest(_("Execute '%s'")%"mandb")
++        # run mandb
++        self.runChroot(distrPath,'/usr/bin/mandb')
++        self.printByResult(True);
++
+     def updatePortage(self,builderPath):
+         """Change branch to master and update portage"""
+         if self.assembleIso:
+@@ -278,6 +285,7 @@ class cl_builder(color_print):
+         mp = self.clVars.Get('cl_builder_path')
+         self.dispatchConf(mp)
+         self.updatePortage(mp)
++        self.updateMan(mp)
+ 
+         # unmount all from source distribute
+         mps = filter(lambda x:x!=mp,map(lambda x:x[1],childMounts(mp)))
