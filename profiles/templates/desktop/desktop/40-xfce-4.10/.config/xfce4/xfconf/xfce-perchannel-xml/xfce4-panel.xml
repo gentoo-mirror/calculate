@@ -95,7 +95,17 @@
       <property name="show-button-title" type="bool" value="false"/>
       <property name="button-icon" type="string" value="start-here-xfce"/>
     </property>
-    <property name="plugin-2" type="string" value="actions"/>
+    <property name="plugin-2" type="string" value="actions">
+      <property name="appearance" type="uint" value="0"/>
+      <property name="items" type="array">
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+        <value type="string" value="+logout-dialog"/>
+#env#
+#?env(client.os_remote_auth)==||ur_domain_set!=on#
+        <value type="string" value="+logout"/>
+#env#
+      </property>
+    </property>
     <property name="plugin-3" type="string" value="tasklist">
       <property name="flat-buttons" type="bool" value="true"/>
     </property>

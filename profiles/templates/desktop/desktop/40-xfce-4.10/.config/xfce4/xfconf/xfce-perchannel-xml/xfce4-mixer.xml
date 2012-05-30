@@ -1,0 +1,13 @@
+# Calculate format=xml_xfce pkg(sys-apps/calculate-desktop)>=2.2.28-r1&&cl_desktop_gst_card!=
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-mixer" version="1.0">
+  <property name="sound-card" type="string" value="#-cl_desktop_gst_card-#"/>
+  <property name="window-height" type="int" value="400"/>
+  <property name="window-width" type="int" value="600"/>
+  <property name="sound-cards" type="empty">
+    <property name="#-cl_desktop_gst_card-#" type="array">
+#-cl_desktop_xfce_mixer-#
+    </property>
+  </property>
+</channel>
