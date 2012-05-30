@@ -1,40 +1,39 @@
-commit ddb0933cf78388b384934d6e9ba4cbe18e114506
+commit 5b7a3125d1a06193257bce23d372fef200cc6a7c
 Author: Mike Hiretsky <mh@calculate.ru>
 Date:   Wed May 30 15:40:29 2012 +0400
 
     Add variable for configure xfce mixer
 
 diff --git a/pym/cl_fill_desktop.py b/pym/cl_fill_desktop.py
-index 9637744..fffd037 100644
+index 9637744..2c92e76 100644
 --- a/pym/cl_fill_desktop.py
 +++ b/pym/cl_fill_desktop.py
-@@ -16,6 +16,19 @@
+@@ -16,6 +16,8 @@
  
  import re
  import os
 +import sys
 +
-+# try import gst
-+try:
-+    olderr = os.dup(sys.stderr.fileno())
-+    os.close(sys.stderr.fileno())
-+    import gst
-+    import gst.interfaces
-+except ImportError:
-+    gst = None
-+finally:
-+    os.dup2(olderr,sys.stderr.fileno())
-+
  
  class fillVars():
      """Методы определения значений переменных шаблона"""
-@@ -109,3 +122,48 @@ class fillVars():
+@@ -109,3 +111,58 @@ class fillVars():
              else:
                  return xsession.lower()
          return ""
 +
 +    def get_cl_desktop_gst_data(self):
 +        """GStreamer data"""
++        # try import gst
++        try:
++            olderr = os.dup(sys.stderr.fileno())
++            os.close(sys.stderr.fileno())
++            import gst
++            import gst.interfaces
++        except ImportError:
++            gst = None
++        finally:
++            os.dup2(olderr,sys.stderr.fileno())
 +        if gst is None:
 +            return {}
 +
