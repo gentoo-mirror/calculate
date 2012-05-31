@@ -51,6 +51,7 @@ RDEPEND="${RDEPEND}
 "
 # Base
 RDEPEND="${RDEPEND}
+	dev-python/gst-python
 	lxde-base/lxdm
 "
 
