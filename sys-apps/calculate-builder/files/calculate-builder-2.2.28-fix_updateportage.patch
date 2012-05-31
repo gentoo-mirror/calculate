@@ -1,0 +1,13 @@
+diff --git a/pym/cl_builder.py b/pym/cl_builder.py
+index 80e21aa..d6dfcb8 100644
+--- a/pym/cl_builder.py
++++ b/pym/cl_builder.py
+@@ -277,7 +277,7 @@ class cl_builder(color_print):
+                     self.printByResult(changeBranch.success())
+ 
+             self.printMessageForTest(_("Updating portage"))
+-            updateMeta = self.runChroot(builderPath,"emerge --sync")
++            updateMeta = self.runChroot(builderPath,"eix-sync")
+             self.printByResult(updateMeta.success())
+ 
+     def prepareSourceDistributive(self,distr):
