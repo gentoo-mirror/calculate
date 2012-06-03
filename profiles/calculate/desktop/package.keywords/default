@@ -63,3 +63,7 @@
 ~app-emulation/emul-linux-x86-soundlibs-20120520 amd64
 ~app-emulation/emul-linux-x86-xlibs-20120520 amd64
 
+#required by media-libs/gegl-0.2.0[svg]
+~gnome-base/librsvg-2.36.1 amd64 x86
+~dev-libs/gobject-introspection-common-1.32.1 amd64 x86
+
