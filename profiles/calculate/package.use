@@ -82,3 +82,6 @@ sys-libs/zlib static-libs
 #required by sys-power/upower-0.9.16
 sys-fs/udev gudev
 
+#required by sys-fs/udisks-1.0.4-r1
+sys-fs/udev hwdb
+
