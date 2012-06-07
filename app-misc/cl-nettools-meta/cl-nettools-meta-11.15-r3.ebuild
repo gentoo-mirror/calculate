@@ -47,7 +47,7 @@ RDEPEND="
 		net-ftp/filezilla
 		net-news/liferea
 		mail-client/claws-mail
-		mail-client/claws-mail-rssyl
+		mail-client/claws-mail-fancy
 		net-dialup/gnome-ppp
 		net-fs/smbnetfs
 		net-im/pidgin
