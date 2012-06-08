@@ -13,4 +13,4 @@ USE="${USE} imap maildir"
 # Window managers and speciality
 USE="${USE} -gnome -gtk -kde -qt3 -qt4 -qt3support -X"
 CDISTRO="CDS"
-CL="builder server"
+CL="builder console server"

@@ -15,7 +15,7 @@ SLOT="3"
 KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
-DEPEND="~sys-apps/calculate-lib-3.0.0_alpha4
+DEPEND="~sys-apps/calculate-lib-3.0.0_alpha6
 	app-portage/layman
 	!app-misc/livecd-tools
 	sys-apps/iproute2[-minimal]
@@ -31,14 +31,4 @@ RDEPEND="${DEPEND}"
 pkg_postinst() {
 	einfo "For install wsdl for calculate-install perform:"
 	einfo "  cl-core --write-variable cl_wsdl=calculate-install"
-}
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# fix SSD device detect
-	epatch "${FILESDIR}/calculate-install-3.0.0_alpha4-r1.patch"
-	# hide cl-install3
-	epatch "${FILESDIR}/calculate-install-3.0.0_alpha4-fixsetup.patch"
 }

@@ -14,7 +14,7 @@ LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND=">=sys-apps/calculate-lib-3.0.0_alpha4"
+RDEPEND=">=sys-apps/calculate-lib-3.0.0_alpha5"
 
 DEPEND="sys-devel/gettext
 	${DEPEND}"

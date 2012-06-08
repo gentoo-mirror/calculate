@@ -14,9 +14,10 @@ LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-lib-3.0.0_alpha4
+DEPEND="~sys-apps/calculate-lib-3.0.0_alpha6
 	>=dev-python/soaplib-1.0
-	dev-python/suds
+	dev-python/sudsds
+	net-libs/dslib
 	dev-python/pyopenssl
 	dev-libs/openssl
 	dev-python/m2crypto
@@ -30,15 +31,4 @@ pkg_postinst() {
 	einfo "  /etc/init.d/calculate-core start"
 	einfo "Add calcualte core to autorun:"
 	einfo "  rc-update add calculate-core boot"
-}
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# remove test methods, update to alpha5
-	epatch "${FILESDIR}/calculate-core-3.0.0_alpha4-r2.patch"
-
-	# remove cl-console
-	epatch "${FILESDIR}/calculate-core-3.0.0_alpha4-fixsetup.patch"
 }
