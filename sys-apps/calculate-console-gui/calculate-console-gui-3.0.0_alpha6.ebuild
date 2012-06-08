@@ -14,16 +14,8 @@ LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~sys-apps/calculate-core-3.0.0_alpha4
+DEPEND="~sys-apps/calculate-core-3.0.0_alpha6
 	dev-python/dbus-python
 	dev-python/imaging
 	dev-python/pyside[script]"
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# many changes
-	epatch "${FILESDIR}/calculate-console-gui-3.0.0_alpha4-r1.patch"
-}
