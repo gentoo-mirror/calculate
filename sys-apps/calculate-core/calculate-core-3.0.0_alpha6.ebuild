@@ -16,7 +16,8 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="~sys-apps/calculate-lib-3.0.0_alpha6
 	>=dev-python/soaplib-1.0
-	dev-python/suds
+	dev-python/sudsds
+	net-libs/dslib
 	dev-python/pyopenssl
 	dev-libs/openssl
 	dev-python/m2crypto
