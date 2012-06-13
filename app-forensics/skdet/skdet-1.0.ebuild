@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,12 +18,12 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 
 src_compile() {
-    rm ${PN}
-    emake ||die
+	rm "${PN}"
+	emake ||die
 }
 
 src_install() {
-    dosbin ${PN}
-    dodoc AUTHORS  ChangeLog  CONTRIBUTIONS
-    doman ${FILESDIR}/${PN}.1
+	dosbin "${PN}"
+	dodoc AUTHORS  ChangeLog  CONTRIBUTIONS
+	doman "${FILESDIR}"/"${PN}".1
 }
