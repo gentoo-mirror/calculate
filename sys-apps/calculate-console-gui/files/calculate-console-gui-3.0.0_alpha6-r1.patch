@@ -1,0 +1,411 @@
+diff --git consolegui/application/Box.py consolegui/application/Box.py
+index e3d71f3..ec49c20 100755
+--- consolegui/application/Box.py
++++ consolegui/application/Box.py
+@@ -261,6 +261,7 @@ class MainWgt(QtGui.QMainWindow):
+         self.sender().setDisabled(True)
+         self.ClientObj.app.processEvents()
+         server_host_name = self.ClientObj.client.server_host_name
++        password = self.ClientObj.client.password
+         self.disconnect(True)
+ 
+         if hasattr (self.ClientObj._parent, 'set_localhost'):
+@@ -268,7 +269,7 @@ class MainWgt(QtGui.QMainWindow):
+             self.cur_size = self.size()
+             self.ConnectWidget = FrameConnection(self, self.ClientObj)
+             self.ConnectWidget.connect_to_host(server_host_name, \
+-                                               self.ClientObj.port)
++                                      self.ClientObj.port, re_passwd=password)
+ 
+             if not self.main_frame.isEnabled():
+                 self.left_frame.setEnabled(True)
+diff --git consolegui/application/ConnectionTabs.py consolegui/application/ConnectionTabs.py
+index 415dfe8..b49186c 100644
+--- consolegui/application/ConnectionTabs.py
++++ consolegui/application/ConnectionTabs.py
+@@ -370,20 +370,6 @@ class ToolTabWidget(QtGui.QTabWidget):
+         event.ignore()
+ 
+     def _closeEvent(self):
+-        if self.count() > 2:
+-            text = _('At closing program all connects will be close!')
+-            informative_text = _('Are you sure want to close program?')
+-            reply = show_question(self, text, informative_text)
+-            if reply == QtGui.QMessageBox.Yes:
+-                for tab_num in range(self.count()):
+-                    if not self.close_tab(0, True):
+-                        return 1
+-
+-                self.app.exit()
+-
+-            elif reply == QtGui.QMessageBox.No:
+-                return 1
+-        else:
+             for tab_num in range(self.count()):
+                 if not self.close_tab(0, True):
+                     return 1
+diff --git consolegui/application/LeftMenu.py consolegui/application/LeftMenu.py
+index e39a084..92ee767 100755
+--- consolegui/application/LeftMenu.py
++++ consolegui/application/LeftMenu.py
+@@ -321,8 +321,11 @@ class LeftMenu(QtGui.QScrollArea):
+                               + diff)
+             self.layout.addWidget(self.button_list[num_step])
+ 
+-        width_list.sort()
+-        max_width = width_list.pop()
++        if width_list:
++            width_list.sort()
++            max_width = width_list.pop()
++        else:
++            max_width = 0
+         for num_step in range(len(steps)):
+             self.button_list[num_step].setFixedWidth(max_width)
+             
+@@ -359,7 +362,7 @@ class LeftMenu(QtGui.QScrollArea):
+             change_step = set_step if set_step else 0
+             if self._parent.ClientObj.param_objects[method_name]['step'] > \
+                                                                 change_step:
+-                self.setEnabled(True)
++#                self.setEnabled(True)
+                 return
+             try:
+                 self.collect.disconnect()
+@@ -384,7 +387,7 @@ class LeftMenu(QtGui.QScrollArea):
+             if self._parent.ClientObj.param_objects[method_name]['step'] > \
+                                                                 change_step:
+                 self.check_step(method_name, set_step)
+-                self.setEnabled(True)
++#                self.setEnabled(True)
+                 return
+             try:
+                 self.calling.disconnect()
+diff --git consolegui/application/MainFrameResult.py consolegui/application/MainFrameResult.py
+index 75ae2d4..d29f47d 100755
+--- consolegui/application/MainFrameResult.py
++++ consolegui/application/MainFrameResult.py
+@@ -16,7 +16,7 @@
+ #  limitations under the License.
+ 
+ from PySide import QtGui, QtCore
+-import urllib2, suds
++import urllib2, sudsds
+ 
+ from calculate.core.client.function import switch, create_obj
+ 
+@@ -176,7 +176,7 @@ class MainFrameRes(QtGui.QWidget):
+                                        table.onClick + '_view', step = 0)
+                 view = self.client.service[0][table.onClick + '_view'] \
+                                     (sid, view_params)
+-            except suds.MethodNotFound, e:
++            except sudsds.MethodNotFound, e:
+                 _print(e)
+                 return
+             self._parent.ClientObj._parent.setWindowTitle(table.onClick + \
+@@ -230,7 +230,7 @@ class MainFrameRes(QtGui.QWidget):
+                                        self.method_name + '_view', step = 0)
+                 view = self.client.service[0][self.method_name + '_view'] \
+                                                     (sid, view_params)
+-            except suds.MethodNotFound:
++            except sudsds.MethodNotFound:
+                 return
+             self._parent.ClientObj._parent.setWindowTitle(self.method_name + \
+                         ' - ' + self.ClientObj.Name)
+diff --git consolegui/application/TrayIcon.py consolegui/application/TrayIcon.py
+index 944ec9f..58b2264 100644
+--- consolegui/application/TrayIcon.py
++++ consolegui/application/TrayIcon.py
+@@ -143,8 +143,8 @@ class TrayIcon (QtGui.QSystemTrayIcon):
+         self.setToolTip('cl-console-gui - '+ _('System control'))
+         self.setContextMenu(self.right_menu)
+ 
+-        self.update_thread = TrayUpdateSystem(parent)
+-        self.update_thread.mes_sig.connect(self.showMessage)
++#        self.update_thread = TrayUpdateSystem(parent)
++#        self.update_thread.mes_sig.connect(self.showMessage)
+         
+     def translate(self):
+         # Translate left click menu
+@@ -169,19 +169,17 @@ class TrayIcon (QtGui.QSystemTrayIcon):
+         self._parent.currentWidget().tools()
+ 
+     def exit(self):
+-#        if self._parent.isVisible():
+-#            self._parent.hide()
+-        if self.update_thread.isRunning():
+-            text = _('The system is updated')
+-            informative_text = _('Stop updating and exit?')
+-            reply = show_question(self._parent, text, informative_text)
+-            
+-            if reply == QtGui.QMessageBox.No:
+-                return 0
+-                    
+-            elif reply == QtGui.QMessageBox.Yes:
+-                self.update_thread.close()
+-                self.update_thread.wait()
++#        if self.update_thread.isRunning():
++#            text = _('The system is updated')
++#            informative_text = _('Stop updating and exit?')
++#            reply = show_question(self._parent, text, informative_text)
++#
++#            if reply == QtGui.QMessageBox.No:
++#                return 0
++#
++#            elif reply == QtGui.QMessageBox.Yes:
++#                self.update_thread.close()
++#                self.update_thread.wait()
+ 
+         self._parent._closeEvent()
+     
+@@ -254,24 +252,24 @@ class LeftButtonMenu(QtGui.QMenu):
+                                          self, triggered=parent.windowVisible)
+         self.addAction(self.windowVisible)
+ 
+-        # Add Update system action
+-        update_icons = ['system-software-update']
+-        update_icon = QtGui.QIcon()
+-        for image in update_icons:
+-            update_icon.setThemeName(themeName)
+-            update_icon = update_icon.fromTheme(image)
+-            if not update_icon.isNull():
+-                break
+-            update_icon.setThemeName('Tango')
+-            update_icon = update_icon.fromTheme(image)
+-            if not update_icon.isNull():
+-                break
+-        
+-        self.sys_update = QtGui.QAction(update_icon, _("Update system"), \
+-                                        self, triggered=parent.start_update_system)
+-        self.addAction(self.sys_update)
+-
+-        self.addSeparator()
++#        # Add Update system action
++#        update_icons = ['system-software-update']
++#        update_icon = QtGui.QIcon()
++#        for image in update_icons:
++#            update_icon.setThemeName(themeName)
++#            update_icon = update_icon.fromTheme(image)
++#            if not update_icon.isNull():
++#                break
++#            update_icon.setThemeName('Tango')
++#            update_icon = update_icon.fromTheme(image)
++#            if not update_icon.isNull():
++#                break
++#
++#        self.sys_update = QtGui.QAction(update_icon, _("Update system"), \
++#                                        self, triggered=parent.start_update_system)
++#        self.addAction(self.sys_update)
++#
++#        self.addSeparator()
+         
+         # Add exit action
+         exit_icons = ['application-exit', 'system-log-out']
+diff --git consolegui/application/client_class.py consolegui/application/client_class.py
+index 7ef5fab..f5c4e2d 100755
+--- consolegui/application/client_class.py
++++ consolegui/application/client_class.py
+@@ -132,7 +132,6 @@ class AddServerCert (QtGui.QDialog):
+ 
+         self.setAttribute(QtCore.Qt.WA_ShowModal)
+         self.flag = 4
+-        self.exec_()
+ 
+     def add_server(self):
+         ca_certs = self.parent.trusted_path + "cert.list"
+@@ -158,6 +157,7 @@ class AddServerCert (QtGui.QDialog):
+                 if len(words) > 1:
+                     # if first word...
+                     if words[0] == host:
++                        self.flag = 3
+                         return 0
+ 
+         # Open file with compliance server certificates and server hostname
+@@ -166,7 +166,6 @@ class AddServerCert (QtGui.QDialog):
+         fcl.close()
+         show_msg (_('Server certificate add to trusted \n%s') \
+                   %(self.parent.trusted_path + filename),_('Certificate add'))
+-
+         self.flag = 3
+         from conf_connection import FrameConnection
+         self.ConnectWidget = FrameConnection(self, self.ClientObj)
+@@ -451,6 +450,7 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+     # add certificate server in trusted
+     def add_server_cert(self, cert):
+         self.add_cert = AddServerCert(self, self.ClientObj, cert)
++        self.add_cert.exec_()
+         return self.add_cert.flag
+ 
+     def connect_trusted_root(self, sock, root_cert, crl_certs):
+diff --git consolegui/application/conf_connection.py consolegui/application/conf_connection.py
+index d4336d8..ddc6056 100755
+--- consolegui/application/conf_connection.py
++++ consolegui/application/conf_connection.py
+@@ -241,7 +241,8 @@ class FrameConnection(QtGui.QWidget):
+         
+         self.connect_to_host(self.str_host, int_port)
+ 
+-    def connect_to_host(self, host_name, port = None, auto = False):
++    def connect_to_host(self, host_name, port = None, auto = False, 
++                        re_passwd = False):
+         logging.basicConfig(level=logging.FATAL)
+         logging.getLogger('suds.client').setLevel(logging.FATAL)
+         logging.getLogger('suds.transport').setLevel(logging.FATAL)
+@@ -314,6 +315,8 @@ class FrameConnection(QtGui.QWidget):
+                 import M2Crypto
+                 bio = M2Crypto.BIO.openfile(CERT_KEY)
+                 rsa = M2Crypto.m2.rsa_read_key(bio._ptr(),lambda *unused: None)
++                if re_passwd != False:
++                    self.str_passwd = re_passwd
+                 if not rsa and not self.str_passwd and auto:
+                     self.passwd_wgt = LocalhostPasswd(self)
+                     passwd = self.passwd_wgt.text()
+@@ -389,6 +392,7 @@ class FrameConnection(QtGui.QWidget):
+                     if host_name in ['127.0.0.1', 'localhost']:
+                         self.ClientObj._parent.set_localhost(self.ClientObj)
+             self.ClientObj.client.server_host_name = host_name
++            self.ClientObj.client.password = self.str_passwd
+             post_connect_action(self.ClientObj.client, self.ClientObj)
+     #----------------------------------------------------
+         except WebFault, f:
+diff --git consolegui/application/mainframe.py consolegui/application/mainframe.py
+index bed542b..966d878 100755
+--- consolegui/application/mainframe.py
++++ consolegui/application/mainframe.py
+@@ -409,7 +409,11 @@ class MainFrame(QtGui.QWidget):
+ 
+         if not image_name:
+             return
+-        self.image_lbl = ImageLabel(image_name, self)
++        height_image = 192
++        if hasattr (self.ClientObj, 'height_image'):
++            if self.ClientObj.height_image:
++                height_image = self.ClientObj.height_image
++        self.image_lbl = ImageLabel(image_name, height_image, self)
+         self.common_layout.addWidget(self.image_lbl)
+ 
+     # methods add all elements
+diff --git consolegui/application/more.py consolegui/application/more.py
+index 03527c0..0b98b26 100755
+--- consolegui/application/more.py
++++ consolegui/application/more.py
+@@ -29,7 +29,7 @@ class TopMenu(QtGui.QPushButton):
+         self.setStyleSheet("QPushButton{border: none; margin: 1px;}"
+                            "QPushButton:hover{border: 1px solid #73D1FF;"
+                            "border-radius: 3px; margin: 1px;}")
+-#        self.setStyleSheet("QPushButton{border: none; margin: 0px 0px 0px 0px;}"
++#     self.setStyleSheet("QPushButton{border: none; margin: 0px 0px 0px 0px;}"
+ #                           ":hover {border: 1px solid #73D1FF;"
+ #                           "border-radius: 3px; margin: 0px 0px 0px 0px;}"
+ #                           ":pressed {border: 1px solid #63C1EF;"
+@@ -694,7 +694,8 @@ class CentralCheckBox (QtGui.QWidget):
+     def change_label(self):
+         if self.pCheckB.disabled:
+             return
+-        elif self.pCheckB.checkState() == QtCore.Qt.CheckState.PartiallyChecked:
++        elif self.pCheckB.checkState() == \
++                                    QtCore.Qt.CheckState.PartiallyChecked:
+             self.set_label(_('Auto'))
+         elif self.pCheckB.checkState() == QtCore.Qt.CheckState.Checked:
+             self.set_label(_('Yes'))
+@@ -2022,7 +2023,8 @@ class PasswordWgt(QtGui.QWidget):
+         self.layout.addWidget(self.ok_button,2,0)
+ 
+         self.cancel_button = QtGui.QPushButton(_('Cancel'), self)
+-        self.cancel_button.setShortcut(QtGui.QKeySequence(QtCore.Qt.Key_Escape))
++        self.cancel_button.setShortcut(QtGui.QKeySequence \
++                                                    (QtCore.Qt.Key_Escape))
+         self.cancel_button.clicked.connect(self.close)
+         
+         self.layout.addWidget(self.cancel_button,2,1)
+@@ -2263,7 +2265,7 @@ def show_question(parent, text, informative_text = None, cursor_pos = False,
+     if cursor_pos:
+         msgBox.move(QtGui.QCursor.pos())
+     else:
+-        msgBox.move(parent.frameGeometry().x() + parent.size().width()/2 - 150,\
++        msgBox.move(parent.frameGeometry().x()+parent.size().width()/2 - 150,\
+                 parent.frameGeometry().y() + parent.size().height()/2 - 100)
+     
+     reply = msgBox.exec_()
+@@ -2478,7 +2480,7 @@ class ClientServiceThread(QtCore.QThread):
+                                     (self.parameters_object)
+             elif self.third_params == None:
+                 result = client.service[0][self.method_name] \
+-                                    (self.parameters_object, self.second_params)
++                                  (self.parameters_object, self.second_params)
+             else:
+                 result = client.service[0][self.method_name] \
+                                 (self.parameters_object, self.second_params, \
+@@ -2509,7 +2511,7 @@ class ClientServiceThread(QtCore.QThread):
+         self.close_flag = True
+ 
+ class ImageLabel(QtGui.QLabel):
+-    def __init__(self, image, parent = None):
++    def __init__(self, image, height_image, parent = None):
+         QtGui.QLabel.__init__(self)
+         self._parent = parent
+         repeat = None
+@@ -2536,10 +2538,13 @@ class ImageLabel(QtGui.QLabel):
+             if os.path.isfile(fix_image_path):
+                 layout = QtGui.QHBoxLayout(self)
+                 fix_image = QtGui.QLabel(self)
+-                fix_image.setStyleSheet("background-image: url(%s); " \
+-                                        %fix_image_path)
+                 img = Image.open(fix_image_path)
++                img.thumbnail((img.size[0],height_image), Image.ANTIALIAS)
++                temp_file = '/tmp/%s_fix' %filename
++                img.save(temp_file, "JPEG")
+                 fix_image.setFixedWidth(img.size[0])
++                fix_image.setStyleSheet("background-image: url(%s); " \
++                                        %temp_file)
+                 layout.addWidget(fix_image)
+                 layout.setContentsMargins(0,0,0,0)
+                 layout.setAlignment(QtCore.Qt.AlignLeft)
+@@ -2549,12 +2554,16 @@ class ImageLabel(QtGui.QLabel):
+             style = "background-color: qlineargradient(x1: 0, y1: 0, " + \
+                 "x2: 0, y2: 1, stop: 0 %s, stop: 1 %s);" %(color1, color2)
+ 
+-        style += "background-image: url(%s); " %image
++        im = Image.open(image)
++        im.thumbnail((im.size[0],height_image), Image.ANTIALIAS)
++        temp_file = '/tmp/%s_temp' %filename
++        im.save(temp_file, "JPEG")
++        style += "background-image: url(%s); " %temp_file
+         style += "background-attachment: fixed; "
+         style += "background-repeat: %s; " %repeat_dict[repeat.lower()]
+         style += "border-bottom: 1px solid #B8B3B0;"
+         self.setStyleSheet(style)
+-        self.setFixedHeight(200)
++        self.setFixedHeight(im.size[1])
+ 
+ def get_view_params(client, method, step = None, expert = None, brief = None):
+     view_params = create_obj(client, method)
+diff --git consolegui/application/tools.py consolegui/application/tools.py
+index 9958b16..e735344 100755
+--- consolegui/application/tools.py
++++ consolegui/application/tools.py
+@@ -207,7 +207,7 @@ class ToolGui(QtGui.QWidget):
+ 
+         self.h_image_lineedit = QtGui.QLineEdit(self)
+         self.h_image_lineedit.setToolTip(_('Set fixed height image for '
+-                                         'actions')+_('0 - hide images'))
++                                         'actions')+' '+_('0 - hide images'))
+ 
+         self.h_image_lineedit.setText(str(ClientObj.height_image))
+ 
+diff --git data/cl-console-gui.desktop data/cl-console-gui.desktop
+index 02de617..36093c5 100644
+--- data/cl-console-gui.desktop
++++ data/cl-console-gui.desktop
+@@ -1,9 +1,9 @@
+ [Desktop Entry]
+-Name=Calculate Utilities Console
+-Name[ru]=Консоль Calculate Utilities
++Name=Calculate Console
++Name[ru]=Консоль Calculate
+ Comment=Calculate Utilities console
+ Exec=cl-console-gui
+ Icon=calculate3
+ Terminal=false
+ Type=Application
+-Categories=System;
++Categories=Settings;
