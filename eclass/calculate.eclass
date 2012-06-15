@@ -244,22 +244,26 @@ initramfs_pack() {
 # /etc/splash/tty1/1024x768.cfg
 calculate_update_splash() {
 	local initrdfile=$1
-	if which splash_geninitramfs &>/dev/null && \
-		[[ -e /etc/splash/tty1 ]]
-	then
-		ebegin "Update splash screen for $1"
-		if [[ -L $initrdfile ]]
+	for theme_name in calculate tty1
+	do
+		if which splash_geninitramfs &>/dev/null && \
+			[[ -e /etc/splash/$theme_name ]]
 		then
-			initrdfile=$(readlink -f $initrdfile)
-		fi
-		if [[ -f $initrdfile ]]
-		then
-			splash_geninitramfs -a $initrdfile tty1 &>/dev/null
-			eend $?
-		else
-			eend 1
-		fi
-	fi 
+			ebegin "Update splash screen for $1"
+			if [[ -L $initrdfile ]]
+			then
+				initrdfile=$(readlink -f $initrdfile)
+			fi
+			if [[ -f $initrdfile ]]
+			then
+				splash_geninitramfs -a $initrdfile $theme_name &>/dev/null
+				eend $?
+			else
+				eend 1
+			fi
+			return 0
+		fi 
+	done
 }
 
 # @FUNCTION: calculate_set_kernelversion
