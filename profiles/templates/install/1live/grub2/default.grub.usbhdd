@@ -1,7 +1,7 @@
 # Calculate format=openrc path=/etc/default name=grub os_install_root_type==usb-hdd
 GRUB_DISABLE_RECOVERY=true
 GRUB_DEFAULT=saved
-GRUB_TIMEOUT=1
+GRUB_TIMEOUT=2
 #?pkg(media-gfx/cld-themes)!=||pkg(media-gfx/cldx-themes)!=||pkg(media-gfx/cldg-themes)!=||pkg(media-gfx/cls-themes)!=||pkg(media-gfx/cds-themes)!=||pkg(media-gfx/cmc-themes)!=#
 GRUB_CMDLINE_LINUX="video=uvesafb:ywrap,#-os_install_fb_resolution-#,mtrr:3,splash=silent,theme:tty1 #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# doscsi#-os_install_kernel_attr-# console=tty1 udev quiet"
 #pkg#
