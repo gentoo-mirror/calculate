@@ -15,10 +15,10 @@ Pattern=fish
 Program=
 ReverseBlending=false
 UseSHM=false
-#?pkg(media-gfx/cld-themes)>=3.0.0_alpha1#
+#?pkg(media-gfx/cld-themes)>=12.0_alpha1#
 Wallpaper=/usr/share/wallpapers/calculate-kdm-#-os_x11_standart-#.jpg
 #pkg#
-#?pkg(media-gfx/cld-themes)!=&&pkg(media-gfx/cld-themes)<3.0.0_alpha1#
+#?pkg(media-gfx/cld-themes)!=&&pkg(media-gfx/cld-themes)<12.0_alpha1#
 Wallpaper=/usr/share/wallpapers/calculate-kdm.jpg
 #pkg#
 WallpaperList=Custom

@@ -3,10 +3,10 @@ GRUB_DISABLE_RECOVERY=true
 GRUB_DEFAULT=saved
 GRUB_TIMEOUT=1
 !GRUB_TERMINAL=del
-#?pkg(media-gfx/cld-themes)>=3.0.0_alpha1||pkg(media-gfx/cldx-themes)>=3.0.0_alpha1||pkg(media-gfx/cldg-themes)>=3.0.0_alpha1||pkg(media-gfx/cmc-themes)>=3.0.0_alpha1||pkg(media-gfx/cls-themes)>=3.0.0_alpha1||pkg(media-gfx/cds-themes)>=3.0.0_alpha1#
+#?pkg(media-gfx/cld-themes)>=12.0_alpha1||pkg(media-gfx/cldx-themes)>=12.0_alpha1||pkg(media-gfx/cldg-themes)>=12.0_alpha1||pkg(media-gfx/cmc-themes)>=12.0_alpha1||pkg(media-gfx/cls-themes)>=12.0_alpha1||pkg(media-gfx/cds-themes)>=12.0_alpha1#
 GRUB_CMDLINE_LINUX="video=uvesafb:ywrap,#-os_install_fb_resolution-#,mtrr:3,splash=silent,theme:calculate #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# doscsi#-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# console=tty1 udev quiet"
 #pkg#
-#?pkg(media-gfx/cld-themes)!=&&pkg(media-gfx/cld-themes)<3.0.0_alpha1||pkg(media-gfx/cldx-themes)!=&&pkg(media-gfx/cldx-themes)<3.0.0_alpha1||pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<3.0.0_alpha1||pkg(media-gfx/cmc-themes)!=&&pkg(media-gfx/cmc-themes)<3.0.0_alpha1||pkg(media-gfx/cls-themes)!=&&pkg(media-gfx/cls-themes)<3.0.0_alpha1||pkg(media-gfx/cds-themes)!=&&pkg(media-gfx/cds-themes)<3.0.0_alpha1#
+#?pkg(media-gfx/cld-themes)!=&&pkg(media-gfx/cld-themes)<12.0_alpha1||pkg(media-gfx/cldx-themes)!=&&pkg(media-gfx/cldx-themes)<12.0_alpha1||pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<12.0_alpha1||pkg(media-gfx/cmc-themes)!=&&pkg(media-gfx/cmc-themes)<12.0_alpha1||pkg(media-gfx/cls-themes)!=&&pkg(media-gfx/cls-themes)<12.0_alpha1||pkg(media-gfx/cds-themes)!=&&pkg(media-gfx/cds-themes)<12.0_alpha1#
 GRUB_CMDLINE_LINUX="video=uvesafb:ywrap,#-os_install_fb_resolution-#,mtrr:3,splash=silent,theme:tty1 #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# doscsi#-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# console=tty1 udev quiet"
 #pkg#
 #?pkg(media-gfx/cld-themes)==&&pkg(media-gfx/cldx-themes)==&&pkg(media-gfx/cldg-themes)==&&pkg(media-gfx/cmc-themes)==&&pkg(media-gfx/cls-themes)==&&pkg(media-gfx/cds-themes)==#
