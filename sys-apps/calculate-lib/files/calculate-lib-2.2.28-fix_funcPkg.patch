@@ -1,0 +1,28 @@
+commit 32f3dcef353da53bfbe301be90b21ecb05e561a5
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Jun 15 12:44:09 2012 +0400
+
+    Fix pkg function on update_config
+
+diff --git a/pym/cl_template.py b/pym/cl_template.py
+index 8c6f7b9..5a1210f 100644
+--- a/pym/cl_template.py
++++ b/pym/cl_template.py
+@@ -2785,11 +2785,17 @@ class templateFunction(_error, _shareTemplate, _shareTermsFunction):
+                                     pkgs)
+                         installProg = self.sharePkg(pkgs)
+                         replace = self.pkg(nameProg, installProg)
++                        oldInstallProg = self.installProg
++                        self.installProg = {}
+                         self.installProg.update(installProg)
++                        self.installProg.update(oldInstallProg)
+         else:
+             if not self.flagAllPkgScan:
+                 installProg = self.getInstallPkgGentoo()
++                oldInstallProg = self.installProg
++                self.installProg = {}
+                 self.installProg.update(installProg)
++                self.installProg.update(oldInstallProg)
+                 templateFunction.flagAllPkgScan = True
+             replace = self.pkg(nameProg, self.installProg)
+         textTemplateTmp = textTemplateTmp[:resS.start()] + replace +\

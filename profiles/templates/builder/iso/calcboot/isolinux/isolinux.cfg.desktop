@@ -1,4 +1,4 @@
-# Calculate name=isolinux.cfg os_builder_linux_system==desktop&&pkg(sys-kernel/calculate-sources)>=2.6.32.33&&pkg(sys-kernel/calculate-sources)<2.6.33||os_builder_linux_system==desktop&&pkg(sys-kernel/calculate-sources)>=2.6.37.4
+# Calculate name=isolinux.cfg os_builder_linux_system==desktop
 DEFAULT calcmenu.c32
 #?pkg(sys-boot/calcboot)>=3.86.5&&cl_builder_kernel_cmd!=#
 DEFAULTPARAM #-cl_builder_kernel_cmd-#
@@ -15,7 +15,15 @@ LABEL cld
 	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-#
 #os_builder_linux_subname#
 	KERNEL /boot/vmlinuz
+#?pkg(media-gfx/cld-themes)>=12.0_alpha1||pkg(media-gfx/cldx-themes)>=12.0_alpha1||pkg(media-gfx/cldg-themes)>=12.0_alpha1||pkg(media-gfx/cmc-themes)>=12.0_alpha1||pkg(media-gfx/cls-themes)>=12.0_alpha1#
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:calculate console=tty1 udev quiet noresume doscsi scandelay=3
+#pkg#
+#?pkg(media-gfx/cld-themes)!=&&pkg(media-gfx/cld-themes)<12.0_alpha1||pkg(media-gfx/cldx-themes)!=&&pkg(media-gfx/cldx-themes)<12.0_alpha1||pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<12.0_alpha1||pkg(media-gfx/cmc-themes)!=&&pkg(media-gfx/cmc-themes)<12.0_alpha1||pkg(media-gfx/cls-themes)!=&&pkg(media-gfx/cls-themes)<12.0_alpha1#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume doscsi scandelay=3
+#pkg#
+#?pkg(media-gfx/cld-themes)==&&pkg(media-gfx/cldx-themes)==&&pkg(media-gfx/cldg-themes)==&&pkg(media-gfx/cmc-themes)==&&pkg(media-gfx/cls-themes)==#
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot console=tty1 udev quiet noresume splash=off scandelay=3
+#pkg#
 
 LABEL cld-docache
 #?os_builder_linux_subname!=#
@@ -25,7 +33,15 @@ LABEL cld-docache
 	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-# (RAM)
 #os_builder_linux_subname#
 	KERNEL /boot/vmlinuz
+#?pkg(media-gfx/cld-themes)>=12.0_alpha1||pkg(media-gfx/cldx-themes)>=12.0_alpha1||pkg(media-gfx/cldg-themes)>=12.0_alpha1||pkg(media-gfx/cmc-themes)>=12.0_alpha1||pkg(media-gfx/cls-themes)>=12.0_alpha1#
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:calculate console=tty1 udev quiet noresume doscsi docache scandelay=3
+#pkg#
+#?pkg(media-gfx/cld-themes)!=&&pkg(media-gfx/cld-themes)<12.0_alpha1||pkg(media-gfx/cldx-themes)!=&&pkg(media-gfx/cldx-themes)<12.0_alpha1||pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<12.0_alpha1||pkg(media-gfx/cmc-themes)!=&&pkg(media-gfx/cmc-themes)<12.0_alpha1||pkg(media-gfx/cls-themes)!=&&pkg(media-gfx/cls-themes)<12.0_alpha1#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume doscsi docache scandelay=3
+#pkg#
+#?pkg(media-gfx/cld-themes)==&&pkg(media-gfx/cldx-themes)==&&pkg(media-gfx/cldg-themes)==&&pkg(media-gfx/cmc-themes)==&&pkg(media-gfx/cls-themes)==#
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot console=tty1 udev quiet noresume doscsi docache splash=off scandelay=3
+#pkg#
 
 LABEL cld-nox
 #?os_builder_linux_subname!=#
@@ -35,7 +51,15 @@ LABEL cld-nox
 	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-# (No-X)
 #os_builder_linux_subname#
 	KERNEL /boot/vmlinuz
+#?pkg(media-gfx/cld-themes)>=12.0_alpha1||pkg(media-gfx/cldx-themes)>=12.0_alpha1||pkg(media-gfx/cldg-themes)>=12.0_alpha1||pkg(media-gfx/cmc-themes)>=12.0_alpha1||pkg(media-gfx/cls-themes)>=12.0_alpha1#
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:calculate console=tty1 udev quiet noresume doscsi nox scandelay=3
+#pkg#
+#?pkg(media-gfx/cld-themes)!=&&pkg(media-gfx/cld-themes)<12.0_alpha1||pkg(media-gfx/cldx-themes)!=&&pkg(media-gfx/cldx-themes)<12.0_alpha1||pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<12.0_alpha1||pkg(media-gfx/cmc-themes)!=&&pkg(media-gfx/cmc-themes)<12.0_alpha1||pkg(media-gfx/cls-themes)!=&&pkg(media-gfx/cls-themes)<12.0_alpha1#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume doscsi nox scandelay=3
+#pkg#
+#?pkg(media-gfx/cld-themes)==&&pkg(media-gfx/cldx-themes)==&&pkg(media-gfx/cldg-themes)==&&pkg(media-gfx/cmc-themes)==&&pkg(media-gfx/cls-themes)==#
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot console=tty1 udev quiet noresume doscsi nox splash=off scandelay=3
+#pkg#
 
 LABEL cld-builder
 #?os_builder_linux_subname!=#
@@ -45,7 +69,15 @@ LABEL cld-builder
 	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-# Builder
 #os_builder_linux_subname#
 	KERNEL /boot/vmlinuz
+#?pkg(media-gfx/cld-themes)>=12.0_alpha1||pkg(media-gfx/cldx-themes)>=12.0_alpha1||pkg(media-gfx/cldg-themes)>=12.0_alpha1||pkg(media-gfx/cmc-themes)>=12.0_alpha1||pkg(media-gfx/cls-themes)>=12.0_alpha1#
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:calculate console=tty1 udev quiet noresume doscsi scratch scandelay=3
+#pkg#
+#?pkg(media-gfx/cld-themes)!=&&pkg(media-gfx/cld-themes)<12.0_alpha1||pkg(media-gfx/cldx-themes)!=&&pkg(media-gfx/cldx-themes)<12.0_alpha1||pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<12.0_alpha1||pkg(media-gfx/cmc-themes)!=&&pkg(media-gfx/cmc-themes)<12.0_alpha1||pkg(media-gfx/cls-themes)!=&&pkg(media-gfx/cls-themes)<12.0_alpha1#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume doscsi scratch scandelay=3
+#pkg#
+#?pkg(media-gfx/cld-themes)==&&pkg(media-gfx/cldx-themes)==&&pkg(media-gfx/cldg-themes)==&&pkg(media-gfx/cmc-themes)==&&pkg(media-gfx/cls-themes)==#
+	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot console=tty1 udev quiet noresume doscsi scratch splash=off scandelay=3
+#pkg#
 
 LABEL memtest
 	MENU LABEL Memtest86+

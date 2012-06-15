@@ -7,5 +7,10 @@
 #       dconf update
 #
 [org/gnome/desktop/background]
+#?pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<12.0_alpha1#
 picture-uri='file:///usr/share/pixmaps/calculate-gdm.jpg'
+#pkg#
+#?pkg(media-gfx/cldg-themes)>=12.0_alpha1#
+picture-uri='file:///usr/share/pixmaps/calculate-gdm-#-os_x11_standart-#.jpg'
+#pkg#
 picture-options='stretched'
