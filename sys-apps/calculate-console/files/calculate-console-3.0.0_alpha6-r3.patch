@@ -1,0 +1,2458 @@
+diff --git .gitignore .gitignore
+index e69de29..ea7e6a7 100644
+--- .gitignore
++++ .gitignore
+@@ -0,0 +1,5 @@
++.*
++build
++*.pyc
++*.kate-swp
++*.mo
+diff --git console/application/cert_func.py console/application/cert_func.py
+index 656f06a..02cd72a 100644
+--- console/application/cert_func.py
++++ console/application/cert_func.py
+@@ -18,7 +18,6 @@ import os, pwd
+ import sys, subprocess
+ import socket, time
+ import urllib2
+-from sid_func import client_sid
+ from function import get_sid, get_ip_mac_type
+ import OpenSSL, hashlib
+ from client_class import HTTPSClientCertTransport
+@@ -28,38 +27,51 @@ from calculate.lib.cl_lang import setLocalTranslate
+ from calculate.lib.utils.common import getpass
+ from calculate.lib.utils.files import listDirectory
+ setLocalTranslate('calculate_console',sys.modules[__name__])
+-
+ VERSION = 0.11
+ 
+ def client_post_cert (client, clVars, show_info = False):
+     """ send a certificate server for check """
+     sid = get_sid(client.SID_FILE)
+-    results = client.service.post_cert()
+     
+-    if results[0][0] == -4:
++    lang = os.environ['LANG'][:2]
++    _result_post_cert, _result_sid = client.service.init_session(sid, lang)
++    result_post_cert = _result_post_cert[1].integer
++    result_sid = _result_sid[1].integer
++
++    if result_post_cert[0] == -4:
+         print _("Certificate not found in Server Database!")
+-        print _('Add certificate to server Database...')
+-        ip, mac, client_type = get_ip_mac_type()
+-        print ip, mac, client_type
+-        cert_id = client.service.cert_add(mac, client_type)
+-        print _("Your certificate ID = %s") %cert_id
+-        sys.exit(1)
+-    client_sid(sid, client, cert_id = results[0][0], clVars = clVars)
+-    if results[0][0] == -3:
++        print _('client use certificate %s') %client.CERT_FILE
++        print _('You can generate a new certificate using the keys '
++                '--gen-cert-by and --get-cert-from')
++        raise Exception(3)
++
++#    client_sid(sid, client, cert_id = results[0][0], clVars = clVars)
++    if result_post_cert[0] == -3:
+         print _("Certificate not send!")
+     else:
+         if show_info:
+-            print _(" Your certifitate id = %d") %(results[0][0])
++            print _(" Your certifitate id = %d") %(result_post_cert[0])
+         try:
+-            if results[0][1] == -2:
++            if result_post_cert[1] == -2:
+                 print _("expiry date certificate has passed")
+-            elif results[0][1] > 0:
++            elif result_post_cert[1] > 0:
+                 if show_info:
+                     print _("shelf life expires after %d days") \
+-                                                    %(results[0][1])
++                                                    %(result_post_cert[1])
+         except:
+             pass
+ 
++    # work with sid
++    fi = open(client.SID_FILE, 'w')
++    sid = str(result_sid[0])
++    fi.write(sid)
++    fi.close()
++    if show_info:
++        if result_sid[1] == 1:
++            print _(" New Session")
++        else: print _(" Old Session")
++        print _(" Your session id = %s") %sid
++
+ #Creation of secret key of the client
+ def new_key_req(key, cert_path, server_host_name, private_key_passwd = None, \
+                 auto = False):
+@@ -86,7 +98,7 @@ def new_key_req(key, cert_path, server_host_name, private_key_passwd = None, \
+     try:
+         pwdObj = pwd.getpwnam(user_name)
+     except KeyError, e:
+-        print e
++        _print (e)
+         return None
+     os.chown(key, pwdObj.pw_uid, pwdObj.pw_gid)
+     os.chmod(key, 0600)
+@@ -100,7 +112,7 @@ def delete_old_cert(client):
+         os.unlink(client.PKEY_FILE)
+         os.unlink(client.PubKEY_FILE)
+     except OSError, e:
+-        print e.message
++        _print (e.message)
+ 
+ def get_password(text1 = None, text2 = None):
+     if not text1:
+@@ -123,21 +135,22 @@ def get_password(text1 = None, text2 = None):
+ def client_post_request (cert_path, args):
+     if os.path.exists(cert_path + 'req_id'):
+         print _("You have sent a request to sign the certificate.")
+-        print _("request id = %s") %open(cert_path + 'req_id', 'r').read()
++        _print (_("request id = %s") %open(cert_path + 'req_id', 'r').read())
+         ans = raw_input (_("Send new request? y/[n]: "))
+         if not ans.lower() in ['y','yes']:
+             return 0
+ 
+     url = "https://%s:%d/?wsdl" %(args.by_host, args.port)
+-    print '"%s\n'% url, _("connect...") 
++    print '%s\n'% url, _("connect...") 
+     from client_class import Client_suds
+     try:
+         client = Client_suds(url, transport = HTTPSClientCertTransport \
+                                           (None, None, cert_path))
+     except (KeyboardInterrupt, urllib2.URLError), e:
+         print '\n'+_("Close. Connecting Error.")
+-        print _("Error: %s") %e
++        _print (_("Error: %s") %e)
+         return 0
++    client.wsdl.services[0].setlocation(url)
+     
+     server_host_name = client.service.get_server_host_name()
+     
+@@ -165,7 +178,7 @@ def client_post_request (cert_path, args):
+     fc = open(os.path.join(cert_path, 'req_id'), 'w')
+     fc.write(res)
+     fc.close()
+-    print _("Your request id = %s") %res
++    _print (_("Your request id = %s") %res)
+     return 0
+     
+ def client_get_cert(cert_path, args):
+@@ -186,6 +199,7 @@ def client_get_cert(cert_path, args):
+                     transport = HTTPSClientCertTransport(None, None, cert_path))
+     except KeyboardInterrupt:
+         print _("Close. Connecting Error.")
++    client.wsdl.services[0].setlocation(url)
+     
+     server_host_name = client.service.get_server_host_name()
+     
+@@ -221,13 +235,13 @@ def client_get_cert(cert_path, args):
+     try:
+         os.unlink(cert_path + 'req_id')
+     except OSError, e:
+-        print e.message
++        _print (e.message)
+     print 'OK. Certificate save. Your certificate id = %s' %req_id
+     user_name = pwd.getpwuid(os.getuid()).pw_name
+     try:
+         pwdObj = pwd.getpwnam(user_name)
+     except KeyError, e:
+-        print e
++        _print (e)
+         return None
+     os.chown(cert_file, pwdObj.pw_uid, pwdObj.pw_gid)
+     os.chmod(cert_file, 0600)
+@@ -310,11 +324,11 @@ def client_post_auth(client):
+             print _("You do not have a certificate. Use key --gen-cert-by "
+                     "HOST for generate new request or key --get-cert-from "
+                     "HOST for get new certificate from server.")
+-            sys.exit()
++            raise Exception(1)
+ #        print client.service.versions(sid, VERSION)
+     except VerifyError, e:
+         print e.value
+-        sys.exit()
++        raise Exception(1)
+         
+ ########## Get password
+ def getRunProc():
+@@ -361,7 +375,7 @@ def create_socket(file_path, username):
+         try:
+             os.unlink(file_path)
+         except OSError, e:
+-            print e.message
++            _print (e.message)
+ 
+         cmd = ['cl-consoled']
+         #print cmd
+@@ -384,7 +398,7 @@ def set_password(s, req, size):
+     s.send(msg)
+     resp = s.recv(size)
+     if resp.startswith('Error'):
+-        print resp
++        _print (resp)
+     return password
+ 
+ def clear_password(server_host, server_port):
+@@ -432,7 +446,7 @@ def socket_connect(s, file_path):
+             time.sleep(0.3)
+     return s, hash_val
+ 
+-def get_password_from_daemon(server_host, server_port):
++def get_password_from_daemon(server_host, server_port, wait_thread):
+     size = 1024  # размер данных
+     username = pwd.getpwuid(os.getuid()).pw_name
+ 
+@@ -449,6 +463,7 @@ def get_password_from_daemon(server_host, server_port):
+         if resp.startswith('Error'):
+             if 'timeout' in resp:
+                 continue
++            wait_thread.stop()
+             password = set_password(s, req, size)
+         else:
+             password = resp if resp else None
+diff --git console/application/cert_verify.py console/application/cert_verify.py
+index 73021c8..293cf8f 100644
+--- console/application/cert_verify.py
++++ console/application/cert_verify.py
+@@ -96,13 +96,13 @@ def get_CRL(path_to_cert):
+                     os.makedirs(path_to_cert)
+                 except OSError:
+                     print _("error creating directory %s") %path_to_cert
+-                    sys.exit()
++                    raise Exception(1)
+             try:
+                 os.makedirs(os.path.join(path_to_cert, 'ca'))
+             except OSError:
+                 print _("error creating directory %s") \
+                         %(os.path.join(path_to_cert, 'ca'))
+-                sys.exit()
++                raise Exception(1)
+         os.makedirs(CRL_path)
+     
+     clVars = DataVarsCore()
+@@ -154,11 +154,12 @@ def get_CRL(path_to_cert):
+                 client.set_parameters (path_to_cert, None, None)
+                 new_crl = client.service.get_crl()
+             except VerifyError, e:
+-                print e.value
++                _print (e.value)
+                 #rm_ca_from_trusted(ca)
+-                sys.exit()
++                raise Exception(1)
+             except:
+                 pass
++            client.wsdl.services[0].setlocation(url)
+             if 'new_crl' in locals():
+                 if new_crl:
+                     if CN and len(CN) > 2:
+@@ -247,7 +248,7 @@ def rm_ca_from_trusted(ca_cert):
+                     try:
+                         os.unlink(filename)
+                     except OSError, e:
+-                        print e.message
++                        _print (e.message)
+                 else:
+                     newfile += (line + '\n')
+             else:
+diff --git console/application/cl_client.py console/application/cl_client.py
+index 3cd4033..fa14007 100644
+--- console/application/cl_client.py
++++ console/application/cl_client.py
+@@ -23,21 +23,20 @@ import traceback as tb
+ import time, logging
+ import os, sys
+ import threading, urllib2
+-from function import create_obj, get_sid, analysis, clear, get_entire_frame
++from function import analysis, clear, get_entire_frame
+ from pid_information import client_list_methods
+ from cert_func import client_post_auth, client_post_request, client_get_cert,\
+                     client_post_cert, get_password_from_daemon, clear_password
+ from sid_func import session_clean, client_session_info, client_session_list
+ from cert_verify import get_CRL, VerifyError
+ 
+-import argparse, datetime
+ import M2Crypto, OpenSSL
+ from calculate.core.datavars import DataVarsCore
+ 
+ from client_class import HTTPSClientCertTransport
+-from methods_func import call_method, get_method_argparser
++from methods_func import call_method, get_method_argparser, parse
++from calculate.lib.utils.files import makeDirectory, readLinesFile
+ from calculate.lib.cl_lang import setLocalTranslate
+-from calculate.lib.utils.files import makeDirectory
+ setLocalTranslate('calculate_console',sys.modules[__name__])
+ 
+ def client_signal(client):
+@@ -60,148 +59,153 @@ def client_signal(client):
+             client.service.active_client(sid)
+         except:
+             print _('no connection to server!')
+-            sys.exit()
++            raise Exception(1)
+         time.sleep(float(client_active))
+ 
+-def test(client, com=None):
+-    if not com:
+-        method_name = 'test'
++class StoppableThread(threading.Thread):
++    def __init__(self):
++        super(StoppableThread, self).__init__()
++        self._stop = threading.Event()
++
++    def run(self):
++        l = ['|','/','-','\\','|','/','-','\\']
++        i = 0
++        while True:
++            for i in l:
++                sys.stdout.write("\r\r" + i)
++                sys.stdout.flush()
++                time.sleep(.1)
++                if self.stopped():
++                    sys.stdout.write("\b")
++                    sys.stdout.flush()
++                    return 0
++
++    def stop(self):
++        self._stop.set()
++
++    def stopped(self):
++        return self._stop.isSet()
++
++def connect_with_cert(cert, path_to_cert, url, args, wait_thread, clVarsCore,
++                      crypto_Error, Connect_Error):
++    flag_thread_start = False
++    cert_name = cert
++    CERT_FILE = os.path.join(path_to_cert, cert_name + '.crt')
++    CERT_KEY = os.path.join(path_to_cert, cert_name + '.key')
++    client = None
++
++    bio = M2Crypto.BIO.openfile(CERT_KEY)
++    rsa = M2Crypto.m2.rsa_read_key(bio._ptr(),lambda *unused: None)
++    if not rsa:
++        store_passwd = get_password_from_daemon(args.host, args.port,
++                                                wait_thread)
++    if 'store_passwd' in locals():
++        key_passwd = store_passwd
+     else:
+-        method_name = com
+-    view = client.service[0][method_name + '_view']()
+-    
+-    cr = create_obj(client, method_name)
+-    list_param = dir (cr)
+-
+-    param_list = []
+-    for param in list_param:
+-        if not param.startswith('_'):
+-            param_list.append(param)
+-    
+-    for Group in view.groups.GroupField:
+-        print "GroupField name : ", Group.name
+-        
+-        for field in Group.fields.Field:
+-            if field.element == 'input':
+-                if field.type == 'str':
+-                    cr[field.name] = raw_input(field.label)
+-                if field.type == 'int':
+-                    while True:
+-                        try:
+-                            var = raw_input(field.label)
+-                            cr[field.name] = int (var)
+-                            break
+-                        except (TypeError, ValueError):
+-                            print 'Это не целое число'
+-            elif field.element == 'bool':
+-                while 1:
+-                    bool_var = raw_input(field.label+' (y/n): ')
+-                    if bool_var.lower() in ['y','yes']:
+-                        cr[field.name] = True
+-                        break
+-                    if bool_var.lower() in ['n','no']:
+-                        cr[field.name] = False
+-                        break
+-                    print 'Enter "Yes" or "No"!'
+-            
+-            elif field.element == 'check':
+-                choice = field.choice[0]
+-                while 1:
+-                    print 'Select one: '
+-                    for i in range(1,len(choice)+1):
+-                        print choice[i-1], ' - %d' %i
+-                    try:
+-                        bool_var = int (raw_input(field.label))
+-                        if bool_var > 0:
+-                            cr[field.name] = choice[bool_var - 1]
+-                            print 'your choice %s' %cr[field.name]
+-                            break
+-                    except:
+-                        pass
+-
+-            #field.choice
+-            #print field.help
+-    
+-    sid = get_sid(client.SID_FILE)
+-    s = client.service[0][method_name](sid, cr)
+-    print s
+-
+-def parse():
+-    parser = argparse.ArgumentParser(add_help=False)
+-    parser.add_argument(
+-        '-h', '--help', action='store_true', default=False,
+-        dest='help', help=_("show this help message and exit"))
+-    parser.add_argument(
+-        '--method', type=str, dest='method', 
+-        help=_('call method'))
+-    parser.add_argument(
+-        '-l', '--lang', type=str, dest='lang', 
+-        help=_('language for translate'))
+-    parser.add_argument(
+-        '-p', '--port', type=int, default = '8888', dest='port',
+-        help=_('port number'))      
+-    parser.add_argument(
+-        '--host', type=str, default = 'localhost', dest='host',
+-        help=_('host destination'))
+-    parser.add_argument(
+-        '--gen-cert-by', type=str, dest='by_host', metavar = 'HOST',
+-        help=_('post request a signed certificate by server'))
+-    parser.add_argument(
+-        '--get-cert-from', type=str, dest='from_host', metavar = 'HOST',
+-        help=_('get signed certificate from server'))
+-    parser.add_argument(
+-        '--cert-path', type=str, dest='path_to_cert', metavar = 'PATH',
+-        help=_('path to cert and key files'))
+-    parser.add_argument(
+-        '--list-pid', action='store_true', default=False,
+-        dest='list_pid', help=_("view a list of running processes"))
+-    parser.add_argument(
+-        '-d', '--dump',  action='store_true', default=False, dest = 'dump',
+-        help=_('dump (using with key --list-pid)'))
+-    parser.add_argument(
+-        '--pid-result',  type=int, metavar = 'PID',
+-        dest='pid_res', help=_("view result of process"))
+-    parser.add_argument(
+-        '--pid-kill',  type=int, metavar = 'PID',
+-        dest='pid_kill', help=_("kill selected process"))
+-    parser.add_argument(
+-        '--session-clean', action='store_true', default=False,
+-        dest='session_clean', help=_('clear cache session'))
+-    parser.add_argument(
+-        '--session-info', action='store_true', default=False,
+-        dest='session_info', help=_("view session information"))
+-    parser.add_argument(
+-        '--session-num-info',  type=int, metavar = 'SID',
+-        dest='session_num_info', help=_("view information about session "
+-                                        "with sid = SID"))
+-    parser.add_argument(
+-        '--session-list', action='store_true', default=False,
+-        dest='session_list', help=_("view list active session on server"))
+-    parser.add_argument(
+-        '--update-crl', action='store_true', default=False,
+-        dest='update_crl', help=_("update the certificate revocation lists"))
+-    parser.add_argument(
+-        '--stop-consoled', action='store_true', default=False,
+-        dest='stop_consoled', help=_("stop cl-consoled"))
+-    return parser
+-
+-def https_server(client, args, unknown_args, url, clVarsCore):
++        key_passwd = None
++    try:
++        client = Client_suds(url, transport=HTTPSClientCertTransport \
++             (CERT_KEY, CERT_FILE, path_to_cert, password=key_passwd,
++             wait_thread = wait_thread))
++        if not wait_thread.isAlive():
++            wait_thread = StoppableThread()
++            flag_thread_start = True
++            wait_thread.start()
++        client.wsdl.services[0].setlocation(url)
++        client.set_parameters (path_to_cert, CERT_FILE, CERT_KEY)
++        wait_thread.stop()
++        client_post_cert(client, clVarsCore)
++        Connect_Error = 0
++    except VerifyError, e:
++        Connect_Error = 1
++    except OpenSSL.crypto.Error, e:
++        Connect_Error = 1
++        crypto_Error = 1
++    except urllib2.URLError, e:
++        Connect_Error = 1
++    except Exception, e:
++        if e.message == 3:
++            wait_thread.stop()
++            sys.exit(1)
++        Connect_Error = 1
++    if flag_thread_start:
++        wait_thread.stop()
++    return (client, Connect_Error, crypto_Error, 
++            True if 'store_passwd' in locals() else False,
++            e if 'e' in locals() else None)
++
++def get_server_hostname(host, path_to_cert):
++    compliance_file = os.path.join(path_to_cert, 'compliance_server_names')
++    if not os.path.isfile(compliance_file):
++        fd = open(compliance_file, 'w')
++        fd.close()
++    for line in readLinesFile(compliance_file):
++        adress, server_hostname = line.split(' ',1)
++        if adress == host:
++            return server_hostname
++    return None
++
++def add_server_hostname(host, path_to_cert, server_hostname):
++    try:
++        compliance_file = os.path.join(path_to_cert, 'compliance_server_names')
++        if not os.path.isfile(compliance_file):
++            fd = open(compliance_file, 'w')
++            fd.close()
++        temp_file = ''
++        find_flag = False
++        for line in readLinesFile(compliance_file):
++            adress, server_hostname = line.split(' ',1)
++            if adress == host:
++                temp_file += "%s %s\n" %(adress, server_hostname)
++                find_flag = True
++            else:
++                temp_file += line+'\n'
++        if not find_flag:
++            temp_file += "%s %s\n" %(host, server_hostname)
++        fd = open(compliance_file, 'w')
++        fd.write(temp_file)
++        fd.close()
++        return True
++    except Exception, e:
++        print e
++        return False
++
++def https_server(client, args, unknown_args, url, clVarsCore, wait_thread):
+     client_post_auth(client)
+ 
++    sym_link = os.path.basename(sys.argv[0])
++    if sym_link != 'cl-console':
++        wait_thread.stop()
++        results = client.service.get_methods(client.sid, 'console')
++        find_flag = False
++        if hasattr (results, 'stringArray'):
++            for _array in results.stringArray:
++                if _array.string[0] == sym_link:
++                    args.method = _array.string[1]
++                    find_flag = True
++                    break
++        if not find_flag:
++            _print (_('Not found method for %s') %sym_link)
++
+     if args.stop_consoled:
++        wait_thread.stop()
+         os.system('cl-consoled --stop')
+         return 0
+ 
+     if args.session_clean:
++        wait_thread.stop()
+         session_clean(client)
+ 
+     if args.session_info or args.session_num_info:
++        wait_thread.stop()
+         client_session_info(client, args.session_num_info)
+ 
+     if args.session_list:
++        wait_thread.stop()
+         client_session_list(client)
+ 
+     if args.list_pid:
++        wait_thread.stop()
+         if args.dump:
+             from pid_information import client_pid_info
+             client_pid_info(client)
+@@ -210,36 +214,56 @@ def https_server(client, args, unknown_args, url, clVarsCore):
+             client_list_pid(client)
+ 
+     if args.pid_res:
++        wait_thread.stop()
+         get_entire_frame(client, args.pid_res)
+         return 0
+ 
+     if args.pid_kill:
++        wait_thread.stop()
+         from pid_information import client_pid_kill
+         return client_pid_kill(client, args.pid_kill)
+ 
+     if not args.method:
++        wait_thread.stop()
+         client_list_methods(client)
+         return 1
+ 
+     elif args.method and args.help:
+-#        now = datetime.datetime.now()
+-#        print '6 ===> %ds %dms' %(now.second, now.microsecond)
+         method_parser, view = get_method_argparser(client, args)
++        wait_thread.stop()
++        sys.stdout.write("\b")
++        sys.stdout.flush()
+         method_parser.print_help()
+-#        now = datetime.datetime.now()
+-#        print '7 ===> %ds %dms' %(now.second, now.microsecond)
+ 
+     else:
+         try:
+             client.frame_period = clVarsCore.Get('cl_core_get_frame_period')
+         except:
+             client.frame_period = 2
+-        method_result = call_method(client, args)
++        method_result = call_method(client, args, wait_thread)
+         if method_result:
+             try:
+                 analysis(client, client.sid, method_result)
+             except urllib2.URLError, e:
+-                print e
++                _print (e)
++            except KeyboardInterrupt:
++                try:
++                    print
++                    mess = method_result[0][0]
++                    pid = int(mess.message)
++                    result = client.service.pid_kill(pid, client.sid)
++                    if result in [0,2]:
++                        print _('Process is terminated')
++                    elif result == -1:
++                        print _("Certificate not found in server database")
++                    elif result == -2:
++                        print _("Session doesn't belong to your certificate")
++                    elif result == 1:
++                        print _("It was not possible to kill process")
++#                    get_entire_frame(client, pid)
++                    analysis(client, client.sid, method_result)
++                except Exception, e:
++                    _print (e.message)
+ 
+             try:
+                 mess = method_result[0][0]
+@@ -249,20 +273,32 @@ def https_server(client, args, unknown_args, url, clVarsCore):
+ 
+             client.service.clear_pid_cache(client.sid, pid)
+         client.service.clear_method_cache(client.sid, args.method)
++    wait_thread.stop()
+     return 0
+ 
+ def main():
+-#    now = datetime.datetime.now()
+-#    print '1 ===> %ds %dms' %(now.second, now.microsecond)
+     parser = parse()
+     args, unknown_args = parser.parse_known_args()
+-
++    wait_thread = StoppableThread()
++    wait_thread.start()
+     if not args.method and args.help:
++        wait_thread.stop()
++        sys.stdout.write('\r')
++        sys.stdout.flush()
+         parser.print_help()
+-#        now = datetime.datetime.now()
+-#        print '1/2 ===> %ds %dms' %(now.second, now.microsecond)
+         return 0
+ 
++    if os.path.basename(sys.argv[0]) != 'cl-console':
++        args.method = '_temp_'
++        args.host = 'localhost'
++
++    if not args.method:
++        if unknown_args:
++            wait_thread.stop()
++            sys.stdout.write('\r')
++            sys.stdout.flush()
++            args = parser.parse_args()
++
+     logging.basicConfig(level=logging.FATAL)
+     logging.getLogger('sudsds.client').setLevel(logging.FATAL)
+     logging.getLogger('sudsds.transport').setLevel(logging.FATAL)
+@@ -275,10 +311,6 @@ def main():
+ 
+     homePath = clVarsCore.Get('ur_home_path')
+ 
+-    # translate
+-    if args.lang:
+-        print 'code not found!!!!'
+-
+     port = args.port
+     host = args.host
+     path_to_cert = args.path_to_cert
+@@ -290,10 +322,14 @@ def main():
+         dir_path = os.path.join(path_to_cert, dirs)
+         if not os.path.isdir(dir_path):
+             if not makeDirectory(dir_path):
++                wait_thread.stop()
++                sys.stdout.write('\r')
++                sys.stdout.flush()
+                 print _("cannot create directory %s") %dir_path
+                 return 1
+ 
+     if args.update_crl:
++        wait_thread.stop()
+         getCRL = threading.Thread(target=get_CRL, args = (path_to_cert, ))
+         getCRL.start()
+         getCRL.join()
+@@ -301,33 +337,84 @@ def main():
+         return 0
+ 
+     if args.by_host:
++        wait_thread.stop()
+         client_post_request (path_to_cert, args)
+         return 0
+     if args.from_host:
++        wait_thread.stop()
+         client_get_cert (path_to_cert, args)
+         return 0
+ 
+     url = "https://%s:%d/?wsdl" %(host, port)
+-#    print "url = %s" %url
+ 
+     clear()
++
++    serv_hostname = get_server_hostname(host, path_to_cert)
++    get_name_flag = False
++    if serv_hostname:
++        Connect_Error = 1
++        crypto_Error = 0
++        client, Connect_Error, crypto_Error, passwd_flag, e = \
++                    connect_with_cert (serv_hostname, path_to_cert, url, args,
++                         wait_thread, clVarsCore, crypto_Error, Connect_Error)
++        if not wait_thread.isAlive():
++            wait_thread = StoppableThread()
++            wait_thread.start()
++        get_name_flag = True
++        if Connect_Error:
++            if crypto_Error and passwd_flag:
++                wait_thread.stop()
++                print _('Password is invalid')
++                # delete password from daemon list
++                clear_password(host, port)
++                get_name_flag = False
++            if e:
++                wait_thread.stop()
++                print _('Error: '), e
++                get_name_flag = False
++
++    if get_name_flag:
++        try:
++            client.port = port
++            return_val = 1
++            try:
++                return_val = https_server(client, args, unknown_args, url, \
++                                          clVarsCore, wait_thread)
++            except urllib2.URLError, e:
++                print _('Error: '), e
++            except Exception, e:
++                wait_thread.stop()
++                if type(e.message) != int:
++                    if e.message:
++                        print e.message
++                    else:
++                        print e
++                return 1
++            wait_thread.stop()
++            return return_val
++        except WebFault, f:
++            print _("Exception: %s") %f
++            _print (f.fault)
++        except TransportError, te:
++            print _("Exception: %s") %te
++        except Exception, e:
++            print _("Exception: %s") %e
++            tb.print_exc()
++        wait_thread.stop()
++
+     try:
+-#        now = datetime.datetime.now()
+-#        print '2 ===> %ds %dms' %(now.second, now.microsecond)
+         client = Client_suds(url, \
+-                transport = HTTPSClientCertTransport(None,None, path_to_cert))
+-#        now = datetime.datetime.now()
+-#        print '2/1 ===> %ds %dms' %(now.second, now.microsecond)
++            transport = HTTPSClientCertTransport(None,None, path_to_cert))
++        client.wsdl.services[0].setlocation(url)
+         server_host_name = client.service.get_server_host_name()
+-#        print server_host_name
+-#        now = datetime.datetime.now()
+-#        print '2/2 ===> %ds %dms' %(now.second, now.microsecond)
++        if not add_server_hostname(host, path_to_cert, server_host_name):
++            print 'compliance_file write error!'
+         del (client)
+     except urllib2.URLError, e:
+-        print _('Failed to connect')+':', e
+-        sys.exit(1)
+-#    server_host_name = 'dspiridonov.local.calculate.ru'
+-        
++        wait_thread.stop()
++        print '\b' + _('Failed to connect')+':', e
++        return 1
++
+     try:
+         import glob
+         all_cert_list = glob.glob(os.path.join(path_to_cert, '*.crt'))
+@@ -340,82 +427,63 @@ def main():
+         fit_cert_list.sort(key = len)
+         Connect_Error = 1
+         crypto_Error = 0
+-#        now = datetime.datetime.now()
+-#        print '3 ===> %ds %dms' %(now.second, now.microsecond)
++        e = None
+         for i in range (0, len(fit_cert_list)):
+-            #print 'fit_cert_list = ',fit_cert_list
+             cert_name = fit_cert_list.pop()
+-            CERT_FILE = path_to_cert + cert_name + '.crt'
+-            CERT_KEY = path_to_cert + cert_name + '.key'
+-
+-            bio = M2Crypto.BIO.openfile(CERT_KEY)
+-            rsa = M2Crypto.m2.rsa_read_key(bio._ptr(),lambda *unused: None)
+-            if not rsa:
+-                store_passwd = get_password_from_daemon(host, port)
+-#            if not rsa and not 'store_passwd' in locals():
+-#                store_passwd = getpass.getpass(_('Password: '))
+-#                if not store_passwd:
+-#                    store_passwd = None
+-            if 'store_passwd' in locals():
+-                key_passwd = store_passwd
+-            else:
+-                key_passwd = None
+-            try:
+-#                print 111111111
+-                client = Client_suds(url,\
+-                    transport = HTTPSClientCertTransport(CERT_KEY, CERT_FILE,\
+-                                         path_to_cert, password=key_passwd))
+-                client.set_parameters (path_to_cert, CERT_FILE, CERT_KEY)
+-                client_post_cert(client, clVarsCore)
+-                Connect_Error = 0
+-            except VerifyError, e:
+-#                print e.value
+-                Connect_Error = 1
+-            except OpenSSL.crypto.Error, e:
+-                Connect_Error = 1
+-                crypto_Error = 1
+-            except urllib2.URLError, e:
+-                Connect_Error = 1
+-            except Exception, e:
+-                Connect_Error = 1
++            client, Connect_Error, crypto_Error, passwd_flag, e = \
++                        connect_with_cert (cert_name, path_to_cert, url, args,
++                        wait_thread, clVarsCore, crypto_Error, Connect_Error)
++            if not wait_thread.isAlive():
++                wait_thread = StoppableThread()
++                wait_thread.start()
++
+             if Connect_Error == 0:
+                 break
+-#        now = datetime.datetime.now()
+-#        print '4 ===> %ds %dms' %(now.second, now.microsecond)
++
+         #If the certificate file misses
+         if Connect_Error:
+-            if crypto_Error and 'store_passwd' in locals():
++            if crypto_Error and passwd_flag:
++                wait_thread.stop()
+                 print _('Password is invalid')
+                 # delete password from daemon list
+                 clear_password(host, port)
+                 return 1
+-            if 'e' in locals():
++            if e:
++                wait_thread.stop()
+                 print _('Error: '), e
+                 return 1
+-#            print 'Connect Error'
++
+             CERT_FILE = None
+             CERT_KEY = None
+             client = Client_suds(url, transport = HTTPSClientCertTransport \
+                                          (CERT_KEY, CERT_FILE, path_to_cert))
++            client.wsdl.services[0].setlocation(url)
+             client.set_parameters (path_to_cert, CERT_FILE, CERT_KEY)
+ 
+         client.port = port
+-#        now = datetime.datetime.now()
+-#        print '5 ===> %ds %dms' %(now.second, now.microsecond)
++        return_val = 1
+         try:
+             return_val = https_server(client, args, unknown_args, url, \
+-                                      clVarsCore)
++                                      clVarsCore, wait_thread)
+         except urllib2.URLError, e:
+             print _('Error: '), e
+-#        now = datetime.datetime.now()
+-#        print 'END ===> %ds %dms' %(now.second, now.microsecond)
++        except Exception, e:
++            wait_thread.stop()
++            if type(e.message) != int:
++                if e.message:
++                    print e.message
++                else:
++                    print e
++            return 1
++        wait_thread.stop()
+         return return_val
+ #----------------------------------------------------
+     except WebFault, f:
+         print _("Exception: %s") %f
+-        print f.fault
++        _print (f.fault)
+     except TransportError, te:
+         print _("Exception: %s") %te
+     except Exception, e:
+         print _("Exception: %s") %e
+         tb.print_exc()
++    wait_thread.stop()
+diff --git console/application/client_class.py console/application/client_class.py
+index ccb6fef..ce89ca4 100644
+--- console/application/client_class.py
++++ console/application/client_class.py
+@@ -30,6 +30,8 @@ from sudsds.properties import Unskin
+ from cookielib import CookieJar, DefaultCookiePolicy
+ from logging import getLogger
+ from calculate.console.datavars import DataVarsConsole
++from calculate.lib.cl_lang import setLocalTranslate
++setLocalTranslate('calculate_console',sys.modules[__name__])
+ #import cert_func.verify
+ log = getLogger(__name__)
+ flag = 0
+@@ -51,8 +53,8 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+     """based on httplib.HTTPSConnection code - extended to support 
+     server certificate verification and client certificate authorization"""
+ 
+-    def __init__(self, cert_path, host, ca_certs=None,
+-                 cert_verifier=None, keyobj=None, certobj=None, **kw):
++    def __init__(self, cert_path, host, ca_certs=None, cert_verifier=None,
++                 keyobj=None, certobj=None, wait_thread=None, **kw):
+         """cert_verifier is a function returning either True or False
+         based on whether the certificate was found to be OK,
+         keyobj and certobj represent internal PyOpenSSL structures holding
+@@ -63,6 +65,7 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+ #        self.ClientObj = ClientObj
+         self.cert_path = cert_path
+         self.CRL_PATH = os.path.join(cert_path, 'ca/crl/')
++        self.wait_thread = wait_thread
+ 
+     # get filename store cert server
+     def cert_list (self, host, ca_certs, server_cert):
+@@ -183,21 +186,22 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+         url = 'https://%s:%s/?wsdl' %(self.host, self.port)
+         client = Client_suds(url, transport = HTTPSClientCertTransport \
+                                               (None, None, self.cert_path))
++        client.wsdl.services[0].setlocation(url)
+         cert = client.service.get_ca()
+         if cert == '1':
+             print _('Server certificate is not valid')
+-            sys.exit()
+-            
++            raise Exception(1)
++
+         if cert == '2':
+             print _('CA not found on server')
+-            sys.exit()
++            raise Exception(1)
+             
+         try:
+             certobj = OpenSSL.crypto.load_certificate \
+                     (OpenSSL.SSL.FILETYPE_PEM, cert)
+         except:
+             print _("Error. Certificate not added to trusted")
+-            sys.exit()
++            raise Exception(1)
+         print '\n', _("Fingerprint = %s") % certobj.digest('SHA1')
+         print _("Serial Number = "), certobj.get_serial_number()
+         Issuer = certobj.get_issuer().get_components()
+@@ -217,6 +221,7 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+ 
+     # add certificate server in trusted
+     def add_server_cert(self, cert):
++        self.wait_thread.stop()
+         print _("Untrusted Server Certificate!")
+         certobj = OpenSSL.crypto.load_certificate \
+                     (OpenSSL.SSL.FILETYPE_PEM, cert)
+@@ -279,7 +284,7 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+                     os.makedirs(root_cert_dir)
+                 except OSError:
+                     print _("error creating directory %s") %root_cert_dir
+-                    sys.exit()
++                    raise Exception(1)
+             
+             print '\n' + _("Try add CA and ROOT certificates")
+             self.list_ca_certs = []
+@@ -298,7 +303,7 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+             if not f:
+                 flag = 1
+             elif f == 1:
+-                sys.exit()
++                raise Exception(1)
+         else:
+             import time
+             time.sleep(0.1)
+@@ -333,7 +338,7 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+             if not f:
+                 flag = 1
+             elif f == 1:
+-                sys.exit()
++                raise Exception(1)
+         #if not hasattr(HTTPSClientCertTransport, 'filename') or \
+                                     #HTTPSClientCertTransport.filename == None:
+         HTTPSClientCertTransport.filename = self.cert_list \
+@@ -406,7 +411,10 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+                     elif result_server_con == 3:
+                         continue
+                     elif result_server_con == 4:
+-                        raise Exception (_('This server is not trusted'))
++                        print _('This server is not trusted')
++                        self.wait_thread.stop()
++                        sys.exit(1)
++#                        raise Exception (_('This server is not trusted'))
+                 elif result_root_con == 2:
+                     raise Exception (1)
+             elif result_user_root == 2:
+@@ -416,7 +424,7 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+ class CheckingClientHTTPSHandler(CheckingHTTPSHandler):
+     def __init__(self, cert_path, ca_certs=None, cert_verifier=None,
+                  client_certfile=None, client_keyfile=None,
+-                 client_keyobj=None, client_certobj=None,
++                 client_keyobj=None, client_certobj=None, wait_thread=None,
+                  *args, **kw):
+         """cert_verifier is a function returning either True or False
+         based on whether the certificate was found to be OK"""
+@@ -425,6 +433,7 @@ class CheckingClientHTTPSHandler(CheckingHTTPSHandler):
+                                   client_keyobj, client_certobj)
+ #        self.ClientObj = ClientObj
+         self.cert_path = cert_path
++        self.wait_thread = wait_thread
+ 
+     def https_open(self, req):
+         def open(*args, **kw):
+@@ -432,10 +441,10 @@ class CheckingClientHTTPSHandler(CheckingHTTPSHandler):
+                           cert_verifier=self.cert_verifier,
+                           cert_file=self.client_certfile,
+                           key_file=self.client_keyfile,
+-                          keyobj=self.keyobj,
+-                          certobj=self.certobj)
++                          keyobj=self.keyobj, certobj=self.certobj,
++                          wait_thread=self.wait_thread)
+             new_kw.update(kw)
+-            return CheckingClientHTTPSConnection(self.cert_path, 
++            return CheckingClientHTTPSConnection(self.cert_path,
+                                                  *args, **new_kw)
+         return self.do_open(open, req)
+ 
+@@ -447,7 +456,7 @@ class HTTPSClientCertTransport(HttpTransport):
+                  client_keyfile=None, client_certfile=None,
+                  client_keyobj=None, client_certobj=None,
+                  cookie_callback=None, user_agent_string=None,
+-                 **kwargs):
++                 wait_thread=None, **kwargs):
+         Transport.__init__(self)
+ #        self.ClientObj = parent
+         self.key = key
+@@ -483,7 +492,8 @@ class HTTPSClientCertTransport(HttpTransport):
+                             ca_certs=ca_certs, cert_verifier=cert_verifier,
+                             client_keyfile=client_keyfile, client_certfile = \
+                             client_certfile, client_keyobj=client_keyobj,
+-                            client_certobj=client_certobj)
++                            client_certobj=client_certobj,
++                            wait_thread=wait_thread)
+         else:
+             https_handler = u2.HTTPSHandler()
+         self.urlopener = u2.build_opener(SUDSHTTPRedirectHandler(),
+diff --git console/application/create_cert.py console/application/create_cert.py
+index 270728e..3b5a328 100644
+--- console/application/create_cert.py
++++ console/application/create_cert.py
+@@ -55,7 +55,7 @@ def makeRequest(pubkey, pkey, serv_host, auto = False):
+     clVars.flIniFile()
+     username = clVars.Get('ur_fullname')
+     # Get language
+-    lang = gettext.locale.getdefaultlocale()[0][:2]
++    lang = clVars.Get('os_locale_locale')[:2]
+     if c.lower() in ['y', 'yes']:
+         #if serv_host in host_name:
+             #host_name = host_name.replace('.'+serv_host, '')
+diff --git console/application/function.py console/application/function.py
+index fbc2446..79db1f0 100644
+--- console/application/function.py
++++ console/application/function.py
+@@ -15,12 +15,16 @@
+ #  limitations under the License.
+ 
+ import time, os, sys, re
++from fcntl import ioctl
++from array import array
++import termios
+ import subprocess
+ from OpenSSL import crypto
+ import shlex
+ from sudsds import MethodNotFound
+ from calculate.core.server.cert_cmd import getHwAddr, getIpLocal
+ 
++from progressbar import Bar, Percentage, ETA, ProgressBar
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('calculate_console',sys.modules[__name__])
+ from calculate.core.client.function import create_obj
+@@ -50,7 +54,7 @@ def clear ():
+             try:
+                 os.unlink (filename)
+             except OSError, e:
+-                print e.message
++                _print (e.message)
+     except:
+         print _("Clear Cache error! ")
+         return 1
+@@ -83,7 +87,7 @@ def get_ip_mac_type(client_type = None):
+ 
+ def print_brief_group(Fields, group_name):
+     if group_name:
+-        print group_name
++        _print ('\b'+group_name)
+     uncompatible_count = 0
+     green = '\033[32m * \033[0m'
+     red = '\033[91m * \033[0m'
+@@ -93,7 +97,7 @@ def print_brief_group(Fields, group_name):
+             continue
+         if field.element in ['input', 'openfile']:
+             value = field.value if field.value else ''
+-            print green+'%s: %s' %(field.label, value)
++            _print (green+'%s: %s' %(field.label, value))
+ 
+         elif field.element in ['combo', 'comboEdit', 'radio', 'file']:
+             if hasattr (field.comments, 'string') and field.value in \
+@@ -106,7 +110,7 @@ def print_brief_group(Fields, group_name):
+                 value = ', '.join(value)
+             else:
+                 value = field.value if field.value else ''
+-            print green+'%s: %s' %(field.label, value)
++            _print (green+'%s: %s' %(field.label, value))
+ 
+         elif field.element in ['multichoice', 'multichoice_add',\
+                                  'selecttable', 'selecttable_add']:
+@@ -122,13 +126,13 @@ def print_brief_group(Fields, group_name):
+                 value = ', '.join(field.listvalue.string)
+             else:
+                 value = field.value if field.value else ''
+-            print green+'%s: %s' %(field.label, value)
++            _print (green+'%s: %s' %(field.label, value))
+ #
+ #        elif field.element == 'label':
+ #            print field.label
+ 
+         elif field.element == 'error':
+-            print red + 'Error: %s' %field.label
++            _print (red + 'Error: %s' %field.label)
+ 
+         elif field.element in ['check', 'check_tristate']:
+             if field.value == 'on':
+@@ -139,7 +143,7 @@ def print_brief_group(Fields, group_name):
+                 value = _('auto')
+             else:
+                 value = field.value
+-            print green+'%s: %s' %(field.label, value)
++            _print (green+'%s: %s' %(field.label, value))
+ 
+         elif field.element == 'table' and field.type != 'steps':
+             if hasattr (field.tablevalue.head, 'string'):
+@@ -180,7 +184,7 @@ def print_brief_group(Fields, group_name):
+             for body_row in body:
+                 data.append(map(lambda x: x if x else '', body_row))
+ 
+-            print green+'%s: ' %(field.label)
++            _print (green+'%s: ' %(field.label))
+             res = printTable(data, head)
+             sys.stdout.flush()
+             sys.stdout.write(res)
+@@ -189,7 +193,7 @@ def print_brief_group(Fields, group_name):
+             uncompatible_count += 1
+ 
+     if uncompatible_count == len (Fields) and group_name:
+-        print green + _('Not used')
++        _print (green + _('Not used'))
+ 
+ def print_brief(view, brief_label):
+     for Group in view.groups.GroupField:
+@@ -235,6 +239,7 @@ class switch(object):
+ 
+ #################API FUNCTION###############################
+ def show_view(view):
++    return
+     print "+====== show view! ======+"
+ 
+ def printTable(data, header=None ):
+@@ -285,35 +290,32 @@ def show_table(table, item):
+     sys.stdout.write(res)
+ 
+ def show_error(item):
+-    red = '\033[91m * \033[0m'
+-#    FAIL = '\033[31m'
+-#    ENDC = '\033[0m'
+-    print red + _("Error")
+-    print red + item.message
+-#    print ENDC
++    if item.message:
++        red = '\033[91m * \033[0m'
++        print red + _("Error")
++        _print (red + item.message)
+     
+ def show_warning(item):
+-    yellow = '\033[93m * \033[0m'
+-#    WARNING = '\033[91m'
+-    print yellow + _("Warning")
+-    print yellow + item.message
+-#    ENDC = '\033[0m'
+-#    print ENDC
++    if item.message:
++        yellow = '\033[93m * \033[0m'
++        print yellow + _("Warning")
++        _print (yellow + item.message)
+     
+ def show_group(item):
+-    print "Group"
+-    print item.message
++    if item.message:
++        _print (item.message)
+ 
+ def show_result(result):
+-    print "Result = ", result.message
++    if result.message:
++        _print ("Result = ", result.message)
+ 
+ def startTask(item):
+-    print "start Task"
+-    print item.message
++    if item.message:
++        _print (item.message)
+ 
+ def endTask(item):
+-    print item.message
+-    print "end Task\n\n"
++    if item.message:
++        _print (item.message)
+     
+ def beginFrame(item):
+     pass
+@@ -333,8 +335,8 @@ def _create_obj(client, method):
+     except MethodNotFound:
+         if method.endswith('_view'):
+             method = method[:-5]
+-        print _('Method not found: ') + method
+-        sys.exit(1)
++        _print (_('Method not found: ') + method)
++        raise Exception(1)
+     return view_params
+ 
+ def get_view_params(client, method, step = None, expert = None, brief = None):
+@@ -346,7 +348,7 @@ def get_view_params(client, method, step = None, expert = None, brief = None):
+ 
+ def callView(client, item, sid):
+     return
+-    print "\n\n",item.message
++    _print ("\n",item.message)
+     try:
+         view_params = get_view_params(client, item.message, brief = True, \
+                                       expert = True)
+@@ -469,42 +471,65 @@ def get_entire_frame(client, pid):
+             end_frame = get_message(client, item, sid, pid)
+ 
+ def get_Progress(client, sid, pid, id):
++    widgets = ['','', Bar(), '', Percentage(),' ', ETA()]
++    pbar = ProgressBar(widgets=widgets, maxval=100)
++    # maybe do something
++    pbar.start()
++
+     """ get progress for the current job """
+     returnProgr = client.service.get_progress(sid, pid, id)
+     temp_progress = -1
+     last_message = ''
+     percent = returnProgr.percent
+-    while percent <= 100 and percent >= 0 :
++    while percent <= 100 and percent >= 0:
+         if temp_progress != percent:
+-            last_message = print_progress(returnProgr, last_msg = last_message)
++#            last_message = print_progress(returnProgr, last_msg = last_message)
++            last_message = print_progressbar(returnProgr, pbar,
++                                          last_msg = last_message)
++#            pbar.update(returnProgr.percent)
+             if percent == 100:
+                 print
+                 return
+             temp_progress = percent
++        else:
++            pbar.update(percent)
+         time.sleep(1)
+         returnProgr = client.service.get_progress(sid, pid, id)
+         percent = returnProgr.percent
+     if percent < 0:
+-        print_progress(returnProgr, error = True)
++#        print_progress(returnProgr, error = True)
++        pbar.update(0 - returnProgr.percent)
++        pbar.finish()
+     else:
+-        print_progress(returnProgr)
+-
+-#def cout(string):
+-#    sys.stdout.write(string)
+-#    sys.stdout.flush()
+-#
+-#for perc in xrange(101):
+-#    cout ('\r' + str(perc / 1.0).rjust(5) + '% ')
+-#    time.sleep(.2)
++#        print_progress(returnProgr)
++        pbar.update(returnProgr.percent)
++        pbar.finish()
+ 
+ def cout_progress(string):
+-    sys.stdout.write('\b\b\b\b\b\b' + string)
++    h,w=array('h', ioctl(sys.stderr,termios.TIOCGWINSZ,'\0'*8))[:2]
++    sys.stdout.write('\r' + (' '*(w)))
++    sys.stdout.write('\r' + string)
+     sys.stdout.flush()
+ 
+ def cout(string):
+     sys.stdout.write(string)
+     sys.stdout.flush()
+ 
++def print_progressbar(returnProgr, pbar, last_msg = None, error = False):
++    if returnProgr.long_message:
++        if last_msg != returnProgr.long_message:
++            cout_progress('%s\n' %returnProgr.long_message)
++        pbar.update(returnProgr.percent)
++        return returnProgr.long_message
++    elif returnProgr.short_message:
++        if last_msg != returnProgr.short_message:
++            cout_progress('%s\n' %returnProgr.short_message)
++        pbar.update(returnProgr.percent)
++        return returnProgr.short_message
++    else:
++        pbar.update(returnProgr.percent)
++        return last_msg
++
+ def print_progress(returnProgr, last_msg = None, error = False):
+     if error:
+         cout_progress ('\n'+_("Error task by %s") \
+@@ -553,7 +578,6 @@ def send_Password(client, sid, pid, item):
+     password = getpass(prompt=item.message)
+     result = client.service.send_message(sid, pid, password)
+     show_result(result)
+-    
+ 
+ def _return_revoked_serials(self, crlfile):
+     try:
+diff --git console/application/methods_func.py console/application/methods_func.py
+index 6b9e7a8..c6774e7 100644
+--- console/application/methods_func.py
++++ console/application/methods_func.py
+@@ -22,12 +22,71 @@ setLocalTranslate('calculate_console',sys.modules[__name__])
+ import urllib2
+ from cert_func import get_password
+ 
++def parse():
++    parser = argparse.ArgumentParser(add_help=False)
++    parser.add_argument(
++        '-h', '--help', action='store_true', default=False,
++        dest='help', help=_("show this help message and exit"))
++    parser.add_argument(
++        '--method', type=str, dest='method',
++        help=_('call method'))
++    parser.add_argument(
++        '-l', '--lang', type=str, dest='lang',
++        help=_('language for translate'))
++    parser.add_argument(
++        '-p', '--port', type=int, default = '8888', dest='port',
++        help=_('port number'))
++    parser.add_argument(
++        '--host', type=str, default = 'localhost', dest='host',
++        help=_('host destination'))
++    parser.add_argument(
++        '--gen-cert-by', type=str, dest='by_host', metavar = 'HOST',
++        help=_('post request a signed certificate by server'))
++    parser.add_argument(
++        '--get-cert-from', type=str, dest='from_host', metavar = 'HOST',
++        help=_('get signed certificate from server'))
++    parser.add_argument(
++        '--cert-path', type=str, dest='path_to_cert', metavar = 'PATH',
++        help=_('path to cert and key files'))
++    parser.add_argument(
++        '--list-pid', action='store_true', default=False,
++        dest='list_pid', help=_("view a list of running processes"))
++    parser.add_argument(
++        '-d', '--dump',  action='store_true', default=False, dest = 'dump',
++        help=_('dump (using with key --list-pid)'))
++    parser.add_argument(
++        '--pid-result',  type=int, metavar = 'PID',
++        dest='pid_res', help=_("view result of process"))
++    parser.add_argument(
++        '--pid-kill',  type=int, metavar = 'PID',
++        dest='pid_kill', help=_("kill selected process"))
++    parser.add_argument(
++        '--session-clean', action='store_true', default=False,
++        dest='session_clean', help=_('clear cache session'))
++    parser.add_argument(
++        '--session-info', action='store_true', default=False,
++        dest='session_info', help=_("view session information"))
++    parser.add_argument(
++        '--session-num-info',  type=int, metavar = 'SID',
++        dest='session_num_info', help=_("view information about session "
++                                        "with sid = SID"))
++    parser.add_argument(
++        '--session-list', action='store_true', default=False,
++        dest='session_list', help=_("view list active session on server"))
++    parser.add_argument(
++        '--update-crl', action='store_true', default=False,
++        dest='update_crl', help=_("update the certificate revocation lists"))
++    parser.add_argument(
++        '--stop-consoled', action='store_true', default=False,
++        dest='stop_consoled', help=_("stop cl-consoled"))
++    return parser
++
+ def get_view(client, method, sid, view_params):
+     try:
+         view = client.service[0][method + '_view'](client.sid, view_params)
+     except urllib2.URLError, e:
+-        print _('Failed to connect')+':', e
+-        sys.exit(1)
++        _print (_('Failed to connect')+':', e)
++        raise Exception(1)
+     return view
+ 
+ def get_method_argparser(client, args):
+@@ -91,31 +150,58 @@ def get_method_argparser(client, args):
+                                         default=None, help = opt.help)
+     return parser, view
+ 
+-def call_method(client, args):
++def call_method(client, args, wait_thread):
+     method = args.method
+     method_parser, view = get_method_argparser(client, args)
+     param_object = _create_obj(client, method)
+-    args = method_parser.parse_known_args()[0]
+-
+-    param_object, steps = collect_object(client, param_object, view, args)
++    try:
++        args, unknown_args = method_parser.parse_known_args()
++    except SystemExit:
++        raise Exception(1)
++    for i in unknown_args:
++        if i.startswith('-'):
++            if i in parse().parse_known_args()[1]:
++                wait_thread.stop()
++                sys.stdout.write('\r')
++                sys.stdout.flush()
++                _print (_('Unknown parameter'), i)
++                raise Exception(1)
++
++    param_object, steps = collect_object(client, param_object, view, args,
++                                         wait_thread)
+ 
+     if steps.label and hasattr (param_object, 'CheckOnly'):
+         param_object['CheckOnly'] = True
+ #        print param_object
+         method_result = client.service[0][method](client.sid, param_object)
++
+         if not method_result:
+             print _('method is not available')
+             return None
+         if method_result.ReturnedMessage[0].type and \
+                          method_result.ReturnedMessage[0].type != "pid":
++            wait_thread.stop()
+             for error in method_result.ReturnedMessage:
++                params_text = ''
++                for Group in view.groups.GroupField:
++                    for field in Group.fields.Field:
++                        if field.name == error.field:
++                            if field.opt.shortopt or field.opt.longopt:
++                                params_text += _('Error in parameter ')
++                                params_text += ', '.join(filter(None,
++                                    [field.opt.shortopt, field.opt.longopt])) \
++                                    + '. '
++
+                 red = '\033[91m * \033[0m'
+-                print red + error.message
++                _print ('\r' + red + params_text + error.message)
+             return None
+ 
+         view_params = get_view_params(client, method + '_view', step = None, \
+                                   expert = True, brief = True)
+         view = get_view(client, method, client.sid, view_params)
++        wait_thread.stop()
++        sys.stdout.write('\r')
++        sys.stdout.flush()
+         print_brief(view, steps.label)
+         while True:
+             try:
+@@ -138,16 +224,24 @@ def call_method(client, args):
+     if method_result.ReturnedMessage[0].type and \
+                      method_result.ReturnedMessage[0].type != "pid":
+         for error in method_result.ReturnedMessage:
++            params_text = ''
++            for Group in view.groups.GroupField:
++                for field in Group.fields.Field:
++                    if field.name == error.field:
++                        if field.opt.shortopt or field.opt.longopt:
++                            params_text += _('Error in parameter ')
++                            params_text += ', '.join(filter(None,
++                                [field.opt.shortopt, field.opt.longopt]))+'. '
+             red = '\033[91m * \033[0m'
+-            print red + error.message
++            _print ('\r' + red + params_text + error.message)
+         return None
+-
++    wait_thread.stop()
+     return method_result
+ 
+ def _getattr(obj, attr):
+     return getattr(obj, attr) if hasattr(obj, attr) else None
+ 
+-def collect_object(client, param_object, view, args):
++def collect_object(client, param_object, view, args, wait_thread):
+     steps = None
+     for Group in view.groups.GroupField:
+         if not Group.fields:
+@@ -180,14 +274,15 @@ def collect_object(client, param_object, view, args):
+ 
+             elif field.element == 'table' and field.type != 'steps':
+                 val = _getattr(args, field.name)
+-                param_object[field.name] = collect_table(field, val, client)
++                param_object[field.name] = collect_table(field, val, client,
++                                                         wait_thread)
+ 
+             elif field.element == 'table' and field.type == 'steps':
+                 steps = field
+ 
+     return param_object, steps
+ 
+-def collect_table(field, val_list, client):
++def collect_table(field, val_list, client, wait_thread):
+     if not val_list:
+         return None
+     val_table = map(lambda x: x.split(':'), val_list)
+@@ -208,6 +303,9 @@ def collect_table(field, val_list, client):
+     for i in range(len(val_table)):
+         if 'password' in type_list:
+             if len(val_table[i]) != 2 or val_table[i][1].lower() != '':
++                wait_thread.stop()
++                sys.stdout.write('\r')
++                sys.stdout.flush()
+                 password=get_password(_('Password for %s: ')%val_table[i][0],\
+                                _('Repeat password for %s: ') %val_table[i][0])
+                 password = password if password else ''
+diff --git console/application/pid_information.py console/application/pid_information.py
+index 2e43f8e..7002b2b 100644
+--- console/application/pid_information.py
++++ console/application/pid_information.py
+@@ -32,9 +32,9 @@ def pid_inf(client, sid, pids):
+             print _("Permission denied")
+             return 1
+ 
+-        print '\n', _(u"Process name - %s") %s[0][4]
++        _print ('\n', _(u"Process name - %s") %s[0][4])
+         print _(u"Process id - %s") %s[0][0]
+-        print _(u"Process started %s") %s[0][2]
++        _print (_(u"Process started %s") %s[0][2])
+         if s[0][1] == '1':
+             print _(u"Process is active")
+         elif s[0][1] == '0':
+@@ -120,12 +120,12 @@ def client_list_sessions(client):
+     """ get all sessions on server """
+     results = client.service.get_sessions()
+     if results[0][0] == "Permission denied":
+-        print results[0][0]
++        _print (results[0][0])
+         return 1
+ 
+     print _("Execute sessions:")
+     for sess in results[0]:
+-        print " - %s" %sess
++        _print (" - %s" %sess)
+     return 0
+ 
+ def client_pid_kill(client, pid):
+diff --git console/application/progressbar.py console/application/progressbar.py
+new file mode 100644
+index 0000000..c79cfdd
+--- /dev/null
++++ console/application/progressbar.py
+@@ -0,0 +1,136 @@
++# -*- coding: utf-8 -*-
++import sys, time
++from array import array
++
++from calculate.lib.cl_lang import setLocalTranslate
++setLocalTranslate('calculate_console',sys.modules[__name__])
++
++try:
++    from fcntl import ioctl
++    import termios
++except ImportError:
++    pass
++import signal
++
++class ProgressBarWidgetHFill(object):
++    def update(self, pbar, width):
++        pass
++
++class ETA(object):
++    "Widget for the Estimated Time of Arrival"
++    def format_time(self, seconds):
++        return time.strftime('%H:%M:%S', time.gmtime(seconds))
++    def update(self, pbar):
++        if pbar.finished:
++            return _('Time').decode('utf-8') + ': %s' \
++                                    %self.format_time(pbar.seconds_elapsed)
++        else:
++            return _('Time').decode('utf-8') + ': %s' \
++                                    %self.format_time(pbar.seconds_elapsed)
++
++class Percentage(object):
++    "Just the percentage done."
++    def update(self, pbar):
++        return '%3d%%' % pbar.percentage()
++
++class Bar(ProgressBarWidgetHFill):
++    "The bar of progress. It will strech to fill the line."
++    def __init__(self, marker='=', left='[', right=']'):
++        self.marker = marker
++        self.left = left
++        self.right = right
++    def _format_marker(self, pbar):
++        if isinstance(self.marker, (str, unicode)):
++            return self.marker
++        else:
++            return self.marker.update(pbar)
++    def update(self, pbar, width):
++        percent = pbar.percentage()
++        cwidth = width - len(self.left) - len(self.right)
++        marked_width = int(percent * cwidth / 100)
++        m = self._format_marker(pbar)
++        bar = (self.left + (m*(marked_width-1)+'>').ljust(cwidth)+self.right)
++        return bar
++
++default_widgets = [Percentage(), ' ', Bar()]
++class ProgressBar(object):
++    def __init__(self, maxval=100, widgets=default_widgets, term_width=None,
++                 fd=sys.stderr):
++        assert maxval > 0
++        self.maxval = maxval
++        self.widgets = widgets
++        self.fd = fd
++        self.signal_set = False
++        if term_width is None:
++            try:
++                self.handle_resize(None,None)
++                signal.signal(signal.SIGWINCH, self.handle_resize)
++                self.signal_set = True
++            except:
++                self.term_width = 99
++        else:
++            self.term_width = term_width
++
++        self.currval = 0
++        self.finished = False
++        self.prev_percentage = -1
++        self.start_time = None
++        self.seconds_elapsed = 0
++
++    def handle_resize(self, signum, frame):
++        h, self.term_width = array('h', ioctl(self.fd,termios.TIOCGWINSZ,
++                                              '\0'*8))[:2]
++
++    def percentage(self):
++        "Returns the percentage of the progress."
++        return self.currval*100.0 / self.maxval
++
++    def _format_widgets(self):
++        r = []
++        hfill_inds = []
++        num_hfill = 0
++        currwidth = 0
++        for i, w in enumerate(self.widgets):
++            if isinstance(w, ProgressBarWidgetHFill):
++                r.append(w)
++                hfill_inds.append(i)
++                num_hfill += 1
++            elif isinstance(w, (str, unicode)):
++                r.append(w)
++                currwidth += len(w)
++            else:
++                weval = w.update(self)
++                currwidth += len(weval)
++                r.append(weval)
++        for iw in hfill_inds:
++            r[iw] = r[iw].update(self, (self.term_width-currwidth)/num_hfill)
++        return r
++
++    def _format_line(self):
++        return ''.join(self._format_widgets()).ljust(self.term_width)
++
++    def update(self, value):
++        "Updates the progress bar to a new value."
++        assert 0 <= value <= self.maxval
++        self.currval = value
++        if self.finished:
++            return
++        if not self.start_time:
++            self.start_time = time.time()
++        self.seconds_elapsed = time.time() - self.start_time
++        self.prev_percentage = self.percentage()
++        if value != self.maxval:
++            self.fd.write(self._format_line() + '\r')
++        else:
++            self.finished = True
++            self.fd.write(self._format_line() + '\n')
++
++    def start(self):
++        self.update(0)
++        return self
++
++    def finish(self):
++        """Used to tell the progress is finished."""
++        self.update(self.maxval)
++        if self.signal_set:
++            signal.signal(signal.SIGWINCH, signal.SIG_DFL)
+\ No newline at end of file
+diff --git console/application/sid_func.py console/application/sid_func.py
+index f070dcc..00f9096 100644
+--- console/application/sid_func.py
++++ console/application/sid_func.py
+@@ -14,25 +14,25 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-import sys
++import sys, os
+ from function import get_sid
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('calculate_console',sys.modules[__name__])
+ 
+-def client_sid(sid, client, cert_id, clVars, show_info = False):
+-    """ get number session from server and write this in file """
+-    lang = clVars.Get('os_locale_locale')[:2]
+-
+-    new_sid = client.service.post_sid(sid = sid, cert_id = cert_id, lang = lang)
+-    fi = open(client.SID_FILE, 'w')
+-    sid = str(new_sid[0][0])
+-    fi.write(sid)
+-    fi.close()
+-    if show_info:
+-        if new_sid[0][1] == 1:
+-            print _(" New Session")
+-        else: print _(" Old Session")
+-        print _(" Your session id = %s") %sid
++#def client_sid(sid, client, cert_id, clVars, show_info = False):
++#    """ get number session from server and write this in file """
++#    lang = os.environ['LANG'][:2]
++#
++#    new_sid = client.service.post_sid(sid=sid, cert_id=cert_id, lang=lang)
++#    fi = open(client.SID_FILE, 'w')
++#    sid = str(new_sid[0][0])
++#    fi.write(sid)
++#    fi.close()
++#    if show_info:
++#        if new_sid[0][1] == 1:
++#            print _(" New Session")
++#        else: print _(" Old Session")
++#        print _(" Your session id = %s") %sid
+ 
+ def client_del_sid(client):
+     """ delete this session """
+@@ -47,7 +47,7 @@ def client_del_sid(client):
+             print _("Failed to obtain certificate data!")
+             return -2
+         if s[0][0] == "Permission denied":
+-            print _("Permission denied %s") % s[1][1]
++            _print (_("Permission denied %s") % s[1][1])
+             return -3
+ 
+         if s[0][0] == '0':
+@@ -78,7 +78,7 @@ def sid_inf(client, sid):
+     print _('Session information: ')
+     print green + _(u"Session number - %s") %sid
+     print green + _(u"Certificate number - %s") %s[0][0]
+-    print green + _(u"Date issue of certificate - %s") %s[0][1]
++    _print (green + _(u"Date issue of certificate - %s") %s[0][1])
+     print green + "ip - %s" %s[0][2]
+     print green + "MAC - %s\n" %s[0][3]
+     return 0
+diff --git ru/calculate_console.po ru/calculate_console.po
+index 6bfa759..ed3b67f 100755
+--- ru/calculate_console.po
++++ ru/calculate_console.po
+@@ -2,8 +2,8 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: console_gui_translate\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2012-06-08 12:12+0300\n"
+-"PO-Revision-Date: 2012-06-08 12:12+0300\n"
++"POT-Creation-Date: 2012-06-15 15:51+0300\n"
++"PO-Revision-Date: 2012-06-15 16:12+0300\n"
+ "Last-Translator: Denis <ds@mail.ru>\n"
+ "Language-Team: \n"
+ "Language: \n"
+@@ -15,6 +15,11 @@ msgstr ""
+ "X-Poedit-SourceCharset: utf-8\n"
+ "X-Poedit-SearchPath-0: /var/calculate/mydir/git/calculate-console/console/application\n"
+ 
++#: /var/calculate/mydir/git/calculate-console/console/application/progressbar.py:25
++#: /var/calculate/mydir/git/calculate-console/console/application/progressbar.py:28
++msgid "Time"
++msgstr "Время"
++
+ #: /var/calculate/mydir/git/calculate-console/console/application/pid_information.py:29
+ msgid "PID not found"
+ msgstr "Процесс не найден"
+@@ -87,14 +92,17 @@ msgid "Process not found"
+ msgstr "Процесс не найден"
+ 
+ #: /var/calculate/mydir/git/calculate-console/console/application/pid_information.py:142
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:258
+ msgid "Certificate not found in server database"
+-msgstr "Сертификат не найден в БД сервера"
++msgstr "Сертификат не найден в базе сервера"
+ 
+ #: /var/calculate/mydir/git/calculate-console/console/application/pid_information.py:144
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:260
+ msgid "Session doesn't belong to your certificate"
+ msgstr "Сессия не соответствует Вашему сертификату"
+ 
+ #: /var/calculate/mydir/git/calculate-console/console/application/pid_information.py:146
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:262
+ msgid "It was not possible to kill process"
+ msgstr "Не удалось завершить процесс"
+ 
+@@ -117,20 +125,20 @@ msgstr "Дата отзыва"
+ 
+ #: /var/calculate/mydir/git/calculate-console/console/application/cert_verify.py:98
+ #: /var/calculate/mydir/git/calculate-console/console/application/cert_verify.py:103
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:281
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:286
+ #, python-format
+ msgid "error creating directory %s"
+ msgstr "Ошибка при создании директории %s"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_verify.py:181
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_verify.py:182
+ msgid "CRL add"
+ msgstr "CRL добавлен"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_verify.py:270
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_verify.py:274
+ msgid "CA certificate delete from user trusted certificate"
+ msgstr "Сертификат Центра Авторизации удалён из пользовательского списка доверенных сертификатов"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_verify.py:289
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_verify.py:293
+ msgid "CA certificate delete from system trusted certificate"
+ msgstr "Сертификат Центра Авторизации удалён из системного списка доверенных сертификатов"
+ 
+@@ -166,187 +174,203 @@ msgstr "Город: "
+ msgid "Country (2 words): [%s]"
+ msgstr "Страна (2 символа): [%s]"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:52
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:59
+ msgid "Clear Cache error! "
+ msgstr "Ошибка очистки кэша!"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:132
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:166
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:139
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:173
+ msgid "yes"
+ msgstr "да"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:134
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:168
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:141
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:175
+ msgid "no"
+ msgstr "нет"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:136
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:170
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:143
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:177
+ msgid "auto"
+ msgstr "авто"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:189
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:196
+ msgid "Not used"
+ msgstr "Не используется"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:288
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:295
+ msgid "Error"
+ msgstr "Ошибка"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:295
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:301
+ msgid "Warning"
+ msgstr "Предепреждение"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:333
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:338
+ msgid "Method not found: "
+ msgstr "Метод не найден: "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:365
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:370
+ msgid "server send pid = "
+ msgstr "сервер послал идентификатор процесса = "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:455
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:460
+ msgid "Process not exist or not belong to your session"
+ msgstr "Процесс не существует или принадлежит не вашей сессии"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/function.py:507
++#: /var/calculate/mydir/git/calculate-console/console/application/function.py:535
+ #, python-format
+ msgid "Error task by %s"
+ msgstr "Ошибка задачи на %s"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:62
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:61
+ msgid "no connection to server!"
+ msgstr "нет соединения с сервером!"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:133
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:188
++#, python-format
++msgid "Not found method for %s"
++msgstr "Не найден метод для %s"
++
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:256
++msgid "Process is terminated"
++msgstr "Процесс завершён"
++
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:328
++#, python-format
++msgid "cannot create directory %s"
++msgstr "Не удалось создать директорию %s"
++
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:367
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:447
++msgid "Password is invalid"
++msgstr "Неверный пароль"
++
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:373
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:384
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:453
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:469
++msgid "Error: "
++msgstr "Ошибка: "
++
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:396
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:399
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:401
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:482
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:485
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:487
++#, python-format
++msgid "Exception: %s"
++msgstr "Исключение: %s"
++
++#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:415
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:88
++msgid "Failed to connect"
++msgstr "Не удалось подключиться"
++
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:29
+ msgid "show this help message and exit"
+ msgstr "просмотр данной справки и выход"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:136
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:32
+ msgid "call method"
+ msgstr "вызов метода"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:139
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:35
+ msgid "language for translate"
+ msgstr "язык для перевода"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:142
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:38
+ msgid "port number"
+ msgstr "номер порта"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:145
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:41
+ msgid "host destination"
+ msgstr "хост назначения"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:148
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:44
+ msgid "post request a signed certificate by server"
+ msgstr "послать запрос подписания сертификата на сервер"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:151
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:47
+ msgid "get signed certificate from server"
+ msgstr "забрать подписанный сертификат с сервера"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:154
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:50
+ msgid "path to cert and key files"
+ msgstr "путь к файлам сертификата и ключа"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:157
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:53
+ msgid "view a list of running processes"
+ msgstr "просмотр списка запущенных процессов"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:160
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:56
+ msgid "dump (using with key --list-pid)"
+ msgstr "дамп (используйте с ключом --list-pid)"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:163
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:59
+ msgid "view result of process"
+ msgstr "просмотр результата работы процесса"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:166
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:62
+ msgid "kill selected process"
+ msgstr "завершить выбранный процесс"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:169
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:65
+ msgid "clear cache session"
+ msgstr "очистить кэш сессии"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:172
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:68
+ msgid "view session information"
+ msgstr "просмотр информации о сессии"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:175
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:71
+ msgid "view information about session with sid = SID"
+ msgstr "Просмотр информации о сессии с номером SID"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:179
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:75
+ msgid "view list active session on server"
+ msgstr "просмотр списка активных сессий на сервере"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:182
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:78
+ msgid "update the certificate revocation lists"
+ msgstr "обновить список отзыва сертификатов"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:185
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:81
+ msgid "stop cl-consoled"
+ msgstr "остановить cl-consoled"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:293
+-#, python-format
+-msgid "cannot create directory %s"
+-msgstr "Не удалось создать директорию %s"
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:167
++msgid "Unknown parameter"
++msgstr "Неизвестный параметр"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:327
+-#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:29
+-msgid "Failed to connect"
+-msgstr "Не удалось подключиться"
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:179
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:222
++msgid "method is not available"
++msgstr "Метод не доступен"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:388
+-msgid "Password is invalid"
+-msgstr "Неверный пароль"
+-
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:393
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:409
+-msgid "Error: "
+-msgstr "Ошибка: "
+-
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:415
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:418
+-#: /var/calculate/mydir/git/calculate-console/console/application/cl_client.py:420
+-#, python-format
+-msgid "Exception: %s"
+-msgstr "Исключение: %s"
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:190
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:232
++msgid "Error in parameter "
++msgstr "Ошибка в параметре "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:120
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:208
+ msgid "Run process? (yes/no): "
+ msgstr "Запустить процесс? (yes/no): "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:126
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:214
+ msgid "Interrupted by user"
+ msgstr "Прервано пользователем"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:197
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:309
+ #, python-format
+ msgid "Password for %s: "
+ msgstr "Пароль для %s: "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:198
++#: /var/calculate/mydir/git/calculate-console/console/application/methods_func.py:310
+ #, python-format
+ msgid "Repeat password for %s: "
+ msgstr "Повтор пароля для %s: "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/sid_func.py:33
+-msgid " New Session"
+-msgstr "Новая сессия"
+-
+-#: /var/calculate/mydir/git/calculate-console/console/application/sid_func.py:34
+-msgid " Old Session"
+-msgstr "Старая сессия"
+-
+-#: /var/calculate/mydir/git/calculate-console/console/application/sid_func.py:35
+-#, python-format
+-msgid " Your session id = %s"
+-msgstr "Номер Вашей сессии = %s"
+-
+ #: /var/calculate/mydir/git/calculate-console/console/application/sid_func.py:44
+ msgid "No access to file!"
+ msgstr "Нет доступа к файлу!"
+@@ -409,215 +433,251 @@ msgstr "Ошибка очистки кэша сессии"
+ msgid "Session cache is cleared"
+ msgstr "Кэш сессии очищен"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:40
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:42
+ msgid "Certificate not found in Server Database!"
+-msgstr "Сертификат не найден в БД сервера!"
++msgstr "Сертификат не найден в базе сервера!"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:41
+-msgid "Add certificate to server Database..."
+-msgstr "Добавление сертификата в БД сервера..."
+-
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:45
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:43
+ #, python-format
+-msgid "Your certificate ID = %s"
+-msgstr "Номер Вашего сертификата = %s"
++msgid "client use certificate %s"
++msgstr "клиент использует сертификат %s"
++
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:44
++msgid "You can generate a new certificate using the keys --gen-cert-by and --get-cert-from"
++msgstr "Вы можете сгенерировать новый сертификат, используя ключи --gen-cert-by и --get-cert-from"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:49
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:50
+ msgid "Certificate not send!"
+ msgstr "Сертификат не отправлен!"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:52
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:53
+ #, python-format
+ msgid " Your certifitate id = %d"
+ msgstr "Номер Вашего сертификата = %d"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:55
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:56
+ msgid "expiry date certificate has passed"
+ msgstr "Время жизни сертификата истекло"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:58
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:59
+ #, python-format
+ msgid "shelf life expires after %d days"
+ msgstr "Время жизни сертификата истекает через %d дней"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:104
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:71
++msgid " New Session"
++msgstr "Новая сессия"
++
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:72
++msgid " Old Session"
++msgstr "Старая сессия"
++
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:73
++#, python-format
++msgid " Your session id = %s"
++msgstr "Номер Вашей сессии = %s"
++
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:119
+ msgid "Password: "
+ msgstr "Пароль: "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:106
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:121
+ msgid "Repeat: "
+ msgstr "Повтор: "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:114
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:129
+ msgid "Passwords do not match"
+ msgstr "Пароли не совпадают"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:122
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:137
+ msgid "You have sent a request to sign the certificate."
+ msgstr "У Вас уже есть отправленный запрос на подписание сертификата."
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:123
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:138
+ #, python-format
+ msgid "request id = %s"
+ msgstr "Номер запроса = %s"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:124
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:139
+ msgid "Send new request? y/[n]: "
+ msgstr "Отправить навый запрос на подпись сертификата? y/[n]: "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:129
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:178
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:144
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:194
+ msgid "connect..."
+ msgstr "подключение..."
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:135
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:185
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:150
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:201
+ msgid "Close. Connecting Error."
+ msgstr "Ошибка соединения. Закрываюсь."
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:136
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:151
+ #, python-format
+ msgid "Error: %s"
+ msgstr "Ошибка: %s"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:144
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:160
+ msgid "secret key and request exists"
+ msgstr "секретный ключ и запрос на подпись сертификата созданы"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:145
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:161
+ msgid "Create new secret key and request? y/[n]: "
+ msgstr "Создать новые Секретный Ключ и Запрос на подпись сертификата? y/[n]: "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:160
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:176
+ msgid "This server can not sign certificate!"
+ msgstr "Сервер не подписал сертификат!"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:165
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:206
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:181
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:223
+ #, python-format
+ msgid "Your request id = %s"
+ msgstr "Номер Вашего запроса = %s"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:170
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:186
+ #, python-format
+ msgid "request was not sent or deleted file %s"
+ msgstr "Запрос не был послан или удалён файл %s"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:190
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:207
+ #, python-format
+ msgid "Request %s not found on client side"
+ msgstr "Запрос %s не найден на стороне клиента"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:202
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:219
+ msgid "Request to sign is rejected!"
+ msgstr "Запрос на подпись сертификата отвергнут!"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:205
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:222
+ msgid "Request for the signing has not yet reviewed."
+ msgstr "Запрос на подписание сертификата ещё не рассмотрен."
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:209
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:226
+ msgid "Request on signature does not match sent earlier."
+ msgstr "Запрос или подпись не соответствуют отправленным ранее."
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:212
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:229
+ msgid "Request was sent from another ip."
+ msgstr "Запрос был послан с другого адреса."
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:276
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:166
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:296
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:169
+ msgid "Not found field \"CN\" in certificate!"
+ msgstr "Не найдено поле \"CN\" в сертификате!"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:289
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:176
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:309
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:179
+ msgid "filename = "
+ msgstr "Имя файла ="
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:290
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:177
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:310
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:180
+ msgid "CERTIFICATE ADD"
+ msgstr "Сертификат добавлен"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:292
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:179
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:312
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:182
+ msgid "file with ca certificates exists"
+ msgstr "Файл с сертификатом удостоверяющего центра создан"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:304
++#: /var/calculate/mydir/git/calculate-console/console/application/cert_func.py:324
+ msgid "You do not have a certificate. Use key --gen-cert-by HOST for generate new request or key --get-cert-from HOST for get new certificate from server."
+ msgstr "У Вас нет сертификата. Используйте ключ --gen-cert-by HOST для генерации запроса на сертитфикат или ключ --get-cert-from HOST чтобы забрать сертификат с сервера."
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:94
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:97
+ msgid "Certificate not found in client"
+ msgstr "Сертификат не найден на стороне клиента"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:103
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:106
+ msgid "Error open file"
+ msgstr "Ошибка при открытии файла"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:188
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:192
+ msgid "Server certificate is not valid"
+ msgstr "Сертификат сервера недействителен!"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:192
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:196
+ msgid "CA not found on server"
+ msgstr "Сертификат Центра Авторизации не найден на сервере"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:199
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:203
+ msgid "Error. Certificate not added to trusted"
+ msgstr "Ошибка! Сертификат не добавлен в доверенные"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:201
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:223
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:205
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:228
+ #, python-format
+ msgid "Fingerprint = %s"
+ msgstr "Отпечаток = %s"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:202
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:224
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:206
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:229
+ msgid "Serial Number = "
+ msgstr "Серийный номер = "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:204
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:226
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:208
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:231
+ msgid "Issuer"
+ msgstr "Подписчик"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:208
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:230
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:212
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:235
+ msgid "Subject"
+ msgstr "Субъект"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:211
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:215
+ msgid "Add CA certificates to trusted? y/[n]:"
+ msgstr "Добавить сертификат Центра Авторизации в доверенные? y/[n]:"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:216
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:220
+ msgid "Certificate not added to trusted"
+ msgstr "Сертификат не добавлен в доверенные"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:220
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:225
+ msgid "Untrusted Server Certificate!"
+ msgstr "Недоверенный сертификат сервера!"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:234
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:239
+ msgid "Add this Servers certificate to trusted (s) or"
+ msgstr "Добавить сертификат этого сервера в доверенные (s) или"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:235
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:240
+ msgid "Try add CA and ROOT certificates to trusted (c) or"
+ msgstr "Попытаться добавить сертификат ЦА и корневой в доверенные (c) или"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:236
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:241
+ msgid "Quit (q)? s/c/[q]: "
+ msgstr "Выйти (q)? s/c/[q]: "
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:284
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:289
+ msgid "Try add CA and ROOT certificates"
+ msgstr "Добавить Корневой и сертификат ЦА"
+ 
+-#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:409
++#: /var/calculate/mydir/git/calculate-console/console/application/client_class.py:414
+ msgid "This server is not trusted"
+ msgstr "Сервер не является доверенным"
+ 
++#~ msgid "client use %s"
++#~ msgstr "клиент использует %s"
++
++#~ msgid "Add certificate to server Database..."
++#~ msgstr "Добавление сертификата в БД сервера..."
++
++#~ msgid "Your certificate ID = %s"
++#~ msgstr "Номер Вашего сертификата = %s"
++
++#~ msgid "Certificate not found in server database!"
++#~ msgstr "Сертификат не найден в БД сервера!"
++
++#, fuzzy
++#~ msgid "Session doesn't belong to your certificate!"
++#~ msgstr "Сессия не соответствует Вашему сертификату"
++
++#, fuzzy
++#~ msgid "It was not possible to kill process!"
++#~ msgstr "Не удалось завершить процесс"
++
++#, fuzzy
++#~ msgid "Process kill"
++#~ msgstr "Процесс убит"
+diff --git scripts/cl-console scripts/cl-console
+index 71742e0..75b92b4 100755
+--- scripts/cl-console
++++ scripts/cl-console
+@@ -17,13 +17,16 @@
+ 
+ import sys
+ from calculate.console.application.cl_client import main
++from calculate.console.application.function import _print
+ reload(sys)
+ sys.setdefaultencoding("utf-8")
++import __builtin__
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('calculate_console',sys.modules[__name__])
+ 
+ if __name__=='__main__':
++    __builtin__.__dict__['_print'] = _print
+     try:
+         sys.exit(main())
+     except KeyboardInterrupt:

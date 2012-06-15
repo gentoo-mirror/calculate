@@ -1,0 +1,2037 @@
+diff --git core/client/cert_func.py core/client/cert_func.py
+index 99dfb15..49f646c 100644
+--- core/client/cert_func.py
++++ core/client/cert_func.py
+@@ -37,15 +37,6 @@ def client_post_cert (client):
+     
+     if results[0][0] == -4:
+         print _("Certificate not found in Server Database!")
+-        #name = raw_input (_(" Delete certificate and Create new? [y]/n: "))
+-        #if name != "n":
+-            #delete_old_cert(client)
+-        #sys.exit()
+-        print _('Add certificate to server Database...')
+-        ip, mac, client_type = get_ip_mac_type()
+-        print ip, mac, client_type
+-        cert_id = client.service.cert_add(mac, client_type)
+-        print _("Your certificate ID = %s") %cert_id
+         sys.exit(1)
+     client_sid(sid, client, cert_id = results[0][0])
+     if results[0][0] == -3:
+@@ -101,7 +92,7 @@ def client_post_request (cert_path, by_host):
+         return 1
+     url = "https://%s:%d/?wsdl" %(by_host, port)
+     print _("%s\nconnect...") % url
+-    from suds.client import Client
++    from sudsds.client import Client
+     #try:
+     client = Client(url, \
+                     transport = HTTPSClientCertTransport(None, None, cert_path))
+@@ -155,7 +146,7 @@ def client_get_cert(cert_path, args):
+     url = "https://%s:%d/?wsdl" %(args.from_host, port)
+     print _("%s\nconnect...") % url
+     
+-    from suds.client import Client
++    from sudsds.client import Client
+     try:
+         client = Client(url, \
+                     transport = HTTPSClientCertTransport(None, None, cert_path))
+diff --git core/client/client_class.py core/client/client_class.py
+index eb3c5f7..3e0077c 100644
+--- core/client/client_class.py
++++ core/client/client_class.py
+@@ -16,27 +16,20 @@
+ 
+ import urllib2 as u2
+ import os, sys
+-from suds.transport.http import HttpTransport
++from sudsds.transport.http import HttpTransport
+ import httplib
+ from httplib import HTTPConnection
+ import socket, ssl
+ import OpenSSL, hashlib
+ from calculate.core.datavars import DataVarsCore
+ from calculate.lib.datavars import DataVars
+-from suds.client import Client
+-from suds.cache import ObjectCache
++from sudsds.client import Client
+ from cert_verify import verify, get_CRL
+-from suds.options import Options
+ #import cert_func.verify
+ 
+ flag = 0
+ 
+ class Client_suds(Client):
+-    def __init__(self, url, **kwargs):
+-        Client.__init__(self, url, **kwargs)
+-        options = Options()
+-        options.cache = ObjectCache(days=0)
+-        
+     def set_parameters (self, path_to_cert, CERT_FILE, PKEY_FILE):
+         self.path_to_cert = path_to_cert
+         if not CERT_FILE:
+@@ -285,18 +278,18 @@ class clientHTTPSConnection (httplib.HTTPSConnection):
+         print _("Untrusted Server Certificate!")
+         certobj = OpenSSL.crypto.load_certificate \
+                     (OpenSSL.SSL.FILETYPE_PEM, cert)
+-        print _("\nFingerprint = %s") % certobj.digest('SHA1')
++        print '\n'+_("Fingerprint = %s") % certobj.digest('SHA1')
+         print _("Serial Number = "), certobj.get_serial_number()
+         Issuer = certobj.get_issuer().get_components()
+-        print _("\nIssuer")
++        print '\n'+_("Issuer")
+         for i in Issuer:
+             print "%s : %s" %(i[0], i[1])
+         Subject = certobj.get_subject().get_components()
+-        print _("\nSubject")
++        print '\n' + _("Subject")
+         for item in Subject:
+             print "%s : %s" %(item[0], item[1])
+         
+-        print _('\nAdd this Servers certificate to trusted (s) or')
++        print '\n'+_('Add this Servers certificate to trusted (s) or')
+         print _('Try add CA and ROOT certificates to trusted (c) or')
+         choice = raw_input (_("Quit (q)? s/c/[q]: "))
+         if choice.lower() in ['s', 'c']:
+@@ -379,8 +372,8 @@ class clientHTTPSConnection (httplib.HTTPSConnection):
+             cert_after_connect = \
+                             ssl.DER_cert_to_PEM_cert(dercert_after_connect)
+             if not server_cert == cert_after_connect:
+-                print _("\nWARNING! %s trying to replace certificate!\n")\
+-                                            %self.host
++                print '\n'+_("WARNING! %s trying to replace certificate!")\
++                                            %self.host + '\n'
+                 self.sock.close()
+                 return 2
+             return 0
+diff --git core/client/function.py core/client/function.py
+index ce4fe98..2c01453 100644
+--- core/client/function.py
++++ core/client/function.py
+@@ -19,7 +19,7 @@ import subprocess
+ import fcntl
+ from OpenSSL import crypto
+ import shlex
+-import suds
++import sudsds
+ from calculate.core.server.cert_cmd import getHwAddr, getIpLocal
+ 
+ # get list of certificate and session id
+@@ -121,7 +121,7 @@ def create_obj(client, method_name):
+     
+     info = operation.methods.get(method_name)
+     if not info:
+-        raise suds.MethodNotFound(method_name)
++        raise sudsds.MethodNotFound(method_name)
+     type_op = info.binding.input.param_defs(info)[param][inf_param]
+     str_type = type_op.type[param_type]
+     
+diff --git core/server/api_types.py core/server/api_types.py
+index 7d572c1..4d76104 100644
+--- core/server/api_types.py
++++ core/server/api_types.py
+@@ -407,8 +407,8 @@ class CoreWsdl:
+             except:
+                 break
+             # find session id in sids file
+-            if cert_id == list_sid[1]:
+-                if sid == list_sid[0]:
++            if cert_id == int(list_sid[1]):
++                if sid == int(list_sid[0]):
+                     check = 1
+ 
+         if check == 0:
+@@ -420,8 +420,8 @@ class CoreWsdl:
+                 list_pid = pickle.load(fd)
+             except:
+                 break
+-            if sid == list_pid[0]:
+-                if pid == list_pid[1]:
++            if sid == int(list_pid[0]):
++                if pid == int(list_pid[1]):
+                     fd.close()
+                     return 1
+         fd.close()
+diff --git core/server/baseClass.py core/server/baseClass.py
+index 8204581..6eee4a2 100644
+--- core/server/baseClass.py
++++ core/server/baseClass.py
+@@ -213,7 +213,7 @@ class Basic (DefinitionBase) :
+ 
+             #return self.func(*newargs)
+ 
+-    @rpc(_returns = Array( Integer ))
++    @rpc(_returns = Array(Integer))
+     def post_cert (self) :
+         #import post_cert
+         returns = post_cert.serv_post_cert (self)
+@@ -253,6 +253,10 @@ class Basic (DefinitionBase) :
+     def post_sid ( self, sid, cert_id, lang) :
+         return self.sid_cmp (sid, cert_id, lang)
+ 
++    @rpc(Integer, String, _returns = (Array(Integer), Array(Integer)))
++    def init_session( self, sid, lang) :
++        return self.serv_init_session (sid, lang)
++
+     @rpc(Integer, _returns = Array(String))
+     #@Dec.check_permissions(['del_sid'])
+     def del_sid ( self, sid) :
+@@ -333,10 +337,10 @@ class Basic (DefinitionBase) :
+             return open (self.data_path + '/server_certs/ca.crl', 'r').read()
+         return ' '
+ 
+-    @rpc(String, String, _returns = String)
+-    def cert_add (self, mac, client_type):
+-        return send_cert.add_cert(mac, client_type, self.data_path, \
+-                                  self.certbase)
++#    @rpc(String, String, _returns = String)
++#    def cert_add (self, mac, client_type):
++#        return send_cert.add_cert(mac, client_type, self.data_path, \
++#                                  self.certbase)
+ 
+     @rpc( _returns = String)
+     def get_server_host_name (self):
+diff --git core/server/bootstrap.py core/server/bootstrap.py
+index 1491b33..64da101 100644
+--- core/server/bootstrap.py
++++ core/server/bootstrap.py
+@@ -23,7 +23,6 @@ from calculate.core.client.cert_func import new_key_req
+ from calculate.core.client.function import get_ip_mac_type
+ from calculate.core.datavars import DataVarsCore
+ from calculate.lib.utils.files import makeDirectory
+-from calculate.lib.utils import ip as ip_mod
+ import os, hashlib, OpenSSL, pwd, socket, sys
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_core',sys.modules[__name__])
+@@ -102,8 +101,9 @@ def check_serv_cert(cert_path):
+ def check_client_cert(user_name):
+     client_cert_path = check_user_path(user_name)
+     server_host_name = socket.getfqdn()
+-    if os.path.isfile(os.path.join(client_cert_path,server_host_name+'.crt')) and \
+-            os.path.isfile(os.path.join(client_cert_path,server_host_name+'.key')):
++    if os.path.isfile(os.path.join(client_cert_path ,server_host_name+'.crt'))\
++                    and os.path.isfile(os.path.join \
++                    (client_cert_path, server_host_name+'.key')):
+         return True
+     return False
+ 
+@@ -120,7 +120,7 @@ def change_args(args, step = None):
+     return args
+ 
+ def create_server_cert(cert, key, cert_path, args, port):
+-    cert_cmd.check_server_certificate(cert, key, cert_path, args, port, auto = True)
++    cert_cmd.check_server_certificate(cert,key,cert_path,args,port,auto=True)
+ 
+ def create_client_cert(server_cert, cert_path, data_path, certbase, user_name):
+     client_cert_path = check_user_path(user_name)
+@@ -130,7 +130,7 @@ def create_client_cert(server_cert, cert_path, data_path, certbase, user_name):
+     req_id = create_request(server_cert, cert_path, data_path, certbase, \
+                             client_cert_path, user_name)
+     sign_certificate(req_id, cert_path, data_path)
+-    get_certificate(cert_path, data_path, certbase, client_cert_path, user_name)
++    get_certificate(cert_path,data_path,certbase,client_cert_path,user_name)
+ 
+ def check_user_path(user_name):
+     try:
+@@ -158,7 +158,7 @@ def check_user_path(user_name):
+         os.chown(path[0], pwdObj.pw_uid, pwdObj.pw_gid)
+         for _file in path[2]:
+             if os.path.isfile(_file):
+-                os.chown('/'.join([path[0], _file]),pwdObj.pw_uid,pwdObj.pw_gid)
++                os.chown('/'.join([path[0],_file]),pwdObj.pw_uid,pwdObj.pw_gid)
+                 os.chmod(directory, 0644)
+     return cert_dir
+ 
+@@ -170,7 +170,8 @@ def create_request(server_cert, cert_path, data_path, certbase, \
+     #csr_file = cert_path + server_host_name +'.csr'
+     #pritn 'request file = ', csr_file
+ 
+-    client_req_file = new_key_req(key, client_cert_path, server_host_name, auto = True)
++    client_req_file = new_key_req(key, client_cert_path, server_host_name,
++                                  auto = True)
+ 
+     try:
+         pwdObj = pwd.getpwnam(user_name)
+@@ -199,7 +200,7 @@ def create_request(server_cert, cert_path, data_path, certbase, \
+ def sign_certificate(req_id, cert_path, data_path):
+     cert_cmd.sing_req_by_server(req_id, cert_path, data_path, auto = True)
+ 
+-def get_certificate(cert_path, data_path, certbase, client_cert_path,user_name):
++def get_certificate(cert_path,data_path,certbase,client_cert_path,user_name):
+     req_id_file = os.path.join(client_cert_path, 'req_id')
+     if not os.path.exists(req_id_file):
+         print _("request was not sent or deleted file %s") %req_id_file
+@@ -320,6 +321,44 @@ def get_certificate(cert_path, data_path, certbase, client_cert_path,user_name):
+             print _("CERTIFICATE ADD")
+         else:
+             print _("file with ca certificates exists")
++
++        trust_dir = os.path.join(client_cert_path, 'trusted')
++        if not os.path.isdir(trust_dir):
++            os.makedirs(trust_dir)
++        os.chown(trust_dir, pwdObj.pw_uid, pwdObj.pw_gid)
++        os.chmod(trust_dir, 0755)
++
++        ca_certs = os.path.join(trust_dir, "cert.list")
++
++        if not os.path.exists(ca_certs):
++            fc = open(ca_certs,"w")
++            fc.close()
++            os.chown(ca_certs, pwdObj.pw_uid, pwdObj.pw_gid)
++            os.chmod(ca_certs, 0644)
++
++        host = 'localhost'
++        filename = host
++        cert_file_trust = os.path.join(trust_dir, filename)
++        fc = open(cert_file_trust,"w")
++        fc.write(ca_root)
++        fc.close()
++        os.chown(cert_file_trust, pwdObj.pw_uid, pwdObj.pw_gid)
++        os.chmod(cert_file_trust, 0644)
++        with open(ca_certs) as fd:
++            t = fd.read()
++            # for each line
++            for line in t.splitlines():
++                # Split string into a words list
++                words = line.split()
++                if len(words) > 1:
++                    # if first word...
++                    if words[0] == host:
++                        return 0
++
++        # Open file with compliance server certificates and server hostname
++        fcl = open(ca_certs,"a")
++        fcl.write(host + ' ' + filename + '\n')
++        fcl.close()
+     return 0
+ 
+ def key_force(cert_path, data_path):
+diff --git core/server/cert_cmd.py core/server/cert_cmd.py
+index a2ee1ac..ef68e8a 100644
+--- core/server/cert_cmd.py
++++ core/server/cert_cmd.py
+@@ -179,7 +179,7 @@ def check_server_certificate(cert, key, cert_path, args, port, auto = False):
+         port = args.port if args.port else 8888
+         url = "https://%s:%d/?wsdl" %(args.host, port)
+         print _("%s\nconnect...") % url
+-        from suds.client import Client
++        from sudsds.client import Client
+         from client_class import HTTPSClientsCertTransport
+         try:
+             client = Client(url, \
+@@ -226,7 +226,7 @@ def check_server_certificate(cert, key, cert_path, args, port, auto = False):
+         url = "https://%s:%d/?wsdl" %(args.root_host, port)
+         print _("%s\nconnect...") % url
+ 
+-        from suds.client import Client
++        from sudsds.client import Client
+         from client_class import HTTPSClientsCertTransport
+         try:
+             client = Client(url, \
+@@ -331,11 +331,11 @@ def find_cert_id(certificate, data_path, certbase):
+         # See each line
+         for line in t.splitlines():
+             # and each word in line
+-            words = line.split()
+-                # if in line present certificate id
+-            if words[1] == md5sum:
+-
+-                cert_id.append (words[0])
++                words = line.split()
++                if len(words) > 1:
++                    # if in line present certificate id
++                    if words[1] == md5sum:
++                        cert_id.append (words[0])
+ 
+     cert_path =  data_path+'/client_certs/'
+     for certId in cert_id:
+@@ -690,7 +690,8 @@ def sing_req_by_server(id_client_req, cert_path, data_path, auto = False):
+         if auto:
+             group_name = "all"
+         else:
+-            group_name = "%s" %raw_input(_("Enter Group new certificate: "))
++            group_name = "%s" %raw_input(_("Enter Group new certificate " \
++                                           "(group name or 'all'): "))
+         config = data_path + '/client_certs/ssl-client.cfg'
+         if os.path.exists(config):
+             os.unlink(config)
+@@ -912,9 +913,6 @@ def view_signed_cert(args, serv_certbase, data_path):
+ # View clients requests on server
+ def view_client_request(args, client_certbase, data_path):
+     req_id = args.req_id
+-#    dump = args.dump
+-#    remove = args.remove
+-
+     if req_id == 'all':
+         if not os.path.exists(client_certbase):
+             fc = open(client_certbase,"w")
+@@ -1248,6 +1246,9 @@ def parse():
+         '--check', action='store_true', default=False, dest = 'check',
+         help=_('check configuration'))
+     parser.add_argument(
++        '--create-symlink', action='store_true', default=False,
++        dest='create_symlink', help=_("Create symlink for methods"))
++    parser.add_argument(
+         '--log-path', type=str, dest='log_path',
+         help=_('path to log files'))
+     parser.add_argument(
+diff --git core/server/certificate.py core/server/certificate.py
+index 343fffa..84fcd32 100644
+--- core/server/certificate.py
++++ core/server/certificate.py
+@@ -259,8 +259,8 @@ class CoreWsdl:
+     @rpc(Integer, CertificateInfo, _returns = Array(ReturnedMessage))
+     @Dec.core_method(gui=True, title=__('View certificates'),category='Core',\
+                 image='certificate-server,application-certificate',
+-                command='cl-view-cert',rights=["view_cert"])
+-    def view_cert ( self, sid, info):
++                command='cl-core-view-cert',rights=["view_cert"])
++    def core_view_cert(self, sid, info):
+         if not info:
+             errors = []
+             mess = _('Certificate Identificator must be int or "all"!')
+@@ -276,11 +276,11 @@ class CoreWsdl:
+ 
+     @rpc(Integer, ViewParams, _returns = ViewInfo)
+     @catchExcept()
+-    def view_cert_view (self, sid, params):
++    def core_view_cert_view (self, sid, params):
+         dv = datavars.DataVarsCore()
+         dv.importCore()
+         dv.flIniFile()
+-        dv.addGroup(_("Certificate View"),
++        dv.addGroup(None,
+             normal=('cl_cert_id',),
+             next_label=_("View"))
+         view = ViewInfo (dv)
+diff --git core/server/cl_server.py core/server/cl_server.py
+index 8c8e48a..ad60f27 100644
+--- core/server/cl_server.py
++++ core/server/cl_server.py
+@@ -31,7 +31,7 @@ from clean import clean
+ import cert_cmd
+ import bootstrap
+ 
+-from func import initialization
++from func import initialization, create_symlink
+ from server_class import ClApplication
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_core',sys.modules[__name__])
+@@ -125,7 +125,6 @@ def main(*args, **keywords):
+         logger.setLevel(logging.DEBUG)
+ 
+     # delete all sid and pid informations file
+-    clean(sids_file, pids_file, sids_pids, sids, pids)
+     cert_cmd.create_path(data_path, certbase, rights, group_rights)
+     #####################
+     try:
+@@ -165,7 +164,7 @@ def main(*args, **keywords):
+             return 0
+     except URLError, e:
+         print e
+-    if not args.start:
++    if not args.start and not args.create_symlink:
+         parser.print_help()
+         return 0 
+     #####################
+@@ -188,6 +187,11 @@ def main(*args, **keywords):
+ 
+     App = ClApplication([CombinedServerClass],'tns', log = file_logger)
+     tc = App.get_service(CombinedServerClass)
++
++    if args.create_symlink:
++        create_symlink()
++        return 0
++
+     # set all path
+     tc.set_paths (data_path, certbase, serv_certbase, rights, group_rights, \
+                 sids, pids, sids_pids, sids_file, pids_file, max_sid, \
+@@ -232,6 +236,7 @@ def main(*args, **keywords):
+                 sys.stderr.write(
+                     _("Can not create pid file %s")%args.pidfile+"\n")
+                 sys.exit(1)
++        clean(sids_file, pids_file, sids_pids, sids, pids)
+         print _("Server start")
+         server.start()
+     except KeyboardInterrupt:
+diff --git core/server/clean.py core/server/clean.py
+index be0bdab..9f3af25 100644
+--- core/server/clean.py
++++ core/server/clean.py
+@@ -54,7 +54,6 @@ class CoreWsdl:
+         except IOError:
+             print 'Except IOError'
+         except Exception, e:
+-            print e
+             print _("watcher process pid %d error") %pid
+             try:
+                 self._delete_pid(sid, pid)
+@@ -66,7 +65,6 @@ class CoreWsdl:
+         while len(self.glob_frame_list[pid]) > \
+                   self.glob_process_dict[pid]['counter']:
+             time.sleep(1)
+-
+         methodname = self.glob_process_dict[pid]['method_name']
+         if methodname:
+             self.clear_cache(sid, methodname)
+diff --git core/server/client_class.py core/server/client_class.py
+index b406414..7c2d094 100644
+--- core/server/client_class.py
++++ core/server/client_class.py
+@@ -16,7 +16,7 @@
+ 
+ import urllib2 as u2
+ import os, sys
+-from suds.transport.http import HttpTransport
++from sudsds.transport.http import HttpTransport
+ import httplib
+ from httplib import HTTPConnection
+ import socket, ssl
+@@ -80,14 +80,14 @@ class clientHTTPSConnection (httplib.HTTPSConnection):
+         certobj = \
+                     OpenSSL.crypto.load_certificate \
+                     (OpenSSL.SSL.FILETYPE_PEM, cert)
+-        print _("\nFingerprint = %s") % certobj.digest('SHA1')
++        print '\n'+_("Fingerprint = %s") % certobj.digest('SHA1')
+         print _("Serial Number = "), certobj.get_serial_number()
+         Issuer = certobj.get_issuer().get_components()
+-        print _("\nIssuer")
++        print '\n'+_("Issuer")
+         for i in Issuer:
+             print "%s : %s" %(i[0], i[1])
+         Subject = certobj.get_subject().get_components()
+-        print _("\nSubject")
++        print '\n'+_("Subject")
+         for item in Subject:
+             print "%s : %s" %(item[0], item[1])
+ 
+@@ -155,11 +155,11 @@ class clientHTTPSConnection (httplib.HTTPSConnection):
+         self.ca_path = self.cert_path + "ca/"
+         ca_certs = self.ca_path + "cert.list"
+         server_cert = ssl.get_server_certificate(addr = (self.host, self.port))
+-        if not hasattr(HTTPSClientCertTransport, 'filename') or \
+-                                    HTTPSClientCertTransport.filename == None:
+-            HTTPSClientCertTransport.filename = self.cert_list \
++        if not hasattr(HTTPSClientsCertTransport, 'filename') or \
++                                   HTTPSClientsCertTransport.filename == None:
++            HTTPSClientsCertTransport.filename = self.cert_list \
+                                             (self.host, ca_certs, server_cert)
+-        if HTTPSClientCertTransport.filename:
++        if HTTPSClientsCertTransport.filename:
+             try:
+                 self.sock = ssl.wrap_socket(sock,\
+                             certfile = self.cert_file, \
+@@ -174,7 +174,7 @@ class clientHTTPSConnection (httplib.HTTPSConnection):
+                 filename2 = \
+                         self.cert_list (self.host, ca_certs, cert_after_connect)
+ 
+-                if not HTTPSClientCertTransport.filename == filename2:
++                if not HTTPSClientsCertTransport.filename == filename2:
+                     print _("\nWARNING!!! %s trying to replace certificate!\n")\
+                                                 %self.host
+                     self.sock.close()
+@@ -182,7 +182,7 @@ class clientHTTPSConnection (httplib.HTTPSConnection):
+                 return 0
+             except:
+                 print _("Error. May be a server cert or secret key not valid!")
+-                HTTPSClientCertTransport.filename = None
++                HTTPSClientsCertTransport.filename = None
+                 return 1
+         else:
+             self.sock = ssl.wrap_socket(sock)
+diff --git core/server/edit_groups.py core/server/edit_groups.py
+index 3f31fc2..9c1527d 100644
+--- core/server/edit_groups.py
++++ core/server/edit_groups.py
+@@ -207,8 +207,8 @@ class CoreWsdl:
+     @rpc(Integer, GroupInfo, _returns = Array(ReturnedMessage))
+     @Dec.core_method(gui=True, title=__('Show Groups'), category='Core', \
+             image='user-group-properties,view-certificate-import,application-'\
+-            'certificate',command='cl-show-group',rights=["edit-group"])
+-    def show_groups(self, sid, info):
++            'certificate',command='cl-core-show-group',rights=["edit-group"])
++    def core_show_groups(self, sid, info):
+         if not info:
+             mess = 'Field must be int!'
+             errors = []
+@@ -226,7 +226,7 @@ class CoreWsdl:
+ 
+     @rpc(Integer, ViewParams,_returns = ViewInfo)
+     @catchExcept()
+-    def show_groups_view (self, sid, params):
++    def core_show_groups_view (self, sid, params):
+         dv = datavars.DataVarsCore()
+         dv.importCore()
+         dv.flIniFile()
+@@ -239,9 +239,8 @@ class CoreWsdl:
+ 
+ ##################### BEGIN DETAIL GROUP METHOD ##############################
+     @rpc(Integer, DetailGroupInfo, _returns = Array(ReturnedMessage))
+-    @Dec.core_method(gui=True, title=__('Detail Group'),
+-                     command='cl-detail-group',rights=["edit-group"])
+-    def detail_group ( self, sid, info):
++    @Dec.core_method(gui=True, title=__('Detail Group'),rights=["edit-group"])
++    def core_detail_group ( self, sid, info):
+         if not info:
+             mess = 'Field must be in list!'
+             errors = []
+@@ -259,7 +258,7 @@ class CoreWsdl:
+ 
+     @rpc(Integer, ViewParams, _returns = ViewInfo)
+     @catchExcept()
+-    def detail_group_view (self, sid, params):
++    def core_detail_group_view (self, sid, params):
+         dv = self.get_cache(sid, 'detail_group', 'dv')
+         if not dv:
+             dv = datavars.DataVarsCore()
+@@ -267,9 +266,8 @@ class CoreWsdl:
+             dv.flIniFile()
+             dv.Get('cl_group_name')
+ 
+-        dv.addGroup(_("Group detail"),
+-            normal=('cl_group_name', 'cl_group_rights',
+-                    'cl_page_count','cl_page_offset'))
++        dv.addGroup(None,
++            normal=('cl_group_name', 'cl_group_rights'))
+ 
+         view = ViewInfo(dv)
+ 
+@@ -364,9 +362,9 @@ class CoreWsdl:
+ 
+     @rpc(Integer, DetailGroupInfo, _returns = Array(ReturnedMessage))
+     @Dec.core_method(gui=True, title=__('Change Group'),
+-                     command='cl-change-group',rights=["edit-group"])
++                     command='cl-core-change-group',rights=["edit-group"])
+     @catchExcept()
+-    def change_group ( self, sid, info):
++    def core_change_group ( self, sid, info):
+         dv = self.get_cache(sid,'change_group',"vars")
+         if not dv:
+             dv = datavars.DataVarsCore()
+@@ -396,7 +394,7 @@ class CoreWsdl:
+ 
+     @rpc(Integer, ViewParams, _returns = ViewInfo)
+     @catchExcept()
+-    def change_group_view (self, sid, params):
++    def core_change_group_view (self, sid, params):
+         dv = self.get_cache(sid, 'change_group', 'dv')
+         if not dv:
+             dv = datavars.DataVarsCore()
+@@ -494,9 +492,9 @@ class CoreWsdl:
+ 
+     @rpc(Integer, DetailGroupInfo, _returns = Array(ReturnedMessage))
+     @Dec.core_method(gui=True, title=__('Delete Group'),
+-                     command='cl-del-group',rights=["edit-group"])
++                     command='cl-core-del-group',rights=["edit-group"])
+     @catchExcept()
+-    def del_group ( self, sid, info):
++    def core_del_group(self, sid, info):
+         #dv = self.get_cache(sid,'delete_request',"vars")
+         #if not dv:
+         dv = datavars.DataVarsCore()
+@@ -515,7 +513,7 @@ class CoreWsdl:
+ 
+     @rpc(Integer, ViewParams, _returns = ViewInfo)
+     @catchExcept()
+-    def del_group_view (self, sid, params):
++    def core_del_group_view (self, sid, params):
+         dv = self.get_cache(sid, 'del_group', 'dv')
+         if not dv:
+             dv = datavars.DataVarsCore()
+@@ -603,9 +601,9 @@ class CoreWsdl:
+ 
+     @rpc(Integer, AddGroupInfo, _returns = Array(ReturnedMessage))
+     @Dec.core_method(gui=True, title=__('Add Group'),
+-                     command='cl-add-group',rights=["edit-group"])
++                     command='cl-core-add-group',rights=["edit-group"])
+     @catchExcept()
+-    def add_group ( self, sid, info):
++    def core_add_group ( self, sid, info):
+         #dv = self.get_cache(sid,'delete_request',"vars")
+         #if not dv:
+         dv = datavars.DataVarsCore()
+@@ -631,14 +629,14 @@ class CoreWsdl:
+ 
+     @rpc(Integer, ViewParams, _returns = ViewInfo)
+     @catchExcept()
+-    def add_group_view (self, sid, params):
++    def core_add_group_view (self, sid, params):
+         dv = self.get_cache(sid, 'add_group', 'dv')
+         if not dv:
+             dv = datavars.DataVarsCore()
+             dv.importCore()
+             dv.flIniFile()
+ 
+-        dv.addGroup(_("Group add"),
++        dv.addGroup(None,
+             normal=('cl_group_add', 'cl_group_rights'),
+             next_label=_("Add"))
+ 
+diff --git core/server/func.py core/server/func.py
+index f79e7f7..79a46ea 100644
+--- core/server/func.py
++++ core/server/func.py
+@@ -505,6 +505,23 @@ class CoreWsdl () :
+             lang = locale.locale_alias['en']
+         return lang
+ 
++def create_symlink():
++    meths = Dec.conMethods
++    path = '/usr/bin'
++    for link in meths:
++        link_path = os.path.join(path, link)
++        if os.path.islink(link_path):
++            continue
++        if os.path.isfile(link_path):
++            red = '\033[91m * \033[0m'
++            print red+link_path+_(' is file, not link!')
++            continue
++        try:
++            os.symlink(os.path.join(path, 'cl-console'), link_path)
++        except OSError, e:
++            print e.message
++        print _('Create symlink %s') %link_path
++
+ def initialization(cl_wsdl):
+     """ find modules for further added in server class """
+     cl_apis = []
+diff --git core/server/gen_sid.py core/server/gen_sid.py
+index 473e92d..99fd240 100644
+--- core/server/gen_sid.py
++++ core/server/gen_sid.py
+@@ -14,21 +14,15 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-import os, datetime
++import os, datetime, threading
+ import random, pickle
+-import threading
+-
+-import soaplib
+-from soaplib.serializers.primitive import String, Integer
+-from soaplib.serializers.clazz import Array
++from cert_cmd import find_cert_id
+ 
+ # session management
+-class CoreWsdl () :
+-
++class CoreWsdl():
+     # delete client session from file (close session)
+     def del_sid_from_file(self, sid):
+         try:
+-            rst = []
+             # temp file
+             SID_FILE = self.sids_file
+             SID_FILE_T = SID_FILE + 'temp'
+@@ -105,12 +99,15 @@ class CoreWsdl () :
+ 
+     def set_sid_lang(self, sid, lang):
+         SIDS_DIR = self.sids
+-        sid_file = SIDS_DIR+"/%d.sid" %sid
++        sid_file = os.path.join(SIDS_DIR, "/%d.sid" %sid)
+         if not os.path.isfile(sid_file):
+-            print 'sid file not found'
+-            return 1
++            fp = open(sid_file, 'w')
++            fp.close()
+         fd = open(sid_file, 'r')
+-        list_sid = pickle.load(fd)
++        try:
++            list_sid = pickle.load(fd)
++        except EOFError:
++            list_sid = [sid, 0, 0, lang]
+         fd.close()
+ 
+         fp = open(sid_file, 'w')
+@@ -138,9 +135,8 @@ class CoreWsdl () :
+         # if session is old
+         else:
+             # find number in file registered
+-            flag = self.find_sid_in_file(sid)
+             # if not registered
+-            if flag == 0:
++            if not self.find_sid_in_file(sid):
+                 # add session id in file
+                 self.add_sid_in_file(sid, cert_id, lang)
+             else:
+@@ -154,6 +150,79 @@ class CoreWsdl () :
+         result.append(session)
+         return result
+ 
++    def serv_init_session(self, sid, lang):
++        DAY_CERT = 600
++        curThread = threading.currentThread()
++        certificate = curThread.client_cert
++        results = []
++        if certificate == None:
++            return ([-3], [0])
++
++        checked_id = find_cert_id(certificate, self.data_path, self.certbase)
++        try:
++            if int(checked_id) < 1:
++                return ([-4], [0])
++        except:
++            return ([-4], [0])
++        client_cert_file = self.data_path + '/client_certs/' + str(checked_id)
++        results = []
++        cert_id = checked_id
++        with open(self.certbase) as fd:
++            t = fd.read()
++            # See each line
++            for line in t.splitlines():
++                # and each word in line
++                words = line.split()
++                    # if in line present certificate id
++                if len(words) > 3:
++                    if words[0] == checked_id:
++                        results.append(checked_id)
++                        date = datetime.datetime.strptime \
++                                    (words[2]+' '+words[3], '%Y-%m-%d %H:%M:%S.%f')
++                        d = datetime.datetime.now() - date
++                        v = DAY_CERT - d.days  # How many days left certificate
++                        if v < 0:
++                            #Method deleted certificate
++                            v = -2  # expiry date has passed
++                        elif v > 60:  # For a long time, is not displayed to the client
++                            v = -1
++                        results.append (v)
++                        #return results
++        if not results:
++            return ([-4], [0])
++
++        if sid < 0 or sid > self.max_sid:
++            sid = 0
++        session = 1
++        flag = 1
++        # if session is new
++        if sid == 0:
++            while flag == 1:
++                # generation number
++                new_sid = random.randint(1, self.max_sid)
++                # Check there is already the number
++                flag = self.find_sid_in_file(sid)
++            # add session id
++            self.add_sid_in_file(new_sid, cert_id, lang)
++            sid = new_sid
++
++        # if session is old
++        else:
++            # find number in file registered
++            # if not registered
++            if not self.find_sid_in_file(sid):
++                # add session id in file
++                self.add_sid_in_file(sid, cert_id, lang)
++            else:
++                self.set_sid_lang(sid, lang)
++                # set - old session
++                session = 0
++
++        # session id and flad (new or old) session
++        result = []
++        result.append(sid)
++        result.append(session)
++        return (results, result)
+ 
+     def serv_sid_info(self, sid):
+         """ Get information about sid """
+diff --git core/server/post_cert.py core/server/post_cert.py
+index 37de34f..0cdd88f 100644
+--- core/server/post_cert.py
++++ core/server/post_cert.py
+@@ -31,8 +31,6 @@ def serv_post_cert (self) :
+     if certificate == None:
+         return [-3]
+ 
+-    lock = Lock()
+-    lock.acquire()
+     checked_id = find_cert_id(certificate, self.data_path, self.certbase)
+     try:
+         if int(checked_id) < 1:
+@@ -48,17 +46,18 @@ def serv_post_cert (self) :
+             # and each word in line
+             words = line.split()
+                 # if in line present certificate id
+-            if words[0] == checked_id:
+-                results.append(checked_id)
+-                date = datetime.datetime.strptime \
++            if len(words) > 3:
++                if words[0] == checked_id:
++                    results.append(checked_id)
++                    date = datetime.datetime.strptime \
+                                 (words[2]+' '+words[3], '%Y-%m-%d %H:%M:%S.%f')
+-                d = datetime.datetime.now() - date
+-                v = DAY_CERT - d.days  # How many days left certificate
+-                if v < 0:
+-                    #Method deleted certificate
+-                    v = -2  # expiry date has passed
+-                elif v > 60:  # For a long time, is not displayed to the client
+-                    v = -1
+-                results.append (v)
+-                return results
++                    d = datetime.datetime.now() - date
++                    v = DAY_CERT - d.days  # How many days left certificate
++                    if v < 0:
++                        #Method deleted certificate
++                        v = -2  # expiry date has passed
++                    elif v > 60:  # For a long time, is not displayed to the client
++                        v = -1
++                    results.append (v)
++                    return results
+     return [-4]
+diff --git core/server/request.py core/server/request.py
+index 76fe636..dbf1b73 100644
+--- core/server/request.py
++++ core/server/request.py
+@@ -214,8 +214,8 @@ class CoreWsdl:
+     @rpc(Integer, RequestInfo, _returns = Array(ReturnedMessage))
+     @Dec.core_method(gui=True, title=__('Management Requests'),category='Core',\
+                      image='view-certificate-import,application-certificate',
+-                     command='cl-show-request',rights=["request"])
+-    def show_request ( self, sid, info):
++                     command='cl-core-show-request',rights=["request"])
++    def core_show_request(self, sid, info):
+         if not info:
+             mess = 'Field must be int!'
+             errors = []
+@@ -233,7 +233,7 @@ class CoreWsdl:
+ 
+     @rpc(Integer, ViewParams, _returns = ViewInfo)
+     @catchExcept()
+-    def show_request_view (self, sid, params):
++    def core_show_request_view (self, sid, params):
+         dv = datavars.DataVarsCore()
+         dv.importCore()
+         dv.flIniFile()
+@@ -247,7 +247,7 @@ class CoreWsdl:
+ ##################### BEGIN DETAIL REQUEST METHOD ##############################
+     @rpc(Integer, DetailRequestInfo, _returns = Array(ReturnedMessage))
+     @Dec.core_method(gui=True, title=__('Detail Request'), rights=["request"])
+-    def detail_request ( self, sid, info):
++    def core_detail_request ( self, sid, info):
+         if not info:
+             return [ReturnedMessage(type = 'error', field = 'cl_req_id',
+                                     message = 'use key -r to select request')]
+@@ -265,7 +265,7 @@ class CoreWsdl:
+ 
+     @rpc(Integer, ViewParams, _returns = ViewInfo)
+     @catchExcept()
+-    def detail_request_view (self, sid, params):
++    def core_detail_request_view (self, sid, params):
+         dv = self.get_cache(sid, 'detail_request', 'dv')
+         if not dv:
+             dv = datavars.DataVarsCore()
+@@ -273,7 +273,7 @@ class CoreWsdl:
+             dv.flIniFile()
+             dv.Get('cl_req_id')
+ 
+-        dv.addGroup(_("Requests detail"),
++        dv.addGroup(None,
+             normal=('cl_req_id', 'cl_req_user_name', 'cl_req_ip', 'cl_req_mac',
+                     'cl_req_date', 'cl_req_location', 'cl_req_group'))
+ 
+@@ -393,9 +393,9 @@ class CoreWsdl:
+ 
+     @rpc(Integer, DetailRequestInfo, _returns = Array(ReturnedMessage))
+     @Dec.core_method(gui=True, title=__('Confirm Request'),
+-                     command='cl-confirm-request',rights=["request"])
++                     command='cl-core-confirm-request',rights=["request"])
+     @catchExcept()
+-    def confirm_request ( self, sid, info):
++    def core_confirm_request ( self, sid, info):
+         dv = self.get_cache(sid,'confirm_request',"vars")
+         if not dv:
+             dv = datavars.DataVarsCore()
+@@ -430,7 +430,7 @@ class CoreWsdl:
+ 
+     @rpc(Integer, ViewParams, _returns = ViewInfo)
+     @catchExcept()
+-    def confirm_request_view (self, sid, params):
++    def core_confirm_request_view (self, sid, params):
+         dv = self.get_cache(sid, 'confirm_request', 'dv')
+         if not dv:
+             dv = datavars.DataVarsCore()
+@@ -438,7 +438,7 @@ class CoreWsdl:
+             dv.flIniFile()
+             dv.Get('cl_req_id')
+ 
+-        dv.addGroup(_("Requests detail"),
++        dv.addGroup(_("Requests confirm"),
+             normal=('cl_req_id', 'cl_req_user_name', 'cl_req_ip', 'cl_req_mac',
+               'cl_req_date', 'cl_req_location', 'cl_req_group'),
+             next_label=_("Done"))
+@@ -565,9 +565,9 @@ class CoreWsdl:
+         
+     @rpc(Integer, DetailRequestInfo, _returns = Array(ReturnedMessage))
+     @Dec.core_method(gui=True, title=__('Delete Request'),
+-                     command='cl-del-request',rights=["request"])
++                     command='cl-core-del-request',rights=["request"])
+     @catchExcept()
+-    def del_request ( self, sid, info):
++    def core_del_request ( self, sid, info):
+         #dv = self.get_cache(sid,'del_request',"vars")
+         #if not dv:
+         dv = datavars.DataVarsCore()
+@@ -586,7 +586,7 @@ class CoreWsdl:
+ 
+     @rpc(Integer, ViewParams, _returns = ViewInfo)
+     @catchExcept()
+-    def del_request_view (self, sid, params):
++    def core_del_request_view (self, sid, params):
+         dv = self.get_cache(sid, 'detail_request', 'dv')
+         if not dv:
+             dv = datavars.DataVarsCore()
+diff --git core/server/server_class.py core/server/server_class.py
+index 97c5b26..bbfa913 100644
+--- core/server/server_class.py
++++ core/server/server_class.py
+@@ -66,14 +66,17 @@ class ClApplication(Application):
+             except Exception, e:
+                 break
+             # find session id in sids file
+-            if cert_id == list_sid[1]:
+-                if sid == list_sid[0]:
++            if cert_id == int(list_sid[1]):
++                if int(sid) == int(list_sid[0]):
+                     return 1
+         return 0
+ 
+     # input parameters - certificate and name method
+     def check_rights(self, method_name, req_env, params):
+         """ check right client certificate for the method """
++        if method_name=='get_frame':
++	    import ipdb
++	    ipdb.set_trace()
+         rmethod = re.compile('[{\w]+[}]')
+         method_rep = rmethod.findall(method_name)
+         method_name = method_name.replace(method_rep[0],'')
+@@ -124,7 +127,7 @@ class ClApplication(Application):
+             print e
+             return 0
+         if method_name == 'cert_add':
+-            return 1
++            return 0
+         certobj_cl = OpenSSL.crypto.load_certificate \
+                                     (OpenSSL.SSL.FILETYPE_PEM, cert)
+         try:
+@@ -215,7 +218,7 @@ class ClApplication(Application):
+                     return 0
+             if count == len (Dec.rightsMethods[method_name]):
+                 return 1
+-        elif method_name == 'post_cert':
++        elif method_name in ['post_cert','init_session']:
+             return 1
+         return 0
+ 
+diff --git core/server/test.py core/server/test.py
+index 3b76ecd..faf5e28 100644
+--- core/server/test.py
++++ core/server/test.py
+@@ -78,31 +78,28 @@ class CoreWsdl:
+                 #return False
+             #self.printSUCCESS(_('Password is correct'))
+             self.setTaskNumber(6)
+-            self.startTask("Before First_____________ test task many point" + \
+-                           "Before First_____________ test task many point", True, num = 1)
++            self.startTask("Formatting", True, num = 1)
+             self.endTask()
+ 
+-            self.startTask("NewTask", True, num = 3)
+-            self.addMessage(type = 'warning', message = 'enter Russian name! Not %s' %name)
++            self.startTask("Copying files", True, num = 3)
++            #self.addMessage(type = 'warning', message = 'enter Russian name! Not %s' %name)
++            self.printWARNING('Not enough space on disk')
+             #self.askPassword('Enter Your Password: ')
+             # Учёт процесса выполнения
+             perc = 0
+             while self.getProgress() < 100:
+-                time.sleep(0.1)
+-                perc += 20
++                time.sleep(6)
++                perc += 50
+                 #self.addMessage(type = 'warning', message = '%s%%' %perc)
+                 # Увеличение процента выполнения процесса
+                 if perc < 50:
+                     #print 'looooong long message=)', perc
+                     self.setProgress (perc, 'hello %d perc!' %perc, \
+-                                      'looooong long message=)')
++                                      'short message')
+                 else:
+                     #print 'looooong long message=) veeeery', perc
+                     self.setProgress (perc, 'hello %d perc!' %perc, \
+-                        'looooong long message=) veeeery long gfgdg dgdf '\
+-                        'gdfg df,gg dfgdf,gdfgergergregerg,ergerg re g ge '\
+-                        'gdfg df,gg dfgdf,gdfgergergregerg,ergerg re g ge '\
+-                        'gdfg df,gg dfgdf,gdfgergergregerg,ergerg re g ge ')
++                        'looooong long message=)')
+             #question = self.askQuestion('enter name: ', None)
+             #print question
+             #print self.askPassword ('Please, your enter pass: ')
+@@ -123,7 +120,7 @@ class CoreWsdl:
+                     ['Three','31','32','33','34'], ['Four','41','42','43','44']]
+ 
+             self.printTable("Table 2!", head, body)
+-            self.startTask("Second task!", True, num = 2)
++            self.startTask("Umount Devices", True, num = 2)
+             perc = 0
+             while self.getProgress() < 100:
+                 time.sleep(0.3)
+@@ -359,7 +356,7 @@ class CoreWsdl:
+             if expert:
+                 group.fields.append(Field(
+                         name = "expert_open",
+-                        label = _("Press for advanced settings..."),
++                        #label = _("Advanced settings..."),
+                         type = "label",
+                         help = \
+                         "you not human? This is a anti-bot test",
+@@ -407,7 +404,7 @@ class CoreWsdl:
+             else:
+                 group.fields.append(Field(
+                         name = "expert_close",
+-                        label = _("Press for advanced settings..."),
++                        #label = _("Advanced settings..."),
+                         type = "label",
+                         help = \
+                         "you not human? This is a anti-bot test",
+@@ -507,7 +504,7 @@ class CoreWsdl:
+                     default = False,
+                     help = \
+                     _("you not human? This is a anti-bot test"),
+-                    element = "selecttable_add"))
++                    element = "multichoice_add"))
+             group.fields.append(Field(
+                     name = "Partition_table",
+                     label = _("Mount Points: "),
+@@ -541,7 +538,7 @@ class CoreWsdl:
+             if expert:
+                 group.fields.append(Field(
+                         name = "expert_open",
+-                        label = _("Press for advanced settings..."),
++                        #label = _("Advanced settings..."),
+                         type = "label",
+                         help = \
+                         "you not human? This is a anti-bot test",
+@@ -561,7 +558,7 @@ class CoreWsdl:
+             else:
+                 group.fields.append(Field(
+                         name = "expert_close",
+-                        label = _("Press for advanced settings..."),
++                        #label = _("Advanced settings..."),
+                         type = "label",
+                         help = \
+                         "you not human? This is a anti-bot test",
+diff --git core/variables/edit_groups.py core/variables/edit_groups.py
+index 0890644..33c2e45 100644
+--- core/variables/edit_groups.py
++++ core/variables/edit_groups.py
+@@ -25,7 +25,6 @@ from os import path
+ import OpenSSL
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+-from calculate.lib.utils.files import readLinesFile
+ from calculate.core.server.decorators import Dec
+ #from calculate.api.cert_cmd import find_id_cert
+ setLocalTranslate('cl_core',sys.modules[__name__])
+diff --git ru/cl_core.po ru/cl_core.po
+index c7480b1..752f8d6 100644
+--- ru/cl_core.po
++++ ru/cl_core.po
+@@ -2,8 +2,8 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: calculate-api\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2012-06-08 13:28+0300\n"
+-"PO-Revision-Date: 2012-06-08 13:29+0300\n"
++"POT-Creation-Date: 2012-06-14 10:14+0300\n"
++"PO-Revision-Date: 2012-06-14 10:31+0300\n"
+ "Last-Translator: Denis <ds@mail.ru>\n"
+ "Language-Team: \n"
+ "Language: \n"
+@@ -584,32 +584,31 @@ msgstr "Ошибка номера сертификата"
+ msgid "Enter correctly cert id!"
+ msgstr "Введите корректный номер сертификата!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:90
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:83
+ msgid "Certificate not found in client"
+ msgstr "Сертификат не найден на стороне клиента"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:99
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:92
+ msgid "Error open file"
+ msgstr "Ошибка открытия файла"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:172
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:165
+ msgid "filename = "
+ msgstr "имя файла = "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:185
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:178
+ msgid "Server certificate is not valid"
+ msgstr "Сертификат сервера недействителен"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:189
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:182
+ msgid "CA not found on server"
+ msgstr "Сертификат центра авторизации не найден на сервере"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:196
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:189
+ msgid "Error. Certificate not added to trusted"
+ msgstr "Ошибка. Сертификат не добавлен в доверенные"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:198
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:288
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:191
+ #, python-format
+ msgid ""
+ "\n"
+@@ -618,17 +617,16 @@ msgstr ""
+ "\n"
+ "Отпечаток = %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:199
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:289
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:192
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:282
+ #: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:510
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:801
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:802
+ msgid "Serial Number = "
+ msgstr "Серийный номер = "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:201
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:291
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:194
+ #: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:512
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:803
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:804
+ msgid ""
+ "\n"
+ "Issuer"
+@@ -636,11 +634,10 @@ msgstr ""
+ "\n"
+ "Подписчик"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:205
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:295
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:198
+ #: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:516
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:807
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:847
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:808
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:848
+ msgid ""
+ "\n"
+ "Subject"
+@@ -648,35 +645,44 @@ msgstr ""
+ "\n"
+ "Субъект"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:208
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:201
+ msgid "Add CA certificates to trusted? y/[n]:"
+ msgstr "Добавить сертификат центра авторизации в доверенные? y/[n]:"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:214
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:207
+ msgid "Certificate not added to trusted"
+ msgstr "Сертификат не добавлен в доверенные"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:285
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:278
+ msgid "Untrusted Server Certificate!"
+ msgstr "Ненадежный сертификат сервера!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:299
+-msgid ""
+-"\n"
+-"Add this Servers certificate to trusted (s) or"
+-msgstr ""
+-"\n"
+-"Добавить данный сертификат сервера в доверенные (s) или"
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:281
++#, python-format
++msgid "Fingerprint = %s"
++msgstr "Отпечаток = %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:300
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:284
++msgid "Issuer"
++msgstr "Подписчик"
++
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:288
++msgid "Subject"
++msgstr "Субъект"
++
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:292
++msgid "Add this Servers certificate to trusted (s) or"
++msgstr "Добавить данный сертификат сервера в доверенные (s) или"
++
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:293
+ msgid "Try add CA and ROOT certificates to trusted (c) or"
+ msgstr "Попробовать добавить корневой и сертификат центра авторизации для доверенных (с) или"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:301
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:294
+ msgid "Quit (q)? s/c/[q]: "
+ msgstr "Выйти (q)? s/c/[q]: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:347
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:340
+ msgid ""
+ "\n"
+ "Try add CA and ROOT certificates"
+@@ -684,14 +690,10 @@ msgstr ""
+ "\n"
+ "Попробовать добавить корневой и сертификат центра авторизации"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:382
++#: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:375
+ #, python-format
+-msgid ""
+-"\n"
+-"WARNING! %s trying to replace certificate!\n"
+-msgstr ""
+-"\n"
+-"Внимание! %s пытается подменить сертификат!\n"
++msgid "WARNING! %s trying to replace certificate!"
++msgstr "Внимание! %s пытается подменить сертификат!"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:141
+ msgid "monitoring start"
+@@ -777,7 +779,7 @@ msgid "First group"
+ msgstr "Первая группа"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/test2.py:221
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:458
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:455
+ msgid "Next"
+ msgstr "Далее"
+ 
+@@ -789,105 +791,98 @@ msgstr "Вторая группа"
+ msgid "Done"
+ msgstr "Готово"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:142
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:139
+ msgid "Interrupted by user"
+ msgstr "Прервано пользователем"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:262
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:259
+ msgid "TEST_METHOD"
+ msgstr "Тестовый метод"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:267
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:264
+ msgid "YOUR NAME: "
+ msgstr "Ваше имя: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:272
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:269
+ msgid "Please, enter your name"
+ msgstr "Пожалуйста, введите Ваше имя"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:276
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:273
+ msgid "TIMES: "
+ msgstr "Время: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:281
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:290
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:300
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:278
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:287
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:297
+ msgid "Enter times"
+ msgstr "Введите время"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:286
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:294
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:283
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:291
+ msgid "select ISO"
+ msgstr "Выберите ISO образ"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:304
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:513
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:301
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:510
+ msgid "Mount Points: "
+ msgstr "Точки монтирования: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:362
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:410
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:544
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:564
+-msgid "Press for advanced settings..."
+-msgstr "Нажмите для дополнительных настроек..."
+-
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:458
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:455
+ msgid "Other Settings"
+ msgstr "Другие настройки"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:492
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:501
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:552
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:489
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:498
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:549
+ msgid "check population: "
+ msgstr "Количество населения: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:497
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:509
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:559
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:494
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:506
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:556
+ msgid "you not human? This is a anti-bot test"
+ msgstr "Анти-бот тест"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/test.py:576
++#: /var/calculate/mydir/git/calculate-api/core/server/test.py:573
+ msgid "Gratulations!"
+ msgstr "Поздравляю!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:44
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1047
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:43
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1045
+ #, python-format
+ msgid "Certificate %s not found"
+ msgstr "Сертификат %s не найден"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:47
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:46
+ #, python-format
+ msgid "Secret key %s not found"
+ msgstr "Секретный ключ %s не найден"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:57
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:56
+ msgid "Certificate does not match the private key"
+ msgstr "Сертификат не соответствует секретному ключу"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:70
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:69
+ msgid "Certificate creation date greater than current date"
+ msgstr "Дата создания сертификата больше текущей даты"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:73
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:72
+ msgid "Expiry date certificate has passed"
+ msgstr "Срок годности сертификата истёк"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:83
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:82
+ msgid "Generate Server Certificate"
+ msgstr "Генерация сертификата сервера"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:89
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:88
+ msgid "Server certificate already exists"
+ msgstr "Сертификат сервера создан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:91
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:90
+ msgid "Generate Client Certificate"
+ msgstr "Генерация сертификата клиента"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:94
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:93
+ msgid "Client certificate already exists"
+ msgstr "Сертификат клиента создан"
+ 
+@@ -895,13 +890,13 @@ msgstr "Сертификат клиента создан"
+ msgid "not exists client certificate path"
+ msgstr "не создан путь к сертификату клиента"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:254
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:255
+ #: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:262
+ #, python-format
+ msgid "Certificate save. Your certificate id = %s"
+ msgstr "Сертификат сохранён. Номер Вашего сертификата = %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:328
++#: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:367
+ msgid "You really want to remove all certificates, requests and config files on server"
+ msgstr "Вы действительно хотите удалить все сертификаты, запросы и конфигурационные файлы на сервере"
+ 
+@@ -950,7 +945,7 @@ msgid "file %s not found!"
+ msgstr "файл %s не найден!"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:509
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:800
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:801
+ msgid "Fingerprint = "
+ msgstr "Отпечаток = "
+ 
+@@ -985,48 +980,48 @@ msgid "Deleted"
+ msgstr "Удалено"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:678
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:747
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:748
+ msgid "Certificate number (id) must be int"
+ msgstr "Номер сертификата должен быть целочисленным"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:683
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:752
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:753
+ #, python-format
+ msgid "Signing Request %s not found"
+ msgstr "Запрос на подпись %s не найден"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:687
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:756
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:757
+ #, python-format
+ msgid "certificate %s already exists"
+ msgstr "Сертификат %s успешно создан"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:693
+-msgid "Enter Group new certificate: "
+-msgstr "Введите группу нового сертификата: "
++msgid "Enter Group new certificate (group name or 'all'): "
++msgstr "Введите группу нового сертификата (имя группы или 'all'): "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:728
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:784
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:729
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:785
+ #, python-format
+ msgid "certificate %s is signed"
+ msgstr "Сертификат %s подписан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:730
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:731
+ #, python-format
+ msgid "certificate %s not signed"
+ msgstr "Сертификат %s не подписан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:739
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:740
+ msgid "Root certificate or private key not found"
+ msgstr "Корневой сертификат или секретный ключ не найден"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:740
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:741
+ #, python-format
+ msgid "look at %s"
+ msgstr "смотрите %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:823
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:863
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:824
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:864
+ msgid ""
+ "\n"
+ "request sent from:"
+@@ -1034,212 +1029,212 @@ msgstr ""
+ "\n"
+ "запрос на подпись отправлен от:"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:826
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:866
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:827
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:867
+ msgid "date"
+ msgstr "дата"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:830
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:831
+ msgid "Certificate not found!"
+ msgstr "Сертификат не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:869
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:870
+ msgid "Request not found!"
+ msgstr "Запрос на подпись не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:896
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:936
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:897
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:934
+ #, python-format
+ msgid "Request \t%s - not signed"
+ msgstr "Запрос \t%s - не подписан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:898
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:938
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:899
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:936
+ #, python-format
+ msgid "Request \t%s"
+ msgstr "Запрос \t%s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:901
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:941
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:902
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:939
+ msgid "Certificates or requests not found!"
+ msgstr "Сертификат или запрос не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:907
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:947
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:908
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:945
+ msgid "certificate (request) number not int and not 'all'"
+ msgstr "номер сертификата (запроса) не целочисленный и не 'all'"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:932
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:930
+ msgid "Certificate \t"
+ msgstr "Сертификат \t"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:966
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:964
+ msgid "id must be int"
+ msgstr "идентификатор должен быть целочисленным"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:975
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:973
+ #, python-format
+ msgid "Request and certificate with id = %s not found!"
+ msgstr "Запрос или сертификат с идентификатором = %s не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:979
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:977
+ #, python-format
+ msgid "request %s not found!"
+ msgstr "запрос %s не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:982
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:980
+ msgid "This request has already been signed"
+ msgstr "Запрос успешно подписан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:983
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:981
+ msgid "Delete certificate and request? y/[n]: "
+ msgstr "Удалить сертификат и запрос на подпись? y/[n]: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:985
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:983
+ msgid "Not deleted"
+ msgstr "Не удалён"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1015
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1013
+ msgid "request deleted"
+ msgstr "запрос на подпись сертификата удалён"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1018
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1016
+ msgid "certificate deleted"
+ msgstr "сертификат удалён"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1020
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1018
+ msgid "delete file error!"
+ msgstr "ошибка удаления файла!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1034
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1032
+ msgid "CRL deleted"
+ msgstr "Список отзыва сертификатов удалён"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1036
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1034
+ msgid "CRL not exists"
+ msgstr "Список отзыва сертификатов не создан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1042
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1040
+ msgid "Id revocation certificate must be integer!"
+ msgstr "Номер отзываемого сертификата должен быть целочисленным!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1125
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1123
+ msgid "You should not to specify index of value"
+ msgstr "Вы не должны указывать индекс значения"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1159
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1157
+ msgid "Variable is not list"
+ msgstr "Переменная не список"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1171
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1169
+ msgid "start server"
+ msgstr "сервер запущен"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1174
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1172
+ msgid "port number"
+ msgstr "номер порта"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1177
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1175
+ msgid "Specify the location of a PID file"
+ msgstr "Указать расположение PID файла"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1180
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1178
+ msgid "operations with certificates (number or \"all\"). Server not run"
+ msgstr "операции с сертификатами (номер или \"all\"). Сервер не запускается"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1183
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1181
+ msgid "view clients requests (number or \"all\")"
+ msgstr "просмотр клиентских запросов (номер или \"all\")"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1186
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1184
+ msgid "view servers certificates (number or \"all\"). Server not run"
+ msgstr "просмотр серверных сертификатов (номер или \"all\"). Сервер не запускается"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1189
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1187
+ msgid "bootstrap action"
+ msgstr "начальные загрузки"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1192
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1190
+ msgid "use with key --bootstrap, remove all certificates, requests and config files on server"
+ msgstr "используйте с ключом --bootstrap, удаление всех сертификатов, запросов и конфигурационных файлов на сервере"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1196
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1194
+ msgid "dump (using with -c [ID])"
+ msgstr "дамп (используйте с ключом -c [ID])"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1199
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1197
+ msgid "debug"
+ msgstr "режим отладки (debug)"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1202
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1200
+ msgid "remove selected certificate (using with -c [ID])"
+ msgstr "удалить выбранный сертификат (используйте с ключом -c [ID])"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1205
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1203
+ msgid "Add right for certificate (or list via ',') (using with -c [ID])"
+ msgstr "добавить права для сертификата (или списка через ',') (используйте с ключом -c [ID])"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1209
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1207
+ msgid "Delete right(s) for certificate (using with -c [ID])"
+ msgstr "удаление прав сертификата (используйте с -c [ID])"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1212
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1210
+ msgid "generate a root (CA) certificate"
+ msgstr "генерировать корневой сертификат (сертификат удостоверяющего центра)"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1215
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1213
+ msgid "send request to sign root certificate"
+ msgstr "отправить запрос на подписание корневого сертификата"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1218
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1216
+ msgid "get signed certificate from server"
+ msgstr "получить подписанный сертификат с сервера (хост сервера)"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1221
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1219
+ msgid "use root certificate as server cert"
+ msgstr "использовать корневой сертификат как сертификат сервера"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1224
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1222
+ msgid "sign client's request by server certificate"
+ msgstr "подписать запрос на подписание сертификата клиента сертификатом сервера"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1227
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1225
+ msgid "sign server's request by root certificate"
+ msgstr "подписать запрос на подписание сертификата сервера корневым сертификатом"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1230
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1228
+ msgid "refuse to sign server request"
+ msgstr "отвергнуть серверный запрос на подпись сертификата"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1233
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1231
+ msgid "refuse to sign client request"
+ msgstr "отвергнуть клиентский запрос на подпись сертификата"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1236
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1234
+ msgid "revoke early signed server (or ca) certificate. rm to remove CRL"
+ msgstr "отозвать ранее подписанный сертификат сервера (удостоверяющего центра). rm для удаления списка отзыва"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1239
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1237
+ msgid "display value for specified variable (section.variablename). If section skipped then using variables from main section"
+ msgstr "отобразить значение для указанной переменной (раздел.имя_переменной). Если раздел пропущен, то используются переменные из основного раздела"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1243
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1241
+ msgid "Display variable as human readable"
+ msgstr "выводить значение в удобном для человека виде"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1246
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1244
+ msgid "write value for variable (section.variablename=value)"
+ msgstr "записать значение для переменной (секция.имя_переменной=значение)"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1249
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1247
+ msgid "check configuration"
+ msgstr "проверка конфигурации"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1252
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1250
+ msgid "path to log files"
+ msgstr "путь к файлам логов"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1255
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1253
+ msgid "prints the version number, then exits"
+ msgstr "вывод версии программы и выход"
+ 
+@@ -1291,15 +1286,8 @@ msgstr "Запросы"
+ msgid "Detail Request"
+ msgstr "Подробности запроса"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/request.py:276
+-#: /var/calculate/mydir/git/calculate-api/core/server/request.py:441
+-#: /var/calculate/mydir/git/calculate-api/core/server/request.py:448
+-#: /var/calculate/mydir/git/calculate-api/core/server/request.py:604
+-msgid "Requests detail"
+-msgstr "Подробности запроса на подпись сертификата"
+-
+ #: /var/calculate/mydir/git/calculate-api/core/server/request.py:286
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:280
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:279
+ msgid "Back"
+ msgstr "Назад"
+ 
+@@ -1308,8 +1296,8 @@ msgid "Confirm"
+ msgstr "Подтвердить"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/request.py:296
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:290
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:528
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:289
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:527
+ msgid "Delete"
+ msgstr "Удалить"
+ 
+@@ -1335,9 +1323,18 @@ msgstr "используйте ключ -r для выбора запроса"
+ msgid "use key -g to select certificate group"
+ msgstr "используйте ключ -g для выбора группы сертификата"
+ 
++#: /var/calculate/mydir/git/calculate-api/core/server/request.py:441
++msgid "Requests confirm"
++msgstr "Запрос подтверждён"
++
++#: /var/calculate/mydir/git/calculate-api/core/server/request.py:448
++#: /var/calculate/mydir/git/calculate-api/core/server/request.py:604
++msgid "Requests detail"
++msgstr "Подробности запроса на подпись сертификата"
++
+ #: /var/calculate/mydir/git/calculate-api/core/server/request.py:562
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:491
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:601
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:490
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:600
+ #, python-format
+ msgid "Exception!%s"
+ msgstr "Исключение: %s"
+@@ -1364,14 +1361,6 @@ msgstr "Сертификат %d может запускать: "
+ msgid "Certificate groups"
+ msgstr "Группы сертификата"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/certificate.py:177
+-msgid "Issuer"
+-msgstr "Подписчик"
+-
+-#: /var/calculate/mydir/git/calculate-api/core/server/certificate.py:181
+-msgid "Subject"
+-msgstr "Субъект"
+-
+ #: /var/calculate/mydir/git/calculate-api/core/server/certificate.py:260
+ msgid "View certificates"
+ msgstr "Просмотр сертификатов"
+@@ -1380,10 +1369,6 @@ msgstr "Просмотр сертификатов"
+ msgid "Certificate Identificator must be int or \"all\"!"
+ msgstr "Номер сертификата должен быть целочисленным или \"all\"!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/certificate.py:283
+-msgid "Certificate View"
+-msgstr "Просмотр сертификата"
+-
+ #: /var/calculate/mydir/git/calculate-api/core/server/certificate.py:285
+ msgid "View"
+ msgstr "Просмотр"
+@@ -1404,81 +1389,73 @@ msgstr "Группы"
+ msgid "Detail Group"
+ msgstr "Подробности групп"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:270
+-msgid "Group detail"
+-msgstr "Подробности группы"
+-
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:285
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:284
+ msgid "Change"
+ msgstr "Изменить"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:354
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:353
+ msgid "Group Changed"
+ msgstr "Группа изменена"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:356
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:355
+ msgid "Not Changed Group"
+ msgstr "Группа не изменена"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:366
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:365
+ msgid "Change Group"
+ msgstr "Изменить группу"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:376
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:507
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:375
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:506
+ msgid "use key --group-name to select group"
+ msgstr "используйте ключ --add-group для выбора группы"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:388
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:387
+ msgid "use key --group-rights to select rights"
+ msgstr "используйте ключ --group-rights для выбора прав"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:407
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:413
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:406
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:412
+ msgid "Change group"
+ msgstr "Изменить группу"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:477
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:476
+ #, python-format
+ msgid "Group %s deleted"
+ msgstr "Группа %s удалена"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:480
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:479
+ #, python-format
+ msgid "Group %s is not deleted"
+ msgstr "Группа %s не удалена"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:496
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:495
+ msgid "Delete Group"
+ msgstr "Удаление группы"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:526
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:525
+ msgid "Group delete"
+ msgstr "Удаление группы"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:580
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:579
+ #, python-format
+ msgid "Group %s already exists!"
+ msgstr "Группа %s уже существует!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:591
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:590
+ #, python-format
+ msgid "Group %s add"
+ msgstr "Группа %s добавлена"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:605
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:604
+ msgid "Add Group"
+ msgstr "Добавление группы"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:616
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:615
+ msgid "use key --add-group to add a group"
+ msgstr "используйте ключ --add-group для добавления группы"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:641
+-msgid "Group add"
+-msgstr "Дабавление группы"
+-
+-#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:643
++#: /var/calculate/mydir/git/calculate-api/core/server/edit_groups.py:642
+ msgid "Add"
+ msgstr "Добавить"
+ 
+@@ -1487,11 +1464,11 @@ msgstr "Добавить"
+ msgid "watcher process pid %d error"
+ msgstr "ошибка наблюдения за процессом с идентификатором %d"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/clean.py:92
++#: /var/calculate/mydir/git/calculate-api/core/server/clean.py:91
+ msgid "Variables cl_core_monitor_period or cl_core_sid_live not found"
+ msgstr "Переменная cl_core_monitor_period или cl_core_sid_live не найдены"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/clean.py:196
++#: /var/calculate/mydir/git/calculate-api/core/server/clean.py:195
+ msgid "Error read sid files"
+ msgstr "Ошибка чтения файлов с идентификаторами сессий"
+ 
+@@ -1529,17 +1506,17 @@ msgstr ""
+ msgid "Error. May be a server cert or secret key not valid!"
+ msgstr "Ошибка. Может быть сертификат сервера и секретный ключ неверны!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:201
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:200
+ #, python-format
+ msgid "listening to https://0.0.0.0:%d"
+ msgstr "сервер прослушивает https://0.0.0.0:%d"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:202
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:201
+ #, python-format
+ msgid "wsdl is at: https://0.0.0.0:%d/?wsdl"
+ msgstr "wsdl находится на: https://0.0.0.0:%d/?wsdl"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:233
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:232
+ #, python-format
+ msgid "Can not create pid file %s"
+ msgstr "не удаётся создать pid файл %s"
+@@ -1652,8 +1629,21 @@ msgstr "Ошибка ввода"
+ msgid "Exception: %s"
+ msgstr "Исключение: %s"
+ 
+-#~ msgid "Request id"
+-#~ msgstr "номер "
++#~ msgid "Press for advanced settings..."
++#~ msgstr "Нажмите для дополнительных настроек..."
++
++#~ msgid "Certificate View"
++#~ msgstr "Просмотр сертификата"
++
++#~ msgid "Group detail"
++#~ msgstr "Подробности группы"
++
++#~ msgid "Group add"
++#~ msgstr "Дабавление группы"
++
++#, fuzzy
++#~ msgid "Enter Group new certificate "
++#~ msgstr "Введите группу нового сертификата: "
+ 
+ #~ msgid "could not create directory"
+ #~ msgstr "не удаётся создать директорию"
