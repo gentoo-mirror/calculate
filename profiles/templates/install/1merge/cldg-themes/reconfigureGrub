@@ -2,3 +2,6 @@
 
 cl-template -l all --merge sys-boot/grub &>/dev/null
 cl-template -l all --merge sys-apps/openrc &>/dev/null
+#?pkg(gnome-base/gdm)!=#
+cl-template -l all --merge gnome-base/kdm &>/dev/null
+#pkg#

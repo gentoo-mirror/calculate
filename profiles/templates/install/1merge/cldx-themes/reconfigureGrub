@@ -2,3 +2,6 @@
 
 cl-template -l all --merge sys-boot/grub &>/dev/null
 cl-template -l all --merge sys-apps/openrc &>/dev/null
+#?pkg(lxde-base/lxdm)!=#
+cl-template -l all --merge lxde-base/lxdm &>/dev/null
+#pkg#

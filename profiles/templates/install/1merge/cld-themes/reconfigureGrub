@@ -2,3 +2,6 @@
 
 cl-template -l all --merge sys-boot/grub &>/dev/null
 cl-template -l all --merge sys-apps/openrc &>/dev/null
+#?pkg(kde-base/kdm)!=#
+cl-template -l all --merge kde-base/kdm &>/dev/null
+#pkg#
