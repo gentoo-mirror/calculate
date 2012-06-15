@@ -430,7 +430,7 @@ calculate_change_version() {
 # DESCRIPTION:
 # Get latest regular file by name
 get_last_filename() {
-	findfiles=$(ls -d $1/$2*$3 2>/dev/null)
+	findfiles=$(ls -d $1/$2*{-[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9],[CDGXS]}$3 2>/dev/null)
 	if [[ -n $findfiles ]]
 	then
 		for line in $findfiles
@@ -476,7 +476,7 @@ calculate_get_current_initrd() {
 calculate_pkg_postinst() {
 	case "${PN}" in 
 		cld-themes|cmc-themes|cds-themes|cls-themes|cldg-themes|cldx-themes)
-			local initrdfile=$(calculate_get_current_initrd)
+			local initrdfile=$(calculate_get_current_initrd )
 			local initrdinstallfile=$(calculate_get_current_initrd -install)
 			[[ -f ${ROOT}${initrdfile} ]] &&
 				calculate_update_splash ${ROOT}${initrdfile}
