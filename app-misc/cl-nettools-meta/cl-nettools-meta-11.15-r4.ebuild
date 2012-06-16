@@ -41,6 +41,7 @@ RDEPEND="
 		net-p2p/deluge
 		net-p2p/linuxdcpp
 		x11-plugins/pidgin-hotkeys
+		x11-plugins/purple-plugin_pack
 	)
 	cdistro_CLDX? (
 		!net-fs/fusesmb
@@ -57,6 +58,7 @@ RDEPEND="
 		net-p2p/linuxdcpp
 		x11-plugins/pidgin-hotkeys
 		x11-plugins/pidgin-libnotify
+		x11-plugins/purple-plugin_pack
 	)
 	cdistro_CDS? (
 		app-text/wgetpaste
