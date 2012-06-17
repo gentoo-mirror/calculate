@@ -35,7 +35,7 @@ RDEPEND="
 
 	linguas_de? (
 		app-dicts/aspell-de
-		app-dicts/ispell-de
+		!app-dicts/ispell-de
 		app-dicts/myspell-de
 	)
 	linguas_en? (
@@ -44,27 +44,27 @@ RDEPEND="
 	)
 	linguas_es? (
 		app-dicts/aspell-es
-		app-dicts/ispell-es
+		!app-dicts/ispell-es
 		app-dicts/myspell-es
 	)
 	linguas_fr? (
 		app-dicts/aspell-fr
-		app-dicts/ispell-fr
+		!app-dicts/ispell-fr
 		app-dicts/myspell-fr
 	)
 	linguas_it? (
 		app-dicts/aspell-it
-		app-dicts/ispell-it
+		!app-dicts/ispell-it
 		app-dicts/myspell-it
 	)
 	linguas_pt_BR? (
 		app-dicts/aspell-pt-br
-		app-dicts/ispell-pt-br
+		!app-dicts/ispell-pt-br
 		app-dicts/myspell-pt
 	)
 	linguas_ru? (
 		app-dicts/aspell-ru
-		app-dicts/ispell-ru
+		!app-dicts/ispell-ru
 		app-dicts/myspell-ru
 	)
 "
