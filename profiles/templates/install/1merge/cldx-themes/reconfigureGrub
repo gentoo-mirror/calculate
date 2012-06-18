@@ -1,9 +1,1 @@
-# Calculate path=/tmp name=reconfigureGrub exec=/bin/bash ac_install_system!=up&&cl_belong_pkg!=&&pkg(media-gfx/cldx-themes)>=12.0_alpha1
-
-cl-template -l all --merge sys-boot/grub &>/dev/null
-#?pkg(media-gfx/splashutils)!=#
-cl-template -l all --merge media-gfx/splashutils &>/dev/null
-#pkg#
-#?pkg(lxde-base/lxdm)!=#
-cl-template -l all --merge lxde-base/lxdm &>/dev/null
-#pkg#
+# Calculate append=skip merge=grub,splashutils,lxdm ac_install_system!=up&&cl_belong_pkg!=&&pkg(media-gfx/cldx-themes)>=12.0_alpha1

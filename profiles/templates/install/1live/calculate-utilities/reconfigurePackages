@@ -1,17 +1,1 @@
-# Calculate path=/tmp name=reconfigurePackages exec=/bin/bash ac_install_system!=up&&cl_belong_pkg!=&&pkg(app-office/libreoffice)!=||ac_install_system!=up&&cl_belong_pkg!=&&pkg(x11-misc/xkeyboard-config)!=
-
-#?pkg(app-office/libreoffice)!=#
-cl-template -l all --merge app-office/libreoffice &>/dev/null
-#pkg#
-#?pkg(gnome-base/gdm)>=3.2&&pkg(gnome-base/gnome-shell)>=3.2#
-cl-template -l all --merge gnome-base/gdm &>/dev/null
-cl-template -l all --merge gnome-base/gnome-shell &>/dev/null
-#pkg#
-#?pkg(x11-misc/xkeyboard-config)!=#
-cl-template -l all --merge x11-misc/xkeyboard-config &>/dev/null
-who | grep " :" |  awk '{print $2" "$1}' | while read disp user
-do
-    su $user -c "setxkbmap -display $disp \$(setxkbmap -display $disp -query | grep layout | awk '{print \$2}')"
-done
-#pkg#
-true
+# Calculate append=skip merge=libreoffice,gdm,gnome-shell,xkeyboard-config ac_install_system!=up&&cl_belong_pkg!=&&pkg(app-office/libreoffice)!=||ac_install_system!=up&&cl_belong_pkg!=&&pkg(x11-misc/xkeyboard-config)!=

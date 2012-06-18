@@ -1,9 +1,1 @@
-# Calculate path=/tmp name=reconfigureGrub exec=/bin/bash ac_install_system!=up&&cl_belong_pkg!=&&pkg(media-gfx/cld-themes)>=12.0_alpha1
-
-cl-template -l all --merge sys-boot/grub &>/dev/null
-#?pkg(media-gfx/splashutils)!=#
-cl-template -l all --merge media-gfx/splashutils &>/dev/null
-#pkg#
-#?pkg(kde-base/kdm)!=#
-cl-template -l all --merge kde-base/kdm &>/dev/null
-#pkg#
+# Calculate append=skip merge=grub,splashutils,kdm ac_install_system!=up&&cl_belong_pkg!=&&pkg(media-gfx/cld-themes)>=12.0_alpha1
