@@ -1,4 +1,4 @@
-# Calculate path=/tmp name=restartNM exec=/bin/bash cl_setup==network
+# Calculate path=/tmp name=restartNM exec=/bin/bash cl_setup==network&&env(client.os_remote_auth)==
 
 #?list(os_install_net_interfaces,0)!=&&os_install_net_conf==networkmanager#
 (/etc/init.d/net.#-list(os_install_net_interfaces,0)-# status && /etc/init.d/net.#-list(os_install_net_interfaces,0)-# stop) &>/dev/null
