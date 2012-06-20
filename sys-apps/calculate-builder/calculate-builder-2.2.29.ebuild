@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND=">=sys-kernel/calckernel-3.4.18
-	!sys-apps/calculate-install
+	!<sys-apps/calculate-install-3
 	!<sys-apps/calculate-1.4.0_p20100921
 	app-cdr/cdrkit
 	sys-fs/squashfs-tools"

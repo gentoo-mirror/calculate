@@ -17,7 +17,7 @@ IUSE="minimal"
 DEPEND="!<sys-apps/calculate-lib-2.1.8-r1
 	!=sys-apps/calculate-lib-2.1.9
 	!=sys-apps/calculate-lib-2.1.10
-	!sys-apps/calculate-install
+	!<sys-apps/calculate-install-3
 	!minimal? ( dev-python/py-smbpasswd )
 	>=dev-python/pyxml-0.8
 	sys-apps/iproute2
