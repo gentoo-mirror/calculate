@@ -12,7 +12,7 @@ DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="kde xfce gnome"
 
 DEPEND="~sys-apps/calculate-desktop-2.2.29

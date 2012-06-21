@@ -6,20 +6,15 @@ EAPI="3"
 
 inherit distutils eutils
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
-SLOT="0"
-KEYWORDS="amd64 x86"
+SLOT="3"
+KEYWORDS="~amd64 ~x86"
 
-RDEPEND=">=sys-apps/calculate-lib-2.2.19
-	!<sys-apps/calculate-install-2.2.19
-	!<sys-apps/calculate-client-2.2.19
-	!<sys-apps/calculate-desktop-2.2.19
-	!<sys-apps/calculate-builder-2.2.19
-	!<sys-apps/calculate-assemble-2.2.19"
+RDEPEND=">=sys-apps/calculate-lib-3.0.0_beta1"
 
 DEPEND="sys-devel/gettext
 	${DEPEND}"
