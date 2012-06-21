@@ -1,0 +1,8 @@
+# Calculate format=kde link=/usr/share/applications/audacious.desktop name=calculate-audioplayer.desktop mirror pkg(media-sound/audacious)>=2.5
+
+# Update info
+#-ini(desktop.audioplayer, audacious)-#
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true

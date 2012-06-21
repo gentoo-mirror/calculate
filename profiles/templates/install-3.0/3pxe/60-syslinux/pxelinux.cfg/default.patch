@@ -1,0 +1,13 @@
+# Calculate format=patch name=default
+<reg> root=/dev/ram0</reg>
+<text> real_root=/dev/nfs nfsroot=#-list(os_install_net_ip,0)-#:#-os_install_pxe_path-#/calculate</text>
+<reg>\n\nLABEL harddisk([^\n]*\n*)+SLX=0x80</reg>
+<text></text>
+<reg>([ =])(/boot)</reg>
+<text>\1/calculate\2</text>
+<reg>KERNEL memtest</reg>
+<text>KERNEL calculate/syslinux/memtest</text>
+<reg> (common.cfg|calcmenu.c32)</reg>
+<text> pxelinux.cfg/\1</text>
+<reg> scandelay=\d+</reg>
+<text></text>
