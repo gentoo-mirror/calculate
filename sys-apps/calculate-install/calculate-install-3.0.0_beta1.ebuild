@@ -13,7 +13,7 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="~amd64 ~x86"
-IUSE="minimal"
+IUSE="pxe minimal"
 
 DEPEND="~sys-apps/calculate-lib-3.0.0_beta1
 	app-portage/layman
