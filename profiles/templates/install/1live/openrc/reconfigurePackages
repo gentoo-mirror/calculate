@@ -1,2 +1,4 @@
-# Calculate append=skip merge=baselayout ac_install_system!=up&&cl_belong_pkg!=&&pkg(sys-apps/baselayout)!=
+# Calculate path=/tmp name=reconfigure exec=/bin/bash ac_install_system!=up&&cl_belong_pkg!=&&pkg(sys-apps/baselayout)!=
 
+cl-template -l all --merge sys-apps/baselayout &>/dev/null
+true

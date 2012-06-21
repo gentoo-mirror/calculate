@@ -1,1 +1,1 @@
-# Calculate path=/etc/NetworkManager os_install_net_conf==networkmanager
+# Calculate path=/etc/NetworkManager os_install_net_settings!=networkmanager&&os_install_net_conf==networkmanager||ac_install_system==up&&os_install_net_conf==networkmanager||os_install_root_type==livecd&&os_install_net_conf==networkmanager

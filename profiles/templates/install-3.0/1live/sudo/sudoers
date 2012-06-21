@@ -1,0 +1,17 @@
+# Calculate comment=# chmod=0440
+
+Defaults	env_reset
+#?os_install_root_type==livecd#
+Defaults	env_keep += "HOME"
+Defaults	env_keep += "QT_PLUGIN_PATH"
+#os_install_root_type#
+
+root	ALL=(ALL) ALL
+
+# BEGIN laptop configuration
+# END laptop configuration
+
+#?os_install_root_type==livecd#
+%wheel	ALL=(ALL) NOPASSWD: ALL
+#os_install_root_type#
+%vboxusers ALL=NOPASSWD:/sbin/modprobe vboxdrv
