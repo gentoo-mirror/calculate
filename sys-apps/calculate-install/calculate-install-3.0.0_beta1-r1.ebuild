@@ -37,11 +37,3 @@ pkg_postinst() {
 	einfo "For install wsdl for calculate-install perform:"
 	einfo "  cl-core --write-variable cl_wsdl=calculate-install"
 }
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# fix path to init.d/calculate
-	epatch "${FILESDIR}/calculate-install-3.0.0_beta1-fix_calculate.patch"
-}
