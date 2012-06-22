@@ -1,0 +1,152 @@
+commit 2e6c1c9d7e7f7f45366e81cf5a0a9ab744300b30
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Fri Jun 22 10:11:30 2012 +0400
+
+    Move need for fill vars function from install
+
+diff --git a/pym/cl_fill_assemble.py b/pym/cl_fill_assemble.py
+index 8467c6c..5df5d55 100644
+--- a/pym/cl_fill_assemble.py
++++ b/pym/cl_fill_assemble.py
+@@ -15,6 +15,7 @@
+ #  limitations under the License.
+ 
+ import os
++import sys
+ import re
+ import cl_overriding
+ import operator
+@@ -22,13 +23,19 @@ from cl_vars_share import varsShare
+ from os import path
+ from cl_distr import DistributiveRepository
+ from cl_template import iniParser
+-from cl_fill_install import fillVars as installFillVars
+ from cl_vars import Data as libData
+ from cl_utils import (_toUNICODE,isMount,pathJoin,listDirectory,readFile,
+-                      readLinesFile,getProgPath)
++                      readLinesFile,getProgPath,getUdevDeviceInfo)
+ from datetime import datetime
++from os import readlink,access,R_OK
++from cl_datavars import glob_attr
+ 
+-class fillVars(installFillVars):
++from cl_lang import lang
++tr = lang()
++tr.setLocalDomain('cl_builder')
++tr.setLanguage(sys.modules[__name__])
++
++class fillVars(object, glob_attr):
+     def get_ac_assemble_prepare(self):
+         """Need perform templates for assemble:prepare"""
+         if not self.Get('cl_action') in ('setup','make','break'):
+@@ -209,7 +216,13 @@ class fillVars(installFillVars):
+                     devices, [] )
+         return disks
+ 
+-    get_os_assemble_makeopts = installFillVars.get_os_install_makeopts
++    def get_os_assemble_makeopts(self):
++        """Get makeopts for make.conf file"""
++        cpunum = self.Get('hr_cpu_num')
++        if cpunum == 1:
++            return "-j1"
++        else:
++            return "-j%d"%(cpunum+1)
+ 
+     def get_os_assemble_gentoo_arch(self):
+         """Get gentoo arch by arch machine"""
+@@ -382,3 +395,95 @@ class fillVars(installFillVars):
+             if getProgPath(mkfsUtil):
+                 return fs
+         return "ext2"
++
++    #########################################################
++    # Import from depricated install
++    #########################################################
++
++    def get_os_device_hash(self):
++        """Generate hash information about device"""
++        def onlyDisk(devpath):
++            """Check by udevadm that devpath is device (disk)"""
++            prop = getUdevDeviceInfo(devpath)
++            return prop.get("ID_TYPE","")=="disk" and \
++                   prop.get("DEVTYPE","")=="disk"
++
++        # get usb device by '/dev/disk/by-id'(usb devices contain 'usb' in name)
++        diskIdPath = '/dev/disk/by-id'
++        if path.exists(diskIdPath):
++            usbdevices = \
++             map(lambda x: readlink(path.join(diskIdPath,x)).rpartition('/')[2],
++             filter(lambda x: x.startswith('usb-'),listDirectory(diskIdPath)))
++        else:
++            usbdevices = []
++        # get devices from /sys/block directories(discard mem,sr,loop and other)
++        sysBlockPath = '/sys/block'
++        devices = map(lambda x:path.join(sysBlockPath,x),
++                  filter(lambda x: onlyDisk(path.join(sysBlockPath,x)),
++                  filter(lambda x: not self.reWrongDevice.search(x),
++                  listDirectory(sysBlockPath))))
++        device_hash = {}
++        # filling hash
++        for mapnum,device in enumerate(sorted(devices,key=self.separateDevice)):
++            # get information by udev
++            props = getUdevDeviceInfo(device)
++            if not "DEVNAME" in props:
++                continue
++            # DEVNAME - /dev/(device_name)
++            device = props['DEVNAME']
++            device_hash[device] = {}
++            # get partition table
++            # (if PART_TABLE_TYPE absent then get by child partition)
++            device_hash[device]['table'] = props.get('ID_PART_TABLE_TYPE',
++                                           self.getTableByChild(device))
++            # enumerate disk for legecy grub
++            device_hash[device]['map'] = mapnum
++            # if device is usb device
++            if path.basename(device) in usbdevices:
++                # check for usb flash (removeable fiel in sysfs contains "1")
++                removablePath = '/sys/block/%s/removable'%path.basename(device)
++                if os.access(removablePath,R_OK) and \
++                    open(removablePath,'r').read().strip() == "1":
++                    devtype = "flash" 
++                else:
++                    devtype = "usb-hdd" 
++            else:
++                devtype = "hdd" 
++            # set detect device type (hdd,flash or usb-hdd)
++            device_hash[device]['type'] = devtype
++        return device_hash
++
++
++    def separateDevice(self,device):
++        return map(lambda x: int(x) if x.isdigit() else x,
++                   re.findall('\d+|\D+',device))
++
++    def getAttributeFromHash(self,var,attr):
++        hash = self.Get(var)
++        return map(lambda x: hash[x][attr] if attr in hash[x] else "",
++                sorted(hash.keys(),
++                       key=self.separateDevice))
++
++    reWrongDevice = re.compile("|".join(['^fd','^ram','^loop']))
++
++    def getTableByChild(self,device):
++        """Get table by child partitions"""
++        syspath = getUdevDeviceInfo(name=device).get('DEVPATH','')
++        if not syspath.startswith('/sys'):
++            syspath = pathJoin('/sys',syspath)
++        shortnameDevice = path.basename(device)
++        childs = filter(lambda x:x.startswith(shortnameDevice),
++                 listDirectory(syspath))
++        if childs:
++            child = pathJoin(syspath,childs[0])
++            return getUdevDeviceInfo(path=child).get('ID_PART_ENTRY_SCHEME','')
++        return ""
++
++    def get_os_device_dev(self):
++        """Devices"""
++        return sorted(self.Get('os_device_hash').keys(),
++                      key=self.separateDevice)
++
++    def get_os_device_type(self):
++        """Device type (hdd,cdrom,usb-flash)"""
++        return self.getAttributeFromHash('os_device_hash','type')
