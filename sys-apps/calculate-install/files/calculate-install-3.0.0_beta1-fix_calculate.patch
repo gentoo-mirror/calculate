@@ -1,0 +1,28 @@
+commit 168d79d106f5f7d6ffa8c65002c6af8051f3a883
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Jun 22 08:48:14 2012 +0400
+
+    Fix path to cl-core in init.d/calculate
+
+diff --git a/data/calculate b/data/calculate
+index 2ad2542..9b2d8c2 100644
+--- a/data/calculate
++++ b/data/calculate
+@@ -44,7 +44,7 @@ install_pkg()
+ variable_value()
+ {
+ 	local varname=$1
+-	cl-core --variable install.$varname
++	/usr/sbin/cl-core --variable install.$varname
+ }
+ 
+ install_video_driver()
+@@ -112,7 +112,7 @@ configure_users() {
+ start() {
+ 	install_video_driver
+ 	LANG=C create_nonroot_user
+-	LANG=C /usr/bin/cl-core --method configure_system --live
++	LANG=C /usr/sbin/cl-core --method configure_system --live
+ 	LANG=C configure_users
+ 
+ 	/usr/sbin/env-update

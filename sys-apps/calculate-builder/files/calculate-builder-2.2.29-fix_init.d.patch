@@ -1,0 +1,251 @@
+diff --git a/data/calculate-builder b/data/calculate-builder
+index 40a7414..ecdece5 100644
+--- a/data/calculate-builder
++++ b/data/calculate-builder
+@@ -11,11 +11,11 @@ KERNEL_VERSION_CONF="modules_3"
+ MODULES_PATH="/lib/modules/${KERNEL_VERSION}"
+ CONF_FILE="/etc/conf.d/modules"
+ 
+-# get variable value from cl-install
++# get variable value from cl-kernel (lib variable)
+ variable_value()
+ {
+ 	local varname=$1
+-	cl-install -v --filter $varname | 
++	cl-kernel -v --filter $varname | 
+ 		awk "{ if (\$1 == \"$varname\") print \$3 }"
+ }
+ 
+diff --git a/pym/cl_apply_template.py b/pym/cl_apply_template.py
+new file mode 100644
+index 0000000..477ccf1
+--- /dev/null
++++ b/pym/cl_apply_template.py
+@@ -0,0 +1,214 @@
++#-*- coding: utf-8 -*-
++
++# Copyright 2010 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
++
++import sys, os, re
++import traceback
++import cl_builder
++__version__ = cl_builder.__version__
++__app__ = cl_builder.__app__
++
++from cl_datavars import DataVars
++from cl_template import template, templateClt
++from cl_print import color_print
++
++import cl_lang
++tr = cl_lang.lang()
++tr.setLocalDomain('cl_builder')
++tr.setLanguage(sys.modules[__name__])
++
++class DataVarsObject(DataVars):
++    """Класс переменных для десктопа"""
++    def __init__(self, section):
++        DataVars.__init__(self)
++        self.section=section
++
++    def importDataObject(self, **args):
++        '''Заполнить конфигурацию переменных, для десктопа'''
++        # Имя секции в calculate.env
++        #envSection = "calculate-desktop"
++        # заполнить переменные окружения алгоритмом по умолнанию
++        self.importData(self.section, ('cl_vars_%s' %self.section,
++                                       'cl_fill_%s' %self.section))
++        self.flIniFile()
++
++class updateConfFiles(color_print):
++    """Для обновления конфигурационных файлов"""
++
++    def __init__(self):
++        clVars = DataVarsObject("install")
++        clVars.importDataObject()
++        self.clVars = clVars
++        self.installProgs = self.clVars.GetList("cl_merges")
++
++    def applyCltTemplate(self, cltTemplatePath):
++        """Применяем clt шаблон"""
++        realPath = "/usr/lib/calculate-2.2/calculate-install"
++        pymPath = os.path.join(realPath,"pym")
++        if not "calculate-install" in self.installProgs:
++            self.printERROR(_("Failed to install %s")
++                              %"calculate-install")
++            self.printWARNING(\
++                       _("To install the program, run 'cl-install --install'"))
++            return False
++        dirsTemplates = self.clVars.Get("cl_template_clt_path")
++        flagFoundPath = False
++        for dirTemplates in dirsTemplates:
++            if cltTemplatePath.startswith(dirTemplates):
++                flagFoundPath = True
++        if not flagFoundPath:
++            self.printERROR(_("Incorrect path %s")%cltTemplatePath)
++            self.printWARNING(_("Use the following directories and their \
++subdirectories %s")%', '.join(dirsTemplates))
++            return False
++        if not os.path.exists(cltTemplatePath):
++            self.printERROR(_("File '%s' does not exist")%cltTemplatePath)
++            return False
++        if not os.access(cltTemplatePath, os.R_OK):
++            self.printERROR(_("Permission denied: '%s'")%cltTemplatePath)
++            return False
++        if not os.path.isfile(cltTemplatePath):
++            self.printERROR(_("'%s' is not a file")%cltTemplatePath)
++            return False
++        clTempl = templateClt(self.clVars)
++        if not cltTemplatePath.endswith(clTempl.extFileTemplate):
++            self.printERROR(_("extension of the file '%s' not '.clt'")
++                            %cltTemplatePath)
++            return False
++        calcPkg = self.clVars.Get("cl_name")+"-" + self.clVars.Get("cl_ver")
++        # merge
++        self.clVars.Set("cl_action", "merge", True)
++        nameFile = clTempl.applyTemplate(cltTemplatePath)
++        if nameFile is False:
++            self.printERROR(_("Error template in a package %s")\
++                            %calcPkg)
++            for errMess in clTempl.getError().splitlines():
++                self.printERROR(errMess)
++            return False
++        if nameFile is True:
++            if clTempl.executedFiles:
++                self.printWARNING(_("Template %s was executed")
++                              %cltTemplatePath)
++            else:
++                self.printWARNING(_("Template %s not applied")
++                              %cltTemplatePath)
++        else:
++            self.printWARNING(_("Package %s has changed files")%calcPkg+":") 
++            self.printWARNING(" "*5 + nameFile)
++        return True
++
++    def printVars(self, opts=["all"]):
++        """Печать существующих переменных"""
++        if opts == ["all"]:
++            self.clVars.printVars()
++        else:
++            self.clVars.printVars()
++
++    def applyAllTemplates(self, location="all", package=None):
++        """Обновление конфигурационных файлов"""
++        if not "calculate-install" in self.installProgs:
++            self.printERROR(_("Failed to install %s")
++                              %"calculate-install")
++            self.printWARNING(\
++                       _("To install the program, run 'cl-install --install'"))
++            return False
++
++        if package and "/" in package:
++            package = package.partition('/')[2]
++        sectionsWork = map(lambda x: x.rpartition("-")[2], self.installProgs)
++        dictPakkages = {}
++        oldPymPath = ""
++        listIndex = []
++        clTempl = False
++        for sectName in sectionsWork:
++            realPath = "/usr/lib/calculate-2.2/calculate-%s"%sectName
++            pymPath = os.path.join(realPath,"pym")
++            if not os.path.isdir(pymPath):
++                continue
++            if len(filter(lambda x:x.startswith("cl_vars_") and\
++                x.endswith(".py") or x.startswith("cl_fill_") and\
++                x.endswith(".py"), os.listdir(pymPath)))==2:
++                if oldPymPath:
++                    sys.path = filter(lambda x: x!=oldPymPath, sys.path)
++                sys.path.insert(0, os.path.abspath(pymPath))
++                oldPymPath = os.path.abspath(pymPath)
++                clVars = DataVarsObject(sectName)
++                clVars.importDataObject()
++                if location in ("local", "remote"):
++                    listTemplatePaths = clVars.Get("cl_template_path")
++                    if len(listTemplatePaths) != 3:
++                        self.printERROR(\
++                        _("Error in template variable 'cl_template_path=%s'")\
++                        %str(listTemplatePaths))
++                        return False
++                    elif location == "local":
++                        clVars.Set("cl_template_path", [listTemplatePaths[1]],
++                                   True)
++                    elif location == "remote":
++                        clVars.Set("cl_template_path", [listTemplatePaths[2]],
++                                   True)
++                # merge
++                clVars.Set("cl_action", "merge" ,True)
++                # будут применены все шаблоны .clt (cltFilter=False)
++                # и обычные шаблоны
++                clTempl = template(clVars, cltFilter=False,
++                                   printWarning=False)
++                error = None
++
++                if(package):
++                    clVars.Set("cl_belong_pkg",package,True)
++                try:
++                    if location=="clt":
++                        # apply clt templates
++                        dirsFiles = clTempl.cltObj.applyTemplates()
++                    else:
++                        # apply all templates
++                        dirsFiles = clTempl.applyTemplates()
++                except InstallError,e:
++                    error = e
++                except (Exception),e:
++                    error = ""
++                    for i in apply(traceback.format_exception, sys.exc_info()):
++                        error += i
++                finally:
++                    if error:
++                        for line in filter(lambda x: x,str(error).split('\n')):
++                            self.printERROR(line)
++                        return False
++                nameAndVerPkg = clVars.Get("cl_name")+"-"+\
++                                clVars.Get("cl_ver")
++                if dirsFiles is False:
++                    self.printERROR(_("Error template in a package %s")\
++                                    %nameAndVerPkg)
++                    for errMess in clTempl.getError().splitlines():
++                        self.printERROR(errMess)
++                    return False
++                if dirsFiles and dirsFiles[1]:
++                    if not nameAndVerPkg in listIndex:
++                        listIndex.append(nameAndVerPkg)
++                    dictPakkages[nameAndVerPkg] =\
++                                            sorted(list(set(dirsFiles[1])))
++        if dictPakkages:
++            for calcPkg in listIndex:
++                self.printWARNING(_("Package %s has changed files")%calcPkg+":")
++                for nameF in dictPakkages[calcPkg]:
++                    nameFile = nameF
++                    if nameFile[:1] != "/":
++                        nameFile = "/" + nameFile
++                    self.printWARNING(" "*5 + nameFile)
++        if clTempl and clTempl.getWarning():
++            for warn in clTempl.getWarning().split("\n"):
++                self.printWARNING(warn)
++        return True
+diff --git a/pym/cl_builder.py b/pym/cl_builder.py
+index 407b168..36f81de 100644
+--- a/pym/cl_builder.py
++++ b/pym/cl_builder.py
+@@ -301,7 +301,7 @@ class cl_builder(color_print):
+         """
+         for dev in createdDev:
+             try:
+-                os.unlink(path.join(devPath,'dev',dev)
++                os.unlink(path.join(devPath,'dev',dev))
+             except:
+                 pass
+ 
