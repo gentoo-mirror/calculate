@@ -85,3 +85,5 @@ sys-fs/udev gudev
 #required by sys-fs/udisks-1.0.4-r1
 sys-fs/udev hwdb
 
+# add support xft and 256 color
+x11-terms/rxvt-unicode 256-color xft
