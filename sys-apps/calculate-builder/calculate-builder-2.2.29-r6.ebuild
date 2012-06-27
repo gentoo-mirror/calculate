@@ -25,13 +25,6 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 
-	# fix get value from variable
-	epatch "${FILESDIR}/calculate-builder-2.2.29-fix_init.d.patch"
-
-	# fix urandom remove func
-	epatch "${FILESDIR}/calculate-builder-2.2.29-fix_urandom.patch"
-	epatch "${FILESDIR}/calculate-builder-2.2.29-fix_urandom2.patch"
-
-	# fix grub configuring
-	epatch "${FILESDIR}/calculate-builder-2.2.29-fix_grub_config.patch"
+	# fixes
+	epatch "${FILESDIR}/calculate-builder-2.2.29-r6.patch"
 }
