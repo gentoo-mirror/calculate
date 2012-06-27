@@ -25,6 +25,10 @@ DEPEND="~sys-apps/calculate-lib-3.0.0_beta2
 	dev-python/cherrypy )"
 RDEPEND="${DEPEND}"
 
+pkg_preinst() {
+	dosym /usr/sbin/cl-core /usr/sbin/cl-core-setup
+}
+
 pkg_postinst() {
 	einfo "For autoconfigure calculate-core for adminuser perform:"
 	einfo "  cl-core --bootstrap <username>"
