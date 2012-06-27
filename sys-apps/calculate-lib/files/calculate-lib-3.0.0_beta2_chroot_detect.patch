@@ -1,0 +1,19 @@
+commit 8551c68811196e8da36a92a131efea7f6c176f1b
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Jun 27 18:44:45 2012 +0400
+
+    Fix chroot detect
+
+diff --git a/calculate/lib/variables/system.py b/calculate/lib/variables/system.py
+index 051be2c..3135816 100644
+--- a/calculate/lib/variables/system.py
++++ b/calculate/lib/variables/system.py
+@@ -15,7 +15,7 @@
+ #  limitations under the License.
+ 
+ import os
+-from os import path
++from os import path,R_OK
+ import socket
+ import platform
+ import re
