@@ -1,6 +1,11 @@
 # Calculate format=raw path=~/.config/audacious
 format 6
+#?os_arch_machine!=x86_64#
+general /usr/lib/audacious/General/statusicon.so
+#os_arch_machine#
+#?os_arch_machine==x86_64#
 general /usr/lib64/audacious/General/statusicon.so
+#os_arch_machine#
 stamp 1337861282
 name Status Icon
 priority 0
