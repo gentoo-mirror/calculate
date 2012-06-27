@@ -1,0 +1,21 @@
+commit 4de36783b4261d8d5cd07d6817db8bc11943f076
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Jun 27 18:10:56 2012 +0400
+
+    Fix detect default mbr for hdd installation
+
+diff --git a/install/variables/disk.py b/install/variables/disk.py
+index 22989c5..a2e8078 100644
+--- a/install/variables/disk.py
++++ b/install/variables/disk.py
+@@ -1423,9 +1423,7 @@ class VariableOsInstallMbr(LocationHelper,Variable):
+             # search /boot device or / device, by priority /boot,/
+             if bootDevice:
+                 return bootDevice
+-        if self.Get('os_device_dev'):
+-            return [self.Get('os_device_dev')[0]]
+-        return []
++        return self.Select('os_device_dev',where='os_device_type',eq='hdd')
+ 
+     def choice(self):
+         deviceParentMap = dict(self.ZipVars('os_device_dev','os_device_name'))
