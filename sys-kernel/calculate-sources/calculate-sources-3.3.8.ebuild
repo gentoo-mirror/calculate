@@ -31,7 +31,7 @@ SRC_URI="${KERNEL_URI} ${ARCH_URI} ${CALC_URI} ${HGPV_URI}"
 UNIPATCH_LIST="${DISTDIR}/${PN}-${CL_PATCH}.tar.bz2"
 
 DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.18-r7
-	>=sys-apps/calculate-builder-2.2.22-r2
+	>=sys-apps/calculate-builder-2.2.29-r6
 	|| ( app-arch/xz-utils app-arch/lzma-utils )
 	sys-apps/v86d
 	!<net-wireless/rtl8192se-3.0
