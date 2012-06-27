@@ -199,6 +199,10 @@ post_pkg_preinst() {
 		[[ -z ${CONFIG_PROTECT} && -e /etc/profile ]] && source /etc/profile
 		CONFIG_PROTECT=${CONFIG_PROTECT} ${CL_UPDATE_PROG} --desktop --system --pkg_version ${PVR} --pkg_category ${CATEGORY} --path ${D} $PN
 	fi
+	CL_UPDATE_PROG=/usr/sbin/cl-core-setup
+	if [ -e ${CL_UPDATE_PROG} ];then
+		${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-category ${CATEGORY} --pkg-path ${D} --pkg-name ${PN}
+	fi
 }
 # added for calculate2.2
 # FUNC: change_permissions
