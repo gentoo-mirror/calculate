@@ -35,3 +35,14 @@ RDEPEND="${RDEPEND}
 	cdistro_CDS? ( app-misc/cds-meta )
 	cdistro_CSS? ( app-misc/css-meta )
 "
+
+pkg_postinst()
+{
+	SETUP_SYSTEM_CMD=/usr/sbin/cl-setup-system
+	if [[ -x $SETUP_SYSTEM_CMD ]]
+	then
+		[[ `$SETUP_SYSTEM_CMD --variable cl_chroot_status` == "off" ]] && \
+			$SETUP_SYSTEM_CMD --no-progress
+	fi
+	true
+}
