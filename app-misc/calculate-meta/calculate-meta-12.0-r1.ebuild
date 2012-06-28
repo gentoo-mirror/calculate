@@ -35,8 +35,3 @@ RDEPEND="${RDEPEND}
 	cdistro_CDS? ( app-misc/cds-meta )
 	cdistro_CSS? ( app-misc/css-meta )
 "
-
-pkg_postinst()
-{
-	cl-template -l all --merge sys-apps/baselayout
-}
