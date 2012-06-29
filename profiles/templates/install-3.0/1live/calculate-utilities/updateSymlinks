@@ -1,4 +1,4 @@
 # Calculate path=/tmp exec=/bin/bash ac_install_system!=up&&pkg(sys-apps/calculate-utilities)>=3.0.0_beta2
 
-/usr/sbin/cl-core --create-symlink
+/usr/sbin/cl-core --create-symlink &>/dev/null
 true
