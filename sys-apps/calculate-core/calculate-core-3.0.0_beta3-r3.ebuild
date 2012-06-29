@@ -43,8 +43,5 @@ src_unpack() {
 	cd "${S}" 
 
 	#many fixes, fix collect table
-	epatch "${FILESDIR}/calculate-core-3.0.0_beta3-r2.patch"
-
-	# empty default value for package name
-	epatch "${FILESDIR}calculate-core-3.0.0_beta3-setup_pkg.patch"
+	epatch "${FILESDIR}/calculate-core-3.0.0_beta3-r3.patch"
 }
