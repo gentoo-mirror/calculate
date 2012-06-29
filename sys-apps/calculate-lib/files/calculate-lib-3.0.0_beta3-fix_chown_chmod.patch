@@ -1,0 +1,46 @@
+commit b5940e67c8d8c2902ceb841e4987940927e88b77
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Jun 29 09:50:22 2012 +0400
+
+    Fix execute chmod chown on samba remote resource
+
+diff --git a/calculate/lib/cl_template.py b/calculate/lib/cl_template.py
+index 7af65d0..304bfd7 100644
+--- a/calculate/lib/cl_template.py
++++ b/calculate/lib/cl_template.py
+@@ -4114,7 +4114,10 @@ variable 'cl_name'"))
+             """Изменение владельца конфигурационной директории"""
+             try:
+                 os.chown(nameDirConfig, uid, gid)
+-            except:
++            except Exception as e:
++                if hasattr(e,'errno') and e.errno == 13 and \
++                    "var/calculate/remote" in nameDirConfig:
++                    return True
+                 import pwd, grp
+                 try:
+                     userName = pwd.getpwuid(uid).pw_name
+@@ -4378,7 +4381,10 @@ variable 'cl_name'"))
+                     FD  = open(nameFileConfig, "w")
+                     FD.close()
+                 os.chown(nameFileConfig, uid, gid)
+-            except:
++            except Exception as e:
++                if hasattr(e,'errno') and e.errno == 13 and \
++                    "var/calculate/remote" in nameFileConfig:
++                    return True
+                 import pwd, grp
+                 try:
+                     userName = pwd.getpwuid(uid).pw_name
+@@ -4405,7 +4411,10 @@ variable 'cl_name'"))
+                     FD  = open(nameFileConfig, "w")
+                     FD.close()
+                 os.chmod(nameFileConfig, mode)
+-            except:
++            except Exception as e:
++                if hasattr(e,'errno') and e.errno == 13 and \
++                    "var/calculate/remote" in nameFileConfig:
++                    return True
+                 self.setError(_("Failed to apply template file %s")\
+                                 %nameFileTemplate)
+                 self.setError(\
