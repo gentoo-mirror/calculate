@@ -1,0 +1,281 @@
+diff --git core/client/progressbar.py core/client/progressbar.py
+index c79cfdd..7d2b4b7 100644
+--- core/client/progressbar.py
++++ core/client/progressbar.py
+@@ -10,7 +10,7 @@ try:
+     import termios
+ except ImportError:
+     pass
+-import signal
++#import signal
+ 
+ class ProgressBarWidgetHFill(object):
+     def update(self, pbar, width):
+@@ -63,8 +63,11 @@ class ProgressBar(object):
+         self.signal_set = False
+         if term_width is None:
+             try:
+-                self.handle_resize(None,None)
+-                signal.signal(signal.SIGWINCH, self.handle_resize)
++#                self.handle_resize(None,None)
++                h, self.term_width = array('h', ioctl(self.fd,termios.TIOCGWINSZ,
++                                              '\0'*8))[:2]
++
++#                signal.signal(signal.SIGWINCH, self.handle_resize)
+                 self.signal_set = True
+             except:
+                 self.term_width = 99
+@@ -77,9 +80,8 @@ class ProgressBar(object):
+         self.start_time = None
+         self.seconds_elapsed = 0
+ 
+-    def handle_resize(self, signum, frame):
+-        h, self.term_width = array('h', ioctl(self.fd,termios.TIOCGWINSZ,
+-                                              '\0'*8))[:2]
++#    def handle_resize(self, signum, frame):
++#        if not hasattr(self, 'term_width'):
+ 
+     def percentage(self):
+         "Returns the percentage of the progress."
+@@ -132,5 +134,5 @@ class ProgressBar(object):
+     def finish(self):
+         """Used to tell the progress is finished."""
+         self.update(self.maxval)
+-        if self.signal_set:
+-            signal.signal(signal.SIGWINCH, signal.SIG_DFL)
+\ No newline at end of file
++#        if self.signal_set:
++#            signal.signal(signal.SIGWINCH, signal.SIG_DFL)
+\ No newline at end of file
+diff --git core/server/cert_cmd.py core/server/cert_cmd.py
+index f50a2fd..7cddc35 100644
+--- core/server/cert_cmd.py
++++ core/server/cert_cmd.py
+@@ -14,7 +14,6 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-
+ ###############################################################################
+ ################ Job with Command Line and Certificates #######################
+ ###############################################################################
+@@ -1194,10 +1193,54 @@ def print_variable(variable,human_readable):
+         sys.stderr.write(str(e)+"\n")
+         sys.exit(1)
+ 
++def get_terminal_size():
++    import struct
++    try:
++        import fcntl
++        import termios
++    except ImportError:
++        return (None, None)
++
++    try:
++        data = fcntl.ioctl(sys.stdout.fileno(), termios.TIOCGWINSZ, 4 * '00')
++        height, width = struct.unpack('4H', data)[:2]
++        return (height, width)
++    except Exception:
++        return (None, None)
++
++def guess_encoding(text):
++    guess_list = ['cl-1251','utf-8', 'unicode']
++    for best_enc in guess_list:
++        try:
++            unicode(text,best_enc,"strict")
++        except:
++            pass
++        else:
++            break
++    return best_enc
++
++#import argparse
++#import textwrap as _textwrap
++#class RawAndDefaultsHelpFormatter(argparse.HelpFormatter):
++#    def __init__(self, prog, max_help_position=24, **kwargs):
++#        # Use the whole terminal width
++#        height, width = get_terminal_size()
++#        argparse.HelpFormatter.__init__(self, prog, width=width,
++#                                        max_help_position = max_help_position,
++#                                        **kwargs)
++#
++#    def _split_lines(self, text, width):
++##        print text
++##        text.encode("UTF-8")
++#        print guess_encoding(text)
++#        text = self._whitespace_matcher.sub(' ', text).strip()
++#        return _textwrap.wrap(text, width)
++
+ #################################################################
+ def parse():
+     import argparse
+-    parser = argparse.ArgumentParser(add_help=False)
++    parser = argparse.ArgumentParser(add_help=False)#,
++#                               formatter_class = RawAndDefaultsHelpFormatter)
+     parser.add_argument(
+         '-h', '--help', action='store_true', default=False,
+         dest='help', help=_("show this help message and exit"))
+diff --git core/server/cl_server.py core/server/cl_server.py
+index 44425ab..10ecdf5 100644
+--- core/server/cl_server.py
++++ core/server/cl_server.py
+@@ -58,7 +58,8 @@ def main(*args, **keywords):
+     # set var env
+     if not ob.flIniFile():
+         sys.exit(1)
+-    cl_wsdl = ob.Get('cl_wsdl')
++#    cl_wsdl = ob.Get('cl_wsdl')
++    cl_wsdl = ob.Get('cl_wsdl_available')
+     data_path = ob.Get('cl_core_data')
+     certbase = ob.Get('cl_core_database')
+     serv_certbase = ob.Get('cl_core_serv_database')
+diff --git core/server/func.py core/server/func.py
+index 03e679e..515cad2 100644
+--- core/server/func.py
++++ core/server/func.py
+@@ -526,6 +526,12 @@ def create_symlink(data_path):
+     meths = Dec.conMethods
+     path_to_link = '/usr/sbin'
+     symlinks_file = os.path.join(data_path, 'conf/symlinks')
++    if not os.path.exists(os.path.join(data_path, 'conf')):
++        try:
++            os.makedirs(os.path.join(data_path, 'conf'))
++        except OSError:
++            print _("cannot create directory %s") \
++                                %(os.path.join(data_path, 'conf'))
+     fd = open(symlinks_file, 'a')
+     for link in meths:
+         link_path = os.path.join(path_to_link, link)
+diff --git core/server/methods_func.py core/server/methods_func.py
+index 92dddbf..b764b64 100644
+--- core/server/methods_func.py
++++ core/server/methods_func.py
+@@ -237,12 +237,14 @@ def collect_table(field, val_list, client, wait_thread = None):
+ 
+     obj_body = collect_obj_body(obj_body, field)
+ 
+-    column = len(field.tablevalue.head)
+     if type(field.tablevalue.values) in [list, tuple]:
+         ChoiceValue = field.tablevalue.values
++        column = len(field.tablevalue.head)
+     else:
+         ChoiceValue = field.tablevalue.values.ChoiceValue
++        column = len(field.tablevalue.head.string)
+     type_list = map(lambda x: x.typefield, ChoiceValue)
++    obj_body = []
+     for i in range(len(val_table)):
+         if 'password' in type_list:
+             if len(val_table[i]) != 2 or val_table[i][1].lower() != '':
+@@ -297,24 +299,25 @@ def collect_table(field, val_list, client, wait_thread = None):
+                 else:
+                     temp_row.append(val_table[i][j])
+ 
+-        if temp_row[0] in key_list:
+-            ind = key_list.index(temp_row[0])
++#        if temp_row[0] in key_list:
++#            ind = key_list.index(temp_row[0])
++#
++#            count_val = filter (None, temp_row)
++#            if (len(count_val) == 1 and not empty_row_flag) or \
++#                      (len(count_val) == 2 and temp_row[1].lower() == 'none'):
++#                obj_body.pop(ind)
++#                key_list.pop(ind)
++#            else:
++#                obj_body.pop(ind)
++#                obj_body.insert(ind, temp_row)
++#        else:
++#            count_val = filter (None, temp_row)
++#            if (len(count_val) == 1 and not empty_row_flag) or \
++#                      (len(count_val) == 2 and temp_row[1].lower() == 'none'):
++#                continue
++        obj_body.append(temp_row)
++#        key_list.append(temp_row[0])
+ 
+-            count_val = filter (None, temp_row)
+-            if (len(count_val) == 1 and not empty_row_flag) or \
+-                      (len(count_val) == 2 and temp_row[1].lower() == 'none'):
+-                obj_body.pop(ind)
+-                key_list.pop(ind)
+-            else:
+-                obj_body.pop(ind)
+-                obj_body.insert(ind, temp_row)
+-        else:
+-            count_val = filter (None, temp_row)
+-            if (len(count_val) == 1 and not empty_row_flag) or \
+-                      (len(count_val) == 2 and temp_row[1].lower() == 'none'):
+-                continue
+-            obj_body.append(temp_row)
+-            key_list.append(temp_row[0])
+     if not obj_body:
+         obj_body = [[None]]
+     return listToArrayArray(client, obj_body)
+diff --git core/server/replace_class.py core/server/replace_class.py
+index 269d241..442a156 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -28,52 +28,6 @@ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_core',sys.modules[__name__])
+ 
+ class replaceClass():
+-#    cachedict = {}
+-#    # function getting object from cache
+-#    def get_cache(self, sid, meth_name, obj_name):
+-#        if meth_name in self.cachedict:
+-#            if obj_name in self.cachedict[meth_name]:
+-#                return self.cachedict[meth_name][obj_name]
+-#        return None
+-#
+-#    # function placing object in cache
+-#    def set_cache(self, sid, meth_name, obj_name, obj, smart = True):
+-#        try:
+-#            if not meth_name in self.cachedict:
+-#                self.cachedict[meth_name] = {}
+-#            if not obj_name in self.cachedict[meth_name]:
+-#                self.cachedict[meth_name][obj_name] = obj
+-#                return True
+-#            if smart:
+-#                for var_name, var_value in obj.__dict__.viewitems():
+-#                    if var_value != None:
+-#                        setattr(self.cachedict[meth_name][obj_name], \
+-#                                var_name, var_value)
+-#            else:
+-#                self.cachedict[meth_name][obj_name] = obj
+-#            return True
+-#        except:
+-#            return False
+-#
+-#    def clear_cache(self, sid, meth_name=None, obj_name = None):
+-#        if not meth_name:
+-#            self.cachedict = {}
+-#            return True
+-#        if not meth_name in self.cachedict:
+-#            return True
+-#
+-#        if obj_name:
+-#            if not obj_name in self.cachedict[meth_name]:
+-#                return True
+-#            else:
+-#                obj = self.cachedict[meth_name].pop(obj_name, None)
+-#                if hasattr (obj, 'close'):
+-#                    obj.close()
+-#        else:
+-#            obj = self.cachedict.pop(meth_name, None)
+-#            if hasattr (obj, 'close'):
+-#                obj.close()
+-
+     def startprocess (self, sid, target=None, method=None, method_name=None, \
+                       auto_delete=False, args_proc = {}):
+         """ start process """
+diff --git core/server/setup_package.py core/server/setup_package.py
+index b800954..31f9626 100644
+--- core/server/setup_package.py
++++ core/server/setup_package.py
+@@ -325,7 +325,7 @@ class updateSystemConfigs(shareUpdateConfigs):
+                     {"%s/%s"%(category,nameProgram):[version],
+                         "%s"%(nameProgram):[version]})
+         clTempl = False
+-        for mergeProgram in mergePrograms:
++        for mergeProgram in filter(None,mergePrograms):
+             clVars = None
+             try:
+                 module_name = '%s.datavars'% (
