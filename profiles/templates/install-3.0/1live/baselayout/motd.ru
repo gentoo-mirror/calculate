@@ -4,7 +4,7 @@
 Если какой-либо из сетевых адаπтеров был обнаружен πри загрузке, он будет
 автоматически сконфигурирован, если в сети достуπен DHCP сервер.
 Для указания сетевых настроек используйте утилиту "cl-install".
-Пример:"cl-install --startup --ip 192.168.1.100/24 \
+Пример:"cl-setup-network --ip eth0:no:192.168.1.100:24 \
         --route default:192.168.1.1 --dns 192.168.1.1"
 #?os_install_linux_system==server||os_install_linux_shortname==CLS#
 И перезапустите net.eth0 командой "/etc/init.d/net.eth0 restart".
