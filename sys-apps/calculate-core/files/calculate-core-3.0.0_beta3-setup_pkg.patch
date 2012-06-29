@@ -1,0 +1,20 @@
+commit 9cf10b97f27b6c26943d606895008870ce935d76
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Fri Jun 29 17:52:10 2012 +0400
+
+    Add empty value for setup_pkg
+
+diff --git a/core/variables/setup_package.py b/core/variables/setup_package.py
+index aaab9dc..77f3cd8 100644
+--- a/core/variables/setup_package.py
++++ b/core/variables/setup_package.py
+@@ -45,7 +45,8 @@ class VariableClCorePkgName(Variable):
+             raise VariableError("Please, choose package")
+ 
+     def choice(self):
+-        return sorted(chain(*map(lambda x:map(lambda y:reVerSplitToPV(y)['PN'],
++        return [""]+\
++            sorted(chain(*map(lambda x:map(lambda y:reVerSplitToPV(y)['PN'],
+                             listDirectory(x)),
+                listDirectory('/var/db/pkg',onlyDir=True,fullPath=True))))
+ 

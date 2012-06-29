@@ -1,0 +1,19 @@
+commit 2af87d567fd1ad4af90b5597531e02099a0f6446
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Fri Jun 29 17:41:23 2012 +0400
+
+    Fix translate
+
+diff --git a/ru/cl_install3.po b/ru/cl_install3.po
+index 57201f6..4f9debf 100644
+--- a/ru/cl_install3.po
++++ b/ru/cl_install3.po
+@@ -735,7 +735,7 @@ msgid "user settings"
+ msgstr "настройки пользователей"
+ 
+ msgid "Boot configuration is not available on LiveCD"
+-msgstr "Разметка не доступна при авторазметке"
++msgstr "Настройка загрузки не доступна на LiveCD"
+ 
+ msgid "Configure only mutable parameters"
+ msgstr "Конфигурировать только изменяемые параметры"

@@ -1,0 +1,20 @@
+commit 6efa34d75b9d6e43d1788e446a6e1cc16aaba9e7
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Jun 29 17:55:02 2012 +0400
+
+    Change default value
+
+diff --git a/install/cl_wsdl_install.py b/install/cl_wsdl_install.py
+index 3cb6710..177890c 100644
+--- a/install/cl_wsdl_install.py
++++ b/install/cl_wsdl_install.py
+@@ -154,7 +154,8 @@ class Wsdl:
+ 
+     @rpc(Integer, InstallInfo, _returns = Array(ReturnedMessage))
+     @core_method(category=__('Installation'),title=__('System installation'),
+-        image='system-installer,applications-other,drive-harddisk',
++        image='calculate-install,system-installer,applications-other,'
++              'drive-harddisk',
+         gui=True,command='cl-install',
+         rights=['install'])
+     def install ( self, sid, info):
