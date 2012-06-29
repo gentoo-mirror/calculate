@@ -1,0 +1,105 @@
+diff --git consolegui/application/ControlButton.py consolegui/application/ControlButton.py
+index 63c3e8d..d149ba4 100644
+--- consolegui/application/ControlButton.py
++++ consolegui/application/ControlButton.py
+@@ -146,6 +146,18 @@ class ControlButtonWgt(QtGui.QWidget):
+             if hasattr (self, 'button_widget'):
+                 end_layout.addWidget(self.prev_button)
+ #            self.grid.addWidget(self.prev_button, x, y)
++        else:
++            self.prev_button = QtGui.QPushButton(self)
++            self.prev_button.setText(_('Cancel'))
++
++            self.prev_button.clicked.connect(self.button_disabled)
++            self.prev_button.clicked.connect(self.clear_method_cache)
++
++            self.prev_button.setMinimumWidth(62)
++            self.prev_button.setFixedHeight(32)
++            if hasattr (self, 'button_widget'):
++                end_layout.addWidget(self.prev_button)
++
+         if main_frame.view.groups.GroupField[-1].last and not \
+                                main_frame.isBrief(self.ClientObj.param_objects\
+                                [main_frame.method_name]['step']+1) or brief:
+@@ -251,6 +263,26 @@ class ControlButtonWgt(QtGui.QWidget):
+             self.hide()
+             self._parent.back()
+ 
++    def clear_method_cache(self):
++        self.button_disabled()
++        sid = int(self.ClientObj.sid)
++
++        if hasattr (self._parent.MainFrameWgt, 'method_name'):
++            method = self._parent.MainFrameWgt.method_name
++            try:
++                res = self.ClientObj.client.service.clear_method_cache \
++                                                            (sid, method)
++            except Exception as e:
++                _print (e)
++        from calculate.consolegui.application.ConnectionTabs \
++                                                    import SelectedMethodWgt
++        if type(self.window()) == SelectedMethodWgt:
++            self.window().close()
++        else:
++            self.del_button()
++            self.hide()
++            self._parent.back()
++
+     def button_disabled(self):
+         if hasattr(self, 'next_button'):
+             self.next_button.setDisabled(True)
+diff --git consolegui/application/client_class.py consolegui/application/client_class.py
+index 61980a3..f6c682b 100755
+--- consolegui/application/client_class.py
++++ consolegui/application/client_class.py
+@@ -508,6 +508,20 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+                 self.sock = wrap_class(sock, ca_certs=self.ca_certs, **add)
+ 
+                 return 0
++	    except OpenSSL.SSL.Error, e:
++	        if type(e.message) == list:
++		    if type(e.message[0]) == tuple:
++		        for i in e.message[0]:
++			    sys.stdout.write(i+' ')
++			    sys.stdout.flush()
++			sys.stdout.write('\n')
++			sys.stdout.flush()
++                    else:
++		        _print (e.message)
++	        else:
++		    _print (e.message)
++                HTTPSClientCertTransport.filename = None
++                return 1
+             except Exception, e:
+                 _print (e)
+                 HTTPSClientCertTransport.filename = None
+@@ -811,4 +825,4 @@ def rm_ca_from_trusted(ca_cert):
+         for cert in new_system_ca_certs:
+             fd.write(cert)
+         fd.close()
+-    return 0
+\ No newline at end of file
++    return 0
+diff --git data/cl-console-gui.desktop data/cl-console-gui.desktop
+index ba5fda3..26387ba 100644
+--- data/cl-console-gui.desktop
++++ data/cl-console-gui.desktop
+@@ -6,4 +6,4 @@ Exec=cl-console-gui
+ Icon=calculate-console
+ Terminal=false
+ Type=Application
+-Categories=Settings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;
+\ No newline at end of file
++Categories=Settings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;GNOME;GTK;Utility;
+diff --git setup.py setup.py
+index 1dac864..e0ea590 100755
+--- setup.py
++++ setup.py
+@@ -50,7 +50,6 @@ for size in [16,22,48,64,72,96,128]:
+     data_files.append(('/usr/share/icons/Calculate/%dx%d/apps' %(size,size),
+                    glob.glob('data/%dx%d/calculate-install.png' %(size,size))))
+ 
+-
+ var_data_files = []
+ 
+ __version__ = "0.1"

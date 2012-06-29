@@ -3,7 +3,7 @@
 if [[ -z `find /etc/conf.d -name "*cfg*modules" -exec grep "^modules_3" {} \;` ]]
 then
     find /etc/conf.d -name "*cfg*modules" -delete
-    if ! rc-config list boot | grep -q "calculate-builder "
+    if ! rc-config list boot | grep "calculate-builder " &>/dev/null
     then
         rc-update add calculate-builder boot &>/dev/null
     fi
