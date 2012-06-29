@@ -1,0 +1,34 @@
+commit 27ef8005c48bc6c82035ebb466db2468e261279a
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Jun 29 11:04:46 2012 +0400
+
+    Fix flash install
+
+diff --git a/install/cl_install.py b/install/cl_install.py
+index a5f53ef..f48483f 100644
+--- a/install/cl_install.py
++++ b/install/cl_install.py
+@@ -940,9 +940,8 @@ class Install(color_print):
+                         self.applyTemplatesFlash('/')
+                     else:
+                         self.startTask(
+-                            _("Configuring flash installation"))
+-                        self.applyTemplatesFlash(targetDistr.getDirectory(),
+-                                                 progress=True)
++                            _("Configuring flash installation"),progress=True)
++                        self.applyTemplatesFlash(targetDistr.getDirectory())
+                     self.endTask()
+                     self.closeClTemplate()
+                 # change boot config
+diff --git a/install/variables/disk.py b/install/variables/disk.py
+index a2e8078..39be7f5 100644
+--- a/install/variables/disk.py
++++ b/install/variables/disk.py
+@@ -1639,5 +1639,6 @@ class VariableOsInstallDiskSingle(Variable):
+                                  self.Get('os_disk_parent')))
+         deviceParentMap = dict(self.ZipVars('os_device_dev','os_device_name'))
+         return map(lambda x:(x,"%s (%s)"%(x,
+-                        deviceParentMap.get(diskParentMap.get(x,x),_("Unknown")))),
++                        deviceParentMap.get(diskParentMap.get(x,x),
++                        _("Unknown")))),
+                     self.availDevs())+[("","")]
