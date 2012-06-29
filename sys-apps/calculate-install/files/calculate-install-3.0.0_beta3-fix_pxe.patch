@@ -1,0 +1,26 @@
+commit cd6d253d7870ad3af2c306543d06f97b58537d2c
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Jun 29 16:33:42 2012 +0400
+
+    Fix pxe loading
+
+diff --git a/install/variables/net.py b/install/variables/net.py
+index df2ae35..1e286d2 100644
+--- a/install/variables/net.py
++++ b/install/variables/net.py
+@@ -585,12 +585,13 @@ class VariableOsInstallNetConf(NetHelper,Variable):
+         if filter(lambda x:x.lower() == ("networkmanager"),
+            listDirectory('/etc/runlevels/boot')+
+            listDirectory('/etc/runlevels/default')) \
+-            or self.Get('os_install_root_type') == "livecd":
++            or self.Get('os_root_type') == "livecd":
+             nm = "networkmanager"
+         else:
+             nm = ""
+         for val,comment in self.Get('os_install_net_conf_available'):
+-            if nm == val:
++            if nm == val and not (self.Get('os_root_dev') == '/dev/nfs' and \
++                self.Get('os_install_root_type') == "livecd"):
+                 return nm
+         else:
+             return "openrc"
