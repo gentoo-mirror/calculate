@@ -1,0 +1,641 @@
+diff --git consolegui/application/ConnectionTabs.py consolegui/application/ConnectionTabs.py
+index 01b3e79..5c04451 100644
+--- consolegui/application/ConnectionTabs.py
++++ consolegui/application/ConnectionTabs.py
+@@ -6,6 +6,7 @@ import dbus.mainloop.glib
+ 
+ from PySide import QtGui, QtCore
+ import sudsds, time, sys
++import os, pwd, shutil
+ import ConfigParser
+ 
+ from TrayIcon import TrayIcon
+@@ -114,6 +115,10 @@ class SelectedMethodWgt(QtGui.QWidget):
+ #        event.ignore()
+         if close_event:
+             self.set_size()
++            save_path = os.path.join('/tmp', 'calculate-' + \
++                                     pwd.getpwuid(os.getuid()).pw_name)
++            if os.path.isdir(save_path):
++                shutil.rmtree(save_path)
+             event.accept()
+         else:
+             event.ignore()
+@@ -477,6 +482,10 @@ class ToolTabWidget(QtGui.QTabWidget):
+                 if not self.close_tab(0, True):
+                     return 1
+             self.set_size()
++            save_path = os.path.join('/tmp', 'calculate-' + \
++                                     pwd.getpwuid(os.getuid()).pw_name)
++            if os.path.isdir(save_path):
++                shutil.rmtree(save_path)
+             self.app.exit()
+ 
+     def get_size(self):
+diff --git consolegui/application/ControlButton.py consolegui/application/ControlButton.py
+index 63c3e8d..d149ba4 100644
+--- consolegui/application/ControlButton.py
++++ consolegui/application/ControlButton.py
+@@ -146,6 +146,18 @@ class ControlButtonWgt(QtGui.QWidget):
+             if hasattr (self, 'button_widget'):
+                 end_layout.addWidget(self.prev_button)
+ #            self.grid.addWidget(self.prev_button, x, y)
++        else:
++            self.prev_button = QtGui.QPushButton(self)
++            self.prev_button.setText(_('Cancel'))
++
++            self.prev_button.clicked.connect(self.button_disabled)
++            self.prev_button.clicked.connect(self.clear_method_cache)
++
++            self.prev_button.setMinimumWidth(62)
++            self.prev_button.setFixedHeight(32)
++            if hasattr (self, 'button_widget'):
++                end_layout.addWidget(self.prev_button)
++
+         if main_frame.view.groups.GroupField[-1].last and not \
+                                main_frame.isBrief(self.ClientObj.param_objects\
+                                [main_frame.method_name]['step']+1) or brief:
+@@ -251,6 +263,26 @@ class ControlButtonWgt(QtGui.QWidget):
+             self.hide()
+             self._parent.back()
+ 
++    def clear_method_cache(self):
++        self.button_disabled()
++        sid = int(self.ClientObj.sid)
++
++        if hasattr (self._parent.MainFrameWgt, 'method_name'):
++            method = self._parent.MainFrameWgt.method_name
++            try:
++                res = self.ClientObj.client.service.clear_method_cache \
++                                                            (sid, method)
++            except Exception as e:
++                _print (e)
++        from calculate.consolegui.application.ConnectionTabs \
++                                                    import SelectedMethodWgt
++        if type(self.window()) == SelectedMethodWgt:
++            self.window().close()
++        else:
++            self.del_button()
++            self.hide()
++            self._parent.back()
++
+     def button_disabled(self):
+         if hasattr(self, 'next_button'):
+             self.next_button.setDisabled(True)
+diff --git consolegui/application/MainFrameResult.py consolegui/application/MainFrameResult.py
+index e922fd4..10e0c37 100755
+--- consolegui/application/MainFrameResult.py
++++ consolegui/application/MainFrameResult.py
+@@ -392,7 +392,7 @@ class MainFrameRes(QtGui.QWidget):
+         if result in [0,2]:
+             return 0
+         elif result == -1:
+-            msg = _("Certificate not found in the server database!")
++            msg = _("Certificate not found in the server!")
+         elif result == -2:
+             msg = _("Session not matching your certificate!")
+         elif result == 1:
+diff --git consolegui/application/ShortFrameResult.py consolegui/application/ShortFrameResult.py
+index dbdf7c4..3f1c953 100644
+--- consolegui/application/ShortFrameResult.py
++++ consolegui/application/ShortFrameResult.py
+@@ -253,7 +253,7 @@ class ShortFrameRes(QtGui.QWidget):
+         if result in [0,2]:
+             return 0
+         elif result == -1:
+-            msg = _("Certificate not found in the server database!")
++            msg = _("Certificate not found in the server!")
+         elif result == -2:
+             msg = _("Session not matching your certificate!")
+         elif result == 1:
+diff --git consolegui/application/View_Process.py consolegui/application/View_Process.py
+index 67e0696..a15a1c1 100755
+--- consolegui/application/View_Process.py
++++ consolegui/application/View_Process.py
+@@ -179,7 +179,7 @@ class ViewProc(QtGui.QWidget):
+         elif result == 2:
+             msg = _("Process completed")
+         elif result == -1:
+-            msg = _("Certificate not found in the server database!")
++            msg = _("Certificate not found in the server!")
+         elif result == -2:
+             msg = _("Session not matching your certificate!")
+         elif result == 1:
+diff --git consolegui/application/client_class.py consolegui/application/client_class.py
+index 61980a3..f6c682b 100755
+--- consolegui/application/client_class.py
++++ consolegui/application/client_class.py
+@@ -508,6 +508,20 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+                 self.sock = wrap_class(sock, ca_certs=self.ca_certs, **add)
+ 
+                 return 0
++	    except OpenSSL.SSL.Error, e:
++	        if type(e.message) == list:
++		    if type(e.message[0]) == tuple:
++		        for i in e.message[0]:
++			    sys.stdout.write(i+' ')
++			    sys.stdout.flush()
++			sys.stdout.write('\n')
++			sys.stdout.flush()
++                    else:
++		        _print (e.message)
++	        else:
++		    _print (e.message)
++                HTTPSClientCertTransport.filename = None
++                return 1
+             except Exception, e:
+                 _print (e)
+                 HTTPSClientCertTransport.filename = None
+@@ -811,4 +825,4 @@ def rm_ca_from_trusted(ca_cert):
+         for cert in new_system_ca_certs:
+             fd.write(cert)
+         fd.close()
+-    return 0
+\ No newline at end of file
++    return 0
+diff --git consolegui/application/helpwidget.py consolegui/application/helpwidget.py
+index 67354b8..b2b49ef 100755
+--- consolegui/application/helpwidget.py
++++ consolegui/application/helpwidget.py
+@@ -56,7 +56,8 @@ class HelpWgt(QtGui.QWidget):
+ 
+         self.image_lbl = QtGui.QLabel(self)
+ 
+-        filename = '/usr/share/icons/Calculate/128x128/cl-core.png'
++        filename = '/usr/share/icons/Calculate/128x128/apps/' \
++                   'calculate-console.png'
+         ir = QtGui.QImageReader(filename)
+ 
+         diff = ir.size().width() / 140.0
+diff --git consolegui/application/more.py consolegui/application/more.py
+index cb3895e..01c186c 100755
+--- consolegui/application/more.py
++++ consolegui/application/more.py
+@@ -2553,9 +2553,13 @@ class ClientServiceThread(QtCore.QThread):
+         self.close_flag = True
+ 
+ class ImageLabel(QtGui.QLabel):
+-    def __init__(self, image, height_image, parent = None):
++    def __init__(self, image, height_image, parent):
+         QtGui.QLabel.__init__(self)
+-        self._parent = parent
++#        self._parent = parent
++        save_path = os.path.join('/tmp', 'calculate-' + \
++                                 pwd.getpwuid(os.getuid()).pw_name)
++        if not os.path.isdir(save_path):
++            os.mkdir(save_path)
+         repeat = None
+ 
+         image_path, filename = image.rsplit('/',1)
+@@ -2582,8 +2586,9 @@ class ImageLabel(QtGui.QLabel):
+                 fix_image = QtGui.QLabel(self)
+                 img = Image.open(fix_image_path)
+                 img.thumbnail((img.size[0],height_image), Image.ANTIALIAS)
+-                temp_file = '/tmp/%s_fix' %filename
++                temp_file = os.path.join(save_path, '%s_fix' %filename)
+                 img.save(temp_file, "JPEG")
++                os.chmod(temp_file, 0666)
+                 fix_image.setFixedWidth(img.size[0])
+                 fix_image.setStyleSheet("background-image: url(%s); " \
+                                         %temp_file)
+@@ -2598,8 +2603,9 @@ class ImageLabel(QtGui.QLabel):
+ 
+         im = Image.open(image)
+         im.thumbnail((im.size[0],height_image), Image.ANTIALIAS)
+-        temp_file = '/tmp/%s_temp' %filename
++        temp_file = os.path.join(save_path, '%s_temp' %filename)
+         im.save(temp_file, "JPEG")
++        os.chmod(temp_file, 0666)
+         style += "background-image: url(%s); " %temp_file
+         style += "background-attachment: fixed; "
+         style += "background-repeat: %s; " %repeat_dict[repeat.lower()]
+diff --git consolegui/application/session_function.py consolegui/application/session_function.py
+index 09edc90..7ce79f2 100755
+--- consolegui/application/session_function.py
++++ consolegui/application/session_function.py
+@@ -51,7 +51,7 @@ def client_post_cert (client, lang):
+     sid = get_sid(client)
+     results = client.service.post_cert()
+     if results[0][0] == -4:
+-        show_msg (_("Certificate not found in Server Database!"), _('Error'))
++        show_msg (_("Certificate not found in the server!"), _('Error'))
+         raise Exception()
+     sid, new_session = client_sid(sid, client, results[0][0], lang)
+     if new_session:
+diff --git data/cl-console-gui.desktop data/cl-console-gui.desktop
+index ba5fda3..26387ba 100644
+--- data/cl-console-gui.desktop
++++ data/cl-console-gui.desktop
+@@ -6,4 +6,4 @@ Exec=cl-console-gui
+ Icon=calculate-console
+ Terminal=false
+ Type=Application
+-Categories=Settings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;
+\ No newline at end of file
++Categories=Settings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;GNOME;GTK;Utility;
+diff --git ru/console_gui.po ru/console_gui.po
+index 5320e04..f706123 100644
+--- ru/console_gui.po
++++ ru/console_gui.po
+@@ -2,8 +2,8 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: console_gui_translate\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2012-06-27 14:19+0300\n"
+-"PO-Revision-Date: 2012-06-27 14:20+0300\n"
++"POT-Creation-Date: 2012-07-02 10:16+0300\n"
++"PO-Revision-Date: 2012-07-02 10:16+0300\n"
+ "Last-Translator: Denis <ds@mail.ru>\n"
+ "Language-Team: \n"
+ "Language: \n"
+@@ -52,25 +52,26 @@ msgstr "При закрытии сессии данные %d процессa б
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:419
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:173
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:702
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1959
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2286
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:701
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1958
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2285
+ msgid "Yes"
+ msgstr "Да"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:420
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:174
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:704
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1961
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2287
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:703
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1960
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2286
+ msgid "No"
+ msgstr "Нет"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:425
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:117
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:893
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1077
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2052
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:151
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:892
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1076
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2051
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:50
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:132
+ msgid "Cancel"
+@@ -204,8 +205,8 @@ msgid "Country (a two-character tag)"
+ msgstr "Страна (2 символа)"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:103
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1832
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2036
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1831
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2035
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:36
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:85
+ msgid "Password"
+@@ -269,8 +270,9 @@ msgid "Well killed!"
+ msgstr "Успешно убит!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:182
+-msgid "Certificate not found in the server database!"
+-msgstr "Сертификат не найден в БД сервера!"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:54
++msgid "Certificate not found in the server!"
++msgstr "Не найден сертификат на сервере!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:184
+ msgid "Session not matching your certificate!"
+@@ -282,8 +284,8 @@ msgstr "Не удалось завершить процесс!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:168
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:53
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:138
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:225
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:140
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:238
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:124
+ msgid "Close"
+ msgstr "Закрыть"
+@@ -347,57 +349,57 @@ msgstr "Сайт Компании"
+ msgid "Distribution website"
+ msgstr "Сайт дистрибутива"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:88
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:168
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:89
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:170
+ msgid "Calculate Console "
+ msgstr "Calculate Console "
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:117
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:119
+ msgid "Your name:"
+ msgstr "Ваше имя:"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:120
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:122
+ msgid "Your email:"
+ msgstr "Ваш email:"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:121
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:124
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:123
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:126
+ msgid "Please enter a valid email. "
+ msgstr "Пожалуйста, введите существующий адрес электронной почты."
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:122
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:125
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:124
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:127
+ msgid "If the email does not exist, you will receive no letter"
+ msgstr "Если электронная почта не существует, то письмо не дойдет"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:127
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:129
+ msgid "Subject:"
+ msgstr "Тема:"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:130
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:132
+ msgid "Message:"
+ msgstr "Сообщение:"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:133
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:135
+ msgid "Send a Bug"
+ msgstr "Отправить ошибку"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:183
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:181
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:332
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:395
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:185
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:180
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:331
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:394
+ msgid "Report Bug"
+ msgstr "Сообщить об ошибке"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:205
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:207
+ msgid "Enter a valid email!"
+ msgstr "Введите существующий адрес электронной почты!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:230
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:232
+ msgid "Email sent!"
+ msgstr "Письмо отправлено!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:234
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:236
+ msgid "Error sending!"
+ msgstr "Ошибка отправки"
+ 
+@@ -405,26 +407,21 @@ msgstr "Ошибка отправки"
+ msgid "Previous"
+ msgstr "Назад"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:163
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2047
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:175
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2046
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:43
+ msgid "Ok"
+ msgstr "Ok"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:182
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:194
+ msgid "Next"
+ msgstr "Далее"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:242
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:255
+ msgid "Error when closing the process"
+ msgstr "Ошибка закрытия процесса"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:54
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:89
+-msgid "Certificate not found in Server Database!"
+-msgstr "Сертификат не найден в БД сервера!"
+-
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:54
+ msgid "Error"
+ msgstr "Ошибка"
+ 
+@@ -471,6 +468,10 @@ msgstr "Время жизни сертификата истекает через
+ msgid "Not connected!"
+ msgstr "Соединение отсутствует!"
+ 
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:89
++msgid "Certificate not found in Server Database!"
++msgstr "Сертификат не найден в БД сервера!"
++
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:95
+ msgid "Your session ID = "
+ msgstr "Номер Вашей сессии = "
+@@ -516,89 +517,79 @@ msgstr "Кэш сессии удалён"
+ msgid "User should be not root"
+ msgstr "Пользователь должен быть не root"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:27
+-#, python-format
+-msgid "No module named %s"
+-msgstr "Нет модуля %s"
+-
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:28
+-#, python-format
+-msgid "Cannot import name %s"
+-msgstr "Не удалось импортировать %s"
+-
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:147
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:146
+ msgid "About"
+ msgstr "О программе"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:164
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:163
+ msgid "Info"
+ msgstr "Справка"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:490
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:601
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:489
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:600
+ msgid "Open"
+ msgstr "Открыть"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:700
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1963
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:699
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1962
+ msgid "Auto"
+ msgstr "Авто"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1028
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1027
+ msgid "Clear the table"
+ msgstr "Очистить таблицу"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1129
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1268
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1334
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1447
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1128
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1267
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1333
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1446
+ msgid "Add a row"
+ msgstr "Добавить строку"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1140
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1139
+ msgid "Recover the table"
+ msgstr "Восстановить таблицу"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1184
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1183
+ msgid "Check all"
+ msgstr "Отметить все"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1347
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1346
+ msgid "Reset"
+ msgstr "Сбросить изменения"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1835
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2042
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1834
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2041
+ msgid "Repeat"
+ msgstr "Повтор"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2156
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2155
+ msgid "Break the process"
+ msgstr "Прервать процесс"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2320
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2319
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:360
+ msgid "You do not have a certificate. Please generate a new request and get a new certificate from the server."
+ msgstr "У Вас нет сертификата. Пожалуйста, сгенерируйте запрос на сертитфикат и получите сертификат с сервера."
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2401
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2400
+ msgid "No methods available!"
+ msgstr "Нет доступных методов!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2430
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2429
+ msgid "No access to the file!"
+ msgstr "Нет доступа к файлу!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2433
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2432
+ msgid "Failed to obtain certificate data!"
+ msgstr "Не удалось получить данные сертификата!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2436
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2435
+ #, python-format
+ msgid "Permission denied %s"
+ msgstr "Доступ запрещён %s"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2447
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2446
+ msgid "Error removing the session from the server"
+ msgstr "Ошибка удаления сессии на сервере"
+ 
+@@ -915,28 +906,28 @@ msgstr "Ошибка при обновлении!"
+ msgid "Update successfully completed"
+ msgstr "Обновление успешно завершено"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:144
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:145
+ msgid "System control"
+ msgstr "Управление системой"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:159
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:257
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:161
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:259
+ msgid "Show/Hide Window"
+ msgstr "Показать/спрятать окно"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:161
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:168
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:293
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:400
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:163
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:170
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:295
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:403
+ msgid "Exit program"
+ msgstr "Выйти из программы"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:166
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:367
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:168
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:370
+ msgid "Program settings"
+ msgstr "Настройки программы"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:239
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:241
+ msgid "Update is already running"
+ msgstr "Обновление уже запущено"
+ 
+@@ -1003,8 +994,8 @@ msgid "Certificate add"
+ msgstr "Сертификат добавлен"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:184
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:616
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:621
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:630
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:635
+ #, python-format
+ msgid "error creating directory %s"
+ msgstr "Ошибка при создании директории %s"
+@@ -1063,15 +1054,15 @@ msgstr "Добавление сертификата"
+ msgid "Certificate not added to trusted"
+ msgstr "Сертификат не добавлен в доверенные"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:698
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:712
+ msgid "CRL add"
+ msgstr "Список отзыва сертификатов добавлен"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:787
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:801
+ msgid "CA certificate delete from user trusted certificate"
+ msgstr "Сертификат Центра Авторизации удалён из пользовательского списка доверенных сертификатов"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:807
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:821
+ msgid "CA certificate delete from system trusted certificate"
+ msgstr "Сертификат Центра Авторизации удалён из системного списка доверенных сертификатов"
+ 
+@@ -1104,3 +1095,8 @@ msgstr " Шаг "
+ msgid "Run"
+ msgstr "Выполнение"
+ 
++#~ msgid "No module named %s"
++#~ msgstr "Нет модуля %s"
++
++#~ msgid "Cannot import name %s"
++#~ msgstr "Не удалось импортировать %s"
+diff --git setup.py setup.py
+index 1dac864..e0ea590 100755
+--- setup.py
++++ setup.py
+@@ -50,7 +50,6 @@ for size in [16,22,48,64,72,96,128]:
+     data_files.append(('/usr/share/icons/Calculate/%dx%d/apps' %(size,size),
+                    glob.glob('data/%dx%d/calculate-install.png' %(size,size))))
+ 
+-
+ var_data_files = []
+ 
+ __version__ = "0.1"
