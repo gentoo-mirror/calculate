@@ -1,0 +1,13 @@
+diff --git data/client data/client
+index c4ac330..73224a5 100644
+--- data/client
++++ data/client
+@@ -46,7 +46,7 @@ start() {
+ 		done
+ 		if [[ -z $SERVER ]]
+ 		then
+-			cl-client $SERVERLIVE && cl-template -l remote &>/dev/null
++			cl-client $SERVERLIVE && cl-setup-system -l remote &>/dev/null
+ 		else
+ 			cl-client --mount
+ 		fi
