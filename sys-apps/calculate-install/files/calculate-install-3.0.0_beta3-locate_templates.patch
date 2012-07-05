@@ -1,0 +1,218 @@
+diff --git data/calculate data/calculate
+index 23aaee8..70b2ad8 100644
+--- data/calculate
++++ data/calculate
+@@ -111,10 +111,10 @@ configure_users() {
+ 
+ start() {
+ 	/usr/sbin/cl-core --append-variable cl_wsdl=calculate-install
+-	/usr/sbin/cl-core --append-variable cl_merge=calculate-install
++	/usr/sbin/cl-core --append-variable cl_merges=calculate-install
+ 	install_video_driver
+ 	LANG=C create_nonroot_user
+-	LANG=C /usr/sbin/cl-core --method configure_system --no-progress --live
++	LANG=C /usr/sbin/cl-core --method setup_system --no-progress --live
+ 	LANG=C configure_users
+ 
+ 	/usr/sbin/env-update
+diff --git install/cl_install.py install/cl_install.py
+index a5f53ef..59665ac 100644
+--- install/cl_install.py
++++ install/cl_install.py
+@@ -181,14 +181,60 @@ class Install(color_print):
+         """Apply templates for root of system."""
+         #self.clVars.Set("cl_root_path","/", True)
+         self.clVars.Set("cl_chroot_path","/", True)
+-        self.clTempl = ProgressTemplate(self.setProgress,self.clVars,
+-                                        cltFilter=False)
+-        dirsFiles = self.clTempl.applyTemplates()
+-        if self.clTempl.getError():
+-            self.printERROR(self.clTempl.getError())
+-            return False
+-        else:
+-            return dirsFiles
++        templates_locate = self.clVars.Get('cl_templates_locate')
++
++#        cltObj = True if 'clt' in templates_locate else False
++        dirs_list, files_list = ([],[])
++        listTemplatePaths = self.clVars.Get("cl_template_path")
++        for location in templates_locate:
++            if location in ("overlay", "local", "remote", "clt"):
++                if len(listTemplatePaths) != 3:
++                    self.printERROR(\
++                    _("Error in template variable 'cl_template_path=%s'")\
++                    %str(listTemplatePaths))
++                    return False
++                elif location == "local":
++                    self.clVars.Set("cl_template_path",
++                                    [listTemplatePaths[1]], True)
++                elif location == "remote":
++                    self.clVars.Set("cl_template_path",
++                               [listTemplatePaths[2]], True)
++                elif location == "overlay":
++                    self.clVars.Set("cl_template_path",
++                               [listTemplatePaths[0]], True)
++                elif location == "clt":
++#                    list_paths = ['/etc'] + \
++#                                    os.environ.get('CONFIG_PROTECT').split()
++#                    for template_path in list_paths:
++#                        if not os.path.isdir(template_path):
++#                            continue
++#                        print template_path
++#                        self.clVars.Set("cl_template_path",
++#                                        [template_path], True)
++#                        self.clTempl = ProgressTemplate(self.setProgress,
++#                                                    self.clVars,cltObj=True,
++#                                                    cltFilter=True)
++#
++#                        dirsFiles = self.clTempl.applyTemplates()
++#        #                cltObj = False
++#                        print dirsFiles
++#                        dirs_list += (dirsFiles[0])
++#                        files_list += (dirsFiles[1])
++                    continue
++
++                self.clTempl = ProgressTemplate(self.setProgress, self.clVars,
++                                                cltFilter=False)
++
++                dirsFiles = self.clTempl.applyTemplates()
++                dirs_list += (dirsFiles[0])
++                files_list += (dirsFiles[1])
++        try:
++            if self.clTempl.getError():
++                self.printERROR(self.clTempl.getError())
++                return False
++        except AttributeError:
++            pass
++        return (dirs_list, files_list)
+ 
+     def applyTemplatesFlash(self,directory):
+         """Apply templates for root of system."""
+@@ -940,9 +986,8 @@ class Install(color_print):
+                         self.applyTemplatesFlash('/')
+                     else:
+                         self.startTask(
+-                            _("Configuring flash installation"))
+-                        self.applyTemplatesFlash(targetDistr.getDirectory(),
+-                                                 progress=True)
++                            _("Configuring flash installation"),progress=True)
++                        self.applyTemplatesFlash(targetDistr.getDirectory())
+                     self.endTask()
+                     self.closeClTemplate()
+                 # change boot config
+diff --git install/cl_wsdl_install.py install/cl_wsdl_install.py
+index 3cb6710..27bba63 100644
+--- install/cl_wsdl_install.py
++++ install/cl_wsdl_install.py
+@@ -76,6 +76,7 @@ class InstallInfo(ClassSerializer):
+     cl_autopartition_root_size = String
+ 
+     cl_live = Boolean
++    cl_templates_locate = Array(String)
+ 
+     os_install_pxe = Boolean
+     os_install_pxe_path = String
+@@ -154,7 +155,8 @@ class Wsdl:
+ 
+     @rpc(Integer, InstallInfo, _returns = Array(ReturnedMessage))
+     @core_method(category=__('Installation'),title=__('System installation'),
+-        image='system-installer,applications-other,drive-harddisk',
++        image='calculate-install,system-installer,applications-other,'
++              'drive-harddisk',
+         gui=True,command='cl-install',
+         rights=['install'])
+     def install ( self, sid, info):
+@@ -476,6 +478,7 @@ class Wsdl:
+         dv.Set('cl_action','merge',True)
+         dv.addGroup(None,
+             normal=("cl_live",),
++            expert=('cl_templates_locate',),
+             next_label=_("Reconfigure"))
+         return dv
+ 
+diff --git install/variables/disk.py install/variables/disk.py
+index a2e8078..39be7f5 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -1639,5 +1639,6 @@ class VariableOsInstallDiskSingle(Variable):
+                                  self.Get('os_disk_parent')))
+         deviceParentMap = dict(self.ZipVars('os_device_dev','os_device_name'))
+         return map(lambda x:(x,"%s (%s)"%(x,
+-                        deviceParentMap.get(diskParentMap.get(x,x),_("Unknown")))),
++                        deviceParentMap.get(diskParentMap.get(x,x),
++                        _("Unknown")))),
+                     self.availDevs())+[("","")]
+diff --git install/variables/net.py install/variables/net.py
+index df2ae35..306a396 100644
+--- install/variables/net.py
++++ install/variables/net.py
+@@ -118,7 +118,9 @@ class VariableOsInstallNetData(NetHelper,TableVariable):
+ 
+     def init(self):
+         self.label = _("Addresses")
+-        self.help = _("IP address with network (example:%s)")%"192.168.1.1/24"
++#        self.help = _("IP address with network (example:%s)")%"192.168.1.1/24"
++        self.help = _("Network interface, DHCP, IP address and network mask "
++                      "(example:%s)")%" --ip eth0:off:192.168.1.1:24"
+ 
+ class VariableOsInstallNetHostname(NetHelper,Variable):
+     """
+@@ -585,12 +587,13 @@ class VariableOsInstallNetConf(NetHelper,Variable):
+         if filter(lambda x:x.lower() == ("networkmanager"),
+            listDirectory('/etc/runlevels/boot')+
+            listDirectory('/etc/runlevels/default')) \
+-            or self.Get('os_install_root_type') == "livecd":
++            or self.Get('os_root_type') == "livecd":
+             nm = "networkmanager"
+         else:
+             nm = ""
+         for val,comment in self.Get('os_install_net_conf_available'):
+-            if nm == val:
++            if nm == val and not (self.Get('os_root_dev') == '/dev/nfs' and \
++                self.Get('os_install_root_type') == "livecd"):
+                 return nm
+         else:
+             return "openrc"
+diff --git install/variables/system.py install/variables/system.py
+index 1efd0a8..76c6665 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -458,6 +458,29 @@ class VariableClLive(Variable):
+         self.label = _("Configure only dynamic parameters")
+         self.help = _("configure only dynamic parameters")
+ 
++class VariableClTemplatesLocate(Variable):
++    """
++    Location templates
++    """
++    type = "choice-list"
++    value = ['overlay','local','remote','clt']
++    element = "selecttable"
++    opt = ["-l","--locate"]
++    metavalue = "TEMPLATES"
++    untrusted = True
++
++    def init(self):
++        self.label = _("Location templates")
++        self.help = _("select location templates %s") \
++                      %"'overlay','local','remote','clt'"
++
++    def choice(self):
++        return [
++		('overlay',_('Overlay templates')),
++		('local',_('Local templates')),
++		('remote',_('Remote templates')),
++		('clt',_('clt templates'))]
++
+ class VariableOsInstallPxe(ReadonlyVariable):
+     """
+     Installation for PXE loading
+@@ -473,7 +496,7 @@ class VariableOsInstallPxe(ReadonlyVariable):
+             for pkg in ['net-misc/dhcp','net-ftp/tftp-hpa','net-fs/nfs-utils']:
+                 if not isPkgInstalled(pkg):
+                     raise VariableError(
+-                        _("You must to install %s package for PXE installation")
++                       _("You must to install %s package for PXE installation")
+                             %pkg)
+             try:
+                 config = cl_template.iniParser('/etc/calculate/calculate.env')
