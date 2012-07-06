@@ -1,0 +1,1401 @@
+diff --git core/client/progressbar.py core/client/progressbar.py
+index c79cfdd..7d2b4b7 100644
+--- core/client/progressbar.py
++++ core/client/progressbar.py
+@@ -10,7 +10,7 @@ try:
+     import termios
+ except ImportError:
+     pass
+-import signal
++#import signal
+ 
+ class ProgressBarWidgetHFill(object):
+     def update(self, pbar, width):
+@@ -63,8 +63,11 @@ class ProgressBar(object):
+         self.signal_set = False
+         if term_width is None:
+             try:
+-                self.handle_resize(None,None)
+-                signal.signal(signal.SIGWINCH, self.handle_resize)
++#                self.handle_resize(None,None)
++                h, self.term_width = array('h', ioctl(self.fd,termios.TIOCGWINSZ,
++                                              '\0'*8))[:2]
++
++#                signal.signal(signal.SIGWINCH, self.handle_resize)
+                 self.signal_set = True
+             except:
+                 self.term_width = 99
+@@ -77,9 +80,8 @@ class ProgressBar(object):
+         self.start_time = None
+         self.seconds_elapsed = 0
+ 
+-    def handle_resize(self, signum, frame):
+-        h, self.term_width = array('h', ioctl(self.fd,termios.TIOCGWINSZ,
+-                                              '\0'*8))[:2]
++#    def handle_resize(self, signum, frame):
++#        if not hasattr(self, 'term_width'):
+ 
+     def percentage(self):
+         "Returns the percentage of the progress."
+@@ -132,5 +134,5 @@ class ProgressBar(object):
+     def finish(self):
+         """Used to tell the progress is finished."""
+         self.update(self.maxval)
+-        if self.signal_set:
+-            signal.signal(signal.SIGWINCH, signal.SIG_DFL)
+\ No newline at end of file
++#        if self.signal_set:
++#            signal.signal(signal.SIGWINCH, signal.SIG_DFL)
+\ No newline at end of file
+diff --git core/server/cert_cmd.py core/server/cert_cmd.py
+index f50a2fd..7cddc35 100644
+--- core/server/cert_cmd.py
++++ core/server/cert_cmd.py
+@@ -14,7 +14,6 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-
+ ###############################################################################
+ ################ Job with Command Line and Certificates #######################
+ ###############################################################################
+@@ -1194,10 +1193,54 @@ def print_variable(variable,human_readable):
+         sys.stderr.write(str(e)+"\n")
+         sys.exit(1)
+ 
++def get_terminal_size():
++    import struct
++    try:
++        import fcntl
++        import termios
++    except ImportError:
++        return (None, None)
++
++    try:
++        data = fcntl.ioctl(sys.stdout.fileno(), termios.TIOCGWINSZ, 4 * '00')
++        height, width = struct.unpack('4H', data)[:2]
++        return (height, width)
++    except Exception:
++        return (None, None)
++
++def guess_encoding(text):
++    guess_list = ['cl-1251','utf-8', 'unicode']
++    for best_enc in guess_list:
++        try:
++            unicode(text,best_enc,"strict")
++        except:
++            pass
++        else:
++            break
++    return best_enc
++
++#import argparse
++#import textwrap as _textwrap
++#class RawAndDefaultsHelpFormatter(argparse.HelpFormatter):
++#    def __init__(self, prog, max_help_position=24, **kwargs):
++#        # Use the whole terminal width
++#        height, width = get_terminal_size()
++#        argparse.HelpFormatter.__init__(self, prog, width=width,
++#                                        max_help_position = max_help_position,
++#                                        **kwargs)
++#
++#    def _split_lines(self, text, width):
++##        print text
++##        text.encode("UTF-8")
++#        print guess_encoding(text)
++#        text = self._whitespace_matcher.sub(' ', text).strip()
++#        return _textwrap.wrap(text, width)
++
+ #################################################################
+ def parse():
+     import argparse
+-    parser = argparse.ArgumentParser(add_help=False)
++    parser = argparse.ArgumentParser(add_help=False)#,
++#                               formatter_class = RawAndDefaultsHelpFormatter)
+     parser.add_argument(
+         '-h', '--help', action='store_true', default=False,
+         dest='help', help=_("show this help message and exit"))
+diff --git core/server/cl_server.py core/server/cl_server.py
+index 44425ab..10ecdf5 100644
+--- core/server/cl_server.py
++++ core/server/cl_server.py
+@@ -58,7 +58,8 @@ def main(*args, **keywords):
+     # set var env
+     if not ob.flIniFile():
+         sys.exit(1)
+-    cl_wsdl = ob.Get('cl_wsdl')
++#    cl_wsdl = ob.Get('cl_wsdl')
++    cl_wsdl = ob.Get('cl_wsdl_available')
+     data_path = ob.Get('cl_core_data')
+     certbase = ob.Get('cl_core_database')
+     serv_certbase = ob.Get('cl_core_serv_database')
+diff --git core/server/func.py core/server/func.py
+index 03e679e..515cad2 100644
+--- core/server/func.py
++++ core/server/func.py
+@@ -526,6 +526,12 @@ def create_symlink(data_path):
+     meths = Dec.conMethods
+     path_to_link = '/usr/sbin'
+     symlinks_file = os.path.join(data_path, 'conf/symlinks')
++    if not os.path.exists(os.path.join(data_path, 'conf')):
++        try:
++            os.makedirs(os.path.join(data_path, 'conf'))
++        except OSError:
++            print _("cannot create directory %s") \
++                                %(os.path.join(data_path, 'conf'))
+     fd = open(symlinks_file, 'a')
+     for link in meths:
+         link_path = os.path.join(path_to_link, link)
+diff --git core/server/methods_func.py core/server/methods_func.py
+index 92dddbf..3ba814b 100644
+--- core/server/methods_func.py
++++ core/server/methods_func.py
+@@ -15,7 +15,7 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-import sys
++import sys, os
+ from calculate.lib.utils.common import getpass
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_core',sys.modules[__name__])
+@@ -60,9 +60,12 @@ def listToArrayArray (client, _list, _type = 'string'):
+ def _getattr(obj, attr):
+     return getattr(obj, attr) if hasattr(obj, attr) else None
+ 
+-def get_method_argparser(view, args):
++def get_method_argparser(view, args, cl_core = False):
+     method = args.method
+-    progr = 'cl-console --method '+method
++    if cl_core:
++        progr = os.path.basename(sys.argv[0])
++    else:
++        progr = 'cl-console --method '+method
+     import argparse
+     parser = argparse.ArgumentParser(prog=progr, add_help=False)
+     if type(view.groups) == list:
+@@ -70,6 +73,7 @@ def get_method_argparser(view, args):
+         groups = view.groups
+     else:
+         groups = view.groups[0]
++
+     for Group in groups:
+         if not Group.fields:
+             continue
+@@ -97,33 +101,34 @@ def get_method_argparser(view, args):
+                 if ':' in metavalue:
+                     metavalue = field.name.upper()
+ 
+-                if arg_type == str:
+-                    if opt.shortopt and opt.longopt:
+-                        group.add_argument(opt.shortopt, opt.longopt, 
++                try:
++                    if arg_type == str:
++                        if opt.shortopt and opt.longopt:
++                            group.add_argument(opt.shortopt, opt.longopt,
+                                  type = arg_type, dest=field.name, metavar = \
+                                  metavalue, action = action, help = opt.help)
+-                    elif opt.shortopt and not opt.longopt:
+-                        group.add_argument(opt.shortopt,
++                        elif opt.shortopt and not opt.longopt:
++                            group.add_argument(opt.shortopt,
+                                  type = arg_type, dest=field.name, metavar = \
+                                  metavalue, action = action, help = opt.help)
+-                    elif opt.longopt and not opt.shortopt:
+-                        group.add_argument(opt.longopt,
++                        elif opt.longopt and not opt.shortopt:
++                            group.add_argument(opt.longopt,
+                                  type = arg_type, dest=field.name, metavar = \
+                                  metavalue, action = action, help = opt.help)
+ 
+-                elif arg_type == bool:
+-                    if opt.shortopt and opt.longopt:
+-                        group.add_argument(opt.shortopt, opt.longopt, 
+-                                        action='store_true', dest=field.name, 
+-                                        default=None, help = opt.help)
+-                    elif opt.shortopt and not opt.longopt:
+-                        group.add_argument(opt.shortopt,
+-                                        action='store_true', dest=field.name, 
+-                                        default=None, help = opt.help)
+-                    elif opt.longopt and not opt.shortopt:
+-                        group.add_argument(opt.longopt, 
+-                                        action='store_true', dest=field.name, 
+-                                        default=None, help = opt.help)
++                    elif arg_type == bool:
++                        if opt.shortopt and opt.longopt:
++                            group.add_argument(opt.shortopt, opt.longopt,
++                                        type = str, dest=field.name,
++                                        help = opt.help)
++                        elif opt.shortopt and not opt.longopt:
++                            group.add_argument(opt.shortopt, type = str,
++                                               dest=field.name, help=opt.help)
++                        elif opt.longopt and not opt.shortopt:
++                            group.add_argument(opt.longopt, type = str,
++                                               dest=field.name, help=opt.help)
++                except argparse.ArgumentError:
++                    continue
+     return parser
+ 
+ def set_obj_item(client, param_object, field_name, value):
+@@ -156,13 +161,22 @@ def collect_object(client, param_object, view, args, wait_thread = None):
+                 set_flag = False
+                 if hasattr (field.opt, 'metavalue'):
+                     if field.opt.metavalue and _getattr(args, field.name):
+-                        if _getattr(args, field.name):
++                        if _getattr(args, field.name).lower() in ['on','yes']:
+                             param_object = set_obj_item(client, param_object,
+                                              field.name, field.opt.metavalue)
+                             set_flag = True
+                 if not set_flag:
++                    if _getattr(args, field.name):
++                        if _getattr(args, field.name).lower() in ['on','yes']:
++                            value = True
++                        elif _getattr(args,field.name).lower() in ['off','no']:
++                            value = False
++                        else:
++                            value = None
++                    else:
++                        value = None
+                     param_object = set_obj_item(client, param_object,
+-                              field.name, _getattr(args, field.name))
++                              field.name, value)
+ 
+             if field.element == 'radio' and field.type == 'bool':
+ #                param_object[field.name] = _getattr(args, field.name)
+@@ -215,34 +229,34 @@ def collect_table(field, val_list, client, wait_thread = None):
+         return None
+     val_table = map(lambda x: x.split(':'), val_list)
+ 
+-    obj_body = []
+-    key_list = []
+-
+-    if type(field.tablevalue.body) == list:
+-        temp_body = field.tablevalue.body
+-    else:
+-        temp_body = field.tablevalue.body.stringArray
+-    for obj_row in temp_body:
+-        if type(obj_row) != list:
+-            obj_row = obj_row.string
+-            for item in range(len(obj_row)):
+-                if not obj_row[item]:
+-                    obj_row[item] = ''
+-        else:
+-            if obj_row:
+-                if obj_row[0] == '':
+-                    obj_row.pop(0)
+-        key_list.append(obj_row[0])
+-        obj_body.append(obj_row)
++#    obj_body = []
+ 
+-    obj_body = collect_obj_body(obj_body, field)
++#    if type(field.tablevalue.body) == list:
++#        temp_body = field.tablevalue.body
++#    else:
++#        temp_body = field.tablevalue.body.stringArray
++#    for obj_row in temp_body:
++#        if type(obj_row) != list:
++#            obj_row = obj_row.string
++#            for item in range(len(obj_row)):
++#                if not obj_row[item]:
++#                    obj_row[item] = ''
++#        else:
++#            if obj_row:
++#                if obj_row[0] == '':
++#                    obj_row.pop(0)
++#        obj_body.append(obj_row)
++#
++#    obj_body = collect_obj_body(obj_body, field)
+ 
+-    column = len(field.tablevalue.head)
+     if type(field.tablevalue.values) in [list, tuple]:
+         ChoiceValue = field.tablevalue.values
++        column = len(field.tablevalue.head)
+     else:
+         ChoiceValue = field.tablevalue.values.ChoiceValue
++        column = len(field.tablevalue.head.string)
+     type_list = map(lambda x: x.typefield, ChoiceValue)
++    obj_body = []
+     for i in range(len(val_table)):
+         if 'password' in type_list:
+             if len(val_table[i]) != 2 or val_table[i][1].lower() != '':
+@@ -254,7 +268,6 @@ def collect_table(field, val_list, client, wait_thread = None):
+                                _('Repeat password for %s: ') %val_table[i][0])
+                 password = password if password else ''
+         temp_row = []
+-        empty_row_flag = True if len (val_table[i]) == 1 else False
+         for j in range(column):
+             # not adding if readonly
+             if j > (len(ChoiceValue) + 1):
+@@ -297,24 +310,8 @@ def collect_table(field, val_list, client, wait_thread = None):
+                 else:
+                     temp_row.append(val_table[i][j])
+ 
+-        if temp_row[0] in key_list:
+-            ind = key_list.index(temp_row[0])
++        obj_body.append(temp_row)
+ 
+-            count_val = filter (None, temp_row)
+-            if (len(count_val) == 1 and not empty_row_flag) or \
+-                      (len(count_val) == 2 and temp_row[1].lower() == 'none'):
+-                obj_body.pop(ind)
+-                key_list.pop(ind)
+-            else:
+-                obj_body.pop(ind)
+-                obj_body.insert(ind, temp_row)
+-        else:
+-            count_val = filter (None, temp_row)
+-            if (len(count_val) == 1 and not empty_row_flag) or \
+-                      (len(count_val) == 2 and temp_row[1].lower() == 'none'):
+-                continue
+-            obj_body.append(temp_row)
+-            key_list.append(temp_row[0])
+     if not obj_body:
+         obj_body = [[None]]
+     return listToArrayArray(client, obj_body)
+diff --git core/server/replace_class.py core/server/replace_class.py
+index 269d241..25d06bd 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -28,52 +28,6 @@ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_core',sys.modules[__name__])
+ 
+ class replaceClass():
+-#    cachedict = {}
+-#    # function getting object from cache
+-#    def get_cache(self, sid, meth_name, obj_name):
+-#        if meth_name in self.cachedict:
+-#            if obj_name in self.cachedict[meth_name]:
+-#                return self.cachedict[meth_name][obj_name]
+-#        return None
+-#
+-#    # function placing object in cache
+-#    def set_cache(self, sid, meth_name, obj_name, obj, smart = True):
+-#        try:
+-#            if not meth_name in self.cachedict:
+-#                self.cachedict[meth_name] = {}
+-#            if not obj_name in self.cachedict[meth_name]:
+-#                self.cachedict[meth_name][obj_name] = obj
+-#                return True
+-#            if smart:
+-#                for var_name, var_value in obj.__dict__.viewitems():
+-#                    if var_value != None:
+-#                        setattr(self.cachedict[meth_name][obj_name], \
+-#                                var_name, var_value)
+-#            else:
+-#                self.cachedict[meth_name][obj_name] = obj
+-#            return True
+-#        except:
+-#            return False
+-#
+-#    def clear_cache(self, sid, meth_name=None, obj_name = None):
+-#        if not meth_name:
+-#            self.cachedict = {}
+-#            return True
+-#        if not meth_name in self.cachedict:
+-#            return True
+-#
+-#        if obj_name:
+-#            if not obj_name in self.cachedict[meth_name]:
+-#                return True
+-#            else:
+-#                obj = self.cachedict[meth_name].pop(obj_name, None)
+-#                if hasattr (obj, 'close'):
+-#                    obj.close()
+-#        else:
+-#            obj = self.cachedict.pop(meth_name, None)
+-#            if hasattr (obj, 'close'):
+-#                obj.close()
+-
+     def startprocess (self, sid, target=None, method=None, method_name=None, \
+                       auto_delete=False, args_proc = {}):
+         """ start process """
+@@ -293,7 +247,7 @@ def local_method(metaclass, args):
+             view = getattr(metaObject, method_view_name)(0, view_obj)
+         except AttributeError:
+             colorPrint.printERROR (_('Method not found: '), method_view_name)
+-        method_parser = get_method_argparser(view, args)
++        method_parser = get_method_argparser(view, args, cl_core = True)
+         method_parser.print_help()
+     else:
+         try:
+@@ -320,7 +274,7 @@ def call_method(metaObject, args, colorPrint):
+     except AttributeError:
+         colorPrint.printERROR (_('Method not found: ') + method_name)
+         return None
+-    method_parser = get_method_argparser(view, args)
++    method_parser = get_method_argparser(view, args, cl_core = True)
+     param_object = create_param_object(view)
+     try:
+         args, unknown_args = method_parser.parse_known_args()
+diff --git core/server/setup_package.py core/server/setup_package.py
+index b800954..31f9626 100644
+--- core/server/setup_package.py
++++ core/server/setup_package.py
+@@ -325,7 +325,7 @@ class updateSystemConfigs(shareUpdateConfigs):
+                     {"%s/%s"%(category,nameProgram):[version],
+                         "%s"%(nameProgram):[version]})
+         clTempl = False
+-        for mergeProgram in mergePrograms:
++        for mergeProgram in filter(None,mergePrograms):
+             clVars = None
+             try:
+                 module_name = '%s.datavars'% (
+diff --git core/variables/setup_package.py core/variables/setup_package.py
+index aaab9dc..77f3cd8 100644
+--- core/variables/setup_package.py
++++ core/variables/setup_package.py
+@@ -45,7 +45,8 @@ class VariableClCorePkgName(Variable):
+             raise VariableError("Please, choose package")
+ 
+     def choice(self):
+-        return sorted(chain(*map(lambda x:map(lambda y:reVerSplitToPV(y)['PN'],
++        return [""]+\
++            sorted(chain(*map(lambda x:map(lambda y:reVerSplitToPV(y)['PN'],
+                             listDirectory(x)),
+                listDirectory('/var/db/pkg',onlyDir=True,fullPath=True))))
+ 
+diff --git ru/cl_core.po ru/cl_core.po
+index 824bbf4..6ad348f 100644
+--- ru/cl_core.po
++++ ru/cl_core.po
+@@ -2,9 +2,9 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: calculate-api\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2012-06-27 17:46+0300\n"
+-"PO-Revision-Date: 2012-06-27 17:46+0300\n"
+-"Last-Translator: Denis <ds@mail.ru>\n"
++"POT-Creation-Date: 2012-07-05 09:37+0300\n"
++"PO-Revision-Date: 2012-07-05 09:37+0300\n"
++"Last-Translator: Denis Spiridonov <ds.calculate.ru>\n"
+ "Language-Team: \n"
+ "Language: \n"
+ "MIME-Version: 1.0\n"
+@@ -22,51 +22,51 @@ msgstr "Имя пакета"
+ msgid "package name"
+ msgstr "имя пакета"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:62
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:63
+ msgid "Package version"
+ msgstr "Версия пакета"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:63
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:64
+ msgid "package version number with the revision"
+ msgstr "версия пакета с ревизией"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:87
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:88
+ msgid "Package category"
+ msgstr "Категория пакета"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:88
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:89
+ msgid "package category name"
+ msgstr "имя категории пакета"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:122
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:123
+ msgid "Path for configure"
+ msgstr "Путь для настройки"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:123
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:124
+ msgid "root path for saving the updated configuration files"
+ msgstr "корневой путь для сохранения обновленных конфигурационных файлов"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:140
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:141
+ msgid "Configure the system"
+ msgstr "Конфигурировать систему"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:141
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:142
+ msgid "update system configuration files"
+ msgstr "обновление системных конфигурационных файлов"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:154
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:155
+ msgid "Configure users"
+ msgstr "Настройка пользователей"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:155
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:156
+ msgid "update desktop (user) configuration files"
+ msgstr "обновление пользовательских конфигурационных файлов"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:168
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:169
+ msgid "Configure dependent packages in root"
+ msgstr "Настраивать зависимые пакет в корне"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:169
++#: /var/calculate/mydir/git/calculate-api/core/variables/setup_package.py:170
+ msgid "configure the dependent packages in the same path where the specified package instead root"
+ msgstr "настраивать зависимые пакеты в той же где и указанный пакет директории, вместо корня"
+ 
+@@ -643,23 +643,23 @@ msgstr "Отпечаток = %s"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:192
+ #: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:282
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:527
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:815
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:526
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:814
+ msgid "Serial number = "
+ msgstr "Серийный номер = "
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:194
+ #: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:284
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:529
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:817
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:528
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:816
+ msgid "Issuer"
+ msgstr "Подписчик"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:198
+ #: /var/calculate/mydir/git/calculate-api/core/client/client_class.py:288
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:533
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:821
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:861
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:532
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:820
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:860
+ msgid "Subject"
+ msgstr "Субъект"
+ 
+@@ -696,167 +696,171 @@ msgstr "Попробовать добавить корневой и сертиф
+ msgid "WARNING! %s trying to replace the certificate!"
+ msgstr "Внимание! %s пытается подменить сертификат!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:226
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:180
+ #: /var/calculate/mydir/git/calculate-api/core/server/methods_func.py:27
+ msgid "Repeat: "
+ msgstr "Повтор: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:234
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:188
+ #: /var/calculate/mydir/git/calculate-api/core/server/methods_func.py:35
+ msgid "Passwords do not match"
+ msgstr "Пароли не совпадают"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:274
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:228
+ #, python-format
+ msgid "Not found method for %s"
+ msgstr "Не найден метод для %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:295
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:321
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:364
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:249
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:275
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:318
+ msgid "Method not found: "
+ msgstr "Метод не найден: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:332
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:286
+ msgid "Unknown parameter"
+ msgstr "Неизвестный параметр"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:340
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:387
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:294
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:341
+ msgid "method is not available"
+ msgstr "метод не доступен"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:349
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:396
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:303
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:350
+ msgid "Error in parameter "
+ msgstr "Ошибка в параметре "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:370
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:324
+ msgid "Run process? (yes/no): "
+ msgstr "Запустить процесс? (yes/no): "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:375
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:329
+ #: /var/calculate/mydir/git/calculate-api/core/server/test.py:140
+ msgid "Interrupted by user"
+ msgstr "Прервано пользователем"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:481
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:511
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:435
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:465
+ msgid "yes"
+ msgstr "да"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:483
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:513
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:437
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:467
+ msgid "no"
+ msgstr "нет"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:485
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:515
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:439
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:469
+ msgid "auto"
+ msgstr "авто"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:531
++#: /var/calculate/mydir/git/calculate-api/core/server/replace_class.py:485
+ msgid "Not used"
+ msgstr "Не используется"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:98
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:99
+ #, python-format
+ msgid "Configuring dependent packages: %s"
+ msgstr "Настройка зависимых пакетов: %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:211
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:215
+ msgid "Missing environment variable CONFIG_PROTECT"
+ msgstr "Ошибка окружения переменной CONFIG_PROTECT"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:273
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:277
+ msgid "Replace files:"
+ msgstr "Заменённые файлы:"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:312
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:316
+ #, python-format
+ msgid "Package %s"
+ msgstr "Пакет %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:313
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:317
+ msgid "Update system cofiguration files"
+ msgstr "Обновление системных конфигурационных файлов"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:315
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:319
+ #, python-format
+ msgid "Path '%s' does not exist"
+ msgstr "Путь %s не существует"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:334
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:341
+ msgid "Configuring {nameProgram} package by {mergeProgram}"
+ msgstr "Конфигурация {nameProgram} утилитами {mergeProgram}"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:366
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:373
+ #, python-format
+ msgid "Error template in a package %s"
+ msgstr "Ошибка шаблона в пакете %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:388
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:395
+ #, python-format
+ msgid "Package %s has changed files"
+ msgstr "Пакет %s изменил файлы"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:398
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:405
+ msgid "Not found templates"
+ msgstr "Шаблон не найден"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:409
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:411
++msgid "Package was configured"
++msgstr "Пакет настроен"
++
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:416
+ msgid "Configuration"
+ msgstr "Настройка"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:409
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:416
+ msgid "Configure package"
+ msgstr "Настройка пакета"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:458
++#: /var/calculate/mydir/git/calculate-api/core/server/setup_package.py:465
+ msgid "Setup"
+ msgstr "Настроить"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:144
++#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:141
+ msgid "General monitoring started"
+ msgstr "Общий мониторинг запущен"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:146
++#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:143
+ msgid "Monitoring error"
+ msgstr "Ошибка мониторинга"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:152
++#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:149
+ msgid "Session monitoring started"
+ msgstr "Запущен мониторинг сессий"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:154
++#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:151
+ msgid "Session monitoring failed"
+ msgstr "Ошибка мониторинга сессий"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:157
++#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:154
+ msgid "Closing all processes"
+ msgstr "Завершаю все процессы"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:170
++#: /var/calculate/mydir/git/calculate-api/core/server/baseClass.py:168
+ msgid "All processes are closed."
+ msgstr "Все процессы закрыты."
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/create_cert.py:40
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:62
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:61
+ msgid "Enter certificate date manually? [y]/n: "
+ msgstr "Ввести дату сертификата вручную? y/[n]: "
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/create_cert.py:50
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:82
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:81
+ msgid "Do not use spaces or tabs."
+ msgstr "Не используйте символы пробела и табуляции."
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/create_cert.py:69
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:87
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:86
+ msgid "Organization unit: "
+ msgstr "Название отдела: "
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/create_cert.py:79
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:97
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:96
+ msgid "Full network address (host:port)"
+ msgstr "Полный сетевой адрес (хост:порт)"
+ 
+@@ -948,7 +952,7 @@ msgid "Gratulations!"
+ msgstr "Поздравляю!"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:43
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1058
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1057
+ #, python-format
+ msgid "Certificate %s not found"
+ msgstr "Сертификат %s не найден"
+@@ -987,7 +991,7 @@ msgid "no path to the client certificate"
+ msgstr "не создан путь к сертификату клиента"
+ 
+ #: /var/calculate/mydir/git/calculate-api/core/server/bootstrap.py:258
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:265
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:264
+ #, python-format
+ msgid "Certificate saved. Your certificate ID = %s"
+ msgstr "Сертификат сохранён. Номер Вашего сертификата = %s"
+@@ -1000,397 +1004,397 @@ msgstr "Вы действительно хотите удалить все се
+ msgid "Password: "
+ msgstr "Пароль: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/methods_func.py:250
++#: /var/calculate/mydir/git/calculate-api/core/server/methods_func.py:257
+ #, python-format
+ msgid "Password for %s: "
+ msgstr "Пароль для %s: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/methods_func.py:251
++#: /var/calculate/mydir/git/calculate-api/core/server/methods_func.py:258
+ #, python-format
+ msgid "Repeat password for %s: "
+ msgstr "Повтор пароля для %s: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:107
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:106
+ #, python-format
+ msgid "Country (TWO letters only!) [%s]: "
+ msgstr "Страна (только 2 символа!) [%s]: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:147
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:146
+ #, python-format
+ msgid "error writing to (reading) files from directory %s"
+ msgstr "ошибка записи (чтения) файла в директории %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:150
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:174
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:149
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:173
+ msgid "OK"
+ msgstr "OK"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:155
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:154
+ msgid "root certificate not found (use cl-core with --gen-root-cert)"
+ msgstr "корневой сертификат не найден (используйте cl-core с ключом --gen-root-cert)"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:189
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:237
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:188
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:236
+ msgid "Close. Connecting Error."
+ msgstr "Закрыто. Ошибка соединения."
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:196
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:195
+ msgid "Create a new private key and request?"
+ msgstr "Создать новый секретный ключ и запрос?"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:281
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:290
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:321
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:280
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:289
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:320
+ #, python-format
+ msgid "cannot create directory %s"
+ msgstr "не удаётся создать директорию %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:391
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:390
+ msgid "failed to delete the certificate!"
+ msgstr "ошибка удаления сертификата!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:488
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:487
+ msgid "to change permissions, the certificate number must be integer"
+ msgstr "для изменения прав сертификата используйте целочисленное значение"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:507
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:515
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:506
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:514
+ #, python-format
+ msgid "file %s not found!"
+ msgstr "файл %s не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:526
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:814
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:525
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:813
+ msgid "Fingerprint = "
+ msgstr "Отпечаток = "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:537
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:536
+ msgid "Permissions: "
+ msgstr "Права: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:585
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:584
+ msgid "all methods"
+ msgstr "все методы"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:588
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:587
+ msgid ", except:"
+ msgstr ", кроме:"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:637
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:636
+ #, python-format
+ msgid "Certificate ID = %s"
+ msgstr "Номер сертификата = %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:645
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:644
+ #, python-format
+ msgid "Total: %d certificates."
+ msgstr "Всего %d сертификатов."
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:649
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:648
+ msgid "Are you sure? Delete all client certificates?"
+ msgstr "Вы уверенны? Удалить все клиентские сертификаты?"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:658
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:657
+ msgid "certificate number not int and not 'all'"
+ msgstr "номер сертификата не целочисленный и не 'all'"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:664
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:663
+ msgid "Certificate not found"
+ msgstr "Сертификат не найден"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:672
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:671
+ #, python-format
+ msgid "Delete client certificate with id %d? y/[n]: "
+ msgstr "Удалить сертификат клиента с ID %d? y/[n]: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:676
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:675
+ msgid "Deleted"
+ msgstr "Удалено"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:688
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:760
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:687
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:759
+ msgid "The certificate number must be int"
+ msgstr "Номер сертификата должен быть целочисленным"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:693
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:765
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:692
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:764
+ #, python-format
+ msgid "Signature request %s not found"
+ msgstr "Запрос на подпись %s не найден"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:697
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:769
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:696
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:768
+ #, python-format
+ msgid "Certificate %s now exists"
+ msgstr "Сертификат %s успешно созданd"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:703
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:702
+ msgid "Enter Group new certificate (group name or 'all'):  "
+ msgstr "Введите группу нового сертификата (имя группы или 'all'): "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:741
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:797
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:740
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:796
+ #, python-format
+ msgid "certificate %s is signed"
+ msgstr "Сертификат %s подписан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:743
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:742
+ #, python-format
+ msgid "certificate %s not signed"
+ msgstr "Сертификат %s не подписан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:752
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:751
+ msgid "Root certificate or private key not found"
+ msgstr "Корневой сертификат или секретный ключ не найден"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:753
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:752
+ #, python-format
+ msgid "see %s"
+ msgstr "смотрите %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:837
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:877
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:836
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:876
+ msgid "request sent from:"
+ msgstr "запрос на подпись отправлен от:"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:840
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:880
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:839
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:879
+ msgid "date"
+ msgstr "дата"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:844
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:843
+ msgid "Certificate not found!"
+ msgstr "Сертификат не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:883
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:882
+ msgid "Request for signature not found!"
+ msgstr "Запрос на подпись не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:910
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:947
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:909
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:946
+ #, python-format
+ msgid "Request \t%s - not signed"
+ msgstr "Запрос \t%s - не подписан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:912
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:949
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:911
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:948
+ #, python-format
+ msgid "Request \t%s"
+ msgstr "Запрос \t%s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:915
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:952
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:914
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:951
+ msgid "Certificate or request not found!"
+ msgstr "Сертификат или запрос не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:921
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:958
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:920
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:957
+ msgid "certificate (request) number not int and not 'all'"
+ msgstr "номер сертификата (запроса) не целочисленный и не 'all'"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:943
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:942
+ msgid "Certificate \t"
+ msgstr "Сертификат \t"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:977
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:976
+ msgid "The ID must be int."
+ msgstr "идентификатор должен быть целочисленным."
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:986
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:985
+ #, python-format
+ msgid "Request or certificate with ID = %s not found!"
+ msgstr "Запрос или сертификат с идентификатором = %s не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:990
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:989
+ #, python-format
+ msgid "request %s not found!"
+ msgstr "запрос %s не найден!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:993
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:992
+ msgid "Request duly signed"
+ msgstr "Запрос успешно подписан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:994
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:993
+ msgid "Delete the certificate and the request? y/[n]: "
+ msgstr "Удалить сертификат и запрос на подпись? y/[n]: "
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:996
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:995
+ msgid "Not deleted"
+ msgstr "Не удалён"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1026
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1025
+ msgid "signature request deleted"
+ msgstr "запрос на подпись сертификата удалён"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1029
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1028
+ msgid "certificate deleted"
+ msgstr "сертификат удалён"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1031
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1030
+ msgid "failed to delete the file!"
+ msgstr "ошибка удаления файла!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1045
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1044
+ msgid "CRL deleted"
+ msgstr "Список отзыва сертификатов удалён"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1047
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1046
+ msgid "CRL does not exist"
+ msgstr "Список отзыва сертификатов не создан"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1053
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1052
+ msgid "The ID of a certificate  to be revoked must be integer!"
+ msgstr "Номер отзываемого сертификата должен быть целочисленным!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1138
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1137
+ msgid "You should not specify the value index."
+ msgstr "Вы не должны указывать индекс значения."
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1153
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1152
+ msgid "--append-variable work with list variables only"
+ msgstr "--append-variable работает только со списковыми переменными"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1191
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1190
+ msgid "This variable is not a list"
+ msgstr "Переменная не список"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1203
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1246
+ msgid "show this help message and exit"
+ msgstr "вывод этой справки и выход"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1206
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1249
+ msgid "server started"
+ msgstr "сервер запущен"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1209
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1252
+ msgid "port number"
+ msgstr "номер порта"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1212
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1255
+ msgid "Specify the location of a PID file"
+ msgstr "Указать расположение PID файла"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1215
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1258
+ msgid "operations with certificates (number or \"all\"). Server not running."
+ msgstr "операции с сертификатами (номер или \"all\"). Сервер не запускается."
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1219
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1262
+ msgid "view client's requests (number or \"all\")"
+ msgstr "просмотр клиентских запросов (номер или \"all\")"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1222
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1265
+ msgid "view servers certificates (number or \"all\"). Server not running."
+ msgstr "просмотр серверных сертификатов (номер или \"all\"). Сервер не запускается."
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1226
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1269
+ msgid "bootstrap action"
+ msgstr "начальные загрузки"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1229
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1272
+ msgid "use with --bootstrap to remove all certificates, requests and config files on the server"
+ msgstr "используйте с ключом --bootstrap, удаление всех сертификатов, запросов и конфигурационных файлов на сервере"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1233
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1276
+ msgid "dump (use with -c [ID])"
+ msgstr "дамп (используйте с ключом -c [ID])"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1236
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1279
+ msgid "debug"
+ msgstr "режим отладки (debug)"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1239
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1282
+ msgid "remove the selected certificate (use with -c [ID])"
+ msgstr "удалить выбранный сертификат (используйте с ключом -c [ID])"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1242
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1285
+ msgid "Add permissions for certificate (or certficates, comma-separated) (use with -c [ID])"
+ msgstr "добавить права для сертификата (или списка через ',') (используйте с ключом -c [ID])"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1246
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1289
+ msgid "remove permissions for certificate (use with -c [ID])"
+ msgstr "удаление прав сертификата (используйте с -c [ID])"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1249
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1292
+ msgid "generate a root (CA) certificate"
+ msgstr "генерировать корневой сертификат (сертификат удостоверяющего центра)"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1252
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1295
+ msgid "send a request to sign the root certificate"
+ msgstr "отправить запрос на подписание корневого сертификата"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1255
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1298
+ msgid "fetch the signed certificate from the server"
+ msgstr "получить подписанный сертификат с сервера (хост сервера)"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1258
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1301
+ msgid "use the root certificate as the server certificate"
+ msgstr "использовать корневой сертификат как сертификат сервера"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1262
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1305
+ msgid "sign the client's request with the server certificate"
+ msgstr "подписать запрос на подписание сертификата клиента сертификатом сервера"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1265
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1308
+ msgid "sign the server's request with the root certificate"
+ msgstr "подписать запрос на подписание сертификата сервера корневым сертификатом"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1268
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1311
+ msgid "refuse to sign the certificate at server's request"
+ msgstr "отвергнуть серверный запрос на подпись сертификата"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1272
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1315
+ msgid "decline client's request for signature"
+ msgstr "отвергнуть клиентский запрос на подпись сертификата"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1275
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1318
+ msgid "revoke an earlier signed server (or ca) certificate. rm to remove CRL"
+ msgstr "отозвать ранее подписанный сертификат сервера (удостоверяющего центра). rm для удаления списка отзыва"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1278
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1321
+ msgid "call method"
+ msgstr "запуск метода"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1281
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1324
+ msgid "display all the available methods"
+ msgstr "отобразить все доступные методы"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1284
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1327
+ msgid "do not display progress bar"
+ msgstr "не отображать прогрессбар"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1287
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1330
+ msgid "no questions during the process"
+ msgstr "не задавать вопросы во время процесса"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1290
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1333
+ msgid "display value for specified variable (section.variablename). If section skipped then using variables from the main section"
+ msgstr "отобразить значение для указанной переменной (раздел.имя_переменной). Если раздел пропущен, то используются переменные из основного раздела"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1294
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1337
+ msgid "display variable as human readable"
+ msgstr "выводить значение в удобном для человека виде"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1297
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1340
+ msgid "write value for variable (section.variablename=value)"
+ msgstr "записать значение для переменной (секция.имя_переменной=значение)"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1300
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1343
+ msgid "append value to list variable (section.variablename=value)"
+ msgstr "добавить значение к списковой переменной (секция.имя_переменной=значение)"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1303
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1346
+ msgid "check configuration"
+ msgstr "проверка конфигурации"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1306
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1349
+ msgid "Create symlink for methods"
+ msgstr "Создание ссылок для методов"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1309
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1352
+ msgid "path to log files"
+ msgstr "путь к файлам логов"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1312
++#: /var/calculate/mydir/git/calculate-api/core/server/cert_cmd.py:1355
+ msgid "print the version number, then exit"
+ msgstr "вывод версии программы и выход"
+ 
+@@ -1398,26 +1402,26 @@ msgstr "вывод версии программы и выход"
+ msgid "System already updated!"
+ msgstr "Система обновлена!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/func.py:166
++#: /var/calculate/mydir/git/calculate-api/core/server/func.py:167
+ #, python-format
+ msgid "Failed to write to PID file %s!"
+ msgstr "Ошибка чтения файла с идентификаторами процессов %s!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/func.py:522
++#: /var/calculate/mydir/git/calculate-api/core/server/func.py:542
+ msgid " is file, not link!"
+ msgstr " файл, не ссылка!"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/func.py:529
++#: /var/calculate/mydir/git/calculate-api/core/server/func.py:549
+ #, python-format
+ msgid "Create symlink %s"
+ msgstr "Создана ссылка %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/func.py:538
++#: /var/calculate/mydir/git/calculate-api/core/server/func.py:558
+ #, python-format
+ msgid "Deleted symlink %s"
+ msgstr "Удалена ссылка %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/func.py:558
++#: /var/calculate/mydir/git/calculate-api/core/server/func.py:578
+ #, python-format
+ msgid "Unable to import %s"
+ msgstr "Невозможно импортировать %s"
+@@ -1697,43 +1701,43 @@ msgstr "Не удалось импортировать %s"
+ msgid "No module named %s"
+ msgstr "Нет модуля %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:202
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:208
+ #, python-format
+ msgid "listening to https://0.0.0.0:%d"
+ msgstr "сервер прослушивает https://0.0.0.0:%d"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:203
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:209
+ #, python-format
+ msgid "wsdl is located at: https://0.0.0.0:%d/?wsdl"
+ msgstr "wsdl находится на: https://0.0.0.0:%d/?wsdl"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:235
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:240
+ #, python-format
+ msgid "failed to create PID file %s"
+ msgstr "не удаётся создать PID файл %s"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:241
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:246
+ msgid "Server started"
+ msgstr "Сервер запущен"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:248
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:253
+ msgid "Server stopped"
+ msgstr "Сервер остановлен"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:253
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:258
+ msgid "No socket could be created"
+ msgstr "Не получается создать сокет"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:254
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:259
+ #, python-format
+ msgid "Port %d already in use"
+ msgstr "Порт %d уже используется"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:258
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:266
+ msgid "Server certificate not found"
+ msgstr "Сертификат сервера не найден"
+ 
+-#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:259
++#: /var/calculate/mydir/git/calculate-api/core/server/cl_server.py:267
+ msgid "use cl-core key --gen-cert-by HOST (--get-cert-from HOST) or --use-root-as-server)"
+ msgstr "используйте cl-core с ключом --gen-cert-by HOST (--get-cert-from HOST) или --use-root-as-server)"
+ 
+@@ -1834,10 +1838,6 @@ msgstr "аргументы: "
+ msgid "Please enter arguments for cl-template."
+ msgstr "Пожалуйста, введите аргументы для cl-template."
+ 
+-#: /var/calculate/mydir/git/calculate-api/build/lib/calculate/core/server/setup_package.py:404
+-msgid "Package was configured"
+-msgstr "Пакет настроен"
+-
+ #~ msgid "Cannot import name "
+ #~ msgstr "Не удалось импортировать "
+ 
