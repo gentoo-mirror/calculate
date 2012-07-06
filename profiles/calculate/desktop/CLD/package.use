@@ -1,7 +1,5 @@
 app-arch/p7zip -kde
 app-office/calligra kdepim
-=kde-base/kde-l10n-4.4.5 -handbook
->=app-office/openoffice-3.2.0 -gtk kde
 app-text/fbreader -gtk -qt3 qt4
 dev-python/PyQt4 sql
 dev-libs/soprano redland
@@ -18,6 +16,9 @@ net-im/qutim icq
 net-p2p/ktorrent -infowidget 
 net-print/gutenprint gimp
 sys-auth/polkit -gtk
+
+#requires "dev-libs/libxml2 -icu" that causes conflict with chromium
+x11-libs/qt-webkit -gstreamer
 
 dev-lang/lua deprecated
 net-p2p/eiskaltdcpp -gtk
