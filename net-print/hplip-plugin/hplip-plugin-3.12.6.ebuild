@@ -1,10 +1,12 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+#http://www.openprinting.org/download/printdriver/auxfiles/HP/plugins/
+
 EAPI="3"
 
-inherit eutils multilib
+inherit eutils multilib unpacker
 
 DESCRIPTION="Proprietary plugins and firmware for HPLIP"
 HOMEPAGE="http://hplipopensource.com/hplip-web/index.html"
@@ -21,7 +23,7 @@ DEPEND=""
 HPLIP_HOME=/usr/share/hplip
 
 # Binary prebuilt package
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 QA_PRESTRIPPED="
 /usr/share/hplip/scan/plugins/bb_marvell.so
 /usr/share/hplip/scan/plugins/bb_soapht.so
@@ -59,4 +61,16 @@ src_install() {
 		exeinto "${HPLIP_HOME}"/${plugin_type}/plugins
 		newexe ${plugin} ${plugin/-${hplip_arch}} || die "failed to install ${plugin}"
 	done
+}
+
+pkg_postinst() {
+    echo "# hplip.state - HPLIP runtime persistent variables." > /var/lib/hp/hplip.state
+	echo "" >> /var/lib/hp/hplip.state
+	echo "[plugin]" >> /var/lib/hp/hplip.state
+    echo "installed=1" >> /var/lib/hp/hplip.state
+    echo "eula=1" >> /var/lib/hp/hplip.state
+}
+
+pkg_postrm() {
+	sed -ri 's/(installed|eula)=1/\1=0/' /var/lib/hp/hplip.state
 }
