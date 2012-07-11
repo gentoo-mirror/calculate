@@ -1,27 +1,27 @@
-style "xfdesktop-icon-view" { 
-    XfdesktopIconView::label-alpha = 0 
-    XfdesktopIconView::selected-label-alpha = 100 
-    XfdesktopIconVIew::ellipsize-icon-labels = 1 
-  
+style "xfdesktop-icon-view" {
+    XfdesktopIconView::label-alpha = 0
+    XfdesktopIconView::selected-label-alpha = 100
+    XfdesktopIconVIew::ellipsize-icon-labels = 1
+
     XfdesktopIconView::shadow-x-offset = 1
     XfdesktopIconView::shadow-y-offset = 1
-    XfdesktopIconView::shadow-color = "#000000" 
+    XfdesktopIconView::shadow-color = "#000000"
     XfdesktopIconView::selected-shadow-x-offset = 1
     XfdesktopIconView::selected-shadow-y-offset = 1
-    XfdesktopIconView::selected-shadow-color = "#000000" 
-  
+    XfdesktopIconView::selected-shadow-color = "#000000"
+
     XfdesktopIconView::cell-spacing = 0
-    XfdesktopIconView::cell-padding = 0
+    XfdesktopIconView::cell-padding = 6
     XfdesktopIconView::cell-text-width-proportion = 2.3
-  
-    base[NORMAL] = "#3F6BA4" 
-    base[SELECTED] = "#3F6BA4" 
-    base[ACTIVE] = "#3F6BA4" 
-  
-    fg[NORMAL] = "#ffffff" 
-    fg[SELECTED] = "#ffffff" 
-    fg[ACTIVE] = "#ffffff" 
-} 
+
+    base[NORMAL] = "#3F6BA4"
+    base[SELECTED] = "#3F6BA4"
+    base[ACTIVE] = "#3F6BA4"
+
+    fg[NORMAL] = "#ffffff"
+    fg[SELECTED] = "#ffffff"
+    fg[ACTIVE] = "#ffffff"
+}
 widget_class "*XfdesktopIconView*" style "xfdesktop-icon-view"
 
 style "xfce-panel-window-style"
@@ -33,3 +33,4 @@ style "xfce-panel-window-style"
 	XfcePanelWindow::popdown-delay = 250
 }
 class "XfcePanelWindow" style "xfce-panel-window-style"
+
