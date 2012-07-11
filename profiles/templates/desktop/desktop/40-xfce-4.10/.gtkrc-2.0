@@ -3,8 +3,8 @@ style "xfdesktop-icon-view" {
 	base[NORMAL] = "#000000"
 	base[SELECTED] = "#71B9FF"
 	base[ACTIVE] = "#71FFAD"
-	fg[NORMAL] = "#ffffff"
-	fg[SELECTED] = "#71B9FF"
+	fg[NORMAL] = "#FFFFFF"
+	fg[SELECTED] = "#FFFFFF"
 	fg[ACTIVE] = "#71FFAD"
 }
 widget_class "*XfdesktopIconView*" style "xfdesktop-icon-view"
