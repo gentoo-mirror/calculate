@@ -27,12 +27,13 @@ widget_class "*XfdesktopIconView*" style "xfdesktop-icon-view"
 
 style "xfce-panel-window-style"
 {
-	# Time in miliseconds before the panel will unhide on an enter 
-event
+	# Time in miliseconds before the panel will unhide on an enter event
 	XfcePanelWindow::popup-delay = 100
 
-	# Time in miliseconds before the panel will hide on a leave 
-event
+	# Time in miliseconds before the panel will hide on a leave event
 	XfcePanelWindow::popdown-delay = 250
+
+	# Size of autohide window in pixels
+	XfcePanelWindow::autohide-size = 1
 }
 class "XfcePanelWindow" style "xfce-panel-window-style"
