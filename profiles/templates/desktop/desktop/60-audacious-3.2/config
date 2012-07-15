@@ -1,10 +1,13 @@
 # Calculate format=samba path=~/.config/audacious
 
+[audacious]
+chardet_fallback=UTF-8
+
+[search-tool]
+path=/home/#-ur_login-#/#-ini(resource.music)-#
+
 [statusicon]
 close_to_tray=TRUE
 scroll_action=1
 rclick_menu=1
-
-[search-tool]
-path=/home/#-ur_login-#/#-ini(resource.music)-#
 
