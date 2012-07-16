@@ -38,8 +38,10 @@ src_unpack() {
 	unpack ${P}.tar.bz2
 	cd ../..
 	# Fix building on hardened
-	pwd
-	epatch "${FILESDIR}"/${SYSLINUX_PN}-4.00-nopie.patch
+	epatch "${FILESDIR}"/${SYSLINUX_PN}-4.05-nopie.patch
+
+	# Fix building with --as-needed
+	epatch "${FILESDIR}"/${SYSLINUX_PN}-4.05-asneeded-linking-order.patch
 
 	rm -f gethostip #bug 137081
 }
