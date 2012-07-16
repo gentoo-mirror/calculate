@@ -5,9 +5,9 @@
 # mask all device-mapper for using lvm2
 sys-fs/device-mapper
 
-#for support sys-boot/unetbootin
-#>=sys-boot/calcboot-4.04
-#>=sys-boot/syslinux-4.04
+# temporary mask
+>=sys-boot/calcboot-4.04
+>=sys-boot/syslinux-4.04
 
 #not work with calculate-server
 ~net-im/ejabberd-2.1.6
