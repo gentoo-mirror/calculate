@@ -1,0 +1,150 @@
+commit c5eaa99bfa6ab5036bae65b1a6d0d6e15480f1d1
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Wed Jul 18 14:34:51 2012 +0400
+
+    Fix fetch video drivers, assemble from scratch
+
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index f7c8e08..d8a1f90 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -539,9 +539,6 @@ class cl_assemble(color_print):
+ 
+     def _migratePortage(self):
+         if self.clVars.Get('cl_assemble_branch'):
+-            if not isPkgInstalled('dev-vcs/git'):
+-                self.printMessageForTest(_("Installing %s")%'dev-vcs/git')
+-                self.runChroot("emerge -1 git")
+             portagePath = pathJoin(self.assemblePath,'usr/portage')
+             gitConfig = pathJoin(portagePath, '.git/config')
+             # check for repository contains .git and 
+@@ -556,18 +553,17 @@ class cl_assemble(color_print):
+                     removeDir(portagePath)
+                 getPortage = "git clone --depth 1 -n {gitrep} {portage}".format(
+                     gitrep=self.clVars.Get('cl_assemble_sync'),
+-                    portage='/usr/portage')
+-                self.runChroot(getPortage)
++                    portage=portagePath)
++                self.runCommand(getPortage)
+             else:
+                 getPortage = "cd {portage};git fetch".format(
+                     gitrep=self.clVars.Get('cl_assemble_sync'),
+-                    portage='/usr/portage')
+-                self.runChroot(getPortage)
++                    portage=portagePath)
++                self.runCommand(getPortage)
+             updateBranch= "cd {portage};git checkout {branch}".format(
+-                    portage='/usr/portage',
++                    portage=portagePath,
+                     branch=self.clVars.Get('cl_assemble_branch'))
+-            self.runChroot(updateBranch)
+-
++            self.runCommand(updateBranch)
+             portagePkg = getPkgInstalled('sys-apps/portage',
+                                          prefix=self.assemblePath)
+             portageMinVer = getTupleVersion('2.2.0_alpha72')
+@@ -592,8 +588,9 @@ class cl_assemble(color_print):
+                     lastEbuild
+                 self.runChroot(emergePortage)
+                 restoreManifest = \
+-                    'cd /usr/portage;git checkout sys-apps'
+-                self.runChroot(restoreManifest)
++                    'cd {portage};git checkout sys-apps'.format(
++                        portage=portagePath)
++                self.runCommand(restoreManifest)
+         else:
+             portagePath = pathJoin(self.assemblePath,'usr/portage')
+             gitConfig = pathJoin(portagePath, '.git/config')
+@@ -604,13 +601,17 @@ class cl_assemble(color_print):
+             if path.exists(pathOverlay):
+                 updateBranch= \
+                     "cd {portage};git pull;git checkout {branch}".format(
+-                        portage='/var/lib/layman/calculate',
++                        portage=pathOverlay,
+                         branch=self.clVars.Get('cl_assemble_branch'))
+-                self.runChroot(updateBranch)
++                self.runCommand(updateBranch)
+ 
+     def _updatePackages(self):
+         """Update portage and calculate overlay"""
+         self._migratePortage()
++        if not isPkgInstalled('dev-vcs/git',prefix=self.assemblePath):
++            self.printMessageForTest(_("Installing %s")%'dev-vcs/git')
++            self.runChroot("USE='-perl -curl' emerge -1 git")
++
+         emergeSync = "emerge --sync"
+         self.printMessageForTest(_("Updating portages"))
+         self.runChroot(emergeSync)
+@@ -747,8 +748,14 @@ class cl_assemble(color_print):
+                 # will install iproute2 with USE="minimal" also
+                 self.runChroot("emerge -1 sys-apps/iproute2")
+                 self.runChroot("USE='minimal -pxe' emerge "
+-                               'sys-apps/calculate-install')
+-                self.runChroot("cl-install --install")
++                               'sys-apps/calculate-install '
++                               'sys-apps/calculate-core')
++                if path.exists(path.join(self.clVars.Get('cl_assemble_path'),
++                             "usr/sbin/cl-core")):
++                    self.runChroot("/usr/sbin/cl-core --append-variable "
++                               "cl_merges=calculate-install")
++                else:
++                    self.runChroot("cl-install --install")
+             else:
+                 self.printByResult(skip=True)
+ 
+@@ -913,6 +920,45 @@ class cl_assemble(color_print):
+                   ":\n    %s"%self._getCommand(chrootCommand.command))
+         return chrootCommand
+ 
++    def runCommand(self,command,raiseError=True,showProcess=False,
++                   joinErr=False):
++        """Run command"""
++        chrootCommand = None
++        try:
++            if showProcess:
++                IOval = None
++            else:
++                IOval = PIPE
++            if joinErr:
++                ERRval = STDOUT
++            else:
++                ERRval = IOval
++            envdict = {}
++            envdict.update(os.environ)
++            needAsk = self.clVars.Get('cl_assemble_ask_set') == "on"
++            if "emerge " in command:
++                if showProcess and needAsk:
++                    command = command.replace("emerge ","emerge -a ")
++            commandLine = ["/bin/bash","-c",command]
++            if showProcess and needAsk:
++                chrootCommand = process(*commandLine,stderr=ERRval,
++                                stdin=None,stdout=IOval,envdict=envdict)
++            else:
++                chrootCommand = process(*commandLine,stderr=ERRval,
++                                stdout=IOval,envdict=envdict)
++            DEBUG(self._getCommand(chrootCommand.command))
++            if raiseError and chrootCommand.failed():
++                raise AssembleError(
++                    _("An error occurred when executing the command")+
++                      ":\n    %s"%self._getCommand(chrootCommand.command))
++        except KeyboardInterrupt:
++            chrootCommand.kill()
++            self.defaultPrint("\b\b")
++            raise AssembleError(
++                _("Interrupted when executing the command")+
++                  ":\n    %s"%self._getCommand(chrootCommand.command))
++        return chrootCommand
++
+     def configureSystem(self,force,nounmount):
+         """Unpack stage or cls|css and prepare for assemble"""
+         self.msgOperationComplete = ""
+@@ -1649,7 +1695,8 @@ class cl_assemble(color_print):
+                             "emerge -f --quiet-build=n %s"%
+                             drvVer, raiseError=False,joinErr=True)
+                 rePackage = re.compile(
+-                    "(?:^ \* (.*?) RMD160 SHA1|File.*is already locked)")
++                    "(?:^ \* (.*?) (?:RMD160 SHA1|SHA256 SHA512)|"
++                    "File.*is already locked)")
+                 # get fetched files
+                 fetchedFiles = \
+                     map(lambda x:x.groups()[0],
