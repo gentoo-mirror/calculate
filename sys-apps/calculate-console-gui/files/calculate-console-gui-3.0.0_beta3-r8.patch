@@ -1,0 +1,2025 @@
+diff --git consolegui/application/Box.py consolegui/application/Box.py
+index 50a0eaa..be9f763 100755
+--- consolegui/application/Box.py
++++ consolegui/application/Box.py
+@@ -233,7 +233,7 @@ class MainWgt(QtGui.QMainWindow):
+                 return 0
+             self.ClientObj.client = None
+             self.ClientObj._parent.connect_count_changed( \
+-                        self.ClientObj.host_name, self.ClientObj.port,-1)
++                        self.ClientObj.host_name, self.ClientObj.port,0)
+ #            icon_visible(self, 'Methods', False)
+             icon_visible(self, 'Back', False)
+             icon_visible(self, 'Disconnect', False)
+diff --git consolegui/application/CertificateClass.py consolegui/application/CertificateClass.py
+index d5ba577..1f81112 100755
+--- consolegui/application/CertificateClass.py
++++ consolegui/application/CertificateClass.py
+@@ -71,7 +71,7 @@ class CertClass (QtGui.QWidget):
+         self.sendlayout.setColumnStretch(1,1)
+         self.sendlayout.setColumnStretch(2,1)
+ 
+-        self.GroupBoxSend = QtGui.QGroupBox(_('Certificate signature request'))
++        self.GroupBoxSend = QtGui.QGroupBox(_('Signature request'))
+ #        self.GroupBoxSend.setContentsMargins(10,0,0,0)
+         self.GroupBoxSend.setLayout(self.sendlayout)
+ 
+@@ -109,8 +109,8 @@ class CertClass (QtGui.QWidget):
+         cert_path = self.default_cert_path
+ 
+         if os.path.exists(cert_path + 'req_id'):
+-            text=_("You have already sent a request to sign the certificate!")
+-            informative_text = _("request id - %s") \
++            text=_("You have already sent a signature request!")
++            informative_text = _("Request ID: %s") \
+                                 %open(cert_path + 'req_id', 'r').read()+'\n' \
+                                 + _("Send a new request?")
+             reply = show_question(self, text, informative_text,
+@@ -191,7 +191,10 @@ class CertClass (QtGui.QWidget):
+         fc = open(self.default_cert_path + 'req_id', 'w')
+         fc.write(res)
+         fc.close()
+-        show_msg ( _("Your request ID = %s") %res, parent = self)
++        show_msg (_("Your request ID: %s") %res + '\n' + \
++                  _("To sign the certificate on the server, use command") + \
++                  '\n'+'cl-core --sign-client ID_CLIENT_REQUEST',
++                  title = _('Request'), parent=self)
+         return 0
+ 
+     def get(self):
+@@ -266,7 +269,10 @@ class CertClass (QtGui.QWidget):
+             return 1
+         elif cert == '2':
+             show_msg (_("The request has not been reviewed yet.") + '\n' + \
+-                                        _("Your request ID = %s") %req_id)
++                      _("Your request ID: %s") %req_id + '\n'+\
++                      _("To sign the certificate on the server, use command")+\
++                      '\n'+'cl-core --sign-client ID_CLIENT_REQUEST',
++                      title = _('Request'), parent = self)
+             return 1
+         elif cert == '3':
+             show_msg (_('Either the request or the signature does not match '
+@@ -343,5 +349,5 @@ class CertClass (QtGui.QWidget):
+                 _print (_("Filename = "), filename)
+                 show_msg (_("Root certificate added") + '\n' + filename)
+             else:
+-                _print (_("File with CA certificates now exists"))
++                _print (_("File with the CA certificate now exists"))
+         return 0
+diff --git consolegui/application/ConnectionTabs.py consolegui/application/ConnectionTabs.py
+index 01b3e79..4b550e8 100644
+--- consolegui/application/ConnectionTabs.py
++++ consolegui/application/ConnectionTabs.py
+@@ -6,6 +6,7 @@ import dbus.mainloop.glib
+ 
+ from PySide import QtGui, QtCore
+ import sudsds, time, sys
++import os, pwd, shutil
+ import ConfigParser
+ 
+ from TrayIcon import TrayIcon
+@@ -38,7 +39,8 @@ class SelectedMethodWgt(QtGui.QWidget):
+         layout.setSpacing(0)
+         layout.addWidget(self.MethodWidget)
+ 
+-        self.setWindowIcon(QtGui.QIcon('/usr/share/pixmaps/calculate3.png'))
++        self.setWindowIcon(QtGui.QIcon \
++                        ('/usr/share/pixmaps/calculate-console-online.png'))
+ 
+         if self.connect():
+             sys.exit(1)
+@@ -53,8 +55,8 @@ class SelectedMethodWgt(QtGui.QWidget):
+                 self.resize(900,560)
+             else:
+                 self.resize(900, 726)
+-        self.setMinimumHeight(100)
+-        self.setMinimumWidth(300)
++        self.setMinimumHeight(300)
++        self.setMinimumWidth(500)
+         self.show()
+ 
+     def connect(self):
+@@ -114,6 +116,10 @@ class SelectedMethodWgt(QtGui.QWidget):
+ #        event.ignore()
+         if close_event:
+             self.set_size()
++            save_path = os.path.join('/tmp', 'calculate-' + \
++                                     pwd.getpwuid(os.getuid()).pw_name)
++            if os.path.isdir(save_path):
++                shutil.rmtree(save_path)
+             event.accept()
+         else:
+             event.ignore()
+@@ -293,8 +299,8 @@ class ToolTabWidget(QtGui.QTabWidget):
+                 self.resize(900,560)
+             else:
+                 self.resize(900, 700)
+-        self.setMinimumHeight(100)
+-        self.setMinimumWidth(450)
++        self.setMinimumHeight(300)
++        self.setMinimumWidth(500)
+ 
+         self.setWindowTitle(self.Name)
+         self.setStyleSheet('''
+@@ -327,15 +333,32 @@ class ToolTabWidget(QtGui.QTabWidget):
+         if self.FirstWidget.ClientObj.client:
+             if host in ['127.0.0.1', 'localhost']:
+                 self.localhost_ClientObj = self.FirstWidget.ClientObj
+-                self.connect_dict[host] = [self.FirstWidget.ClientObj, \
+-                                           self.currentIndex()]
++            if not host in self.connect_dict:
++                self.connect_dict[host] = [port]
++            else:
++                if port:
++                    if not port in self.connect_dict[host]:
++                        self.connect_dict[host].append(port)
+         self.create_tray()
+         if self.FirstWidget.ClientObj.client:
+             self.tray.set_icon(True)
+ 
+     def connect_count_changed(self, host, port, count):
+-        self.connect_count += count
+-        if self.connect_count:
++        if count:
++            if not host in self.connect_dict:
++                self.connect_dict[host] = [port]
++            else:
++                if port:
++                    if not port in self.connect_dict[host]:
++                        self.connect_dict[host].append(port)
++        else:
++            if host in self.connect_dict:
++                if port in self.connect_dict[host]:
++                    self.connect_dict[host].remove(port)
++                if not self.connect_dict[host]:
++                    self.connect_dict.pop(host)
++
++        if self.connect_dict:
+             self.setWindowIcon(QtGui.QIcon \
+                         ('/usr/share/pixmaps/calculate-console-online.png'))
+             if hasattr(self, 'tray'):
+@@ -446,9 +469,9 @@ class ToolTabWidget(QtGui.QTabWidget):
+ 
+     def set_localhost(self, ClientObj):
+         self.localhost_ClientObj = ClientObj
+-        if ClientObj:
+-            self.connect_dict[ClientObj.host_name] = \
+-                             [ClientObj, self.currentIndex()]
++#        if ClientObj:
++#            self.connect_dict[ClientObj.host_name] = \
++#                             [ClientObj, self.currentIndex()]
+ #        self.tabbar.tabButton(self.currentIndex(), \
+ #                              QtGui.QTabBar.ButtonPosition.RightSide).hide()
+ 
+@@ -477,6 +500,10 @@ class ToolTabWidget(QtGui.QTabWidget):
+                 if not self.close_tab(0, True):
+                     return 1
+             self.set_size()
++            save_path = os.path.join('/tmp', 'calculate-' + \
++                                     pwd.getpwuid(os.getuid()).pw_name)
++            if os.path.isdir(save_path):
++                shutil.rmtree(save_path)
+             self.app.exit()
+ 
+     def get_size(self):
+diff --git consolegui/application/ControlButton.py consolegui/application/ControlButton.py
+index 63c3e8d..c967901 100644
+--- consolegui/application/ControlButton.py
++++ consolegui/application/ControlButton.py
+@@ -146,6 +146,18 @@ class ControlButtonWgt(QtGui.QWidget):
+             if hasattr (self, 'button_widget'):
+                 end_layout.addWidget(self.prev_button)
+ #            self.grid.addWidget(self.prev_button, x, y)
++        else:
++            self.prev_button = QtGui.QPushButton(self)
++            self.prev_button.setText(_('Cancel').decode('utf-8'))
++
++            self.prev_button.clicked.connect(self.button_disabled)
++            self.prev_button.clicked.connect(self.clear_method_cache)
++
++            self.prev_button.setMinimumWidth(62)
++            self.prev_button.setFixedHeight(32)
++            if hasattr (self, 'button_widget'):
++                end_layout.addWidget(self.prev_button)
++
+         if main_frame.view.groups.GroupField[-1].last and not \
+                                main_frame.isBrief(self.ClientObj.param_objects\
+                                [main_frame.method_name]['step']+1) or brief:
+@@ -240,8 +252,28 @@ class ControlButtonWgt(QtGui.QWidget):
+         sid = int(self.ClientObj.sid)
+         res = self.ClientObj.client.service.clear_pid_cache(sid, self.pid)
+         if res:
+-            _print (_('Error when closing the process'))
++            _print (_('Error closing the process'))
++
++        from calculate.consolegui.application.ConnectionTabs \
++                                                    import SelectedMethodWgt
++        if type(self.window()) == SelectedMethodWgt:
++            self.window().close()
++        else:
++            self.del_button()
++            self.hide()
++            self._parent.back()
+ 
++    def clear_method_cache(self):
++        self.button_disabled()
++        sid = int(self.ClientObj.sid)
++
++        if hasattr (self._parent.MainFrameWgt, 'method_name'):
++            method = self._parent.MainFrameWgt.method_name
++            try:
++                res = self.ClientObj.client.service.clear_method_cache \
++                                                            (sid, method)
++            except Exception as e:
++                _print (e)
+         from calculate.consolegui.application.ConnectionTabs \
+                                                     import SelectedMethodWgt
+         if type(self.window()) == SelectedMethodWgt:
+diff --git consolegui/application/MainFrameResult.py consolegui/application/MainFrameResult.py
+index e922fd4..13ec7c1 100755
+--- consolegui/application/MainFrameResult.py
++++ consolegui/application/MainFrameResult.py
+@@ -114,15 +114,15 @@ class MainFrameRes(QtGui.QWidget):
+ ################# API FUNCTION ###############################
+     def show_view(self, view):
+         pass
+-        
++
+     def show_table(self, table, item):
+         # method to display tables
+         add_offset_flag = False
+-            
++
+         if not table.body:
+             table.body = [[]]
+         self.show_normal(item)
+-        
++
+         if self.method_name in self.ClientObj.param_objects:
+             if len(table.body[0]) >= self.ClientObj.count_row_res_table or \
+                     self.ClientObj.param_objects[self.method_name]['offset']:
+@@ -362,13 +362,13 @@ class MainFrameRes(QtGui.QWidget):
+ #        sid = int(self.ClientObj.sid)
+ #        res = self.client.service.clear_pid_cache(sid, self.cur_pid)
+ #        if res:
+-#            _print (_('Error when closing the process'))
++#            _print (_('Error closing the process'))
+ #        self._parent.back()
+ 
+     def startGroup(self, item):
+         pass
+ 
+-    def endGruop(self, item):
++    def endGroup(self, item):
+         pass
+ 
+     def callView(self, item, sid):
+@@ -392,7 +392,7 @@ class MainFrameRes(QtGui.QWidget):
+         if result in [0,2]:
+             return 0
+         elif result == -1:
+-            msg = _("Certificate not found in the server database!")
++            msg = _("Certificate not found in the server!")
+         elif result == -2:
+             msg = _("Session not matching your certificate!")
+         elif result == 1:
+@@ -478,8 +478,8 @@ class MainFrameRes(QtGui.QWidget):
+             if case('startGroup'):
+                 self.startGroup(item)
+                 return 1
+-            if case('endGruop'):
+-                self.endGruop(item)
++            if case('endGroup'):
++                self.endGroup(item)
+                 return 1
+             if case('briefParams'):
+                 self.callView(item, sid)
+@@ -635,8 +635,8 @@ class MainFrameRes(QtGui.QWidget):
+ 
+     def get_Progress_cycle(self, returnProgr, through_object):
+         if type(returnProgr) == Exception:
+-            _print (_('Failed to get progress status from the server'))
+-#            show_msg(_('Failed to get progress status from the server') + \
++            _print (_('Failed to get the progress status from the server'))
++#            show_msg(_('Failed to get the progress status from the server') + \
+ #                    '\n'+ \
+ #                   _('Try resfeshing this page later.'),'get progress error')
+             return 1
+diff --git consolegui/application/ShortFrameResult.py consolegui/application/ShortFrameResult.py
+index dbdf7c4..dfb3fe7 100644
+--- consolegui/application/ShortFrameResult.py
++++ consolegui/application/ShortFrameResult.py
+@@ -214,6 +214,11 @@ class ShortFrameRes(QtGui.QWidget):
+     def endFrame(self, item):
+         self.work_layout.hide_kill_button()
+         self.close_all_thread()
++
++        if hasattr (self, 'taskWidget'):
++            self.taskWidget.endCurrentTask()
++            if item.message:
++                self.taskWidget.setText(item.message)
+         self._parent.control_button.add_clear_cache_button(self.cur_pid)
+         self.initUI()
+ 
+@@ -229,7 +234,7 @@ class ShortFrameRes(QtGui.QWidget):
+     def startGroup(self, item):
+         pass
+ 
+-    def endGruop(self, item):
++    def endGroup(self, item):
+         pass
+ 
+     def callView(self, item, sid):
+@@ -253,7 +258,7 @@ class ShortFrameRes(QtGui.QWidget):
+         if result in [0,2]:
+             return 0
+         elif result == -1:
+-            msg = _("Certificate not found in the server database!")
++            msg = _("Certificate not found in the server!")
+         elif result == -2:
+             msg = _("Session not matching your certificate!")
+         elif result == 1:
+@@ -335,8 +340,8 @@ class ShortFrameRes(QtGui.QWidget):
+             if case('startGroup'):
+                 self.startGroup(item)
+                 return 1
+-            if case('endGruop'):
+-                self.endGruop(item)
++            if case('endGroup'):
++                self.endGroup(item)
+                 return 1
+             if case('briefParams'):
+                 self.callView(item, sid)
+@@ -480,9 +485,9 @@ class ShortFrameRes(QtGui.QWidget):
+ 
+     def get_Progress_cycle(self, returnProgr, through_object):
+         if type(returnProgr) == Exception:
+-            _print (_('Failed to get progress status from the server'))
+-            show_msg(_('Failed to get progress status from the server')+'\n'+\
+-                     _('Try resfeshing this page later.'),'get progress error')
++            _print (_('Failed to get the progress status from the server'))
++            show_msg(_('Failed to get the progress status from the server')+\
++                '\n'+_('Try resfeshing this page later.'),'get progress error')
+             return 1
+         sid, pid, id, temp_progress = through_object
+ ########################################
+diff --git consolegui/application/TrayIcon.py consolegui/application/TrayIcon.py
+index 14b05f4..f1974ba 100644
+--- consolegui/application/TrayIcon.py
++++ consolegui/application/TrayIcon.py
+@@ -35,11 +35,11 @@ class TrayUpdateSystem(QtCore.QThread):
+         self.close_flag = False
+         if not hasattr(self._parent, 'localhost_ClientObj'):
+             self.mes_sig.emit(_('Connection Error'), \
+-                                _('You are not connected to localhost server'))
++                           _('You are not connected to the localhost server'))
+             return 1
+         if not self._parent.localhost_ClientObj.client:
+             self.mes_sig.emit(_('Connection Error'), \
+-                                _('You are not connected to localhost server'))
++                           _('You are not connected to the localhost server'))
+             return 1
+ 
+         sid = get_sid(self._parent.localhost_ClientObj.client)
+@@ -160,14 +160,14 @@ class TrayIcon (QtGui.QSystemTrayIcon):
+         # Translate left click menu
+         self.left_menu.windowVisible.setText(_('Show/Hide Window'))
+ #        self.left_menu.sys_update.setText(_('Update system'))
+-        self.left_menu.exit_action.setText(_('Exit program'))
++        self.left_menu.exit_action.setText(_('Exit Program'))
+ 
+         # Translate right click menu
+         self.right_menu.about_action.setText(_('About'))
+         self.right_menu.bug_action.setText(_('Report Bug'))
+         self.right_menu.tools_action.setText(_('Program settings'))
+ #        self.right_menu.sys_update.setText(_('Update system'))
+-        self.right_menu.exit_action.setText(_('Exit program'))
++        self.right_menu.exit_action.setText(_('Exit Program'))
+         
+     def help(self):
+         self._parent.currentWidget().help()
+@@ -238,7 +238,7 @@ class TrayIcon (QtGui.QSystemTrayIcon):
+         if not self.update_thread.isRunning():
+             self.update_thread.start()
+         else:
+-            show_msg(_('Update is already running'))
++            show_msg(_('An update is already running'))
+ 
+ class LeftButtonMenu(QtGui.QMenu):
+     def __init__(self, parent, MainWgt):
+@@ -292,7 +292,7 @@ class LeftButtonMenu(QtGui.QMenu):
+             if not exit_icon.isNull():
+                 break
+ 
+-        self.exit_action  = QtGui.QAction(exit_icon, _('Exit program'), \
++        self.exit_action  = QtGui.QAction(exit_icon, _('Exit Program'), \
+                                         self, triggered=parent.exit)
+ 
+         self.addAction(self.exit_action)
+@@ -400,6 +400,6 @@ class RightButtonMenu(QtGui.QMenu):
+             if not exit_icon.isNull():
+                 break
+ 
+-        self.exit_action  = QtGui.QAction(exit_icon, _("Exit program"), \
++        self.exit_action  = QtGui.QAction(exit_icon, _("Exit Program"), \
+                                         self, triggered=parent.exit)
+         self.addAction(self.exit_action)
+diff --git consolegui/application/View_Process.py consolegui/application/View_Process.py
+index 67e0696..6230cd4 100755
+--- consolegui/application/View_Process.py
++++ consolegui/application/View_Process.py
+@@ -33,15 +33,15 @@ class ViewProc(QtGui.QWidget):
+         list_pid = client_list_pid(self.ClientObj.client)
+         
+         ClientObj._parent.setWindowTitle ( \
+-                                _('View information about running processes')\
+-                                + ' - ' + self.ClientObj.Name)
++                            _('View information about the running processes')\
++                            + ' - ' + self.ClientObj.Name)
+         
+         self.lable_list = []
+         self.button_list = []
+         self.status_list = []
+         self.grid_layout = QtGui.QGridLayout()
+         self.helpLabel = LabelWordWrap \
+-                        (_('View information about running processes'), self)
++                     (_('View information about the running processes'), self)
+         self.grid_layout.addWidget(self.helpLabel, 0, 0, 1, 0)
+         
+         if not list_pid:
+@@ -179,7 +179,7 @@ class ViewProc(QtGui.QWidget):
+         elif result == 2:
+             msg = _("Process completed")
+         elif result == -1:
+-            msg = _("Certificate not found in the server database!")
++            msg = _("Certificate not found in the server!")
+         elif result == -2:
+             msg = _("Session not matching your certificate!")
+         elif result == 1:
+diff --git consolegui/application/client_class.py consolegui/application/client_class.py
+index 61980a3..71002e3 100755
+--- consolegui/application/client_class.py
++++ consolegui/application/client_class.py
+@@ -89,8 +89,8 @@ class AddServerCert (QtGui.QDialog):
+         self.grid.addWidget(self.tab, 3, 0, 3, 3)
+ 
+         self.lbl_list.append(LabelWordWrap \
+-                      (_('Add this Servers certificate to trusted or ') +\
+-                      _('try add CA and ROOT certificates to trusted?'),self))
++                 (_("Add this server's certificate to trusted or ") +\
++                 _('try add the CA and ROOT certificates to trusted?'),self))
+ 
+         self.pix_lbl = QtGui.QLabel(self)
+         pi = QtGui.QPixmap()
+@@ -102,12 +102,14 @@ class AddServerCert (QtGui.QDialog):
+             self.grid.addWidget(self.lbl_list[num_lbl], num_lbl + 8, 0, 1, 3)
+ 
+         x = len (self.lbl_list) + 8
+-        self.server_but = QtGui.QPushButton(_('Add Servers certificate'),self)
++        self.server_but = QtGui.QPushButton(_('Add the server certificate'),
++                                            self)
+         self.server_but.clicked.connect(self.add_server)
+         self.server_but.clicked.connect(self.close)
+         self.grid.addWidget(self.server_but, x, 0)
+ 
+-        self.ca_but = QtGui.QPushButton(_('Add CA and ROOT certificate'),self)
++        self.ca_but = QtGui.QPushButton(_('Add the CA and ROOT certificates'),
++                                        self)
+         self.ca_but.clicked.connect(self.add_ca)
+         self.ca_but.clicked.connect(self.add_server)
+         self.ca_but.clicked.connect(self.close)
+@@ -118,7 +120,7 @@ class AddServerCert (QtGui.QDialog):
+         self.grid.addWidget(self.cancel_but, x, 2)
+ 
+ #        self.setLayout(self.grid)
+-        self.setWindowTitle (_('Add certificate to trusted'))
++        self.setWindowTitle (_('Add the certificate to trusted'))
+ 
+         # move to center
+         prim_screen = ClientObj.app.desktop().primaryScreen()
+@@ -164,8 +166,8 @@ class AddServerCert (QtGui.QDialog):
+         fcl = open(ca_certs,"a")
+         fcl.write(host + ' ' + filename + '\n')
+         fcl.close()
+-        show_msg (_('Server certificate add to trusted \n%s') \
+-                  %(self.parent.trusted_path + filename),_('Certificate add'))
++        show_msg (_('Server certificate added to trusted') +'\n'+ \
++                  (self.parent.trusted_path + filename),_('Certificate added'))
+         self.flag = 3
+         from conf_connection import FrameConnection
+         self.ConnectWidget = FrameConnection(self, self.ClientObj)
+@@ -181,7 +183,7 @@ class AddServerCert (QtGui.QDialog):
+             try:
+                 os.makedirs(root_cert_dir)
+             except OSError:
+-                show_msg (_('error creating directory %s') %root_cert_dir)
++                show_msg (_('Error creating directory %s') %root_cert_dir)
+                 return 1
+ 
+         self.parent.list_ca_certs = []
+@@ -293,7 +295,7 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+             if not filename:
+                 return None
+         except:
+-            msg = _("Certificate not found in client")
++            msg = _("Certificate not found on the client's side")
+             show_msg (msg)
+ #            self.parent.MainWidget.bottom.addMessage(msg)
+             return None
+@@ -304,7 +306,7 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+             if store_cert == server_cert:
+                 return filename
+         except:
+-            msg = _('Error open file')
++            msg = _('Error opening file')
+             show_msg (msg + ' %s%s' %(self.trusted_path, filename))
+ #            self.parent.MainWidget.bottom.addMessage(msg)
+         return None
+@@ -360,7 +362,7 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+                 fc.close()
+ 
+                 if not filename:
+-                    show_msg (_('Not found field "CN" in certificate!'))
++                    show_msg (_('Field "CN" not found in the certificate!'))
+                     return 1
+ 
+                 fd = open(cl_client_cert_dir + '/ca/' + filename, 'w')
+@@ -370,9 +372,9 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+                 fa = open(user_root_cert, 'a')
+                 fa.write(cert+'\n')
+                 fa.close()
+-                show_msg (_("Filename = %s") %filename, _('CERTIFICATE ADD'))
++                show_msg (_("Filename = %s") %filename, _('Certificate added'))
+             else:
+-                show_msg (_('File with ca certificates exists'))
++                show_msg (_('A file with the CA certificate now exists'))
+         get_CRL(cl_client_cert_dir)
+ 
+     def add_ca_cert(self, cert, list_ca_certs):
+@@ -388,12 +390,12 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+             cert = '0'
+ 
+         if cert == '1':
+-            msg = _('Server certificate is not valid')
++            msg = _('Invalid server certificate')
+             show_msg (msg)
+             return
+ 
+         if cert == '2':
+-            msg = _('CA not found on server')
++            msg = _('CA certificate not found on the server')
+             show_msg (msg)
+             return
+ 
+@@ -423,9 +425,9 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+         for subj in Subject:
+             inf_text += "\n  %s : %s" %(subj[0], subj[1])
+ 
+-        text = _("Add CA certificates to trusted? ")
++        text = _("Add the CA certificate to trusted? ")
+         reply = show_question(self.ClientObj.MainWidget, text, inf_text,
+-                              title = _('Adding certificate'))
++                              title = _('Adding the certificate'))
+ 
+         if reply == QtGui.QMessageBox.No:
+             show_msg (_('Certificate not added to trusted'))
+@@ -508,6 +510,20 @@ class CheckingClientHTTPSConnection(CheckingHTTPSConnection):
+                 self.sock = wrap_class(sock, ca_certs=self.ca_certs, **add)
+ 
+                 return 0
++	    except OpenSSL.SSL.Error, e:
++	        if type(e.message) == list:
++		    if type(e.message[0]) == tuple:
++		        for i in e.message[0]:
++			    sys.stdout.write(i+' ')
++			    sys.stdout.flush()
++			sys.stdout.write('\n')
++			sys.stdout.flush()
++                    else:
++		        _print (e.message)
++	        else:
++		    _print (e.message)
++                HTTPSClientCertTransport.filename = None
++                return 1
+             except Exception, e:
+                 _print (e)
+                 HTTPSClientCertTransport.filename = None
+@@ -613,12 +629,12 @@ def get_CRL(path_to_cert):
+                 try:
+                     os.makedirs(path_to_cert)
+                 except OSError:
+-                    _print (_("error creating directory %s") %path_to_cert)
++                    _print (_("Error creating directory %s") %path_to_cert)
+                     sys.exit()
+             try:
+                 os.makedirs(os.path.join(path_to_cert, 'ca'))
+             except OSError:
+-                _print (_("error creating directory %s") \
++                _print (_("Error creating directory %s") \
+                         %(os.path.join(path_to_cert, 'ca')))
+                 sys.exit()
+         os.makedirs(CRL_path)
+@@ -695,7 +711,7 @@ def get_CRL(path_to_cert):
+                     fd = open(CRL_file, 'w')
+                     fd.write(new_crl)
+                     fd.close()
+-                    _print (_("CRL add"))
++                    _print (_("CRL added"))
+     find_ca_in_crl (CRL_path, all_ca_certs_list)
+ 
+ def find_ca_in_crl (CRL_path, all_ca_certs_list):
+@@ -784,8 +800,7 @@ def rm_ca_from_trusted(ca_cert):
+             if ca_cert != cert:
+                 new_user_ca_certs.append(cert)
+             else:
+-                _print (_("CA certificate delete from user"
+-                          " trusted certificate"))
++                _print (_("CA certificate removed from user trusted"))
+ 
+         fd = open(user_ca_db, 'w')
+         for cert in new_user_ca_certs:
+@@ -804,11 +819,10 @@ def rm_ca_from_trusted(ca_cert):
+             if ca_cert != cert:
+                 new_system_ca_certs.append(cert)
+             else:
+-                _print (_("CA certificate delete from system"
+-                          " trusted certificate"))
++                _print (_("CA certificate removed from system trusted"))
+ 
+         fd = open(system_ca_db, 'w')
+         for cert in new_system_ca_certs:
+             fd.write(cert)
+         fd.close()
+-    return 0
+\ No newline at end of file
++    return 0
+diff --git consolegui/application/helpwidget.py consolegui/application/helpwidget.py
+index 67354b8..d209cd7 100755
+--- consolegui/application/helpwidget.py
++++ consolegui/application/helpwidget.py
+@@ -56,7 +56,8 @@ class HelpWgt(QtGui.QWidget):
+ 
+         self.image_lbl = QtGui.QLabel(self)
+ 
+-        filename = '/usr/share/icons/Calculate/128x128/cl-core.png'
++        filename = '/usr/share/icons/Calculate/128x128/apps/' \
++                   'calculate-console.png'
+         ir = QtGui.QImageReader(filename)
+ 
+         diff = ir.size().width() / 140.0
+@@ -232,5 +233,5 @@ class BugWgt(QtGui.QWidget):
+             server.quit()
+             self.close()
+         except:
+-            show_msg (_('Error sending!'))
++            show_msg (_('Sending error!'))
+             server.quit()
+\ No newline at end of file
+diff --git consolegui/application/mainframe.py consolegui/application/mainframe.py
+index 8bd804f..b84f73b 100755
+--- consolegui/application/mainframe.py
++++ consolegui/application/mainframe.py
+@@ -1044,7 +1044,7 @@ class MainFrame(QtGui.QWidget):
+             self.view_dict[field.name] = ExpertWidget(field.label, self)
+         else:
+             self.view_dict[field.name] = ExpertWidget\
+-                        (_('Advanced settings.'), self)
++                        (_('Advanced settings'), self)
+         self.view_dict[field.name].setFlat(True)
+         self.grid.addWidget(self.view_dict[field.name], x, y, 1, 2)
+ 
+@@ -1132,7 +1132,7 @@ class MainFrame(QtGui.QWidget):
+         def wrapper():
+             reply = None
+             if self.changed_expert_list:
+-                text = _('Clean expert parameters?')
++                text = _('Clean the expert parameters?')
+                 reply = show_question(self, text, cursor_pos = True,
+                                       title = _('Calculate Console'))
+ 
+@@ -1361,7 +1361,7 @@ class MainFrame(QtGui.QWidget):
+             except:
+                self.view_dict[field.name].minus_but.setText('-')
+             self.view_dict[field.name].minus_but.setToolTip \
+-                                                 (_('Delete selected rows'))
++                                              (_('Delete the selected rows'))
+             self.view_dict[field.name].minus_but.setFixedWidth(30)
+             self.view_dict[field.name].minus_but.setDisabled(True)
+ 
+@@ -1549,9 +1549,12 @@ class MainFrame(QtGui.QWidget):
+                         val = _('Yes')
+                     elif val == 'off':
+                         val = _('No')
+-                    elif not val:
++                    elif not val and not brief:
+                         data = ''
+                         val = _('Auto')
++                    elif not val and brief:
++                        data = ''
++                        val = ''
+                     tablewidgetitem = QtGui.QTableWidgetItem(val)
+                     tablewidgetitem.setData(1, data)
+                     table_widget.setItem(row, col, tablewidgetitem)
+@@ -1605,7 +1608,7 @@ class MainFrame(QtGui.QWidget):
+ #                table.item(row, 0).setFlags(QtCore.Qt.ItemIsEditable)
+ 
+                 ch = CentralCheckBox(self.table_widget, False, ind_col = True)
+-                ch.setToolTip(_('Delete row'))
++                ch.setToolTip(_('Delete the row'))
+                 ch.pCheckB.clicked.connect(selected_row \
+                             (self, ch, table.rowCount(), \
+                             table.minus_but))
+diff --git consolegui/application/mainmenu.py consolegui/application/mainmenu.py
+index 5328a3e..d7a9f6a 100755
+--- consolegui/application/mainmenu.py
++++ consolegui/application/mainmenu.py
+@@ -42,7 +42,7 @@ class MainMenu(QtGui.QWidget):
+ #
+ #        self.hlayout.addWidget(self.Methods)
+ 
+-######### View information about running processes
++######### View information about the running processes
+         self.Processes = TopMenu(_('Processes'),['system-run', \
+                                                 'applications-system'], self)
+         self.Processes.setStatusTip(_('View information about running '
+@@ -103,7 +103,7 @@ class MainMenu(QtGui.QWidget):
+         self.Help.setStatusTip(_('Help'))
+         self.hlayout.addWidget(self.Help)
+ 
+-######### Exit program
++######### Exit Program
+ #        self.Exit=TopMenu(_('Close'),['application-exit', 'system-log-out'],\
+ #                                                                        self)
+ #        self.Exit.setStatusTip(_('Close Tab'))
+@@ -125,7 +125,7 @@ class MainMenu(QtGui.QWidget):
+         self.Back.setStatusTip(_('Back'))
+         self.Back.setToolTip(_('Back'))   
+ 
+-######### View information about running processes
++######### View information about the running processes
+         self.Processes.setText(_('Processes'))
+         self.Processes.setStatusTip(_('View information about running '
+                                     'processes'))
+@@ -164,7 +164,7 @@ class MainMenu(QtGui.QWidget):
+         self.Help.setStatusTip(_('Help'))
+ #        self.Help.setToolTip(_('About Application'))
+ 
+-######### Exit program
++######### Exit Program
+ #        self.Exit.setText(_('Close'))
+ #        self.Exit.setStatusTip(_('Close Tab'))
+ #        self.Exit.setToolTip(_('Close Tab'))
+\ No newline at end of file
+diff --git consolegui/application/more.py consolegui/application/more.py
+index cb3895e..1b2ff9e 100755
+--- consolegui/application/more.py
++++ consolegui/application/more.py
+@@ -23,7 +23,7 @@ import Image
+ import pwd, sys
+ from calculate.lib.utils.files import listDirectory
+ 
+-_('User should be not root')
++_('The user must not be root')
+ class TopMenu(QtGui.QPushButton):
+     def __init__(self, label, images, parent = None):
+         QtGui.QPushButton.__init__(self, parent)
+@@ -1241,7 +1241,7 @@ class SelectTable(QtGui.QWidget):
+                 cb.setCheckState(QtCore.Qt.CheckState.PartiallyChecked)
+             if hard_auto:
+                 cb.setCheckState(QtCore.Qt.CheckState.PartiallyChecked)
+-#            cb.setToolTip(_('Delete row'))
++#            cb.setToolTip(_('Delete the row'))
+             cb.clicked.connect(self.selected_row)
+             self.table.setCellWidget(row, 0, cb)
+ 
+@@ -2106,6 +2106,7 @@ class SimplePasswordWidget(QtGui.QWidget):
+ 
+         self.lbl1 = lbl1
+         self.lbl2 = lbl2
++        self._status = True
+ 
+         self.pass_edit = QtGui.QLineEdit(self)
+         self.pass_edit.setEchoMode(self.pass_edit.Password)
+@@ -2334,7 +2335,7 @@ class ClientSignal(QtCore.QThread):
+ 
+     def run(self):
+         self.exit_flag = False
+-        has_connect = None
++        self.ClientObj.has_connect = None
+         try:
+             client_active = self.ClientObj.VarsApi.Get \
+                             ('cl_core_client_active_period')
+@@ -2352,20 +2353,23 @@ class ClientSignal(QtCore.QThread):
+             except Exception, e:
+                 show_msg (e.message, 'no connection to server!')
+             if reply == 0:
+-                if not has_connect:
++                if not self.ClientObj.has_connect:
+                     self.connect_count.emit(self.ClientObj.host_name,
+                                              self.ClientObj.port, 1)
+-                has_connect = True
++                self.ClientObj.has_connect = 1
+             else:
+-                if has_connect:
++                if self.ClientObj.has_connect:
+                     self.connect_count.emit(self.ClientObj.host_name,
+-                                             self.ClientObj.port, -1)
+-                has_connect = False
++                                             self.ClientObj.port, 0)
++                self.ClientObj.has_connect = 0
+             self.sid_sig.emit(sid, reply)
+             for i in range (5):
+                 time.sleep(float(client_active)/15.0)
+                 if self.exit_flag:
++                    self.connect_count.emit(self.ClientObj.host_name,
++                                            self.ClientObj.port, 0)
+                     return 1
++        self.connect_count.emit(self.ClientObj.host_name,self.ClientObj.port,0)
+             
+     def close(self):
+         self.exit_flag = True
+@@ -2398,6 +2402,8 @@ def post_connect_action(client, ClientObj):
+     ClientObj.methods_list = client_list_methods(ClientObj.sid, client)
+     if ClientObj.methods_list  == 1:
+         show_msg (_('No methods available!'), parent = ClientObj.MainWidget)
++        ClientObj.MainWidget.disconnect(True)
++        return 1
+     ClientObj.MainWidget.display_methods()
+ 
+ def icon_visible (mainwgt, name, action):
+@@ -2432,7 +2438,7 @@ def client_del_sid(client):
+             _print (_("Failed to obtain certificate data!"))
+             return -2
+         if s[0][0] == "Permission denied":
+-            _print (_("Permission denied %s") % s[1][1])
++            _print (_("%s: Permission denied") % s[1][1])
+             return -3        
+         if s[0][0] == '0':
+             pass
+@@ -2553,9 +2559,13 @@ class ClientServiceThread(QtCore.QThread):
+         self.close_flag = True
+ 
+ class ImageLabel(QtGui.QLabel):
+-    def __init__(self, image, height_image, parent = None):
++    def __init__(self, image, height_image, parent):
+         QtGui.QLabel.__init__(self)
+-        self._parent = parent
++#        self._parent = parent
++        save_path = os.path.join('/tmp', 'calculate-' + \
++                                 pwd.getpwuid(os.getuid()).pw_name)
++        if not os.path.isdir(save_path):
++            os.mkdir(save_path)
+         repeat = None
+ 
+         image_path, filename = image.rsplit('/',1)
+@@ -2582,8 +2592,9 @@ class ImageLabel(QtGui.QLabel):
+                 fix_image = QtGui.QLabel(self)
+                 img = Image.open(fix_image_path)
+                 img.thumbnail((img.size[0],height_image), Image.ANTIALIAS)
+-                temp_file = '/tmp/%s_fix' %filename
++                temp_file = os.path.join(save_path, '%s_fix' %filename)
+                 img.save(temp_file, "JPEG")
++                os.chmod(temp_file, 0666)
+                 fix_image.setFixedWidth(img.size[0])
+                 fix_image.setStyleSheet("background-image: url(%s); " \
+                                         %temp_file)
+@@ -2598,8 +2609,9 @@ class ImageLabel(QtGui.QLabel):
+ 
+         im = Image.open(image)
+         im.thumbnail((im.size[0],height_image), Image.ANTIALIAS)
+-        temp_file = '/tmp/%s_temp' %filename
++        temp_file = os.path.join(save_path, '%s_temp' %filename)
+         im.save(temp_file, "JPEG")
++        os.chmod(temp_file, 0666)
+         style += "background-image: url(%s); " %temp_file
+         style += "background-attachment: fixed; "
+         style += "background-repeat: %s; " %repeat_dict[repeat.lower()]
+diff --git consolegui/application/session_function.py consolegui/application/session_function.py
+index 09edc90..5508cb4 100755
+--- consolegui/application/session_function.py
++++ consolegui/application/session_function.py
+@@ -51,17 +51,17 @@ def client_post_cert (client, lang):
+     sid = get_sid(client)
+     results = client.service.post_cert()
+     if results[0][0] == -4:
+-        show_msg (_("Certificate not found in Server Database!"), _('Error'))
++        show_msg (_("Certificate not found in the server!"), _('Error'))
+         raise Exception()
+     sid, new_session = client_sid(sid, client, results[0][0], lang)
+     if new_session:
+         _print (_(" New session"))
+     else: _print (_(" Old session"))
+-    _print (_(" Your session ID = %s") %sid)
++    _print (_(" Your session ID: %s") %sid)
+     if results[0][0] == -3:
+         _print (_("Certificate not sent!"))
+     else:
+-        _print (_(" Your certifitate ID = %d") %(results[0][0]))
++        _print (_(" Your certifitate ID: %d") %(results[0][0]))
+         try:
+             if results[0][1] == -2:
+                 _print (_("Certificate expired"))
+@@ -87,19 +87,19 @@ class ViewSessionInfo (QtGui.QWidget):
+         
+         if results[0][0] == -4:
+             self.layout.addWidget(LabelWordWrap(_('Certificate not found in'
+-                        ' Server Database!'), self), 0,0,1,2)
++                        ' the server!'), self), 0,0,1,2)
+             self.setLayout(self.layout)
+             return 1
+ 
+         sid = get_sid(client)
+-        self.layout.addWidget(LabelWordWrap(_('Your session ID = ')+str(sid),
++        self.layout.addWidget(LabelWordWrap(_('Your session ID: ')+str(sid),
+                                             self), 4,0,1,2)
+ 
+         if results[0][0] == -3:
+             self.layout.addWidget(LabelWordWrap(_('Certificate not sent!'),
+                                                 self), 5,0,1,2)
+         else:
+-            self.layout.addWidget(LabelWordWrap(_('Your certifitate id = ') \
++            self.layout.addWidget(LabelWordWrap(_('Your certifitate id: ') \
+                             + str(results[0][0]), self), 5,0,1,2)
+             try:
+                 if results[0][1] == -2:
+diff --git consolegui/application/tools.py consolegui/application/tools.py
+index 250f9da..3737bf3 100755
+--- consolegui/application/tools.py
++++ consolegui/application/tools.py
+@@ -157,7 +157,7 @@ class ToolTabWidget(QtGui.QTabWidget):
+         tab_list = [_('GUI Tools'),_('Other Tools')]
+ 
+         if self.changed_flag:
+-            text = _('There are unsaved changes on tab %s') \
++            text = _('There are unsaved changes in tab %s') \
+                                     %tab_list[self.cur_tab_num]
+             informative_text = _('<center>Apply them?</center>')
+ 
+@@ -205,12 +205,12 @@ class ToolGui(QtGui.QWidget):
+ #        self.grid.setAlignment(QtCore.Qt.AlignLeft)
+ 
+         # add height image in grid
+-        self.h_image_lbl = LabelWordWrap(_('Height image'), self)
++        self.h_image_lbl = LabelWordWrap(_('Image height'), self)
+         self.h_image_lbl.setMaximumWidth(self.h_image_lbl.sizeHint().width())
+ 
+         self.h_image_lineedit = QtGui.QLineEdit(self)
+-        self.h_image_lineedit.setToolTip(_('Set fixed height image for '
+-                                         'actions')+' '+_('0 - hide images'))
++        self.h_image_lineedit.setToolTip(_('Set a fixed height image for '
++                                         'actions')+' '+_('0: hide images'))
+ 
+         self.h_image_lineedit.setText(str(ClientObj.height_image))
+ 
+@@ -221,14 +221,14 @@ class ToolGui(QtGui.QWidget):
+         self.expert_lbl = LabelWordWrap(_('Expert view'), self)
+         self.expert_checkbox = QtGui.QCheckBox(self)
+         self.expert_checkbox.setChecked(ClientObj.expert)
+-        self.expert_lbl.setToolTip(_('Expert mode view results'))
+-        self.expert_checkbox.setToolTip(_('Expert mode view results'))
++        self.expert_lbl.setToolTip(_('View results in expert mode'))
++        self.expert_checkbox.setToolTip(_('View results in expert mode'))
+ 
+         self.grid.addWidget(self.expert_lbl, 1, 0)
+         self.grid.addWidget(self.expert_checkbox, 1, 1, 1, 2)
+ 
+         # add count item in result table in grid
+-        self.count_row_lbl = LabelWordWrap(_('Count Row in result Table'),self)
++        self.count_row_lbl = LabelWordWrap(_('Rows in the Table'),self)
+         self.count_row_lbl.setMaximumWidth \
+                                     (self.count_row_lbl.sizeHint().width())
+ 
+diff --git data/cl-console-gui.desktop data/cl-console-gui.desktop
+index ba5fda3..26387ba 100644
+--- data/cl-console-gui.desktop
++++ data/cl-console-gui.desktop
+@@ -6,4 +6,4 @@ Exec=cl-console-gui
+ Icon=calculate-console
+ Terminal=false
+ Type=Application
+-Categories=Settings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;
+\ No newline at end of file
++Categories=Settings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;GNOME;GTK;Utility;
+diff --git ru/console_gui.po ru/console_gui.po
+index 5320e04..a9a4c6e 100644
+--- ru/console_gui.po
++++ ru/console_gui.po
+@@ -2,9 +2,9 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: console_gui_translate\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2012-06-27 14:19+0300\n"
+-"PO-Revision-Date: 2012-06-27 14:20+0300\n"
+-"Last-Translator: Denis <ds@mail.ru>\n"
++"POT-Creation-Date: 2012-07-19 17:05+0300\n"
++"PO-Revision-Date: 2012-07-19 17:09+0300\n"
++"Last-Translator: Calculate Ltd., Elena Gavrilova <support@calculate.ru, e.vl.gavrilova@yandex.ru>\n"
+ "Language-Team: \n"
+ "Language: \n"
+ "MIME-Version: 1.0\n"
+@@ -51,26 +51,27 @@ msgid "Once the session is closed, data on %d processes will be lost!"
+ msgstr "При закрытии сессии данные %d процессa будут удалены!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:419
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:173
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:702
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1959
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:179
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:701
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1958
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2286
+ msgid "Yes"
+ msgstr "Да"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:420
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:174
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:704
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1961
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:180
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:703
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1960
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2287
+ msgid "No"
+ msgstr "Нет"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:425
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:117
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:893
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1077
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2052
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:151
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:892
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1076
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2051
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:50
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:132
+ msgid "Cancel"
+@@ -94,8 +95,6 @@ msgstr "Процессы"
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:50
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:130
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:132
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:36
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:44
+ msgid "View information about running processes"
+ msgstr "Просмотр информации о запущенных процессах"
+ 
+@@ -204,8 +203,8 @@ msgid "Country (a two-character tag)"
+ msgstr "Страна (2 символа)"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:103
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1832
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2036
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1831
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2035
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:36
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:85
+ msgid "Password"
+@@ -222,10 +221,15 @@ msgstr "Поле \"Страна\" должно состоять из двух с
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:142
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:141
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:231
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:234
+ msgid "Input error"
+ msgstr "Ошибка ввода"
+ 
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:36
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:44
++msgid "View information about the running processes"
++msgstr "Просмотр информации о запущенных процессах"
++
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:87
+ msgid "Kill the process? (The process is active)"
+ msgstr "Убить процесс? (Процесс активен)"
+@@ -269,8 +273,10 @@ msgid "Well killed!"
+ msgstr "Успешно убит!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:182
+-msgid "Certificate not found in the server database!"
+-msgstr "Сертификат не найден в БД сервера!"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:54
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:89
++msgid "Certificate not found in the server!"
++msgstr "Не найден сертификат на сервере!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:184
+ msgid "Session not matching your certificate!"
+@@ -280,36 +286,36 @@ msgstr "Сессия не соответствует Вашему сертифи
+ msgid "Failed to kill the process!"
+ msgstr "Не удалось завершить процесс!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:168
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:174
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:53
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:138
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:225
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:140
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:238
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:124
+ msgid "Close"
+ msgstr "Закрыть"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:202
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:208
+ msgid "show this help message and exit"
+ msgstr "вывод этой справки и выход"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:205
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:211
+ msgid "language for translation"
+ msgstr "язык для перевода"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:208
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:214
+ msgid "call method"
+ msgstr "вызов метода"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:211
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:217
+ msgid "port number"
+ msgstr "номер порта"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:214
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:220
+ msgid "destination host"
+ msgstr "хост назначения"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:360
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:433
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:383
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:456
+ msgid "New connection"
+ msgstr "Новое соединение"
+ 
+@@ -347,84 +353,79 @@ msgstr "Сайт Компании"
+ msgid "Distribution website"
+ msgstr "Сайт дистрибутива"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:88
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:168
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:89
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:170
+ msgid "Calculate Console "
+ msgstr "Calculate Console "
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:117
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:119
+ msgid "Your name:"
+ msgstr "Ваше имя:"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:120
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:122
+ msgid "Your email:"
+ msgstr "Ваш email:"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:121
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:124
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:123
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:126
+ msgid "Please enter a valid email. "
+ msgstr "Пожалуйста, введите существующий адрес электронной почты."
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:122
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:125
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:124
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:127
+ msgid "If the email does not exist, you will receive no letter"
+ msgstr "Если электронная почта не существует, то письмо не дойдет"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:127
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:129
+ msgid "Subject:"
+ msgstr "Тема:"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:130
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:132
+ msgid "Message:"
+ msgstr "Сообщение:"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:133
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:135
+ msgid "Send a Bug"
+ msgstr "Отправить ошибку"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:183
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:181
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:332
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:395
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:185
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:180
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:331
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:394
+ msgid "Report Bug"
+ msgstr "Сообщить об ошибке"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:205
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:207
+ msgid "Enter a valid email!"
+ msgstr "Введите существующий адрес электронной почты!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:230
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:232
+ msgid "Email sent!"
+ msgstr "Письмо отправлено!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:234
+-msgid "Error sending!"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:236
++msgid "Sending error!"
+ msgstr "Ошибка отправки"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:139
+ msgid "Previous"
+ msgstr "Назад"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:163
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2047
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:175
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2046
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:43
+ msgid "Ok"
+ msgstr "Ok"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:182
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:194
+ msgid "Next"
+ msgstr "Далее"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:242
+-msgid "Error when closing the process"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:255
++msgid "Error closing the process"
+ msgstr "Ошибка закрытия процесса"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:54
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:89
+-msgid "Certificate not found in Server Database!"
+-msgstr "Сертификат не найден в БД сервера!"
+-
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:54
+ msgid "Error"
+ msgstr "Ошибка"
+ 
+@@ -438,8 +439,8 @@ msgstr "Предыдущая сессия"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:60
+ #, python-format
+-msgid " Your session ID = %s"
+-msgstr "Номер Вашей сессии = %s"
++msgid " Your session ID: %s"
++msgstr "Номер Вашей сессии: %s"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:62
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:99
+@@ -448,8 +449,8 @@ msgstr "Сертификат не отправлен!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:64
+ #, python-format
+-msgid " Your certifitate ID = %d"
+-msgstr "Номер Вашего сертификата = %d"
++msgid " Your certifitate ID: %d"
++msgstr "Номер Вашего сертификата: %d"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:67
+ msgid "Certificate expired"
+@@ -463,8 +464,8 @@ msgstr "Время жизни сертификата истекает через
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:82
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:150
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:184
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:238
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:255
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:241
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:258
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:275
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:278
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:285
+@@ -472,12 +473,12 @@ msgid "Not connected!"
+ msgstr "Соединение отсутствует!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:95
+-msgid "Your session ID = "
+-msgstr "Номер Вашей сессии = "
++msgid "Your session ID: "
++msgstr "Номер Вашей сессии: "
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:102
+-msgid "Your certifitate id = "
+-msgstr "Номер Вашего сертификата = "
++msgid "Your certifitate id: "
++msgstr "Номер Вашего сертификата: "
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:106
+ msgid "expiry certificate has passed"
+@@ -490,11 +491,11 @@ msgstr "Время жизни сертификата истекает через
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:113
+ msgid "Your IP address: "
+-msgstr "Ваш IP адрес - "
++msgstr "Ваш IP адрес: "
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:115
+ msgid "Your MAC address: "
+-msgstr "Ваш MAC адрес - "
++msgstr "Ваш MAC адрес: "
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:120
+ msgid "Clear your session cache"
+@@ -513,62 +514,52 @@ msgid "Session cache cleared"
+ msgstr "Кэш сессии удалён"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:26
+-msgid "User should be not root"
++msgid "The user must not be root"
+ msgstr "Пользователь должен быть не root"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:27
+-#, python-format
+-msgid "No module named %s"
+-msgstr "Нет модуля %s"
+-
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:28
+-#, python-format
+-msgid "Cannot import name %s"
+-msgstr "Не удалось импортировать %s"
+-
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:147
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:146
+ msgid "About"
+ msgstr "О программе"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:164
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:163
+ msgid "Info"
+ msgstr "Справка"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:490
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:601
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:489
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:600
+ msgid "Open"
+ msgstr "Открыть"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:700
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1963
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:699
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1962
+ msgid "Auto"
+ msgstr "Авто"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1028
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1027
+ msgid "Clear the table"
+ msgstr "Очистить таблицу"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1129
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1268
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1334
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1447
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1128
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1267
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1333
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1446
+ msgid "Add a row"
+ msgstr "Добавить строку"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1140
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1139
+ msgid "Recover the table"
+ msgstr "Восстановить таблицу"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1184
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1183
+ msgid "Check all"
+ msgstr "Отметить все"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1347
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1346
+ msgid "Reset"
+ msgstr "Сбросить изменения"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1835
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2042
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1834
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2041
+ msgid "Repeat"
+ msgstr "Повтор"
+ 
+@@ -581,24 +572,24 @@ msgstr "Прервать процесс"
+ msgid "You do not have a certificate. Please generate a new request and get a new certificate from the server."
+ msgstr "У Вас нет сертификата. Пожалуйста, сгенерируйте запрос на сертитфикат и получите сертификат с сервера."
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2401
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2404
+ msgid "No methods available!"
+ msgstr "Нет доступных методов!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2430
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2435
+ msgid "No access to the file!"
+ msgstr "Нет доступа к файлу!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2433
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2438
+ msgid "Failed to obtain certificate data!"
+ msgstr "Не удалось получить данные сертификата!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2436
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2441
+ #, python-format
+-msgid "Permission denied %s"
++msgid "%s: Permission denied"
+ msgstr "Доступ запрещён %s"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2447
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2452
+ msgid "Error removing the session from the server"
+ msgstr "Ошибка удаления сессии на сервере"
+ 
+@@ -625,38 +616,38 @@ msgid "Quit"
+ msgstr "Выход"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:74
+-msgid "Certificate signature request"
++msgid "Signature request"
+ msgstr "Запрос на подпись сертификата"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:99
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:140
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:209
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:230
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:212
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:233
+ msgid "Enter the hostname or the IP address"
+ msgstr "Введите имя хоста или IP-адрес"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:100
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:210
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:213
+ msgid "Incorrect \"Host\" value!"
+ msgstr "Ошибка в поле \"Хост\"!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:105
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:215
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:218
+ msgid "Enter the port number"
+ msgstr "Введите номер порта"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:105
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:215
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:218
+ msgid "Incorrect \"Port\" value!"
+ msgstr "Ошибка в поле \"Порт\"!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:112
+-msgid "You have already sent a request to sign the certificate!"
++msgid "You have already sent a signature request!"
+ msgstr "У Вас уже есть запрос на подписание сертификата!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:113
+ #, python-format
+-msgid "request id - %s"
++msgid "Request ID: %s"
+ msgstr "Номер Вашего запроса - %s"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:115
+@@ -665,7 +656,7 @@ msgstr "Отправить навый запрос на подпись серт
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:134
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:137
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:226
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:229
+ msgid "Closing. Connection error."
+ msgstr "Ошибка соединения. Закрываюсь."
+ 
+@@ -675,65 +666,75 @@ msgstr "Секретный ключ и запрос на подпись серт
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:158
+ msgid "Create a new private key and signature request?"
+-msgstr "Создать новые Секретный Ключ и Запрос на подпись сертификата?"
++msgstr "Создать новые секретный ключ и запрос на подпись сертификата?"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:188
+ msgid "This server has not signed the certificate!"
+ msgstr "Сервер не подписал сертификат!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:194
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:269
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:272
+ #, python-format
+-msgid "Your request ID = %s"
+-msgstr "Номер Вашего запроса = %s"
++msgid "Your request ID: %s"
++msgstr "Номер Вашего запроса: %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:195
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:273
++msgid "To sign the certificate on the server, use command"
++msgstr "Для подписания сертификата на сервере используется команда"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:200
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:197
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:275
++msgid "Request"
++msgstr "Запрос"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:203
+ #, python-format
+ msgid "Request not sent, or file %s deleted"
+ msgstr "Запрос не был послан, или удалён файл %s"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:226
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:229
+ #, python-format
+ msgid "Error code: %s"
+ msgstr "Код ошибки: %s"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:242
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:245
+ #, python-format
+ msgid "Request %s not found on the client’s side"
+ msgstr "Запрос %s не найден на стороне клиента"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:265
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:268
+ msgid "Signature request rejected!"
+ msgstr "Запрос на подпись сертификата отвергнут!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:268
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:271
+ msgid "The request has not been reviewed yet."
+ msgstr "Запрос на подписание сертификата ещё не рассмотрен."
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:272
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:278
+ msgid "Either the request or the signature does not match the earlier ones."
+ msgstr "Запрос или подпись не соответствуют отправленным ранее."
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:279
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:285
+ #, python-format
+ msgid "Certificate saved. Your certificate ID = %s"
+ msgstr "Сертификат сохранён! Номер Вашего сертификата = %s"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:330
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:336
+ msgid "Field \"CN\" not found in the root certificate!"
+ msgstr "Не найдено поле \"CN\" в корневом сертификате!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:343
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:349
+ msgid "Filename = "
+ msgstr "Имя файла ="
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:344
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:350
+ msgid "Root certificate added"
+ msgstr "Корневой сертификат добавлен"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:346
+-msgid "File with CA certificates now exists"
+-msgstr "Файл с сертификатом удостоверяющего центра создан"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:352
++msgid "File with the CA certificate now exists"
++msgstr "Файл с сертификатом Центра авторизации создан"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:160
+ msgid "Connection"
+@@ -745,7 +746,7 @@ msgstr "Вы подсоединены к серверу!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:173
+ msgid "Please break"
+-msgstr "Пожалуйста разорвите"
++msgstr "Пожалуйста, разорвите"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:173
+ msgid "previous connection!"
+@@ -776,38 +777,38 @@ msgstr "Пароль неверен"
+ msgid "You do not have a certificate or your certificate does not match the server certificate. Please generate a new request and get a new certificate from the server."
+ msgstr "У вас нет сертификата или ваш сертификат не соответствует серверному сертификату. Пожалуйста, сгенерируйте запрос на сертификат и получите сертификат с сервера."
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:367
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:368
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:442
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:372
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:373
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:447
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:513
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:514
+ msgid "Failed to get the frame from the server."
+ msgstr "Ошибка получения фрейма с сервера."
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:369
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:443
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:485
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:374
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:448
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:490
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:515
+ msgid "Try resfeshing this page later."
+ msgstr "Пожалуйста, обновите эту страницу позже."
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:441
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:446
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:588
+ msgid "Failed to get the complete frame from the server."
+ msgstr "Ошибка получения полного фрейма с сервера."
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:483
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:484
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:488
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:489
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:638
+-msgid "Failed to get progress status from the server"
++msgid "Failed to get the progress status from the server"
+ msgstr "Ошибка получения значения прогресса с сервера"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:596
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:601
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:786
+ msgid "Send"
+ msgstr "Отправить"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:629
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:634
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:819
+ msgid "Failed to send the message (password) to the server"
+ msgstr "Ошибка отправки сообщения (пароля) на сервер"
+@@ -834,7 +835,7 @@ msgstr "Прочие настройки"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:160
+ #, python-format
+-msgid "There are unsaved changes on tab %s"
++msgid "There are unsaved changes in tab %s"
+ msgstr "На вкладке %s имеются несохранённые изменения"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:162
+@@ -846,15 +847,15 @@ msgid "Saving changes"
+ msgstr "Сохранение изменений"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:208
+-msgid "Height image"
++msgid "Image height"
+ msgstr "Высота изображений"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:212
+-msgid "Set fixed height image for actions"
++msgid "Set a fixed height image for actions"
+ msgstr "Установка фиксированной высоты изображений для действий"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:213
+-msgid "0 - hide images"
++msgid "0: hide images"
+ msgstr "0 - скрыть изображения"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:221
+@@ -863,11 +864,11 @@ msgstr "Расширенный просмотр"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:224
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:225
+-msgid "Expert mode view results"
++msgid "View results in expert mode"
+ msgstr "Расширенный режим просмотра результатов"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:231
+-msgid "Count Row in result Table"
++msgid "Rows in the Table"
+ msgstr "Кол-во строк в таблице"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:376
+@@ -896,7 +897,7 @@ msgstr "Оставьте пустым для выбора стандартног
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:38
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:42
+-msgid "You are not connected to localhost server"
++msgid "You are not connected to the localhost server"
+ msgstr "Вы не подсоединены к локальному серверу!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:84
+@@ -915,29 +916,29 @@ msgstr "Ошибка при обновлении!"
+ msgid "Update successfully completed"
+ msgstr "Обновление успешно завершено"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:144
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:145
+ msgid "System control"
+ msgstr "Управление системой"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:159
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:257
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:161
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:259
+ msgid "Show/Hide Window"
+ msgstr "Показать/спрятать окно"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:161
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:168
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:293
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:400
+-msgid "Exit program"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:163
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:170
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:295
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:403
++msgid "Exit Program"
+ msgstr "Выйти из программы"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:166
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:367
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:168
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:370
+ msgid "Program settings"
+ msgstr "Настройки программы"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:239
+-msgid "Update is already running"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:241
++msgid "An update is already running"
+ msgstr "Обновление уже запущено"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/DisplayMethod.py:332
+@@ -949,7 +950,7 @@ msgid "Untrusted Server Certificate!"
+ msgstr "Недоверенный сертификат сервера!"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:55
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:414
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:416
+ #, python-format
+ msgid "Fingerprint = %s"
+ msgstr "Отпечаток = %s"
+@@ -960,147 +961,150 @@ msgid "Serial Number =  %s"
+ msgstr "Серийный номер = %s"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:71
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:418
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:420
+ msgid "Issuer"
+ msgstr "Подписчик"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:83
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:422
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:424
+ msgid "Subject"
+ msgstr "Субъект"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:92
+-msgid "Add this Servers certificate to trusted or "
++msgid "Add this server's certificate to trusted or "
+ msgstr "Добавить сертификат этого сервера в доверенные или"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:93
+-msgid "try add CA and ROOT certificates to trusted?"
++msgid "try add the CA and ROOT certificates to trusted?"
+ msgstr "Попытаться добавить сертификат ЦА и корневой в доверенные?"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:105
+-msgid "Add Servers certificate"
++msgid "Add the server certificate"
+ msgstr "Добавить сертификат сервера"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:110
+-msgid "Add CA and ROOT certificate"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:111
++msgid "Add the CA and ROOT certificates"
+ msgstr "Добавить Корневой и сертификат ЦА"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:121
+-msgid "Add certificate to trusted"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:123
++msgid "Add the certificate to trusted"
+ msgstr "Добавить сертификат в доверенные"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:167
+-#, python-format
+-msgid ""
+-"Server certificate add to trusted \n"
+-"%s"
+-msgstr ""
+-"Сертификат сервера добавлен в доверенные \n"
+-"%s"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:169
++msgid "Server certificate added to trusted"
++msgstr "Сертификат сервера добавлен в доверенные"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:168
+-msgid "Certificate add"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:170
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:375
++msgid "Certificate added"
+ msgstr "Сертификат добавлен"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:184
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:616
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:621
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:186
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:632
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:637
+ #, python-format
+-msgid "error creating directory %s"
++msgid "Error creating directory %s"
+ msgstr "Ошибка при создании директории %s"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:296
+-msgid "Certificate not found in client"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:298
++msgid "Certificate not found on the client's side"
+ msgstr "Сертификат не найден на стороне клиента"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:307
+-msgid "Error open file"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:309
++msgid "Error opening file"
+ msgstr "Ошибка при открытии файла"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:363
+-msgid "Not found field \"CN\" in certificate!"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:365
++msgid "Field \"CN\" not found in the certificate!"
+ msgstr "Не найдено поле \"CN\" в сертификате!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:373
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:375
+ #, python-format
+ msgid "Filename = %s"
+ msgstr "Имя файла = %s"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:373
+-msgid "CERTIFICATE ADD"
+-msgstr "Сертификат добавлен"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:377
++msgid "A file with the CA certificate now exists"
++msgstr "Файл с сертификатом Центра авторизации создан"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:375
+-msgid "File with ca certificates exists"
+-msgstr "Файл с сертификатом удостоверяющего центра создан"
+-
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:391
+-msgid "Server certificate is not valid"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:393
++msgid "Invalid server certificate"
+ msgstr "Сертификат сервера недействителен!"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:396
+-msgid "CA not found on server"
+-msgstr "Сертификат Центра Авторизации не найден на сервере"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:398
++msgid "CA certificate not found on the server"
++msgstr "Сертификат Центра авторизации не найден на сервере"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:408
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:410
+ msgid "Error. Certificate not added to trusted"
+ msgstr "Ошибка! Сертификат не добавлен в доверенные"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:415
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:417
+ #, python-format
+ msgid "Serial Number = %s"
+ msgstr "Серийный номер = %s"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:426
+-msgid "Add CA certificates to trusted? "
+-msgstr "Добавить сертификат Центра Авторизации в доверенные?"
+-
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:428
+-msgid "Adding certificate"
++msgid "Add the CA certificate to trusted? "
++msgstr "Добавить сертификат Центра авторизации в доверенные?"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:430
++msgid "Adding the certificate"
+ msgstr "Добавление сертификата"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:431
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:433
+ msgid "Certificate not added to trusted"
+ msgstr "Сертификат не добавлен в доверенные"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:698
+-msgid "CRL add"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:714
++msgid "CRL added"
+ msgstr "Список отзыва сертификатов добавлен"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:787
+-msgid "CA certificate delete from user trusted certificate"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:803
++msgid "CA certificate removed from user trusted"
+ msgstr "Сертификат Центра Авторизации удалён из пользовательского списка доверенных сертификатов"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:807
+-msgid "CA certificate delete from system trusted certificate"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:822
++msgid "CA certificate removed from system trusted"
+ msgstr "Сертификат Центра Авторизации удалён из системного списка доверенных сертификатов"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1047
+-msgid "Advanced settings."
+-msgstr "Дополнительные настройки."
++msgid "Advanced settings"
++msgstr "Дополнительные настройки"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1135
+-msgid "Clean expert parameters?"
++msgid "Clean the expert parameters?"
+ msgstr "Очистить экспертные параметры?"
+ 
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1364
+-msgid "Delete selected rows"
++msgid "Delete the selected rows"
+ msgstr "Удалить выделенные строки"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1608
+-msgid "Delete row"
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1611
++msgid "Delete the row"
+ msgstr "Удалить строку"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1729
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1732
+ msgid "View options"
+ msgstr "Просмотреть параметры"
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:2255
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:2258
+ msgid " Step "
+ msgstr " Шаг "
+ 
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:2258
+-#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:2262
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:2261
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:2265
+ msgid "Run"
+ msgstr "Выполнение"
+ 
++#~ msgid "Certificate not found in the server database!"
++#~ msgstr "Сертификат не найден в БД сервера!"
++
++#~ msgid "CERTIFICATE ADDED"
++#~ msgstr "Сертификат добавлен"
++
++#~ msgid "No module named %s"
++#~ msgstr "Нет модуля %s"
++
++#~ msgid "Cannot import name %s"
++#~ msgstr "Не удалось импортировать %s"
+diff --git scripts/cl-console-gui scripts/cl-console-gui
+index 09528d6..9cc7777 100755
+--- scripts/cl-console-gui
++++ scripts/cl-console-gui
+@@ -13,13 +13,19 @@ sys.setdefaultencoding("utf-8")
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('console_gui',sys.modules[__name__])
+ 
+-class Application(QtGui.QApplication):
+-    def __init__(self, argv):
+-        QtGui.QApplication.__init__(self, argv)
+-        self.installEventFilter(self)
++import signal
++signal.signal(signal.SIGINT, signal.SIG_DFL)
+ 
+-    def event(self, e):
+-        return QtGui.QApplication.event(self, e)
++#KeyboardInterrupt
++#def sigint_handler(*args):
++#    """Handler for the SIGINT signal."""
++#    sys.stderr.write('\r')
++#    from PySide.QtGui import QMessageBox
++#    if QMessageBox.question(None, '', "Are you sure you want to quit?",
++#                            QMessageBox.Yes | QMessageBox.No,
++#                            QMessageBox.No) == QMessageBox.Yes:
++#        QtGui.QApplication.quit()
++#signal.signal(signal.SIGINT, sigint_handler)
+ 
+ def main():
+     from calculate.consolegui.application.ConnectionTabs import ToolTabWidget,\
+@@ -50,7 +56,7 @@ def main():
+     except dbus.exceptions.DBusException, e:
+         bus = None
+         if not os.getuid():
+-            _print (_('User should be not root'))
++            _print (_('The user must not be root'))
+         else:
+             print e
+         sys.exit(1)
+@@ -65,7 +71,7 @@ def main():
+     except dbus.DBusException:
+         pass
+ 
+-    app = Application(sys.argv)
++    app = QtGui.QApplication(sys.argv)
+ 
+     second = False
+     for run_commands in filter(lambda x:'cl-console-gui' in x[0],getRunProc()):
+diff --git setup.py setup.py
+index 1dac864..e0ea590 100755
+--- setup.py
++++ setup.py
+@@ -50,7 +50,6 @@ for size in [16,22,48,64,72,96,128]:
+     data_files.append(('/usr/share/icons/Calculate/%dx%d/apps' %(size,size),
+                    glob.glob('data/%dx%d/calculate-install.png' %(size,size))))
+ 
+-
+ var_data_files = []
+ 
+ __version__ = "0.1"
