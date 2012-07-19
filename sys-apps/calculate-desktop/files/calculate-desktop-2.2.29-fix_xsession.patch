@@ -1,0 +1,21 @@
+commit 47be9ca10af2cc1a4ae5a0822d659f3ccfad9efd
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Thu Jul 19 13:45:59 2012 +0400
+
+    Fix xsession
+
+diff --git a/pym/cl_fill_desktop.py b/pym/cl_fill_desktop.py
+index 2c92e76..5e373b1 100644
+--- a/pym/cl_fill_desktop.py
++++ b/pym/cl_fill_desktop.py
+@@ -100,7 +100,9 @@ class fillVars():
+                 if xsession:
+                     xsession = xsession[-1]
+         if xsession:
+-            if desktopSession and desktopSession.lower() != "default":
++            if desktopSession and \
++                any(x in desktopSession.lower()
++                    for x in ("kde","xfce","gnome")):
+                 xsession = desktopSession
+             if "kde" in xsession.lower():
+                 return "kde"
