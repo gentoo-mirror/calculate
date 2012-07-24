@@ -1,0 +1,6 @@
+# Calculate path=/tmp name=restartOpenrcLocale exec=/bin/bash cl_setup==locale
+
+/etc/init.d/keymaps restart
+/etc/init.d/consolefont restart
+
+true
