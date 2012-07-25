@@ -1,7 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/urxvt-rxvt-unicode.desktop name=calculate-terminal.desktop mirror pkg(x11-terms/rxvt-unicode)>=9.15
 
 # Update info
-#-ini(desktop.terminal, terminal)-#
+#-ini(desktop.terminal, rxvt-unicode)-#
 
 # Hide icon
 [Desktop Entry]
