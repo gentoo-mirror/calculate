@@ -1,12 +1,12 @@
-urxvt*font:             xft:droid sans mono:pixelsize=14
+urxvt*font:             xft:droid sans mono:pixelsize=12
 urxvt*termName:         rxvt
 urxvt*background:       #000000
 urxvt*foreground:       #cccccc
 urxvt*scrollBar:        false
 urxvt*perl-lib:         /usr/lib/urxvt/perl/
 urxvt*perl-ext-common:  default,matcher
-urxvt*urlLauncher:      /usr/bin/firefox
-urxvt*matcher.button:   3
+urxvt*urlLauncher:      /usr/bin/chromium
+urxvt*matcher.button:   2
 
 Xft*dpi:                96
 Xft*antialias:          true
