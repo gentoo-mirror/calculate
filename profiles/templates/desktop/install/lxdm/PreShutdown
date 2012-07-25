@@ -8,11 +8,11 @@ then
 	XMESPID=$!
 	for i in {1..500}
 	do
-		if !pgrep -f 'xdm/xdm --logout'
+		if pgrep -f 'xdm/xdm --logout' &>/dev/null
 		then
-			break
-		else
 			sleep 1
+		else
+			break
 		fi
 	done
 	kill -9 $XMESPID &>/dev/null
