@@ -1,0 +1,29 @@
+diff --git consolegui/application/mainframe.py consolegui/application/mainframe.py
+index 66506ef..8dcaa9e 100755
+--- consolegui/application/mainframe.py
++++ consolegui/application/mainframe.py
+@@ -1194,7 +1194,7 @@ class MainFrame(QtGui.QWidget):
+         for res in result[0]:
+             meth_result.append(ReturnedMessage(res.type, res.field, \
+                                                res.message, res.expert))
+-            if res.type == 'error':
++            if res.type == 'error' or res.type == 'pwderror':
+                 error = True
+                 self.ClientObj.param_objects[self.method_name] \
+                                                        ['error'] = meth_result
+@@ -2231,7 +2231,7 @@ class MainFrame(QtGui.QWidget):
+                 for res in meth_result_temp[0]:
+                     meth_result.append(ReturnedMessage(res.type, res.field, \
+                                                       res.message, res.expert))
+-                    if res.type == 'error':
++                    if res.type == 'error' or res.type == 'pwderror':
+                         self.ClientObj.param_objects[self.method_name] \
+                                                        ['error'] = meth_result
+                         error = True
+@@ -2559,4 +2559,4 @@ class MainFrame(QtGui.QWidget):
+         # Show Control Buttons widget
+         self._parent.methodname_wgt._hide()
+         self._parent.control_button._hide()
+-        event.accept()
+\ No newline at end of file
++        event.accept()
