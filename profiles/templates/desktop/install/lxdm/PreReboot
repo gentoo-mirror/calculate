@@ -9,7 +9,7 @@ then
 	for i in {1..500}
 	do
 		if !pgrep -f 'xdm/xdm --logout'
-		do
+		then
 			break
 		else
 			sleep 1
