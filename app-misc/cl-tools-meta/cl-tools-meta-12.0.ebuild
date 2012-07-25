@@ -91,9 +91,8 @@ RDEPEND="${RDEPEND}
 	)
 	cdistro_CLDX? (
 		!x11-misc/ktsuss
-		!x11-terms/terminal
 		sys-block/gparted
-		x11-terms/rxvt-unicode
+		x11-terms/terminal
 	)
 	cdistro_CDS? (
 		app-admin/hddtemp
