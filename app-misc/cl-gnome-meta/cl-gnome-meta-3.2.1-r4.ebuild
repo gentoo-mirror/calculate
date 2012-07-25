@@ -20,7 +20,9 @@ IUSE="calculate_nonetwork cups"
 #  all accessibility and mono
 #  app-admin/pessulus
 #  gnome-extra/bug-buddy
+#  >=media-gfx/eog-${PV}
 RDEPEND="$RDEPEND
+	media-gfx/geeqie
 	>=gnome-base/gnome-core-libs-${PV}[cups?]
 
 	>=gnome-base/gnome-session-${PV}
@@ -39,7 +41,6 @@ RDEPEND="$RDEPEND
 	>=app-editors/gedit-${PV}
 	>=app-text/evince-${PV}
 	>=gnome-extra/gnome-contacts-${PV}
-	>=media-gfx/eog-${PV}
 	>=media-video/totem-${PV}
 	>=x11-terms/gnome-terminal-${PV}
 
