@@ -12,7 +12,7 @@ DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 RDEPEND=">=sys-apps/calculate-lib-3.0.0"
 
