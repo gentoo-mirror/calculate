@@ -1,0 +1,98 @@
+diff --git install/cl_install.py install/cl_install.py
+index 71b3552..12ed5ad 100644
+--- install/cl_install.py
++++ install/cl_install.py
+@@ -55,6 +55,7 @@ from cl_distr import (PartitionDistributive,
+ from calculate.lib.utils.text import tableReport
+ from calculate.lib.server.utils import dialogYesNo
+ from subprocess import Popen,PIPE,STDOUT
++from itertools import *
+ 
+ class InstallError(Exception):
+     """Installation Error"""
+@@ -386,17 +387,34 @@ class Install(color_print):
+             raise DistributiveError(
+                 _("Failed to determine the partition number for %s")%partition)
+         bootFlag = "boot" if parttable == "dos" else "legacy_boot"
+-        parted = process(partedProg, "-m",deviceName,"print")
+-        DEVICENUM,FLAGS = 0,6
+-        changeActive = \
+-            map(lambda x:x[DEVICENUM],
+-            filter(lambda x:x[DEVICENUM] != partitionNumber and \
+-                            bootFlag in x[FLAGS].strip(';').split(', ') or \
+-                            x[DEVICENUM] == partitionNumber and \
+-                            not bootFlag in x[FLAGS].strip(';').split(', '),
+-            filter(lambda x:len(x)>=7,
+-            map(lambda x:x.split(':'),
+-            parted.readlines()[2:]))))
++        if parttable == "dos":
++            fdisk = process(fdiskProg, "-l",deviceName)
++            DEVICENUM,AFLAG = 0,1
++            changeActive = \
++                map(lambda x:x[DEVICENUM],
++                filter(lambda x:x[DEVICENUM] != partitionNumber and \
++                                x[AFLAG] == "*" or \
++                                x[DEVICENUM] == partitionNumber and \
++                                not x[AFLAG] == "*",
++                list(map(lambda x:[str(x[0]),x[1][1].strip()],
++                # enumerate partitions
++                enumerate(filter(None,
++                map(lambda x:x.split()[:2],
++                # drop string before information about partitions
++                dropwhile(lambda x:not x.lstrip().startswith("Device"),
++                fdisk.readlines()))))))[1:]))
++        else:
++            parted = process(partedProg, "-m",deviceName,"print")
++            DEVICENUM,FLAGS = 0,6
++            changeActive = \
++                map(lambda x:x[DEVICENUM],
++                filter(lambda x:x[DEVICENUM] != partitionNumber and \
++                                bootFlag in x[FLAGS].strip(';').split(', ') or \
++                                x[DEVICENUM] == partitionNumber and \
++                                not bootFlag in x[FLAGS].strip(';').split(', '),
++                filter(lambda x:len(x)>=7,
++                map(lambda x:x.split(':'),
++                parted.readlines()[2:]))))
+         if not changeActive:
+             return True
+         if parttable == "dos":
+diff --git install/cl_migrate_users.py install/cl_migrate_users.py
+index fc7f7a2..f7332fb 100644
+--- install/cl_migrate_users.py
++++ install/cl_migrate_users.py
+@@ -472,6 +472,8 @@ class migrate(color_print):
+         """Migrate users ang groups to new system"""
+         if not self.checkPermFiles():
+             return False
++        if not any(addUsersList):
++            addUsersList = []
+         migrateUsers = ["root"]+\
+                        map(lambda x: x[0], addUsersList + pwdUsersList)
+         for existMigrUser in existsMigrateUsers:
+diff --git install/variables/disk.py install/variables/disk.py
+index a74f737..4b5730a 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -619,6 +619,9 @@ class VariableOsLocationData(LocationHelper,TableVariable):
+                       "to specify the source directory as DISK")
+         self.label = _("Locations")
+ 
++    def set(self,value):
++        return sorted(value,key=lambda x:x[0])
++
+ class VariableOsLocationSource(LocationHelper,DeviceHelper,Variable):
+     """
+     Source disk or directory
+diff --git install/variables/distr.py install/variables/distr.py
+index d9af10e..916d9c8 100644
+--- install/variables/distr.py
++++ install/variables/distr.py
+@@ -316,7 +316,7 @@ class VariableClImageFilename(Variable,DistroRepository):
+             discardType = []
+         distros = self.getAvailableDristibutives(imagePath,
+                                         discardType=discardType)
+-        if self.wasSet:
++        if self.wasSet and not self.value in distros:
+             distros.append(self.value)
+         return sorted(map(lambda x:(x,
+                           self.humanImageName(self._getDistrInfo(x),x)),
