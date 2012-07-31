@@ -1,0 +1,64 @@
+commit 1c975c1fd185c64dddbfa8c8bb1067cd459433f8
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Jul 31 11:09:40 2012 +0400
+
+    Fix set active partition for corrupted dos table
+
+diff --git a/install/cl_install.py b/install/cl_install.py
+index 71b3552..12ed5ad 100644
+--- a/install/cl_install.py
++++ b/install/cl_install.py
+@@ -55,6 +55,7 @@ from cl_distr import (PartitionDistributive,
+ from calculate.lib.utils.text import tableReport
+ from calculate.lib.server.utils import dialogYesNo
+ from subprocess import Popen,PIPE,STDOUT
++from itertools import *
+ 
+ class InstallError(Exception):
+     """Installation Error"""
+@@ -386,17 +387,34 @@ class Install(color_print):
+             raise DistributiveError(
+                 _("Failed to determine the partition number for %s")%partition)
+         bootFlag = "boot" if parttable == "dos" else "legacy_boot"
+-        parted = process(partedProg, "-m",deviceName,"print")
+-        DEVICENUM,FLAGS = 0,6
+-        changeActive = \
+-            map(lambda x:x[DEVICENUM],
+-            filter(lambda x:x[DEVICENUM] != partitionNumber and \
+-                            bootFlag in x[FLAGS].strip(';').split(', ') or \
+-                            x[DEVICENUM] == partitionNumber and \
+-                            not bootFlag in x[FLAGS].strip(';').split(', '),
+-            filter(lambda x:len(x)>=7,
+-            map(lambda x:x.split(':'),
+-            parted.readlines()[2:]))))
++        if parttable == "dos":
++            fdisk = process(fdiskProg, "-l",deviceName)
++            DEVICENUM,AFLAG = 0,1
++            changeActive = \
++                map(lambda x:x[DEVICENUM],
++                filter(lambda x:x[DEVICENUM] != partitionNumber and \
++                                x[AFLAG] == "*" or \
++                                x[DEVICENUM] == partitionNumber and \
++                                not x[AFLAG] == "*",
++                list(map(lambda x:[str(x[0]),x[1][1].strip()],
++                # enumerate partitions
++                enumerate(filter(None,
++                map(lambda x:x.split()[:2],
++                # drop string before information about partitions
++                dropwhile(lambda x:not x.lstrip().startswith("Device"),
++                fdisk.readlines()))))))[1:]))
++        else:
++            parted = process(partedProg, "-m",deviceName,"print")
++            DEVICENUM,FLAGS = 0,6
++            changeActive = \
++                map(lambda x:x[DEVICENUM],
++                filter(lambda x:x[DEVICENUM] != partitionNumber and \
++                                bootFlag in x[FLAGS].strip(';').split(', ') or \
++                                x[DEVICENUM] == partitionNumber and \
++                                not bootFlag in x[FLAGS].strip(';').split(', '),
++                filter(lambda x:len(x)>=7,
++                map(lambda x:x.split(':'),
++                parted.readlines()[2:]))))
+         if not changeActive:
+             return True
+         if parttable == "dos":
