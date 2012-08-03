@@ -1,0 +1,46 @@
+# Calculate format=kde
+[Emoticons]
+#Smileys theme
+emoticonsTheme=KMess-Cartoon
+
+#Fonts
+[General]
+BrowserApplication[$e]=calculate-browser.desktop
+XftHintStyle=hintmedium
+#?pkg(media-fonts/droid)!=#
+desktopFont=Droid Sans,10,-1,5,50,0,0,0,0,0
+fixed=Droid Sans Mono,10,-1,5,50,0,0,0,0,0
+font=Droid Sans,10,-1,5,50,0,0,0,0,0
+menuFont=Droid Sans,10,-1,5,50,0,0,0,0,0
+smallestReadableFont=Droid Sans,8,-1,5,50,0,0,0,0,0
+taskbarFont=Droid Sans,10,-1,5,50,0,0,0,0,0
+toolBarFont=Droid Sans,8,-1,5,50,0,0,0,0,0
+[WM]
+activeFont=Droid Sans,10,-1,5,75,0,0,0,0,0
+#pkg#
+#?pkg(media-fonts/droid)==#
+desktopFont=Verdana,10,-1,5,50,0,0,0,0,0
+fixed=Courier New,10,-1,5,50,0,0,0,0,0
+font=Verdana,10,-1,5,50,0,0,0,0,0
+menuFont=Verdana,10,-1,5,50,0,0,0,0,0
+smallestReadableFont=Verdana,8,-1,5,50,0,0,0,0,0
+taskbarFont=Verdana,10,-1,5,50,0,0,0,0,0
+toolBarFont=Verdana,8,-1,5,50,0,0,0,0,0
+[WM]
+activeFont=Verdana,9,-1,5,75,0,0,0,0,0
+#pkg#
+
+#?pkg(media-gfx/calculate-cld-themes)>9.3?pkg(media-gfx/cld-themes)>=10.0#
+[Icons]
+Theme=Calculate
+#pkg#
+
+#Language
+[Locale]
+Country=#-os_locale_language-#
+#DateFormat=%A %d %B %Y
+Language=#-os_locale_language-#:
+
+[Toolbar style]
+ToolButtonStyle=TextUnderIcon
+

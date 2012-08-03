@@ -1,0 +1,8 @@
+# Calculate format=kde link=/usr/share/applications/rhythmbox.desktop name=calculate-audioplayer.desktop mirror pkg(media-sound/rhythmbox)>=0.12
+
+# Update info
+#-ini(desktop.audioplayer, rhythmbox)-#
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true

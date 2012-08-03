@@ -1,0 +1,4 @@
+# Calculate append=replace chmod=755 force
+#!/bin/bash
+
+/usr/share/calculate/xdm/xdm --login || kill $PPID

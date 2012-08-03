@@ -1,0 +1,110 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="object_id_list" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>100_mainmenu</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>101_home</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>102_disks</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>103_ftp</stringvalue>
+		</li>
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+		<li type="string">
+			<stringvalue>200_logout</stringvalue>
+		</li>
+#env#
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+		<li type="string">
+			<stringvalue>201_shutdown</stringvalue>
+		</li>
+#env#
+		<li type="string">
+			<stringvalue>202_lock</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>300_webbrowser</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>301_mail</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>302_irc</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>303_jabber</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>304_oowriter</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>305_oocalc</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>306_calculator</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>307_imageeditor</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>308_imageviewer</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>309_audioplayer</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>310_videoplayer</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>311_cdburner</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>312_dictionary</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>313_editor</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>314_terminal</stringvalue>
+		</li>
+	</entry>
+	<entry name="applet_id_list" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>104_workspaceswitcher</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>105_windowlist</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>203_clock</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>204_mixer</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>205_notification</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>206_glipper</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>207_keylayout</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>208_trash</stringvalue>
+		</li>
+	</entry>
+	<entry name="toplevel_id_list" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>top_panel_screen0</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>bottom_panel_screen0</stringvalue>
+		</li>
+	</entry>
+</gconf>

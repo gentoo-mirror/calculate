@@ -1,0 +1,12 @@
+# Calculate comment=#
+gtk-fallback-icon-theme = "gnome"
+style "gdmfont"
+{
+#?pkg(media-fonts/droid)!=#
+	font_name = "Droid Sans"
+#pkg#
+#?pkg(media-fonts/droid)==#
+	font_name = "Verdana"
+#pkg#
+}
+widget "*" style "gdmfont"

@@ -1,0 +1,5 @@
+# Calculate format=patch
+<reg>
+opts="(\$\{opts\} )?([^"]+)"</reg>
+<text>
+extra_commands="\2"</text>

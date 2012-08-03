@@ -1,0 +1,13 @@
+# Calculate chmod=0755
+#!/bin/sh
+#
+if pgrep -f 'xdm/xdm --logout'
+then
+	xmessage -buttons "" "Please wait to ending sessions" &
+	XMESPID=$!
+	while pgrep -f 'xdm/xdm --logout'
+	do
+		sleep 1
+	done
+	kill -9 $XMESPID &>/dev/null
+fi

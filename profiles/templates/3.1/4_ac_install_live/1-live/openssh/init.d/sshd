@@ -1,0 +1,8 @@
+# Calculate comment=# format=patch os_install_root_type==livecd
+<reg>(&lt;!passwd || return 1\n\tfi\n\t)(gen_keys \|\| return 1)</reg>
+<text>if grep "root:\$1\$JMvNh5xg\$VnV1DyJdTcwuZ0hp5YiJG0:14349:0:::::" /etc/shadow >/dev/null;
+	then
+		passwd || return 1
+	fi
+
+	\2</text>

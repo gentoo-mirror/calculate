@@ -1,0 +1,20 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="minimize_effects" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>animation:Zoom</stringvalue>
+		</li>
+	</entry>
+	<entry name="open_effects" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>animation:None</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>animation:Fade</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>animation:Fade</stringvalue>
+		</li>
+	</entry>
+</gconf>

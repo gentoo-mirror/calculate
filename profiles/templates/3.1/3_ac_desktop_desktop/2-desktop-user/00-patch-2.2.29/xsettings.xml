@@ -1,0 +1,8 @@
+# Calculate format=xml_xfce path=~/.config/xfce4/xfconf/xfce-perchannel-xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xsettings" version="1.0">
+  <property name="Gtk" type="empty">
+    <property name="IconSizes" type="string" value="panel-applications-menu=22,22:gtk-menu=22,22:panel-directory=22,22"/>
+  </property>
+</channel>

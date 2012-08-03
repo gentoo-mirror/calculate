@@ -1,0 +1,14 @@
+# Calculate pkg(www-client/chromium)!=
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+#?os_locale_language==en#
+  <group name="Browser">
+    <option name="command" value="chromium %1 &amp;"/>
+  </group>
+#os_locale_language#
+#?os_locale_language==ru#
+  <group name="браузере">
+    <option name="command" value="chromium %1 &amp;"/>
+  </group>
+#os_locale_language#
+</config>

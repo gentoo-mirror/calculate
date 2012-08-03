@@ -1,0 +1,8 @@
+# Calculate format=kde link=/usr/share/applications/brasero.desktop name=calculate-imageburn.desktop mirror pkg(app-cdr/brasero)>=2.30
+
+# Update info
+#-ini(desktop.imageburn, brasero)-#
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true

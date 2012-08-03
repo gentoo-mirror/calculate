@@ -1,0 +1,8 @@
+# Calculate format=kde env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!= append=replace
+[Desktop Entry]
+Encoding=UTF-8
+Name=FTP
+Comment=Browser FTP
+URL[$e]=$HOME/FTP
+Icon=folder-downloads
+Type=Link

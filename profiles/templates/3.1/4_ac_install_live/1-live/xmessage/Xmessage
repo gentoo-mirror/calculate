@@ -1,0 +1,19 @@
+# Calculate comment=#
+
+# key esc for close dialog
+*baseTranslations: 		#override :<Key>Return: default-exit()
+# display vertical scroll
+*message.scrollVertical:	Always
+# hide horizontal scroll
+*message.scrollHorizontal:	Never
+# rectange button style
+*Command.shapeStyle:		rectangle
+# thickness highlight
+*Command.highlightThickness:	1
+# font for messages
+#?pkg(media-fonts/droid)==#
+*font: -*-verdana-medium-r-*-*-*-*-*-*-*-*-*-uni
+#pkg#
+#?pkg(media-fonts/droid)!=#
+*font: -*-droid sans-medium-r-*-*-*-*-*-*-*-*-*-uni
+#pkg#

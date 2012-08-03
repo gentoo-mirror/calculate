@@ -1,0 +1,12 @@
+# Calculate format=samba env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!= chmod=0755
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=FTP
+Comment=Browser FTP
+Categories=Application;
+Exec=nautilus /home/#-ur_login-#/FTP
+Icon=gnome-fs-ftp
+Terminal=false
+StartupNotify=false

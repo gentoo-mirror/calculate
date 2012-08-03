@@ -1,0 +1,229 @@
+# Calculate format=xml_xfce
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="panels" type="uint" value="2">
+    <property name="panel-0" type="empty">
+      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="size" type="uint" value="32"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+#?env(client.os_remote_auth)==||ur_domain_set==off#	
+        <value type="int" value="20"/>
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+        <value type="int" value="21"/>
+	<value type="int" value="22"/>
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!=#
+        <value type="int" value="23"/>
+#env#
+        <value type="int" value="4"/>
+        <value type="int" value="8"/>
+        <value type="int" value="3"/>
+	<value type="int" value="12"/>
+        <value type="int" value="9"/>
+        <value type="int" value="6"/>
+        <value type="int" value="10"/>
+        <value type="int" value="11"/>
+        <value type="int" value="5"/>
+        <value type="int" value="7"/>
+        <value type="int" value="2"/>
+      </property>
+      <property name="background-alpha" type="uint" value="95"/>
+    </property>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=10;x=0;y=0"/>
+      <property name="size" type="uint" value="48"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="plugin-ids" type="array">
+#?exists(~/.config/xfce4/panel/launcher-30/10000000030.desktop)!=#
+        <value type="int" value="30"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-31/10000000031.desktop)!=#
+        <value type="int" value="31"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-32/10000000032.desktop)!=#
+        <value type="int" value="32"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-33/10000000033.desktop)!=#
+        <value type="int" value="33"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-34/10000000034.desktop)!=#
+        <value type="int" value="34"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-35/10000000035.desktop)!=#
+        <value type="int" value="35"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-36/10000000036.desktop)!=#
+	<value type="int" value="36"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-37/10000000037.desktop)!=#
+        <value type="int" value="37"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-38/10000000038.desktop)!=#
+        <value type="int" value="38"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-39/10000000039.desktop)!=#
+        <value type="int" value="39"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-40/10000000040.desktop)!=#
+        <value type="int" value="40"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-41/10000000041.desktop)!=#
+        <value type="int" value="41"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-42/10000000042.desktop)!=#
+        <value type="int" value="42"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-43/10000000043.desktop)!=#
+        <value type="int" value="43"/>
+#exists#
+#?exists(~/.config/xfce4/panel/launcher-44/10000000044.desktop)!=#
+        <value type="int" value="44"/>
+#exists#
+      </property>
+      <property name="length" type="uint" value="10"/>
+      <property name="autohide" type="bool" value="true"/>
+      <property name="background-alpha" type="uint" value="95"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-1" type="string" value="applicationsmenu">
+      <property name="show-button-title" type="bool" value="false"/>
+      <property name="button-icon" type="string" value="start-here-xfce"/>
+    </property>
+    <property name="plugin-2" type="string" value="actions">
+      <property name="appearance" type="uint" value="0"/>
+      <property name="items" type="array">
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+        <value type="string" value="+logout-dialog"/>
+#env#
+#?env(client.os_remote_auth)==||ur_domain_set!=on#
+        <value type="string" value="+logout"/>
+#env#
+      </property>
+    </property>
+    <property name="plugin-3" type="string" value="tasklist">
+      <property name="flat-buttons" type="bool" value="true"/>
+    </property>
+    <property name="plugin-4" type="string" value="pager"/>
+    <property name="plugin-5" type="string" value="datetime"/>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="plugin-7" type="string" value="showdesktop"/>
+      <property name="names-visible" type="array">
+        <value type="string" value="апплет networkmanager"/>
+        <value type="string" value="blueman-applet"/>
+      </property>
+    </property>
+    <property name="plugin-8" type="string" value="showdesktop"/>
+    <property name="plugin-9" type="string" value="thunar-tpa"/>
+    <property name="plugin-10" type="string" value="xkb-plugin"/>
+    <property name="plugin-11" type="string" value="xfce4-mixer-plugin"/>
+    <property name="plugin-7" type="string" value="actions">
+      <property name="first-action" type="uint" value="2"/>
+    </property>
+    <property name="plugin-20" type="string" value="directorymenu">
+      <property name="base-directory" type="string" value="/home/#-ur_login-#"/>
+      <property name="icon-name" type="string" value="folder_home"/>
+    </property>
+    <property name="plugin-21" type="string" value="directorymenu">
+      <property name="base-directory" type="string" value="/home/#-ur_login-#/Home"/>
+      <property name="icon-name" type="string" value="folder_home"/>
+    </property>
+    <property name="plugin-22" type="string" value="directorymenu">
+      <property name="base-directory" type="string" value="/home/#-ur_login-#/Share"/>
+      <property name="icon-name" type="string" value="gnome-fs-share"/>
+    </property>
+    <property name="plugin-23" type="string" value="directorymenu">
+      <property name="base-directory" type="string" value="/home/#-ur_login-#/FTP"/>
+      <property name="icon-name" type="string" value="zen-icon"/>
+    </property>
+    <property name="plugin-30" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000030.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-31" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000031.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-32" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000032.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-33" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000033.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-34" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000034.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-35" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000035.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-36" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000036.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-37" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000037.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-38" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000038.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-39" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000039.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-40" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000040.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-41" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000041.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-42" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000042.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-43" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000043.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-44" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="10000000044.desktop"/>
+      </property>
+    </property>
+    <property name="clipman" type="empty">
+      <property name="settings" type="empty">
+        <property name="add-primary-clipboard" type="bool" value="true"/>
+      </property>
+    </property>
+    <property name="plugin-12" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+  </property>
+</channel>
