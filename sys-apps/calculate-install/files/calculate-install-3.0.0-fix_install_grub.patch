@@ -1,0 +1,19 @@
+commit 8d744f8d8279d3d9aefa2041e6b7137a1f548dcb
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Aug 3 16:49:26 2012 +0400
+
+    Fix install grub2
+
+diff --git a/install/cl_install.py b/install/cl_install.py
+index 12ed5ad..3656e5e 100644
+--- a/install/cl_install.py
++++ b/install/cl_install.py
+@@ -498,7 +498,7 @@ class Install(color_print):
+                 self.clVars.Get('cl_action') != "system":
+                 prefixBoot = "/mnt/scratch"
+             else:
+-                prefixBoot = ""
++                prefixBoot = "/"
+             grubProcess = process(cmdGrubInstall,
+                               "--boot-directory=%s"%pathJoin(prefixBoot,
+                               target.getBootDirectory()),
