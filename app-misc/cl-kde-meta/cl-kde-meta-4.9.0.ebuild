@@ -115,6 +115,7 @@ RDEPEND="${RDEPEND}
 	    kde-base/gwenview
 		kde-base/kamera
 		kde-base/kcolorchooser
+		kde-base/kdegraphics-mobipocket
 		kde-base/kdegraphics-strigi-analyzer
 		kde-base/kgamma
 		kde-base/kolourpaint
@@ -136,11 +137,11 @@ RDEPEND="${RDEPEND}
 #-----------------------------------------------------------------------------
 # kdemultimedia-meta
 #-----------------------------------------------------------------------------
-#kde-base/dragonplayer
+#kde-base/dragon
 #kde-base/juk
 RDEPEND="${RDEPEND}
 	!calculate_nomultimedia? (
-		kde-base/kdemultimedia-kioslaves
+		kde-base/audiocd-kio
 		kde-base/kmix
 		kde-base/kscd
 		kde-base/libkcddb
@@ -205,7 +206,6 @@ RDEPEND="${RDEPEND}
 # kdepim-meta
 #-----------------------------------------------------------------------------
 #kde-base/blogilo
-#kde-base/kdepim-wizards
 #kde-base/knode
 #kde-base/ktimetracker
 RDEPEND="${RDEPEND}
