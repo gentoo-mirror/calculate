@@ -1,0 +1,22 @@
+commit 44702d83818612f64715778331b8a6d439d1e090
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Aug 6 15:14:30 2012 +0400
+
+    Fix detect LVM
+
+diff --git install/variables/disk.py install/variables/disk.py
+index 4b5730a..018fe70 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -708,7 +708,10 @@ class VariableOsLocationSource(LocationHelper,DeviceHelper,Variable):
+         # check wrong dev
+         ###########################
+         disks = filter(lambda x:x.startswith('/dev/'),value)
+-        wrongDevices = list(set(disks) - \
++        # get original /dev names
++        cnDisks = map(lambda x:getUdevDeviceInfo(name=x).get('DEVNAME',x),
++                  disks)
++        wrongDevices = list(set(cnDisks) - \
+                     set(self.fixOsDiskDev()))
+         if wrongDevices:
+             raise VariableError(_("Wrong device '%s'")%wrongDevices[0])
