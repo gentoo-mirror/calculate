@@ -3,6 +3,9 @@
 # $Header: $
 
 EAPI="3"
+SUPPORT_PYTHON_ABIS="1"
+PYTHON_DEPEND="2:2.7"
+RESTRICT_PYTHON_ABIS="2.4 2.5 2.6 3.*"
 
 inherit distutils eutils
 
