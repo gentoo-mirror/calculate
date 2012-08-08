@@ -1,0 +1,310 @@
+commit e2b72b54c06f698ed98d5cff42c7824711f14e76
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Aug 8 13:37:22 2012 +0400
+
+    Fix lvm installation, close variables, display errors
+
+diff --git install/cl_install.py install/cl_install.py
+index 3656e5e..762758b 100644
+--- install/cl_install.py
++++ install/cl_install.py
+@@ -186,67 +186,26 @@ class Install(color_print):
+ 
+ #        cltObj = True if 'clt' in templates_locate else False
+         dirs_list, files_list = ([],[])
+-        listTemplatePaths = ["/var/lib/layman/calculate/profiles/templates",
+-                            "/var/calculate/templates",
+-                            "/var/calculate/remote/templates"]
+-        for location in templates_locate:
+-            if location in ("overlay", "local", "remote", "clt"):
+-                if len(listTemplatePaths) != 3:
+-                    self.printERROR(\
+-                    _("Error in template variable 'cl_template_path=%s'")\
+-                    %str(listTemplatePaths))
+-                    return False
+-                elif location == "local":
+-                    if not os.path.isdir(listTemplatePaths[1]):
+-                        continue
+-                    self.clVars.Set("cl_template_path",
+-                                    [listTemplatePaths[1]], True)
+-                elif location == "remote":
+-                    if not os.path.isdir(listTemplatePaths[2]):
+-                        continue
+-                    self.clVars.Set("cl_template_path",
+-                               [listTemplatePaths[2]], True)
+-                elif location == "overlay":
+-                    if not os.path.isdir(listTemplatePaths[0]):
+-                        continue
+-                    self.clVars.Set("cl_template_path",
+-                               [listTemplatePaths[0]], True)
+-                elif location == "clt":
+-#                    list_paths = ['/etc'] + \
+-#                                    os.environ.get('CONFIG_PROTECT').split()
+-#                    for template_path in list_paths:
+-#                        if not os.path.isdir(template_path):
+-#                            continue
+-#                        print template_path
+-#                        self.clVars.Set("cl_template_path",
+-#                                        [template_path], True)
+-#                        self.clTempl = ProgressTemplate(self.setProgress,
+-#                                                    self.clVars,cltObj=True,
+-#                                                    cltFilter=True)
+-#
+-#                        dirsFiles = self.clTempl.applyTemplates()
+-#        #                cltObj = False
+-#                        print dirsFiles
+-#                        dirs_list += (dirsFiles[0])
+-#                        files_list += (dirsFiles[1])
+-                    continue
+-
+-                self.clTempl = ProgressTemplate(self.setProgress, self.clVars,
+-                                                cltFilter=False)
+-
+-                dirsFiles = self.clTempl.applyTemplates()
+-                if type(dirsFiles) in [list, tuple]:
+-                    if len (dirsFiles) > 1:
+-                        dirs_list += (dirsFiles[0])
+-                        files_list += (dirsFiles[1])
+-        self.clVars.Set("cl_template_path", listTemplatePaths, True)
++        useClt = "clt" in templates_locate
++        self.clVars.Set("cl_template_path",
++            map(lambda x:x[1],
++            filter(lambda x:x[0] in templates_locate,
++            zip(self.clVars.Get('cl_template_location'),
++                self.clVars.Get('cl_template_path')))),
++            True)
++
++        self.clTempl = ProgressTemplate(self.setProgress, self.clVars,
++                                        cltObj=useClt,
++                                        cltFilter=False)
++
++        dirsFiles = self.clTempl.applyTemplates()
+         try:
+             if self.clTempl.getError():
+                 self.printERROR(self.clTempl.getError())
+                 return False
+         except AttributeError:
+             pass
+-        return (dirs_list, files_list)
++        return dirsFiles
+ 
+     def applyTemplatesFlash(self,directory):
+         """Apply templates for root of system."""
+diff --git install/cl_wsdl_install.py install/cl_wsdl_install.py
+index a40c561..ae5a639 100644
+--- install/cl_wsdl_install.py
++++ install/cl_wsdl_install.py
+@@ -23,7 +23,7 @@ from soaplib.service import rpc, DefinitionBase
+ from calculate.core.server.api_types import ReturnedMessage
+ from calculate.core.server.api_types import ChoiceValue, Table, Option, Field, \
+                                            GroupField, ViewInfo, ViewParams
+-from calculate.lib.datavars import VariableError
++from calculate.lib.datavars import VariableError,DataVarsError
+ 
+ #from cl_install import Install,DataVarsInstall
+ import cl_install
+@@ -107,8 +107,10 @@ class catchExcept:
+                     default = 'color:red;',
+                     element = "error"))
+             view.groups.append(group)
+-            #for i in apply(traceback.format_exception, sys.exc_info()):
+-            #    print i
++            if not isinstance(VariableError,DataVarsError,InstallError):
++                for i in apply(traceback.format_exception, sys.exc_info()):
++                    print i,
++
+             return view
+ 
+ class Wsdl:
+@@ -232,13 +234,13 @@ class Wsdl:
+             lang = dv.Get('os_install_locale_lang')
+             self.set_cache(sid,"install","lang",lang,smart=False)
+             dv.processRefresh()
++        self.set_cache(sid, 'install', "vars",dv,smart=False)
+         view = ViewInfo(dv,step=params.step,
+                            expert=params.expert,
+                            brief=params.brief,
+                            has_brief=True,
+                            allsteps=langChanged,
+                            brief_label=_("Start installing"))
+-        self.set_cache(sid, 'install', "vars",dv,smart=False)
+         return view
+ 
+     def install_flash_vars(self):
+@@ -272,10 +274,10 @@ class Wsdl:
+             dv = self.install_flash_vars()
+         else:
+             dv.processRefresh()
++        self.set_cache(sid, 'install_flash', "vars",dv,smart=False)
+         view = ViewInfo(dv,step=params.step,
+                            expert=params.expert,
+                            brief=params.brief)
+-        self.set_cache(sid, 'install_flash', "vars",dv,smart=False)
+         return view
+ 
+     def install_pxe_vars(self):
+@@ -309,10 +311,10 @@ class Wsdl:
+             dv = self.install_pxe_vars()
+         else:
+             dv.processRefresh()
++        self.set_cache(sid, 'install_pxe', "vars",dv,smart=False)
+         view = ViewInfo(dv,step=params.step,
+                            expert=params.expert,
+                            brief=params.brief)
+-        self.set_cache(sid, 'install_pxe', "vars",dv,smart=False)
+         return view
+ 
+     def setup_network_vars(self):
+@@ -351,10 +353,10 @@ class Wsdl:
+             dv = self.setup_network_vars()
+         else:
+             dv.processRefresh()
++        self.set_cache(sid, 'setup_network', "vars",dv,smart=False)
+         view = ViewInfo(dv,step=params.step,
+                            expert=params.expert,
+                            brief=params.brief)
+-        self.set_cache(sid, 'setup_network', "vars",dv,smart=False)
+         return view
+ 
+     def setup_video_vars(self):
+@@ -391,10 +393,10 @@ class Wsdl:
+             dv = self.setup_video_vars()
+         else:
+             dv.processRefresh()
++        self.set_cache(sid, 'setup_video', "vars",dv,smart=False)
+         view = ViewInfo(dv,step=params.step,
+                            expert=params.expert,
+                            brief=params.brief)
+-        self.set_cache(sid, 'setup_video', "vars",dv,smart=False)
+         return view
+ 
+     def setup_locale_vars(self):
+@@ -431,10 +433,10 @@ class Wsdl:
+             dv = self.setup_locale_vars()
+         else:
+             dv.processRefresh()
++        self.set_cache(sid, 'setup_locale', "vars",dv,smart=False)
+         view = ViewInfo(dv,step=params.step,
+                            expert=params.expert,
+                            brief=params.brief)
+-        self.set_cache(sid, 'setup_locale', "vars",dv,smart=False)
+         return view
+ 
+     def setup_boot_vars(self):
+@@ -470,10 +472,10 @@ class Wsdl:
+             dv = self.setup_boot_vars()
+         else:
+             dv.processRefresh()
++        self.set_cache(sid, 'setup_boot', "vars",dv,smart=False)
+         view = ViewInfo(dv,step=params.step,
+                            expert=params.expert,
+                            brief=params.brief)
+-        self.set_cache(sid, 'setup_boot', "vars",dv,smart=False)
+         return view
+ 
+     def setup_system_vars(self):
+@@ -507,8 +509,8 @@ class Wsdl:
+             dv = self.setup_system_vars()
+         else:
+             dv.processRefresh()
++        self.set_cache(sid, 'setup_system', "vars",dv,smart=False)
+         view = ViewInfo(dv,step=params.step,
+                            expert=params.expert,
+                            brief=params.brief)
+-        self.set_cache(sid, 'setup_system', "vars",dv,smart=False)
+         return view
+diff --git install/variables/autopartition.py install/variables/autopartition.py
+index 1be3e82..f1935c5 100644
+--- install/variables/autopartition.py
++++ install/variables/autopartition.py
+@@ -337,7 +337,7 @@ class VariableHrMemorySize(ReadonlyVariable):
+         return "0"
+ 
+     def humanReadable(self):
+-        return map(humanreadableSize,self.Get())
++        return humanreadableSize(self.Get())
+ 
+ class VariableClAutopartitionSwapSize(Variable):
+     """
+diff --git install/variables/disk.py install/variables/disk.py
+index 018fe70..d0d8fee 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -28,7 +28,7 @@ from calculate.lib.datavars import (TableVariable,Variable,VariableError,
+ from calculate.lib.utils.device import (getUdevDeviceInfo,getDeviceType,
+                         getPartitionType,getPartitionDevice,getRaidPartitions,
+                         getLvmPartitions,getPartitionSize, humanreadableSize,
+-                        getUUIDDict)
++                        getUUIDDict,getCommonDeviceName)
+ from calculate.lib.utils.files import (listDirectory,pathJoin,readFile,FStab,
+                                        isMount)
+ from calculate.install.cl_distr import PartitionDistributive
+@@ -769,10 +769,7 @@ class VariableOsLocationDest(LocationHelper,Variable):
+                 return path.normpath(val)
+             return val
+         value = map(normpath,value)
+-        if len(value) == 1 and value[0] == "":
+-            return ["/"]
+-        else:
+-            return value
++        return map(lambda x:x or "/",value)
+ 
+     def choice(self):
+         if self.Get('cl_install_type') == 'flash': return ["/",""]
+@@ -1102,6 +1099,12 @@ class VariableOsLocationSize(LocationHelper,SourceReadonlyVariable):
+                 self.Get('cl_autopartition_disk_size')))
+         return mapDevSize
+ 
++    def get(self):
++        return map(lambda x:x or "",
++               map(self.getMap().get,
++               map(getCommonDeviceName,
++               self.Get(self.indexField))))
++
+     def getMapHumanReadable(self):
+         #return map(lambda x:humanreadableSize(x) if x else "",
+         #       self.Get())
+@@ -1112,6 +1115,13 @@ class VariableOsLocationSize(LocationHelper,SourceReadonlyVariable):
+                 self.Get('cl_autopartition_disk_size',humanreadable=True)))
+         return mapDevSize
+ 
++    def humanReadable(self):
++        return map(lambda x:x or "",
++               map(self.getMapHumanReadable().get,
++               map(getCommonDeviceName,
++               self.Get(self.indexField))))
++
++
+ class VariableClUuidSet(Variable):
+     """
+     Use or not UUID for /etc/fstab
+@@ -1153,10 +1163,11 @@ class VariableOsInstallDiskDev(ReadonlyVariable):
+     type = "list"
+ 
+     def get(self):
+-        return map(lambda x:x[0],
++        return map(getCommonDeviceName,
++               map(lambda x:x[0],
+                filter(lambda x:x[0].startswith('/dev/') and x[1],
+                zip(self.Get('os_location_source'),
+-                   self.Get('os_location_dest'))))
++                   self.Get('os_location_dest')))))
+ 
+ class VariableOsInstallDiskUuid(ReadonlyVariable):
+     """
+@@ -1547,9 +1558,12 @@ class VariableOsInstallRootType(LocationHelper,Variable):
+ class VariableOsInstallRootDev(ReadonlyVariable):
+     def get(self):
+         """Get install root device"""
+-        return self.Select('os_install_disk_dev',
+-                           where='os_install_disk_mount',
+-                           eq="/",limit=1) or ''
++        if self.Get('cl_action') == 'system':
++            return self.Select('os_install_disk_dev',
++                               where='os_install_disk_mount',
++                               eq="/",limit=1) or ''
++        else:
++            return self.Get('os_root_dev')
+ 
+ class VariableOsInstallFstabMountConf(ReadonlyVariable,DeviceHelper):
+     """
