@@ -17,6 +17,8 @@ KEYWORDS="~amd64"
 DEPEND=""
 RDEPEND=""
 
+CFLAGS="${CFLAGS} -m32"
+
 pkg_setup() {
 	export ABI=x86
 }
