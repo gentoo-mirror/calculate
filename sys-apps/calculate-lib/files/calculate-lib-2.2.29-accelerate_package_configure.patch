@@ -1,0 +1,26 @@
+commit 770941cb4a5e1440b10460f399caf9d962eda73b
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Aug 10 15:50:22 2012 +0400
+
+    Fix applyTemplates for pkg_preinst
+
+diff --git pym/cl_template.py pym/cl_template.py
+index 734ab92..9cccae4 100644
+--- pym/cl_template.py
++++ pym/cl_template.py
+@@ -4022,10 +4022,11 @@ re.M|re.S)
+             self.cltObj.allTemplates = self.allTemplates
+         self.numberAllTemplates(self.allTemplates)
+         # Обрабатываем шаблоны
+-        for dirTemplate in dirsTemplatesExists:
+-            if self.scanningTemplates(dirTemplate,
+-                                      skipTemplates=skipTemplates) is False:
+-                return False
++        if not os.environ.get("EBUILD_PHASE",""):
++            for dirTemplate in dirsTemplatesExists:
++                if self.scanningTemplates(dirTemplate,
++                                          skipTemplates=skipTemplates) is False:
++                    return False
+         if self.cltObj:
+             # Созданные директории
+             self.cltObj.createdDirs = self.createdDirs
