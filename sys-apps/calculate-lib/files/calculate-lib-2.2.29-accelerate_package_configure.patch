@@ -1,26 +1,22 @@
-commit 770941cb4a5e1440b10460f399caf9d962eda73b
+commit 25264020728add2ca9c90dd3cfde4df2fc6cc1c2
 Author: Mike Hiretsky <mh@calculate.ru>
 Date:   Fri Aug 10 15:50:22 2012 +0400
 
     Fix applyTemplates for pkg_preinst
 
 diff --git pym/cl_template.py pym/cl_template.py
-index 734ab92..9cccae4 100644
+index 734ab92..0e50b84 100644
 --- pym/cl_template.py
 +++ pym/cl_template.py
-@@ -4022,10 +4022,11 @@ re.M|re.S)
-             self.cltObj.allTemplates = self.allTemplates
-         self.numberAllTemplates(self.allTemplates)
-         # Обрабатываем шаблоны
+@@ -4005,8 +4005,9 @@ re.M|re.S)
+             return (self.createdDirs, self.filesApply)
+         # check cl_name in first template dirs and files
+         skipTemplates = self.getTemplateDirs(dirsTemplatesExists)
 -        for dirTemplate in dirsTemplatesExists:
--            if self.scanningTemplates(dirTemplate,
--                                      skipTemplates=skipTemplates) is False:
--                return False
+-            scanObj.scanningDirectory(dirTemplate)
 +        if not os.environ.get("EBUILD_PHASE",""):
 +            for dirTemplate in dirsTemplatesExists:
-+                if self.scanningTemplates(dirTemplate,
-+                                          skipTemplates=skipTemplates) is False:
-+                    return False
++                scanObj.scanningDirectory(dirTemplate)
+         # Считаем количество шаблонов clt
          if self.cltObj:
-             # Созданные директории
-             self.cltObj.createdDirs = self.createdDirs
+             # Считаем количество шаблонов clt
