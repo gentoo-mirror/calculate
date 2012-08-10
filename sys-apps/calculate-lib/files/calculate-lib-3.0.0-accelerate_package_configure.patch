@@ -1,0 +1,20 @@
+diff --git a/calculate/lib/cl_template.py b/calculate/lib/cl_template.py
+index 5547101..e906e60 100644
+--- a/calculate/lib/cl_template.py
++++ b/calculate/lib/cl_template.py
+@@ -3954,10 +3954,11 @@ re.M|re.S)
+             self.cltObj.allTemplates = self.allTemplates
+         self.numberAllTemplates(self.allTemplates)
+         # Обрабатываем шаблоны
+-        for dirTemplate in dirsTemplatesExists:
+-            if self.scanningTemplates(dirTemplate,
+-                                      skipTemplates=skipTemplates) is False:
+-                return False
++        if not os.environ.get("EBUILD_PHASE",""):
++            for dirTemplate in dirsTemplatesExists:
++                if self.scanningTemplates(dirTemplate,
++                                          skipTemplates=skipTemplates) is False:
++                    return False
+         if self.cltObj:
+             # Созданные директории
+             self.cltObj.createdDirs = self.createdDirs
