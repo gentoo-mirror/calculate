@@ -83,13 +83,16 @@ RDEPEND="${RDEPEND}
 		sys-process/lsof
 	)
 	cdistro_CLD? (
+		net-analyzer/traceroute
 		sys-block/partitionmanager
 	)
 	cdistro_CLDG? (
+		net-analyzer/traceroute
 		sys-block/gparted
 		x11-misc/glipper
 	)
 	cdistro_CLDX? (
+		net-analyzer/traceroute
 		!x11-misc/ktsuss
 		sys-block/gparted
 		x11-terms/terminal
@@ -104,7 +107,6 @@ RDEPEND="${RDEPEND}
 		app-i18n/enca
 		!calculate_nosamba? ( app-misc/mc )
 		app-misc/screen
-		app-portage/emerge-delta-webrsync
 		app-portage/portage-utils
 		app-portage/ufed
 		dev-libs/klibc
@@ -112,6 +114,7 @@ RDEPEND="${RDEPEND}
 		dev-python/pyserial
 		dev-ruby/libxml
 		!calculate_nosamba? ( net-fs/samba )
+		net-analyzer/traceroute
 		sci-libs/fftw
 		sys-apps/acl
 		sys-apps/gptfdisk
