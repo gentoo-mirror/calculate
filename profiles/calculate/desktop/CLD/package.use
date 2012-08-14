@@ -62,3 +62,8 @@ sci-libs/hdf5 threads mpi
 #required by media-video/vlc-2.0.0, required by =media-video/vlc-2.0.0 (argument)
 >=sys-libs/zlib-1.2.6 minizip static-libs
 
+#remove dependency on gnome
+net-misc/networkmanager-vpnc -gtk
+net-misc/networkmanager-pptp -gtk
+net-misc/networkmanager-openvpn -gtk
+
