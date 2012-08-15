@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import os,sys
-from xml.dom import minidom
 
 try:
+    from xml.dom import minidom
     homedir = os.path.expanduser('~')
     blistfile="/.purple/blist.xml"
     
