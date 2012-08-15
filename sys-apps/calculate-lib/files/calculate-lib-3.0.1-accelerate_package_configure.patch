@@ -1,0 +1,32 @@
+commit bb7863aa917208372cbed1f3f0f1b93574f4cdb0
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Aug 15 10:10:50 2012 +0400
+
+    Fix applyTemplates in emerging
+
+diff --git a/calculate/lib/cl_template.py b/calculate/lib/cl_template.py
+index 5547101..da73632 100644
+--- a/calculate/lib/cl_template.py
++++ b/calculate/lib/cl_template.py
+@@ -3937,8 +3937,9 @@ re.M|re.S)
+             return (self.createdDirs, self.filesApply)
+         # check cl_name in first template dirs and files
+         skipTemplates = self.getTemplateDirs(dirsTemplatesExists)
+-        for dirTemplate in dirsTemplatesExists:
+-            scanObj.scanningDirectory(dirTemplate)
++        if not os.environ.get("EBUILD_PHASE",""):
++            for dirTemplate in dirsTemplatesExists:
++                scanObj.scanningDirectory(dirTemplate)
+         # Считаем количество шаблонов clt
+         if self.cltObj:
+             # Считаем количество шаблонов clt
+@@ -5696,7 +5697,8 @@ class ProgressTemplate(Template):
+         return True
+ 
+     def numberProcessTemplates(self,number):
+-        value = number * 100 / self.maximum;
++        maximum = self.maximum or 1
++        value = number * 100 / maximum;
+         if value != self.value:
+             self.setValueCallback(value)
+             self.value = value
