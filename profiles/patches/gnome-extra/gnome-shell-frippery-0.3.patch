@@ -1,0 +1,48 @@
+diff --git a/.local/share/gnome-shell/extensions/Applications_Menu@rmy.pobox.com/extension.js b/.local/share/gnome-shell/extensions/Applications_Menu@rmy.pobox.com/extension.js
+index 381f4fb..c65b66a 100644
+--- a/.local/share/gnome-shell/extensions/Applications_Menu@rmy.pobox.com/extension.js
++++ b/.local/share/gnome-shell/extensions/Applications_Menu@rmy.pobox.com/extension.js
+@@ -338,17 +338,21 @@ ApplicationsMenuButton.prototype = {
+     _loadCategory: function(dir, appList) {
+         var iter = dir.iter();
+         var nextType;
++	var nonEmpty = false;
+         while ((nextType = iter.next()) != GMenu.TreeItemType.INVALID) {
+             if (nextType == GMenu.TreeItemType.ENTRY) {
+                 var entry = iter.get_entry();
+                 var app = this._appSystem.lookup_app_by_tree_entry(entry);
+-                if (!entry.get_app_info().get_nodisplay())
++                if (!entry.get_app_info().get_nodisplay()) {
+                     appList.push(app);
++		    nonEmpty = true;
++		}
+             } else if (nextType == GMenu.TreeItemType.DIRECTORY) {
+                 if (!dir.get_is_nodisplay())
+-                    this._loadCategory(iter.get_directory(), appList);
++                    nonEmpty = nonEmpty || this._loadCategory(iter.get_directory(), appList);
+             }
+         }
++	return nonEmpty;
+     },
+ 
+     _buildSections: function() {
+@@ -358,7 +362,6 @@ ApplicationsMenuButton.prototype = {
+ 
+         var iter = root.iter();
+         var nextType;
+-        var i = 0;
+ 
+         var sections = [];
+         while ((nextType = iter.next()) != GMenu.TreeItemType.INVALID) {
+@@ -367,10 +370,9 @@ ApplicationsMenuButton.prototype = {
+                 if (dir.get_is_nodisplay())
+                     continue;
+                 var appList = [];
+-                this._loadCategory(dir, appList);
++                if(this._loadCategory(dir, appList))
+                 sections.push({ name: dir.get_name(),
+                                 apps: appList });
+-                i++;
+             }
+         }
+ 
