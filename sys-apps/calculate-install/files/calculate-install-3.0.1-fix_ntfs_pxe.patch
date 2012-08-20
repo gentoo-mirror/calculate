@@ -23,7 +23,7 @@ index ae5a639..a213a81 100644
  from calculate.core.server.api_types import ChoiceValue, Table, Option, Field, \
                                             GroupField, ViewInfo, ViewParams
  from calculate.lib.datavars import VariableError,DataVarsError
-+from calcualte.install.cl_install import InstallError
++from calculate.install.cl_install import InstallError
  
  #from cl_install import Install,DataVarsInstall
  import cl_install
