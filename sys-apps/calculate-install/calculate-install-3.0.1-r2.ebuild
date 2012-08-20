@@ -41,7 +41,7 @@ src_unpack() {
 	cd "${S}"
 
 	# changes
-	epatch "${FILESDIR}/calculate-install-3.0.1-fix_ntfs_pxe.patch"
+	epatch "${FILESDIR}/calculate-install-3.0.1-fix_pxe_loading.patch"
 }
 
 pkg_postinst() {
