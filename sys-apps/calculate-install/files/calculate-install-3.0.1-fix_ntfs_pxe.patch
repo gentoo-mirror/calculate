@@ -15,6 +15,27 @@ index 9b3c784..ea32c87 100644
  
  	/sbin/rc-update --update
  	return 0
+diff --git install/cl_wsdl_install.py install/cl_wsdl_install.py
+index ae5a639..a213a81 100644
+--- install/cl_wsdl_install.py
++++ install/cl_wsdl_install.py
+@@ -24,6 +24,7 @@ from calculate.core.server.api_types import ReturnedMessage
+ from calculate.core.server.api_types import ChoiceValue, Table, Option, Field, \
+                                            GroupField, ViewInfo, ViewParams
+ from calculate.lib.datavars import VariableError,DataVarsError
++from calcualte.install.cl_install import InstallError
+ 
+ #from cl_install import Install,DataVarsInstall
+ import cl_install
+@@ -107,7 +108,7 @@ class catchExcept:
+                     default = 'color:red;',
+                     element = "error"))
+             view.groups.append(group)
+-            if not isinstance(VariableError,DataVarsError,InstallError):
++            if not type(e) in (InstallError,DataVarsInstall,VariableError):
+                 for i in apply(traceback.format_exception, sys.exc_info()):
+                     print i,
+ 
 diff --git install/fs_manager.py install/fs_manager.py
 index 7892e35..f3f7a62 100644
 --- install/fs_manager.py
@@ -37,19 +58,19 @@ index 7892e35..f3f7a62 100644
                       'gpt': '0700',
                       'label': '-L {labelname}',
 diff --git install/variables/disk.py install/variables/disk.py
-index 8a9b8e6..f9d91e2 100644
+index d0d8fee..efda7f8 100644
 --- install/variables/disk.py
 +++ install/variables/disk.py
-@@ -999,6 +999,8 @@ class VariableOsLocationPerformFormat(LocationHelper,Variable):
+@@ -998,6 +998,8 @@ class VariableOsLocationPerformFormat(LocationHelper,Variable):
              return  map(self.defaultPerformFormat(),
                      zip(source,mount,fs,value))
  
-+    fixNtfs = lambda self,x:{'ntfs-3g','ntfs'}.get(x,x)
++    fixNtfs = lambda self,x:{'ntfs-3g':'ntfs'}.get(x,x)
 +
      def check(self,value):
          """Check perform format
  
-@@ -1017,9 +1019,11 @@ class VariableOsLocationPerformFormat(LocationHelper,Variable):
+@@ -1016,9 +1018,11 @@ class VariableOsLocationPerformFormat(LocationHelper,Variable):
          unavailFS = set(self.Select('os_format_type',
                                      where='os_format_use',
                                      eq="off"))
@@ -62,7 +83,7 @@ index 8a9b8e6..f9d91e2 100644
                      (mp == '/' and \
                       self.Get('os_install_root_type') != 'flash')
              # if entry has mount point AND
-@@ -1067,10 +1071,11 @@ class VariableOsLocationPerformFormat(LocationHelper,Variable):
+@@ -1060,10 +1064,11 @@ class VariableOsLocationPerformFormat(LocationHelper,Variable):
                               (self.Get('os_disk_format'))))
          def wrap(info):
              source,dest,fs,isformat = info
@@ -75,7 +96,7 @@ index 8a9b8e6..f9d91e2 100644
                      return "on"
              return isformat or ("off" if source.startswith('/dev/') else "")
          return wrap
-@@ -1598,7 +1603,7 @@ class VariableOsInstallFstabMountConf(ReadonlyVariable,DeviceHelper):
+@@ -1591,7 +1596,7 @@ class VariableOsInstallFstabMountConf(ReadonlyVariable,DeviceHelper):
              devicesForFstab = filter(lambda x:x[1] != "/", devicesForFstab)
  
          # rootLine one string, but it correct work if devicesForFstab is empty
