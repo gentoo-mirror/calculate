@@ -1,4 +1,6 @@
-# Calculate path=/usr/bin chmod=0755
+# Calculate comment=# path=/usr/bin chmod=0755
+#!/bin/bash
+# Unpack portage and overlay from git
 
 if ! [[ -e /usr/portage/licenses ]]
 then
