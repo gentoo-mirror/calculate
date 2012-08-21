@@ -1,0 +1,40 @@
+diff --git data/calculate data/calculate
+index ea32c87..9f0814a 100644
+--- data/calculate
++++ data/calculate
+@@ -41,6 +41,14 @@ install_pkg()
+ 	FEATURES="-getbinpkg" FETCHCOMMAND=false DISTDIR=/usr/portage/distfiles emerge $pkg &>/dev/null
+ }
+ 
++new_install_pkg()
++{
++	local pkg=$1
++	ebegin "Installing $pkg"
++	FETCHCOMMAND=false DISTDIR=/usr/portage/distfiles /usr/local/sbin/cl-video-install $pkg &>/dev/null
++	eend $?
++}
++
+ variable_value()
+ {
+ 	local varname=$1
+@@ -68,7 +76,12 @@ install_video_driver()
+ 	then
+ 		if ! is_already_install $drv
+ 		then
+-			check_install_ability $drv && install_pkg $drv
++			if [[ -x /usr/local/sbin/cl-video-install ]]
++			then
++				new_install_pkg $drv
++			else
++				check_install_ability $drv && install_pkg $drv
++			fi
+ 		fi
+ 		eend $?
+ 	else
+@@ -141,5 +154,6 @@ stop() {
+ 		rc-update del calculate boot
+ 		local distdir="/usr/portage/distfiles"
+ 		[[ -d "${distdir}" ]] && [[ -n "`ls ${distdir}`" ]] && rm ${distdir}/*
++		[[ -f /usr/local/sbin/cl-video-install ]] && rm /usr/local/sbin/cl-video-install
+ 	fi
+ }
