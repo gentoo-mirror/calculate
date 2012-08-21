@@ -1,0 +1,13 @@
+# Calculate path=/usr/bin chmod=0755
+
+if ! [[ -e /usr/portage/licenses ]]
+then
+	# unpack portage
+	cd /usr/portage
+	git checkout .
+	# unpack overlay
+	cd /var/lib/layman/calculate
+	git checkout .
+	# copy metadata
+	emerge --metadata
+fi
