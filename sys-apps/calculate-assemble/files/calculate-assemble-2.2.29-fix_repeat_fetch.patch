@@ -1,0 +1,19 @@
+commit 050917a91caf20c80051519064fa283e4e9125da
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Wed Aug 22 11:04:28 2012 +0400
+
+    Fix repeat fetch video drivers:
+
+diff --git pym/cl_assemble.py pym/cl_assemble.py
+index 88dadda..cc6942c 100644
+--- pym/cl_assemble.py
++++ pym/cl_assemble.py
+@@ -1715,7 +1715,7 @@ class cl_assemble(color_print):
+                     map(rePackage.search,
+                     fetchprocess)))
+                 if None in fetchedFiles:
+-                    repeatDrivers.append((verName,drvVer))
++                    repeatDrivers.append((verName,maskName,drvVer))
+                     self.printByResult(skip=True)
+                 else:
+                     self.printByResult(fetchprocess.success())
