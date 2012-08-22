@@ -1,8 +1,22 @@
-diff --git a/calculate/lib/datavars.py b/calculate/lib/datavars.py
-index 835b649..c84e3af 100644
---- a/calculate/lib/datavars.py
-+++ b/calculate/lib/datavars.py
-@@ -391,15 +391,22 @@ class Variable:
+commit e6681bcd4838b73dd2cf2eeeb36ae9ef930487ae
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Aug 22 10:10:51 2012 +0400
+
+    Fix infinite recursion
+
+diff --git calculate/lib/datavars.py calculate/lib/datavars.py
+index 835b649..4dce5a9 100644
+--- calculate/lib/datavars.py
++++ calculate/lib/datavars.py
+@@ -129,6 +129,7 @@ class Variable:
+         self.parent = parent
+         self.name = self.getVariableName()
+         self.init()
++        self.processInvalidate = False
+         for key,val in kwargs.items():
+             setattr(self,key,val)
+ 
+@@ -391,15 +392,22 @@ class Variable:
          force : boolean=False
            Drop value also for after manual set
          """
