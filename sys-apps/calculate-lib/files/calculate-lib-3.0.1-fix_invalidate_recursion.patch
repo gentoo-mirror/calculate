@@ -1,0 +1,36 @@
+diff --git a/calculate/lib/datavars.py b/calculate/lib/datavars.py
+index 835b649..c84e3af 100644
+--- a/calculate/lib/datavars.py
++++ b/calculate/lib/datavars.py
+@@ -391,15 +391,22 @@ class Variable:
+         force : boolean=False
+           Drop value also for after manual set
+         """
+-        if force or not self.wasSet:
+-            self.wasSet = False
+-            self.invalid = True
+-            for var in self.reqVars:
+-                var.invalidate()
+-            for var in self.reqCheck:
+-                var.untrusted = True
+-            self.reqVars = []
+-            self.reqCheck = []
++        # fix possible infinite recursion on invalidating
++        if not self.processInvalidate and (force or not self.wasSet):
++            try:
++                # mark variable that in invalidation now
++                self.processInvalidate = True
++                self.wasSet = False
++                self.invalid = True
++                for var in self.reqVars:
++                    var.invalidate()
++                for var in self.reqCheck:
++                    var.untrusted = True
++                self.reqVars = []
++                self.reqCheck = []
++            finally:
++                # unmark process invalidate
++                self.processInvalidate = False
+ 
+     @classmethod
+     def isTrue(self,value):
