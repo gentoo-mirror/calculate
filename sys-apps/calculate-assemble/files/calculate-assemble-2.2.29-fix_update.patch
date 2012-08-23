@@ -1,5 +1,5 @@
 diff --git pym/cl_assemble.py pym/cl_assemble.py
-index cc6942c..d725769 100644
+index cc6942c..4d24f4c 100644
 --- pym/cl_assemble.py
 +++ pym/cl_assemble.py
 @@ -568,6 +568,10 @@ class cl_assemble(color_print):
@@ -13,3 +13,13 @@ index cc6942c..d725769 100644
              updateBranch= "cd {portage};git checkout {branch}".format(
                      portage=portagePath,
                      branch=self.clVars.Get('cl_assemble_branch'))
+@@ -608,7 +612,8 @@ class cl_assemble(color_print):
+             pathOverlay = pathJoin(self.assemblePath,'var/lib/layman/calculate')
+             if path.exists(pathOverlay):
+                 updateBranch= \
+-                    "cd {portage};git pull;git checkout {branch}".format(
++                    "cd {portage};git pull;git checkout .;" \
++                    "git checkout {branch}".format(
+                         portage=pathOverlay,
+                         branch=self.clVars.Get('cl_assemble_branch'))
+                 self.runCommand(updateBranch)
