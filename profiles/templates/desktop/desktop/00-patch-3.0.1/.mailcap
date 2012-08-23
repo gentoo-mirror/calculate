@@ -1,0 +1,9 @@
+# Calculate format=patch pkg(mail-client/claws-mail)!=&&exists(/etc/mime.types)!= link=/etc/mime.types force mirror
+<reg>(\n|\A)#.*</reg>
+<text></text>
+<reg>(\n|\A)\s*(?=\n)</reg>
+<text></text>
+<reg>\A\s*\n</reg>
+<text></text>
+<reg>((?:\n|\A)\S+).*</reg>
+<text>\1; xdg-open '%s'</text>
