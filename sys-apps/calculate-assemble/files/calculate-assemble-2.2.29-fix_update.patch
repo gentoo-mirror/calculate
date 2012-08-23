@@ -1,0 +1,15 @@
+diff --git pym/cl_assemble.py pym/cl_assemble.py
+index cc6942c..d725769 100644
+--- pym/cl_assemble.py
++++ pym/cl_assemble.py
+@@ -568,6 +568,10 @@ class cl_assemble(color_print):
+                     gitrep=self.clVars.Get('cl_assemble_sync'),
+                     portage=portagePath)
+                 self.runCommand(getPortage)
++            if not path.exists(path.join(portagePath,"licenses")):
++                checkoutPortage= "cd {portage};git checkout .".format(
++                        portage=portagePath)
++                self.runCommand(checkoutPortage)
+             updateBranch= "cd {portage};git checkout {branch}".format(
+                     portage=portagePath,
+                     branch=self.clVars.Get('cl_assemble_branch'))
