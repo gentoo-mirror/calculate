@@ -31,6 +31,6 @@ mime_textviewer=xdg-open '%s'
 [TrayIcon]
 # закрывать окно в трей
 close_to_tray=1
-# минимизировать окно в трей
-hide_when_iconified=1
+# не минимизировать окно в трей
+hide_when_iconified=0
 
