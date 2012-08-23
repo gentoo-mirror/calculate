@@ -1,5 +1,7 @@
-# Calculate format=samba path=~/.claws-mail
+# Calculate format=patch path=~/.claws-mail
 [Common]
-uri_open_command=xdg-open '%s'
-ext_editor_command=xdg-open '%s'
+<reg>uri_open_command=.*</reg>
+<text>uri_open_command=xdg-open '%s'</text>
+<reg>ext_editor_command=.*</reg>
+<text>ext_editor_command=xdg-open '%s'</text>
 
