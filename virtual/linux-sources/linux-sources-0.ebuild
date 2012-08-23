@@ -15,7 +15,6 @@ IUSE="hardened"
 
 DEPEND=""
 RDEPEND="|| (
-		hardened? ( sys-kernel/hardened-sources )
 		sys-kernel/calculate-sources
 		sys-kernel/gentoo-sources
 		sys-kernel/vanilla-sources
@@ -27,10 +26,11 @@ RDEPEND="|| (
 		sys-kernel/mm-sources
 		sys-kernel/openvz-sources
 		sys-kernel/pf-sources
+		sys-kernel/rsbac-sources
+		sys-kernel/rt-sources
 		sys-kernel/tuxonice-sources
 		sys-kernel/usermode-sources
 		sys-kernel/vserver-sources
 		sys-kernel/xbox-sources
-		sys-kernel/xen-sources
 		sys-kernel/zen-sources
 	)"
