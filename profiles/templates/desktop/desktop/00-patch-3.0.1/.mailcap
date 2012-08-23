@@ -1,4 +1,4 @@
-# Calculate format=patch pkg(mail-client/claws-mail)!=&&exists(/etc/mime.types)!= link=/etc/mime.types force mirror
+# Calculate format=patch pkg(mail-client/claws-mail)!=&&exists(/etc/mime.types)!= link=/etc/mime.types force mirror comment=#
 <reg>(\n|\A)#.*</reg>
 <text></text>
 <reg>(\n|\A)\s*(?=\n)</reg>

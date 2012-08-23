@@ -1,4 +1,4 @@
-# Calculate format=patch ?pkg(sys-apps/calculate-desktop)>=2.2.29-r2
+# Calculate format=patch path=~/.claws-mail pkg(sys-apps/calculate-desktop)>=2.2.29-r2
 <reg>uri_open_command=.*</reg>
 <text>uri_open_command=xdg-open '%s'</text>
 <reg>ext_editor_command=.*</reg>
