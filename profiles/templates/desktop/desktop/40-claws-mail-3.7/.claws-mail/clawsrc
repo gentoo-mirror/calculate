@@ -23,6 +23,9 @@ never_send_retrcpt=1
 uri_open_command=xdg-open '%s'
 ext_editor_command=xdg-open '%s'
 mime_textviewer=xdg-open '%s'
+#?pkg(x11-themes/claws-mail-theme-calculate)!=#
+pixmap_theme_path=/usr/share/claws-mail/themes/Calculate
+#pkg#
 
 [Plugins_GTK2]
 # плагин сворачивания окна в трей
