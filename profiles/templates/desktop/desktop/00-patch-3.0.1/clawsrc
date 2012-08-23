@@ -1,7 +1,0 @@
-# Calculate format=patch path=~/.claws-mail
-[Common]
-<reg>uri_open_command=.*</reg>
-<text>uri_open_command=xdg-open '%s'</text>
-<reg>ext_editor_command=.*</reg>
-<text>ext_editor_command=xdg-open '%s'</text>
-
