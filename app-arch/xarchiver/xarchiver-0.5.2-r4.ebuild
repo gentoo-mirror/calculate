@@ -25,7 +25,7 @@ pkg_setup() {
 		"${FILESDIR}"/${P}-stack-smash.patch
 		"${FILESDIR}"/${P}-add_xz_support.patch
 		"${FILESDIR}"/${P}-drag-n-drop_escaped_path.patch
-		"${FILESDIR}"/${P}--add-to_escaped_path.patch
+		"${FILESDIR}"/${P}-add-to_escaped_path.patch
 		)
 
 	XFCONF=(
