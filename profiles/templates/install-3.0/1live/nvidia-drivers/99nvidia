@@ -3,5 +3,7 @@
 #?os_install_arch_machine==x86_64#
 PRELINK_PATH_MASK=/usr/lib64/*nvidia*
 #os_install_arch_machine#
-PRELINK_PATH_MASK=/usr/lib32/*nvidia*
+#?os_install_arch_machine!=x86_64#
+PRELINK_PATH_MASK=/usr/lib/*nvidia*
+#os_install_arch_machine#
 
