@@ -32,7 +32,7 @@ index ae5a639..a213a81 100644
                      element = "error"))
              view.groups.append(group)
 -            if not isinstance(VariableError,DataVarsError,InstallError):
-+            if not type(e) in (InstallError,DataVarsInstall,VariableError):
++            if not type(e) in (InstallError,DataVarsError,VariableError):
                  for i in apply(traceback.format_exception, sys.exc_info()):
                      print i,
  
