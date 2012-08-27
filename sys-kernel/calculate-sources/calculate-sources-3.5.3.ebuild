@@ -4,7 +4,7 @@
 
 ETYPE="sources"
 
-inherit calculate-kernel-3 eutils
+inherit calculate-kernel-4 eutils
 
 DESCRIPTION="Full sources including the Calculate patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
 KEYWORDS="~amd64 ~x86"
@@ -45,9 +45,9 @@ src_unpack() {
 		UNIPATCH_LIST+=" ${DISTDIR}/hardened-patches-${HGPV}.extras.tar.bz2"
 		UNIPATCH_EXCLUDE="4400_aufs2.patch"
 	fi
-	calculate-kernel-3_src_unpack
+	calculate-kernel-4_src_unpack
 }
 
 pkg_postinst() {
-	calculate-kernel-3_pkg_postinst
+	calculate-kernel-4_pkg_postinst
 }
