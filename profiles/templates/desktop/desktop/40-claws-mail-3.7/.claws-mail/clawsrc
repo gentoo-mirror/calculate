@@ -26,6 +26,11 @@ mime_textviewer=xdg-open '%s'
 #?pkg(x11-themes/claws-mail-theme-calculate)!=#
 pixmap_theme_path=/usr/share/claws-mail/themes/Calculate
 #pkg#
+#?os_locale_lang!=en_US#
+alt_dictionary=en_US
+use_alternate_dict=1
+use_both_dicts=1
+#os_locale_lang#
 
 [Plugins_GTK2]
 # плагин сворачивания окна в трей
