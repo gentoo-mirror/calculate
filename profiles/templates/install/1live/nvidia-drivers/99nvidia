@@ -1,8 +1,5 @@
 # discard /usr/lib64/*nvidia*, because prelink call segafault
 # for some applications (chromium,libreoffice and etc)
-#?os_install_arch_machine==x86_64#
-PRELINK_PATH_MASK=/usr/lib64/*nvidia*
-#os_install_arch_machine#
-#?os_install_arch_machine!=x86_64#
-PRELINK_PATH_MASK=/usr/lib/*nvidia*
-#os_install_arch_machine#
+PRELINK_PATH_MASK="/usr/lib64/*nvidia*
+-b /usr/lib/*nvidia*
+-b /usr/lib32/*nvidia*"
