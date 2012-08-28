@@ -1,0 +1,481 @@
+diff --git pym/cl_assemble.py pym/cl_assemble.py
+index f7c8e08..c6d9933 100644
+--- pym/cl_assemble.py
++++ pym/cl_assemble.py
+@@ -42,6 +42,7 @@ import cl_overriding
+ import random
+ from shutil import copyfile
+ import time
++from itertools import *
+ 
+ def DEBUG(msg):
+     if "DEBUG" in os.environ:
+@@ -134,6 +135,12 @@ class cl_assemble(color_print):
+               'hideout':True,
+               'step':"eixsync",
+               'foraction':('syncupdate',)},
++             {'command':'eix-checkout',
++              'progname':'eix-checkout',
++              'message':_("Checkout portages"),
++              'hideout':True,
++              'step':"eixcheckout",
++              'foraction':('update',)},
+              # try install python
+              {'command':'emerge -u python',
+               'step':'updatepython',
+@@ -232,7 +239,8 @@ class cl_assemble(color_print):
+               'step':'showdowngrade',
+               'progname':'eix'}]
+ 
+-    reVerSplit = re.compile(r"^(.*?)-(([^-]+?)(?:-(r\d+))?)(?:.(tbz2))?$",re.S)
++    reVerSplit = re.compile(
++        r"^(.*?)-(([^-]+?)(?:-(r\d+))?)(::\w+)?(?:.(tbz2))?$",re.S)
+ 
+     def __init__(self):
+         self.clVars = None
+@@ -539,9 +547,6 @@ class cl_assemble(color_print):
+ 
+     def _migratePortage(self):
+         if self.clVars.Get('cl_assemble_branch'):
+-            if not isPkgInstalled('dev-vcs/git'):
+-                self.printMessageForTest(_("Installing %s")%'dev-vcs/git')
+-                self.runChroot("emerge -1 git")
+             portagePath = pathJoin(self.assemblePath,'usr/portage')
+             gitConfig = pathJoin(portagePath, '.git/config')
+             # check for repository contains .git and 
+@@ -556,18 +561,17 @@ class cl_assemble(color_print):
+                     removeDir(portagePath)
+                 getPortage = "git clone --depth 1 -n {gitrep} {portage}".format(
+                     gitrep=self.clVars.Get('cl_assemble_sync'),
+-                    portage='/usr/portage')
+-                self.runChroot(getPortage)
++                    portage=portagePath)
++                self.runCommand(getPortage)
+             else:
+                 getPortage = "cd {portage};git fetch".format(
+                     gitrep=self.clVars.Get('cl_assemble_sync'),
+-                    portage='/usr/portage')
+-                self.runChroot(getPortage)
++                    portage=portagePath)
++                self.runCommand(getPortage)
+             updateBranch= "cd {portage};git checkout {branch}".format(
+-                    portage='/usr/portage',
++                    portage=portagePath,
+                     branch=self.clVars.Get('cl_assemble_branch'))
+-            self.runChroot(updateBranch)
+-
++            self.runCommand(updateBranch)
+             portagePkg = getPkgInstalled('sys-apps/portage',
+                                          prefix=self.assemblePath)
+             portageMinVer = getTupleVersion('2.2.0_alpha72')
+@@ -592,8 +596,9 @@ class cl_assemble(color_print):
+                     lastEbuild
+                 self.runChroot(emergePortage)
+                 restoreManifest = \
+-                    'cd /usr/portage;git checkout sys-apps'
+-                self.runChroot(restoreManifest)
++                    'cd {portage};git checkout sys-apps'.format(
++                        portage=portagePath)
++                self.runCommand(restoreManifest)
+         else:
+             portagePath = pathJoin(self.assemblePath,'usr/portage')
+             gitConfig = pathJoin(portagePath, '.git/config')
+@@ -603,14 +608,19 @@ class cl_assemble(color_print):
+             pathOverlay = pathJoin(self.assemblePath,'var/lib/layman/calculate')
+             if path.exists(pathOverlay):
+                 updateBranch= \
+-                    "cd {portage};git pull;git checkout {branch}".format(
+-                        portage='/var/lib/layman/calculate',
++                    "cd {portage};git pull;" \
++                    "git checkout {branch}".format(
++                        portage=pathOverlay,
+                         branch=self.clVars.Get('cl_assemble_branch'))
+-                self.runChroot(updateBranch)
++                self.runCommand(updateBranch)
+ 
+     def _updatePackages(self):
+         """Update portage and calculate overlay"""
+         self._migratePortage()
++        if not isPkgInstalled('dev-vcs/git',prefix=self.assemblePath):
++            self.printMessageForTest(_("Installing %s")%'dev-vcs/git')
++            self.runChroot("USE='-perl -curl -webdav' emerge -1 git")
++
+         emergeSync = "emerge --sync"
+         self.printMessageForTest(_("Updating portages"))
+         self.runChroot(emergeSync)
+@@ -747,8 +757,14 @@ class cl_assemble(color_print):
+                 # will install iproute2 with USE="minimal" also
+                 self.runChroot("emerge -1 sys-apps/iproute2")
+                 self.runChroot("USE='minimal -pxe' emerge "
+-                               'sys-apps/calculate-install')
+-                self.runChroot("cl-install --install")
++                               'sys-apps/calculate-install '
++                               'sys-apps/calculate-core')
++                if path.exists(path.join(self.clVars.Get('cl_assemble_path'),
++                             "usr/sbin/cl-core")):
++                    self.runChroot("/usr/sbin/cl-core --append-variable "
++                               "cl_merges=calculate-install")
++                else:
++                    self.runChroot("cl-install --install")
+             else:
+                 self.printByResult(skip=True)
+ 
+@@ -913,6 +929,45 @@ class cl_assemble(color_print):
+                   ":\n    %s"%self._getCommand(chrootCommand.command))
+         return chrootCommand
+ 
++    def runCommand(self,command,raiseError=True,showProcess=False,
++                   joinErr=False):
++        """Run command"""
++        chrootCommand = None
++        try:
++            if showProcess:
++                IOval = None
++            else:
++                IOval = PIPE
++            if joinErr:
++                ERRval = STDOUT
++            else:
++                ERRval = IOval
++            envdict = {}
++            envdict.update(os.environ)
++            needAsk = self.clVars.Get('cl_assemble_ask_set') == "on"
++            if "emerge " in command:
++                if showProcess and needAsk:
++                    command = command.replace("emerge ","emerge -a ")
++            commandLine = ["/bin/bash","-c",command]
++            if showProcess and needAsk:
++                chrootCommand = process(*commandLine,stderr=ERRval,
++                                stdin=None,stdout=IOval,envdict=envdict)
++            else:
++                chrootCommand = process(*commandLine,stderr=ERRval,
++                                stdout=IOval,envdict=envdict)
++            DEBUG(self._getCommand(chrootCommand.command))
++            if raiseError and chrootCommand.failed():
++                raise AssembleError(
++                    _("An error occurred when executing the command")+
++                      ":\n    %s"%self._getCommand(chrootCommand.command))
++        except KeyboardInterrupt:
++            chrootCommand.kill()
++            self.defaultPrint("\b\b")
++            raise AssembleError(
++                _("Interrupted when executing the command")+
++                  ":\n    %s"%self._getCommand(chrootCommand.command))
++        return chrootCommand
++
+     def configureSystem(self,force,nounmount):
+         """Unpack stage or cls|css and prepare for assemble"""
+         self.msgOperationComplete = ""
+@@ -1568,20 +1623,21 @@ class cl_assemble(color_print):
+ 
+     def fetchDrivers(self):
+         """Fetch propreitary drivers"""
++        chrootPath = self.clVars.Get('cl_assemble_path')
++        nvidiaEclass = pathJoin(chrootPath,
++                       '/usr/portage/eclass/nvidia-driver.eclass')
+         if self.clVars.Get('cl_assemble_withvideo_set') == "on":
+-            drivers = [
+-                       ('nvidia-drivers',
+-                        'x11-drivers/nvidia-drivers'),
+-                       ('nvidia-drivers',
+-                        '\\<x11-drivers/nvidia-drivers-174'),
+-                       ('nvidia-drivers',
+-                        '\\<x11-drivers/nvidia-drivers-97'),
+-                       ('ati-drivers',
+-                       'x11-drivers/ati-drivers')
+-                       ]
++            drivers = [('nvidia-drivers','','x11-drivers/nvidia-drivers')]+\
++                      map(lambda x:('nvidia-drivers',x,
++                                    x.replace('>=','\\<')),
++                      imap(lambda x:x.partition('="')[2].strip('\n"'),
++                      ifilterfalse(lambda x:x.startswith('mask_71') or \
++                                            x.startswith('mask_96'),
++                      ifilter(lambda x:x.startswith('mask_'),
++                      open(nvidiaEclass)))))+\
++                      [('ati-drivers',"",'x11-drivers/ati-drivers')]
+         else:
+             drivers = []
+-        chrootPath = self.clVars.Get('cl_assemble_path')
+         distDir = '/usr/portage/distfiles'
+         pathDistDir = pathJoin(chrootPath,distDir)
+         if not path.exists(pathDistDir):
+@@ -1602,9 +1658,10 @@ class cl_assemble(color_print):
+             curDistdir = curDistdir[0]
+         else:
+             curDistdir = '/var/calculate/remote/distfiles'
++        driversMatrix = []
+         while drivers:
+             repeatDrivers = []
+-            for verName,drvVer in drivers:
++            for verName,maskName,drvVer in drivers:
+                 rePackage = re.compile("^\[ebuild[^\]]+]\s+(\S+)")
+                 checkprocess = self.runChroot(
+                             "emerge -pv %s"%
+@@ -1635,6 +1692,7 @@ class cl_assemble(color_print):
+                                     %"%s-%s"%(verName,nvidiaVersions)+":")
+                 # print dep packages (error message for probably wrong packages)
+                 nameRight = "/%s-"%verName.partition("-")[0]
++                # installPkgList, package list for install
+                 for pkg in installPkgList:
+                     if nameRight in pkg:
+                         self.printSUCCESS("  %s"%pkg)
+@@ -1649,7 +1707,8 @@ class cl_assemble(color_print):
+                             "emerge -f --quiet-build=n %s"%
+                             drvVer, raiseError=False,joinErr=True)
+                 rePackage = re.compile(
+-                    "(?:^ \* (.*?) RMD160 SHA1|File.*is already locked)")
++                    "(?:^ \* (.*?) (?:RMD160 SHA1|SHA256 SHA512)|"
++                    "File.*is already locked)")
+                 # get fetched files
+                 fetchedFiles = \
+                     map(lambda x:x.groups()[0],
+@@ -1657,12 +1716,14 @@ class cl_assemble(color_print):
+                     map(rePackage.search,
+                     fetchprocess)))
+                 if None in fetchedFiles:
+-                    repeatDrivers.append((verName,drvVer))
++                    repeatDrivers.append((verName,maskName,drvVer))
+                     self.printByResult(skip=True)
+                 else:
+                     self.printByResult(fetchprocess.success())
+                     needFiles += fetchedFiles
+                 self.defaultPrint("\n")
++                driversMatrix.append((verName,maskName,drvVer,
++                                      " ".join(installPkgList)))
+             drivers = repeatDrivers
+             if drivers:
+                 self.printMessageForTest(" " +
+@@ -1670,6 +1731,24 @@ class cl_assemble(color_print):
+                 time.sleep(10)
+                 self.printByResult(True)
+ 
++        self.clVars.Set('cl_assemble_drivers_info',
++                        driversMatrix,force=True)
++        self.printMessageForTest(" " +
++            _("Creating install video driver script"))
++        try:
++            parentDir = pathJoin(chrootPath,"usr/local/sbin")
++            if not path.exists(parentDir):
++                os.makedirs(parentDir,mode=0755)
++            installDriverScript = pathJoin(chrootPath,
++                                  "usr/local/sbin/cl-video-install")
++            open(installDriverScript,'w').write(
++                 self.clVars.Get('cl_assemble_drivers_script'))
++            os.chmod(installDriverScript,0755)
++            self.printByResult(True)
++        except (IOError,OSError) as e:
++            import traceback
++            traceback.print_exc()
++            self.printByResult(False)
+         needFiles = set(needFiles)
+         fetchedList = set(listDirectory(pathDistDir))
+         removedList = fetchedList - needFiles
+diff --git pym/cl_fill_assemble.py pym/cl_fill_assemble.py
+index 8467c6c..c0a7a39 100644
+--- pym/cl_fill_assemble.py
++++ pym/cl_fill_assemble.py
+@@ -15,6 +15,7 @@
+ #  limitations under the License.
+ 
+ import os
++import sys
+ import re
+ import cl_overriding
+ import operator
+@@ -22,13 +23,19 @@ from cl_vars_share import varsShare
+ from os import path
+ from cl_distr import DistributiveRepository
+ from cl_template import iniParser
+-from cl_fill_install import fillVars as installFillVars
+ from cl_vars import Data as libData
+ from cl_utils import (_toUNICODE,isMount,pathJoin,listDirectory,readFile,
+-                      readLinesFile,getProgPath)
++                      readLinesFile,getProgPath,getUdevDeviceInfo)
+ from datetime import datetime
+-
+-class fillVars(installFillVars):
++from os import readlink,access,R_OK
++from cl_datavars import glob_attr
++from cl_assemble import cl_assemble
++from cl_lang import lang
++tr = lang()
++tr.setLocalDomain('cl_builder')
++tr.setLanguage(sys.modules[__name__])
++
++class fillVars(object, glob_attr):
+     def get_ac_assemble_prepare(self):
+         """Need perform templates for assemble:prepare"""
+         if not self.Get('cl_action') in ('setup','make','break'):
+@@ -209,7 +216,13 @@ class fillVars(installFillVars):
+                     devices, [] )
+         return disks
+ 
+-    get_os_assemble_makeopts = installFillVars.get_os_install_makeopts
++    def get_os_assemble_makeopts(self):
++        """Get makeopts for make.conf file"""
++        cpunum = self.Get('hr_cpu_num')
++        if cpunum == 1:
++            return "-j1"
++        else:
++            return "-j%d"%(cpunum+1)
+ 
+     def get_os_assemble_gentoo_arch(self):
+         """Get gentoo arch by arch machine"""
+@@ -382,3 +395,143 @@ class fillVars(installFillVars):
+             if getProgPath(mkfsUtil):
+                 return fs
+         return "ext2"
++
++    #########################################################
++    # Import from depricated install
++    #########################################################
++
++    def get_os_device_hash(self):
++        """Generate hash information about device"""
++        def onlyDisk(devpath):
++            """Check by udevadm that devpath is device (disk)"""
++            prop = getUdevDeviceInfo(devpath)
++            return prop.get("ID_TYPE","")=="disk" and \
++                   prop.get("DEVTYPE","")=="disk"
++
++        # get usb device by '/dev/disk/by-id'(usb devices contain 'usb' in name)
++        diskIdPath = '/dev/disk/by-id'
++        if path.exists(diskIdPath):
++            usbdevices = \
++             map(lambda x: readlink(path.join(diskIdPath,x)).rpartition('/')[2],
++             filter(lambda x: x.startswith('usb-'),listDirectory(diskIdPath)))
++        else:
++            usbdevices = []
++        # get devices from /sys/block directories(discard mem,sr,loop and other)
++        sysBlockPath = '/sys/block'
++        devices = map(lambda x:path.join(sysBlockPath,x),
++                  filter(lambda x: onlyDisk(path.join(sysBlockPath,x)),
++                  filter(lambda x: not self.reWrongDevice.search(x),
++                  listDirectory(sysBlockPath))))
++        device_hash = {}
++        # filling hash
++        for mapnum,device in enumerate(sorted(devices,key=self.separateDevice)):
++            # get information by udev
++            props = getUdevDeviceInfo(device)
++            if not "DEVNAME" in props:
++                continue
++            # DEVNAME - /dev/(device_name)
++            device = props['DEVNAME']
++            device_hash[device] = {}
++            # get partition table
++            # (if PART_TABLE_TYPE absent then get by child partition)
++            device_hash[device]['table'] = props.get('ID_PART_TABLE_TYPE',
++                                           self.getTableByChild(device))
++            # enumerate disk for legecy grub
++            device_hash[device]['map'] = mapnum
++            # if device is usb device
++            if path.basename(device) in usbdevices:
++                # check for usb flash (removeable fiel in sysfs contains "1")
++                removablePath = '/sys/block/%s/removable'%path.basename(device)
++                if os.access(removablePath,R_OK) and \
++                    open(removablePath,'r').read().strip() == "1":
++                    devtype = "flash" 
++                else:
++                    devtype = "usb-hdd" 
++            else:
++                devtype = "hdd" 
++            # set detect device type (hdd,flash or usb-hdd)
++            device_hash[device]['type'] = devtype
++        return device_hash
++
++
++    def separateDevice(self,device):
++        return map(lambda x: int(x) if x.isdigit() else x,
++                   re.findall('\d+|\D+',device))
++
++    def getAttributeFromHash(self,var,attr):
++        hash = self.Get(var)
++        return map(lambda x: hash[x][attr] if attr in hash[x] else "",
++                sorted(hash.keys(),
++                       key=self.separateDevice))
++
++    reWrongDevice = re.compile("|".join(['^fd','^ram','^loop']))
++
++    def getTableByChild(self,device):
++        """Get table by child partitions"""
++        syspath = getUdevDeviceInfo(name=device).get('DEVPATH','')
++        if not syspath.startswith('/sys'):
++            syspath = pathJoin('/sys',syspath)
++        shortnameDevice = path.basename(device)
++        childs = filter(lambda x:x.startswith(shortnameDevice),
++                 listDirectory(syspath))
++        if childs:
++            child = pathJoin(syspath,childs[0])
++            return getUdevDeviceInfo(path=child).get('ID_PART_ENTRY_SCHEME','')
++        return ""
++
++    def get_os_device_dev(self):
++        """Devices"""
++        return sorted(self.Get('os_device_hash').keys(),
++                      key=self.separateDevice)
++
++    def get_os_device_type(self):
++        """Device type (hdd,cdrom,usb-flash)"""
++        return self.getAttributeFromHash('os_device_hash','type')
++
++    def get_cl_assemble_drivers_info(self):
++        """matrix for prepare driver script"""
++        return [[]]
++
++    def prepareScript(self,info):
++        """
++        Script lines from info
++        """
++        reVerSplit = cl_assemble.reVerSplit
++        yield "#!/bin/bash"
++        yield "PKG=$1"
++        yield "MASK=`cat /etc/portage/nvidia 2>/dev/null`"
++        yield "PORTAGE=/usr/portage"
++        yield "OVERLAY=/var/lib/layman/calculate"
++        for verName,maskName,drvVer,ebuilds in info:
++            yield "if [[ $PKG == 'x11-drivers/{verName}' ]] " \
++                  "&& [[ $MASK == '{maskName}' ]]"\
++                .format(verName=verName,maskName=maskName)
++            yield "then"
++            for ebuild in ebuilds.split(" "):
++                packageName = reVerSplit.search(ebuild)
++                if packageName:
++                    packageName = packageName.group(1)
++                else:
++                    continue
++                if "::calculate" in ebuild:
++                    portage="$OVERLAY"
++                    ebuild = ebuild.replace('::calculate','')
++                else:
++                    portage="$PORTAGE"
++                ebuild = ebuild.partition('/')[2]
++                yield "\tcd {portage}".format(portage=portage)
++                yield "\t[[ -f {pkgName}/{ebuild}.ebuild ]] " \
++                      "|| git checkout {pkgName}".format(pkgName=packageName,
++                                                         ebuild=ebuild)
++                yield "\tebuild {pkgName}/{ebuild}.ebuild merge " \
++                      "--skip-manifest"\
++                    .format(pkgName=packageName,
++                            ebuild=ebuild)
++            yield "\texit $?"
++            yield "fi"
++        yield "exit 1"
++
++    def get_cl_assemble_drivers_script(self):
++        """part of script for driver installing"""
++        return "\n".join(self.prepareScript(
++                         self.Get('cl_assemble_drivers_info')))
+diff --git pym/cl_vars_assemble.py pym/cl_vars_assemble.py
+index 0659b90..9858c04 100644
+--- pym/cl_vars_assemble.py
++++ pym/cl_vars_assemble.py
+@@ -158,3 +158,9 @@ class Data:
+ 
+     # makeconf makeopts
+     os_assemble_makeopts = {'mode':'w'}
++
++    # matrix for prepare driver script
++    cl_assemble_drivers_info = {'mode':'r'}
++
++    # part of script for driver installing
++    cl_assemble_drivers_script = {'mode':'r'}
