@@ -2,6 +2,7 @@
 #!/bin/bash
 # Unpack portage and overlay from git
 
+cd /usr/portage
 if git status --short | grep -m1 "^ D " &>/dev/null
 then
 	# unpack portage
