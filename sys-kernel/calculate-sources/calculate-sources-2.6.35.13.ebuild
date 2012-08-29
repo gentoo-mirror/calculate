@@ -3,6 +3,7 @@
 # $Header: $
 
 ETYPE="sources"
+LONGTERM="1"
 
 inherit calculate-kernel-2 eutils
 
