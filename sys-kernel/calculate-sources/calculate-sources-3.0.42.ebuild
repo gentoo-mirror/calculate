@@ -19,13 +19,6 @@ HGPV="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}-5"
 #)"
 HGPV_URI=""
 
-CL_PATCH="3.2.5"
-
-CALC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
-        ftp://ftp.calculate-linux.org/pub/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
-		http://mirror.yandex.ru/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
-		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2"
-
 SRC_URI="${KERNEL_URI} ${ARCH_URI} ${CALC_URI} ${HGPV_URI}"
 
 UNIPATCH_LIST="${DISTDIR}/${PN}-${CL_PATCH}.tar.bz2"
