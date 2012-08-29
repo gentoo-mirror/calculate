@@ -24,7 +24,7 @@ index 76d72a7..0c059a5 100755
  CDROOT_TYPE='auto'
  NEW_ROOT='/newroot'
 diff --git defaults/initrd.scripts defaults/initrd.scripts
-index 51ebcce..f7abe4b 100755
+index 51ebcce..8007347 100755
 --- defaults/initrd.scripts
 +++ defaults/initrd.scripts
 @@ -187,23 +187,45 @@ cache_cd_contents() {
@@ -166,7 +166,7 @@ index 51ebcce..f7abe4b 100755
  #                 if [ -n "${UNIONFS}" ] 	 
  #                 then 	 
  #                         CHANGESDEV=${UNIONFS} 	 
-@@ -1130,11 +1191,116 @@ setup_unionfs() {
+@@ -1130,11 +1191,117 @@ setup_unionfs() {
  		mkdir /tmp
  		mkdir -p ${UNION}
  #		mkdir -p $CHANGES
@@ -189,6 +189,9 @@ index 51ebcce..f7abe4b 100755
 +				ISRW=1
 +			fi
 +
++			mkdir -p ${DELTADIR}
++			mkdir -p ${WORKSPACEDIR}
++
 +			if [[ -n ${CDROOT_OVERLAY} ]] && [[ -f ${rw_dir}/mnt/cdrom/${CDROOT_OVERLAY} ]]
 +			then
 +				good_msg "Unpacking ${CDROOT_OVERLAY}"
@@ -196,8 +199,6 @@ index 51ebcce..f7abe4b 100755
 +				tar xf ${rw_dir}/mnt/cdrom/${CDROOT_OVERLAY}
 +			fi
 +
-+			mkdir -p ${DELTADIR}
-+			mkdir -p ${WORKSPACEDIR}
 +			if [[ ${UNIONTYPE} = aufs ]]
 +			then
 +				if ! mount -t aufs -o udba=reval,br:${WORKSPACEDIR}=rw:${DELTADIR}=ro+wh:${rw_dir}/mnt/livecd=ro none ${UNION}
@@ -287,7 +288,7 @@ index 51ebcce..f7abe4b 100755
  		then
  			bad_msg "Can't setup union mount!"
  			USE_UNIONFS_NORMAL=0
-@@ -1143,3 +1309,122 @@ setup_unionfs() {
+@@ -1143,3 +1310,122 @@ setup_unionfs() {
  		USE_UNIONFS_NORMAL=0
  	fi
  }
