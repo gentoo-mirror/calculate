@@ -12,7 +12,7 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst
 
 IUSE="vmlinuz minimal"
 
-REQUIRED_USE="minimal ( vmlinuz )"
+REQUIRED_USE="minimal? ( vmlinuz )"
 
 detect_version
 detect_arch
