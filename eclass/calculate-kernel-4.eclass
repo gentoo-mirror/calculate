@@ -119,8 +119,11 @@ vmlinuz_src_install() {
 }
 
 calculate-kernel-4_src_install() {
-	if use vmlinuz
+	if use minimal
 	then
+		local configname=$(cl-kernel -v --filter cl_kernel_config$ | \
+				sed -nr 's/.*\[.\]\s//p')
+		cp $configname .config
 		local GENTOOARCH="${ARCH}"
 		unset ARCH
 		ebegin "kernel: >> Running oldconfig..."
@@ -130,9 +133,7 @@ calculate-kernel-4_src_install() {
 		make modules_prepare &>/dev/null
 		eend $? "Failed modules prepare"
 		ARCH="${GENTOOARCH}"
-	fi
-	if use minimal
-	then
+
 		einfo "Cleaning sources"
 		for rmpath in $(ls arch | grep -v x86)
 		do
@@ -161,7 +162,7 @@ calculate-kernel-4_src_install() {
 	use vmlinuz && vmlinuz_src_install
 	if ! use vmlinuz
 	then
-		local configname=$(cl-kernel -v --filter cl_kernel_config | \
+		local configname=$(cl-kernel -v --filter cl_kernel_config$ | \
 		sed -nr 's/.*\[.\]\s//p')
 		[[ -n $configname ]] &&
 			cp $configname ${D}/usr/share/${PN}/${PV}/boot/config-${KV_FULL}
@@ -193,6 +194,19 @@ calculate-kernel-4_pkg_postinst() {
 	fi
 	cp -p /usr/share/${PN}/${PV}/boot/config* ${KV_OUT_DIR}/.config
 	cd ${KV_OUT_DIR}
+
+	if ! use minimal
+	then
+		local GENTOOARCH="${ARCH}"
+		unset ARCH
+		ebegin "kernel: >> Running oldconfig..."
+		make oldconfig </dev/null &>/dev/null
+		eend $? "Failed oldconfig"
+		ebegin "kernel: >> Running modules_prepare..."
+		make modules_prepare &>/dev/null
+		eend $? "Failed modules prepare"
+		ARCH="${GENTOOARCH}"
+	fi
 
 	use vmlinuz && vmlinuz_pkg_postinst
 }
