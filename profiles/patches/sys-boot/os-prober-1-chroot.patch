@@ -20,7 +20,7 @@ index 9ff78e1..9a5cf1a 100755
  			# And Gentoo's also
  			initrdname4=$(echo "$kernfile" | sed "s/kernel/initramfs\*/")
 +			# And Calculate's also
-+			initrdname5=$(echo "$kernfile" | sed "s/vmlinu[zx]/initramfs\*/ | sed 's/$/-install/")
++			initrdname5=$(echo "$kernfile" | sed "s/vmlinu[zx]/initramfs\*/" | sed 's/$/-install/')
  			foundinitrd=0
 -			for initrd in $(eval ls "$initrdname" "$initrdname1" "$initrdname2" "$initrdname3" "$initrdname4" 2>/dev/null); do
 +			for initrd in $(eval ls "$initrdname" "$initrdname1" "$initrdname2" "$initrdname3" "$initrdname4" "$initrdname5" 2>/dev/null); do
