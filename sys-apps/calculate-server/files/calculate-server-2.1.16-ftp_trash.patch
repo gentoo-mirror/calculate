@@ -1,0 +1,33 @@
+commit 0069b26d762ca6f488d9a7dd31316f6072d586d6
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Fri Aug 31 15:30:04 2012 +0400
+
+    Add .Trash for FTP service
+
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 65fa9e8..9800c80 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -12246,14 +12246,21 @@ class servRepl(shareLdap):
+         userTrashDir =\
+                 os.path.join(self.clVars.Get("sr_samba_share_path"),
+                                              ".Trash-%d"%uid)
++        userTrashDirFtp =\
++                os.path.join(self.clVars.Get("sr_ftp_path"),
++                                             ".Trash-%d"%uid)
+ 
+         userDirs = [("home",userHomeDir),
+                     ("netlogon",userNetlogonDir),
+                     ("win_prof",winProfDir),
+                     ('lin_prof',linProfDir),
+-                    ('trash',userTrashDir)]
++                    ('trash',userTrashDir),
++                    ('ftp',userTrashDirFtp)]
+         flagError = False
+         for name, userDir in userDirs:
++            if name == "ftp":
++                if self.clVars.Get("sr_ftp_set") != "on":
++                    continue
+             if not os.path.exists(userDir):
+                 if not self.createUserDir(uid, gid, userDir):
+                     flagError = True
