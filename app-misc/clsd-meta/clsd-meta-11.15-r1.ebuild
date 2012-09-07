@@ -45,7 +45,7 @@ RDEPEND="${RDEPEND}
 	x11-misc/obmenugen-bin
 	x11-misc/obdevicemenu
 	x11-misc/trayfreq
-	sys-apps/uam
+	x11-misc/tinymount
 	x11-misc/slim
 	app-misc/screen
 	dev-util/gsimplecal
