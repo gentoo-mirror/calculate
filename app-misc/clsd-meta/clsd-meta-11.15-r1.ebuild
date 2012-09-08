@@ -46,9 +46,10 @@ RDEPEND="${RDEPEND}
 	x11-misc/obdevicemenu
 	x11-misc/trayfreq
 	x11-misc/tinymount
-	x11-misc/slim
+	lxde-base/lxdm
 	app-misc/screen
 	dev-util/gsimplecal
+	x11-misc/obshutdown
 	!calculate_nodecoration? ( 
 		x11-themes/hicolor-icon-theme
 		x11-themes/gnome-icon-theme
