@@ -98,6 +98,7 @@ RDEPEND="${RDEPEND}
 
 	media-plugins/gst-plugins-vp8
 
+	media-gfx/geeqie
 	!x11-wm/compiz-fusion
 	!x11-apps/fusion-icon
 	!x11-libs/compizconfig-backend-gconf
