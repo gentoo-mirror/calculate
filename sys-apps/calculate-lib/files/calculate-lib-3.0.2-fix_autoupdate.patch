@@ -1,0 +1,30 @@
+commit 6feec52f1c9a00d6867145f7b69a095a8d36b556
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Sep 17 11:18:23 2012 +0400
+
+    Fix autoupdate header param for belong packages
+
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index da73632..a0dc440 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -4349,7 +4349,8 @@ re.M|re.S)
+         if not objHead:
+             applyDir = ""
+         if applyDir:
+-            if "autoupdate" in optDir or "autoupdate" in objHead.params:
++            if ("autoupdate" in optDir or "autoupdate" in objHead.params ) and \
++                    not self.objVar.Get('cl_belong_pkg_pass'):
+                 self.autoUpdateDirs.append(applyDir)
+         return (applyDir, objHead, createdDirs)
+ 
+@@ -4802,7 +4803,8 @@ re.M|re.S)
+             self.dictProcessedTemplates[pathOldFile] = []
+         self.dictProcessedTemplates[pathOldFile].append(nameFileTemplate)
+         preReturn(pathProg)
+-        if "autoupdate" in optFile or "autoupdate" in objHeadNew.params:
++        if ( "autoupdate" in optFile or "autoupdate" in objHeadNew.params ) \
++                and not self.objVar.Get('cl_belong_pkg_pass'):
+             self.autoUpdateFiles += applyFiles
+         return (applyFiles, objHeadNew)
+ 
