@@ -1,0 +1,1170 @@
+commit a3d67a9ca0207cdb078c75604521893cb50fe9ae
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Mon Sep 17 13:24:02 2012 +0400
+
+    Add french translate
+
+diff --git consolegui/application/tools.py consolegui/application/tools.py
+index 3737bf3..4b228ee 100755
+--- consolegui/application/tools.py
++++ consolegui/application/tools.py
+@@ -377,7 +377,7 @@ class ToolOther(QtGui.QWidget):
+         self.lang_lbl.setMaximumWidth(self.lang_lbl.sizeHint().width())
+ 
+         self.lang_ComboBox = QComboBox(self)
+-        lang_dict = {'en': _('English'),'ru': _('Russian')}
++        lang_dict = {'en': _('English'),'ru': _('Russian'),'fr':_('French')}
+ 
+         for lang in lang_dict:
+             self.lang_ComboBox.addItem(lang_dict[lang])
+@@ -532,4 +532,4 @@ class ToolOther(QtGui.QWidget):
+                     if type (ClientObj.MainWidget.MainFrameWgt) \
+                                                             == DisplayMethod:
+                         ClientObj.MainWidget.display_methods()
+-        return wrapper
+\ No newline at end of file
++        return wrapper
+diff --git fr/console_gui.po fr/console_gui.po
+new file mode 100644
+index 0000000..402006b
+--- /dev/null
++++ fr/console_gui.po
+@@ -0,0 +1,1101 @@
++msgid ""
++msgstr ""
++"Project-Id-Version: console_gui_translate\n"
++"Report-Msgid-Bugs-To: \n"
++"POT-Creation-Date: 2012-07-19 17:05+0300\n"
++"PO-Revision-Date: 2012-07-19 17:09+0300\n"
++"Last-Translator: Calculate Ltd., Elena Gavrilova <support@calculate.ru, e.vl.gavrilova@yandex.ru>\n"
++"Language-Team: \n"
++"Language: \n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
++"X-Poedit-Basepath: .\n"
++"X-Poedit-SourceCharset: utf-8\n"
++"X-Poedit-SearchPath-0: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application\n"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:363
++msgid "Connection lost!"
++msgstr "Connexion brisée !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:386
++msgid "The Server was restarted."
++msgstr "Le serveur a été relancé "
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:387
++msgid "Please try reconnecting to the server."
++msgstr "Veuillez vous reconnecter au serveur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:404
++msgid "Closing session"
++msgstr "Fermeture de la session"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:405
++msgid "Close this session"
++msgstr "Fermer cette session"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:405
++#, python-format
++msgid "with %s?"
++msgstr "avec %s?"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:409
++#, python-format
++msgid "Once the session is closed, data on %d process will be lost!"
++msgstr "Une fois la session fermée, les données de %d processus seront perdues !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:412
++#, python-format
++msgid "Once the session is closed, data on %d processes will be lost!"
++msgstr "Une fois la session fermée, les données de %d processus seront perdues !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:419
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:179
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:701
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1958
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2286
++msgid "Yes"
++msgstr "Oui"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:420
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:180
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:703
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1960
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2287
++msgid "No"
++msgstr "Non"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/Box.py:425
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:117
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:151
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:892
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1076
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2051
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:50
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:132
++msgid "Cancel"
++msgstr "Annuler"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:29
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:30
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:31
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:124
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:125
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:126
++msgid "Back"
++msgstr "Revenir"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:46
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:129
++msgid "Processes"
++msgstr "Processus"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:48
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:50
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:130
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:132
++msgid "View information about running processes"
++msgstr "Consulter les informations sur les processus actuellement en marche"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:57
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:136
++msgid "Session"
++msgstr "Session"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:60
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:62
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:138
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:140
++msgid "View information about the current session"
++msgstr "Consulter les informations sur la session courante"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:68
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:70
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:143
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:144
++msgid "Disconnect"
++msgstr "Se déconnecter"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:71
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:145
++msgid "Disconnect from the current server"
++msgstr "Se déconnecter du serveur courant"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:77
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:79
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:80
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:148
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:149
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:150
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:125
++msgid "Connect"
++msgstr "Se connecter"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:85
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:153
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:90
++msgid "Certificates"
++msgstr "Certificats"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:87
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:88
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:154
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:155
++msgid "Certificates manager"
++msgstr "Gestionnaire de certificats"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:93
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:158
++msgid "Tools"
++msgstr "Outils"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:95
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:96
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:159
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:160
++msgid "Application settings"
++msgstr "Paramètres de l'application"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:101
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:103
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:163
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainmenu.py:164
++msgid "Help"
++msgstr "Aide"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/pid_information.py:59
++msgid "Failed to get the PID list from the server"
++msgstr "Erreur de réception de la liste des PID depuis le serveur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/pid_information.py:81
++#, python-format
++msgid "PID %d not found"
++msgstr "PID %d non trouvé"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/pid_information.py:84
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/LeftMenu.py:243
++msgid "Permission denied"
++msgstr "Accès dénié"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:55
++msgid "User@Server_HostName"
++msgstr "Utilisateur@Nom_d'hôte"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:64
++msgid "User Name"
++msgstr "Nom d'utilisateur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:70
++msgid "Organization Name"
++msgstr "Entreprise"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:76
++msgid "Network address"
++msgstr "Adresse réseau"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:82
++msgid "State Name"
++msgstr "Ville"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:89
++msgid "Country (a two-character tag)"
++msgstr "Pays (code de deux lettres)"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:103
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1831
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2035
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:36
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:85
++msgid "Password"
++msgstr "Mot de passe"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:110
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:129
++msgid "Create a signature request"
++msgstr "Créer une requête de signature"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:141
++msgid "The \"Country\" field must be two-character"
++msgstr "Le champ \"Pays\" doit contenir deux lettres"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/create_cert.py:142
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:141
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:234
++msgid "Input error"
++msgstr "Erreur d'entrée"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:36
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:44
++msgid "View information about the running processes"
++msgstr "Afficher des informations sur les processus en cours"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:87
++msgid "Kill the process? (The process is active)"
++msgstr "Tuer le processus ? (Le processus est actif)"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:95
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:180
++msgid "Process completed"
++msgstr "Le processus est complet"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:98
++msgid "Process killed"
++msgstr "Le processus a été tué"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:103
++#, python-format
++msgid "View the result, PID %s"
++msgstr "Voir le résultat du processus PID %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:114
++msgid "No running processes in the current session"
++msgstr "Aucun processus en marche dans la session courante"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:118
++msgid "Task name"
++msgstr "Nom de tâche"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:119
++msgid "Start time"
++msgstr "Heure de lancement"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:120
++msgid "Status"
++msgstr "Statut"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:121
++msgid "Result"
++msgstr "Résultat"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:178
++msgid "Well killed!"
++msgstr "Bien tué !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:182
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:54
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:89
++msgid "Certificate not found in the server!"
++msgstr "Le certificat n'est pas dans la base de données du serveur !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:184
++msgid "Session not matching your certificate!"
++msgstr "La session ne correspond pas à votre certificat !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/View_Process.py:186
++msgid "Failed to kill the process!"
++msgstr "Impossible de terminer le processus !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:174
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:53
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:140
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:238
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:124
++msgid "Close"
++msgstr "Fermer"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:208
++msgid "show this help message and exit"
++msgstr "affiche l'aide et quitte"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:211
++msgid "language for translation"
++msgstr "langue de traduction"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:214
++msgid "call method"
++msgstr "appel de la méthode"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:217
++msgid "port number"
++msgstr "nombre du port"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:220
++msgid "destination host"
++msgstr "hôte de destination"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:383
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ConnectionTabs.py:456
++msgid "New connection"
++msgstr "Nouvelle connexion"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/LeftMenu.py:444
++msgid "Error at this step."
++msgstr "Une erreur a été détectée lors de cette étape"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/LeftMenu.py:445
++msgid "Do you want to continue?"
++msgstr "Vous souhaitez continuer ?"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/LeftMenu.py:447
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:117
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:160
++msgid "Calculate Console"
++msgstr "Calculate Console"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:21
++msgid "The user should not be root"
++msgstr "L'utilisateur ne doit pas être root"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:31
++msgid "Makes part of Calculate Utilities 3.0.0"
++msgstr "Fait partie des Utilitaires Calculate 3.0.0"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:32
++msgid "Company"
++msgstr "Entreprise"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:41
++msgid "Company website"
++msgstr "Site web de l'entreprise"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:43
++msgid "Distribution website"
++msgstr "Site web de la distribution"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:89
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:170
++msgid "Calculate Console "
++msgstr "Calculate Console "
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:119
++msgid "Your name:"
++msgstr "Votre nom :"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:122
++msgid "Your email:"
++msgstr "Votre adresse courriel :"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:123
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:126
++msgid "Please enter a valid email. "
++msgstr "Veuillez saisir un adresse courriel valide."
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:124
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:127
++msgid "If the email does not exist, you will receive no letter"
++msgstr "Si l'adresse n'existe pas, vous ne recevrez aucun courrier"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:129
++msgid "Subject:"
++msgstr "Sujet :"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:132
++msgid "Message:"
++msgstr "Message :"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:135
++msgid "Send a Bug"
++msgstr "Envoyer un bogue"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:185
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:180
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:331
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:394
++msgid "Report Bug"
++msgstr "Signaler une erreur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:207
++msgid "Enter a valid email!"
++msgstr "Veuillez saisir une adresse courriel valide."
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:232
++msgid "Email sent!"
++msgstr "Votre courrier a été envoyé !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/helpwidget.py:236
++msgid "Sending error!"
++msgstr "Erreur d'envoi"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:139
++msgid "Previous"
++msgstr "Revenir"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:175
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2046
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:43
++msgid "Ok"
++msgstr "Ok"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:194
++msgid "Next"
++msgstr "Avancer"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ControlButton.py:255
++msgid "Error closing the process"
++msgstr "Erreur de fermeture du processus"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:54
++msgid "Error"
++msgstr "Erreur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:58
++msgid " New session"
++msgstr " Nouvelle session"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:59
++msgid " Old session"
++msgstr " Session précédente"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:60
++#, python-format
++msgid " Your session ID: %s"
++msgstr " Votre numéro de session est %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:62
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:99
++msgid "Certificate not sent!"
++msgstr "Le certificat n'a pas été envoyé !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:64
++#, python-format
++msgid " Your certifitate ID: %d"
++msgstr " Votre numéro de certificat est %d"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:67
++msgid "Certificate expired"
++msgstr "Le certificat a expiré"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:69
++#, python-format
++msgid "Expires after %d days"
++msgstr "Le certificat expire dans %d jours"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:82
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:150
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:184
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:241
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:258
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:275
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:278
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:285
++msgid "Not connected!"
++msgstr "Pas de connexion !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:95
++msgid "Your session ID: "
++msgstr "Votre numéro de session est "
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:102
++msgid "Your certifitate id: "
++msgstr "Votre numéro de certificat est "
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:106
++msgid "expiry certificate has passed"
++msgstr "La durée de vie du certificat a expiré"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:109
++#, python-format
++msgid "shelf life expires after %d days"
++msgstr "La durée de vie d'un certificat expire dans %d jours"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:113
++msgid "Your IP address: "
++msgstr "Votre adresse IP : "
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:115
++msgid "Your MAC address: "
++msgstr "Votre adresse MAC : "
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:120
++msgid "Clear your session cache"
++msgstr "Vider le cache de la session"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:135
++msgid "Session information"
++msgstr "Séance d'information"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:150
++msgid "Error clearing the session cache"
++msgstr "Le cache de la session n'a pas été vidé"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/session_function.py:152
++msgid "Session cache cleared"
++msgstr "Le cache de la session a été vidé"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:26
++msgid "The user must not be root"
++msgstr "L'utilisateur ne doit pas être root"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:146
++msgid "About"
++msgstr "À propos"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:163
++msgid "Info"
++msgstr "Info"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:489
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:600
++msgid "Open"
++msgstr "Ouvrir"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:699
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1962
++msgid "Auto"
++msgstr "Mode auto"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1027
++msgid "Clear the table"
++msgstr "Vider le tableau"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1128
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1267
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1333
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1446
++msgid "Add a row"
++msgstr "Ajouter une ligne"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1139
++msgid "Recover the table"
++msgstr "Rétablir le tableau"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1183
++msgid "Check all"
++msgstr "Tout cocher"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1346
++msgid "Reset"
++msgstr "Réinitialiser la configuration"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:1834
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2041
++msgid "Repeat"
++msgstr "Répéter"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2156
++msgid "Break the process"
++msgstr "Arrêter le processus"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2320
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:360
++msgid "You do not have a certificate. Please generate a new request and get a new certificate from the server."
++msgstr "Vous n'avez pas de certificat : veuillez créer une requête de signature pour l'obtenir depuis le serveur."
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2404
++msgid "No methods available!"
++msgstr "Aucune méthode n'est disponible !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2435
++msgid "No access to the file!"
++msgstr "L'accès au fichier a été dénié !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2438
++msgid "Failed to obtain certificate data!"
++msgstr "Impossible d'obtenir les données du certificat !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2441
++#, python-format
++msgid "%s: Permission denied"
++msgstr "%s : accès dénié"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/more.py:2452
++msgid "Error removing the session from the server"
++msgstr "La session n'a pas été supprimée : erreur sur le serveur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:41
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:83
++msgid "Host"
++msgstr "Hôte"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:45
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:84
++msgid "Port"
++msgstr "Port"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:53
++msgid "Send a request"
++msgstr "Envoyer une requête"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:58
++msgid "Get a certificate"
++msgstr "Obtenir le certificat"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:63
++msgid "Quit"
++msgstr "Quitter"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:74
++msgid "Signature request"
++msgstr "Requête de signature du certificat"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:99
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:140
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:212
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:233
++msgid "Enter the hostname or the IP address"
++msgstr "Veuillez saisir le nom d'hôte ou l'adresse IP"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:100
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:213
++msgid "Incorrect \"Host\" value!"
++msgstr "Valeur incorrecte dans le champ \"Hôte\" !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:105
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:218
++msgid "Enter the port number"
++msgstr "Saisissez le nombre du port"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:105
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:218
++msgid "Incorrect \"Port\" value!"
++msgstr "Valeur incorrecte dans le champ \"Port\" !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:112
++msgid "You have already sent a signature request!"
++msgstr "Vous aviez déjà envoyé une requête de signature !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:113
++#, python-format
++msgid "Request ID: %s"
++msgstr "Votre numéro de requête est %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:115
++msgid "Send a new request?"
++msgstr "Envoyer une nouvelle requête de signature ?"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:134
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:137
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:229
++msgid "Closing. Connection error."
++msgstr "Arrêt : erreur de connexion."
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:156
++msgid "The private key and the request now exist!"
++msgstr "La clef privée et la requête de signature ont été générées !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:158
++msgid "Create a new private key and signature request?"
++msgstr "Générer une nouvelle clef privée, aussi qu'une nouvelle requête de signature du certificat?"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:188
++msgid "This server has not signed the certificate!"
++msgstr "Le serveur n'a pas signé le certificat !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:194
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:272
++#, python-format
++msgid "Your request ID: %s"
++msgstr "Votre numéro de requête est %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:195
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:273
++msgid "To sign the certificate on the server, use command"
++msgstr "Pour signer le certificat sur le serveur, utilisez la commande"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:197
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:275
++msgid "Request"
++msgstr "Demande"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:203
++#, python-format
++msgid "Request not sent, or file %s deleted"
++msgstr "La requête n'a pas été envoyé, ou le fichier %s n'existe pas"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:229
++#, python-format
++msgid "Error code: %s"
++msgstr "Code de l'erreur : %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:245
++#, python-format
++msgid "Request %s not found on the client’s side"
++msgstr "La requête %s n'a pas été trouvée du côté du client"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:268
++msgid "Signature request rejected!"
++msgstr "La requête de signature a été rejetée !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:271
++msgid "The request has not been reviewed yet."
++msgstr "La requête n'a pas encore été examinée."
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:278
++msgid "Either the request or the signature does not match the earlier ones."
++msgstr "La requête de signature ou la signature elle-même ne correspondent pas à l'envoi"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:285
++#, python-format
++msgid "Certificate saved. Your certificate ID = %s"
++msgstr "Le certificat a été sauvegardé. Votre numéro de certificat est %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:336
++msgid "Field \"CN\" not found in the root certificate!"
++msgstr "Le champ \"CN\" n'est pas dans le certificat root !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:349
++msgid "Filename = "
++msgstr "Nom de fichier = "
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:350
++msgid "Root certificate added"
++msgstr "Le certificat root a été ajouté"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/CertificateClass.py:352
++msgid "File with the CA certificate now exists"
++msgstr "Le fichier du certificat CA a été créé"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:160
++msgid "Connection"
++msgstr "Connexion"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:172
++msgid "You are connected to the server!"
++msgstr "Vous êtes connecté au serveur!"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:173
++msgid "Please break"
++msgstr "Veuillez arrêter"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:173
++msgid "previous connection!"
++msgstr "connexion précédente !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:174
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:356
++msgid "Connection Error"
++msgstr "Erreur de connexion"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:239
++msgid "Enter the port correctly!"
++msgstr "Veuillez saisir un nom de port correct"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:275
++msgid "This server is not trusted"
++msgstr "Ce serveur n'est pas approuvé"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:340
++msgid "Certificate verification error"
++msgstr "Erreur de vérification du certificat serveur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:355
++msgid "Invalid password"
++msgstr "Mot de passe incorrect"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/conf_connection.py:367
++msgid "You do not have a certificate or your certificate does not match the server certificate. Please generate a new request and get a new certificate from the server."
++msgstr "Vous n'avez pas de certificat ou votre certificat ne correspond pas à celui du serveur : veuillez créer une requête de signature pour obtenir votre certificat depuis le serveur."
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:372
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:373
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:447
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:513
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:514
++msgid "Failed to get the frame from the server."
++msgstr "Impossible d'obtenir le frame depuis le serveur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:374
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:448
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:490
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:515
++msgid "Try resfeshing this page later."
++msgstr "Essayez de réinitialiser cette page plus tard"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:446
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:588
++msgid "Failed to get the complete frame from the server."
++msgstr "Impossible d'obtenir le frame complet du serveur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:488
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:489
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:638
++msgid "Failed to get the progress status from the server"
++msgstr "Impossible d'obtenir les informations sur le cours du processus depuis le serveur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:601
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:786
++msgid "Send"
++msgstr "Envoyer"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/ShortFrameResult.py:634
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/MainFrameResult.py:819
++msgid "Failed to send the message (password) to the server"
++msgstr "Impossible d'envoyer le message (le mot de passe) sur le serveur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:63
++msgid "Clear the configuration file"
++msgstr "Rétablir le fichier de configuration par défaut"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:85
++msgid "Apply"
++msgstr "Valider"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:142
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:157
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:183
++msgid "GUI Tools"
++msgstr "Options GUI"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:143
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:157
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:187
++msgid "Other Tools"
++msgstr "Autres options"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:160
++#, python-format
++msgid "There are unsaved changes in tab %s"
++msgstr "L'onglet %s contient des modifications non sauvegardées"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:162
++msgid "<center>Apply them?</center>"
++msgstr "<center>Voulez-vous les valider?</center>"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:165
++msgid "Saving changes"
++msgstr "Enregistrement des modifications"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:208
++msgid "Image height"
++msgstr "Hauteur de l'image"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:212
++msgid "Set a fixed height image for actions"
++msgstr "Fixer la hauteur de l'image pour les actions"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:213
++msgid "0: hide images"
++msgstr "0 - cacher les images"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:221
++msgid "Expert view"
++msgstr "Affichage avancé"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:224
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:225
++msgid "View results in expert mode"
++msgstr "Afficher les résultats en mode avancé"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:231
++msgid "Rows in the Table"
++msgstr "Nombre de lignes dans le tableau"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:376
++msgid "Select Language"
++msgstr "Langue"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:380
++msgid "English"
++msgstr "Anglais"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:380
++msgid "Russian"
++msgstr "Russe"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:394
++msgid "Path to Certificates"
++msgstr "Chemin vers les certificats"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:398
++msgid "Certificate Directory"
++msgstr "Répertoire des certificats"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:401
++msgid "Empty to default path"
++msgstr "Laisser vide pour choisir le chemin par défaut"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:38
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:42
++msgid "You are not connected to the localhost server"
++msgstr "Vous n'êtes pas connecté à l'hôte local"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:84
++msgid "Update running"
++msgstr "La mise a jour a été lancée"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:106
++msgid "Update aborted"
++msgstr "La mise à jour a été arrêtée"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:117
++msgid "Error updating!"
++msgstr "Erreur de mise à jour !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:125
++msgid "Update successfully completed"
++msgstr "La mise à jour a été effectuée"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:145
++msgid "System control"
++msgstr "Gestion du système"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:161
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:259
++msgid "Show/Hide Window"
++msgstr "Afficher / Cacher la fenêtre"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:163
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:170
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:295
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:403
++msgid "Exit Program"
++msgstr "Sortir de l'application"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:168
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:370
++msgid "Program settings"
++msgstr "Paramètres"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/TrayIcon.py:241
++msgid "An update is already running"
++msgstr "La mise à jour est déjà en marche"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/DisplayMethod.py:332
++msgid "Reconnect"
++msgstr "Se reconnecter"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:50
++msgid "Untrusted Server Certificate!"
++msgstr "Certificat de serveur non approuvé !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:55
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:416
++#, python-format
++msgid "Fingerprint = %s"
++msgstr "Empreinte = %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:57
++#, python-format
++msgid "Serial Number =  %s"
++msgstr "Numéro de série =  %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:71
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:420
++msgid "Issuer"
++msgstr "Émetteur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:83
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:424
++msgid "Subject"
++msgstr "Sujet"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:92
++msgid "Add this server's certificate to trusted or "
++msgstr "Ajouter le certificat de ce serveur à la liste des certificats approuvés ou "
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:93
++msgid "try add the CA and ROOT certificates to trusted?"
++msgstr "Voulez-vous ajouter les certificats CA et ROOT à la liste des certificats approuvés ?"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:105
++msgid "Add the server certificate"
++msgstr "Ajouter le certificat du serveur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:111
++msgid "Add the CA and ROOT certificates"
++msgstr "Ajouter les certificats CA et ROOT"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:123
++msgid "Add the certificate to trusted"
++msgstr "Approuver le certificat"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:169
++msgid "Server certificate added to trusted"
++msgstr "Le certificat du serveur a été porté sur la liste des certificats approuvés"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:170
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:375
++msgid "Certificate added"
++msgstr "Le certificat a été ajouté"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:186
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:632
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:637
++#, python-format
++msgid "Error creating directory %s"
++msgstr "Impossible de créer le répertoire %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:298
++msgid "Certificate not found on the client's side"
++msgstr "Le certificat n'a pas été trouvé du côté du client"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:309
++msgid "Error opening file"
++msgstr "Impossible d'ouvrir le fichier"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:365
++msgid "Field \"CN\" not found in the certificate!"
++msgstr "Le champ \"CN\" n'a pas été trouvé dans le certificat !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:375
++#, python-format
++msgid "Filename = %s"
++msgstr "Nom de fichier = %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:377
++msgid "A file with the CA certificate now exists"
++msgstr "Le fichier du certificat CA a été créé"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:393
++msgid "Invalid server certificate"
++msgstr "Le certificat du serveur n'est pas valide !"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:398
++msgid "CA certificate not found on the server"
++msgstr "Le certificat CA n'a pas été trouvé sur le serveur"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:410
++msgid "Error. Certificate not added to trusted"
++msgstr "Erreur : Le certificat ne sera pas listé parmi les certificats approuvés"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:417
++#, python-format
++msgid "Serial Number = %s"
++msgstr "Numéro de série = %s"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:428
++msgid "Add the CA certificate to trusted? "
++msgstr "Voulez-vous porter le certificat CA sur la liste des certificats approuvés ? "
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:430
++msgid "Adding the certificate"
++msgstr "Certificat ajouté"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:433
++msgid "Certificate not added to trusted"
++msgstr "Le certificat ne sera pas listé parmi les certificats approuvés"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:714
++msgid "CRL added"
++msgstr "La liste CRL a été ajoutée"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:803
++msgid "CA certificate removed from user trusted"
++msgstr "Le certificat CA a été supprimé de la liste utlisateur des certificats approuvés"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/client_class.py:822
++msgid "CA certificate removed from system trusted"
++msgstr "Le certificat CA a été supprimé de la liste système des certificats approuvés"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1047
++msgid "Advanced settings"
++msgstr "Les paramètres avancés"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1135
++msgid "Clean the expert parameters?"
++msgstr "Voulez-vous rétablir les paramètres avancés par défaut ?"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1364
++msgid "Delete the selected rows"
++msgstr "Supprimer les lignes sélectionnées"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1611
++msgid "Delete the row"
++msgstr "Supprimer la ligne"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:1732
++msgid "View options"
++msgstr "Afficher les options"
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:2258
++msgid " Step "
++msgstr " Étape "
++
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:2261
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/mainframe.py:2265
++msgid "Run"
++msgstr "En marche"
++
++msgid "French"
++msgstr "Français"
+diff --git ru/console_gui.po ru/console_gui.po
+index a9a4c6e..1adeb57 100644
+--- ru/console_gui.po
++++ ru/console_gui.po
+@@ -883,6 +883,10 @@ msgstr "Английский"
+ msgid "Russian"
+ msgstr "Русский"
+ 
++#: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:380
++msgid "French"
++msgstr "Французский"
++
+ #: /var/calculate/mydir/source/spyder/cl-api-client/consolegui/application/tools.py:394
+ msgid "Path to Certificates"
+ msgstr "Директория с сертификатами"
+diff --git setup.py setup.py
+index 6e645de..39d6f08 100755
+--- setup.py
++++ setup.py
+@@ -55,7 +55,7 @@ var_data_files = []
+ __version__ = "3.0.2"
+ __app__ = "calculate-console"
+ 
+-locales = ("ru",'en')
++locales = ("ru",'en',"fr")
+ 
+ class cl_console_data(install_data):
+     def run (self):
+@@ -90,7 +90,7 @@ class build(distutils.command.build.build):
+         distutils.command.build.build.run(self)
+ 
+     def has_po( self ) :
+-        return len(glob.glob("ru/*.po")) > 0
++        return bool(len(glob.glob("%s/*.po"%i)) for i in locales)
+     sub_commands = distutils.command.build.build.sub_commands + [
+         ('build_po',has_po),
+     ]
