@@ -33,5 +33,4 @@ PORTAGE_TMPDIR="/var/calculate/tmp"
 USE_EXPAND="CALCULATE CDISTRO CL"
 EMERGE_DEFAULT_OPTS="--binpkg-respect-use=y --quiet-build=n"
 USE_PYTHON="2.7"
-PYTHON_TARGETS="python2_6 python2_7"
-
+PYTHON_TARGETS="python2_7"
