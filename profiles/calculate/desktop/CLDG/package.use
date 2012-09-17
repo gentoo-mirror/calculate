@@ -3,7 +3,6 @@ net-print/gutenprint gimp
 dev-lang/python sqlite
 dev-libs/pwlib ldap
 gnome-base/gvfs archive fuse gdu
-gnome-base/gnome-applets gstreamer
 gnome-base/gnome-volume-manager automount
 net-dns/avahi -gtk
 net-p2p/deluge webinterface
@@ -29,7 +28,7 @@ gnome-base/gnome-menus python
 
 
 #need for gnome3
-net-libs/webkit-gtk gstreamer introspection
+net-libs/webkit-gtk introspection
 gnome-extra/nm-applet bluetooth
 
 #required by gnome-base/gnome-3.2.1, required by =gnome-base/gnome-3.2.1 (argument)

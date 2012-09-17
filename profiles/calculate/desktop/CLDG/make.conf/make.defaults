@@ -3,6 +3,9 @@ USE=""
 # Audio
 USE="${USE} cdda"
 
+# Multimedia
+USE="${USE} gstreamer"
+
 # System
 USE="${USE} gnome-keyring networkmanager"
 
