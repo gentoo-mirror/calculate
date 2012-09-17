@@ -1,0 +1,56 @@
+commit 2de8449ea63e475b4450cdd07d6dd6999906c907
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Mon Sep 17 15:52:15 2012 +0400
+
+    Fix cl-kernel check source
+
+diff --git pym/cl_kernel_cmd.py pym/cl_kernel_cmd.py
+index cf99e79..1bbf99e 100644
+--- pym/cl_kernel_cmd.py
++++ pym/cl_kernel_cmd.py
+@@ -121,25 +121,27 @@ class kernel_cmd(share_cmd):
+             self.checkIncompatibleParam("initrd")
+         if values.symlink:
+             self.checkIncompatibleParam("symlink")
+-        if values.k:
+-            if not self.logicObj._testKernelDirectory(values.k):
+-                self.optobj.error("%s:'%s'"%
+-                    (_("wrong kernel source directory"),values.k))
+-            elif not self.logicObj._testFullKernelDirectory(values.k):
+-                self.optobj.error(("%s:'%s'"%
+-                    (_("in directory of kernel source not enough needed files"),
+-                        values.k))+"\n"+
+-                        _("Probably calculate-sources was "
+-                          "compiled with USE 'minimal'"))
++        if not values.v:
++            if values.k:
++                if not self.logicObj._testKernelDirectory(values.k):
++                    self.optobj.error("%s:'%s'"%
++                        (_("wrong kernel source directory"),values.k))
++                elif not self.logicObj._testFullKernelDirectory(values.k):
++                    self.optobj.error(("%s:'%s'"%
++                        (_("in directory of kernel source not "
++                           "enough needed files"),
++                            values.k))+"\n"+
++                            _("Probably calculate-sources was "
++                              "compiled with USE 'minimal'"))
++                else:
++                    self.logicObj.clVars.Set('cl_kernel_src_path',values.k,True)
+             else:
+-                self.logicObj.clVars.Set('cl_kernel_src_path',values.k,True)
+-        else:
+-            if not self.logicObj._testFullKernelDirectory(
+-                    self.logicObj.clVars.Get('cl_kernel_src_path')):
+-                self.optobj.error((_("in default directory of kernel source "
+-                   "not enough needed files")+"\n"+
+-                   _("Probably calculate-sources was "
+-                     "compiled with USE 'minimal'")))
++                if not self.logicObj._testFullKernelDirectory(
++                        self.logicObj.clVars.Get('cl_kernel_src_path')):
++                    self.optobj.error((_("in default directory of kernel "
++                       "source not enough needed files")+"\n"+
++                       _("Probably calculate-sources was "
++                         "compiled with USE 'minimal'")))
+         if values.c and values.o:
+             self.optobj.error("%s: %s"%(_("incompatible options"),
+                               self.getStringIncompatibleOptions(["c","o"])))
