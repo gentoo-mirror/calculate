@@ -1,0 +1,28 @@
+# Calculate path=~ name=.dconfigure chmod=700
+#!/bin/bash
+wait_dbus() {
+    for waittime in {0..10};
+    do
+        gdbus introspect -e -d org.gnome.Shell -o /org/gnome/Shell | grep EnableExtension &>/dev/null && return
+        sleep 1
+    done
+}
+
+change_params() {
+    wait_dbus
+    gdbus call -e -d org.gnome.Shell --object-path /org/gnome/Shell -m org.gnome.Shell.EnableExtension "axemenu@wheezy" &>/dev/null
+    gdbus call -e -d org.gnome.Shell --object-path /org/gnome/Shell -m org.gnome.Shell.DisableExtension "auto_close_menu@calculate-linux.org" &>/dev/null
+    gdbus call -e -d org.gnome.Shell --object-path /org/gnome/Shell -m org.gnome.Shell.DisableExtension "Applications_Menu@rmy.pobox.com" &>/dev/null
+}
+
+change_params &
+
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-1 \[\'\<Primary\>F1\'\]
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-2 \[\'\<Primary\>F2\'\]
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-3 \[\'\<Primary\>F3\'\]
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-4 \[\'\<Primary\>F4\'\]
+# hack for lock screen by scroll lock
+dconf write /org/gnome/desktop/wm/keybindings/set-spew-mark \[\'Scroll_Lock\'\]
+dconf write /org/gnome/desktop/wm/preferences/resize-with-right-button true
+
+rm ~/.dconfigure
