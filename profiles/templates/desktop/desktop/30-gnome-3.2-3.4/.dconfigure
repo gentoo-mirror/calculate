@@ -16,7 +16,11 @@ change_params() {
 }
 
 change_params &
-
+#
+# background picture
+dconf write /org/gnome/desktop/background/picture-uri \'file:///usr/share/pixmaps/backgrounds/gnome/calculate/#-os_x11_standart-#.jpg\'
+dconf write /org/gnome/desktop/background/picture-options \'stretched\'
+# hostkeys for workspaces
 dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-1 \[\'\<Primary\>F1\'\]
 dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-2 \[\'\<Primary\>F2\'\]
 dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-3 \[\'\<Primary\>F3\'\]
@@ -24,5 +28,14 @@ dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-4 \[\'\<Primar
 # hack for lock screen by scroll lock
 dconf write /org/gnome/desktop/wm/keybindings/set-spew-mark \[\'Scroll_Lock\'\]
 dconf write /org/gnome/desktop/wm/preferences/resize-with-right-button true
+dconf write /org/gnome/desktop/wm/preferences/theme \'Adwaita\'
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command \'/usr/bin/gnome-session-quit --logout --no-prompt --force\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name \'Force logout\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding \'\<Primary\>\<Shift\>\<Alt\>Delete\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command \'/usr/bin/gnome-session-quit --logout\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name \'Prompt logout\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding \'\<Primary\>\<Alt\>Delete\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings \[\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/\',\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/\'\]
 
 rm ~/.dconfigure
