@@ -33,6 +33,7 @@ use_both_dicts=1
 #os_locale_lang#
 
 [Plugins_GTK2]
+/usr/lib64/claws-mail/plugins/address_keeper.so
 # плагин сворачивания окна в трей
 /usr/lib/claws-mail/plugins/trayicon.so
 
@@ -41,4 +42,7 @@ use_both_dicts=1
 close_to_tray=1
 # не минимизировать окно в трей
 hide_when_iconified=0
+
+[AddressKeeper]
+addressbook_folder=addrbook-000001.xml
 
