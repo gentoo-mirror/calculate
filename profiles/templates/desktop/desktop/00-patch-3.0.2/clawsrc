@@ -1,0 +1,10 @@
+# Calculate ini(ver.claws-mail)!= path=~/.claws-mail format=patch
+<reg>[Plugins_GTK2]</reg>
+<text>[Plugins_GTK2]
+/usr/lib64/claws-mail/plugins/address_keeper.so
+</text>
+<reg>[TrayIcon]</reg>
+<text>[AddressKeeper]
+addressbook_folder=addrbook-000001.xml
+[TrayIcon]
+</text>
