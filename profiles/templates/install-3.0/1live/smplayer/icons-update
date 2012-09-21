@@ -1,0 +1,3 @@
+# Calculate exec=/bin/bash path=/tmp name=icons-update.sh
+
+for i in /usr/share/icons/*;do  gtk-update-icon-cache -ft $i &>/dev/null; done
