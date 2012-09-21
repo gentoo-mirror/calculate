@@ -65,12 +65,16 @@ dconf write /org/gnome/shell/extensions/user-theme/name \'Calculate\'
 dconf write /org/gnome/settings-daemon/plugins/power/idle-dim-battery false
 
 # custom logout
-dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command \'/usr/bin/gnome-session-quit --logout --no-prompt --force\'
-dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name \'Force logout\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command \'/usr/bin/gnome-session-quit\ --logout\ --no-prompt\ --force\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name \'Force\ logout\'
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings \[\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/\'\]
+
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding \'\<Primary\>\<Shift\>\<Alt\>Delete\'
-dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command \'/usr/bin/gnome-session-quit --logout\'
-dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name \'Prompt logout\'
-dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding \'\<Primary\>\<Alt\>Delete\'
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command \'/usr/bin/gnome-session-quit\ --logout\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name \'Prompt\ logout\'
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings \[\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/\',\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/\'\]
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding \'\<Primary\>\<Alt\>Delete\'
 
 rm ~/.dconfigure
