@@ -48,6 +48,7 @@ RDEPEND="
 		net-ftp/filezilla
 		net-news/liferea
 		mail-client/claws-mail
+		mail-client/claws-mail-address_keeper
 		mail-client/claws-mail-fancy
 		x11-themes/claws-mail-theme-calculate
 		net-dialup/gnome-ppp
