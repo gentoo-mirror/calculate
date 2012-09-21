@@ -1,10 +1,5 @@
-# Calculate format=xml_xfce
-<?xml version="1.0" encoding="UTF-8"?>
-
+# Calculate ini(ver.xfce)!= path=~/.config/xfce4/xfconf/xfce-perchannel-xml format=xml_xfce
 <channel name="xfce4-desktop" version="1.0">
-  <property name="desktop-icons" type="empty">
-    <property name="single-click" type="bool" value="true"/>
-  </property>
   <property name="desktop-menu" type="empty">
     <property name="show" type="bool" value="false"/>
     <property name="show-icons" type="bool" value="false"/>
