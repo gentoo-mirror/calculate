@@ -1,0 +1,16 @@
+# Calculate append=replace path=/etc/dconf/db/gdm.d pkg(gnome-base/gdm)>3.0
+# This file is part of the GDM packaging and should not be changed.
+#
+# Instead create your own file next to it with a higher numbered prefix,
+# and run
+#
+#       dconf update
+#
+[org/gnome/desktop/background]
+#?pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<12.0_alpha1#
+picture-uri='file:///usr/share/pixmaps/calculate-gdm.jpg'
+#pkg#
+#?pkg(media-gfx/cldg-themes)>=12.0_alpha1#
+picture-uri='file:///usr/share/pixmaps/calculate-gdm-#-os_x11_standart-#.jpg'
+#pkg#
+picture-options='stretched'
