@@ -1,0 +1,13 @@
+# Calculate format=patch path=~/.claws-mail pkg(sys-apps/calculate-desktop)>=2.2.29-r2
+<reg>uri_open_command=.*</reg>
+<text>uri_open_command=xdg-open '%s'</text>
+<reg>ext_editor_command=.*</reg>
+<text>ext_editor_command=xdg-open '%s'</text>
+<reg>mime_textviewer=.*</reg>
+<text>mime_textviewer=xdg-open '%s'</text>
+<reg>hide_when_iconified=.*</reg>
+<text>hide_when_iconified=0</text>
+#?pkg(x11-themes/claws-mail-theme-calculate)!=#
+<reg>pixmap_theme_path=.*</reg>
+<text>pixmap_theme_path=/usr/share/claws-mail/themes/Calculate</text>
+#pkg#

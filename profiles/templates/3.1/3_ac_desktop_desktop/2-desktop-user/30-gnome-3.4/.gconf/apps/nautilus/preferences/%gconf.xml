@@ -1,0 +1,14 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="desktop_font" type="string">
+		<stringvalue>Droid Sans 10</stringvalue>
+	</entry>
+	<entry name="always_use_browser" type="bool" value="true"/>
+	<entry name="enable_delete" type="bool" value="true"/>
+	<entry name="click_policy" type="string">
+		<stringvalue>single</stringvalue>
+	</entry>
+	<entry name="media_automount" type="bool" value="false"/>
+	<entry name="media_automount_open" type="bool" value="false"/>
+</gconf>

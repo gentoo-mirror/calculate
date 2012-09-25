@@ -1,0 +1,80 @@
+# Calculate path=~ name=.dconfigure chmod=700
+#!/bin/bash
+
+# background picture
+dconf write /org/gnome/desktop/background/picture-uri \'file:///usr/share/pixmaps/backgrounds/gnome/calculate/#-os_x11_standart-#.jpg\'
+dconf write /org/gnome/desktop/background/picture-options \'stretched\'
+
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-1 \[\'\<Primary\>F1\'\]
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-2 \[\'\<Primary\>F2\'\]
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-3 \[\'\<Primary\>F3\'\]
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-4 \[\'\<Primary\>F4\'\]
+dconf write /org/gnome/desktop/wm/keybindings/set-spew-mark \[\'Scroll_Lock\'\]
+dconf write /org/gnome/desktop/wm/preferences/resize-with-right-button true
+dconf write /org/gnome/desktop/interface/font-name \'Droid\ Sans\ 10\'
+dconf write /org/gnome/desktop/interface/cursor-theme \'neutral\'
+# icon theme Calculate
+dconf write /org/gnome/desktop/interface/icon-theme \'Calculate\'
+# show desktop icons
+dconf write /org/gnome/desktop/background/show-desktop-icons true
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+dconf write /org/gnome/org/gnome/nautilus/desktop/home-icon-visible true
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+dconf write /org/gnome/org/gnome/nautilus/desktop/home-icon-visible false
+#env#
+dconf write /org/gnome/nautilus/preferences/click-policy \'single\'
+dconf write /org/gnome/nautilus/preferences/enable-delete true
+dconf write /org/gnome/nautilus/desktop/computer-icon-visible false
+dconf write /org/gnome/nautilus/desktop/volumes-visible false
+dconf write /org/gnome/nautilus/desktop/network-icon-visible false
+dconf write /org/gnome/nautilus/desktop/trash-icon-visible false
+
+dconf write /org/gnome/desktop/media-handling/automount true
+dconf write /org/gnome/settings-daemon/plugins/power/button-power \'interactive\'
+dconf write /org/gnome/settings-daemon/plugins/power/lid-close-ac-action \'blank\'
+
+#?os_root_type==livecd#
+dconf write /org/gnome/desktop/screensaver/lock-enabled false
+#os_root_type#
+#?os_root_type!=livecd#
+dconf write /org/gnome/desktop/screensaver/lock-enabled true
+#os_root_type#
+
+# favorite panel
+dconf write /org/gnome/shell/favorite-apps \[\'calculate-browser.desktop\',\'calculate-mail.desktop\',\'calculate-chat.desktop\',\'calculate-im.desktop\',\'calculate-writer.desktop\',\'calculate-calc.desktop\',\'calculate-calculator.desktop\',\'calculate-imageedit.desktop\',\'calculate-imageview.desktop\',\'calculate-audioplayer.desktop\',\'calculate-videoplayer.desktop\',\'calculate-imageburn.desktop\',\'calculate-dict.desktop\',\'calculate-textedit.desktop\',\'calculate-terminal.desktop\'\]
+
+#?os_root_type==livecd#
+dconf write /org/gnome/shell/enabled-extensions \[\'axemenu@wheezy\',\'dashbottom@calculate-linux.org\',\'windowlist@o2net.cl\',\'hide-dash@zacbarton.com\',\'extend-left-box@linuxdeepin.com\',\'alternate-tab@gnome-shell-extensions.gcampax.github.com\',\'move_clock@calculate-linux.org\',\'removeusername@alex.derhofbauer.at\',\'Static_Workspaces@rmy.pobox.com\',\'QuickLaunch@wwwdotorg.org\',\'trayicons@calculate-linux.org\',\'show-desktop@l300lvl.tk\',\'user-theme@gnome-shell-extensions.gcampax.github.com\',\'quitbutton@azathoth92.hotmail.it\',\'panel_workspaces@calculate-linux.org\',\'window_change_workspace@calculate-linux.org\',\'panel_order@calculate-linux.org\',\'gnome-shell-trash-extension\',\'minimize_window@calculate-linux.org\',\'gnome-shell-lockscreen-extension@calculate-linux.org\'\]
+#os_root_type#
+#?os_root_type!=livecd#
+dconf write /org/gnome/shell/enabled-extensions \[\'axemenu@wheezy\',\'dashbottom@calculate-linux.org\',\'windowlist@o2net.cl\',\'hide-dash@zacbarton.com\',\'extend-left-box@linuxdeepin.com\',\'alternate-tab@gnome-shell-extensions.gcampax.github.com\',\'move_clock@calculate-linux.org\',\'removeusername@alex.derhofbauer.at\',\'Static_Workspaces@rmy.pobox.com\',\'QuickLaunch@wwwdotorg.org\',\'trayicons@calculate-linux.org\',\'show-desktop@l300lvl.tk\',\'user-theme@gnome-shell-extensions.gcampax.github.com\',\'quitbutton@azathoth92.hotmail.it\',\'panel_workspaces@calculate-linux.org\',\'window_change_workspace@calculate-linux.org\',\'panel_order@calculate-linux.org\',\'gnome-shell-trash-extension\',\'minimize_window@calculate-linux.org\',\'gnome-shell-lockscreen-extension@calculate-linux.org\',\'lock_on_lid@calculate-linux.org\'\]
+#os_root_type#
+
+dconf write /org/gnome/shell/extensions/dock/hide-effect \'move\'
+
+dconf write /org/gnome/shell/extensions/alternate-tab/behaviour \'workspace_icons\'
+
+dconf write /org/gnome/shell/extensions/alternate-tab/first-time false
+
+dconf write /org/gnome/libgnomekbd/desktop/group-per-window true
+dconf write /org/gnome/libgnomekbd/desktop/default-group 0
+
+dconf write /org/gnome/shell/extensions/user-theme/name \'Calculate\'
+
+dconf write /org/gnome/settings-daemon/plugins/power/idle-dim-battery false
+
+# custom logout
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command \'/usr/bin/gnome-session-quit\ --logout\ --no-prompt\ --force\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name \'Force\ logout\'
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings \[\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/\'\]
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding \'\<Primary\>\<Shift\>\<Alt\>Delete\'
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command \'/usr/bin/gnome-session-quit\ --logout\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name \'Prompt\ logout\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings \[\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/\',\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/\'\]
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding \'\<Primary\>\<Alt\>Delete\'
+
+rm ~/.dconfigure
