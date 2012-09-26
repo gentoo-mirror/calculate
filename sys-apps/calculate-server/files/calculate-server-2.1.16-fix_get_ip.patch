@@ -1,0 +1,19 @@
+commit c8b5dc8b118498a122fa2ab756ca3d064011696d
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Wed Sep 26 12:23:00 2012 +0400
+
+    Discard empty ip
+
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 0de3698..7580ef8 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -21634,7 +21634,7 @@ network %s")%net)
+             domainNames = self.unicList(domainNames)
+             domain = domainNames[0]
+             fullHostNameServer = "%s.%s"%(hostname,domain)
+-            IPs = self.clVars.Get("os_net_ip").split(",")
++            IPs = filter(None,self.clVars.Get("os_net_ip").split(","))
+             if not any(IPs):
+                 self.printERROR(_("Can not found ip in net interfaces"))
+                 return False
