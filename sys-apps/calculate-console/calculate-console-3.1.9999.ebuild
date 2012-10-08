@@ -18,6 +18,6 @@ SLOT="3"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="~sys-apps/calculate-core-3.0.9999
+DEPEND="~sys-apps/calculate-core-3.1.9999
 	dev-python/pyside[script]"
 RDEPEND="${DEPEND}"

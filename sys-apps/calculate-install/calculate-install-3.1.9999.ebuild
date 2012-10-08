@@ -18,7 +18,7 @@ SLOT="3"
 KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
-DEPEND="~sys-apps/calculate-lib-3.0.9999
+DEPEND="~sys-apps/calculate-lib-3.1.9999
 	app-portage/layman
 	!minimal? ( sys-boot/grub
 	sys-apps/gptfdisk
