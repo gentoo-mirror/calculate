@@ -20,7 +20,7 @@ IUSE=""
 
 DEPEND="~sys-apps/calculate-lib-3.1.9999
 	>=dev-python/soaplib-1.0
-	dev-python/suds
+	dev-python/sudsds
 	dev-python/pyopenssl
 	dev-libs/openssl
 	dev-python/m2crypto
