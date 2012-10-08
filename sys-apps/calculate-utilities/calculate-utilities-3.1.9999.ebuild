@@ -18,6 +18,8 @@ cl_desktop"
 
 RDEPEND="${RDEPEND}
 	=sys-apps/calculate-install-3.1.9999
+	!<sys-apps/calculate-desktop-3.1
+	!<sys-apps/calculate-client-3.1
 	=sys-apps/calculate-i18n-3.1.9999
 	=sys-apps/calculate-lib-3.1.9999
 	=sys-apps/calculate-core-3.1.9999
