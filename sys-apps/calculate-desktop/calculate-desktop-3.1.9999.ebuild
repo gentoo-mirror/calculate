@@ -19,7 +19,7 @@ SLOT="3"
 KEYWORDS="~amd64 ~x86"
 IUSE="kde xfce gnome"
 
-DEPEND="~sys-apps/calculate-lib-3.0.9999
+DEPEND="~sys-apps/calculate-lib-3.1.9999
 	>=dev-python/python-ldap-2.0[ssl]
 	xfce? ( x11-misc/xdialog )
 	gnome? ( x11-misc/xdialog )
