@@ -17,7 +17,7 @@ LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS=""
 
-DEPEND="~sys-apps/calculate-client-3.1.0_alpha1
+DEPEND="~sys-apps/calculate-desktop-3.1.0_alpha1
 	!<sys-apps/calculate-client-3.1.0_alpha1
 	>=dev-python/python-ldap-2.0[ssl]
 	>=sys-auth/pam_ldap-180[ssl]
