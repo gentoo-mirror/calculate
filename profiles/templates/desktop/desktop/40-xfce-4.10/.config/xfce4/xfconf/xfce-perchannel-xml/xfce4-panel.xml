@@ -121,7 +121,15 @@
     <property name="plugin-8" type="string" value="showdesktop"/>
     <property name="plugin-9" type="string" value="thunar-tpa"/>
     <property name="plugin-10" type="string" value="xkb-plugin"/>
+#?pkg(xfce-extra/xfce4-mixer)<4.10#
     <property name="plugin-11" type="string" value="xfce4-mixer-plugin"/>
+#pkg#
+#?pkg(xfce-extra/xfce4-mixer)>=4.10#
+    <property name="plugin-11" type="string" value="mixer"/>
+      <property name="sound-card" type="string" value="#-cl_desktop_gst_card-#"/>
+      <property name="track" type="string" value="#-cl_desktop_gst_masterchannel-#"/>
+    </property>
+#pkg#
     <property name="plugin-7" type="string" value="actions">
       <property name="first-action" type="uint" value="2"/>
     </property>

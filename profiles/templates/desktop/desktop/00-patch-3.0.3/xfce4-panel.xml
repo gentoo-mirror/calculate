@@ -1,0 +1,6 @@
+# Calculate ini(ver.xfce)!= path=~/.config/xfce4/xfconf/xfce-perchannel-xml format=patch
+<reg>&lt;property name="plugin-11" type="string" value="xfce4-mixer-plugin"/&gt;</reg>
+<text>&lt;property name="plugin-11" type="string" value="mixer"/&gt;
+      &lt;property name="sound-card" type="string" value="#-desktop.cl_desktop_gst_card-#"/&gt;
+      &lt;property name="track" type="string" value="#-desktop.cl_desktop_gst_masterchannel-#"/&gt;
+    &lt;/property&gt;</text>
