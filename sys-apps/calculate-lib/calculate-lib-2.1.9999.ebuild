@@ -15,7 +15,7 @@ DESCRIPTION="The library for Calculate 2"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND=">=dev-python/python-ldap-2.0[ssl]

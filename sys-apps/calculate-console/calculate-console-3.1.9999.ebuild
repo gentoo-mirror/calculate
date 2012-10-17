@@ -15,7 +15,7 @@ DESCRIPTION="Qt gui console client for WSDL Calculate 3"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="~sys-apps/calculate-core-3.1.9999

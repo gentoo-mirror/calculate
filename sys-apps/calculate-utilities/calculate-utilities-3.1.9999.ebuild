@@ -10,7 +10,7 @@ SRC_URI=""
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="cl_console_gui
 cl_client
 cl_console

@@ -10,7 +10,7 @@ HOMEPAGE="http://www.calculate-linux.org/main/ru/calculate"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS=""
 IUSE=""
 DEPEND="app-arch/p7zip
 	app-cdr/cdrkit

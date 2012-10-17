@@ -16,7 +16,7 @@ DESCRIPTION="The internationalization package for calculate utilities"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 RDEPEND=">=sys-apps/calculate-lib-2.2.19
 	!<sys-apps/calculate-install-2.2.19
