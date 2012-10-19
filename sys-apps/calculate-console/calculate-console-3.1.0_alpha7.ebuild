@@ -11,13 +11,11 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
+DESCRIPTION="Console client for WSDL Calculate 3"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS=""
 
-RDEPEND=">=sys-apps/calculate-lib-3.1.0_alpha6"
-
-DEPEND="sys-devel/gettext
-	${DEPEND}"
+DEPEND="~sys-apps/calculate-core-3.1.0_alpha7"
+RDEPEND="${DEPEND}"

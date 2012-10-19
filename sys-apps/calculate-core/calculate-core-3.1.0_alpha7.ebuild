@@ -18,7 +18,7 @@ SLOT="3"
 KEYWORDS=""
 IUSE="minimal"
 
-DEPEND="~sys-apps/calculate-lib-3.1.0_alpha6
+DEPEND="~sys-apps/calculate-lib-3.1.0_alpha7
 	>=dev-python/soaplib-1.0
 	!minimal? ( dev-python/sudsds
 	net-libs/dslib

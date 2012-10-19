@@ -18,7 +18,7 @@ SLOT="3"
 KEYWORDS=""
 IUSE="pxe minimal"
 
-DEPEND="~sys-apps/calculate-lib-3.1.0_alpha6
+DEPEND="~sys-apps/calculate-lib-3.1.0_alpha7
 	!<sys-apps/calculate-install-2.2.29
 	app-portage/layman
 	!app-misc/livecd-tools
