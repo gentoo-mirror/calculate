@@ -1,0 +1,15 @@
+diff --git a/pym/_emerge/depgraph.py b/pym/_emerge/depgraph.py
+index 3940b56..950944a 100644
+--- a/pym/_emerge/depgraph.py
++++ b/pym/_emerge/depgraph.py
+@@ -6137,6 +6137,10 @@ class depgraph(object):
+ 			self._dynamic_config._scheduler_graph = scheduler_graph
+ 			raise self._unknown_internal_error()
+ 
++		# pull calculate package at tail
++		retlist = sorted(retlist,
++			key=lambda x:(1 if u"calculate" in x.cp else 0,
++			retlist.index(x)))
+ 		return retlist, scheduler_graph
+ 
+ 	def _show_circular_deps(self, mygraph):
