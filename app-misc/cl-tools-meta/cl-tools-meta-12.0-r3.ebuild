@@ -90,7 +90,8 @@ RDEPEND="${RDEPEND}
 	cdistro_CLDG? (
 		net-analyzer/traceroute
 		sys-block/gparted
-		x11-misc/glipper
+		!x11-misc/glipper
+		x11-misc/parcellite
 	)
 	cdistro_CLDX? (
 		net-analyzer/traceroute
