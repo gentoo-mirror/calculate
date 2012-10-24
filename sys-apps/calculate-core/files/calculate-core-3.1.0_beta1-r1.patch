@@ -1,0 +1,56 @@
+diff --git core/server/setup_package.py core/server/setup_package.py
+index b0a1627..9bf27fe 100644
+--- core/server/setup_package.py
++++ core/server/setup_package.py
+@@ -174,9 +174,8 @@ class updateUserConfigs(shareUpdateConfigs):
+                         {"%s/%s"%(category,nameProgram):[version],
+                          "%s"%(nameProgram):[version]})
+         mergeProgram = "calculate-utilities"
+-        self.startTask(_("Configuring the {nameProgram} package by "
+-                         "{mergeProgram} for users").format(
+-                            mergeProgram=mergeProgram,
++        self.startTask(_("Users configuring the {nameProgram} package by "
++                         "Calculate utilities").format(
+                             nameProgram=nameProgram),
+                        progress=True)
+         for userName in xUsers:
+@@ -208,8 +207,8 @@ class updateUserConfigs(shareUpdateConfigs):
+         self.endTask()
+         if dictPakkages:
+             for calcPkg in listIndex:
+-                self.printSUCCESS(_("Package %s has changed files")\
+-                                  %calcPkg+":")
++                self.printSUCCESS(_("Calculate utilities have changed files")\
++                                  +":")
+                 for userName, configFiles in dictPakkages[calcPkg]:
+                     self.printSUCCESS(" "*2 + _("User %s")%userName + ":")
+                     for nameConfigFile in configFiles:
+@@ -339,9 +338,8 @@ class updateSystemConfigs(shareUpdateConfigs):
+         clTempl = False
+         #for mergeProgram in filter(None,mergePrograms):
+         mergeProgram = "calculate-utilities"
+-        self.startTask(_("Configuring the {nameProgram} package by "
+-                         "{mergeProgram} for system").format(
+-                            mergeProgram=mergeProgram,
++        self.startTask(_("System configuring the {nameProgram} package by "
++                         "Calculate utilities").format(
+                             nameProgram=nameProgram),
+                        progress=True)
+         clVars.Set("cl_root_path", configPath, True)
+@@ -389,7 +387,7 @@ class updateSystemConfigs(shareUpdateConfigs):
+                 sorted(list(set(dirsFiles[1])))
+         if dictPakkages:
+             for calcPkg in listIndex:
+-                self.SUCCESS(_("Package %s has changed files")%calcPkg+":")
++                self.SUCCESS(_("Calculate utilities have changed files")+":")
+                 for nameF in dictPakkages[calcPkg]:
+                     nameFile = nameF.partition(configPath)[2]
+                     if nameFile:
+@@ -405,7 +403,6 @@ class updateSystemConfigs(shareUpdateConfigs):
+         if clTempl and clTempl.getWarning():
+             for warn in clTempl.getWarning().split("\n"):
+                 self.SUCCESS(warn)
+-        self.printSUCCESS(_("Package configured"))
+         return True
+ 
+ class PackageUpdater(updateSystemConfigs,updateUserConfigs):

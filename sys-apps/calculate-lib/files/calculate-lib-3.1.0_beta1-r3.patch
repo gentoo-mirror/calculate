@@ -1,0 +1,50 @@
+diff --git calculate/lib/cl_progressbar.py calculate/lib/cl_progressbar.py
+index 5b88a84..152d87b 100644
+--- calculate/lib/cl_progressbar.py
++++ calculate/lib/cl_progressbar.py
+@@ -132,3 +132,4 @@ try:
+ except:
+     ControlledProgressDialog = None
+     ClProgressDialog = None
++    ClMessageBox = None
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index 721a1f8..db8ba8b 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -4205,7 +4205,11 @@ re.M|re.S)
+                 return (applyDir, True, crDirs)
+         try:
+             FD = open(templateDirFile)
+-            textTemplate = FD.read()
++            textTemplate = FD.readline().rstrip()
++            buf = textTemplate
++            while buf and textTemplate.endswith('\\'):
++                buf = FD.readline()
++                textTemplate = "%s %s"%(textTemplate[:-1],buf.rstrip())
+             FD.close()
+         except:
+             self.setError(_("Failed to open the template") + ": " +\
+@@ -4218,6 +4222,11 @@ re.M|re.S)
+                           headerLine.split())
+             if moduleParam:
+                 self.objVar.defaultModule = moduleParam[0].partition('=')[2]
++                try:
++                    varModule = importlib.import_module(
++                        "calculate.%s.variables"%self.objVar.defaultModule)
++                except (ImportError, AttributeError),e:
++                    return ("", False, [])
+         # Заменяем переменные на их значения
+         textTemplate = self.applyVarsTemplate(textTemplate, templateDirFile)
+ 
+@@ -4899,6 +4908,11 @@ re.M|re.S)
+                           headerLine.split())
+             if moduleParam:
+                 self.objVar.defaultModule = moduleParam[0].partition('=')[2]
++                try:
++                    varModule = importlib.import_module(
++                        "calculate.%s.variables"%self.objVar.defaultModule)
++                except (ImportError, AttributeError),e:
++                    return []
+ 
+         if templateFileType != "bin":
+             # Вычисляем условные блоки
