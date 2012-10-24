@@ -1,0 +1,34 @@
+commit 7120f7c1db9e38d100b3110cc51ff096987a1c91
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Oct 24 10:23:24 2012 +0400
+
+    Fix correct work module
+
+diff --git a/calculate/lib/cl_template.py b/calculate/lib/cl_template.py
+index 721a1f8..af910ec 100644
+--- a/calculate/lib/cl_template.py
++++ b/calculate/lib/cl_template.py
+@@ -4218,6 +4218,11 @@ re.M|re.S)
+                           headerLine.split())
+             if moduleParam:
+                 self.objVar.defaultModule = moduleParam[0].partition('=')[2]
++                try:
++                    varModule = importlib.import_module(
++                        "calculate.%s.variables"%self.objVar.defaultModule)
++                except (ImportError, AttributeError),e:
++                    return ("", False, [])
+         # Заменяем переменные на их значения
+         textTemplate = self.applyVarsTemplate(textTemplate, templateDirFile)
+ 
+@@ -4899,6 +4904,11 @@ re.M|re.S)
+                           headerLine.split())
+             if moduleParam:
+                 self.objVar.defaultModule = moduleParam[0].partition('=')[2]
++                try:
++                    varModule = importlib.import_module(
++                        "calculate.%s.variables"%self.objVar.defaultModule)
++                except (ImportError, AttributeError),e:
++                    return []
+ 
+         if templateFileType != "bin":
+             # Вычисляем условные блоки
