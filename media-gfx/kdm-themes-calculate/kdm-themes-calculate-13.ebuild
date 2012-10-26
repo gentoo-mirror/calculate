@@ -25,3 +25,8 @@ src_install() {
 	insinto /
 	doins -r .
 }
+
+pkg_postinst() {
+	ln -sf /usr/share/wallpapers/dm-background.png \
+		/usr/share/apps/ksplash/Themes/CalculateSplashEn/400x300/background.png
+}
