@@ -475,7 +475,7 @@ calculate_get_current_initrd() {
 
 calculate_pkg_postinst() {
 	case "${PN}" in 
-		cld-themes|cmc-themes|cds-themes|cls-themes|cldg-themes|cldx-themes)
+		cld-themes|cmc-themes|cds-themes|cls-themes|cldg-themes|cldx-themes|splash-themes-calculate)
 			local initrdfile=$(calculate_get_current_initrd )
 			local initrdinstallfile=$(calculate_get_current_initrd -install)
 			[[ -f ${ROOT}${initrdfile} ]] &&

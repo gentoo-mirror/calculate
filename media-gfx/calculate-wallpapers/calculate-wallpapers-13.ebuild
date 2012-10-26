@@ -5,7 +5,6 @@
 EAPI=4
 
 DESCRIPTION="Wallpapers for Calculate Linux"
-HOMEPAGE="http://www.calculate-linux.org/calcualte-cld-themes"
 HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers"
 
 LICENSE="Apache-2.0"
