@@ -8,7 +8,15 @@
 					<entry name="picture_filename" mtime="1267285026" type="schema" stype="string" owner="gnome">
 						<local_schema locale="C" short_desc="Picture Filename">
 							<default type="string">
+#?pkg(media-gfx/dm-themes-calculate)==&&pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<12.0_alpha1#
 								<stringvalue>/usr/share/pixmaps/calculate-gdm.jpg</stringvalue>
+#pkg#
+#?pkg(media-gfx/dm-themes-calculate)==&&pkg(media-gfx/cldg-themes)>=12.0_alpha1#
+								<stringvalue>/usr/share/pixmaps/calculate-gdm-#-os_x11_standart-#.jpg</stringvalue>
+#pkg#
+#?pkg(media-gfx/dm-themes-calculate)!=#
+								<stringvalue>/usr/share/wallpapers/dm-#-os_x11_standart-#.jpg</stringvalue>
+#pkg#
 							</default>
 							<longdesc>File to use for the background image.</longdesc>
 						</local_schema>
