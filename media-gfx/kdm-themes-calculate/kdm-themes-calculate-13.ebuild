@@ -24,6 +24,26 @@ DEPEND="${RDEPEND}"
 src_install() {
 	insinto /
 	doins -r .
+	dosym ../CalculateSplashEn/400x300 \
+		/usr/share/apps/ksplash/Themes/CalculateSplashPt/400x300
+	dosym ../CalculateSplashEn/400x300 \
+		/usr/share/apps/ksplash/Themes/CalculateSplashDe/400x300
+	dosym ../CalculateSplashEn/400x300 \
+		/usr/share/apps/ksplash/Themes/CalculateSplashEs/400x300
+	dosym ../CalculateSplashEn/400x300 \
+		/usr/share/apps/ksplash/Themes/CalculateSplashFr/400x300
+	dosym ../CalculateSplashEn/400x300 \
+		/usr/share/apps/ksplash/Themes/CalculateSplashRo/400x300
+	dosym ../CalculateSplashEn/400x300 \
+		/usr/share/apps/ksplash/Themes/CalculateSplashRu/400x300
+	dosym ../CalculateSplashEn/400x300 \
+		/usr/share/apps/ksplash/Themes/CalculateSplashUk/400x300
+	dosym ../CalculateSplashEn/400x300 \
+		/usr/share/apps/ksplash/Themes/CalculateSplashIt/400x300
+	dosym ../CalculateSplashEn/400x300 \
+		/usr/share/apps/ksplash/Themes/CalculateSplashPl/400x300
+	dosym ../CalculateSplashEn/400x300 \
+		/usr/share/apps/ksplash/Themes/CalculateSplashBg/400x300
 }
 
 pkg_postinst() {
