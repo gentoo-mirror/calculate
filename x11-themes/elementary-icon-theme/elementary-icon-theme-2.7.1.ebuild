@@ -31,6 +31,7 @@ src_install() {
 	dodoc ${DOCS}
 	rm ${DOCS}
 
+	rm -r elementary/status/48/untitled\ folder
 	insinto /usr/share/icons
 	doins -r elementary
 	use monochrome && doins -r elementary-mono-dark
