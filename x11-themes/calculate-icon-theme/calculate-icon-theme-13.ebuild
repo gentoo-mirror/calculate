@@ -28,7 +28,7 @@ DEPEND="${RDEPEND}"
 src_install() {
 	if use themes_CLD
 	then
-		dosed 's/Inherits=.*/Inherits=hicolor,Oxygen/' usr/share/icons/Calculate/index.theme
+		sed -ri 's/Inherits=.*/Inherits=hicolor,Oxygen/' usr/share/icons/Calculate/index.theme
 	fi
 	if use themes_CLDG
 	then
