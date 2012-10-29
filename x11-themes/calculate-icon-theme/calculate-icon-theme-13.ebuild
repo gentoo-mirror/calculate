@@ -32,11 +32,11 @@ src_install() {
 	fi
 	if use themes_CLDG
 	then
-		dosed 's/Inherits=.*/Inherits=hicolor,gnome/' usr/share/icons/Calculate/index.theme
+		sed -ri 's/Inherits=.*/Inherits=hicolor,gnome/' usr/share/icons/Calculate/index.theme
 	fi
 	if use themes_CLDX
 	then
-		dosed 's/Inherits=.*/Inherits=hicolor,elementary/' usr/share/icons/Calculate/index.theme
+		sed -ri 's/Inherits=.*/Inherits=hicolor,elementary/' usr/share/icons/Calculate/index.theme
 	fi
 	insinto /
 	doins -r .
