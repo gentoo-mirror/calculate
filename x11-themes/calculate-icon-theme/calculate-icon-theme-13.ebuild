@@ -28,11 +28,11 @@ DEPEND="${RDEPEND}"
 src_install() {
 	if use themes_CLD
 	then
-		sed -ri 's/Inherits=.*/Inherits=hicolor,Oxygen/' usr/share/icons/Calculate/index.theme
+		sed -ri 's/Inherits=.*/Inherits=oxygen,hicolor/' usr/share/icons/Calculate/index.theme
 	fi
 	if use themes_CLDG
 	then
-		sed -ri 's/Inherits=.*/Inherits=hicolor,gnome/' usr/share/icons/Calculate/index.theme
+		sed -ri 's/Inherits=.*/Inherits=gnome,hicolor/' usr/share/icons/Calculate/index.theme
 	fi
 	if use themes_CLDX
 	then
