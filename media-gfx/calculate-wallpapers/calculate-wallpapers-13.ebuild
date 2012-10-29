@@ -10,23 +10,23 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS=""
-IUSE="themes_cld themes_cldx themes_cls
-themes_cldg"
+IUSE="themes_CLD themes_CLDX themes_CLS
+themes_CLDG"
 
-SRC_URI="themes_cld? (
+SRC_URI="themes_CLD? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-cld-13.tar.bz2
 )
-themes_cldx? (
+themes_CLDX? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-cldx-13.tar.bz2
 )
-themes_cldg? (
+themes_CLDG? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-cldg-13.tar.bz2
 )
-themes_cls? (
+themes_CLS? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-cls-13.tar.bz2
 )"
 
-REQUIRED_USE="^^ ( themes_cld themes_cldx themes_cls themes_cldg )"
+REQUIRED_USE="^^ ( themes_CLD themes_CLDX themes_CLS themes_CLDG )"
 
 RDEPEND="!media-gfx/calculate-cldx-themes
 		!media-gfx/calculate-cld-themes

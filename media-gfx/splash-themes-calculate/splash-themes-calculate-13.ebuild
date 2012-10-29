@@ -12,30 +12,30 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-splash-the
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS=""
-IUSE="themes_cld themes_cldx themes_cls
-themes_cldg themes_cds themes_cmc"
+IUSE="themes_CLD themes_CLDX themes_CLS
+themes_CLDG themes_CDS themes_CMC"
 
-SRC_URI="themes_cld? (
+SRC_URI="themes_CLD? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cld-13.tar.bz2
 )
-themes_cldx? (
+themes_CLDX? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cldx-13.tar.bz2
 )
-themes_cldg? (
+themes_CLDG? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cldg-13.tar.bz2
 )
-themes_cmc? (
+themes_CMC? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cmc-13.tar.bz2
 )
-themes_cds? (
+themes_CDS? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cds-13.tar.bz2
 )
-themes_cls? (
+themes_CLS? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cls-13.tar.bz2
 )"
 
-REQUIRED_USE="^^ ( themes_cld themes_cldx themes_cls themes_cldg themes_cmc
-themes_cds )"
+REQUIRED_USE="^^ ( themes_CLD themes_CLDX themes_CLS themes_CLDG themes_CMC
+themes_CDS )"
 
 RDEPEND="!media-gfx/cld-themes
 !media-gfx/cldg-themes

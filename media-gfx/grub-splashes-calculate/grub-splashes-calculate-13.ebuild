@@ -10,33 +10,33 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/grub-splashes-calcul
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS=""
-IUSE="themes_cld themes_cldx themes_cls themes_cldg themes_css themes_cds themes_cmc"
+IUSE="themes_CLD themes_CLDX themes_CLS themes_CLDG themes_CSS themes_CDS themes_CMC"
 
 SRC_URI="
-themes_cld? (
+themes_CLD? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/grub/grub-cld-13.tar.bz2
 )
-themes_cldx? (
+themes_CLDX? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/grub/grub-cldx-13.tar.bz2
 )
-themes_cldg? (
+themes_CLDG? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/grub/grub-cldg-13.tar.bz2
 )
-themes_cmc? (
+themes_CMC? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/grub/grub-cmc-13.tar.bz2
 )
-themes_cls? (
+themes_CLS? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/grub/grub-cls-13.tar.bz2
 )
-themes_cds? (
+themes_CDS? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/grub/grub-cds-13.tar.bz2
 )
-themes_css? (
+themes_CSS? (
 	ftp://ftp.calculate.ru/pub/calculate/themes/grub/grub-css-13.tar.bz2
 )"
 
-REQUIRED_USE="^^ ( themes_cld themes_cldx themes_cls themes_cldg themes_css
-themes_cds themes_cmc )"
+REQUIRED_USE="^^ ( themes_CLD themes_CLDX themes_CLS themes_CLDG themes_CSS
+themes_CDS themes_CMC )"
 
 RDEPEND="!<sys-boot/calcboot-4.05.0-r1"
 
