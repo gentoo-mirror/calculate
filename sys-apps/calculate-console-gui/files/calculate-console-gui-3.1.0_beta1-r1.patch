@@ -1,0 +1,35 @@
+diff --git consolegui/application/ConnectionTabs.py consolegui/application/ConnectionTabs.py
+index 1ba6fad..1277f8d 100644
+--- consolegui/application/ConnectionTabs.py
++++ consolegui/application/ConnectionTabs.py
+@@ -192,13 +192,12 @@ def parse():
+     import gettext
+     try:
+         set_lang = gettext.locale.getdefaultlocale()[0][:2]
+-        lang = gettext.translation('cl_consolegui3', languages=[set_lang])
++        lang = gettext.translation('cl_consolegui3', languages=[set_lang],fallback=True)
++        try:
++            lang.install(unicode=True)
++        except UnboundLocalError:
++            pass
+     except (IOError, TypeError):
+-        lang = gettext.translation('cl_consolegui3', languages=['en'])
+-
+-    try:
+-        lang.install(unicode=True)
+-    except UnboundLocalError:
+         pass
+ 
+     import argparse
+diff --git consolegui/application/MainClass.py consolegui/application/MainClass.py
+index 1617536..7cd2d7d 100755
+--- consolegui/application/MainClass.py
++++ consolegui/application/MainClass.py
+@@ -112,6 +112,7 @@ class ApiClient(QtGui.QWidget):
+                                            languages=[self.lang])
+             except IOError:
+                 self.lang = 'en'
++                lang = gettext.translation('cl_consolegui3',fallback=True)
+ 
+         try:
+             lang.install(unicode=True)
