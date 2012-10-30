@@ -152,24 +152,33 @@ index 209f191..3f764c2 100755
 +[[ -n $BG_PID ]] && sleep_kill $BG_PID &
  exit 0
 diff --git setup.py setup.py
-index e0575de..473ec63 100755
+index e0575de..3179831 100755
 --- setup.py
 +++ setup.py
-@@ -34,7 +34,7 @@ data_files = []
+@@ -18,7 +18,7 @@
+ #  limitations under the License.
+ 
+ __app__ = "calculate-desktop"
+-__version__ = "3.0.0"
++__version__ = "3.1.0"
+ 
+ import os
+ import stat
+@@ -34,7 +34,6 @@ data_files = []
  
  data_files += [('/usr/share/calculate/xdm', ['data/cmd_login',
                                               'data/functions',
 -                                             'data/gtkbg',
-+                                             'data/setbg',
                                               'data/xdm'])] + \
                [('/usr/share/calculate/xdm/login.d',
                                              ['data/login.d/00init',
-@@ -77,7 +77,7 @@ def create_data_files(data_dirs, prefix="", replace_dirname=""):
+@@ -77,8 +76,7 @@ def create_data_files(data_dirs, prefix="", replace_dirname=""):
  class cl_install_data(install_data):
      def run (self):
          install_data.run(self)
 -        data_file = [("/usr/share/calculate/xdm/gtkbg",0755),
-+        data_file = [("/usr/share/calculate/xdm/setbg",0755),
-                      ("/usr/share/calculate/xdm/cmd_login",0755),
+-                     ("/usr/share/calculate/xdm/cmd_login",0755),
++        data_file = [("/usr/share/calculate/xdm/cmd_login",0755),
                       ("/usr/share/calculate/xdm/xdm",0755)]
          fileNames = map(lambda x: os.path.split(x[0])[1], data_file)
+         listNames = map(lambda x: filter(lambda y: y, x[0].split("/")),
