@@ -1,0 +1,6 @@
+# Calculate path=~ name=.dconfigure append=after chmod=700
+#!/bin/bash
+
+dconf write /org/gnome/desktop/background/picture-uri \'file:///usr/share/wallpapers/Calculate_Linux/contents/images/#-os_x11_standart-#.jpg\'
+
+rm ~/.dconfigure
