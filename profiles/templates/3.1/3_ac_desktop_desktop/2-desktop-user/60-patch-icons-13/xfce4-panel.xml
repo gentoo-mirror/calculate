@@ -1,0 +1,4 @@
+# Calculate ini(ver.xfce)!= path=~/.config/xfce4/xfconf/xfce-perchannel-xml format=patch
+<reg>(&lt;property name="base-directory" type="string" value="[^"]+"/&gt;
+\s*)<&lt;property name="icon-name"[^&gt;]+&gt;/reg>
+<text>\1 <&lt;property name="icon-name" type="string" value="folder-download"/&gt;</text>

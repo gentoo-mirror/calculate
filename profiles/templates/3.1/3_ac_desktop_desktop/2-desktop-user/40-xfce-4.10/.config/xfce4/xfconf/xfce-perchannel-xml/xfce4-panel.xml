@@ -147,7 +147,12 @@
     </property>
     <property name="plugin-23" type="string" value="directorymenu">
       <property name="base-directory" type="string" value="/home/#-ur_login-#/FTP"/>
+#?pkg(x11-themes/elementary-icon-theme)!=#
+      <property name="icon-name" type="string" value="folder-download"/>
+#pkg#
+#?pkg(x11-themes/elementary-icon-theme)==#
       <property name="icon-name" type="string" value="zen-icon"/>
+#pkg#
     </property>
     <property name="plugin-30" type="string" value="launcher">
       <property name="items" type="array">
