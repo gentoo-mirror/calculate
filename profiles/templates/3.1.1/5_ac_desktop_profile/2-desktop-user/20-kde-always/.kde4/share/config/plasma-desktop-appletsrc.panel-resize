@@ -1,0 +1,19 @@
+# Calculate name=plasma-desktop-appletsrc format=plasma ini(resolution)!=#-os_x11_standart-#
+#------------------------------------------------------------------------------
+#рабочий стол
+#------------------------------------------------------------------------------
+
+[Containments][#-sum(cont,1)-#]
+geometry=0,0,#-os_x11_width-#,#-os_x11_height-#
+
+#------------------------------------------------------------------------------
+#верхняя панель
+#------------------------------------------------------------------------------
+#-sum(panel,,31)-#
+
+[Containments][#-sum(cont,cont+1)-#]
+geometry=0,0,#-os_x11_width-#,#-sum(panel,panel)-#
+
+[Containments][#-sum(cont,cont)-#][Configuration]
+maximumSize=#-os_x11_width-#,#-sum(panel,panel)-#
+minimumSize=#-os_x11_width-#,#-sum(panel,panel)-#

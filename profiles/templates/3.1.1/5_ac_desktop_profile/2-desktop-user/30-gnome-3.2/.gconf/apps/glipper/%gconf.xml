@@ -1,0 +1,10 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="use_default_clipboard" type="bool" value="true"/>
+	<entry name="max_item_length" type="int" value="99"/>
+	<entry name="max_elements" type="int" value="7"/>
+	<entry name="key_combination" type="string">
+		<stringvalue>&lt;Ctrl&gt;&lt;Alt&gt;v</stringvalue>
+	</entry>
+</gconf>

@@ -1,0 +1,9 @@
+# Calculate path=~/.config
+XDG_DESKTOP_DIR="#-ini(resource.desktop)-#"
+XDG_DOCUMENTS_DIR="#-ini(resource.documents)-#"
+XDG_DOWNLOAD_DIR="#-ini(resource.downloads)-#"
+XDG_MUSIC_DIR="#-ini(resource.music)-#"
+XDG_PICTURES_DIR="#-ini(resource.pictures)-#"
+XDG_PUBLICSHARE_DIR="#-ini(resource.public)-#"
+XDG_TEMPLATES_DIR="#-ini(resource.templates)-#"
+XDG_VIDEOS_DIR="#-ini(resource.videos)-#"

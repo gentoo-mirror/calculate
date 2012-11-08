@@ -1,0 +1,9 @@
+# Calculate append=replace chmod=755 force
+#!/bin/bash
+
+rm -f /tmp/$USER-login-status
+if ! /usr/share/calculate/xdm/xdm --login
+then
+    echo "ERROR" >>/tmp/$USER-login-status
+    chown ${USER}. /tmp/$USER-login-status
+fi

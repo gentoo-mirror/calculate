@@ -1,0 +1,81 @@
+# Calculate format=kde
+[$Version]
+update_info=konversation.upd:1.1-rememberline,konversation.upd:1.1-markerlines,konversation.upd:0.20-customfonts,konversation.upd:0.20-quickbuttons,konversation.upd:0.19-notifylists,konversation.upd:0.19-appearance,konversation.upd:0.19-browser,konversation.upd:0.19-flags,konversation.upd:0.19-highlightcolors,konversation.upd:0.19-osdcolors,konversation.upd:0.19-sortorder,konversation.upd:0.19-colors,konversation.upd:0.19-generaloptions,konversation.upd:0.19-cleanup-themes,konversation.upd:0.19-cleanup-notifylist,konversation.upd:0.19-cleanup-dcc,konversation.upd:0.19-cleanup-colors,konversation.upd:0.19-cleanup-hilightlist,konversation.upd:0.19-cleanup-notificationmessages,konversation.upd:0.19-cleanup-ledcolors,konversation.upd:0.19-cleanup-kmditaskbar,konversation.upd:0.19-channelsplitter
+
+[Aliases]
+#added gog script
+AliasList=cmd /exec cmd,bug /exec bug,fortune /exec fortune,kdeversion /exec kdeversion,gauge /exec gauge,mail /exec mail,video /exec media video,audio /exec media audio,media /exec media,tinyurl /exec tinyurl,sysinfo /exec sysinfo,sayclip /exec sayclip,uptime /exec uptime,gog /exec gog
+
+[Channel 0]
+#?os_locale_language!=ru#
+Name=#calculate
+#os_locale_language#
+#?os_locale_language==ru#
+Name=#calculate-ru
+#os_locale_language#
+Password=
+
+[Identity 0]
+#?os_root_type==hdd&&hr_virtual==#
+Ident=#-os_linux_shortname-#
+#os_root_type#
+#?os_root_type!=hdd&&hr_virtual==#
+Ident=Live#-os_linux_shortname-#
+#os_root_type#
+#?os_root_type==hdd&&hr_virtual!=#
+Ident=#-os_linux_shortname-#|#-hr_virtual-#
+#os_root_type#
+#?os_root_type!=hdd&&hr_virtual!=#
+Ident=Live#-os_linux_shortname-#|#-hr_virtual-#
+#os_root_type#
+Name=Default Identity
+Nicknames=#-case(capitalize,ur_login)-#-#-os_locale_language-#,#-case(capitalize,ur_login)-##-rnd(num,2)-#-#-os_locale_language-#,#-case(capitalize,ur_login)-##-rnd(num,2)-#-#-os_locale_language-#
+Realname=#-os_linux_name-# #-os_linux_ver-# #-os_linux_subname-#
+
+[Flags]
+# расположить закладки наверху
+TabPlacement=Top
+# автоматически показывать новые каналы
+BringToFront=true
+# средняя кнопка закрывает вкладку
+MiddleClickClose=true
+
+[General Options]
+# отображать иконку в трее
+ShowTrayIcon=true
+# оповещать о сообщении с канала
+TrayNotify=true
+# оповещать только о персональных сообщениях
+TrayNotifyOnlyOwnNick=true
+
+[Path Settings]
+# директория для принимаемых файлов
+DccPath=file:///home/#-ur_login-#
+# директория для логов
+LogfilePath=file:///home/#-ur_login-#/.kde4/share/apps/konversation/logs
+
+[Server 0]
+Port=8001
+SSLEnabled=false
+Server=irc.freenode.net
+Password=
+
+[Notification Messages]
+# не задавать вопрос при сворачивании кнопкой закрыть
+HideOnCloseInfo=false
+# не задавать вопрос при выходе
+systemtrayquitKonversation=false
+
+[ServerGroup 0]
+AutoConnect=true
+AutoJoinChannels=Channel 0
+EnableNotifications=true
+Expanded=true
+Identity=Default Identity
+Name=Freenode
+ServerList=Server 0
+
+[Tab Notifications]
+# цвет личных сообщний при оповещении
+TabNotificationsPrivateColor=255,0,255
+

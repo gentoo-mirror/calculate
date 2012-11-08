@@ -1,0 +1,48 @@
+[Common]
+#открывать выбранные сообщения
+always_show_message_when_selected=1
+#автоматически проверять наличие новых сообщений
+autochk_newmail=1
+#интервал проверки почты
+autochk_interval=5
+#проверять почту при запуске
+check_on_startup=1
+#показывать кол-во сообщений в имени папки
+display_folder_unread_num=2
+#отображаемые столбцы
+folder_col_show_new=0
+folder_col_show_unread=0
+folder_col_show_total=0
+folder_col_pos_folder=3
+folder_col_pos_new=2
+folder_col_pos_unread=1
+folder_col_pos_total=0
+message_font_gtk2=Droid Sans Mono Slashed 10
+normal_font_gtk2=Droid Sans 10
+never_send_retrcpt=1
+uri_open_command=xdg-open '%s'
+ext_editor_command=xdg-open '%s'
+mime_textviewer=xdg-open '%s'
+#?pkg(x11-themes/claws-mail-theme-calculate)!=#
+pixmap_theme_path=/usr/share/claws-mail/themes/Calculate
+#pkg#
+#?os_locale_lang!=en_US#
+alt_dictionary=en_US
+use_alternate_dict=1
+use_both_dicts=1
+#os_locale_lang#
+
+[Plugins_GTK2]
+/usr/lib64/claws-mail/plugins/address_keeper.so
+# плагин сворачивания окна в трей
+/usr/lib/claws-mail/plugins/trayicon.so
+
+[TrayIcon]
+# закрывать окно в трей
+close_to_tray=1
+# не минимизировать окно в трей
+hide_when_iconified=0
+
+[AddressKeeper]
+addressbook_folder=addrbook-000001.xml
+

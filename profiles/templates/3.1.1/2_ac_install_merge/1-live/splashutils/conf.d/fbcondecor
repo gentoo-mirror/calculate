@@ -1,0 +1,16 @@
+# Calculate os_install_linux_shortname!=CSS format=openrc
+
+# On which TTYs should fbcondecor be enabled? Defaults to RC_TTY_NUMBER.
+FBCONDECOR_TTYS="1 2 3 4 5 6"
+
+# Allows to set different themes on different consoles
+# format: "<console>:<theme> <console>:<theme> (...)"
+#?pkg(media-gfx/cld-themes)!=&&pkg(media-gfx/cld-themes)<12.0_alpha1||pkg(media-gfx/cldx-themes)!=&&pkg(media-gfx/cldx-themes)<12.0_alpha1||pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<12.0_alpha1||pkg(media-gfx/cls-themes)!=&&pkg(media-gfx/cls-themes)<12.0_alpha1||pkg(media-gfx/cds-themes)!=&&pkg(media-gfx/cds-themes)<12.0_alpha1||pkg(media-gfx/cmc-themes)!=&&pkg(media-gfx/cmc-themes)<12.0_alpha1#
+FBCONDECOR_TTY_MAP="1:tty1 2:tty2 3:tty3 4:tty4 5:tty5 6:tty6"
+#pkg#
+#?pkg(media-gfx/cld-themes)>=12.0_alpha1||pkg(media-gfx/cldx-themes)>=12.0_alpha1||pkg(media-gfx/cldg-themes)>=12.0_alpha1||pkg(media-gfx/cds-themes)>=12.0_alpha1||pkg(media-gfx/cls-themes)>=12.0_alpha1||pkg(media-gfx/cmc-themes)>=12.0_alpha1#
+FBCONDECOR_TTY_MAP="1:calculate 2:calculate 3:calculate 4:calculate 5:calculate 6:calculate"
+#pkg#
+#pkg(media-gfx/splash-themes-calculate)!=#
+FBCONDECOR_TTY_MAP="1:calculate 2:calculate 3:calculate 4:calculate 5:calculate 6:calculate"
+#pkg#

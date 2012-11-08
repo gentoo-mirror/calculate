@@ -1,0 +1,9 @@
+# Calculate format=kde
+[rc]
+use_copy=true
+use_primary=true
+synchronize=false
+history_pos=true
+#-sum(offset,,#-os_x11_width-#)-#
+history_x=#-sum(offset,offset - 250)-#
+history_y=60

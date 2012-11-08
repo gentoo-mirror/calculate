@@ -1,0 +1,10 @@
+# Calculate ini(ver.xfce)!= path=~/.config/xfce4/xfconf/xfce-perchannel-xml format=xml_xfce
+<channel name="xfce4-panel" version="1.0">
+  <property name="plugins" type="empty">
+    <property name="clipman" type="empty">
+      <property name="settings" type="empty">
+	<property name="history-ignore-primary-clipboard" type="bool" value="false"/>
+      </property>
+    </property>
+  </property>
+</channel>

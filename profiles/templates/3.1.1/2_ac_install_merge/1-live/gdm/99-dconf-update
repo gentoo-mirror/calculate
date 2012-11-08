@@ -1,0 +1,5 @@
+# Calculate exec=/bin/bash path=/tmp pkg(gnome-base/gdm)>3.0
+
+rm /etc/dconf/db/gdm &>/dev/null
+dconf update &>/dev/null
+true

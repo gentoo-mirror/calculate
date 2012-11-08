@@ -1,0 +1,10 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+	<entry name="disable_shutdown" type="bool" value="true"/>
+#env#
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+	<entry name="disable_shutdown" type="bool" value="false"/>
+#env#
+</gconf>

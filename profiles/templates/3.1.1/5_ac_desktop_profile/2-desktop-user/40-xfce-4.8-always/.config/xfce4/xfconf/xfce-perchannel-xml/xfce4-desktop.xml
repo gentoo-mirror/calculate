@@ -1,0 +1,16 @@
+# Calculate format=xml_xfce
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-desktop" version="1.0">
+  <property name="desktop-icons" type="empty">
+    <property name="file-icons" type="empty">
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+      <property name="show-home" type="bool" value="true"/>
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+      <property name="show-home" type="bool" value="false"/>
+#env#
+    </property>
+    <property name="icon-size" type="uint" value="42"/>
+  </property>
+</channel>

@@ -1,0 +1,15 @@
+# Calculate format=kde link=/usr/share/applications/xchat.desktop mirror
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=Calculate Linux Community
+Name[ru]=Сообщество Calculate Linux
+NoDisplay=true
+#change command line
+#?os_locale_language!=ru#
+Exec=xchat "--url=irc://irc.freenode.net:6667/#calculate"
+#os_locale_language#
+#?os_locale_language==ru#
+Exec=xchat "--url=irc://irc.freenode.net:6667/#calculate-ru"
+#os_locale_language#

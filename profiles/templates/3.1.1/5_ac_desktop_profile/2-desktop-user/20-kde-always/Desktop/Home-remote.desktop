@@ -1,0 +1,8 @@
+# Calculate append=replace name=Home.desktop format=samba env(client.os_remote_auth)!=&&ur_domain_set==on append=replace
+[Desktop Entry]
+Encoding=UTF-8
+Name=Home
+Comment=Browser Home
+URL[$e]=$HOME/Home
+Icon=user-home
+Type=Link

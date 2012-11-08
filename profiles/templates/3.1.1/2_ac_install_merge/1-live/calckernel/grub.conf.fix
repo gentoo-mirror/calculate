@@ -1,0 +1,3 @@
+# Calculate exec=/bin/bash path=/tmp ac_install_hdd==off&&cl_merge_pkg!=
+
+sed -ri 's|(vmlinuz-#-cl_kernel_uid-#.*)CONSOLE=/dev/tty1|\1console=tty1|' /boot/grub/grub.conf

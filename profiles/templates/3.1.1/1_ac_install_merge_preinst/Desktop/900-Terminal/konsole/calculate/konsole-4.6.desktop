@@ -1,0 +1,8 @@
+# Calculate format=kde link=/usr/share/applications/kde4/konsole.desktop name=calculate-terminal.desktop mirror pkg(kde-base/konsole)>=4.6
+
+# Update info
+#-ini(desktop.terminal, konsole)-#
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true

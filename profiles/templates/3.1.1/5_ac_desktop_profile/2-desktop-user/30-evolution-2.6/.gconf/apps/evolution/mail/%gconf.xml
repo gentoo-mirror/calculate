@@ -1,0 +1,24 @@
+# Calculate format=xml_gconf env(client.os_remote_auth)!=&&ur_domain_set==on
+<?xml version="1.0"?>
+<gconf>
+	#-pop(mtime)-#
+	#-pop(pid)-#
+	#-pop(serial)-#
+	<entry name="signatures" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;signature name=&quot;Default&quot; uid=&quot;#-sum(mtime,mtime)-#.#-sum(pid,pid)-#.0@#-os_net_hostname-#&quot; auto=&quot;false&quot; format=&quot;text/plain&quot;&gt;&lt;filename&gt;/home/#-ur_login-#/.evolution/signatures/default&lt;/filename&gt;&lt;/signature&gt;
+</stringvalue>
+		</li>
+	</entry>
+	<entry name="default_account" type="string">
+		<stringvalue>#-sum(mtime,mtime)-#.#-sum(pid,pid)-#.#-sum(serial,serial)-#@#-os_net_hostname-#</stringvalue>
+	</entry>
+	<entry name="accounts" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;account name=&quot;IMAP&quot; uid=&quot;#-sum(mtime,mtime)-#.#-sum(pid,pid)-#.#-sum(serial,serial)-#@#-os_net_hostname-#&quot; enabled=&quot;true&quot;&gt;&lt;identity&gt;&lt;name&gt;#-ur_fullname-#&lt;/name&gt;&lt;addr-spec&gt;#-ur_mail-#&lt;/addr-spec&gt;&lt;reply-to&gt;#-ur_mail-#&lt;/reply-to&gt;&lt;organization&gt;#-server(mail.organization)-#&lt;/organization&gt;&lt;signature uid=&quot;#-sum(mtime,mtime)-#.#-sum(pid,pid)-#.0@#-os_net_hostname-#&quot;/&gt;&lt;/identity&gt;&lt;source save-passwd=&quot;true&quot; keep-on-server=&quot;false&quot; auto-check=&quot;true&quot; auto-check-timeout=&quot;5&quot;&gt;&lt;url&gt;imap://#-ur_login-#@#-server(mail.host)-#/;check_lsub;command=ssh%20-C%20-l%20%25u%20%25h%20exec%20/usr/sbin/imapd;use_ssl=always;check_all&lt;/url&gt;&lt;/source&gt;&lt;transport save-passwd=&quot;false&quot;&gt;&lt;url&gt;smtp://#-ur_login-#@#-server(mail.host)-#/;use_ssl=never&lt;/url&gt;&lt;/transport&gt;&lt;drafts-folder&gt;imap://#-ur_login-#@#-server(mail.host)-#/Drafts&lt;/drafts-folder&gt;&lt;sent-folder&gt;imap://#-ur_login-#@#-server(mail.host)-#/Sent&lt;/sent-folder&gt;&lt;auto-cc always=&quot;false&quot;&gt;&lt;recipients&gt;&lt;/recipients&gt;&lt;/auto-cc&gt;&lt;auto-bcc always=&quot;false&quot;&gt;&lt;recipients&gt;&lt;/recipients&gt;&lt;/auto-bcc&gt;&lt;receipt-policy policy=&quot;never&quot;/&gt;&lt;pgp encrypt-to-self=&quot;false&quot; always-trust=&quot;false&quot; always-sign=&quot;false&quot; no-imip-sign=&quot;false&quot;/&gt;&lt;smime sign-default=&quot;false&quot; encrypt-default=&quot;false&quot; encrypt-to-self=&quot;false&quot;/&gt;&lt;/account&gt;
+</stringvalue>
+		</li>
+	</entry>
+</gconf>

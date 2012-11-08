@@ -1,0 +1,4 @@
+# Calculate format=kde path=/usr/share/config/kdm
+[X-*-Core]
+Reset=/usr/share/calculate/xdm/xdm --logout
+Startup=/usr/share/calculate/xdm/xdm --login

@@ -1,0 +1,26 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="attached_toplevel_id" schema="/schemas/apps/panel/objects/attached_toplevel_id"/>
+	#-pop(offsetx)-#
+	<entry name="position" schema="/schemas/apps/panel/objects/position" type="int" value="#-sum(offsetx,offsetx,offsetx+32)-#"/>
+	#-push(offsetx)-#
+	<entry name="use_menu_path" schema="/schemas/apps/panel/objects/use_menu_path"/>
+	<entry name="action_type" schema="/schemas/apps/panel/objects/action_type" type="string">
+		<stringvalue>lock</stringvalue>
+	</entry>
+	<entry name="toplevel_id" schema="/schemas/apps/panel/objects/toplevel_id" type="string">
+		<stringvalue>top_panel_screen0</stringvalue>
+	</entry>
+	<entry name="tooltip" schema="/schemas/apps/panel/objects/tooltip"/>
+	<entry name="use_custom_icon" schema="/schemas/apps/panel/objects/use_custom_icon"/>
+	<entry name="object_type" schema="/schemas/apps/panel/objects/object_type" type="string">
+		<stringvalue>action-applet</stringvalue>
+	</entry>
+	<entry name="panel_right_stick" schema="/schemas/apps/panel/objects/panel_right_stick" type="bool" value="true"/>
+	<entry name="locked" schema="/schemas/apps/panel/objects/locked"/>
+	<entry name="custom_icon" schema="/schemas/apps/panel/objects/custom_icon"/>
+	<entry name="bonobo_iid" schema="/schemas/apps/panel/objects/bonobo_iid"/>
+	<entry name="launcher_location" schema="/schemas/apps/panel/objects/launcher_location"/>
+	<entry name="menu_path" schema="/schemas/apps/panel/objects/menu_path"/>
+</gconf>

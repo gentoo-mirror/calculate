@@ -1,0 +1,31 @@
+# Calculate format=xml_xfce
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-desktop" version="1.0">
+  <property name="desktop-icons" type="empty">
+    <property name="file-icons" type="empty">
+      <property name="show-trash" type="bool" value="false"/>
+      <property name="show-removable" type="bool" value="false"/>
+      <property name="show-filesystem" type="bool" value="false"/>
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+      <property name="show-home" type="bool" value="true"/>
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+      <property name="show-home" type="bool" value="false"/>
+#env#
+    </property>
+    <property name="icon-size" type="uint" value="48"/>
+    <property name="single-click" type="bool" value="true"/>
+  </property>
+  <property name="backdrop" type="empty">
+    <property name="screen0" type="empty">
+      <property name="monitor0" type="empty">
+        <property name="image-path" type="string" value="/usr/share/wallpapers/Calculate_Linux/contents/images/#-os_x11_standart-#.jpg"/>
+      </property>
+    </property>
+  </property>
+  <property name="desktop-menu" type="empty">
+    <property name="show" type="bool" value="false"/>
+    <property name="show-icons" type="bool" value="false"/>
+  </property>
+</channel>

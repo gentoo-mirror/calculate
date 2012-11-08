@@ -1,0 +1,21 @@
+# Calculate comment=# path=/usr/bin chmod=0755
+#!/bin/bash
+# Unpack portage and overlay from git
+
+cd /usr/portage
+if git status --short | grep -m1 "^ D " &>/dev/null
+then
+	# unpack portage
+	cd /usr/portage
+	git checkout .
+	# unpack overlay
+	cd /var/lib/layman/calculate
+	git checkout .
+	# fix update files
+	sed 0,/'"updates"'/d /var/cache/edb/mtimedb | \
+		sed /},/,\$d | \
+		sed -r 's/"([^"]+)":\s+([0-9]+).*/touch -c -t `date -d "@\2" +%Y%m%d%H%M.%S` \1/' | \
+		bash
+	# copy metadata
+	emerge --metadata
+fi
