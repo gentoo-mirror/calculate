@@ -1,0 +1,2 @@
+# discard /opt/bin/skype, because prelink call segfault
+PRELINK_PATH_MASK=/opt/bin/skype

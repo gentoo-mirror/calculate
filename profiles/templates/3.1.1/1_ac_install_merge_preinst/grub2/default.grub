@@ -1,0 +1,11 @@
+# Calculate format=openrc path=/etc/default name=grub
+GRUB_DISABLE_RECOVERY=true
+GRUB_DEFAULT=saved
+GRUB_TIMEOUT=2
+!GRUB_TERMINAL=del
+GRUB_CMDLINE_LINUX="${GRUB_CMDLINE_CALCULATE_LINUX}"
+GRUB_GFXMODE="1024x768"
+GRUB_BACKGROUND="/boot/grub/grub-calculate.png"
+GRUB_COLOR_NORMAL="white/black" 
+GRUB_COLOR_HIGHLIGHT="magenta/black"
+GRUB_VIDEO_BACKEND="vbe"

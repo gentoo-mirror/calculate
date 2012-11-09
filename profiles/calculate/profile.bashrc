@@ -152,9 +152,31 @@ pkgpatch() {
 	popd > /dev/null
 }
 
+[ -d /var/db/pkg/sys-apps/calculate-core-3.1.[1-9]* ] && calcver=3.1.1
+
+post_pkg_preinst() {
+	CL_UPDATE_PROG=/usr/lib/calculate-2.2/calculate-lib/bin/cl-update-config
+	if [ -e ${CL_UPDATE_PROG} ];then
+		[[ -z ${CONFIG_PROTECT} && -e /etc/profile ]] && source /etc/profile
+		CONFIG_PROTECT=${CONFIG_PROTECT} ${CL_UPDATE_PROG} --desktop --system --pkg_version ${PVR} --pkg_category ${CATEGORY} --path ${D} $PN
+	fi
+	CL_UPDATE_PROG=/usr/sbin/cl-core-setup
+	if [ -e ${CL_UPDATE_PROG} ];then
+		[[ -n $calcver ]] && PARAM="--desktop off --pkg-slot ${SLOT}"
+		${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} $PARAM --pkg-category ${CATEGORY} --pkg-path ${D} --pkg-name ${PN}
+	fi
+}
+
 post_pkg_postinst() {
 	if [ -e "${PORTAGE_BUILDDIR}/.patched" ];then
 		rm -f "${PORTAGE_BUILDDIR}/.patched"
+	fi
+	if [[ -n $calcver ]]
+	then
+		CL_UPDATE_PROG=/usr/sbin/cl-core-setup
+		if [ -e ${CL_UPDATE_PROG} ];then
+			${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path ${D} --pkg-name ${PN}
+		fi
 	fi
 }
 
@@ -193,17 +215,6 @@ if [[ ${EBUILD_PHASE} == setup ]]; then
     fi
 fi
 
-post_pkg_preinst() {
-	CL_UPDATE_PROG=/usr/lib/calculate-2.2/calculate-lib/bin/cl-update-config
-	if [ -e ${CL_UPDATE_PROG} ];then
-		[[ -z ${CONFIG_PROTECT} && -e /etc/profile ]] && source /etc/profile
-		CONFIG_PROTECT=${CONFIG_PROTECT} ${CL_UPDATE_PROG} --desktop --system --pkg_version ${PVR} --pkg_category ${CATEGORY} --path ${D} $PN
-	fi
-	CL_UPDATE_PROG=/usr/sbin/cl-core-setup
-	if [ -e ${CL_UPDATE_PROG} ];then
-		${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-category ${CATEGORY} --pkg-path ${D} --pkg-name ${PN}
-	fi
-}
 # added for calculate2.2
 # FUNC: change_permissions
 # DESC: change permissions for all files and directories into specified

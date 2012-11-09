@@ -1,4 +1,4 @@
-# Calculate exec=/bin/bash path=/tmp pkg(gnome-base/gdm)>3.0
+# Calculate exec=/bin/bash ac_install_disk==off path=/tmp pkg(gnome-base/gdm)>3.0
 
 rm /etc/dconf/db/gdm &>/dev/null
 dconf update &>/dev/null

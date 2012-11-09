@@ -1,22 +1,8 @@
 # Calculate format=openrc path=/etc/default name=grub os_install_root_type!=usb-hdd
-GRUB_DISABLE_RECOVERY=true
-GRUB_DEFAULT=saved
-GRUB_TIMEOUT=2
-!GRUB_TERMINAL=del
 #?pkg(media-gfx/cld-themes)>=12.0_alpha1||pkg(media-gfx/cldx-themes)>=12.0_alpha1||pkg(media-gfx/cldg-themes)>=12.0_alpha1||pkg(media-gfx/cmc-themes)>=12.0_alpha1||pkg(media-gfx/cls-themes)>=12.0_alpha1||pkg(media-gfx/cds-themes)>=12.0_alpha1||pkg(media-gfx/splash-themes-calculate)!=#
 GRUB_CMDLINE_LINUX="video=uvesafb:ywrap,#-os_install_fb_resolution-#,mtrr:3,splash=silent,theme:calculate #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# doscsi#-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# console=tty1 udev quiet"
 #pkg#
-#?pkg(media-gfx/cld-themes)!=&&pkg(media-gfx/cld-themes)<12.0_alpha1||pkg(media-gfx/cldx-themes)!=&&pkg(media-gfx/cldx-themes)<12.0_alpha1||pkg(media-gfx/cldg-themes)!=&&pkg(media-gfx/cldg-themes)<12.0_alpha1||pkg(media-gfx/cmc-themes)!=&&pkg(media-gfx/cmc-themes)<12.0_alpha1||pkg(media-gfx/cls-themes)!=&&pkg(media-gfx/cls-themes)<12.0_alpha1||pkg(media-gfx/cds-themes)!=&&pkg(media-gfx/cds-themes)<12.0_alpha1#
-GRUB_CMDLINE_LINUX="video=uvesafb:ywrap,#-os_install_fb_resolution-#,mtrr:3,splash=silent,theme:tty1 #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# doscsi#-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# console=tty1 udev quiet"
-#pkg#
-#?pkg(media-gfx/cld-themes)==&&pkg(media-gfx/cldx-themes)==&&pkg(media-gfx/cldg-themes)==&&pkg(media-gfx/cmc-themes)==&&pkg(media-gfx/cls-themes)==&&pkg(media-gfx/cds-themes)==&&pkg(media-gfx/splash-themes-calculate)==#
-GRUB_CMDLINE_LINUX="video=uvesafb:ywrap,#-os_install_fb_resolution-#,mtrr:3,splash=off,theme:tty1 #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# doscsi#-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# console=tty1 udev quiet"
-#pkg#
-GRUB_GFXMODE="1024x768"
-GRUB_BACKGROUND="/boot/grub/grub-calculate.png"
-GRUB_COLOR_NORMAL="white/black" 
-GRUB_COLOR_HIGHLIGHT="magenta/black"
-GRUB_VIDEO_BACKEND="vbe"
+
 #?os_install_linux_subname==&&os_install_scratch==off#
 GRUB_DISTRIBUTOR="#-os_install_linux_name-#"
 #os_install_linux_subname#
