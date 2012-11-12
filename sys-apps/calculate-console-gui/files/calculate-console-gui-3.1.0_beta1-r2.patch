@@ -1,0 +1,61 @@
+diff --git consolegui/application/ConnectionTabs.py consolegui/application/ConnectionTabs.py
+index 1ba6fad..1277f8d 100644
+--- consolegui/application/ConnectionTabs.py
++++ consolegui/application/ConnectionTabs.py
+@@ -192,13 +192,12 @@ def parse():
+     import gettext
+     try:
+         set_lang = gettext.locale.getdefaultlocale()[0][:2]
+-        lang = gettext.translation('cl_consolegui3', languages=[set_lang])
++        lang = gettext.translation('cl_consolegui3', languages=[set_lang],fallback=True)
++        try:
++            lang.install(unicode=True)
++        except UnboundLocalError:
++            pass
+     except (IOError, TypeError):
+-        lang = gettext.translation('cl_consolegui3', languages=['en'])
+-
+-    try:
+-        lang.install(unicode=True)
+-    except UnboundLocalError:
+         pass
+ 
+     import argparse
+diff --git consolegui/application/MainClass.py consolegui/application/MainClass.py
+index 1617536..7cd2d7d 100755
+--- consolegui/application/MainClass.py
++++ consolegui/application/MainClass.py
+@@ -112,6 +112,7 @@ class ApiClient(QtGui.QWidget):
+                                            languages=[self.lang])
+             except IOError:
+                 self.lang = 'en'
++                lang = gettext.translation('cl_consolegui3',fallback=True)
+ 
+         try:
+             lang.install(unicode=True)
+diff --git consolegui/application/mainframe.py consolegui/application/mainframe.py
+index 3f2ef87..315cfa3 100755
+--- consolegui/application/mainframe.py
++++ consolegui/application/mainframe.py
+@@ -2302,7 +2302,8 @@ class MainFrame(QtGui.QWidget):
+         self.error_fined = False
+         curError = dict([(str(x.field),x)
+             for x in  self.ClientObj.param_objects[self.method_name]['error']])
+-        for field in self.error_label_dict.keys():
++        errorKeys = self.error_label_dict.keys()
++        for field in errorKeys + filter(lambda x:x not in errorKeys,curError):
+             if field in curError.keys():
+                 error = curError[field]
+                 for step_num in range (len (self.ClientObj.param_objects \
+@@ -2378,8 +2379,9 @@ class MainFrame(QtGui.QWidget):
+                     if self.view_dict.has_key(str(error.field)):
+                         self.highlight_element_error(error.field)
+             else:
+-                self.error_label_dict[field].hide()
+-                self.unhighliht_element_errors(field)
++                if field in self.error_label_dict:
++                    self.error_label_dict[field].hide()
++                    self.unhighliht_element_errors(field)
+ 
+     def unhighliht_element_errors(self,field_name):
+         if type (self.view_dict[field_name]) in [QGroupBox, SelectList]:
