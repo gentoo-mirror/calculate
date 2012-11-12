@@ -1,0 +1,13 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index 1427cfb..625975b 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -4539,7 +4539,7 @@ re.M|re.S)
+         # add packeges for reconfigure
+         if "merge" in objHeadNew.params:
+             mergePkgs = objHeadNew.params['merge'].split(',')
+-            reRight = re.compile(r'^(\w+-\w+/)?[\w-]+$')
++            reRight = re.compile(r'^(\w+-\w+/)?[\w+-]+$')
+             for wrongPkg in (x for x in mergePkgs if not reRight.match(x)):
+                 self.setError(_("Wrong value '%s' for 'merge' in the template")%
+                               wrongPkg + ": " + nameFileTemplate)
