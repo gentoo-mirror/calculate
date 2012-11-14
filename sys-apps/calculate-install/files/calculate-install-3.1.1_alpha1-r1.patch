@@ -1,0 +1,200 @@
+diff --git install/cl_distr.py install/cl_distr.py
+index 0578edb..9dcdcb3 100644
+--- install/cl_distr.py
++++ install/cl_distr.py
+@@ -35,7 +35,7 @@ from calculate.lib.utils.files import (runOsCommand,isMount,removeDir,
+ from calculate.lib.utils.common import getTupleVersion,cmpVersion
+ from calculate.lib.utils.device import (detectDeviceForPartition, 
+                                 getUdevDeviceInfo, countPartitions)
+-from calculate.lib.variables.linux import LinuxDataVars
++from calculate.lib.variables.linux import LinuxDataVars,Linux
+ from calculate.lib.cl_vars_share import varsShare
+ from calculate.lib.cl_template import _terms
+ 
+@@ -283,7 +283,7 @@ class Distributive(object):
+             raise DistributiveError(_("'%s' not found")%"cp")
+         try:
+             joinFrom = partial(path.join,fromdir)
+-            params = [cpCmd,"-a"]+\
++            params = [cpCmd,"-a","-x"]+\
+                      map(joinFrom,
+                      ifilterfalse(byfile or operator.not_,
+                      listDirectory(fromdir)))+\
+@@ -407,17 +407,20 @@ class Distributive(object):
+     def getInfoFromDirectory(self,directory):
+         d = {}
+         if path.lexists(path.join(directory,'lib64')):
+-            d['march'] = 'x86_64'
++            d['os_arch_machine'] = 'x86_64'
+         elif path.lexists(path.join(directory,'lib')):
+-            d['march']= 'i686'
++            d['os_arch_machine']= 'i686'
+         else:
+-            d['march'] = ''
++            d['os_arch_machine'] = ''
+         dv = LinuxDataVars(systemRoot=directory)
+-        d["name"] = dv.Get('os_linux_shortname')
+-        d['ver'] = dv.Get('os_linux_ver')
+-        d['build'] = dv.Get('os_linux_build')
++        d["os_linux_shortname"] = dv.Get('os_linux_shortname')
++        d['os_linux_ver'] = dv.Get('os_linux_ver')
++        d['os_linux_build'] = dv.Get('os_linux_build')
++        d['os_linux_name'] = dv.Get('os_linux_name')
++        d['os_linux_subname'] = dv.Get('os_linux_subname')
++        d['os_linux_system'] = dv.Get('os_linux_system')
+         # make lazy call
+-        d['filesnum'] = partial(dv.Get,'os_linux_files')
++        d['os_linux_files'] = partial(dv.Get,'os_linux_files')
+         return d.copy()
+ 
+     def getInfo(self,filename=None):
+diff --git install/variables/distr.py install/variables/distr.py
+index 916d9c8..2d33198 100644
+--- install/variables/distr.py
++++ install/variables/distr.py
+@@ -40,9 +40,9 @@ class DistroRepository(Linux):
+     extensiton = ['iso','tar.bz2','tar.gz','tar.7z','tar.lzma']
+ 
+     reDistName = re.compile("""
+-                ^.*/(?P<name>%(name)s)
+-                -(?P<ver>%(ver)s)
+-                -(?P<march>%(march)s)
++                ^.*/(?P<os_linux_shortname>%(name)s)
++                -(?P<os_linux_ver>%(ver)s)
++                -(?P<os_arch_machine>%(march)s)
+                 .(?P<ext>%(ext)s)$""" %
+                 {'name':"[a-z0-9]+",
+                  'ver':r"(\d+\.)*\d+",
+@@ -60,11 +60,11 @@ class DistroRepository(Linux):
+             if not match:
+                 return {}
+             distdic = match.groupdict()
+-            distdic["build"] = ""
+-            if "ver" in distdic:
+-                if re.match("^\d{8}$", distdic["ver"]):
+-                    distdic["build"] = distdic["ver"]
+-                    distdic["ver"] = ""
++            distdic["os_linux_build"] = ""
++            if "os_linux_ver" in distdic:
++                if re.match("^\d{8}$", distdic["os_linux_ver"]):
++                    distdic["os_linux_build"] = distdic["os_linux_ver"]
++                    distdic["os_linux_ver"] = ""
+             return distdic
+ 
+     def getImage(self,scratch,rootType,imagePath,march=None,
+@@ -288,20 +288,30 @@ class VariableClImageFilename(Variable,DistroRepository):
+     def check(self,isoimage):
+         """Set image file"""
+         imageData = Distributive().getInfo(isoimage)
+-        if not("name" in imageData and imageData.get('build','') and \
+-            "march" in imageData):
++        if not("os_linux_shortname" in imageData and \
++               imageData.get('os_linux_build','') and \
++            "os_arch_machine" in imageData):
+             raise VariableError(_("Wrong image file"))
+ 
+     def humanImageName(self,distroinfo,filepath):
+-        if all(x in distroinfo for x in ("name","march","build")):
+-            distroinfo['name'] = distroinfo['name'].upper()
+-            fullname = Linux.dictLinuxName.get(distroinfo['name'],"Calculate")
+-            subname = Linux.dictLinuxSubName.get(distroinfo['name'],"")
++        if all(x in distroinfo for x in ("os_linux_shortname",
++                                         "os_arch_machine",
++                                         "os_linux_build")):
++            distroinfo['os_linux_shortname'] = \
++                distroinfo['os_linux_shortname'].upper()
++            fullname = distroinfo.get('os_linux_name',
++                Linux.dictLinuxName.get(
++                    distroinfo['os_linux_shortname'],"Calculate"))
++            subname = distroinfo.get('os_linux_subname',
++                  Linux.dictLinuxSubName.get(
++                    distroinfo['os_linux_shortname'],""))
+             if subname:
+                 subname=" %s"%subname
+-            return "{fullname} {march} {build}".format(
++            vers = distroinfo['os_linux_build'] or \
++                distroinfo.get('os_linux_ver','')
++            return "{fullname} {os_arch_machine} {ver}".format(
+                 fullname="%s%s"%(fullname,subname),filepath=filepath,
+-                **distroinfo)
++                ver=vers,**distroinfo)
+         else:
+             return filepath
+ 
+diff --git install/variables/linux.py install/variables/linux.py
+index 27e1ab2..53d9265 100644
+--- install/variables/linux.py
++++ install/variables/linux.py
+@@ -25,14 +25,14 @@ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_install3',sys.modules[__name__])
+ 
+ class InstallLinux(Linux):
+-    def __getFromImageOrCurrent(self,field,currentVar):
++    def __getFromImageOrCurrent(self,currentVar):
+         """Get value from install image or current system"""
+         if self.Get('cl_action') == 'system':
+             image = self.Get('cl_image')
+             if image:
+                 d = image.getInfo()
+                 # support lazy values
+-                res = d.get(field,"")
++                res = d.get(currentVar,"")
+                 return str(res()) if callable(res) else res
+             else:
+                 return ""
+@@ -46,48 +46,42 @@ class InstallLinux(Linux):
+ 
+     def get(self):
+         """Get by distroinfo or current info"""
+-        return self.__getFromImageOrCurrent(self.distroinfo_field,
+-                                            self.current_variable)
++        return self.__getFromImageOrCurrent(self.current_variable)
+ 
+ class VariableOsInstallLinuxShortname(InstallLinux,ReadonlyVariable):
+     """Shortname of system"""
+     current_variable = "os_linux_shortname"
+-    distroinfo_field = "name"
+ 
+ class VariableOsInstallLinuxVer(InstallLinux,ReadonlyVariable):
+     """Shortname of system"""
+     current_variable = "os_linux_ver"
+-    distroinfo_field = "ver"
+ 
+ class VariableOsInstallLinuxBuild(InstallLinux,ReadonlyVariable):
+     """Shortname of system"""
+     current_variable = "os_linux_build"
+-    distroinfo_field = "build"
+ 
+ class VariableOsInstallArchMachine(InstallLinux,ReadonlyVariable):
+     """Shortname of system"""
+     current_variable = "os_arch_machine"
+-    distroinfo_field = "march"
+ 
+ class VariableOsInstallLinuxFiles(InstallLinux,ReadonlyVariable):
+     """Shortname of system"""
+     current_variable = "os_linux_files"
+-    distroinfo_field = "filesnum"
+ 
+-class VariableOsInstallLinuxName(VariableOsLinuxName):
++class VariableOsInstallLinuxName(InstallLinux,ReadonlyVariable):
+     """
+     Install distro name
+     """
+-    source_variable = "os_install_linux_shortname"
++    current_variable = "os_linux_name"
+ 
+-class VariableOsInstallLinuxSystem(VariableOsLinuxSystem):
++class VariableOsInstallLinuxSystem(InstallLinux,ReadonlyVariable):
+     """
+     Install system name
+     """
+-    source_variable = "os_install_linux_shortname"
++    current_variable = "os_linux_system"
+ 
+-class VariableOsInstallLinuxSubname(VariableOsLinuxSubname):
++class VariableOsInstallLinuxSubname(InstallLinux,ReadonlyVariable):
+     """
+     Install subname
+     """
+-    source_variable = "os_install_linux_shortname"
++    current_variable = "os_linux_subname"

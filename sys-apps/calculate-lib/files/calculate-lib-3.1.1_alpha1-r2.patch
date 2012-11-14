@@ -1,0 +1,488 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index 1427cfb..b66767a 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -835,7 +835,7 @@ class objShare:
+             textNS = textNS[res.start():res.end()-1] + textNS[res.end():]
+         return textNS
+ 
+-    def getConfig(self):
++    def getConfig(self,joinChar=""):
+         """Выдает конфигурационный файл"""
+         listConfigTxt = []
+         childNodes = self.docObj.getNodeBody().childNodes
+@@ -845,7 +845,7 @@ class objShare:
+                     listConfigTxt.append(self.docObj.getQuoteField(node))
+                 elif node.tagName == "area":
+                     self.docObj.xmlToText([node], listConfigTxt)
+-        return "".join(listConfigTxt)
++        return joinChar.join(listConfigTxt)
+ 
+ 
+     def splitToFields(self, txtBloc):
+@@ -1442,28 +1442,31 @@ class xmlDoc:
+                                         areaNode)
+         return True
+ 
+-    def getAreaFields(self, nameArea, xmlArea):
++    def getAreaFields(self, nameArea, xmlArea, allVars=False):
+         """По имени области выводит названия и значения всех переменных
+ 
+         поиск ведется только в 1-х потомках области xmlArea
+         на выход словарь переменных {имя:значение}
+         """
+-        namesAreaComare = xpath.Evaluate(\
++        namesAreaCompareAll = xpath.Evaluate(\
+             "child::area/child::caption[child::name='%s']" %(nameArea),
+                     xmlArea)
+-        if not namesAreaComare:
++        if not namesAreaCompareAll:
+             return False
+-        fields = xpath.Evaluate("child::field/child::name",
+-                                 namesAreaComare[0].parentNode)
+         dictVar = {}
+-        for fieldName in fields:
+-            nodeField = fieldName.parentNode
+-            fieldValue = xpath.Evaluate("child::value",nodeField)
+-            name = fieldName.firstChild.nodeValue
+-            value = ""
+-            if fieldValue and fieldValue[0].firstChild:
+-                value = fieldValue[0].firstChild.nodeValue
+-            dictVar[name] = value
++        for namesAreaCompare in namesAreaCompareAll:
++            fields = xpath.Evaluate("child::field/child::name",
++                                     namesAreaCompare.parentNode)
++            for fieldName in fields:
++                nodeField = fieldName.parentNode
++                fieldValue = xpath.Evaluate("child::value",nodeField)
++                name = fieldName.firstChild.nodeValue
++                value = ""
++                if fieldValue and fieldValue[0].firstChild:
++                    value = fieldValue[0].firstChild.nodeValue
++                dictVar[name] = value
++            if not allVars:
++                break
+         return dictVar
+ 
+     def getAreaFieldValues(self, nameArea, nameField, xmlArea):
+@@ -1599,7 +1602,6 @@ class xmlDoc:
+                     self.joinArea(bn, na)
+         return True
+ 
+-
+     def joinDoc(self, xmlNewDoc):
+         """Объединяет два документа"""
+         newRootNode = xmlNewDoc.documentElement
+@@ -4539,7 +4541,7 @@ re.M|re.S)
+         # add packeges for reconfigure
+         if "merge" in objHeadNew.params:
+             mergePkgs = objHeadNew.params['merge'].split(',')
+-            reRight = re.compile(r'^(\w+-\w+/)?[\w-]+$')
++            reRight = re.compile(r'^(\w+-\w+/)?[\w+-]+$')
+             for wrongPkg in (x for x in mergePkgs if not reRight.match(x)):
+                 self.setError(_("Wrong value '%s' for 'merge' in the template")%
+                               wrongPkg + ": " + nameFileTemplate)
+@@ -5459,7 +5461,7 @@ class iniParser(_error, templateFormat):
+     """Класс для работы с ini файлами
+ 
+     """
+-    def __init__(self, iniFile):
++    def __init__(self, iniFile=None,text=None):
+         # название ini файла
+         self.iniFile = iniFile
+         # права создаваемого ini-файла
+@@ -5468,12 +5470,23 @@ class iniParser(_error, templateFormat):
+         self.checkIni = None
+         self.FD = None
+         self.readOnly = False
++        self.text = text
++
++    def joinText(self, iniObj, xmlNewDoc):
++        """Объединяет два документа"""
++        newRootNode = xmlNewDoc.documentElement
++        newBodyNode = xpath.Evaluate('child::body',newRootNode)[0]
++        newImportBodyNode = iniObj.doc.importNode(newBodyNode, True)
++        iniObj.docObj.joinBody(iniObj.docObj.body, newImportBodyNode)
++        #iniObj.docObj.insertBRtoBody(iniObj.docObj.body)
+ 
+     def setMode(self, mode):
+         """установка прав создаваемого ini-файла"""
+         self.mode = mode
+ 
+     def openIniFile(self):
++        if not self.text is None:
++            return self.text
+         if not os.access(self.iniFile, os.R_OK):
+             return ""
+         self.FD = open(self.iniFile, "r")
+@@ -5723,7 +5736,7 @@ class iniParser(_error, templateFormat):
+             if formatPlasma:
+                 strHeader = strHeader[-1]
+             # если находим область то выдаем словарем все переменные иначе False
+-            res = objIni.docObj.getAreaFields(strHeader, xmlBody)
++            res = objIni.docObj.getAreaFields(strHeader, xmlBody, allVars=True)
+         else:
+             res = False
+         if res is False:
+diff --git calculate/lib/datavars.py calculate/lib/datavars.py
+index ae1e4e8..f5144c3 100644
+--- calculate/lib/datavars.py
++++ calculate/lib/datavars.py
+@@ -18,7 +18,8 @@ import re
+ import sys
+ import importlib
+ from utils.text import convertStrListDict, _toUNICODE, formatListOr
+-from utils.files import pathJoin
++from utils.files import pathJoin,readFile
++from utils.portage import searchProfile
+ from os import path
+ import os
+ from collections import OrderedDict
+@@ -122,13 +123,13 @@ class Variable:
+         Initialize instance
+         """
+         self.modeGet = Variable.NONE
+-        self.invalid = self.value is None
+         self.wasSet = False     # variable is user or ini set
+         self.reqVars = []       # varaibles which used this value for fill
+         self.reqCheck = []      # variables which used this value for check
+         self.reqUncompat = []   # varaibles which used for uncompat
+         self.variableType = type
+         self.parent = parent
++        self.invalid = True # self.value is None or self.name in self.parent.iniCache
+         self.name = self.getVariableName()
+         self.processInvalidate = False
+         self.init()
+@@ -237,6 +238,25 @@ class Variable:
+         else:
+             return self._get()
+ 
++    def iniread(self):
++        """
++        Read from ini file
++        """
++        value = self.parent.iniCache[self.name]['value']
++        section = self.parent.iniCache[self.name]['section']
++        value = self.parent.unserialize(self.type,
++                                 value.encode('utf-8'))
++        try:
++            if self.mode == READONLY:
++                raise VariableError(
++                    _("Attempt to rewrite a readonly variable %s")%
++                    varname)
++            else:
++                self._set(value)
++        except Exception as e:
++            return False
++        return True
++
+     def _get(self):
+         """
+         Standard inner method for getting value of variable.
+@@ -244,12 +264,16 @@ class Variable:
+         # variable need refill
+         if self.invalid:
+             # get net value
+-            try:
+-                oldModeGet = self.modeGet
+-                self.modeGet = Variable.NONE
+-                value = self.get()
+-            finally:
+-                self.modeGet = oldModeGet
++            if self.name in self.parent.iniCache and \
++                self.iniread():
++                return self.value
++            else:
++                try:
++                    oldModeGet = self.modeGet
++                    self.modeGet = Variable.NONE
++                    value = self.get()
++                finally:
++                    self.modeGet = oldModeGet
+             # if value not equal previous value
+             if value != self.value:
+                 # invalidate depended variables
+@@ -717,14 +741,48 @@ class SimpleDataVars:
+         Read variable values from ini files.
+         Return False if ini file is invalid.
+         """
+-        config = cl_template.iniParser(iniFile)
++        if path.isdir(iniFile):
++            config = cl_template.iniParser(
++                text=reduce(lambda x,y:x+readFile(y),
++                searchProfile(iniFile,'calculate.env'),""))
++        else:
++            config = cl_template.iniParser(iniFile)
+         for varname in self.allVars.keys():
+             if not varname in self.cache:
+-                val = config.getVar('main',varname)
++                val = self.unserialize("string",config.getVar('main',varname))
+                 if val:
+                     self.cache[varname] = val.encode('utf-8')
+ 
+-class DataVars:
++    def serialize(self,varType,value):
++        """
++        Serialize to string for ini file
++        """
++        fixEmpty = lambda x: str(x) or "''"
++        fixSpace = lambda x: "'%s'"%str(x) if " " in str(x) else str(x)
++        isListOrTuple = lambda x: type(x) in (list,tuple)
++        if isListOrTuple(value):
++            if "list" in varType:
++                return ",".join(map(fixEmpty,value))
++            elif "table" in varType:
++                return ";".join(map(lambda x:",".join(map(fixEmpty,x)),
++                                value))
++        return fixEmpty(value)
++
++    def unserialize(self,varType,value):
++        """
++        Unserialize form string for varname
++        """
++        fixEmpty = lambda x:"" if x=="''" else x
++        def getList(val):
++            return map(fixEmpty,value.split(','))
++        if "list" in varType:
++            return getList(value)
++        if "table" in varType:
++            return map(getList,value.split(';'))
++        return fixEmpty(value).strip("'")
++
++
++class DataVars(SimpleDataVars):
+     """
+     Class contains variables, perform creating variable objects by
+     class variable describer and variable filler.
+@@ -755,6 +813,7 @@ class DataVars:
+         self.filledVars = {}
+         self.defaultModule = "main"
+         self.importedModules = []
++        self.iniCache = {}
+ 
+     def isModuleInstalled(self,module):
+         try:
+@@ -910,48 +969,39 @@ class DataVars:
+         Read variable values from ini files.
+         Return False if ini file is invalid.
+         """
+-        calculateIniFiles = self.Get('main.cl_env_data')
+-        # get initialized section names
+-        sections = set(map(lambda x:unicode(x[0]),self.allVars.values()))
+-        res = True
+-        for iniName,iniFile in calculateIniFiles:
+-            if path.exists(iniFile):
+-                config = cl_template.iniParser(iniFile)
+-                iniSections = config.getAllSectionNames()
+-                if not iniSections:
+-                    continue
+-                iniSections = tuple(set(iniSections)&sections)
+-                if onlySection:
+-                    iniSections = tuple(set(iniSections)&
+-                                        set([unicode(onlySection)]))
+-                for section in iniSections:
+-                    if section == "client" and iniName == "remote":
++        if not self.iniCache:
++            # get initialized section names
++            if os.path.exists('/etc/make.profile'):
++                profiles = [('profile',
++                            path.join('/etc',os.readlink('/etc/make.profile')))]
++            else:
++                profiles = []
++            for iniName,iniFile in profiles+\
++                                    self.Get('main.cl_env_data'):
++                if path.exists(iniFile) or iniName == 'profile':
++                    if iniName == 'profile':
++                        config = cl_template.iniParser(
++                            text=reduce(lambda x,y:x+readFile(y),
++                            searchProfile(iniFile,'calculate.env'),""))
++                    else:
++                        config = cl_template.iniParser(iniFile)
++                    iniSections = config.getAllSectionNames()
++                    if not iniSections:
+                         continue
+-                    importVars = config.getAreaVars(section)
+-                    if self.allVars == False:
+-                        return False
+-                    for key,value in importVars.items():
+-                        try:
+-                            key = _toUNICODE(key)
+-                            origkey = key.encode('utf-8')
+-                            value = convertStrListDict(_toUNICODE(value))
+-                            if not key in self.loadVariables:
+-                                self.loadVariable(origkey)#,onlySection=section)
+-                            varObj = self.loadVariables[origkey]
+-                            value = self.unserialize(varObj.type,
+-                                                     value.encode('utf-8'))
+-                            self.Set(origkey,value)
+-                            self.filledVars[origkey] = iniName
+-                        except Exception as e:
+-                            res = False
+-                            if raiseOnError:
+-                                raise
+-                            else:
+-                                sys.stdout.write(
+-                                    _("Error reading the ini file: "))
+-                                sys.stdout.write(str(e)+"\n")
+-                                sys.stdout.flush()
+-        return res
++                    if onlySection:
++                        iniSections = tuple(set(iniSections)&
++                                            set([unicode(onlySection)]))
++                    for section in iniSections:
++                        importVars = config.getAreaVars(section)
++                        if self.allVars == False:
++                            continue
++                        for key,value in importVars.items():
++                            key = _toUNICODE(key).encode('utf-8')
++                            self.iniCache[key] = {'value':value,
++                                              'section':section}
++                            if iniName != "profile":
++                                self.filledVars[key] = iniName
++        return True
+ 
+     def Get(self,varname,humanreadable=False):
+         """Threading safety Get"""
+@@ -1464,31 +1514,3 @@ class DataVars:
+         for i in sorted(filter(filt,self.allVars.keys())):
+             if self.getInfo(i).untrusted:
+                 print "{0:<40} {1}".format(i,self.Get(i,True))
+-
+-    def serialize(self,varType,value):
+-        """
+-        Serialize to string for ini file
+-        """
+-        fixEmpty = lambda x: str(x) or "''"
+-        isListOrTuple = lambda x: type(x) in (list,tuple)
+-        if isListOrTuple(value):
+-            if "list" in varType:
+-                return ",".join(map(fixEmpty,value))
+-            elif "table" in varType:
+-                return ";".join(map(lambda x:",".join(map(fixEmpty,x)),
+-                                value))
+-        return fixEmpty(value)
+-
+-    def unserialize(self,varType,value):
+-        """
+-        Unserialize form string for varname
+-        """
+-        fixEmpty = lambda x:"" if x=="''" else x
+-        def getList(val):
+-            return map(fixEmpty,value.split(','))
+-        if "list" in varType:
+-            return getList(value)
+-        if "table" in varType:
+-            return map(getList,value.split(';'))
+-        return fixEmpty(value)
+-
+diff --git calculate/lib/utils/portage.py calculate/lib/utils/portage.py
+index 11d46a0..5f0c359 100644
+--- calculate/lib/utils/portage.py
++++ calculate/lib/utils/portage.py
+@@ -114,3 +114,17 @@ def getSquashList():
+                 usesSquashFs.append('gzip')
+         return map(lambda x:{"lzma":"xz"}.get(x,x),
+                list(set(usesSquashFs) & wantMethod))
++
++def searchProfile(dirpath,configname):
++    """Search profile"""
++    paths = []
++    def search(dirpath):
++        parentpath = path.join(dirpath,"parent")
++        if path.exists(parentpath):
++            for line in open(parentpath,'r'):
++                search(path.join(dirpath,line.strip()))
++        fullconfig = path.join(dirpath,configname)
++        if path.exists(fullconfig):
++            paths.append(fullconfig)
++    search(dirpath)
++    return paths
+diff --git calculate/lib/variables/env.py calculate/lib/variables/env.py
+index a8b2f4c..44da0c3 100644
+--- calculate/lib/variables/env.py
++++ calculate/lib/variables/env.py
+@@ -27,8 +27,8 @@ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_lib3',sys.modules[__name__])
+ 
+ _envData = [('system', '/etc/calculate/calculate.env'),
+-             ('local', '/var/calculate/calculate.env'),
+-             ('remote', '/var/calculate/remote/calculate.env')]
++            ('local', '/var/calculate/calculate.env'),
++            ('remote', '/var/calculate/remote/calculate.env')]
+ 
+ class VariableClEnvData(TableVariable):
+     """
+diff --git calculate/lib/variables/linux.py calculate/lib/variables/linux.py
+index 0144d0b..c5691ac 100644
+--- calculate/lib/variables/linux.py
++++ calculate/lib/variables/linux.py
+@@ -141,7 +141,7 @@ class Linux:
+         if reVer:
+             return reVer.group()
+ 
+-class VariableOsLinuxShortname(ReadonlyVariable,Linux):
++class VariableOsLinuxShortname(Variable,Linux):
+     """
+     Short system name (Example:CLD)
+     """
+@@ -153,7 +153,7 @@ class VariableOsLinuxShortname(ReadonlyVariable,Linux):
+                self.detectOtherShortname(self.systemRoot) or \
+                "Linux"
+ 
+-class VariableOsLinuxName(ReadonlyVariable,Linux):
++class VariableOsLinuxName(Variable,Linux):
+     """
+     Full system name
+     """
+@@ -163,7 +163,7 @@ class VariableOsLinuxName(ReadonlyVariable,Linux):
+         linuxShortName = self.Get(self.source_variable)
+         return self.dictLinuxName.get(linuxShortName,"Linux")
+ 
+-class VariableOsLinuxSubname(ReadonlyVariable,Linux):
++class VariableOsLinuxSubname(Variable,Linux):
+     """
+     Subname of linux (KDE, GNOME, XFCE and etc)
+     """
+@@ -173,7 +173,7 @@ class VariableOsLinuxSubname(ReadonlyVariable,Linux):
+         linuxShortName = self.Get(self.source_variable)
+         return self.dictLinuxSubName.get(linuxShortName,"")
+ 
+-class VariableOsLinuxSystem(ReadonlyVariable,Linux):
++class VariableOsLinuxSystem(Variable,Linux):
+     """
+     System of linux (desktop or server)
+     """
+@@ -183,7 +183,7 @@ class VariableOsLinuxSystem(ReadonlyVariable,Linux):
+         shortName = self.Get(self.source_variable)
+         return self.dictNameSystem.get(shortName,"")
+ 
+-class VariableOsLinuxVer(ReadonlyVariable,Linux):
++class VariableOsLinuxVer(Variable,Linux):
+     """
+     Version of system (get by metapackage,calculate.ini,gentoo files or 0)
+     """
+@@ -230,15 +230,19 @@ class LinuxDataVars(SimpleDataVars):
+     def __init__(self,systemRoot="/"):
+         SimpleDataVars.__init__(self,
+             VariableOsLinuxShortname(systemRoot=systemRoot),
+-            VariableOsLinuxName(),
+-            VariableOsLinuxSubname(),
++            VariableOsLinuxName(systemRoot=systemRoot),
++            VariableOsLinuxSubname(systemRoot=systemRoot),
+             VariableOsLinuxFilesnum(systemRoot=systemRoot),
+             VariableOsLinuxFiles(systemRoot=systemRoot),
+-            VariableOsLinuxSystem(),
++            VariableOsLinuxSystem(systemRoot=systemRoot),
+             VariableOsLinuxVer(systemRoot=systemRoot),
+             VariableOsLinuxBuild(systemRoot=systemRoot))
+-        iniFile = "etc/calculate/calculate.env"
+-        self.flIniFileFrom(path.join(systemRoot,iniFile))
++        makeprofile = path.join(systemRoot,'etc/make.profile')
++        if os.path.exists(makeprofile):
++            inifile = path.join('/etc',os.readlink('/etc/make.profile'))
++            self.flIniFileFrom(makeprofile)
++        inifile = "etc/calculate/calculate.env"
++        self.flIniFileFrom(path.join(systemRoot,inifile))
+         iniFile = "etc/calculate/calculate3.env"
+         self.flIniFileFrom(path.join(systemRoot,iniFile))
+         iniFile = "etc/calculate/calculate2.env"
