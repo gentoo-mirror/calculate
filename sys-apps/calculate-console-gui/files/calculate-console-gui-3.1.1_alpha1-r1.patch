@@ -1,0 +1,24 @@
+diff --git consolegui/application/MainFrameResult.py consolegui/application/MainFrameResult.py
+index 2a97aee..2ab8392 100755
+--- consolegui/application/MainFrameResult.py
++++ consolegui/application/MainFrameResult.py
+@@ -784,14 +784,16 @@ class MessageDialog(QtGui.QWidget):
+         if isPassword:
+             self.pass_edit.setEchoMode(self.pass_edit.Password)
+             if item.id == 2:        
+-                self.pass_edit2 = QtGui.QLineEdit(self)
+-                self.pass_edit2.setEchoMode(self.pass_edit2.Password)
++                if hasattr(self,'pass_edit2'):
++                    self.pass_edit2 = QtGui.QLineEdit(self)
++                    self.pass_edit2.setEchoMode(self.pass_edit2.Password)
+                 
+                 self.layout.addWidget(LabelWordWrap(_('Repeat'), self), x, 0)
+                 self.layout.addWidget(self.pass_edit2, x, 1)
+                 x += 1
+                 self.pass_edit.textChanged.connect(self.check_passwd)
+-                self.pass_edit2.textChanged.connect(self.check_passwd)
++                if hasattr(self,'pass_edit2'):
++                    self.pass_edit2.textChanged.connect(self.check_passwd)
+ 
+         self.send_button = QtGui.QPushButton(_('Send'), self)
+         self.send_button.setShortcut(QtGui.QKeySequence(QtCore.Qt.Key_Return))
