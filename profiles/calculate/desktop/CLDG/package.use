@@ -44,3 +44,7 @@ dev-libs/folks eds
 
 #discard flash integration
 media-video/totem -flash
+
+#required by media-sound/pulseaudio-2.1-r1[alsa]
+media-plugins/alsa-plugins pulseaudio
+
