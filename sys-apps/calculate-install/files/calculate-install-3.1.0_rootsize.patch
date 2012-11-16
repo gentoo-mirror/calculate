@@ -1,0 +1,14 @@
+diff --git a/install/variables/disk.py b/install/variables/disk.py
+index 6aa1b02..9856204 100644
+--- a/install/variables/disk.py
++++ b/install/variables/disk.py
+@@ -782,7 +782,8 @@ class VariableOsLocationDest(LocationHelper,Variable):
+         ################################
+         # check size for root device
+         ################################
+-        if self.Get('os_install_root_type') != "flash":
++        if self.Get('os_install_root_type') != "flash" and \
++            not "/usr" in values:
+             for mp,size in filter(lambda x:x[0]=='/' and x[1].isdigit() and \
+                                            int(x[1])<7*1024*1024*1024,
+                                izip(value,
