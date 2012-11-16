@@ -8,7 +8,7 @@ index 6aa1b02..9856204 100644
          ################################
 -        if self.Get('os_install_root_type') != "flash":
 +        if self.Get('os_install_root_type') != "flash" and \
-+            not "/usr" in values:
++            not "/usr" in value:
              for mp,size in filter(lambda x:x[0]=='/' and x[1].isdigit() and \
                                             int(x[1])<7*1024*1024*1024,
                                 izip(value,
