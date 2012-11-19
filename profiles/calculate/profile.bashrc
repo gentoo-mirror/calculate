@@ -161,9 +161,9 @@ post_pkg_preinst() {
 		CONFIG_PROTECT=${CONFIG_PROTECT} ${CL_UPDATE_PROG} --desktop --system --pkg_version ${PVR} --pkg_category ${CATEGORY} --path ${D} $PN
 	fi
 	CL_UPDATE_PROG=/usr/sbin/cl-core-setup
-	if [ -e ${CL_UPDATE_PROG} ];then
-		[[ -n $calcver ]] && PARAM="--desktop off --pkg-slot ${SLOT}"
-		${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} $PARAM --pkg-category ${CATEGORY} --pkg-path ${D} --pkg-name ${PN}
+	if [ -e ${CL_UPDATE_PROG} ] && [[ -z $calcver ]]
+	then
+		${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-category ${CATEGORY} --pkg-path ${D} --pkg-name ${PN}
 	fi
 }
 
@@ -275,3 +275,28 @@ else
     }
 fi
 
+# prerm functions
+if [[ $EBUILD_PHASE == "preinst" ]]
+then
+	if [[ `cat /var/db/pkg/$CATEGORY/$PN-$REPLACING_VERSIONS/EAPI 2>/dev/null` -lt 4 ]]
+	then
+		[[ ! -d /var/lib/calculate ]] && mkdir /var/lib/calculate
+		touch /var/lib/calculate/-merge-$PN-$SLOT-$PPID
+	fi
+fi
+
+if [[ $EBUILD_PHASE == "prerm" ]]
+then
+	if [[ $EAPI -ge 4 ]] && [[ -z $REPLACED_BY_VERSION ]] ||
+		[[ $EAPI -lt 4 ]] && [[ ! -f /var/lib/calculate/-merge-$PN-$SLOT-$PPID ]]
+	then
+		if [[ -n $calcver ]]
+		then
+			CL_UPDATE_PROG=/usr/sbin/cl-core-setup
+			if [ -e ${CL_UPDATE_PROG} ];then
+				${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path / --pkg-name ${PN}
+			fi
+		fi
+	fi
+	rm -f /var/lib/calculate/-merge-$PN-*
+fi
