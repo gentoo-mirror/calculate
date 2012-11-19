@@ -1,3 +1,4 @@
 # Calculate exec=/bin/bash ac_install_disk==off path=/tmp name=icons-update.sh
 
+echo "Updating icon cache"
 for i in /usr/share/icons/*;do  gtk-update-icon-cache -ft $i &>/dev/null; done
