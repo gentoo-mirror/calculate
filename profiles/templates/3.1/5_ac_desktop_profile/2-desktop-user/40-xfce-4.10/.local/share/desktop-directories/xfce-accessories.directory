@@ -1,6 +1,9 @@
 # Calculate format=kde link=/usr/share/desktop-directories/xfce-accessories.directory mirror
 
 [Desktop Entry]
+#?pkg(x11-themes/elementary-icon-theme)!=&&pkg(x11-themes/calculate-icon-theme)>=13#
+Icon=applications-utilities
+#pkg#
 Name=Utilities
 Name[de]=Dienstprogramme
 Name[es]=Utilidades
