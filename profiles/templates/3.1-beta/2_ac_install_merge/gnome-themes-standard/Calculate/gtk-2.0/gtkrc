@@ -14,7 +14,7 @@ style "panel"
     #background of the active element
     bg[ACTIVE]        = "#333333"
     #background and stroke
-    bg[NORMAL]        = "#444444"
+    bg[NORMAL]        = "#000000"
     #background under the mouse
     bg[PRELIGHT]      = "#333333"
     #light window switch desktops
@@ -22,24 +22,24 @@ style "panel"
 
     xthickness = 1
     ythickness = 1
+}
 
-#    engine "xfce" 
-#    {
-#        smooth_edge = true
-#        boxfill
-#        {
-#            fill_style = gradient
-#       orientation = auto
-#            shade_start = 1.0
-#            shade_end = 0.95
-#        }
-#    }
-
+style "workspace-switcher" = "panel"
+{
+    #background of the active element
+    bg[ACTIVE]        = "#333333"
+    #background and stroke
+    bg[NORMAL]        = "#444444"
+    #background under the mouse
+    bg[PRELIGHT]      = "#333333"
+    #light window switch desktops
+    bg[SELECTED]      = "#aaaaaa"
 }
 
 widget_class "*Panel*"      style "panel"
 widget "*Panel*"            style "panel"
 class "*Panel*"             style "panel"
+widget "*WnckPager*"        style "workspace-switcher"
 
 style "xfdesktop-icon-view" {
     XfdesktopIconView::label-alpha = 0
