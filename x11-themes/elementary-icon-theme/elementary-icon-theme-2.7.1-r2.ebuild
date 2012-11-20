@@ -38,10 +38,10 @@ src_install() {
 	dosym applications-other.svg $ICON_PATH/applications-office.svg
 	dosym applications-painting.svg $ICON_PATH/applications-graphics.svg
 	dosym applications-utilities.svg $ICON_PATH/applications-accessories.svg
-	dosym applications-games.svg $ICON_PATH/applications-cardgames.svg
-	dosym preferences-desktop-peripherals.svg $ICON_PATH/applications-electronics.svg
-	dosym preferences-desktop-personal.svg $ICON_PATH/applications-profiling.svg
-	dosym preferences-desktop-screensaver.svg $ICON_PATH/applications-viewers.svg
+	dosym applications-cardgames.svg $ICON_PATH/applications-games.svg
+	dosym applications-electronics.svg $ICON_PATH/preferences-desktop-peripherals.svg
+	dosym applications-profiling.svg $ICON_PATH/preferences-desktop-personal.svg
+	dosym applications-viewers.svg $ICON_PATH/preferences-desktop-screensaver.svg
 
 	insinto /usr/share/icons
 	doins -r elementary
