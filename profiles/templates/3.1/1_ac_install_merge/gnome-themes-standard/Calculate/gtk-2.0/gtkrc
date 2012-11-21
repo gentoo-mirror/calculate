@@ -81,3 +81,18 @@ style "xfce-panel-window-style"
     XfcePanelWindow::autohide-size = 1
 }
 class "XfcePanelWindow" style "xfce-panel-window-style"
+
+style "tooltips"
+{
+    xthickness = 7
+    ythickness = 4
+
+    GtkWidget::new-tooltip-style = 1
+
+    bg[NORMAL]  = "#333333"
+    bg[SELECTED]    = "#333333"
+    fg[NORMAL]  = "#eeeeee"
+
+}
+
+widget "*tooltip*" style:highest "tooltips"
