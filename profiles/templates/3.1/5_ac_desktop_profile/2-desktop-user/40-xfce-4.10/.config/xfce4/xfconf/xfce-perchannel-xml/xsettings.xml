@@ -3,7 +3,12 @@
 
 <channel name="xsettings" version="1.0">
   <property name="Net" type="empty">
+#?main.os_linux_ver>=13#
+    <property name="ThemeName" type="string" value="Calculate"/>
+#main.os_linux_ver#
+#?main.os_linux_ver<13#
     <property name="ThemeName" type="string" value="Adwaita"/>
+#main.os_linux_ver#
     <property name="IconThemeName" type="string" value="Calculate"/>
     <property name="DoubleClickTime" type="int" value="600"/>
   </property>
