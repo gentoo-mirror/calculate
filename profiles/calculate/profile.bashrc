@@ -167,7 +167,7 @@ post_pkg_preinst() {
 	fi
 }
 
-post_pkg_postinst() {
+pre_pkg_postinst() {
 	if [ -e "${PORTAGE_BUILDDIR}/.patched" ];then
 		rm -f "${PORTAGE_BUILDDIR}/.patched"
 	fi
