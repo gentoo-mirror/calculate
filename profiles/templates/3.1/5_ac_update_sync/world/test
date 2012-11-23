@@ -1,0 +1,7 @@
+# Calculate name=world format=world ini(world.ver)<2
+
+#?pkg(www-client/chromium)!=&&in(os_linux_shortname,CLDX,CLD)!=#
+!www-client/chromium
+www-client/firefox
+#pkg#
+
