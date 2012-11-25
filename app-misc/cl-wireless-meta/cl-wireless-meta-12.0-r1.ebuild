@@ -30,7 +30,6 @@ RDEPEND="${RDEPEND}
 	net-wireless/broadcom-sta
 	net-wireless/ipw2100-firmware
 	net-wireless/ipw2200-firmware
-	net-wireless/linux-wlan-ng-firmware
 	net-wireless/madwifi-ng
 	net-wireless/madwifi-ng-tools
 	net-wireless/prism54-firmware

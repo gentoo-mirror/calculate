@@ -88,3 +88,7 @@ x11-drivers/xf86-video-intel sna
 x11-drivers/nvidia-drivers -gtk
 
 x11-drivers/ati-drivers disable-watermark
+
+#required by sys-fs/udisks-1.0.4-r2
+virtual/udev gudev hwdb
+

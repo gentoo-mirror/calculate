@@ -31,7 +31,6 @@ RDEPEND="
 		net-misc/ntp
 		net-misc/vconfig
 		networkmanager? (
-			net-misc/cnetworkmanager
 			net-misc/networkmanager
 			net-misc/networkmanager-openvpn
 			net-misc/networkmanager-pptp
