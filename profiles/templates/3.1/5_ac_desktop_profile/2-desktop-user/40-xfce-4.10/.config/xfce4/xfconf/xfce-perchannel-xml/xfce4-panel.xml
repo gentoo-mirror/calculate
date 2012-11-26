@@ -136,14 +136,20 @@
     <property name="plugin-20" type="string" value="directorymenu">
       <property name="base-directory" type="string" value="/home/#-ur_login-#"/>
       <property name="icon-name" type="string" value="folder_home"/>
+      <property name="hidden-files" type="bool" value="false"/>
+      <property name="file-pattern" type="string" value="*"/>
     </property>
     <property name="plugin-21" type="string" value="directorymenu">
       <property name="base-directory" type="string" value="/home/#-ur_login-#/Home"/>
       <property name="icon-name" type="string" value="folder_home"/>
+      <property name="hidden-files" type="bool" value="false"/>
+      <property name="file-pattern" type="string" value="*"/>
     </property>
     <property name="plugin-22" type="string" value="directorymenu">
       <property name="base-directory" type="string" value="/home/#-ur_login-#/Share"/>
       <property name="icon-name" type="string" value="gnome-fs-share"/>
+      <property name="hidden-files" type="bool" value="false"/>
+      <property name="file-pattern" type="string" value="*"/>
     </property>
     <property name="plugin-23" type="string" value="directorymenu">
       <property name="base-directory" type="string" value="/home/#-ur_login-#/FTP"/>
@@ -153,6 +159,8 @@
 #?pkg(x11-themes/elementary-icon-theme)==#
       <property name="icon-name" type="string" value="zen-icon"/>
 #pkg#
+      <property name="hidden-files" type="bool" value="false"/>
+      <property name="file-pattern" type="string" value="*"/>
     </property>
     <property name="plugin-30" type="string" value="launcher">
       <property name="items" type="array">

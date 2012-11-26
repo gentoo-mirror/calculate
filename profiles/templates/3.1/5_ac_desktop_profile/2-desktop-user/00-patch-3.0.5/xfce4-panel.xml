@@ -1,0 +1,23 @@
+# Calculate ini(ver.xfce)!= path=~/.config/xfce4/xfconf/xfce-perchannel-xml format=xml_xfce
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="plugins" type="empty">
+    <property name="plugin-20" type="string" value="directorymenu">
+      <property name="hidden-files" type="bool" value="false"/>
+      <property name="file-pattern" type="string" value="*"/>
+    </property>
+    <property name="plugin-21" type="string" value="directorymenu">
+      <property name="hidden-files" type="bool" value="false"/>
+      <property name="file-pattern" type="string" value="*"/>
+    </property>
+    <property name="plugin-22" type="string" value="directorymenu">
+      <property name="hidden-files" type="bool" value="false"/>
+      <property name="file-pattern" type="string" value="*"/>
+    </property>
+    <property name="plugin-23" type="string" value="directorymenu">
+      <property name="hidden-files" type="bool" value="false"/>
+      <property name="file-pattern" type="string" value="*"/>
+    </property>
+  </property>
+</channel>
