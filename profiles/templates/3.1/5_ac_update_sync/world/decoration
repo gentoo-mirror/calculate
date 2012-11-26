@@ -1,0 +1,30 @@
+# Calculate name=world format=world
+
+media-gfx/grub-splashes-calculate
+media-gfx/syslinux-themes-calculate
+
+#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC, CLS, CDS)#
+media-gfx/splash-themes-calculate
+media-gfx/splashutils
+#in#
+
+#?in(os_linux_shortname, CLD, CLDG, CLDX, CLS)#
+media-gfx/calculate-wallpapers
+#in#
+
+#?in(os_linux_shortname, CLD, CLDG, CLDX)#
+media-gfx/dm-themes-calculate
+x11-themes/calculate-icon-theme
+x11-themes/calculate-xcursors
+#in#
+
+#?in(os_linux_shortname, CLD)#
+media-gfx/kdm-themes-calculate
+#in#
+
+#?in(os_linux_shortname, CLDX)#
+media-gfx/lxdm-themes-calculate
+x11-themes/gnome-themes-extras
+#in#
+
+

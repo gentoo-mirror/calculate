@@ -1,27 +1,23 @@
 # Calculate name=world format=world
 
-#-pkgw(app-editors/nano)-#
-#-pkgw(app-portage/eix)-#
-#-pkgw(app-portage/gentoolkit)-#
-#-pkgw(app-portage/layman)-#
-#-pkgw(dev-vcs/git)-#
-#-pkgw(media-fonts/terminus-font)-#
-#-pkgw(sys-apps/calculate-utilities:0)-#
-#-pkgw(sys-apps/calculate-utilities:3)-#
-#-pkgw(sys-apps/ifplugd)-#
-#-pkgw(sys-apps/less)-#
-#-pkgw(sys-apps/openrc)-#
-#-pkgw(sys-apps/v86d)-#
-#-pkgw(sys-boot/calcboot)-#
-#-pkgw(boot/grub-1.99:2)-#
-#-pkgw(sys-boot/os-prober)-#
-#-pkgw(sys-fs/btrfs-progs)-#
-#-pkgw(sys-fs/nilfs-utils)-#
-#-pkgw(sys-fs/reiserfsprogs)-#
-#-pkgw(sys-kernel/calckernel)-#
-
-#?os_linux_shortname==CLDX#
-#-pkgw(dev-python/gst-python)-#
-#-pkgw(lxde-base/lxdm)-#
-#os_linux_shortname#
+app-editors/nano
+app-portage/eix
+app-portage/gentoolkit
+app-portage/layman
+dev-vcs/git
+media-fonts/terminus-font
+sys-apps/calculate-utilities:0
+sys-apps/calculate-utilities:3
+sys-apps/ifplugd
+sys-apps/less
+sys-apps/openrc
+sys-apps/v86d
+sys-boot/calcboot
+boot/grub-1.99:2
+sys-boot/os-prober
+sys-fs/btrfs-progs
+sys-fs/nilfs-utils
+sys-fs/reiserfsprogs
+sys-kernel/calckernel
+sys-kernel/calculate-sources
 
