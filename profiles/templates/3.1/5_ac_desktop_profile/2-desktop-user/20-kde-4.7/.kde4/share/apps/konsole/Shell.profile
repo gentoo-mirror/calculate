@@ -1,7 +1,7 @@
 # Calculate format=kde
 [Appearance]
 #тема
-ColorScheme=DarkPastels
+ColorScheme=Calculate
 
 [General]
 #формат заголовка вкладки (заголовок окна устанавливается оболочкой)
