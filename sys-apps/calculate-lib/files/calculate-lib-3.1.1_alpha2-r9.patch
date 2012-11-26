@@ -1,0 +1,225 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index 24ad307..223266a 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -40,7 +40,7 @@ from utils.text import  _toUNICODE, convertStrListDict
+ from utils.portage import  isPkgInstalled
+ from utils.content import PkgContents
+ from utils.files import (getModeFile, removeDir, typeFile, scanDirectory,
+-                        pathJoin,process,STDOUT)
++                        pathJoin,readFile,process,STDOUT)
+ from datavars import DataVarsError
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+@@ -2181,6 +2181,10 @@ class _file(_error):
+             F_CONF = open (nameFileConfig, "r+")
+         except:
+             try:
++                if os.path.isdir(nameFileConfig):
++                    self.setWarning(_("unable to open the directory as file:")
++                            + nameFileConfig)
++                    return False
+                 F_CONF = open(nameFileConfig, "w+")
+             except:
+                 self.setError(_("unable to open the file:")
+@@ -2756,7 +2760,8 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+         """
+         for pkgname,category,ver,slot in pkgs:
+             fullname = "%s/%s"%(category,pkgname)
+-            if not fullname in self.installProg:
++            if not fullname in self.installProg or \
++                type(self.installProg[fullname]) != dict:
+                 self.installProg[fullname] = self.installProg[pkgname] = {}
+             if force or not slot in self.installProg[fullname]:
+                 self.installProg[fullname][slot] = ver
+@@ -2799,6 +2804,31 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+         else:
+             return ""
+ 
++    def funcWorld(self, funArgv, resS, localVars, textTemplateTmp, nameTemp):
++        """
++        Function for world generation
++        """
++        # source file
++        fileName = funArgv.replace(" ","")
++        source = readFile(fileName)
++        replace = []
++        
++        for line in filter(None,
++                    filter(lambda x:not x.startswith('#'),
++                    map(lambda x:x.strip(),
++                    source.split('\n')))):
++            category, spl, nameProg = line.partition("/")
++            nameProg, spl, slot = nameProg.partition(":")
++            if not category in self.installCategory:
++                self.getInstallPkgGentoo(category=category)
++                self.installCategory.append(category)
++            if self.pkg(nameProg, slot=slot or None):
++                replace.append(line)
++
++        textTemplateTmp = textTemplateTmp[:resS.start()] + "\n".join(replace) +\
++                textTemplateTmp[resS.end():]
++        return textTemplateTmp
++
+     def funcPkg(self, funArgv, resS, localVars, textTemplateTmp, nameTemp):
+         """Функция шаблона pkg(), выдает номер версии программы"""
+         # Название программы
+@@ -2810,6 +2840,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+             nameProg, spl, slot = nameProg.partition(":")
+             if not category in self.installCategory:
+                 self.getInstallPkgGentoo(category=category)
++                self.installCategory.append(category)
+             replace = self.pkg(nameProg, slot=slot or None)
+         else:
+             if not self.flagAllPkgScan:
+@@ -2894,6 +2925,31 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+                 textTemplateTmp[resS.end():]
+         return textTemplateTmp
+ 
++    def funcIn(self, funArgv, resS, localVars, textTemplateTmp, nameTemp):
++        """
++        Function in for check value in variable
++        """
++        terms = funArgv.replace(" ","").split(",")
++        # Название локальной переменной
++        nameLocVar = terms[0]
++        flagFoundVar = False
++        try:
++            value =  self.objVar.Get(nameLocVar)
++            flagFoundVar = True
++        except:
++            pass
++        if flagFoundVar:
++            if value in terms[1:]:
++                replace = "1"
++            else:
++                replace = ""
++        else:
++            self.raiseErrTemplate(_("error: variable %s does not exist")\
++                                     %str(nameLocVar))
++        textTemplateTmp = textTemplateTmp[:resS.start()] + replace +\
++                textTemplateTmp[resS.end():]
++        return textTemplateTmp
++
+     def funcPush(self, funArgv, resS, localVars, textTemplateTmp, nameTemp):
+         """локальная функция записывает значение переменной 
+ 
+@@ -3658,7 +3714,8 @@ re.M|re.S)
+     
+     def executeTemplate(self, code, execPath):
+         """Execute template"""
+-        p = process(execPath,lang=self.objVar.Get('os_locale_locale'))
++        p = process(execPath,lang=self.objVar.Get('os_locale_locale'),
++                    envdict=os.environ)
+         if "/bin/bash" in code.partition('\n')[0]:
+             p.write("""function translate() {
+ gettext -d cl_template "$*"
+@@ -4281,6 +4338,11 @@ gettext -d cl_template "$*"
+                                 self.getApplyHeadDir(newDir, dirInfoFile, opt)
+         if createdDirs:
+             self.createdDirs += createdDirs
++        if os.path.isfile(pathDir):
++            self.setWarning(_("{dirpath} is file").format(dirpath=pathDir))
++            self.setWarning(_("templates in {tempath} is skipped"
++                ).format(tempath=path))
++            return None
+         if objHeadDir:
+             return pathDir, objHeadDir
+         else:
+@@ -5052,7 +5114,7 @@ gettext -d cl_template "$*"
+ 
+     def fileIsUtf(self, fileName):
+         """Проверяет файл на кодировку UTF-8"""
+-        if os.path.exists(fileName):
++        if os.path.isfile(fileName):
+             FD = open(os.path.abspath(fileName))
+             newTemplate = FD.read()
+             FD.close()
+@@ -5060,7 +5122,8 @@ gettext -d cl_template "$*"
+                 newTemplate.decode("UTF-8")
+             except:
+                 return False
+-        return True
++            return True
++        return False
+ 
+     def joinTemplate(self, nameFileTemplate, nameFileConfig, optFile={}):
+         """Объединения шаблона и конф. файла
+diff --git calculate/lib/datavars.py calculate/lib/datavars.py
+index 02b1d4a..1791281 100644
+--- calculate/lib/datavars.py
++++ calculate/lib/datavars.py
+@@ -33,9 +33,9 @@ from types import StringTypes
+ 
+ def addStdConfig(fileLst,prefix='/'):
+     stdPath = path.join(prefix,
+-              "/var/lib/layman/calculate/profiles/calculate.env")
++              "var/lib/layman/calculate/profiles/calculate.env")
+     if not stdPath in map(os.path.abspath,fileLst):
+-            return fileLst + [stdPath]
++            return  [stdPath] + fileLst
+     return fileLst
+ 
+ def itemgetter(*args,**kwargs):
+@@ -757,9 +757,10 @@ class SimpleDataVars:
+                 searchProfile(iniFile,'calculate.env'),prefix=self.systemRoot),""))
+         else:
+             config = cl_template.iniParser(iniFile)
++        importVars = config.getAreaVars("main")
+         for varname in self.allVars.keys():
+             if not varname in self.cache:
+-                val = self.unserialize("string",config.getVar('main',varname))
++                val = self.unserialize("string",importVars.get(varname,''))
+                 if val:
+                     self.cache[varname] = val.encode('utf-8')
+ 
+diff --git calculate/lib/format/world.py calculate/lib/format/world.py
+index 69bfc4f..7d93488 100644
+--- calculate/lib/format/world.py
++++ calculate/lib/format/world.py
+@@ -22,7 +22,7 @@ class world(objShare):
+     """Класс для обработки конфигурационного файла типа  procmail
+ 
+     """
+-    _comment = ""
++    _comment = "#"
+     configName = "world"
+     configVersion = "0.1"
+     sepFields = "\n"
+@@ -66,15 +66,15 @@ class world(objShare):
+         for k in txtLines:
+             textLine = k + endtxtLines[z]
+             z += 1
+-            #findComment = self.reComment.search(textLine)
++            findComment = self.reComment.search(textLine)
+             if not textLine.strip():
+                 field.br = textLine
+                 fields.append(field)
+                 field = fieldData()
+-            #elif findComment:
+-            #    field.comment = textLine
+-            #    fields.append(field)
+-            #    field = fieldData()
++            elif findComment:
++                field.comment = textLine
++                fields.append(field)
++                field = fieldData()
+             else:
+                 pars = textLine.strip()
+                 field.name = pars
+diff --git calculate/lib/variables/linux.py calculate/lib/variables/linux.py
+index be3bbb2..e3e6bdd 100644
+--- calculate/lib/variables/linux.py
++++ calculate/lib/variables/linux.py
+@@ -240,8 +240,9 @@ class LinuxDataVars(SimpleDataVars):
+             VariableOsLinuxBuild(systemRoot=systemRoot))
+         makeprofile = path.join(systemRoot,'etc/make.profile')
+         if os.path.exists(makeprofile):
+-            inifile = path.join('/etc',os.readlink('/etc/make.profile'))
+-            self.flIniFileFrom(makeprofile)
++            inifile = path.join(systemRoot,'etc',
++                os.readlink(path.join(systemRoot,'etc/make.profile')))
++            self.flIniFileFrom(inifile)
+         inifile = "etc/calculate/calculate.env"
+         self.flIniFileFrom(path.join(systemRoot,inifile))
+         iniFile = "etc/calculate/calculate3.env"
