@@ -1,4 +1,4 @@
-# Calculate append=skip
+# Calculate append=skip
 
 The ac_update_sync event:
 - Portage syncing

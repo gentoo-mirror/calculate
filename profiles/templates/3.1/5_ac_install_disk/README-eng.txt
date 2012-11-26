@@ -1,4 +1,4 @@
-# Calculate append=skip
+# Calculate append=skip
 
 The ac_install_disk event:
 - system installation on HDD

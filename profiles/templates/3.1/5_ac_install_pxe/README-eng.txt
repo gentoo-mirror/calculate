@@ -1,4 +1,4 @@
-# Calculate append=skip
+# Calculate append=skip
 
 The ac_install_pxe event:
 - PXE system installation

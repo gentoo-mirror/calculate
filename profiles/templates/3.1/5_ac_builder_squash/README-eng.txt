@@ -1,4 +1,4 @@
-# Calculate append=skip
+# Calculate append=skip
 
 The ac_builder_squash event:
 - iso creation

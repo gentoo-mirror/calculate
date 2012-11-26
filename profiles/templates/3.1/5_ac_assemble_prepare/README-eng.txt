@@ -1,4 +1,4 @@
-# Calculate append=skip
+# Calculate append=skip
 
 The ac_assemble_prepare event:
 - system setup after unpacking the image while building

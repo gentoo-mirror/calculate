@@ -1,4 +1,4 @@
-# Calculate append=skip
+# Calculate append=skip
 
 Templates for new Calculate Utilities are stored in this directory.
 

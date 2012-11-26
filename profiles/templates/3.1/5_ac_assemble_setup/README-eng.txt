@@ -1,4 +1,4 @@
-# Calculate append=skip
+# Calculate append=skip
 
 The ac_assemble_setup event:
 - system setup before package compilation while building

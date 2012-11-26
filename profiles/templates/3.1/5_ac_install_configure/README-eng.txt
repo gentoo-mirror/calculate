@@ -1,4 +1,4 @@
-# Calculate append=skip
+# Calculate append=skip
 
 ac_install_configure event:
 - System setup with 'cl-setup-*'
