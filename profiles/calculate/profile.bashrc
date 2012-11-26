@@ -167,10 +167,13 @@ post_pkg_preinst() {
 	fi
 }
 
-pre_pkg_postinst() {
+post_pkg_postinst() {
 	if [ -e "${PORTAGE_BUILDDIR}/.patched" ];then
 		rm -f "${PORTAGE_BUILDDIR}/.patched"
 	fi
+}
+
+pre_pkg_postinst() {
 	if [[ -n $calcver ]]
 	then
 		CL_UPDATE_PROG=/usr/sbin/cl-core-setup
