@@ -1,13 +1,13 @@
 # Calculate name=world format=world
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX)#
+#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
 media-gfx/scrot
 media-sound/alsa-utils
 media-sound/sox
 media-video/mplayer
 #in#
 
-#?in(os_linux_shortname, CLD)#
+#?in(os_linux_shortname, CLD)!=#
 app-cdr/k3b
 media-sound/amarok
 media-plugins/kipi-plugins
@@ -19,12 +19,12 @@ media-video/recordmydesktop
 media-video/smplayer
 #in#
 
-#?in(os_linux_shortname, CLDG)#
+#?in(os_linux_shortname, CLDG)!=#
 media-sound/rhythmbox
 media-video/cheese
 #in#
 
-#?in(os_linux_shortname, CLDX)#
+#?in(os_linux_shortname, CLDX)!=#
 app-cdr/xfburn
 media-sound/audacious
 media-video/gnome-mplayer

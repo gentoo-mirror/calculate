@@ -1,12 +1,12 @@
 # Calculate name=world format=world
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX, CDS)#
+#?in(os_linux_shortname, CLD, CLDG, CLDX, CDS)!=#
 app-text/wgetpaste
 net-analyzer/nmap
 net-misc/whois
 #in#
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX)#
+#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
 net-im/skype
 www-client/chromium
 www-apps/chromium-adblock
@@ -14,13 +14,13 @@ www-plugins/adobe-flash
 x11-misc/x11vnc
 #in#
 
-#?in(os_linux_shortname, CLD)#
+#?in(os_linux_shortname, CLD)!=#
 net-im/choqok
 net-irc/konversation
 net-p2p/ktorrent
 #in#
 
-#?in(os_linux_shortname, CLDG)#
+#?in(os_linux_shortname, CLDG)!=#
 net-ftp/filezilla
 net-im/pidgin
 net-irc/xchat
@@ -32,7 +32,7 @@ x11-plugins/pidgin-hotkeys
 x11-plugins/purple-plugin_pack
 #in#
 
-#?in(os_linux_shortname, CLDX)#
+#?in(os_linux_shortname, CLDX)!=#
 net-ftp/filezilla
 net-news/liferea
 mail-client/claws-mail
@@ -51,7 +51,7 @@ x11-plugins/pidgin-libnotify
 x11-plugins/purple-plugin_pack
 #in#
 
-#?in(os_linux_shortname, CLDX)#
+#?in(os_linux_shortname, CLDX)!=#
 net-analyzer/fail2ban
 net-analyzer/iptraf-ng
 net-analyzer/macchanger

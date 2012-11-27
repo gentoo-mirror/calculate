@@ -2,7 +2,7 @@
 
 net-fs/nfs-utils
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX)#
+#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
 net-dialup/pptpclient
 net-dialup/rp-pppoe
 net-dns/bind-tools
@@ -14,16 +14,16 @@ net-misc/networkmanager-pptp
 net-misc/networkmanager-vpnc
 #in#
 
-#?in(os_linux_shortname, CLD)#
+#?in(os_linux_shortname, CLD)!=#
 kde-misc/networkmanagement
 #in#
 
-#?in(os_linux_shortname, CLDG, CLDX)#
+#?in(os_linux_shortname, CLDG, CLDX)!=#
 gnome-extra/nm-applet
 net-wireless/blueman
 #in#
 
-#?in(os_linux_shortname, CDS)#
+#?in(os_linux_shortname, CDS)!=#
 net-dialup/ppp
 net-dialup/pptpclient
 net-dialup/pptpd
