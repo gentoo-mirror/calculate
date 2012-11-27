@@ -14,7 +14,7 @@ sys-apps/ethtool
 sys-kernel/module-rebuild
 sys-process/vixie-cron
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX)#
+#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
 app-admin/hddtemp
 app-admin/sudo
 app-admin/testdisk
@@ -65,34 +65,34 @@ x11-misc/xbindkeys
 x11-misc/xcalib
 #in#
 
-#?in(os_linux_shortname, CLS)#
+#?in(os_linux_shortname, CLS)!=#
 net-misc/dhcpcd
 #in#
 
-#?in(os_linux_shortname, CMC)#
+#?in(os_linux_shortname, CMC)!=#
 app-misc/screen
 sys-apps/lm_sensors
 sys-power/powertop
 #in#
 
-#?in(os_linux_shortname, CLD)#
+#?in(os_linux_shortname, CLD)!=#
 sys-block/partitionmanager
 #in#
 
-#?in(os_linux_shortname, CLDG)#
+#?in(os_linux_shortname, CLDG)!=#
 net-analyzer/traceroute
 sys-block/gparted
 x11-misc/parcellite
 #in#
 
-#?in(os_linux_shortname, CLDX)#
+#?in(os_linux_shortname, CLDX)!=#
 dev-python/gst-python
 lxde-base/lxdm
 sys-block/gparted
 x11-terms/terminal
 #in#
 
-#?in(os_linux_shortname, CDS)#
+#?in(os_linux_shortname, CDS)!=#
 app-admin/hddtemp
 app-admin/testdisk
 app-antivirus/clamav
