@@ -1,9 +1,13 @@
-# Calculate name=world format=world ini(world.ver)>100
+# Calculate name=world format=world ini(world.ver)<1
 
-#-ini(1)-#
+#-ini(world.ver,1)-#
 
-#?pkg(x11-themes/tango-icon-theme)!=&&in(os_linux_shortname,CLDX)!=#
+#?in(os_linux_shortname, CLDX)!=#
 !x11-themes/tango-icon-theme
 x11-themes/elementary-icon-theme
-#pkg#
+
+app-text/evince
+
+!app-misc/calculate-meta
+#in#
 
