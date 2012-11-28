@@ -1,0 +1,36 @@
+# Calculate name=world format=world
+
+#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
+app-dicts/aspell-de
+app-dicts/aspell-en
+app-dicts/aspell-es
+app-dicts/aspell-fr
+app-dicts/aspell-it
+app-dicts/aspell-pt-br
+app-dicts/aspell-ru
+app-dicts/myspell-de
+app-dicts/myspell-en
+app-dicts/myspell-es
+app-dicts/myspell-fr
+app-dicts/myspell-it
+app-dicts/myspell-pt
+app-dicts/myspell-ru
+
+app-editors/vim
+app-office/libreoffice
+app-text/fbreader
+#in#
+
+#?in(os_linux_shortname, CLD)!=#
+kde-misc/openofficeorg-thumbnail
+#in#
+
+#?in(os_linux_shortname, CLDX)!=#
+app-editors/leafpad
+app-text/evince
+app-text/stardict
+dev-util/geany
+sci-calculators/galculator
+#in#
+
+

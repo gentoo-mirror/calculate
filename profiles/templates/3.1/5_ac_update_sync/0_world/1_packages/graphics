@@ -1,0 +1,16 @@
+# Calculate name=world format=world
+
+#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
+media-gfx/gimp
+#in#
+
+#?in(os_linux_shortname, CLD)!=#
+media-gfx/digikam
+sci-libs/clapack
+#in#
+
+#?in(os_linux_shortname, CLDX)!=#
+media-gfx/geeqie
+media-gfx/gtkam
+#in#
+

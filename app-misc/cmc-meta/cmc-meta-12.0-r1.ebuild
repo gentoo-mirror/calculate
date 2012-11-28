@@ -21,7 +21,7 @@ calculate_nowireless
 RDEPEND="${RDEPEND}
 	app-misc/cl-base-meta
 	app-misc/cl-tools-meta
-	app-misc/cl-xorg-meta
+	app-misc/xorg-meta
 
 	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
 	!calculate_nokernel? ( sys-kernel/calculate-sources )
