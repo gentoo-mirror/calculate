@@ -2,21 +2,28 @@
 ! xscreensaver ---------------------------------------------------------------
 
 !font settings
-#?pkg(media-fonts/droid)!=#
-xscreensaver.Dialog.headingFont:        -*-droid sans-bold-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont:           -*-droid sans-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont:          -*-droid sans-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont:          -*-droid sans-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont:         -*-droid sans-bold-r-*-*-10-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont:           -*-droid sans-medium-r-*-*-10-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont:         -*-droid sans-bold-r-*-*-10-*-*-*-*-*-*-*
-#pkg#
-#?pkg(media-fonts/droid)==#
-xscreensaver.Dialog.headingFont:        -*-verdana-bold-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont:           -*-verdana-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont:          -*-verdana-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont:          -*-verdana-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont:         -*-verdana-bold-r-*-*-10-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont:           -*-verdana-medium-r-*-*-10-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont:         -*-verdana-bold-r-*-*-10-*-*-*-*-*-*-*
-#pkg#
+xscreensaver.Dialog.headingFont:        -*-fixed-bold-r-*-*-18-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-fixed-bold-r-*-*-13-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
+
+!color settings
+xscreensaver.Dialog.foreground:         #ffffff
+xscreensaver.Dialog.background:         #2c2c2c
+xscreensaver.Dialog.topShadowColor:     #2c2c2c
+xscreensaver.Dialog.bottomShadowColor:  #2c2c2c
+xscreensaver.Dialog.Button.foreground:  #666666
+xscreensaver.Dialog.Button.background:  #ffffff
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #666666
+xscreensaver.Dialog.text.background:    #ffffff
+xscreensaver.Dialog.internalBorderWidth:1
+xscreensaver.Dialog.borderWidth:        1
+xscreensaver.Dialog.shadowThickness:    2
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #666666
+xscreensaver.passwd.thermometer.background:  #2c2c2c
+xscreensaver.passwd.thermometer.width:       6
