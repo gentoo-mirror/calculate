@@ -19,5 +19,8 @@
     <property name="use_compositing" type="bool" value="true"/>
     <property name="wrap_windows" type="bool" value="true"/>
     <property name="wrap_resistance" type="int" value="50"/>
+#?pkg(x11-themes/xfwm4-themes)#
+    <property name="theme" type="string" value="Default-4.6"/>
+#pkg#
   </property>
 </channel>
