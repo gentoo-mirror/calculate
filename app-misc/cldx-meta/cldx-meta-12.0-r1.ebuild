@@ -4,7 +4,7 @@
 
 EAPI=2
 
-DESCRIPTION="Calculate Linux Desktop GNOME (meta package)"
+DESCRIPTION="Calculate Linux Desktop XFCE (meta package)"
 HOMEPAGE="http://www.calculate-linux.org/main/en/cld"
 SRC_URI=""
 
@@ -13,7 +13,6 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="
 calculate_nodecoration
-calculate_nognome
 calculate_nographics
 calculate_nokernel
 calculate_nomultimedia
@@ -21,17 +20,25 @@ calculate_nonetwork
 calculate_nonettools
 calculate_noprinter
 calculate_nooffice
+calculate_noxfce
 calculate_noxorg
 calculate_nowireless
 "
 
 RDEPEND="
+	!app-misc/cls-meta
+	!app-misc/cl-dict-meta
+	!app-misc/cl-desktop-meta
+	!app-misc/cl-useful-meta
+	!mail-client/claws-mail-gtkhtml
+"
+
+RDEPEND="${RDEPEND}
 	app-misc/cl-base-meta
 	app-misc/cl-tools-meta
-	x11-drivers/xf86-video-virtualbox
 
+	!calculate_noxfce? ( app-misc/cl-xfce-meta )
 	!calculate_nodecoration? ( app-misc/cl-decoration-meta )
-	!calculate_nognome? ( app-misc/cl-gnome-meta )
 	!calculate_nographics? ( app-misc/cl-graphics-meta )
 	!calculate_nokernel? ( sys-kernel/calculate-sources )
 	!calculate_nomultimedia? ( app-misc/cl-multimedia-meta )
@@ -39,7 +46,12 @@ RDEPEND="
 	!calculate_nonettools? ( app-misc/cl-nettools-meta )
 	!calculate_noprinter? ( app-misc/cl-printer-meta )
 	!calculate_nooffice? ( app-misc/cl-office-meta )
-	!calculate_noxorg? ( app-misc/cl-xorg-meta )
+	!calculate_noxorg? ( app-misc/xorg-meta )
 	!calculate_nowireless? ( app-misc/cl-wireless-meta )
+"
+# Base
+RDEPEND="${RDEPEND}
+	dev-python/gst-python
+	lxde-base/lxdm
 "
 
