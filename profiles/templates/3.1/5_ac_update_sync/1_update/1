@@ -18,6 +18,11 @@ media-gfx/syslinux-themes-calculate
 media-gfx/splash-themes-calculate
 #in#
 
+#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC, CLS, CMC)!=#
+!app-misc/cl-xorg-meta
+app-misc/xorg-meta
+#in#
+
 #?in(os_linux_shortname, CLD, CLDG, CLDX, CLS)!=#
 media-gfx/calculate-wallpapers
 #in#
