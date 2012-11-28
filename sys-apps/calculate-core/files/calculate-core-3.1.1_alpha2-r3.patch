@@ -1,0 +1,42 @@
+diff --git core/server/setup_package.py core/server/setup_package.py
+index 2111b8d..022adaa 100644
+--- core/server/setup_package.py
++++ core/server/setup_package.py
+@@ -184,7 +184,7 @@ class updateUserConfigs(shareUpdateConfigs):
+             clVars.Set("cl_root_path", '/', True)
+             clVars.Set("ur_login", userName, True)
+             clVars.Set("cl_action", "desktop", True)
+-            clVars.Set("cl_merge_pkg", [nameProgram], True)
++            clVars.Set("cl_merge_pkg", ["%s/%s"%(category,nameProgram)], True)
+             clTempl = ChainProgressTemplate( self.startTask,
+                                self.endTask,
+                                self.setProgress,
+@@ -350,7 +350,7 @@ class updateSystemConfigs(shareUpdateConfigs):
+         clVars.Set("cl_root_path", configPath, True)
+         if variables.Get('cl_core_pkg_root_set') == 'on':
+             clVars.Set("cl_root_path_next", '/', True)
+-        clVars.Set("cl_merge_pkg", [nameProgram], True)
++        clVars.Set("cl_merge_pkg", ["%s/%s"%(category,nameProgram)], True)
+         clVars.Set("cl_action", 'merge', True)
+         configFiles = []
+         nameProg = clVars.Get("cl_name")
+@@ -380,9 +380,8 @@ class updateSystemConfigs(shareUpdateConfigs):
+         for pkg in clTempl.changedFiles.getPkgs():
+             category = isPkgInstalled(pkg)
+             if category:
+-                category = category[0].rpartition('/')[2]
+                 pkgContents = PkgContents("{CATEGORY}/{PF}".format(
+-                           **isPkgInstalled("%s/%s"%(category,pkg))[0]))
++                           **category[0]))
+                 for filename,action in clTempl.changedFiles.getPkgFiles(pkg):
+                     if filename in clTempl.protectedFiles:
+                         pkgContents.removeObject(filename)
+@@ -456,7 +455,7 @@ class updateSystemConfigs(shareUpdateConfigs):
+             self.copyConfigFiles(configPath,variables.Get('cl_config_protect'))
+         if clTempl and clTempl.getWarning():
+             for warn in clTempl.getWarning().split("\n"):
+-                self.SUCCESS(warn)
++                self.WARNING(warn)
+         return True
+ 
+ class PackageUpdater(updateSystemConfigs,updateUserConfigs):
