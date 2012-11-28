@@ -87,8 +87,6 @@ RDEPEND="${RDEPEND}
 # Other
 RDEPEND="${RDEPEND}
 	x11-apps/mesa-progs
-	x11-apps/xdpyinfo
-	x11-apps/xev
 	x11-apps/xmessage
 	x11-misc/xbindkeys
 	x11-misc/xcalib
