@@ -31,6 +31,7 @@ RDEPEND="
 		media-gfx/cldx-themes
 		x11-themes/gnome-themes-standard
 		x11-themes/tango-icon-theme
+		x11-themes/xfwm4-themes
 	)
 	cdistro_CLS? (
 		media-gfx/cls-themes
