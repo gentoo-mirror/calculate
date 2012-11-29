@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/xfce-base/exo/exo-0.8.0.ebuild,v 1.10 2012/09/09 14:33:35 armin76 Exp $
 
-EAPI=4
+EAPI=5
 inherit xfconf
 
 DESCRIPTION="Extensions, widgets and framework library with session support for the Xfce desktop environment"
