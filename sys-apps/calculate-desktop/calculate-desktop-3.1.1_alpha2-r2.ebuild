@@ -22,6 +22,7 @@ IUSE=""
 DEPEND="~sys-apps/calculate-core-3.1.1_alpha2
 	>=dev-python/python-ldap-2.0[ssl]
 	media-gfx/feh
+	x11-apps/xmessage
 	!<sys-apps/calculate-desktop-3.1.0_alpha1"
 
 RDEPEND="${DEPEND}"
