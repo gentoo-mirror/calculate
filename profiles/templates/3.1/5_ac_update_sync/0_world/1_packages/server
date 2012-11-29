@@ -1,0 +1,25 @@
+# Calculate name=world format=world
+
+#?in(os_linux_shortname, CMC, CDS, CSS)!=#
+net-misc/dhcp
+#in#
+
+#?in(os_linux_shortname, CDS)!=#
+dev-db/postgresql-server
+mail-filter/clamsmtp
+mail-filter/opendkim
+mail-filter/postgrey
+mail-filter/procmail
+mail-mta/postfix
+net-dns/bind
+net-fs/samba
+net-ftp/ftp
+net-ftp/proftpd
+net-mail/dovecot
+net-mail/fetchmail
+net-proxy/havp
+net-proxy/squid
+net-proxy/squidguard
+sys-apps/most
+#in#
+
