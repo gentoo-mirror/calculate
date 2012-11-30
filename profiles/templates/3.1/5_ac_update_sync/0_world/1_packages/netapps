@@ -1,8 +1,9 @@
 # Calculate name=world format=world
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX, CDS)!=#
+#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC, CDS)!=#
 app-text/wgetpaste
 net-analyzer/nmap
+net-analyzer/traceroute
 net-misc/whois
 #in#
 
@@ -51,7 +52,12 @@ x11-plugins/pidgin-libnotify
 x11-plugins/purple-plugin_pack
 #in#
 
-#?in(os_linux_shortname, CLDX)!=#
+#?in(os_linux_shortname, CMC)!=#
+net-dialup/mingetty
+net-p2p/rtorrent
+#in#
+
+#?in(os_linux_shortname, CDS)!=#
 net-analyzer/fail2ban
 net-analyzer/iptraf-ng
 net-analyzer/macchanger

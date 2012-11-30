@@ -4,3 +4,11 @@
 app-misc/xorg-meta
 #in#
 
+#?in(os_linux_shortname, CLDG)!=#
+x11-drivers/xf86-video-virtualbox
+#in#
+
+#?in(os_linux_shortname, CLDX)!=#
+lxde-base/lxdm
+#in#
+

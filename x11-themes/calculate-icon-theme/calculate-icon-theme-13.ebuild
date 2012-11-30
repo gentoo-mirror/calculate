@@ -21,7 +21,11 @@ REQUIRED_USE="^^ ( themes_CLD themes_CLDX themes_CLDG )"
 
 RDEPEND="themes_CLD? ( kde-base/oxygen-icons )
 	themes_CLDG? ( x11-themes/gnome-icon-theme )
-	themes_CLDX? ( x11-themes/elementary-icon-theme )"
+	themes_CLDX? ( x11-themes/elementary-icon-theme )
+	!media-gfx/cldx-themes
+	!media-gfx/cld-themes
+	!media-gfx/cldg-themes
+	!media-gfx/cls-themes"
 
 DEPEND="${RDEPEND}"
 
