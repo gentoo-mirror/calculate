@@ -10,26 +10,26 @@ MENU TITLE Welcome to Calculate Linux (#-os_builder_arch_machine-#)
 LABEL cds
 	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-#
 	KERNEL /boot/vmlinuz
-#?pkg(media-gfx/cds-themes)>=12.0_alpha1#
+#?pkg(media-gfx/cds-themes)>=12.0_alpha1||pkg(media-gfx/splash-themes-calculate)!=#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:calculate console=tty1 udev quiet noresume elevator=deadline scandelay=3
 #pkg#
 #?pkg(media-gfx/cds-themes)!=&&pkg(media-gfx/cds-themes)<12.0_alpha1#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume elevator=deadline scandelay=3
 #pkg#
-#?pkg(media-gfx/cds-themes)==#
+#?pkg(media-gfx/cds-themes)==&&pkg(media-gfx/splash-themes-calculate)==#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot console=tty1 udev quiet noresume elevator=deadline splash=off scandelay=3
 #pkg#
 
 LABEL cds-docache
 	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-# (RAM)
 	KERNEL /boot/vmlinuz
-#?pkg(media-gfx/cds-themes)>=12.0_alpha1#
+#?pkg(media-gfx/cds-themes)>=12.0_alpha1||pkg(media-gfx/splash-themes-calculate)!=#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:calculate console=tty1 udev quiet noresume elevator=deadline docache scandelay=3
 #pkg#
 #?pkg(media-gfx/cds-themes)!=&&pkg(media-gfx/cds-themes)<12.0_alpha1#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume elevator=deadline docache scandelay=3
 #pkg#
-#?pkg(media-gfx/cds-themes)==#
+#?pkg(media-gfx/cds-themes)==&&pkg(media-gfx/splash-themes-calculate)==#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot console=tty1 udev quiet noresume elevator=deadline splash=off docache scandelay=3
 #pkg#
 
@@ -43,13 +43,13 @@ LABEL cds-nofb
 LABEL cds-builder
 	MENU LABEL #-os_builder_linux_name-# #-os_builder_linux_ver-# Live#-cl_builder_cdname-# Builder
 	KERNEL /boot/vmlinuz
-#?pkg(media-gfx/cds-themes)>=12.0_alpha1#
+#?pkg(media-gfx/cds-themes)>=12.0_alpha1||pkg(media-gfx/splash-themes-calculate)!=#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:calculate console=tty1 udev quiet noresume elevator=deadline scratch scandelay=3
 #pkg#
 #?pkg(media-gfx/cds-themes)!=&&pkg(media-gfx/cds-themes)<12.0_alpha1#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot video=uvesafb:ywrap,1024x768-32@60,mtrr:3,splash=silent,theme:tty1 console=tty1 udev quiet noresume elevator=deadline scratch scandelay=3
 #pkg#
-#?pkg(media-gfx/cds-themes)==#
+#?pkg(media-gfx/cds-themes)==&&pkg(media-gfx/splash-themes-calculate)==#
 	APPEND root=/dev/ram0 initrd=/boot/initrd init=/linuxrc looptype=squashfs unionfs doload=squashfs,isofs,unionfs loop=/#-cl_builder_current_squash-# nodevfs cdroot console=tty1 udev quiet noresume elevator=deadline splash=off scratch scandelay=3
 #pkg#
 
