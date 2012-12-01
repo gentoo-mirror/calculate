@@ -75,9 +75,6 @@
 #?exists(~/.config/xfce4/panel/launcher-41/10000000041.desktop)!=#
         <value type="int" value="41"/>
 #exists#
-#?exists(~/.config/xfce4/panel/launcher-42/10000000042.desktop)!=#
-        <value type="int" value="42"/>
-#exists#
 #?exists(~/.config/xfce4/panel/launcher-43/10000000043.desktop)!=#
         <value type="int" value="43"/>
 #exists#
@@ -220,11 +217,6 @@
     <property name="plugin-41" type="string" value="launcher">
       <property name="items" type="array">
         <value type="string" value="10000000041.desktop"/>
-      </property>
-    </property>
-    <property name="plugin-42" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="10000000042.desktop"/>
       </property>
     </property>
     <property name="plugin-43" type="string" value="launcher">

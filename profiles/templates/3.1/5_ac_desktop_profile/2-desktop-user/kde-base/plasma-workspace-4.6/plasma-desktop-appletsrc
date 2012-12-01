@@ -327,15 +327,6 @@ immutability=1
 plugin=icon
 zvalue=0
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][Configuration]
-Url=file:///usr/share/applications/calculate-dict.desktop
-[Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][LayoutInformation]
-Order=#-sum(apporder,apporder+1)-#
-
-[Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app+1)-#]
-immutability=1
-plugin=icon
-zvalue=0
-[Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][Configuration]
 Url=file:///usr/share/applications/calculate-textedit.desktop
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][LayoutInformation]
 Order=#-sum(apporder,apporder+1)-#
