@@ -7,6 +7,11 @@ Name=FTP
 Comment=Browser FTP
 Categories=Application;
 Exec=thunar /home/#-ur_login-#/FTP
+#?pkg(x11-themes/elementary-icon-theme)!=#
+Icon=folder-download
+#pkg#
+#?pkg(x11-themes/elementary-icon-theme)==#
 Icon=update-manager
+#pkg#
 Terminal=false
-StartupNotify=false
+StartupNotify=false 
