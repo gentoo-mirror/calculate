@@ -1,0 +1,36 @@
+diff --git consolegui/application/Box.py consolegui/application/Box.py
+index be9f763..632768a 100755
+--- consolegui/application/Box.py
++++ consolegui/application/Box.py
+@@ -464,4 +464,4 @@ class MainWgt(QtGui.QMainWindow):
+         if e.key() == QtCore.Qt.Key_Return:
+             self.control_button.keyPressEvent(e)
+         else:
+-            QtGui.QMainWindow.keyPressEvent(self, e)
+\ No newline at end of file
++            QtGui.QMainWindow.keyPressEvent(self, e)
+diff --git consolegui/application/DisplayMethod.py consolegui/application/DisplayMethod.py
+index 34a5059..7b2e31a 100755
+--- consolegui/application/DisplayMethod.py
++++ consolegui/application/DisplayMethod.py
+@@ -210,6 +210,7 @@ class DisplayMethod(QtGui.QWidget):
+ 
+         self.ClientObj.MainWidget.left_frame.cur_palette = \
+                     self._parent.main_frame.viewport().palette()
++        self.ClientObj._parent.setWindowTitle(_("Calculate Console"))
+ 
+     def onActivated(self):
+         # Call server method
+diff --git consolegui/application/more.py consolegui/application/more.py
+index 546c151..ee821d9 100755
+--- consolegui/application/more.py
++++ consolegui/application/more.py
+@@ -203,7 +203,7 @@ class ButtonMenu(QtGui.QPushButton):
+         for image in images:
+             icon = QtGui.QIcon.fromTheme(image)
+             if not icon.isNull():
+-                pm2 = icon.pixmap(32)
++                pm2 = icon.pixmap(128)
+                 icon_flag = False
+                 break
+             elif os.path.isfile(image):

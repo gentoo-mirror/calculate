@@ -36,6 +36,6 @@ Exec=chromium --app="file:///usr/share/calculate/doc/handbook-fr.html"
 #?os_locale_language==es&&pkg(www-client/chromium)>0#
 Exec=chromium --app="file:///usr/share/calculate/doc/handbook-es.html"
 #os_locale_language#
-Icon=text-html
+Icon=help-contents
 Terminal=false
 StartupNotify=false
