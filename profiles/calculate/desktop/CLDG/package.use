@@ -48,3 +48,6 @@ media-video/totem -flash
 #required by media-sound/pulseaudio-2.1-r1[alsa]
 media-plugins/alsa-plugins pulseaudio
 
+# dev-libs/libxml2:2[!icu?] required by (x11-libs/qt-webkit-4.8.2::gentoo, ebuild scheduled for merge)
+x11-libs/qt-webkit -gstreamer
+
