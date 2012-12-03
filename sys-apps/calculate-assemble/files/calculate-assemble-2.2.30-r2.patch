@@ -1,0 +1,239 @@
+diff --git pym/cl_assemble.py pym/cl_assemble.py
+index 3c5158f..4e29776 100644
+--- pym/cl_assemble.py
++++ pym/cl_assemble.py
+@@ -100,8 +100,7 @@ class cl_assemble(color_print):
+     # foraction - perform only for cl_action == value
+     DEFAULT_FORACTION = ('make','syncupdate','update')
+     ACTION_LIST = \
+-            [
+-             # emerge -e system first
++            [# emerge -e system first
+              {'command':'emerge -e system',
+               'message':_("First execute '%s'")%'emerge -e system',
+               'step':'firstsystem',
+@@ -164,10 +163,10 @@ class cl_assemble(color_print):
+               'condition':'dev-lang/perl',
+               'progname':'perl-cleaner'},
+              # install meta package
+-             {'command':'emerge --noreplace calculate-meta',
+-              'checkcommand':'find /var/db/pkg/app-misc -name "calculate-meta*"',
+-              'condition':'^$',
+-              'step':'meta'},
++             #{'command':'emerge --noreplace calculate-meta',
++             # 'checkcommand':'find /var/db/pkg/app-misc -name "calculate-meta*"',
++             # 'condition':'^$',
++             # 'step':'meta'},
+              # update packages with fix newuse
+              #{'command':'emerge -D --newuse world',
+              # 'step':'newuse'},
+@@ -621,9 +620,13 @@ class cl_assemble(color_print):
+             self.printMessageForTest(_("Installing %s")%'dev-vcs/git')
+             self.runChroot("USE='-perl -curl -webdav' emerge -1 git")
+ 
+-        emergeSync = "emerge --sync"
++        if not isPkgInstalled('app-portage/eix',prefix=self.assemblePath):
++            self.printMessageForTest(_("Installing %s")%'app-portage/eix')
++            self.runChroot("emerge -1 eix")
++
++        emergeSync = "eix-sync"
+         self.printMessageForTest(_("Updating portages"))
+-        self.runChroot(emergeSync)
++        self.runChroot(emergeSync,showProcess=True)
+ 
+         emergeLayman = "USE='git' emerge layman"
+         self.printMessageForTest(_("Installing %s")%"layman")
+@@ -704,6 +707,14 @@ class cl_assemble(color_print):
+             self.clVars.Set('cl_action',self.mainAction,True)
+         self.printByResult(True)
+ 
++    def _rebuildWorld(self):
++        """
++        Rebuild world
++        """
++        if self.clVars.Get('cl_assemble_rebuild_world') == 'on':
++            self.printMessageForTest(_("Re-create world"))
++            self.runChroot("cl-core --method update --rebuild-world")
++
+     def configureFunc(self,force=False,nounmount=False):
+         """Function of configure partition for assembling by make"""
+         # print info
+@@ -730,25 +741,38 @@ class cl_assemble(color_print):
+             if nounmount:
+                 self.targetDistr = None
+ 
+-            pathAppMisc = pathJoin(self.assemblePath,'/var/db/pkg/app-misc')
+-            metaPackage = self.clVars.Get('cl_assemble_meta').rpartition('/')[2]
+-
+             if not isinstance(self.sourceDistr,IsoDistributive) and \
+                 self.clVars.Get('cl_assemble_branch') == '':
+                 self._unpackPortage()
+ 
++            # rename make profile
++            newProfile = path.join(self.assemblePath,'etc/portage/make.profile')
++            oldProfile = path.join(self.assemblePath,'etc/make.profile')
++            if path.islink(newProfile) and \
++               not path.islink(oldProfile):
++                os.rename(newProfile,oldProfile)
++
+             self._prepareMount()
+             self.prepareTemplates(True,changeAction=True)
+ 
+-            if path.exists(pathAppMisc) and metaPackage and \
+-                filter(lambda x:metaPackage in x, os.listdir(pathAppMisc)):
++            if isPkgInstalled('sys-apps/calculate-update',
++                              prefix=self.assemblePath):
++                self._rebuildWorld()
+                 self.setupTemplates(True,changeAction=True)
+                 self.writeVar('cl_assemble_make','')
+                 return True
+ 
+-            self._updatePackages()
++            fullAssemble = not isPkgInstalled('sys-apps/calculate-install',
++                               prefix=self.assemblePath)
++            if fullAssemble:
++                self._updatePackages()
++            else:
++                emergeSync = "eix-sync"
++                self.printMessageForTest(_("Updating portages"))
++                self.runChroot(emergeSync,showProcess=True)
+             self.setupTemplates(True,changeAction=True)
+ 
++
+             self.printMessageForTest(
+                 _("Enabling calculate-install to configure packages"))
+             if "calculate" in self.clVars.Get('os_assemble_system_profile'):
+@@ -756,15 +780,16 @@ class cl_assemble(color_print):
+                 # need emerge with USE="minimal", but emerging 
+                 # will install iproute2 with USE="minimal" also
+                 self.runChroot("emerge -1 sys-apps/iproute2")
+-                self.runChroot("USE='minimal -pxe' emerge "
+-                               'sys-apps/calculate-install '
+-                               'sys-apps/calculate-core')
+-                if path.exists(path.join(self.clVars.Get('cl_assemble_path'),
+-                             "usr/sbin/cl-core")):
+-                    self.runChroot("/usr/sbin/cl-core --append-variable "
+-                               "cl_merges=calculate-install")
++                if isPkgInstalled('sys-apps/calculate-utilities',
++                                  prefix=self.assemblePath):
++                    self.runChroot("emerge -u sys-apps/calculate-update "
++                                   "sys-apps/calculate-utilities")
+                 else:
+-                    self.runChroot("cl-install --install")
++                    self.runChroot("USE='minimal -pxe' emerge "
++                                   'sys-apps/calculate-update '
++                                   'dev-python/pyopenssl '
++                                   'sys-apps/calculate-install '
++                                   'sys-apps/calculate-core')
+             else:
+                 self.printByResult(skip=True)
+ 
+@@ -772,9 +797,16 @@ class cl_assemble(color_print):
+             self.printMessageForTest(_("Installing %s")%"portage")
+             self.runChroot(emergePortage)
+ 
++            self._rebuildWorld()
++
++            if not fullAssemble:
++                self.setupTemplates(True,changeAction=True)
++                self.writeVar('cl_assemble_make','')
++                return True
++
+             if not isinstance(self.sourceDistr,IsoDistributive):
+                 self.printMessageForTest(_("Receiving kernel sources"))
+-                self.runChroot('USE="-vmlinuz" emerge '
++                self.runChroot('USE="-minimal -vmlinuz" emerge '
+                                "sys-kernel/calculate-sources")
+ 
+             if not isinstance(self.sourceDistr,IsoDistributive):
+@@ -917,7 +949,7 @@ class cl_assemble(color_print):
+                 chrootCommand = process(*commandLine,stderr=ERRval,
+                                 stdout=IOval,envdict=envdict)
+             DEBUG(self._getCommand(chrootCommand.command))
+-            if raiseError and chrootCommand.failed():
++            if chrootCommand.failed() and raiseError:
+                 raise AssembleError(
+                     _("An error occurred when executing the command")+
+                       ":\n    %s"%self._getCommand(chrootCommand.command))
+@@ -1450,7 +1482,7 @@ class cl_assemble(color_print):
+ 
+     def checkDowngrades(self):
+         """Run check downgrades"""
+-        cmd = self.runChroot("FORMAT='{downgrade}%{FORMAT_ALL}{}' eix -I",
++        cmd = self.runChroot("/usr/bin/eix -T",
+                              raiseError=False,
+                              showProcess=True)
+         return True
+@@ -1662,7 +1694,7 @@ class cl_assemble(color_print):
+         while drivers:
+             repeatDrivers = []
+             for verName,maskName,drvVer in drivers:
+-                rePackage = re.compile("^\[ebuild[^\]]+]\s+(\S+)")
++                rePackage = re.compile("^\[ebuild[^\]]+]\s+([^\s:]+)")
+                 checkprocess = self.runChroot(
+                             "emerge -pv %s"%
+                             drvVer, raiseError=False,joinErr=True)
+diff --git pym/cl_assemble_cmd.py pym/cl_assemble_cmd.py
+index 64ea758..5733c0e 100644
+--- pym/cl_assemble_cmd.py
++++ pym/cl_assemble_cmd.py
+@@ -74,6 +74,9 @@ CMD_OPTIONS = [{'shortOption':"d",
+                {'longOption':"no-buildpkg",
+                 'help':_("create no binary packages for all merged packages")
+                },
++               {'longOption':"skip-rebuild-world",
++                'help':_("do not rebuild world file")
++               },
+                {'longOption':"set"},
+                {'shortOption':"f",
+                 'longOption':"force",
+@@ -142,8 +145,11 @@ class assemble_cmd(share_cmd):
+             self.checkChoice("--source",values.source, validSources)
+         if values.name:
+             if not self.logicObj.setName(values.name):
+-                self.error(_("option %s")%"--name"+
++                self.optobj.error(_("option %s")%"--name"+
+                     ": "+ _("invalid value '%s'"%values.name))
++        if values.skip_rebuild_world:
++            self.logicObj.clVars.Set('cl_assemble_rebuild_world',
++                                     "off",True)
+         return (values, args)
+ 
+     def isScratch(self):
+diff --git pym/cl_fill_assemble.py pym/cl_fill_assemble.py
+index c0a7a39..21e7832 100644
+--- pym/cl_fill_assemble.py
++++ pym/cl_fill_assemble.py
+@@ -166,10 +166,7 @@ class fillVars(object, glob_attr):
+ 
+     def get_cl_assemble_meta(self):
+         """Meta package for world building"""
+-        if "calculate" in self.Get('os_assemble_system_profile'):
+-            return "app-misc/%s-meta"%\
+-                self.Get('os_assemble_linux_shortname').lower()
+-        return "system"
++        return "world"
+ 
+     def get_cl_assemble_snapshot_portage(self):
+         """Find latest snapshot"""
+@@ -490,7 +487,7 @@ class fillVars(object, glob_attr):
+ 
+     def get_cl_assemble_drivers_info(self):
+         """matrix for prepare driver script"""
+-        return [[]]
++        return []
+ 
+     def prepareScript(self,info):
+         """
+diff --git pym/cl_vars_assemble.py pym/cl_vars_assemble.py
+index 9858c04..3664c16 100644
+--- pym/cl_vars_assemble.py
++++ pym/cl_vars_assemble.py
+@@ -164,3 +164,7 @@ class Data:
+ 
+     # part of script for driver installing
+     cl_assemble_drivers_script = {'mode':'r'}
++
++    # execute cl-core --method update --rebuild-world on assemble
++    cl_assemble_rebuild_world = {'mode':'w',
++                                 'value':'on'}
