@@ -35,6 +35,7 @@ net-print/hplip fax -X -qt3 -qt4 gtk ppds snmp static-ppds new-hpcups hpijs
 net-wireless/wpa_supplicant -qt4
 sys-apps/pciutils -zlib
 sys-apps/hal laptop
+sys-block/gparted btrfs mdadm
 sys-fs/mtools -X
 sys-fs/ntfs3g udev
 sys-power/cpufreqd nvidia
