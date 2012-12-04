@@ -58,6 +58,11 @@ sys-process/htop
 sys-process/lsof
 #in#
 
+#?in(os_linux_shortname, CLDG, CLDX)!=#
+sys-block/gparted
+x11-libs/gksu
+#in#
+
 #?in(os_linux_shortname, CLS)!=#
 net-misc/dhcpcd
 #in#
@@ -75,13 +80,11 @@ sys-block/partitionmanager
 #in#
 
 #?in(os_linux_shortname, CLDG)!=#
-sys-block/gparted
 x11-misc/parcellite
 #in#
 
 #?in(os_linux_shortname, CLDX)!=#
 dev-python/gst-python
-sys-block/gparted
 x11-terms/terminal
 #in#
 

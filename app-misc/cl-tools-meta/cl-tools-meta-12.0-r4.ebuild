@@ -90,6 +90,7 @@ RDEPEND="${RDEPEND}
 	cdistro_CLDG? (
 		net-analyzer/traceroute
 		sys-block/gparted
+		x11-libs/gksu
 		!x11-misc/glipper
 		x11-misc/parcellite
 	)
@@ -97,6 +98,7 @@ RDEPEND="${RDEPEND}
 		net-analyzer/traceroute
 		!x11-misc/ktsuss
 		sys-block/gparted
+		x11-libs/gksu
 		x11-terms/terminal
 	)
 	cdistro_CDS? (
