@@ -1,1 +1,1 @@
-# Calculate path=/etc/NetworkManager os_install_net_conf==networkmanager
+# Calculate path=/etc/NetworkManager os_install_net_conf==networkmanager&&ac_install_disk==on||os_install_net_conf==networkmanager&&cl_setup=network||os_install_net_conf==networkmanager&&os_install_root_type==livecd||os_install_net_conf==networkmanager&&cl_merge_pkg!=

@@ -1,4 +1,4 @@
-# Calculate comment=# os_install_net_conf==openrc
+# Calculate comment=# os_install_net_conf==openrc&&ac_install_disk==on||os_install_net_conf==openrc&&cl_setup=network||os_install_net_conf==openrc&&os_install_root_type==livecd||os_install_net_conf==openrc&&cl_merge_pkg!=
 
 #?os_install_linux_system==server#
 modules="!plug"
