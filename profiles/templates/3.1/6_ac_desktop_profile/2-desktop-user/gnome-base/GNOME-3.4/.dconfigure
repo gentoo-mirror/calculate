@@ -2,7 +2,12 @@
 #!/bin/bash
 
 # background picture
+#?pkg(media-gfx/cldg-themes)!=#
 dconf write /org/gnome/desktop/background/picture-uri \'file:///usr/share/pixmaps/backgrounds/gnome/calculate/#-os_x11_standart-#.jpg\'
+#pkg#
+#?pkg(media-gfx/calculate-wallpapers)!=#
+dconf write /org/gnome/desktop/background/picture-uri \'file:///usr/share/wallpapers/Calculate_Linux/contents/images/#-os_x11_standart-#.jpg\'
+#pkg#
 dconf write /org/gnome/desktop/background/picture-options \'stretched\'
 
 dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-1 \[\'\<Primary\>F1\'\]
@@ -77,4 +82,4 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/cus
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings \[\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/\',\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/\'\]
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding \'\<Primary\>\<Alt\>Delete\'
 
-rm ~/.dconfigure
+rm ~/.dconfigure 
