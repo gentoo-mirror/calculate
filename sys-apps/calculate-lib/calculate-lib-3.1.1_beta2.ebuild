@@ -9,22 +9,20 @@ RESTRICT_PYTHON_ABIS="2.4 2.5 2.6 3.*"
 
 inherit distutils eutils
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
+DESCRIPTION="The library for Calculate 3"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
-
-DEPEND="~sys-apps/calculate-builder-2.2.30"
-
+SLOT="3"
+KEYWORDS="x86 amd64"
+IUSE="minimal"
+DEPEND="!minimal? ( dev-python/py-smbpasswd )
+	>=dev-python/pyxml-0.8
+	sys-apps/iproute2
+	sys-apps/pciutils
+	sys-fs/lvm2
+	sys-fs/mdadm
+	dev-python/pyinotify
+	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# up to r2 version
-	epatch "${FILESDIR}/calculate-assemble-2.2.30-r2.patch"
-}

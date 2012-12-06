@@ -9,7 +9,7 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/syslinux-themes-calc
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="x86 amd64"
 IUSE="themes_CLD themes_CLDX themes_CLS themes_CLDG themes_CSS themes_CDS themes_CMC"
 
 SRC_URI="

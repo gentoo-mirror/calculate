@@ -9,22 +9,16 @@ RESTRICT_PYTHON_ABIS="2.4 2.5 2.6 3.*"
 
 inherit distutils eutils
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
+DESCRIPTION="Qt gui console client for WSDL Calculate 3"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
+SLOT="3"
+KEYWORDS="amd64 x86"
 
-DEPEND="~sys-apps/calculate-builder-2.2.30"
-
+DEPEND="~sys-apps/calculate-core-3.1.1_beta2
+	dev-python/dbus-python
+	dev-python/imaging
+	dev-python/pyside[script]"
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# up to r2 version
-	epatch "${FILESDIR}/calculate-assemble-2.2.30-r2.patch"
-}
