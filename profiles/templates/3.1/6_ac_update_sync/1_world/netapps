@@ -55,6 +55,11 @@ x11-plugins/purple-plugin_pack
 #?in(os_linux_shortname, CMC)!=#
 app-text/wgetpaste
 net-dialup/mingetty
+net-dialup/pptpclient
+net-dialup/rp-pppoe
+net-dns/bind-tools
+net-misc/ntp
+net-misc/vconfig
 net-p2p/rtorrent
 #in#
 
@@ -66,14 +71,9 @@ net-analyzer/sarg
 net-analyzer/tcpdump
 net-analyzer/traceroute
 net-analyzer/vnstat
-net-dialup/pptpclient
-net-dialup/rp-pppoe
-net-dns/bind-tools
 net-dialup/minicom
 net-irc/weechat
 net-ftp/tftp-hpa
-net-misc/ntp
-net-misc/vconfig
 www-client/links
 #in#
 
