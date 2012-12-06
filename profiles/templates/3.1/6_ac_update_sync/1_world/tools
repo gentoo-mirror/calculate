@@ -1,5 +1,6 @@
 # Calculate name=world format=world
 
+#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC, CDS, CLS)!=#
 app-admin/logrotate
 app-admin/syslog-ng
 app-arch/arj
@@ -13,6 +14,7 @@ app-arch/zip
 sys-apps/ethtool
 sys-kernel/module-rebuild
 sys-process/vixie-cron
+#in#
 
 #?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
 app-admin/hddtemp
