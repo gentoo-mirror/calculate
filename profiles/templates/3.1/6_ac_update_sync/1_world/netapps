@@ -1,6 +1,6 @@
 # Calculate name=world format=world
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC, CDS)!=#
+#?in(os_linux_shortname, CLD, CLDG, CLDX, CDS)!=#
 app-text/wgetpaste
 net-analyzer/nmap
 net-analyzer/traceroute
@@ -53,7 +53,13 @@ x11-plugins/purple-plugin_pack
 #in#
 
 #?in(os_linux_shortname, CMC)!=#
+app-text/wgetpaste
 net-dialup/mingetty
+net-dialup/pptpclient
+net-dialup/rp-pppoe
+net-dns/bind-tools
+net-misc/ntp
+net-misc/vconfig
 net-p2p/rtorrent
 #in#
 
