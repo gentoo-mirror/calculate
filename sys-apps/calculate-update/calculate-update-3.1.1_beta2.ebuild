@@ -18,6 +18,7 @@ SLOT="3"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="~sys-apps/calculate-core-3.1.1_beta2"
+DEPEND="~sys-apps/calculate-core-3.1.1_beta2
+	~sys-apps/calculate-install-3.1.1_beta2"
 
 RDEPEND="${DEPEND}"
