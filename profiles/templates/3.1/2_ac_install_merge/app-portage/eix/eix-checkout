@@ -6,7 +6,7 @@ already_run()
 {
     for p in `pgrep -f /usr/bin/eix-checkout`
     do
-        if [[ `readlink /proc/$p/root 2>/dev/null` == '/' ]] &&
+        if [[ $$ != $p ]] && [[ `readlink /proc/$p/root 2>/dev/null` == '/' ]] &&
            [[ `stat -c %i%D%d /proc/$p/root/` == `stat -c %i%D%d /` ]]
         then
             return 0
