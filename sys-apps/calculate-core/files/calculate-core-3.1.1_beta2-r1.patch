@@ -1,0 +1,21 @@
+diff --git core/server/replace_class.py core/server/replace_class.py
+index d476d06..e3dd65c 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -29,6 +29,7 @@ from methods_func import getErrorOnParam
+ from func import shortTraceback
+ from fcntl import ioctl
+ from array import array
++import threading
+ from calculate.lib.cl_print import color_print
+ from calculate.lib.datavars import VariableError
+ from calculate.lib.cl_lang import setLocalTranslate
+@@ -40,6 +41,8 @@ class replaceClass():
+     def startprocess (self, sid, target=None, method=None, method_name=None, \
+                       auto_delete=False, args_proc = {}):
+         """ start process """
++        curThread = threading.currentThread()
++        curThread.lang = os.environ["LANG"]
+         com = target(self.no_progress,self.gui_progress,self.gui_warning)
+         if hasattr (com.__class__.__bases__[1], '__init__'):
+             com.__class__.__bases__[1].__init__(com)
