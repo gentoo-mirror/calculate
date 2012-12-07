@@ -1,6 +1,26 @@
 # Calculate comment=# path=/usr/bin chmod=0755
 #!/bin/bash
+
+# check run eix-checkout in this root
+already_run()
+{
+    for p in `pgrep -f /usr/bin/eix-checkout`
+    do
+        if [[ `readlink /proc/$p/root 2>/dev/null` == '/' ]] &&
+           [[ `stat -c %i%D%d /proc/$p/root/` == `stat -c %i%D%d /` ]]
+        then
+            return 0
+        fi
+    done
+    return 1
+}
+
 # Unpack portage and overlay from git
+echo "Unpacking portage..."
+while already_run
+do
+    sleep 1
+done
 
 cd /usr/portage
 if git status --short | grep -m1 "^ D " &>/dev/null
