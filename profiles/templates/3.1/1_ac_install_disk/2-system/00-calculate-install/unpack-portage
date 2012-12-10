@@ -1,8 +1,0 @@
-# Calculate name=unpack_portage exec=/bin/bash
-
-# unpack portage and overlay
-for p in /usr/portage /var/lib/layman/calculate
-do
-    cd #-os_chroot_path-#/$p
-    git checkout .
-done
