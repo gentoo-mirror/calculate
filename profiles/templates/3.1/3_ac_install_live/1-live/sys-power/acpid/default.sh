@@ -11,7 +11,7 @@ device=$2
 id=$3
 value=$4
 
-BACKLIGHT_DIR=/sys/devices/virtual/backlight/acpi_video0
+BACKLIGHT_DIR=/sys/class/backlight/acpi_video0
 
 # increase backlight
 inc_backlight() {

@@ -288,7 +288,7 @@ then
 	fi
 fi
 
-if [[ $EBUILD_PHASE == "prerm" ]]
+if [[ $EBUILD_PHASE == "postrm" ]]
 then
 	if [[ $EAPI -ge 4 ]] && [[ -z $REPLACED_BY_VERSION ]] ||
 		[[ $EAPI -lt 4 ]] && [[ ! -f /var/lib/calculate/-merge-$PN-$SLOT-$PPID ]]
