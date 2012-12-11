@@ -1,4 +1,4 @@
-# Calculate format=kde link=/usr/share/applications/gparted.desktop mirror os_root_type==livecd
+# Calculate chmod=755 format=kde link=/usr/share/applications/gparted.desktop mirror os_root_type==livecd
 [Desktop Entry]
 Exec=sudo /usr/sbin/gparted %f
 !OnlyShowIn=
