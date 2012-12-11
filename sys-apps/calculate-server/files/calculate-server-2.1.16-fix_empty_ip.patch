@@ -1,0 +1,20 @@
+commit 32ab0f219c901bc4e0209c09b68c27638b1a61ad
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Tue Dec 11 11:22:42 2012 +0400
+
+    Fix multi net cards
+
+diff --git pym/cl_ldap.py pym/cl_ldap.py
+index 697273e..924547f 100644
+--- pym/cl_ldap.py
++++ pym/cl_ldap.py
+@@ -20897,7 +20900,8 @@ incompatible, use one of the options"))
+         dnsIP = ",".join(dnsIPs)
+         if not self.servDnsObj.searchZoneInLDAP(zoneName):
+             # Находим все ip DNS cервера
+-            IPs = self.servDnsObj.clVars.Get("os_net_ip").split(",")
++            IPs = filter(None,
++                  self.servDnsObj.clVars.Get("os_net_ip").split(","))
+             if not IPs:
+                 self.printERROR(_("Can not found ip in net interfaces"))
+                 return False
