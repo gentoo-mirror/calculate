@@ -1,0 +1,6 @@
+# Calculate path=~ name=.dconfigure append=after chmod=700 pkg(gnome-base/gnome-core-libs)!=
+#!/bin/bash
+
+dconf write /org/gnome/desktop/interface/cursor-theme \'calculate\'
+
+rm ~/.dconfigure

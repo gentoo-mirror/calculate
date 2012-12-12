@@ -17,7 +17,7 @@ dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-4 \[\'\<Primar
 dconf write /org/gnome/desktop/wm/keybindings/set-spew-mark \[\'Scroll_Lock\'\]
 dconf write /org/gnome/desktop/wm/preferences/resize-with-right-button true
 dconf write /org/gnome/desktop/interface/font-name \'Droid\ Sans\ 10\'
-dconf write /org/gnome/desktop/interface/cursor-theme \'neutral\'
+dconf write /org/gnome/desktop/interface/cursor-theme \'calculate\'
 # icon theme Calculate
 dconf write /org/gnome/desktop/interface/icon-theme \'Calculate\'
 # show desktop icons

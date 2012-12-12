@@ -6,7 +6,7 @@ dconf write /org/gnome/desktop/background/picture-uri \'file:///usr/share/pixmap
 dconf write /org/gnome/desktop/background/picture-options \'stretched\'
 
 dconf write /org/gnome/desktop/interface/font-name \'Droid\ Sans\ 10\'
-dconf write /org/gnome/desktop/interface/cursor-theme \'neutral\'
+dconf write /org/gnome/desktop/interface/cursor-theme \'calculate\'
 # icon theme Calculate
 dconf write /org/gnome/desktop/interface/icon-theme \'Calculate\'
 # show desktop icons
