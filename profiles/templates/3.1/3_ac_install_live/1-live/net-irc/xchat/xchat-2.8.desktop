@@ -1,0 +1,9 @@
+# Calculate format=kde path=/usr/share/applications/calculate-chat.desktop name=calculate-chat.desktop exists(/usr/share/applications/calculate-chat.desktop)!=||ini(desktop.chat)==xchat
+
+[Desktop Entry]
+#?os_locale_language!=ru#
+Exec=xchat "--url=irc://irc.freenode.net:6667/#calculate"
+#os_locale_language#
+#?os_locale_language==ru#
+Exec=xchat "--url=irc://irc.freenode.net:6667/#calculate-ru"
+#os_locale_language#
