@@ -20,4 +20,6 @@ DEPEND="${RDEPEND}"
 src_install() {
 	insinto /
 	doins -r .
+	dosym ../neutral/cursors /usr/share/cursors/xorg-x11/calculate/cursors
+	dosym ../neutral/source /usr/share/cursors/xorg-x11/calculate/source
 }
