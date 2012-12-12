@@ -4,6 +4,8 @@
 
 (ACTION=="add", SUBSYSTEM=="block", ENV\{ID_CDROM\}=="\?\*")</reg>
 <text>\1
-ACTION=="add", SUBSYSTEM=="block", ID_ATA=="1", ENV{ID_CDROM}=="?*", ENV{GENERATED}!="?*", \
+ACTION=="add", SUBSYSTEM=="block", ENV{ID_ATA}=="1", ENV{ID_CDROM}=="?*", ENV{GENERATED}!="?*", \
   PROGRAM="write_cd_rules by-id", SYMLINK+="%c", GOTO="persistent_cd_end"
 \2</text>
+<reg>ID_ATA=="1"</reg>
+<text>ENV{ID_ATA}=="1"</text>
