@@ -1,4 +1,4 @@
-# Calculate exec=/bin/bash os_install_scratch==on path=/tmp
+# Calculate exec=/bin/bash os_install_scratch==on&&os_install_root_type==hdd path=/tmp
 
 find #-cl_chroot_path-#/boot -exec touch {} \; &>/dev/null
 find #-cl_chroot_path-#/lib* -maxdepth 1 -name "ld*so" -exec touch {} \; &>/dev/null
