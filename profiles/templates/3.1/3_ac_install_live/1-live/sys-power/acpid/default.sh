@@ -87,7 +87,7 @@ log_unhandled() {
 case "$group" in
 	button)
 		case "$action" in
-#?in(os_install_linux_shortname,CLD,CLDX,CLDG)!=#
+#?in(os_install_linux_shortname,CLD,CLDX,CLDG)==#
 			power)
 				/sbin/init 0
 				;;
