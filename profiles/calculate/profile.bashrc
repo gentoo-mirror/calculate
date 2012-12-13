@@ -181,6 +181,7 @@ pre_pkg_postinst() {
 			${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
 		fi
 	fi
+	rm -f /var/lib/calculate/-merge-$PN-*
 }
 
 if [[ `readlink -f /etc/portage/bashrc` != "/usr/calculate/install/bashrc" ]] || [[ ! -f /etc/portage/bashrc ]]
