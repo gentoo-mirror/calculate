@@ -87,10 +87,11 @@ log_unhandled() {
 case "$group" in
 	button)
 		case "$action" in
+#?in(os_install_linux_shortname,CLD,CLDX,CLDG)!=#
 			power)
 				/sbin/init 0
 				;;
-
+#in#
 			# if your laptop doesnt turn on/off the display via hardware
 			# switch and instead just generates an acpi event, you can force
 			# X to turn off the display via dpms.  note you will have to run
