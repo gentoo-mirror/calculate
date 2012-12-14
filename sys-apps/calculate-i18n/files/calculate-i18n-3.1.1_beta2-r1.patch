@@ -1,0 +1,1142 @@
+diff --git ru/cl_client3.po ru/cl_client3.po
+index bc0b87f..629757d 100644
+--- ru/cl_client3.po
++++ ru/cl_client3.po
+@@ -185,6 +185,9 @@ msgstr "Пользовательские ресурсы домена подкл
+ msgid "Get a user fallback profile from the %s domain"
+ msgstr "Получен запасной профиль пользователя из %s домена"
+ 
++msgid "Changing in user profile will not be saved to the domain"
++msgstr "Изменения в пользовательском профиле не будет сохранено в домене"
++
+ msgid "Get a user profile from the %s domain"
+ msgstr "Получен профиль пользователя из %s"
+ 
+@@ -440,5 +443,3 @@ msgstr "Пустой пароль"
+ msgid "new user password"
+ msgstr "новый пароль пользователя"
+ 
+-msgid "Changing in user profile will not be saved to the domain"
+-msgstr "Изменения в пользовательском профиле не будут сохранены в домене"
+diff --git ru/cl_console3.po ru/cl_console3.po
+index e724040..2d37ed5 100644
+--- ru/cl_console3.po
++++ ru/cl_console3.po
+@@ -278,6 +278,9 @@ msgstr "Вы можете сгенерировать новый сертифик
+ msgid "Certificate not sent!"
+ msgstr "Сертификат не отправлен!"
+ 
++msgid "Using upstreamer cert"
++msgstr "Использование вышестоящиего сертификат"
++
+ msgid " Your certifitate ID = %d"
+ msgstr "Номер Вашего сертификата = %d"
+ 
+diff --git ru/cl_consolegui3.po ru/cl_consolegui3.po
+index 964341d..1dda33a 100644
+--- ru/cl_consolegui3.po
++++ ru/cl_consolegui3.po
+@@ -11,6 +11,75 @@ msgstr ""
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
++msgid "The user should not be root"
++msgstr "Пользователь должен быть не root"
++
++msgid "Makes part of Calculate Utilities 3.0.0"
++msgstr "Входит в состав Calculate Utilities 3.0.0"
++
++msgid "Company"
++msgstr "Компания"
++
++msgid "Company website"
++msgstr "Сайт Компании"
++
++msgid "Distribution website"
++msgstr "Сайт дистрибутива"
++
++msgid "Close"
++msgstr "Закрыть"
++
++msgid "Calculate Console "
++msgstr "Calculate Console "
++
++msgid "Your name:"
++msgstr "Ваше имя:"
++
++msgid "Your email:"
++msgstr "Ваш email:"
++
++msgid "Please enter a valid email. "
++msgstr "Пожалуйста, введите существующий адрес электронной почты."
++
++msgid "If the email does not exist, you will receive no letter"
++msgstr "Если электронная почта не существует, то письмо не дойдет"
++
++msgid "Subject:"
++msgstr "Тема:"
++
++msgid "Message:"
++msgstr "Сообщение:"
++
++msgid "Send a Bug"
++msgstr "Отправить ошибку"
++
++msgid "Report Bug"
++msgstr "Сообщить об ошибке"
++
++msgid "Enter a valid email!"
++msgstr "Введите существующий адрес электронной почты!"
++
++msgid "Email sent!"
++msgstr "Письмо отправлено!"
++
++msgid "Sending error!"
++msgstr "Ошибка отправки"
++
++msgid "Previous"
++msgstr "Назад"
++
++msgid "Cancel"
++msgstr "Отмена"
++
++msgid "Ok"
++msgstr "Ok"
++
++msgid "Next"
++msgstr "Далее"
++
++msgid "Error closing the process"
++msgstr "Ошибка закрытия процесса"
++
+ msgid "Connection lost!"
+ msgstr "Соединение потеряно!"
+ 
+@@ -41,56 +110,92 @@ msgstr "Да"
+ msgid "No"
+ msgstr "Нет"
+ 
+-msgid "Cancel"
+-msgstr "Отмена"
++msgid "show this help message and exit"
++msgstr "вывод этой справки и выход"
+ 
+-msgid "Back"
+-msgstr "Назад"
++msgid "language for translation"
++msgstr "язык для перевода"
+ 
+-msgid "Processes"
+-msgstr "Процессы"
++msgid "call method"
++msgstr "вызов метода"
+ 
+-msgid "View information about running processes"
+-msgstr "Просмотр информации о запущенных процессах"
++msgid "port number"
++msgstr "номер порта"
+ 
+-msgid "Session"
+-msgstr "Сессия"
++msgid "destination host"
++msgstr "хост назначения"
+ 
+-msgid "View information about the current session"
+-msgstr "Просмотр информации о текущей сессии"
++msgid "New connection"
++msgstr "Новое соединение"
+ 
+-msgid "Disconnect"
+-msgstr "Отсоединиться"
++msgid "Certificate not found in the server!"
++msgstr "Не найден сертификат на сервере!"
+ 
+-msgid "Disconnect from the current server"
+-msgstr "Отсоединиться от текущего сервера"
++msgid "Session not matching your certificate!"
++msgstr "Сессия не соответствует Вашему сертификату!"
+ 
+-msgid "Connect"
+-msgstr "Соединиться"
++msgid "Failed to kill the process!"
++msgstr "Не удалось завершить процесс!"
+ 
+-msgid "Certificates"
+-msgstr "Сертификаты"
++msgid "Failed to get the frame from the server."
++msgstr "Ошибка получения фрейма с сервера."
+ 
+-msgid "Certificates manager"
+-msgstr "Окно работы с сертификатами"
++msgid "Try resfeshing this page later."
++msgstr "Пожалуйста, обновите эту страницу позже."
+ 
+-msgid "Tools"
+-msgstr "Настройки"
++msgid "Not connected!"
++msgstr "Соединение отсутствует!"
+ 
+-msgid "Application settings"
+-msgstr "Настройки приложения"
++msgid "Failed to get the complete frame from the server."
++msgstr "Ошибка получения полного фрейма с сервера."
+ 
+-msgid "Help"
+-msgstr "Помощь"
++msgid "Failed to get the progress status from the server"
++msgstr "Ошибка получения значения прогресса с сервера"
+ 
+-msgid "Failed to get the PID list from the server"
+-msgstr "Ошибка получения списка идентификаторов процессов с сервера"
++msgid "Repeat"
++msgstr "Повтор"
+ 
+-msgid "PID %d not found"
+-msgstr "Процесс id %d не найден"
++msgid "Send"
++msgstr "Отправить"
+ 
+-msgid "Permission denied"
+-msgstr "Доступ запрещён"
++msgid "Failed to send the message (password) to the server"
++msgstr "Ошибка отправки сообщения (пароля) на сервер"
++
++msgid "Connection Error"
++msgstr "Ошибка соединения"
++
++msgid "You are not connected to the localhost server"
++msgstr "Вы не подсоединены к локальному серверу!"
++
++msgid "Update running"
++msgstr "Обновление запущено"
++
++msgid "Update aborted"
++msgstr "Обновление прервано"
++
++msgid "Error updating!"
++msgstr "Ошибка при обновлении!"
++
++msgid "Update successfully completed"
++msgstr "Обновление успешно завершено"
++
++msgid "System control"
++msgstr "Управление системой"
++
++msgid "Show/Hide Window"
++msgstr "Показать/спрятать окно"
++
++msgid "Exit Program"
++msgstr "Выйти из программы"
++
++msgid "About"
++msgstr "О программе"
++
++msgid "Program settings"
++msgstr "Настройки программы"
++
++msgid "An update is already running"
++msgstr "Обновление уже запущено"
+ 
+ msgid "User@Server_HostName"
+ msgstr "Пользователь@Имя_сервера"
+@@ -155,171 +260,123 @@ msgstr "Результат"
+ msgid "Well killed!"
+ msgstr "Успешно убит!"
+ 
+-msgid "Certificate not found in the server!"
+-msgstr "Не найден сертификат на сервере!"
++msgid "Back"
++msgstr "Назад"
+ 
+-msgid "Session not matching your certificate!"
+-msgstr "Сессия не соответствует Вашему сертификату!"
++msgid "Processes"
++msgstr "Процессы"
+ 
+-msgid "Failed to kill the process!"
+-msgstr "Не удалось завершить процесс!"
++msgid "View information about running processes"
++msgstr "Просмотр информации о запущенных процессах"
+ 
+-msgid "Close"
+-msgstr "Закрыть"
++msgid "Session"
++msgstr "Сессия"
+ 
+-msgid "show this help message and exit"
+-msgstr "вывод этой справки и выход"
++msgid "View information about the current session"
++msgstr "Просмотр информации о текущей сессии"
+ 
+-msgid "language for translation"
+-msgstr "язык для перевода"
++msgid "Disconnect"
++msgstr "Отсоединиться"
+ 
+-msgid "call method"
+-msgstr "вызов метода"
++msgid "Disconnect from the current server"
++msgstr "Отсоединиться от текущего сервера"
+ 
+-msgid "port number"
+-msgstr "номер порта"
++msgid "Connect"
++msgstr "Соединиться"
+ 
+-msgid "destination host"
+-msgstr "хост назначения"
++msgid "Certificates"
++msgstr "Сертификаты"
+ 
+-msgid "New connection"
+-msgstr "Новое соединение"
++msgid "Certificates manager"
++msgstr "Окно работы с сертификатами"
+ 
+-msgid "Error at this step."
+-msgstr "На текущем шаге есть ошибка."
++msgid "Tools"
++msgstr "Настройки"
+ 
+-msgid "Do you want to continue?"
+-msgstr "Вы хотите продолжить?"
++msgid "Application settings"
++msgstr "Настройки приложения"
++
++msgid "Help"
++msgstr "Помощь"
+ 
+ msgid "Calculate Console"
+ msgstr "Calculate Console"
+ 
+-msgid "The user should not be root"
+-msgstr "Пользователь должен быть не root"
+-
+-msgid "Makes part of Calculate Utilities 3.0.0"
+-msgstr "Входит в состав Calculate Utilities 3.0.0"
+-
+-msgid "Company"
+-msgstr "Компания"
+-
+-msgid "Company website"
+-msgstr "Сайт Компании"
+-
+-msgid "Distribution website"
+-msgstr "Сайт дистрибутива"
+-
+-msgid "Calculate Console "
+-msgstr "Calculate Console "
+-
+-msgid "Your name:"
+-msgstr "Ваше имя:"
+-
+-msgid "Your email:"
+-msgstr "Ваш email:"
+-
+-msgid "Please enter a valid email. "
+-msgstr "Пожалуйста, введите существующий адрес электронной почты."
+-
+-msgid "If the email does not exist, you will receive no letter"
+-msgstr "Если электронная почта не существует, то письмо не дойдет"
+-
+-msgid "Subject:"
+-msgstr "Тема:"
+-
+-msgid "Message:"
+-msgstr "Сообщение:"
+-
+-msgid "Send a Bug"
+-msgstr "Отправить ошибку"
+-
+-msgid "Report Bug"
+-msgstr "Сообщить об ошибке"
+-
+-msgid "Enter a valid email!"
+-msgstr "Введите существующий адрес электронной почты!"
+-
+-msgid "Email sent!"
+-msgstr "Письмо отправлено!"
+-
+-msgid "Sending error!"
+-msgstr "Ошибка отправки"
++msgid "Permission denied"
++msgstr "Доступ запрещён"
+ 
+-msgid "Previous"
+-msgstr "Назад"
++msgid "Reconnect"
++msgstr "Переподключиться"
+ 
+-msgid "Ok"
+-msgstr "Ok"
++msgid "Clear the configuration file"
++msgstr "Очистить файл конфигурации"
+ 
+-msgid "Next"
+-msgstr "Далее"
++msgid "Apply"
++msgstr "Применить"
+ 
+-msgid "Error closing the process"
+-msgstr "Ошибка закрытия процесса"
++msgid "GUI Tools"
++msgstr "Настройки интерфейса"
+ 
+-msgid "Error"
+-msgstr "Ошибка"
++msgid "Other Tools"
++msgstr "Прочие настройки"
+ 
+-msgid " New session"
+-msgstr "Новая сессия"
++msgid "There are unsaved changes in tab %s"
++msgstr "На вкладке %s имеются несохранённые изменения"
+ 
+-msgid " Old session"
+-msgstr "Предыдущая сессия"
++msgid "<center>Apply them?</center>"
++msgstr "<center>Применить их?</center>"
+ 
+-msgid " Your session ID: %s"
+-msgstr "Номер Вашей сессии: %s"
++msgid "Saving changes"
++msgstr "Сохранение изменений"
+ 
+-msgid "Certificate not sent!"
+-msgstr "Сертификат не отправлен!"
++msgid "Image height"
++msgstr "Высота изображений"
+ 
+-msgid " Your certifitate ID: %d"
+-msgstr "Номер Вашего сертификата: %d"
++msgid "Set a fixed height image for actions"
++msgstr "Установка фиксированной высоты изображений для действий"
+ 
+-msgid "Certificate expired"
+-msgstr "Время жизни сертификата истекло"
++msgid "0: hide images"
++msgstr "0 - скрыть изображения"
+ 
+-msgid "Expires after %d days"
+-msgstr "Время жизни сертификата истекает через %d дней"
++msgid "Expert view"
++msgstr "Расширенный просмотр"
+ 
+-msgid "Not connected!"
+-msgstr "Соединение отсутствует!"
++msgid "View results in expert mode"
++msgstr "Расширенный режим просмотра результатов"
+ 
+-msgid "Your session ID: "
+-msgstr "Номер Вашей сессии: "
++msgid "Rows in the Table"
++msgstr "Кол-во строк в таблице"
+ 
+-msgid "Your certifitate id: "
+-msgstr "Номер Вашего сертификата: "
++msgid "Select Language"
++msgstr "Выбор языка"
+ 
+-msgid "expiry certificate has passed"
+-msgstr "Время жизни сертификата истекло"
++msgid "English"
++msgstr "Английский"
+ 
+-msgid "shelf life expires after %d days"
+-msgstr "Время жизни сертификата истекает через %d дней"
++msgid "Russian"
++msgstr "Русский"
+ 
+-msgid "Your IP address: "
+-msgstr "Ваш IP адрес: "
++msgid "French"
++msgstr "Французский"
+ 
+-msgid "Your MAC address: "
+-msgstr "Ваш MAC адрес: "
++msgid "Path to Certificates"
++msgstr "Директория с сертификатами"
+ 
+-msgid "Clear your session cache"
+-msgstr "Очистить кэш сессии"
++msgid "Certificate Directory"
++msgstr "Директория с сертификатами"
+ 
+-msgid "Session information"
+-msgstr "Информация о сессии"
++msgid "Empty to default path"
++msgstr "Оставьте пустым для выбора стандартного пути"
+ 
+-msgid "Error clearing the session cache"
+-msgstr "Ошибка удаления кэша сессии"
++msgid "Failed to get the PID list from the server"
++msgstr "Ошибка получения списка идентификаторов процессов с сервера"
+ 
+-msgid "Session cache cleared"
+-msgstr "Кэш сессии удалён"
++msgid "PID %d not found"
++msgstr "Процесс id %d не найден"
+ 
+ msgid "The user must not be root"
+ msgstr "Пользователь должен быть не root"
+ 
+-msgid "About"
+-msgstr "О программе"
+-
+ msgid "Info"
+ msgstr "Справка"
+ 
+@@ -344,9 +401,6 @@ msgstr "Отметить все"
+ msgid "Reset"
+ msgstr "Сбросить изменения"
+ 
+-msgid "Repeat"
+-msgstr "Повтор"
+-
+ msgid "Break the process"
+ msgstr "Прервать процесс"
+ 
+@@ -374,6 +428,33 @@ msgstr "Хост"
+ msgid "Port"
+ msgstr "Порт"
+ 
++msgid "Connection"
++msgstr "Соединение"
++
++msgid "You are connected to the server!"
++msgstr "Вы подсоединены к серверу!"
++
++msgid "Please break"
++msgstr "Пожалуйста, разорвите"
++
++msgid "previous connection!"
++msgstr "предыдущее соединение!"
++
++msgid "Enter the port correctly!"
++msgstr "Введите корректный порт!"
++
++msgid "This server is not trusted"
++msgstr "Данный сервер не является доверенным"
++
++msgid "Certificate verification error"
++msgstr "Ошибка проверки сертификата сервера"
++
++msgid "Invalid password"
++msgstr "Пароль неверен"
++
++msgid "You do not have a certificate or your certificate does not match the server certificate. Please generate a new request and get a new certificate from the server."
++msgstr "У вас нет сертификата или ваш сертификат не соответствует серверному сертификату. Пожалуйста, сгенерируйте запрос на сертификат и получите сертификат с сервера."
++
+ msgid "Send a request"
+ msgstr "Отправить запрос"
+ 
+@@ -461,146 +542,86 @@ msgstr "Корневой сертификат добавлен"
+ msgid "File with the CA certificate now exists"
+ msgstr "Файл с сертификатом Центра авторизации создан"
+ 
+-msgid "Connection"
+-msgstr "Соединение"
+-
+-msgid "You are connected to the server!"
+-msgstr "Вы подсоединены к серверу!"
+-
+-msgid "Please break"
+-msgstr "Пожалуйста, разорвите"
+-
+-msgid "previous connection!"
+-msgstr "предыдущее соединение!"
+-
+-msgid "Connection Error"
+-msgstr "Ошибка соединения"
+-
+-msgid "Enter the port correctly!"
+-msgstr "Введите корректный порт!"
+-
+-msgid "This server is not trusted"
+-msgstr "Данный сервер не является доверенным"
+-
+-msgid "Certificate verification error"
+-msgstr "Ошибка проверки сертификата сервера"
+-
+-msgid "Invalid password"
+-msgstr "Пароль неверен"
+-
+-msgid "You do not have a certificate or your certificate does not match the server certificate. Please generate a new request and get a new certificate from the server."
+-msgstr "У вас нет сертификата или ваш сертификат не соответствует серверному сертификату. Пожалуйста, сгенерируйте запрос на сертификат и получите сертификат с сервера."
+-
+-msgid "Failed to get the frame from the server."
+-msgstr "Ошибка получения фрейма с сервера."
+-
+-msgid "Try resfeshing this page later."
+-msgstr "Пожалуйста, обновите эту страницу позже."
+-
+-msgid "Failed to get the complete frame from the server."
+-msgstr "Ошибка получения полного фрейма с сервера."
+-
+-msgid "Failed to get the progress status from the server"
+-msgstr "Ошибка получения значения прогресса с сервера"
+-
+-msgid "Send"
+-msgstr "Отправить"
+-
+-msgid "Failed to send the message (password) to the server"
+-msgstr "Ошибка отправки сообщения (пароля) на сервер"
+-
+-msgid "Clear the configuration file"
+-msgstr "Очистить файл конфигурации"
+-
+-msgid "Apply"
+-msgstr "Применить"
+-
+-msgid "GUI Tools"
+-msgstr "Настройки интерфейса"
+-
+-msgid "Other Tools"
+-msgstr "Прочие настройки"
+-
+-msgid "There are unsaved changes in tab %s"
+-msgstr "На вкладке %s имеются несохранённые изменения"
++msgid "Advanced settings"
++msgstr "Дополнительные настройки"
+ 
+-msgid "<center>Apply them?</center>"
+-msgstr "<center>Применить их?</center>"
++msgid "Clean the expert parameters?"
++msgstr "Очистить экспертные параметры?"
+ 
+-msgid "Saving changes"
+-msgstr "Сохранение изменений"
++msgid "Delete the selected rows"
++msgstr "Удалить выделенные строки"
+ 
+-msgid "Image height"
+-msgstr "Высота изображений"
++msgid "Delete the row"
++msgstr "Удалить строку"
+ 
+-msgid "Set a fixed height image for actions"
+-msgstr "Установка фиксированной высоты изображений для действий"
++msgid "View options"
++msgstr "Просмотреть параметры"
+ 
+-msgid "0: hide images"
+-msgstr "0 - скрыть изображения"
++msgid " Step "
++msgstr " Шаг "
+ 
+-msgid "Expert view"
+-msgstr "Расширенный просмотр"
++msgid "Run"
++msgstr "Выполнение"
+ 
+-msgid "View results in expert mode"
+-msgstr "Расширенный режим просмотра результатов"
++msgid "Error"
++msgstr "Ошибка"
+ 
+-msgid "Rows in the Table"
+-msgstr "Кол-во строк в таблице"
++msgid " New session"
++msgstr "Новая сессия"
+ 
+-msgid "Select Language"
+-msgstr "Выбор языка"
++msgid " Old session"
++msgstr "Предыдущая сессия"
+ 
+-msgid "English"
+-msgstr "Английский"
++msgid " Your session ID: %s"
++msgstr "Номер Вашей сессии: %s"
+ 
+-msgid "Russian"
+-msgstr "Русский"
++msgid "Certificate not sent!"
++msgstr "Сертификат не отправлен!"
+ 
+-msgid "French"
+-msgstr "Французский"
++msgid " Your certifitate ID: %d"
++msgstr "Номер Вашего сертификата: %d"
+ 
+-msgid "Path to Certificates"
+-msgstr "Директория с сертификатами"
++msgid "Certificate expired"
++msgstr "Время жизни сертификата истекло"
+ 
+-msgid "Certificate Directory"
+-msgstr "Директория с сертификатами"
++msgid "Expires after %d days"
++msgstr "Время жизни сертификата истекает через %d дней"
+ 
+-msgid "Empty to default path"
+-msgstr "Оставьте пустым для выбора стандартного пути"
++msgid "Your session ID: "
++msgstr "Номер Вашей сессии: "
+ 
+-msgid "You are not connected to the localhost server"
+-msgstr "Вы не подсоединены к локальному серверу!"
++msgid "Your certifitate id: "
++msgstr "Номер Вашего сертификата: "
+ 
+-msgid "Update running"
+-msgstr "Обновление запущено"
++msgid "expiry certificate has passed"
++msgstr "Время жизни сертификата истекло"
+ 
+-msgid "Update aborted"
+-msgstr "Обновление прервано"
++msgid "shelf life expires after %d days"
++msgstr "Время жизни сертификата истекает через %d дней"
+ 
+-msgid "Error updating!"
+-msgstr "Ошибка при обновлении!"
++msgid "Your IP address: "
++msgstr "Ваш IP адрес: "
+ 
+-msgid "Update successfully completed"
+-msgstr "Обновление успешно завершено"
++msgid "Your MAC address: "
++msgstr "Ваш MAC адрес: "
+ 
+-msgid "System control"
+-msgstr "Управление системой"
++msgid "Clear your session cache"
++msgstr "Очистить кэш сессии"
+ 
+-msgid "Show/Hide Window"
+-msgstr "Показать/спрятать окно"
++msgid "Session information"
++msgstr "Информация о сессии"
+ 
+-msgid "Exit Program"
+-msgstr "Выйти из программы"
++msgid "Error clearing the session cache"
++msgstr "Ошибка удаления кэша сессии"
+ 
+-msgid "Program settings"
+-msgstr "Настройки программы"
++msgid "Session cache cleared"
++msgstr "Кэш сессии удалён"
+ 
+-msgid "An update is already running"
+-msgstr "Обновление уже запущено"
++msgid "Error at this step."
++msgstr "На текущем шаге есть ошибка."
+ 
+-msgid "Reconnect"
+-msgstr "Переподключиться"
++msgid "Do you want to continue?"
++msgstr "Вы хотите продолжить?"
+ 
+ msgid "Untrusted Server Certificate!"
+ msgstr "Недоверенный сертификат сервера!"
+@@ -686,23 +707,6 @@ msgstr "Сертификат Центра Авторизации удалён и
+ msgid "CA certificate removed from system trusted"
+ msgstr "Сертификат Центра Авторизации удалён из системного списка доверенных сертификатов"
+ 
+-msgid "Advanced settings"
+-msgstr "Дополнительные настройки"
+-
+-msgid "Clean the expert parameters?"
+-msgstr "Очистить экспертные параметры?"
+-
+-msgid "Delete the selected rows"
+-msgstr "Удалить выделенные строки"
+-
+-msgid "Delete the row"
+-msgstr "Удалить строку"
+ 
+-msgid "View options"
+-msgstr "Просмотреть параметры"
+ 
+-msgid " Step "
+-msgstr " Шаг "
+ 
+-msgid "Run"
+-msgstr "Выполнение"
+diff --git ru/cl_core3.po ru/cl_core3.po
+index 41a5605..b5a1c46 100644
+--- ru/cl_core3.po
++++ ru/cl_core3.po
+@@ -128,6 +128,15 @@ msgstr "версия пакета с ревизией"
+ msgid "Please, choose version"
+ msgstr "Пожалуйста, выберите версию"
+ 
++msgid "Package slot"
++msgstr "Слот пакета"
++
++msgid "package slot"
++msgstr "слот пакета"
++
++msgid "Please, choose slot"
++msgstr "Пожалуйста, выберите слот"
++
+ msgid "Package category"
+ msgstr "Категория пакета"
+ 
+@@ -797,6 +806,9 @@ msgstr "Прервано пользователем"
+ msgid "Unknown parameter"
+ msgstr "Неизвестный параметр"
+ 
++msgid "Unknown argument"
++msgstr "Неизвестный аргумент"
++
+ msgid "Method not available"
+ msgstr "Метод не доступен"
+ 
+@@ -830,13 +842,13 @@ msgstr "Пользователи в X сессии не найдены"
+ msgid "Update user configuration files"
+ msgstr "Обновление пользовательских конфигурационных файлов"
+ 
+-msgid "Users configuring the {nameProgram} package by Calculate utilities"
++msgid "User configuring the {nameProgram} package by Calculate Utilities"
+ msgstr "Конфигурация Calculate утилитами пользовательских настроек {nameProgram}"
+ 
+ msgid "Error using templates for the user %s"
+ msgstr "Ошибка использования шаблонов для пользователя %s"
+ 
+-msgid "Calculate utilities have changed files"
++msgid "Calculate Utilities have changed files"
+ msgstr "Утилиты Calculate изменили файлы"
+ 
+ msgid "User %s"
+@@ -857,9 +869,15 @@ msgstr "Обновление системных конфигурационных
+ msgid "Path '%s' does not exist"
+ msgstr "Путь %s не существует"
+ 
+-msgid "System configuring the {nameProgram} package by Calculate utilities"
++msgid "System configuring for {nameProgram} package by Calculate Utilities"
+ msgstr "Конфигурация Calculate утилитами системных настроек {nameProgram}"
+ 
++msgid "Failed to copy {ffrom} to {fto}"
++msgstr "Не удалось скопировать {ffrom} в {fto}"
++
++msgid "Failed to remove %s"
++msgstr "Не удалось удалить %s"
++
+ msgid "Template error in package %s"
+ msgstr "Ошибка шаблона в пакете %s"
+ 
+diff --git ru/cl_install3.po ru/cl_install3.po
+index 9f3ba6e..e9c0edc 100644
+--- ru/cl_install3.po
++++ ru/cl_install3.po
+@@ -357,6 +357,12 @@ msgstr "Конфигурирование Flash-установки"
+ msgid "Preparing the system for reboot"
+ msgstr "Подготовим систему для перезагрузки"
+ 
++msgid "Unable umount %s"
++msgstr "Не удалось отмонтировать %s"
++
++msgid "Unable remove directory %s"
++msgstr "Не удалось удалить директорию %s"
++
+ msgid "Installation image"
+ msgstr "Установочный образ"
+ 
+@@ -628,24 +634,6 @@ msgstr "Конфигурировать только динамические п
+ msgid "configure only dynamic options"
+ msgstr "конфигурировать только динамические параметры"
+ 
+-msgid "Location templates"
+-msgstr "Местонахождение шаблонов"
+-
+-msgid "select location for templates %s"
+-msgstr "выбор местонахождения шаблонов %s"
+-
+-msgid "Overlay templates"
+-msgstr "Overlay-шаблоны"
+-
+-msgid "Local templates"
+-msgstr "Локальные шаблоны"
+-
+-msgid "Remote templates"
+-msgstr "Удалённые шаблоны"
+-
+-msgid "clt templates"
+-msgstr "clt-шаблоны"
+-
+ msgid "The PXE install is available for Calculate Directory Server only"
+ msgstr "Установка PXE доступна только на Calculate Directory Server"
+ 
+diff --git ru/cl_lib3.po ru/cl_lib3.po
+index 3770b06..9a7cdb2 100644
+--- ru/cl_lib3.po
++++ ru/cl_lib3.po
+@@ -12,6 +12,9 @@ msgstr ""
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
++msgid "Attempt to rewrite a readonly variable %s"
++msgstr "Попытка перезаписать переменную только для чтения %s"
++
+ msgid "Value for {varname} may be '{vartype}' only"
+ msgstr "Значение для {varname} может быть только '{vartype}'"
+ 
+@@ -42,18 +45,12 @@ msgstr "Не удалось импортировать модуль %s"
+ msgid "error"
+ msgstr "ошибка"
+ 
+-msgid "Error reading the ini file: "
+-msgstr "Ошибка при чтении ini-файла: "
+-
+ msgid "Wrong variable name %s"
+ msgstr "Неправильное имя переменной %s"
+ 
+ msgid "Loop dependence of variables '%s'"
+ msgstr "Циклическая зависимость у переменных '%s'"
+ 
+-msgid "Attempt to rewrite a readonly variable %s"
+-msgstr "Попытка перезаписать переменную только для чтения %s"
+-
+ msgid "Unable to write variable %s"
+ msgstr "Не удалось записать переменную %s"
+ 
+@@ -90,6 +87,12 @@ msgstr "неправильный текст в шаблоне: '%s'"
+ msgid "unable to open the file:"
+ msgstr "не удалось открыть файл:"
+ 
++msgid "unable to execute script:"
++msgstr "Не удалось выполнить '%s'"
++
++msgid "unable to open the directory as file:"
++msgstr "не удалось открыть директорию как файл:"
++
+ msgid "User %s not found"
+ msgstr "Не найден пользователь %s"
+ 
+@@ -132,12 +135,12 @@ msgstr "ошибка в шаблоне %s"
+ msgid "error: variable %s not found"
+ msgstr "ошибка: переменная %s не найдена"
+ 
+-msgid "error: variable %s exists"
+-msgstr "ошибка: переменная %s существует"
+-
+ msgid "error: variable %s does not exist"
+ msgstr "ошибка: переменная %s не существует"
+ 
++msgid "error: variable %s exists"
++msgstr "ошибка: переменная %s существует"
++
+ msgid "error: global variables stack empty"
+ msgstr "ошибка: стек глобальных переменных пуст"
+ 
+@@ -147,8 +150,14 @@ msgstr "третий аргумент функции не 'url', не 'purl' и
+ msgid "not found template variable '%s'"
+ msgstr "не найдена переменная шаблонов '%s'"
+ 
+-msgid "incorrect template path"
+-msgstr "неправильный путь шаблона"
++msgid "Function '{funcname}' used by {template} is depricated and will be removed at the future"
++msgstr "Функция '{funcname}', использующаяся шаблоном {template} устарела и будет удалена в будущем"
++
++msgid "Package {frompkg} was renamed"
++msgstr "Пакет {frompkg} был переименован"
++
++msgid "Package {pkgName} specified in the merge() into {templName} template is not found"
++msgstr "Пакет {pkgName} указанный в merge() шаблона {templName} не найден"
+ 
+ msgid "'%s' is not a number"
+ msgstr "'%s' не число"
+@@ -213,12 +222,24 @@ msgstr "не определена переменная:"
+ msgid "No such template directories"
+ msgstr "Не найдена директория шаблонов"
+ 
++msgid "Failed to execute"
++msgstr "Не удалось выполнить"
++
++msgid "{dirpath} is file"
++msgstr "{dirpath} файл"
++
++msgid "templates in {tempath} is skipped"
++msgstr "шаблоны в {tempath} пропущен"
++
+ msgid "Failed to apply template file %s"
+ msgstr "Ошибка при применении файла шаблона %s"
+ 
+ msgid "Failed to open the template"
+ msgstr "Ошибка открытия шаблона"
+ 
++msgid "Wrong package '%s' for 'merge' in the template"
++msgstr "Неправильный пакет '%s' для 'merge' в шаблоне"
++
+ msgid "Wrong value 'path' in the template"
+ msgstr "Ошибочное значение 'path' в шаблоне"
+ 
+@@ -243,11 +264,8 @@ msgstr "Ошибочное значение 'chown' в шаблоне"
+ msgid "Group not found on the system: "
+ msgstr "Отсутствует группа в системе: "
+ 
+-msgid "Wrong value '%s' for 'merge' in the template"
+-msgstr "Ошибочное значение '%s' для 'merge' в шаблоне"
+-
+-msgid "Wrong value 'exec' in the template"
+-msgstr "Ошибочное значение 'exec' в шаблоне"
++msgid "Wrong value '%s' in the template"
++msgstr "Неправильное значение '%s' в шаблоне"
+ 
+ msgid "Failed to execute %s"
+ msgstr "Не удалось выполнить %s"
+@@ -291,9 +309,6 @@ msgstr "Неправильный параметр заголовка format=%s 
+ msgid "Wrong template"
+ msgstr "Ошибка шаблона"
+ 
+-msgid "Failed to execute"
+-msgstr "Не удалось выполнить"
+-
+ msgid "Wrong option append=before in template %s"
+ msgstr "Ошибка параметра append=before в шаблоне %s"
+ 
+@@ -399,6 +414,24 @@ msgstr "подробный вывод"
+ msgid "Verbosity output"
+ msgstr "Подробный вывод"
+ 
++msgid "Overlay templates"
++msgstr "Overlay-Шаблоны"
++
++msgid "Local templates"
++msgstr "Локальные шаблоны"
++
++msgid "Remote templates"
++msgstr "Удаленные шаблоны"
++
++msgid "clt templates"
++msgstr "clt шаблоны"
++
++msgid "Location templates"
++msgstr "Местонахождение шаблонов"
++
++msgid "select location for templates %s"
++msgstr "выбор местонахождения шаблонов %s"
++
+ msgid "Number of processors"
+ msgstr "Число процессоров"
+ 
+@@ -565,84 +598,28 @@ msgstr "Неправильный атрибут \"type\" - <entry type=\"%s\"/>"
+ msgid "Text file is not XML"
+ msgstr "Текстовый файл не является XML"
+ 
+-msgid "Failed to execute 'who'"
+-msgstr "Не удалось выполнить 'who'"
+ 
+-msgid "Package %s"
+-msgstr "Пакет %s"
+ 
+-msgid "X sessions users not found"
+-msgstr "Не найдены пользователи в X-сессии"
+ 
+-msgid "Update desktop configuration files"
+-msgstr "Обновление конфигурационных файлов desktop"
+ 
+-msgid "Error using templates for user %s"
+-msgstr "Ошибка использования шаблонов для пользователя %s"
+ 
+-msgid "Package %s has changed the following files"
+-msgstr "Пакет %s изменил следующие файлы"
+ 
+-msgid "User %s"
+-msgstr "Пользователь %s"
+ 
+-msgid "Templates not found"
+-msgstr "Не найдены шаблоны"
+ 
+-msgid "Missing environment variable CONFIG_PROTECT"
+-msgstr "Отсутствует переменная среды CONFIG_PROTECT"
+ 
+-msgid "Replaced files:"
+-msgstr "Замененные файлы:"
+ 
+-msgid "Update system cofiguration files"
+-msgstr "Обновление системных конфигурационных фалов"
+ 
+-msgid "Path '%s' does not exist"
+-msgstr "Путь %s не существует"
+ 
+-msgid "Template error in package %s"
+-msgstr "Ошибка шаблона в пакете %s"
+ 
+-msgid "%prog [options] package_name"
+-msgstr "%prog [опции] имя_пакета"
+ 
+-msgid "Update configuration files of package nss_ldap"
+-msgstr "Обновление конфигурационных файлов пакета nss_ldap"
+ 
+-msgid ""
+-"%prog --system --pkg_category net-nds --pkg_version 2.4.19\\\n"
+-"  --path / openldap"
+-msgstr ""
+-"%prog --system --pkg_category net-nds --pkg_version 2.4.19\\\n"
+-"  --path / openldap"
+ 
+-msgid "Update configuration files of the installed package"
+-msgstr "Обновление файлов конфигурации установленного пакета"
+ 
+-msgid "update system configuration files"
+-msgstr "обновление системных конфигурационных файлов"
+ 
+-msgid "update desktop (user) configuration files"
+-msgstr "обновление пользовательских конфигурационных файлов (desktop)"
+ 
+-msgid "root path for saving the updated configuration files"
+-msgstr "корневой путь для сохранения обновленных конфигурационных файлов"
+ 
+-msgid "package category name"
+-msgstr "имя категории пакета"
+ 
+-msgid "package version number without the revision"
+-msgstr "версия пакета без ревизии"
+ 
+-msgid "no such argument"
+-msgstr "не найден аргумент"
+ 
+-msgid "wrong argument"
+-msgstr "неправильный аргумент"
+ 
+-msgid "no such option"
+-msgstr "не найдена опция"
+ 
+-msgid "no such options"
+-msgstr "не найдены опции"
+diff --git ru/cl_update3.po ru/cl_update3.po
+new file mode 100644
+index 0000000..47699b1
+--- /dev/null
++++ ru/cl_update3.po
+@@ -0,0 +1,36 @@
++msgid ""
++msgstr ""
++"Project-Id-Version: calculate-update 3.1\n"
++"Report-Msgid-Bugs-To: \n"
++"POT-Creation-Date: 2012-12-14 11:57+0300\n"
++"PO-Revision-Date: 2012-12-14 11:59+0300\n"
++"Last-Translator: Mikhail Khiretskiy <mh@calculate.ru>\n"
++"Language-Team: \n"
++"Language: ru\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++
++msgid "Update manually interrupted"
++msgstr "Обновление прервано пользователем"
++
++msgid "Update finished!"
++msgstr "Обновление завершено!"
++
++msgid "Update"
++msgstr "Обновить"
++
++msgid "Update world"
++msgstr "Обновить world"
++
++msgid "update world file"
++msgstr "обновить world файл"
++
++msgid "rebuild world file"
++msgstr "переформировать world файл"
++
++msgid "World action"
++msgstr "Действие с world"
++
++msgid "Select action with world"
++msgstr "Выберите действия с world"
