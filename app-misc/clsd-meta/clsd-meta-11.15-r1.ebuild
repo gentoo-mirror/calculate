@@ -42,7 +42,7 @@ RDEPEND="${RDEPEND}
 	x11-misc/gxmessage
 	x11-misc/gmrun
 	x11-misc/spacefm
-	x11-misc/obmenugen-bin
+	x11-misc/obmenu-generator
 	x11-misc/obdevicemenu
 	x11-misc/trayfreq
 	x11-misc/tinymount
