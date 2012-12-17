@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/smplayer.desktop name=calculate-videoplayer.desktop mirror pkg(media-video/smplayer)>=0.6
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.videoplayer, smplayer)-#
 
 # Hide icon

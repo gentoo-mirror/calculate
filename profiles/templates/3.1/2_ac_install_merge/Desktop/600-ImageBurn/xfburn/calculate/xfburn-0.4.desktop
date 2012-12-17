@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/xfburn.desktop name=calculate-imageburn.desktop mirror pkg(app-cdr/xfburn)>=0.4
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.imageburn, xfburn)-#
 
 # Hide icon

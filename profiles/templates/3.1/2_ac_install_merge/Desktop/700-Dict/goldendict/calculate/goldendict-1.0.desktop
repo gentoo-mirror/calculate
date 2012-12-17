@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/goldendict.desktop name=calculate-dict.desktop mirror pkg(app-text/goldendict)>=1.0
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.dict, goldendict)-#
 
 # Hide icon

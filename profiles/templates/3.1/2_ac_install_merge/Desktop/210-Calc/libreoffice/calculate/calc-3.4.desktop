@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/libreoffice-calc.desktop name=calculate-calc.desktop mirror pkg(app-office/libreoffice)>=3.4&&pkg(app-office/libreoffice)<3.4.3.2
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.calc, libreoffice)-#
 
 # Hide icon

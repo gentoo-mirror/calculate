@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/galculator.desktop name=calculate-calculator.desktop mirror pkg(sci-calculators/galculator)>=1.3
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.calculator, galculator)-#
 
 # Hide icon

@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/pidgin.desktop name=calculate-im.desktop mirror pkg(net-im/pidgin)>=2.9
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.im, pidgin)-#
 
 # Hide icon

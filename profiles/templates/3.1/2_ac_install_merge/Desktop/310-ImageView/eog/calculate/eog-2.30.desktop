@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/eog.desktop name=calculate-imageview.desktop mirror pkg(media-gfx/eog)>=2.30
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.imageview, eog)-#
 
 # Hide icon
