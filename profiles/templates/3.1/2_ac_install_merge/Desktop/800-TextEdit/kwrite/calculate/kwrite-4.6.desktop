@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/kde4/kwrite.desktop name=calculate-textedit.desktop mirror pkg(kde-base/kwrite)>=4.6
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.textedit, kwrite)-#
 
 # Hide icon

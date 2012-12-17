@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/zzz-gimp.desktop name=calculate-imageedit.desktop mirror pkg(media-gfx/gimp)>=2.6.11&&exists(/usr/share/applications/zzz-gimp.desktop)!=
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.imageedit, gimp)-#
 
 # Hide icon

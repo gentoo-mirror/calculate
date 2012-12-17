@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/audacious2.desktop name=calculate-audioplayer.desktop mirror pkg(media-sound/audacious)>=2.4&&pkg(media-sound/audacious)<2.5
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.audioplayer, audacious)-#
 
 # Hide icon

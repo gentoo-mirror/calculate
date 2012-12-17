@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/lib64/libreoffice/share/xdg/writer.desktop name=calculate-writer.desktop mirror pkg(app-office/libreoffice)>=3.4.3.2&&os_install_arch_machine==x86_64
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.writer, libreoffice)-#
 
 # Hide icon

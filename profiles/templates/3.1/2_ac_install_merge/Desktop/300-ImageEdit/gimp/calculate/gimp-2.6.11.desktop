@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/gimp.desktop name=calculate-imageedit.desktop mirror pkg(media-gfx/gimp)>=2.6.11
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.imageedit, gimp)-#
 
 # Hide icon

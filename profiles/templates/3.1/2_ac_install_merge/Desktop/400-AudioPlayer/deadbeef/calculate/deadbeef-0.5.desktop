@@ -1,6 +1,7 @@
 # Calculate format=kde link=/usr/share/applications/deadbeef.desktop name=calculate-audioplayer.desktop mirror pkg(media-sound/deadbeef)>=0.5
 
 # Update info
+#-ini(desktop.updating, on)-#
 #-ini(desktop.audioplayer, deadbeef)-#
 
 # Hide icon
