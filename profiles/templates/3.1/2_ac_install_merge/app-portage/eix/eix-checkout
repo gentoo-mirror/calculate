@@ -15,13 +15,25 @@ already_run()
     return 1
 }
 
-# Unpack portage and overlay from git
+# check already run
 echo "Unpacking portage..."
 while already_run
 do
     sleep 1
 done
 
+# repair portage and overlay
+for pdir in /usr/portage /var/lib/layman/calculate
+do
+	cd $pdir
+	if [[ -n `git status --porcelain` ]]
+	then
+		git reset --hard `sed 's/ref: //' .git/HEAD` &>/dev/null
+		git clean -fd &>/dev/null
+	fi
+done
+
+# Unpack portage and overlay from git
 cd /usr/portage
 if git status --short | grep -m1 "^ D " &>/dev/null
 then
