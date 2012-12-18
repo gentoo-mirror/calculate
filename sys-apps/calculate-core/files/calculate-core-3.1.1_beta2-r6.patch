@@ -1,0 +1,143 @@
+diff --git core/server/replace_class.py core/server/replace_class.py
+index d476d06..5a41c08 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -29,6 +29,7 @@ from methods_func import getErrorOnParam
+ from func import shortTraceback
+ from fcntl import ioctl
+ from array import array
++import threading
+ from calculate.lib.cl_print import color_print
+ from calculate.lib.datavars import VariableError
+ from calculate.lib.cl_lang import setLocalTranslate
+@@ -40,6 +41,9 @@ class replaceClass():
+     def startprocess (self, sid, target=None, method=None, method_name=None, \
+                       auto_delete=False, args_proc = {}):
+         """ start process """
++        if "LANG" in os.environ:
++            curThread = threading.currentThread()
++            curThread.lang = os.environ["LANG"]
+         com = target(self.no_progress,self.gui_progress,self.gui_warning)
+         if hasattr (com.__class__.__bases__[1], '__init__'):
+             com.__class__.__bases__[1].__init__(com)
+@@ -433,6 +437,9 @@ def call_method(metaObject, args, unknown_args, colorPrint):
+             if i in parse(True).parse_known_args()[1]:
+                 _print (_('Unknown parameter'), i)
+                 return 1
++        else:
++            _print (_('Unknown argument'), i)
++            return 1
+ 
+     param_object, steps = collect_object(None, param_object, view, args,
+                                          stdin_passwd=stdin_passwd)
+diff --git core/server/setup_package.py core/server/setup_package.py
+index cb9838e..f768bac 100644
+--- core/server/setup_package.py
++++ core/server/setup_package.py
+@@ -104,6 +104,8 @@ class ChainProgressTemplate(cl_template.ProgressTemplate):
+ 
+     def changeMergePackage(self,packages):
+         self.endTask()
++        packages = filter(isPkgInstalled,
++                   packages)
+         self.startTask(_("Configuring dependent packages: %s")%
+                     ",".join(packages),progress=True)
+         return True
+@@ -177,10 +179,7 @@ class updateUserConfigs(shareUpdateConfigs):
+         dictPakkages = {}
+         listIndex = []
+         mergeProgram = "calculate-utilities"
+-        self.startTask(_("Users configuring the {nameProgram} package by "
+-                         "Calculate utilities").format(
+-                            nameProgram=nameProgram),
+-                       progress=True)
++        firstValue = True
+         for userName in xUsers:
+             clVars.Set("cl_root_path", '/', True)
+             clVars.Set("ur_login", userName, True)
+@@ -199,7 +198,15 @@ class updateUserConfigs(shareUpdateConfigs):
+                                self.setProgress,
+                                clVars, cltObj = False,
+                                printWarning=False)
++            clTempl.onFirstValue = lambda *args: \
++                    self.startTask(
++                        _("User configuring the {nameProgram} package by "
++                          "Calculate Utilities").format(
++                          nameProgram=nameProgram),
++                          progress=True)
++            clTempl.firstValue = firstValue
+             dirsFiles = clTempl.applyTemplates()
++            firstValue = clTempl.firstValue
+             if dirsFiles is False:
+                 self.printERROR(\
+                     _("Error using templates for the user %s")\
+@@ -218,7 +225,7 @@ class updateUserConfigs(shareUpdateConfigs):
+         self.endTask()
+         if dictPakkages:
+             for calcPkg in listIndex:
+-                self.printSUCCESS(_("Calculate utilities have changed files")\
++                self.printSUCCESS(_("Calculate Utilities have changed files")\
+                                   +":")
+                 for userName, configFiles in dictPakkages[calcPkg]:
+                     self.printSUCCESS(" "*2 + _("User %s")%userName + ":")
+@@ -346,16 +353,16 @@ class updateSystemConfigs(shareUpdateConfigs):
+         clTempl = False
+         #for mergeProgram in filter(None,mergePrograms):
+         mergeProgram = "calculate-utilities"
+-        if variables.Get('cl_ebuild_phase') == "preinst":
+-            self.startTask(_("Package configuring the {nameProgram} package by "
+-                             "Calculate utilities").format(
+-                                nameProgram=nameProgram),
+-                           progress=True)
+-        else:
+-            self.startTask(_("System configuring for {nameProgram} package by "
+-                             "Calculate utilities").format(
+-                                nameProgram=nameProgram),
+-                           progress=True)
++        #if variables.Get('cl_ebuild_phase') == "preinst":
++        #    self.startTask(_("Package configuring the {nameProgram} package by "
++        #                     "Calculate Utilities").format(
++        #                        nameProgram=nameProgram),
++        #                   progress=True)
++        #else:
++        #    self.startTask(_("System configuring for {nameProgram} package by "
++        #                     "Calculate Utilities").format(
++        #                        nameProgram=nameProgram),
++        #                   progress=True)
+         clVars.Set("cl_root_path", configPath, True)
+         if variables.Get('cl_core_pkg_root_set') == 'on':
+             clVars.Set("cl_root_path_next", '/', True)
+@@ -390,6 +397,11 @@ class updateSystemConfigs(shareUpdateConfigs):
+                            printERROR=self.printERROR,
+                            printWARNING=self.printWARNING,
+                            printWarning=False)
++        clTempl.onFirstValue = lambda *args: \
++            self.startTask(_("System configuring for {nameProgram} package by "
++                             "Calculate Utilities").format(
++                             nameProgram=nameProgram),
++                             progress=True)
+         dirsFiles = clTempl.applyTemplates()
+         # fix CONTENTS pkg file
+         cfgs = getCfgFiles()
+@@ -454,7 +466,7 @@ class updateSystemConfigs(shareUpdateConfigs):
+         if dictPakkages:
+             reGrey = re.compile(r"\._cfg\d{4}_")
+             for calcPkg in listIndex:
+-                self.SUCCESS(_("Calculate utilities have changed files")+":")
++                self.SUCCESS(_("Calculate Utilities have changed files")+":")
+                 for nameF in dictPakkages[calcPkg]:
+                     nameFile = nameF.partition(configPath)[2]
+                     if nameFile:
+diff --git scripts/calculate-core scripts/calculate-core
+index ef10337..4971d22 100644
+--- scripts/calculate-core
++++ scripts/calculate-core
+@@ -30,7 +30,7 @@ start() {
+ 
+ 	start-stop-daemon --background --start --quiet --pidfile /var/run/cl_core.pid \
+ 		--exec /usr/sbin/cl-core -- --pid-file /var/run/cl_core.pid --start
+-	for waiting in 0.1 0.2 0.5 1
++	for waiting in 0.1 0.2 0.5 1 2 4
+ 	do
+ 		[[ -f /var/run/cl_core.pid ]] && [[ -d /proc/`cat /var/run/cl_core.pid` ]] && break
+ 		sleep $waiting
