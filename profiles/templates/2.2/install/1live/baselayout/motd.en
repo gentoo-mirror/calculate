@@ -3,7 +3,7 @@ Welcome to the #-os_install_linux_name-# Installation CD!
 
 If any ethernet adapters were detected at boot, they should be auto-configured
 if DHCP is available on your network.
-To specify network settings, use utility "cl_install".
+To specify network settings, use utility "cl-setup-network".
 Example:"cl-install --startup --ip 192.168.1.100/24 \
           --route default:192.168.1.1 --dns 192.168.1.1"
 #?os_install_linux_system==server||os_install_linux_shortname==CLS#
