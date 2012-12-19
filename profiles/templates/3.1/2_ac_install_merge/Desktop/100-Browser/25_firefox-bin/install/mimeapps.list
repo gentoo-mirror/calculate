@@ -1,0 +1,19 @@
+# Calculate format=compiz protected
+
+# Update info
+#-ini(desktop.updating, on)-#
+#-ini(desktop.browser, firefox-bin)-#
+
+[Added Associations]
+application/rss+xml=firefox-bin.desktop;
+application/vnd.mozilla.xul+xml=firefox-bin.desktop;
+application/x-font-ttx=firefox-bin.desktop;
+application/xhtml+xml=firefox-bin.desktop;
+application/xml=firefox-bin.desktop;
+application/xml-external-parsed-entity=firefox-bin.desktop;
+application/xsd=firefox-bin.desktop;
+application/xslt+xml=firefox-bin.desktop;
+application/x-ufraw=firefox-bin.desktop;
+text/html=firefox-bin.desktop;
+x-scheme-handler/http=firefox-bin.desktop;
+x-scheme-handler/https=firefox-bin.desktop;
