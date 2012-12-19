@@ -22,5 +22,10 @@ Section "Screen"
 EndSection
 
 Section "Extensions"
+#?os_install_x11_composite==on#
+ Option "Composite" "On"
+#os_install_x11_composite#
+#?os_install_x11_composite!=on#
  Option "Composite" "Off"
+#os_install_x11_composite#
 EndSection

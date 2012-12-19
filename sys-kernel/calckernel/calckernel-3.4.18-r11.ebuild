@@ -66,13 +66,14 @@ HOMEPAGE="http://www.calculate-linux.org/main/ru/calckernel"
 LICENSE="GPL-2"
 SLOT="0"
 RESTRICT=""
-IUSE="ibm selinux video_cards_radeon +nfs"
+IUSE="ibm +lspci selinux video_cards_radeon +nfs"
 
 DEPEND="sys-fs/e2fsprogs
 	selinux? ( sys-libs/libselinux )
 	nfs? ( net-fs/nfs-utils )
 	!sys-kernel/genkernel"
 RDEPEND="${DEPEND} app-arch/cpio
+	lspci? ( sys-apps/pciutils )
 	video_cards_radeon? ( sys-kernel/linux-firmware )"
 
 if [[ ${PV} == 9999* ]]; then
