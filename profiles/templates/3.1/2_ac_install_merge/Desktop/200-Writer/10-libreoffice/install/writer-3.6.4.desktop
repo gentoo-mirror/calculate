@@ -1,10 +1,8 @@
-# Calculate format=kde link=/usr/lib/libreoffice/share/xdg/writer.desktop name=calculate-writer.desktop mirror pkg(app-office/libreoffice)>=3.4.3.2&&os_install_arch_machine==i686
-
-# Update info
-#-ini(desktop.updating, on)-#
-#-ini(desktop.writer, libreoffice)-#
+# Calculate format=kde link=/usr/lib/libreoffice/share/xdg/writer.desktop name=calculate-writer.desktop mirror pkg(app-office/libreoffice)>=3.6.4&&os_install_arch_machine==i686
 
 # Hide icon
 [Desktop Entry]
 NoDisplay=true
-!MimeType=del
+!MimeType=
+!Type=
+
