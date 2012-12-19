@@ -1,2 +1,2 @@
-# Calculate append=skip pkg(www-client/firefox)!=&&exists(/usr/share/applications/calculate-browser.desktop)==||pkg(www-client/firefox)!=&&ini(desktop.browser)==||pkg(www-client/firefox)!=&&ini(desktop.browser)==firefox
+# Calculate append=skip pkg(www-client/firefox)!=&&ini(desktop.browser)==||pkg(www-client/firefox)!=&&ini(desktop.browser)==firefox
 

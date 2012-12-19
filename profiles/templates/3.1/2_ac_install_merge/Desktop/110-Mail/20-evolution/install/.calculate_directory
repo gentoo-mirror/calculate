@@ -1,2 +1,2 @@
-# Calculate append=skip pkg(mail-client/evolution)!=&&exists(/usr/share/applications/calculate-mail.desktop)==||pkg(mail-client/evolution)!=&&ini(desktop.mail)==||pkg(mail-client/evolution)!=&&ini(desktop.mail)==evolution
+# Calculate append=skip pkg(mail-client/evolution)!=&&ini(desktop.mail)==||pkg(mail-client/evolution)!=&&ini(desktop.mail)==evolution
 

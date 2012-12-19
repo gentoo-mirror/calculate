@@ -1,2 +1,2 @@
-# Calculate append=skip pkg(www-client/opera)!=&&exists(/usr/share/applications/calculate-browser.desktop)==||pkg(www-client/opera)!=&&ini(desktop.browser)==||pkg(www-client/opera)!=&&ini(desktop.browser)==opera
+# Calculate append=skip pkg(www-client/opera)!=&&ini(desktop.browser)==||pkg(www-client/opera)!=&&ini(desktop.browser)==opera
 

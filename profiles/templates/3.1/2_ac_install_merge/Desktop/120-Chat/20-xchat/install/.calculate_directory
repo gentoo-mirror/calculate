@@ -1,2 +1,1 @@
-# Calculate append=skip pkg(net-irc/xchat)!=&&exists(/usr/share/applications/calculate-chat.desktop)==||pkg(net-irc/xchat)!=&&ini(desktop.chat)==||pkg(net-irc/xchat)!=&&ini(desktop.chat)==xchat
-
+# Calculate append=skip pkg(net-irc/xchat)!=&&ini(desktop.chat)==||pkg(net-irc/xchat)!=&&ini(desktop.chat)==xchat

@@ -1,1 +1,1 @@
-# Calculate append=skip exists(/usr/share/applications/calculate-writer.desktop)==||ini(desktop.writer)==||ini(desktop.writer)==libreoffice-bin
+# Calculate append=skip pkg(app-office/libreoffice-bin)!=&&ini(desktop.writer)==||pkg(app-office/libreoffice-bin)!=&&ini(desktop.writer)==libreoffice-bin
