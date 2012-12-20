@@ -1,0 +1,5 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(app-cdr/brasero)==&&ini(desktop.imageburn)==brasero
+
+[desktop]
+!imageburn=
+imageburn-removing=on
