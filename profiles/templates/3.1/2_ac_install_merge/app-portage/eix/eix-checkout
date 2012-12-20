@@ -22,17 +22,6 @@ do
     sleep 1
 done
 
-# repair portage and overlay
-for pdir in /usr/portage /var/lib/layman/calculate
-do
-	cd $pdir
-	if [[ -n `git status --porcelain` ]]
-	then
-		git reset --hard `sed 's/ref: //' .git/HEAD` &>/dev/null
-		git clean -fd &>/dev/null
-	fi
-done
-
 # Unpack portage and overlay from git
 cd /usr/portage
 if git status --short | grep -m1 "^ D " &>/dev/null
@@ -49,5 +38,18 @@ then
 		sed -r 's/"([^"]+)":\s+([0-9]+).*/touch -c -t `date -d "@\2" +%Y%m%d%H%M.%S` \1/' | \
 		bash
 	# copy metadata
+	egencache --repo=calculate --update --jobs=4
 	emerge --metadata
+else
+	# repair portage and overlay
+	for pdir in /usr/portage /var/lib/layman/calculate
+	do
+		cd $pdir
+		if [[ -n `git status --porcelain` ]]
+		then
+			git reset --hard `git branch | sed -rn 's|^\*\s*(\S+)|origin/\1|p'` &>/dev/null
+			git clean -fd &>/dev/null
+		fi
+	done
 fi
+

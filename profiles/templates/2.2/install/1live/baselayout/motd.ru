@@ -3,7 +3,7 @@
 
 Если какой-либо из сетевых адаπтеров был обнаружен πри загрузке, он будет
 автоматически сконфигурирован, если в сети достуπен DHCP сервер.
-Для указания сетевых настроек используйте утилиту "cl-install".
+Для указания сетевых настроек используйте утилиту "cl-setup-network".
 Пример:"cl-install --startup --ip 192.168.1.100/24 \
         --route default:192.168.1.1 --dns 192.168.1.1"
 #?os_install_linux_system==server||os_install_linux_shortname==CLS#
@@ -11,12 +11,6 @@
 #os_install_linux_system#
 #?os_install_linux_system==desktop&&os_install_linux_shortname!=CLS#
 И перезапустите NetworkManager командой "/etc/init.d/NetworkManager restart".
-#os_install_linux_system#
-#?os_install_linux_system==server||os_install_linux_shortname==CLS#
-Выπолните "net-setup eth0" для указания сетевой карты и IP адреса вручную.
-#os_install_linux_system#
-#?os_install_linux_system==desktop&&os_install_linux_shortname!=CLS#
-Выполните "wicd-curses" для указания сетевой карты и IP адреса вручную.
 #os_install_linux_system#
 
 Последняя версия руководства всегда достуπна на веб-сайте Calculate Linux
@@ -29,7 +23,7 @@ http://www.calculate-linux.org/main/ru/handbook
 #os_install_linux_system#
 #?os_install_linux_system==desktop#
 Пожалуйста сообщайте о любых найденных ошибках на
-http://irc.calculate-linux.org.
+http://irc.calculate-linux.ru.
 #os_install_linux_system#
 
 Сπасибо за исπользование Calculate Linux!
