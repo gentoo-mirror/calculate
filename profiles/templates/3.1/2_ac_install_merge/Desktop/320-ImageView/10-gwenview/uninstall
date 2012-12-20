@@ -1,0 +1,5 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(kde-base/gwenview)==&&ini(desktop.imageview)==gwenview
+
+[desktop]
+!imageview=
+imageview-removing=on
