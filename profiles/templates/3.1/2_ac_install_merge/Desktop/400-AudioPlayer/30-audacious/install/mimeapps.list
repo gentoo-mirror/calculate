@@ -2,11 +2,11 @@
 
 # Update info
 #-ini(desktop.updating, on)-#
-#-ini(desktop.audioplayer, rhythmbox)-#
+#-ini(desktop.audioplayer, audacious)-#
 
 [Added Associations]
-audio/mp4=rhythmbox.desktop;
-audio/mpeg=rhythmbox.desktop;
-audio/x-flac=rhythmbox.desktop;
-audio/x-ms-wma=rhythmbox.desktop;
-audio/x-wav=rhythmbox.desktop;
+audio/mp4=audacious.desktop;
+audio/mpeg=audacious.desktop;
+audio/x-flac=audacious.desktop;
+audio/x-ms-wma=audacious.desktop;
+audio/x-wav=audacious.desktop;
