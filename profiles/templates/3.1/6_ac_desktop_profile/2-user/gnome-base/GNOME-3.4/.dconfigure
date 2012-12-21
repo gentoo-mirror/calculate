@@ -81,5 +81,7 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/cus
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name \'Prompt\ logout\'
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings \[\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/\',\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/\'\]
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding \'\<Primary\>\<Alt\>Delete\'
+dconf write /org/gnome/settings-daemon/peripherals/keyboard/delay 'uint32 330'
+dconf write /org/gnome/settings-daemon/peripherals/keyboard/repeat-interval 'uint32 30'
 
 rm ~/.dconfigure 
