@@ -1,0 +1,8 @@
+# Calculate ini(update.rev)<1 exec=/bin/bash
+
+#-ini(update.rev,1)-#
+
+test -f /var/db/pkg/x11-base/xorg-server-*/CONTENTS &&
+   sed -i /mimeapps.list/d /var/db/pkg/x11-base/xorg-server-*/CONTENTS
+
+exit 0
