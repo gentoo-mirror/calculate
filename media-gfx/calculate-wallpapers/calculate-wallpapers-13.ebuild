@@ -30,6 +30,7 @@ REQUIRED_USE="^^ ( themes_CLD themes_CLDX themes_CLS themes_CLDG )"
 
 RDEPEND="!media-gfx/calculate-cldx-themes
 		!media-gfx/calculate-cld-themes
+		!media-gfx/cld-themes
 		!media-gfx/cldx-themes"
 
 DEPEND="${RDEPEND}"
