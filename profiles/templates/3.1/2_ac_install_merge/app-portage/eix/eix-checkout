@@ -15,8 +15,12 @@ already_run()
     return 1
 }
 
+if already_run
+then
+	echo "Unpacking portage..."
+	NOECHOUNPACK=1
+fi
 # check already run
-echo "Unpacking portage..."
 while already_run
 do
     sleep 1
@@ -26,6 +30,7 @@ done
 cd /usr/portage
 if git status --short | grep -m1 "^ D " &>/dev/null
 then
+	[[ -z $NOECHOUNPACK ]] && echo "Unpacking portage..."
 	# unpack portage
 	cd /usr/portage
 	git checkout .

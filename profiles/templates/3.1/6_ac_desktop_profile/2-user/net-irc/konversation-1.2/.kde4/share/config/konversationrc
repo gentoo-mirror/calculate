@@ -7,12 +7,15 @@ update_info=konversation.upd:1.1-rememberline,konversation.upd:1.1-markerlines,k
 AliasList=cmd /exec cmd,bug /exec bug,fortune /exec fortune,kdeversion /exec kdeversion,gauge /exec gauge,mail /exec mail,video /exec media video,audio /exec media audio,media /exec media,tinyurl /exec tinyurl,sysinfo /exec sysinfo,sayclip /exec sayclip,uptime /exec uptime,gog /exec gog
 
 [Channel 0]
-#?os_locale_language!=ru#
-Name=#calculate
+#?os_locale_language==fr#
+Name=#calculate-fr
 #os_locale_language#
 #?os_locale_language==ru#
 Name=#calculate-ru
 #os_locale_language#
+#?in(os_locale_language,ru,fr)==#
+Name=#calculate
+#in#
 Password=
 
 [Identity 0]
