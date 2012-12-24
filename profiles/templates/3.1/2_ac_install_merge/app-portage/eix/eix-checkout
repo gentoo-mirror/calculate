@@ -28,6 +28,7 @@ done
 
 # Unpack portage and overlay from git
 cd /usr/portage
+[[ -z $NOECHOUNPACK ]] && echo "Checking portage..."
 if git status --short | grep -m1 "^ D " &>/dev/null
 then
 	[[ -z $NOECHOUNPACK ]] && echo "Unpacking portage..."
