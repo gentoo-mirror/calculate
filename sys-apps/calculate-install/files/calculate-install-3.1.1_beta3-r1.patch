@@ -1,0 +1,59 @@
+diff --git install/cl_install.py install/cl_install.py
+index 65d4972..6cd63c5 100644
+--- install/cl_install.py
++++ install/cl_install.py
+@@ -809,13 +809,13 @@ class Install(color_print):
+         """
+         for disk in self.clVars.Select('os_disk_dev',
+                                 where='os_disk_format',like='ntfs'):
+-            mountDir = self._getFreeDirectory('/var/lib/calculate/mount.test')
++            mountDir = self._getFreeDirectory('/var/lib/calculate/mount.ntfs')
+             try:
+                 os.mkdir(mountDir)
+             except:
+                 continue
+             if process('/bin/mount',disk,mountDir).success():
+-                for i in (0.2,0.5,1,2):
++                for i in (0.2,0.5,1,2,4,5):
+                     if process('/bin/umount',mountDir).success():
+                         break
+                 else:
+diff --git install/fs_manager.py install/fs_manager.py
+index f3f7a62..8583f86 100644
+--- install/fs_manager.py
++++ install/fs_manager.py
+@@ -59,7 +59,6 @@ class FileSystemManager:
+                       'msdos': '83',
+                       'type':['hdd','usb-hdd']},
+          'btrfs': {'defaultopt': defaultOpt,
+-                   'format': '/sbin/mkfs.btrfs',
+                    'formatparam': '{labelparam} {device}',
+                    'gpt': '0700',
+                    'label': '-L {labelname}',
+diff --git install/variables/disk.py install/variables/disk.py
+index 43cba4d..1682186 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -1016,7 +1016,7 @@ class VariableOsLocationPerformFormat(LocationHelper,Variable):
+                             (self.Get('os_disk_mount'))))
+         unavailFS = set(self.Select('os_format_type',
+                                     where='os_format_use',
+-                                    eq="off"))
++                                    eq="no"))
+         fixNtfs = self.fixNtfs
+         for dev,mp,fs,isformat in info:
+             # should format if change fs or partition is root, but non flash
+diff --git install/variables/system.py install/variables/system.py
+index 6a70936..3bcc35e 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -108,7 +108,8 @@ class VariableOsFormatUse(ReadonlyVariable):
+ 
+     def get(self):
+         return map(lambda x:"yes" 
+-            if path.exists(FileSystemManager.supportFS[x]["format"])
++            if "format" in FileSystemManager.supportFS[x] and \
++               path.exists(FileSystemManager.supportFS[x]["format"])
+             else "no", self.Get('os_format_type'))
+ 
+ class VariableClMigrateRootPwd(UserHelper,Variable):

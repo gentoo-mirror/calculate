@@ -1,0 +1,26 @@
+diff --git core/server/methods_func.py core/server/methods_func.py
+index 8957157..5ba0bfd 100644
+--- core/server/methods_func.py
++++ core/server/methods_func.py
+@@ -169,7 +169,7 @@ def get_method_argparser(view, args, cl_core = False):
+                 opt = field.opt
+                 data = {'dest':field.name,'help' : opt.help}
+                 if "choice" in field.type and hasattr(field.opt,"syntax") and \
+-                    "{" in field.opt.syntax:
++                    field.opt.syntax and "{" in field.opt.syntax:
+                     lgroup = group.add_mutually_exclusive_group()
+                     help = dict(map(lambda x:(x[0].strip("'"),x[2]),
+                                 map(lambda x:x.partition(' - '),
+diff --git core/server/replace_class.py core/server/replace_class.py
+index 238669d..784abc4 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -637,7 +637,7 @@ def print_brief_group(Fields, group_name):
+                 body = [['']*len(head)]
+                 res = printTable(body, head)
+                 sys.stdout.flush()
+-                sys.stdout.write(res)
++                sys.stdout.write(res+"\n")
+                 continue
+             ChoiceValue = field.tablevalue.values
+             for row in xrange(len(ChoiceValue)):
