@@ -1,0 +1,69 @@
+commit 0545e98854ee0d766cfdc6cc6c0fadc6b1085f95
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Tue Dec 25 17:44:59 2012 +0400
+
+    Add dovecot auth for postfix
+
+diff --git profile/mail/etc/dovecot/conf.d/10-auth.conf profile/mail/etc/dovecot/conf.d/10-auth.conf
+index f503282..b9ce1c3 100644
+--- profile/mail/etc/dovecot/conf.d/10-auth.conf
++++ profile/mail/etc/dovecot/conf.d/10-auth.conf
+@@ -7,3 +7,4 @@ disable_plaintext_auth=no
+ #sr_mail_crypt#
+ !!include auth-system.conf.ext
+ !include auth-ldap.conf.ext
++auth_mechanisms = plain login
+diff --git profile/mail/etc/dovecot/conf.d/10-master.conf profile/mail/etc/dovecot/conf.d/10-master.conf
+index 52c522d..90aca40 100644
+--- profile/mail/etc/dovecot/conf.d/10-master.conf
++++ profile/mail/etc/dovecot/conf.d/10-master.conf
+@@ -28,3 +28,11 @@ service pop3-login {
+ #sr_mail_crypt#
+   }
+ }
++
++service auth {
++  unix_listener /var/spool/postfix/private/auth {
++  mode = 0666
++  user = postfix
++  group = postfix
++  }
++}
+diff --git profile/mail/etc/postfix/main.cf profile/mail/etc/postfix/main.cf
+index aca83b7..308769a 100644
+--- profile/mail/etc/postfix/main.cf
++++ profile/mail/etc/postfix/main.cf
+@@ -194,7 +194,23 @@ show_user_unknown_table_name = no
+ # Чтобы проверка шла в порядке заданном нами
+ smtpd_delay_reject = yes
+ 
+-
++#включаем использование tls
++smtpd_tls_cert_file=/etc/ssl/postfix/server.crt
++smtpd_tls_key_file=/etc/ssl/postfix/server.key
++smtpd_use_tls=yes
++smtpd_tls_auth_only = yes
++smtpd_tls_received_header = yes
++smtpd_tls_session_cache_database = btree:${queue_directory}/smtpd_scache
++smtp_tls_session_cache_database = btree:${queue_directory}/smtp_scache
++
++#включаем авторизацию через dovecot
++smtpd_sasl_auth_enable = yes
++smtpd_sasl2_auth_enable = yes
++smtpd_sasl_type = dovecot
++smtpd_sasl_path = private/auth
++smtpd_sasl_security_options = noanonymous
++smtpd_sasl_tls_security_options = noanonymous
++broken_sasl_auth_clients = yes
+ 
+ #Эти директивы используются для запрещения доступа к Postfix
+ #Принимаем письма:
+@@ -291,7 +307,7 @@ readme_directory = no
+ #В данном примере backup
+ #always_bcc = backup@mydomain.ru
+ 
+-#Особенности настройки host.calculate.ru
++#Особенности настройки amavis
+ #setgid_group = maildrop
+ #content_filter = smtp-amavis:[127.0.0.1]:10024
+ 
