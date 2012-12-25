@@ -1,0 +1,70 @@
+diff --git install/cl_install.py install/cl_install.py
+index 65d4972..6cd63c5 100644
+--- install/cl_install.py
++++ install/cl_install.py
+@@ -809,13 +809,13 @@ class Install(color_print):
+         """
+         for disk in self.clVars.Select('os_disk_dev',
+                                 where='os_disk_format',like='ntfs'):
+-            mountDir = self._getFreeDirectory('/var/lib/calculate/mount.test')
++            mountDir = self._getFreeDirectory('/var/lib/calculate/mount.ntfs')
+             try:
+                 os.mkdir(mountDir)
+             except:
+                 continue
+             if process('/bin/mount',disk,mountDir).success():
+-                for i in (0.2,0.5,1,2):
++                for i in (0.2,0.5,1,2,4,5):
+                     if process('/bin/umount',mountDir).success():
+                         break
+                 else:
+diff --git install/fs_manager.py install/fs_manager.py
+index f3f7a62..884d8b7 100644
+--- install/fs_manager.py
++++ install/fs_manager.py
+@@ -59,7 +59,7 @@ class FileSystemManager:
+                       'msdos': '83',
+                       'type':['hdd','usb-hdd']},
+          'btrfs': {'defaultopt': defaultOpt,
+-                   'format': '/sbin/mkfs.btrfs',
++                   'format':'/sbin/mkfs.btrfs',
+                    'formatparam': '{labelparam} {device}',
+                    'gpt': '0700',
+                    'label': '-L {labelname}',
+diff --git install/variables/disk.py install/variables/disk.py
+index 43cba4d..1682186 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -1016,7 +1016,7 @@ class VariableOsLocationPerformFormat(LocationHelper,Variable):
+                             (self.Get('os_disk_mount'))))
+         unavailFS = set(self.Select('os_format_type',
+                                     where='os_format_use',
+-                                    eq="off"))
++                                    eq="no"))
+         fixNtfs = self.fixNtfs
+         for dev,mp,fs,isformat in info:
+             # should format if change fs or partition is root, but non flash
+diff --git install/variables/system.py install/variables/system.py
+index 6a70936..04d6455 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -106,10 +106,16 @@ class VariableOsFormatUse(ReadonlyVariable):
+                 'type': "bool",
+                 'value': "off"}
+ 
++    def checkFunc(self,fs):
++        if fs == "btrfs" and self.Get('os_root_type') == 'livecd':
++            return "no"
++        if "format" in FileSystemManager.supportFS[fs] and \
++               path.exists(FileSystemManager.supportFS[fs]["format"]):
++            return "yes"
++        return "no"
++
+     def get(self):
+-        return map(lambda x:"yes" 
+-            if path.exists(FileSystemManager.supportFS[x]["format"])
+-            else "no", self.Get('os_format_type'))
++        return map(self.checkFunc, self.Get('os_format_type'))
+ 
+ class VariableClMigrateRootPwd(UserHelper,Variable):
+     """
