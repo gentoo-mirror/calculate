@@ -39,7 +39,7 @@ DEPEND="=sys-apps/calculate-lib-2.1.11-r3
 		)
 		>=mail-filter/procmail-3.22
 		dev-python/pymilter
-		>=mail-mta/postfix-2.2[ldap,pam,ssl]
+		>=mail-mta/postfix-2.2[ldap,pam,ssl,sasl,dovecot-sasl]
 	)
 	!calculate_noftp? (
 		|| ( <net-ftp/proftpd-1.3.3[-acl,ldap,ncurses,nls,pam,ssl,tcpd]
