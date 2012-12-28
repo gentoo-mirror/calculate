@@ -1,13 +1,14 @@
 diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
-index 311d109..e993eb1 100644
+index 311d109..405c0e5 100644
 --- calculate/lib/cl_template.py
 +++ calculate/lib/cl_template.py
-@@ -3326,7 +3326,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+@@ -3326,7 +3326,8 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
                      filter(lambda x:x.startswith('move '),
                      readLinesFile(os.path.join('/usr/portage/profiles/updates',
                                              updateFiles[0]))))
 -        if package in self.cachePortdir:
-+        if package in self.cachePortdir["portage/update"]:
++        if "portage/update" in self.cachePortdir and \
++            package in self.cachePortdir["portage/update"]:
              self.printWARNING(_("Package {frompkg} was renamed").format(frompkg=package))
              return True
          return False
