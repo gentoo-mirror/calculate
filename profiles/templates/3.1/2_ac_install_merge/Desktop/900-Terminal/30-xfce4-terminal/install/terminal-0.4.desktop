@@ -1,0 +1,6 @@
+# Calculate format=kde link=/usr/share/applications/Terminal.desktop name=calculate-terminal.desktop mirror pkg(x11-terms/xfce4-terminal)>=0.4&&pkg(x11-terms/xfce4-terminal)<0.6
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true
+!MimeType=
