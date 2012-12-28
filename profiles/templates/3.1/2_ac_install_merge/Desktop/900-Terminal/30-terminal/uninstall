@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(x11-terms/terminal)==&&ini(desktop.terminal)==terminal
+# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(x11-terms/xfce4-terminal)==&&ini(desktop.terminal)==terminal
 
 [desktop]
 !terminal=
