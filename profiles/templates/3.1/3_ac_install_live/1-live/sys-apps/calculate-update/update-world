@@ -1,3 +1,8 @@
 # Calculate pkg(app-misc/calculate-meta)!=&&cl_merge_pkg!= exec=/bin/bash
 
-cl-core --method update --update-world
+#?pkg(sys-apps/calculate-update)!=&&pkg(sys-apps/calculate-update)<3.1.1_beta2-r1#
+/usr/sbin/cl-core --method update --update-world
+#pkg#
+#?pkg(sys-apps/calculate-update)>=3.1.1_beta2-r1#
+/usr/sbin/cl-core --method update --update-rev
+#pkg#
