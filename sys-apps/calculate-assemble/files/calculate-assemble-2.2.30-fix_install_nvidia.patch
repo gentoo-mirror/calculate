@@ -1,0 +1,13 @@
+diff --git pym/cl_fill_assemble.py pym/cl_fill_assemble.py
+index 21e7832..a273874 100644
+--- pym/cl_fill_assemble.py
++++ pym/cl_fill_assemble.py
+@@ -496,7 +496,7 @@ class fillVars(object, glob_attr):
+         reVerSplit = cl_assemble.reVerSplit
+         yield "#!/bin/bash"
+         yield "PKG=$1"
+-        yield "MASK=`cat /etc/portage/nvidia 2>/dev/null`"
++        yield "MASK=`cl-core --method variables_show --only-value install.os_nvidia_mask 2>/dev/null`"
+         yield "PORTAGE=/usr/portage"
+         yield "OVERLAY=/var/lib/layman/calculate"
+         for verName,maskName,drvVer,ebuilds in info:
