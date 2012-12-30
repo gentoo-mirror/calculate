@@ -99,7 +99,7 @@ RDEPEND="${RDEPEND}
 		!x11-misc/ktsuss
 		sys-block/gparted
 		x11-libs/gksu
-		x11-terms/terminal
+		x11-terms/xfce4-terminal
 	)
 	cdistro_CDS? (
 		app-admin/hddtemp
