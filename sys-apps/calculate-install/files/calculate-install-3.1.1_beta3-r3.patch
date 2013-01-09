@@ -1,0 +1,12 @@
+diff --git a/install/cl_install.py b/install/cl_install.py
+index 6cd63c5..d7f7d4c 100644
+--- a/install/cl_install.py
++++ b/install/cl_install.py
+@@ -557,7 +557,6 @@ class Install(color_print):
+         maskNvidia = self.clVars.Get('os_nvidia_mask')
+         if maskNvidia == curNvidiaMask:
+             return True
+-        self.printByResult(True)
+         self.startTask(_("Driver installation for %s")%
+             self.clVars.Get('hr_video'))
+         open(nvidiaMaskFile,'w').write(maskNvidia)
