@@ -1,1 +1,7 @@
-# Calculate append=remove name=net.#-list(os_install_net_interfaces,3)-# list(os_install_net_interfaces,3)==||list(os_install_net_status,3)==off&&os_install_root_type!=livecd||os_install_net_conf!=openrc
+# Calculate append=remove name=net.#-list(os_install_net_interfaces,3)-# list(os_install_net_interfaces,3)==||os_install_net_conf!=openrc||list(os_install_net_status,3)==off&&os_install_root_type!=livecd||list(os_install_net_status,3)==off&&cl_setup==network
+
+# Удалить файл запуска сетевой карты если (обратное условие созданию):
+# сетевой интерфейс несуществует (list(os_install_net_interfaces,3)==)
+# либо для настройки сети используется не openrc (os_install_net_conf!=openrc)
+# либо сетевой интерфейс выключен (list(os_install_net_status,3)==off) не на livecd (os_install_root_type!=livecd)
+# либо сетевой интерфейс выключен (list(os_install_net_status,3)==off) при настройке через cl-setup-network (cl_setup!=network)
