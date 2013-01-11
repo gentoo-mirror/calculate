@@ -10,6 +10,8 @@
 		einfo "Setting up ALSA Mixer Levels"
 		# set output volumes to 70%
 		amixer scontrols | grep -v Mic |  sed -nr "/Wave|Master|Front|LFE|Center|Side|Speaker|Surround|PCM/ s/.*'([^']+)'.*/\\\\1/p" | xargs -I {} amixer -q set "{}" 85% unmute &amp;&gt;/dev/null
+		# reduce beep
+		amixer scontrols | sed -nr "/Beep/ s/.*'([^']+)'.*/\\\\1/p" | xargs -I {} amixer -q set "{}" 10% mute &amp;&gt;/dev/null
 		# mute all mics
 		amixer scontrols | sed -nr "/Mic/ s/.*'([^']+)'.*/\\\\1/p" | xargs -I {} amixer -q set "{}" 0% mute &amp;&gt;/dev/null
 		save
