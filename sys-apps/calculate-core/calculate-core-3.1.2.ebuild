@@ -18,7 +18,7 @@ SLOT="3"
 KEYWORDS="amd64 x86"
 IUSE="minimal"
 
-DEPEND="~sys-apps/calculate-lib-3.1.1_beta3
+DEPEND="~sys-apps/calculate-lib-3.1.2
 	>=dev-python/soaplib-1.0
 	!minimal? ( dev-python/sudsds
 	net-libs/dslib
@@ -39,11 +39,4 @@ pkg_postinst() {
 	einfo "  /etc/init.d/calculate-core start"
 	einfo "Add calcualte core to autorun:"
 	einfo "  rc-update add calculate-core boot"
-}
-src_unpack() {
-    unpack "${A}"
-    cd "${S}"
-
-    # apply revision changes
-    epatch "${FILESDIR}/calculate-core-3.1.1_beta3-r1.patch"
 }

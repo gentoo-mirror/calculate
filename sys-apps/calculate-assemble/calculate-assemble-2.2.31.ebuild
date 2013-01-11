@@ -11,24 +11,12 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The utilities for builder tasks of Calculate Linux"
+DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-DEPEND=">=sys-kernel/calckernel-3.4.18
-	~sys-apps/calculate-lib-2.2.30
-	!<sys-apps/calculate-1.4.0_p20100921
-	app-cdr/cdrkit
-	sys-fs/squashfs-tools"
+DEPEND="~sys-apps/calculate-builder-2.2.31"
 
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# add check on fully kernel sources, fix initrd run, fix using new themes
-	epatch "${FILESDIR}/calculate-builder-2.2.30-r5.patch"
-}

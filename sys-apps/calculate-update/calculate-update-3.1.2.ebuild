@@ -11,20 +11,14 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The program of setting and storing the user account in the domain"
+DESCRIPTION="The program of update Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="amd64 x86"
+IUSE=""
 
-DEPEND="~sys-apps/calculate-desktop-3.1.1
-	!<sys-apps/calculate-client-3.1.0_alpha2
-	>=dev-python/python-ldap-2.0[ssl]
-	>=sys-auth/pam_ldap-180[ssl]
-	>=sys-auth/nss_ldap-239
-	>=sys-apps/keyexec-0.1.2
-	sys-apps/keyutils
-	sys-auth/pam_keystore
-	dev-lang/swig"
+DEPEND="~sys-apps/calculate-core-3.1.2
+	~sys-apps/calculate-install-3.1.2"
 
 RDEPEND="${DEPEND}"

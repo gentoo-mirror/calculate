@@ -11,14 +11,13 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="Qt gui console client for WSDL Calculate 3"
+DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="amd64 x86"
 
-DEPEND="~sys-apps/calculate-core-3.1.1_beta3
-	dev-python/dbus-python
-	dev-python/imaging
-	dev-python/pyside[script]"
-RDEPEND="${DEPEND}"
+RDEPEND=">=sys-apps/calculate-lib-3.1.2"
+
+DEPEND="sys-devel/gettext
+	${DEPEND}"

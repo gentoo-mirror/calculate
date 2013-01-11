@@ -18,7 +18,7 @@ SLOT="3"
 KEYWORDS="amd64 x86"
 IUSE="pxe minimal"
 
-DEPEND="~sys-apps/calculate-core-3.1.1_beta3
+DEPEND="~sys-apps/calculate-core-3.1.2
 	!<sys-apps/calculate-install-2.2.29
 	app-portage/layman
 	!app-misc/livecd-tools
@@ -35,11 +35,3 @@ DEPEND="~sys-apps/calculate-core-3.1.1_beta3
 	net-fs/nfs-utils )"
 
 RDEPEND="${DEPEND}"
-src_unpack() {
-    unpack "${A}"
-    cd "${S}"
-
-    # apply revision changes
-    epatch "${FILESDIR}/calculate-install-3.1.1_beta3-r2.patch"
-    epatch "${FILESDIR}/calculate-install-3.1.1_beta3-r3.patch"
-}
