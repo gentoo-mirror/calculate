@@ -50,3 +50,5 @@ media-plugins/alsa-plugins pulseaudio
 # dev-libs/libxml2:2[!icu?] required by (x11-libs/qt-webkit-4.8.2::gentoo, ebuild scheduled for merge)
 x11-libs/qt-webkit -gstreamer
 
+#required by gnome-base/gnome-shell-3.6.2-r1[
+app-i18n/ibus dconf
