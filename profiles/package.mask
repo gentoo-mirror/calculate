@@ -16,14 +16,28 @@
 =sys-apps/calculate-lib-2.2.9999
 =sys-apps/calculate-utilities-2.2.9999
 
-=sys-kernel/calckernel-3.4.15-r4
-#>=app-misc/cld-meta-10.9.1
-#=sys-boot/calcboot-4.05.0-r1
-#>=app-misc/cldg-meta-10.9.1
-#>=app-misc/cldx-meta-10.9.1
-#>=app-misc/cls-meta-10.9.1
-#>=app-misc/cds-meta-11.0
-#>=app-misc/css-meta-11.0
+app-misc/calculate-install-gui
+app-misc/calculate-meta
+app-misc/cds-meta
+app-misc/cl-base-meta
+app-misc/cl-decoration-meta
+app-misc/cldg-meta
+app-misc/cld-meta
+app-misc/cldx-meta
+app-misc/cl-gnome-meta
+app-misc/cl-graphics-meta
+app-misc/cl-kde-meta
+app-misc/cl-multimedia-meta
+app-misc/cl-nettools-meta
+app-misc/cl-network-meta
+app-misc/cl-office-meta
+app-misc/cl-openbox-meta
+app-misc/cl-printer-meta
+app-misc/clsd-meta
+app-misc/cls-meta
+app-misc/cl-tools-meta
+app-misc/cl-wireless-meta
+app-misc/cl-xfce-meta
+app-misc/cmc-meta
+app-misc/css-meta
 
-# Mask calculate-sources-2.6.32.25 for CDS
-#=sys-kernel/calculate-sources-2.6.32.25
