@@ -1,1 +1,0 @@
-# Calculate append=skip merge(sys-apps/calculate-utilities)!=&&ini(update.patch)!=off&&ini(ver.patch)<6&&main.os_linux_ver>=13||merge(gnome-base/gnome-shell)!=&&ini(update.patch)!=off&&ini(ver.patch)<6&&main.os_linux_ver>=13||merge(gnome-base/gnomelib)!=&&ini(update.patch)!=off&&ini(ver.patch)<6&&main.os_linux_ver>=13
