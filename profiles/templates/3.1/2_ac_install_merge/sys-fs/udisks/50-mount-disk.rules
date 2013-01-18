@@ -1,0 +1,12 @@
+# Calculate append=replace path=/etc/polkit-1/rules.d
+/* -*- mode: js; js-indent-level: 4; indent-tabs-mode: nil -*- */
+
+// Mount disk by plugdev group rules for polkit
+//
+
+polkit.addRule(function(action, subject) {
+    if (action.id.indexOf("org.freedesktop.udisks.") == 0 &&
+        subject.isInGroup("plugdev")) {
+             return polkit.Result.YES;
+   }
+});
