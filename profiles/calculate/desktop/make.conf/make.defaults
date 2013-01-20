@@ -36,6 +36,9 @@ USE="${USE} spell"
 # Mail
 USE="${USE} mbox"
 
+# Print
+USE="${USE} cups"
+
 # Photo
 USE="${USE} gphoto2"
 
@@ -58,6 +61,4 @@ USE="${USE} gtk libnotify qt3support"
 LIRC_DEVICES="devinput"
 
 VIDEO_CARDS="${VIDEO_CARDS} nouveau nvidia i915 i965 r100 r200 r300 r600"
-
-CALCULATE="printer wireless"
 

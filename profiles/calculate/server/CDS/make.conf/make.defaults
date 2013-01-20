@@ -10,8 +10,12 @@ USE="${USE} imap maildir"
 # Network protocols
 #USE="${USE} ldap radius"
 
+# Print
+USE="${USE} cups"
+
 # Window managers and speciality
 USE="${USE} -gnome -gtk -kde -qt3 -qt4 -qt3support -X"
+
 CDISTRO="CDS"
 CL="builder console server"
 THEMES="CDS"
