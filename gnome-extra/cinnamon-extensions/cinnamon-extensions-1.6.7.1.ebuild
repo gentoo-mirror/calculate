@@ -28,4 +28,12 @@ src_install() {
 	doins -r themes/Calculate
 	insinto /usr/share/cinnamon/applets
 	doins -r applets/*
+	insinto /usr/share/glib-2.0/schemas
+	doins org.cinnamon.extensions.cinnadock.gschema.xml
+}
+
+pkg_postinst() {
+	ebegin "Updating GSettings schemas"
+	/usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas/ &>/dev/null
+	eend $?
 }
