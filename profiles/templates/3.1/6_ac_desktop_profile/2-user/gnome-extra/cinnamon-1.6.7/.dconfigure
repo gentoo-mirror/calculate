@@ -1,0 +1,110 @@
+# Calculate path=~ name=.dconfigure chmod=700
+#!/bin/bash
+
+# background picture
+#?pkg(media-gfx/cldg-themes)!=#
+dconf write /org/gnome/desktop/background/picture-uri \'file:///usr/share/pixmaps/backgrounds/gnome/calculate/#-os_x11_standart-#.jpg\'
+#pkg#
+#?pkg(media-gfx/calculate-wallpapers)!=#
+dconf write /org/gnome/desktop/background/picture-uri \'file:///usr/share/wallpapers/Calculate_Linux/contents/images/#-os_x11_standart-#.jpg\'
+#pkg#
+dconf write /org/gnome/desktop/background/picture-options \'stretched\'
+
+dconf write /org/gnome/settings-daemon/peripherals/keyboard/input-sources-switcher \'caps\'
+
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-1 \[\'\<Primary\>F1\'\]
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-2 \[\'\<Primary\>F2\'\]
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-3 \[\'\<Primary\>F3\'\]
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-4 \[\'\<Primary\>F4\'\]
+dconf write /org/gnome/desktop/wm/keybindings/set-spew-mark \[\'Scroll_Lock\'\]
+
+dconf write /org/gnome/desktop/wm/preferences/mouse-button-modifier \'\<Alt\>\'
+dconf write /org/gnome/desktop/wm/preferences/resize-with-right-button true
+dconf write /org/gnome/desktop/interface/font-name \'Droid\ Sans\ 10\'
+dconf write /org/gnome/desktop/interface/cursor-theme \'calculate\'
+# icon theme Calculate
+dconf write /org/gnome/desktop/interface/icon-theme \'Calculate\'
+# show desktop icons
+dconf write /org/gnome/desktop/background/show-desktop-icons true
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+dconf write /org/gnome/org/gnome/nautilus/desktop/home-icon-visible true
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+dconf write /org/gnome/org/gnome/nautilus/desktop/home-icon-visible false
+#env#
+dconf write /org/nemo/preferences/click-policy \'single\'
+dconf write /org/nemo/preferences/enable-delete true
+dconf write /org/nemo/desktop/computer-icon-visible false
+dconf write /org/nemo/desktop/volumes-visible false
+dconf write /org/nemo/desktop/network-icon-visible false
+dconf write /org/nemo/desktop/trash-icon-visible false
+
+dconf write /org/gnome/desktop/media-handling/automount true
+dconf write /org/gnome/settings-daemon/plugins/power/button-power \'interactive\'
+dconf write /org/gnome/settings-daemon/plugins/power/lid-close-ac-action \'blank\'
+
+dconf write /org/gnome/settings-daemon/plugins/power/idle-dim-battery false
+
+#?os_root_type==livecd#
+dconf write /org/gnome/desktop/screensaver/lock-enabled false
+#os_root_type#
+#?os_root_type!=livecd#
+dconf write /org/gnome/desktop/screensaver/lock-enabled true
+#os_root_type#
+
+
+#?os_root_type==livecd#
+# extensions for livecd
+#os_root_type#
+# extensions for hard disk profile
+#?os_root_type!=livecd#
+#os_root_type#
+dconf write /org/cinnamon/extensions/cinnadock/autohide true
+dconf write /org/cinnamon/extensions/cinnadock/hide-effect \'rescale\'
+dconf write /org/cinnamon/extensions/cinnadock/cinnadock-apps \[\'calculate-browser.desktop\',\'calculate-mail.desktop\',\'calculate-chat.desktop\',\'calculate-im.desktop\',\'calculate-writer.desktop\',\'calculate-calc.desktop\',\'calculate-calculator.desktop\',\'calculate-imageedit.desktop\',\'calculate-photomanager.desktop\',\'calculate-audioplayer.desktop\',\'calculate-videoplayer.desktop\',\'calculate-imageburn.desktop\',\'calculate-textedit.desktop\',\'calculate-terminal.desktop\'\]
+dconf write /org/cinnamon/extensions/cinnadock/position \'bottom\'
+dconf write /org/cinnamon/enabled-extensions \[\'cinnadock@in-progress.org\',\'Win7AltTab@entelechy\'\]
+
+dconf write /org/cinnamon/desktop-layout \'flipped\'
+dconf write /org/cinnamon/theme/name \'Calculate\'
+dconf write /org/cinnamon/panel-resizable true
+dconf write /org/cinnamon/panel-scale-text-icons true
+dconf write /org/cinnamon/panel-top-height 31
+
+dconf write /org/gnome/libgnomekbd/desktop/group-per-window true
+dconf write /org/gnome/libgnomekbd/desktop/default-group 0
+
+#dconf write /org/gnome/shell/extensions/user-theme/name \'Calculate\'
+
+
+# custom logout
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command \'/usr/bin/gnome-session-quit\ --logout\ --no-prompt\ --force\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name \'Force\ logout\'
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings \[\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/\'\]
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding \'\<Primary\>\<Shift\>\<Alt\>Delete\'
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command \'/usr/bin/gnome-session-quit\ --logout\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name \'Prompt\ logout\'
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings \[\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/\',\'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/\'\]
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding \'\<Primary\>\<Alt\>Delete\'
+dconf write /org/gnome/settings-daemon/peripherals/keyboard/delay 330
+dconf write /org/gnome/settings-daemon/peripherals/keyboard/repeat-interval 30
+dconf write /org/cinnamon/calendar/date-format \'%H:%M\'
+
+dconf write /org/cinnamon/enabled-applets \[\'panel1:left:0:menu@cinnamon.org\',\'panel1:left:1:panel-launchers@cinnamon.org\',\'panel1:left:2:workspace-switcher@cinnamon.org\',\'panel1:left:3:show-desktop@cinnamon.org\',\'panel1:left:4:window-list@cinnamon.org\',\'panel1:right:0:trash@cinnamon.org\',\'panel1:right:1:notifications@cinnamon.org\',\'panel1:right:10:ScreenLocker@spacy01\',\'panel1:right:3:settings@cinnamon.org\',\'panel1:right:4:removable-drives@cinnamon.org\',\'panel1:right:5:keyboard@cinnamon.org\',\'panel1:right:6:bluetooth@cinnamon.org\',\'panel1:right:7:sound@cinnamon.org\',\'panel1:right:8:systray@cinnamon.org\',\'panel1:right:9:calendar@cinnamon.org\',\'panel1:right:11:ShutdownApplet@shelley\'\]
+
+dconf write /org/cinnamon/overview-corner-hover false
+dconf write /org/cinnamon/menu-text \'\'
+dconf write /org/cinnamon/menu-icon \'/usr/share/icons/Calculate/32x32/places/start-here.png\'
+dconf write /org/gnome/desktop/background/show-desktop-icons true
+
+dconf write /org/gnome/desktop/wm/preferences/num-workspaces 4
+dconf write /org/cinnamon/number-workspaces 4
+
+dconf write /org/cinnamon/panel-launchers \[\'Home.desktop\',\'Share.desktop\',\'FTP.desktop\'\]
+dconf write /org/cinnamon/desktop-effects-minimize-effect \'traditional\'
+
+
+#rm ~/.dconfigure 
