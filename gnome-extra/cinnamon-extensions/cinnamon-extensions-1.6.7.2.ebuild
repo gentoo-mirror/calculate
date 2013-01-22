@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=gnome-extra/cinnamon-${PV}"
+	>=gnome-extra/cinnamon-1.6.7"
 DEPEND=""
 
 #S="${WORKDIR}/.local/share/gnome-shell"
