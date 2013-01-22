@@ -9,3 +9,7 @@
 \2\2\2}));
 \2}
 \2\3</text>
+<reg>(_onSessionOpened: function\(client, serviceName\)\s*\{
+)(\s*)(this._greeter.call_start_session_when_ready_sync\(serviceName, true, null\);)</reg>
+<text>\1\2this.close();
+\2\3</text>

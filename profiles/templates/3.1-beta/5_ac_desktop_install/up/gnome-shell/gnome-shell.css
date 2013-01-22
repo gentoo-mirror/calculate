@@ -1,0 +1,11 @@
+# Calculate format=patch path=/usr/share/gnome-shell/theme
+<reg>(/\* Override padding on resident notifications, since
+   the notifications box has its own spacing
+\*/
+)(.screen-shield-notifications-box .summary-notification-stack-scrollview)</reg>
+<text>\1
+.login-dialog-not-listed-label, .login-dialog-title {
+    color: white;
+}
+
+\2</text>
