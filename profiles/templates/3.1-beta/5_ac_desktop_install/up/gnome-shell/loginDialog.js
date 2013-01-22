@@ -1,4 +1,4 @@
-# Calculate format=patch path=/usr/share/gnome-shell/js/gdm
+# Calculate format=patch path=/usr/share/gnome-shell/js/gdm pkg(gnome-base/gnome-shell)>=3.6
 <reg>(_onSessionOpened: function\(client, serviceName\)\s*\{
 )(\s*)(this._greeterClient.call_start_session_when_ready\(serviceName, true\);)</reg>
 <text>\1\2this.close();
