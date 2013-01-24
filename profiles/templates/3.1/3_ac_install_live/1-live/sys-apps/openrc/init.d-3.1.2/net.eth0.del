@@ -1,8 +1,8 @@
-# Calculate append=remove name=net.#-list(os_install_net_interfaces,0)-# os_install_net_conf!=openrc||list(os_install_net_interfaces,0)==||list(os_install_net_status,0)==off&&cl_merge_pkg!=||list(os_install_net_status,0)==off&&ac_install_disk==on||list(os_install_net_status,0)==off&&cl_setup==network
+# Calculate append=remove name=net.#-list(os_install_net_interfaces,0)-# os_install_net_conf!=openrc&&list(os_install_net_interfaces,0)!=||list(os_install_net_status,0)==off&&cl_merge_pkg!=&&list(os_install_net_interfaces,0)!=||list(os_install_net_status,0)==off&&ac_install_disk==on&&list(os_install_net_interfaces,0)!=||list(os_install_net_status,0)==off&&cl_setup==network&&list(os_install_net_interfaces,0)!=
 
 # Удалить файл запуска сетевой карты если (условие не является обратным):
+# сетевой интерфейс должен существовать (list(os_install_net_interfaces,0)==)
 # для настройки сети используется не openrc (os_install_net_conf!=openrc)
-# либо сетевой интерфейс несуществует (list(os_install_net_interfaces,0)==)
 # либо сетевой интерфейс выключен (list(os_install_net_status,0)==off) и
 #   это установка системы на диск (ac_install_disk==on)
 #   либо сборка пакета (cl_merge_pkg!=)
