@@ -1,1 +1,1 @@
-# Calculate append=skip merge(gnome-extra/cinnamon)!=&&ini(update.cinnamon)!=off&&ini(domain)!=#-env(client.os_remote_auth)-#||merge(gnome-extra/cinnamon)!=&&ini(update.cinnamon)!=off&&ini(xsession)!=#-cl_desktop_xsession-#
+# Calculate append=skip merge(gnome-extra/cinnamon)!=&&pkg(gnome-extra/cinnamon)!=&&ini(update.cinnamon)!=off&&ini(domain)!=#-env(client.os_remote_auth)-#||merge(gnome-extra/cinnamon)!=&&pkg(gnome-extra/cinnamon)!=&&ini(update.cinnamon)!=off&&ini(xsession)!=#-cl_desktop_xsession-#
