@@ -1,0 +1,5 @@
+# Calculate ini(update.rev)<3 format=samba path=/etc/calculate name=ini.env merge=sys-fs/udev
+
+# reconfigure udev for restore blacklist
+[update]
+rev = 3
