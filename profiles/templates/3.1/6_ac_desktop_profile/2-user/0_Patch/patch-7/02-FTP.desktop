@@ -1,4 +1,4 @@
-# Calculate format=samba name=FTP.desktop env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!= chmod=0755 append=replace
+# Calculate format=samba name=FTP.desktop env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!=&&pkg(gnome-extra/cinnamon)!= chmod=0755 append=replace
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8

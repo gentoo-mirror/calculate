@@ -1,4 +1,4 @@
-# Calculate format=samba  chmod=0755 append=replace
+# Calculate format=samba name=Home.desktop chmod=0755 append=replace
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
@@ -15,3 +15,4 @@ Exec=nemo /home/#-ur_login-#
 Icon=user-home
 Terminal=false
 StartupNotify=false
+NoDisplay=true

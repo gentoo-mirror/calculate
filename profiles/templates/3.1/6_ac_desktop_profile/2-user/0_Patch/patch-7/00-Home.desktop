@@ -1,4 +1,4 @@
-# Calculate format=samba chmod=0755
+# Calculate format=samba name=Home.desktop chmod=0755 append=replace pkg(gnome-extra/cinnamon)!=
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
@@ -9,7 +9,7 @@ Categories=Application;
 #?env(client.os_remote_auth)!=&&ur_domain_set==on#
 Exec=nemo /home/#-ur_login-#/Home
 #env#
-#?env(client.os_remote_auth)==||ur_domain_set!=on#
+#?env(client.os_remote_auth)==||ur_domain_set==off#
 Exec=nemo /home/#-ur_login-#
 #env#
 Icon=user-home
