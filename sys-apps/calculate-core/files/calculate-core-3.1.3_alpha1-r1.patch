@@ -1,0 +1,63 @@
+diff --git core/server/replace_class.py core/server/replace_class.py
+index fe997ac..f374210 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -21,6 +21,7 @@ from api_types import ViewInfo
+ from calculate.core.client.progressbar import Bar,Percentage,ETA,ProgressBar
+ from calculate.lib.cl_progressbar import ClProgressDialog,ClMessageBox
+ from calculate.lib.utils.text import tableReport
++from calculate.lib.utils.files import getch
+ from cert_cmd import parse
+ import sys, termios
+ import os
+@@ -295,13 +296,25 @@ class replaceClass():
+         def askChoice(self,message,answers=[("yes","Yes"),("no","No")]):
+             colorPrint = color_print()
+             print
++            # ability answer by first letter
++            answerByChar = map(lambda x:x[0][0],answers)
++            if filter(lambda x:answerByChar.count(x) > 1,answerByChar):
++                useGetChar = False
++            else:
++                useGetChar = True
+             while True:
+-                try:
+-                    ask = raw_input(message+ ' (%s): '%
+-                            ("/".join(map(lambda x:x[1],answers))))
+-                except KeyboardInterrupt:
+-                    ask = answers[-1][1]
++                outMessage = message+ ' (%s): '% \
++                                ("/".join(map(lambda x:x[1],answers)))
++                if useGetChar:
++                    colorPrint.defaultPrint(outMessage)
++                    ask = getch()
+                     print
++                else:
++                    try:
++                        ask = raw_input(outMessage)
++                    except KeyboardInterrupt:
++                        ask = answers[-1][1]
++                        print
+                 ask = ask.lower()
+                 likeAnswers = filter(lambda x:x[0].startswith(ask),answers)
+                 if not likeAnswers:
+diff --git core/server/setup_package.py core/server/setup_package.py
+index 1d78dbb..2c5f88c 100644
+--- core/server/setup_package.py
++++ core/server/setup_package.py
+@@ -199,6 +199,7 @@ class updateUserConfigs(shareUpdateConfigs):
+                            True)
+             else:
+                 clVars.Set("cl_merge_pkg", ["%s/%s"%(category,nameProgram)], True)
++            clVars.Set("cl_merge_set","on",True)
+             clTempl = ChainProgressTemplate( self.startTask,
+                                self.endTask,
+                                self.setProgress,
+@@ -385,6 +386,7 @@ class updateSystemConfigs(shareUpdateConfigs):
+                        True)
+         else:
+             clVars.Set("cl_merge_pkg", ["%s/%s"%(category,nameProgram)], True)
++        clVars.Set("cl_merge_set","on",True)
+         clVars.Set("cl_action", 'merge', True)
+         configFiles = []
+         nameProg = clVars.Get("cl_name")
