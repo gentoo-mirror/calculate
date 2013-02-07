@@ -29,8 +29,9 @@ net-p2p/eiskaltdcpp -gtk
 #for support holidays region (http://bugs.gentoo.org/326563)
 kde-base/plasma-workspace rss
 
-# required by =kde-base/pykde4-4.6.0, required by =kde-base/printer-applet-4.6.0
-dev-python/PyQt4 declarative
+# required by =kde-base/pykde4-4.6.0
+# required by kde-base/pykde4-4.10.0
+dev-python/PyQt4 declarative script
 
 media-libs/mlt -xine
 kde-base/mplayerthumbs -mplayer
@@ -45,8 +46,11 @@ media-plugins/kipi-plugins vkontakte
 sci-libs/hdf5 threads mpi
 #required by media-gfx/digikam-2.1.0-r2, required by app-misc/cl-graphics-meta-11.6, required by app-misc/cld-meta-11.6[-calculate_nographics], required by app-misc/calculate-meta-11.6-r1, required by @selected, required by @world (argument)
 kde-base/marble plasma
+#required by media-gfx/digikam-2.9.0
+x11-libs/qt-sql mysql
 #required by sci-libs/hdf5-1.8.4-r1[mpi], required by sci-libs/flann-1.6.8, required by media-libs/opencv-2.2.0, required by media-libs/libkface-2.1.0, required by media-gfx/digikam-2.1.0-r2, required by app-misc/cl-graphics-meta-11.6, required by app-misc/cld-meta-11.6[-calculate_nographics], required by app-misc/calculate-meta-11.6-r1, required by @selected, required by @world (argument)
 sys-cluster/openmpi romio
+
 
 #required by kde-misc/synaptiks-0.8.0, required by app-misc/cl-kde-meta-4.7.0-r4, required by app-misc/cld-meta-11.9[-calculate_nokde], required by app-misc/calculate-meta-11.9-r1, required by @selected, required by @world (argument)
 dev-python/pyudev pyqt4
