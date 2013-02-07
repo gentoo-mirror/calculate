@@ -3,6 +3,12 @@
 #-ini(update.world,5)-#
 
 #?os_linux_shortname==CLDG#
+!kde-base/system-config-printer-kde
+!kde-base/printer-applet
+kde-base/print-manager
+#os_linux_shortname#
+
+#?os_linux_shortname==CLDG#
 !app-crypt/gcr
 !app-misc/tracker
 !gnome-base/gnome-fallback
