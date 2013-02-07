@@ -1,11 +1,11 @@
-# Calculate name=Auto_#-list(os_install_net_interfaces_orig,0)-# list(os_install_net_interfaces,0)!=&&os_install_net_conf==networkmanager chmod=0600
+# Calculate name=#-list(os_install_net_interfaces_orig,0)-# list(os_install_net_interfaces,0)!=&&os_install_net_conf==networkmanager chmod=0600
 
 [802-3-ethernet]
 duplex=full
 mac-address=#-list(os_install_net_mac,0)-#
 
 [connection]
-id=Auto_#-list(os_install_net_interfaces,0)-#
+id=#-list(os_install_net_interfaces_orig,0)-#
 uuid=#-rnd(uuid,8)-#-#-rnd(uuid,4)-#-#-rnd(uuid,4)-#-#-rnd(uuid,4)-#-#-rnd(uuid,12)-#
 type=802-3-ethernet
 
