@@ -1,0 +1,8 @@
+# Calculate name=net.#-list(os_install_net_interfaces_orig,1)-# list(os_install_net_interfaces,1)!=&&os_install_net_conf==openrc&&list(os_install_net_status,1)!=off||list(os_install_net_interfaces,1)!=&&os_install_net_conf==openrc&&os_install_root_type==livecd&&cl_setup!=network link=net.lo symbolic
+
+# Создать файл запуска сетевой карты если:
+# сетевой интерфейс существует (list(os_install_net_interfaces,1)!=)
+# для настройки сети используется openrc (os_install_net_conf==openrc)
+# сетевой интерфейс не выключен (list(os_install_net_status,1)!=off),
+# либо это настройка при загрузке с livecd (os_install_root_type==livecd),
+# но не настройка через cl-setup-network (cl_setup!=network)
