@@ -1,0 +1,13 @@
+diff --git install/variables/net.py install/variables/net.py
+index 6485769..297d736 100644
+--- install/variables/net.py
++++ install/variables/net.py
+@@ -332,7 +332,7 @@ class VariableOsInstallNetCidr(NetHelper,ReadonlyVariable):
+         """
+         Get CIDR of ip,net (Example: 24)
+         """
+-        return map(lambda x:maskToCidr(x),
++        return map(lambda x:maskToCidr(x) if x else '',
+                self.Get('os_install_net_mask'))
+ 
+ class VariableOsInstallNetMask(NetHelper,Variable):
