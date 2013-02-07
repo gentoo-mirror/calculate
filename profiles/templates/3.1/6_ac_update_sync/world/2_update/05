@@ -5,12 +5,16 @@
 #?os_linux_shortname==CLDG#
 !app-crypt/gcr
 !app-misc/tracker
+!gnome-base/gnome-fallback
 !gnome-base/gnome-core-libs
 !gnome-base/gnome-menus:3
 !gnome-base/gnome-shell
 !gnome-base/gvfs
 !gnome-extra/cinnamon
 !gnome-extra/cinnamon-extensions
+!gnome-extra/gnome-contacts
+!gnome-extra/gnome-documents
+!gnome-extra/gnome-search-tool
 !gnome-extra/gnome-tweak-tool
 !gnome-extra/gucharmap:2.90
 !gnome-extra/sushi
@@ -44,7 +48,7 @@ gnome-base/gnome-applets
 gnome-base/gnome-control-center
 gnome-base/gnome-desktop:2
 gnome-base/gnome-keyring
-gnome-base/gnome-menus
+gnome-base/gnome-menus:0
 gnome-base/gnome-panel
 gnome-base/gnome-session
 gnome-base/gnome-settings-daemon
