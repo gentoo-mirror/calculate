@@ -1,4 +1,29 @@
-# Calculate name=world format=world os_linux_shortname==CLDG
+# Calculate format=world name=world ini(update.world)<5
+
+#-ini(update.world,5)-#
+
+#?os_linux_shortname==CLDG#
+!app-crypt/gcr
+!app-misc/tracker
+!gnome-base/gnome-core-libs
+!gnome-base/gnome-menus:3
+!gnome-base/gnome-shell
+!gnome-base/gvfs
+!gnome-extra/cinnamon
+!gnome-extra/cinnamon-extensions
+!gnome-extra/gnome-tweak-tool
+!gnome-extra/gucharmap:2.90
+!gnome-extra/sushi
+!media-gfx/gnome-font-viewer
+!media-gfx/gnome-screenshot
+!media-gfx/shotwell
+!media-plugins/gst-plugins-vp8
+!x11-themes/gnome-icon-theme-extras
+!x11-themes/gnome-icon-theme-symbolic
+!x11-themes/gnome-themes-standard
+!x11-themes/gtk-engines:2
+!x11-themes/sound-theme-freedesktop
+!x11-wm/mutter
 
 app-admin/system-config-printer-gnome
 app-arch/file-roller
@@ -84,4 +109,4 @@ x11-themes/gnome-icon-theme
 x11-themes/gnome-themes
 x11-themes/gtk-engines
 x11-wm/metacity
-
+#os_linux_shortname#
