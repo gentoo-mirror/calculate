@@ -1,4 +1,4 @@
-# Calculate comment=# os_install_net_conf==openrc&&ac_install_disk==on&&cl_ver<3.1.3_beta1||os_install_net_conf==openrc&&cl_setup==network&&cl_ver<3.1.3_beta1||os_install_net_conf==openrc&&os_install_root_type==livecd&&cl_ver<3.1.3_beta1||os_install_net_conf==openrc&&cl_merge_pkg!=&&cl_ver<3.1.3_beta1
+# Calculate comment=# os_install_net_conf==openrc&&ac_install_disk==on&&cl_ver<3.1.3_alpha2||os_install_net_conf==openrc&&cl_setup==network&&cl_ver<3.1.3_alpha2||os_install_net_conf==openrc&&os_install_root_type==livecd&&cl_ver<3.1.3_alpha2||os_install_net_conf==openrc&&cl_merge_pkg!=&&cl_ver<3.1.3_alpha2
 
 #?os_install_linux_system==server#
 modules="!plug"
