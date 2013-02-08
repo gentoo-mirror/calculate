@@ -182,6 +182,7 @@ pre_pkg_postinst() {
 		fi
 	fi
 	rm -f /var/lib/calculate/-merge-$PN-*
+	rm /var/lib/calculate/-CONTENTS-*
 }
 
 if [[ `readlink -f /etc/portage/bashrc` != "/usr/calculate/install/bashrc" ]] || [[ ! -f /etc/portage/bashrc ]]
@@ -282,17 +283,14 @@ fi
 # prerm functions
 if [[ $EBUILD_PHASE == "preinst" ]]
 then
-	if [[ `cat /var/db/pkg/$CATEGORY/$PN-$REPLACING_VERSIONS/EAPI 2>/dev/null` -lt 4 ]]
-	then
-		[[ ! -d /var/lib/calculate ]] && mkdir /var/lib/calculate
-		touch /var/lib/calculate/-merge-$PN-$SLOT-$PPID
-	fi
+	[[ ! -d /var/lib/calculate ]] && mkdir /var/lib/calculate
+	touch /var/lib/calculate/-merge-$PN-$SLOT-$PPID
 fi
+
 
 if [[ $EBUILD_PHASE == "postrm" ]]
 then
-	if [[ $EAPI -ge 4 ]] && [[ -z $REPLACED_BY_VERSION ]] ||
-		[[ $EAPI -lt 4 ]] && [[ ! -f /var/lib/calculate/-merge-$PN-$SLOT-$PPID ]]
+	if [[ ! -f /var/lib/calculate/-merge-$PN-$SLOT-$PPID ]]
 	then
 		if [[ -n $calcver ]]
 		then
@@ -301,6 +299,8 @@ then
 				${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path / --pkg-name ${PN}
 			fi
 		fi
+	else
+		cp /var/db/pkg/${CATEGORY}/${PF}/CONTENTS /var/lib/calculate/-CONTENTS-$PN
 	fi
 	rm -f /var/lib/calculate/-merge-$PN-*
 fi
