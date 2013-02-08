@@ -92,6 +92,7 @@ x11-drivers/ati-drivers disable-watermark
 
 #required by sys-fs/udisks-1.0.4-r2
 virtual/udev gudev hwdb keymap
+sys-fs/udev keymap
 
 #required by www-client/chromium-24.0.1312.52
 sys-libs/zlib minizip
