@@ -1,0 +1,14 @@
+diff --git core/server/replace_class.py core/server/replace_class.py
+index f374210..99597e4 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -46,7 +46,8 @@ class replaceClass():
+             curThread = threading.currentThread()
+             curThread.lang = os.environ["LANG"]
+         com = target(self.no_progress,self.gui_progress,self.gui_warning)
+-        if hasattr (com.__class__.__bases__[1], '__init__'):
++        if len(com.__class__.__bases__)>1 and \
++            hasattr (com.__class__.__bases__[1], '__init__'):
+             com.__class__.__bases__[1].__init__(com)
+         self.method_status = 0 if getattr(com, method)(*args_proc) else 1
+         return 0
