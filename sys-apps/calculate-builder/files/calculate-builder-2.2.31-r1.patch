@@ -13,7 +13,7 @@ index df1e212..5872586 100644
                    filter(lambda x: not x in ("distfiles", "eclass", ".git","profiles"),
                    listDirectory(overlayPath))) + \
 +                  [pathJoin(sourceDirectory,
-+                    "var/lib/layman/calculate/profiles/templates/depricated")] + \
++                    "var/lib/layman/calculate/profiles/templates/deprecated")] + \
                    map(lambda x: path.join("usr/portage",x),
                    filter(lambda x: not x in ("distfiles", "eclass", ".git","profiles"),
                    listDirectory(portagePath)))
