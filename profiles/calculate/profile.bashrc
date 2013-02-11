@@ -182,7 +182,7 @@ pre_pkg_postinst() {
 		fi
 	fi
 	rm -f /var/lib/calculate/-merge-$PN-*
-	rm /var/lib/calculate/-CONTENTS-*
+	rm -f /var/lib/calculate/-CONTENTS-*
 }
 
 if [[ `readlink -f /etc/portage/bashrc` != "/usr/calculate/install/bashrc" ]] || [[ ! -f /etc/portage/bashrc ]]
