@@ -1,6 +1,7 @@
 # Calculate format=xml_gconf
 <?xml version="1.0"?>
 <gconf>
+	<entry name="num_workspaces" type="int" value="4"/>
 	<entry name="titlebar_font" type="string">
 		<stringvalue>Droid Sans Bold 10</stringvalue>
 	</entry>
