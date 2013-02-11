@@ -1,0 +1,9 @@
+# Calculate format=world name=world ini(update.world)<6
+
+#-ini(update.world,6)-#
+
+#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC, CLS)!=#
+!net-wireless/bluez-firmware
+!net-wireless/prism54-firmware
+!net-wireless/rtl8192su-firmware
+#os_linux_shortname#
