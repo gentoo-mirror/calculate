@@ -1,0 +1,50 @@
+diff --git install/cl_distr.py install/cl_distr.py
+index 2dd8c6c..92ce419 100644
+--- install/cl_distr.py
++++ install/cl_distr.py
+@@ -454,6 +454,8 @@ class Distributive(object):
+                 extname = mapExtName.get(distr.__class__,"")
+                 image = distr.convertToDirectory()
+             except Exception,e:
++                if distr:
++                    distr.close()
+                 return {}.copy()
+             d = self.getInfoFromDirectory(image.directory)
+             d['ext'] = extname
+diff --git install/variables/X11.py install/variables/X11.py
+index 6dfc97e..ebd8f6e 100644
+--- install/variables/X11.py
++++ install/variables/X11.py
+@@ -255,10 +255,13 @@ class VariableOsInstallX11ServerSet(ReadonlyVariable):
+     type = "bool"
+ 
+     def get(self):
+-        image = self.Get('cl_image')
+-        if image:
+-            with image as distr:
+-                distrPath = image.getDirectory()
+-                if isPkgInstalled('xorg-server',prefix=distrPath):
+-                    return "yes"
++        try:
++            image = self.Get('cl_image')
++            if image:
++                with image as distr:
++                    distrPath = image.getDirectory()
++                    if isPkgInstalled('xorg-server',prefix=distrPath):
++                        return "yes"
++        except:
++            pass
+         return "no"
+diff --git install/variables/net.py install/variables/net.py
+index 438745d..c8801c4 100644
+--- install/variables/net.py
++++ install/variables/net.py
+@@ -263,7 +263,7 @@ class VariableOsInstallNetStatus(NetHelper,Variable):
+                 if getOperState(iface) == 'down':
+                     return "off"
+                 else:
+-                    "dhcp"
++                    return "dhcp"
+         rootDevNfs = self.Get('os_root_dev') == '/dev/nfs'
+         return statusValue(getIp(iface),"on" \
+                            if rootDevNfs or isDhcpIp(iface) else "off")
