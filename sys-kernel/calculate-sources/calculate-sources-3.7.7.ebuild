@@ -20,7 +20,7 @@ HGPV="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}-5"
 #)"
 HGPV_URI=""
 
-CL_PATCH="3.6"
+CL_PATCH="3.7"
 
 CALC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
         ftp://ftp.calculate-linux.org/pub/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
