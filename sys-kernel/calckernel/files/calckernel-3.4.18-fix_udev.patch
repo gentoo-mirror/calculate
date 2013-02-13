@@ -1,0 +1,35 @@
+diff --git defaults/initrd.scripts defaults/initrd.scripts
+index 8007347..93a4665 100755
+--- defaults/initrd.scripts
++++ defaults/initrd.scripts
+@@ -238,7 +238,8 @@ mount_sysfs() {
+ }
+ 
+ findnfsmount() {
+-	if [ "${IP}" != '' ] || busybox udhcpc -n -T 15 -q
++	ifacename=$(ls /sys/class/net | grep -v lo | sed -n 1p)
++	if [ "${IP}" != '' ] || busybox udhcpc -n -T 15 -q -i $ifacename
+ 	then
+ 		[ -e /rootpath ] && NFSROOT=`cat /rootpath`
+ 
+@@ -1422,6 +1423,7 @@ blacklist fglrx
+ EOF
+ 	fi
+ 	# discarding net drivers placed into blacklist.conf
++	udevadm control --reload
+ 	udevadm trigger --action="add"
+ 
+ 	# we can speed up booting under these conditions:
+diff --git modules/udev-rules/module-setup.sh modules/udev-rules/module-setup.sh
+index 8ef142b..10c0228 100644
+--- modules/udev-rules/module-setup.sh
++++ modules/udev-rules/module-setup.sh
+@@ -10,7 +10,7 @@ install_module() {
+     dracut_install udevadm /etc/udev/udev.conf /etc/group /bin/mount /sbin/modprobe
+     inst_rules 50-udev-default.rules 60-persistent-storage.rules \
+         61-persistent-storage-edd.rules 80-drivers.rules 95-udev-late.rules \
+-        60-pcmcia.rules 
++        60-pcmcia.rules 80-net-name-slot.rules 75-net-description.rules
+     mkdir -p "$initdir"/etc/modprobe.d
+     inst_simple "$moddir/blacklist.conf" /etc/modprobe.d/
+ 
