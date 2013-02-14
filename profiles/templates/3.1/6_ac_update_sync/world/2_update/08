@@ -1,0 +1,11 @@
+# Calculate format=world name=world ini(update.world)<8
+
+#-ini(update.world,8)-#
+
+#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC, CLS)!=#
+!sys-firmware/b43-firmware
+#os_linux_shortname#
+
+#?in(os_linux_shortname, CLDG)!=#
+x11-themes/gnome-themes-standard
+#os_linux_shortname#
