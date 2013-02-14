@@ -1,0 +1,17 @@
+diff --git client/cl_client.py client/cl_client.py
+index 5b0bd7e..2cf6d12 100644
+--- client/cl_client.py
++++ client/cl_client.py
+@@ -1893,7 +1893,12 @@ class Client(commandServer, encrypt):
+         if "." in domainName:
+             domain = domainName
+         else:
++            import socket
+             domain = "%s.%s" %(domainName,netDomain)
++            try:
++                gethostbyname(domain)
++            except socket.gaierror as e:
++                domain = domainName
+         # check domain by ping
+         for i in range(0,1):
+             try:
