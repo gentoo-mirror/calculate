@@ -37,9 +37,26 @@ style "workspace-switcher" = "panel"
     bg[SELECTED]      = "#aaaaaa"
 }
 
-widget_class "*Panel*"      style "panel"
-widget "*Panel*"            style "panel"
-class "*Panel*"             style "panel"
+widget "*PanelWidget*"          style "panel"
+widget "*PanelApplet*"          style "panel"
+widget "*fast-user-switch*"     style "panel"
+widget "*gdm-user-switch*"      style "panel"
+widget "*CPUFreq*Applet*"       style "panel"
+widget "*indicator-applet*"     style "panel"
+class "PanelApp*"               style "panel"
+class "PanelToplevel*"          style "panel"
+widget_class "*PanelToplevel*"  style "panel"
+widget_class "*notif*"          style "panel"
+widget_class "*Notif*"          style "panel"
+widget_class "*Tray*"           style "panel"
+widget_class "*tray*"           style "panel"
+widget_class "*computertemp*"   style "panel"
+widget_class "*Applet*Tomboy*"  style "panel"
+widget_class "*Applet*Netstatus*"       style "panel"
+
+# XFCE panel theming.
+widget "*Xfce*Panel*"           style "panel"
+class "*Xfce*Panel*"            style "panel"
 widget "*WnckPager*"        style "workspace-switcher"
 
 style "xfdesktop-icon-view" {
