@@ -1,4 +1,4 @@
-# Calculate name=#-list(os_install_net_interfaces_orig,3)-# list(os_install_net_interfaces,3)!=&&os_install_net_conf==networkmanager chmod=0600
+# Calculate format=kde name=#-list(os_install_net_interfaces_orig,3)-# list(os_install_net_interfaces,3)!=&&os_install_net_conf==networkmanager chmod=0600
 
 [802-3-ethernet]
 duplex=full
