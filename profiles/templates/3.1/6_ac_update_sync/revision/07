@@ -1,0 +1,8 @@
+# Calculate ini(update.rev)<7 exec=/bin/bash
+
+#-ini(update.rev,7)-#
+
+test -f /var/db/pkg/net-misc/networkmanager-0*/CONTENTS &&
+   sed -i /default\\/NetworkManager/d /var/db/pkg/net-misc/networkmanager-0*/CONTENTS
+
+exit 0
