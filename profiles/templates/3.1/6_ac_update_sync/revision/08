@@ -1,6 +1,6 @@
-# Calculate ini(update.rev)<7 exec=/bin/bash
+# Calculate ini(update.rev)<8 exec=/bin/bash merge=app-portage/eix
 
-#-ini(update.rev,7)-#
+#-ini(update.rev,8)-#
 
 test -f /var/db/pkg/net-misc/networkmanager-0*/CONTENTS &&
    sed -i /default\\/NetworkManager/d /var/db/pkg/net-misc/networkmanager-0*/CONTENTS
