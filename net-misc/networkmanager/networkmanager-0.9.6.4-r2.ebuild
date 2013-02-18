@@ -50,7 +50,7 @@ COMMON_DEPEND=">=sys-apps/dbus-1.2
 	connection-sharing? (
 		net-dns/dnsmasq
 		net-firewall/iptables )
-	dev-libs/libnl:1.1=
+	dev-libs/libnl:1.1
 	wimax? ( >=net-wireless/wimax-1.5.1 )
 "
 RDEPEND="${COMMON_DEPEND}
