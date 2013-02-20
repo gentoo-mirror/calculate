@@ -8,7 +8,7 @@ USE="${USE} alsa amr -arts audiofile cue id3tag flac mad mikmod mp3 mpeg nas ogg
 USE="${USE} cdparanoia cdr css dvd dvdr dvdread vcd"
 
 # Devices
-USE="${USE} ipod"
+USE="${USE} ios ipod udev"
 
 # Documentation format
 USE="${USE} chm djvu ebook"
