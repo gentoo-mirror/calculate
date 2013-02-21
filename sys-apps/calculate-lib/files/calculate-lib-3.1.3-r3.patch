@@ -1,0 +1,67 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index c42dfbb..cda5c00 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -5457,6 +5457,8 @@ gettext -d cl_template "$*"
+                 return ([], False)
+             if not objHeadNew.body.strip():
+                 preReturn(pathProg)
++                if "protected" in objHeadNew.params:
++                    self.protectedFiles += applyFiles
+                 return (applyFiles, False)
+         else:
+             applyFiles = [pathOldFile]
+diff --git calculate/lib/datavars.py calculate/lib/datavars.py
+index b8fcb3b..4b57578 100644
+--- calculate/lib/datavars.py
++++ calculate/lib/datavars.py
+@@ -57,6 +57,9 @@ class VariableError(Exception):
+ class PasswordError(VariableError):
+     """Exception of password change error"""
+ 
++class CommonVariableError(VariableError):
++    """Exception for command line"""
++
+ import cl_template
+ 
+ def makePath(dirs,mode=755):
+@@ -1493,10 +1496,14 @@ class DataVars(SimpleDataVars):
+                     messages = e.message if type(e.message) == list \
+                                else [e]
+                     mess = "\n".join(map(lambda x:str(x),self.plainList(*messages)))
+-                    if isinstance(e,PasswordError) or \
+-                        type(e.message) == list and \
+-                        all(isinstance(x,PasswordError) for x in e.message):
+-                        typeError = 'pwderror'
++                    mapError = {PasswordError:'pwderror',
++                                CommonVariableError:'commonerror'}
++                    for k,v in mapError.items():
++                        if isinstance(e,k) or \
++                            type(e.message) == list and \
++                            all(isinstance(x,k) for x in e.message):
++                            typeError = v
++                            break
+                     else:
+                         typeError = 'error'
+                     errors.append({'type':typeError, 'field':var, 'message':mess})
+diff --git calculate/lib/utils/files.py calculate/lib/utils/files.py
+index 938b44a..82d9f8f 100644
+--- calculate/lib/utils/files.py
++++ calculate/lib/utils/files.py
+@@ -272,7 +272,15 @@ class typeFile:
+ 
+     def getMType(self, filename):
+         """Информация о типе файла"""
+-        return self.magicObject.file(filename)
++        ret = self.magicObject.file(filename)
++        # fix for kernel 3.7.7 (bad work samba)
++        if ret is None and self.magicObject.errno() == 5:
++            r,w = os.pipe()
++            cat = subprocess.Popen(['/bin/cat',filename],stdout=w)
++            ret = self.magicObject.descriptor(r)
++            os.close(w)
++            cat.poll()
++        return ret
+ 
+     def isBinary(self, filename):
+         """является ли файл бинарным"""
