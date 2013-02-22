@@ -1,0 +1,141 @@
+diff --git core/server/cert_cmd.py core/server/cert_cmd.py
+index 3a33eb0..ea735f3 100644
+--- core/server/cert_cmd.py
++++ core/server/cert_cmd.py
+@@ -1207,9 +1207,10 @@ def parse(full=False):
+     parser.add_argument(
+         '--gui-warning', action='store_true', default=False, 
+         dest = 'gui_warning', help=_('display warnings at the end'))
+-    parser.add_argument(
+-        '-f', '--force', action='store_true', default=False,
+-        dest = 'no_questions', help=_('silent during the process'))
++    if full:
++        parser.add_argument(
++            '-f', '--force', action='store_true', default=False,
++            dest = 'no_questions', help=_('silent during the process'))
+     parser.add_argument(
+         '-P', action='store_true', default=False,
+         dest = 'stdin_passwd',
+diff --git core/server/methods_func.py core/server/methods_func.py
+index d6d7556..b9d4598 100644
+--- core/server/methods_func.py
++++ core/server/methods_func.py
+@@ -27,8 +27,8 @@ from itertools import *
+ colorPrint = color_print()
+ 
+ class BoolAction(argparse.Action):
+-    reTrue = re.compile("^(?:y|ye|yes|t|tr|tru|true|on)$",re.I)
+-    reFalse = re.compile("^(?:of|off|n|no|f|fa|fal|fals|false)$",re.I)
++    reTrue = re.compile("^(?:on)$",re.I)
++    reFalse = re.compile("^(?:off)$",re.I)
+ 
+     def __init__(self,
+                  option_strings,
+@@ -154,8 +154,21 @@ def get_method_argparser(view, args, cl_core = False):
+     else:
+         progr = 'cl-console --method '+method
+ 
++
++    boolVars = ["f"]
++    def fixBoolVariables(args):
++        prevLen = 0
++        while prevLen != len(args):
++            prevLen = len(args)
++            args = reduce(lambda x,y: x + [y[:2],"-%s"%y[2:]] \
++                if len(y) > 2 and y[:1] == "-" and y[1:2] in boolVars and \
++                not y[2:].lower().startswith("on") and \
++                not y[2:].lower().startswith("off") \
++                else x+[y],args,[])
++        return args
+     parser = argparse.ArgumentParser(prog=progr, add_help=False,
+                                  formatter_class=RawAndDefaultsHelpFormatter)
++    parser.fixBoolVariables = fixBoolVariables
+ 
+     if view.groups is None:
+         return parser
+@@ -200,8 +213,12 @@ def get_method_argparser(view, args, cl_core = False):
+                     data['type'] = str
+                 if field.element in ['check', 'check_tristate']:
+                     data['action'] = BoolAction
++                    if opt.shortopt:
++                        boolVars.append(opt.shortopt[1])
+                 elif field.element == 'radio' and field.type == 'bool':
+                     data['action'] = BoolAction
++                    if opt.shortopt:
++                        boolVars.append(opt.shortopt[1])
+                 if field.element == 'table' and field.type != 'steps':
+                     data['action'] = 'append'
+ 
+@@ -220,6 +237,10 @@ def get_method_argparser(view, args, cl_core = False):
+                     group.add_argument(*opts,**data)
+                 except argparse.ArgumentError as e:
+                     continue
++    group = parser.add_argument_group(_("Common arguments"))
++    group.add_argument(
++        '-f', '--force', action='store_true', default=False,
++        dest = 'no_questions', help=_('silent during the process'))
+     if error_flag:
+         raise Exception
+     return parser
+@@ -345,22 +366,26 @@ def check_result_msg(method_result, view, input_error_dict = {}):
+             continue
+ 
+         params_text = ''
+-        for Group in groups:
+-            if hasattr (Group.fields, 'Field'):
+-                fields = Group.fields.Field
+-            else:
+-                fields = Group.fields
+-            for field in fields:
+-                if field.name == error.field:
+-                    if field.opt.shortopt or field.opt.longopt:
+-                        params_text += _('Wrong option ')
+-                        params_text += ' '+', '.join(filter(None,
+-                            [field.opt.shortopt, field.opt.longopt])) \
+-                            + '. '
++        if error.type != "commonerror":
++            for Group in groups:
++                if hasattr (Group.fields, 'Field'):
++                    fields = Group.fields.Field
++                else:
++                    fields = Group.fields
++                for field in fields:
++                    if field.name == error.field:
++                        if field.opt.shortopt or field.opt.longopt:
++                            params_text += _('Wrong option ')
++                            params_text += ' '+', '.join(filter(None,
++                                [field.opt.shortopt, field.opt.longopt])) \
++                                + '. '
+ 
+         sys.stdout.write('\r')
+         sys.stdout.flush()
+-        colorPrint.printERROR(params_text + error.message)
++        if error.type != "commonerror":
++            colorPrint.printERROR(params_text + error.message)
++        else:
++            colorPrint.printWARNING(params_text + error.message)
+ 
+     if len(password_errors) < len(method_result):
+         return None
+diff --git core/server/replace_class.py core/server/replace_class.py
+index 12c5cd1..065cc31 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -474,7 +474,6 @@ def call_method(metaObject, args, unknown_args, colorPrint):
+     view_obj.brief = None
+     view_obj.onlyhelp = False
+ 
+-    no_questions = args.no_questions
+     try:
+         view = getattr(metaObject, method_view_name)(0, view_obj)
+     except AttributeError:
+@@ -483,7 +482,9 @@ def call_method(metaObject, args, unknown_args, colorPrint):
+     method_parser = get_method_argparser(view, args, cl_core = True)
+     param_object = create_param_object(view)
+     try:
++        unknown_args = method_parser.fixBoolVariables(unknown_args)
+         args, unknown_args = method_parser.parse_known_args(unknown_args)
++        no_questions = args.no_questions
+     except SystemExit as e:
+         return 1
+     except Exception as e:
