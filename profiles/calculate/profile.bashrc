@@ -185,23 +185,28 @@ pre_pkg_postinst() {
 	rm -f /var/lib/calculate/-CONTENTS-*
 }
 
-if [[ `readlink -f /etc/portage/bashrc` != "/usr/calculate/install/bashrc" ]] || [[ ! -f /etc/portage/bashrc ]]
-then
-	PATCH_OVERLAY="/usr/local/portage/layman/calculate/profiles/patches"
-	[[ -d "/var/lib/layman/calculate/profiles/patches" ]] && \
-		PATCH_OVERLAY="/var/lib/layman/calculate/profiles/patches"
-	PATH=${PATH}:/usr/sbin:/usr/bin:/bin:/sbin
-
-	if [[ ${EBUILD_PHASE} == compile ]]; then
-		if [[ ! -f ${PORTAGE_BUILDDIR}/.patched || \
-			( ${PORTAGE_BUILDDIR}/.unpacked -nt ${PORTAGE_BUILDDIR}/.patched ) ]]; then
-			touch "${PORTAGE_BUILDDIR}/.patched"
-		elif [[ "${PORTAGE_BUILDDIR}/.unpacked" -nt "${PORTAGE_BUILDDIR}/.patched" ]]; then
-			einfo ">>> WORKDIR is up-to-date and patched, keeping..."
+CL_CORE_PATCH=/usr/sbin/cl-core-patch
+if [[ ${EBUILD_PHASE} == "compile" ]] && [ -e ${CL_CORE_PATCH} ];then
+	${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path ${S} --pkg-name ${PN} --verbose
+else
+	if [[ `readlink -f /etc/portage/bashrc` != "/usr/calculate/install/bashrc" ]] || [[ ! -f /etc/portage/bashrc ]]
+	then
+		PATCH_OVERLAY="/usr/local/portage/layman/calculate/profiles/patches"
+		[[ -d "/var/lib/layman/calculate/profiles/patches" ]] && \
+			PATCH_OVERLAY="/var/lib/layman/calculate/profiles/patches"
+		PATH=${PATH}:/usr/sbin:/usr/bin:/bin:/sbin
+	
+		if [[ ${EBUILD_PHASE} == compile ]]; then
+			if [[ ! -f ${PORTAGE_BUILDDIR}/.patched || \
+				( ${PORTAGE_BUILDDIR}/.unpacked -nt ${PORTAGE_BUILDDIR}/.patched ) ]]; then
+				touch "${PORTAGE_BUILDDIR}/.patched"
+			elif [[ "${PORTAGE_BUILDDIR}/.unpacked" -nt "${PORTAGE_BUILDDIR}/.patched" ]]; then
+				einfo ">>> WORKDIR is up-to-date and patched, keeping..."
+			fi
 		fi
-	fi
 
-	pkgpatch
+		pkgpatch
+	fi
 fi
 
 # Update configuration files for package installation

@@ -1,0 +1,9 @@
+# Calculate format=diff
+--- panel-plugin/xkb-cairo.c	2012-07-17 16:23:24.997030066 +0400
++++ panel-plugin/xkb-cairo.c	2012-07-17 16:47:34.107054590 +0400
+@@ -27,7 +27,7 @@
+ #include "xkb-util.h"
+ #include "xfce4-xkb-plugin.h"
+ 
+-#define XKB_PREFERRED_FONT "Courier New, Courier 10 Pitch, Monospace Bold %d"
++#define XKB_PREFERRED_FONT "Droid Sans, Courier New, Courier 10 Pitch, Monospace Bold %d"
