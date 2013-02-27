@@ -1,0 +1,83 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index 2790486..0e7d094 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -2221,7 +2221,7 @@ class _file(_error):
+         return F_CONF
+ 
+ 
+-    def openFiles(self, nameFileTemplate, nameFileConfig):
++    def openFiles(self, nameFileTemplate, nameFileConfig, typeFormat=None):
+         """Открывает шаблон и конфигурационный файл"""
+         self.textConfig = ""
+         self.textTemplate = ""
+@@ -2231,7 +2231,7 @@ class _file(_error):
+         self.nameFileConfig = os.path.abspath(nameFileConfig)
+         self.nameFileTemplate = os.path.abspath(nameFileTemplate)
+         self.F_TEMPL = self.openTemplFile(self.nameFileTemplate)
+-        if not self.executeType:
++        if not self.executeType and typeFormat != "diff":
+             self.F_CONF = self.__openConfFile(self.nameFileConfig)
+         if self.F_TEMPL and self.F_CONF:
+             self.textTemplate = self.F_TEMPL.read()
+@@ -4610,7 +4610,7 @@ gettext -d cl_template "$*"
+                     if stat.S_ISREG(statInfo):
+                         if not self.processingFile(absPath, prefix, optDir):
+                             ret = False
+-                            break
++                            continue
+                     elif stat.S_ISDIR(statInfo):
+                         # Обработка директории
+                         retDir = self.processingDirectory(absPath, prefix,
+@@ -4639,6 +4639,7 @@ gettext -d cl_template "$*"
+                         self.stop = e.status()
+                         return False
+                     else:
++                        self.clearErrors()
+                         self.printWARNING(str(e))
+                 finally:
+                     self.objVar.defaultModule = prevModule
+@@ -5431,7 +5432,7 @@ gettext -d cl_template "$*"
+                 preReturn(pathProg)
+                 return ([], False)
+         if not flagSymlink:
+-            self.openFiles(nameFileTemplate, pathOldFile)
++            self.openFiles(nameFileTemplate, pathOldFile,objHeadNew.fileType)
+             if self.getError():
+                 return ([], False)
+         if not objHeadNew.params.has_key("chown"):
+@@ -5656,9 +5657,8 @@ gettext -d cl_template "$*"
+                 self.textTemplate = objTempl.processingFile(self.textConfig,
+                                     self.objVar.Get('cl_root_path'))
+                 if objTempl.getError():
+-                    self.setError(_("Failed to use patch ") + \
++                    raise TemplatesError(_("Failed to use patch ") + \
+                                     nameFileTemplate)
+-                    return False
+                 elif formatTemplate == 'diff':
+                     self.printSUCCESS(_("Applying patch")+ " " + \
+                                 os.path.basename(nameFileTemplate))
+@@ -5979,6 +5979,7 @@ class scanDirectoryClt:
+                         self.stop = e.status()
+                         return False
+                     else:
++                        self.clearErrors()
+                         self.printWARNING(str(e))
+         return True
+ 
+diff --git calculate/lib/format/diff.py calculate/lib/format/diff.py
+index 1f45e8e..210f7ec 100644
+--- calculate/lib/format/diff.py
++++ calculate/lib/format/diff.py
+@@ -43,6 +43,11 @@ class diff(_error):
+             patchDryRun.write(self.text)
+             if patchDryRun.success():
+                 break
++            patchDryRun = process('/usr/bin/patch','-R','--dry-run',
++                      '-p%d'%i,cwd=rootPath,)
++            patchDryRun.write(self.text)
++            if patchDryRun.success():
++                return ""
+         else:
+             self.setError(_("Patching failed"))
+             return False
