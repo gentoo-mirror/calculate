@@ -1,0 +1,13 @@
+# Calculate run=/bin/bash merge=sys-boot/grub
+
+echo "Clean /boot"
+for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}-*
+do
+    rm -f $i
+done
+
+echo "Remove modules"
+rm -rf /lib/modules/${PV}-calculate
+echo "Remove sources"
+rm -rf /usr/src/linux-${PV}-calculate
+true
