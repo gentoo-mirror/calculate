@@ -1,0 +1,7 @@
+# Calculate ini(update.rev)<9 exec=/bin/bash
+
+#-ini(update.rev,9)-#
+
+ln -sf /usr/sbin/cl-core /usr/sbin/cl-core-patch
+
+exit 0
