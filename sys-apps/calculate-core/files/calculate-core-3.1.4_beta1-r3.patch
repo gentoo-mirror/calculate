@@ -1,0 +1,57 @@
+diff --git core/server/func.py core/server/func.py
+index aec087a..e007fc7 100644
+--- core/server/func.py
++++ core/server/func.py
+@@ -465,6 +465,9 @@ class CoreWsdl():
+             self.addMessage(type = 'confirm', message = message)
+             return self.getAnswer()
+ 
++        def isInteractive(self):
++            return True
++
+         def askChoice(self,message,answers=[("yes","Yes"),("no","No")]):
+             self.addMessage(type = 'choice',message="%s|%s"%(message,
+                         ",".join(map(lambda x:"%s(%s)"%(x[0],x[1]),answers))))
+diff --git core/server/replace_class.py core/server/replace_class.py
+index 065cc31..a5bd93c 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -294,6 +294,12 @@ class replaceClass():
+                 if ask.lower() in ['y', 'yes']:
+                     return "yes"
+ 
++        def isInteractive(self):
++            """
++            Check interactive ability
++            """
++            return sys.stdin.isatty()
++
+         def askChoice(self,message,answers=[("yes","Yes"),("no","No")]):
+             colorPrint = color_print()
+             print
+diff --git core/server/setup_package.py core/server/setup_package.py
+index 3d6e52f..33c0d43 100644
+--- core/server/setup_package.py
++++ core/server/setup_package.py
+@@ -404,7 +404,8 @@ class updateSystemConfigs(shareUpdateConfigs):
+                            printWARNING=self.printWARNING,
+                            askConfirm=self.askConfirm,
+                            dispatchConf= self.dispatchConf
+-                                if not clVars.Get('cl_ebuild_phase') else None,
++                                if not clVars.Get('cl_ebuild_phase') and \
++                                    self.isInteractive() else None,
+                            printWarning=False)
+         clTempl.onFirstValue = lambda *args: \
+             self.startTask(_("System configuring for {nameProgram} package by "
+@@ -640,9 +641,9 @@ class CoreWsdl:
+         return ViewInfo()
+ 
+     @rpc(Integer, CoreSetupInfo, _returns = Array(ReturnedMessage))
+-    @core_method(category=__('Configuration'),title=__('System'),
++    @core_method(category=__('Configuration'),title=__('Patch'),
+         image='system-run,system,computer',command="cl-core-patch",
+-        gui=True, rights=['setup'])
++        gui=False, rights=['setup'])
+     def core_patch ( self, sid, info):
+         return self.callMethod(sid,info,logicClass=PackageUpdater,
+                            method="patchPackage",method_name="core_patch")

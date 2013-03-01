@@ -186,7 +186,8 @@ pre_pkg_postinst() {
 }
 
 CL_CORE_PATCH=/usr/sbin/cl-core-patch
-if [[ ${EBUILD_PHASE} == "compile" ]] && [ -e ${CL_CORE_PATCH} ];then
+if [[ ${EBUILD_PHASE} == "compile" ]] && [ -e ${CL_CORE_PATCH} ] &&
+    [[ -d ${S} ]];then
 	${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path ${S} --pkg-name ${PN} --verbose
 else
 	if [[ `readlink -f /etc/portage/bashrc` != "/usr/calculate/install/bashrc" ]] || [[ ! -f /etc/portage/bashrc ]]

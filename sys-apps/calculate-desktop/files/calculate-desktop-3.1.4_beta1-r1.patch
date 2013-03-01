@@ -1,0 +1,13 @@
+diff --git desktop/cl_desktop.py desktop/cl_desktop.py
+index ba8ef38..9cfa6ef 100644
+--- desktop/cl_desktop.py
++++ desktop/cl_desktop.py
+@@ -101,8 +101,6 @@ class Desktop:
+             self.printERROR(self.clTempl.getError().strip())
+             return False
+         else:
+-            if self.verbose:
+-                self.displayTemplatesApplied(dirsFiles)
+             return dirsFiles
+ 
+     def initVars(self,datavars=None):
