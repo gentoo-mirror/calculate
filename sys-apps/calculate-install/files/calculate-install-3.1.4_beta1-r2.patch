@@ -1,0 +1,34 @@
+diff --git install/cl_install.py install/cl_install.py
+index a225a7a..1b7af1b 100644
+--- install/cl_install.py
++++ install/cl_install.py
+@@ -154,7 +154,8 @@ class Install(color_print):
+         """Check that system has grub2 in current and installed system"""
+         if self.clVars.Get('os_grub2_path'):
+             return bool(
+-                   filter(lambda x:x.startswith('grub-1.99'),
++                   filter(lambda x:x.startswith('grub-1.99') or \
++                                   x.startswith('grub-2'),
+                    listDirectory('/var/db/pkg/sys-boot')))
+         return False
+ 
+diff --git install/variables/system.py install/variables/system.py
+index 04d6455..088169b 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -490,12 +490,12 @@ class VariableOsGrub2Path(Variable):
+     """
+     def get(self):
+         # find grub2-install
+-        grubInstall = getProgPath('/sbin/grub2-install')
++        grubInstall = getProgPath('/usr/sbin/grub2-install')
+         if grubInstall:
+             return grubInstall
+         # find grub-install and check, that this is grub2-install (ver 1.99)
+-        grubInstall = self.getProgPath('/sbin/grub-install')
+-        if grubInstall and filter(lambda x:"1.99" in x,
++        grubInstall = getProgPath('/usr/sbin/grub-install')
++        if grubInstall and filter(lambda x:"1.99" in x or "2.00" in x,
+                            process(grubInstall,'-v')):
+             return grubInstall
+         return ""
