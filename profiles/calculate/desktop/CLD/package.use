@@ -71,3 +71,6 @@ net-misc/networkmanager-pptp -gtk
 net-misc/networkmanager-openvpn -gtk
 net-misc/networkmanager-openconnect -gtk
 
+# required by media-gfx/digikam-3.0.0
+dev-qt/qtsql mysql
+
