@@ -9,7 +9,7 @@ sys-fs/udev extras
 sys-block/gparted dmraid fat jfs ntfs reiserfs xfs
 sys-block/parted device-mapper
 x11-drivers/ati-drivers qt4
-x11-libs/qt-gui gtkstyle
+dev-qt/qtgui gtkstyle
 
 #need for net-voip/ekiga-3.2.7
 net-libs/opal sip
@@ -46,9 +46,6 @@ media-video/totem -flash
 
 #required by media-sound/pulseaudio-2.1-r1[alsa]
 media-plugins/alsa-plugins pulseaudio
-
-# dev-libs/libxml2:2[!icu?] required by (x11-libs/qt-webkit-4.8.2::gentoo, ebuild scheduled for merge)
-x11-libs/qt-webkit -gstreamer
 
 #required by gnome-base/gnome-shell-3.6.2-r1[
 app-i18n/ibus dconf
