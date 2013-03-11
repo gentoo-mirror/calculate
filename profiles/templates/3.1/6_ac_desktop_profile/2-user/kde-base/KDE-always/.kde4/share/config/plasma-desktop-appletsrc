@@ -32,7 +32,6 @@ immutability=1
 plugin=simplelauncher
 zvalue=0
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][Configuration]
-icon=kde
 #?env(client.os_remote_auth)==||ur_domain_set==off#
 views=Applications,RunCommand,Leave
 #env#
