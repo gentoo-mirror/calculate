@@ -26,12 +26,12 @@ then
 	if [[ ${#OKV_ARRAY[@]} -ge 3 ]]; then
 		# handle calculate-sources-3.x.y correctly
 		if [[ ${KV_PATCH} -gt 0 ]]; then
-			KERNEL_URI="${KERNEL_BASE_URI}/patch-${OKV}.bz2"
-			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV}.bz2"
+			KERNEL_URI="${KERNEL_BASE_URI}/patch-${OKV}.xz"
+			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV}.xz"
 		fi
-		KERNEL_URI="${KERNEL_URI} ${KERNEL_BASE_URI}/linux-${KV_MAJOR}.${KV_MINOR}.tar.bz2"
+		KERNEL_URI="${KERNEL_URI} ${KERNEL_BASE_URI}/linux-${KV_MAJOR}.${KV_MINOR}.tar.xz"
 	else
-		KERNEL_URI="${KERNEL_BASE_URI}/linux-${OKV}.tar.bz2"
+		KERNEL_URI="${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
 	fi
 else
 	die "Eclass is used only for kernel-3"
