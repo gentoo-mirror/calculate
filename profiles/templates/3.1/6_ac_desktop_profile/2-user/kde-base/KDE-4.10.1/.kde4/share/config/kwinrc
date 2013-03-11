@@ -1,0 +1,64 @@
+# Calculate format=kde append=replace
+[Compositing]
+#включить графические эффекты
+Enabled=true
+#отключать граф. эффекты для полноэкранных окон
+UnredirectFullscreen=true
+
+[Desktops]
+#кол-во рабочих столов
+Number=4
+#кол-во строк для рабочик столов
+Rows=1
+
+#Настройка 3D куба
+[Effect-Cube]
+#Логотип Calculate Linux на верхней и нижней грани куба
+CapPath=/usr/share/apps/kwin/calculatecubecap.png
+
+#Выставка окон
+[Effect-PresentWindows]
+#не активировать при перемещении мышки в правый нижний угол
+BorderActivate=9
+#не отображать окна всех рабочих столов при перемещении в лев. вер. угол
+BorderActivateAll=9
+DrawWindowCaptions=true
+
+#Действия мыши с окном
+[MouseBindings]
+#убрать окно вниз по средней кнопке на заголовке
+CommandActiveTitlebar2=Lower
+CommandInactiveTitlebar2=Lower
+
+[Plugins]
+#Показать все рабочие столы на одном экране
+kwin4_effect_desktopgridEnabled=true
+#Улучшенный переключатель окон Alt-tab
+kwin4_effect_boxswitchEnabled=true
+#Циркуляция - анимация переключения окон (Alt+Tab) по мотивам Cover Flow
+kwin4_effect_coverswitchEnabled=false
+#Куб с рабочими столами
+kwin4_effect_cubeEnabled=true
+#Эффект сворачивания "Волшебная лампа"
+kwin4_effect_magiclampEnabled=true
+#Анимация окна при максимизации
+kwin4_effect_maximizeEnabled=false
+#Анимация сворачивания
+kwin4_effect_minimizeanimationEnabled=false
+#Вихляющие окна
+kwin4_effect_wobblywindowsEnabled=false
+#Slide back
+kwin4_effect_slidebackEnabled=false
+
+[Windows]
+#настройка активных границ рабочего стола
+#(при перемещении окна переходить на другой рабочий стол)
+ElectricBorders=1
+#разрешать перемещение и изменение размера развернутых окон
+MoveResizeMaximizedWindows=true
+#не растягивать окно при переменщении к верхнему краю экрана
+ElectricBorderMaximize=false
+#не расятгивать окно на половину экрана после перемещения к боковому краю экрана
+ElectricBorderTiling=false
+#уровень предотвращение перевода фокуса - никогда
+FocusStealingPreventionLevel=0

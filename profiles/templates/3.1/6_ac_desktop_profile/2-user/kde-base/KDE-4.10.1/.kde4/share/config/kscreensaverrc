@@ -1,0 +1,21 @@
+# Calculate format=kde
+#хранитель экрана
+[ScreenSaver]
+Enabled=true
+LegacySaverEnabled=false
+PlasmaEnabled=true
+#?os_root_type==livecd#
+Lock=false
+#os_root_type#
+#?os_root_type!=livecd#
+Lock=true
+#os_root_type#
+LockGrace=60000
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+Saver=KClock.desktop
+#env#
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+Saver=KClock.desktop
+#Saver=asciiquarium.desktop
+#env#
+Timeout=600
