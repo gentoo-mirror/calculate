@@ -1,0 +1,5 @@
+# Calculate ini(update.rev)<10&&pkg(kde-base/kdelibs)!= format=samba path=/etc/calculate name=ini.env merge=kde-base/plasma-workspace,kde-base/kdelibs
+
+# recreate settings udisks,shadow
+[update]
+rev = 10
