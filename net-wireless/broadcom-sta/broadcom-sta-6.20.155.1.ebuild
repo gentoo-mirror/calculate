@@ -44,6 +44,8 @@ pkg_setup() {
 
 	BUILD_PARAMS="-C ${KV_DIR} M=${S}"
 	BUILD_TARGETS="wl.ko"
+	KBASE="/lib/modules/${KV_FULL}"
+	export KBASE
 }
 
 src_unpack() {
@@ -80,5 +82,7 @@ src_compile() {
 
 src_install() {
 	cd "${WORKDIR}/usr/src/bcmwl-${PV}+bdcom"
-	emake install
+	dodir /lib/modules/${KV_FULL}/kernel/drivers/net/wireless
+	insinto /lib/modules/${KV_FULL}/kernel/drivers/net/wireless
+	doins wl.ko
 }
