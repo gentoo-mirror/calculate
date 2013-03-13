@@ -1,0 +1,172 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index 2790486..634ebcd 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -2221,7 +2221,7 @@ class _file(_error):
+         return F_CONF
+ 
+ 
+-    def openFiles(self, nameFileTemplate, nameFileConfig):
++    def openFiles(self, nameFileTemplate, nameFileConfig, typeFormat=None):
+         """Открывает шаблон и конфигурационный файл"""
+         self.textConfig = ""
+         self.textTemplate = ""
+@@ -2231,7 +2231,7 @@ class _file(_error):
+         self.nameFileConfig = os.path.abspath(nameFileConfig)
+         self.nameFileTemplate = os.path.abspath(nameFileTemplate)
+         self.F_TEMPL = self.openTemplFile(self.nameFileTemplate)
+-        if not self.executeType:
++        if not self.executeType and typeFormat != "diff":
+             self.F_CONF = self.__openConfFile(self.nameFileConfig)
+         if self.F_TEMPL and self.F_CONF:
+             self.textTemplate = self.F_TEMPL.read()
+@@ -4572,8 +4572,11 @@ gettext -d cl_template "$*"
+                 pkgContents.writeContents()
+         self.filesApply = map(lambda x:autoUpdateDict.get(x,x),self.filesApply)
+         if filter(lambda x:"._cfg" in x, self.filesApply):
+-            self.printWARNING(_("Some config files need updating. Perform dispatch-conf."))
+-            if self.dispatchConf and self.objVar.Get('cl_dispatch_conf') == 'dispatch':
++            self.printWARNING(_("Some config files need updating. "
++                                "Perform dispatch-conf."))
++            if self.dispatchConf and \
++                self.objVar.Get('cl_dispatch_conf') == 'dispatch' and \
++                self.objVar.Get('cl_ebuild_phase') == '':
+                 self.dispatchConf(self.filesApply)
+ 
+     def scanningTemplates(self, scanDir, prefix=None, flagDir=False,
+@@ -4610,7 +4613,7 @@ gettext -d cl_template "$*"
+                     if stat.S_ISREG(statInfo):
+                         if not self.processingFile(absPath, prefix, optDir):
+                             ret = False
+-                            break
++                            continue
+                     elif stat.S_ISDIR(statInfo):
+                         # Обработка директории
+                         retDir = self.processingDirectory(absPath, prefix,
+@@ -4639,6 +4642,7 @@ gettext -d cl_template "$*"
+                         self.stop = e.status()
+                         return False
+                     else:
++                        self.clearErrors()
+                         self.printWARNING(str(e))
+                 finally:
+                     self.objVar.defaultModule = prevModule
+@@ -4984,7 +4988,7 @@ gettext -d cl_template "$*"
+         passwdFile = os.path.join(self._baseDir,'etc/passwd')
+         if os.path.exists(passwdFile):
+             mapUid = dict(
+-                     filter(lambda x:x[0] and x[1],
++                     filter(lambda x:x and len(x)>1 and x[0] and x[1],
+                      map(lambda x:x.split(':')[0:3:2],
+                      filter(lambda x:not x.startswith('#'),
+                      open(passwdFile,'r')))))
+@@ -4997,7 +5001,7 @@ gettext -d cl_template "$*"
+         groupFile = os.path.join(self._baseDir,'etc/group')
+         if os.path.exists(groupFile):
+             mapGid = dict(
+-                     filter(lambda x:x[0] and x[1],
++                     filter(lambda x:x and len(x)>1 and x[0] and x[1],
+                      map(lambda x:x.split(':')[0:3:2],
+                      filter(lambda x:not x.startswith('#'),
+                      open(groupFile,'r')))))
+@@ -5431,7 +5435,7 @@ gettext -d cl_template "$*"
+                 preReturn(pathProg)
+                 return ([], False)
+         if not flagSymlink:
+-            self.openFiles(nameFileTemplate, pathOldFile)
++            self.openFiles(nameFileTemplate, pathOldFile,objHeadNew.fileType)
+             if self.getError():
+                 return ([], False)
+         if not objHeadNew.params.has_key("chown"):
+@@ -5656,9 +5660,8 @@ gettext -d cl_template "$*"
+                 self.textTemplate = objTempl.processingFile(self.textConfig,
+                                     self.objVar.Get('cl_root_path'))
+                 if objTempl.getError():
+-                    self.setError(_("Failed to use patch ") + \
++                    raise TemplatesError(_("Failed to use patch ") + \
+                                     nameFileTemplate)
+-                    return False
+                 elif formatTemplate == 'diff':
+                     self.printSUCCESS(_("Applying patch")+ " " + \
+                                 os.path.basename(nameFileTemplate))
+@@ -5979,6 +5982,7 @@ class scanDirectoryClt:
+                         self.stop = e.status()
+                         return False
+                     else:
++                        self.clearErrors()
+                         self.printWARNING(str(e))
+         return True
+ 
+diff --git calculate/lib/format/diff.py calculate/lib/format/diff.py
+index 1f45e8e..210f7ec 100644
+--- calculate/lib/format/diff.py
++++ calculate/lib/format/diff.py
+@@ -43,6 +43,11 @@ class diff(_error):
+             patchDryRun.write(self.text)
+             if patchDryRun.success():
+                 break
++            patchDryRun = process('/usr/bin/patch','-R','--dry-run',
++                      '-p%d'%i,cwd=rootPath,)
++            patchDryRun.write(self.text)
++            if patchDryRun.success():
++                return ""
+         else:
+             self.setError(_("Patching failed"))
+             return False
+diff --git calculate/lib/utils/device.py calculate/lib/utils/device.py
+index 1ae7a07..34d00ca 100644
+--- calculate/lib/utils/device.py
++++ calculate/lib/utils/device.py
+@@ -23,9 +23,9 @@ from os import path
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_lib3',sys.modules[__name__])
+ 
+-def getUUIDDict(revers=False):
++def getUUIDDict(revers=False,devs=[]):
+     """Get dict UUID -> dev"""
+-    blkidProcess = process("/sbin/blkid","-s","UUID","-c","/dev/null")
++    blkidProcess = process("/sbin/blkid","-s","UUID","-c","/dev/null",*devs)
+     if revers:
+         datafunc = lambda x,y: (y,x)
+     else:
+@@ -166,6 +166,8 @@ class getUdevDeviceInfo:
+         typeQuery = "--name" if name else "--path"
+         value = name or os.path.realpath(path)
+         keyCache = "%s=%s"%(typeQuery,value)
++        if not self.cache:
++            refreshUdev(onlyTrigger=True)
+         if not keyCache in self.cache:
+             if not self.udevadmCmd:
+                 self.udevadmCmd = getProgPath('/sbin/udevadm')
+@@ -391,9 +393,10 @@ def refreshLVM():
+             process(lvchange,'-ay',group).success()
+             process(lvchange,'--refresh',group).success()
+ 
+-def refreshUdev():
++def refreshUdev(onlyTrigger=False):
+     """Run command which refresh information about device in udev"""
+-    getUdevDeviceInfo.clearCache()
++    if not onlyTrigger:
++        getUdevDeviceInfo.clearCache()
+     udevadm = getProgPath('/sbin/udevadm')
+     if udevadm:
+         blkidFile = '/etc/blkid.tab'
+diff --git calculate/lib/utils/files.py calculate/lib/utils/files.py
+index a61deb9..cd94e92 100644
+--- calculate/lib/utils/files.py
++++ calculate/lib/utils/files.py
+@@ -722,12 +722,12 @@ class FStab(object):
+     fstab_file = '/etc/fstab'
+     NAME, DIR, TYPE, OPTS, FREQ, PASSNO = range(0,6)
+ 
+-    def __init__(self,fstab_file=None):
++    def __init__(self,fstab_file=None,devs=[]):
+         if fstab_file:
+             self.fstab_file = fstab_file
+         self.cache = []
+         self.rotateCache = []
+-        self.dictUUID = getUUIDDict()
++        self.dictUUID = getUUIDDict(devs=devs)
+         self.rebuildCache()
+ 
+     def rebuildCache(self):
