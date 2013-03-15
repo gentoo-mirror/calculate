@@ -1,0 +1,19 @@
+commit 9eaa90ed505f2df0f33cda9d64db33727e405caf
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Thu Mar 14 17:42:38 2013 +0400
+
+    Increase version
+
+diff --git pym/cl_builder.py pym/cl_builder.py
+index de3d91e..af75022 100644
+--- pym/cl_builder.py
++++ pym/cl_builder.py
+@@ -14,7 +14,7 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-__version__ = "2.2.31"
++__version__ = "2.2.32"
+ __app__ = "calculate-builder"
+ 
+ import os

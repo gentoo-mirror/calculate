@@ -1,3 +1,4 @@
 CFLAGS="-O2 -march=x86-64 -pipe"
 CXXFLAGS="${CFLAGS}"
 CHOST="x86_64-pc-linux-gnu"
+GRUB_PLATFORMS="efi-64 efi-32 pc"

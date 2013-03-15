@@ -7,4 +7,4 @@ GRUB_GFXMODE="1024x768"
 GRUB_BACKGROUND="/boot/grub/grub-calculate.png"
 GRUB_COLOR_NORMAL="white/black" 
 GRUB_COLOR_HIGHLIGHT="magenta/black"
-GRUB_VIDEO_BACKEND="vbe"
+!GRUB_VIDEO_BACKEND=del

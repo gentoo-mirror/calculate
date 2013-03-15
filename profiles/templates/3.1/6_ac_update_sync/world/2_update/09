@@ -1,0 +1,12 @@
+# Calculate format=world name=world ini(update.world)<9
+
+#-ini(update.world,9)-#
+
+!app-cdr/cdrkit
+app-cdr/cdrtools
+#?os_arch_machine==x86_64#
+sys-boot/efibootmgr
+sys-boot/gnu-efi
+app-crypt/shim-signed
+app-crypt/sbsigntool
+#os_arch_machine#

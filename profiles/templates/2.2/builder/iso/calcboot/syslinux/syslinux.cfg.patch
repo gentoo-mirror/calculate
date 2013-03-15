@@ -1,7 +1,0 @@
-# Calculate format=patch name=syslinux.cfg
-<reg> isolinux.cfg </reg>
-<text> syslinux.cfg </text>
-<reg> doload=squashfs</reg>
-<text> cdroot_type=vfat doload=vfat,nls_cp866,nls_utf8,squashfs</text>
-<reg>\n\nLABEL harddisk([^\n]*\n*)+SLX=0x80</reg>
-<text></text>

@@ -1,0 +1,32 @@
+# Calculate exec=/bin/bash
+
+IMAGE_DIR=#-cl_chroot_path-#
+CDROOT_DIR=#-cl_chroot_path-#/#-cl_root_path-#
+EFI_IMAGE_DIR=${CDROOT_DIR}/efi-image.dir
+BOOT_GRUB_DIR=${EFI_IMAGE_DIR}/boot/grub
+CD_GRUB_DIR=${CDROOT_DIR}/boot/grub
+MEMDISK=${CDROOT_DIR}/memdisk.img
+ID_FILE=id${RANDOM}.uefi
+
+touch ${CDROOT_DIR}/${ID_FILE}
+
+mkdir -p ${BOOT_GRUB_DIR}
+
+cat >${BOOT_GRUB_DIR}/grub.cfg <<EOF
+search --file --set=root /${ID_FILE}
+set prefix=(\$root)/boot/grub
+source \$prefix/x86_64-efi/grub.cfg
+EOF
+
+for i in ${IMAGE_DIR}/usr/lib/grub/x86_64-efi/part_*.mod;do echo insmod `basename $i .mod`;done >${CD_GRUB_DIR}/x86_64-efi/grub.cfg
+echo "source /boot/grub/grub.cfg" >>${CD_GRUB_DIR}/x86_64-efi/grub.cfg
+tar cf - -C "${EFI_IMAGE_DIR}" boot >${MEMDISK}
+grub-mkimage -O x86_64-efi -d ${IMAGEDIR}/usr/lib/grub/x86_64-efi -m ${MEMDISK} -o ${CDROOT_DIR}/bootx64.efi -p '(memdisk)/boot/grub' search iso9660 configfile normal memdisk tar part_msdos fat
+mkfs.msdos -C ${CD_GRUB_DIR}/efi.img $(( ($(stat -c %s "${CDROOT_DIR}/bootx64.efi") / 1024 + 55) / 32 * 32 )) &>/dev/null
+mmd -i ${CD_GRUB_DIR}/efi.img ::efi
+mmd -i ${CD_GRUB_DIR}/efi.img ::efi/boot
+mcopy -i ${CD_GRUB_DIR}/efi.img ${CDROOT_DIR}/bootx64.efi ::efi/boot/bootx64.efi
+rm ${CDROOT_DIR}/bootx64.efi
+rm ${MEMDISK}
+rm -r ${EFI_IMAGE_DIR}
+exit 0

@@ -21,3 +21,9 @@ sys-fs/reiserfsprogs
 sys-kernel/calckernel
 sys-kernel/calculate-sources
 
+#?os_arch_machine==x86_64#
+sys-boot/efibootmgr
+sys-boot/gnu-efi
+app-crypt/shim-signed
+app-crypt/sbsigntool
+#os_arch_machine#
