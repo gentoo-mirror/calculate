@@ -1,0 +1,9 @@
+# Calculate ini(update.rev)<10 exec=/bin/bash
+
+#-ini(update.rev,10)-#
+
+#?pkg(app-cdr/cdrkit)!=#
+mv /usr/include/scsilib /usr/include/scsilib.backup
+#pkg#
+
+exit 0
