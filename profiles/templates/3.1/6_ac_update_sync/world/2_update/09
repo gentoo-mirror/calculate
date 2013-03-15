@@ -3,7 +3,9 @@
 #-ini(update.world,9)-#
 
 !app-cdr/cdrkit
+#?in(os_linux_shortname, CDS, CLD, CLDG, CLDX, CMC)!=#
 app-cdr/cdrtools
+#in#
 #?os_arch_machine==x86_64#
 sys-boot/efibootmgr
 sys-boot/gnu-efi
