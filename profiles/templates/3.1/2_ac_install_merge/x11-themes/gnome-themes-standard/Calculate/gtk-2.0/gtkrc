@@ -113,3 +113,11 @@ style "tooltips"
 }
 
 widget "*tooltip*" style:highest "tooltips"
+
+style "xfce-notifies-window"
+{
+    bg[NORMAL] = "#000000"
+    XfceNotifyWindow::border-color = "#000000"
+    XfceNotifyWindow::border-width = 0.0
+}
+class "XfceNotifyWindow" style "xfce-notifies-window"
