@@ -1,0 +1,111 @@
+diff -ur broadcom-sta-5.100.82.112.orig/src/wl/sys/wl_cfg80211.c broadcom-sta-5.100.82.112/src/wl/sys/wl_cfg80211.c
+--- broadcom-sta-5.100.82.112.orig/src/wl/sys/wl_cfg80211.c	2013-02-25 23:56:44.171538633 +0400
++++ broadcom-sta-5.100.82.112/src/wl/sys/wl_cfg80211.c	2013-03-01 11:24:52.932161199 +0400
+@@ -42,8 +42,13 @@
+            enum nl80211_iftype type, u32 *flags, struct vif_params *params);
+ static s32 __wl_cfg80211_scan(struct wiphy *wiphy, struct net_device *ndev,
+            struct cfg80211_scan_request *request, struct cfg80211_ssid *this_ssid);
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 6, 0)
++static s32 wl_cfg80211_scan(struct wiphy *wiphy,
++           struct cfg80211_scan_request *request);
++#else
+ static s32 wl_cfg80211_scan(struct wiphy *wiphy, struct net_device *ndev,
+            struct cfg80211_scan_request *request);
++#endif
+ static s32 wl_cfg80211_set_wiphy_params(struct wiphy *wiphy, u32 changed);
+ static s32 wl_cfg80211_join_ibss(struct wiphy *wiphy, struct net_device *dev,
+            struct cfg80211_ibss_params *params);
+@@ -56,7 +61,10 @@
+            struct cfg80211_connect_params *sme);
+ static s32 wl_cfg80211_disconnect(struct wiphy *wiphy, struct net_device *dev, u16 reason_code);
+ 
+-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 36)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 8, 0)
++static s32 wl_cfg80211_set_tx_power(struct wiphy *wiphy, struct wireless_dev *wdev,
++           enum nl80211_tx_power_setting type, s32 dbm);
++#elif LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 36)
+ static s32 wl_cfg80211_set_tx_power(struct wiphy *wiphy,
+            enum nl80211_tx_power_setting type, s32 dbm);
+ #else
+@@ -64,7 +72,11 @@
+            enum tx_power_setting type, s32 dbm);
+ #endif
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 8, 0)
++static s32 wl_cfg80211_get_tx_power(struct wiphy *wiphy, struct wireless_dev *wdev, s32 *dbm);
++#else
+ static s32 wl_cfg80211_get_tx_power(struct wiphy *wiphy, s32 *dbm);
++#endif
+ 
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 38)
+ static s32 wl_cfg80211_config_default_key(struct wiphy *wiphy,
+@@ -570,10 +582,19 @@
+ }
+ 
+ static s32
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 6, 0)
++wl_cfg80211_scan(struct wiphy *wiphy,
++                 struct cfg80211_scan_request *request)
++#else
+ wl_cfg80211_scan(struct wiphy *wiphy, struct net_device *ndev,
+                  struct cfg80211_scan_request *request)
++#endif
+ {
+ 	s32 err = 0;
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 6, 0)
++	struct wl_priv *wl = wiphy_to_wl(wiphy);
++	struct net_device *ndev = wl_to_ndev(wl);
++#endif
+ 
+ 	CHECK_SYS_UP();
+ 	err = __wl_cfg80211_scan(wiphy, ndev, request, NULL);
+@@ -742,7 +763,11 @@
+ 	else
+ 		memset(&join_params.params.bssid, 0, ETHER_ADDR_LEN);
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 8, 0)
++	wl_ch_to_chanspec(params->chandef.chan, &join_params, &join_params_size);
++#else
+ 	wl_ch_to_chanspec(params->channel, &join_params, &join_params_size);
++#endif
+ 
+ 	err = wl_dev_ioctl(dev, WLC_SET_SSID, &join_params, join_params_size);
+ 	if (err) {
+@@ -1099,7 +1124,10 @@
+ 	return err;
+ }
+ 
+-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 36)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 8, 0)
++static s32 wl_cfg80211_set_tx_power(struct wiphy *wiphy, struct wireless_dev *wdev,
++           enum nl80211_tx_power_setting type, s32 dbm)
++#elif LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 36)
+ static s32
+ wl_cfg80211_set_tx_power(struct wiphy *wiphy, enum nl80211_tx_power_setting type, s32 dbm)
+ #else
+@@ -1158,7 +1186,11 @@
+ 	return err;
+ }
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 8, 0)
++static s32 wl_cfg80211_get_tx_power(struct wiphy *wiphy, struct wireless_dev *wdev, s32 *dbm)
++#else
+ static s32 wl_cfg80211_get_tx_power(struct wiphy *wiphy, s32 *dbm)
++#endif
+ {
+ 	struct wl_priv *wl = wiphy_to_wl(wiphy);
+ 	struct net_device *ndev = wl_to_ndev(wl);
+@@ -2074,8 +2106,13 @@
+ 		beacon_interval = cpu_to_le16(bi->beacon_period);
+ 	} else {
+ 		WL_DBG(("Found the AP in the list - BSSID %pM\n", bss->bssid));
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 8, 0)
++		ie = bss->ies->data;
++		ie_len = bss->ies->len;
++#else
+ 		ie = bss->information_elements;
+ 		ie_len = bss->len_information_elements;
++#endif
+ 		beacon_interval = bss->beacon_interval;
+ 		cfg80211_put_bss(bss);
+ 	}
