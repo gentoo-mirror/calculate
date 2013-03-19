@@ -53,8 +53,7 @@ app-arch/bzip2 static-libs
 media-gfx/sane-backends -v4l
 
 # grub multislot by default
-~sys-boot/grub-1.99 multislot truetype
-~sys-boot/grub-2.00 multislot truetype mount device-mapper
+~sys-boot/grub-2.00 multislot truetype device-mapper
 
 # to solve the problem conflicts with app-dicts/aspell-pt-0.50.2-r1
 app-text/aspell -linguas_pt
