@@ -7,7 +7,7 @@ ETYPE="sources"
 
 inherit calculate-kernel-5 eutils
 
-DESCRIPTION="Full sources including the Calculate patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
+DESCRIPTION="Calculate Linux kernel image"
 KEYWORDS="amd64 x86"
 HOMEPAGE="http://www.calculate-linux.org"
 
