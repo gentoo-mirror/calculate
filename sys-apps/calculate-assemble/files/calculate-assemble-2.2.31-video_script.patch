@@ -1,0 +1,26 @@
+commit 76b7c6dda3f732f1f97d8b77ffac4fb2c820e572
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Wed Mar 20 17:04:20 2013 +0400
+
+    Fix install video drv at start
+
+diff --git pym/cl_fill_assemble.py pym/cl_fill_assemble.py
+index a273874..522d0b2 100644
+--- pym/cl_fill_assemble.py
++++ pym/cl_fill_assemble.py
+@@ -499,6 +499,7 @@ class fillVars(object, glob_attr):
+         yield "MASK=`cl-core --method variables_show --only-value install.os_nvidia_mask 2>/dev/null`"
+         yield "PORTAGE=/usr/portage"
+         yield "OVERLAY=/var/lib/layman/calculate"
++        yield "WORLD=/var/lib/portage/world"
+         for verName,maskName,drvVer,ebuilds in info:
+             yield "if [[ $PKG == 'x11-drivers/{verName}' ]] " \
+                   "&& [[ $MASK == '{maskName}' ]]"\
+@@ -524,6 +525,7 @@ class fillVars(object, glob_attr):
+                       "--skip-manifest"\
+                     .format(pkgName=packageName,
+                             ebuild=ebuild)
++                yield "echo 'x11-drivers/{verName}' >>$WORLD".format(verName=verName)
+             yield "\texit $?"
+             yield "fi"
+         yield "exit 1"
