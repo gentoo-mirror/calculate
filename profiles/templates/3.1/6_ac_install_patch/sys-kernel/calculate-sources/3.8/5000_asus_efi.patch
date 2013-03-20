@@ -1,0 +1,15 @@
+# Calculate format=diff merge(sys-kernel/calculate-sources)>=3.8.3
+diff --git a/drivers/firmware/efivars.c b/drivers/firmware/efivars.c
+index 2a2e145..ce14902 100644
+--- a/drivers/firmware/efivars.c
++++ b/drivers/firmware/efivars.c
+@@ -436,7 +436,8 @@ check_var_size_locked(struct efivars *efivars, u32 attributes,
+ 	if (status != EFI_SUCCESS)
+ 		return status;
+ 
+-	if (!storage_size || size > remaining_size || size > max_size ||
++	if (!storage_size || size > remaining_size ||
++	    max_size && size > max_size ||
+ 	    (remaining_size - size) < (storage_size / 2))
+ 		return EFI_OUT_OF_RESOURCES;
+ 
