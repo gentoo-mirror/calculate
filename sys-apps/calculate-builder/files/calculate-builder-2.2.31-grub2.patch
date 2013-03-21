@@ -1,17 +1,20 @@
+commit c539398bc22240aa4efb5391127a3d5e569c0321
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Wed Mar 20 17:07:12 2013 +0400
+
+    Fix update kernel entry for grub2
+
 diff --git pym/cl_kernel.py pym/cl_kernel.py
-index 456efad..4efd797 100644
+index 456efad..1ab977c 100644
 --- pym/cl_kernel.py
 +++ pym/cl_kernel.py
-@@ -398,8 +398,10 @@ class cl_kernel(color_print):
+@@ -398,7 +398,8 @@ class cl_kernel(color_print):
                                    ' calculate=video:%s'%x11video,y,1)
  
          # if has grub2
 -        if filter(lambda x:x.startswith("grub-1.99"),
--           listDirectory('/var/db/pkg/sys-boot')):
 +        if filter(lambda x:x.startswith("grub-1.99") or \
 +                           x.startswith("grub-2"),
-+           listDirectory('/var/db/pkg/sys-boot')) and \
-+           os.environ["EBUILD_PHASE"] == '':
+            listDirectory('/var/db/pkg/sys-boot')):
              grubInstall = process('/usr/sbin/cl-core','--method','core_setup',
                                    '--pkg-name','grub',
-                                   '--no-progress',stderr=None)
