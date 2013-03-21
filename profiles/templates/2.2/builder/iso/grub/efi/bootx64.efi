@@ -10,9 +10,9 @@ grub-mkimage \
 		-p "${GRUB_BOOT_DIR_PREFIX}" \
 		-d "${x86_64_EFI_DIR_PREFIX}" \
 		-o "${CDROOT_DIR}/efi/boot/bootx64.efi" \
-		-O x86_64-efi ext2 fat lvm part_msdos \
+		-O x86_64-efi gzio ext2 fat lvm part_msdos \
 			part_gpt hfsplus bsd search_fs_uuid normal \
 			chain iso9660 configfile loadenv \
-			reboot cat \
+			reboot cat
 
 exit 0
