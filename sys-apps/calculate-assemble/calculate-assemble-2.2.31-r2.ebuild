@@ -26,5 +26,6 @@ src_unpack() {
 	cd "${S}"
 
 	# fix video script
+	epatch "${FILESDIR}/calculate-assemble-2.2.31-video_script.patch"
 	epatch "${FILESDIR}/calculate-assemble-2.2.31-video_script2.patch"
 }
