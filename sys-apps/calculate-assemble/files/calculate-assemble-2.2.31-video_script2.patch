@@ -1,0 +1,22 @@
+commit 5e5cf7ce1a51f4c426ddf8d1bce6159957d17bcb
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Fri Mar 22 09:13:42 2013 +0400
+
+    Fix proprietary install
+
+diff --git pym/cl_fill_assemble.py pym/cl_fill_assemble.py
+index 522d0b2..b59398d 100644
+--- pym/cl_fill_assemble.py
++++ pym/cl_fill_assemble.py
+@@ -525,8 +525,9 @@ class fillVars(object, glob_attr):
+                       "--skip-manifest"\
+                     .format(pkgName=packageName,
+                             ebuild=ebuild)
+-                yield "echo 'x11-drivers/{verName}' >>$WORLD".format(verName=verName)
+-            yield "\texit $?"
++            yield "\tres=$?"
++            yield "\techo 'x11-drivers/{verName}' >>$WORLD".format(verName=verName)
++            yield "\texit $res"
+             yield "fi"
+         yield "exit 1"
+ 
