@@ -1,0 +1,19 @@
+commit 3d0a74dd1ebc7f6ee37aadc1b65adb2f248f4e9a
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Mon Mar 25 09:44:32 2013 +0400
+
+    Discard clt templates
+
+diff --git pym/cl_assemble.py pym/cl_assemble.py
+index a8bf75c..55cd748 100644
+--- pym/cl_assemble.py
++++ pym/cl_assemble.py
+@@ -265,7 +265,7 @@ class cl_assemble(color_print):
+         if message:
+             self.printMessageForTest(message)
+         self.clVars.Set("cl_chroot_path",directory, True)
+-        self.clTempl = template(self.clVars)
++        self.clTempl = template(self.clVars,cltObj=False)
+         dirsFiles = self.clTempl.applyTemplates()
+         self.clTempl.closeFiles()
+         if self.clTempl.getError():
