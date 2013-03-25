@@ -1,0 +1,31 @@
+diff --git a/defaults/linuxrc b/defaults/linuxrc
+index 55cb52d..fe19c02 100755
+--- a/defaults/linuxrc
++++ b/defaults/linuxrc
+@@ -569,6 +569,7 @@ fi
+ 
+ # Determine root device
+ good_msg 'Determining root device...'
++first_try=1
+ while true
+ do
+ 	while [ "${got_good_root}" != '1' ]
+@@ -598,6 +599,18 @@ do
+ 					good_msg "Detected real_root=${ROOT_DEV}"
+ 					REAL_ROOT="${ROOT_DEV}"
+ 				else
++					if [ -n "$first_try" ]
++					then
++						sleep 2
++						if [ -z $USE_LVM_NORMAL ]
++						then
++							USE_LVM_NORMAL=1
++							startVolumes
++						fi
++						udevadm settle --timeout=10 &>/dev/null
++						first_try=
++						continue
++					fi
+ 					prompt_user "REAL_ROOT" "root block device"
+ 					got_good_root=0
+ 					continue
