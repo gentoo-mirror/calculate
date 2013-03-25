@@ -1,0 +1,53 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index e94ce8a..130ef48 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -4303,19 +4303,19 @@ gettext -d cl_template "$*"
+                 if os.path.isfile(skipTempl):
+                     skipDirTemplates.append(skipTempl)
+             if skipTemplates or skipDirTemplates:
+-                setWARNING(_("Skipped templates:"))
++                self.printWARNING(_("Skipped templates:"))
+             for skipTemplate in skipTemplates + skipDirTemplates:
+-                setWARNING(" "*6 + skipTemplate)
++                self.printWARNING(" "*6 + skipTemplate)
+             if skipDirs:
+-                setWARNING(_("Skipped directories:"))
++                self.printWARNING(_("Skipped directories:"))
+             for skipDir in skipDirs:
+-                setWARNING(" "*6 + skipDir)
+-            setWARNING("")
+-            setWARNING(_("Headers of directory templates and headers "
++                self.printWARNING(" "*6 + skipDir)
++            self.printWARNING("")
++            self.printWARNING(_("Headers of directory templates and headers "
+                          "of files on the first level should include "
+                          "an action variable."))
+-            setWARNING(_("Example:"))
+-            setWARNING("# Calculate ac_install_merge==on")
++            self.printWARNING(_("Example:"))
++            self.printWARNING("# Calculate ac_install_merge==on")
+         return skipDirs + skipTemplates
+ 
+     def applyTemplates(self,progress=True,rerun=True):
+diff --git calculate/lib/utils/device.py calculate/lib/utils/device.py
+index 4f89891..d9eeee6 100644
+--- calculate/lib/utils/device.py
++++ calculate/lib/utils/device.py
+@@ -405,7 +405,7 @@ def refreshUdev(onlyTrigger=False):
+     """Run command which refresh information about device in udev"""
+     if not onlyTrigger:
+         getUdevDeviceInfo.clearCache()
+-    udevadm = getProgPath('/sbin/udevadm')
++    udevadm = getProgPath('/bin/udevadm')
+     if udevadm:
+         blkidFile = '/etc/blkid.tab'
+         try:
+@@ -414,6 +414,7 @@ def refreshUdev(onlyTrigger=False):
+         except:
+             pass
+         process(udevadm,"trigger","--subsystem-match","block").success()
++        process(udevadm,"settle","--timeout=15").success()
+ 
+ def getCommonDeviceName(dev):
+     """
