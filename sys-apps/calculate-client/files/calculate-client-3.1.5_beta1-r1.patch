@@ -1,0 +1,35 @@
+diff --git data/client data/client
+index 4fc3175..64da473 100644
+--- data/client
++++ data/client
+@@ -39,10 +39,26 @@ start() {
+ 	if [[ -n $SERVERLIVE ]]
+ 	then 
+ 		ebegin "Mounting domain resources"
+-		for COUNT in $( seq 0 30 )
+-		do
+-			ping -w4 -i0.5 -c3 $SERVERLIVE &>/dev/null && break || sleep 0.5
+-		done
++
++		local NET_CONF=`cl-core-variables-show --only-value install.os_install_net_conf`
++		if [[ $NET_CONF = "networkmanager" ]]
++		then
++		        for COUNT in $( seq 0 24 )
++			do
++        			NET_STATE=`qdbus --system org.freedesktop.NetworkManager /org/freedesktop/NetworkManager org.freedesktop.NetworkManager.state`
++				if [[ $NET_STATE = 40 ]]
++				then
++                                    ping -w4 -i0.5 -c3 $SERVERLIVE &>/dev/null && break || sleep 0.5
++				else
++				    break
++				fi
++			done
++		else
++			for COUNT in $( seq 0 24 )
++			do
++				ping -w4 -i0.5 -c3 $SERVERLIVE &>/dev/null && break || sleep 0.5
++			done
++		fi
+ 		if [[ -z $SERVER ]]
+ 		then
+ 			cl-client $SERVERLIVE && cl-setup-system -l remote &>/dev/null
