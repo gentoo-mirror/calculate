@@ -1,0 +1,8 @@
+# Calculate format=openrc path=/etc/default name=grub
+
+#?os_install_grub_terminal==console#
+GRUB_TERMINAL=console
+#os_install_grub_terminal#
+#?os_install_grub_terminal==gfxterm#
+!GRUB_TERMINAL=
+#os_install_grub_terminal#

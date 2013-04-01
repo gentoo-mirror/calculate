@@ -1,0 +1,13 @@
+diff --git install/variables/system.py install/variables/system.py
+index 2e33a49..184f651 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -644,7 +644,7 @@ class VariableOsInstallGrubTerminal(Variable):
+             return 'console'
+         grubDefault = path.join(self.Get('cl_chroot_path'),
+                                 'etc/default/grub')
+-        if getValueFromConfig(grubDefault,'GRUB_TERMINAL_OUTPUT') == 'console':
++        if getValueFromConfig(grubDefault,'GRUB_TERMINAL') == 'console':
+             return 'console'
+         return 'gfxterm'
+ 
