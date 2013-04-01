@@ -1,0 +1,21 @@
+diff --git desktop/variables/desktop.py desktop/variables/desktop.py
+index a614ffe..3a92ccb 100644
+--- desktop/variables/desktop.py
++++ desktop/variables/desktop.py
+@@ -88,6 +88,8 @@ class VariableClDesktopGstData(ReadonlyVariable):
+     def get(self):
+         # try import gst
+         try:
++            copyargv = sys.argv
++            sys.argv = []
+             olderr = os.dup(sys.stderr.fileno())
+             os.close(sys.stderr.fileno())
+             import gst
+@@ -95,6 +97,7 @@ class VariableClDesktopGstData(ReadonlyVariable):
+         except ImportError:
+             gst = None
+         finally:
++            sys.argv= copyargv
+             os.dup2(olderr,sys.stderr.fileno())
+         if gst is None:
+             return {}
