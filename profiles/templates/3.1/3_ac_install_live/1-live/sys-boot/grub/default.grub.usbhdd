@@ -19,3 +19,10 @@ GRUB_DISTRIBUTOR="#-os_install_linux_name-# Builder"
 GRUB_DISTRIBUTOR="#-os_install_linux_name-# #-os_install_linux_subname-# Builder"
 #os_install_linux_subname#
 GRUB_DISABLE_OS_PROBER=true
+
+#?os_install_grub_terminal==console#
+GRUB_TERMINAL_OUTPUT=console
+#os_install_grub_terminal#
+#?os_install_grub_terminal==gfxterm#
+!GRUB_TERMINAL_OUTPUT=
+#os_install_grub_terminal#
