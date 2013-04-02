@@ -39,4 +39,6 @@ src_unpack() {
 	epatch "${FILESDIR}/calculate-builder-2.2.31-grub2.patch"
 	# fix isohybrid for i686
 	epatch "${FILESDIR}/calculate-builder-2.2.31-fix_isohybrid.patch"
+	# discard clt
+	epatch "${FILESDIR}/calculate-builder-2.2.31-discard_clt.patch"
 }
