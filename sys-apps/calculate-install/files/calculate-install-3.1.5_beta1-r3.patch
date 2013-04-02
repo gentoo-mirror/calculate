@@ -1,0 +1,79 @@
+diff --git install/variables/disk.py install/variables/disk.py
+index 8a75181..639aa85 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -804,7 +804,12 @@ class VariableOsLocationDest(LocationHelper,Variable):
+             if type(val) == str and val:
+                 return path.normpath(val)
+             return val
+-        value = map(normpath,value)
++        def eficonvert(val):
++            if val.lower() in ("efi","uefi"):
++                return "/boot/efi"
++            else:
++                return val
++        value = map(normpath,map(eficonvert,value))
+         return map(lambda x:x or "/",value)
+ 
+     def choice(self):
+diff --git install/variables/kernel.py install/variables/kernel.py
+index 0de0cd5..7ba7233 100644
+--- install/variables/kernel.py
++++ install/variables/kernel.py
+@@ -56,11 +56,17 @@ class VariableOsInstallKernelScheduler(Variable):
+                 if "OCZ" in dev_name or "SSD" in dev_name:
+                     return "noop"
+         else:
+-            return getValueFromCmdLine('elevator',0) or "cfq"
++            currentScheduler = getValueFromCmdLine('elevator',0)
++            if currentScheduler in map(lambda x:x[0],self.choice()):
++                return currentScheduler
+         return "cfq"
+     
+     def choice(self):
+-        return [("deadline","Deadline"),("cfq","CFQ"),("noop","No-op")]
++        schedulers = [("deadline","Deadline"),("cfq","CFQ"),("noop","No-op")]
++        if self.Get('os_install_kernel_bfq_set') == 'on':
++            return schedulers + [("bfq","BFQ")]
++        else:
++            return schedulers
+ 
+     def uncompatible(self):
+         """
+@@ -69,6 +75,23 @@ class VariableOsInstallKernelScheduler(Variable):
+         if self.Get('os_install_root_type') == 'flash':
+             return _("I/O scheduler unavailable for Flash install")
+ 
++class VariableOsInstallKernelBfqSet(ReadonlyVariable):
++    """
++    Available BFQ in kernel
++    """
++    type = "bool"
++
++    def get(self):
++        image = self.Get('cl_image')
++        if image:
++            with image as distr:
++                distrPath = image.getDirectory()
++                kernelConfig = path.join(distrPath,"usr/src/linux/.config")
++                if filter(lambda x:"CONFIG_IOSCHED_BFQ=y" in x,
++                    readLinesFile(kernelConfig)):
++                    return "on"
++        return "off"
++
+ class VariableOsInstallKernelAttr(Variable):
+     """
+     Install kernel attributes
+diff --git install/variables/system.py install/variables/system.py
+index 2e33a49..184f651 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -644,7 +644,7 @@ class VariableOsInstallGrubTerminal(Variable):
+             return 'console'
+         grubDefault = path.join(self.Get('cl_chroot_path'),
+                                 'etc/default/grub')
+-        if getValueFromConfig(grubDefault,'GRUB_TERMINAL_OUTPUT') == 'console':
++        if getValueFromConfig(grubDefault,'GRUB_TERMINAL') == 'console':
+             return 'console'
+         return 'gfxterm'
+ 
