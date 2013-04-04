@@ -1,0 +1,96 @@
+diff --git core/server/func.py core/server/func.py
+index e007fc7..0d5d358 100644
+--- core/server/func.py
++++ core/server/func.py
+@@ -461,9 +461,12 @@ class CoreWsdl():
+             self.addMessage(type = 'endTask', message = result)
+             self.setProgress(100, progress_message)
+ 
+-        def askConfirm(self, message):
++        def askConfirm(self, message,default="yes"):
+             self.addMessage(type = 'confirm', message = message)
+-            return self.getAnswer()
++            ret = self.getAnswer()
++            if ret == "":
++                return default
++            return ret
+ 
+         def isInteractive(self):
+             return True
+diff --git core/server/replace_class.py core/server/replace_class.py
+index a5bd93c..34fd75b 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -45,7 +45,7 @@ class replaceClass():
+         if "LANG" in os.environ:
+             curThread = threading.currentThread()
+             curThread.lang = os.environ["LANG"]
+-        com = target(self.no_progress,self.gui_progress,self.gui_warning)
++        com = target(self.no_progress,self.gui_progress,self.gui_warning,self.no_questions)
+         if len(com.__class__.__bases__)>1 and \
+             hasattr (com.__class__.__bases__[1], '__init__'):
+             com.__class__.__bases__[1].__init__(com)
+@@ -55,7 +55,7 @@ class replaceClass():
+     class Common(CommonMethods):
+         """ class to interact with the processes """
+         reClearTags = re.compile("<.*?>")
+-        def __init__(self, no_progress, gui_progress,gui_warning):
++        def __init__(self, no_progress, gui_progress,gui_warning,no_questions):
+             self.pid = 0
+             self.Num = 100000
+             self.color_print = color_print()
+@@ -68,6 +68,7 @@ class replaceClass():
+             self.last_progress_msg = ''
+             self.error = []
+             self.warning = []
++            self.no_questions = no_questions
+ 
+         def writeFile(self):
+             pass
+@@ -279,9 +280,11 @@ class replaceClass():
+                 self.color_print.printOK(self.clearTags(result))
+             self.setProgress(100, progress_message)
+ 
+-        def askConfirm(self,message):
++        def askConfirm(self,message,default="yes"):
+             colorPrint = color_print()
+             print
++            if self.no_questions:
++                return default
+             while True:
+                 try:
+                     ask = raw_input(message+ '? (yes/no): ')
+@@ -289,7 +292,7 @@ class replaceClass():
+                     ask = 'no'
+                     print
+                 if ask.lower() in ['n', 'no']:
+-                    colorPrint.printERROR(_('Manually interrupted'))
++                    #colorPrint.printERROR(_('Manually interrupted'))
+                     return "no"
+                 if ask.lower() in ['y', 'yes']:
+                     return "yes"
+@@ -474,6 +477,7 @@ def call_method(metaObject, args, unknown_args, colorPrint):
+     metaObject.no_progress = args.no_progress
+     metaObject.gui_progress = args.gui_progress
+     metaObject.gui_warning = args.gui_warning
++    metaObject.no_questions = False
+     view_obj = ViewInfo()
+     view_obj.step = None
+     view_obj.expert = True
+@@ -491,6 +495,7 @@ def call_method(metaObject, args, unknown_args, colorPrint):
+         unknown_args = method_parser.fixBoolVariables(unknown_args)
+         args, unknown_args = method_parser.parse_known_args(unknown_args)
+         no_questions = args.no_questions
++        metaObject.no_questions = no_questions
+     except SystemExit as e:
+         return 1
+     except Exception as e:
+@@ -759,7 +764,7 @@ class Methods(replaceClass.Common,object):
+         return cls._instance
+ 
+     def __init__(self):
+-        replaceClass.Common.__init__(self,True,False,False)
++        replaceClass.Common.__init__(self,True,False,False,False)
+ 
+ def printTable(data, header=None):
+     try:

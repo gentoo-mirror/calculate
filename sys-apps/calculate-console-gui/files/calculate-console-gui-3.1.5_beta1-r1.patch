@@ -1,0 +1,36 @@
+diff --git consolegui/application/ConnectionTabs.py consolegui/application/ConnectionTabs.py
+index 81d6873..5b39c6c 100644
+--- consolegui/application/ConnectionTabs.py
++++ consolegui/application/ConnectionTabs.py
+@@ -42,6 +42,9 @@ class SelectedMethodWgt(QtGui.QWidget):
+         QtGui.QIcon.setThemeName('Calculate')
+         self.setWindowIcon(QtGui.QIcon \
+                         ('/usr/share/pixmaps/calculate-console-online.png'))
++        conf_path = self.VarsGui.Get('cl_gui_config_path')
++        homePath = self.VarsGui.Get('ur_home_path')
++        self.user_config = conf_path.replace("~",homePath)
+ 
+         if self.connect():
+             sys.exit(1)
+@@ -89,9 +92,6 @@ class SelectedMethodWgt(QtGui.QWidget):
+         pass
+ 
+     def get_size(self):
+-        conf_path = self.VarsGui.Get('cl_gui_config_path')
+-        homePath = self.VarsGui.Get('ur_home_path')
+-        self.user_config = conf_path.replace("~",homePath)
+         self.config = ConfigParser.ConfigParser()
+         self.config.read(self.user_config)
+         try:
+diff --git consolegui/application/ControlButton.py consolegui/application/ControlButton.py
+index a1df9bb..c4e5752 100644
+--- consolegui/application/ControlButton.py
++++ consolegui/application/ControlButton.py
+@@ -236,6 +236,7 @@ class ControlButtonWgt(QtGui.QWidget):
+     def add_clear_cache_button(self, pid = None):
+         end_layout = self.pre_add_button()
+         self.clear_proc_cache_button = QtGui.QPushButton(_('Close'), self)
++        self.ClientObj._parent.user_changed_flag = False
+         if pid:
+             self.pid = pid
+             self.clear_proc_cache_button.clicked.connect(self.clear_pid_cache)
