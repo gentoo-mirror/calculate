@@ -7,7 +7,7 @@
 	<entry name="unix_time" schema="/schemas/apps/clock_applet/prefs/unix_time"/>
 	<entry name="show_temperature" schema="/schemas/apps/clock_applet/prefs/show_temperature" type="bool" value="false"/>
 	<entry name="format" schema="/schemas/apps/clock_applet/prefs/format" type="string">
-		<stringvalue>custom</stringvalue>
+		<stringvalue>24-hour</stringvalue>
 	</entry>
 	<entry name="config_tool" schema="/schemas/apps/clock_applet/prefs/config_tool"/>
 	<entry name="expand_birthdays" schema="/schemas/apps/clock_applet/prefs/expand_birthdays"/>
@@ -22,8 +22,6 @@
 	<entry name="show_weather" schema="/schemas/apps/clock_applet/prefs/show_weather" type="bool" value="false"/>
 	<entry name="gmt_time" schema="/schemas/apps/clock_applet/prefs/gmt_time"/>
 	<entry name="show_tooltip" schema="/schemas/apps/clock_applet/prefs/show_tooltip"/>
+	<entry name="custom_format" schema="/schemas/apps/clock_applet/prefs/custom_format"/>
 	<entry name="cities" schema="/schemas/apps/clock_applet/prefs/cities"/>
-	<entry name="custom_format" schema="/schemas/apps/clock_applet/prefs/custom_format" type="string">
-		<stringvalue>&lt;span font_desc=&quot;16&quot;&gt;%H:%M&lt;/span&gt;</stringvalue>
-	</entry>
 </gconf>
