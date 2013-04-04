@@ -25,6 +25,11 @@ style "panel"
 
 }
 
+style "calculate-clock"
+{
+    font_name = "Droid Sans 20"
+}
+
 style "workspace-switcher" = "panel"
 {
     #background of the active element
@@ -121,3 +126,4 @@ style "xfce-notifies-window"
     XfceNotifyWindow::border-width = 0.0
 }
 class "XfceNotifyWindow" style "xfce-notifies-window"
+widget "*clock*"          style "calculate-clock"

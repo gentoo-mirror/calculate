@@ -1,0 +1,8 @@
+# Calculate format=xml_gconf append=join
+<?xml version="1.0"?>
+<gconf>
+	<entry name="fontFamily" type="string">
+		<stringvalue>Droid Sans</stringvalue>
+	</entry>
+	<entry name="fontSize" type="int" value="14"/>
+</gconf>
