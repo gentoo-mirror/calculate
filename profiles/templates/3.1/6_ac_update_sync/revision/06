@@ -1,5 +1,5 @@
-# Calculate ini(update.rev)<6 format=samba path=/etc/calculate name=ini.env merge=x11-themes/gnome-themes-standard,sys-fs/udev
+# Calculate ini(update.rev)<6 format=samba path=/etc/calculate name=ini.env merge=sys-fs/udev
 
-# recreate gtk-theme Calculate
+# refresh udev
 [update]
 rev = 6
