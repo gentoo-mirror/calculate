@@ -1,4 +1,4 @@
-# Calculate format=kde link=/usr/share/applications/hexchat.desktop name=calculate-chat.desktop mirror pkg(net-irc/hexchat)>=2.8
+# Calculate format=kde link=/usr/share/applications/hexchat.desktop name=calculate-chat.desktop mirror pkg(net-irc/hexchat)>=2.9
 
 # Hide icon
 [Desktop Entry]
@@ -9,4 +9,4 @@ Name=Calculate Linux Community
 Name[bg]=Calculate Linux Общност
 Name[ru]=Сообщество Calculate Linux
 Name[uk]=Cпівтовариство Calculate Linux
-Exec=xchat "--url=irc://irc.freenode.net:6667/#calculate"
+Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate"
