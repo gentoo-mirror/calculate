@@ -1,12 +1,6 @@
-# Calculate format=kde link=/usr/share/applications/hexchat.desktop mirror
+# Calculate format=kde path=/usr/share/applications name=calculate-chat.desktop ini(desktop.chat)==hexchat
+
 [Desktop Entry]
-Version=1.0
-Encoding=UTF-8
-Type=Application
-Name=Calculate Linux Community
-Name[ru]=Сообщество Calculate Linux
-NoDisplay=true
-#change command line
 #?os_locale_language==fr#
 Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-fr"
 #os_locale_language#
