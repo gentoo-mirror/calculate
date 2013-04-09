@@ -1,0 +1,30 @@
+commit a080c887172c91c906e41aeccbde26962ac7c752
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Tue Apr 9 11:30:36 2013 +0400
+
+    Fix file magic for kernel 3.7.7
+
+diff --git pym/cl_utils.py pym/cl_utils.py
+index 658b74c..fb5582f 100644
+--- pym/cl_utils.py
++++ pym/cl_utils.py
+@@ -121,7 +121,18 @@ class typeFile:
+ 
+     def getMType(self, filename):
+         """Информация о типе файла"""
+-        return self.magicObject.file(filename)
++        ret = self.magicObject.file(filename)
++        # fix for kernel 3.7.7 (bad work samba with big files)
++        if ret is None and self.magicObject.errno() == 5:
++            r,w = os.pipe()
++            devnull = os.open(os.devnull,os.O_WRONLY)
++            cat = subprocess.Popen(['/bin/cat',filename],stdout=w,
++                                    stderr=devnull,close_fds=True)
++            ret = self.magicObject.descriptor(r)
++            os.close(w)
++            os.close(devnull)
++            cat.wait()
++        return ret
+ 
+     def isBinary(self, filename):
+         """является ли файл бинарным"""
