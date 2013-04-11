@@ -1,0 +1,10 @@
+diff --git calculate/lib/variables/__init__.py calculate/lib/variables/__init__.py
+index 415d5ef..1fac4d6 100644
+--- calculate/lib/variables/__init__.py
++++ calculate/lib/variables/__init__.py
+@@ -25,4 +25,4 @@ class VariableClVer(ReadonlyVariable):
+     """
+     Package version
+     """
+-    value = "3.1.5"
++    value = "3.1.5.1"

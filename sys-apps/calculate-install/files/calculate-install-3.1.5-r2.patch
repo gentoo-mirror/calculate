@@ -1,0 +1,102 @@
+diff --git install/variables/autopartition.py install/variables/autopartition.py
+index 7c9c4da..52ca7a9 100644
+--- install/variables/autopartition.py
++++ install/variables/autopartition.py
+@@ -869,7 +869,7 @@ class VariableClAutopartitionDeviceSize(ReadonlyVariable):
+                                  _in=devices))
+         # TODO: remove set 10G
+         #return str(1024*1024*1024*10)
+-        return str(reduce(operator.add,sizeDevice))
++        return str(reduce(operator.add,sizeDevice,0))
+ 
+ class VariableClAutopartitionFreeSize(ReadonlyVariable):
+     """
+diff --git install/variables/disk.py install/variables/disk.py
+index 639aa85..5988067 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -1680,6 +1680,8 @@ class VariableOsInstallMbr(LocationHelper,Variable):
+             if len(value) > 1:
+                 raise VariableError(
+                     _("For Flash install, you need only one disk"))
++        if self.Get('os_install_uefi_set') == 'on':
++            return
+         for mbrDisk in value:
+             if self.Get('cl_autopartition_set') == 'on':
+                 tableOnBootDisk = self.Get('cl_autopartition_table')
+diff --git install/variables/system.py install/variables/system.py
+index 184f651..7e3c498 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -19,7 +19,8 @@ import sys
+ import re
+ from os import path
+ from calculate.lib.datavars import Variable,VariableError,ReadonlyVariable, \
+-                                   TableVariable,PasswordError
++                                   TableVariable,PasswordError, \
++                                   ReadonlyTableVariable,FieldValue
+ from calculate.install.fs_manager import FileSystemManager
+ from calculate.lib.utils.files import (readFile,getProgPath,process,
+     readLinesFile)
+@@ -650,3 +651,61 @@ class VariableOsInstallGrubTerminal(Variable):
+ 
+     def choice(self):
+         return ['gfxterm','console']
++
++class VariableOsAudioData(ReadonlyTableVariable):
++    """
++    Information about audio cards
++    """
++    source = ['os_audio_id',
++              'os_audio_name']
++
++    def get(self,hr=False):
++        """LVM hash"""
++        aplay = getProgPath('/usr/bin/aplay')
++        if not aplay:
++            return [[]]
++        entry = re.compile('^card (\d+): ([^,]+)')
++        return tuple(map(lambda x:x.groups(),
++               filter(None,map(entry.search,
++               process(aplay,'-l')))))
++
++    setValue = Variable.setValue
++
++class VariableOsAudioId(FieldValue,ReadonlyVariable):
++    """
++    Order Id of audio card
++    """
++    type = "list"
++    source_variable = "os_audio_data"
++    column = 0
++
++class VariableOsAudioName(FieldValue,ReadonlyVariable):
++    """
++    Name of audio card
++    """
++    type = "list"
++    source_variable = "os_audio_data"
++    column = 1
++
++class VariableOsAudioDefault(Variable):
++    """
++    Current default audio card
++    """
++    type  = "choice"
++    opt = ['--audio']
++
++    def init(self):
++        self.label = _("Default audio card")
++        self.help = _("set default audio card")
++
++    def get(self):
++        defaultCardRe = re.compile('defaults.ctl.card\s+(\d+)')
++        entry = defaultCardRe.search(readFile('/etc/asound.conf'))
++        if entry and entry in self.Get('os_audio_id'):
++            return entry.groups()[0]
++        res = self.Select('os_audio_id',where='os_audio_name',
++                          notlike='HDMI',limit=1)
++        return res or '0'
++
++    def choice(self):
++        return self.Get('os_audio_data')
