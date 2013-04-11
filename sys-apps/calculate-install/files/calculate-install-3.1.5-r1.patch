@@ -1,0 +1,26 @@
+diff --git install/variables/autopartition.py install/variables/autopartition.py
+index 7c9c4da..52ca7a9 100644
+--- install/variables/autopartition.py
++++ install/variables/autopartition.py
+@@ -869,7 +869,7 @@ class VariableClAutopartitionDeviceSize(ReadonlyVariable):
+                                  _in=devices))
+         # TODO: remove set 10G
+         #return str(1024*1024*1024*10)
+-        return str(reduce(operator.add,sizeDevice))
++        return str(reduce(operator.add,sizeDevice,0))
+ 
+ class VariableClAutopartitionFreeSize(ReadonlyVariable):
+     """
+diff --git install/variables/disk.py install/variables/disk.py
+index 639aa85..5988067 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -1680,6 +1680,8 @@ class VariableOsInstallMbr(LocationHelper,Variable):
+             if len(value) > 1:
+                 raise VariableError(
+                     _("For Flash install, you need only one disk"))
++        if self.Get('os_install_uefi_set') == 'on':
++            return
+         for mbrDisk in value:
+             if self.Get('cl_autopartition_set') == 'on':
+                 tableOnBootDisk = self.Get('cl_autopartition_table')
