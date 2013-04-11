@@ -61,7 +61,7 @@ sys-process/htop
 sys-process/lsof
 #in#
 
-#?in(os_linux_shortname, CLDG, CLDX)!=#
+#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
 sys-block/gparted
 x11-libs/gksu
 #in#
@@ -76,10 +76,6 @@ app-misc/screen
 sys-apps/lm_sensors
 sys-power/powertop
 sys-power/upower
-#in#
-
-#?in(os_linux_shortname, CLD)!=#
-sys-block/partitionmanager
 #in#
 
 #?in(os_linux_shortname, CLDG)!=#

@@ -1,0 +1,9 @@
+# Calculate format=world name=world ini(update.world)<13
+
+#-ini(update.world,13)-#
+
+#?in(os_linux_shortname, CLD)!=#
+!sys-block/partitionmanager
+sys-block/gparted
+#in#
+
