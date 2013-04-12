@@ -5,12 +5,8 @@
 //
 
 polkit.addRule(function(action, subject) {
-#?pkg(sys-fs/udisks)<2#
-    if (action.id.indexOf("org.freedesktop.udisks.") == 0 &&
-#pkg#
-#?pkg(sys-fs/udisks)>=2#
-    if (action.id.indexOf("org.freedesktop.udisks2.") == 0 &&
-#pkg#
+    if ((action.id.indexOf("org.freedesktop.udisks.") == 0 ||
+         action.id.indexOf("org.freedesktop.udisks2.") == 0 ) &&
         subject.isInGroup("plugdev")) {
              return polkit.Result.YES;
    }
