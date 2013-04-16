@@ -14,16 +14,9 @@
 		<li type="string">
 			<stringvalue>103_ftp</stringvalue>
 		</li>
-#?env(client.os_remote_auth)!=&&ur_domain_set==on#
-		<li type="string">
-			<stringvalue>200_logout</stringvalue>
-		</li>
-#env#
-#?env(client.os_remote_auth)==||ur_domain_set==off#
 		<li type="string">
 			<stringvalue>201_shutdown</stringvalue>
 		</li>
-#env#
 		<li type="string">
 			<stringvalue>202_lock</stringvalue>
 		</li>

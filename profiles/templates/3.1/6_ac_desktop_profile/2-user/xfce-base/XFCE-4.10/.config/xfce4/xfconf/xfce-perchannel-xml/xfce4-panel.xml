@@ -15,7 +15,7 @@
 #env#
 #?env(client.os_remote_auth)!=&&ur_domain_set==on#
         <value type="int" value="21"/>
-	<value type="int" value="22"/>
+        <value type="int" value="22"/>
 #env#
 #?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!=#
         <value type="int" value="23"/>
@@ -23,7 +23,7 @@
         <value type="int" value="4"/>
         <value type="int" value="8"/>
         <value type="int" value="3"/>
-	<value type="int" value="12"/>
+        <value type="int" value="12"/>
         <value type="int" value="9"/>
         <value type="int" value="6"/>
         <value type="int" value="10"/>
@@ -95,12 +95,7 @@
     <property name="plugin-2" type="string" value="actions">
       <property name="appearance" type="uint" value="0"/>
       <property name="items" type="array">
-#?env(client.os_remote_auth)!=&&ur_domain_set==on#
-        <value type="string" value="+logout-dialog"/>
-#env#
-#?env(client.os_remote_auth)==||ur_domain_set!=on#
         <value type="string" value="+logout"/>
-#env#
       </property>
     </property>
     <property name="plugin-3" type="string" value="tasklist">

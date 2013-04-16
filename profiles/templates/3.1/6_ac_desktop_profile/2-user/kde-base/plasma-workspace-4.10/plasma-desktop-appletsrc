@@ -63,12 +63,8 @@ plugin=simplelauncher
 zvalue=0
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][Configuration]
 icon=start-here-kde
-#?env(client.os_remote_auth)==||ur_domain_set==off#
-views=Applications,RunCommand,Leave
-#env#
-#?env(client.os_remote_auth)!=&&ur_domain_set==on#
-views=Applications,RunCommand,SwitchUser,LockScreen,Logout
-#env#
+views=Applications,RunCommand,SwitchUser,LockScreen,Leave
+
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][LayoutInformation]
 Order=#-sum(apporder,apporder)-#
 
