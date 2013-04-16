@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=4
 ETYPE="sources"
 
 inherit calculate-kernel-3 eutils
@@ -19,13 +20,6 @@ HGPV="${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}-5"
 #)"
 HGPV_URI=""
 
-CL_PATCH="3.2.5"
-
-CALC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
-        ftp://ftp.calculate-linux.org/pub/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
-		http://mirror.yandex.ru/calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2
-		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/${PN}/${PN}-${CL_PATCH}.tar.bz2"
-
 SRC_URI="${KERNEL_URI} ${ARCH_URI} ${CALC_URI} ${HGPV_URI}"
 
 UNIPATCH_LIST="${DISTDIR}/${PN}-${CL_PATCH}.tar.bz2"
@@ -35,7 +29,6 @@ DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.18
 	|| ( app-arch/xz-utils app-arch/lzma-utils )
 	sys-apps/v86d
 	!<net-wireless/rtl8192se-3.0
-	sys-boot/grub
 	)"
 
 CL_KERNEL_OPTS="--lvm --mdadm --dmraid"
