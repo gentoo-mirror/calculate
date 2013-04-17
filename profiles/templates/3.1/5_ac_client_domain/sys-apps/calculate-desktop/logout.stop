@@ -1,0 +1,38 @@
+# Calculate chmod=0755
+#!/bin/bash 
+
+variable_value()
+{
+	local varname=$1
+	/usr/sbin/cl-core-variables-show --only-value $varname
+}
+
+ONLINE_USERS="`variable_value desktop.cl_desktop_online_user`"
+
+if [[ -n $ONLINE_USERS ]]
+then
+	ebegin "Logout users" 
+	for user_disp in $(variable_value desktop.cl_desktop_online_data | sed -r "s/;/ /g")
+	do
+		user=$(echo $user_disp | cut -d, -f1)
+		disp=$(echo $user_disp | cut -d, -f2)
+		/usr/sbin/cl-core --method desktop_logout $user &>/dev/null
+		/usr/bin/sessreg -d -l :$disp $user &>/dev/null
+		USER="$user" /usr/share/calculate/xdm/xdm --logout &>/dev/null &
+	done
+	if pgrep -f 'xdm/xdm --logout' &>/dev/null
+	then
+		ebegin "Please wait for complete logout" 
+		for i in {1..500}
+		do
+			if pgrep -f 'xdm/xdm --logout' &>/dev/null
+			then
+				sleep 1
+			else
+				break
+			fi
+		done
+		eend 0
+	fi
+	eend 0
+fi
