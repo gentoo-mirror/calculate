@@ -5,3 +5,8 @@ net-misc/dhcp minimal
 
 #required by media-tv/xbmc-11.0
 dev-lang/python sqlite
+
+# required by media-tv/xbmc-12.1[webserver]
+# required by xbmc (argument)
+net-libs/libmicrohttpd messages
+
