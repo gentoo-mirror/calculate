@@ -4,5 +4,7 @@
 
 test -f /var/db/pkg/sys-apps/baselayout-*/CONTENTS &&
    sed -i /etc\\/timezone/d /var/db/pkg/sys-apps/baselayout-*/CONTENTS
+test -f /var/db/pkg/sys-apps/baselayout-*/CONTENTS &&
+   sed -i /etc\\/fstab/d /var/db/pkg/sys-apps/baselayout-*/CONTENTS
 
 exit 0
