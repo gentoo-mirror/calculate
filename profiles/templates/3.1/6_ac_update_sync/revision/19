@@ -1,0 +1,8 @@
+# Calculate ini(update.rev)<19 exec=/bin/bash
+
+#-ini(update.rev,19)-#
+
+test -f /var/db/pkg/sys-apps/baselayout-*/CONTENTS &&
+   sed -i /etc\\/timezone/d /var/db/pkg/sys-apps/baselayout-*/CONTENTS
+
+exit 0
