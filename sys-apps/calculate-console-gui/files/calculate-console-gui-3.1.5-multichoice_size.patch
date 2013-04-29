@@ -1,0 +1,18 @@
+commit e7cc73b6f0563b0b128033c63f7d75686725e545
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Mon Apr 29 09:57:22 2013 +0400
+
+    Fix max size
+
+diff --git consolegui/application/more.py consolegui/application/more.py
+index 72e1564..0fd9128 100755
+--- consolegui/application/more.py
++++ consolegui/application/more.py
+@@ -1062,6 +1062,7 @@ class MultipleChoice (QtGui.QWidget):
+                                 self.Selected)))
+         self.lbl = MultipleButton(self.label_text, self)
+         
++        self.lbl.setMaximumWidth(450)
+         maximum = QtGui.QSizePolicy.Policy.Maximum
+         exp = QtGui.QSizePolicy.Policy.Expanding
+         self.lbl.setSizePolicy(exp, maximum)
