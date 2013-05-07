@@ -1,10 +1,10 @@
 # Calculate format=diff
-diff --git Documentation/ABI/testing/debugfs-aufs Documentation/ABI/testing/debugfs-aufs
+diff --git a/Documentation/ABI/testing/debugfs-aufs b/Documentation/ABI/testing/debugfs-aufs
 new file mode 100644
-index 0000000..7d2e65f
+index 0000000..a58f0d0
 --- /dev/null
-+++ Documentation/ABI/testing/debugfs-aufs
-@@ -0,0 +1,37 @@
++++ b/Documentation/ABI/testing/debugfs-aufs
+@@ -0,0 +1,50 @@
 +What:		/debug/aufs/si_<id>/
 +Date:		March 2009
 +Contact:	J. R. Okajima <hooanon05@yahoo.co.jp>
@@ -12,6 +12,19 @@ index 0000000..7d2e65f
 +		Under /debug/aufs, a directory named si_<id> is created
 +		per aufs mount, where <id> is a unique id generated
 +		internally.
++
++What:		/debug/aufs/si_<id>/plink
++Date:		Apr 2013
++Contact:	J. R. Okajima <hooanon05@yahoo.co.jp>
++Description:
++		It has three lines and shows the information about the
++		pseudo-link. The first line is a single number
++		representing a number of buckets. The second line is a
++		number of pseudo-links per buckets (separated by a
++		blank). The last line is a single number representing a
++		total number of psedo-links.
++		When the aufs mount option 'noplink' is specified, it
++		will show "1\n0\n0\n".
 +
 +What:		/debug/aufs/si_<id>/xib
 +Date:		March 2009
@@ -42,11 +55,11 @@ index 0000000..7d2e65f
 +		be created.
 +		When the aufs mount option 'noxino' is specified, it
 +		will be empty. About XINO files, see the aufs manual.
-diff --git Documentation/ABI/testing/sysfs-aufs Documentation/ABI/testing/sysfs-aufs
+diff --git a/Documentation/ABI/testing/sysfs-aufs b/Documentation/ABI/testing/sysfs-aufs
 new file mode 100644
 index 0000000..7af6dc0
 --- /dev/null
-+++ Documentation/ABI/testing/sysfs-aufs
++++ b/Documentation/ABI/testing/sysfs-aufs
 @@ -0,0 +1,24 @@
 +What:		/sys/fs/aufs/si_<id>/
 +Date:		March 2009
@@ -72,12 +85,12 @@ index 0000000..7af6dc0
 +		even if it is the default path.
 +		When the aufs mount option 'noxino' is specified, it
 +		will be empty. About XINO files, see the aufs manual.
-diff --git Documentation/filesystems/aufs/README Documentation/filesystems/aufs/README
+diff --git a/Documentation/filesystems/aufs/README b/Documentation/filesystems/aufs/README
 new file mode 100644
-index 0000000..86458e9
+index 0000000..ea11e12
 --- /dev/null
-+++ Documentation/filesystems/aufs/README
-@@ -0,0 +1,341 @@
++++ b/Documentation/filesystems/aufs/README
+@@ -0,0 +1,343 @@
 +
 +Aufs3 -- advanced multi layered unification filesystem version 3.x
 +http://aufs.sf.net
@@ -402,6 +415,8 @@ index 0000000..86458e9
 +Sam Liddicott made a donation (2011/9).
 +Era Scarecrow made a donation (2013/4).
 +Bor Ratajc made a donation (2013/4).
++Alessandro Gorreta made a donation (2013/4).
++POIRETTE Marc made a donation (2013/4).
 +
 +Thank you very much.
 +Donations are always, including future donations, very important and
@@ -419,11 +434,11 @@ index 0000000..86458e9
 +# Local variables: ;
 +# mode: text;
 +# End: ;
-diff --git Documentation/filesystems/aufs/design/01intro.txt Documentation/filesystems/aufs/design/01intro.txt
+diff --git a/Documentation/filesystems/aufs/design/01intro.txt b/Documentation/filesystems/aufs/design/01intro.txt
 new file mode 100644
 index 0000000..e60f8c6
 --- /dev/null
-+++ Documentation/filesystems/aufs/design/01intro.txt
++++ b/Documentation/filesystems/aufs/design/01intro.txt
 @@ -0,0 +1,162 @@
 +
 +# Copyright (C) 2005-2013 Junjiro R. Okajima
@@ -587,11 +602,11 @@ index 0000000..e60f8c6
 +Some people may think it is better to pass such work to user space
 +helper, instead of doing in kernel space. Actually I am still thinking
 +about it. But currently I have implemented it in kernel space.
-diff --git Documentation/filesystems/aufs/design/02struct.txt Documentation/filesystems/aufs/design/02struct.txt
+diff --git a/Documentation/filesystems/aufs/design/02struct.txt b/Documentation/filesystems/aufs/design/02struct.txt
 new file mode 100644
 index 0000000..f54d654
 --- /dev/null
-+++ Documentation/filesystems/aufs/design/02struct.txt
++++ b/Documentation/filesystems/aufs/design/02struct.txt
 @@ -0,0 +1,226 @@
 +
 +# Copyright (C) 2005-2013 Junjiro R. Okajima
@@ -819,11 +834,11 @@ index 0000000..f54d654
 +internally and makes change to the new file on the upper writable branch.
 +When the trigger systemcall does not update the timestamps of the parent
 +dir, aufs reverts it after copy-up.
-diff --git Documentation/filesystems/aufs/design/03lookup.txt Documentation/filesystems/aufs/design/03lookup.txt
+diff --git a/Documentation/filesystems/aufs/design/03lookup.txt b/Documentation/filesystems/aufs/design/03lookup.txt
 new file mode 100644
 index 0000000..d3ca527
 --- /dev/null
-+++ Documentation/filesystems/aufs/design/03lookup.txt
++++ b/Documentation/filesystems/aufs/design/03lookup.txt
 @@ -0,0 +1,106 @@
 +
 +# Copyright (C) 2005-2013 Junjiro R. Okajima
@@ -931,11 +946,11 @@ index 0000000..d3ca527
 +   test, and skip therevalidatin in step 4. It is useful and improves
 +   aufs performance when system surely hide the aufs branches from user,
 +   by over-mounting something (or another method).
-diff --git Documentation/filesystems/aufs/design/04branch.txt Documentation/filesystems/aufs/design/04branch.txt
+diff --git a/Documentation/filesystems/aufs/design/04branch.txt b/Documentation/filesystems/aufs/design/04branch.txt
 new file mode 100644
 index 0000000..f85f3a8
 --- /dev/null
-+++ Documentation/filesystems/aufs/design/04branch.txt
++++ b/Documentation/filesystems/aufs/design/04branch.txt
 @@ -0,0 +1,76 @@
 +
 +# Copyright (C) 2005-2013 Junjiro R. Okajima
@@ -1013,11 +1028,11 @@ index 0000000..f85f3a8
 +  - a file on the branch is mmap-ed.
 +  - a regular file on the branch is opened for write and there is no
 +    same named entry on the upper branch.
-diff --git Documentation/filesystems/aufs/design/05wbr_policy.txt Documentation/filesystems/aufs/design/05wbr_policy.txt
+diff --git a/Documentation/filesystems/aufs/design/05wbr_policy.txt b/Documentation/filesystems/aufs/design/05wbr_policy.txt
 new file mode 100644
 index 0000000..2bb8e58
 --- /dev/null
-+++ Documentation/filesystems/aufs/design/05wbr_policy.txt
++++ b/Documentation/filesystems/aufs/design/05wbr_policy.txt
 @@ -0,0 +1,65 @@
 +
 +# Copyright (C) 2005-2013 Junjiro R. Okajima
@@ -1084,11 +1099,11 @@ index 0000000..2bb8e58
 +  where the source and the target exists and selects the higher
 +  one. If the selected branch is readonly, then aufs follows the
 +  copyup policy.
-diff --git Documentation/filesystems/aufs/design/06mmap.txt Documentation/filesystems/aufs/design/06mmap.txt
+diff --git a/Documentation/filesystems/aufs/design/06mmap.txt b/Documentation/filesystems/aufs/design/06mmap.txt
 new file mode 100644
 index 0000000..55524d6
 --- /dev/null
-+++ Documentation/filesystems/aufs/design/06mmap.txt
++++ b/Documentation/filesystems/aufs/design/06mmap.txt
 @@ -0,0 +1,47 @@
 +
 +# Copyright (C) 2005-2013 Junjiro R. Okajima
@@ -1137,11 +1152,11 @@ index 0000000..55524d6
 +generic_file_mmap() and handles struct vm_operations_struct. In this
 +approach, aufs met a hard problem and I could not solve it without
 +switching the approach.
-diff --git Documentation/filesystems/aufs/design/07export.txt Documentation/filesystems/aufs/design/07export.txt
+diff --git a/Documentation/filesystems/aufs/design/07export.txt b/Documentation/filesystems/aufs/design/07export.txt
 new file mode 100644
 index 0000000..ecf42a4
 --- /dev/null
-+++ Documentation/filesystems/aufs/design/07export.txt
++++ b/Documentation/filesystems/aufs/design/07export.txt
 @@ -0,0 +1,59 @@
 +
 +# Copyright (C) 2005-2013 Junjiro R. Okajima
@@ -1202,11 +1217,11 @@ index 0000000..ecf42a4
 +  convert it into ESTALE for NFSD.
 +- readdir(): call lockdep_on/off() because filldir in NFSD calls
 +  lookup_one_len(), vfs_getattr(), encode_fh() and others.
-diff --git Documentation/filesystems/aufs/design/08shwh.txt Documentation/filesystems/aufs/design/08shwh.txt
+diff --git a/Documentation/filesystems/aufs/design/08shwh.txt b/Documentation/filesystems/aufs/design/08shwh.txt
 new file mode 100644
 index 0000000..18b889c
 --- /dev/null
-+++ Documentation/filesystems/aufs/design/08shwh.txt
++++ b/Documentation/filesystems/aufs/design/08shwh.txt
 @@ -0,0 +1,53 @@
 +
 +# Copyright (C) 2005-2013 Junjiro R. Okajima
@@ -1261,11 +1276,11 @@ index 0000000..18b889c
 +
 +This new squashfs archive can be stored on the boot device and the
 +initramfs will use it to replace the old one at the next boot.
-diff --git Documentation/filesystems/aufs/design/10dynop.txt Documentation/filesystems/aufs/design/10dynop.txt
+diff --git a/Documentation/filesystems/aufs/design/10dynop.txt b/Documentation/filesystems/aufs/design/10dynop.txt
 new file mode 100644
 index 0000000..49e9a53
 --- /dev/null
-+++ Documentation/filesystems/aufs/design/10dynop.txt
++++ b/Documentation/filesystems/aufs/design/10dynop.txt
 @@ -0,0 +1,47 @@
 +
 +# Copyright (C) 2010-2013 Junjiro R. Okajima
@@ -1314,11 +1329,11 @@ index 0000000..49e9a53
 +XIP mainly.
 +Currently this approach is applied to file_operations and
 +vm_operations_struct for regular files only.
-diff --git Documentation/filesystems/aufs/design/99plan.txt Documentation/filesystems/aufs/design/99plan.txt
+diff --git a/Documentation/filesystems/aufs/design/99plan.txt b/Documentation/filesystems/aufs/design/99plan.txt
 new file mode 100644
 index 0000000..a21f133
 --- /dev/null
-+++ Documentation/filesystems/aufs/design/99plan.txt
++++ b/Documentation/filesystems/aufs/design/99plan.txt
 @@ -0,0 +1,96 @@
 +
 +# Copyright (C) 2005-2013 Junjiro R. Okajima
@@ -1416,10 +1431,10 @@ index 0000000..a21f133
 +Opened File) is specified (by default), aufs returns the filedata from
 +/new.
 +Otherwise from /new.
-diff --git fs/Kconfig fs/Kconfig
+diff --git a/fs/Kconfig b/fs/Kconfig
 index 780725a..d460c05 100644
---- fs/Kconfig
-+++ fs/Kconfig
+--- a/fs/Kconfig
++++ b/fs/Kconfig
 @@ -211,6 +211,7 @@ source "fs/sysv/Kconfig"
  source "fs/ufs/Kconfig"
  source "fs/exofs/Kconfig"
@@ -1428,20 +1443,20 @@ index 780725a..d460c05 100644
  
  endif # MISC_FILESYSTEMS
  
-diff --git fs/Makefile fs/Makefile
+diff --git a/fs/Makefile b/fs/Makefile
 index 9d53192..e70f08f 100644
---- fs/Makefile
-+++ fs/Makefile
+--- a/fs/Makefile
++++ b/fs/Makefile
 @@ -127,3 +127,4 @@ obj-$(CONFIG_F2FS_FS)		+= f2fs/
  obj-y				+= exofs/ # Multiple modules
  obj-$(CONFIG_CEPH_FS)		+= ceph/
  obj-$(CONFIG_PSTORE)		+= pstore/
 +obj-$(CONFIG_AUFS_FS)           += aufs/
-diff --git fs/aufs/Kconfig fs/aufs/Kconfig
+diff --git a/fs/aufs/Kconfig b/fs/aufs/Kconfig
 new file mode 100644
 index 0000000..bac34fc
 --- /dev/null
-+++ fs/aufs/Kconfig
++++ b/fs/aufs/Kconfig
 @@ -0,0 +1,202 @@
 +config AUFS_FS
 +	bool "Aufs (Advanced multi layered unification filesystem) support"
@@ -1645,11 +1660,11 @@ index 0000000..bac34fc
 +	Automatic configuration for internal use.
 +	When aufs supports Magic SysRq, enabled automatically.
 +endif
-diff --git fs/aufs/Makefile fs/aufs/Makefile
+diff --git a/fs/aufs/Makefile b/fs/aufs/Makefile
 new file mode 100644
 index 0000000..a75e6fd
 --- /dev/null
-+++ fs/aufs/Makefile
++++ b/fs/aufs/Makefile
 @@ -0,0 +1,34 @@
 +
 +include ${srctree}/${src}/magic.mk
@@ -1685,14 +1700,28 @@ index 0000000..a75e6fd
 +aufs-$(CONFIG_AUFS_BR_HFSPLUS) += hfsplus.o
 +aufs-$(CONFIG_AUFS_DEBUG) += debug.o
 +aufs-$(CONFIG_AUFS_MAGIC_SYSRQ) += sysrq.o
-diff --git fs/aufs/aufs.h fs/aufs/aufs.h
+diff --git a/fs/aufs/aufs.h b/fs/aufs/aufs.h
 new file mode 100644
-index 0000000..67c1465
+index 0000000..8adb4f2
 --- /dev/null
-+++ fs/aufs/aufs.h
-@@ -0,0 +1,46 @@
++++ b/fs/aufs/aufs.h
+@@ -0,0 +1,60 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -1737,14 +1766,28 @@ index 0000000..67c1465
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_H__ */
-diff --git fs/aufs/branch.c fs/aufs/branch.c
+diff --git a/fs/aufs/branch.c b/fs/aufs/branch.c
 new file mode 100644
-index 0000000..7657c5c
+index 0000000..5819809
 --- /dev/null
-+++ fs/aufs/branch.c
-@@ -0,0 +1,1199 @@
++++ b/fs/aufs/branch.c
+@@ -0,0 +1,1213 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -2942,14 +2985,28 @@ index 0000000..7657c5c
 +	AuTraceErr(err);
 +	return err;
 +}
-diff --git fs/aufs/branch.h fs/aufs/branch.h
+diff --git a/fs/aufs/branch.h b/fs/aufs/branch.h
 new file mode 100644
-index 0000000..b3516ef
+index 0000000..0eab01c
 --- /dev/null
-+++ fs/aufs/branch.h
-@@ -0,0 +1,241 @@
++++ b/fs/aufs/branch.h
+@@ -0,0 +1,255 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -3189,14 +3246,28 @@ index 0000000..b3516ef
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_BRANCH_H__ */
-diff --git fs/aufs/cpup.c fs/aufs/cpup.c
+diff --git a/fs/aufs/cpup.c b/fs/aufs/cpup.c
 new file mode 100644
-index 0000000..15f812c
+index 0000000..ced3346
 --- /dev/null
-+++ fs/aufs/cpup.c
-@@ -0,0 +1,1206 @@
++++ b/fs/aufs/cpup.c
+@@ -0,0 +1,1220 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -4401,14 +4472,28 @@ index 0000000..15f812c
 +	dput(parent);
 +	return err;
 +}
-diff --git fs/aufs/cpup.h fs/aufs/cpup.h
+diff --git a/fs/aufs/cpup.h b/fs/aufs/cpup.h
 new file mode 100644
-index 0000000..dd83488
+index 0000000..a3d8b38
 --- /dev/null
-+++ fs/aufs/cpup.h
-@@ -0,0 +1,70 @@
++++ b/fs/aufs/cpup.h
+@@ -0,0 +1,84 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -4477,14 +4562,28 @@ index 0000000..dd83488
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_CPUP_H__ */
-diff --git fs/aufs/dbgaufs.c fs/aufs/dbgaufs.c
+diff --git a/fs/aufs/dbgaufs.c b/fs/aufs/dbgaufs.c
 new file mode 100644
-index 0000000..ff70571
+index 0000000..c479eec
 --- /dev/null
-+++ fs/aufs/dbgaufs.c
-@@ -0,0 +1,318 @@
++++ b/fs/aufs/dbgaufs.c
+@@ -0,0 +1,433 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -4564,6 +4663,101 @@ index 0000000..ff70571
 +	p = file->private_data;
 +	return simple_read_from_buffer(buf, count, ppos, p->a, p->n);
 +}
++
++/* ---------------------------------------------------------------------- */
++
++struct dbgaufs_plink_arg {
++	int n;
++	char a[];
++};
++
++static int dbgaufs_plink_release(struct inode *inode __maybe_unused,
++				 struct file *file)
++{
++	free_page((unsigned long)file->private_data);
++	return 0;
++}
++
++static int dbgaufs_plink_open(struct inode *inode, struct file *file)
++{
++	int err, i, limit;
++	unsigned long n, sum;
++	struct dbgaufs_plink_arg *p;
++	struct au_sbinfo *sbinfo;
++	struct super_block *sb;
++	struct au_sphlhead *sphl;
++
++	err = -ENOMEM;
++	p = (void *)get_zeroed_page(GFP_NOFS);
++	if (unlikely(!p))
++		goto out;
++
++	err = -EFBIG;
++	sbinfo = inode->i_private;
++	sb = sbinfo->si_sb;
++	si_noflush_read_lock(sb);
++	if (au_opt_test(au_mntflags(sb), PLINK)) {
++		limit = PAGE_SIZE - sizeof(p->n);
++
++		/* the number of buckets */
++		n = snprintf(p->a + p->n, limit, "%d\n", AuPlink_NHASH);
++		p->n += n;
++		limit -= n;
++
++		sum = 0;
++		for (i = 0, sphl = sbinfo->si_plink;
++		     i < AuPlink_NHASH;
++		     i++, sphl++) {
++			n = au_sphl_count(sphl);
++			sum += n;
++
++			n = snprintf(p->a + p->n, limit, "%lu ", n);
++			p->n += n;
++			limit -= n;
++			if (unlikely(limit <= 0))
++				goto out_free;
++		}
++		p->a[p->n - 1] = '\n';
++
++		/* the sum of plinks */
++		n = snprintf(p->a + p->n, limit, "%lu\n", sum);
++		p->n += n;
++		limit -= n;
++		if (unlikely(limit <= 0))
++			goto out_free;
++	} else {
++#define str "1\n0\n0\n"
++		p->n = sizeof(str) - 1;
++		strcpy(p->a, str);
++#undef str
++	}
++	si_read_unlock(sb);
++
++	err = 0;
++	file->private_data = p;
++	goto out; /* success */
++
++out_free:
++	free_page((unsigned long)p);
++out:
++	return err;
++}
++
++static ssize_t dbgaufs_plink_read(struct file *file, char __user *buf,
++				  size_t count, loff_t *ppos)
++{
++	struct dbgaufs_plink_arg *p;
++
++	p = file->private_data;
++	return simple_read_from_buffer(buf, count, ppos, p->a, p->n);
++}
++
++static const struct file_operations dbgaufs_plink_fop = {
++	.owner		= THIS_MODULE,
++	.open		= dbgaufs_plink_open,
++	.release	= dbgaufs_plink_release,
++	.read		= dbgaufs_plink_read
++};
 +
 +/* ---------------------------------------------------------------------- */
 +
@@ -4774,6 +4968,12 @@ index 0000000..ff70571
 +	if (unlikely(!sbinfo->si_dbgaufs_xib))
 +		goto out_dir;
 +
++	sbinfo->si_dbgaufs_plink = debugfs_create_file
++		("plink", dbgaufs_mode, sbinfo->si_dbgaufs, sbinfo,
++		 &dbgaufs_plink_fop);
++	if (unlikely(!sbinfo->si_dbgaufs_plink))
++		goto out_dir;
++
 +	err = dbgaufs_xigen_init(sbinfo);
 +	if (!err)
 +		goto out; /* success */
@@ -4801,14 +5001,28 @@ index 0000000..ff70571
 +		err = 0;
 +	return err;
 +}
-diff --git fs/aufs/dbgaufs.h fs/aufs/dbgaufs.h
+diff --git a/fs/aufs/dbgaufs.h b/fs/aufs/dbgaufs.h
 new file mode 100644
-index 0000000..78c1605
+index 0000000..f418c92d
 --- /dev/null
-+++ fs/aufs/dbgaufs.h
-@@ -0,0 +1,35 @@
++++ b/fs/aufs/dbgaufs.h
+@@ -0,0 +1,49 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -4842,14 +5056,28 @@ index 0000000..78c1605
 +
 +#endif /* __KERNEL__ */
 +#endif /* __DBGAUFS_H__ */
-diff --git fs/aufs/dcsub.c fs/aufs/dcsub.c
+diff --git a/fs/aufs/dcsub.c b/fs/aufs/dcsub.c
 new file mode 100644
-index 0000000..6b32339
+index 0000000..5b3d904
 --- /dev/null
-+++ fs/aufs/dcsub.c
-@@ -0,0 +1,229 @@
++++ b/fs/aufs/dcsub.c
+@@ -0,0 +1,243 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -5077,14 +5305,28 @@ index 0000000..6b32339
 +
 +	return path_is_under(path + 0, path + 1);
 +}
-diff --git fs/aufs/dcsub.h fs/aufs/dcsub.h
+diff --git a/fs/aufs/dcsub.h b/fs/aufs/dcsub.h
 new file mode 100644
-index 0000000..ba12c58
+index 0000000..53dcbd7
 --- /dev/null
-+++ fs/aufs/dcsub.h
-@@ -0,0 +1,80 @@
++++ b/fs/aufs/dcsub.h
+@@ -0,0 +1,94 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -5163,14 +5405,28 @@ index 0000000..ba12c58
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_DCSUB_H__ */
-diff --git fs/aufs/debug.c fs/aufs/debug.c
+diff --git a/fs/aufs/debug.c b/fs/aufs/debug.c
 new file mode 100644
-index 0000000..7b230ef
+index 0000000..1714051
 --- /dev/null
-+++ fs/aufs/debug.c
-@@ -0,0 +1,477 @@
++++ b/fs/aufs/debug.c
+@@ -0,0 +1,491 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -5646,14 +5902,28 @@ index 0000000..7b230ef
 +
 +	return 0;
 +}
-diff --git fs/aufs/debug.h fs/aufs/debug.h
+diff --git a/fs/aufs/debug.h b/fs/aufs/debug.h
 new file mode 100644
-index 0000000..dd1a27a
+index 0000000..28ff8a7
 --- /dev/null
-+++ fs/aufs/debug.h
-@@ -0,0 +1,228 @@
++++ b/fs/aufs/debug.h
+@@ -0,0 +1,242 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -5880,14 +6150,28 @@ index 0000000..dd1a27a
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_DEBUG_H__ */
-diff --git fs/aufs/dentry.c fs/aufs/dentry.c
+diff --git a/fs/aufs/dentry.c b/fs/aufs/dentry.c
 new file mode 100644
-index 0000000..9b910fa
+index 0000000..6c0238e
 --- /dev/null
-+++ fs/aufs/dentry.c
-@@ -0,0 +1,1051 @@
++++ b/fs/aufs/dentry.c
+@@ -0,0 +1,1065 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -6937,14 +7221,28 @@ index 0000000..9b910fa
 +	.d_weak_revalidate	= aufs_d_revalidate,
 +	.d_release		= aufs_d_release
 +};
-diff --git fs/aufs/dentry.h fs/aufs/dentry.h
+diff --git a/fs/aufs/dentry.h b/fs/aufs/dentry.h
 new file mode 100644
-index 0000000..a82617a
+index 0000000..175a871
 --- /dev/null
-+++ fs/aufs/dentry.h
-@@ -0,0 +1,220 @@
++++ b/fs/aufs/dentry.h
+@@ -0,0 +1,234 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -7163,14 +7461,28 @@ index 0000000..a82617a
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_DENTRY_H__ */
-diff --git fs/aufs/dinfo.c fs/aufs/dinfo.c
+diff --git a/fs/aufs/dinfo.c b/fs/aufs/dinfo.c
 new file mode 100644
-index 0000000..163b3b3
+index 0000000..2a92487
 --- /dev/null
-+++ fs/aufs/dinfo.c
-@@ -0,0 +1,529 @@
++++ b/fs/aufs/dinfo.c
+@@ -0,0 +1,543 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -7698,14 +8010,28 @@ index 0000000..163b3b3
 +			return bindex;
 +	return -1;
 +}
-diff --git fs/aufs/dir.c fs/aufs/dir.c
+diff --git a/fs/aufs/dir.c b/fs/aufs/dir.c
 new file mode 100644
-index 0000000..ae7e16b
+index 0000000..a6abd4e
 --- /dev/null
-+++ fs/aufs/dir.c
-@@ -0,0 +1,616 @@
++++ b/fs/aufs/dir.c
+@@ -0,0 +1,630 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -8320,14 +8646,28 @@ index 0000000..ae7e16b
 +	.flush		= aufs_flush_dir,
 +	.fsync		= aufs_fsync_dir
 +};
-diff --git fs/aufs/dir.h fs/aufs/dir.h
+diff --git a/fs/aufs/dir.h b/fs/aufs/dir.h
 new file mode 100644
-index 0000000..ced68cf
+index 0000000..fb237ba
 --- /dev/null
-+++ fs/aufs/dir.h
-@@ -0,0 +1,123 @@
++++ b/fs/aufs/dir.h
+@@ -0,0 +1,137 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -8449,14 +8789,28 @@ index 0000000..ced68cf
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_DIR_H__ */
-diff --git fs/aufs/dynop.c fs/aufs/dynop.c
+diff --git a/fs/aufs/dynop.c b/fs/aufs/dynop.c
 new file mode 100644
-index 0000000..f8967e8
+index 0000000..be35399
 --- /dev/null
-+++ fs/aufs/dynop.c
-@@ -0,0 +1,365 @@
++++ b/fs/aufs/dynop.c
+@@ -0,0 +1,379 @@
 +/*
 + * Copyright (C) 2010-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -8820,14 +9174,28 @@ index 0000000..f8967e8
 +	for (i = 0; i < AuDyLast; i++)
 +		WARN_ON(!list_empty(&dynop[i].head));
 +}
-diff --git fs/aufs/dynop.h fs/aufs/dynop.h
+diff --git a/fs/aufs/dynop.h b/fs/aufs/dynop.h
 new file mode 100644
-index 0000000..07c5736
+index 0000000..3f2c9aa
 --- /dev/null
-+++ fs/aufs/dynop.h
-@@ -0,0 +1,62 @@
++++ b/fs/aufs/dynop.h
+@@ -0,0 +1,76 @@
 +/*
 + * Copyright (C) 2010-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -8888,14 +9256,28 @@ index 0000000..07c5736
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_DYNOP_H__ */
-diff --git fs/aufs/export.c fs/aufs/export.c
+diff --git a/fs/aufs/export.c b/fs/aufs/export.c
 new file mode 100644
-index 0000000..301efd2
+index 0000000..876decb
 --- /dev/null
-+++ fs/aufs/export.c
-@@ -0,0 +1,812 @@
++++ b/fs/aufs/export.c
+@@ -0,0 +1,826 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -9706,14 +10088,28 @@ index 0000000..301efd2
 +	BUILD_BUG_ON(sizeof(u) != sizeof(int));
 +	atomic_set(&sbinfo->si_xigen_next, u);
 +}
-diff --git fs/aufs/f_op.c fs/aufs/f_op.c
+diff --git a/fs/aufs/f_op.c b/fs/aufs/f_op.c
 new file mode 100644
-index 0000000..512ee35
+index 0000000..56924c5
 --- /dev/null
-+++ fs/aufs/f_op.c
-@@ -0,0 +1,706 @@
++++ b/fs/aufs/f_op.c
+@@ -0,0 +1,720 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -10418,14 +10814,28 @@ index 0000000..512ee35
 +	.aio_splice_read  = aufs_aio_splice_read
 +#endif
 +};
-diff --git fs/aufs/f_op_sp.c fs/aufs/f_op_sp.c
+diff --git a/fs/aufs/f_op_sp.c b/fs/aufs/f_op_sp.c
 new file mode 100644
-index 0000000..69d6ecb
+index 0000000..bb4e0ae
 --- /dev/null
-+++ fs/aufs/f_op_sp.c
-@@ -0,0 +1,281 @@
++++ b/fs/aufs/f_op_sp.c
+@@ -0,0 +1,295 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -10705,14 +11115,28 @@ index 0000000..69d6ecb
 +
 +	return ret;
 +}
-diff --git fs/aufs/file.c fs/aufs/file.c
+diff --git a/fs/aufs/file.c b/fs/aufs/file.c
 new file mode 100644
-index 0000000..a5f33c6
+index 0000000..a699555
 --- /dev/null
-+++ fs/aufs/file.c
-@@ -0,0 +1,674 @@
++++ b/fs/aufs/file.c
+@@ -0,0 +1,688 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -11385,14 +11809,28 @@ index 0000000..a5f33c6
 +	.swap_deactivate	= aufs_swap_deactivate
 +#endif /* CONFIG_AUFS_DEBUG */
 +};
-diff --git fs/aufs/file.h fs/aufs/file.h
+diff --git a/fs/aufs/file.h b/fs/aufs/file.h
 new file mode 100644
-index 0000000..cf1c501
+index 0000000..afd27de
 --- /dev/null
-+++ fs/aufs/file.h
-@@ -0,0 +1,284 @@
++++ b/fs/aufs/file.h
+@@ -0,0 +1,298 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -11675,14 +12113,28 @@ index 0000000..cf1c501
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_FILE_H__ */
-diff --git fs/aufs/finfo.c fs/aufs/finfo.c
+diff --git a/fs/aufs/finfo.c b/fs/aufs/finfo.c
 new file mode 100644
-index 0000000..f656585
+index 0000000..2111355
 --- /dev/null
-+++ fs/aufs/finfo.c
-@@ -0,0 +1,143 @@
++++ b/fs/aufs/finfo.c
+@@ -0,0 +1,157 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -11824,14 +12276,28 @@ index 0000000..f656585
 +out:
 +	return err;
 +}
-diff --git fs/aufs/fstype.h fs/aufs/fstype.h
+diff --git a/fs/aufs/fstype.h b/fs/aufs/fstype.h
 new file mode 100644
-index 0000000..805105b
+index 0000000..2f487c4
 --- /dev/null
-+++ fs/aufs/fstype.h
-@@ -0,0 +1,466 @@
++++ b/fs/aufs/fstype.h
+@@ -0,0 +1,480 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -12296,14 +12762,28 @@ index 0000000..805105b
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_FSTYPE_H__ */
-diff --git fs/aufs/hfsnotify.c fs/aufs/hfsnotify.c
+diff --git a/fs/aufs/hfsnotify.c b/fs/aufs/hfsnotify.c
 new file mode 100644
-index 0000000..5a3eab4
+index 0000000..22b34cd0e
 --- /dev/null
-+++ fs/aufs/hfsnotify.c
-@@ -0,0 +1,282 @@
++++ b/fs/aufs/hfsnotify.c
+@@ -0,0 +1,296 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -12584,14 +13064,28 @@ index 0000000..5a3eab4
 +	.fin_br		= au_hfsn_fin_br,
 +	.init_br	= au_hfsn_init_br
 +};
-diff --git fs/aufs/hfsplus.c fs/aufs/hfsplus.c
+diff --git a/fs/aufs/hfsplus.c b/fs/aufs/hfsplus.c
 new file mode 100644
-index 0000000..e52c06c
+index 0000000..c77a2a3
 --- /dev/null
-+++ fs/aufs/hfsplus.c
-@@ -0,0 +1,42 @@
++++ b/fs/aufs/hfsplus.c
+@@ -0,0 +1,56 @@
 +/*
 + * Copyright (C) 2010-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -12632,14 +13126,28 @@ index 0000000..e52c06c
 +		au_sbr_put(dentry->d_sb, bindex);
 +	}
 +}
-diff --git fs/aufs/hnotify.c fs/aufs/hnotify.c
+diff --git a/fs/aufs/hnotify.c b/fs/aufs/hnotify.c
 new file mode 100644
-index 0000000..77e8271
+index 0000000..b7f7a95
 --- /dev/null
-+++ fs/aufs/hnotify.c
-@@ -0,0 +1,698 @@
++++ b/fs/aufs/hnotify.c
+@@ -0,0 +1,712 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -13336,14 +13844,28 @@ index 0000000..77e8271
 +	if (au_cachep[AuCache_HNOTIFY])
 +		au_hn_destroy_cache();
 +}
-diff --git fs/aufs/i_op.c fs/aufs/i_op.c
+diff --git a/fs/aufs/i_op.c b/fs/aufs/i_op.c
 new file mode 100644
-index 0000000..5629089
+index 0000000..233fbb8
 --- /dev/null
-+++ fs/aufs/i_op.c
-@@ -0,0 +1,1093 @@
++++ b/fs/aufs/i_op.c
+@@ -0,0 +1,1107 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -14435,14 +14957,28 @@ index 0000000..5629089
 +
 +	.update_time	= aufs_update_time
 +};
-diff --git fs/aufs/i_op_add.c fs/aufs/i_op_add.c
+diff --git a/fs/aufs/i_op_add.c b/fs/aufs/i_op_add.c
 new file mode 100644
-index 0000000..bc992d0
+index 0000000..a2e2472
 --- /dev/null
-+++ fs/aufs/i_op_add.c
-@@ -0,0 +1,708 @@
++++ b/fs/aufs/i_op_add.c
+@@ -0,0 +1,722 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -15149,14 +15685,28 @@ index 0000000..bc992d0
 +out:
 +	return err;
 +}
-diff --git fs/aufs/i_op_del.c fs/aufs/i_op_del.c
+diff --git a/fs/aufs/i_op_del.c b/fs/aufs/i_op_del.c
 new file mode 100644
-index 0000000..89e9a39
+index 0000000..c2b0a64
 --- /dev/null
-+++ fs/aufs/i_op_del.c
-@@ -0,0 +1,463 @@
++++ b/fs/aufs/i_op_del.c
+@@ -0,0 +1,477 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -15618,14 +16168,28 @@ index 0000000..89e9a39
 +	AuTraceErr(err);
 +	return err;
 +}
-diff --git fs/aufs/i_op_ren.c fs/aufs/i_op_ren.c
+diff --git a/fs/aufs/i_op_ren.c b/fs/aufs/i_op_ren.c
 new file mode 100644
-index 0000000..a4f47a8
+index 0000000..19df6a3
 --- /dev/null
-+++ fs/aufs/i_op_ren.c
-@@ -0,0 +1,1039 @@
++++ b/fs/aufs/i_op_ren.c
+@@ -0,0 +1,1053 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -16663,14 +17227,28 @@ index 0000000..a4f47a8
 +	AuTraceErr(err);
 +	return err;
 +}
-diff --git fs/aufs/iinfo.c fs/aufs/iinfo.c
+diff --git a/fs/aufs/iinfo.c b/fs/aufs/iinfo.c
 new file mode 100644
-index 0000000..733f859
+index 0000000..b82ebbf
 --- /dev/null
-+++ fs/aufs/iinfo.c
-@@ -0,0 +1,262 @@
++++ b/fs/aufs/iinfo.c
+@@ -0,0 +1,276 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -16931,14 +17509,28 @@ index 0000000..733f859
 +	iinfo->ii_hinode = NULL;
 +	AuRwDestroy(&iinfo->ii_rwsem);
 +}
-diff --git fs/aufs/inode.c fs/aufs/inode.c
+diff --git a/fs/aufs/inode.c b/fs/aufs/inode.c
 new file mode 100644
-index 0000000..f60ab30
+index 0000000..9c86d98
 --- /dev/null
-+++ fs/aufs/inode.c
-@@ -0,0 +1,478 @@
++++ b/fs/aufs/inode.c
+@@ -0,0 +1,492 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -17415,14 +18007,28 @@ index 0000000..f60ab30
 +		mask |= MAY_READ; /* force permission check */
 +	return au_test_h_perm(h_inode, mask);
 +}
-diff --git fs/aufs/inode.h fs/aufs/inode.h
+diff --git a/fs/aufs/inode.h b/fs/aufs/inode.h
 new file mode 100644
-index 0000000..3ae12fd
+index 0000000..2a87c76
 --- /dev/null
-+++ fs/aufs/inode.h
-@@ -0,0 +1,586 @@
++++ b/fs/aufs/inode.h
+@@ -0,0 +1,600 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -18007,14 +18613,28 @@ index 0000000..3ae12fd
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_INODE_H__ */
-diff --git fs/aufs/ioctl.c fs/aufs/ioctl.c
+diff --git a/fs/aufs/ioctl.c b/fs/aufs/ioctl.c
 new file mode 100644
-index 0000000..70b3362
+index 0000000..dcb837f
 --- /dev/null
-+++ fs/aufs/ioctl.c
-@@ -0,0 +1,182 @@
++++ b/fs/aufs/ioctl.c
+@@ -0,0 +1,196 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -18195,14 +18815,28 @@ index 0000000..70b3362
 +}
 +#endif
 +#endif
-diff --git fs/aufs/loop.c fs/aufs/loop.c
+diff --git a/fs/aufs/loop.c b/fs/aufs/loop.c
 new file mode 100644
-index 0000000..a742c0f
+index 0000000..ccae19c
 --- /dev/null
-+++ fs/aufs/loop.c
-@@ -0,0 +1,121 @@
++++ b/fs/aufs/loop.c
+@@ -0,0 +1,135 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -18322,14 +18956,28 @@ index 0000000..a742c0f
 +{
 +	kfree(au_warn_loopback_array);
 +}
-diff --git fs/aufs/loop.h fs/aufs/loop.h
+diff --git a/fs/aufs/loop.h b/fs/aufs/loop.h
 new file mode 100644
-index 0000000..3829ad1
+index 0000000..88d019c
 --- /dev/null
-+++ fs/aufs/loop.h
-@@ -0,0 +1,36 @@
++++ b/fs/aufs/loop.h
+@@ -0,0 +1,50 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -18364,11 +19012,11 @@ index 0000000..3829ad1
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_LOOP_H__ */
-diff --git fs/aufs/magic.mk fs/aufs/magic.mk
+diff --git a/fs/aufs/magic.mk b/fs/aufs/magic.mk
 new file mode 100644
 index 0000000..3e6387b
 --- /dev/null
-+++ fs/aufs/magic.mk
++++ b/fs/aufs/magic.mk
 @@ -0,0 +1,54 @@
 +
 +# defined in ${srctree}/fs/fuse/inode.c
@@ -18424,14 +19072,28 @@ index 0000000..3e6387b
 +ifdef CONFIG_HFSPLUS_FS
 +ccflags-y += -DHFSPLUS_SUPER_MAGIC=0x482b
 +endif
-diff --git fs/aufs/module.c fs/aufs/module.c
+diff --git a/fs/aufs/module.c b/fs/aufs/module.c
 new file mode 100644
-index 0000000..1bcf08f
+index 0000000..36013ee
 --- /dev/null
-+++ fs/aufs/module.c
-@@ -0,0 +1,188 @@
++++ b/fs/aufs/module.c
+@@ -0,0 +1,202 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -18618,14 +19280,28 @@ index 0000000..1bcf08f
 +
 +module_init(aufs_init);
 +module_exit(aufs_exit);
-diff --git fs/aufs/module.h fs/aufs/module.h
+diff --git a/fs/aufs/module.h b/fs/aufs/module.h
 new file mode 100644
-index 0000000..55a4897
+index 0000000..52bf472
 --- /dev/null
-+++ fs/aufs/module.h
-@@ -0,0 +1,91 @@
++++ b/fs/aufs/module.h
+@@ -0,0 +1,105 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -18715,14 +19391,28 @@ index 0000000..55a4897
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_MODULE_H__ */
-diff --git fs/aufs/opts.c fs/aufs/opts.c
+diff --git a/fs/aufs/opts.c b/fs/aufs/opts.c
 new file mode 100644
-index 0000000..308ee1e
+index 0000000..7cac1ed
 --- /dev/null
-+++ fs/aufs/opts.c
-@@ -0,0 +1,1683 @@
++++ b/fs/aufs/opts.c
+@@ -0,0 +1,1697 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -20404,14 +21094,28 @@ index 0000000..308ee1e
 +{
 +	return au_mntflags(sb) & AuOptMask_UDBA;
 +}
-diff --git fs/aufs/opts.h fs/aufs/opts.h
+diff --git a/fs/aufs/opts.h b/fs/aufs/opts.h
 new file mode 100644
-index 0000000..df39bd6
+index 0000000..e2f1803
 --- /dev/null
-+++ fs/aufs/opts.h
-@@ -0,0 +1,195 @@
++++ b/fs/aufs/opts.h
+@@ -0,0 +1,209 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -20605,14 +21309,28 @@ index 0000000..df39bd6
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_OPTS_H__ */
-diff --git fs/aufs/plink.c fs/aufs/plink.c
+diff --git a/fs/aufs/plink.c b/fs/aufs/plink.c
 new file mode 100644
-index 0000000..1ed2c5e
+index 0000000..654438e
 --- /dev/null
-+++ fs/aufs/plink.c
-@@ -0,0 +1,497 @@
++++ b/fs/aufs/plink.c
+@@ -0,0 +1,520 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -20718,19 +21436,12 @@ index 0000000..1ed2c5e
 +
 +/* ---------------------------------------------------------------------- */
 +
-+struct pseudo_link {
-+	union {
-+		struct list_head list;
-+		struct rcu_head rcu;
-+	};
-+	struct inode *inode;
-+};
-+
 +#ifdef CONFIG_AUFS_DEBUG
 +void au_plink_list(struct super_block *sb)
 +{
++	int i;
 +	struct au_sbinfo *sbinfo;
-+	struct list_head *plink_list;
++	struct hlist_head *plink_hlist;
 +	struct pseudo_link *plink;
 +
 +	SiMustAnyLock(sb);
@@ -20739,20 +21450,22 @@ index 0000000..1ed2c5e
 +	AuDebugOn(!au_opt_test(au_mntflags(sb), PLINK));
 +	AuDebugOn(au_plink_maint(sb, AuLock_NOPLM));
 +
-+	plink_list = &sbinfo->si_plink.head;
-+	rcu_read_lock();
-+	list_for_each_entry_rcu(plink, plink_list, list)
-+		AuDbg("%lu\n", plink->inode->i_ino);
-+	rcu_read_unlock();
++	for (i = 0; i < AuPlink_NHASH; i++) {
++		plink_hlist = &sbinfo->si_plink[i].head;
++		rcu_read_lock();
++		hlist_for_each_entry_rcu(plink, plink_hlist, hlist)
++			AuDbg("%lu\n", plink->inode->i_ino);
++		rcu_read_unlock();
++	}
 +}
 +#endif
 +
 +/* is the inode pseudo-linked? */
 +int au_plink_test(struct inode *inode)
 +{
-+	int found;
++	int found, i;
 +	struct au_sbinfo *sbinfo;
-+	struct list_head *plink_list;
++	struct hlist_head *plink_hlist;
 +	struct pseudo_link *plink;
 +
 +	sbinfo = au_sbi(inode->i_sb);
@@ -20761,9 +21474,10 @@ index 0000000..1ed2c5e
 +	AuDebugOn(au_plink_maint(inode->i_sb, AuLock_NOPLM));
 +
 +	found = 0;
-+	plink_list = &sbinfo->si_plink.head;
++	i = au_plink_hash(inode->i_ino);
++	plink_hlist = &sbinfo->si_plink[i].head;
 +	rcu_read_lock();
-+	list_for_each_entry_rcu(plink, plink_list, list)
++	hlist_for_each_entry_rcu(plink, plink_hlist, hlist)
 +		if (plink->inode == inode) {
 +			found = 1;
 +			break;
@@ -20942,7 +21656,7 @@ index 0000000..1ed2c5e
 +static void do_put_plink(struct pseudo_link *plink, int do_del)
 +{
 +	if (do_del)
-+		list_del(&plink->list);
++		hlist_del(&plink->hlist);
 +	iput(plink->inode);
 +	kfree(plink);
 +}
@@ -20965,30 +21679,23 @@ index 0000000..1ed2c5e
 +{
 +	struct super_block *sb;
 +	struct au_sbinfo *sbinfo;
-+	struct list_head *plink_list;
++	struct hlist_head *plink_hlist;
 +	struct pseudo_link *plink, *tmp;
-+	int found, err, cnt;
++	struct au_sphlhead *sphl;
++	int found, err, cnt, i;
 +
 +	sb = inode->i_sb;
 +	sbinfo = au_sbi(sb);
 +	AuDebugOn(!au_opt_test(au_mntflags(sb), PLINK));
 +	AuDebugOn(au_plink_maint(sb, AuLock_NOPLM));
 +
-+	cnt = 0;
-+	found = 0;
-+	plink_list = &sbinfo->si_plink.head;
-+	rcu_read_lock();
-+	list_for_each_entry_rcu(plink, plink_list, list) {
-+		cnt++;
-+		if (plink->inode == inode) {
-+			found = 1;
-+			break;
-+		}
-+	}
-+	rcu_read_unlock();
++	found = au_plink_test(inode);
 +	if (found)
 +		return;
 +
++	i = au_plink_hash(inode->i_ino);
++	sphl = sbinfo->si_plink + i;
++	plink_hlist = &sphl->head;
 +	tmp = kmalloc(sizeof(*plink), GFP_NOFS);
 +	if (tmp)
 +		tmp->inode = au_igrab(inode);
@@ -20997,20 +21704,22 @@ index 0000000..1ed2c5e
 +		goto out;
 +	}
 +
-+	spin_lock(&sbinfo->si_plink.spin);
-+	list_for_each_entry(plink, plink_list, list) {
++	spin_lock(&sphl->spin);
++	hlist_for_each_entry(plink, plink_hlist, hlist) {
 +		if (plink->inode == inode) {
 +			found = 1;
 +			break;
 +		}
 +	}
 +	if (!found)
-+		list_add_rcu(&tmp->list, plink_list);
-+	spin_unlock(&sbinfo->si_plink.spin);
++		hlist_add_head_rcu(&tmp->hlist, plink_hlist);
++	spin_unlock(&sphl->spin);
 +	if (!found) {
-+		cnt++;
-+		WARN_ONCE(cnt > AUFS_PLINK_WARN,
-+			  "unexpectedly many pseudo links, %d\n", cnt);
++		cnt = au_sphl_count(sphl);
++#define msg "unexpectedly unblanced or too many pseudo-links"
++		if (cnt > AUFS_PLINK_WARN)
++			AuWarn1(msg ", %d\n", cnt);
++#undef msg
 +		err = whplink(h_dentry, inode, bindex, au_sbr(sb, bindex));
 +	} else {
 +		do_put_plink(tmp, 0);
@@ -21021,7 +21730,7 @@ index 0000000..1ed2c5e
 +	if (unlikely(err)) {
 +		pr_warn("err %d, damaged pseudo link.\n", err);
 +		if (tmp) {
-+			au_spl_del_rcu(&tmp->list, &sbinfo->si_plink);
++			au_sphl_del_rcu(&tmp->hlist, sphl);
 +			call_rcu(&tmp->rcu, do_put_plink_rcu);
 +		}
 +	}
@@ -21030,9 +21739,11 @@ index 0000000..1ed2c5e
 +/* free all plinks */
 +void au_plink_put(struct super_block *sb, int verbose)
 +{
++	int i, warned;
 +	struct au_sbinfo *sbinfo;
-+	struct list_head *plink_list;
-+	struct pseudo_link *plink, *tmp;
++	struct hlist_head *plink_hlist;
++	struct hlist_node *tmp;
++	struct pseudo_link *plink;
 +
 +	SiMustWriteLock(sb);
 +
@@ -21040,12 +21751,18 @@ index 0000000..1ed2c5e
 +	AuDebugOn(!au_opt_test(au_mntflags(sb), PLINK));
 +	AuDebugOn(au_plink_maint(sb, AuLock_NOPLM));
 +
-+	plink_list = &sbinfo->si_plink.head;
 +	/* no spin_lock since sbinfo is write-locked */
-+	WARN(verbose && !list_empty(plink_list), "pseudo-link is not flushed");
-+	list_for_each_entry_safe(plink, tmp, plink_list, list)
-+		do_put_plink(plink, 0);
-+	INIT_LIST_HEAD(plink_list);
++	warned = 0;
++	for (i = 0; i < AuPlink_NHASH; i++) {
++		plink_hlist = &sbinfo->si_plink[i].head;
++		if (!warned && verbose && !hlist_empty(plink_hlist)) {
++			pr_warn("pseudo-link is not flushed");
++			warned = 1;
++		}
++		hlist_for_each_entry_safe(plink, tmp, plink_hlist, hlist)
++			do_put_plink(plink, 0);
++		INIT_HLIST_HEAD(plink_hlist);
++	}
 +}
 +
 +void au_plink_clean(struct super_block *sb, int verbose)
@@ -21059,15 +21776,44 @@ index 0000000..1ed2c5e
 +	aufs_write_unlock(root);
 +}
 +
++static int au_plink_do_half_refresh(struct inode *inode, aufs_bindex_t br_id)
++{
++	int do_put;
++	aufs_bindex_t bstart, bend, bindex;
++
++	do_put = 0;
++	bstart = au_ibstart(inode);
++	bend = au_ibend(inode);
++	if (bstart >= 0) {
++		for (bindex = bstart; bindex <= bend; bindex++) {
++			if (!au_h_iptr(inode, bindex)
++			    || au_ii_br_id(inode, bindex) != br_id)
++				continue;
++			au_set_h_iptr(inode, bindex, NULL, 0);
++			do_put = 1;
++			break;
++		}
++		if (do_put)
++			for (bindex = bstart; bindex <= bend; bindex++)
++				if (au_h_iptr(inode, bindex)) {
++					do_put = 0;
++					break;
++				}
++	} else
++		do_put = 1;
++
++	return do_put;
++}
++
 +/* free the plinks on a branch specified by @br_id */
 +void au_plink_half_refresh(struct super_block *sb, aufs_bindex_t br_id)
 +{
 +	struct au_sbinfo *sbinfo;
-+	struct list_head *plink_list;
-+	struct pseudo_link *plink, *tmp;
++	struct hlist_head *plink_hlist;
++	struct hlist_node *tmp;
++	struct pseudo_link *plink;
 +	struct inode *inode;
-+	aufs_bindex_t bstart, bend, bindex;
-+	unsigned char do_put;
++	int i, do_put;
 +
 +	SiMustWriteLock(sb);
 +
@@ -21075,47 +21821,42 @@ index 0000000..1ed2c5e
 +	AuDebugOn(!au_opt_test(au_mntflags(sb), PLINK));
 +	AuDebugOn(au_plink_maint(sb, AuLock_NOPLM));
 +
-+	plink_list = &sbinfo->si_plink.head;
 +	/* no spin_lock since sbinfo is write-locked */
-+	list_for_each_entry_safe(plink, tmp, plink_list, list) {
-+		do_put = 0;
-+		inode = au_igrab(plink->inode);
-+		ii_write_lock_child(inode);
-+		bstart = au_ibstart(inode);
-+		bend = au_ibend(inode);
-+		if (bstart >= 0) {
-+			for (bindex = bstart; bindex <= bend; bindex++) {
-+				if (!au_h_iptr(inode, bindex)
-+				    || au_ii_br_id(inode, bindex) != br_id)
-+					continue;
-+				au_set_h_iptr(inode, bindex, NULL, 0);
-+				do_put = 1;
-+				break;
-+			}
-+		} else
-+			do_put_plink(plink, 1);
-+
-+		if (do_put) {
-+			for (bindex = bstart; bindex <= bend; bindex++)
-+				if (au_h_iptr(inode, bindex)) {
-+					do_put = 0;
-+					break;
-+				}
++	for (i = 0; i < AuPlink_NHASH; i++) {
++		plink_hlist = &sbinfo->si_plink[i].head;
++		hlist_for_each_entry_safe(plink, tmp, plink_hlist, hlist) {
++			inode = au_igrab(plink->inode);
++			ii_write_lock_child(inode);
++			do_put = au_plink_do_half_refresh(inode, br_id);
 +			if (do_put)
 +				do_put_plink(plink, 1);
++			ii_write_unlock(inode);
++			iput(inode);
 +		}
-+		ii_write_unlock(inode);
-+		iput(inode);
 +	}
 +}
-diff --git fs/aufs/poll.c fs/aufs/poll.c
+diff --git a/fs/aufs/poll.c b/fs/aufs/poll.c
 new file mode 100644
-index 0000000..ac7de46
+index 0000000..aa5e2ae
 --- /dev/null
-+++ fs/aufs/poll.c
-@@ -0,0 +1,42 @@
++++ b/fs/aufs/poll.c
+@@ -0,0 +1,56 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -21156,14 +21897,28 @@ index 0000000..ac7de46
 +	AuTraceErr((int)mask);
 +	return mask;
 +}
-diff --git fs/aufs/procfs.c fs/aufs/procfs.c
+diff --git a/fs/aufs/procfs.c b/fs/aufs/procfs.c
 new file mode 100644
-index 0000000..af9bff4
+index 0000000..7201cdf
 --- /dev/null
-+++ fs/aufs/procfs.c
-@@ -0,0 +1,156 @@
++++ b/fs/aufs/procfs.c
+@@ -0,0 +1,170 @@
 +/*
 + * Copyright (C) 2010-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -21318,14 +22073,28 @@ index 0000000..af9bff4
 +out:
 +	return err;
 +}
-diff --git fs/aufs/rdu.c fs/aufs/rdu.c
+diff --git a/fs/aufs/rdu.c b/fs/aufs/rdu.c
 new file mode 100644
-index 0000000..c079023
+index 0000000..0dce11e
 --- /dev/null
-+++ fs/aufs/rdu.c
-@@ -0,0 +1,370 @@
++++ b/fs/aufs/rdu.c
+@@ -0,0 +1,384 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -21694,14 +22463,28 @@ index 0000000..c079023
 +	return err;
 +}
 +#endif
-diff --git fs/aufs/rwsem.h fs/aufs/rwsem.h
+diff --git a/fs/aufs/rwsem.h b/fs/aufs/rwsem.h
 new file mode 100644
-index 0000000..bfce868
+index 0000000..a1eb04b
 --- /dev/null
-+++ fs/aufs/rwsem.h
-@@ -0,0 +1,174 @@
++++ b/fs/aufs/rwsem.h
+@@ -0,0 +1,188 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -21874,14 +22657,28 @@ index 0000000..bfce868
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_RWSEM_H__ */
-diff --git fs/aufs/sbinfo.c fs/aufs/sbinfo.c
+diff --git a/fs/aufs/sbinfo.c b/fs/aufs/sbinfo.c
 new file mode 100644
-index 0000000..873891a
+index 0000000..e07fc30
 --- /dev/null
-+++ fs/aufs/sbinfo.c
-@@ -0,0 +1,329 @@
++++ b/fs/aufs/sbinfo.c
+@@ -0,0 +1,346 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -21895,11 +22692,13 @@ index 0000000..873891a
 + */
 +void au_si_free(struct kobject *kobj)
 +{
++	int i;
 +	struct au_sbinfo *sbinfo;
 +	char *locked __maybe_unused; /* debug only */
 +
 +	sbinfo = container_of(kobj, struct au_sbinfo, si_kobj);
-+	AuDebugOn(!list_empty(&sbinfo->si_plink.head));
++	for (i = 0; i < AuPlink_NHASH; i++)
++		AuDebugOn(!hlist_empty(&sbinfo->si_plink[i].head));
 +	AuDebugOn(atomic_read(&sbinfo->si_nowait.nw_len));
 +
 +	au_rw_write_lock(&sbinfo->si_rwsem);
@@ -21921,7 +22720,7 @@ index 0000000..873891a
 +
 +int au_si_alloc(struct super_block *sb)
 +{
-+	int err;
++	int err, i;
 +	struct au_sbinfo *sbinfo;
 +	static struct lock_class_key aufs_si;
 +
@@ -21974,7 +22773,8 @@ index 0000000..873891a
 +	sbinfo->si_rdhash = AUFS_RDHASH_DEF;
 +	sbinfo->si_dirwh = AUFS_DIRWH_DEF;
 +
-+	au_spl_init(&sbinfo->si_plink);
++	for (i = 0; i < AuPlink_NHASH; i++)
++		au_sphl_init(sbinfo->si_plink + i);
 +	init_waitqueue_head(&sbinfo->si_plink_wq);
 +	spin_lock_init(&sbinfo->si_plink_maint_lock);
 +
@@ -22209,14 +23009,28 @@ index 0000000..873891a
 +	p = radix_tree_delete(&sbinfo->au_si_pid.tree, current->pid);
 +	spin_unlock(&sbinfo->au_si_pid.tree_lock);
 +}
-diff --git fs/aufs/spl.h fs/aufs/spl.h
+diff --git a/fs/aufs/spl.h b/fs/aufs/spl.h
 new file mode 100644
-index 0000000..5302dc6
+index 0000000..2d53e87
 --- /dev/null
-+++ fs/aufs/spl.h
-@@ -0,0 +1,48 @@
++++ b/fs/aufs/spl.h
+@@ -0,0 +1,112 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -22261,16 +23075,80 @@ index 0000000..5302dc6
 +	spin_unlock(&spl->spin);
 +}
 +
++/* ---------------------------------------------------------------------- */
++
++struct au_sphlhead {
++	spinlock_t		spin;
++	struct hlist_head	head;
++};
++
++static inline void au_sphl_init(struct au_sphlhead *sphl)
++{
++	spin_lock_init(&sphl->spin);
++	INIT_HLIST_HEAD(&sphl->head);
++}
++
++static inline void au_sphl_add(struct hlist_node *hlist,
++			       struct au_sphlhead *sphl)
++{
++	spin_lock(&sphl->spin);
++	hlist_add_head(hlist, &sphl->head);
++	spin_unlock(&sphl->spin);
++}
++
++static inline void au_sphl_del(struct hlist_node *hlist,
++			       struct au_sphlhead *sphl)
++{
++	spin_lock(&sphl->spin);
++	hlist_del(hlist);
++	spin_unlock(&sphl->spin);
++}
++
++static inline void au_sphl_del_rcu(struct hlist_node *hlist,
++				   struct au_sphlhead *sphl)
++{
++	spin_lock(&sphl->spin);
++	hlist_del_rcu(hlist);
++	spin_unlock(&sphl->spin);
++}
++
++static inline unsigned long au_sphl_count(struct au_sphlhead *sphl)
++{
++	unsigned long cnt;
++	struct hlist_node *pos;
++
++	cnt = 0;
++	spin_lock(&sphl->spin);
++	hlist_for_each(pos, &sphl->head)
++		cnt++;
++	spin_unlock(&sphl->spin);
++	return cnt;
++}
++
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_SPL_H__ */
-diff --git fs/aufs/super.c fs/aufs/super.c
+diff --git a/fs/aufs/super.c b/fs/aufs/super.c
 new file mode 100644
-index 0000000..dcf9eff
+index 0000000..4f57ba0
 --- /dev/null
-+++ fs/aufs/super.c
-@@ -0,0 +1,978 @@
++++ b/fs/aufs/super.c
+@@ -0,0 +1,992 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -23247,14 +24125,28 @@ index 0000000..dcf9eff
 +	/* no need to __module_get() and module_put(). */
 +	.owner		= THIS_MODULE,
 +};
-diff --git fs/aufs/super.h fs/aufs/super.h
+diff --git a/fs/aufs/super.h b/fs/aufs/super.h
 new file mode 100644
-index 0000000..9d7c38f
+index 0000000..dccf6d4
 --- /dev/null
-+++ fs/aufs/super.h
-@@ -0,0 +1,524 @@
++++ b/fs/aufs/super.h
+@@ -0,0 +1,555 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -23295,6 +24187,20 @@ index 0000000..9d7c38f
 +	unsigned long long	mfsrr_bytes;
 +	unsigned long long	mfsrr_watermark;
 +};
++
++struct pseudo_link {
++	union {
++		struct hlist_node hlist;
++		struct rcu_head rcu;
++	};
++	struct inode *inode;
++};
++
++#define AuPlink_NHASH 100
++static inline int au_plink_hash(ino_t ino)
++{
++	return ino % AuPlink_NHASH;
++}
 +
 +struct au_branch;
 +struct au_sbinfo {
@@ -23386,7 +24292,7 @@ index 0000000..9d7c38f
 +	/* int			si_rendir; */
 +
 +	/* pseudo_link list */
-+	struct au_splhead	si_plink;
++	struct au_sphlhead	si_plink[AuPlink_NHASH];
 +	wait_queue_head_t	si_plink_wq;
 +	spinlock_t		si_plink_maint_lock;
 +	pid_t			si_plink_maint_pid;
@@ -23399,7 +24305,9 @@ index 0000000..9d7c38f
 +	 */
 +	struct kobject		si_kobj;
 +#ifdef CONFIG_DEBUG_FS
-+	struct dentry		 *si_dbgaufs, *si_dbgaufs_xib;
++	struct dentry		 *si_dbgaufs;
++	struct dentry		 *si_dbgaufs_plink;
++	struct dentry		 *si_dbgaufs_xib;
 +#ifdef CONFIG_AUFS_EXPORT
 +	struct dentry		 *si_dbgaufs_xigen;
 +#endif
@@ -23590,6 +24498,7 @@ index 0000000..9d7c38f
 +	/* AuRwMustWriteLock(&sbinfo->si_rwsem); */
 +#ifdef CONFIG_DEBUG_FS
 +	sbinfo->si_dbgaufs = NULL;
++	sbinfo->si_dbgaufs_plink = NULL;
 +	sbinfo->si_dbgaufs_xib = NULL;
 +#ifdef CONFIG_AUFS_EXPORT
 +	sbinfo->si_dbgaufs_xigen = NULL;
@@ -23777,14 +24686,28 @@ index 0000000..9d7c38f
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_SUPER_H__ */
-diff --git fs/aufs/sysaufs.c fs/aufs/sysaufs.c
+diff --git a/fs/aufs/sysaufs.c b/fs/aufs/sysaufs.c
 new file mode 100644
-index 0000000..41020d2
+index 0000000..f68e844
 --- /dev/null
-+++ fs/aufs/sysaufs.c
-@@ -0,0 +1,91 @@
++++ b/fs/aufs/sysaufs.c
+@@ -0,0 +1,105 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -23874,14 +24797,28 @@ index 0000000..41020d2
 +out:
 +	return err;
 +}
-diff --git fs/aufs/sysaufs.h fs/aufs/sysaufs.h
+diff --git a/fs/aufs/sysaufs.h b/fs/aufs/sysaufs.h
 new file mode 100644
-index 0000000..06f5413
+index 0000000..2fc17d9
 --- /dev/null
-+++ fs/aufs/sysaufs.h
-@@ -0,0 +1,90 @@
++++ b/fs/aufs/sysaufs.h
+@@ -0,0 +1,104 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -23970,14 +24907,28 @@ index 0000000..06f5413
 +
 +#endif /* __KERNEL__ */
 +#endif /* __SYSAUFS_H__ */
-diff --git fs/aufs/sysfs.c fs/aufs/sysfs.c
+diff --git a/fs/aufs/sysfs.c b/fs/aufs/sysfs.c
 new file mode 100644
-index 0000000..4f59989
+index 0000000..964cafb
 --- /dev/null
-+++ fs/aufs/sysfs.c
-@@ -0,0 +1,220 @@
++++ b/fs/aufs/sysfs.c
+@@ -0,0 +1,234 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -24196,14 +25147,28 @@ index 0000000..4f59989
 +				br->br_name, err);
 +	}
 +}
-diff --git fs/aufs/sysrq.c fs/aufs/sysrq.c
+diff --git a/fs/aufs/sysrq.c b/fs/aufs/sysrq.c
 new file mode 100644
-index 0000000..2876455
+index 0000000..4d770ad
 --- /dev/null
-+++ fs/aufs/sysrq.c
-@@ -0,0 +1,137 @@
++++ b/fs/aufs/sysrq.c
+@@ -0,0 +1,151 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -24339,14 +25304,28 @@ index 0000000..2876455
 +	if (unlikely(err))
 +		pr_err("err %d (ignored)\n", err);
 +}
-diff --git fs/aufs/vdir.c fs/aufs/vdir.c
+diff --git a/fs/aufs/vdir.c b/fs/aufs/vdir.c
 new file mode 100644
-index 0000000..15e6ce0
+index 0000000..ccd6e24
 --- /dev/null
-+++ fs/aufs/vdir.c
-@@ -0,0 +1,864 @@
++++ b/fs/aufs/vdir.c
+@@ -0,0 +1,878 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -25209,14 +26188,28 @@ index 0000000..15e6ce0
 +	/* smp_mb(); */
 +	return 0;
 +}
-diff --git fs/aufs/vfsub.c fs/aufs/vfsub.c
+diff --git a/fs/aufs/vfsub.c b/fs/aufs/vfsub.c
 new file mode 100644
-index 0000000..0e90f08
+index 0000000..917d374
 --- /dev/null
-+++ fs/aufs/vfsub.c
-@@ -0,0 +1,755 @@
++++ b/fs/aufs/vfsub.c
+@@ -0,0 +1,769 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -25970,14 +26963,28 @@ index 0000000..0e90f08
 +
 +	return err;
 +}
-diff --git fs/aufs/vfsub.h fs/aufs/vfsub.h
+diff --git a/fs/aufs/vfsub.h b/fs/aufs/vfsub.h
 new file mode 100644
-index 0000000..20433d5
+index 0000000..5a50a62
 --- /dev/null
-+++ fs/aufs/vfsub.h
-@@ -0,0 +1,280 @@
++++ b/fs/aufs/vfsub.h
+@@ -0,0 +1,294 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -26256,14 +27263,28 @@ index 0000000..20433d5
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_VFSUB_H__ */
-diff --git fs/aufs/wbr_policy.c fs/aufs/wbr_policy.c
+diff --git a/fs/aufs/wbr_policy.c b/fs/aufs/wbr_policy.c
 new file mode 100644
-index 0000000..f162e28
+index 0000000..829b6c3
 --- /dev/null
-+++ fs/aufs/wbr_policy.c
-@@ -0,0 +1,687 @@
++++ b/fs/aufs/wbr_policy.c
+@@ -0,0 +1,701 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -26949,14 +27970,28 @@ index 0000000..f162e28
 +		.fin	= au_wbr_create_fin_mfs
 +	}
 +};
-diff --git fs/aufs/whout.c fs/aufs/whout.c
+diff --git a/fs/aufs/whout.c b/fs/aufs/whout.c
 new file mode 100644
-index 0000000..f7f6a88
+index 0000000..65711da
 --- /dev/null
-+++ fs/aufs/whout.c
-@@ -0,0 +1,1008 @@
++++ b/fs/aufs/whout.c
+@@ -0,0 +1,1022 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -27963,14 +28998,28 @@ index 0000000..f7f6a88
 +		au_whtmp_rmdir_free(args);
 +	}
 +}
-diff --git fs/aufs/whout.h fs/aufs/whout.h
+diff --git a/fs/aufs/whout.h b/fs/aufs/whout.h
 new file mode 100644
-index 0000000..4042ea7
+index 0000000..8508560
 --- /dev/null
-+++ fs/aufs/whout.h
-@@ -0,0 +1,73 @@
++++ b/fs/aufs/whout.h
+@@ -0,0 +1,87 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -28042,14 +29091,28 @@ index 0000000..4042ea7
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_WHOUT_H__ */
-diff --git fs/aufs/wkq.c fs/aufs/wkq.c
+diff --git a/fs/aufs/wkq.c b/fs/aufs/wkq.c
 new file mode 100644
-index 0000000..035acd5
+index 0000000..c144c5a
 --- /dev/null
-+++ fs/aufs/wkq.c
-@@ -0,0 +1,200 @@
++++ b/fs/aufs/wkq.c
+@@ -0,0 +1,214 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -28248,14 +29311,28 @@ index 0000000..035acd5
 +
 +	return err;
 +}
-diff --git fs/aufs/wkq.h fs/aufs/wkq.h
+diff --git a/fs/aufs/wkq.h b/fs/aufs/wkq.h
 new file mode 100644
-index 0000000..c851cd7
+index 0000000..c316b7f
 --- /dev/null
-+++ fs/aufs/wkq.h
-@@ -0,0 +1,78 @@
++++ b/fs/aufs/wkq.h
+@@ -0,0 +1,92 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -28332,14 +29409,28 @@ index 0000000..c851cd7
 +
 +#endif /* __KERNEL__ */
 +#endif /* __AUFS_WKQ_H__ */
-diff --git fs/aufs/xino.c fs/aufs/xino.c
+diff --git a/fs/aufs/xino.c b/fs/aufs/xino.c
 new file mode 100644
-index 0000000..37fd92a
+index 0000000..88b1c94
 --- /dev/null
-+++ fs/aufs/xino.c
-@@ -0,0 +1,1250 @@
++++ b/fs/aufs/xino.c
+@@ -0,0 +1,1264 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
++ *
++ * This program, aufs is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + */
 +
 +/*
@@ -29588,10 +30679,10 @@ index 0000000..37fd92a
 +out:
 +	return err;
 +}
-diff --git fs/buffer.c fs/buffer.c
+diff --git a/fs/buffer.c b/fs/buffer.c
 index b4dcb34..7b6b475 100644
---- fs/buffer.c
-+++ fs/buffer.c
+--- a/fs/buffer.c
++++ b/fs/buffer.c
 @@ -2390,6 +2390,8 @@ int block_page_mkwrite(struct vm_area_struct *vma, struct vm_fault *vmf,
  	 * fault so this update may be superfluous but who really cares...
  	 */
@@ -29601,10 +30692,10 @@ index b4dcb34..7b6b475 100644
  
  	ret = __block_page_mkwrite(vma, vmf, get_block);
  	sb_end_pagefault(sb);
-diff --git fs/file_table.c fs/file_table.c
+diff --git a/fs/file_table.c b/fs/file_table.c
 index cd4d87a..ca5948f 100644
---- fs/file_table.c
-+++ fs/file_table.c
+--- a/fs/file_table.c
++++ b/fs/file_table.c
 @@ -36,7 +36,7 @@ struct files_stat_struct files_stat = {
  	.max_files = NR_FILE
  };
@@ -29614,10 +30705,10 @@ index cd4d87a..ca5948f 100644
  
  /* SLAB cache for file structures */
  static struct kmem_cache *filp_cachep __read_mostly;
-diff --git fs/inode.c fs/inode.c
+diff --git a/fs/inode.c b/fs/inode.c
 index a898b3d..e83cd1e 100644
---- fs/inode.c
-+++ fs/inode.c
+--- a/fs/inode.c
++++ b/fs/inode.c
 @@ -1498,7 +1498,7 @@ static int relatime_need_update(struct vfsmount *mnt, struct inode *inode,
   * This does the actual work of updating an inodes time or version.  Must have
   * had called mnt_want_write() before calling this.
@@ -29627,10 +30718,10 @@ index a898b3d..e83cd1e 100644
  {
  	if (inode->i_op->update_time)
  		return inode->i_op->update_time(inode, time, flags);
-diff --git fs/proc/nommu.c fs/proc/nommu.c
+diff --git a/fs/proc/nommu.c b/fs/proc/nommu.c
 index ccfd99b..c09e2cf 100644
---- fs/proc/nommu.c
-+++ fs/proc/nommu.c
+--- a/fs/proc/nommu.c
++++ b/fs/proc/nommu.c
 @@ -46,6 +46,10 @@ static int nommu_region_show(struct seq_file *m, struct vm_region *region)
  
  	if (file) {
@@ -29642,10 +30733,10 @@ index ccfd99b..c09e2cf 100644
  		dev = inode->i_sb->s_dev;
  		ino = inode->i_ino;
  	}
-diff --git fs/proc/task_mmu.c fs/proc/task_mmu.c
+diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
 index 3e636d8..1004190 100644
---- fs/proc/task_mmu.c
-+++ fs/proc/task_mmu.c
+--- a/fs/proc/task_mmu.c
++++ b/fs/proc/task_mmu.c
 @@ -272,6 +272,10 @@ show_map_vma(struct seq_file *m, struct vm_area_struct *vma, int is_pid)
  
  	if (file) {
@@ -29666,10 +30757,10 @@ index 3e636d8..1004190 100644
  		seq_path(m, &file->f_path, "\n\t= ");
  	} else if (vma->vm_start <= mm->brk && vma->vm_end >= mm->start_brk) {
  		seq_printf(m, " heap");
-diff --git fs/proc/task_nommu.c fs/proc/task_nommu.c
+diff --git a/fs/proc/task_nommu.c b/fs/proc/task_nommu.c
 index 56123a6..b987a88 100644
---- fs/proc/task_nommu.c
-+++ fs/proc/task_nommu.c
+--- a/fs/proc/task_nommu.c
++++ b/fs/proc/task_nommu.c
 @@ -150,6 +150,10 @@ static int nommu_vma_show(struct seq_file *m, struct vm_area_struct *vma,
  
  	if (file) {
@@ -29681,10 +30772,10 @@ index 56123a6..b987a88 100644
  		dev = inode->i_sb->s_dev;
  		ino = inode->i_ino;
  		pgoff = (loff_t)vma->vm_pgoff << PAGE_SHIFT;
-diff --git fs/splice.c fs/splice.c
+diff --git a/fs/splice.c b/fs/splice.c
 index 29e394e..7117387 100644
---- fs/splice.c
-+++ fs/splice.c
+--- a/fs/splice.c
++++ b/fs/splice.c
 @@ -1095,8 +1095,8 @@ EXPORT_SYMBOL(generic_splice_sendpage);
  /*
   * Attempt to initiate a splice from pipe to file.
@@ -29709,11 +30800,11 @@ index 29e394e..7117387 100644
  {
  	ssize_t (*splice_read)(struct file *, loff_t *,
  			       struct pipe_inode_info *, size_t, unsigned int);
-diff --git include/linux/aufs_type.h include/linux/aufs_type.h
+diff --git a/include/linux/aufs_type.h b/include/linux/aufs_type.h
 new file mode 100644
 index 0000000..d5536d0
 --- /dev/null
-+++ include/linux/aufs_type.h
++++ b/include/linux/aufs_type.h
 @@ -0,0 +1,19 @@
 +/*
 + * Copyright (C) 2012-2013 Junjiro R. Okajima
@@ -29734,10 +30825,10 @@ index 0000000..d5536d0
 + */
 +
 +#include <uapi/linux/aufs_type.h>
-diff --git include/linux/fs.h include/linux/fs.h
+diff --git a/include/linux/fs.h b/include/linux/fs.h
 index 2c28271..5c49108 100644
---- include/linux/fs.h
-+++ include/linux/fs.h
+--- a/include/linux/fs.h
++++ b/include/linux/fs.h
 @@ -2558,6 +2558,7 @@ extern int inode_change_ok(const struct inode *, struct iattr *);
  extern int inode_newsize_ok(const struct inode *, loff_t offset);
  extern void setattr_copy(struct inode *inode, const struct iattr *attr);
@@ -29746,10 +30837,10 @@ index 2c28271..5c49108 100644
  extern int file_update_time(struct file *file);
  
  extern int generic_show_options(struct seq_file *m, struct dentry *root);
-diff --git include/linux/mm_types.h include/linux/mm_types.h
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
 index ace9a5f..6636779 100644
---- include/linux/mm_types.h
-+++ include/linux/mm_types.h
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
 @@ -213,6 +213,7 @@ struct vm_region {
  	unsigned long	vm_top;		/* region allocated to here */
  	unsigned long	vm_pgoff;	/* the offset in vm_file corresponding to vm_start */
@@ -29766,10 +30857,10 @@ index ace9a5f..6636779 100644
  	void * vm_private_data;		/* was vm_pte (shared mem) */
  
  #ifndef CONFIG_MMU
-diff --git include/linux/splice.h include/linux/splice.h
+diff --git a/include/linux/splice.h b/include/linux/splice.h
 index 09a545a..1ac5727 100644
---- include/linux/splice.h
-+++ include/linux/splice.h
+--- a/include/linux/splice.h
++++ b/include/linux/splice.h
 @@ -91,4 +91,10 @@ extern void splice_shrink_spd(struct splice_pipe_desc *);
  extern void spd_release_page(struct splice_pipe_desc *, unsigned int);
  
@@ -29781,10 +30872,10 @@ index 09a545a..1ac5727 100644
 +			 struct pipe_inode_info *pipe, size_t len,
 +			 unsigned int flags);
  #endif
-diff --git include/uapi/linux/Kbuild include/uapi/linux/Kbuild
+diff --git a/include/uapi/linux/Kbuild b/include/uapi/linux/Kbuild
 index 5c8a1d2..fea7572 100644
---- include/uapi/linux/Kbuild
-+++ include/uapi/linux/Kbuild
+--- a/include/uapi/linux/Kbuild
++++ b/include/uapi/linux/Kbuild
 @@ -56,6 +56,7 @@ header-y += atmppp.h
  header-y += atmsap.h
  header-y += atmsvc.h
@@ -29793,11 +30884,11 @@ index 5c8a1d2..fea7572 100644
  header-y += auto_fs.h
  header-y += auto_fs4.h
  header-y += auxvec.h
-diff --git include/uapi/linux/aufs_type.h include/uapi/linux/aufs_type.h
+diff --git a/include/uapi/linux/aufs_type.h b/include/uapi/linux/aufs_type.h
 new file mode 100644
-index 0000000..82e454f
+index 0000000..06b4460
 --- /dev/null
-+++ include/uapi/linux/aufs_type.h
++++ b/include/uapi/linux/aufs_type.h
 @@ -0,0 +1,235 @@
 +/*
 + * Copyright (C) 2005-2013 Junjiro R. Okajima
@@ -29895,7 +30986,7 @@ index 0000000..82e454f
 +#define AUFS_WKQ_NAME		AUFS_NAME "d"
 +#define AUFS_MFS_DEF_SEC	30 /* seconds */
 +#define AUFS_MFS_MAX_SEC	3600 /* seconds */
-+#define AUFS_PLINK_WARN		100 /* number of plinks */
++#define AUFS_PLINK_WARN		50 /* number of plinks in a single bucket */
 +
 +/* pseudo-link maintenace under /proc */
 +#define AUFS_PLINK_MAINT_NAME	"plink_maint"
@@ -30034,10 +31125,10 @@ index 0000000..82e454f
 +#define AUFS_CTL_IBUSY		_IOWR(AuCtlType, AuCtl_IBUSY, struct aufs_ibusy)
 +
 +#endif /* __AUFS_TYPE_H__ */
-diff --git kernel/fork.c kernel/fork.c
+diff --git a/kernel/fork.c b/kernel/fork.c
 index 1766d32..c17b93b 100644
---- kernel/fork.c
-+++ kernel/fork.c
+--- a/kernel/fork.c
++++ b/kernel/fork.c
 @@ -417,6 +417,8 @@ static int dup_mmap(struct mm_struct *mm, struct mm_struct *oldmm)
  			struct address_space *mapping = file->f_mapping;
  
@@ -30047,10 +31138,10 @@ index 1766d32..c17b93b 100644
  			if (tmp->vm_flags & VM_DENYWRITE)
  				atomic_dec(&inode->i_writecount);
  			mutex_lock(&mapping->i_mmap_mutex);
-diff --git mm/memory.c mm/memory.c
+diff --git a/mm/memory.c b/mm/memory.c
 index ba94dec..2c87da1 100644
---- mm/memory.c
-+++ mm/memory.c
+--- a/mm/memory.c
++++ b/mm/memory.c
 @@ -3456,6 +3456,8 @@ static int __do_fault(struct mm_struct *mm, struct vm_area_struct *vma,
  		/* file_update_time outside page_lock */
  		if (vma->vm_file && !page_mkwrite)
@@ -30060,10 +31151,10 @@ index ba94dec..2c87da1 100644
  	} else {
  		unlock_page(vmf.page);
  		if (anon)
-diff --git mm/mmap.c mm/mmap.c
+diff --git a/mm/mmap.c b/mm/mmap.c
 index 0db0de1..147446c 100644
---- mm/mmap.c
-+++ mm/mmap.c
+--- a/mm/mmap.c
++++ b/mm/mmap.c
 @@ -243,6 +243,8 @@ static struct vm_area_struct *remove_vma(struct vm_area_struct *vma)
  		vma->vm_ops->close(vma);
  	if (vma->vm_file)
@@ -30109,10 +31200,10 @@ index 0db0de1..147446c 100644
  			if (new_vma->vm_ops && new_vma->vm_ops->open)
  				new_vma->vm_ops->open(new_vma);
  			vma_link(mm, new_vma, prev, rb_link, rb_parent);
-diff --git mm/nommu.c mm/nommu.c
-index 2f3ea74..06529ce 100644
---- mm/nommu.c
-+++ mm/nommu.c
+diff --git a/mm/nommu.c b/mm/nommu.c
+index e001768..e9f09eb 100644
+--- a/mm/nommu.c
++++ b/mm/nommu.c
 @@ -650,6 +650,8 @@ static void __put_nommu_region(struct vm_region *region)
  
  		if (region->vm_file)
