@@ -2,6 +2,9 @@
 auth       required     pam_env.so
 auth       optional     pam_keystore.so
 auth       sufficient   pam_unix.so use_first_pass
+#?pkg(sys-auth/pam_client)!=#
+auth       optional     pam_client.so
+#pkg#
 auth       sufficient   pam_ldap.so use_first_pass
 auth       required     pam_deny.so
 

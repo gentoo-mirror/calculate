@@ -1,0 +1,10 @@
+# Calculate format=world name=world ini(update.world)<14
+
+#-ini(update.world,14)-#
+
+#?in(os_linux_shortname, CLDX)!=#
+!lxde-base/lxdm
+!media-gfx/lxdm-themes-calculate
+x11-misc/ligthdm-gtk-greeter
+#in#
+
