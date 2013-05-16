@@ -1,7 +1,8 @@
-# Calculate format=patch
-<reg>@import url("resource:///org/gnome/adwaita/gtk-main.css");</reg>
-<text>@define-color lightdm_bg_color #242424;
-@define-color lightdm_fg_color #efefef;
+# Calculate
+
+/* lightdm greeter color scheme */
+@define-color lightdm_bg_color #000000;
+@define-color lightdm_fg_color #ffffff;
 
 @import url("resource:///org/gnome/adwaita/gtk-main.css");
-@import url("apps/lightdm-gtk-greeter.css");</text>
+@import url("apps/lightdm-gtk-greeter.css");
