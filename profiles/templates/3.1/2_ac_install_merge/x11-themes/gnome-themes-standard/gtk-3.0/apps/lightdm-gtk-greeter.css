@@ -1,0 +1,16 @@
+#panel_window #menubar {
+    background-color: @lightdm_bg_color;
+    background-image: none;
+    color: @lightdm_fg_color;
+}
+
+
+#panel_window .menubar.menuitem:focus,
+#panel_window .menubar .menuitem:focus {
+    border-color: alpha(@theme_selected_bg_color, 0.4);
+
+    box-shadow: inset 1px 0 alpha(@theme_selected_bg_color, 0.4),
+                inset 0 1px alpha(@theme_selected_bg_color, 0.4),
+                inset -1px 0 alpha(@theme_selected_bg_color, 0.4),
+                inset 0 -1px alpha(@theme_selected_bg_color, 0.4);
+}
