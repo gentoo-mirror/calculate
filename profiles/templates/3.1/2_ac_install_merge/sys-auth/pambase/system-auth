@@ -1,6 +1,11 @@
 # Calculate chmod=0644 chown=root:root comment=#
 auth       required     pam_env.so
-auth       sufficient   pam_unix.so
+auth       optional     pam_keystore.so
+auth       sufficient   pam_unix.so use_first_pass
+#?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
+auth       requisite    pam_client.so
+auth       sufficient   pam_ldap.so use_first_pass
+#pkg#
 auth       required     pam_deny.so
 
 account    required     pam_unix.so
