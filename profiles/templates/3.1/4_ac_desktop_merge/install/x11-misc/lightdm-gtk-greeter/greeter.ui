@@ -1,18 +1,16 @@
 # Calculate format=patch path=/usr/share/lightdm-gtk-greeter name=greeter.ui
 
 <reg>\s*&lt;child&gt;
-\s*&lt;object class="GtkImage" id="logo"&gt;
-\s*&lt;property name="name"&gt;logo&lt;/property&gt;
-\s*&lt;property name="visible"&gt;True&lt;/property&gt;</reg>
-<text>&lt;child&gt;
-&lt;object class="GtkImage" id="logo"&gt;
-&lt;property name="name"&gt;logo&lt;/property&gt;
-&lt;property name="visible"&gt;False&lt;/property&gt;</text>
-<reg>\s*&lt;child&gt;
 \s*&lt;object class="GtkMenuItem" id="a11y_menuitem"&gt;
 \s*&lt;property name="name"&gt;a11y_menuitem&lt;/property&gt;
 \s*&lt;property name="visible"&gt;True&lt;/property&gt;</reg>
 <text>&lt;child&gt;
 &lt;object class="GtkMenuItem" id="a11y_menuitem"&gt;
 &lt;property name="name"&gt;a11y_menuitem&lt;/property&gt;
+&lt;property name="visible"&gt;False&lt;/property&gt;</text>
+<reg>\s*&lt;object class="GtkLabel" id="hostname_label"&gt;
+\s*&lt;property name="name"&gt;hostname_label&lt;/property&gt;
+\s*&lt;property name="visible"&gt;True&lt;/property&gt;</reg>
+<text>&lt;object class="GtkLabel" id="hostname_label"&gt;
+&lt;property name="name"&gt;hostname_label&lt;/property&gt;
 &lt;property name="visible"&gt;False&lt;/property&gt;</text>
