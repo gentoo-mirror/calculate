@@ -2,6 +2,10 @@
 
 #-ini(update.world,14)-#
 
+#?in(os_linux_shortname, CLDX, CLD, CLDG)!=#
+media-gfx/imagemagick
+#in#
+
 #?in(os_linux_shortname, CLDX)!=#
 !lxde-base/lxdm
 !media-gfx/lxdm-themes-calculate
