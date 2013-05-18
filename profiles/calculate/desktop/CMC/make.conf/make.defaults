@@ -1,5 +1,11 @@
 USE=""
 
+# Printing
+USE="${USE} -cups"
+
+# Window manager and speciality
+USE="${USE} -gtk"
+
 VIDEO_CARDS="${VIDEO_CARDS} radeonhd"
 
 CDISTRO="CMC"
