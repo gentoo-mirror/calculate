@@ -1,8 +1,26 @@
-# Calculate format=world name=world ini(update.world)<16
+# Calculate format=world name=world ini(update.world)<15
 
-#-ini(update.world,16)-#
+#-ini(update.world,15)-#
+
+!app-arch/dump
+
+#?in(os_linux_shortname, CMC, CDS, CLS)!=#
+!app-arch/arj
+!app-arch/p7zip
+!app-arch/rar
+!app-arch/unace
+!app-arch/unarj
+!app-arch/unzip
+!app-arch/zip
+#in#
 
 #?in(os_linux_shortname, CMC)!=#
+!app-misc/mc
+!dev-python/ipython
+!net-p2p/rtorrent
+!sys-apps/acl
 !sys-apps/keyexec
+!sys-apps/preload
+!sys-auth/thinkfinger
 #in#
 
