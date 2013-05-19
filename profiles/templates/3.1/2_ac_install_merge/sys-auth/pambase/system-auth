@@ -1,7 +1,12 @@
 # Calculate chmod=0644 chown=root:root comment=#
 auth       required     pam_env.so
+#?pkg(sys-auth/pam_keystore)!=#
 auth       optional     pam_keystore.so
 auth       sufficient   pam_unix.so use_first_pass
+#pkg#
+#?pkg(sys-auth/pam_keystore)==#
+auth       sufficient   pam_unix.so
+#pkg#
 #?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
 auth       requisite    pam_client.so
 auth       sufficient   pam_ldap.so use_first_pass
@@ -9,11 +14,20 @@ auth       sufficient   pam_ldap.so use_first_pass
 auth       required     pam_deny.so
 
 account    required     pam_unix.so
+#?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
+account    sufficient   pam_ldap.so
+#pkg#
 
 password   required     pam_cracklib.so difok=2 minlen=8 dcredit=2 ocredit=2 retry=3
 password   sufficient   pam_unix.so nullok sha256 shadow use_authtok
+#?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
+password   sufficient   pam_ldap.so
+#pkg#
 password   required     pam_deny.so
 
 session    required     pam_limits.so
 session    required     pam_unix.so
+#?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
+session    optional     pam_ldap.so
+#pkg#
 
