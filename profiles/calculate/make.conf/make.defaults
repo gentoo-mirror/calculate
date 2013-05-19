@@ -37,5 +37,5 @@ NPTL_KERN_VER="3.0.0"
 PORTAGE_NICENESS=19
 PORTAGE_TMPDIR="/var/calculate/tmp"
 USE_EXPAND="CALCULATE CDISTRO CL THEMES"
-EMERGE_DEFAULT_OPTS="--binpkg-respect-use=y --quiet-build=n"
+EMERGE_DEFAULT_OPTS="--binpkg-respect-use=y --quiet-build=n --with-bdeps=y"
 USE_PYTHON="2.7"
