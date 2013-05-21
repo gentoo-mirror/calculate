@@ -1,4 +1,4 @@
-# Calculate chmod=0644 chown=root:root comment=#
+# Calculate chmod=0644 chown=root:root comment=# pkg(sys-auth/pam_client)!=
 auth       required     pam_env.so
 #?pkg(sys-auth/pam_keystore)!=#
 auth       optional     pam_keystore.so
