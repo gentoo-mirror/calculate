@@ -126,7 +126,12 @@
     </property>
 #pkg#
     <property name="plugin-7" type="string" value="actions">
-      <property name="first-action" type="uint" value="2"/>
+      <property name="appearance" type="uint" value="0"/>
+      <property name="invert-orientation" type="bool" value="false"/>
+      <property name="items" type="array">
+        <value type="string" value="+lock-screen"/>
+        <value type="string" value="-switch-user"/>
+      </property>
     </property>
     <property name="plugin-20" type="string" value="directorymenu">
       <property name="base-directory" type="string" value="/home/#-ur_login-#"/>
