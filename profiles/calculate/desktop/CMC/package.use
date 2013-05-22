@@ -12,3 +12,5 @@ net-libs/libmicrohttpd messages
 
 x11-drivers/nvidia-drivers -tools
 
+#исключим зависимость от tk
+net-dialup/rp-pppoe -X

@@ -1,5 +1,8 @@
 USE=""
 
+# Languages support
+USE="${USE} -python -tk"
+
 # Printing
 USE="${USE} -cups"
 
