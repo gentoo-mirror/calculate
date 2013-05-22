@@ -1,0 +1,5 @@
+# Calculate path=/usr/share/calculate/xdm/logout.d
+#!/bin/bash
+
+chvt $(ps ax | grep -v root/$DISPLAY | sed -rn 's/^.*lightdm\/root.*vt([0-9]+).*$/\1/p' | awk '{print $1}')
+exit 0
