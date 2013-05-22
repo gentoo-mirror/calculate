@@ -1,5 +1,8 @@
 USE=""
 
+# Artwork
+USE="${USE} -xscreensaver"
+
 # Audio
 USE="${USE} cdda -gstreamer"
 
