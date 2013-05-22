@@ -125,12 +125,9 @@
       <property name="track" type="string" value="#-cl_desktop_gst_masterchannel-#"/>
     </property>
 #pkg#
-    <property name="plugin-7" type="string" value="actions">
-      <property name="appearance" type="uint" value="0"/>
-      <property name="invert-orientation" type="bool" value="false"/>
+    <property name="plugin-7" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="+lock-screen"/>
-        <value type="string" value="-switch-user"/>
+        <value type="string" value="10000000007.desktop"/>
       </property>
     </property>
     <property name="plugin-20" type="string" value="directorymenu">
