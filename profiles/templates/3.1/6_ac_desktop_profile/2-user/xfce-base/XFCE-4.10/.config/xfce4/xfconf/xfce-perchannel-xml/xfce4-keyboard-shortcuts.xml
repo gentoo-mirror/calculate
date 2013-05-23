@@ -4,12 +4,7 @@
 <channel name="xfce4-keyboard-shortcuts" version="1.0">
   <property name="commands" type="empty">
     <property name="default" type="empty">
-#?pkg(gnome-extra/gnome-screensaver)!=&&pkg(x11-misc/lightdm)!=#
-      <property name="Scroll_Lock" type="string" value="dm-tool lock"/>
-#pkg#
-#?pkg(gnome-extra/gnome-screensaver)==||pkg(x11-misc/lightdm)==#
       <property name="Scroll_Lock" type="string" value="xflock4"/>
-#pkg#
       <property name="Print" type="string" value="xfce4-screenshooter -f"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-session-logout"/>
       <property name="&lt;Shift&gt;&lt;Control&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-session-logout --logout"/>
