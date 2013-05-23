@@ -1,7 +1,7 @@
 # Calculate run=/bin/bash merge=sys-boot/grub
 
 echo "Clean /boot"
-for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}-*
+for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}-*#-os_install_arch_machine-#-#-os_install_linux_shortname-#*
 do
     rm -f $i
 done
