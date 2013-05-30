@@ -13,5 +13,15 @@ do
 	done
 done
 #install.cl_migrate_user#
+grep -Hr " /root" /var/db/pkg | awk -F: '{print $1}' | sort | uniq | 
+while read line;
+do
+    sed -i "/ \/root/d" $line
+done
+grep -Hr " /home$" /var/db/pkg | awk -F: '{print $1}' | sort | uniq | 
+while read line;
+do
+    sed -i "/ \/home$/d" $line
+done
 
 exit 0
