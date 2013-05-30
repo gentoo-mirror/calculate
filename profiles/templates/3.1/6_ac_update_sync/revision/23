@@ -1,0 +1,17 @@
+# Calculate ini(update.rev)<23 exec=/bin/bash
+
+#-ini(update.rev,23)-#
+
+#?install.cl_migrate_user!=#
+echo "Fix /var/db/pkg and user profiles"
+for i in $(echo #-install.cl_migrate_user-# | sed -r 's/,|\[|\]/ /g');
+do
+	grep -Hr /home/$i/ /var/db/pkg | awk -F: '{print $1}' | sort | uniq | 
+	while read line;
+	do
+		sed -i "/\/home\/$i/d" $line
+	done
+done
+#install.cl_migrate_user#
+
+exit 0
