@@ -1,4 +1,4 @@
-# Calculate format=patch path=/etc chmod=0440
+# Calculate path=/etc/sudoers.d chmod=0440
 #?load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)!=0x8086||load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)!=0xa011&&load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)!=0x2a42#
 Cmnd_Alias NETBOOK_CMDS = /usr/bin/cpufreq_toggle_osd, /usr/bin/cpufreq_toggle
 #load#

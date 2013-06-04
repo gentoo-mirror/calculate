@@ -1,4 +1,4 @@
-# Calculate format=patch path=/etc chmod=0440
+# Calculate path=/etc/sudoers.d chmod=0440
 #?load(char,/sys/bus/pci/devices/0000:03:00.0/vendor,root)!=0x8086||load(char,/sys/bus/pci/devices/0000:03:00.0/device,root)!=0x423d#
 Cmnd_Alias NETBOOK_CMDS = /usr/sbin/pm-hibernate
 #load#
