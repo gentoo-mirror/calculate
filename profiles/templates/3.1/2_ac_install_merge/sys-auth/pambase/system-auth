@@ -25,7 +25,7 @@ account    sufficient   pam_ldap.so
 password   required     pam_cracklib.so difok=2 minlen=8 dcredit=2 ocredit=2 retry=3
 password   sufficient   pam_unix.so nullok sha256 shadow use_authtok
 #?pkg(sys-fs/ecryptfs-utils)!=#
-password       optional     pam_ecryptfs.so
+password   optional     pam_ecryptfs.so
 #pkg#
 #?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
 password   sufficient   pam_ldap.so
@@ -35,7 +35,7 @@ password   required     pam_deny.so
 session    required     pam_limits.so
 session    required     pam_unix.so
 #?pkg(sys-fs/ecryptfs-utils)!=#
-session    optional     pam_ecryptfs.so
+session    optional     pam_ecryptfs.so unwrap
 #pkg#
 #?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
 session    optional     pam_ldap.so
