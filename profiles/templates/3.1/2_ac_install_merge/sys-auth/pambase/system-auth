@@ -1,11 +1,18 @@
-# Calculate chmod=0644 chown=root:root comment=# pkg(sys-auth/pam_client)!=
+# Calculate chmod=0644 chown=root:root comment=#
 auth       required     pam_env.so
-#?pkg(sys-auth/pam_keystore)!=#
+#?pkg(sys-auth/pam_keystore)!=&&pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
 auth       optional     pam_keystore.so
 auth       [success=3 new_authtok_reqd=done default=ignore]   pam_unix.so use_first_pass
 #pkg#
-#?pkg(sys-auth/pam_keystore)==#
+#?pkg(sys-auth/pam_keystore)==&&pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
 auth       [success=3 new_authtok_reqd=done default=ignore]   pam_unix.so
+#pkg#
+#?pkg(sys-auth/pam_keystore)!=&&pkg(sys-auth/pam_client)==||pkg(sys-auth/pam_keystore)!=&&pkg(sys-apps/calculate-client)==#
+auth       optional     pam_keystore.so
+auth       [success=1 new_authtok_reqd=done default=ignore]   pam_unix.so use_first_pass
+#pkg#
+#?pkg(sys-auth/pam_keystore)==&&pkg(sys-auth/pam_client)==||pkg(sys-auth/pam_keystore)==&&pkg(sys-apps/calculate-client)==#
+auth       [success=1 new_authtok_reqd=done default=ignore]   pam_unix.so
 #pkg#
 #?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
 auth       requisite    pam_client.so
