@@ -1,0 +1,102 @@
+diff --git data/login.d/00init data/login.d/00init
+index 5cbebf4..b56e158 100644
+--- data/login.d/00init
++++ data/login.d/00init
+@@ -26,6 +26,8 @@ else
+     fi
+ fi
+ 
++modprobe ecryptfs
++
+ if [[ "`ps axeo command | grep 'xdm/xdm --logout' | grep -v grep | \
+ 	sed -n -r 's/.* USER=([^ ]+) .*/\1/p'`" == "$USER" ]];
+ then
+diff --git data/logout.d/98umount data/logout.d/98umount
+index bf3b074..f388464 100644
+--- data/logout.d/98umount
++++ data/logout.d/98umount
+@@ -1,4 +1,5 @@
+ #!/bin/bash
+ 
++keyctl unlink $( keyctl request user $USER )
+ umount -l /home/$USER
+ exit 0
+diff --git desktop/cl_desktop.py desktop/cl_desktop.py
+index 11ca1de..f224bfa 100644
+--- desktop/cl_desktop.py
++++ desktop/cl_desktop.py
+@@ -27,17 +27,20 @@ from datavars import DataVarsDesktop, DataVars, __version__,__app__
+ 
+ from calculate.lib.cl_template import (Template, ProgressTemplate,
+     TemplatesError,templateFunction,iniParser)
+-from calculate.lib.utils.files import runOsCommand, isMount,process, \
+-                        getRunCommands,STDOUT
+-from calculate.lib.utils.common import getpathenv,appendProgramToEnvFile, \
+-                                       removeProgramToEnvFile,mountEcryptfs, \
+-                                       CommonError
++from calculate.lib.utils.files import (runOsCommand, isMount,process,
++                        getRunCommands,STDOUT,childMounts)
++from calculate.lib.utils.common import (getpathenv,appendProgramToEnvFile,
++                                       removeProgramToEnvFile,mountEcryptfs,
++                                       CommonError, isBootstrapDataOnly)
+ from calculate.core.server.func import safetyWrapper
+ 
+ from calculate.lib.cl_lang import setLocalTranslate,getLazyLocalTranslate
+ setLocalTranslate('cl_desktop3',sys.modules[__name__])
+ __ = getLazyLocalTranslate(_)
+ from itertools import ifilter
++import tarfile
++import tempfile
++import shutil
+ 
+ class DesktopError(Exception):
+     """Desktop Error"""
+@@ -76,10 +79,45 @@ class Desktop:
+             except CommonError as e:
+                 raise DesktopError(_("Failed to mount ecrypt")+": \"%s\""%str(e))
+         else:
+-            e = process('/usr/bin/ecryptfs-setup-private','-u',userName,'-b','-l',userPwd,stderr=STDOUT)
+-            if e.failed():
+-                raise DesktopError(e.read()+
++            tf = None
++            try:
++                # если профиль содержит только данные от бутстрапа core
++                if isBootstrapDataOnly(userDir):
++                    if childMounts(userDir):
++                        raise DesktopError(
++                            _("Failed to create encrypt user profile")+":"+
++                            _("User home directory contains mount points"))
++                    # поместить данные во временный tarfile
++                    calculateName = ".calculate"
++                    calculatePath = path.join(userDir,calculateName)
++                    tf = tempfile.TemporaryFile()
++                    with tarfile.open(fileobj=tf,mode='w:') as tarf:
++                        tarf.add(calculatePath,calculateName)
++                    tf.flush()
++                    tf.seek(0)
++                    # удалить эти данные
++                    shutil.rmtree(calculatePath)
++
++                # создать шифрованные данные
++                e = process('/usr/bin/ecryptfs-setup-private','-u',userName,
++                            '-b','-l',userPwd,stderr=STDOUT)
++                if e.failed():
++                    raise DesktopError(e.read())
++                # если были данные от бутстрапа, то распаковать их
++                if tf:
++                    with tarfile.open(fileobj=tf,mode='r:') as tarf:
++                        tarf.extractall(userDir)
++            except Exception as e:
++                if tf:
++                    tf.seek(0)
++                    bakArchName = path.join(userDir,".calculate.tar.bz2")
++                    with open(bakArchName,'w') as f:
++                        f.write(tf.read())
++                raise DesktopError(str(e)+
+                     _("Failed to create encrypt user profile"))
++            finally:
++                if tf:
++                    tf.close()
+ 
+     def createUserDir(self, userName, uid, gid, userDir, mode=0700):
+         """

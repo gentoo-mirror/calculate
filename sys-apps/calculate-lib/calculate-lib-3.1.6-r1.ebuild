@@ -11,13 +11,25 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
+DESCRIPTION="The library for Calculate 3"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="amd64 x86"
+IUSE="minimal"
+DEPEND="!minimal? ( dev-python/py-smbpasswd )
+	>=dev-python/pyxml-0.8
+	sys-apps/iproute2
+	sys-apps/pciutils
+	sys-fs/lvm2
+	sys-fs/mdadm
+	dev-python/pyinotify
+	sys-apps/file[python]"
+RDEPEND="${DEPEND}"
+src_unpack() {
+    unpack "${A}"
+    cd "${S}"
 
-RDEPEND=">=sys-apps/calculate-lib-3.1.6"
-
-DEPEND="sys-devel/gettext
-	${RDEPEND}"
+    # apply revision changes
+    epatch "${FILESDIR}/calculate-lib-3.1.6-r1.patch"
+}
