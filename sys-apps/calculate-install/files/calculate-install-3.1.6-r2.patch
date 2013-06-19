@@ -1,0 +1,29 @@
+diff --git install/variables/system.py install/variables/system.py
+index b257227..608e5d5 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -173,6 +173,15 @@ class VariableClInstallHomeCryptSet(UserHelper,Variable):
+         self.help = _("crypt user profiles")
+         self.label = _("Crypt user profiles")
+ 
++    def get(self):
++        return ("off" if self.Get('cl_autologin')
++                else self.Get('cl_home_crypt_set'))
++
++    def check(self,value):
++        if value == "on" and self.Get('cl_autologin'):
++            raise VariableError(
++                _("Crypt user profile uncompatible with autologin"))
++
+ class VariableClMigrateData(UserHelper,TableVariable):
+     """
+     User migrate data table
+@@ -682,7 +691,7 @@ class VariableOsAudioData(ReadonlyTableVariable):
+         aplay = getProgPath('/usr/bin/aplay')
+         if not aplay:
+             return [[]]
+-        entry = re.compile('^card (\d+): ([^,]+)')
++        entry = re.compile('^card (\d+): ([^:]+)')
+         return tuple(map(lambda x:x.groups(),
+                filter(None,map(entry.search,
+                process(aplay,'-l')))))
