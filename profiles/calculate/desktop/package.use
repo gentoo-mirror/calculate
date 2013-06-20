@@ -28,7 +28,7 @@ media-gfx/sane-backends threads
 media-gfx/ufraw gimp
 media-libs/libsdl custom-cflags
 media-libs/mediastreamer video
-media-video/ffmpeg custom-cflags threads
+media-video/ffmpeg custom-cflags opus threads
 virtual/ffmpeg threads
 net-libs/xulrunner custom-optimization
 net-print/cndrvcups-capt -gtk
