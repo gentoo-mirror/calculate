@@ -12,4 +12,15 @@ priority 0
 about 1
 config 1
 enabled 1
-
+#?os_arch_machine!=x86_64#
+general /usr/lib/audacious/General/hotkey.so
+#os_arch_machine#
+#?os_arch_machine==x86_64#
+general /usr/lib64/audacious/General/hotkey.so
+#os_arch_machine#
+stamp 1371068438
+name Global Hotkeys
+priority 0
+about 1
+config 1
+enabled 1
