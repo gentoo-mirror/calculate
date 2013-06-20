@@ -1,0 +1,11 @@
+# Calculate path=~/.config/autostart
+
+[Desktop Entry]
+Version=1.0
+Name=Autolock
+Comment=Autolock session
+Icon=locked
+Exec=/usr/bin/xfautolock
+Terminal=false
+Type=Application
+Hidden=true

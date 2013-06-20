@@ -1,0 +1,18 @@
+# Calculate path=/usr/bin chmod=0755 
+#!/bin/bash
+
+OFFTIME=0
+while true;
+do
+	if ! xset -q | grep Monitor | grep -q On
+	then
+		if [[ $OFFTIME -gt 5 ]] && [ "$(qdbus org.gnome.ScreenSaver / GetActive)" != "true" ]
+		then
+			/usr/bin/xflock4
+		fi
+		OFFTIME=$(( $OFFTIME + 1 ))
+	else
+		OFFTIME=0
+	fi
+	sleep 1
+done
