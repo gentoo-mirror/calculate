@@ -9,10 +9,14 @@
       <property name="&lt;Control&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-session-logout"/>
       <property name="&lt;Shift&gt;&lt;Control&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-session-logout --logout"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Escape" type="string" value="xkill"/>
-      <property name="XF86HomePage" type="string" value="exo-open --launch FileManager"/>
       <property name="XF86Search" type="string" value="catfish"/>
       <property name="XF86Tools" type="string" value="audacious"/>
       <property name="XF86Calculator" type="string" value="galculator"/>
+    </property>
+  </property>
+  <property name="xfwm4" type="empty">
+    <property name="default" type="empty">
+      <property name="XF86HomePage" type="string" value="workspace_1_key"/>
     </property>
   </property>
 </channel>
