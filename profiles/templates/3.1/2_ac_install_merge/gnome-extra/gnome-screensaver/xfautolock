@@ -12,7 +12,7 @@ do
 		if [[ $OFFTIME -gt 5 ]] && [ "$(qdbus org.gnome.ScreenSaver / GetActive)" != "true" ]
 		then
 			# lock session
-			/usr/bin/xflock4
+			xset -q | grep Monitor | grep -q On || /usr/bin/xflock4
 		fi
 		OFFTIME=$(( $OFFTIME + 1 ))
 	else
