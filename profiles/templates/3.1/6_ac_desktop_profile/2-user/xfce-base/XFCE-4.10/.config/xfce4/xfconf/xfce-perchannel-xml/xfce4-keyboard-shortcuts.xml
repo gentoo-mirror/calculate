@@ -9,9 +9,9 @@
       <property name="&lt;Control&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-session-logout"/>
       <property name="&lt;Shift&gt;&lt;Control&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-session-logout --logout"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Escape" type="string" value="xkill"/>
-      <property name="XF86Search" type="string" value="catfish"/>
-      <property name="XF86Tools" type="string" value="audacious"/>
-      <property name="XF86Calculator" type="string" value="galculator"/>
+      <property name="XF86Search" type="string" value="xdg-open /usr/share/applications/catfish.desktop"/>
+      <property name="XF86Tools" type="string" value="xdg-open /usr/share/applications/calculate-audioplayer.desktop"/>
+      <property name="XF86Calculator" type="string" value="xdg-open /usr/share/applications/calculate-calculator.desktop"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
