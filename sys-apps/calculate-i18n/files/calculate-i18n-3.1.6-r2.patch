@@ -1,0 +1,1094 @@
+diff --git fr/cl_client3.po fr/cl_client3.po
+index 41af45d..d96536a 100644
+--- fr/cl_client3.po
++++ fr/cl_client3.po
+@@ -180,6 +180,15 @@ msgstr "Impossible de démonter le profil distant"
+ msgid "Failed to get the user profile from the domain"
+ msgstr "Impossible de récupérer le profil d'utilisateur du domaine"
+ 
++msgid "User password not found"
++msgstr "Mot de passe utilisateur non trouvé"
++
++msgid "Failed to use directory encryption"
++msgstr "Impossible de chiffrer le répertoire "
++
++msgid "Failed to create the encrypted user profile"
++msgstr "Le profil utilisateur chiffré n'a pas été créé"
++
+ msgid "Failed to resolve UID and GID"
+ msgstr "Impossible de détecter UID et GID"
+ 
+@@ -201,9 +210,6 @@ msgstr "Les données utilisateur stockées à /etc/passwd seront utilisées"
+ msgid "The computer is not in the domain"
+ msgstr "Le poste n'est pas dans le domaine"
+ 
+-msgid "User password not found"
+-msgstr "Mot de passe utilisateur non trouvé"
+-
+ msgid "Unable to cache user info"
+ msgstr "Impossible de mettre en cache les informations utilisateur"
+ 
+@@ -224,9 +230,6 @@ msgstr ""
+ msgid "Get the user profile from domain %s"
+ msgstr "Récupérer le profil d'utilisateur du domaine %s"
+ 
+-msgid "Failed to remove %s"
+-msgstr "Impossible de supprimer %s"
+-
+ msgid "Failed to make a links archive"
+ msgstr "Impossible d'archiver les liens"
+ 
+@@ -357,6 +360,9 @@ msgstr ""
+ msgid "Failed to change password"
+ msgstr "Impossible de valider un nouveau mot de passe"
+ 
++msgid "Failed to rewrap the passphrase"
++msgstr "Impossible de réarchiver le mot de passe"
++
+ msgid "%s's password changed"
+ msgstr "Le mot de passe de %s a été modifié"
+ 
+@@ -452,3 +458,4 @@ msgstr "Mot de passe vide"
+ 
+ msgid "new user password"
+ msgstr "nouveau mot de passe de l'utilisateur"
++
+diff --git fr/cl_core3.po fr/cl_core3.po
+index d178961..a8734c2 100644
+--- fr/cl_core3.po
++++ fr/cl_core3.po
+@@ -66,8 +66,8 @@ msgstr ""
+ msgid "Manually interrupted"
+ msgstr "Interrompu par l'utilisateur"
+ 
+-msgid "Using patches for the {nameProgram} package by Calculate Utilities"
+-msgstr ""
++msgid "Using Calculate patches for the {nameProgram} package"
++msgstr "Application des patchs Calculate pour le paquet {nameProgram}"
+ 
+ msgid "Configuration skipping until calculate-utilities are updated"
+ msgstr "La configuration sera omise tant que calculate-utilities"
+@@ -82,13 +82,10 @@ msgid "Setup"
+ msgstr "Réglages"
+ 
+ msgid "Dispatch-conf"
+-msgstr ""
+-
+-msgid "System"
+-msgstr "Système"
++msgstr "Dispatch-conf"
+ 
+ msgid "Patch"
+-msgstr ""
++msgstr "Patch"
+ 
+ msgid "Error"
+ msgstr "Erreur"
+@@ -181,7 +178,7 @@ msgid "PID %d watcher error"
+ msgstr "Erreur de surveillance PID %d"
+ 
+ msgid "Variable cl_core_monitor_period or cl_core_sid_live not found"
+-msgstr ""
++msgstr "Variable cl_core_monitor_period ou cl_core_sid_live introuvable(s)"
+ 
+ msgid "Error reading SID files"
+ msgstr "Impossible de lire les fichiers SID"
+@@ -349,10 +346,10 @@ msgid "Passwords do not match"
+ msgstr "Les mots de passe ne correspondent pas"
+ 
+ msgid "(by default)"
+-msgstr ""
++msgstr "(par défaut)"
+ 
+ msgid "Common arguments"
+-msgstr ""
++msgstr "Paramètres généraux"
+ 
+ msgid "silent during the process"
+ msgstr "rester silencieux tant que le processus est en cours"
+@@ -364,7 +361,7 @@ msgid "Repeat password: "
+ msgstr "Veuillez ressaisir le mot de passe : "
+ 
+ msgid "Wrong %s value syntax"
+-msgstr ""
++msgstr "Syntaxe de la valeur %s incorrecte"
+ 
+ msgid "Password for %s: "
+ msgstr "Mot de passe pour %s :"
+@@ -745,11 +742,11 @@ msgstr "chemin vers les journaux"
+ msgid "print the version number, then exit"
+ msgstr "afficher le numéro de version, puis quitter"
+ 
+-msgid "The answer is not understood"
+-msgstr ""
++msgid "The answer is uncertain"
++msgstr "La réponse n'est pas claire "
+ 
+ msgid "Ambiguous answer:"
+-msgstr ""
++msgstr "Réponse ambiguë :"
+ 
+ msgid "Method not found for %s"
+ msgstr "Méthode non trouvée pour %s"
+@@ -825,16 +822,16 @@ msgid "Country (two letters only!): "
+ msgstr "Pays (seul le code à deux lettres est accepté !):"
+ 
+ msgid "({one} of {_all}) -- {fname}"
+-msgstr ""
++msgstr "({one} de {_all}) -- {fname}"
+ 
+-msgid "Choice action with config:"
+-msgstr ""
++msgid "Choose a configuration action:"
++msgstr "Veuillez sélectionner une action de configuration :"
+ 
+ msgid "Zap new"
+-msgstr ""
++msgstr "Supprimer le nouveau"
+ 
+ msgid "Use new"
+-msgstr ""
++msgstr "Utiliser le nouveau"
+ 
+ msgid "Failed to copy {ffrom} to {fto}"
+ msgstr "Impossible de copier {ffrom} vers {fto}"
+@@ -1095,6 +1092,9 @@ msgstr "Modifiées par l'utilisateur"
+ msgid "Writable"
+ msgstr "Ouvertes en écriture"
+ 
++msgid "System"
++msgstr "Système"
++
+ msgid "Local"
+ msgstr "Locales"
+ 
+diff --git fr/cl_desktop3.po fr/cl_desktop3.po
+index beee432..3e13807 100644
+--- fr/cl_desktop3.po
++++ fr/cl_desktop3.po
+@@ -11,6 +11,18 @@ msgstr ""
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
++msgid "User password not found"
++msgstr "Mot de passe utilisateur introuvable"
++
++msgid "Failed to mount ecrypted data"
++msgstr "Impossible de monter les données chiffrées"
++
++msgid "Failed to create encrypt user profile"
++msgstr "Impossible de créer les données chiffrées"
++
++msgid "User home directory contains mount points"
++msgstr "Le répertoire home contient des points de montage"
++
+ msgid "Path %s exists"
+ msgstr "Chemin %s existe"
+ 
+@@ -41,6 +53,33 @@ msgstr "Impossible de détecter le répertoire home"
+ msgid "Failed to unmount directory %s"
+ msgstr "Impossible de démonter le répertoire %s"
+ 
++msgid "Logout aborted"
++msgstr "La sortie a été interrompue"
++
++msgid "The user logged out from the session!"
++msgstr "L'utilisateur est bien sorti de la session !"
++
++msgid "Unable to logout the user"
++msgstr "Echec de la sortie de session"
++
++msgid "X session users not found"
++msgstr "Utilisateurs de la session X introuvables"
++
++msgid "Unable to detect the X session"
++msgstr "Impossible de déterminer la session X"
++
++msgid "Unable to send the logout command"
++msgstr "La commande de sortie n'a pas été envoyée"
++
++msgid "Waiting for completion of the user logout"
++msgstr "En attente de sortie"
++
++msgid "Unable to wait for completion of the user logout"
++msgstr "Temps d'attente de sortie trop long"
++
++msgid "Wrong logout"
++msgstr "Sortie incorrecte"
++
+ msgid "Desktop"
+ msgstr "Bureau"
+ 
+@@ -49,3 +88,9 @@ msgstr "Configurer l'utilisateur"
+ 
+ msgid "Configure"
+ msgstr "Configurer"
++
++msgid "User logout"
++msgstr "Sortie"
++
++msgid "Logout"
++msgstr "Sortie"
+diff --git fr/cl_install3.po fr/cl_install3.po
+index 088e42e..36312f1 100644
+--- fr/cl_install3.po
++++ fr/cl_install3.po
+@@ -190,6 +190,9 @@ msgstr "Paramètres réseau"
+ msgid "Users"
+ msgstr "Utilisateurs"
+ 
++msgid "Audio"
++msgstr "Audio"
++
+ msgid "Video"
+ msgstr "Graphisme"
+ 
+@@ -229,9 +232,6 @@ msgstr "Système"
+ msgid "Failed to copy '%(src)s' to '%(dst)s'"
+ msgstr "Impossible de copier '%(src)s' vers '%(dst)s'"
+ 
+-msgid "Duplicated {keyname}: {keylist}"
+-msgstr "Redondance {keyname} : {keylist}"
+-
+ msgid "Failed to find partition %s after changing the activity"
+ msgstr "La partition %s est introuvable après le changement d'activité"
+ 
+@@ -252,6 +252,13 @@ msgstr ""
+ msgid "Failed to install the bootloader"
+ msgstr "Impossible d'installer le chargeur d'amorçage"
+ 
++msgid "Failed to install the bootloader. /boot/efi is not mounted."
++msgstr ""
++"Impossible d'installer le chargeur d'amorçage. /boot/efi n'est pas monté."
++
++msgid "Failed to create the UEFI boot record"
++msgstr "La zone amorce UEFI n'a pas été créée"
++
+ msgid "Failed to determine the boot disk"
+ msgstr "Impossible de détecter le disque d'amorçage"
+ 
+@@ -348,6 +355,12 @@ msgstr "On configure l'installation USB"
+ msgid "Preparing the system for reboot"
+ msgstr "On prépare le système au redémarrage"
+ 
++msgid ""
++"Would you like to reboot your computer now to complete the installation?"
++msgstr ""
++"Voulez-vous redémarrer votre ordinateur maintenant pour terminer "
++"l'installation?"
++
+ msgid "Unable to umount %s"
+ msgstr "Démontage de %s échoué"
+ 
+@@ -428,6 +441,7 @@ msgstr "Adresses"
+ 
+ msgid "Network interface, DHCP or IP address and network mask (example: %s)"
+ msgstr ""
++"Interface réseau, DHCP ou adresse IP et masque du réseau (exemple : %s)"
+ 
+ msgid "Hostname"
+ msgstr "Nom d'hôte"
+@@ -456,8 +470,8 @@ msgstr "Adresse IP"
+ msgid "Wrong IP address %s"
+ msgstr "Adresse IP incorrecte %s"
+ 
+-msgid "disable"
+-msgstr ""
++msgid "Disabled"
++msgstr "Désactivé"
+ 
+ msgid "Auto"
+ msgstr "Auto"
+@@ -563,6 +577,17 @@ msgstr "Mot de passe root"
+ msgid "Password for user %s missing"
+ msgstr "Le mot de passe de l'utilisateur %s est absent"
+ 
++msgid "crypt user profiles"
++msgstr "chiffrer les profils utilisateurs"
++
++msgid "Crypt user profiles"
++msgstr "Chiffrer les profils utilisateurs"
++
++msgid "Crypt user profile uncompatible with autologin"
++msgstr ""
++"Le chiffrement du profil utilisateur est incompatible avec l'auto-"
++"authentification"
++
+ msgid "add a user to the installed system"
+ msgstr "ajouter un utilisateur au système installé"
+ 
+@@ -599,6 +624,9 @@ msgstr "réglages vidéo"
+ msgid "boot parameters"
+ msgstr "paramètres d'amorçage"
+ 
++msgid "audio parameters"
++msgstr ""
++
+ msgid "user settings"
+ msgstr "réglages utilisateurs"
+ 
+@@ -629,6 +657,55 @@ msgstr "Chemin d'installation"
+ msgid "path for PXE install"
+ msgstr "chemin d'installation PXE"
+ 
++msgid "UEFI boot"
++msgstr "Amorçage UEFI"
++
++msgid "use UEFI boot"
++msgstr "utiliser l'amorçage UEFI"
++
++msgid "Your system must be loaded in UEFI for using this bootloader"
++msgstr ""
++"Votre système doit être lancé avec UEFI pour pouvoir utiliser ce chargeur "
++"d'amorçage"
++
++msgid "GPT is needed for using the UEFI bootloader"
++msgstr ""
++"La table de partitions GPT est indispensable pour pouvoir utiliser le "
++"chargeur d'amorçage UEFI"
++
++msgid "A EF00 partition is needed for using the UEFI bootloader"
++msgstr ""
++"Une partition EF00 est indispensable pour pouvoir utiliser le chargeur "
++"d'amorçage UEFI"
++
++msgid "Architecture of the target system must be x86_64"
++msgstr "L'architecture du système à installer doit être x86_64"
++
++msgid "This option not used for Flash install"
++msgstr "Cette option n'est pas utilisée pour installer sur un support USB"
++
++msgid "The layout is not available with autopartitioning"
++msgstr "La mise en page n'est pas supportée pour l'autopartition"
++
++msgid "Grub terminal"
++msgstr "Terminal Grub"
++
++msgid "grub terminal"
++msgstr "terminal grub"
++
++msgid "Grub configuration unavailable for Flash install"
++msgstr ""
++"Il est impossible de configurer Grub si vous installez sur un support USB"
++
++msgid "Default audio card"
++msgstr "Carte audio par défaut"
++
++msgid "set default audio card"
++msgstr "mettre carte audio par défaut"
++
++msgid "Audio configuration unavailable for Flash install"
++msgstr ""
++
+ msgid "Installation image"
+ msgstr "Image d'installation"
+ 
+@@ -665,17 +742,20 @@ msgstr "par build"
+ msgid "select the operation system by build"
+ msgstr "trier par build pour choisir le système d'exploitation"
+ 
+-msgid "Install newer images only"
+-msgstr ""
++msgid "Install the newer image only"
++msgstr "N'installer que l'image plus récente"
+ 
+-msgid "install newer images only"
+-msgstr ""
++msgid "install the newer image only"
++msgstr "n'installer que l'image plus récente"
+ 
+ msgid "The image for update not found"
+ msgstr ""
+ 
+-msgid "The layout is not available with autopartitioning"
+-msgstr "La mise en page n'est pas supportée pour l'autopartition"
++msgid "Layout"
++msgstr "Mise en page"
++
++msgid "Source variable %s does not contain a list"
++msgstr "La variable source %s ne contient pas de liste"
+ 
+ msgid ""
+ "DISK bound for installation will be mounted to the DIR directory. If set to "
+@@ -686,9 +766,6 @@ msgstr ""
+ "est 'none', le point de montage bind ne sera pas transféré. Pour créer un "
+ "point de montage bind, veuillez déclarer le répertoire source comme DISK"
+ 
+-msgid "Layout"
+-msgstr "Mise en page"
+-
+ msgid "Disk or directory"
+ msgstr "Disque ou répertoire"
+ 
+@@ -729,6 +806,9 @@ msgstr "Impossible d'utiliser la partition étendue %s pour installer"
+ msgid "Unable to use CDROM %s for installation"
+ msgstr "Impossible d'utiliser CDROM %s pour installer"
+ 
++msgid "UEFI partition must be a disk partition"
++msgstr "La partition UEFI doit être une partition disque"
++
+ msgid ""
+ "Source directory %(src)s is already used for binding '%(bindSrc)s' to "
+ "'%(bindDst)s'"
+@@ -805,6 +885,12 @@ msgstr "utiliser UUID"
+ msgid "Impossible to use UUID for Flash install"
+ msgstr "Impossible d'utiliser UUID pour l'installation USB"
+ 
++msgid "Bootloader"
++msgstr "Chargeur d'amorçage"
++
++msgid "UEFI"
++msgstr "UEFI"
++
+ msgid "Boot disk"
+ msgstr "Disque d'amorçage"
+ 
+@@ -824,6 +910,9 @@ msgstr ""
+ "Vous avez besoin d'un disque avec la table de partition dos pour pouvoir "
+ "installer en USB"
+ 
++msgid "Disk %s must have a 'bios_grub' partition"
++msgstr "Le disque %s doit contenir une partition 'bios_grub'"
++
+ msgid "Grub does not support booting from a RAID assembled from a LVM"
+ msgstr "Grub ne supporte pas l'amorçage d'un RAID assemblé d'un LVM"
+ 
+@@ -846,6 +935,9 @@ msgstr ""
+ "Pour qu'il supporte l'amorçage de %s, legacy grub a besoin d'une partition /"
+ "boot dédiée"
+ 
++msgid "MBR is not used with the UEFI bootloader"
++msgstr "MBR n'est pas utilisé avec le chargeur d'amorçage UEFI"
++
+ msgid "device type for the system bound for install"
+ msgstr "type de média pour le système désigné à l'installation"
+ 
+@@ -994,9 +1086,33 @@ msgstr "Monter /var/calculate/home dans /home"
+ msgid "Separate boot partition"
+ msgstr "Partition boot dédiée"
+ 
++msgid "Use the UEFI bootloader"
++msgstr "Utiliser le chargeur d'amorçage UEFI"
++
+ msgid "Use LVM"
+ msgstr "Utiliser LVM"
+ 
++msgid "Create the bios_grub partition"
++msgstr "Créer la partition bios_grub"
++
++msgid ""
++"Architecture of the target system must be x86_64 for using the UEFI "
++"bootloader"
++msgstr ""
++"Pour pouvoir utiliser le chargeur d'amorçage UEFI, l'architerture du système "
++"à installer doit être x86_64"
++
++msgid "Partition table must be GPT for using UEFI bootloader"
++msgstr ""
++"La table de partitions GPT est indispensable pour pouvoir utiliser le "
++"chargeur d'amorçage UEFI"
++
++msgid "The 'bios_grub' partition is needed for grub install"
++msgstr "La partition 'bios_grub' est nécessaire pour installer grub"
++
++msgid "For the bios_grub partition, the partition table must be GPT"
++msgstr "La table pour la partition bios_grub doit être GPT"
++
+ msgid "Root partition size"
+ msgstr "Taille de la partition root"
+ 
+@@ -1011,3 +1127,4 @@ msgstr "Table de partition"
+ 
+ msgid "set the partition table for autopartition"
+ msgstr "choisir la table de partition pour l'auto-partition"
++
+diff --git fr/cl_lib3.po fr/cl_lib3.po
+index 3d1fcc8..4d30aa2 100644
+--- fr/cl_lib3.po
++++ fr/cl_lib3.po
+@@ -101,10 +101,10 @@ msgid "error: global variables stack empty"
+ msgstr "erreur : la pile de variables globales est vide"
+ 
+ msgid "Execution of templates was stopped"
+-msgstr ""
++msgstr "L'exécution des modèles a été arrêtée"
+ 
+-msgid "Execution of templates was interrupted with the error"
+-msgstr ""
++msgid "Execution of templates was interrupted with an error"
++msgstr "L'exécution des modèles a été arrêtée avec une erreur"
+ 
+ msgid ""
+ "the third argument of the function is neither 'url' or 'purl' or 'unicode'"
+@@ -177,7 +177,7 @@ msgid "invalid template name: "
+ msgstr "nom de gabarit incorrect :"
+ 
+ msgid "No conditions for checking the value of an action variable"
+-msgstr ""
++msgstr "Aucune condition de vérification pour une variable d'action"
+ 
+ msgid "Skipped templates:"
+ msgstr "Gabarits omis :"
+@@ -187,8 +187,10 @@ msgstr "Répertoires omis :"
+ 
+ msgid ""
+ "Headers of directory templates and headers of files on the first level "
+-"should include an action variable."
++"should include an action variable"
+ msgstr ""
++"Les en-têtes des modèles de répertoires et celles des fichiers du premier "
++"niveau doivent inclure une variable d'action"
+ 
+ msgid "Example:"
+ msgstr "Exemple :"
+@@ -203,16 +205,18 @@ msgid "Failed to execute"
+ msgstr "Exécution échouée"
+ 
+ msgid "Calculate Utilities have changed files"
+-msgstr ""
++msgstr "Les utilitaires Calculate ont modifié les fichiers"
+ 
+ msgid "Failed to copy {ffrom} to {fto}"
+-msgstr ""
++msgstr "Il est impossible de copier {ffrom} vers {fto}"
+ 
+ msgid "Failed to remove %s"
+-msgstr ""
++msgstr "Impossible de supprimer %s"
+ 
+-msgid "Some config files need updating. Perform dispatch-conf."
++msgid "Some config files need updating. Perform run dispatch-conf."
+ msgstr ""
++"Des fichiers de configuration nécessitent une mise à jour. Veuillez lancer "
++"dispatch-conf."
+ 
+ msgid "{dirpath} is a file"
+ msgstr "{dirpath} est un fichier"
+@@ -299,10 +303,10 @@ msgid "Incorrect header parameter format=%s in the template"
+ msgstr "Paramètre d'en-tête incorrect format=%s dans le gabarit"
+ 
+ msgid "Failed to use patch "
+-msgstr ""
++msgstr "Impossible d'appliquer le patch"
+ 
+-msgid "Applying patch"
+-msgstr ""
++msgid "Appling patch"
++msgstr "Application du patch"
+ 
+ msgid "Wrong template"
+ msgstr "Erreur de gabarit %s"
+@@ -495,6 +499,12 @@ msgstr "mot de passe incorrect"
+ msgid "try again"
+ msgstr "veuillez réessayer"
+ 
++msgid "Failed to unwrap the passphrase"
++msgstr "Impossible de désarchiver le mot de passe"
++
++msgid "Failed to parse Private.sig"
++msgstr "Echec de la décomposition de Private.sig"
++
+ msgid "rows"
+ msgstr "lignes"
+ 
+@@ -570,8 +580,8 @@ msgstr "Attribut \"type\" introuvable dans la balise"
+ msgid "Incorrect \"type\" attribute : <entry type=\"%s\"/>"
+ msgstr "Attribut \"type\" incorrect : <entry type=\"%s\"/>"
+ 
+-msgid "Patching failed"
+-msgstr ""
++msgid "Correction failed"
++msgstr "Impossible de corriger"
+ 
+ msgid ""
+ "The text is not a valid gconf-XML format (found '<%(tag)s>..</%(tag)s>')"
+@@ -648,26 +658,26 @@ msgstr "Anglais britannique"
+ msgid "United States/English"
+ msgstr "Anglais américain"
+ 
+-msgid "use new config files"
+-msgstr ""
++msgid "use the new config files"
++msgstr "utiliser les nouveaux fichiers de configuration"
+ 
+-msgid "skip the update config files"
+-msgstr ""
++msgid "skip the update of config files"
++msgstr "sauter la mise à jour des fichiers de configuration"
+ 
+ msgid "manually update config files"
+-msgstr ""
++msgstr "faire une mise à jour manuelle des fichiers de configuration"
+ 
+-msgid "Update config files method"
+-msgstr ""
++msgid "Method for updating config files"
++msgstr "Méthode de mise à jour des fichiers de configuration"
+ 
+-msgid "Use new config files"
+-msgstr ""
++msgid "Use the new config files"
++msgstr "Valider les nouveaux fichiers de configuration"
+ 
+-msgid "Skip the update config files"
+-msgstr ""
++msgid "Skip the update of config files"
++msgstr "Sauter la mise à jour des fichiers de configuration"
+ 
+ msgid "Manually update config files"
+-msgstr ""
++msgstr "Faire une mise à jour manuelle des fichiers de configuration"
+ 
+ msgid "verbose output"
+ msgstr "sortie verbeuse"
+diff --git fr/cl_update3.po fr/cl_update3.po
+index e9ef444..6000004 100644
+--- fr/cl_update3.po
++++ fr/cl_update3.po
+@@ -27,10 +27,10 @@ msgid "Rebuild world"
+ msgstr "réécrire le fichier world"
+ 
+ msgid "update revision"
+-msgstr ""
++msgstr "mettre à jour la révision"
+ 
+ msgid "Update revision"
+-msgstr ""
++msgstr "Mettre à jour la révision"
+ 
+ msgid "Select at least one update action"
+ msgstr "Sélectionner une action world"
+diff --git ru/cl_client3.po ru/cl_client3.po
+index 92b6aef..d7bf521 100644
+--- ru/cl_client3.po
++++ ru/cl_client3.po
+@@ -180,6 +180,15 @@ msgstr "Не удалось отмонтировать удаленный про
+ msgid "Failed to get the user profile from the domain"
+ msgstr "Не удалось получить профиль пользователя из домена"
+ 
++msgid "User password not found"
++msgstr "Не найден пароль пользователя"
++
++msgid "Failed to use directory encryption"
++msgstr "Не удалось использовать шифрование директории"
++
++msgid "Failed to create the encrypted user profile"
++msgstr "Не удалось создать шифрованный пользовательский профиль"
++
+ msgid "Failed to resolve UID and GID"
+ msgstr "Не удалось определить UID и GID"
+ 
+@@ -201,9 +210,6 @@ msgstr "Используется информация о пользовател
+ msgid "The computer is not in the domain"
+ msgstr "Компьютер не в домене"
+ 
+-msgid "User password not found"
+-msgstr "Не найден пароль пользователя"
+-
+ msgid "Unable to cache user info"
+ msgstr "Не удалось закэшировать информацию о пользователе"
+ 
+@@ -222,9 +228,6 @@ msgstr "Изменения в пользовательском профиле н
+ msgid "Get the user profile from domain %s"
+ msgstr "Получен профиль пользователя из %s"
+ 
+-msgid "Failed to remove %s"
+-msgstr "Не удалось удалить %s"
+-
+ msgid "Failed to make a links archive"
+ msgstr "Не удалось создать архив символических ссылок"
+ 
+@@ -353,6 +356,9 @@ msgstr "Программа не может быть выполнена root по
+ msgid "Failed to change password"
+ msgstr "Не удалось изменить пароль"
+ 
++msgid "Failed to rewrap the passphrase"
++msgstr "Не удалось перепаковать пароль"
++
+ msgid "%s's password changed"
+ msgstr "Пароль пользователя %s изменен"
+ 
+@@ -448,3 +454,4 @@ msgstr "Пустой пароль"
+ 
+ msgid "new user password"
+ msgstr "новый пароль пользователя"
++
+diff --git ru/cl_core3.po ru/cl_core3.po
+index 4a8fcb5..99724ef 100644
+--- ru/cl_core3.po
++++ ru/cl_core3.po
+@@ -63,7 +63,7 @@ msgstr "Ошибка шаблона в пакете %s"
+ msgid "Manually interrupted"
+ msgstr "Прервано пользователем"
+ 
+-msgid "Using patches for the {nameProgram} package by Calculate Utilities"
++msgid "Using Calculate patches for the {nameProgram} package"
+ msgstr "Наложение патчей Calculate утилитами для {nameProgram}"
+ 
+ msgid "Configuration skipping until calculate-utilities are updated"
+@@ -81,9 +81,6 @@ msgstr "Настроить"
+ msgid "Dispatch-conf"
+ msgstr "Dispatch-conf"
+ 
+-msgid "System"
+-msgstr "Системные"
+-
+ msgid "Patch"
+ msgstr "Патч"
+ 
+@@ -738,7 +735,7 @@ msgstr "путь к файлам логов"
+ msgid "print the version number, then exit"
+ msgstr "вывод версии программы и выход"
+ 
+-msgid "The answer is not understood"
++msgid "The answer is uncertain"
+ msgstr "Ответ не понятен"
+ 
+ msgid "Ambiguous answer:"
+@@ -820,8 +817,8 @@ msgstr "Страна (только 2 символа!): "
+ msgid "({one} of {_all}) -- {fname}"
+ msgstr "({one} из {_all}) -- {fname}"
+ 
+-msgid "Choice action with config:"
+-msgstr "Выберите действие с конфигурационным файлом"
++msgid "Choose a configuration action:"
++msgstr "Выберите действие с конфигурационным файлом:"
+ 
+ msgid "Zap new"
+ msgstr "Удалить новый"
+@@ -1085,6 +1082,9 @@ msgstr "Изменены"
+ msgid "Writable"
+ msgstr "Перезаписываемые"
+ 
++msgid "System"
++msgstr "Системные"
++
+ msgid "Local"
+ msgstr "Локальные"
+ 
+@@ -1391,3 +1391,4 @@ msgstr "Ошибка сессии"
+ 
+ msgid "Please enter a correct SID"
+ msgstr "Введите корректный идентификатор сессии"
++
+diff --git ru/cl_desktop3.po ru/cl_desktop3.po
+index cd46428..11fcd58 100644
+--- ru/cl_desktop3.po
++++ ru/cl_desktop3.po
+@@ -12,6 +12,18 @@ msgstr ""
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
++msgid "User password not found"
++msgstr "Пароль пользователя не найден"
++
++msgid "Failed to mount ecrypted data"
++msgstr "Не удалось подключить шифрованные данные"
++
++msgid "Failed to create encrypt user profile"
++msgstr "Не удалось создать шифрованный пользовательский профиль"
++
++msgid "User home directory contains mount points"
++msgstr "Пользовательская домашняя директория содержит точки монтирования"
++
+ msgid "Path %s exists"
+ msgstr "Путь %s существует"
+ 
+@@ -42,6 +54,33 @@ msgstr "Не удалось определить домашнюю директо
+ msgid "Failed to unmount directory %s"
+ msgstr "Не удалось отмонтировать путь %s"
+ 
++msgid "Logout aborted"
++msgstr "Завершение сеанса прервано"
++
++msgid "The user logged out from the session!"
++msgstr "Сессия пользователя завершена!"
++
++msgid "Unable to logout the user"
++msgstr "Не удалось завершить пользовательский сеанс"
++
++msgid "X session users not found"
++msgstr "Не найдены пользователи в X сессии"
++
++msgid "Unable to detect the X session"
++msgstr "Не удалось определить X сессию"
++
++msgid "Unable to send the logout command"
++msgstr "Не удалось отправить команду завершения сеанса"
++
++msgid "Waiting for completion of the user logout"
++msgstr "Ожидание завершения пользовательского сеанса"
++
++msgid "Unable to wait for completion of the user logout"
++msgstr "Не удалось дождаться завершения пользовательского сеанса"
++
++msgid "Wrong logout"
++msgstr "Неправильный выход из сеанса"
++
+ msgid "Desktop"
+ msgstr "Рабочий стол"
+ 
+@@ -50,3 +89,10 @@ msgstr "Настроить пользователя"
+ 
+ msgid "Configure"
+ msgstr "Настроить"
++
++msgid "User logout"
++msgstr "Завершить сеанс пользователя"
++
++msgid "Logout"
++msgstr "Выход из сеанса"
++
+diff --git ru/cl_install3.po ru/cl_install3.po
+index 697e19c..7026b07 100644
+--- ru/cl_install3.po
++++ ru/cl_install3.po
+@@ -467,7 +467,7 @@ msgstr "IP-адрес"
+ msgid "Wrong IP address %s"
+ msgstr "Неправильный IP-адрес %s"
+ 
+-msgid "disable"
++msgid "Disabled"
+ msgstr "Выключен"
+ 
+ msgid "Auto"
+@@ -573,6 +573,15 @@ msgstr "Пароль пользователя root"
+ msgid "Password for user %s missing"
+ msgstr "Пропущен пароль для пользователя %s"
+ 
++msgid "crypt user profiles"
++msgstr "шифровать пользовательские профили"
++
++msgid "Crypt user profiles"
++msgstr "Шифровать пользовательские профили"
++
++msgid "Crypt user profile uncompatible with autologin"
++msgstr "Шифрование пользовательского профиля не совместимо с автовходом"
++
+ msgid "add a user to the installed system"
+ msgstr "добавить пользователя в установленную систему"
+ 
+@@ -646,16 +655,16 @@ msgstr "UEFI загрузка"
+ msgid "use UEFI boot"
+ msgstr "использовать UEFI загрузку"
+ 
+-msgid "System must be loaded in UEFI for using this bootloader"
++msgid "Your system must be loaded in UEFI for using this bootloader"
+ msgstr ""
+ "Система должна быть загружена как UEFI для того, чтобы использовать этот "
+ "загрузчик"
+ 
+-msgid "Need GPT for using UEFI bootloader"
+-msgstr "Необходима GPT таблица разделов для использования UEFI загрузчика"
++msgid "GPT is needed for using the UEFI bootloader"
++msgstr "Необходима GPT таблица разделов для использования UEFI-загрузчика"
+ 
+-msgid "Need EF00 partition for using UEFI bootloader"
+-msgstr "Необходим EF00 раздел для использования UEFI загрузчика"
++msgid "A EF00 partition is needed for using the UEFI bootloader"
++msgstr "Необходим EF00 раздел для использования UEFI-загрузчика"
+ 
+ msgid "Architecture of the target system must be x86_64"
+ msgstr "Архитектура устанавливаемой системы должна быть x86_64"
+@@ -672,12 +681,18 @@ msgstr "Grub терминал"
+ msgid "grub terminal"
+ msgstr "grub терминал"
+ 
++msgid "Grub configuration unavailable for Flash install"
++msgstr "Конфигурация Grub недоступна при установке на Flash"
++
+ msgid "Default audio card"
+ msgstr "Звуковая карта по умолчанию"
+ 
+ msgid "set default audio card"
+ msgstr "установить звуковую карту по умолчанию"
+ 
++msgid "Audio configuration unavailable for Flash install"
++msgstr "Конфигурация звука не доступна при установке на Flash"
++
+ msgid "Installation image"
+ msgstr "Установочный образ"
+ 
+@@ -714,10 +729,10 @@ msgstr "по сборке"
+ msgid "select the operation system by build"
+ msgstr "выбрать операционную систему по сборке"
+ 
+-msgid "Install newer images only"
++msgid "Install the newer image only"
+ msgstr "Установить только более новый образ"
+ 
+-msgid "install newer images only"
++msgid "install the newer image only"
+ msgstr "установить только более новый образ"
+ 
+ msgid "The image for update not found"
+@@ -779,8 +794,8 @@ msgstr "Невозможно использовать расширенный р
+ msgid "Unable to use CDROM %s for installation"
+ msgstr "Невозможно использовать CDROM %s для установки"
+ 
+-msgid "UEFI partition must be partition on disk"
+-msgstr "UEFI раздел должен быть разделом на диске"
++msgid "UEFI partition must be a disk partition"
++msgstr "UEFI-раздел должен быть разделом на диске"
+ 
+ msgid ""
+ "Source directory %(src)s is already used for binding '%(bindSrc)s' to "
+@@ -877,7 +892,7 @@ msgstr "Диск '%s' без таблицы разделов не может с
+ msgid "You need a disk with a dos table for Flash install"
+ msgstr "Для установки на Flash необходим диск с таблицей разделов dos"
+ 
+-msgid "Disk %s must has 'bios_grub' partition"
++msgid "Disk %s must have a 'bios_grub' partition"
+ msgstr "На диске %s должен быть раздел 'bios_grub'"
+ 
+ msgid "Grub does not support booting from a RAID assembled from a LVM"
+@@ -901,7 +916,7 @@ msgid ""
+ msgstr ""
+ "Legacy grub не поддерживает загрузки с %s без выделенного /boot раздела"
+ 
+-msgid "MBR is not using with UEFI bootloader"
++msgid "MBR is not used with the UEFI bootloader"
+ msgstr "MBR не используется вместе с UEFI загрузчиком"
+ 
+ msgid "device type for the system bound for install"
+@@ -1049,17 +1064,18 @@ msgstr "Подключить /var/calculate/home к /home"
+ msgid "Separate boot partition"
+ msgstr "Отдельный boot-раздел"
+ 
+-msgid "Use UEFI bootloader"
+-msgstr "Использовать UEFI загрузчик"
++msgid "Use the UEFI bootloader"
++msgstr "Использовать UEFI-загрузчик"
+ 
+ msgid "Use LVM"
+ msgstr "Использовать LVM"
+ 
+-msgid "Create bios_grub partition"
++msgid "Create the bios_grub partition"
+ msgstr "Создать bios_grub раздел"
+ 
+ msgid ""
+-"Architecture of the target system must be x86_64 for using UEFI bootloader"
++"Architecture of the target system must be x86_64 for using the UEFI "
++"bootloader"
+ msgstr ""
+ "Для использования UEFI загрузчика архитектура устанавливаемой системы должна "
+ "быть x86_64 "
+@@ -1067,11 +1083,11 @@ msgstr ""
+ msgid "Partition table must be GPT for using UEFI bootloader"
+ msgstr "Для использования UEFI загрузчика таблица разделов должна быть GPT"
+ 
+-msgid "For grub installation need bios_grub partition"
++msgid "The 'bios_grub' partition is needed for grub install"
+ msgstr "Для установки grub необходим раздел 'bios_grub'"
+ 
+-msgid "Partition table must be GPT for bios_grub partition"
+-msgstr "Для bios_grub раздела таблица разделов должна быть GTP"
++msgid "For the bios_grub partition, the partition table must be GPT"
++msgstr "Для bios_grub-раздела таблица разделов должна быть GPT"
+ 
+ msgid "Root partition size"
+ msgstr "Размер корневого раздела"
+@@ -1088,3 +1104,6 @@ msgstr "Таблица разделов"
+ msgid "set the partition table for autopartition"
+ msgstr "установить таблицу разделов для авторазметки"
+ 
++
++
++
+diff --git ru/cl_lib3.po ru/cl_lib3.po
+index 363c40b..4b94364 100644
+--- ru/cl_lib3.po
++++ ru/cl_lib3.po
+@@ -100,7 +100,7 @@ msgstr "ошибка: стек глобальных переменных пус
+ msgid "Execution of templates was stopped"
+ msgstr "Выполнение шаблонов было остановлено"
+ 
+-msgid "Execution of templates was interrupted with the error"
++msgid "Execution of templates was interrupted with an error"
+ msgstr "Выполнение шаблонов был прервано с ошибкой"
+ 
+ msgid ""
+@@ -181,10 +181,10 @@ msgstr "Пропущенные директории:"
+ 
+ msgid ""
+ "Headers of directory templates and headers of files on the first level "
+-"should include an action variable."
++"should include an action variable"
+ msgstr ""
+ "Заголовки шаблонов директорий и файлов первого уровня должны включать в себя "
+-"переменную действия."
++"переменную действия"
+ 
+ msgid "Example:"
+ msgstr "Пример:"
+@@ -207,10 +207,10 @@ msgstr "Не удалось скопировать {ffrom} в {fto}"
+ msgid "Failed to remove %s"
+ msgstr "Не удалось удалить %s"
+ 
+-msgid "Some config files need updating. Perform dispatch-conf."
++msgid "Some config files need updating. Perform run dispatch-conf."
+ msgstr ""
+-"Некоторые конфигурационные файлы нуждаются в обновлении. Выполните dispatch-"
+-"conf."
++"Некоторые конфигурационные файлы нуждаются в обновлении. Veuillez lancer "
++"dispatch-conf."
+ 
+ msgid "{dirpath} is a file"
+ msgstr "{dirpath} файл"
+@@ -491,6 +491,12 @@ msgstr "неправильный пароль"
+ msgid "try again"
+ msgstr "попробуйте еще раз"
+ 
++msgid "Failed to unwrap the passphrase"
++msgstr "Не удалось распаковать пароль"
++
++msgid "Failed to parse Private.sig"
++msgstr "Не разобрать Private.sig"
++
+ msgid "rows"
+ msgstr "строки"
+ 
+@@ -565,7 +571,7 @@ msgstr "Не найден атрибут \"type\" внутри тега"
+ msgid "Incorrect \"type\" attribute : <entry type=\"%s\"/>"
+ msgstr "Неправильный атрибут \"type\" : <entry type=\"%s\"/>"
+ 
+-msgid "Patch failed"
++msgid "Correction failed"
+ msgstr "Исправление не удалось"
+ 
+ msgid ""
+@@ -642,22 +648,22 @@ msgstr "Британский английский"
+ msgid "United States/English"
+ msgstr "Английский"
+ 
+-msgid "use new config files"
++msgid "use the new config files"
+ msgstr "использовать новые конфигурационные файлы"
+ 
+-msgid "skip the update config files"
++msgid "skip the update of config files"
+ msgstr "пропустить обновление конфигурационных файлов"
+ 
+ msgid "manually update config files"
+ msgstr "обновить конфигурационные файлы вручную"
+ 
+-msgid "Update config files method"
++msgid "Method for updating config files"
+ msgstr "Метод обновления конфигурационных файлов"
+ 
+-msgid "Use new config files"
++msgid "Use the new config files"
+ msgstr "Использовать новые конфигурационные файлы"
+ 
+-msgid "Skip the update config files"
++msgid "Skip the update of config files"
+ msgstr "Пропустить обновление конфигурационных файлов"
+ 
+ msgid "Manually update config files"
+@@ -700,3 +706,5 @@ msgid "User %s does not exist"
+ msgstr "Пользователь %s не существует"
+ 
+ 
++
++

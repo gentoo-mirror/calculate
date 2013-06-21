@@ -1,0 +1,45 @@
+diff --git client/cl_client.py client/cl_client.py
+index 3bd7059..60abc18 100644
+--- client/cl_client.py
++++ client/cl_client.py
+@@ -1137,12 +1137,12 @@ class Client(commandServer, encrypt):
+         if not userPwd or userPwd == "XXXXXXXX":
+             raise ClientError(_("User password not found"))
+         ecryptfsPath = path.join('/home/.ecryptfs',userName)
++        error = ""
+         if path.exists(ecryptfsPath):
+             for d in (".ecryptfs",".Private"):
+                 source,target = path.join(ecryptfsPath,d),path.join(userDir,d)
+                 if not path.lexists(target):
+                     os.symlink(source,target)
+-            error = ""
+             try:
+                 if mountEcryptfs(userName,userPwd,userDir):
+                     return True
+@@ -1150,7 +1150,7 @@ class Client(commandServer, encrypt):
+                 error = str(e)
+         if error:
+             if self.getMountUserPaths(userDir):
+-                raise ClientError(_("Failed to use crypt directory"))
++                raise ClientError(_("Failed to use directory encryption"))
+             for source in (userDir,ecryptfsPath):
+                 if path.exists(source):
+                     if listDirectory(source):
+@@ -1172,7 +1172,7 @@ class Client(commandServer, encrypt):
+                     '-u',userName,'-b','-l',userPwd,stderr=STDOUT)
+         if e.failed():
+             raise ClientError(e.read()+
+-                _("Failed to create encrypt user profile"))
++                _("Failed to create the encrypted user profile"))
+ 
+     def initEnv(self):
+         """
+@@ -2276,7 +2276,7 @@ class Client(commandServer, encrypt):
+             p = process('/usr/bin/ecryptfs-rewrap-passphrase',passphraseFile, "-",stderr=STDOUT)
+             p.write("%s\n%s"%(curPassword,password))
+             if p.failed():
+-                raise ClientError(p.read()+_("Failed to rewrap passphrase"))
++                raise ClientError(p.read()+_("Failed to rewrap the passphrase"))
+         self.printSUCCESS(_("%s's password changed")%
+                             self.clVars.Get('ur_login'))
+         self.printSUCCESS(_("The password will be changed when you log "

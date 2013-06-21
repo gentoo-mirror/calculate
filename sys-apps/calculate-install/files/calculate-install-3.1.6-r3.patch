@@ -1,0 +1,152 @@
+diff --git install/variables/autopartition.py install/variables/autopartition.py
+index d8ef4e7..ff8b580 100644
+--- install/variables/autopartition.py
++++ install/variables/autopartition.py
+@@ -509,31 +509,33 @@ class VariableClAutopartitionScheme(AutopartitionHelper,Variable,AutoPartition):
+                 ("data",_("/var/calculate partition")),
+                 ("home",_("Mount /var/calculate/home to /home")),
+                 ("boot",_("Separate boot partition")),
+-                ("uefi",_("Use UEFI bootloader")),
++                ("uefi",_("Use the UEFI bootloader")),
+                 ("lvm",_("Use LVM")),
+-                ("grub",_("Create bios_grub partition")),
++                ("grub",_("Create the bios_grub partition")),
+                ]
+ 
+     def check(self,value):
+         if "uefi" in value:
+             if self.Get('os_uefi_set') == 'off':
+                 raise VariableError(
+-                  _("System must be loaded in UEFI for using this bootloader"))
++                  _("Your system must be loaded in UEFI for using this "
++                    "bootloader"))
+             if self.Get('os_install_arch_machine') != 'x86_64':
+                 raise VariableError(
+                     _("Architecture of the target system must be x86_64 "
+-                      "for using UEFI bootloader"))
++                      "for using the UEFI bootloader"))
+             if self.Get('cl_autopartition_table') != 'gpt':
+                 raise VariableError(
+                     _("Partition table must be GPT for using UEFI bootloader"))
+         else:
+             if self.Get('cl_autopartition_table') == 'gpt' and not "grub" in value:
+                 raise VariableError(
+-                    _("For grub installation need bios_grub partition"))
++                    _("The 'bios_grub' partition is needed for grub install"))
+         if "grub" in value:
+             if self.Get('cl_autopartition_table') != 'gpt':
+                 raise VariableError(
+-                    _("Partition table must be GPT for bios_grub partition"))
++                    _("For the bios_grub partition, the partition table "
++                      "must be GPT"))
+ 
+ 
+ class VariableClAutopartitionRootSize(AutopartitionHelper,Variable):
+diff --git install/variables/disk.py install/variables/disk.py
+index 5988067..9d51dda 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -910,7 +910,7 @@ class VariableOsLocationDest(LocationHelper,Variable):
+                                where='os_install_disk_type',
+                                ne='disk-partition')
+         if set(efiDisks) & set(wrongPart):
+-            raise VariableError(_("UEFI partition must be partition on disk"))
++            raise VariableError(_("UEFI partition must be a disk partition"))
+         ###############################
+         # check cross bind mount points
+         ###############################
+@@ -1701,7 +1701,7 @@ class VariableOsInstallMbr(LocationHelper,Variable):
+                                         where='os_disk_id',eq='EF02')
+                 if not mbrDisk in bios_grub:
+                     raise VariableError(
+-                        _("Disk %s must has 'bios_grub' partition")%mbrDisk)
++                        _("Disk %s must have a 'bios_grub' partition")%mbrDisk)
+         if value:
+             if self.Get('os_grub2_path'):
+                 self.checkForGrub2()
+@@ -1749,7 +1749,7 @@ class VariableOsInstallMbr(LocationHelper,Variable):
+         Network setting up unavailable for flash installation
+         """
+         if self.Get('os_install_uefi_set') == "on":
+-            return _("MBR is not using with UEFI bootloader")
++            return _("MBR is not used with the UEFI bootloader")
+         if self.Get('cl_autopartition_set') == "on":
+             return \
+                 _("The layout is not available with autopartitioning")
+diff --git install/variables/distr.py install/variables/distr.py
+index e6b764b..b1ce726 100644
+--- install/variables/distr.py
++++ install/variables/distr.py
+@@ -539,8 +539,8 @@ class VariableClImageNewOnly(Variable):
+     value = "off"
+ 
+     def init(self):
+-        self.label = _("Install newer images only")
+-        self.help = _("install newer images only")
++        self.label = _("Install the newer image only")
++        self.help = _("install the newer image only")
+         
+     def installedBuild(self):
+         """
+diff --git install/variables/net.py install/variables/net.py
+index 2213077..87eae03 100644
+--- install/variables/net.py
++++ install/variables/net.py
+@@ -289,7 +289,7 @@ class VariableOsInstallNetStatus(NetHelper,Variable):
+ 
+     def choice(self):
+         return (("dhcp",_("DHCP")),
+-                ("off", _("disable")),
++                ("off", _("Disabled")),
+                 ("auto", _("Auto")))
+ 
+ class VariableOsInstallNetIp(NetHelper,ReadonlyVariable):
+diff --git install/variables/system.py install/variables/system.py
+index b257227..816088d 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -173,6 +173,15 @@ class VariableClInstallHomeCryptSet(UserHelper,Variable):
+         self.help = _("crypt user profiles")
+         self.label = _("Crypt user profiles")
+ 
++    def get(self):
++        return ("off" if self.Get('cl_autologin')
++                else self.Get('cl_home_crypt_set'))
++
++    def check(self,value):
++        if value == "on" and self.Get('cl_autologin'):
++            raise VariableError(
++                _("Crypt user profile uncompatible with autologin"))
++
+ class VariableClMigrateData(UserHelper,TableVariable):
+     """
+     User migrate data table
+@@ -613,14 +622,16 @@ class VariableOsInstallUefiSet(Variable):
+             if self.Get('os_uefi_set') == 'off' and \
+                 self.Get('os_install_root_type') == 'hdd':
+                 raise VariableError(
+-                  _("System must be loaded in UEFI for using this bootloader"))
++                  _("Your system must be loaded in UEFI for using this "
++                    "bootloader"))
+             if not 'gpt' in self.Get('os_device_table'):
+                 raise VariableError(
+-                    _("Need GPT for using UEFI bootloader"))
++                    _("GPT is needed for using the UEFI bootloader"))
+             if not (self.Get('os_install_disk_efi') or \
+                 "/boot/efi" in self.Get('os_location_dest')):
+                 raise VariableError(
+-                    _("Need EF00 partition for using UEFI bootloader"))
++                    _("A EF00 partition is needed for using "
++                      "the UEFI bootloader"))
+             if self.Get('os_install_arch_machine') != 'x86_64':
+                 raise VariableError(
+                     _("Architecture of the target system must be x86_64"))
+@@ -682,7 +693,7 @@ class VariableOsAudioData(ReadonlyTableVariable):
+         aplay = getProgPath('/usr/bin/aplay')
+         if not aplay:
+             return [[]]
+-        entry = re.compile('^card (\d+): ([^,]+)')
++        entry = re.compile('^card (\d+): ([^:]+)')
+         return tuple(map(lambda x:x.groups(),
+                filter(None,map(entry.search,
+                process(aplay,'-l')))))
