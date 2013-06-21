@@ -11,8 +11,11 @@ do
 		# wait 5 sec before lock session
 		if [[ $OFFTIME -gt 5 ]] && [ "$(qdbus org.gnome.ScreenSaver / GetActive)" != "true" ]
 		then
-			# lock session
-			xset -q | grep Monitor | grep -q On || /usr/bin/xflock4
+			# lock session if active console
+			if /usr/bin/ck-list-sessions | grep -A 5 "unix-user = '$(id -u)'" | grep -q "active = TRUE"
+			then
+				/usr/bin/xflock4
+			fi
 		fi
 		OFFTIME=$(( $OFFTIME + 1 ))
 	else
