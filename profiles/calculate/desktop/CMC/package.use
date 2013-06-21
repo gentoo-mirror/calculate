@@ -15,6 +15,3 @@ x11-drivers/nvidia-drivers -tools
 #исключим зависимость от tk
 dev-vcs/git -tk
 net-dialup/rp-pppoe -X
-
-#исключим зависимости от sqlite
-dev-lang/python -sqlite
