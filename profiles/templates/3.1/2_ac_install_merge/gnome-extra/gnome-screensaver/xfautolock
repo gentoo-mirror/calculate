@@ -1,4 +1,4 @@
-# Calculate path=/usr/bin chmod=0755 
+# Calculate path=/usr/bin chmod=0755
 #!/bin/bash
 
 OFFTIME=0
@@ -6,7 +6,7 @@ OFFTIME=0
 while xset -q &>/dev/null;
 do
 	# check is monitor on
-	if ! xset -q | grep Monitor | grep -q On
+	if xset -q | grep -q "DPMS is Enabled" && ! xset -q | grep Monitor | grep -q On
 	then
 		# wait 5 sec before lock session
 		if [[ $OFFTIME -gt 5 ]] && [ "$(qdbus org.gnome.ScreenSaver / GetActive)" != "true" ]
