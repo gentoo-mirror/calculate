@@ -9,12 +9,13 @@ do
 	if xset -q | grep -q "DPMS is Enabled" && ! xset -q | grep Monitor | grep -q On
 	then
 		# wait 5 sec before lock session
-		if [ "$(qdbus org.gnome.ScreenSaver / GetActive)" != "true" ]
+		if /usr/bin/ck-list-sessions | grep -A 5 "unix-user = '$(id -u)'" | grep -q "active = TRUE"
 		then
 			# lock session if active console
-			if [[ $OFFTIME -gt 5 ]] && /usr/bin/ck-list-sessions | grep -A 5 "unix-user = '$(id -u)'" | grep -q "active = TRUE"
+			t=$(date +%s)
+			if [[ $OFFTIME -gt 5 ]] &&  [ "$(qdbus org.gnome.ScreenSaver / GetActive)" != "true" ]
 			then
-				/usr/bin/xflock4
+				[[ "$(( $(date +%s) - $t ))" -lt 5 ]] && /usr/bin/xflock4
 			fi
 			OFFTIME=$(( $OFFTIME + 1 ))
 		else
