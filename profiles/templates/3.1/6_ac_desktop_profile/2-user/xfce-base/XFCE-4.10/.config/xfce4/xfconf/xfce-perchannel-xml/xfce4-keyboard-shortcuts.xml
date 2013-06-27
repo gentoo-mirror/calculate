@@ -14,9 +14,11 @@
       <property name="XF86Calculator" type="string" value="xdg-open /usr/share/applications/calculate-calculator.desktop"/>
     </property>
   </property>
+  #?pkg(x11-misc/wmctrl)!=#
   <property name="xfwm4" type="empty">
     <property name="default" type="empty">
-      <property name="XF86HomePage" type="string" value="workspace_1_key"/>
+      <property name="XF86HomePage" type="string" value="wmctrl -s 0"/>
     </property>
   </property>
+  #pkg#
 </channel>
