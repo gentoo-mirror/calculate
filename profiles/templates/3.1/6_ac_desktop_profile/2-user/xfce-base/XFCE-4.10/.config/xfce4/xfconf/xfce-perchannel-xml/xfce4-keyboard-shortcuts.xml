@@ -12,13 +12,9 @@
       <property name="XF86Search" type="string" value="xdg-open /usr/share/applications/catfish.desktop"/>
       <property name="XF86Tools" type="string" value="xdg-open /usr/share/applications/calculate-audioplayer.desktop"/>
       <property name="XF86Calculator" type="string" value="xdg-open /usr/share/applications/calculate-calculator.desktop"/>
-    </property>
-  </property>
-  #?pkg(x11-misc/wmctrl)!=#
-  <property name="xfwm4" type="empty">
-    <property name="default" type="empty">
+      #?pkg(x11-misc/wmctrl)!=#
       <property name="XF86HomePage" type="string" value="wmctrl -s 0"/>
+      #pkg#
     </property>
   </property>
-  #pkg#
 </channel>
