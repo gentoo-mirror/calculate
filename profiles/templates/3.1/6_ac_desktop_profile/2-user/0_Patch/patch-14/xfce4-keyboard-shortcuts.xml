@@ -1,0 +1,19 @@
+# Calculate format=xml_xfce path=~/.config/xfce4/xfconf/xfce-perchannel-xml pkg(xfce-base/xfdesktop)>=4.10
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-keyboard-shortcuts" version="1.0">
+  <property name="commands" type="empty">
+    <property name="default" type="empty">
+      <property name="XF86Search" type="string" value="xdg-open /usr/share/applications/catfish.desktop"/>
+      <property name="XF86Tools" type="string" value="xdg-open /usr/share/applications/calculate-audioplayer.desktop"/>
+      <property name="XF86Calculator" type="string" value="xdg-open /usr/share/applications/calculate-calculator.desktop"/>
+      <property name="XF86HomePage" type="string" value="wmctrl -s 0"/>
+    </property>
+    <property name="custom" type="empty">
+      <property name="XF86Search" type="string" value="xdg-open /usr/share/applications/catfish.desktop"/>
+      <property name="XF86Tools" type="string" value="xdg-open /usr/share/applications/calculate-audioplayer.desktop"/>
+      <property name="XF86Calculator" type="string" value="xdg-open /usr/share/applications/calculate-calculator.desktop"/>
+      <property name="XF86HomePage" type="string" value="wmctrl -s 0"/>
+    </property>
+  </property>
+</channel>
