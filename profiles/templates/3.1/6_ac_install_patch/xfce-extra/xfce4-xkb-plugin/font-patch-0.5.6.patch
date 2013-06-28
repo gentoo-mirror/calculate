@@ -1,0 +1,25 @@
+# Calculate format=diff merge(xfce-extra/xfce4-xkb-plugin)>=0.5.6
+--- a/panel-plugin/xkb-cairo.c
++++ b/panel-plugin/xkb-cairo.c
+@@ -31,7 +31,7 @@
+ #include <librsvg/rsvg-cairo.h>
+ #endif
+ 
+-#define XKB_PREFERRED_FONT "Courier New, Courier 10 Pitch, Monospace Bold"
++#define XKB_PREFERRED_FONT "Droid Sans, Courier New, Courier 10 Pitch, Monospace Bold"
+ 
+ #define xkb_cairo_arc_for_flag(cr, x, y, r, a1, a2) \
+     xx = layoutx + width - 12 + x; \
+@@ -182,10 +182,10 @@ xkb_cairo_draw_label (cairo_t *cr,
+             scalex = scaley = 0.475;
+             break;
+         case DISPLAY_TEXTSIZE_MEDIUM:
+-            scalex = scaley = 0.7;
++            scalex = scaley = 0.6;
+             break;
+         case DISPLAY_TEXTSIZE_LARGE:
+-            scalex = scaley = 1;
++            scalex = scaley = 0.7;
+             break;
+     }
+ 
