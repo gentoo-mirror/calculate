@@ -188,7 +188,7 @@ calculate-kernel-5_pkg_postinst() {
 		local GENTOOARCH="${ARCH}"
 		unset ARCH
 		ebegin "kernel: >> Running modules_prepare..."
-		make modules_prepare &>/dev/null
+		(make oldconfig && make modules_prepare) &>/dev/null
 		eend $? "Failed modules prepare"
 		ARCH="${GENTOOARCH}"
 	fi
