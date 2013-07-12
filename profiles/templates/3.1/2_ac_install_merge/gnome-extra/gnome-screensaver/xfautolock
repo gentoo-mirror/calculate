@@ -13,9 +13,14 @@ do
 		then
 			# lock session if active console
 			t=$(date +%s)
-			if [[ $OFFTIME -gt 5 ]] &&  [ "$(qdbus org.gnome.ScreenSaver / GetActive)" != "true" ]
+			if [[ $OFFTIME -gt 5 ]]
 			then
-				[[ "$(( $(date +%s) - $t ))" -lt 5 ]] && /usr/bin/xflock4
+				if [ "$(qdbus org.gnome.ScreenSaver / GetActive)" != "true" ] && [[ "$(( $(date +%s) - $t ))" -lt 5 ]]
+				then
+					/usr/bin/xflock4
+				else
+					OFFTIME=0
+				fi
 			fi
 			OFFTIME=$(( $OFFTIME + 1 ))
 		else
