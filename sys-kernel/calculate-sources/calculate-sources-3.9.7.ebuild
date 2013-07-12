@@ -8,7 +8,7 @@ ETYPE="sources"
 inherit calculate-kernel-5 eutils
 
 DESCRIPTION="Calculate Linux kernel image"
-KEYWORDS="x86 amd64"
+KEYWORDS="amd64 x86"
 HOMEPAGE="http://www.calculate-linux.org"
 
 IUSE=""

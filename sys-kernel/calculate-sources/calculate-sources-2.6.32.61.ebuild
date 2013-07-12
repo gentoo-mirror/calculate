@@ -9,7 +9,7 @@ LONGTERM="1"
 inherit calculate-kernel-2
 
 DESCRIPTION="Full sources including the Calculate patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 HOMEPAGE="http://www.calculate-linux.org"
 
 SRC_URI="${KERNEL_URI} ${ARCH_URI} ${CALC_URI}"
