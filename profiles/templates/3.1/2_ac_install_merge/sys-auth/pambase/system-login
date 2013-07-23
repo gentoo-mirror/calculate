@@ -13,7 +13,6 @@ account		required	pam_tally.so file=/var/log/faillog onerr=succeed
 password	include		system-auth
  
 session		required	pam_env.so 
-session		optional	pam_lastlog.so 
 session		include		system-auth
 #session	optional	pam_motd.so motd=/etc/motd
 session		optional	pam_mail.so
