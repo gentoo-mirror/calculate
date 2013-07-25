@@ -5,7 +5,7 @@ The ac_install_merge event:
 - package removal
 - system setup*
 - system installation
-- Portages sync
+- Portages syncing
 
 *When cl-setup-system is run with the defaul '--live=off' option.
 
