@@ -1,0 +1,305 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index a877b61..f880004 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -36,7 +36,7 @@ from itertools import *
+ #                    <   <=  ==  !=  >=  >
+ from operator import lt, le, eq, ne, ge, gt
+ 
+-from utils.common import _error, _warning
++from utils.common import _error, _warning,getTupleVersion
+ from utils.text import  _toUNICODE, convertStrListDict
+ from utils.portage import  isPkgInstalled,reVerSplitToPV
+ from utils.content import PkgContents,checkContents,getCfgFiles,fillContents
+@@ -2185,7 +2185,7 @@ class _file(_error):
+             F_TEMPL = open(nameFileTemplate, "r")
+         except:
+             self.setError(_("unable to open the file:")
+-                            + nameFileConfig)
++                            + nameFileTemplate)
+             return False
+         return F_TEMPL
+ 
+@@ -2221,7 +2221,8 @@ class _file(_error):
+         return F_CONF
+ 
+ 
+-    def openFiles(self, nameFileTemplate, nameFileConfig, typeFormat=None):
++    def openFiles(self, nameFileTemplate, nameFileConfig, typeFormat=None,
++                    newBuffer=None):
+         """Открывает шаблон и конфигурационный файл"""
+         self.textConfig = ""
+         self.textTemplate = ""
+@@ -2238,7 +2239,10 @@ class _file(_error):
+             if self.configMode == T_NEWCFG:
+                 origConfigName = re.sub(r'/._cfg\d{4}_([^/]+)$','/\\1',
+                             self.nameFileConfig)
+-                self.textConfig = readFile(origConfigName)
++                if newBuffer is None:
++                    self.textConfig = readFile(origConfigName)
++                else:
++                    self.textConfig = newBuffer
+             else:
+                 self.textConfig = self.F_CONF.read()
+ 
+@@ -2786,7 +2790,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+         if os.path.exists(fileName):
+             FD = open(fileName)
+             replace = FD.read().strip()
+-            FD.close
++            FD.close()
+         if replace and lenTerms >= 2 and terms[0] == "empty":
+            replace ="\n".join(filter(lambda x: not self.reEmptyLoad.search(x),
+                               replace.split("\n")))
+@@ -2842,7 +2846,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+             if len(versions) == 1:
+                 return versions.values()[0]
+             else:
+-                return versions[max(versions.keys())]
++                return versions[max(versions.keys(),key=getTupleVersion)]
+         else:
+             return ""
+ 
+@@ -3091,7 +3095,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+         return textTemplateTmp
+         self.printERROR(_(funArgv))
+         raise TemplatesInterrupt(_("Execution of templates was "
+-                                   "interrupted with the error"),
++                                   "interrupted with an error"),
+                                  TemplatesInterrupt.ABORT)
+ 
+     def getElogTimestamp(self):
+@@ -3446,8 +3450,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+         for portdir in queuePortdir():
+             if not portdir in self.cachePortdir:
+                 lPortdir = len(portdir)+1
+-                self.cachePortdir[portdir] = \
+-                    list(set(
++                self.cachePortdir[portdir] = list(set(
+                     map(lambda x:x[lPortdir:].rpartition('/')[0],
+                     glob.glob("%s/*/*/*.ebuild"%portdir))))
+             if package in self.cachePortdir[portdir]:
+@@ -4318,7 +4321,7 @@ gettext -d cl_template "$*"
+             self.printWARNING("")
+             self.printWARNING(_("Headers of directory templates and headers "
+                          "of files on the first level should include "
+-                         "an action variable."))
++                         "an action variable"))
+             self.printWARNING(_("Example:"))
+             self.printWARNING("# Calculate ac_install_merge==on")
+         return skipDirs + skipTemplates
+@@ -4578,7 +4581,7 @@ gettext -d cl_template "$*"
+         self.filesApply = map(lambda x:autoUpdateDict.get(x,x),self.filesApply)
+         if filter(lambda x:"._cfg" in x, self.filesApply):
+             self.printWARNING(_("Some config files need updating. "
+-                                "Perform dispatch-conf."))
++                                "Perform run dispatch-conf."))
+             if self.dispatchConf and \
+                 self.objVar.Get('cl_dispatch_conf') == 'dispatch' and \
+                 self.objVar.Get('cl_ebuild_phase') == '':
+@@ -4811,7 +4814,7 @@ gettext -d cl_template "$*"
+         if not objHead.headerTerm:
+             if objHead.getError():
+                 self.setError(_("Incorrect template") + ": " +\
+-                               templateDirFile)
++                              templateDirFile)
+             return ("", False, [])
+ 
+         # add packeges for reconfigure
+@@ -4821,7 +4824,7 @@ gettext -d cl_template "$*"
+                              if not self.functObj.checkCorrectPkgName(x)):
+                 self.printWARNING(
+                     _("Wrong package '%s' for 'merge' in the template")%
+-                              wrongPkg + ": " + nameFileTemplate)
++                              wrongPkg + ": " + templateDirFile)
+             for pkg in mergePkgs:
+                 if not pkg in self.objVar.Get('cl_merge_pkg_new') and \
+                    not pkg in self.objVar.Get('cl_merge_pkg_pass') and \
+@@ -5135,7 +5138,7 @@ gettext -d cl_template "$*"
+             self.F_TEMPL = self.openTemplFile(self.nameFileTemplate)
+             if not self.F_TEMPL:
+                 self.setError(_("Failed to open the template") + ": " +\
+-                                   templateDirFile)
++                                   self.nameFileTemplate)
+                 return False
+             self.textTemplate = self.F_TEMPL.read()
+             self.closeTemplFile()
+@@ -5196,6 +5199,8 @@ gettext -d cl_template "$*"
+             self.objVar.Get('cl_action') != 'system':
+             pathOldFile = self.fixNameFileConfig(pathOldFile)
+             pathOldFile = self.checkOnNewConfigName(pathOldFile)
++        # буффер для использование в link=
++        newBuffer = None
+         applyFiles = [pathOldFile]
+         # Фильтрация шаблонов по названию файла
+         realPath = os.path.join("/",pathOldFile.partition(self._baseDir)[2])
+@@ -5226,6 +5231,7 @@ gettext -d cl_template "$*"
+         if typeAppendTemplate == "clear":
+             try:
+                 open(pathOldFile, "w").truncate(0)
++                newBuffer = ""
+             except:
+                 self.setError(_("Template error") + ": " +\
+                                   nameFileTemplate)
+@@ -5272,6 +5278,7 @@ gettext -d cl_template "$*"
+             if os.path.islink(pathOldFile):
+                 # удаляем ссылку
+                 try:
++                    newBuffer = ""
+                     os.unlink(pathOldFile)
+                 except:
+                     self.setError(_("Template error") + ": " +\
+@@ -5282,6 +5289,7 @@ gettext -d cl_template "$*"
+             if os.path.isfile(pathOldFile):
+                 # удаляем файл
+                 try:
++                    newBuffer = ""
+                     os.remove(pathOldFile)
+                 except:
+                     self.setError(_("Template error") + ": " +\
+@@ -5300,6 +5308,7 @@ gettext -d cl_template "$*"
+                 if not os.path.exists(templateFile):
+                     if os.path.exists(pathOldFile):
+                         try:
++                            newBuffer = ""
+                             os.remove(pathOldFile)
+                         except:
+                             self.setError(_("Template error") + ": " +\
+@@ -5329,6 +5338,7 @@ gettext -d cl_template "$*"
+                     return ([], False)
+             if os.path.exists(pathOldFile):
+                 try:
++                    newBuffer = ""
+                     os.remove(pathOldFile)
+                 except:
+                     self.setError(_("Template error") + ": " +\
+@@ -5339,6 +5349,7 @@ gettext -d cl_template "$*"
+             if foundTemplateFile:
+                 try:
+                     FD  = open(pathOldFile, "w+")
++                    newBuffer = buff
+                     FD.write(buff)
+                     FD.close()
+                 except:
+@@ -5441,7 +5452,8 @@ gettext -d cl_template "$*"
+                 preReturn(pathProg)
+                 return ([], False)
+         if not flagSymlink:
+-            self.openFiles(nameFileTemplate, pathOldFile,objHeadNew.fileType)
++            self.openFiles(nameFileTemplate, pathOldFile,objHeadNew.fileType,
++                            newBuffer)
+             if self.getError():
+                 return ([], False)
+         if not objHeadNew.params.has_key("chown"):
+diff --git calculate/lib/format/diff.py calculate/lib/format/diff.py
+index 70d056b..76634b3 100644
+--- calculate/lib/format/diff.py
++++ calculate/lib/format/diff.py
+@@ -49,7 +49,7 @@ class diff(_error):
+             if patchDryRun.success():
+                 return ""
+         else:
+-            self.setError(_("Patch failed"))
++            self.setError(_("Correction failed"))
+             return False
+         patchRun = process('/usr/bin/patch',
+                   '-p%d'%i,cwd=rootPath)
+diff --git calculate/lib/utils/common.py calculate/lib/utils/common.py
+index 1799713..6a0526d 100644
+--- calculate/lib/utils/common.py
++++ calculate/lib/utils/common.py
+@@ -439,7 +439,7 @@ def mountEcryptfs(userName,userPwd,userDir):
+         else:
+             raise Exception
+     except:
+-        raise CommonError("Failed to unwrap passphrase")
++        raise CommonError(_("Failed to unwrap the passphrase"))
+ 
+     # добавить passphrase в ключи ядра
+     p = process('/usr/bin/ecryptfs-add-passphrase', '--fnek', '-',stderr=STDOUT)
+@@ -452,7 +452,7 @@ def mountEcryptfs(userName,userPwd,userDir):
+         ecryptfs_sig, ecryptfs_fnek_sig = \
+             readLinesFile(path.join(ecryptUserName,".ecryptfs/Private.sig"))
+     except ValueError:
+-        raise CommonError("Failed to parse Private.sig")
++        raise CommonError(_("Failed to parse Private.sig"))
+ 
+     # подключить шифрованный раздел
+     mountProcess = process('/sbin/mount.ecryptfs',
+@@ -471,3 +471,13 @@ def mountEcryptfs(userName,userPwd,userDir):
+     # отправить пароль через stdin
+     mountProcess.write("passphrase_passwd="+userPwd)
+     return mountProcess.success()
++
++def isBootstrapDataOnly(directory):
++    """
++    Каталог содержит только сертификат, созданный командой cl-core
++    """
++    from calculate.lib.utils.files import (process,readLinesFile,STDOUT,
++                                           isMount)
++    userCalculate = path.join(directory,".calculate")
++    return (set(listDirectory(directory)) == set([".calculate"]) and
++            set(listDirectory(userCalculate)) == set(["client_cert"]))
+diff --git calculate/lib/utils/ip.py calculate/lib/utils/ip.py
+index b704c76..e488da0 100644
+--- calculate/lib/utils/ip.py
++++ calculate/lib/utils/ip.py
+@@ -327,7 +327,10 @@ class Pinger:
+         """
+         Send one ping to the given >destIP<.
+         """
+-        destIP  =  socket.gethostbyname(destIP)
++        try:
++            destIP  =  socket.gethostbyname(destIP)
++        except socket.gaierror as e:
++            raise IPError(e.strerror)
+ 
+         # Header is type (8), code (8), checksum (16), id (16), sequence (16)
+         myChecksum = 0
+diff --git calculate/lib/variables/env.py calculate/lib/variables/env.py
+index c5f5598..f69d2c6 100644
+--- calculate/lib/variables/env.py
++++ calculate/lib/variables/env.py
+@@ -212,14 +212,14 @@ class VariableClDispatchConf(Variable):
+     metavalue = "METHOD"
+ 
+     def init(self):
+-        self.help = "'usenew' - " +_("use new config files") +\
+-                    ",\n'skip' - " + _("skip the update config files") +\
++        self.help = "'usenew' - " +_("use the new config files") +\
++                    ",\n'skip' - " + _("skip the update of config files") +\
+                     ",\n'dispatch' - " + _("manually update config files")
+-        self.label = _("Update config files method")
++        self.label = _("Method for updating config files")
+ 
+     def choice(self):
+-        return [("usenew",_("Use new config files")),
+-                ("skip",_("Skip the update config files")),
++        return [("usenew",_("Use the new config files")),
++                ("skip",_("Skip the update of config files")),
+                 ("dispatch",_("Manually update config files"))]
+ 
+ class VariableClWsdl(Variable):
+diff --git calculate/lib/variables/user.py calculate/lib/variables/user.py
+index e8e378f..7b3596a 100644
+--- calculate/lib/variables/user.py
++++ calculate/lib/variables/user.py
+@@ -21,7 +21,7 @@ import grp
+ from os import environ,path
+ from calculate.lib.datavars import Variable,VariableError,ReadonlyVariable
+ from calculate.lib.cl_vars_share import varsShare
+-from calculate.lib.utils.common import getPasswdUsers
++from calculate.lib.utils.common import getPasswdUsers,isBootstrapDataOnly
+ from calculate.lib.utils.files import listDirectory
+ import sys
+ from calculate.lib.cl_lang import setLocalTranslate
+@@ -229,7 +229,8 @@ class VariableUrHomeCryptSet(ReadonlyVariable):
+         # если пользовательского профиля нет, то шифровать ли профиль
+         # узнаем на уровне системы
+         homeDir = self.Get('ur_home_path')
+-        if not path.exists(homeDir) or not listDirectory(homeDir):
++        if (not path.exists(homeDir) or not listDirectory(homeDir) or
++            isBootstrapDataOnly(homeDir)):
+             return self.Get('cl_home_crypt_set')
+         # профиль не шифрованный
+         return "off"
