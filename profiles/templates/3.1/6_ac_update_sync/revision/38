@@ -1,0 +1,8 @@
+# Calculate ini(update.rev)<38 exec=/bin/bash
+
+#-ini(update.rev,38)-#
+
+rmFile="/etc/portage/repos.conf/._cfg0000_gentoo.cfg"
+[[ -f $rmFile ]] && rm -f $rmFile
+
+exit 0
