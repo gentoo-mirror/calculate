@@ -1,0 +1,99 @@
+diff --git consolegui/application/CertificateClass.py consolegui/application/CertificateClass.py
+index 789519c..03c9345 100755
+--- consolegui/application/CertificateClass.py
++++ consolegui/application/CertificateClass.py
+@@ -201,7 +201,8 @@ class CertClass (QtGui.QWidget):
+         cert_path = self.default_cert_path
+         if not os.path.exists(cert_path + 'req_id'):
+             show_msg (_("Request not sent, or file %s deleted") \
+-                                                %(cert_path + 'req_id'), self)
++                                                %(cert_path + 'req_id'),
++                                                _("Certificates"), self)
+             return 1
+         fc = open(cert_path + 'req_id', 'r')
+         req_id = fc.read()
+diff --git consolegui/application/MainFrameResult.py consolegui/application/MainFrameResult.py
+index f5b8642..bef5674 100755
+--- consolegui/application/MainFrameResult.py
++++ consolegui/application/MainFrameResult.py
+@@ -542,9 +542,8 @@ class MainFrameRes(QtGui.QWidget):
+     def get_Frame_cycle(self, current_frame, through_object):
+         if type(current_frame) == Exception:
+             _print (_("Failed to get a frame from the server."))
+-            show_msg(_("Failed to get a frame from the server.") +'\n'+ \
+-                     _('Try resfeshing this page later.'),'get frame error')
+-            return 1
++            #show_msg(_("Failed to get a frame from the server.") +'\n'+ \
++            #         _('Try resfeshing this page later.'),'get frame error')
+         sid, pid = through_object
+         if current_frame in [None, [], ""]:
+             try:
+@@ -552,7 +551,7 @@ class MainFrameRes(QtGui.QWidget):
+                     return 1
+             except:
+                 return 1
+-        else:
++        elif not isinstance(current_frame,Exception):
+             self.get_Frame_after(current_frame, sid, pid)
+         if self.not_end_frame:
+             # Call server method
+@@ -664,13 +663,26 @@ class MainFrameRes(QtGui.QWidget):
+         self.get_Progress_thread.start()
+ 
+     def get_Progress_cycle(self, returnProgr, through_object):
++        sid, pid, id, temp_progress, progressBar = through_object
++        def nextProgress():
++            if hasattr (self, 'get_Progress_thread'):
++                if self.get_Progress_thread.isRunning():
++                    self.get_Progress_thread.wait()
++            self.get_Progress_thread = ClientServiceThread(self.ClientObj,\
++                           'get_progress', sid, pid, id, return_except = True,\
++                           sleeptime = 1, through_object = \
++                           (sid, pid, id, temp_progress, progressBar))
++            self.get_Progress_thread.signal_extended.connect \
++                                                    (self.get_Progress_cycle)
++            self.get_Progress_thread.start()
++
+         if type(returnProgr) == Exception:
+             _print (_('Failed to get the progress status from the server'))
+ #            show_msg(_('Failed to get the progress status from the server') + \
+ #                    '\n'+ \
+ #                   _('Try resfeshing this page later.'),'get progress error')
++            nextProgress()
+             return 1
+-        sid, pid, id, temp_progress, progressBar = through_object
+ ########################################
+         try:
+             percent = returnProgr.percent
+@@ -696,17 +708,7 @@ class MainFrameRes(QtGui.QWidget):
+                 return 1
+ 
+             # Call server method
+-            if hasattr (self, 'get_Progress_thread'):
+-                if self.get_Progress_thread.isRunning():
+-                    self.get_Progress_thread.wait()
+-            self.get_Progress_thread = ClientServiceThread(self.ClientObj,\
+-                           'get_progress', sid, pid, id, return_except = True,\
+-                           sleeptime = 1, through_object = \
+-                           (sid, pid, id, temp_progress, progressBar))
+-            self.get_Progress_thread.signal_extended.connect \
+-                                                    (self.get_Progress_cycle)
+-            self.get_Progress_thread.start()
+-
++            nextProgress()
+         if percent < 0:
+             progressBar.setMaximum(100)
+             returnProgr.percent = 0 - percent
+diff --git consolegui/application/more.py consolegui/application/more.py
+index 0fd9128..dc6d9be 100755
+--- consolegui/application/more.py
++++ consolegui/application/more.py
+@@ -19,7 +19,7 @@ from PySide import QtGui, QtCore
+ import os, time, urllib2
+ from calculate.core.client.function import create_obj
+ from calculate.lib.utils.files import readLinesFile
+-import Image
++from PIL import Image 
+ import pwd, sys
+ from calculate.lib.utils.files import listDirectory
+ 
