@@ -1,5 +1,0 @@
-# Calculate format=patch
-<reg>(ebegin "Starting[\S\s]*?)eend[^\n]+</reg>
-<text>\1res=$?
-	pkill -f git-daemon.pid
-	eend $res</text>
