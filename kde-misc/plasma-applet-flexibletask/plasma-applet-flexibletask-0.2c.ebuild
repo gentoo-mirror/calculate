@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-misc/plasma-applet-daisy/plasma-applet-daisy-0.0.4.25.ebuild,v 1.2 2011/01/31 14:28:25 tampakrap Exp $
 
-EAPI=3
+EAPI=4
 
 inherit kde4-base
 
