@@ -290,13 +290,13 @@ fi
 if [[ $EBUILD_PHASE == "preinst" ]]
 then
 	[[ ! -d /var/lib/calculate ]] && mkdir /var/lib/calculate
-	touch /var/lib/calculate/-merge-$PN-$SLOT-$PPID
+	touch "/var/lib/calculate/-merge-$PN--${SLOT/\//_}-$PPID"
 fi
 
 
 if [[ $EBUILD_PHASE == "postrm" ]]
 then
-	if [[ ! -f /var/lib/calculate/-merge-$PN-$SLOT-$PPID ]]
+	if [[ ! -f /var/lib/calculate/-merge-$PN--${SLOT/\//_}-$PPID ]]
 	then
 		if [[ -n $calcver ]]
 		then
