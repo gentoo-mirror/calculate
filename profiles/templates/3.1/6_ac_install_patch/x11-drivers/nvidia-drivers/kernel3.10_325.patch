@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.10&&pkg(sys-kernel/calculate-sources)<3.11&&merge(x11-drivers/nvidia-drivers)>=325&&merge(x11-drivers/nvidia-drivers)<326
+# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.10&&pkg(sys-kernel/calculate-sources)<3.11&&merge(x11-drivers/nvidia-drivers)>=325.08&&merge(x11-drivers/nvidia-drivers)<325.15
 diff -U 3 -H -d -r -N -- nv-i2c.c.orig nv-i2c.c
 --- kernel/nv-i2c.c.orig	2013-07-01 21:45:45.241886356 -0400
 +++ kernel/nv-i2c.c	2013-07-01 21:38:49.532484245 -0400
