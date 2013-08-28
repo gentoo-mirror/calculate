@@ -1,0 +1,14 @@
+diff --git pym/cl_utils.py pym/cl_utils.py
+index ac25984..5672b4e 100644
+--- pym/cl_utils.py
++++ pym/cl_utils.py
+@@ -296,7 +296,8 @@ def runOsCommand(cmd, inStr=None, ret_first=None, env_dict=None):
+     retcode = pipe.wait()
+     res = fout.readlines()
+     fout.close()
+-    res += ferr.readlines()
++    if not ("dovecot start" in cmd or "dovecot restart" in cmd):
++        res += ferr.readlines()
+     ferr.close()
+     if res:
+         if len(res) == 1 or ret_first:
