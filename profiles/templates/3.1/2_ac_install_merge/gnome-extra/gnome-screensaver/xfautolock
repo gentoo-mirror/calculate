@@ -1,17 +1,5 @@
 #!/bin/bash
 
-SERVICENAME=im.pidgin.purple.PurpleService
-SERVICEPATH=/im/pidgin/purple/PurpleObject
-SERVICEMETHOD=PurpleSavedstatusSetIdleaway
-
-setaway() {
-	qdbus ${SERVICENAME} ${SERVICEPATH} ${SERVICEMETHOD} 1 &>/dev/null
-}
-
-setonline() {
-	qdbus ${SERVICENAME} ${SERVICEPATH} ${SERVICEMETHOD} 0 &>/dev/null
-}
-
 is_monitor_on() {
 	# проверяем используется DPMS (возможно отключен через smplayer) и монитор выключен (Standby,Suspend,Off)
 	xset -q | grep -q "DPMS is Enabled" && xset -q | grep Monitor | grep -q On
@@ -59,7 +47,6 @@ do
 				if [[ "$(screensaver_status)" == "false" ]]
 				then
 					# заблокировать текущий сеанс
-					setaway
 					/usr/bin/xflock4
 				else
 					# сбросить таймер (для исключения автоблокирования сеанса сразу же после разблокировки)
@@ -73,13 +60,6 @@ do
 			TIMER=
 		fi
 	else
-		# если screensaver выключен - установить статус онлайн
-		if [[ "$(screensaver_status)" == "false" ]]
-		then
-			setonline
-		else
-			setaway
-		fi
 		# сбросить время таймера, т.к. монитор включен
 		OFFTIME=0
 	fi
