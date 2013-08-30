@@ -1,42 +1,86 @@
-# Calculate path=/usr/bin chmod=0755
 #!/bin/bash
 
+SERVICENAME=im.pidgin.purple.PurpleService
+SERVICEPATH=/im/pidgin/purple/PurpleObject
+SERVICEMETHOD=PurpleSavedstatusSetIdleaway
+
+setaway() {
+	qdbus ${SERVICENAME} ${SERVICEPATH} ${SERVICEMETHOD} 1 &>/dev/null
+}
+
+setonline() {
+	qdbus ${SERVICENAME} ${SERVICEPATH} ${SERVICEMETHOD} 0 &>/dev/null
+}
+
+is_monitor_on() {
+	# проверяем используется DPMS (возможно отключен через smplayer) и монитор выключен (Standby,Suspend,Off)
+	xset -q | grep -q "DPMS is Enabled" && xset -q | grep Monitor | grep -q On
+}
+
+screensaver_status() {
+	# получить блокирован или нет сеанс через gnome-screensaver
+	# timeout используется, так как при получение состояния может быть
+	# зависание до активанции экрана блокировки сеанса
+	res=$(LANG=C timeout -k 5 5 qdbus org.gnome.ScreenSaver / GetActive)
+	# if screensaver is not active and qdbus command work without hanging
+	if [[ $? -eq 0 ]]
+	then
+		echo $res
+	else
+		echo timeout
+	fi
+}
+
+getuserparam() {
+    local section=$1
+    local param=$2
+    sed -nr "/\[${section}\]/{:s;n;s/${param}\s*=\s*(\w+)/\1/p;/\[/b;bs}" $HOME/.calculate/ini.env
+}
+
 OFFTIME=0
-# check work X server and xset command
+# демон работает пока xset выдает информацию (работает X server)
 while xset -q &>/dev/null
 do
-	# activate sleep timer
-	xset -q | grep Monitor | grep -q On && TIMER=1
-	# check is monitor off and DMPS enabled
-	if xset -q | grep -q "DPMS is Enabled" && ! xset -q | grep Monitor | grep -q On
+	sleep 1
+	# не используем блокировку если у пользователя .calculate/ini.env не включена автоблокировка (lock = on)
+	[[ "$(getuserparam main lock)" == "on" ]] || continue
+	# включить таймер автоблокировки
+	# таймер выключается если сессия не активна
+	is_monitor_on && TIMER=1
+	# 
+	if ! is_monitor_on
 	then
-		# lock session work only in active console
+		# блокировка сессии только если пользовательская сессия активна
 		if /usr/bin/ck-list-sessions | grep -A 5 "unix-user = '$(id -u)'" | grep -q "active = TRUE"
 		then
-			# wait 5 sec before lock session
+			# запускать блокировку через 5 секунд после выключения монитора
 			if [[ $OFFTIME -gt 5 ]]
 			then
-				t=$(date +%s)
-				# if screensaver is not active and qdbus command work without hanging
-				if [ "$(qdbus org.gnome.ScreenSaver / GetActive)" != "true" ] && [[ "$(( $(date +%s) - $t ))" -lt 5 ]]
+				if [[ "$(screensaver_status)" == "false" ]]
 				then
-					# get "lock" param from user calculate.ini
-					[[ "$(sed -nr '/\[main\]/{:s;n;s/lock\s*=\s*(\w+)/\1/p;/\[/b;bs}' $HOME/.calculate/ini.env)" == "on" ]] && /usr/bin/xflock4
+					# заблокировать текущий сеанс
+					setaway
+					/usr/bin/xflock4
 				else
-					# drop timer
+					# сбросить таймер (для исключения автоблокирования сеанса сразу же после разблокировки)
 					OFFTIME=0
 				fi
 			fi
-			# increase timer
-			[[ -n "$TIMER" ]] && OFFTIME=$(( $OFFTIME + 1 ))
+			[[ -n "$TIMER" ]] && (( OFFTIME++ ))
 		else
-			# drop timer, turn off timer
+			# выключить таймер
 			OFFTIME=0
 			TIMER=
 		fi
 	else
-		# drop timer
+		# если screensaver выключен - установить статус онлайн
+		if [[ "$(screensaver_status)" == "false" ]]
+		then
+			setonline
+		else
+			setaway
+		fi
+		# сбросить время таймера, т.к. монитор включен
 		OFFTIME=0
 	fi
-	sleep 1
 done
