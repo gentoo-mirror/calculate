@@ -18,7 +18,7 @@ SLOT="3"
 KEYWORDS=""
 IUSE="pxe minimal"
 
-DEPEND="~sys-apps/calculate-core-3.1.7_alpha2
+DEPEND="~sys-apps/calculate-core-3.1.7_alpha3
 	!<sys-apps/calculate-install-2.2.29
 	app-portage/layman
 	>=virtual/udev-197

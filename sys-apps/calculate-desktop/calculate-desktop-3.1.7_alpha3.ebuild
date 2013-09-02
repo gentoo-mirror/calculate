@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI="3"
+
 SUPPORT_PYTHON_ABIS="1"
 PYTHON_DEPEND="2:2.7"
 RESTRICT_PYTHON_ABIS="2.4 2.5 2.6 3.*"
@@ -11,14 +12,20 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="Qt gui console client for WSDL Calculate 3"
+DESCRIPTION="The program of the desktop configuration Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS=""
+IUSE=""
 
-DEPEND="~sys-apps/calculate-core-3.1.7_alpha2
-	dev-python/dbus-python
-	dev-python/imaging
-	dev-python/pyside[script]"
+DEPEND="~sys-apps/calculate-core-3.1.7_alpha3
+	>=dev-python/python-ldap-2.0[ssl]
+	media-gfx/feh
+	x11-apps/xmessage
+	!<sys-apps/calculate-desktop-3.1.0_alpha1
+	sys-apps/keyutils
+	sys-auth/pam_keystore
+	sys-auth/pam_client
+	dev-lang/swig"
 RDEPEND="${DEPEND}"
