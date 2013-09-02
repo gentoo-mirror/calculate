@@ -1,0 +1,25 @@
+diff --git client/utils/cl_client.py client/utils/cl_client.py
+index 7513bce..48bd35b 100644
+--- client/utils/cl_client.py
++++ client/utils/cl_client.py
+@@ -460,7 +460,7 @@ class ClClientSyncLogoutAction(Action):
+                            '"error")',
+           'depend': Tasks.hasnot('success_sync')
+          },
+-         {'name':'umount_allres',
++         {'name':'check_mount!:umount_allres',
+           'method':'Desktop.umountUserRes(ur_home_path)',
+          }
+         ]
+diff --git client/wsdl_client.py client/wsdl_client.py
+index 2bd0ee6..d31259f 100644
+--- client/wsdl_client.py
++++ client/wsdl_client.py
+@@ -23,7 +23,6 @@ from utils.cl_client import (ClClientAction, ClClientSyncLoginAction,
+                              ClClientSyncLogoutAction, ClPasswdAction)
+ import calculate.desktop.desktop as desktop
+ import calculate.client.client as client
+-import calculate.install.install as install
+ 
+ from calculate.lib.cl_lang import setLocalTranslate, getLazyLocalTranslate
+ 
