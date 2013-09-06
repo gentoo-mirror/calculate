@@ -1,9 +1,9 @@
-# Calculate format=diff os_linux_system==desktop&&merge(sys-kernel/calculate-sources)<3.10.8
-From 84032f90ea34f4d17b361eac4707793797db1461 Mon Sep 17 00:00:00 2001
-From: Arianna Avanzini <avanzini.arianna@gmail.com>
+# Calculate format=diff os_linux_system==desktop&&merge(sys-kernel/calculate-sources)>=3.10.8
+From ea3405fc62593c429677112d26339aa26a1ce410 Mon Sep 17 00:00:00 2001
+From: Mauro Andreolini <mauro.andreolini@unimore.it>
 Date: Fri, 14 Jun 2013 13:46:47 +0200
 Subject: [PATCH 3/3] block, bfq: add Early Queue Merge (EQM) to BFQ-v6r2 for
- 3.9.0
+ 3.10.8+
 
 A set of processes may happen  to  perform interleaved reads, i.e., requests
 whose union would give rise to a  sequential read  pattern.  There   are two
@@ -41,9 +41,9 @@ Reviewed-by: Paolo Valente <paolo.valente@unimore.it>
  3 files changed, 466 insertions(+), 231 deletions(-)
 
 diff --git a/block/bfq-iosched.c b/block/bfq-iosched.c
-index b230927..bc57923 100644
---- block/bfq-iosched.c
-+++ block/bfq-iosched.c
+index 0ed2746..bbe79fb 100644
+--- a/block/bfq-iosched.c
++++ b/block/bfq-iosched.c
 @@ -444,6 +444,43 @@ static inline unsigned int bfq_wrais_duration(struct bfq_data *bfqd)
  	return dur;
  }
@@ -947,8 +947,8 @@ index b230927..bc57923 100644
  	return 0;
 diff --git a/block/bfq-sched.c b/block/bfq-sched.c
 index 03f8061..a0edaa2 100644
---- block/bfq-sched.c
-+++ block/bfq-sched.c
+--- a/block/bfq-sched.c
++++ b/block/bfq-sched.c
 @@ -978,34 +978,6 @@ static struct bfq_queue *bfq_get_next_queue(struct bfq_data *bfqd)
  	return bfqq;
  }
@@ -985,9 +985,9 @@ index 03f8061..a0edaa2 100644
  {
  	if (bfqd->active_bic != NULL) {
 diff --git a/block/bfq.h b/block/bfq.h
-index b4e9ab0..ca5b444 100644
---- block/bfq.h
-+++ block/bfq.h
+index 48ecde9..bb52975 100644
+--- a/block/bfq.h
++++ b/block/bfq.h
 @@ -188,6 +188,8 @@ struct bfq_group;
   * @pid: pid of the process owning the queue, used for logging purposes.
   * @last_rais_start_time: last (idle -> weight-raised) transition attempt

@@ -1,4 +1,4 @@
-# Calculate format=diff os_linux_system==desktop
+# Calculate format=diff os_linux_system==desktop&&merge(sys-kernel/calculate-sources)<3.10.8
 --- a/block/Kconfig.iosched
 +++ b/block/Kconfig.iosched
 @@ -51,15 +51,6 @@

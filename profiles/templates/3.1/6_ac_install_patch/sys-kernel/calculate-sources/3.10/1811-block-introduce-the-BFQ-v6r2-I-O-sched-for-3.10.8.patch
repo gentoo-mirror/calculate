@@ -1,10 +1,10 @@
-# Calculate format=diff os_linux_system==desktop&&merge(sys-kernel/calculate-sources)<3.10.8
-From c85fc6e997b49039c6580a7257b9773777656d8a Mon Sep 17 00:00:00 2001
+# Calculate format=diff os_linux_system==desktop&&merge(sys-kernel/calculate-sources)>=3.10.8
+From 9ebd58af8a41cc438931442adae1cf637b470982 Mon Sep 17 00:00:00 2001
 From: Arianna Avanzini <avanzini.arianna@gmail.com>
 Date: Thu, 9 May 2013 19:10:02 +0200
-Subject: [PATCH 2/3] block: introduce the BFQ-v6r2 I/O sched for 3.9
+Subject: [PATCH 2/3] block: introduce the BFQ-v6r2 I/O sched for 3.10.8+
 
-Add the BFQ-v6r2 I/O scheduler to 3.9.
+Add the BFQ-v6r2 I/O scheduler to 3.10.8+.
 The general structure is borrowed from CFQ, as much code. A (bfq_)queue
 is associated to each task doing I/O on a device, and each time a
 scheduling decision has to be made a queue is selected and served until
@@ -53,12 +53,12 @@ it expires.
 Signed-off-by: Paolo Valente <paolo.valente@unimore.it>
 Signed-off-by: Arianna Avanzini <avanzini.arianna@gmail.com>
 ---
- block/bfq-cgroup.c  |  868 +++++++++++++++
+ block/bfq-cgroup.c  |  881 +++++++++++++++
  block/bfq-ioc.c     |   36 +
- block/bfq-iosched.c | 3070 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ block/bfq-iosched.c | 3082 +++++++++++++++++++++++++++++++++++++++++++++++++++
  block/bfq-sched.c   | 1072 ++++++++++++++++++
  block/bfq.h         |  603 ++++++++++
- 5 files changed, 5649 insertions(+)
+ 5 files changed, 5674 insertions(+)
  create mode 100644 block/bfq-cgroup.c
  create mode 100644 block/bfq-ioc.c
  create mode 100644 block/bfq-iosched.c
@@ -67,10 +67,10 @@ Signed-off-by: Arianna Avanzini <avanzini.arianna@gmail.com>
 
 diff --git a/block/bfq-cgroup.c b/block/bfq-cgroup.c
 new file mode 100644
-index 0000000..2c569cc
+index 0000000..6d57239
 --- /dev/null
-+++ block/bfq-cgroup.c
-@@ -0,0 +1,868 @@
++++ b/block/bfq-cgroup.c
+@@ -0,0 +1,881 @@
 +/*
 + * BFQ: CGROUPS support.
 + *
@@ -86,6 +86,14 @@ index 0000000..2c569cc
 + */
 +
 +#ifdef CONFIG_CGROUP_BFQIO
++
++static DEFINE_MUTEX(bfqio_mutex);
++
++static bool bfqio_is_removed(struct cgroup *cgroup)
++{
++	return test_bit(CGRP_REMOVED, &cgroup->flags);
++}
++
 +static struct bfqio_cgroup bfqio_root_cgroup = {
 +	.weight = BFQ_DEFAULT_GRP_WEIGHT,
 +	.ioprio = BFQ_DEFAULT_GRP_IOPRIO,
@@ -691,18 +699,19 @@ index 0000000..2c569cc
 +				       struct cftype *cftype)		\
 +{									\
 +	struct bfqio_cgroup *bgrp;					\
-+	u64 ret;							\
++	u64 ret = -ENODEV;						\
 +									\
-+	if (!cgroup_lock_live_group(cgroup))				\
-+		return -ENODEV;						\
++	mutex_lock(&bfqio_mutex);					\
++	if (bfqio_is_removed(cgroup))					\
++		goto out_unlock;					\
 +									\
 +	bgrp = cgroup_to_bfqio(cgroup);					\
 +	spin_lock_irq(&bgrp->lock);					\
 +	ret = bgrp->__VAR;						\
 +	spin_unlock_irq(&bgrp->lock);					\
 +									\
-+	cgroup_unlock();						\
-+									\
++out_unlock:								\
++	mutex_unlock(&bfqio_mutex);					\
 +	return ret;							\
 +}
 +
@@ -718,12 +727,16 @@ index 0000000..2c569cc
 +{									\
 +	struct bfqio_cgroup *bgrp;					\
 +	struct bfq_group *bfqg;						\
++	int ret = -EINVAL;						\
 +									\
 +	if (val < (__MIN) || val > (__MAX))				\
-+		return -EINVAL;						\
++		return ret;						\
 +									\
-+	if (!cgroup_lock_live_group(cgroup))				\
-+		return -ENODEV;						\
++	ret = -ENODEV;							\
++	mutex_lock(&bfqio_mutex);					\
++	if (bfqio_is_removed(cgroup))					\
++		goto out_unlock;					\
++	ret = 0;							\
 +									\
 +	bgrp = cgroup_to_bfqio(cgroup);					\
 +									\
@@ -744,9 +757,9 @@ index 0000000..2c569cc
 +	}								\
 +	spin_unlock_irq(&bgrp->lock);					\
 +									\
-+	cgroup_unlock();						\
-+									\
-+	return 0;							\
++out_unlock:								\
++	mutex_unlock(&bfqio_mutex);					\
++	return ret;							\
 +}
 +
 +STORE_FUNCTION(weight, BFQ_MIN_WEIGHT, BFQ_MAX_WEIGHT);
@@ -943,7 +956,7 @@ diff --git a/block/bfq-ioc.c b/block/bfq-ioc.c
 new file mode 100644
 index 0000000..326e3ec
 --- /dev/null
-+++ block/bfq-ioc.c
++++ b/block/bfq-ioc.c
 @@ -0,0 +1,36 @@
 +/*
 + * BFQ: I/O context handling.
@@ -983,10 +996,10 @@ index 0000000..326e3ec
 +}
 diff --git a/block/bfq-iosched.c b/block/bfq-iosched.c
 new file mode 100644
-index 0000000..b230927
+index 0000000..0ed2746
 --- /dev/null
-+++ block/bfq-iosched.c
-@@ -0,0 +1,3070 @@
++++ b/block/bfq-iosched.c
+@@ -0,0 +1,3082 @@
 +/*
 + * BFQ, or Budget Fair Queueing, disk scheduler.
 + *
@@ -3672,14 +3685,22 @@ index 0000000..b230927
 +	kfree(bfqd);
 +}
 +
-+static int bfq_init_queue(struct request_queue *q)
++static int bfq_init_queue(struct request_queue *q, struct elevator_type *e)
 +{
 +	struct bfq_group *bfqg;
 +	struct bfq_data *bfqd;
++	struct elevator_queue *eq;
++
++	eq = elevator_alloc(q, e);
++	if (eq == NULL)
++		return -ENOMEM;
 +
 +	bfqd = kmalloc_node(sizeof(*bfqd), GFP_KERNEL | __GFP_ZERO, q->node);
-+	if (bfqd == NULL)
++	if (bfqd == NULL) {
++		kobject_put(&eq->kobj);
 +		return -ENOMEM;
++	}
++	eq->elevator_data = bfqd;
 +
 +	/*
 +	 * Our fallback bfqq if bfq_find_alloc_queue() runs into OOM issues.
@@ -3690,11 +3711,15 @@ index 0000000..b230927
 +	atomic_inc(&bfqd->oom_bfqq.ref);
 +
 +	bfqd->queue = q;
-+	q->elevator->elevator_data = bfqd;
++
++	spin_lock_irq(q->queue_lock);
++	q->elevator = eq;
++	spin_unlock_irq(q->queue_lock);
 +
 +	bfqg = bfq_alloc_root_group(bfqd, q->node);
 +	if (bfqg == NULL) {
 +		kfree(bfqd);
++		kobject_put(&eq->kobj);
 +		return -ENOMEM;
 +	}
 +
@@ -4061,7 +4086,7 @@ diff --git a/block/bfq-sched.c b/block/bfq-sched.c
 new file mode 100644
 index 0000000..03f8061
 --- /dev/null
-+++ block/bfq-sched.c
++++ b/block/bfq-sched.c
 @@ -0,0 +1,1072 @@
 +/*
 + * BFQ: Hierarchical B-WF2Q+ scheduler.
@@ -5137,12 +5162,12 @@ index 0000000..03f8061
 +}
 diff --git a/block/bfq.h b/block/bfq.h
 new file mode 100644
-index 0000000..b4e9ab0
+index 0000000..48ecde9
 --- /dev/null
-+++ block/bfq.h
++++ b/block/bfq.h
 @@ -0,0 +1,603 @@
 +/*
-+ * BFQ-v6r2 for 3.9.0: data structures and common functions prototypes.
++ * BFQ-v6r2 for 3.10.0: data structures and common functions prototypes.
 + *
 + * Based on ideas and code from CFQ:
 + * Copyright (C) 2003 Jens Axboe <axboe@kernel.dk>
