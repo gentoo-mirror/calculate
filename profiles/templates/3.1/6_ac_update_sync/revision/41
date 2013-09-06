@@ -1,6 +1,6 @@
 # Calculate ini(update.rev)<41 exec=/bin/bash merge=gnome-extra/gnome-screensaver
 
 #-ini(update.rev,41)-#
-rm /xfautolock
+rm -f /xfautolock &>/dev/null
 
 exit 0
