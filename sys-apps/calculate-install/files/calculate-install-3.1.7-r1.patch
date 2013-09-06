@@ -1,0 +1,13 @@
+diff --git install/install.py install/install.py
+index 9456d36..3ae3eb9 100644
+--- install/install.py
++++ install/install.py
+@@ -400,7 +400,7 @@ class Install:
+         'lvm_vgname' название группы томов LVM, bios_grub - создавать
+         bios_grub раздел
+         """
+-        ap = Autopartition()
++        ap = AutoPartition()
+         ap.clearLvm(devices,self.clVars)
+         ap.clearRaid(devices,self.clVars)
+         ap.recreateSpace(table,devices,data,lvm,lvm_vgname,bios_grub)
