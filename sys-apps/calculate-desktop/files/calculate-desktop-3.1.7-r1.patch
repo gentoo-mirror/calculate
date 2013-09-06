@@ -1,0 +1,79 @@
+diff --git desktop/desktop.py desktop/desktop.py
+index 5f03ced..4ac7b97 100644
+--- desktop/desktop.py
++++ desktop/desktop.py
+@@ -262,7 +262,7 @@ class Desktop:
+         else:
+             raise DesktopError(_("Unable to detect the X session"))
+         if process("su",urLogin,"-c",
+-            ("DISPLAY=:%s /usr/bin/qdbus "%display)+logoutCommand).failed():
++            ("DISPLAY=:%s "%display)+logoutCommand).failed():
+             raise DesktopError(_("Unable send logout command"))
+         return True
+ 
+diff --git desktop/variables/desktop.py desktop/variables/desktop.py
+index 9009061..f7337ef 100644
+--- desktop/variables/desktop.py
++++ desktop/variables/desktop.py
+@@ -182,7 +182,8 @@ class VariableClDesktopOnlineData(ReadonlyTableVariable):
+     Information about online users
+     """
+     source = ['cl_desktop_online_user',
+-              'cl_desktop_online_display']
++              'cl_desktop_online_display',
++              'cl_desktop_online_count']
+ 
+     reDisplay = re.compile(r"^\(?:(\d+\.?\d*)")
+ 
+@@ -203,8 +204,7 @@ class VariableClDesktopOnlineData(ReadonlyTableVariable):
+         if resWho.success():
+             listProcessing = lambda x: (x[0], x[1], x[-1]) \
+                              if len(x)>=5 else []
+-            xData = map(lambda x:x[1].next(),
+-                    groupby(
++            xData = groupby(
+                     sorted(
+                     filter(lambda x: x[0]!="root",
+                     map(lambda x: (x[0],self._getDisplay(x[1],x[2])),
+@@ -215,14 +215,17 @@ class VariableClDesktopOnlineData(ReadonlyTableVariable):
+                     filter(lambda y: y, x.split())),
+                     resWho)))),
+                     key=lambda x:x[0]),
+-                    lambda x:x[0]))
++                    lambda x:x[0])
++            xData = map(lambda x:(x[0][0],x[0][1],len(x)),
++                    map(lambda x:list(x[1]),
++                    xData))
+         return xData
+ 
+     setValue = Variable.setValue
+ 
+ class VariableClDesktopOnlineUser(FieldValue,ReadonlyVariable):
+     """
+-    User name
++    Логин пользователя
+     """
+     type = "list"
+     source_variable = "cl_desktop_online_data"
+@@ -230,12 +233,20 @@ class VariableClDesktopOnlineUser(FieldValue,ReadonlyVariable):
+ 
+ class VariableClDesktopOnlineDisplay(FieldValue,ReadonlyVariable):
+     """
+-    Display for user
++    Display пользователя
+     """
+     type = "list"
+     source_variable = "cl_desktop_online_data"
+     column = 1
+ 
++class VariableClDesktopOnlineCount(FieldValue,ReadonlyVariable):
++    """
++    Количество сеансов пользователя
++    """
++    type = "list"
++    source_variable = "cl_desktop_online_data"
++    column = 2
++
+ class VariableClDesktopLogin(VariableUrLogin):
+     """
+     User Login
