@@ -1,0 +1,51 @@
+diff --git core/server/func.py core/server/func.py
+index fdee9d5..be7c323 100644
+--- core/server/func.py
++++ core/server/func.py
+@@ -1659,7 +1659,7 @@ class WsdlBase:
+ def clearDataVars(func):
+     def wrapper(*args,**kwargs):
+         try:
+-            func(*args,**kwargs)
++            return func(*args,**kwargs)
+         finally:
+             WsdlMeta.closeDataVars()
+     return wrapper
+diff --git core/utils/cl_core_setup.py core/utils/cl_core_setup.py
+index 7d84869..117dfa3 100644
+--- core/utils/cl_core_setup.py
++++ core/utils/cl_core_setup.py
+@@ -66,6 +66,7 @@ class ClCoreSetupAction(Action):
+                         'cl_template_path_use,cl_ebuild_phase,'
+                         'cl_template_clt_set)',
+           'condition':lambda dv:(dv.Get('cl_core_pkg_desktop_set') == 'on' and
++                        dv.isModuleInstalled('desktop') and
+                         not dv.Get('cl_ebuild_phase') in ("preinst","prerm"))
+           }
+          ]
+diff --git core/utils/cl_core_variables.py core/utils/cl_core_variables.py
+index 38c3dfd..d0c5ef3 100644
+--- core/utils/cl_core_variables.py
++++ core/utils/cl_core_variables.py
+@@ -31,7 +31,7 @@ class ClCoreVariables(Action):
+     native_error = (FilesError,DataVarsError,VariableError)
+     successMessage = None
+     failedMessage = None
+-    interruptMessage = __("Setting manually interrupted")
++    interruptMessage = __("Variables modification manually interrupted")
+ 
+     tasks = [
+          {'name':'write_vars',
+diff --git core/variables/certificate.py core/variables/certificate.py
+index a9efbb5..4511ff6 100644
+--- core/variables/certificate.py
++++ core/variables/certificate.py
+@@ -165,7 +165,7 @@ class VariableClCertPerms(Variable):
+         return results
+ 
+     def uncompatible(self):
+-        return _('You can not change the certificate certificate')
++        return _('You can not change the certificate permissions')
+ 
+ class VariableClCertGroups(Variable):
+     """
