@@ -17,10 +17,10 @@ Signed-off-by: Matteo Bernardini <matteo.bernardini@gmail.com>
  include/linux/cgroup_subsys.h |  6 ++++++
  3 files changed, 32 insertions(+)
 
-diff --git a/block/Kconfig.iosched b/block/Kconfig.iosched
+diff --git block/Kconfig.iosched block/Kconfig.iosched
 index 421bef9..695e064 100644
---- a/block/Kconfig.iosched
-+++ b/block/Kconfig.iosched
+--- block/Kconfig.iosched
++++ block/Kconfig.iosched
 @@ -39,6 +39,27 @@ config CFQ_GROUP_IOSCHED
  	---help---
  	  Enable group IO scheduling in CFQ.
@@ -67,10 +67,10 @@ index 421bef9..695e064 100644
  	default "noop" if DEFAULT_NOOP
  
  endmenu
-diff --git a/block/Makefile b/block/Makefile
+diff --git block/Makefile block/Makefile
 index 39b76ba..c0d20fa 100644
---- a/block/Makefile
-+++ b/block/Makefile
+--- block/Makefile
++++ block/Makefile
 @@ -15,6 +15,7 @@ obj-$(CONFIG_BLK_DEV_THROTTLING)	+= blk-throttle.o
  obj-$(CONFIG_IOSCHED_NOOP)	+= noop-iosched.o
  obj-$(CONFIG_IOSCHED_DEADLINE)	+= deadline-iosched.o
@@ -79,10 +79,10 @@ index 39b76ba..c0d20fa 100644
  
  obj-$(CONFIG_BLOCK_COMPAT)	+= compat_ioctl.o
  obj-$(CONFIG_BLK_DEV_INTEGRITY)	+= blk-integrity.o
-diff --git a/include/linux/cgroup_subsys.h b/include/linux/cgroup_subsys.h
+diff --git include/linux/cgroup_subsys.h include/linux/cgroup_subsys.h
 index 6e7ec64..e5e6b0d 100644
---- a/include/linux/cgroup_subsys.h
-+++ b/include/linux/cgroup_subsys.h
+--- include/linux/cgroup_subsys.h
++++ include/linux/cgroup_subsys.h
 @@ -84,3 +84,9 @@ SUBSYS(bcache)
  #endif
  

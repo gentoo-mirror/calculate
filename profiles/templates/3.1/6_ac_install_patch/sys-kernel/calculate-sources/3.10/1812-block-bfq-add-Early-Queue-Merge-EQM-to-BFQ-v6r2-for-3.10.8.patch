@@ -40,10 +40,10 @@ Reviewed-by: Paolo Valente <paolo.valente@unimore.it>
  block/bfq.h         |  16 ++
  3 files changed, 466 insertions(+), 231 deletions(-)
 
-diff --git a/block/bfq-iosched.c b/block/bfq-iosched.c
+diff --git block/bfq-iosched.c block/bfq-iosched.c
 index 0ed2746..bbe79fb 100644
---- a/block/bfq-iosched.c
-+++ b/block/bfq-iosched.c
+--- block/bfq-iosched.c
++++ block/bfq-iosched.c
 @@ -444,6 +444,43 @@ static inline unsigned int bfq_wrais_duration(struct bfq_data *bfqd)
  	return dur;
  }
@@ -945,10 +945,10 @@ index 0ed2746..bbe79fb 100644
  	spin_unlock_irqrestore(q->queue_lock, flags);
  
  	return 0;
-diff --git a/block/bfq-sched.c b/block/bfq-sched.c
+diff --git block/bfq-sched.c block/bfq-sched.c
 index 03f8061..a0edaa2 100644
---- a/block/bfq-sched.c
-+++ b/block/bfq-sched.c
+--- block/bfq-sched.c
++++ block/bfq-sched.c
 @@ -978,34 +978,6 @@ static struct bfq_queue *bfq_get_next_queue(struct bfq_data *bfqd)
  	return bfqq;
  }
@@ -984,10 +984,10 @@ index 03f8061..a0edaa2 100644
  static void __bfq_bfqd_reset_active(struct bfq_data *bfqd)
  {
  	if (bfqd->active_bic != NULL) {
-diff --git a/block/bfq.h b/block/bfq.h
+diff --git block/bfq.h block/bfq.h
 index 48ecde9..bb52975 100644
---- a/block/bfq.h
-+++ b/block/bfq.h
+--- block/bfq.h
++++ block/bfq.h
 @@ -188,6 +188,8 @@ struct bfq_group;
   * @pid: pid of the process owning the queue, used for logging purposes.
   * @last_rais_start_time: last (idle -> weight-raised) transition attempt

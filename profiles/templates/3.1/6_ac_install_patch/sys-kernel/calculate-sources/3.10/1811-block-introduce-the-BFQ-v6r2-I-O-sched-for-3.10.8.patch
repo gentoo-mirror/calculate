@@ -65,11 +65,11 @@ Signed-off-by: Arianna Avanzini <avanzini.arianna@gmail.com>
  create mode 100644 block/bfq-sched.c
  create mode 100644 block/bfq.h
 
-diff --git a/block/bfq-cgroup.c b/block/bfq-cgroup.c
+diff --git block/bfq-cgroup.c block/bfq-cgroup.c
 new file mode 100644
 index 0000000..6d57239
 --- /dev/null
-+++ b/block/bfq-cgroup.c
++++ block/bfq-cgroup.c
 @@ -0,0 +1,881 @@
 +/*
 + * BFQ: CGROUPS support.
@@ -952,11 +952,11 @@ index 0000000..6d57239
 +	return bfqg;
 +}
 +#endif
-diff --git a/block/bfq-ioc.c b/block/bfq-ioc.c
+diff --git block/bfq-ioc.c block/bfq-ioc.c
 new file mode 100644
 index 0000000..326e3ec
 --- /dev/null
-+++ b/block/bfq-ioc.c
++++ block/bfq-ioc.c
 @@ -0,0 +1,36 @@
 +/*
 + * BFQ: I/O context handling.
@@ -994,11 +994,11 @@ index 0000000..326e3ec
 +		return icq_to_bic(ioc_lookup_icq(ioc, bfqd->queue));
 +	return NULL;
 +}
-diff --git a/block/bfq-iosched.c b/block/bfq-iosched.c
+diff --git block/bfq-iosched.c block/bfq-iosched.c
 new file mode 100644
 index 0000000..0ed2746
 --- /dev/null
-+++ b/block/bfq-iosched.c
++++ block/bfq-iosched.c
 @@ -0,0 +1,3082 @@
 +/*
 + * BFQ, or Budget Fair Queueing, disk scheduler.
@@ -4082,11 +4082,11 @@ index 0000000..0ed2746
 +MODULE_AUTHOR("Fabio Checconi, Paolo Valente");
 +MODULE_LICENSE("GPL");
 +MODULE_DESCRIPTION("Budget Fair Queueing IO scheduler");
-diff --git a/block/bfq-sched.c b/block/bfq-sched.c
+diff --git block/bfq-sched.c block/bfq-sched.c
 new file mode 100644
 index 0000000..03f8061
 --- /dev/null
-+++ b/block/bfq-sched.c
++++ block/bfq-sched.c
 @@ -0,0 +1,1072 @@
 +/*
 + * BFQ: Hierarchical B-WF2Q+ scheduler.
@@ -5160,11 +5160,11 @@ index 0000000..03f8061
 +	bfq_mark_bfqq_busy(bfqq);
 +	bfqd->busy_queues++;
 +}
-diff --git a/block/bfq.h b/block/bfq.h
+diff --git block/bfq.h block/bfq.h
 new file mode 100644
 index 0000000..48ecde9
 --- /dev/null
-+++ b/block/bfq.h
++++ block/bfq.h
 @@ -0,0 +1,603 @@
 +/*
 + * BFQ-v6r2 for 3.10.0: data structures and common functions prototypes.
