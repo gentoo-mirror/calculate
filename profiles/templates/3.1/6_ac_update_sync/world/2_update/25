@@ -1,0 +1,11 @@
+# Calculate format=world name=world ini(update.world)<25
+
+#-ini(update.world,25)-#
+
+#Заменим geeqie на eog (если установлен geeqie)
+
+#?os_linux_shortname==CLDX&&pkg(media-gfx/geeqie)>0#
+!media-gfx/geeqie
+media-gfx/eog
+#os_linux_shortname#
+
