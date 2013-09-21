@@ -68,3 +68,7 @@ net-misc/networkmanager-vpnc -gtk
 net-misc/networkmanager-pptp -gtk
 net-misc/networkmanager-openvpn -gtk
 net-misc/networkmanager-openconnect -gtk
+
+# required by kde-base/libkexiv2-4.11.1
+media-gfx/exiv2 xmp
+
