@@ -42,7 +42,7 @@ sys-power/cpufreqd nvidia
 www-client/links -X
 www-plugins/adobe-flash -vdpau
 x11-base/xorg-drivers -video_cards_nvidia -video_cards_vmware -video_cards_glint -video_cards_mach64 -video_cards_mga -video_cards_r128 -video_cards_savage -video_cards_tdfx -video_cards_trident
-x11-libs/cairo cleartype glitz svg
+x11-libs/cairo cleartype glitz svg xcb xlib-xcb
 x11-libs/libX11 xcb
 x11-misc/xscreensaver -opengl -jpeg -perl
 
