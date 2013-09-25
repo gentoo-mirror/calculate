@@ -2,6 +2,7 @@
 
 #-ini(update.rev,44)-#
 #?pkg(media-libs/font-config)!=&&pkg(media-fonts/droid)!=#
+rm -f /etc/fonts/conf.d/59-google-droid-s*
 /usr/bin/fc-cache -srf
 #pkg#
 
