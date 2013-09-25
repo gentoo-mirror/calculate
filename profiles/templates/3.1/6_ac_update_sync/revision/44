@@ -1,7 +1,7 @@
 # Calculate ini(update.rev)<44 exec=/bin/bash merge=media-fonts/droid
 
 #-ini(update.rev,44)-#
-#?pkg(media-libs/font-config)!=&&pkg(media-fonts/droid)!=#
+#?pkg(media-libs/fontconfig)!=&&pkg(media-fonts/droid)!=#
 rm -f /etc/fonts/conf.d/59-google-droid-s*
 /usr/bin/fc-cache -srf
 #pkg#
