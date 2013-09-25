@@ -1,5 +1,8 @@
-# Calculate ini(update.rev)<44 format=samba path=/etc/calculate name=ini.env merge=media-fonts/droid
+# Calculate ini(update.rev)<44 exec=/bin/bash merge=media-fonts/droid
 
-# update droid
-[update]
-rev = 44
+#-ini(update.rev,44)-#
+#?pkg(media-libs/font-config)!=&&pkg(media-fonts/droid)!=#
+/usr/bin/fc-cache -srf
+#pkg#
+
+exit 0
