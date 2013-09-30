@@ -12,6 +12,9 @@ Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-fr"
 #?os_locale_language==ru#
 Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-ru"
 #os_locale_language#
-#?in(os_locale_language,ru,fr)==#
+#?os_locale_language==de#
+Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-de"
+#os_locale_language#
+#?in(os_locale_language,fr,ru,de)==#
 Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate"
 #in#
