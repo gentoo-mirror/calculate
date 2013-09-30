@@ -1,0 +1,280 @@
+diff --git core/server/api_types.py core/server/api_types.py
+index 8161a9e..0bca760 100644
+--- core/server/api_types.py
++++ core/server/api_types.py
+@@ -359,7 +359,7 @@ class ViewInfo(DataVarsSerializer):
+             varGroups = datavars.getGroups()
+             lastGroup = len(varGroups)-1
+             # interate all vars group
+-            if not onlyhelp and (step in(0,-1,None) or allsteps):
++            if step in(0,-1,None) or allsteps:
+                 briefData = datavars.getBrief()
+                 self.groups.append(self.stepGroup(varGroups,brief_label,
+                             help_value=briefData.get("help",None),
+diff --git core/server/func.py core/server/func.py
+index fdee9d5..be7c323 100644
+--- core/server/func.py
++++ core/server/func.py
+@@ -1659,7 +1659,7 @@ class WsdlBase:
+ def clearDataVars(func):
+     def wrapper(*args,**kwargs):
+         try:
+-            func(*args,**kwargs)
++            return func(*args,**kwargs)
+         finally:
+             WsdlMeta.closeDataVars()
+     return wrapper
+diff --git core/server/methods_func.py core/server/methods_func.py
+index d546c1f..72014a2 100644
+--- core/server/methods_func.py
++++ core/server/methods_func.py
+@@ -501,10 +501,10 @@ def collect_object(client, param_object, view, args,wait_thread = None,
+                                             val)
+ 
+             elif field.element in ['input', 'openfile',\
+-                                   'file', 'radio']:
++                                   'file', 'radio','combo','comboEdit']:
+                 param_object = set_obj_item(client, param_object, field.name,
+                                             _getattr(args, field.name))
+-            elif field.element in ['password'] and _getattr(args, field.name) \
++            elif 'passwd' in field.element and _getattr(args, field.name) \
+                 or field.type and  "need" in field.type:
+                 if wait_thread:
+                     wait_thread.pause()
+@@ -517,21 +517,6 @@ def collect_object(client, param_object, view, args,wait_thread = None,
+                                             password)
+                 if wait_thread:
+                     wait_thread.resume()
+-            elif field.element in ['combo', 'comboEdit']:
+-                value = _getattr(args, field.name)
+-                if value:
+-                    if hasattr (field.choice, 'string'):
+-                        choice = field.choice.string
+-                    else:
+-                        choice = field.choice
+-                    for item in choice:
+-                        if item:
+-                            if value.lower() == item.lower():
+-                                value = item
+-                                break
+-
+-                param_object = set_obj_item(client, param_object, field.name,
+-                                            value)
+             elif field.element in ['multichoice', 'multichoice_add', \
+                                    'selecttable', 'selecttable_add']:
+                 val = _getattr(args, field.name)
+diff --git core/server/replace_class.py core/server/replace_class.py
+index 860ede2..02ea194 100644
+--- core/server/replace_class.py
++++ core/server/replace_class.py
+@@ -515,7 +515,7 @@ def call_method(metaObject, args, unknown_args, colorPrint):
+     view_obj.step = None
+     view_obj.expert = True
+     view_obj.brief = None
+-    view_obj.onlyhelp = False
++    view_obj.onlyhelp = True
+ 
+     try:
+         view = getattr(metaObject, method_view_name)(0, view_obj)
+diff --git core/utils/cl_core_custom.py core/utils/cl_core_custom.py
+new file mode 100644
+index 0000000..518f4cd
+--- /dev/null
++++ core/utils/cl_core_custom.py
+@@ -0,0 +1,56 @@
++#-*- coding: utf-8 -*-
++
++# Copyright 2013 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
++
++import sys
++from calculate.core.server.func import Action,Tasks
++from calculate.lib.cl_lang import setLocalTranslate,getLazyLocalTranslate
++from calculate.lib.datavars import VariableError
++from calculate.lib.cl_template import TemplatesError
++from calculate.lib.utils.files import FilesError
++
++setLocalTranslate('cl_install3',sys.modules[__name__])
++__ = getLazyLocalTranslate(_)
++
++class ClCoreCustomAction(Action):
++    """
++    Действие для настройки параметров видео
++    """
++    # ошибки, которые отображаются без подробностей
++    native_error = (FilesError, TemplatesError,VariableError)
++
++    successMessage = __("Custom action successfully completed!")
++    failedMessage = __("Failed to perform custom action!")
++    interruptMessage = __("Custom action manually interrupted")
++
++    def __init__(self):
++        # список задач для дейсвия
++        self.tasks = [
++         {'name':'apply_templates',
++          # наложить шаблоны на текущий дистрибутив, включая clt шаблоны
++          # без использования фильтров по clt шаблонам
++          'method':'UpdateConfigs.applyTemplates(None,False,'\
++                   'None,None)',
++          },
++          {'name':'failed_action',
++           'error':__("Action {ac_custom_name} not found"),
++           'condition':lambda Get:not filter(
++                lambda x:x and x[0] == 'ac_custom_name' and \
++                         x[1] == Get('ac_custom_name'),
++                Get('cl_used_action'))
++          }
++          ]
++
++        Action.__init__(self)
+diff --git core/utils/cl_core_setup.py core/utils/cl_core_setup.py
+index 7d84869..900a213 100644
+--- core/utils/cl_core_setup.py
++++ core/utils/cl_core_setup.py
+@@ -31,7 +31,7 @@ class ClCoreSetupAction(Action):
+     # ошибки, которые отображаются без подробностей
+     native_error = (FilesError,TemplatesError,VariableError,DataVarsError)
+     templateTaskMessage = __("System are being configured")
+-    successMessage = __("System configured!")
++    successMessage = None
+     failedMessage = __("Failed to configure the system!")
+     interruptMessage = __("Configuration manually interrupted")
+ 
+@@ -66,6 +66,7 @@ class ClCoreSetupAction(Action):
+                         'cl_template_path_use,cl_ebuild_phase,'
+                         'cl_template_clt_set)',
+           'condition':lambda dv:(dv.Get('cl_core_pkg_desktop_set') == 'on' and
++                        dv.isModuleInstalled('desktop') and
+                         not dv.Get('cl_ebuild_phase') in ("preinst","prerm"))
+           }
+          ]
+diff --git core/utils/cl_core_variables.py core/utils/cl_core_variables.py
+index 38c3dfd..d0c5ef3 100644
+--- core/utils/cl_core_variables.py
++++ core/utils/cl_core_variables.py
+@@ -31,7 +31,7 @@ class ClCoreVariables(Action):
+     native_error = (FilesError,DataVarsError,VariableError)
+     successMessage = None
+     failedMessage = None
+-    interruptMessage = __("Setting manually interrupted")
++    interruptMessage = __("Variables modification manually interrupted")
+ 
+     tasks = [
+          {'name':'write_vars',
+diff --git core/variables/certificate.py core/variables/certificate.py
+index a9efbb5..4511ff6 100644
+--- core/variables/certificate.py
++++ core/variables/certificate.py
+@@ -165,7 +165,7 @@ class VariableClCertPerms(Variable):
+         return results
+ 
+     def uncompatible(self):
+-        return _('You can not change the certificate certificate')
++        return _('You can not change the certificate permissions')
+ 
+ class VariableClCertGroups(Variable):
+     """
+diff --git core/variables/setup_package.py core/variables/setup_package.py
+index e2290ff..5f45dbd 100644
+--- core/variables/setup_package.py
++++ core/variables/setup_package.py
+@@ -19,6 +19,7 @@ from os import path
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+ from calculate.core.server.decorators import Dec
++import pwd
+ #from calculate.api.cert_cmd import find_id_cert
+ setLocalTranslate('cl_core3',sys.modules[__name__])
+ 
+@@ -26,6 +27,7 @@ from calculate.lib.utils.files import listDirectory
+ from calculate.lib.utils.portage import isPkgInstalled,reVerSplitToPV, \
+                                         getPkgSlot
+ from calculate.lib.utils.common import getTupleVersion
++from calculate.lib.variables.user import VariableUrLogin
+ from itertools import *
+ import glob
+ 
+@@ -211,3 +213,20 @@ class VariableClCorePkgRootSet(Variable):
+     def init(self):
+         self.label = _("Configure dependent packages in root")
+         self.help = _("configure the dependent packages in the same directory as the specified package, instead of root")
++
++class VariableUrCoreLogin(VariableUrLogin):
++    """
++    User Login
++    """
++    opt = ["--login"]
++    alias = "ur_login"
++
++    def check(self,value):
++        """Пользователь существует"""
++        try:
++            pwd.getpwnam(value).pw_gid
++        except:
++            raise VariableError(_("User %s does not exist")%value)
++
++    def get(self):
++        return self.Get('ur_login')
+diff --git core/wsdl_core.py core/wsdl_core.py
+index 2b4cdbc..f9fe2f4 100644
+--- core/wsdl_core.py
++++ core/wsdl_core.py
+@@ -38,6 +38,7 @@ from calculate.core.utils.cl_core_request import (ClCoreRequestShow,
+                     ClCoreRequestConfirm,ClCoreRequestDel)
+ from calculate.core.utils.cl_core_variables import (ClCoreVariables,
+                     ClCoreVariablesShow)
++from calculate.core.utils.cl_core_custom import ClCoreCustomAction
+ 
+ class Wsdl(WsdlBase):
+     methods = [
+@@ -573,4 +574,39 @@ class Wsdl(WsdlBase):
+             lambda group:group(_("Setup variables"),
+                 normal=('cl_variable_filter','cl_variable_show'),
+                 next_label=_("Show"))]},
++        #
++        # отобразить переменные
++        #
++        {
++        # идентификатор метода
++        'method_name':"core_custom",
++        # категория метода
++        'category':__('Utilities'),
++        # заголовок метода 
++        'title':__("Custom action"),
++        # иконка для графической консоли
++        'image':'gnome-desktop-config,desktop-config',
++        # метод в графической консоли
++        'gui':True,
++        # консольная команда
++        'command':'cl-core-custom',
++        # права для запуска метода 
++        'rights':['configure'],
++        # объект содержащий модули для действия
++        'logic':{'UpdateConfigs':setup_package.UpdateConfigs},
++        # описание действия
++        'action':ClCoreCustomAction,
++        # объект переменных
++        'datavars':"core",
++        'native_error':(VariableError,DataVarsError),
++        # значения по умолчанию для переменных этого метода
++        'setvars':{'cl_verbose_set':"on",'cl_human_edit_set':"on"},
++        # описание груп (список лямбда функций)
++        'groups':[
++            lambda group:group(_("Custom action"),
++                normal=('ac_custom_name','cl_human_edit_set','cl_verbose_set'),
++                expert=('ur_core_login',
++                        'cl_templates_locate',
++                        'cl_dispatch_conf'),
++                next_label=_("Perform"))]},
+         ]
