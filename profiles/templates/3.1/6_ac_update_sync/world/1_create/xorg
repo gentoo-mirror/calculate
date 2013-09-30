@@ -4,10 +4,6 @@
 app-misc/xorg-meta
 #in#
 
-#?in(os_linux_shortname, CLDG)!=#
-x11-drivers/xf86-video-virtualbox
-#in#
-
 #?in(os_linux_shortname, CLDX)!=#
 x11-misc/lightdm-gtk-greeter
 #in#
