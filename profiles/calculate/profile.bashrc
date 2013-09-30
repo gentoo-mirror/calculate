@@ -178,7 +178,7 @@ pre_pkg_postinst() {
 	then
 		CL_UPDATE_PROG=/usr/sbin/cl-core-setup
 		if [ -e ${CL_UPDATE_PROG} ];then
-			${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
+			CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
 		fi
 	fi
 	rm -f /var/lib/calculate/-merge-$PN-*
