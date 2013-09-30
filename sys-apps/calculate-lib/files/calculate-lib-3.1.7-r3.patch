@@ -1,0 +1,161 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index efda545..5c6e50a 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -327,6 +327,8 @@ class _terms(_error, _shareTermsFunction):
+                     else:
+                         try:
+                             valVars = self.objVar.Get(vals[0])
++                            varTable = self.objVar.Get('cl_used_action')
++                            varTable.append((vals[0],vals[1]))
+                             if not valVars:
+                                 valVars = ""
+                         except DataVarsError, e:
+diff --git calculate/lib/variables/X11.py calculate/lib/variables/X11.py
+index 72de72b..ad33e27 100644
+--- calculate/lib/variables/X11.py
++++ calculate/lib/variables/X11.py
+@@ -18,7 +18,7 @@ import os
+ import re
+ from os import path
+ from calculate.lib.datavars import Variable,VariableError,ReadonlyVariable
+-from calculate.lib.utils.files import process, readLinesFile
++from calculate.lib.utils.files import process, readLinesFile,FilesError
+ from calculate.lib.utils.common import (getAvailableVideo, getValueFromCmdLine,
+                 getVideoFromXorgLog, getVideoFromXorgConf, getVideoFromCmdLine,
+                 getCompositeFromXorgconf,getTupleVersion,
+@@ -36,7 +36,7 @@ class VariableOsX11Resolution(Variable):
+             processXDpy = process('xdpyinfo')
+             if processXDpy.failed():
+                 return ""
+-        except OSError:
++        except (FilesError,OSError) as e:
+             return ""
+         lines = processXDpy.readlines()
+         reRes = re.compile("dimensions:\s+(\d+)x(\d+)\s+pixels")
+diff --git calculate/lib/variables/__init__.py calculate/lib/variables/__init__.py
+index 1c1d90a..b703d5c 100644
+--- calculate/lib/variables/__init__.py
++++ calculate/lib/variables/__init__.py
+@@ -25,6 +25,7 @@ import linux
+ import net
+ import user
+ import system
++import action
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_lib3',sys.modules[__name__])
+ 
+diff --git calculate/lib/variables/action.py calculate/lib/variables/action.py
+new file mode 100644
+index 0000000..ff7ee20
+--- /dev/null
++++ calculate/lib/variables/action.py
+@@ -0,0 +1,59 @@
++#-*- coding: utf-8 -*-
++
++# Copyright 2013 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
++
++import os
++import sys
++from os import path
++from calculate.lib.datavars import (Variable,VariableError,ReadonlyVariable,
++                                    ActionVariable)
++
++from calculate.lib.cl_lang import setLocalTranslate
++from calculate.lib.cl_template import Template
++setLocalTranslate('cl_lib3',sys.modules[__name__])
++
++class VariableAcCustomName(Variable):
++    """
++    Пользовательское действие для выполнения шаблонов
++    """
++    opt = ["ac_custom_name"]
++    metavalue = "ACTION"
++    type = "choice"
++    value = ""
++    untrusted = True
++
++    def init(self):
++        self.label = _("Custom action")
++        self.help = _("custom action")
++
++    def choice(self):
++        oldAction = self.Get('cl_action')
++        oldName = self.Get('ac_custom_name')
++        clTempl = Template(self.parent, cltObj = False)
++        try:
++            clTempl.applyTemplates()
++        except:
++            pass
++        finally:
++            self.parent.Set('cl_action',oldAction,force=True)
++            self.parent.Set('ac_custom_name',oldName,force=True)
++            clTempl.close()
++        return list(set(map(lambda x:x[1],
++               filter(lambda x:x[0] == 'ac_custom_name',
++                      self.Get('cl_used_action')))))
++
++    def check(self,value):
++        if value == '':
++            raise VariableError(_("Need to specify action name"))
+diff --git calculate/lib/variables/env.py calculate/lib/variables/env.py
+index 094afcd..6d376e5 100644
+--- calculate/lib/variables/env.py
++++ calculate/lib/variables/env.py
+@@ -204,12 +204,26 @@ class VariableClAutoupdateSet(Variable):
+         else:
+             return "off"
+ 
++class VariableClHumanEditSet(Variable):
++    """
++    Параметр для отметки "ручной правки"
++    """
++    type = "bool"
++    opt = ["--human-edit"]
++    value = "off"
++
++    def init(self):
++        self.help = _("mark as human modification")
++        self.label = _("Mark as human modification")
++
+ class VariableClProtectUseSet(ReadonlyVariable):
+     """
+     Использовать portage интеграцию с конфигурационными файлами
+     """
+     type = "bool"
+-    value = "on"
++
++    def get(self):
++        return "on" if self.Get('cl_human_edit_set') == 'off' else "off"
+ 
+ class VariableClDispatchConf(Variable):
+     """
+diff --git calculate/lib/variables/system.py calculate/lib/variables/system.py
+index 08593ef..70bcf87 100644
+--- calculate/lib/variables/system.py
++++ calculate/lib/variables/system.py
+@@ -145,3 +145,12 @@ class VariableOsUefiSet(ReadonlyVariable):
+             return "on"
+         else:
+             return "off"
++
++class VariableClUsedAction(ReadonlyVariable):
++    """
++    Переменная содержит все найденные при обработке шаблонов
++    событийные переменные (ac_)
++    """
++    type = "table"
++    def get(self):
++        return []
