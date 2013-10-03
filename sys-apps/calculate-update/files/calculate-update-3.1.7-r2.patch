@@ -1,0 +1,38 @@
+diff --git update/utils/cl_update.py update/utils/cl_update.py
+index 3b058e9..9b84550 100644
+--- update/utils/cl_update.py
++++ update/utils/cl_update.py
+@@ -31,7 +31,7 @@ class ClUpdateAction(Action):
+     # ошибки, которые отображаются без подробностей
+     native_error = (FilesError,)
+ 
+-    successMessage = __("Revision update finished!")
++    successMessage = None
+     failedMessage = __("Failed to update of system revision")
+     interruptMessage = __("Update manually interrupted")
+ 
+@@ -40,4 +40,14 @@ class ClUpdateAction(Action):
+          {'name':'dispatch',
+           'method':'Install.applyTemplates(install.cl_source,cl_template_clt_set,'\
+                    'True,None)',
++         },
++         # сообщение удачного завершения при обновлении ревизии
++         {'name':'success_rev',
++          'message' : __("Revision update finished!"),
++          'condition':lambda Get:Get('cl_update_rev_set') == 'on'
++         },
++         # сообщение удачного завершения при пересоздании world
++         {'name':'success_world',
++          'message' : __("World rebuilding finished!"),
++          'condition':lambda Get:Get('cl_rebuild_world_set') == 'on'
+          }]
+diff --git update/variables/action.py update/variables/action.py
+index 2db4304..8e2de8e 100644
+--- update/variables/action.py
++++ update/variables/action.py
+@@ -31,4 +31,4 @@ class VariableAcUpdateSync(ReadonlyVariable):
+         action = self.Get("cl_action")
+         if action in ("sync",):
+             return "on"
+-        return ""
++        return "off"
