@@ -1,0 +1,110 @@
+diff --git client/client.py client/client.py
+index 14a8c8e..4ab0aec 100644
+--- client/client.py
++++ client/client.py
+@@ -1058,8 +1058,12 @@ class Client(commandServer, encrypt, Desktop):
+                 yield remotePw
+             if remotePw:
+                 self.printERROR(_("Wrong password"))
+-            yield self.askPassword(\
+-                    _("Domain password for the desktop"),False)
++            # не запрашвать пароль при загрузке системы
++            if not path.exists('/prc/self/fd/0') or \
++                os.readlink('/proc/self/fd/0') != '/dev/console':
++                yield self.askPassword(\
++                        _("Domain password for the desktop"),False)
++                self.printERROR(_("Wrong password"))
+ 
+         pathRemote = "/var/calculate/remote"
+         for pwdRemote in passwdQueue():
+@@ -1067,7 +1071,6 @@ class Client(commandServer, encrypt, Desktop):
+             if sambaPasswordCheck("client",pwdRemote,domain,"remote"):
+                 self.clVars.Set('cl_remote_pw',pwdRemote)
+                 return True
+-        self.printERROR(_("Wrong password"))
+         return False
+ 
+     def writeClientVars(self,domain,currentVersion,pwdRemote):
+diff --git client/utils/cl_client_sync.py client/utils/cl_client_sync.py
+index 5b276ef..eccb315 100644
+--- client/utils/cl_client_sync.py
++++ client/utils/cl_client_sync.py
+@@ -44,6 +44,7 @@ class ClClientSyncLoginAction(Action):
+           'method':'Client.mountRemoteRes(cl_remote_pw,cl_client_remote_path,'
+                    'cl_remote_host)',
+           'condition':lambda Get: (Get('cl_remote_host') and 
++                                   Get('os_remote_auth') and 
+                                   not isMount(Get('cl_client_remote_path'))),
+          },
+          # check on domain user
+@@ -85,10 +86,13 @@ class ClClientSyncLoginAction(Action):
+          },
+          # проверка на попытку открыть вторую сессию для этого пользователя
+          {'name':'two_session',
+-          'error':__("Second X session for user %s cannot be opened."),
+-          'condition':lambda Get:Get('ur_login') in \
+-                                 Get('desktop.cl_desktop_online_user') and \
+-                                 Get('cl_client_sync') == 'on'
++          'error':__("Second X session for user {ur_login} cannot be opened."),
++          'condition':lambda dv: (dv.Get('ur_login') in 
++                                  dv.Get('desktop.cl_desktop_online_user') and
++                          int(dv.Select('desktop.cl_desktop_online_count',
++                                    where='desktop.cl_desktop_online_user',
++                                    eq=dv.Get('ur_login'),limit=1) > 1) and 
++                                 dv.Get('cl_client_sync') == 'on')
+          },
+          {'name':'domain_user:domain_sync',
+           'method':'Client.setSyncStatus(ur_home_path,ur_uid,ur_gid,"process")',
+@@ -101,12 +105,6 @@ class ClClientSyncLoginAction(Action):
+                        'ur_uid,ur_gid,"unix","remote_profile")',
+           'condition':lambda Get:Get('cl_replication_host')
+          },
+-         # проверить расхождение времени между серверами
+-         #{'name':'repl_profile:check_clock_scew',
+-         # 'method':'Client.checkClockScew('
+-         # 'failed_warning':__("Profile synchronization will be applied "
+-         #                     "without archiving")
+-         #},
+          # отправить команду архивирования профиля на удаленном домене
+          # если он новее локального профиля
+          {'name':'repl_profile:pack_remote',
+@@ -211,7 +209,7 @@ class ClClientSyncLoginAction(Action):
+           'method':'Client.setSyncStatus(ur_home_path,ur_uid,ur_gid,"error")',
+           'depend':Tasks.failed_all('sync_remote','sync_local','fallback_sync') |
+                    (Tasks.hasnot('domain_sync') & Tasks.failed()) |
+-                   Tasks.failed_one_of('mount_resources')
++                   Tasks.failed_one_of('mount_resources','two_session')
+          },
+          # распаковать ссылки
+          {'name':'domain_sync:unpack_links',
+@@ -274,7 +272,7 @@ class ClClientSyncLogoutAction(Action):
+           'else_error':__("User home directory {ur_home_path} not found"),
+          },
+          # проверить наличие подключенных ресурсов
+-         {'name':'check_mount',
++         {'name':'domain_user:check_mount',
+           'condition':lambda Get:any(x and isMount(x) 
+                               for x in Get('cl_client_user_mount_path')),
+           'else_error':__("User remote resources not found")
+@@ -340,7 +338,7 @@ class ClClientSyncLogoutAction(Action):
+                            '"error")',
+           'depend': Tasks.hasnot('success_sync')
+          },
+-         {'name':'check_mount!:umount_allres',
++         {'name':'umount_allres',
+           'method':'Desktop.umountUserRes(ur_home_path)',
+          }
+         ]
+diff --git client/utils/cl_passwd.py client/utils/cl_passwd.py
+index 18323eb..6636cbe 100644
+--- client/utils/cl_passwd.py
++++ client/utils/cl_passwd.py
+@@ -37,7 +37,7 @@ class ClPasswdAction(Action):
+                          "The password will be changed when you log out"
+                          "from the X session"))
+     failedMessage = __("Failed to change password")
+-    interruptMessage = __("Logout manually interrupted")
++    interruptMessage = __("Password changing manually interrupted")
+ 
+     # список задач для действия
+     tasks = [
