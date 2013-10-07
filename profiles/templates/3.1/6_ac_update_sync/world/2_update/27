@@ -4,7 +4,7 @@
 
 #?pkg(www-client/chromium)!=&&pkg(www-plugins/adobe-flash)!=#
 www-plugins/chrome-binary-plugins
-#in#
+#pkg#
 #?pkg(www-client/firefox-bin)==&&pkg(www-client/firefox)==&&pkg(www-plugins/adobe-flash)!=#
 !www-plugins/adobe-flash
-#in#
+#pkg#
