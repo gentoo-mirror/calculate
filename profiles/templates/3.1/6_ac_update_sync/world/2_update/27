@@ -1,0 +1,10 @@
+# Calculate format=world name=world ini(update.world)<27
+
+#-ini(update.world,27)-#
+
+#?pkg(www-client/chromium)!=&&pkg(www-plugins/adobe-flash)!=#
+www-plugins/chrome-binary-plugins
+#in#
+#?pkg(www-client/firefox-bin)==&&pkg(www-client/firefox)==&&pkg(www-plugins/adobe-flash)!=#
+!www-plugins/adobe-flash
+#in#
