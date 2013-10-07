@@ -1,0 +1,53 @@
+diff --git update/utils/cl_update.py update/utils/cl_update.py
+index 3b058e9..94b6fe5 100644
+--- update/utils/cl_update.py
++++ update/utils/cl_update.py
+@@ -31,8 +31,8 @@ class ClUpdateAction(Action):
+     # ошибки, которые отображаются без подробностей
+     native_error = (FilesError,)
+ 
+-    successMessage = __("Revision update finished!")
+-    failedMessage = __("Failed to update of system revision")
++    successMessage = None
++    failedMessage = __("Revision update failed")
+     interruptMessage = __("Update manually interrupted")
+ 
+     # список задач для дейсвия
+@@ -40,4 +40,14 @@ class ClUpdateAction(Action):
+          {'name':'dispatch',
+           'method':'Install.applyTemplates(install.cl_source,cl_template_clt_set,'\
+                    'True,None)',
++         },
++         # сообщение удачного завершения при обновлении ревизии
++         {'name':'success_rev',
++          'message' : __("Revision update finished!"),
++          'condition':lambda Get:Get('cl_update_rev_set') == 'on'
++         },
++         # сообщение удачного завершения при пересоздании world
++         {'name':'success_world',
++          'message' : __("World rebuilding finished!"),
++          'condition':lambda Get:Get('cl_rebuild_world_set') == 'on'
+          }]
+diff --git update/variables/action.py update/variables/action.py
+index 2db4304..8e2de8e 100644
+--- update/variables/action.py
++++ update/variables/action.py
+@@ -31,4 +31,4 @@ class VariableAcUpdateSync(ReadonlyVariable):
+         action = self.Get("cl_action")
+         if action in ("sync",):
+             return "on"
+-        return ""
++        return "off"
+diff --git update/wsdl_update.py update/wsdl_update.py
+index 017ebd1..54ff17b 100644
+--- update/wsdl_update.py
++++ update/wsdl_update.py
+@@ -22,7 +22,7 @@ from calculate.core.server.func import WsdlBase
+ from calculate.install.install import InstallError,Install
+ from utils.cl_update import ClUpdateAction
+ from calculate.lib.cl_lang import setLocalTranslate,getLazyLocalTranslate
+-setLocalTranslate('cl_core3',sys.modules[__name__])
++setLocalTranslate('cl_update3',sys.modules[__name__])
+ __ = getLazyLocalTranslate(_)
+ 
+ 
