@@ -1,0 +1,440 @@
+diff --git install/distr.py install/distr.py
+index be23d8e..545168b 100644
+--- install/distr.py
++++ install/distr.py
+@@ -458,7 +458,7 @@ class Distributive(object):
+                               PartitionDistributive:"partdir"}
+                 extname = mapExtName.get(distr.__class__,"")
+                 image = distr.convertToDirectory()
+-            except Exception,e:
++            except Exception as e:
+                 if distr:
+                     distr.close()
+                 return {}.copy()
+diff --git install/install.py install/install.py
+index 9456d36..3ae3eb9 100644
+--- install/install.py
++++ install/install.py
+@@ -400,7 +400,7 @@ class Install:
+         'lvm_vgname' название группы томов LVM, bios_grub - создавать
+         bios_grub раздел
+         """
+-        ap = Autopartition()
++        ap = AutoPartition()
+         ap.clearLvm(devices,self.clVars)
+         ap.clearRaid(devices,self.clVars)
+         ap.recreateSpace(table,devices,data,lvm,lvm_vgname,bios_grub)
+diff --git install/utils/cl_setup.py install/utils/cl_setup.py
+index 39b8ba6..17707b6 100644
+--- install/utils/cl_setup.py
++++ install/utils/cl_setup.py
+@@ -25,19 +25,48 @@ from calculate.install.install import (MigrationError, TemplatesError,
+ setLocalTranslate('cl_install3',sys.modules[__name__])
+ __ = getLazyLocalTranslate(_)
+ 
+-class ClSetupSystemAction(Action):
++class ClSetupVideoAction(Action):
+     """
+-    Объект настройки всех параметров системы
++    Действие для настройки параметров видео
+     """
+     # ошибки, которые отображаются без подробностей
+     native_error = (FilesError,MigrationError, TemplatesError,
+                   InstallError, AutopartitionError, DistributiveError)
+-    addon_tasks = []
+-    templateTaskMessage = __("System are being configured")
+-    successMessage = __("System configured!")
+-    failedMessage = __("Failed to configure the system!")
++
++    templateTaskMessage = __("The video settings are being configured")
++    successMessage = __("Video settings configured!")
++    failedMessage = __("Failed to configure the video settings!")
+     interruptMessage = __("Configuration manually interrupted")
+ 
++    addon_tasks = [
++        # проверить и настроить параметры для nvidia драйвера
++        {'name':'check_video',
++        'message':__("Checking the video driver"),
++        'method':'Install.checkVideoDriver()',
++        },
++        {'name':'setup_opengl',
++        'message':__("Configuring OpenGL"),
++        'method':'Install.setupOpenGL()',
++        },
++        {'name':'reboot',
++         'warning':__("To apply the changes, reboot the system"),
++         'condition': lambda dv:(dv.Get('os_x11_video_drv') != \
++                dv.Get('os_install_x11_video_drv') and \
++                (dv.Get('os_x11_video_drv') in dv.Get('os_x11_kms_video_drv') \
++                or dv.Get('os_install_x11_video_drv') \
++                    in dv.Get('os_x11_kms_video_drv')))
++        },
++        {'name':'restart',
++         'warning':__("To apply the changes, restart the X server"),
++         'condition': lambda dv:(dv.Get('os_x11_video_drv') !=
++                dv.Get('os_install_x11_video_drv') and
++                (not dv.Get('os_x11_video_drv') in
++                     dv.Get('os_x11_kms_video_drv') and
++                 not dv.Get('os_install_x11_video_drv')
++                    in dv.Get('os_x11_kms_video_drv')))
++        }
++        ]
++
+     def __init__(self):
+         # список задач для дейсвия
+         self.tasks = [
+@@ -52,11 +81,21 @@ class ClSetupSystemAction(Action):
+         self.tasks.extend(self.addon_tasks)
+         Action.__init__(self)
+ 
++
++class ClSetupSystemAction(ClSetupVideoAction):
++    """
++    Объект настройки всех параметров системы
++    """
++    templateTaskMessage = __("The system is being configured")
++    successMessage = __("System configured!")
++    failedMessage = __("Failed to configure the system!")
++
+ class ClSetupAudioAction(ClSetupSystemAction):
+     """
+     Действие для настройки аудио параметров
+     """
+-    templateTaskMessage = __("Audio settings are being configured")
++    addon_tasks = []
++    templateTaskMessage = __("The audio settings are being configured")
+     successMessage = __("Audio settings configured!")
+     failedMessage = __("Failed to configure the audio parameters!")
+ 
+@@ -64,8 +103,9 @@ class ClSetupLocaleAction(ClSetupSystemAction):
+     """
+     Действие для настройки языковых параметров
+     """
++    addon_tasks = []
+     templateTaskMessage = \
+-        __("Localization and time options are being configured")
++        __("The localization and time options are being configured")
+     successMessage = __("System configured!")
+     failedMessage = __("Failed to configure the system!")
+ 
+@@ -73,7 +113,8 @@ class ClSetupNetworkAction(ClSetupSystemAction):
+     """
+     Действие для настройки аудио параметров
+     """
+-    templateTaskMessage = __("Network settings are being configured")
++    addon_tasks = []
++    templateTaskMessage = __("The network settings are being configured")
+     successMessage = __("Network settings configured!")
+     failedMessage = __("Failed to configure the network settings!")
+ 
+@@ -81,7 +122,8 @@ class ClSetupUsersAction(ClSetupSystemAction):
+     """
+     Действие для настройки пользовательских параметров
+     """
+-    templateTaskMessage = __("User settings are being configured")
++    addon_tasks = []
++    templateTaskMessage = __("The user settings are being configured")
+     successMessage = __("User settings configured!")
+     failedMessage = __("Failed to configure the user settings!")
+ 
+@@ -89,7 +131,7 @@ class ClSetupBootAction(ClSetupSystemAction):
+     """
+     Действие для настройки параметров загрузки
+     """
+-    templateTaskMessage = __("Boot parameters are being configured")
++    templateTaskMessage = __("The boot parameters are being configured")
+     successMessage = __("Boot parameters configured!")
+     failedMessage = __("Failed to configure the boot parameters!")
+ 
+@@ -98,53 +140,17 @@ class ClSetupBootAction(ClSetupSystemAction):
+         {'name':'prepare_bootloader',
+          'message':_("Installing the bootloader"),
+          'method':'Install.prepareBoot(cl_image)',
+-         'condition':(lambda dv:dv.Get('os_install_mbr') or 
+-            dv.Get('os_install_uefi_set') == 'on')
++         'condition':(lambda Get:(Get('os_install_mbr') or 
++            Get('os_install_uefi_set') == 'on') and
++            Get('os_root_type') != 'livecd')
+         },
+         # изменить IO планировщик
+         {'name':'change_ioscheduler',
+          'message':_("Changing the I/O scheduler"),
+          'method':'Install.changeScheduler(os_install_kernel_scheduler)',
+-         'condition':(lambda dv:dv.Select('os_disk_parent',
++         'condition':(lambda dv:dv.Get('os_root_type') != 'livecd' and 
++                               dv.Select('os_disk_parent',
+                                where='os_disk_mount',
+                                eq='/',limit=1))
+         },
+         ]
+-
+-class ClSetupVideoAction(ClSetupSystemAction):
+-    """
+-    Действие для настройки параметров видео
+-    """
+-    templateTaskMessage = __("Video settings are being configured")
+-    successMessage = __("Video settings configured!")
+-    failedMessage = __("Failed to configure the video settings!")
+-
+-    addon_tasks = [
+-        # проверить и настроить параметры для nvidia драйвера
+-        {'name':'check_video',
+-        'message':__("Checking the video driver"),
+-        'method':'Install.checkVideoDriver()',
+-        },
+-        {'name':'setup_opengl',
+-        'message':__("Configuring OpenGL"),
+-        'method':'Install.setupOpenGL()',
+-        },
+-        {'name':'reboot',
+-         'warning':__("To apply the changes, reboot the system"),
+-         'condition': lambda dv:(dv.Get('os_x11_video_drv') != \
+-                dv.Get('os_install_x11_video_drv') and \
+-                (dv.Get('os_x11_video_drv') in dv.Get('os_x11_kms_video_drv') \
+-                or dv.Get('os_install_x11_video_drv') \
+-                    in dv.Get('os_x11_kms_video_drv')))
+-        },
+-        {'name':'restart',
+-         'warning':__("To apply the changes, restart the X server"),
+-         'condition': lambda dv:(dv.Get('os_x11_video_drv') !=
+-                dv.Get('os_install_x11_video_drv') and
+-                (not dv.Get('os_x11_video_drv') in
+-                     dv.Get('os_x11_kms_video_drv') and
+-                 not dv.Get('os_install_x11_video_drv')
+-                    in dv.Get('os_x11_kms_video_drv')))
+-        }
+-        ]
+-
+diff --git install/variables/X11.py install/variables/X11.py
+index cd8ef73..3634b02 100644
+--- install/variables/X11.py
++++ install/variables/X11.py
+@@ -26,6 +26,7 @@ from calculate.lib.utils.common import (getVideoFromXorgLog,
+                 getAvailableVideo, getValueFromCmdLine,
+                 getCompositeFromXorgconf, getVideoFromModules,
+                 getVideoFromVendor,getInstalledVideo)
++from calculate.install.distr import DistributiveError
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_install3',sys.modules[__name__])
+@@ -109,10 +110,13 @@ class VariableOsInstallX11VideoAvailable(VideoVariable):
+         image = self.Get('cl_image')
+         if image:
+             with image as distr:
+-                distrPath = image.getDirectory()
+-                if isPkgInstalled('xorg-server',prefix=distrPath):
+-                    return sorted(filter(self.supported.__contains__,
+-                           getAvailableVideo(prefix=distrPath)))+['other']
++                try:
++                    distrPath = image.getDirectory()
++                    if isPkgInstalled('xorg-server',prefix=distrPath):
++                        return sorted(filter(self.supported.__contains__,
++                               getAvailableVideo(prefix=distrPath)))+['other']
++                except DistributiveError as e:
++                    pass
+         return []
+ 
+ class VariableOsX11KmsVideoDrv(ReadonlyVariable):
+diff --git install/variables/autopartition.py install/variables/autopartition.py
+index 03e272b..f00dd9a 100644
+--- install/variables/autopartition.py
++++ install/variables/autopartition.py
+@@ -526,16 +526,16 @@ class VariableClAutopartitionScheme(AutopartitionHelper,Variable,AutoPartition):
+                       "for using the UEFI bootloader"))
+             if self.Get('cl_autopartition_table') != 'gpt':
+                 raise VariableError(
+-                    _("Partition table must be GPT for using UEFI bootloader"))
++                    _("The partition table must be GPT for using "
++                      "UEFI bootloader"))
+         else:
+             if self.Get('cl_autopartition_table') == 'gpt' and not "grub" in value:
+                 raise VariableError(
+-                    _("The 'bios_grub' partition is needed for grub install"))
++                    _("A 'bios_grub' partition is needed to install grub"))
+         if "grub" in value:
+             if self.Get('cl_autopartition_table') != 'gpt':
+                 raise VariableError(
+-                    _("For the bios_grub partition, the partition table "
+-                      "must be GPT"))
++                    _("The bios_grub partition need the partition table to be GPT"))
+ 
+ 
+ class VariableClAutopartitionRootSize(AutopartitionHelper,Variable):
+diff --git install/variables/distr.py install/variables/distr.py
+index 7719972..5c23c17 100644
+--- install/variables/distr.py
++++ install/variables/distr.py
+@@ -293,7 +293,7 @@ class VariableClImageFilename(Variable,DistroRepository):
+     def check(self,isoimage):
+         """Set image file"""
+         if self.Get('cl_action') == 'system' and not isoimage:
+-            raise VariableError(_("Need to choice distribute image"))
++            raise VariableError(_("You need to select a distribution image"))
+         imageData = Distributive().getInfo(isoimage)
+         if not("os_linux_shortname" in imageData and \
+                imageData.get('os_linux_build','') and \
+diff --git install/variables/kernel.py install/variables/kernel.py
+index 9f8c395..2e844ac 100644
+--- install/variables/kernel.py
++++ install/variables/kernel.py
+@@ -30,6 +30,7 @@ from calculate.lib.utils.common import (getKernelUid,getTupleVersion,
+     getValueFromCmdLine)
+ from calculate.lib.utils.device import getUdevDeviceInfo
+ from itertools import *
++from calculate.install.distr import DistributiveError
+ 
+ class VariableOsInstallKernelScheduler(Variable):
+     """
+@@ -85,11 +86,14 @@ class VariableOsInstallKernelBfqSet(ReadonlyVariable):
+         image = self.Get('cl_image')
+         if image:
+             with image as distr:
+-                distrPath = image.getDirectory()
+-                kernelConfig = path.join(distrPath,"usr/src/linux/.config")
+-                if filter(lambda x:"CONFIG_IOSCHED_BFQ=y" in x,
+-                    readLinesFile(kernelConfig)):
+-                    return "on"
++                try:
++                    distrPath = image.getDirectory()
++                    kernelConfig = path.join(distrPath,"usr/src/linux/.config")
++                    if filter(lambda x:"CONFIG_IOSCHED_BFQ=y" in x,
++                        readLinesFile(kernelConfig)):
++                        return "on"
++                except DistributiveError as e:
++                    return "off"
+         return "off"
+ 
+ class VariableOsInstallKernelAttr(Variable):
+diff --git install/variables/net.py install/variables/net.py
+index a7f2df2..fa3e28b 100644
+--- install/variables/net.py
++++ install/variables/net.py
+@@ -35,6 +35,7 @@ from calculate.lib.utils.portage import isPkgInstalled
+ from operator import itemgetter
+ from itertools import *
+ import hashlib
++from calculate.install.distr import DistributiveError
+ 
+ class NetHelper:
+     """
+@@ -154,6 +155,13 @@ class VariableOsInstallNetData(NetHelper,TableVariable):
+         self.help = _("Network interface, DHCP or IP address and network mask "
+                       "(example: %s)")%" --iface eth0:192.168.1.1:24"
+ 
++    def raiseReadonlyIndexError(self,fieldname="",variablename="",
++                                value=""):
++        """
++        Behavior on change readonly index
++        """
++        raise VariableError(_("Network interface %s not found")%value)
++
+ class VariableOsInstallNetHostname(NetHelper,Variable):
+     """
+     Computer hostname
+@@ -649,11 +657,14 @@ class VariableOsInstallNetConfAvailable(NetHelper,Variable):
+         image = self.Get('cl_image')
+         if image:
+             with image as distr:
+-                distrPath = image.getDirectory()
+-                return map(itemgetter(0,2),
+-                       filter(lambda x:not x[1] or isPkgInstalled(x[1],
+-                                           prefix=distrPath),
+-                       mapNetConf))
++                try:
++                    distrPath = image.getDirectory()
++                    return map(itemgetter(0,2),
++                           filter(lambda x:not x[1] or isPkgInstalled(x[1],
++                                               prefix=distrPath),
++                           mapNetConf))
++                except DistributiveError as e:
++                    pass
+         return sorted(map(itemgetter(0,2),mapNetConf[-1:]),key=itemgetter(1))
+ 
+ class VariableOsInstallNetConf(NetHelper,Variable):
+diff --git install/variables/system.py install/variables/system.py
+index dd5a974..0bcfb52 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -25,7 +25,7 @@ from calculate.install.fs_manager import FileSystemManager
+ from calculate.lib.utils.files import (readFile,getProgPath,process,
+     readLinesFile)
+ from calculate.lib.utils.common import getPasswdUsers,getUserGroups,getGroups
+-from calculate.lib.utils.common import getValueFromConfig
++from calculate.lib.utils.common import getValueFromConfig,getValueFromCmdLine
+ from calculate.lib.utils.portage import isPkgInstalled
+ from calculate.lib.utils.device import getUdevDeviceInfo
+ from crypt import crypt
+@@ -170,8 +170,8 @@ class VariableClInstallHomeCryptSet(UserHelper,Variable):
+     untrusted = True
+ 
+     def init(self):
+-        self.help = _("crypt user profiles")
+-        self.label = _("Crypt user profiles")
++        self.help = _("encrypt user profiles")
++        self.label = _("Encrypt user profiles")
+ 
+     def get(self):
+         return ("off" if self.Get('cl_autologin')
+@@ -180,7 +180,7 @@ class VariableClInstallHomeCryptSet(UserHelper,Variable):
+     def check(self,value):
+         if value == "on" and self.Get('cl_autologin'):
+             raise VariableError(
+-                _("Crypt user profile uncompatible with autologin"))
++                _("User profile encryption is uncompatible with autologin"))
+ 
+ class VariableClMigrateData(UserHelper,TableVariable):
+     """
+@@ -319,7 +319,10 @@ class VariableClAutologin(UserHelper,Variable):
+ 
+     def get(self):
+         # autologin enable for livecd and all install type CMC
+-        if self.Get('os_install_root_type') == "livecd" or \
++        cmdDomainSet = (getValueFromCmdLine("calculate","domain_pw") or 
++                        getValueFromCmdLine("calculate","domain") or "")
++        if (not cmdDomainSet and 
++            self.Get('os_install_root_type') == "livecd" ) or \
+             self.Get('os_install_linux_shortname') == "CMC":
+             nonRootUsers = filter(lambda x: x != "root",
+                            self.Get('cl_migrate_user'))
+@@ -561,12 +564,13 @@ class VariableClLive(Variable):
+         self.label = _("Configure dynamic options only")
+         self.help = _("configure dynamic options only")
+ 
+-class VariableOsInstallPxe(ReadonlyVariable):
++class VariableOsInstallPxe(Variable):
+     """
+     Installation for PXE loading
+     """
+     type = "boot"
+     value = "off"
++    untrusted = True
+ 
+     def check(self,value):
+         if value == "on":
+@@ -766,6 +770,6 @@ class VariableOsAudioDefault(Variable):
+         """
+         Audio setting up unavailable for flash installation
+         """
+-        if self.Get('os_install_root_type') != 'flash':
++        if self.Get('os_install_root_type') == 'flash':
+             return _("Audio configuration unavailable for Flash install")
+         return ""
+diff --git install/wsdl_install.py install/wsdl_install.py
+index 66a9e54..7d0a51f 100644
+--- install/wsdl_install.py
++++ install/wsdl_install.py
+@@ -138,9 +138,13 @@ class Wsdl(WsdlBase):
+         'datavars':"install",
+         'native_error':(VariableError,DistributiveError,
+                         DataVarsError,install.InstallError),
+-        'setvars':{'cl_action!':'system','os_install_pxe!':'on',
++        'setvars':{'cl_action!':'system','os_install_pxe':'on',
+                    'cl_protect_use_set!':'off',
+                    'cl_dispatch_conf':'usenew'},
++        # действие выводит информацию перед запуском
++        'brief':{'next':__("Installation"),
++                 'image':'finish',
++                 'name':__("Start installing")},
+         'groups':[
+             lambda group:group(_("PXE install"),
+                 normal=('cl_image_filename',),
