@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/nvidia-drivers-173.14.36.ebuild,v 1.8 2013/03/07 16:14:25 jer Exp $
 
-EAPI="2"
+EAPI="5"
 
 inherit eutils flag-o-matic linux-mod multilib nvidia-driver portability \
 	unpacker user versionator

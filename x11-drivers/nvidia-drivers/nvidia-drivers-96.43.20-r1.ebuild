@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/nvidia-drivers-96.43.20.ebuild,v 1.4 2011/11/15 09:06:50 chainsaw Exp $
 
-EAPI="2"
+EAPI="5"
 
 inherit eutils multilib versionator linux-mod flag-o-matic nvidia-driver
 
