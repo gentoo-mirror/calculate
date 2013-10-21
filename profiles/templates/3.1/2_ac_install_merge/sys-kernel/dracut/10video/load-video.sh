@@ -1,3 +1,4 @@
+# Calculate chmod=0755
 
 load_videodrv() {
 	info "Loading frame buffer video driver"
