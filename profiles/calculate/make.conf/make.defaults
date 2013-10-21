@@ -27,7 +27,7 @@ USE="${USE} bash-completion logrotate"
 
 AUTOCLEAN="yes"
 CAMERAS="*"
-DRACUT_MODULES="dmraid dmsquash-live gensplash lvm mdraid nfs -nbd -livenet -crypt -crypt-loop -cifs"
+DRACUT_MODULES="dmraid dmsquash-live gensplash lvm mdraid nfs"
 DISTDIR="/var/calculate/remote/distfiles"
 FEATURES="metadata-transfer parallel-install -userpriv"
 FOO2ZJS_DEVICES="*"
