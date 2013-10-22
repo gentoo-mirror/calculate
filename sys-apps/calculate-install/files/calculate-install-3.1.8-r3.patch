@@ -1,0 +1,147 @@
+diff --git install/distr.py install/distr.py
+index 545168b..398ff79 100644
+--- install/distr.py
++++ install/distr.py
+@@ -610,6 +610,7 @@ class PartitionDistributive(Distributive):
+                         'vfat':'/usr/sbin/mkfs.vfat %s -F 32 %s',
+                         'ntfs-3g':'/usr/sbin/mkfs.ntfs %s -FQ %s',
+                         'ntfs':'/usr/sbin/mkfs.ntfs %s -FQ %s',
++                        'uefi':'/usr/sbin/mkfs.vfat %s %s',
+                         'swap':'/sbin/mkswap %s'
+     }
+     labelForUtilities = { 'ext2':'-L %s',
+@@ -780,14 +781,16 @@ class PartitionDistributive(Distributive):
+                              self.multipartition.getPartitionTable() + \
+                              [self.partitionTable])
+         # get partition which need format
+-        formatPartitions = map(lambda x: (x[FS],x[DEV]),
++        formatPartitions = map(lambda x: (x[FS],x[DEV],x[NEWID]),
+                            filter(lambda x: x[NEEDFORMAT] and x[FS]!="bind",
+                            dataPartitions))
+         # format all get partition
+-        for fileSystem, dev in formatPartitions:
++        for fileSystem, dev, newID in formatPartitions:
+             if fileSystem=="swap":
+                 self.formatSwapPartition(dev)
+             else:
++                if newID == "EF00":
++                    fileSystem = "uefi"
+                 if dev == self.partition:
+                     self.formatPartition(dev, format=fileSystem,
+                                          label=self.rootLabel)
+diff --git install/install.py install/install.py
+index 3ae3eb9..982a80d 100644
+--- install/install.py
++++ install/install.py
+@@ -350,7 +350,7 @@ class Install:
+             newModuleName = defaultGL
+         curModuleName = map(lambda x:x.strip().rpartition('=')[-1].strip('"\''),
+                    filter(lambda x: x.startswith("OPENGL_PROFILE="),
+-                          open(openGLenv,'r')))
++                          readFile(openGLenv)))
+         curModuleName = curModuleName[-1] if curModuleName else ""
+         if curModuleName == newModuleName:
+             return True
+diff --git install/utils/cl_setup.py install/utils/cl_setup.py
+index fab08b9..968680d 100644
+--- install/utils/cl_setup.py
++++ install/utils/cl_setup.py
+@@ -18,6 +18,7 @@ import sys
+ from calculate.core.server.func import Action,Tasks
+ from calculate.lib.cl_lang import setLocalTranslate,getLazyLocalTranslate
+ from calculate.lib.utils.files import FilesError
++from calculate.lib.utils.portage import isPkgInstalled
+ from calculate.install.install import (MigrationError, TemplatesError,
+                                   InstallError,
+                                   AutopartitionError, DistributiveError)
+@@ -43,10 +44,12 @@ class ClSetupVideoAction(Action):
+         {'name':'check_video',
+         'message':__("Checking the video driver"),
+         'method':'Install.checkVideoDriver()',
++        'condition': lambda:isPkgInstalled('xorg-server')
+         },
+         {'name':'setup_opengl',
+         'message':__("Configuring OpenGL"),
+         'method':'Install.setupOpenGL()',
++        'condition': lambda:isPkgInstalled('xorg-server')
+         },
+         {'name':'reboot',
+          'warning':__("To apply the changes, reboot the system"),
+diff --git install/variables/system.py install/variables/system.py
+index 1d32d8c..8c2bbc9 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -51,17 +51,13 @@ class UserHelper:
+             return _("Autologin is available for Xorg sessions only")
+         return ""
+ 
+-class VariableOsInstallScratch(Variable):
++class VariableOsInstallScratch(ReadonlyVariable):
+     """
+     Install system in scratch mode
+     """
+     type  = "bool"
+     opt = ['--build']
+ 
+-    def init(self):
+-        self.label = _("Builder mode")
+-        self.help = _("build installation")
+-
+     def get(self):
+         # for installation default - normal system
+         if self.Get('cl_action') == 'system':
+@@ -69,25 +65,6 @@ class VariableOsInstallScratch(Variable):
+         else:
+             return self.Get('os_scratch')
+ 
+-    def check(self,value):
+-        if value == "on":
+-            # scratch not use for falsh and multipartition
+-            if self.Get('os_install_root_type') == "flash":
+-                raise VariableError(
+-                    _("Flash install does not support the builder mode"))
+-            if filter(lambda x: not x in ('/','swap','/boot/efi'), 
+-                      self.Get('os_install_disk_mount')):
+-                raise VariableError(
+-                    _("The builder mode does not support "
+-                      "multipartition install"))
+-
+-    def uncompatible(self):
+-        """
+-        Unavailable for flash installation
+-        """
+-        if self.Get('os_install_root_type') == 'flash':
+-            return _("Flash install does not support the builder mode")
+-
+ class VariableOsFormatType(ReadonlyVariable):
+     """
+     Filesystem format support by calcualte-install
+@@ -504,11 +481,13 @@ class VariableOsInstallMdadmSet(ReadonlyVariable):
+ class VariableClChrootGrub(ReadonlyVariable):
+     """
+     Chroot for grub-mkconfig
+-    TODO: check for install scratch system.
+     """
+     def get(self):
+         if self.Get('os_install_scratch') == "on":
+-            return path.join(self.Get('cl_chroot_path'),"mnt/scratch")
++            if self.Get('cl_action') == 'system':
++                return self.Get('cl_target').mdirectory
++            else:
++                return path.join(self.Get('cl_chroot_path'),"mnt/scratch")
+         else:
+             return self.Get('cl_chroot_path')
+ 
+diff --git install/wsdl_install.py install/wsdl_install.py
+index 7d0a51f..701ecd8 100644
+--- install/wsdl_install.py
++++ install/wsdl_install.py
+@@ -77,7 +77,7 @@ class Wsdl(WsdlBase):
+                 hide=('os_location_data','os_install_mbr','os_install_uefi_set'),
+                 brief_force=('os_location_brief_data','os_install_bootloader',
+                              'os_install_uefi_set'),
+-                expert=('os_install_scratch','cl_uuid_set',
++                expert=('cl_uuid_set',
+                         'os_install_root_type',
+                         'os_install_mbr',
+                         'os_install_uefi_set',
