@@ -17,7 +17,5 @@ session		include		system-auth
 #session	optional	pam_motd.so motd=/etc/motd
 session		optional	pam_mail.so
 #?pkg(sys-auth/consolekit)!=#
-# need for xsesstion run by startx
-session		optional	pam_ck_connector.so
-session    optional     pam_ck_connector.so nox11
+session		optional	pam_ck_connector.so nox11
 #pkg#
