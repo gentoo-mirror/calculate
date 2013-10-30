@@ -26,11 +26,15 @@
 PATH=/bin:/usr/bin
 export PATH
 
+# spawn xflock4 before suspend contains DISPLAY without dot symbol
+# wait several seconds before the dm-tool running if it's the suspend
+SLEEPCMD=:
+[ "${DISPLAY}" == "${DISPLAY/./}" ] && SLEEPCMD="sleep 2"
 # lock screen by gnome-screensaver and activate lightdm user switch
 if type dm-tool &>/dev/null && type gnome-screensaver-command &>/dev/null
 then
     gnome-screensaver-command --lock &>/dev/null &&
-        dm-tool lock &>/dev/null && exit
+        $SLEEPCMD && dm-tool lock &>/dev/null && exit
 fi
 
 # Lock by xscreensaver or gnome-screensaver, if a respective daemon is running
