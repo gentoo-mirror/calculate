@@ -8,7 +8,7 @@
       <property name="XF86Launch6" type="string" value="/usr/bin/wifi_toggle"/>
 #load#
 #?os_install_root_type!=livecd#
-      <property name="XF86Launch8" type="string" value="sudo /usr/sbin/pm-hibernate"/>
+      <property name="XF86Launch8" type="string" value="/usr/bin/xfce4-session-logout --hibernate"/>
 #os_install_root_type#
     </property>
   </property>

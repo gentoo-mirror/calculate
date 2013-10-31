@@ -1,0 +1,762 @@
+diff --git install/distr.py install/distr.py
+index 545168b..398ff79 100644
+--- install/distr.py
++++ install/distr.py
+@@ -610,6 +610,7 @@ class PartitionDistributive(Distributive):
+                         'vfat':'/usr/sbin/mkfs.vfat %s -F 32 %s',
+                         'ntfs-3g':'/usr/sbin/mkfs.ntfs %s -FQ %s',
+                         'ntfs':'/usr/sbin/mkfs.ntfs %s -FQ %s',
++                        'uefi':'/usr/sbin/mkfs.vfat %s %s',
+                         'swap':'/sbin/mkswap %s'
+     }
+     labelForUtilities = { 'ext2':'-L %s',
+@@ -780,14 +781,16 @@ class PartitionDistributive(Distributive):
+                              self.multipartition.getPartitionTable() + \
+                              [self.partitionTable])
+         # get partition which need format
+-        formatPartitions = map(lambda x: (x[FS],x[DEV]),
++        formatPartitions = map(lambda x: (x[FS],x[DEV],x[NEWID]),
+                            filter(lambda x: x[NEEDFORMAT] and x[FS]!="bind",
+                            dataPartitions))
+         # format all get partition
+-        for fileSystem, dev in formatPartitions:
++        for fileSystem, dev, newID in formatPartitions:
+             if fileSystem=="swap":
+                 self.formatSwapPartition(dev)
+             else:
++                if newID == "EF00":
++                    fileSystem = "uefi"
+                 if dev == self.partition:
+                     self.formatPartition(dev, format=fileSystem,
+                                          label=self.rootLabel)
+diff --git install/install.py install/install.py
+index 3ae3eb9..982a80d 100644
+--- install/install.py
++++ install/install.py
+@@ -350,7 +350,7 @@ class Install:
+             newModuleName = defaultGL
+         curModuleName = map(lambda x:x.strip().rpartition('=')[-1].strip('"\''),
+                    filter(lambda x: x.startswith("OPENGL_PROFILE="),
+-                          open(openGLenv,'r')))
++                          readFile(openGLenv)))
+         curModuleName = curModuleName[-1] if curModuleName else ""
+         if curModuleName == newModuleName:
+             return True
+diff --git install/utils/cl_setup.py install/utils/cl_setup.py
+index fab08b9..e4ad417 100644
+--- install/utils/cl_setup.py
++++ install/utils/cl_setup.py
+@@ -18,6 +18,7 @@ import sys
+ from calculate.core.server.func import Action,Tasks
+ from calculate.lib.cl_lang import setLocalTranslate,getLazyLocalTranslate
+ from calculate.lib.utils.files import FilesError
++from calculate.lib.utils.portage import isPkgInstalled
+ from calculate.install.install import (MigrationError, TemplatesError,
+                                   InstallError,
+                                   AutopartitionError, DistributiveError)
+@@ -43,10 +44,12 @@ class ClSetupVideoAction(Action):
+         {'name':'check_video',
+         'message':__("Checking the video driver"),
+         'method':'Install.checkVideoDriver()',
++        'condition': lambda:isPkgInstalled('xorg-server')
+         },
+         {'name':'setup_opengl',
+         'message':__("Configuring OpenGL"),
+         'method':'Install.setupOpenGL()',
++        'condition': lambda:isPkgInstalled('xorg-server')
+         },
+         {'name':'reboot',
+          'warning':__("To apply the changes, reboot the system"),
+@@ -142,7 +145,12 @@ class ClSetupBootAction(ClSetupSystemAction):
+          'method':'Install.prepareBoot(cl_image)',
+          'condition':(lambda Get:(Get('os_install_mbr') or 
+             Get('os_install_uefi_set') == 'on') and
+-            Get('os_root_type') != 'livecd')
++            Get('os_root_type') != 'livecd' and 
++            Get('os_install_scratch') == 'off')
++        },
++        {'name':'no_scratch',
++         'warning':_("The builder mode is not longer supported"),
++         'condition':lambda Get:Get('os_install_scratch') == 'on'
+         },
+         # изменить IO планировщик
+         {'name':'change_ioscheduler',
+diff --git install/variables/X11.py install/variables/X11.py
+index 3634b02..accda6b 100644
+--- install/variables/X11.py
++++ install/variables/X11.py
+@@ -18,14 +18,14 @@ import os
+ import sys
+ import re
+ from os import path
+-from calculate.lib.datavars import Variable,VariableError,ReadonlyVariable
++from calculate.lib.datavars import Variable, VariableError, ReadonlyVariable
+ from calculate.lib.utils.portage import isPkgInstalled
+-from calculate.lib.utils.files import process,STDOUT,getProgPath
++from calculate.lib.utils.files import process, STDOUT, getProgPath, readFile
+ from calculate.lib.utils.common import (getVideoFromXorgLog,
+                 getVideoFromXorgConf, getVideoFromCmdLine,
+                 getAvailableVideo, getValueFromCmdLine,
+                 getCompositeFromXorgconf, getVideoFromModules,
+-                getVideoFromVendor,getInstalledVideo)
++                getVideoFromVendor, getInstalledVideo)
+ from calculate.install.distr import DistributiveError
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+@@ -44,7 +44,7 @@ class VideoVariable(Variable):
+         if self.Get('os_install_root_type') == 'flash':
+             return \
+                 _("Video configuration unavailable for Flash install")
+-        if self.Get('os_install_x11_server_set') == 'no' and self.xorg_need:
++        if self.Get('os_install_x11_server_set') == 'off' and self.xorg_need:
+             return \
+                 _("This distribution does not provide a Xorg server")
+         return ""
+@@ -126,7 +126,7 @@ class VariableOsX11KmsVideoDrv(ReadonlyVariable):
+     type = "list"
+     value = ["radeon","i915","intel","nouveau","ati"]
+ 
+-class VariableOsInstallX11VideoDrv(VideoVariable):
++class VariableOsInstallX11VideoDrv(Variable):
+     """
+     Video driver used by xorg
+     """
+@@ -136,54 +136,81 @@ class VariableOsInstallX11VideoDrv(VideoVariable):
+ 
+     def init(self):
+         self.help = _("set the video driver")
+-        self.label = _("{0} video driver").format("Xorg")
++        self.label = _("Video driver")
+ 
+     def choice(self):
+         """Get available (already installed or installable drivers"""
+-        return self.Get('os_install_x11_video_available')
++        if self.Get('os_install_x11_server_set') == 'on':
++            return self.Get('os_install_x11_video_available')
++        else:
++            return self.Get('os_x11_kms_video_drv') + ["other"]
+ 
+     def get(self):
+-        # get available videodriver list from install or configure distributive
+-        list_video = self.Choice('os_install_x11_video_drv')
+-        if not list_video:
++        if self.Get('os_install_x11_server_set') == 'on':
++            # get available videodriver list from install or configure distributive
++            list_video = self.Choice('os_install_x11_video_drv')
++            if not list_video:
++                return "other"
++            # if type system is usb-hdd then get detect video driver
++            if self.Get('os_install_root_type') == 'usb-hdd':
++                methods = ((getVideoFromModules,()),
++                           (getVideoFromCmdLine,()),
++                           (getVideoFromVendor,(self.Get('hr_video'),list_video)))
++            else:
++                # test current video driver for install system
++                methods = ((getVideoFromXorgLog,('/',list_video)),
++                           (getVideoFromXorgConf,('/',)),
++                           (getVideoFromModules,()),
++                           (getVideoFromCmdLine,()),
++                           (getVideoFromVendor,(self.Get('hr_video'),list_video)))
++            for func,args in methods:
++                drv = func(*args)
++                if drv in list_video:
++                    return drv
+             return "other"
+-        # if type system is usb-hdd then get detect video driver
+-        if self.Get('os_install_root_type') == 'usb-hdd':
+-            methods = ((getVideoFromModules,()),
+-                       (getVideoFromCmdLine,()),
+-                       (getVideoFromVendor,(self.Get('hr_video'),list_video)))
+         else:
+-            # test current video driver for install system
+-            methods = ((getVideoFromXorgLog,('/',list_video)),
+-                       (getVideoFromXorgConf,('/',)),
+-                       (getVideoFromModules,()),
+-                       (getVideoFromCmdLine,()),
+-                       (getVideoFromVendor,(self.Get('hr_video'),list_video)))
+-        for func,args in methods:
+-            drv = func(*args)
+-            if drv in list_video:
+-                return drv
+-        return "other"
++            for drv in self.choice():
++                videoSysPath = path.join("/sys/module",drv,"refcnt")
++                refcnt = readFile(videoSysPath).strip()
++                if refcnt.isdigit() and int(refcnt) > 0:
++                    return {'i915':'intel'}.get(drv,drv)
++            else:
++                return "other"
+ 
+     pkgDrvMap = {'nvidia':('NVidia','x11-drivers/nvidia-drivers'),
+                  'fglrx':('ATI','x11-drivers/ati-drivers'),
+                  'vboxdrv':('VirtualBox','x11-drivers/xf86-video-virtualbox')}
+ 
+     def check(self,value):
+-        if self.Get('cl_action') == 'system':
+-            availDrvs = self.Get('os_install_x11_video_available')
+-            if not value in availDrvs:
+-                raise VariableError(_("Only %s drivers are available")%
+-                        ",".join(availDrvs))
++        if self.Get('os_install_x11_server_set') == 'on':
++            if self.Get('cl_action') == 'system':
++                availDrvs = self.Get('os_install_x11_video_available')
++                if not value in availDrvs:
++                    raise VariableError(_("Only %s drivers are available")%
++                            ",".join(availDrvs))
++            else:
++                if not value in getInstalledVideo(prefix="/") and \
++                    not value in ("auto","other"):
++                    error =_("video driver %s is unavailable")%value
++                    if value in self.pkgDrvMap:
++                        error += ". " + (_("Install driver %s with:")
++                                            %self.pkgDrvMap[value][0])
++                        error += "\n" + ("emerge %s"%self.pkgDrvMap[value][1])
++                    raise VariableError(error)
+         else:
+-            if not value in getInstalledVideo(prefix="/") and \
+-                not value in ("auto","other"):
+-                error =_("video driver %s is unavailable")%value
+-                if value in self.pkgDrvMap:
+-                    error += ". " + (_("Install driver %s with:")
+-                                        %self.pkgDrvMap[value][0])
+-                    error += "\n" + ("emerge %s"%self.pkgDrvMap[value][1])
+-                raise VariableError(error)
++            availDrivers = self.Get('os_x11_kms_video_drv') + ["other"]
++            if not value in availDrivers:
++                raise VariableError("Only %s drivers are available" %
++                                    ",".join(availDrivers))
++
++    def uncompatible(self):
++        """
++        Video setting up unavailable for flash installation
++        """
++        if self.Get('os_install_root_type') == 'flash':
++            return \
++                _("Video configuration unavailable for Flash install")
++        return ""
+ 
+ class VariableHrVideoId(ReadonlyVariable):
+     """
+@@ -258,21 +285,3 @@ class VariableOsInstallFbResolution(ResolutionVariable):
+                     int(cxx11) >= int(cxfb) and int(cyx11) >= int(cyfb):
+                     resolution = "%s-32"%textLines[0]
+         return resolution or "1024x768-32"
+-
+-class VariableOsInstallX11ServerSet(ReadonlyVariable):
+-    """
+-    Is install xorg-server
+-    """
+-    type = "bool"
+-
+-    def get(self):
+-        try:
+-            image = self.Get('cl_image')
+-            if image:
+-                with image as distr:
+-                    distrPath = image.getDirectory()
+-                    if isPkgInstalled('xorg-server',prefix=distrPath):
+-                        return "yes"
+-        except:
+-            pass
+-        return "no"
+diff --git install/variables/__init__.py install/variables/__init__.py
+index 9590a0d..88cfc35 100644
+--- install/variables/__init__.py
++++ install/variables/__init__.py
+@@ -25,5 +25,6 @@ import system
+ import X11
+ import lvm
+ import autopartition
++import audio
+ 
+ section = "install"
+diff --git install/variables/audio.py install/variables/audio.py
+new file mode 100644
+index 0000000..0243ec3
+--- /dev/null
++++ install/variables/audio.py
+@@ -0,0 +1,121 @@
++#-*- coding: utf-8 -*-
++
++# Copyright 2008-2013 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
++
++import os
++import sys
++import re
++from os import path
++from calculate.lib.datavars import (Variable, VariableError, ReadonlyVariable,
++                                   ReadonlyTableVariable, FieldValue)
++from calculate.lib.utils.files import (readFile, getProgPath, process)
++
++from calculate.lib.cl_lang import setLocalTranslate
++setLocalTranslate('cl_install3',sys.modules[__name__])
++
++class VariableOsAudioData(ReadonlyTableVariable):
++    """
++    Information about audio cards
++    """
++    source = ['os_audio_id',
++              'os_audio_name']
++
++    def get(self,hr=False):
++        alsaInfo = getProgPath('/usr/bin/alsa-info')
++        if not alsaInfo:
++            return [[]]
++        entry = re.compile('^Card hw:(\d+)\s*[^/]+/\'(.*?) at .*$')
++        return tuple(map(lambda x:x.groups(),
++               filter(None,map(entry.search,
++               process(alsaInfo,'--stdout',envdict=os.environ)))))
++
++    setValue = Variable.setValue
++
++class VariableOsAudioId(FieldValue,ReadonlyVariable):
++    """
++    Order Id of audio card
++    """
++    type = "list"
++    source_variable = "os_audio_data"
++    column = 0
++
++class VariableOsAudioName(FieldValue,ReadonlyVariable):
++    """
++    Name of audio card
++    """
++    type = "list"
++    source_variable = "os_audio_data"
++    column = 1
++
++class VariableOsAudioDefaultSet(ReadonlyVariable):
++    """
++    Force write in config 0
++    """
++    type = "bool"
++
++    def get(self):
++        res = self.Select('os_audio_id',where='os_audio_name',
++                              notlike='HDMI',limit=1)
++        audioDefault = self.Get('os_audio_default')
++        if audioDefault != '0' or \
++            res and res != "0" and audioDefault == '0' or \
++            audioDefault != self.Get('os_audio_current'):
++            return 'on'
++        return 'off'
++
++class VariableOsAudioCurrent(ReadonlyVariable):
++    """
++    Current default audio card
++    """
++
++    def get(self):
++        defaultCardRe = re.compile('defaults.ctl.card\s+(\d+)')
++        entry = defaultCardRe.search(readFile('/etc/asound.conf'))
++        if entry and entry.groups()[0] in self.Get('os_audio_id'):
++            return entry.groups()[0]
++        res = self.Select('os_audio_id',where='os_audio_name',
++                          notlike='HDMI',limit=1)
++        return res or '0'
++
++class VariableOsAudioDefault(Variable):
++    """
++    Current default audio card
++    """
++    type  = "choice"
++    opt = ['--audio']
++
++    def init(self):
++        self.label = _("Default audio card")
++        self.help = _("set the default audio")
++
++    def get(self):
++        return self.Get('os_audio_current')
++
++    def choice(self):
++        data = self.Get('os_audio_data')
++        if data and data[0]:
++            return self.Get('os_audio_data')
++        return []
++
++    def uncompatible(self):
++        """
++        Audio setting up unavailable for flash installation
++        """
++        if self.Get('os_install_root_type') == 'flash':
++            return _("Audio configuration unavailable for Flash install")
++        if self.Get('os_install_alsa_set') == 'off':
++            return \
++                _("This distribution does not provide the alsa sound")
++        return ""
+diff --git install/variables/autopartition.py install/variables/autopartition.py
+index f00dd9a..e158256 100644
+--- install/variables/autopartition.py
++++ install/variables/autopartition.py
+@@ -54,6 +54,27 @@ class Sizes(object):
+         else:
+             raise AttributeError
+ 
++class SizeHelper:
++    def set(self,value):
++        # convert table from value to MB
++        sizeMap = {'kB':1/1000.0,
++                   'K':1/1024.0,
++                   'M':1.0,
++                   'Mb':1000/1024.0,
++                   'G':1024,
++                   'Gb':1000,
++                   'T':1024*1024,
++                   'Tb':1000*1000}
++        value = value.strip()
++        reSizeValue = re.compile('^(\d+)\s*(%s)?'%"|".join(sizeMap.keys()))
++        res = reSizeValue.search(value)
++        if not res:
++                return "0"
++        intValue = int(res.group(1))
++        if res.group(2):
++            intValue = intValue * sizeMap[res.group(2)]
++        return str(int(intValue))
++
+ MINROOTSIZE=7*Sizes.G
+ 
+ class AutopartitionError(Exception):
+@@ -365,18 +386,27 @@ class VariableHrMemorySize(ReadonlyVariable):
+     def humanReadable(self):
+         return humanreadableSize(self.Get())
+ 
+-class VariableClAutopartitionSwapSize(Variable):
++class VariableClAutopartitionSwapSize(SizeHelper,AutopartitionHelper,Variable):
+     """
+     Swap size
+     """
+-    type = "int"
++    opt = ["--swap-size"]
++    metavalue = "SIZE"
++    untrusted = True
++
++    def init(self):
++        self.label = _("Swap partition size")+ " (MB)"
++        self.help = _("set the swap partition size for autopartition")
+ 
+     def get(self):
+-        size = self.Get('hr_memory_size')
+-        if size < Sizes.G:
+-            size = Sizes.G
++        size = int(self.Get('hr_memory_size')) / Sizes.M
++        if size < Sizes.K:
++            size = Sizes.K
+         return str(size)
+ 
++    def humanReadable(self):
++        return humanreadableSize(self.Get())
++
+ class VariableClAutopartitionDevice(AutopartitionHelper,Variable):
+     """
+     Device for autopartition
+@@ -538,7 +568,7 @@ class VariableClAutopartitionScheme(AutopartitionHelper,Variable,AutoPartition):
+                     _("The bios_grub partition need the partition table to be GPT"))
+ 
+ 
+-class VariableClAutopartitionRootSize(AutopartitionHelper,Variable):
++class VariableClAutopartitionRootSize(SizeHelper,AutopartitionHelper,Variable):
+     """
+     Root partition size for autopartition
+     """
+@@ -560,26 +590,6 @@ class VariableClAutopartitionRootSize(AutopartitionHelper,Variable):
+             size = max(Sizes().to_M(deviceSize),Sizes().to_M(MINROOTSIZE))
+         return str(size)
+ 
+-    def set(self,value):
+-        # convert table from value to MB
+-        sizeMap = {'kB':1/1000.0,
+-                   'K':1/1024.0,
+-                   'M':1.0,
+-                   'Mb':1000/1024.0,
+-                   'G':1024,
+-                   'Gb':1000,
+-                   'T':1024*1024,
+-                   'Tb':1000*1000}
+-        value = value.strip()
+-        reSizeValue = re.compile('^(\d+)\s*(%s)?'%"|".join(sizeMap.keys()))
+-        res = reSizeValue.search(value)
+-        if not res:
+-                return "0"
+-        intValue = int(res.group(1))
+-        if res.group(2):
+-            intValue = intValue * sizeMap[res.group(2)]
+-        return str(int(intValue))
+-
+     def check(self,value):
+         if self.Get('cl_autopartition_device') and \
+             self.Get('cl_autopartition_set') == "on":
+@@ -588,6 +598,9 @@ class VariableClAutopartitionRootSize(AutopartitionHelper,Variable):
+                     _("The root partition should be at least {size}").format(
+                         size="7 Gb"))
+ 
++    def humanReadable(self):
++        return humanreadableSize(self.Get())
++
+ class VariableClAutopartitionTable(AutopartitionHelper,Variable):
+     """
+     Partition table for autopartition
+@@ -855,7 +868,8 @@ class VariableClAutopartitionDiskSize(ReadonlyVariable,AutopartitionHelper):
+             availSize = self.Get('cl_autopartition_device_size')
+             if device:
+                 return list(self.generateSize(scheme,
+-                           self.Get('cl_autopartition_swap_size'),
++                           str(int(self.Get('cl_autopartition_swap_size'))
++			          *Sizes.M),
+                            self.Get('cl_autopartition_boot_size'),
+                            self.Get('cl_autopartition_uefi_size'),
+                            str(int(self.Get('cl_autopartition_root_size'))
+diff --git install/variables/net.py install/variables/net.py
+index fa3e28b..07ed2fa 100644
+--- install/variables/net.py
++++ install/variables/net.py
+@@ -84,7 +84,7 @@ class VariableOsInstallNetInterfaces(NetHelper,ReadonlyVariable):
+         self.label = _("Interface")
+ 
+     def get(self):
+-        return getInterfaces()
++        return sorted(getInterfaces())
+ 
+ class VariableOsInstallNetInterfacesOrig(NetHelper,ReadonlyVariable):
+     """
+@@ -150,10 +150,17 @@ class VariableOsInstallNetData(NetHelper,TableVariable):
+               "os_install_net_mac"]
+ 
+     def init(self):
++        def defaultInterface():
++            ifaces = getInterfaces()
++            if ifaces:
++                return ifaces[0]
++            else:
++                return "enp0s0"
+         self.label = _("Addresses")
+ #        self.help = _("IP address with network (example:%s)")%"192.168.1.1/24"
+         self.help = _("Network interface, DHCP or IP address and network mask "
+-                      "(example: %s)")%" --iface eth0:192.168.1.1:24"
++                      "(example: %s)")%(" --iface %s:192.168.1.1:24"%
++                        defaultInterface())
+ 
+     def raiseReadonlyIndexError(self,fieldname="",variablename="",
+                                 value=""):
+diff --git install/variables/system.py install/variables/system.py
+index 1d32d8c..a9193b6 100644
+--- install/variables/system.py
++++ install/variables/system.py
+@@ -47,21 +47,17 @@ class UserHelper:
+         """
+         if self.Get('os_install_root_type') == 'flash':
+             return _("User configuration unavailable for Flash install")
+-        if self.Get('os_install_x11_server_set') == 'no' and self.xorg_need:
++        if self.Get('os_install_x11_server_set') == 'off' and self.xorg_need:
+             return _("Autologin is available for Xorg sessions only")
+         return ""
+ 
+-class VariableOsInstallScratch(Variable):
++class VariableOsInstallScratch(ReadonlyVariable):
+     """
+     Install system in scratch mode
+     """
+     type  = "bool"
+     opt = ['--build']
+ 
+-    def init(self):
+-        self.label = _("Builder mode")
+-        self.help = _("build installation")
+-
+     def get(self):
+         # for installation default - normal system
+         if self.Get('cl_action') == 'system':
+@@ -69,25 +65,6 @@ class VariableOsInstallScratch(Variable):
+         else:
+             return self.Get('os_scratch')
+ 
+-    def check(self,value):
+-        if value == "on":
+-            # scratch not use for falsh and multipartition
+-            if self.Get('os_install_root_type') == "flash":
+-                raise VariableError(
+-                    _("Flash install does not support the builder mode"))
+-            if filter(lambda x: not x in ('/','swap','/boot/efi'), 
+-                      self.Get('os_install_disk_mount')):
+-                raise VariableError(
+-                    _("The builder mode does not support "
+-                      "multipartition install"))
+-
+-    def uncompatible(self):
+-        """
+-        Unavailable for flash installation
+-        """
+-        if self.Get('os_install_root_type') == 'flash':
+-            return _("Flash install does not support the builder mode")
+-
+ class VariableOsFormatType(ReadonlyVariable):
+     """
+     Filesystem format support by calcualte-install
+@@ -504,11 +481,13 @@ class VariableOsInstallMdadmSet(ReadonlyVariable):
+ class VariableClChrootGrub(ReadonlyVariable):
+     """
+     Chroot for grub-mkconfig
+-    TODO: check for install scratch system.
+     """
+     def get(self):
+         if self.Get('os_install_scratch') == "on":
+-            return path.join(self.Get('cl_chroot_path'),"mnt/scratch")
++            if self.Get('cl_action') == 'system':
++                return self.Get('cl_target').mdirectory
++            else:
++                return path.join(self.Get('cl_chroot_path'),"mnt/scratch")
+         else:
+             return self.Get('cl_chroot_path')
+ 
+@@ -690,86 +669,41 @@ class VariableOsInstallGrubTerminal(Variable):
+             return _("Grub configuration unavailable for Flash install")
+         return ""
+ 
+-class VariableOsAudioData(ReadonlyTableVariable):
++class PackageCheckHelper(ReadonlyVariable):
+     """
+-    Information about audio cards
++    Конструктор для переменных проверки установлен ли пакет
+     """
+-    source = ['os_audio_id',
+-              'os_audio_name']
+-
+-    def get(self,hr=False):
+-        """LVM hash"""
+-        aplay = getProgPath('/usr/bin/aplay')
+-        if not aplay:
+-            return [[]]
+-        entry = re.compile('^card (\d+): ([^:]+)')
+-        return tuple(map(lambda x:x.groups(),
+-               filter(None,map(entry.search,
+-               process(aplay,'-l')))))
+-
+-    setValue = Variable.setValue
++    image = False
++    package = None
++    type = "bool"
+ 
+-class VariableOsAudioId(FieldValue,ReadonlyVariable):
+-    """
+-    Order Id of audio card
+-    """
+-    type = "list"
+-    source_variable = "os_audio_data"
+-    column = 0
++    def get(self):
++        try:
++            if self.image:
++                image = self.Get('cl_image')
++                if image:
++                    with image as distr:
++                        distrPath = image.getDirectory()
++                        if isPkgInstalled(self.package,prefix=distrPath):
++                            return "on"
++            else:
++                if isPkgInstalled(self.package):
++                    return "on"
++        except:
++            pass
++        return "off"
+ 
+-class VariableOsAudioName(FieldValue,ReadonlyVariable):
+-    """
+-    Name of audio card
+-    """
+-    type = "list"
+-    source_variable = "os_audio_data"
+-    column = 1
+ 
+-class VariableOsAudioDefaultSet(ReadonlyVariable):
++class VariableOsInstallAlsaSet(PackageCheckHelper):
+     """
+-    Force write in config 0
++    Установлен ли media-sound/alsa-utils
+     """
+-    type = "bool"
++    image = True
++    package = "media-sound/alsa-utils"
+ 
+-    def get(self):
+-        res = self.Select('os_audio_id',where='os_audio_name',
+-                              notlike='HDMI',limit=1)
+-        audioDefault = self.Get('os_audio_default')
+-        if audioDefault != '0' or \
+-            res and res != "0" and audioDefault == '0':
+-            return 'on'
+-        return 'off'
+-
+-class VariableOsAudioDefault(Variable):
++class VariableOsInstallX11ServerSet(PackageCheckHelper):
+     """
+-    Current default audio card
++    Установлен ли x11-base/xorg-server
+     """
+-    type  = "choice"
+-    opt = ['--audio']
+-
+-    def init(self):
+-        self.label = _("Default audio card")
+-        self.help = _("set the default audio")
+-
+-    def get(self):
+-        defaultCardRe = re.compile('defaults.ctl.card\s+(\d+)')
+-        entry = defaultCardRe.search(readFile('/etc/asound.conf'))
+-        if entry and entry.groups()[0] in self.Get('os_audio_id'):
+-            return entry.groups()[0]
+-        res = self.Select('os_audio_id',where='os_audio_name',
+-                          notlike='HDMI',limit=1)
+-        return res or '0'
+-
+-    def choice(self):
+-        data = self.Get('os_audio_data')
+-        if data and data[0]:
+-            return self.Get('os_audio_data')
+-        return []
+-
+-    def uncompatible(self):
+-        """
+-        Audio setting up unavailable for flash installation
+-        """
+-        if self.Get('os_install_root_type') == 'flash':
+-            return _("Audio configuration unavailable for Flash install")
+-        return ""
++    image = True
++    package = "x11-base/xorg-server"
+diff --git install/wsdl_install.py install/wsdl_install.py
+index 7d0a51f..511e16c 100644
+--- install/wsdl_install.py
++++ install/wsdl_install.py
+@@ -69,15 +69,17 @@ class Wsdl(WsdlBase):
+                         'cl_image_new_only')),
+             lambda group:group(_("Allocate drive space"),
+                 normal=('cl_autopartition_set',),
+-                expert=('cl_autopartition_scheme','cl_autopartition_device',
+-                        'cl_autopartition_table','cl_autopartition_root_size'),
++                expert=('cl_autopartition_scheme',
++                        'cl_autopartition_table','cl_autopartition_root_size',
++                        'cl_autopartition_swap_size',
++                        'cl_autopartition_device'),
+                 expert_label=_("Click to set up autopartition options")),
+             lambda group:group(_("Mount points"),
+                 normal=('os_location_data',),
+                 hide=('os_location_data','os_install_mbr','os_install_uefi_set'),
+                 brief_force=('os_location_brief_data','os_install_bootloader',
+                              'os_install_uefi_set'),
+-                expert=('os_install_scratch','cl_uuid_set',
++                expert=('cl_uuid_set',
+                         'os_install_root_type',
+                         'os_install_mbr',
+                         'os_install_uefi_set',
