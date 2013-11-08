@@ -1,0 +1,24 @@
+# Calculate ini(update.rev)<49&&cl_chroot_status==on exec=/bin/bash
+
+#-ini(update.rev,49)-#
+
+migrate_to_run()
+{
+        src="$1"
+        dst="$2"
+        if [ -L $src -a "$(readlink -f $src)" != $dst ]; then
+                rm $src
+        elif [ ! -L $src -a -d $src ]; then
+                cp -a $src/* $dst/ &>/dev/null
+                rm -rf $src &>/dev/null
+        fi
+        # If $src doesn't exist at all, just run this
+        if [ ! -e $src ]; then
+                ln -s $dst $src
+        fi
+}
+
+migrate_to_run  /var/lock /run/lock
+migrate_to_run  /var/run /run
+
+exit 0
