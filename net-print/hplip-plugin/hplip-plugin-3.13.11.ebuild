@@ -12,8 +12,10 @@ SRC_URI="http://www.openprinting.org/download/printdriver/auxfiles/HP/plugins/hp
 
 LICENSE="hplip-plugin"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE=""
+
+QA_PREBUILT="*"
 
 RDEPEND="
 	~net-print/hplip-${PV}
