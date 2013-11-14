@@ -1,0 +1,17 @@
+# Calculate path=/usr/sbin chmod=0755
+#!/bin/sh
+# Updating of domain users nss-cache.
+# The NSS-cache is used for fix resume from suspend mode of domain users
+#
+# Обновление кэша пользователей домена.
+# Кэширование используется для поддержки спящего режима доменных машин.
+# Обновление вызывается из cron.hourly, при входе в сеанс, при разблокировки
+
+# invalidate passwd and group caches
+nscd -i passwd
+nscd -i group
+# get information about all users
+getent passwd | cut -d: -f1 |
+while read user;do
+    id $user &>/dev/null
+done
