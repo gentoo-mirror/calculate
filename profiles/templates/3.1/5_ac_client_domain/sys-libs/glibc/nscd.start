@@ -1,0 +1,5 @@
+# Calculate exec=/bin/bash
+
+(/etc/init.d/nscd status && /etc/init.d/nscd restart || /etc/init.d/nscd start ) &>/dev/null
+
+true
