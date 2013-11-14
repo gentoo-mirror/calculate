@@ -1,0 +1,95 @@
+diff --git calculate/lib/cl_ldap.py calculate/lib/cl_ldap.py
+index b4ee12c..802ded4 100644
+--- calculate/lib/cl_ldap.py
++++ calculate/lib/cl_ldap.py
+@@ -251,6 +251,7 @@ class ldapUser(_error):
+         if not self.ldapObj:
+             ldapObj = ldapFun(bindDn, bindPw, host)
+             if ldapObj.getError():
++                ldapObj.clearErrors()
+                 return False
+             # Устанавливаем у объекта соединение и объект LDAP функций
+             self.ldapObj = ldapObj
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index 14912c6..6c98b35 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -3948,7 +3948,7 @@ re.M|re.S)
+     def executeTemplate(self, code, execPath):
+         """Execute template"""
+         p = process(execPath,lang=self.objVar.Get('os_locale_locale'),
+-                    envdict=os.environ)
++                    envdict=dict(os.environ))
+         if "/bin/bash" in code.partition('\n')[0]:
+             p.write("""function translate() {
+ gettext -d cl_template "$*"
+diff --git calculate/lib/datavars.py calculate/lib/datavars.py
+index ffae995..bf36bdc 100644
+--- calculate/lib/datavars.py
++++ calculate/lib/datavars.py
+@@ -263,15 +263,15 @@ class Variable:
+         section = self.parent.iniCache[self.name]['section']
+         value = self.parent.unserialize(self.type,
+                                  value.encode('utf-8'))
+-        try:
+-            if self.mode == READONLY:
+-                raise VariableError(
+-                    _("Attempt to rewrite readonly variable %s")%
+-                    varname)
+-            else:
++        if self.mode == READONLY:
++            raise VariableError(
++                _("Attempt to rewrite readonly variable %s")%
++                self.name)
++        else:
++            try:
+                 self._set(value)
+-        except Exception as e:
+-            return False
++            except Exception as e:
++                return False
+         return True
+ 
+     def _get(self):
+diff --git calculate/lib/utils/common.py calculate/lib/utils/common.py
+index a334435..9f13c66 100644
+--- calculate/lib/utils/common.py
++++ calculate/lib/utils/common.py
+@@ -51,7 +51,7 @@ class _error:
+         return True
+ 
+     def clearErrors(self):
+-        for i in range(len(self.error)):
++        while(self.error):
+             self.error.pop()
+ 
+ class _warning:
+diff --git calculate/lib/variables/__init__.py calculate/lib/variables/__init__.py
+index 5004263..6608f3a 100644
+--- calculate/lib/variables/__init__.py
++++ calculate/lib/variables/__init__.py
+@@ -41,4 +41,4 @@ class VariableClVer(ReadonlyVariable):
+     """
+     Package version
+     """
+-    value = "3.1.8"
++    value = "3.1.8.1"
+diff --git calculate/lib/variables/system.py calculate/lib/variables/system.py
+index 70bcf87..1e43f15 100644
+--- calculate/lib/variables/system.py
++++ calculate/lib/variables/system.py
+@@ -154,3 +154,14 @@ class VariableClUsedAction(ReadonlyVariable):
+     type = "table"
+     def get(self):
+         return []
++
++class VariableClSystemBootSet(ReadonlyVariable):
++    """
++    Система находится в стадии загрузки
++    """
++    type = "bool"
++    def get(self):
++        if os.readlink('/proc/self/fd/0') == '/dev/console':
++            return "on"
++        else:
++            return "off"
