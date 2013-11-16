@@ -9,7 +9,7 @@ net-print/cnijfilter ip4700 mp250 mp270 mp490 mp550 mp560 mp64
 net-print/cnijfilter net mx360 mx410 mx420 mx880 nocupsdetection
 
 media-gfx/splashutils fbcondecor
-net-fs/samba quota
+net-fs/samba quota -winbind
 sys-fs/aufs2 inotify kernel-patch
 sys-kernel/calculate-sources symlink vmlinuz minimal
 sys-kernel/dracut device-mapper net
