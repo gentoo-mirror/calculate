@@ -1,5 +1,6 @@
-# Calculate ini(update.rev)<50 format=samba path=/etc/calculate name=ini.env merge=sys-apps/openrc
+# Calculate ini(update.rev)<50 format=samba path=/etc/calculate name=ini.env merge=sys-apps/openrc,gnome-extra/nm-applet
 
 # updating init.sh in sys-apps/openrc to fix the rare boot fail
+# update nm-applet.desktop (2 sec delay)
 [update]
-rev = 48 
+rev = 50 
