@@ -1,0 +1,139 @@
+diff --git desktop/variables/desktop.py desktop/variables/desktop.py
+index f7337ef..30ae7bb 100644
+--- desktop/variables/desktop.py
++++ desktop/variables/desktop.py
+@@ -40,39 +40,50 @@ class VariableUrJidHost(ReadonlyVariable):
+             return userJid.partition('@')[2]
+         return ""
+ 
+-class VariableUrDomainSet(ReadonlyVariable):
++class DomainInfoHelper:
+     """
+-    Flag for determining domain user or local
++    Вспомогательный класс для определения доменный ли пользователь 
+     """
+-    type = "bool"
+-
+     def getUserDataInFile(self, login, filePasswd):
+         return filter(lambda x: x[0]==login,
+                map(lambda x: x.strip().split(':'),
+                readLinesFile(filePasswd)))
+ 
+-    def get(self):
+-        ret = "off"
+-        userName = self.Get("ur_login")
++    def isDomainUser(self,userName):
+         if userName:
+             try:
+                 passwdUserData = self.getUserDataInFile(userName, "/etc/passwd")
+             except:
+-                return ret
++                return False
+             if passwdUserData:
+                 passwdUserData = passwdUserData[0]
+                 try:
+                     cacheUserData = self.getUserDataInFile(userName,
+                         "/var/lib/calculate/calculate-client/cache/passwd")
+                 except:
+-                    return ret
++                    return False
+                 if cacheUserData:
+                     cacheUserData = cacheUserData[0]
+                     if cacheUserData == passwdUserData:
+-                        ret = "on"
++                        return True
+             else:
+-                ret = "on"
+-        return ret
++                return True
++        return False
++
++
++class VariableUrDomainSet(ReadonlyVariable,DomainInfoHelper):
++    """
++    Flag for determining domain user or local
++    """
++    type = "bool"
++
++    def getUserDataInFile(self, login, filePasswd):
++        return filter(lambda x: x[0]==login,
++               map(lambda x: x.strip().split(':'),
++               readLinesFile(filePasswd)))
++
++    def get(self):
++        return "on" if self.isDomainUser(self.Get('ur_login')) else "off"
+ 
+ class VariableClDesktopXsession(ReadonlyVariable):
+     """
+@@ -177,12 +188,14 @@ class VariableClDesktopXfceMixer(ReadonlyVariable):
+                map(lambda x:'      <value type="string" value="%s" />'%x,
+                self.Get('cl_desktop_gst_data').get('channels',[])))
+ 
+-class VariableClDesktopOnlineData(ReadonlyTableVariable):
++class VariableClDesktopOnlineData(ReadonlyTableVariable,DomainInfoHelper):
+     """
+     Information about online users
+     """
+     source = ['cl_desktop_online_user',
+               'cl_desktop_online_display',
++              'cl_desktop_online_uid',
++              'cl_desktop_online_domain_set',
+               'cl_desktop_online_count']
+ 
+     reDisplay = re.compile(r"^\(?:(\d+\.?\d*)")
+@@ -196,6 +209,12 @@ class VariableClDesktopOnlineData(ReadonlyTableVariable):
+                 return arg.group(1)
+         return ""
+ 
++    def get_user_uid(self,username):
++        try:
++            return str(pwd.getpwnam(username).pw_uid)
++        except:
++            return ""
++
+     def get(self,hr=False):
+         xSession = 0
+         foundTwoSession = False
+@@ -216,7 +235,10 @@ class VariableClDesktopOnlineData(ReadonlyTableVariable):
+                     resWho)))),
+                     key=lambda x:x[0]),
+                     lambda x:x[0])
+-            xData = map(lambda x:(x[0][0],x[0][1],len(x)),
++            xData = map(lambda x:(x[0][0],x[0][1],
++                                  self.get_user_uid(x[0][0]),
++                                  "on" if self.isDomainUser(x[0][0]) else "off",
++                                  len(x)),
+                     map(lambda x:list(x[1]),
+                     xData))
+         return xData
+@@ -239,13 +261,29 @@ class VariableClDesktopOnlineDisplay(FieldValue,ReadonlyVariable):
+     source_variable = "cl_desktop_online_data"
+     column = 1
+ 
++class VariableClDesktopOnlineUid(FieldValue,ReadonlyVariable):
++    """
++    UID пользователя
++    """
++    type = "list"
++    source_variable = "cl_desktop_online_data"
++    column = 2
++
++class VariableClDesktopOnlineDomainSet(FieldValue,ReadonlyVariable):
++    """
++    Является ли пользователь доменным
++    """
++    type = "list"
++    source_variable = "cl_desktop_online_data"
++    column = 3
++
+ class VariableClDesktopOnlineCount(FieldValue,ReadonlyVariable):
+     """
+     Количество сеансов пользователя
+     """
+     type = "list"
+     source_variable = "cl_desktop_online_data"
+-    column = 2
++    column = 4
+ 
+ class VariableClDesktopLogin(VariableUrLogin):
+     """
