@@ -1,0 +1,5 @@
+# Calculate ini(update.rev)<50 format=samba path=/etc/calculate name=ini.env merge=sys-apps/openrc
+
+# updating init.sh in sys-apps/openrc to fix the rare boot fail
+[update]
+rev = 48 
