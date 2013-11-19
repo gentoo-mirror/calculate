@@ -1,0 +1,7 @@
+# Calculate ini(update.rev)<51 format=samba path=/etc/calculate name=ini.env merge=sys-apps/memtest86+
+
+# updating init.sh in sys-apps/openrc to fix the rare boot fail
+# update nm-applet.desktop (2 sec delay)
+# update upower for fix suspend with lock session in XFCE
+[update]
+rev = 51 
