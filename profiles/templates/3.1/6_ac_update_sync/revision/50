@@ -1,6 +1,7 @@
-# Calculate ini(update.rev)<50 format=samba path=/etc/calculate name=ini.env merge=sys-apps/openrc,gnome-extra/nm-applet
+# Calculate ini(update.rev)<50 format=samba path=/etc/calculate name=ini.env merge=sys-apps/openrc,gnome-extra/nm-applet,sys-power/upower
 
 # updating init.sh in sys-apps/openrc to fix the rare boot fail
 # update nm-applet.desktop (2 sec delay)
+# update upower for fix suspend with lock session in XFCE
 [update]
 rev = 50 
