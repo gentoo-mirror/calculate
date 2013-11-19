@@ -10,8 +10,9 @@
 if pgrep nscd &>/dev/null; then
     # get hours uptime of nscd
     working_hours=$(( ($(date +%s) - $(stat -c%Y /proc/`pgrep nscd`)) / 3600 ))
-    # check multiplicity of 3
-    if [[ "$(( $working_hours % 3 ))" == "0" ]]; then
+    # check multiplicity of 3 and check domain server available
+    if [[ "$(( $working_hours % #-cl_client_nscd_cache-# ))" == "0" ]] &&
+        ldapsearch -D "#-server(unix.bind_dn)-#" -w "#-server(unix.bind_pw)-#" -b "#-server(ldap.services_dn)-#"  -h "#-cl_remote_host-#" -l5 -onettimeout=5 -n &>/dev/null
         /usr/sbin/nscd-refresh
     fi
 fi
