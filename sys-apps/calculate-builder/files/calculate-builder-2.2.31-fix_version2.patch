@@ -11,14 +11,3 @@ index a56a518..7f3d13d 100644
                  reRes = filter(reVer.search,verList)
                  if reRes:
                      return reRes[0]
-@@ -400,7 +400,9 @@ class fillVars(object, varsShare):
-         return ""
- 
-     def get_cl_builder_iso_path(self):
--        directory = "/var/calculate/tmp/iso"
-+        directory = \
-+            "/var/calculate/tmp/iso-%s-%s"%(self.Get('os_builder_linux_shortname'),
-+                                            self.Get('os_builder_arch_machine'))
-         newDirectoryName = directory
-         while path.exists(newDirectoryName):
-             newDirectoryName = "%s.%s"%(directory,genpassword(8))
