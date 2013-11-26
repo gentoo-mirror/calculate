@@ -1,0 +1,32 @@
+diff --git calculate/lib/utils/ip.py calculate/lib/utils/ip.py
+index 5fd7c18..25d84b5 100644
+--- calculate/lib/utils/ip.py
++++ calculate/lib/utils/ip.py
+@@ -126,10 +126,17 @@ def intIpToStrIp(addr):
+     return "{0}.{1}.{2}.{3}".format(
+             addr>>24,(addr>>16)&0xff,(addr>>8)&0xff,addr&0xff)
+ 
++def numMaskToCidr(netmask):
++    """
++    Convert integer mask to cidr
++    """
++    neg_net = ctypes.c_uint32(~netmask).value
++    return 32 - int(math.log(neg_net,2))-1 if neg_net else 32
++
+ def maskToCidr(mask):
+     """Convert mask specified by str to net"""
+     mask = strIpToIntIp(mask)
+-    return 32-int(math.log(((~mask) & 0xffffffff)+1,2))
++    return numMaskToCidr(mask)
+ 
+ def cidrToMask(cidr):
+     """Convert net to mask specified by str"""
+@@ -234,7 +241,7 @@ def getMask(iface):
+     finally:
+         sockfd.close()
+     netmask = socket.ntohl(struct.unpack('16sH2xI8x', res)[2])
+-    return 32 - int(math.log(ctypes.c_uint32(~netmask).value + 1, 2))
++    return numMaskToCidr(netmask)
+ 
+ def getMac(iface):
+     """
