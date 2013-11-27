@@ -3,7 +3,7 @@
 
 is_monitor_on() {
 	# проверяем используется DPMS (возможно отключен через smplayer) и монитор выключен (Standby,Suspend,Off)
-	xset -q | grep -q "DPMS is Enabled" && xset -q | grep Monitor | grep -q On
+	! xset -q | grep -q "DPMS is Enabled" || xset -q | grep Monitor | grep -q On
 }
 
 screensaver_status() {
