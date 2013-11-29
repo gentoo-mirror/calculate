@@ -1,0 +1,42 @@
+diff --git core/variables/setup_package.py core/variables/setup_package.py
+index 5f45dbd..9a3f3e1 100644
+--- core/variables/setup_package.py
++++ core/variables/setup_package.py
+@@ -192,10 +192,20 @@ class VariableClCorePkgDesktopSet(Variable):
+     """
+ 
+     type = "bool"
+-    value = "on"
+     opt = ["--desktop"]
+     metavalue = "ON/OFF"
+ 
++    def get(self):
++        if self.Get('cl_templates_locate') == ["clt"]:
++            return "off"
++        return "on"
++
++    def check(self,value):
++        if self.Get('cl_templates_locate') == ["clt"] and value == "on":
++            raise VariableError(
++                _("You shouldn't choice only clt location "
++                  "for desktop templates"))
++
+     def init(self):
+         self.label = _("Configure users")
+         self.help = _("updating desktop (user) configuration files")
+diff --git core/wsdl_core.py core/wsdl_core.py
+index f9fe2f4..794130b 100644
+--- core/wsdl_core.py
++++ core/wsdl_core.py
+@@ -76,9 +76,10 @@ class Wsdl(WsdlBase):
+                 normal=('cl_core_pkg_name',),
+                 expert=('cl_core_pkg_category', 'cl_core_pkg_version',
+                         'cl_core_pkg_slot', 'cl_core_pkg_path',
++                        'cl_templates_locate',
+                         'cl_core_pkg_system_set', 'cl_core_pkg_desktop_set',
+                         'cl_core_pkg_root_set',
+-                        'cl_templates_locate','cl_verbose_set',
++                        'cl_verbose_set',
+                         'cl_dispatch_conf'),
+                 next_label=_("Setup"))]},
+         #

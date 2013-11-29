@@ -1,4 +1,4 @@
-# Calculate path=/tmp exec=/bin/bash os_install_root_type!=livecd&&exists(/sbin/grub-mkconfig,root)!=||os_install_root_type!=livecd&&exists(/usr/sbin/grub-mkconfig,root)!=
+# Calculate path=/tmp exec=/bin/bash os_install_root_type!=livecd&&exists(/sbin/grub-mkconfig,root)!=&&pkg(sys-boot/grub)<2.00_p5000||os_install_root_type!=livecd&&exists(/usr/sbin/grub-mkconfig,root)!=&&pkg(sys-boot/grub)<2.00_p5000
 
 echo "Configuring the grub"
 #?exists(/sbin/grub-mkdevicemap,root)!=#
