@@ -98,3 +98,6 @@ media-libs/mesa gles2
 sys-fs/ecryptfs-utils suid pam
 
 ~media-libs/libsdl-2.0.0 -nas
+
+# required by dev-python/ipython-1.0.0[python_targets_python2_7]
+dev-lang/python sqlite
