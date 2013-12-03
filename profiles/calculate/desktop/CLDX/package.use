@@ -24,3 +24,8 @@ net-libs/rb_libtorrent python
 
 #required by xfce-base/thunar-1.2.3[udev], required by xfce-extra/thunar-archive-plugin-0.3.0, required by app-misc/cl-xfce-meta-4.8-r2, required by app-misc/cldx-meta-11.12[-calculate_noxfce], required by app-misc/calculate-meta-11.12, required by @selected, required by @world (argument)
 sys-fs/udev gudev
+
+# disable introspection for install webkit-gtk,lightdm without update gobject-intraspction
+media-libs/harfbuzz icu
+net-libs/webkit-gtk -geoloc -gstreamer -introspection
+x11-misc/lightdm -introspection

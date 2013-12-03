@@ -34,8 +34,9 @@ dev-python/PyQt4 declarative script
 media-libs/mlt -xine
 kde-base/mplayerthumbs -mplayer
 
-# remove gstreamer dep
-net-libs/webkit-gtk -gstreamer
+# remove gstreamer,introspection and geolocation dep
+net-libs/webkit-gtk -gstreamer -introspection -geoloc
+media-libs/harfbuzz icu
 
 media-plugins/kipi-plugins vkontakte
 
