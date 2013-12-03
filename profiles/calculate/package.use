@@ -17,9 +17,6 @@ sys-kernel/dracut device-mapper net
 #fix update xorg
 sys-fs/udev extras
 
-# disable for discard ruby by depend sys-block/thin-provisioning-tools
->=sys-fs/lvm2-2.02.103 -thin
-
 sys-fs/squashfs-tools gzip lzma
 
 #disable Xorg dependence
