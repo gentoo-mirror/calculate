@@ -20,7 +20,7 @@ USE="${USE} ppp"
 USE="${USE} foomaticdb" 
 
 # Python
-USE="${USE} -python_targets_python3_2 -python_targets_python3_3 python_targets_python2_7"
+USE="${USE} -python_targets_python3_2 -python_targets_python3_3 python_targets_python2_7 -ruby_targets_ruby19 -ruby_targets_ruby18"
 
 # System
 USE="${USE} bash-completion logrotate"
