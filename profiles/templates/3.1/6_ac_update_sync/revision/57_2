@@ -1,0 +1,10 @@
+# Calculate exec=/bin/bash ini(update.rev)<57&&os_linux_shortname==CLDG
+
+#-ini(update.rev,19)-#
+
+#?os_arch_machine==x86_64#
+eselect profile set calculate:calculate/desktop/CLS/amd64/binary
+#os_arch_machine#
+#?os_arch_machine==i686#
+eselect profile set calculate:calculate/desktop/CLS/x86/binary
+#os_arch_machine#
