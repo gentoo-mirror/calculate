@@ -15,3 +15,6 @@ x11-drivers/nvidia-drivers -tools
 #исключим зависимость от tk
 dev-vcs/git -tk
 net-dialup/rp-pppoe -X
+
+# disable for discard ruby by depend sys-block/thin-provisioning-tools
+>=sys-fs/lvm2-2.02.103 -thin

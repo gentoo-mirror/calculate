@@ -62,8 +62,6 @@ sys-apps/usb_modeswitch
 sys-auth/thinkfinger
 sys-block/gparted
 x11-libs/gksu
-# write to world for keep package on during depclean (ruby is used for DEPEND webkit-gtk)
-virtual/rubygems
 #in#
 
 #?in(os_linux_shortname, CLS)!=#
