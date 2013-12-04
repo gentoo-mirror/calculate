@@ -1,4 +1,4 @@
-# Calculate format=world name=world ini(update.world)<29
+# Calculate format=world name=world ini(update.world)<29&&os_linux_shortname==CLDG&&os_arch_machine==x86_64
 
 #-ini(update.world,29)-#
 
@@ -8,4 +8,5 @@
 !gnome-extra/deskbar-applet
 !net-analyzer/gnome-netstatus
 !gnome-extra/evolution-webcal
+gnome-base/gnome
 #in#
