@@ -1,4 +1,4 @@
-# Calculate path=/etc/portage/package.use append=skip name=gnome ini(update.rev)<57&&os_linux_shortname==CLDG&&os_arch_machine==x86_64
+# Calculate path=/etc/portage/package.use name=gnome ini(update.rev)<57&&os_linux_shortname==CLDG
 app-admin/system-config-printer-gnome gnome-keyring
 app-arch/file-roller nautilus
 app-cdr/brasero nautilus
