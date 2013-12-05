@@ -12,8 +12,8 @@ net-libs/libmicrohttpd messages
 
 x11-drivers/nvidia-drivers -tools
 
-#исключим зависимость от tk
-dev-vcs/git -tk
+#исключим зависимость от tk и perl
+dev-vcs/git -tk -perl
 net-dialup/rp-pppoe -X
 
 # disable for discard ruby by depend sys-block/thin-provisioning-tools
