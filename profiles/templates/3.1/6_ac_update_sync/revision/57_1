@@ -1,47 +1,43 @@
-# Calculate path=/etc/portage/package.use name=gnome ini(update.rev)<57&&os_linux_shortname==CLDG&&os_arch_machine==x86_64
+# Calculate path=/etc/portage/package.use append=skip name=gnome ini(update.rev)<57&&os_linux_shortname==CLDG&&os_arch_machine==x86_64
 app-admin/system-config-printer-gnome gnome-keyring
 app-arch/file-roller nautilus
 app-cdr/brasero nautilus
-app-i18n/ibus dconf
-app-misc/geoclue networkmanager
-app-text/evince gnome-keyring nautilus
+app-office/libreoffice gnome gstreamer
+app-text/evince gnome gnome-keyring nautilus
 dev-libs/libgdata gnome
 dev-qt/qtgui gtkstyle
 dev-vcs/git gnome-keyring
+gnome-base/gdm gnome-keyring
+gnome-base/gnome-applets gstreamer networkmanager
+gnome-base/gnome-menus python
 gnome-base/gnome-panel networkmanager
-gnome-base/gnome-session gconf
-gnome-base/gvfs archive fuse gdu gnome-keyring gnome-online-accounts
-gnome-base/gvfs cdda
+gnome-base/gvfs gnome-keyring cdda
 gnome-base/nautilus gnome
-gnome-extra/nm-applet bluetooth modemmanager
-mail-client/evolution gstreamer
+gnome-extra/evolution-data-server gnome-keyring
+gnome-extra/nm-applet bluetooth
+mail-client/evolution gstreamer networkmanager
 media-gfx/gimp gnome
 media-libs/harfbuzz icu
 media-libs/libcanberra gnome gstreamer
 media-libs/swfdec gstreamer
-media-plugins/alsa-plugins pulseaudio
+media-plugins/gst-plugins-meta cdda
+media-sound/rhythmbox gnome-keyring
 media-video/totem nautilus
 net-im/pidgin networkmanager
 net-libs/gupnp networkmanager
-netl-libs/libproxy gnome networkmanager
-net-misc/vinagre rdp
+net-libs/libproxy gnome networkmanager
+net-libs/webkit-gtk geoloc introspection
 net-misc/vino gnome-keyring networkmanager
 net-p2p/deluge webinterface
 net-print/gutenprint gimp
 net-wireless/bluez gstreamer
-sys-apps/systemd gudev
-sys-auth/pambase systemd gnome-keyring
+sys-apps/calculate-utilities cl_client
+sys-auth/pambase gnome-keyring
 sys-block/gparted dmraid fat jfs ntfs reiserfs xfs
 virtual/notification-daemon gnome
 www-client/chromium gnome gnome-keyring
 x11-libs/gksu gnome
 x11-libs/wxGTK gnome gstreamer
 x11-themes/calculate-icon-theme themes_CLDG -themes_CLS
-media-gfx/calculate-wallpapers themes_CLDG -themes_CLS
-media-gfx/dm-themes-calculate themes_CLDG -themes_CLS
-media-gfx/grub-splashes-calculate themes_CLDG -themes_CLS
-media-gfx/splash-themes-calculate themes_CLDG -themes_CLS
-media-gfx/syslinux-themes-calculate themes_CLDG -themes_CLS
-app-editors/gedit -python
-media-sound/rhythmbox -python -dbus
-net-libs/webkit-gtk geoloc gstreamer introspection
+app-misc/geoclue networkmanager
+media-gfx/ufraw gnome
