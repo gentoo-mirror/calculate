@@ -1,6 +1,7 @@
 #
 app-admin/testdisk ntfs reiserfs
-dev-vcs/git -gtk
+# 'perl' is used for interactive commits
+dev-vcs/git -gtk perl
 sys-fs/ntfs3g ntfsprogs
 
 #fot 3.20
