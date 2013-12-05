@@ -2,6 +2,7 @@
 app-admin/system-config-printer-gnome gnome-keyring
 app-arch/file-roller nautilus
 app-cdr/brasero nautilus
+app-misc/geoclue networkmanager
 app-office/libreoffice gnome gstreamer
 app-text/evince gnome gnome-keyring nautilus
 dev-libs/libgdata gnome
@@ -17,6 +18,7 @@ gnome-extra/evolution-data-server gnome-keyring
 gnome-extra/nm-applet bluetooth
 mail-client/evolution gstreamer networkmanager
 media-gfx/gimp gnome
+media-gfx/ufraw gnome
 media-libs/harfbuzz icu
 media-libs/libcanberra gnome gstreamer
 media-libs/swfdec gstreamer
@@ -39,5 +41,3 @@ www-client/chromium gnome gnome-keyring
 x11-libs/gksu gnome
 x11-libs/wxGTK gnome gstreamer
 x11-themes/calculate-icon-theme themes_CLDG -themes_CLS
-app-misc/geoclue networkmanager
-media-gfx/ufraw gnome
