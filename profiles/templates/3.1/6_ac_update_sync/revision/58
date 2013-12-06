@@ -4,7 +4,7 @@
 
 #?cl_chroot_status==off#
 # принудительное обновление пакетов для решения зависимостей по субслотам
-if readlink /etc/make.profile | grep CLDX.*binary;then
+if readlink /etc/make.profile | grep -qP "(CLDX|CLD).*binary";then
     PKGDB=/var/db/pkg
     [[ -d $PKGDB/media-gfx/sane-backends-1.0.23-r2 ]] && mv $PKGDB/media-gfx/sane-backends-1.0.23-r2 $PKGDB/media-gfx/sane-backends-1.0.23-r1
     [[ -d $PKGDB/media-gfx/shotwell-0.14.1 ]] && mv $PKGDB/media-gfx/shotwell-0.14.1 $PKGDB/media-gfx/shotwell-0.14.0
@@ -15,3 +15,4 @@ if readlink /etc/make.profile | grep CLDX.*binary;then
     [[ -d $PKGDB/virtual/libiconv-0 ]] && mv $PKGDB/virtual/libiconv-0 $PKGDB/virtual/libiconv-0_rc1
 fi
 #cl_chroot_status#
+true
