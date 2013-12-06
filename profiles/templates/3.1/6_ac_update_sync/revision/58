@@ -1,0 +1,17 @@
+# Calculate ini(update.rev)<58 exec=/bin/bash
+
+#-ini(update.rev,58)-#
+
+#?cl_chroot_status==off#
+# принудительное обновление пакетов для решения зависимостей по субслотам
+if readlink /etc/make.profile | grep CLDX.*binary;then
+    PKGDB=/var/db/pkg
+    [[ -d $PKGDB/media-gfx/sane-backends-1.0.23-r2 ]] && mv $PKGDB/media-gfx/sane-backends-1.0.23-r2 $PKGDB/media-gfx/sane-backends-1.0.23-r1
+    [[ -d $PKGDB/media-gfx/shotwell-0.14.1 ]] && mv $PKGDB/media-gfx/shotwell-0.14.1 $PKGDB/media-gfx/shotwell-0.14.0
+    [[ -d $PKGDB/www-client/chromium-31.0.1650.57 ]] && mv $PKGDB/www-client/chromium-31.0.1650.57 $PKGDB/www-client/chromium-31.0.1650.56
+    [[ -d $PKGDB/app-office/libreoffice-4.1.2.3 ]] && mv $PKGDB/app-office/libreoffice-4.1.2.3 $PKGDB/app-office/libreoffice-4.1.2.2
+    [[ -d $PKGDB/media-libs/flac-1.2.1-r3 ]] && mv $PKGDB/media-libs/flac-1.2.1-r3 $PKGDB/media-libs/flac-1.2.1-r2
+    [[ -d $PKGDB/virtual/libffi-3.0.11 ]] && mv $PKGDB/virtual/libffi-3.0.11 $PKGDB/virtual/libffi-3.0.10
+    [[ -d $PKGDB/virtual/libiconv-0 ]] && mv $PKGDB/virtual/libiconv-0 $PKGDB/virtual/libiconv-0_rc1
+fi
+#cl_chroot_status#
