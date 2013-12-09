@@ -1,8 +1,8 @@
 # Calculate comment=# path=/etc/conf.d
 
-# autoload modules from /etc/modules.load.d/*.conf files
-if [ -d /etc/modules.load.d ];then
-	for f in /etc/modules.load.d/*.conf;do
+# autoload modules from /etc/modules-load.d/*.conf files
+if [ -d /etc/modules-load.d ];then
+	for f in /etc/modules-load.d/*.conf;do
 		[ -d "${f}" ] && continue
 		modules="${modules} $(/bin/sed -re 's/\s*([#;].*$)?//' -e '/^$/d' "${f}")"
 	done

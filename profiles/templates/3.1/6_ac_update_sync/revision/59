@@ -4,7 +4,7 @@
 
 #?cl_chroot_status==off#
 # create autoload directory
-MODDIR=/etc/modules.load.d
+MODDIR=/etc/modules-load.d
 [[ -e $MODDIR ]] || mkdir $MODDIR
 # backup modules autoload configuration
 cp /etc/conf.d/modules /etc/conf.d/modules.old
