@@ -1,0 +1,21 @@
+# Calculate ini(update.rev)<59 run=/bin/bash merge=sys-apps/openrc
+
+#-ini(update.rev,59)-#
+
+#?cl_chroot_status==off#
+# create autoload directory
+MODDIR=/etc/modules.load.d
+[[ -e $MODDIR ]] || mkdir $MODDIR
+# backup modules autoload configuration
+cp /etc/conf.d/modules /etc/conf.d/modules.old
+# get cpufreq kernel modules names
+FREQ_MODULES="$(ls -1 $(find /lib/modules/$(uname -r) -name cpufreq) | tr "\n" " " | sed 's/.ko /|/g' | sed 's/|$//' )"
+# migrate user modules
+MIGRATE=$(sed -nr 's/^modules[^"]+="([^"]+)"/\1/;T;s/ /\n/g;p;' /etc/conf.d/modules | sort | uniq | 
+	grep -vP "$FREQ_MODULES")
+[[ -n $MIGRATE ]] && echo $MIGRATE > $MODDIR/migrate.conf
+# migrate cpufreq modules
+sed -nr 's/^modules[^"]+="([^"]+)"/\1/;T;s/ /\n/g;p;' /etc/conf.d/modules | sort | uniq | 
+	grep -P "$FREQ_MODULES" >$MODDIR/cpufreq.conf
+#cl_chroot_status#
+true

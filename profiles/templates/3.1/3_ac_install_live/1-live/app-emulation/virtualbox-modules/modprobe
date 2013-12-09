@@ -1,0 +1,4 @@
+# Calculate exec=/bin/bash cl_chroot_status==off&&cl_system_boot_set==off
+# load modules on install package
+modprobe -a vboxdrv vboxnetflt vboxnetadp
+true
