@@ -3,20 +3,18 @@
 #-ini(update.rev,58)-#
 
 #?cl_chroot_status==off#
-# create autoload directory
 MODDIR=/etc/modules-load.d
-[[ -e $MODDIR ]] || mkdir $MODDIR
 # backup modules autoload configuration
 cp /etc/conf.d/modules /etc/conf.d/modules.old
 # get cpufreq kernel modules names
 FREQ_MODULES="$(ls -1 $(find /lib/modules/$(uname -r) -name cpufreq) | tr "\n" " " | sed 's/.ko /|/g' | sed 's/|$//' )"
 # migrate user modules
-sed -nr 's/^modules[^"]+="([^"]+)"/\1/;T;s/ /\n/g;p;' /etc/conf.d/modules | sort | uniq | 
-	grep -qvP "$FREQ_MODULES" &&
-	(sed -nr 's/^modules[^"]+="([^"]+)"/\1/;T;s/ /\n/g;p;' /etc/conf.d/modules | sort | uniq | 
-		grep -vP "$FREQ_MODULES" >$MODDIR/migrate.conf)
-# migrate cpufreq modules
-sed -nr 's/^modules[^"]+="([^"]+)"/\1/;T;s/ /\n/g;p;' /etc/conf.d/modules | sort | uniq | 
-	grep -P "$FREQ_MODULES" >$MODDIR/cpufreq.conf
+if sed -nr 's/^modules[^"]+="([^"]+)"/\1/;T;s/ /\n/g;p;' /etc/conf.d/modules | sort | uniq | 
+	grep -qvP "$FREQ_MODULES"; then
+	# create autoload directory
+	[[ -e $MODDIR ]] || mkdir $MODDIR
+	sed -nr 's/^modules[^"]+="([^"]+)"/\1/;T;s/ /\n/g;p;' /etc/conf.d/modules | sort | uniq | 
+		grep -vP "$FREQ_MODULES" >$MODDIR/migrate.conf
+fi
 #cl_chroot_status#
 true

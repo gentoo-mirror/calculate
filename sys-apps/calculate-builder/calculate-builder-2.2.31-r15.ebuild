@@ -47,5 +47,5 @@ src_unpack() {
 	# fix make image
 	epatch "${FILESDIR}/calculate-builder-2.2.31-fiximage.patch"
 	# improve conf.d/modules
-	epatch "${FILESDIR}/calculate-builder-2.2.31-modules.patch"
+	epatch "${FILESDIR}/calculate-builder-2.2.31-cpufreq.patch"
 }
