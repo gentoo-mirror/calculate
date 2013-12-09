@@ -16,5 +16,7 @@ if sed -nr 's/^modules[^"]+="([^"]+)"/\1/;T;s/ /\n/g;p;' /etc/conf.d/modules | s
 	sed -nr 's/^modules[^"]+="([^"]+)"/\1/;T;s/ /\n/g;p;' /etc/conf.d/modules | sort | uniq | 
 		grep -vP "$FREQ_MODULES" >$MODDIR/migrate.conf
 fi
+
+rm -f /etc/init.d/calculate-builder
 #cl_chroot_status#
 true
