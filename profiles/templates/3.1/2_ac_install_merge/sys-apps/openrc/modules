@@ -4,6 +4,6 @@
 if ls /etc/modules-load.d/*.conf &>/dev/null;then
 	for f in /etc/modules-load.d/*.conf;do
 		[ -d "${f}" ] && continue
-		modules="${modules} $(/bin/sed -re 's/\s*([#;].*$)?//' -e '/^$/d' "${f}")"
+		modules="${modules} $(/bin/sed -re 's/\s*([#;].*$)?//' -e 's/^(\S+)\s.*/\1/' -e '/^$/d' "${f}")" || :
 	done
 fi
