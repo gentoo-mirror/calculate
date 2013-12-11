@@ -1,0 +1,5 @@
+# Calculate ini(update.rev)<62 format=samba path=/etc/calculate name=ini.env merge=sys-kernel/calckernel
+
+# add patch for calckernel
+[update]
+rev = 62
