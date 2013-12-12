@@ -1,0 +1,54 @@
+diff --git pym/cl_distr.py pym/cl_distr.py
+index 631f673..4a7ebf2 100644
+--- pym/cl_distr.py
++++ pym/cl_distr.py
+@@ -260,7 +260,7 @@ class DistributiveRepository:
+     def getDistributiveByFile(self,filename):
+         """Get Distributive object by filename"""
+         # MAGIC_COMPRESS 0x000004 Check inside compressed files 
+-        tf = typeFile(magic=0x6)
++        tf = typeFile(magic=0x6|0x20)
+         ftype = tf.getMType(filename)
+         if "block special" in ftype:
+             return IsoDistributive(filename)
+@@ -1228,7 +1228,7 @@ class IsoDistributive(Distributive):
+     def _mountIso(self,file,directory):
+         if self.file != self.mdirectory:
+             self._makeDirectory(directory)
+-            tf = typeFile(magic=0x6)
++            tf = typeFile(magic=0x6|0x20)
+             ftype = tf.getMType(file)
+             if "block special" in ftype:
+                 mopts = ""
+diff --git pym/cl_utils.py pym/cl_utils.py
+index fb5582f..cd2acc5 100644
+--- pym/cl_utils.py
++++ pym/cl_utils.py
+@@ -32,13 +32,16 @@ from types import StringType
+ import tarfile
+ 
+ try:
+-    from magic import open as type_file, MAGIC_NONE as MAGIC_NONE
++    from magic import (open as type_file, MAGIC_NONE as MAGIC_NONE,
++                        MAGIC_CONTINUE)
+ except ImportError:
+     try:
+-        from magic import open as type_file, NONE as MAGIC_NONE
++        from magic import (open as type_file, NONE as MAGIC_NONE,
++                        CONTINUE as MAGIC_CONTINUE)
+     except:
+         type_file = None
+         MAGIC_NONE = None
++        MAGIC_CONTINUE = None
+ 
+ import cl_lang
+ tr = cl_lang.lang()
+@@ -99,7 +102,7 @@ class proxy_type_file:
+                 if processFile.success():
+                     return processFile.read().rstrip()
+             else:
+-                processFile = process("file","-bz",filename)
++                processFile = process("file","-bkz",filename)
+                 if processFile.success():
+                     return processFile.read().rstrip()
+         return None
