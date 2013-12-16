@@ -1,0 +1,40 @@
+diff -ruN lightdm-gtk-greeter-1.6.1.orig/po/ru.po lightdm-gtk-greeter-1.6.1/po/ru.po
+--- lightdm-gtk-greeter-1.6.1.orig/po/ru.po	2013-12-16 16:18:57.832013404 +0400
++++ lightdm-gtk-greeter-1.6.1/po/ru.po	2013-12-16 16:19:51.597016178 +0400
+@@ -20,12 +20,15 @@
+ 
+ #: ../src/lightdm-gtk-greeter.c:355
+ msgid "Unlock"
+-msgstr ""
++msgstr "Разблокировать"
+ 
+ #: ../src/lightdm-gtk-greeter.c:357 ../src/lightdm-gtk-greeter.glade.h:1
+ msgid "Login"
+ msgstr "Войти"
+ 
++msgid "Log In"
++msgstr "Войти"
++
+ #: ../src/lightdm-gtk-greeter.c:515
+ msgid "Failed to start session"
+ msgstr "Не удалось запустить сеанс"
+@@ -61,6 +64,9 @@
+ msgid "Shutdown"
+ msgstr "Выключить"
+ 
++msgid "Shut Down"
++msgstr "Выключить"
++
+ #: ../src/lightdm-gtk-greeter.c:862
+ msgid "Guest Account"
+ msgstr "Гость"
+@@ -89,6 +95,9 @@
+ msgid "Shutdown..."
+ msgstr "Выключить..."
+ 
++msgid "Shut Down..."
++msgstr "Выключить..."
++
+ #: ../src/lightdm-gtk-greeter.glade.h:7
+ msgid "Large Font"
+ msgstr "Крупный шрифт"
