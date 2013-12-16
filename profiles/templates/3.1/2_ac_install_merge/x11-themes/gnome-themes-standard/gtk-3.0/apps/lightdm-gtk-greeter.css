@@ -1,9 +1,67 @@
+#?pkg(x11-misc/lightdm-gtk-greeter)>=1.6#
+#panel_window,
+#menubar {
+    background-color: @lightdm_bg_color;
+    background-image: none;
+    color: @lightdm_fg_color;
+    /*border-bottom-color: alpha(@light_shadow,0.2);*/
+    text-shadow: 0px 1px alpha(@dark_shadow, 0.8);
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    padding: 0;
+}
+
+#menubar * {
+    text-shadow: none;
+}
+
+#menubar *:hover {
+    text-shadow: 0px 1px alpha(@dark_shadow, 0.8);
+}
+
+#panel_window.menubar.menuitem:hover,
+#panel_window.menubar .menuitem:hover,
+#panel_window .menubar.menuitem:hover {
+    background-color: shade(@selected_bg_color, 0.9);
+    border-color: shade(@theme_selected_bg_color, 1.1);
+    background-image: -gtk-gradient(linear, left top, left bottom,
+                                     from (shade(@theme_selected_bg_color, 1.2)),
+                                     to (shade(@theme_selected_bg_color, 1.0)));
+}
+
+#logo {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: alpha(@dark_shadow,0.9);
+    padding: 3px;
+    box-shadow: inset 1px 0px alpha(@light_shadow, 0.2),
+                inset -1px 0px alpha(@light_shadow, 0.2),
+                inset 0px 1px alpha(@light_shadow, 0.3),
+                inset 0px -1px alpha(@light_shadow, 0.1);
+}
+
+#greeter_infobar {
+    color: @lightdm_fg_color;
+    background-color: shade(@selected_bg_color, 0.9);
+    color: #cc0000;
+    text-shadow: 1px 1px alpha(@dark_shadow, 1);
+}
+
+#user_image {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: #999999;
+    padding: 3px;
+}
+#pkg#
+#?pkg(x11-misc/lightdm-gtk-greeter)<1.6#
 #panel_window #menubar {
     background-color: @lightdm_bg_color;
     background-image: none;
     color: @lightdm_fg_color;
 }
-
 
 #panel_window .menubar.menuitem:focus,
 #panel_window .menubar .menuitem:focus {
@@ -14,3 +72,4 @@
                 inset -1px 0 alpha(@theme_selected_bg_color, 0.4),
                 inset 0 -1px alpha(@theme_selected_bg_color, 0.4);
 }
+#pkg#
