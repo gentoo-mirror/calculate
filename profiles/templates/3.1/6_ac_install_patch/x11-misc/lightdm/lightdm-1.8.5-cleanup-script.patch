@@ -1,13 +1,16 @@
 # Calculate format=diff
-diff -ruN lightdm-1.8.5.orig/src/seat.c lightdm-1.8.5/src/seat.c
---- lightdm-1.8.5.orig/src/seat.c	2013-12-13 11:02:46.635945026 +0400
-+++ lightdm-1.8.5/src/seat.c	2013-12-13 11:03:32.904947413 +0400
-@@ -605,7 +605,7 @@
+diff -ruN lightdm-1.9.5.orig/src/seat.c lightdm-1.9.5/src/seat.c
+--- lightdm-1.9.5.orig/src/seat.c	2013-12-16 14:04:28.475005084 +0400
++++ lightdm-1.9.5/src/seat.c	2013-12-16 14:07:36.934014806 +0400
+@@ -617,7 +617,10 @@
      }
  
      /* Cleanup */
 -    if (!IS_GREETER (session))
-+    if (!IS_GREETER (session) && session_get_is_authenticated(session))
++    // don't launch cleanup script for non-authenticated session and on switch
++    // sessions
++    if (!IS_GREETER (session) && session_get_is_authenticated(session) &&
++        !find_user_session (seat, session_get_username (session), session))
      {
          const gchar *script;
          script = seat_get_string_property (seat, "session-cleanup-script");
