@@ -1,0 +1,26 @@
+diff --git data/login.d/20desktop data/login.d/20desktop
+index 85c0ecf..8ec8ace 100644
+--- data/login.d/20desktop
++++ data/login.d/20desktop
+@@ -13,7 +13,7 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-env-update
++/usr/sbin/env-update
+ source /etc/profile
+ source /usr/share/calculate/xdm/functions
+ 
+diff --git data/xdm data/xdm
+index cfe5033..13a81bf 100755
+--- data/xdm
++++ data/xdm
+@@ -76,7 +76,7 @@ umount_user_res(){
+ 			KILL_PIDS=`fuser ${MOUNT_DIR} 2>/dev/null`
+ 			if [[ -n $KILL_PIDS ]];
+ 			then
+-				kill -9 KILL_PIDS
++				kill -9 $KILL_PIDS
+ 			fi
+ 			umount "${MOUNT_DIR}"
+ 		done
