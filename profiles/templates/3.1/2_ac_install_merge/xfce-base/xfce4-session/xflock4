@@ -31,10 +31,13 @@ export PATH
 SLEEPCMD=:
 [ "${DISPLAY}" == "${DISPLAY/./}" ] && SLEEPCMD="sleep 2"
 # lock screen by gnome-screensaver and activate lightdm user switch
-if type dm-tool &>/dev/null && type gnome-screensaver-command &>/dev/null
-then
-    gnome-screensaver-command --lock &>/dev/null &&
-        $SLEEPCMD && dm-tool lock &>/dev/null && exit
+if type dm-tool &>/dev/null; then
+    if type gnome-screensaver-command &>/dev/null; then
+        gnome-screensaver-command --lock &>/dev/null &&
+            $SLEEPCMD && dm-tool lock &>/dev/null && exit
+    else
+        dm-tool lock &>/dev/null && exit
+    fi
 fi
 
 # Lock by xscreensaver or gnome-screensaver, if a respective daemon is running
