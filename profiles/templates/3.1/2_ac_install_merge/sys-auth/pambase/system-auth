@@ -1,7 +1,6 @@
 # Calculate chmod=0644 chown=root:root comment=#
 auth       required     pam_env.so
 #?pkg(sys-auth/pam_client)!=&&pkg(sys-apps/calculate-client)!=#
-# пропустить проверку ldap в случае успешной авторизации по unix
 auth       [success=3 new_authtok_reqd=done default=ignore]   pam_unix.so try_first_pass
 auth       requisite    pam_client.so
 auth       [success=1 new_authtok_reqd=done default=ignore]   pam_ldap.so use_first_pass
