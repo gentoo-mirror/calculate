@@ -1,31 +1,25 @@
 # Calculate chmod=0644 chown=root:root comment=#
 auth       required     pam_env.so
-#?pkg(sys-auth/pam_keystore)!=&&pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
-auth       optional     pam_keystore.so
-auth       [success=3 new_authtok_reqd=done default=ignore]   pam_unix.so use_first_pass
-#pkg#
-#?pkg(sys-auth/pam_keystore)==&&pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
-auth       [success=3 new_authtok_reqd=done default=ignore]   pam_unix.so
-#pkg#
-#?pkg(sys-auth/pam_keystore)!=&&pkg(sys-auth/pam_client)==||pkg(sys-auth/pam_keystore)!=&&pkg(sys-apps/calculate-client)==#
-auth       optional     pam_keystore.so
-auth       [success=1 new_authtok_reqd=done default=ignore]   pam_unix.so use_first_pass
-#pkg#
-#?pkg(sys-auth/pam_keystore)==&&pkg(sys-auth/pam_client)==||pkg(sys-auth/pam_keystore)==&&pkg(sys-apps/calculate-client)==#
-auth       [success=1 new_authtok_reqd=done default=ignore]   pam_unix.so
-#pkg#
-#?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
+#?pkg(sys-auth/pam_client)!=&&pkg(sys-apps/calculate-client)!=#
+# пропустить проверку ldap в случае успешной авторизации по unix
+auth       [success=3 new_authtok_reqd=done default=ignore]   pam_unix.so try_first_pass
 auth       requisite    pam_client.so
 auth       [success=1 new_authtok_reqd=done default=ignore]   pam_ldap.so use_first_pass
-#pkg#
-auth       required     pam_deny.so
+auth       requisite     pam_deny.so
 auth       required     pam_permit.so
+#pkg#
+#?pkg(sys-auth/pam_client)==||pkg(sys-apps/calculate-client)==#
+auth       required     pam_unix.so try_first_pass
+#pkg#
+#?pkg(sys-auth/pam_keystore)!=#
+auth       optional     pam_keystore.so use_first_pass
+#pkg#
 #?pkg(sys-fs/ecryptfs-utils)!=#
 auth       optional     pam_ecryptfs.so unwrap
 #pkg#
 
 account    required     pam_unix.so
-#?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
+#?pkg(sys-auth/pam_client)!=&&pkg(sys-apps/calculate-client)!=#
 account    sufficient   pam_ldap.so
 #pkg#
 
@@ -34,7 +28,7 @@ password   sufficient   pam_unix.so nullok sha256 shadow use_authtok
 #?pkg(sys-fs/ecryptfs-utils)!=#
 password   optional     pam_ecryptfs.so
 #pkg#
-#?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
+#?pkg(sys-auth/pam_client)!=&&pkg(sys-apps/calculate-client)!=#
 password   sufficient   pam_ldap.so
 #pkg#
 password   required     pam_deny.so
@@ -44,7 +38,7 @@ session    required     pam_unix.so
 #?pkg(sys-fs/ecryptfs-utils)!=#
 session    optional     pam_ecryptfs.so unwrap
 #pkg#
-#?pkg(sys-auth/pam_client)>=0.1.1&&pkg(sys-apps/calculate-client)!=#
+#?pkg(sys-auth/pam_client)!=&&pkg(sys-apps/calculate-client)!=#
 session    optional     pam_ldap.so
 #pkg#
 
