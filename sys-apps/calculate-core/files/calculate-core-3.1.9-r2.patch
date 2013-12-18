@@ -1,0 +1,107 @@
+diff --git core/server/cert_cmd.py core/server/cert_cmd.py
+index eeaa33e..4a8fb66 100644
+--- core/server/cert_cmd.py
++++ core/server/cert_cmd.py
+@@ -177,7 +177,6 @@ def check_server_certificate(cert, key, cert_path, args, port, auto = False):
+ 
+     # send a certificate signing request to another server
+     elif args.host:
+-        port = args.port if args.port else 8888
+         url = "https://%s:%d/?wsdl" %(args.host, port)
+         print url + '\n' + _("connecting...")
+         from sudsds.client import Client
+@@ -225,7 +224,6 @@ def check_server_certificate(cert, key, cert_path, args, port, auto = False):
+         req_id = fc.read()
+         fc.close()
+ 
+-        port = args.port if args.port else 8888
+         url = "https://%s:%d/?wsdl" %(args.root_host, port)
+         print url + '\n' + _("connecting...")
+ 
+@@ -1125,7 +1123,7 @@ def parse(full=False):
+             '--start',  action='store_true', default=False, dest = 'start',
+             help=_('server started'))
+         parser.add_argument(
+-            '-p', '--port', type=int, default = '8888', dest='port',
++            '-p', '--port', type=int, dest='port',
+             help=_('port number'))
+         parser.add_argument(
+             '--pid-file', type=str, dest='pidfile', 
+diff --git core/server/cl_server.py core/server/cl_server.py
+index 8daf7e4..24e59a8 100644
+--- core/server/cl_server.py
++++ core/server/cl_server.py
+@@ -74,6 +74,7 @@ def main(*args, **keywords):
+     key = ob.Get('cl_core_key')
+     cl_ver = ob.Get('cl_ver')
+     log_path_var = ob.Get('cl_log_path')
++    cl_core_port = ob.GetInteger('cl_core_port')
+ 
+     if args.version:
+         print cl_ver
+@@ -113,7 +114,7 @@ def main(*args, **keywords):
+     ob.close()
+     if not args.method:
+         try:
+-            port = args.port
++            port = args.port or cl_core_port
+             if args.check:
+                 import bootstrap
+                 bootstrap.check(cert, key, cert_path, data_path, certbase, args)
+diff --git core/variables/core.py core/variables/core.py
+index 3f0b888..16ec8a1 100644
+--- core/variables/core.py
++++ core/variables/core.py
+@@ -204,3 +204,10 @@ class VariableClGlobRootCert(Variable):
+     """
+     def get(self):
+         return path.join(self.Get('cl_core_cert_path'),"sys_ca.crt")
++
++class VariableClCorePort(Variable):
++    """
++    Port for cl-core WSDL server
++    """
++    type = "int"
++    value = "8888"
+diff --git core/variables/setup_package.py core/variables/setup_package.py
+index 5f45dbd..9a3f3e1 100644
+--- core/variables/setup_package.py
++++ core/variables/setup_package.py
+@@ -192,10 +192,20 @@ class VariableClCorePkgDesktopSet(Variable):
+     """
+ 
+     type = "bool"
+-    value = "on"
+     opt = ["--desktop"]
+     metavalue = "ON/OFF"
+ 
++    def get(self):
++        if self.Get('cl_templates_locate') == ["clt"]:
++            return "off"
++        return "on"
++
++    def check(self,value):
++        if self.Get('cl_templates_locate') == ["clt"] and value == "on":
++            raise VariableError(
++                _("You shouldn't choice only clt location "
++                  "for desktop templates"))
++
+     def init(self):
+         self.label = _("Configure users")
+         self.help = _("updating desktop (user) configuration files")
+diff --git core/wsdl_core.py core/wsdl_core.py
+index f9fe2f4..794130b 100644
+--- core/wsdl_core.py
++++ core/wsdl_core.py
+@@ -76,9 +76,10 @@ class Wsdl(WsdlBase):
+                 normal=('cl_core_pkg_name',),
+                 expert=('cl_core_pkg_category', 'cl_core_pkg_version',
+                         'cl_core_pkg_slot', 'cl_core_pkg_path',
++                        'cl_templates_locate',
+                         'cl_core_pkg_system_set', 'cl_core_pkg_desktop_set',
+                         'cl_core_pkg_root_set',
+-                        'cl_templates_locate','cl_verbose_set',
++                        'cl_verbose_set',
+                         'cl_dispatch_conf'),
+                 next_label=_("Setup"))]},
+         #
