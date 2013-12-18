@@ -1,4 +1,6 @@
 # Calculate format=kde name=#-ur_login-#
 [User]
+#?exists(/var/calculate/remote/share/faces/#-ur_login-#.face,root)!=#
 Icon=/var/lib/AccountsService/icons/#-ur_login-#
+#exists#
 SystemAccount=false
