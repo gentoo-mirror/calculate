@@ -1,0 +1,52 @@
+# Calculate ini(update.rev)<65 exec=/bin/bash cl_chroot_status==off
+#
+# Скрипт исправляет CONTENTS файлы пакетов, к которым ошибочно привязаны
+# файлы изменяемые clt шаблонами.
+# (c) 2013 Calculate Ltd. http://www.calculate-linux.org
+
+#-ini(update.rev,65)-#
+
+# получить содержимое всех функций merge в шаблонах clt
+find_merge_func_values() {
+    local search_path=$1
+    find ${search_path} -name "*.clt" | xargs grep -hoP "(?<=merge\()[^)]+"
+}
+
+# получить имена всех файлов которые изменяются шаблонами clt
+find_clt_target_files() {
+    local search_path=$1
+    while read cltfile;
+    do
+        local target_path=$(
+            sed -nr '/\s+path/{s/^.*path=([^ ]+).*/\1/p}' $cltfile)
+        local target_name=$(
+            sed -nr '/\s+name/{s/^.*name=([^ ]+).*/\1/p}' $cltfile)
+        [[ -n $target_path ]] || target_path=$(dirname $cltfile)
+        [[ -n $target_name ]] || target_name=$(basename $cltfile .clt)
+        # исключить из удаления файлы которые содержат merge функцию
+        head -1 $cltfile | grep -q merge\( || echo "${target_path}/${target_name}"
+    done < <(find ${search_path} -name "*.clt")
+}
+
+# исключить "чужие" файлы из CONTENTS пакета
+fix_contents() {
+    local package=$1
+    local cltpath=$2
+    for content in /var/db/pkg/$package-*/CONTENTS;do
+        [[ -f $content ]] || continue
+        # исключить похожие по названию пакеты (например если ищем calculate-console
+        # исключаем calculate-console-gui)
+        local real_package=$((bunzip2 -dc $(dirname $content)/environment.bz2 |
+                          grep -e "declare -x PN=" -e "declare -x CATEGORY=";
+                          echo echo \$CATEGORY/\$PN ) | bash)
+        [[ $package == $real_package ]] || continue
+        # сформировать сценарий для sed который исключит из CONTENTS все указанные файлы
+        sed -i -f <(find_clt_target_files $cltpath  |
+                           sed 's/\//\\\//g' |
+                           sed -r 's/.*/\/obj &\/d/') $content
+    done
+}
+
+while read package;do
+    fix_contents $package /etc
+done < <(find_merge_func_values /etc)
