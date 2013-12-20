@@ -48,7 +48,7 @@ fix_contents() {
                    sed -r 's/.*/\/obj &\/d/') $content) | grep \< | awk '{print $3}')
         sed -i -f <(find_clt_target_files $cltpath  |
                            sed 's/\//\\\//g' |
-                           sed -r 's/.*/\/obj &\/d/') $content) | grep \< | awk '{print $3}'
+                           sed -r 's/.*/\/obj &\/d/') $content
     done
 }
 
