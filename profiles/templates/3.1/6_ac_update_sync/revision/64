@@ -41,11 +41,6 @@ fix_contents() {
                           echo echo \$CATEGORY/\$PN ) | bash)
         [[ $package == $real_package ]] || continue
         # сформировать сценарий для sed который исключит из CONTENTS все указанные файлы
-        while read fn;do
-            echo "Exclude $fn from $package contents"
-        done < <(diff $content <(sed -f <(find_clt_target_files $cltpath  |
-                   sed 's/\//\\\//g' |
-                   sed -r 's/.*/\/obj &\/d/') $content) | grep \< | awk '{print $3}')
         sed -i -f <(find_clt_target_files $cltpath  |
                            sed 's/\//\\\//g' |
                            sed -r 's/.*/\/obj &\/d/') $content
