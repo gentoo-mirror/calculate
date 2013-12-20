@@ -43,7 +43,7 @@ fix_contents() {
         # сформировать сценарий для sed который исключит из CONTENTS все указанные файлы
         sed -i -f <(find_clt_target_files $cltpath  |
                            sed 's/\//\\\//g' |
-                           sed -r 's/.*/\/obj &\/d/') $content
+                           sed -r 's/.*/\/obj & \/d/') $content
     done
 }
 
