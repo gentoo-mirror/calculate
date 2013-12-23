@@ -2,6 +2,7 @@
 [X-*-Core]
 Setup=/usr/share/calculate/xdm/wait_domain
 [X-*-Greeter]
+FaceDir=/var/calculate/remote/share/faces/
 #?env(unix.sr_unix_min_id)!=#
 MinShowUID=#-env(unix.sr_unix_min_id)-#
 #env#
