@@ -63,7 +63,7 @@ index cfe5033..b5b346d 100755
  
  sleep_kill()
 diff --git desktop/desktop.py desktop/desktop.py
-index fd7b8a7..7d87b3e 100644
+index fd7b8a7..5b8f047 100644
 --- desktop/desktop.py
 +++ desktop/desktop.py
 @@ -291,3 +291,24 @@ class Desktop:
@@ -88,7 +88,7 @@ index fd7b8a7..7d87b3e 100644
 +            symlink_path = path.join(ur_home_path,'.face')
 +            if not path.lexists(symlink_path):
 +                os.symlink('.ecryptfs/.face', symlink_path)
-+                return True
++            return True
 +        else:
 +            return False
 diff --git desktop/utils/cl_desktop.py desktop/utils/cl_desktop.py
