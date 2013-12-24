@@ -7,6 +7,21 @@
 # Ed Catmur added support autoreconf calls then pva rewritten everything...
 # Added interval check for version and run .sh hooks by Calculate
 
+# don't setup packages by cl-core
+check_skip() {
+	declare -A SKIPPKGS=( 
+	   ["calculate-install"]="1"
+	   ["calculate-lib"]="1"
+	   ["calculate-console"]="1"
+	   ["calculate-console-gui"]="1"
+	   ["calculate-core"]="1"
+	   ["calculate-desktop"]="1"
+	   ["calculate-client"]="1"
+	   ["calculate-update"]="1" )
+
+	[[ -z ${SKIPPKGS[$PN]} ]]
+}
+
 pkg_checkver() {
 	PATCH_PV=( `echo $1 | sed 's/[._]/ /g' | sed -r 's/([a-z]+)/ \1 /g'` )
 	EBUILD_PV=( `echo $2 | sed 's/[._]/ /g' | sed -r 's/([a-z]+)/ \1 /g'` )
@@ -161,7 +176,7 @@ post_pkg_preinst() {
 		CONFIG_PROTECT=${CONFIG_PROTECT} ${CL_UPDATE_PROG} --desktop --system --pkg_version ${PVR} --pkg_category ${CATEGORY} --path ${D} $PN
 	fi
 	CL_UPDATE_PROG=/usr/sbin/cl-core-setup
-	if [ -e ${CL_UPDATE_PROG} ] && [[ -z $calcver ]]
+	if [ -e ${CL_UPDATE_PROG} ] && [[ -z $calcver ]] && check_skip
 	then
 		${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-category ${CATEGORY} --pkg-path ${D} --pkg-name ${PN}
 	fi
@@ -174,7 +189,7 @@ post_pkg_postinst() {
 }
 
 pre_pkg_postinst() {
-	if [[ -n $calcver ]]
+	if [[ -n $calcver ]] && check_skip
 	then
 		CL_UPDATE_PROG=/usr/sbin/cl-core-setup
 		if [ -e ${CL_UPDATE_PROG} ];then
@@ -187,7 +202,7 @@ pre_pkg_postinst() {
 
 CL_CORE_PATCH=/usr/sbin/cl-core-patch
 if [[ ${EBUILD_PHASE} == "compile" ]] && [ -e ${CL_CORE_PATCH} ] &&
-    [[ -d ${S} ]];then
+    [[ -d ${S} ]] && check_skip; then
 	${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path ${S} --pkg-name ${PN} --verbose
 else
 	if [[ `readlink -f /etc/portage/bashrc` != "/usr/calculate/install/bashrc" ]] || [[ ! -f /etc/portage/bashrc ]]
@@ -296,7 +311,7 @@ fi
 
 if [[ $EBUILD_PHASE == "postrm" ]]
 then
-	if [[ ! -f /var/lib/calculate/-merge-$PN--${SLOT/\//_}-$PPID ]]
+	if [[ ! -f /var/lib/calculate/-merge-$PN--${SLOT/\//_}-$PPID ]] && check_skip
 	then
 		if [[ -n $calcver ]]
 		then
