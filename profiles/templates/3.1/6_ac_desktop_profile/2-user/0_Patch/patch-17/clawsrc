@@ -1,0 +1,13 @@
+# Calculate format=patch dotall pkg(mail-client/claws-mail-fancy)!= path=~/.claws-mail
+<reg>/usr/lib(64)?/claws-mail/plugins/fancy\.so
+</reg>
+<text></text>
+<reg>(\[fancy\])([^\[]+|$)</reg>
+<text></text>
+<reg>(\[Plugins_GTK2\])([^\[]+|$)</reg>
+<text>[fancy]
+auto_load_images=1
+open_external=1
+
+\1
+/usr/lib/claws-mail/plugins/fancy.so\2</text>

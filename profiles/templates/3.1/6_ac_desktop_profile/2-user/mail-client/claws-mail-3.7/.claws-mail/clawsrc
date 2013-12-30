@@ -36,6 +36,8 @@ use_both_dicts=1
 /usr/lib/claws-mail/plugins/address_keeper.so
 # плагин сворачивания окна в трей
 /usr/lib/claws-mail/plugins/trayicon.so
+# плагин отображения HTML
+/usr/lib/claws-mail/plugins/fancy.so
 
 [TrayIcon]
 # закрывать окно в трей
@@ -46,3 +48,6 @@ hide_when_iconified=0
 [AddressKeeper]
 addressbook_folder=addrbook-000001.xml
 
+[fancy]
+auto_load_images=1
+open_external=1
