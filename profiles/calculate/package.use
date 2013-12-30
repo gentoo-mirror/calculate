@@ -97,3 +97,7 @@ sys-libs/talloc python
 
 # net-fs/samba-3.6.19[client]
 net-fs/cifs-utils -acl
+
+# сокращение зависимостей
+sys-apps/man-db -nls
+
