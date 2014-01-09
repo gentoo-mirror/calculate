@@ -59,7 +59,7 @@ calculate-kernel-5_pkg_setup() {
 	kernel-2_pkg_setup
 	eqawarn "!!! WARNING !!!  WARNING !!!  WARNING !!!  WARNING !!!"
 	eqawarn "After the kernel assemble perform command to update modules:"
-	eqawarn "  module-rebuild -X rebuild"
+	eqawarn "  emerge @module-rebuild"
 }
 
 calculate-kernel-5_src_unpack() {
