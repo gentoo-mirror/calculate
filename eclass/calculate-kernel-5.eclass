@@ -194,4 +194,5 @@ calculate-kernel-5_pkg_postinst() {
 	fi
 
 	use vmlinuz && vmlinuz_pkg_postinst
+	use vmlinuz && calculate_fix_lib_modules_contents
 }
