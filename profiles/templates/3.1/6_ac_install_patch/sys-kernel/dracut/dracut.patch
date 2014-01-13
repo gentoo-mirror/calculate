@@ -1,0 +1,15 @@
+# Calculate format=diff
+diff -ruN dracut-034.orig/dracut.sh dracut-034/dracut.sh
+--- dracut-034.orig/dracut.sh	2013-12-27 17:19:20.082554927 +0400
++++ dracut-034/dracut.sh	2014-01-09 14:42:53.235039034 +0400
+@@ -1270,7 +1270,10 @@
+         else
+             dinfo "*** Pre-linking files ***"
+             inst_multiple -o prelink /etc/prelink.conf /etc/prelink.conf.d/*.conf
++            [[ -d $initdir/proc ]] || mkdir $initdir/proc
++            mount -n -t proc none $initdir/proc
+             chroot "$initdir" "$PRELINK_BIN" -a
++            umount -n $initdir/proc
+             rm -f -- "$initdir/$PRELINK_BIN"
+             rm -fr -- "$initdir"/etc/prelink.*
+             dinfo "*** Pre-linking files done ***"

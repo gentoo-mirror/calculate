@@ -6,6 +6,11 @@ do
     rm -f $i
 done
 
+for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}-calculate
+do
+    rm -f $i
+done
+
 echo "Remove modules"
 rm -rf /lib/modules/${PV}-calculate
 echo "Remove sources"

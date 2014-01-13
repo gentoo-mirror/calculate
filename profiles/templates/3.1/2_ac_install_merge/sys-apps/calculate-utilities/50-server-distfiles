@@ -1,0 +1,67 @@
+# vim: set syntax=sh
+#
+# Copyright 2014 Calculate Ltd. http://www.calculate-linux.org
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+
+# added for calculate server 2.2
+# FUNC: change_permissions
+# DESC: change permissions for all files and directories into specified
+change_permissions() {
+	local directory=$1
+	[[ -d $1 ]] || return
+	
+	addwrite ${directory}
+	# get owner from parent directory
+	local diruid=$(stat -c"%u" ${directory})
+	local dirgid=$(stat -c"%g" ${directory})
+	local dirowner="${diruid}:${dirgid}"
+	# get permissions from parent directory
+	local dirmode=0$(stat -c%a ${directory})
+	
+	# turnoff execute for all (permission for files in parent directory)
+	if type bc &>/dev/null;
+	then
+		local filemode=0$(echo "obase=8;$(( $dirmode & 0666 ))" | bc)
+	elif type printf &>/dev/null;
+	then
+		local filemode=$(printf "0%o" $(( $dirmode & 0666 )) )
+	else
+		local filemode=
+	fi
+	# set for all files and directories dirowner
+	find ${directory} \! -uid ${diruid} -o \! -gid ${dirgid} -exec chown ${dirowner} {} \;
+	# set permissions for all directories in parent directory
+	find ${directory} \! -perm ${dirmode} -type d -exec chmod ${dirmode} {} \;
+	if [[ -n $filemode ]]
+	then
+		# set permissions for all files in parent directory
+		find ${directory} \! -perm ${filemode} -type f -exec chmod ${filemode} {} \;
+	fi
+}
+
+# system has "remote" share
+if grep "\[remote\]" /etc/samba/smb.conf &>/dev/null
+then
+    pre_pkg_preinst() {
+        einfo "Performing permissions change for packages directory"
+        change_permissions ${PKGDIR}
+    }
+
+    post_src_unpack() {
+        einfo "Performing permissions change for distdir directory"
+        change_permissions ${PORTAGE_ACTUAL_DISTDIR}
+    }
+else
+    post_src_unpack() {
+        :
+    }
+
+    pre_pkg_preinst() {
+        :
+    }
+fi

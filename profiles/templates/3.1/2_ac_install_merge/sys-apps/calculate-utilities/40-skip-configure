@@ -8,7 +8,17 @@
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 
-for fn in /etc/calculate/profile.bashrc.d/*;do
-	[[ -f $fn ]] && source ${fn} && PROFILE_BASHRC_D=1
-done
-[[ -z ${PROFILE_BASHRC_D} ]] && source ${BASH_SOURCE}.old
+
+check_skip() {
+	declare -A SKIPPKGS=( 
+	   ["calculate-install"]="1"
+	   ["calculate-lib"]="1"
+	   ["calculate-console"]="1"
+	   ["calculate-console-gui"]="1"
+	   ["calculate-core"]="1"
+	   ["calculate-desktop"]="1"
+	   ["calculate-client"]="1"
+	   ["calculate-update"]="1" )
+
+	[[ -z ${SKIPPKGS[$PN]} ]]
+}

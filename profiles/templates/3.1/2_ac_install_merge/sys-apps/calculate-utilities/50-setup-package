@@ -1,0 +1,68 @@
+# vim: set syntax=sh
+#
+# Copyright 2014 Calculate Ltd. http://www.calculate-linux.org
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+
+CL_UPDATE_PROG=/usr/sbin/cl-core-setup
+[[ -d /var/lib/calculate ]] || mkdir /var/lib/calculate
+
+# setup package and create postmerge package list
+setup_merge_package() {
+	rm -f /var/lib/calculate/-postmerge
+	check_skip && CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
+}
+
+# remove mark: package updating
+clean_update_mark() {
+	rm -f /var/lib/calculate/-merge-$PN-*
+}
+
+# remove contents file which need for cl-core-setup
+clean_contents_mark() {
+	rm -f /var/lib/calculate/-CONTENTS-*
+}
+
+# mark: package updating
+mark_update_package() {
+	touch "/var/lib/calculate/-merge-$PN--${SLOT/\//_}-$PPID"
+}
+
+# dispatching unmerge or update package
+pkg_postrm_dispatch() {
+	if [[ ! -f /var/lib/calculate/-merge-$PN--${SLOT/\//_}-$PPID ]]
+	then
+		pkg_postrm_unmerge
+	else
+		pkg_postrm_update
+	fi
+}
+
+# setup package umerging
+pkg_postrm_unmerge() {
+	check_skip && ${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path / --pkg-name ${PN}
+}
+
+# save contents file for correct package updating by cl-core-setup
+pkg_postrm_update() {
+	cp /var/db/pkg/${CATEGORY}/${PF}/CONTENTS /var/lib/calculate/-CONTENTS-$PN
+}
+
+pre_pkg_postrm() {
+	pkg_postrm_dispatch
+	clean_update_mark
+}
+
+pre_pkg_postinst() {
+	setup_merge_package
+	clean_contents_mark
+	clean_update_mark
+}
+
+pre_pkg_preinst() {
+	mark_update_package
+}

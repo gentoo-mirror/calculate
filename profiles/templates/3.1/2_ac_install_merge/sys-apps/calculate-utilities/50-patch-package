@@ -8,7 +8,10 @@
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 
-for fn in /etc/calculate/profile.bashrc.d/*;do
-	[[ -f $fn ]] && source ${fn} && PROFILE_BASHRC_D=1
-done
-[[ -z ${PROFILE_BASHRC_D} ]] && source ${BASH_SOURCE}.old
+CL_CORE_PATCH=/usr/sbin/cl-core-patch
+
+if [[ ${EBUILD_PHASE} == "compile" ]] && [[ -d ${S} ]] && check_skip; then
+	${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} \
+		--pkg-slot ${SLOT} --pkg-category ${CATEGORY} \
+		--pkg-path ${S} --pkg-name ${PN} --verbose
+fi
