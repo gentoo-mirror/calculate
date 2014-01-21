@@ -1,10 +1,10 @@
-# Calculate format=diff merge(app-text/wgetpaste)>=2.20&&merge(app-text/wgetpaste)<2.22
-diff -urN a/wgetpaste b/wgetpaste
---- a/wgetpaste	2012-05-05 23:15:32.000000000 +0400
-+++ b/wgetpaste	2012-06-29 12:14:53.482724926 +0400
+# Calculate format=diff merge(app-text/wgetpaste)>=2.22
+diff -ruN wgetpaste-2.22.orig/wgetpaste wgetpaste-2.22/wgetpaste
+--- wgetpaste-2.22.orig/wgetpaste	2014-01-21 11:31:59.475610453 +0400
++++ wgetpaste-2.22/wgetpaste	2014-01-21 11:41:13.858639053 +0400
 @@ -6,6 +6,8 @@
  
- VERSION="2.20"
+ VERSION="2.22"
  
 +DEFAULT_SERVICE="calculate"
 +
@@ -15,21 +15,21 @@ diff -urN a/wgetpaste b/wgetpaste
  N=$'\n'
  
  ### services
--SERVICES="ca codepad dpaste gists poundpython"
-+SERVICES="ca codepad dpaste gists poundpython calculate"
- # ca
- ENGINE_ca=ca
- URL_ca="http://pastebin.ca/"
-@@ -39,6 +41,17 @@
+-SERVICES="bpaste ca codepad dpaste gists poundpython"
++SERVICES="bpaste ca codepad dpaste gists poundpython calculate"
+ # bpaste
+ ENGINE_bpaste=lodgeit
+ URL_bpaste="http://bpaste.net/"
+@@ -42,6 +44,17 @@
  ENGINE_tinyurl=tinyurl
  URL_tinyurl="http://tinyurl.com/ api-create.php"
  REGEX_RAW_tinyurl='s|^\(http://[^/]*/\)\([[:alnum:]]*\)$|\1\2|'
 +# calculate
 +ENGINE_calculate=calculate
 +if [[ "$LANG" =~ 'ru_RU' ]]; then
-+        URL_calculate="http://pastebin.calculate-linux.ru"
++    URL_calculate="http://pastebin.calculate-linux.ru"
 +else
-+	URL_calculate="http://pastebin.calculate-linux.org"	
++    URL_calculate="http://pastebin.calculate-linux.org"
 +fi
 +DEFAULT_LANGUAGE_calculate="Text"
 +DEFAULT_PARENT_calculate=""
@@ -38,7 +38,7 @@ diff -urN a/wgetpaste b/wgetpaste
  
  ### engines
  # ca
-@@ -49,12 +62,12 @@
+@@ -52,12 +65,12 @@
  EXPIRATIONS_ca="Never 5%minutes 10%minutes 15%minutes 30%minutes 45%minutes 1%hour 2%hours \
  4%hours 8%hours 12%hours 1%day 2%days 3%days 1%week 2%weeks 3%weeks 1%month 2%months \
  3%months 4%months 5%months 6%months 1%year"
@@ -53,7 +53,7 @@ diff -urN a/wgetpaste b/wgetpaste
  REGEX_URL_codepad='s|^--.*\(http://codepad.org/[^ ]\+\)|\1|p'
  REGEX_RAW_codepad='s|^\(http://[^/]*/\)\([[:alnum:]]*\)$|\1\2/raw.rb|'
  # dpaste
-@@ -64,7 +77,7 @@
+@@ -67,7 +80,7 @@
  Ruby Rhtml Sql Xml"
  EXPIRATIONS_dpaste="30%days 30%days%after%last%view"
  EXPIRATION_VALUES_dpaste="off on"
@@ -62,10 +62,10 @@ diff -urN a/wgetpaste b/wgetpaste
  REGEX_RAW_dpaste='s|^\(http://[^/]*/\)[^0-9]*\([0-9]*/\)$|\1\2plain/|'
  # gists
  LANGUAGES_gists="ActionScript Ada Apex AppleScript Arc Arduino ASP Assembly
-@@ -113,8 +126,24 @@
- javac-messages js jsp lighttpd literate-haskell llvm lua html+mako matlab matlabsession minid multi \
- html+myghty mysql nasm nginx objectpascal ocaml perl html+php php povray python pycon pytb rst ruby \
- scala scheme smalltalk smarty sourceslist sql squidconf tex text diff vim xml xslt yaml"
+@@ -139,8 +152,23 @@
+ ragel-c ragel-cpp ragel-d ragel-java ragel-objc ragel-ruby raw rconsole rebol redcode rst rhtml rb \
+ rbcon splus sass scala scheme smalltalk smarty sql sqlite3 squidconf tcl tcsh tex diff vala vb.net \
+ vim xml xml+cheetah xml+django xml+evoque xml+mako xml+myghty xml+php xml+erb xml+smarty xslt yaml"
 -POST_lodgeit="submit=Paste! % % language % % code"
 +POST_lodgeit="submit=Paste! % % language % % % % code"
  REGEX_RAW_lodgeit='s|^\(http://[^/]*/\)show\(/[0-9]*/\)$|\1raw\2|'
@@ -84,40 +84,39 @@ diff -urN a/wgetpaste b/wgetpaste
 +scala scheme smalltalk smarty sourceslist sql squidconf tex text diff vim xml xslt yaml"
 +POST_calculate="submit=paste! % % language % parent private % text"
 +REGEX_RAW_calculate='s|^\(http://[^/]*/\)show\(/[0-9]*/\)$|\1raw\2|'
-+
  
  ### errors
  die() {
-@@ -303,6 +332,9 @@
+@@ -329,6 +357,9 @@
      -s, --service SERVICE         set service to use (defaults to "$DEFAULT_SERVICE")
      -e, --expiration EXPIRATION   set when it should expire (defaults to "$DEFAULT_EXPIRATION")
  
-+    -p, --parent PARENT		  set parent paste (defaults to "$DEFAULT_PARENT", make use id paste) (Calculate pastebin option)
++    -p, --parent PARENT           set parent paste (defaults to "$DEFAULT_PARENT", make use id paste) (Calculate pastebin option)
 +    -P, --private PRIVATE         set private status (defaults to "$DEFAULT_PRIVATE") (Calculate pastebin option)
 +
      -S, --list-services           list supported pastebin services
      -L, --list-languages          list languages supported by the specified service
      -E, --list-expiration         list expiration setting supported by the specified service
-@@ -390,6 +422,18 @@
+@@ -416,6 +447,18 @@
  	done | sort
  }
  
 +showprivate() {
-+	local p priv d
-+	priv=PRIVATE_$ENGINE
-+	[[ -n $COMPLETIONS ]] && printlist ${!priv} | sort && exit 0
-+	echo "Private supported by $(getrecipient) (case sensitive):"
-+	[[ -z ${!priv} ]] && echo "$N\"$ENGINE\" has no support for setting language." >&2 && exit 1
-+	for p in ${!priv}; do
-+		[[ ${p//\%/ } = $DEFAULT_PRIVATE ]] && d="*" || d=" "
-+		echo "   $d${p//\%/ }"
-+	done | sort
++   local p priv d
++   priv=PRIVATE_$ENGINE
++   [[ -n $COMPLETIONS ]] && printlist ${!priv} | sort && exit 0
++   echo "Private supported by $(getrecipient) (case sensitive):"
++   [[ -z ${!priv} ]] && echo "$N\"$ENGINE\" has no support for setting language." >&2 && exit 1
++   for p in ${!priv}; do
++       [[ ${p//\%/ } = $DEFAULT_PRIVATE ]] && d="*" || d=" "
++       echo "   $d${p//\%/ }"
++   done | sort
 +}
 +
  showexpirations() {
  	local e expiration info d
  	expiration=EXPIRATIONS_$ENGINE
-@@ -443,7 +487,7 @@
+@@ -469,7 +512,7 @@
  	post=POST_$ENGINE
  	if [[ -n ${!post} ]]; then
  		nr=${!post//[^ ]}
@@ -126,7 +125,7 @@ diff -urN a/wgetpaste b/wgetpaste
  		extra=${!post%% *}
  		[[ '%' = $extra ]] || echo -n "$extra&"
  		e() {
-@@ -456,7 +500,7 @@
+@@ -482,7 +525,7 @@
  				post=${post#$f }
  			done
  		}
@@ -135,7 +134,7 @@ diff -urN a/wgetpaste b/wgetpaste
  	elif [[ function == $(type -t json_$ENGINE) ]]; then
  		json_$ENGINE "$DESCRIPTION" "$LANGUAGE" "$INPUT"
  	else
-@@ -559,6 +603,16 @@
+@@ -585,6 +628,16 @@
  		-L | --list-languages )
  		LISTLANGUAGES=0
  		;;
@@ -152,9 +151,9 @@ diff -urN a/wgetpaste b/wgetpaste
  		-n | --nick )
  		requiredarg "$@"
  		NICK=$(escape "$2")
-@@ -636,12 +690,16 @@
+@@ -662,12 +715,16 @@
  DEFAULT_NICK=${DEFAULT_NICK:-$(whoami)} || die "whoami failed"
- DEFAULT_SERVICE=${DEFAULT_SERVICE:-gists}
+ DEFAULT_SERVICE=${DEFAULT_SERVICE:-bpaste}
  DEFAULT_LANGUAGE=${DEFAULT_LANGUAGE:-Plain Text}
 +DEFAULT_PARENT=${DEFAULT_PARENT:-''}
 +DEFAULT_PRIVATE=${DEFAULT_PRIVATE:-0}
@@ -169,7 +168,7 @@ diff -urN a/wgetpaste b/wgetpaste
  default="DEFAULT_EXPIRATION_$SERVICE" && [[ -n ${!default} ]] && DEFAULT_EXPIRATION=${!default}
  NICK=${NICK:-$(escape "${DEFAULT_NICK}")}
  [[ -z $SOURCE ]] && SOURCE="stdin"
-@@ -663,6 +721,10 @@
+@@ -689,6 +746,10 @@
  LANGUAGE=${LANGUAGE:-${DEFAULT_LANGUAGE}}
  verifylanguage
  LANGUAGE=$(escape "$LANGUAGE")
@@ -180,7 +179,7 @@ diff -urN a/wgetpaste b/wgetpaste
  EXPIRATION=${EXPIRATION:-${DEFAULT_EXPIRATION}}
  verifyexpiration
  EXPIRATION=$(escape "$EXPIRATION")
-@@ -812,6 +874,7 @@
+@@ -838,6 +899,7 @@
  	[[ -f $TMPF ]] || TMPF=$(mktemp /tmp/wgetpaste.XXXXXX)
  	if [[ -f $TMPF ]]; then
  		postdata > "$TMPF" || die "Failed to write to temporary file: \"$TMPF\"."
