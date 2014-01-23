@@ -3,6 +3,7 @@
 #?in(os_linux_shortname, CLD, CLDG, CLDX, CMC, CDS, CLS)!=#
 app-admin/logrotate
 app-admin/syslog-ng
+app-misc/tmux
 sys-apps/ethtool
 sys-apps/usbutils
 sys-process/vixie-cron
@@ -71,7 +72,6 @@ net-misc/dhcpcd
 
 #?in(os_linux_shortname, CMC)!=#
 app-misc/lirc
-app-misc/screen
 sys-apps/lm_sensors
 sys-power/powertop
 sys-power/upower
@@ -98,7 +98,6 @@ app-cdr/dvd+rw-tools
 app-editors/vim
 app-i18n/enca
 app-misc/mc
-app-misc/screen
 app-portage/portage-utils
 app-portage/ufed
 dev-libs/klibc
