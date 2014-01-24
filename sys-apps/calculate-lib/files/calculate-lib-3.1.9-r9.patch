@@ -8,7 +8,7 @@ index 6c98b35..1325241 100644
              for par in listPar:
 -                if par.endswith("'"):
 -                    listQPar.append(par.replace("'",""))
-+                if par.endswith("'") and par.startswtih("'"):
++                if par.endswith("'") and par.startswith("'"):
 +                    listQPar.append(par[1:-1])
                  else:
                      listQPar.append(par)
@@ -18,7 +18,7 @@ index 6c98b35..1325241 100644
              for par in listPar:
 -                if par.endswith('"'):
 -                    listQQPar.append(par.replace('"',''))
-+                if par.endswith('"') and par.startswtih('"'):
++                if par.endswith('"') and par.startswith('"'):
 +                    listQPar.append(par[1:-1])
                  else:
                      listQQPar.append(par)
