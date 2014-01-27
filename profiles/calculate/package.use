@@ -101,3 +101,5 @@ net-fs/cifs-utils -acl
 # сокращение зависимостей
 sys-apps/man-db -nls
 
+# служба кэширования имен
+sys-libs/glibc nscd
