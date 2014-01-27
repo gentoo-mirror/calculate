@@ -1,0 +1,482 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index 6c98b35..5580275 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -487,16 +487,16 @@ class _terms(_error, _shareTermsFunction):
+         if flagFoundQ:
+             listQPar = []
+             for par in listPar:
+-                if par.endswith("'"):
+-                    listQPar.append(par.replace("'",""))
++                if par.endswith("'") and par.count("='"):
++                    listQPar.append(par[:-1].replace("='","="))
+                 else:
+                     listQPar.append(par)
+             listPar = listQPar
+         if flagFoundQQ:
+             listQQPar = []
+             for par in listPar:
+-                if par.endswith('"'):
+-                    listQQPar.append(par.replace('"',''))
++                if par.endswith('"') and par.count('="'):
++                    listQQPar.append(par[:-1].replace('="','='))
+                 else:
+                     listQQPar.append(par)
+             listPar = listQQPar
+@@ -511,7 +511,7 @@ class fileHeader(_terms):
+                   "comment", "append", "force",
+                   "link", "mirror", "symbolic", "chmod", "chown", "name",
+                   "path", "autoupdate","protected", "run","exec","merge",
+-                  "module","env"]
++                  "module","env","postmerge"]
+ 
+     # Тип шаблона
+     fileType = ""
+@@ -705,7 +705,7 @@ class dirHeader(_terms):
+     """
+     # Допустимые параметры заголовка
+     allowParam = ["append", "chmod", "chown", "name", "path", "autoupdate",
+-                  "module","env","merge"]
++                  "module","env","merge","postmerge"]
+ 
+     # Тип вставки шаблона
+     typeAppend = ""
+@@ -2492,7 +2492,7 @@ class _shareTemplate:
+             pwdObj = pwd.getpwnam(userName)
+             uid = pwdObj.pw_uid
+             gid = pwdObj.pw_gid
+-            homeDir = pwdObj.pw_dir
++            homeDir = self.objVar.Get('ur_home_path')
+         except:
+             raise TemplatesError(_("User %s not found")%str(userName))
+         if groupsInfo:
+@@ -2795,9 +2795,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+                 fileName = pathJoin(self._baseDir,fileName)
+         replace = ""
+         if os.path.exists(fileName):
+-            FD = open(fileName)
+-            replace = FD.read().strip()
+-            FD.close()
++            replace = readFile(fileName).strip()
+         if replace and lenTerms >= 2 and terms[0] == "empty":
+            replace ="\n".join(filter(lambda x: not self.reEmptyLoad.search(x),
+                               replace.split("\n")))
+@@ -3753,7 +3751,12 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+                 uid, gid = getModeFile(self.fileConfigIni, "owner")
+                 if not self.uid in (uid,PORTAGEUID) or \
+                     not self.gid in (gid,PORTAGEGID):
+-                    os.chown(self.fileConfigIni, self.uid, self.gid)
++                    try:
++                        os.chown(self.fileConfigIni, self.uid, self.gid)
++                    except OSError as e:
++                        self.setError(_("error") + " " +\
++                                      "'chown %d:%d %s'"%(self.uid, self.gid,
++                                                          self.fileConfigIni))
+         return textTemplateTmp
+ 
+ class ChangedFiles:
+@@ -3806,6 +3809,9 @@ class Template(_file,_terms,_warning,xmlShare,templateFormat,_shareTemplate):
+                                       os.environ["CONFIG_PROTECT"].split(" "))
+         protectPaths = map(lambda x: os.path.normpath(x), protectPaths)
+ 
++    def hasError(self):
++        return self.getError() or self.bHasError
++
+     def __init__(self, objVar, servDir=False, dirsFilter=[], filesFilter=[],
+                  cltObj=True, cltFilter=True, printWarning=True,
+                  printSUCCESS=lambda x:x,printWARNING=lambda x:x,
+@@ -3820,8 +3826,14 @@ class Template(_file,_terms,_warning,xmlShare,templateFormat,_shareTemplate):
+         self.changedFiles = ChangedFiles()
+         self.printSUCCESS = printSUCCESS
+         self.printERROR = printERROR
++        self.postmergePkgs = []
++        self.postmergeFile = "/var/lib/calculate/-postmerge"
++        self.bHasError = False
+         if printERROR:
+-            self.setError = self.printERROR
++            def newSetError(s):
++                self.printERROR(s)
++                self.bHasError = True
++            self.setError = newSetError
+         self.printWARNING = printWARNING
+         self.askConfirm = askConfirm
+         self.stop = 0
+@@ -3898,7 +3910,8 @@ re.M|re.S)
+         self.dictProcessedTemplates = {}
+         if cltObj is True:
+             # Объект templateClt
+-            self.cltObj = templateClt(self.objVar,printSUCCESS=self.printSUCCESS,
++            self.cltObj = templateClt(self.objVar,self.postmergePkgs,
++                                                  printSUCCESS=self.printSUCCESS,
+                                                   printERROR=self.printERROR,
+                                                   printWARNING=self.printWARNING,
+                                                   askConfirm=self.askConfirm)
+@@ -4253,9 +4266,10 @@ gettext -d cl_template "$*"
+         """Check template variable cl_name in first directories and files"""
+         skipDirs = []
+         skipTemplates = []
++        debug = self.objVar.Get('cl_env_debug_set') == "on"
+         for dirsTemplate in dirsTemplates:
+             filesAndDirs = map(lambda x: os.path.join(dirsTemplate,x),
+-                               os.listdir(dirsTemplate))
++                               listDirectory(dirsTemplate))
+             for dirFile in filesAndDirs:
+                 if os.path.isdir(dirFile):
+                     flagDir = True
+@@ -4274,8 +4288,9 @@ gettext -d cl_template "$*"
+                         if textTemplate:
+                             headerLine = self.getHeaderText(textTemplate)
+                             if headerLine:
+-                                if not "cl_name==" in headerLine and \
+-                                    not "ac_" in headerLine:
++                                if not debug and \
++                                    not "cl_name==" in headerLine and \
++                                        not "ac_" in headerLine:
+                                     if flagDir:
+                                         skipDirs.append(dirFile)
+                                     else:
+@@ -4567,7 +4582,10 @@ gettext -d cl_template "$*"
+                             os.unlink(fn)
+                         except Exception as e:
+                             self.printWARNING(_("Failed to remove %s")%fn)
+-                pkgContents.writeContents()
++                try:
++                    pkgContents.writeContents()
++                except IOError as e:
++                    self.printWARNING(_("Failed to modify %s contents")%pkg)
+         self.filesApply = map(lambda x:autoUpdateDict.get(x,x),self.filesApply)
+         if filter(lambda x:"._cfg" in x, self.filesApply):
+             self.printWARNING(_("Some config files need updating. "
+@@ -4600,7 +4618,11 @@ gettext -d cl_template "$*"
+                     self.objVar.Get('cl_autoupdate_set') == 'on'):
+                     optDir["autoupdate"] = True
+         if flagDir or stat.S_ISDIR(os.lstat(scanDir)[stat.ST_MODE]):
+-            for fileOrDir in sorted(os.listdir(scanDir)):
++            if not os.access(scanDir,os.R_OK|os.X_OK):
++                self.printWARNING(_("Failed to read templates directory %s")%
++                    scanDir)
++                return False
++            for fileOrDir in sorted(listDirectory(scanDir)):
+                 absPath = os.path.join(scanDir,fileOrDir)
+                 if skipTemplates and absPath in skipTemplates:
+                         continue
+@@ -4688,6 +4710,9 @@ gettext -d cl_template "$*"
+     def processingDirectory(self, path, prefix, opt):
+         """Обработка в случае директории если возвращаем None то пропуск дир."""
+         # Файл шаблона директории
++        if not os.access(path,os.R_OK|os.X_OK):
++            self.printWARNING(_("Failed to read templates directory %s")%path)
++            return None
+         dirInfoFile = os.path.join(path, self.templDirNameFile)
+         newDir = pathJoin(self._baseDir, path.partition(prefix)[2])
+         newDir = "/".join(map(lambda x:x.split("?")[0], newDir.split("/")))
+@@ -4710,6 +4735,44 @@ gettext -d cl_template "$*"
+             if path in self.dictTemplates.keys():
+                 self.numberProcessTempl += self.dictTemplates[path]
+             return None
++    
++    def _processMergePostmerge(self,params, templateDirFile):
++        """Обработка параметров merge= , postmerge="""
++        if "merge" in params:
++            mergePkgs = params['merge'].split(',')
++        else:
++            mergePkgs = []
++        if "postmerge" in params:
++            postmergePkgs = params['postmerge'].split(',')
++        else:
++            postmergePkgs = []
++
++        if mergePkgs or postmergePkgs:
++            for wrongPkg in (x for x in mergePkgs + postmergePkgs \
++                             if not self.functObj.checkCorrectPkgName(x)):
++                self.printWARNING(
++                    _("Wrong package '%s' for 'merge' in the template")%
++                              wrongPkg + ": " + templateDirFile)
++            if self.objVar.Get('cl_ebuild_phase') == 'postinst':
++                for pkg in postmergePkgs:
++                    if not pkg in self.objVar.Get('cl_merge_pkg_pass'):
++                        self.objVar.Get('cl_merge_pkg_pass').append(pkg)
++                    if not pkg in self.postmergePkgs:
++                        try:
++                            with open(self.postmergeFile,"a") as f:
++                                f.write("%s\n"%pkg)
++                            self.postmergePkgs.append(pkg)
++                        except:
++                            self.printWARNING(
++                                _("Failed to reconfigure %s package")%pkg)
++            else:
++                mergePkgs = mergePkgs + postmergePkgs
++
++            for pkg in mergePkgs:
++                if not pkg in self.objVar.Get('cl_merge_pkg_new') and \
++                   not pkg in self.objVar.Get('cl_merge_pkg_pass') and \
++                   not pkg in self.objVar.Get('cl_merge_pkg'):
++                    self.objVar.Get('cl_merge_pkg_new').append(pkg)
+ 
+     def getApplyHeadDir(self, newDir, templateDirFile, optDir):
+         """Применяет шаблон к директории (права, владелец, и.т. д)"""
+@@ -4810,19 +4873,7 @@ gettext -d cl_template "$*"
+             return ("", False, [])
+ 
+         # add packeges for reconfigure
+-        if "merge" in objHead.params:
+-            mergePkgs = objHead.params['merge'].split(',')
+-            for wrongPkg in (x for x in mergePkgs \
+-                             if not self.functObj.checkCorrectPkgName(x)):
+-                self.printWARNING(
+-                    _("Wrong package '%s' for 'merge' in the template")%
+-                              wrongPkg + ": " + templateDirFile)
+-            for pkg in mergePkgs:
+-                if not pkg in self.objVar.Get('cl_merge_pkg_new') and \
+-                   not pkg in self.objVar.Get('cl_merge_pkg_pass') and \
+-                   not pkg in self.objVar.Get('cl_merge_pkg'):
+-                    self.objVar.Get('cl_merge_pkg_new').append(pkg)
+-
++        self._processMergePostmerge(objHead.params, templateDirFile)
+         # Пропускаем директорию
+         if objHead.typeAppend == "skip":
+             applyDir = path
+@@ -5145,18 +5196,7 @@ gettext -d cl_template "$*"
+             return ([], False)
+ 
+         # add packeges for reconfigure
+-        if "merge" in objHeadNew.params:
+-            mergePkgs = objHeadNew.params['merge'].split(',')
+-            for wrongPkg in (x for x in mergePkgs \
+-                             if not self.functObj.checkCorrectPkgName(x)):
+-                self.printWARNING(
+-                    _("Wrong package '%s' for 'merge' in the template")%
+-                              wrongPkg + ": " + nameFileTemplate)
+-            for pkg in mergePkgs:
+-                if not pkg in self.objVar.Get('cl_merge_pkg_new') and \
+-                   not pkg in self.objVar.Get('cl_merge_pkg_pass') and \
+-                   not pkg in self.objVar.Get('cl_merge_pkg'):
+-                    self.objVar.Get('cl_merge_pkg_new').append(pkg)
++        self._processMergePostmerge(objHeadNew.params, nameFileTemplate)
+ 
+         # Родительская директория
+         path = optFile["path"]
+@@ -5294,6 +5334,10 @@ gettext -d cl_template "$*"
+         if objHeadNew.params.has_key("mirror"):
+             if objHeadNew.params.has_key("link"):
+                 templateFile = objHeadNew.params['link']
++                if templateFile and templateFile[0] == "~":
++                    # Получаем директорию пользователя
++                    templateFile = os.path.join(self.homeDir,
++                                            templateFile.partition("/")[2],"")[:-1]
+                 templateFile = pathJoin(self._baseDir, templateFile)
+                 if not os.path.exists(templateFile):
+                     if os.path.exists(pathOldFile):
+@@ -5312,6 +5356,10 @@ gettext -d cl_template "$*"
+         if objHeadNew.params.has_key("link") and\
+             not objHeadNew.params.has_key("symbolic"):
+             templateFile = objHeadNew.params['link']
++            if templateFile and templateFile[0] == "~":
++                # Получаем директорию пользователя
++                templateFile = os.path.join(self.homeDir,
++                                        templateFile.partition("/")[2],"")[:-1]
+             templateFile = pathJoin(self._baseDir, templateFile)
+             foundTemplateFile = os.path.exists(templateFile)
+             if foundTemplateFile:
+@@ -5981,7 +6029,7 @@ class scanDirectoryClt:
+         if not prefix:
+             prefix = os.path.realpath(scanDir)
+         if flagDir or stat.S_ISDIR(os.lstat(scanDir)[stat.ST_MODE]):
+-            for fileOrDir in sorted(os.listdir(scanDir)):
++            for fileOrDir in sorted(listDirectory(scanDir)):
+                 try:
+                     absPath = os.path.join(scanDir,fileOrDir)
+                     stInfo = os.lstat(absPath)
+@@ -6012,9 +6060,10 @@ class scanDirectoryClt:
+ class templateClt(scanDirectoryClt, Template):
+     """Класс для обработки шаблонов c расширением .clt"""
+ 
+-    def __init__(self, objVar,**kwargs):
++    def __init__(self, objVar, postmergePkgs, **kwargs):
+         self.checkNumberTemplate = True
+         Template.__init__(self, objVar, cltObj=False,**kwargs)
++        self.postmergePkgs = postmergePkgs
+         applyPackages = ["calculate-core"]
+         self.flagApplyTemplates = False
+         if self.objVar.Get("cl_name") in applyPackages:
+@@ -6035,6 +6084,7 @@ class templateClt(scanDirectoryClt, Template):
+         # Пропуск шаблонов директорийscanningTemplates
+         if self.templDirNameFile == os.path.split(path)[1]:
+             return True
++        self.functObj.currentBelong = ""
+         # Проверка на переменные в названии файла
+         if not self.getNeedTemplate(path):
+             if self.getError():
+diff --git calculate/lib/utils/files.py calculate/lib/utils/files.py
+index e9d19ad..fca4e6e 100644
+--- calculate/lib/utils/files.py
++++ calculate/lib/utils/files.py
+@@ -44,13 +44,23 @@ def timeout(seconds):
+         signal.signal(signal.SIGALRM, original_handler)
+ 
+ try:
+-    from magic import open as type_file, MAGIC_NONE as MAGIC_NONE
+-except ImportError:
++    from magic import (open as type_file, MAGIC_NONE, MAGIC_CONTINUE,
++                        MAGIC_MIME_TYPE, MAGIC_COMPRESS,
++                        MAGIC_MIME_ENCODING, MAGIC_SYMLINK)
++except ImportError as e:
+     try:
+-        from magic import open as type_file, NONE as MAGIC_NONE
++        from magic import (open as type_file, NONE as MAGIC_NONE,
++                CONTINUE as MAGIC_CONTNUE, MIME_TYPE as MAGIC_MIME_TYPE,
++                COMPRESS as MAGIC_COMPRESS,MIME_ENCODING as MIME_ENCODING,
++                SYMLINK as MAGIC_SYMLINK)
+     except:
+         type_file = None
+-        MAGIC_NONE = None
++        MAGIC_NONE = 0
++        MAGIC_SYMLINK = 0x002
++        MAGIC_COMPRESS = 0x004
++        MAGIC_CONTINUE = 0x020
++        MAGIC_MIME_TYPE = 0x010
++        MAGIC_MIME_ENCODING = 0x400
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_lib3',sys.modules[__name__])
+@@ -273,22 +283,33 @@ class proxy_type_file:
+     def close(self):
+         pass
+ 
++    def _get_cmd_by_flags(self,flags):
++        """
++        Получить команду для выполнения по флагам
++        """
++        paramdict = {MAGIC_CONTINUE:"-k",
++                     MAGIC_SYMLINK:"-L",
++                     MAGIC_MIME_TYPE:"--mime-type",
++                     MAGIC_MIME_ENCODING:"--mime-encoding",
++                     MAGIC_COMPRESS:"-z"}
++        appendParam = map(lambda x:paramdict[x],
++                      filter(lambda x:flags & x,
++                      sorted(paramdict.keys())))
++        fileCmd = getProgPath('/usr/bin/file')
++        return [fileCmd,'-b']+appendParam
++
+     def file(self,filename):
+         if path.exists(filename):
+-            if self.flags == 0x410:
+-                processFile = process("file","-bi",filename)
+-                if processFile.success():
+-                    return processFile.read().rstrip()
+-            else:
+-                processFile = process("file","-bz",filename)
+-                if processFile.success():
+-                    return processFile.read().rstrip()
++            processFile = \
++                process(*(self._get_cmd_by_flags(self.flags)+[filename]))
++            if processFile.success():
++                return processFile.read().rstrip()
+         return None
+ 
+ class typeFile:
+     """Получение типа файла"""
+ 
+-    def __init__(self, magic=0x410):
++    def __init__(self, magic=MAGIC_MIME_ENCODING|MAGIC_MIME_TYPE):
+         if type_file is None:
+             self.magicObject = proxy_type_file(MAGIC_NONE)
+         else:
+@@ -318,12 +339,10 @@ class typeFile:
+     def isBinary(self, filename):
+         """является ли файл бинарным"""
+         mime = self.getMType(filename)
+-        # В случае ошибки
+-        if mime.count("`"):
+-            return mime
+-        elif mime.count("binary"):
++        if mime.startswith("text"):
++            return False
++        else:
+             return True
+-        return False
+ 
+ class scanDirectory:
+     """Класс для cканирования директории"""
+diff --git calculate/lib/utils/ip.py calculate/lib/utils/ip.py
+index 5fd7c18..25d84b5 100644
+--- calculate/lib/utils/ip.py
++++ calculate/lib/utils/ip.py
+@@ -126,10 +126,17 @@ def intIpToStrIp(addr):
+     return "{0}.{1}.{2}.{3}".format(
+             addr>>24,(addr>>16)&0xff,(addr>>8)&0xff,addr&0xff)
+ 
++def numMaskToCidr(netmask):
++    """
++    Convert integer mask to cidr
++    """
++    neg_net = ctypes.c_uint32(~netmask).value
++    return 32 - int(math.log(neg_net,2))-1 if neg_net else 32
++
+ def maskToCidr(mask):
+     """Convert mask specified by str to net"""
+     mask = strIpToIntIp(mask)
+-    return 32-int(math.log(((~mask) & 0xffffffff)+1,2))
++    return numMaskToCidr(mask)
+ 
+ def cidrToMask(cidr):
+     """Convert net to mask specified by str"""
+@@ -234,7 +241,7 @@ def getMask(iface):
+     finally:
+         sockfd.close()
+     netmask = socket.ntohl(struct.unpack('16sH2xI8x', res)[2])
+-    return 32 - int(math.log(ctypes.c_uint32(~netmask).value + 1, 2))
++    return numMaskToCidr(netmask)
+ 
+ def getMac(iface):
+     """
+diff --git calculate/lib/variables/__init__.py calculate/lib/variables/__init__.py
+index 5bd1cf6..1f5bf42 100644
+--- calculate/lib/variables/__init__.py
++++ calculate/lib/variables/__init__.py
+@@ -41,4 +41,4 @@ class VariableClVer(ReadonlyVariable):
+     """
+     Package version
+     """
+-    value = "3.1.9"
++    value = "3.1.9.3"
+diff --git calculate/lib/variables/env.py calculate/lib/variables/env.py
+index 6d376e5..83ecdb4 100644
+--- calculate/lib/variables/env.py
++++ calculate/lib/variables/env.py
+@@ -402,3 +402,10 @@ class VariableClTemplateCltSet(ReadonlyVariable):
+     """
+     def get(self):
+         return "on" if "clt" in self.Get('cl_templates_locate') else "off"
++
++class VariableClEnvDebugSet(ReadonlyVariable):
++    """
++    Переменная для включения отладки
++    """
++    type = "bool"
++    value = "off"
+diff --git calculate/lib/variables/system.py calculate/lib/variables/system.py
+index 1e43f15..70749aa 100644
+--- calculate/lib/variables/system.py
++++ calculate/lib/variables/system.py
+@@ -75,6 +75,20 @@ class VariableOsRootDev(ReadonlyVariable):
+                 return {'none':'/dev/ram0'}.get(root_dev,root_dev)
+         return ""
+ 
++class VariableOsMapperRootDev(ReadonlyVariable):
++    """
++    Название диска через devicemapper если возможно
++    """
++    def get(self):
++        rootdev = self.Get('os_root_dev')
++        devLinks = getUdevDeviceInfo(name=rootdev).get("DEVLINKS","")
++        if devLinks:
++            mapperName = filter(lambda x:"/dev/mapper" in x,
++                         devLinks.split())
++            if mapperName:
++                return mapperName[0]
++        return rootdev
++
+ class VariableOsRootType(ReadonlyVariable):
+     """
+     Root type (ram, hdd, usb-hdd, livecd)
