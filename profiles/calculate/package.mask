@@ -2,29 +2,11 @@
 
 >=dev-lang/python-3
 
->=sys-kernel/linux-headers-3.4
 # mask all device-mapper for using lvm2
 sys-fs/device-mapper
 
-# temporary mask
-#>=sys-boot/calcboot-4.04
-#>=sys-boot/syslinux-4.04
-
-#not work with calculate-server
-~net-im/ejabberd-2.1.6
-
-# not compiled from 26.08.2011
-~net-misc/dhcp-4.2.2
-
-#outdated system installer
-sys-apps/calculate
-
 #temporary mask
 >=app-text/wgetpaste-2.23
-
-#use now sys-apps/calculate-console-gui
-app-misc/calculate-install-gui
-
 
 app-misc/calculate-install-gui
 app-misc/cds-meta
