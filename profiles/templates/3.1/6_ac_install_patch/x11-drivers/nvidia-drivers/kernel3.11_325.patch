@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.11&&merge(x11-drivers/nvidia-drivers)>=325.15
+# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.11&&pkg(sys-kernel/calculate-sources)<3.12&&merge(x11-drivers/nvidia-drivers)>=325.15
 --- a/kernel/nv-linux.h
 +++ b/kernel/nv-linux.h
 @@ -957,7 +957,11 @@ static inline int nv_execute_on_all_cpus
