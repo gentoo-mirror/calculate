@@ -1,6 +1,6 @@
 USE=""
 
 #EMERGE_DEFAULT_OPTS="--deep"
-EMERGE_DEFAULT_OPTS="--ignore-built-slot-operator-deps"
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --ignore-built-slot-operator-deps=y"
 FEATURES="getbinpkg -news"
 
