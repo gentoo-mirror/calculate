@@ -1,0 +1,10 @@
+# Calculate ini(update.rev)<69 exec=/bin/bash
+#
+# Скрипт исправляет права на файлы /usr/share/applications/calculate-*.destkop,
+# (c) 2014 Calculate Ltd. http://www.calculate-linux.org
+
+#-ini(update.rev,69)-#
+
+#?cl_chroot_status==off#
+/bin/chown root:root /usr/share/applications/calculate-*.desktop &>/dev/null
+#cl_chroot_status#
