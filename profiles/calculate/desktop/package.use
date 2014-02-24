@@ -101,3 +101,7 @@ sys-fs/ecryptfs-utils suid pam
 
 # required by dev-python/ipython-1.0.0[python_targets_python2_7]
 dev-lang/python sqlite
+
+# required by sys-devel/prelink-20110511
+dev-libs/elfutils static-libs
+
