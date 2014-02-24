@@ -103,3 +103,7 @@ sys-apps/man-db -nls
 
 # служба кэширования имен
 sys-libs/glibc nscd
+
+# required by sys-devel/prelink-20110511
+dev-libs/elfutils static-libs
+
