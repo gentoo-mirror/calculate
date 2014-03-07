@@ -51,3 +51,4 @@ done
 [[ -d $PKGDB/x11-libs/libxcb-1.9.1 ]] && mv $PKGDB/x11-libs/libxcb-1.9.1 $PKGDB/x11-libs/libxcb-1.9.1_rc1
 [[ -d $PKGDB/x11-proto/xcb-proto-1.8-r3 ]] && mv $PKGDB/x11-proto/xcb-proto-1.8-r3 $PKGDB/x11-proto/xcb-proto-1.8-r2
 #cl_chroot_status#
+true
