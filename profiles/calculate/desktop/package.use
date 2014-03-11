@@ -105,3 +105,6 @@ dev-lang/python sqlite
 # required by sys-devel/prelink-20110511
 dev-libs/elfutils static-libs
 
+# required by media-gfx/splashutils-1.5.4.4-r2[gpm]
+sys-libs/gpm static-libs
+

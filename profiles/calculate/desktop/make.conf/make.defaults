@@ -17,7 +17,7 @@ USE="${USE} chm djvu ebook"
 USE="${USE} clamav crypt ssl"
 
 # Hardware
-USE="${USE} 3dnow acpi cairo cpudetection dbus dri ieee1394 lirc mmx mmxext opengl scanner smp sse sse2 sse3 ssse3 sse4.1 sse4.2 sse4a sse5 usb vdpau xcomposite"
+USE="${USE} 3dnow acpi cairo cpudetection dbus dri ieee1394 gpm lirc mmx mmxext opengl scanner smp sse sse2 sse3 ssse3 sse4.1 sse4.2 sse4a sse5 usb vdpau xcomposite"
 
 #USE="${USE} apm bluetooth"
 
