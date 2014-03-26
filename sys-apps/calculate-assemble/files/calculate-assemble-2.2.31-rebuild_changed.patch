@@ -1,4 +1,4 @@
-commit 77950c9102160e20fceef81f486d26bc1d26b39a
+commit 0e99d3c416723361b0720c5209265d1030225e2a
 Author: Mike khiretskiy <mh@calculate.ru>
 Date:   Mon Mar 24 13:29:41 2014 +0400
 
@@ -8,7 +8,7 @@ Date:   Mon Mar 24 13:29:41 2014 +0400
     в дереве портежей и установленых
 
 diff --git pym/cl_assemble.py pym/cl_assemble.py
-index ded1c47..9824d71 100644
+index ded1c47..a1c8655 100644
 --- pym/cl_assemble.py
 +++ pym/cl_assemble.py
 @@ -1,6 +1,6 @@
@@ -29,17 +29,17 @@ index ded1c47..9824d71 100644
  
  def DEBUG(msg):
      if "DEBUG" in os.environ:
-@@ -173,6 +176,10 @@ class cl_assemble(color_print):
-              # update world
-              {'command':'emerge -uDN --with-bdeps=y world',
-               'step':'update'},
+@@ -176,6 +179,10 @@ class cl_assemble(color_print):
+              # depclean
+              {'command':'emerge --depclean',
+               'step':'depclean'},
 +             # rebuild chanaged packages
 +             {'command':'rebuildChangedPackages()',
 +              'message':_("Rebuild modified packages"),
 +              'step':'rebuild_chanaged'},
-              # depclean
-              {'command':'emerge --depclean',
-               'step':'depclean'},
+              # module rebuild
+              {'command':'emerge @module-rebuild',
+               'step':'module',
 @@ -2054,3 +2061,33 @@ class cl_assemble(color_print):
                                 useName):
              return True
