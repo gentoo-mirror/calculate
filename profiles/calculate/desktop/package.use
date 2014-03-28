@@ -94,7 +94,9 @@ sys-libs/zlib minizip
 =app-office/libreoffice-3.6.4.3 branding
 
 # required by www-client/chromium-27.0.1453.93
-media-libs/mesa gles2
+# required by x11-libs/glamor-0.6.0
+media-libs/mesa gles2 gbm
+
 sys-fs/ecryptfs-utils suid pam
 
 ~media-libs/libsdl-2.0.0 -nas
