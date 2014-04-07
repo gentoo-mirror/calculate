@@ -1,0 +1,9 @@
+# Calculate format=world name=world ini(update.world)<39
+
+#-ini(update.world,39)-#
+
+#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC)!=#
+!sys-power/cpufreqd
+sys-power/cpufrequtils
+#in#
+
