@@ -39,7 +39,7 @@ media-video/ffmpeg custom-cflags opus threads
 virtual/ffmpeg threads
 net-libs/xulrunner custom-optimization
 net-print/cndrvcups-capt -gtk
-net-print/hplip fax -X -qt3 -qt4 gtk ppds snmp static-ppds new-hpcups hpijs
+net-print/hplip fax -X -qt3 gtk ppds snmp static-ppds new-hpcups hpijs
 sys-apps/pciutils -zlib
 sys-apps/hal laptop
 sys-block/gparted btrfs mdadm
