@@ -1,3 +1,11 @@
+#disable Xorg dependence
+media-fonts/terminus-font -pcf -X
+
+#fix fails to compile (bug 36657 http://bugs.gentoo.org/show_bug.cgi?id=366557)
+media-gfx/sane-backends -v4l
+
+dev-vcs/git -gtk
+
 app-antivirus/clamav gmp
 app-crypt/pinentry gtk
 app-emulation/wine xml

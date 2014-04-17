@@ -1,6 +1,5 @@
 #
 app-admin/testdisk ntfs reiserfs
-dev-vcs/git -gtk
 sys-fs/ntfs3g ntfsprogs
 
 #fot 3.20
@@ -18,9 +17,6 @@ sys-kernel/dracut device-mapper net
 sys-fs/udev extras
 
 sys-fs/squashfs-tools gzip lzma
-
-#disable Xorg dependence
-media-fonts/terminus-font -pcf -X
 
 #for accemble splashutils
 media-libs/jpeg static-libs
@@ -49,9 +45,6 @@ media-libs/libmng static-libs
 
 #required by media-gfx/splashutils-1.5.4.4[truetype]
 app-arch/bzip2 static-libs
-
-#fix fails to compile (bug 36657 http://bugs.gentoo.org/show_bug.cgi?id=366557)
-media-gfx/sane-backends -v4l
 
 # grub multislot by default
 ~sys-boot/grub-2.00 multislot truetype device-mapper
