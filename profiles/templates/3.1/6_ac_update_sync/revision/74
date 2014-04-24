@@ -1,5 +1,5 @@
-# Calculate ini(update.rev)<74 format=samba path=/etc/calculate name=ini.env merge=sys-process/vixie-cron
+# Calculate ini(update.rev)<75 format=samba path=/etc/calculate name=ini.env merge=sys-apps/sandbox
 
-# reconfigure vixie-cron for crontab hourly
+# reconfigure sandbox to remove sandbox.desktop
 [update]
-rev = 74
+rev = 75
