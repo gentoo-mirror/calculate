@@ -1,0 +1,8 @@
+# Calculate ini(update.rev)<73 exec=/bin/bash
+
+#-ini(update.rev,73)-#
+
+PKGDB=/var/db/pkg
+[[ -d $PKGDB/xfce-extra/xfce4-power-manager-1.2.0-r2 ]] && mv $PKGDB/xfce-extra/xfce4-power-manager-1.2.0-r2 $PKGDB/xfce-extra/xfce4-power-manager-1.2.0
+
+true
