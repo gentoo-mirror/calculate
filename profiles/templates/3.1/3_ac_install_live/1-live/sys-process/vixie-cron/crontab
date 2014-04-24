@@ -1,0 +1,3 @@
+# Calculate format=patch multiline path=/etc
+<reg>^\d+(.*lastrun/cron.hourly)$</reg>
+<text>#-sum(c,1#-rnd(num,2)-#/19-5)-#9\1</text>

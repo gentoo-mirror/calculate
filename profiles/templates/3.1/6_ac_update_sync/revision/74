@@ -1,0 +1,5 @@
+# Calculate ini(update.rev)<74 format=samba path=/etc/calculate name=ini.env merge=sys-process/vixie-cron
+
+# reconfigure vixie-cron for crontab hourly
+[update]
+rev = 74
