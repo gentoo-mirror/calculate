@@ -1,5 +1,3 @@
-=sys-apps/sysvinit-2.88-r5
-
 >=dev-lang/python-3
 
 # mask all device-mapper for using lvm2
@@ -7,30 +5,6 @@ sys-fs/device-mapper
 
 #temporary mask
 >=app-text/wgetpaste-2.23
-
-app-misc/calculate-install-gui
-app-misc/cds-meta
-app-misc/cl-base-meta
-app-misc/cl-decoration-meta
-app-misc/cldg-meta
-app-misc/cld-meta
-app-misc/cldx-meta
-app-misc/cl-gnome-meta
-app-misc/cl-graphics-meta
-app-misc/cl-kde-meta
-app-misc/cl-multimedia-meta
-app-misc/cl-nettools-meta
-app-misc/cl-network-meta
-app-misc/cl-office-meta
-app-misc/cl-openbox-meta
-app-misc/cl-printer-meta
-app-misc/clsd-meta
-app-misc/cls-meta
-app-misc/cl-tools-meta
-app-misc/cl-wireless-meta
-app-misc/cl-xfce-meta
-app-misc/cmc-meta
-app-misc/css-meta
 
 #жёстко связан с python3
 >=app-misc/media-player-info-21
