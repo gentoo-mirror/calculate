@@ -31,6 +31,11 @@ install() {
      inst_simple /usr/share/misc/pci.ids
      inst_hook pre-trigger 01 "$moddir/load-video.sh"
      inst_hook cmdline 50 "$moddir/parse-cmdline.sh"
+     mkdir -p ${instdir}/etc/modprobe.d
+     for videomodule in nvidia radeon nouveau i915 uvesafb
+     do
+        echo "blacklist ${videomodule}" >>${instdir}/etc/modprobe.d/video-blacklist.conf
+     done
 #
 #    inst_hook pre-trigger 01 "$moddir/load-modsign-keys.sh"
 #
