@@ -1,0 +1,15 @@
+# Calculate format=diff
+diff --git plymouth.c plymouth.c
+index e657e82..2447f47 100644
+--- plymouth.c
++++ plymouth.c
+@@ -242,9 +242,6 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+         /* Quit Plymouth when we're going to lost write access to /var/... */
+         if(strcmp(name, "localmount") == 0 &&
+                 strcmp(runlevel, RC_LEVEL_SHUTDOWN) == 0) {
+-            DBG("ply_quit(PLY_MODE_SHUTDOWN)");
+-            if(!ply_quit(PLY_MODE_SHUTDOWN))
+-                rv = 1;
+         }
+         break;
+ 
