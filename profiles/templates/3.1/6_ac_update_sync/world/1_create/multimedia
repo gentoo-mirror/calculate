@@ -1,6 +1,6 @@
 # Calculate name=world format=world
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
+#?in(os_linux_shortname, CLD, CLDX)!=#
 media-gfx/scrot
 media-sound/alsa-utils
 media-sound/sox
@@ -16,11 +16,6 @@ media-video/kdenlive
 media-video/kffmpegthumbnailer
 media-video/recordmydesktop
 media-video/smplayer
-#in#
-
-#?in(os_linux_shortname, CLDG)!=#
-media-sound/rhythmbox
-media-video/cheese
 #in#
 
 #?in(os_linux_shortname, CLDX)!=#

@@ -1,13 +1,13 @@
 # Calculate name=world format=world
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX, CDS)!=#
+#?in(os_linux_shortname, CLD, CLDX, CDS)!=#
 app-text/wgetpaste
 net-analyzer/nmap
 net-analyzer/traceroute
 net-misc/whois
 #in#
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
+#?in(os_linux_shortname, CLD, CLDX)!=#
 net-im/skype
 www-client/chromium
 www-apps/chromium-adblock
@@ -19,16 +19,6 @@ x11-misc/x11vnc
 net-im/choqok
 net-irc/konversation
 net-p2p/ktorrent
-#in#
-
-#?in(os_linux_shortname, CLDG)!=#
-net-ftp/filezilla
-net-im/pidgin
-net-irc/hexchat
-net-news/liferea
-net-p2p/deluge
-x11-plugins/pidgin-hotkeys
-x11-plugins/purple-plugin_pack
 #in#
 
 #?in(os_linux_shortname, CLDX)!=#

@@ -1,6 +1,6 @@
 # Calculate name=world format=world
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC, CDS, CLS)!=#
+#?in(os_linux_shortname, CLD, CLDX, CMC, CDS, CLS)!=#
 app-admin/logrotate
 app-admin/syslog-ng
 app-misc/tmux
@@ -9,7 +9,7 @@ sys-apps/usbutils
 sys-process/vixie-cron
 #in#
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC)!=#
+#?in(os_linux_shortname, CLD, CLDX, CMC)!=#
 app-admin/hddtemp
 app-admin/sudo
 app-admin/testdisk
@@ -44,7 +44,7 @@ sys-process/htop
 sys-process/lsof
 #in#
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
+#?in(os_linux_shortname, CLD, CLDX)!=#
 app-arch/arj
 app-arch/p7zip
 app-arch/rar
@@ -75,10 +75,6 @@ app-misc/lirc
 sys-apps/lm_sensors
 sys-power/powertop
 sys-power/upower
-#in#
-
-#?in(os_linux_shortname, CLDG)!=#
-x11-misc/parcellite
 #in#
 
 #?in(os_linux_shortname, CLDX)!=#

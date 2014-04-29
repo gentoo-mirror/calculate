@@ -3,16 +3,16 @@
 media-gfx/grub-splashes-calculate
 media-gfx/syslinux-themes-calculate
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX, CMC, CLS, CDS)!=#
+#?in(os_linux_shortname, CLD, CLDX, CMC, CLS, CDS)!=#
 media-gfx/splash-themes-calculate
 media-gfx/splashutils
 #in#
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX, CLS)!=#
+#?in(os_linux_shortname, CLD, CLDX, CLS)!=#
 media-gfx/calculate-wallpapers
 #in#
 
-#?in(os_linux_shortname, CLD, CLDG, CLDX)!=#
+#?in(os_linux_shortname, CLD, CLDX)!=#
 media-gfx/dm-themes-calculate
 x11-themes/calculate-icon-theme
 x11-themes/calculate-xcursors
@@ -22,13 +22,6 @@ x11-themes/calculate-xcursors
 media-gfx/kdm-themes-calculate
 x11-themes/oxygen-gtk:2
 x11-themes/oxygen-gtk:3
-#in#
-
-#?in(os_linux_shortname, CLDG)!=#
-media-gfx/gdm-themes-calculate
-x11-themes/gnome-themes-extras
-x11-themes/gnome-themes-standard
-x11-themes/tango-icon-theme
 #in#
 
 #?in(os_linux_shortname, CLDX)!=#
