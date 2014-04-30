@@ -1,15 +1,50 @@
 # Calculate format=diff
 diff --git plymouth.c plymouth.c
-index e657e82..2447f47 100644
+index e657e82..dcf590a 100644
 --- plymouth.c
 +++ plymouth.c
-@@ -242,9 +242,6 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
-         /* Quit Plymouth when we're going to lost write access to /var/... */
-         if(strcmp(name, "localmount") == 0 &&
-                 strcmp(runlevel, RC_LEVEL_SHUTDOWN) == 0) {
--            DBG("ply_quit(PLY_MODE_SHUTDOWN)");
--            if(!ply_quit(PLY_MODE_SHUTDOWN))
--                rv = 1;
+@@ -85,7 +85,8 @@ int commandf(const char* cmd, ...)
+ 
+ bool ply_message(const char* hook, const char* name)
+ {
+-    return (commandf("/bin/plymouth message --text=\"%s %s\"", hook, name) == 0);
++    return true;
++    //return (commandf("/bin/plymouth message --text=\"%s %s\"", hook, name) == 0);
+ }
+ 
+ 
+@@ -145,7 +146,8 @@ bool ply_start(int mode)
+ 
+ bool ply_update_status(int hook, const char* name)
+ {
+-    return (commandf("/bin/plymouth update --status=%d-%s", hook, name) == 0);
++    return true;
++    //return (commandf("/bin/plymouth update --status=%d-%s", hook, name) == 0);
+ }
+ 
+ 
+@@ -215,6 +217,7 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+             if(!ply_start(PLY_MODE_SHUTDOWN)
+                     || !ply_update_rootfs_rw())
+                 rv = 1;
++    	    command("/usr/bin/chvt 1");
          }
          break;
  
+@@ -238,16 +241,6 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+         }
+         break;
+ 
+-    case RC_HOOK_SERVICE_STOP_IN:
+-        /* Quit Plymouth when we're going to lost write access to /var/... */
+-        if(strcmp(name, "localmount") == 0 &&
+-                strcmp(runlevel, RC_LEVEL_SHUTDOWN) == 0) {
+-            DBG("ply_quit(PLY_MODE_SHUTDOWN)");
+-            if(!ply_quit(PLY_MODE_SHUTDOWN))
+-                rv = 1;
+-        }
+-        break;
+-
+     case RC_HOOK_SERVICE_STOP_NOW:
+         if(!ply_message("Stopping service", name))
+             rv = 1;
