@@ -1,6 +1,6 @@
 # Calculate format=diff
 diff --git plymouth.c plymouth.c
-index e657e82..dcf590a 100644
+index e657e82..bb97f56 100644
 --- plymouth.c
 +++ plymouth.c
 @@ -85,7 +85,8 @@ int commandf(const char* cmd, ...)
@@ -13,7 +13,31 @@ index e657e82..dcf590a 100644
  }
  
  
-@@ -145,7 +146,8 @@ bool ply_start(int mode)
+@@ -94,6 +95,11 @@ bool ply_ping()
+     return (system("/bin/plymouth --ping") == 0);
+ }
+ 
++void restart_console_font()
++{
++    if(RC_SERVICE_STARTED == rc_service_state("consolefont"))
++        command("/etc/init.d/consolefont restart");
++}
+ 
+ bool ply_quit(int mode)
+ {
+@@ -127,9 +133,9 @@ bool ply_start(int mode)
+ #define PLYD "/sbin/plymouthd --attach-to-session --pid-file=" PID_FILE \
+     " --mode="
+         if(mode == PLY_MODE_BOOT)
+-            rv = command(PLYD "boot");
++            rv = command(PLYD "boot --tty=/dev/tty1");
+         else if(mode == PLY_MODE_SHUTDOWN)
+-            rv = command(PLYD "shutdown");
++            rv = command(PLYD "shutdown --tty=/dev/tty1");
+         else
+             assert(0 && "Unknown mode");
+ #undef PLYD
+@@ -145,7 +151,8 @@ bool ply_start(int mode)
  
  bool ply_update_status(int hook, const char* name)
  {
@@ -23,7 +47,7 @@ index e657e82..dcf590a 100644
  }
  
  
-@@ -215,6 +217,7 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+@@ -215,6 +222,7 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
              if(!ply_start(PLY_MODE_SHUTDOWN)
                      || !ply_update_rootfs_rw())
                  rv = 1;
@@ -31,10 +55,13 @@ index e657e82..dcf590a 100644
          }
          break;
  
-@@ -238,16 +241,6 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
-         }
-         break;
- 
+@@ -235,16 +243,7 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+             DBG("ply_quit(PLY_MODE_BOOT)");
+             if(!ply_quit(PLY_MODE_BOOT))
+                 rv = 1;
+-        }
+-        break;
+-
 -    case RC_HOOK_SERVICE_STOP_IN:
 -        /* Quit Plymouth when we're going to lost write access to /var/... */
 -        if(strcmp(name, "localmount") == 0 &&
@@ -42,9 +69,7 @@ index e657e82..dcf590a 100644
 -            DBG("ply_quit(PLY_MODE_SHUTDOWN)");
 -            if(!ply_quit(PLY_MODE_SHUTDOWN))
 -                rv = 1;
--        }
--        break;
--
-     case RC_HOOK_SERVICE_STOP_NOW:
-         if(!ply_message("Stopping service", name))
-             rv = 1;
++	    restart_console_font();
+         }
+         break;
+ 
