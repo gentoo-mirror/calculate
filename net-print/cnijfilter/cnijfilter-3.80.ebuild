@@ -23,6 +23,7 @@ RDEPEND="
 		>=dev-libs/libxml2-2.7.3-r2
 		>=x11-libs/gtk+-2.6:2
 	)
+	!net-print/cnijfilter:2
 "
 DEPEND="${DEPEND}
 	sys-devel/gettext
