@@ -1,0 +1,33 @@
+# Calculate format=patch dotall
+<reg>#message_label \{.*?\}</reg>
+<text>#login_window * GtkAlignment GtkLabel {
+    color: #ff401a;
+}</text>
+<reg>#user_image \{.*?\}</reg>
+<text>#user_image {
+    padding: 3px;
+}</text>
+<reg>#restart_button {.*?background-color:.*?;</reg>
+<text>#restart_button {
+    background-color: transparent;</text>
+<reg>#panel_window &gt; #menubar \{.*?background-image:.*?;</reg>
+<text>#panel_window &gt; #menubar {
+    background-color: @lightdm_bg_color;
+    background-image: linear-gradient(to bottom,
+                                      shade(@lightdm_bg_color, 1.8),
+                                      shade(@lightdm_bg_color, 1.0));</text>
+<reg>#panel_window .menubar.menuitem:hover \{.*?\}</reg>
+<text>#panel_window .menubar.menuitem:hover {
+    background-color: shade(@selected_bg_color, 0.9);
+    border: none;
+    background-image: linear-gradient(to bottom,
+                                      shade(@dark_shadow, 1.2),
+                                      shade(@dark_shadow, 1.0));
+}</text>
+<reg>#login_notebook \{
+    background-color:</reg>
+<text>#login_notebook {
+    background-image: linear-gradient(to bottom,
+                                      shade(@lightdm_bg_color, 2.0),
+                                      shade(@lightdm_bg_color, 0.5));
+    background-color:</text>
