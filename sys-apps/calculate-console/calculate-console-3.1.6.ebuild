@@ -11,7 +11,7 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="Console client for WSDL Calculate 3"
+DESCRIPTION="Console client for Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"

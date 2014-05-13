@@ -11,7 +11,7 @@ inherit distutils git-2
 
 EGIT_REPO_URI="git://git.calculate.ru/calculate-2.1/calculate-server.git"
 
-DESCRIPTION="The program for configuring services Linux"
+DESCRIPTION="Configuration utility for Linux services"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"

@@ -12,7 +12,7 @@ inherit distutils git-2
 
 EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-client.git"
 
-DESCRIPTION="The program of setting and storing the user account in the domain"
+DESCRIPTION="Utility for setting and storing the user accounts in the domain"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"

@@ -12,7 +12,7 @@ inherit distutils git-2
 
 EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-desktop.git"
 
-DESCRIPTION="The program of the desktop configuration Calculate Linux"
+DESCRIPTION="Desktop configuration utility for Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"

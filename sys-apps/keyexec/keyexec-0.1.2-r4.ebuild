@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-DESCRIPTION="Starts other program using the password of the user kept in the kernel"
+DESCRIPTION="Runs other programs with the user password, kept in the Linux kernel"
 HOMEPAGE="http://www.calculate-linux.org/main/en/keyexec"
 SRC_URI="ftp://ftp.calculate-linux.org/pub/calculate/${PN}/${P}.tar.bz2
 		http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2

@@ -11,7 +11,7 @@ inherit distutils git-2
 
 EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-install.git"
 
-DESCRIPTION="The program of installation Calculate Linux"
+DESCRIPTION="Calculate Linux installation tool"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"

@@ -11,7 +11,7 @@ inherit distutils eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The utilities for builder tasks of Calculate Linux"
+DESCRIPTION="Builder tasks utilities for Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
