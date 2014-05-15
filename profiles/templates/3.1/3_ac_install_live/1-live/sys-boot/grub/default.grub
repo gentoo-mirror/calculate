@@ -1,4 +1,4 @@
-# Calculate format=openrc path=/etc/default name=grub os_install_root_type!=usb-hdd&&os_install_x11_video_drv!=other
+# Calculate format=openrc path=/etc/default name=grub os_install_root_type!=usb-hdd&&in(os_install_x11_video_drv,other,default)==
 #?pkg(media-gfx/cld-themes)>=12.0_alpha1||pkg(media-gfx/cldx-themes)>=12.0_alpha1||pkg(media-gfx/cldg-themes)>=12.0_alpha1||pkg(media-gfx/cmc-themes)>=12.0_alpha1||pkg(media-gfx/cls-themes)>=12.0_alpha1||pkg(media-gfx/cds-themes)>=12.0_alpha1||pkg(media-gfx/splash-themes-calculate)!=#
 GRUB_CMDLINE_LINUX="video=uvesafb:ywrap,#-os_install_fb_resolution-#,mtrr:3,splash=silent,theme:calculate #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# doscsi#-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# console=tty1 udev quiet"
 #pkg#

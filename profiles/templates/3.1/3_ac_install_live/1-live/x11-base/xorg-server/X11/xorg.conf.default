@@ -1,4 +1,4 @@
-# Calculate comment=# os_install_x11_video_drv==other name=xorg.conf
+# Calculate comment=# in(os_install_x11_video_drv,other,default)!= name=xorg.conf
 
 Section "ServerLayout"
  Identifier "Xorg Configured"
