@@ -12,7 +12,6 @@ check() {
 }
 
 depends() {
-    echo gensplash
     return 0
 }
 
