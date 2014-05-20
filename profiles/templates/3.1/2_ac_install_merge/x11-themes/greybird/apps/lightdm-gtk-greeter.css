@@ -14,8 +14,8 @@
 <text>#panel_window &gt; #menubar {
     background-color: @lightdm_bg_color;
     background-image: linear-gradient(to bottom,
-                                      shade(@lightdm_bg_color, 1.8),
-                                      shade(@lightdm_bg_color, 1.0));</text>
+                                      shade(@lightdm_bg_color, 0.5),
+                                      shade(@lightdm_bg_color, 0.5));</text>
 <reg>#panel_window .menubar.menuitem:hover \{.*?\}</reg>
 <text>#panel_window .menubar.menuitem:hover {
     background-color: shade(@selected_bg_color, 0.9);
@@ -31,3 +31,5 @@
                                       shade(@lightdm_bg_color, 2.0),
                                       shade(@lightdm_bg_color, 0.5));
     background-color:</text>
+<reg>(#panel_window &gt; #menubar &gt; .menuitem:active,[^}]+background-image).*?;</reg>
+<text>\1: none;</text>
