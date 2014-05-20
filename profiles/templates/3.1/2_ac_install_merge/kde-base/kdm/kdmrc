@@ -57,11 +57,18 @@ StdFont=Verdana,10,-1,5,50,0,0,0,0,0
 #?pkg(media-fonts/droid)!=#
 StdFont=Droid Sans,10,-1,5,50,0,0,0,0,0
 #pkg#
-Theme=
 UseBackground=true
-UseTheme=false
 UserCompletion=true
 UserList=true
+Language=#-os_install_locale_lang-#
+#?pkg(media-gfx/kdm-themes-calculate)<14#
+UseTheme=false
+Theme=
+#pkg#
+#?pkg(media-gfx/kdm-themes-calculate)<14#
+UseTheme=true
+Theme=/usr/share/apps/kdm/themes/calculate
+#pkg#
 
 [X-:*-Core]
 AllowNullPasswd=true

@@ -2,9 +2,9 @@
 #тема загрузки рабочего стола
 [KSplash]
 Engine=KSplashX
-#?os_locale_lang!=pt_BR#
+#?pkg(media-gfx/kdm-themes-calculate)<14&&os_locale_lang!=pt_BR#
 Theme=CalculateSplash#-case(capitalize,os_locale_language)-#
-#os_locale_lang#
-#?os_locale_lang==pt_BR#
+#pkg#
+#?pkg(media-gfx/kdm-themes-calculate)<14&&os_locale_lang==pt_BR#
 Theme=CalculateSplashPt
-#os_locale_lang#
+#pkg#
