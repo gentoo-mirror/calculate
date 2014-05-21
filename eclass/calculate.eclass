@@ -495,32 +495,12 @@ calculate_update_ver() {
   local fn=$2
   local ver=$3
   local src=$4
-  if [ -f "$dir/$fn-$ver" ] ; then
-    mv "$dir/$fn-$ver" "$dir/$fn-$ver.old"
+  local suffix="$5"
+  if [ -f "$dir/$fn-$ver$suffix" ] ; then
+    mv "$dir/$fn-$ver$suffix" "$dir/$fn-$ver$suffix.old"
   fi
 
-  cat "$src" > "$dir/$fn-$ver"
-
-  # This section is for backwards compatibility only
-  if test -f "$dir/$fn" ; then
-    # The presence of "$dir/$1" is unusual in modern intallations, and
-    # the results are mostly unused.  So only recreate them if they
-    # already existed.
-    if test -L "$dir/$fn" ; then
-        # If we were using links, continue to use links, updating if
-        # we need to.
-        if [ "$(readlink -f ${dir}/${fn})" = "${dir}/${fn}-${ver}" ]; then
-            # Yup, we need to change
-            ln -sf "$fn-$ver.old" "$dir/$fn.old"
-        else
-            mv "$dir/$fn" "$dir/$fn.old"
-        fi
-        ln -sf "$fn-$ver" "$dir/$fn"
-    else                        # No links
-        mv "$dir/$fn" "$dir/$fn.old"
-        cat "$src" > "$dir/$fn"
-    fi
-  fi
+  cat "$src" > "$dir/$fn-$ver$suffix"
 }
 
 # FUNCTION: calculate_fix_lib_modules_contents

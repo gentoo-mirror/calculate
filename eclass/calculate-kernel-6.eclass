@@ -132,7 +132,7 @@ vmlinuz_pkg_postinst() {
     # install kernel into /boot
 	calculate_update_ver /boot vmlinuz ${KV_FULL} /usr/share/${PN}/${PV}/boot/vmlinuz-${KV_FULL}
 	calculate_update_ver /boot config ${KV_FULL} /usr/share/${PN}/${PV}/boot/config-${KV_FULL}
-	calculate_update_ver /boot initramfs ${KV_FULL} /usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL}
+	calculate_update_ver /boot initramfs ${KV_FULL} /usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL} .img
 	calculate_update_ver /boot System.map ${KV_FULL} /usr/share/${PN}/${PV}/boot/System.map-${KV_FULL}
 	# install firmware into /
 	mkdir -p ${ROOT}/lib/firmware
