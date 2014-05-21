@@ -13,7 +13,7 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst
 IUSE="vmlinuz minimal"
 
 REQUIRED_USE="minimal? ( vmlinuz )"
-RDEPEND="sys-kernel/dracut"
+RDEPEND="vmlinuz? ( sys-kernel/dracut )"
 
 detect_version
 detect_arch
