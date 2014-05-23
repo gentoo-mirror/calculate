@@ -1,0 +1,68 @@
+# Calculate exec=/bin/bash ac_install_disk==off pkg(sys-kernel/dracut)!=
+#!/bin/bash
+
+source /usr/share/grub/grub-mkconfig_lib
+
+get_latest_kernel() {
+    version_find_latest /boot/vmlinuz-*-calculate
+}
+
+get_safemode_name() {
+    local kernel=$1
+    echo ${kernel/-calculate/-SafeMode}
+}
+
+get_kernel_version() {
+    local kernel=$1
+    file -L $kernel | sed -r 's/.*version (\S+)\s+.*/\1/'
+}
+
+get_kernel_initramfs() {
+    local kernel=$1
+    echo ${kernel/vmlinuz-/initramfs-}.img
+}
+
+is_calculate_kernel() {
+    local kernel=$1
+    [[ $kernel =~ -calculate$ ]]
+}
+
+die() {
+    echo $@ 1>&2
+    exit 1
+}
+
+create_hostonly_initramfs() {
+    local kernel_safemode=$(get_safemode_name $kernel)
+    local initrd=$(get_kernel_initramfs $kernel)
+    local initrd_tmp=$(get_kernel_initramfs $kernel).tmp
+    local initrd_safemode=$(get_safemode_name $initrd)
+
+    [[ -e $kernel_safemode ]] || (rm -f $kernel_safemode;ln -s $kernel $kernel_safemode &>/dev/null) || 
+        die "Failed to create kernel for safemode"
+
+    if ! [[ -e $initrd_safemode ]]
+    then
+        cp $initrd $initrd_safemode &>/dev/null || die "Failed to create initramfs safemode backup"
+    fi
+    if [[ -e $initrd_safemode ]]
+    then
+        local kernel_version=$(get_kernel_version $kernel)
+        [[ -n $kernel_version ]] || die "Failed to detect version"
+        echo "Creating Host-Only initramfs ..."
+        dracut -H -f --kver $kernel_version $initrd_tmp &>/dev/null ||
+            die "Failed to create Host-Only initramfs"
+        mv $initrd_tmp $initrd &>/dev/null || die "Failed to rename initramfs"
+        echo "Host-Only initramfs has been created"
+    fi
+}
+
+kernel=$(get_latest_kernel)
+
+if [[ -e $kernel ]] && [[ -e $(get_kernel_initramfs $kernel) ]]
+then
+    is_calculate_kernel $kernel && create_hostonly_initramfs $kernel
+else
+    echo "Creating Host-Only initramfs was skipped"
+fi
+exit 0
