@@ -1,6 +1,6 @@
 # Calculate run=/bin/bash merge=sys-boot/grub
 
-echo "Clean /boot"
+echo "Clean directory /boot"
 for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}-*#-os_install_arch_machine-#-#-os_install_linux_shortname-#*{.old,}
 do
     [[ -f $i || -L $i ]] && rm -f $i
@@ -11,8 +11,8 @@ do
     [[ -f $i || -L $i ]] && rm -f $i
 done
 
-echo "Remove modules"
+echo "Remove kernel modules"
 rm -rf /lib/modules/${PV}-calculate
-echo "Remove sources"
+echo "Remove kernel sources"
 rm -rf /usr/src/linux-${PV}-calculate
 true
