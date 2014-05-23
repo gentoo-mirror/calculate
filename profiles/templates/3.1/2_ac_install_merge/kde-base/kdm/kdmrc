@@ -65,7 +65,7 @@ Language=#-os_install_locale_lang-#
 UseTheme=false
 Theme=
 #pkg#
-#?pkg(media-gfx/kdm-themes-calculate)<14#
+#?pkg(media-gfx/kdm-themes-calculate)>=14#
 UseTheme=true
 Theme=/usr/share/apps/kdm/themes/calculate
 #pkg#
