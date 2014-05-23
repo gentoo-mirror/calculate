@@ -1,0 +1,66 @@
+# Calculate format=diff
+diff --git a/Makefile b/Makefile
+index 0ba94f9..cebdbd7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,7 +7,7 @@ PKG          := $(PKG_NAME)-$(PKG_VERSION)
+ BZIP2        := bzip2 -f -9
+ GZIP         := gzip -f -9
+ CFLAGS 	     += -fPIC -Wall
+-LDLIBS       := -leinfo -lrc
++LDLIBS       := -leinfo -lrc -lncurses
+ LDFLAGS      += -fPIC -shared
+ 
+ INSTALL      := install -D
+diff --git a/plymouth.c b/plymouth.c
+index bb97f56..e821c67 100644
+--- a/plymouth.c
++++ b/plymouth.c
+@@ -25,6 +25,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ #include <sys/stat.h>
++#include <term.h>
+ 
+ 
+ #ifdef DEBUG
+@@ -90,6 +91,25 @@ bool ply_message(const char* hook, const char* name)
+ }
+ 
+ 
++void clear_tty(char *tty) {
++    FILE *f = fopen(tty,"w");
++    if(f) {
++        int result;
++        char *clear_screen_token = "\x1b[3J";
++        char *hide_cursor_token = NULL;
++        int fd = fileno(f);
++
++        fwrite(clear_screen_token, strlen(clear_screen_token), 1, f);
++        setupterm(NULL, fd, &result);
++        if(result > 0) {
++            hide_cursor_token = tigetstr("civis");
++            fwrite(hide_cursor_token, strlen(hide_cursor_token), 1, f);
++        }
++        fclose(f);
++    }
++}
++
++
+ bool ply_ping()
+ {
+     return (system("/bin/plymouth --ping") == 0);
+@@ -244,6 +264,7 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+             if(!ply_quit(PLY_MODE_BOOT))
+                 rv = 1;
+ 	    restart_console_font();
++	    clear_tty("/dev/tty7");
+         }
+         break;
+ 
+diff --git a/plymouth.o b/plymouth.o
+index ac94929..fb0dbf4 100644
+Binary files a/plymouth.o and b/plymouth.o differ
+diff --git a/plymouth.so b/plymouth.so
+index b8b7832..512153f 100755
+Binary files a/plymouth.so and b/plymouth.so differ
