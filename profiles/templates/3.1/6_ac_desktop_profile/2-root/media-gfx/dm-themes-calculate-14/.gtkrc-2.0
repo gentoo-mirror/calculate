@@ -3,14 +3,14 @@
 include "/usr/share/themes/Calculate/gtk-2.0/gtkrc"
 include "/etc/gtk-2.0/gtkrc"
 
-#?pkg(media-fonts/droid)!=
+#?pkg(media-fonts/droid)!=#
 style "user-font"
 {
     font_name="Droid Sans"
 }
 #pkg#
 widget_class "*" style "user-font"
-#?pkg(media-fonts/droid)!=
+#?pkg(media-fonts/droid)!=#
 gtk-font-name="Droid Sans 10"
 #pkg#
 gtk-theme-name="Calculate"
