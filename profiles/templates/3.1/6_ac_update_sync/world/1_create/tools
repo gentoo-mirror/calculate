@@ -65,7 +65,6 @@ sys-apps/usb_modeswitch
 sys-auth/thinkfinger
 sys-block/gparted
 x11-libs/gksu
-x11-misc/sw-notify-send
 # write to world for keep package on during depclean (ruby is used for DEPEND webkit-gtk)
 virtual/rubygems
 #in#
@@ -85,6 +84,7 @@ sys-power/upower
 dev-python/gst-python
 dev-util/catfish
 sys-apps/mlocate
+x11-misc/sw-notify-send
 #для корректной поддержки мультимедиа клавиатур
 x11-misc/wmctrl
 #in#
