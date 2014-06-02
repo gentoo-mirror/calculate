@@ -1,0 +1,36 @@
+diff --git defaults/initrd.scripts defaults/initrd.scripts
+index 93a4665..36be06b 100755
+--- defaults/initrd.scripts
++++ defaults/initrd.scripts
+@@ -1398,7 +1398,7 @@ stop_udev()
+ 	# kill udevd
+ 	if [ "${USE_UDEV}" == "1" ]
+ 	then
+-		pkill udevd &>/dev/null
++		pkill -f udevd &>/dev/null
+ 	fi
+ }
+ 
+diff --git modules/udev-rules/module-setup.sh modules/udev-rules/module-setup.sh
+index 10c0228..50860ce 100644
+--- modules/udev-rules/module-setup.sh
++++ modules/udev-rules/module-setup.sh
+@@ -7,10 +7,17 @@ install_module() {
+     # ultimately, /lib/initramfs/rules.d or somesuch which includes links/copies
+     # of the rules we want so that we just copy those in would be best
+     [[ -x /sbin/udevd ]] && dracut_install udevd
++    if [[ -x /lib/systemd/systemd-udevd ]]
++    then
++        dracut_install /lib/systemd/systemd-udevd
++        mkdir -p "$initdir"/sbin
++        ln -sf /lib/systemd/systemd-udevd "$initdir"/sbin/udevd
++    fi
+     dracut_install udevadm /etc/udev/udev.conf /etc/group /bin/mount /sbin/modprobe
+     inst_rules 50-udev-default.rules 60-persistent-storage.rules \
+         61-persistent-storage-edd.rules 80-drivers.rules 95-udev-late.rules \
+-        60-pcmcia.rules 80-net-name-slot.rules 75-net-description.rules
++        60-pcmcia.rules 80-net-name-slot.rules 75-net-description.rules \
++        80-net-setup-link.rules
+     mkdir -p "$initdir"/etc/modprobe.d
+     inst_simple "$moddir/blacklist.conf" /etc/modprobe.d/
+ 
