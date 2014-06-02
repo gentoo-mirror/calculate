@@ -19,7 +19,7 @@ HGPV_URI=""
 
 SRC_URI="${KERNEL_URI} ${ARCH_URI} ${HGPV_URI}"
 
-DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.18-r12
+DEPEND="vmlinuz? ( >=sys-kernel/calckernel-3.4.18-r16
 	>=sys-apps/calculate-builder-2.2.30-r3
 	>=sys-apps/calculate-core-3.1.4_beta1-r1
 	>=sys-apps/calculate-install-3.1.4_beta1
