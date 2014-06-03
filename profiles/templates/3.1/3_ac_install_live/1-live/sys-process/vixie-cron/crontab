@@ -1,3 +1,8 @@
 # Calculate format=patch multiline path=/etc
-<reg>^\d+(.*lastrun/cron.hourly)$</reg>
-<text>#-sum(c,1#-rnd(num,2)-#/19-5)-#9\1</text>
+<reg>\n[*0-9].*?cl-update.*?$</reg>
+<text></text>
+#?pkg(sys-apps/calculate-update)>=3.2.0_alpha11#
+<reg>\Z</reg>
+<text>#-sum(c,1#-rnd(num,4)-#/170-58)-# * * * *\troot\t/usr/sbin/cl-update -p --wait-another-update off
+</text>
+#?pkg#
