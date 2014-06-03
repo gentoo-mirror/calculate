@@ -73,7 +73,7 @@ diff --git a/block/bfq-cgroup.c b/block/bfq-cgroup.c
 new file mode 100644
 index 0000000..de911a9
 --- /dev/null
-+++ b/block/bfq-cgroup.c
++++ block/bfq-cgroup.c
 @@ -0,0 +1,927 @@
 +/*
 + * BFQ: CGROUPS support.
@@ -1006,7 +1006,7 @@ diff --git a/block/bfq-ioc.c b/block/bfq-ioc.c
 new file mode 100644
 index 0000000..7f6b000
 --- /dev/null
-+++ b/block/bfq-ioc.c
++++ block/bfq-ioc.c
 @@ -0,0 +1,36 @@
 +/*
 + * BFQ: I/O context handling.
@@ -1048,7 +1048,7 @@ diff --git a/block/bfq-iosched.c b/block/bfq-iosched.c
 new file mode 100644
 index 0000000..dfa1c1e
 --- /dev/null
-+++ b/block/bfq-iosched.c
++++ block/bfq-iosched.c
 @@ -0,0 +1,3582 @@
 +/*
 + * Budget Fair Queueing (BFQ) disk scheduler.
@@ -4636,7 +4636,7 @@ diff --git a/block/bfq-sched.c b/block/bfq-sched.c
 new file mode 100644
 index 0000000..d9fef18
 --- /dev/null
-+++ b/block/bfq-sched.c
++++ block/bfq-sched.c
 @@ -0,0 +1,1204 @@
 +/*
 + * BFQ: Hierarchical B-WF2Q+ scheduler.
@@ -5846,7 +5846,7 @@ diff --git a/block/bfq.h b/block/bfq.h
 new file mode 100644
 index 0000000..0acb344
 --- /dev/null
-+++ b/block/bfq.h
++++ block/bfq.h
 @@ -0,0 +1,703 @@
 +/*
 + * BFQ-v7r4 for 3.14.0: data structures and common functions prototypes.
