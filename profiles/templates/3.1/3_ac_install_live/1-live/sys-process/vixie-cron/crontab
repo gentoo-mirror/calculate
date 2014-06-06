@@ -3,6 +3,6 @@
 <text></text>
 #?pkg(sys-apps/calculate-update)>=3.2.0_alpha11#
 <reg>\Z</reg>
-<text>#-sum(c,1#-rnd(num,4)-#/170-58)-# * * * *\troot\t/usr/sbin/cl-update -p --wait-another-update off
+<text>#-sum(c,1#-rnd(num,4)-#/170-58)-# * * * *\troot\t/usr/bin/nice -n19 /usr/sbin/cl-update -p --wait-another-update off
 </text>
 #?pkg#
