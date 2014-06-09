@@ -45,6 +45,7 @@ vmlinuz_src_compile() {
 	local GENTOOARCH="${ARCH}"
 	unset ARCH
 	cd ${S}
+	emake olddefconfig || die "kernel configure failed"
 	emake && emake modules || die "kernel build failed"
 	[ -f .config ] && cp .config .config.save
 	ARCH="${GENTOOARCH}"
