@@ -15,6 +15,7 @@ IUSE=""
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/lightdm/lightdm-calculate-${PVR}.tar.bz2"
 
 RDEPEND="~media-gfx/dm-themes-calculate-${PV}
+	x11-themes/gtk-engines-murrine
 	x11-misc/lightdm-gtk-greeter"
 
 DEPEND="${RDEPEND}"
