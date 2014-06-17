@@ -1,3 +1,8 @@
+#отключим зависимости, чтобы были универсальные бинарные пакеты
+app-text/hunspell -linguas_bg -linguas_de -linguas_en -linguas_es -linguas_fr -linguas_it -linguas_pl -linguas_pt -linguas_pt_BR -linguas_ro -linguas_ru -linguas_uk
+app-text/aspell -linguas_bg -linguas_de -linguas_en -linguas_es -linguas_fr -linguas_it -linguas_pl -linguas_pt_BR -linguas_ro -linguas_ru -linguas_uk
+sys-apps/man-pages -linguas_de -linguas_fr -linguas_it -linguas_pl -linguas_ro -linguas_ru
+
 #disable Xorg dependence
 media-fonts/terminus-font -pcf
 
