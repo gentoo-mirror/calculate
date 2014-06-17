@@ -19,6 +19,3 @@ password   required     pam_deny.so
 session    required     pam_limits.so
 session    required     pam_unix.so
 session    optional     pam_ldap.so
-#?pkg(sys-auth/pam_update)!=#
-session    optional     pam_update.so
-#pkg#

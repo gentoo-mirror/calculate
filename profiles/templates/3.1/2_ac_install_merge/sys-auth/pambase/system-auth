@@ -46,6 +46,3 @@ session    optional     pam_ecryptfs.so unwrap
 #?pkg(sys-auth/pam_client)!=&&pkg(sys-apps/calculate-client)!=||pkg(sys-apps/calculate-server)!=#
 session    optional     pam_ldap.so
 #pkg#
-#?pkg(sys-auth/pam_update)!=#
-session    optional     pam_update.so
-#pkg#

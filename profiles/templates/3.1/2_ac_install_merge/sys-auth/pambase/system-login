@@ -16,6 +16,9 @@ session		required	pam_env.so
 session		include		system-auth
 #session	optional	pam_motd.so motd=/etc/motd
 session		optional	pam_mail.so
+#?pkg(sys-auth/pam_update)!=#
+session		optional	pam_update.so
+#pkg#
 #?pkg(sys-auth/consolekit)!=#
 session		optional	pam_ck_connector.so nox11
 #pkg#
