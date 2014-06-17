@@ -4,6 +4,9 @@
 # Image
 USE="${USE} exif gif jpeg jpeg2k png tiff"
 
+# Locale and Fonts
+USE="${USE} -spell"
+
 # Mail
 USE="${USE} imap maildir"
 
