@@ -1,5 +1,9 @@
 # Calculate name=world format=world
 
+#?in(os_linux_shortname, CLD, CLDX, CDS, CMC)!=#
+app-text/wgetpaste
+#in#
+
 #?in(os_linux_shortname, CLD, CLDX, CDS)!=#
 app-text/wgetpaste
 net-analyzer/nmap
@@ -36,16 +40,6 @@ net-p2p/deluge
 x11-plugins/pidgin-hotkeys
 x11-plugins/pidgin-libnotify
 x11-plugins/purple-plugin_pack
-#in#
-
-#?in(os_linux_shortname, CMC)!=#
-app-text/wgetpaste
-net-dialup/mingetty
-net-dialup/pptpclient
-net-dialup/rp-pppoe
-net-dns/bind-tools
-net-misc/ntp
-net-misc/vconfig
 #in#
 
 #?in(os_linux_shortname, CDS)!=#

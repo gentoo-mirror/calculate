@@ -2,13 +2,19 @@
 
 net-fs/nfs-utils
 
-#?in(os_linux_shortname, CLD, CLDX)!=#
-net-dialup/pptpclient
-net-dialup/rp-pppoe
+#?in(os_linux_shortname, CLD, CLDX, CDS, CMC)!=#
 net-dns/bind-tools
-net-firewall/shorewall
 net-misc/ntp
 net-misc/vconfig
+#in#
+
+#?in(os_linux_shortname, CLD, CLDX, CDS)!=#
+net-dialup/pptpclient
+net-dialup/rp-pppoe
+net-firewall/shorewall
+#in#
+
+#?in(os_linux_shortname, CLD, CLDX)!=#
 net-misc/networkmanager
 net-misc/networkmanager-openvpn
 net-misc/networkmanager-pptp
@@ -21,20 +27,14 @@ gnome-extra/nm-applet
 
 #?in(os_linux_shortname, CDS)!=#
 net-dialup/ppp
-net-dialup/pptpclient
 net-dialup/pptpd
-net-dialup/rp-pppoe
 net-dialup/xl2tpd
-net-dns/bind-tools
 net-dns/ddclient
 net-firewall/ipsec-tools
 net-firewall/iptables
-net-firewall/shorewall
 net-fs/samba
 net-misc/bridge-utils
 net-misc/ifenslave
-net-misc/ntp
-net-misc/vconfig
 net-misc/wol
 #in#
 
