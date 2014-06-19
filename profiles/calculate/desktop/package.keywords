@@ -3,24 +3,24 @@
 ~sys-auth/pam_client-0.2.1 amd64 x86
 ~sys-auth/thinkfinger-0.3 amd64 x86
 
-~net-print/foo2zjs-20110512 amd64 x86
 ~net-print/foomatic-db-4.0.20140105 amd64 x86
-~net-print/foomatic-db-ppds-4.0.20140105 amd64 x86
-~net-print/foomatic-db-engine-4.0.9 amd64 x86
-~net-print/foomatic-filters-4.0.17 amd64 x86
+#~net-print/foomatic-db-ppds-4.0.20140105 amd64 x86
+~net-print/foomatic-db-engine-4.0.11 amd64 x86
+#~net-print/foomatic-filters-4.0.17 amd64 x86
 
-~net-misc/networkmanager-0.9.8.8 amd64 x86
-~net-misc/networkmanager-openconnect-0.9.8.4 amd64 x86
-~net-misc/networkmanager-openswan-0.9.8.4 amd64 x86
-~net-misc/networkmanager-openvpn-0.9.8.4 amd64 x86
-~net-misc/networkmanager-pptp-0.9.8.4 amd64 x86
-~net-misc/networkmanager-vpnc-0.9.8.6 amd64 x86
-~gnome-extra/nm-applet-0.9.6.4 amd64 x86
+~net-misc/networkmanager-0.9.8.10 amd64 x86
+#~net-misc/networkmanager-openconnect-0.9.8.6 amd64 x86
+#~net-misc/networkmanager-openswan-0.9.8.4 amd64 x86
+#~net-misc/networkmanager-openvpn-0.9.8.4 amd64 x86
+#~net-misc/networkmanager-pptp-0.9.8.4 amd64 x86
+#~net-misc/networkmanager-vpnc-0.9.8.6 amd64 x86
+~gnome-extra/nm-applet-0.9.8.10 amd64 x86
 
 ~net-misc/modemmanager-1.2.0 amd64 x86
 
 ~net-im/skype-4.2.0.13 amd64 x86
 
+~x11-drivers/ati-drivers-14.6_beta1 amd64 x86
 ~x11-drivers/ati-drivers-14.4_p1 amd64 x86
 
 ~media-gfx/gimp-2.8.10 amd64 x86
@@ -29,11 +29,11 @@
 
 ~net-wireless/blueman-1.23 amd64 x86
 
-~sys-fs/ecryptfs-utils-103 amd64 x86
+~sys-fs/ecryptfs-utils-104 amd64 x86
 
 ~www-plugins/chrome-binary-plugins-35.0.1916.153_p1 amd64 x86
 
-~net-misc/rdesktop-1.8.1 amd64 x86
+~net-misc/rdesktop-1.8.2 amd64 x86
 
 ~dev-util/bin_replace_string-0.2 amd64 x86
 
@@ -41,4 +41,3 @@
 
 ~app-office/libreoffice-4.2.4.2 amd64
 ~app-office/libreoffice-l10n-4.2.4.2 amd64
-
