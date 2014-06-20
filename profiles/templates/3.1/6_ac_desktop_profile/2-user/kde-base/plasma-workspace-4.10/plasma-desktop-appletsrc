@@ -44,7 +44,7 @@ wallpaperposition=0
 #------------------------------------------------------------------------------
 #верхняя панель
 #------------------------------------------------------------------------------
-#-sum(panel,,34)-#
+#-sum(panel,,36)-#
 #-sum(apporder,,0)-#
 
 [Containments][-#-sum(cont,cont+1)-#]
@@ -179,10 +179,21 @@ zvalue=0
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][LayoutInformation]
 Order=#-sum(apporder,apporder+1)-#
 
-[Containments][#-sum(cont,cont)-#][Applets][999]
-immutability=1
+[Containments][#-sum(cont,cont)-#][Applets][998]
+immutability=2
 plugin=lockout
 zvalue=0
+[Containments][#-sum(cont,cont)-#][Applets][998][Configuration][General]
+show_leave=false
+[Containments][#-sum(cont,cont)-#][Applets][998][LayoutInformation]
+Order=#-sum(apporder,apporder+1)-#
+
+[Containments][#-sum(cont,cont)-#][Applets][999]
+immutability=2
+plugin=lockout
+zvalue=0
+[Containments][#-sum(cont,cont)-#][Applets][999][Configuration][General]
+show_lock=false
 [Containments][#-sum(cont,cont)-#][Applets][999][LayoutInformation]
 Order=#-sum(apporder,apporder+1)-#
 
