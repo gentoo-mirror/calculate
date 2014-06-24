@@ -16,7 +16,7 @@ post_setup_package() {
 		OLDIFS=$IFS
 		IFS=/
 		while read category pkgname;do
-			[[ -n $pkgname ]] || continue
+			[ -d /var/db/pkg/${category}/${pkgname}-* ] || continue
 			IFS=$OLDIFS
 			CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/"
 			IFS=/
