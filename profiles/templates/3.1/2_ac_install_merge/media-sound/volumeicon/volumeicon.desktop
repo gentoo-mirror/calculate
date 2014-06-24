@@ -1,0 +1,12 @@
+# Calculate format=kde path=/etc/xdg/autostart
+
+[Desktop Entry]
+Name=VolumeIcon
+GenericName=Volume Icon
+Comment=A lightweight volume control that sits in your systray
+Exec=volumeicon
+Icon=/usr/share/volumeicon/gui/appicon.svg
+Terminal=false
+Type=Application
+Categories=AudioVideo;
+NoDisplay=true

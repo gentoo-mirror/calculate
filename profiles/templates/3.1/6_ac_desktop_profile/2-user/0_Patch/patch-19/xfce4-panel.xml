@@ -1,0 +1,7 @@
+# Calculate multiline format=patch path=~/.config/xfce4/xfconf/xfce-perchannel-xml
+<reg>^.*value type="int" value="11".*$\n</reg>
+<text></text>
+<reg>^.*value="xfce4-mixer-plugin"/$\n</reg>
+<text></text>
+<reg>^.*value="mixer"[\S\s]*?&lt;/property.*$\n</reg>
+<text></text>
