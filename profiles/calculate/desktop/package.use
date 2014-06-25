@@ -116,3 +116,7 @@ dev-libs/elfutils static-libs
 # required by media-gfx/splashutils-1.5.4.4-r2[gpm]
 sys-libs/gpm static-libs
 
+# поддержка звуковой темы freedesktop, для исключения бульканья
+# в pulseaudio при смене громкости
+media-libs/libcanberra -sound
+
