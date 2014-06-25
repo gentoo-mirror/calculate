@@ -1,5 +1,8 @@
 USE=""
 
+# Hardware
+USE="${USE} lirc"
+
 # Languages support
 USE="${USE} -tk"
 
