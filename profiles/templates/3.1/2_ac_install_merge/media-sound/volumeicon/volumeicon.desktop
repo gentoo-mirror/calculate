@@ -3,6 +3,11 @@
 [Desktop Entry]
 Name=VolumeIcon
 Comment=A lightweight volume control that sits in your systray
+#?desktop.ur_domain_set==on#
+Exec=/bin/bash -c "sleep 2;volumeicon"
+#desktop.ur_domain_set#
+#?desktop.ur_domain_set==off#
 Exec=/bin/bash -c "sleep 1;volumeicon"
+#desktop.ur_domain_set#
 Terminal=false
 Type=Application
