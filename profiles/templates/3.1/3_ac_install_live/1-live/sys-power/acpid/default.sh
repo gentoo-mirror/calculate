@@ -129,7 +129,7 @@ case "$group" in
 		case "$action" in
 			hotkey)
 				case "$device" in
-					SNC)
+					SNY*)
 						case "$id" in
 							*01)
 								case "$value" in
