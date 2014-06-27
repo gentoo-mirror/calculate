@@ -3,5 +3,10 @@
 #?cl_system_boot_set==off#
 (/etc/init.d/nscd status && /etc/init.d/nscd stop ) &>/dev/null
 #cl_system_boot_set#
+#?cl_system_boot_set==on&&client.cl_remote_host!=#
+pidfile="/var/run/nscd/nscd.pid"
+[[ -f $pidfile ]] && start-stop-daemon --stop --quiet \
+	--exec /usr/sbin/nscd --pidfile ${pidfile} &>/dev/null
+#cl_system_boot_set#
 
 true
