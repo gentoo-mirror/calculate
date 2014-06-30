@@ -15,31 +15,18 @@
 #for calculate-lib
 ~dev-python/py-smbpasswd-1.0.1 amd64
 
-~sys-firmware/b43-firmware-5.100.138 amd64 x86
-~net-wireless/broadcom-sta-6.30.223.30-r1 amd64 x86
+~sys-firmware/b43-firmware-6.30.163.46 amd64 x86
+~net-wireless/broadcom-sta-6.30.223.141 amd64 x86
 ~net-wireless/madwimax-0.1.1 amd64 x86
-~sys-kernel/linux-firmware-20131230 amd64 x86
+~sys-kernel/linux-firmware-20140603 amd64 x86
 
 =media-gfx/splashutils-1.5.4.4-r2 amd64 x86
-
-~app-portage/eix-0.29.3 amd64 x86
 
 # need for bash-completion-2.1
 ~app-admin/eselect-bashcomp-1.3.6 amd64 x86
 
-#<sys-apps/util-linux-2.22.1 ("<sys-apps/util-linux-2.22.1" is blocking sys-fs/ntfs3g-2012.1.15-r2)
-~sys-apps/sysvinit-2.88 amd64 x86
-
-# need for calculate utilities
-~dev-python/pyinotify-0.9.4 amd64 x86
-
-~dev-lang/tk-8.5.13 amd64 x86
-
 # UEFI and SecureBoot support
-=sys-boot/grub-2.00-r5 amd64 x86
-=sys-boot/efibootmgr-0.5.4 amd64 x86
-=sys-boot/gnu-efi-3.0s amd64 x86
-app-cdr/cdrtools amd64 x86
+=app-cdr/cdrtools-3.01_alpha24 amd64 x86
 =app-crypt/shim-signed-0.2 amd64 x86
 ~app-crypt/sbsigntool-0.6 amd64 x86
 
@@ -56,9 +43,5 @@ app-cdr/cdrtools amd64 x86
 =sys-fs/lvm2-2.02.103 x86
 =sys-block/thin-provisioning-tools-0.2.8-r1 x86
 
-=media-gfx/sane-backends-1.0.24-r3 amd64 x86
-
-~app-misc/tmux-1.9a amd64 x86
-
-~sys-fs/btrfs-progs-3.14_pre20140414 amd64 x86
+~sys-fs/btrfs-progs-3.14.2 amd64 x86
 
