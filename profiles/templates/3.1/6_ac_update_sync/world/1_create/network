@@ -4,6 +4,7 @@ net-fs/nfs-utils
 
 #?in(os_linux_shortname, CLD, CLDX, CDS, CMC)!=#
 net-dns/bind-tools
+net-firewall/shorewall
 net-misc/ntp
 net-misc/vconfig
 #in#
@@ -11,7 +12,6 @@ net-misc/vconfig
 #?in(os_linux_shortname, CLD, CLDX, CDS)!=#
 net-dialup/pptpclient
 net-dialup/rp-pppoe
-net-firewall/shorewall
 #in#
 
 #?in(os_linux_shortname, CLD, CLDX)!=#
