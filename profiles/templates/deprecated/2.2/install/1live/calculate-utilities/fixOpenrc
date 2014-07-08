@@ -1,8 +1,0 @@
-# Calculate path=/tmp name=fixOpenrc exec=/bin/bash ac_install_system!=up&&cl_belong_pkg!=&&pkg(sys-apps/openrc)!=
-
-if [[ -z `find /etc/conf.d -name "*cfg*modules" -exec grep "^modules_3" {} \;` ]]
-then
-    find /etc/conf.d -name "*cfg*modules" -delete
-    rc-update add calculate-builder boot
-fi
-true

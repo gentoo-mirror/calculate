@@ -1,8 +1,0 @@
-# Calculate format=kde link=/usr/share/applications/writer.desktop name=calculate-writer.desktop mirror pkg(app-office/libreoffice)>=3.3&&pkg(app-office/libreoffice)<3.4
-
-# Update info
-#-ini(desktop.writer, libreoffice)-#
-
-# Hide icon
-[Desktop Entry]
-NoDisplay=true

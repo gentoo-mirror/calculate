@@ -1,5 +1,0 @@
-# Calculate path=/tmp exec=/bin/bash os_install_root_type!=livecd&&exists(/sbin/grub-mkconfig,root)!=
-
-/sbin/grub-mkdevicemap
-/sbin/grub-mkdevicemap -m #-cl_chroot_path-#/boot/grub/device.map
-CHROOT_PATH=#-cl_chroot_grub-# /sbin/grub-mkconfig -o #-cl_chroot_path-#/boot/grub/grub.cfg 2>/dev/null

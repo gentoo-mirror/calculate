@@ -1,6 +1,0 @@
-binding "my-bindings"
-{
-    bind "Return" { "insert-at-cursor" ("\n") }
-    bind "<ctrl>Return" { "message_send" () }
-}
-widget "*pidgin_conv_entry" binding "my-bindings"

@@ -1,5 +1,0 @@
-# Calculate chmod=0755
-#!/bin/sh
-#
-bash -c "/usr/bin/sessreg -a -l $DISPLAY $USER &" &
-/usr/share/calculate/xdm/xdm --login || kill -9 $PPID

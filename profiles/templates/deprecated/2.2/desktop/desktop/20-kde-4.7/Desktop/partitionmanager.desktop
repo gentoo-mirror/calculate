@@ -1,6 +1,0 @@
-# Calculate format=kde link=/usr/share/applications/kde4/partitionmanager.desktop os_root_type==livecd mirror chmod=0755
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Exec=sudo /usr/bin/partitionmanager
-#отключим запрос пароля
-X-KDE-SubstituteUID=false

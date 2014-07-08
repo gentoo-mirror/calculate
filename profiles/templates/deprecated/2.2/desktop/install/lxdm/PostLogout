@@ -1,5 +1,0 @@
-# Calculate chmod=0755
-#!/bin/sh
-#
-/usr/bin/sessreg -d -l $DISPLAY $USER
-/usr/share/calculate/xdm/xdm --logout

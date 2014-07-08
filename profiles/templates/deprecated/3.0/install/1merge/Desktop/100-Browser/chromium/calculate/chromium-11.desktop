@@ -1,8 +1,0 @@
-# Calculate format=kde link=/usr/share/applications/chromium-browser-chromium.desktop name=calculate-browser.desktop mirror pkg(www-client/chromium)>=11.0
-
-# Update info
-#-ini(desktop.browser, chromium)-#
-
-# Hide icon
-[Desktop Entry]
-NoDisplay=true

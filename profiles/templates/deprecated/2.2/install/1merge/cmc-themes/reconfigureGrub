@@ -1,6 +1,0 @@
-# Calculate path=/tmp name=reconfigureGrub exec=/bin/bash ac_install_system!=up&&cl_belong_pkg!=&&pkg(media-gfx/cmc-themes)>=12.0_alpha1
-
-cl-template -l all --merge sys-boot/grub &>/dev/null
-#?pkg(media-gfx/splashutils)!=#
-cl-template -l all --merge media-gfx/splashutils &>/dev/null
-#pkg#

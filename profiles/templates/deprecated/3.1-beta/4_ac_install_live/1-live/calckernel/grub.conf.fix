@@ -1,3 +1,0 @@
-# Calculate exec=/bin/bash path=/tmp ac_install_system!=up&&cl_belong_pkg!=
-
-sed -ri 's|(vmlinuz-#-cl_kernel_uid-#.*)CONSOLE=/dev/tty1|\1console=tty1|' /boot/grub/grub.conf 
