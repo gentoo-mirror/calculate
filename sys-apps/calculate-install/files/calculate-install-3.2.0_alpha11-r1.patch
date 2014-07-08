@@ -1,0 +1,40 @@
+diff --git install/fs_manager.py install/fs_manager.py
+index b2c2fa2..402f72a 100644
+--- install/fs_manager.py
++++ install/fs_manager.py
+@@ -27,7 +27,7 @@ setLocalTranslate('cl_install3',sys.modules[__name__])
+ class FileSystemManager:
+     """Convert dict install option"""
+ 
+-    defaultOpt = ['noatime']
++    defaultOpt = ['noatime','nodiratime']
+     defaultBindOpts = ['bind']
+     supportFS = {
+         'ext2': {'defaultopt': defaultOpt,
+diff --git install/variables/disk.py install/variables/disk.py
+index 142c3c5..8ccc646 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -1418,13 +1418,20 @@ class VariableOsInstallDiskOptions(ReadonlyVariable):
+ 
+     def get(self):
+         """TODO: get real options"""
++        def postProcess(opt):
++            l_opt = filter(None,opt.split(','))
++            if "noatime" in l_opt and not "nodiratime" in l_opt:
++                l_opt.append("nodiratime")
++            return ",".join(l_opt)
++                
+         diskOpts = dict(filter(lambda x:x[1],
+                         zip(self.Get('os_disk_dev'),
+                             self.Get('os_disk_options'))))
+-        return map(lambda x:diskOpts.get(x[0],x[1]),
++        return map(postProcess,
++               map(lambda x:diskOpts.get(x[0],x[1]),
+                map(lambda x:(x[0],FileSystemManager.getDefaultOpt(x[1])),
+                self.ZipVars('os_install_disk_dev',
+-                            'os_install_disk_format')))
++                            'os_install_disk_format'))))
+ 
+ class VariableOsInstallDiskFormat(ReadonlyVariable):
+     """

@@ -1,0 +1,13 @@
+diff --git setup.py setup.py
+index f873cdf..19b1ba7 100755
+--- setup.py
++++ setup.py
+@@ -33,7 +33,7 @@ data_files = [('/etc/init.d', [('data/client',0755)]),
+               ('/usr/share/calculate/xdm/logout.d',
+                             ['data/logout.d/10client']),
+               ('/usr/share/calculate/xdm/logout.d',
+-                            ['data/login.d/15resume_remount']),
++                            ['data/logout.d/15resume_remount']),
+               ('/usr/share/calculate/xdm/',[('data/wait_domain',0755)])]
+ 
+ setup(

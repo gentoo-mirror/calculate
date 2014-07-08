@@ -1,0 +1,54 @@
+diff --git scripts/cl-update-checker scripts/cl-update-checker
+index 67055ed..eefdca0 100644
+--- scripts/cl-update-checker
++++ scripts/cl-update-checker
+@@ -31,6 +31,7 @@ from calculate.update.update_info import UpdateInfo
+ 
+ GUI_UPDATE_APP = DBUS_METHOD_APP % "update"
+ 
++MINUTE=60
+ 
+ class SysTray(QtGui.QSystemTrayIcon):
+     ICON = "/usr/share/pixmaps/calculate-console-update.png"
+@@ -95,7 +96,7 @@ class DBusChecker(dbus.service.Object):
+         self.parent.step()
+ 
+ class CheckThread(QtGui.QMainWindow, UpdateInfo):
+-    interval = 10
++    interval = MINUTE
+ 
+     def __init__(self, bus):
+         super(CheckThread, self).__init__()
+@@ -154,8 +155,11 @@ class CheckThread(QtGui.QMainWindow, UpdateInfo):
+         self.systray.hide()
+ 
+ if __name__ == '__main__':
+-
+     import sys
++
++    if os.fork():
++        sys.exit(1)
++
+     if not user_can_run_update():
+         sys.stderr.write(_("User can not to perform the system update")+"\n")
+         sys.exit(1)
+@@ -178,12 +182,17 @@ if __name__ == '__main__':
+         bus = dbus.SessionBus()
+     except dbus.exceptions.DBusException, e:
+         sys.exit(1)
+-
++        
++    try:
++        remote_object = bus.get_object(DBUS_NAME_UPDATER, DBUS_APP_UPDATER)
++        g = dbus.Interface(remote_object, DBUS_NAME_UPDATER)
++        g.quit()
++    except Exception as e:
++        pass
+     QtGui.QApplication.setQuitOnLastWindowClosed(False)
+     # Export the service
+     name = dbus.service.BusName(DBUS_NAME_UPDATER, bus)
+     # Export the object
+     ct = CheckThread(bus)
+     DBusChecker(bus, DBUS_APP_UPDATER, ct)
+-
+     sys.exit(app.exec_())
