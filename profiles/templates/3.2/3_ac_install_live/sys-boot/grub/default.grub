@@ -1,0 +1,2 @@
+# Calculate format=openrc path=/etc/default name=grub in(os_install_x11_video_drv,other,default)==
+GRUB_CMDLINE_LINUX=" #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# doscsi#-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# splash udev quiet"

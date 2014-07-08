@@ -1,0 +1,8 @@
+# Calculate format=patch multiline
+<reg>^shutdown_text = .*$</reg>
+#?os_install_locale_lang==ru_RU#
+<text>shutdown_text = "Завершение работы";</text>
+#os_install_locale_lang#
+#?os_install_locale_lang!=ru_RU#
+<text>shutdown_text = "Shutting down";</text>
+#os_install_locale_lang#
