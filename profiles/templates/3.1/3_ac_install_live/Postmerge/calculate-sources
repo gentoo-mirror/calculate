@@ -1,1 +1,1 @@
-# Calculate append=skip merge(sys-kernel/calculate-sources)!= postmerge=sys-kernel/dracut,sys-boot/grub
+# Calculate append=skip merge(sys-kernel/calculate-sources)!=||merge(sys-kernel/calculate-sources-dev)!= postmerge=sys-kernel/dracut,sys-boot/grub
