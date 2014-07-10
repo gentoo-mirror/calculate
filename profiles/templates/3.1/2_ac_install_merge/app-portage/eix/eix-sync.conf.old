@@ -1,0 +1,25 @@
+# Calculate comment=# name=eix-sync.conf pkg(sys-apps/calculate-update)<3.2.0_alpha11
+*
+# checkout and repair repositories before sync
+#?pkg(app-portage/eix)>=0.29.3#
+!have_changed=:
+#pkg#
+#?pkg(sys-apps/calculate-update)<3.2.0_alpha4#
+!![ -x /usr/bin/eix-checkout ] && /usr/bin/eix-checkout || true
+# checkout and repair repositories after sync
+@[ -x /usr/bin/eix-checkout ] && /usr/bin/eix-checkout || true
+#pkg#
+#?pkg(sys-apps/calculate-update)>=3.2.0_alpha4#
+!emergecmd='/usr/sbin/cl-core --method update --skip-eix-update --skip-update-metadata -son --update-rev=off'
+#pkg#
+@egencache --repo=calculate --update --jobs=4
+#?pkg(sys-apps/calculate-update)!=&&pkg(sys-apps/calculate-update)<3.1.1_beta2-r1#
+@@/usr/sbin/cl-core --method update --update-world || true
+#pkg#
+#?pkg(sys-apps/calculate-update)>=3.1.1_beta2-r1&&pkg(sys-apps/calculate-update)<3.2.0_alpha4#
+@@/usr/sbin/cl-core --method update --update-rev || true
+#pkg#
+#?pkg(sys-apps/calculate-update)>=3.2.0_alpha4#
+@@/usr/sbin/cl-core --method update none -son --update-rev || true
+#pkg#
+@@emerge --metadata || true
