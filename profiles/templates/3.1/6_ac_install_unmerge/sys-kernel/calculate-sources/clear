@@ -10,7 +10,7 @@ for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}-{calculate,SafeMode}{
 do
     [[ -f $i || -L $i ]] && rm -f $i
 done
-for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}{-SafeMode,}-${EXTRAVERSION}{.img,}{.old,}
+for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}{-SafeMode,}${EXTRAVERSION}{.img,}{.old,}
 do
     [[ -f $i || -L $i ]] && rm -f $i
 done
