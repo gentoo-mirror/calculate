@@ -16,7 +16,7 @@ do
 done
 
 echo "Remove kernel modules"
-rm -rf /lib/modules/${PV}-calculate
+rm -rf /lib/modules/${PV}${EXTRAVERSION}
 echo "Remove kernel sources"
-rm -rf /usr/src/linux-${PV}-calculate
+rm -rf /usr/src/linux-${PV}${EXTRAVERSION}
 true
