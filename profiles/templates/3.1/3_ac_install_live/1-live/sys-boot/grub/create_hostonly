@@ -26,7 +26,7 @@ get_kernel_initramfs() {
 is_calculate_kernel() {
     local kernel=$1
     local kernel_version=$(get_kernel_version $kernel)
-    [[ -f /usr/src/linux-${kernel_version} ]]
+    [[ -f /usr/src/linux-${kernel_version}/.calculate ]]
 }
 
 die() {
