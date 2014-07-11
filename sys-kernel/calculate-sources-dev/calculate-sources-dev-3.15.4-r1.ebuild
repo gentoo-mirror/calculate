@@ -5,6 +5,8 @@
 EAPI=4
 ETYPE="sources"
 
+KERNELNAME="calculate-dev"
+
 inherit calculate-kernel-6 eutils
 
 DESCRIPTION="Calculate Linux kernel image"

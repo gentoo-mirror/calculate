@@ -24,7 +24,7 @@ then
 fi
 
 SLOT=${PV}
-EXTRAVERSION="-calculate"
+EXTRAVERSION="-${KERNELNAME:calculate}"
 KV_FULL="${PV}${EXTRAVERSION}"
 
 S="${WORKDIR}/linux-${KV_FULL}"
