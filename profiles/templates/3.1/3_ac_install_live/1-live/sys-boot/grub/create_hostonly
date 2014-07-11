@@ -4,12 +4,13 @@
 source /usr/share/grub/grub-mkconfig_lib
 
 get_latest_kernel() {
-    version_find_latest /boot/vmlinuz-*-calculate
+    version_find_latest /boot/vmlinuz-*
 }
 
 get_safemode_name() {
     local kernel=$1
-    echo ${kernel/-calculate/-SafeMode}
+    #echo ${kernel/-calculate/-SafeMode}
+    [[ $kernel =~ ^([^-]+-[^-]+)-(.*)$ ]] && echo "${BASH_REMATCH[1]}-SafeMode-${BASH_REMATCH[2]}" || echo ${kernel}
 }
 
 get_kernel_version() {
@@ -24,7 +25,8 @@ get_kernel_initramfs() {
 
 is_calculate_kernel() {
     local kernel=$1
-    [[ $kernel =~ -calculate$ ]]
+    local kernel_version=$(get_kernel_version $kernel)
+    [[ -f /usr/src/linux-${kernel_version} ]]
 }
 
 die() {
