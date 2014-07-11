@@ -6,6 +6,9 @@ do
     [[ -f $i || -L $i ]] && rm -f $i
 done
 
+# get extraversion from content package file
+EXTRAVERSION=$(cat /var/db/pkg/sys-kernel/calculate-sources-dev-3.15.5/CONTENTS | sed -rn 's/^.*boot\/vmlinuz-[^-]+(-\S+)\s.*$/\1/p')
+
 for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}-{calculate,SafeMode}{.img,}{.old,}
 do
     [[ -f $i || -L $i ]] && rm -f $i
