@@ -122,12 +122,12 @@ clean_for_minimal() {
 calculate-kernel-6_src_install() {
 	use vmlinuz && vmlinuz_src_install
 	use minimal && clean_for_minimal
-	touch ${D}/usr/src/linux-${KV_FULL}/.calculate
 	kernel-2_src_install
 	if ! use vmlinuz
 	then
 		cp .config ${D}/usr/share/${PN}/${PV}/boot/config-${KV_FULL}
 	fi
+	use vmlinuz && touch ${D}/usr/src/linux-${KV_FULL}/.calculate
 }
 
 vmlinuz_pkg_postinst() {
