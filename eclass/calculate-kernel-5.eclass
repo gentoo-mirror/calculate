@@ -145,6 +145,7 @@ calculate-kernel-5_src_install() {
 		find . -type f -a \! -wholename ./.config \
 			$(echo $KEEPLIST | sed -r 's/(\S+)(\s|$)/-a \! -wholename .\/\1 /g') \
 			-a \! -name "*.h" -delete
+		find . -type l -delete
 		rm -r drivers
 		rm -r Documentation
 	fi

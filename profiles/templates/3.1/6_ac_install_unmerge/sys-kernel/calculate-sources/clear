@@ -1,13 +1,15 @@
 # Calculate run=/bin/bash merge=sys-boot/grub
 
 echo "Clean directory /boot"
+#?merge(sys-kernel/calculate-sources)!=#
 for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}-*#-os_install_arch_machine-#-#-os_install_linux_shortname-#*{.old,}
 do
     [[ -f $i || -L $i ]] && rm -f $i
 done
+#merge#
 
 # get extraversion from content package file
-EXTRAVERSION=$(cat /var/db/pkg/sys-kernel/calculate-sources-dev-3.15.5/CONTENTS | sed -rn 's/^.*boot\/vmlinuz-[^-]+(-\S+)\s.*$/\1/p')
+EXTRAVERSION=$(sed -rn 's/^.*usr\/src\/linux-[^-]+(-[^\/]+)$/\1/p' /var/db/pkg/sys-kernel/${PN}-${PVR}/CONTENTS)
 
 for i in /boot/{initramfs,config,System.map,vmlinuz}-${PV}-{calculate,SafeMode}{.img,}{.old,}
 do
@@ -22,4 +24,6 @@ echo "Remove kernel modules"
 rm -rf /lib/modules/${PV}${EXTRAVERSION}
 echo "Remove kernel sources"
 rm -rf /usr/src/linux-${PV}${EXTRAVERSION}
+
+rm /boot/*-#-cl_kernel_uid-#*
 true
