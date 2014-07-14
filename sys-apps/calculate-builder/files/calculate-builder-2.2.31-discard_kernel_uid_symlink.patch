@@ -1,0 +1,74 @@
+diff --git pym/cl_kernel.py pym/cl_kernel.py
+index a8bc458..58b19cb 100644
+--- pym/cl_kernel.py
++++ pym/cl_kernel.py
+@@ -281,45 +281,6 @@ class cl_kernel(color_print):
+                                   "vmlinuz":"vmlinuz-%s",
+                                   "System.map":"System.map-%s"}[obj]%kernelUid)
+ 
+-    def createUidSymlinks(self):
+-        """Create link iniramfs-UUID,vmlinuz-UUID,System.map-UUID."""
+-        if self.skipByChrootAndShortname():
+-            return True
+-        newInitrdName = self._getNewName("initramfs")
+-        newInitrdNameInstall = self._getNewName("initramfs-install")
+-        newKernelName = self._getNewName("vmlinuz")
+-        newSystemMap = self._getNewName("System.map")
+-        symlinkInitrdName = self._getSymlink("initramfs")
+-        symlinkInitrdNameInstall = self._getSymlink("initramfs-install")
+-        symlinkKernelName = self._getSymlink("vmlinuz")
+-        symlinkSystemMap = self._getSymlink("System.map")
+-
+-        try:
+-            self._installFile(newInitrdName,symlinkInitrdName, symlink=True)
+-            self._installFile(newInitrdNameInstall,symlinkInitrdNameInstall,
+-                              symlink=True)
+-            self._installFile(newKernelName,symlinkKernelName, symlink=True)
+-            self._installFile(newSystemMap, symlinkSystemMap, symlink=True)
+-
+-            builderDaemon='/etc/init.d/calculate-builder'
+-            bootRunlevel='/etc/runlevels/boot/calculate-builder'
+-            if not path.lexists(bootRunlevel):
+-                os.symlink(builderDaemon,bootRunlevel)
+-        except IOError,e:
+-            self.printERROR(
+-                _("Failed to create a symlink to the current kernel:"
+-                  " %(error)s '%(filename)s'")%
+-                  {'error':e.strerror,'filename':e.filename})
+-            self.printERROR(_("The kernel is probably not compiled"))
+-            return False
+-        except OSError,e:
+-            self.printERROR(_("Failed to create a symlink to the "
+-                              "current kernel: %s")%
+-                            e.strerror)
+-            return False
+-        return True
+-
+-
+     def installBootFiles(self):
+         """Copy -install files to without suffix name, and save old copy.
+ 
+diff --git pym/cl_kernel_cmd.py pym/cl_kernel_cmd.py
+index 54edbc0..c472b89 100644
+--- pym/cl_kernel_cmd.py
++++ pym/cl_kernel_cmd.py
+@@ -202,9 +202,6 @@ class kernel_cmd(share_cmd):
+             if not self.logicObj.installBootFiles():
+                 self.printERROR(_("Failed to install the kernel"))
+                 return False
+-            if not self.logicObj.createUidSymlinks():
+-                self.printERROR(_("Failed to create uid symlinks"))
+-                return False
+             if not self.logicObj.versionMigrate():
+                 self.printERROR(_("Kernel nomenclature update failed"))
+                 return False
+@@ -222,9 +219,6 @@ class kernel_cmd(share_cmd):
+ 
+     def makeSymlink(self,options):
+         """Set specified kernel to default"""
+-        if not self.logicObj.createUidSymlinks():
+-            self.printERROR(_("Failed to create uid symlinks"))
+-            return False
+         if not self.logicObj.setKernelForCurrent():
+             self.printWARNING(_("Failed to modify '%s'")%"/usr/scr/linux")
+             return False
