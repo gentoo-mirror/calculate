@@ -1,0 +1,303 @@
+diff --git update/package_tools.py update/package_tools.py
+index a99af36..90dde33 100644
+--- update/package_tools.py
++++ update/package_tools.py
+@@ -126,6 +126,16 @@ class Layman:
+         self._add_to_makeconf(rpath)
+         return True
+ 
++    def get_installed(self):
++        """
++        Получить список установленных репозиториев
++        """
++        if path.exists(self.installed) and readFile(self.installed).strip():
++            tree = ET.parse(self.installed)
++            return [x.text for x in tree.findall("repo/name")]
++        return []
++
++
+ class Git:
+     """
+     Объект для управление git репозиторием
+@@ -658,13 +668,14 @@ class EmergeUpdateInfo(Mapping):
+     Информация об обновлении одного пакета
+     """
+ 
+-    install_info = "\[(binary|ebuild)[^\]]+\]"
++    install_info = "\[(binary|ebuild)([^\]]+)\]"
+     atom_info = r"\S+"
+     use_info = 'USE="[^"]+"'
+     prev_version = "\[([^\]]+)\]"
+     pkg_size = r"[\d,]+ \w+"
+ 
+-    attrs = ['binary', 'REPLACING_VERSIONS', 'SIZE']
++    attrs = ['binary', 'REPLACING_VERSIONS', 'SIZE', 'new', 'newslot',
++             'updating', 'downgrading', 'reinstall']
+ 
+     def __init__(self, data):
+         self._data = data
+@@ -675,9 +686,16 @@ class EmergeUpdateInfo(Mapping):
+         r = self.update_info.search(self._data)
+         if r:
+             self._info['binary'] = r.group(2) == 'binary'
+-            self._package = EmergePackage(r.group(3))
+-            self._info['REPLACING_VERSIONS'] = r.group(4) or ""
+-            self._info['SIZE'] = r.group(6) or ""
++            install_flag = r.group(3)
++            self._info['newslot'] = "S" in install_flag
++            self._info['new'] = "N" in install_flag and not "S" in install_flag
++            self._info['updating'] = ("U" in install_flag and
++                                      not "D" in install_flag)
++            self._info['downgrading'] = "D" in install_flag
++            self._info['reinstall'] = "R" in install_flag
++            self._package = EmergePackage(r.group(4))
++            self._info['REPLACING_VERSIONS'] = r.group(5) or ""
++            self._info['SIZE'] = r.group(7) or ""
+ 
+     def __iter__(self):
+         return chain(EmergePackage.attrs, self.attrs)
+@@ -725,7 +743,7 @@ class EmergeRemoveInfo(EmergeUpdateInfo):
+     """
+     Информация об удалении одного пакета (в списке обновляемых пакетов)
+     """
+-    install_info = "\[(uninstall)[^\]]+\]"
++    install_info = "\[(uninstall)([^\]]+)\]"
+ 
+ 
+ class Eix:
+diff --git update/update.py update/update.py
+index 19a1fe2..0f15ada 100644
+--- update/update.py
++++ update/update.py
+@@ -35,7 +35,8 @@ from package_tools import Git, Layman,\
+ 
+ Colors = TextState.Colors
+ from calculate.lib.utils.files import (getProgPath, STDOUT, removeDir,
+-                                       PercentProgress, process)
++                                       PercentProgress, process, getRunCommands,
++                                       readFile)
+ from calculate.lib.cl_lang import (setLocalTranslate, getLazyLocalTranslate,
+                                    RegexpLocalization, _)
+ import emerge_parser
+@@ -115,24 +116,34 @@ class Update:
+         """
+         Проверить повторный запуск
+         """
++        update_running = lambda: any(os.getpid() != x
++            for x in search_worked_process('update', dv))
+         dv = self.clVars
+-        if filter(lambda x: os.getpid() != x,
+-                  search_worked_process('update', dv)):
++        if update_running():
+             if not wait_update:
+                 raise UpdateError(_("Update is already running. "
+                                     "Try to run later."))
+             else:
+                 self.startTask(_("Waiting for another update to be complete"))
+ 
+-                while filter(lambda x: os.getpid() != x,
+-                             search_worked_process('update', dv)):
++                while update_running():
+                     self.pauseProcess()
+-                    while any(ifilter(lambda x: os.getpid() != x,
+-                                      search_worked_process('update', dv))):
++                    while update_running():
+                         time.sleep(0.3)
+                     self.resumeProcess()
+                     time.sleep(random.random()*3)
++                self.endTask()
+ 
++        emerge_running = lambda: any("/usr/bin/emerge" in x
++                                      for x in getRunCommands())
++        if emerge_running():
++            if not wait_update:
++                raise UpdateError(_("Emerge is running. "
++                                    "Try to run later."))
++            else:
++                self.startTask(_("Waiting for emerge to be complete"))
++                while emerge_running():
++                    time.sleep(1)
+                 self.endTask()
+         return True
+ 
+@@ -169,10 +180,10 @@ class Update:
+                                          branch, cb_progress=self.setProgress)
+                     removeDir(rpath)
+                     os.rename(rpath_new, rpath)
+-                except OSError:
+-                    raise UpdateError(_("Permission denied to modify the "
++                except OSError as e:
++                    raise UpdateError(_("Failed to modify the "
+                                         "{repname} repository").format(
+-                        repname=repname))
++                        repname=repname)+":"+str(e))
+                 finally:
+                     if path.exists(rpath_new):
+                         removeDir(rpath_new)
+@@ -217,6 +228,18 @@ class Update:
+         egenCache = getProgPath('/usr/bin/egencache')
+         if not egenCache:
+             raise UpdateError(_("The Portage tool is not found"))
++        path_rep = self.clVars.Select('cl_update_rep_path',
++                                      where='cl_update_rep_name',
++                                      eq=repname, limit=1)
++        repo_name = readFile(
++            path.join(path_rep,"profiles/repo_name")).strip()
++        if repo_name != repname:
++            self.printWARNING(
++                _("Repository '{repo_name}' called '{repname}'"
++                  " in cl_update_rep_name").format(
++                    repo_name=repo_name, repname=repname))
++            raise UpdateError(_("Failed to update the cache of the {rname} "
++                                "repository").format(rname=repname))
+         cpu_num = self.clVars.Get('hr_cpu_num')
+         p = process(egenCache, "--repo=%s" % repname, "--update",
+                     "--jobs=%s" % cpu_num, stderr=STDOUT)
+@@ -234,11 +257,15 @@ class Update:
+         if not emerge:
+             raise UpdateError(_("The Emerge tool is not found"))
+         self.addProgress()
+-        p = PercentProgress(emerge, "--metadata", part=1, atty=True)
++        p = PercentProgress(emerge, "--ask=n", "--metadata", part=1, atty=True)
+         for perc in p.progress():
+             self.setProgress(perc)
+         if p.failed():
+-            raise UpdateError(_("Failed to update metadata"), addon=p.read())
++            data = p.read()
++            with open('/var/log/calculate/failed-metadata-%d.log' % time.time(),
++                      'w') as f:
++                f.write(data+p.alldata)
++            raise UpdateError(_("Failed to update metadata"), addon=data)
+         return True
+ 
+     def eixUpdate(self):
+@@ -253,24 +280,8 @@ class Update:
+         if not eixupdate:
+             raise UpdateError(_("The Eix tool is not found"))
+         self.addProgress()
+-        excludeList = []
+-        if self.clVars.Get('cl_update_eixupdate_force') == 'force':
+-            countRep = len(self.clVars.Get('cl_update_rep_name'))
+-        else:
+-            for rep in self.clVars.Get('cl_update_rep_name'):
+-                # подстановка имен
+-                mapNames = {'portage': 'gentoo'}
+-                if not rep in self.clVars.Get('cl_update_sync_rep'):
+-                    excludeList.extend(["-x", mapNames.get(rep, rep)])
+-            countRep = len(self.clVars.Get('cl_update_sync_rep'))
+-        if (self.clVars.Get('cl_update_other_set') == 'on' or
+-                    self.clVars.Get('cl_update_eixupdate_force') == 'force'):
+-            countRep += len(self.clVars.Get('update.cl_update_other_rep_name'))
+-        else:
+-            for rep in self.clVars.Get('update.cl_update_other_rep_name'):
+-                excludeList.extend(['-x', rep])
+-        p = PercentProgress(eixupdate, "-F", *excludeList, part=countRep or 1,
+-                            atty=True)
++        countRep = len(self.clVars.Get('main.cl_portdir_overlay'))+1
++        p = PercentProgress(eixupdate, "-F", part=countRep or 1, atty=True)
+         for perc in p.progress():
+             self.setProgress(perc)
+         if p.failed():
+@@ -385,12 +396,28 @@ class Update:
+         ebuild_color = TextState.Colors.GREEN
+         binary_color = TextState.Colors.PURPLE
+         remove_color = TextState.Colors.LIGHT_RED
++        flag_map = {"updating":
++                        _print.foreground(TextState.Colors.LIGHT_CYAN)("U"),
++                    "reinstall":
++                        _print.foreground(TextState.Colors.YELLOW)("rR"),
++                    "new":
++                        _print.foreground(TextState.Colors.LIGHT_GREEN)("N"),
++                    "newslot":
++                        _print.foreground(TextState.Colors.LIGHT_GREEN)("NS"),
++                    "downgrading": (
++                        _print.foreground(TextState.Colors.LIGHT_CYAN)("U") +
++                        _print.foreground(TextState.Colors.LIGHT_BLUE)("D"))}
+         for pkg in sorted([PackageInformation.add_info(x) for x in
+                            pkglist],
+                           key=lambda y: y['CATEGORY/PN']):
++            install_flag = ""
+             if remove_list:
+                 pkgcolor = _print.foreground(remove_color)
+             else:
++                for flag in flag_map:
++                    if pkg[flag]:
++                        install_flag = "(%s) " % flag_map[flag]
++                        break
+                 if self.is_binary_pkg(pkg):
+                     pkgcolor = _print.foreground(binary_color)
+                 else:
+@@ -407,8 +434,10 @@ class Update:
+             else:
+                 size = ""
+             mult = _print.bold("*")
+-            self.printDefault("&nbsp;{mult} {fullname}{shortname}{size}".format(
+-                mult=mult, fullname=fullname, shortname=shortname, size=size))
++            self.printDefault(
++                "&nbsp;{mult} {fullname}{flag}{shortname}{size}".format(
++                mult=mult, fullname=fullname, shortname=shortname, size=size,
++                flag=install_flag))
+ 
+     def _display_install_package(self, emerge):
+         """
+diff --git update/utils/cl_update.py update/utils/cl_update.py
+index d300ea0..0a815ff 100644
+--- update/utils/cl_update.py
++++ update/utils/cl_update.py
+@@ -192,6 +192,13 @@ class ClUpdateAction(Action):
+               'condition': was_installed('.*', log_names['revdep']),
+               'decoration': 'Update.update_task("%s")' % log_names['revdep']
+              },
++             {'name': 'update_other:dispatch_conf_end',
++              'message': __("Updating configuration files"),
++              'method':'Update.dispatchConf()',
++              'condition': lambda Get: ((Get('cl_update_rev_set') == 'on' or
++                                         Get('cl_rebuild_world_set') == 'on') and
++                                        Get('cl_update_pretend_set') == 'off')
++             },
+          ]
+         },
+         {'name': 'update:set_upto_date_cache',
+diff --git update/variables/update.py update/variables/update.py
+index 1c22e5c..3173c23 100644
+--- update/variables/update.py
++++ update/variables/update.py
+@@ -21,10 +21,12 @@ from os import path
+ from calculate.lib.datavars import (Variable, VariableError,
+     ReadonlyVariable, ReadonlyTableVariable, TableVariable, FieldValue)
+ from calculate.lib.utils.portage import searchProfile
+-from calculate.lib.utils.files import readLinesFile, readFile
++from calculate.lib.utils.files import readLinesFile, readFile, makeDirectory, \
++    listDirectory
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+ from calculate.update.emerge_parser import EmergeCache
++from calculate.update.package_tools import Git, GitError, Layman
+ 
+ setLocalTranslate('cl_update3',sys.modules[__name__])
+ 
+@@ -327,7 +329,7 @@ class VariableClUpdateOtherSet(Variable):
+     """
+     type = "bool"
+     value = "off"
+-    opt = ["--update-other"]
++    opt = ["-o", "--update-other"]
+ 
+     def init(self):
+         self.help = _("update other overlays")
+@@ -342,10 +344,13 @@ class VariableClUpdateOtherRepData(ReadonlyTableVariable):
+ 
+     def generator(self):
+         repNames = self.Get('cl_update_rep_name')
++        layman = Layman(self.Get('cl_update_layman_installed'),
++                        self.Get('cl_update_layman_make'))
++        layman_overlays = layman.get_installed()
+         for rpath in self.Get('cl_portdir_overlay'):
+-            repo_file = path.join(rpath,"profiles/repo_name")
++            repo_file = path.join(rpath, "profiles/repo_name")
+             rname = readFile(repo_file).strip() or path.basename(rpath)
+-            if not rname in repNames:
++            if rname in layman_overlays and not rname in repNames:
+                 yield (rname, rpath)
+ 
+     def get(self):
