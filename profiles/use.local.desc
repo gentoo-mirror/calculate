@@ -7,3 +7,6 @@ sys-apps/calculate-install:pxe - Enables support for PXE installation
 sys-kernel/calculate-sources:vmlinuz - Build kernel, modules and initramfs
 sys-kernel/calculate-sources:bfq - Apply kernel patch for BFQ I/O scheduler
 sys-kernel/calculate-sources:bfs - Apply kernel patch for BF scheduler
+sys-kernel/calculate-sources:minimal - Don't install kernel sources
+sys-kernel/calculate-sources:themes - Include Calculate plymouth theme
+sys-kernel/calculate-sources:plymouth - Include plymouth
