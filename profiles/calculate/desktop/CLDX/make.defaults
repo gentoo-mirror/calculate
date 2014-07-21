@@ -12,7 +12,6 @@ USE="${USE} -dconf gnome-keyring networkmanager"
 # Window manager and specialities
 USE="${USE} -eds -gnome -kde"
 
-CDISTRO="CLDX desktop"
+LIGHTDM_SESSION=xfce
 CL="builder client desktop console consolegui"
 THEMES="CLDX"
-LIGHTDM_SESSION=xfce
