@@ -1,0 +1,128 @@
+diff --git update/update.py update/update.py
+index 42031ff..26c3966 100644
+--- update/update.py
++++ update/update.py
+@@ -32,12 +32,12 @@ import math
+ 
+ from package_tools import Git, Layman,\
+     EmergeLogNamedTask, EmergeLog, GitError, \
+-    PackageInformation, PackageList
++    PackageInformation, PackageList, EmergePackage
+ 
+ Colors = TextState.Colors
+ from calculate.lib.utils.files import (getProgPath, STDOUT, removeDir,
+                                        PercentProgress, process, getRunCommands,
+-                                       readFile)
++                                       readFile, listDirectory)
+ import emerge_parser
+ import logging
+ from emerge_parser import EmergeParser, EmergeCommand, EmergeError, EmergeCache
+@@ -68,6 +68,7 @@ class Update:
+             self.emerge_cache.check_list +
+             map(emerge_parser.GitCheckvalue,
+                 self.clVars.Get('update.cl_update_rep_path')))
++        self.update_map = {}
+ 
+     def _syncRepository(self, name, url, rpath, revision, branch,
+                         cb_progress=None):
+@@ -316,16 +317,26 @@ class Update:
+         _print = self.color_print
+         one = _print("{0}", num)
+         two = _print("{0}", max_num)
+-        part = _(" ({current} of {maximum})").format(current=one,
++        part = _("({current} of {maximum})").format(current=one,
+                                                      maximum=two)
++        _print = _print.foreground(Colors.DEFAULT)
+         if self.is_binary_pkg(pkg,binary):
+-            _print = _print.foreground(Colors.PURPLE)
++            _colorprint = _print.foreground(Colors.PURPLE)
+         else:
+-            _print = _print.foreground(Colors.GREEN)
+-
++            _colorprint = _print.foreground(Colors.GREEN)
++
++        PackageInformation.add_info(pkg)
++        name = ""
++        if pkg.info['DESCRIPTION']:
++            name = _(pkg.info['DESCRIPTION'])
++            name = name[:1].upper() + name[1:]
++        if not name:
++            name = str(pkg)
++
++        self.printSUCCESS(
++            _("{part} {package}").format(part=part, package=name))
+         self.startTask(
+-            _("Emerging{part} {package}").format(part=part,
+-                                                package=_print(str(pkg))))
++            _("Emerging {package}").format(package=_colorprint(str(pkg))))
+ 
+     def _printInstallPackage(self, pkg, binary=False):
+         """
+@@ -337,8 +348,14 @@ class Update:
+             _print = _print.foreground(Colors.PURPLE)
+         else:
+             _print = _print.foreground(Colors.GREEN)
+-        self.startTask(_("Installing %s") %
+-                       _print(str(pkg)))
++        #print listDirectory('/var/db/pkg/%s' % pkg['CATEGORY'])
++        pkg_key = "{CATEGORY}/{PF}".format(**pkg)
++        if pkg_key in self.update_map:
++            self.startTask(_("Installing {pkg} [{oldver}]").format(
++                pkg=_print(str(pkg)), oldver=self.update_map[ pkg_key]))
++        else:
++            self.startTask(_("Installing %s") % (_print(str(pkg))))
++
+ 
+     def _printFetching(self, fn):
+         """
+@@ -580,6 +597,12 @@ class Update:
+         """
+         Настроить и выполнить emerge
+         """
++        if emerge.install_packages and emerge.install_packages.list:
++            for pkg in emerge.install_packages.list:
++                rv = pkg.get('REPLACING_VERSIONS', '')
++                if rv:
++                    self.update_map["{CATEGORY}/{PF}".format(**pkg)] = \
++                        rv.partition(":")[0]
+         emerge.command.send("yes\n")
+         emerge.emerging.add_observer(self._printEmergePackage)
+         emerge.installing.add_observer(self._printInstallPackage)
+diff --git update/variables/update.py update/variables/update.py
+index 6ce3896..a53d1fa 100644
+--- update/variables/update.py
++++ update/variables/update.py
+@@ -458,7 +458,7 @@ class VariableClUpdateProfileLinuxFullname(ReadonlyVariable):
+     Имя системы в профиле
+     """
+     def init(self):
+-        self.label = _("Profile system name")
++        self.label = _("Distribution name")
+ 
+     def get(self):
+         dv = self.Get('cl_update_profile_datavars')
+@@ -466,9 +466,10 @@ class VariableClUpdateProfileLinuxFullname(ReadonlyVariable):
+             try:
+                 subname = dv.Get('os_linux_subname')
+                 linuxname = dv.Get('os_linux_name')
++                linuxver = dv.Get('os_linux_ver')
+                 if subname:
+-                    return "%s %s" % (linuxname, subname)
+-                return linuxname
++                    return "%s %s %s" % (linuxname, linuxver, subname)
++                return "%s %s" %(linuxname,linuxver)
+             except DataVarsError:
+                 raise VariableError("Wrong Calculate Linux profile")
+         return ""
+diff --git update/wsdl_update.py update/wsdl_update.py
+index 9563c11..5bb0c88 100644
+--- update/wsdl_update.py
++++ update/wsdl_update.py
+@@ -115,7 +115,6 @@ class Wsdl(WsdlBase):
+                                     normal=('cl_update_profile_system',),
+                                     brief=('cl_update_profile_system',
+                                            'cl_update_profile_linux_fullname',
+-                                           'cl_update_profile_linux_ver',
+                                            'cl_update_profile_depend_data')
+                                     )],
+             'brief': {'next': __("Perform"),
