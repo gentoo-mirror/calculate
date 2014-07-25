@@ -76,6 +76,11 @@ x11-libs/gksu
 virtual/rubygems
 #in#
 
+#?in(os_linux_shortname, CLDX)!=#
+# write to world for keep package on during depclean (ruby is used for DEPEND)
+dev-lang/vala
+#in#
+
 #?in(os_linux_shortname, CLD, CMC)!=#
 sys-power/upower-pm-utils
 #in#
