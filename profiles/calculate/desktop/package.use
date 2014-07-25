@@ -120,3 +120,6 @@ sys-libs/gpm static-libs
 # в pulseaudio при смене громкости
 media-libs/libcanberra -sound
 
+# исключение лишнего функционала
+media-gfx/gimp -udev
+
