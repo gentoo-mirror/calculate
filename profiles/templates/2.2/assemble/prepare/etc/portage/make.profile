@@ -1,1 +1,1 @@
-# Calculate append=remove
+# Calculate cl_ver<2.2.32 append=remove
