@@ -1,0 +1,27 @@
+diff --git calculate/lib/datavars.py calculate/lib/datavars.py
+index 96ae928..f64150c 100644
+--- calculate/lib/datavars.py
++++ calculate/lib/datavars.py
+@@ -811,7 +811,7 @@ class SimpleDataVars:
+             if not varname in self.cache:
+                 val = self.unserialize(varobj.type or "string",
+                     importVars[varobj.section].get(varname,'').encode('utf-8'))
+-                if val:
++                if val or varname in importVars[varobj.section]:
+                     self.cache[varname] = val
+ 
+     def serialize(self,varType,value):
+diff --git calculate/lib/variables/env.py calculate/lib/variables/env.py
+index 86f1bfb..f6d7e5d 100644
+--- calculate/lib/variables/env.py
++++ calculate/lib/variables/env.py
+@@ -428,5 +428,8 @@ class VariableClMakeProfile(Variable):
+         val = self.get_work_link(
+             *[path.join(self.systemRoot, x) for x in files])
+         if not val:
+-            raise VariableError(_("Failed to detect the system profile"))
++            raise VariableError(
++                _("Failed to detect the system profile.") + " " +
++                _("Select profile by command {cmd}").format(
++                    cmd="cl-update-profile"))
+         return val
