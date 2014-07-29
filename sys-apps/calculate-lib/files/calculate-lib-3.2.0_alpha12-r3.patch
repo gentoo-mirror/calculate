@@ -1,0 +1,56 @@
+diff --git calculate/lib/datavars.py calculate/lib/datavars.py
+index 96ae928..f64150c 100644
+--- calculate/lib/datavars.py
++++ calculate/lib/datavars.py
+@@ -811,7 +811,7 @@ class SimpleDataVars:
+             if not varname in self.cache:
+                 val = self.unserialize(varobj.type or "string",
+                     importVars[varobj.section].get(varname,'').encode('utf-8'))
+-                if val:
++                if val or varname in importVars[varobj.section]:
+                     self.cache[varname] = val
+ 
+     def serialize(self,varType,value):
+diff --git calculate/lib/variables/env.py calculate/lib/variables/env.py
+index 86f1bfb..6493ff8 100644
+--- calculate/lib/variables/env.py
++++ calculate/lib/variables/env.py
+@@ -336,6 +336,7 @@ class VariableClEmergeInfo(ReadonlyVariable):
+ 
+     def get(self):
+         return filter(lambda x:x.startswith('PORTDIR_OVERLAY=') or \
++                               x.startswith('EMERGE') or \
+                                x.startswith('PORTDIR='),
+                process("/usr/bin/emerge","--ask=n","--info",
+                        envdict=os.environ).read().split('\n'))
+@@ -354,6 +355,20 @@ class VariableClPortdirOverlay(ReadonlyVariable):
+                    line.partition("=")[2].strip('\n"\'').split(' '))
+         return []
+ 
++class VariableClEmergeDefaultOpts(ReadonlyVariable):
++    """
++    EMERGE_DEFAULT_OPTS
++    """
++    type = "list"
++
++    def get(self):
++        emergeInfo = self.Get('cl_emerge_info')
++        for line in filter(lambda x:x.startswith("EMERGE_DEFAULT_OPTS="),
++                           emergeInfo):
++            return filter(None,
++                          line.partition("=")[2].strip('\n"\'').split(' '))
++        return []
++
+ class VariableClTemplatesLocate(Variable):
+     """
+     Выбранные типы хранилищ шаблонов
+@@ -428,5 +443,8 @@ class VariableClMakeProfile(Variable):
+         val = self.get_work_link(
+             *[path.join(self.systemRoot, x) for x in files])
+         if not val:
+-            raise VariableError(_("Failed to detect the system profile"))
++            raise VariableError(
++                _("Failed to detect the system profile.") + " " +
++                _("Select profile by command {cmd}").format(
++                    cmd="cl-update-profile"))
+         return val
