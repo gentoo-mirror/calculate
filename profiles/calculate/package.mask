@@ -29,6 +29,9 @@
 >=virtual/perl-File-Temp-0.230.0
 >=virtual/perl-I18N-LangTags-0.390.0
 
+# без патча m2crypto не позволяет работать корректно с сертификатами
+>dev-python/m2crypto-0.21.1-r1
+
 # mask all device-mapper for using lvm2
 sys-fs/device-mapper
 
