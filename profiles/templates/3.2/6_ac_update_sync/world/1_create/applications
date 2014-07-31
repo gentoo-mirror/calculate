@@ -1,11 +1,13 @@
 # Calculate name=world format=world
 
+#?in(os_linux_pkglist, base)!=#
 app-i18n/man-pages-de
 app-i18n/man-pages-fr
 app-i18n/man-pages-it
 app-i18n/man-pages-pl
 app-i18n/man-pages-ro
 app-i18n/man-pages-ru
+#in#
 
 #?in(os_linux_pkglist, CLD, CLDX)!=#
 app-dicts/aspell-bg

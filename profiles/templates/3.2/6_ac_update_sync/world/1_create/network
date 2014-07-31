@@ -1,6 +1,8 @@
 # Calculate name=world format=world
 
+#?in(os_linux_pkglist, base)!=#
 net-fs/nfs-utils
+#in#
 
 #?in(os_linux_pkglist, CLD, CLDX, CDS, CMC)!=#
 net-dns/bind-tools

@@ -1,7 +1,9 @@
 # Calculate name=world format=world
 
+#?in(os_linux_pkglist, base)!=#
 media-gfx/grub-splashes-calculate
 media-gfx/syslinux-themes-calculate
+#in#
 
 #?in(os_linux_pkglist, CLD, CLDX, CMC, CLS, CDS)!=#
 media-gfx/splash-themes-calculate

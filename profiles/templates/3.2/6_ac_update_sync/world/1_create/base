@@ -1,5 +1,6 @@
 # Calculate name=world format=world
 
+#?in(os_linux_pkglist, base)!=#
 app-editors/nano
 app-portage/eix
 app-portage/gentoolkit
@@ -20,14 +21,15 @@ sys-fs/nilfs-utils
 sys-fs/reiserfsprogs
 sys-kernel/calckernel
 sys-kernel/calculate-sources
+#in#
 
-#?os_arch_machine==x86_64#
+#?in(os_linux_pkglist, base)!=&&os_arch_machine==x86_64#
 sys-boot/efibootmgr
 sys-boot/gnu-efi
 app-crypt/shim-signed
 app-crypt/sbsigntool
-#os_arch_machine#
+#in#
 
-#?os_linux_system==desktop#
+#?in(os_linux_pkglist, base)!=&&os_linux_system==desktop#
 sys-fs/ecryptfs-utils
-#os_linux_system#
+#in#
