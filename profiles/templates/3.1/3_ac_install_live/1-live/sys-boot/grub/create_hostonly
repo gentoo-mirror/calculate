@@ -1,4 +1,4 @@
-# Calculate exec=/bin/bash ac_install_disk==off pkg(sys-kernel/dracut)!=
+# Calculate exec=/bin/bash ac_install_disk==off pkg(sys-kernel/dracut)!=&&os_install_root_type!=livecd
 #!/bin/bash
 
 source /usr/share/grub/grub-mkconfig_lib
