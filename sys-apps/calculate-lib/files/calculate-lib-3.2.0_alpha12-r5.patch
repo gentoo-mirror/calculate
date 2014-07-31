@@ -1,0 +1,237 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index f5cc228..fe055a8 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -2973,25 +2973,32 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+         """
+         Function in for check value in variable
+         """
+-        terms = funArgv.replace(" ","").split(",")
++        terms = funArgv.replace(" ", "").split(",")
+         # Название локальной переменной
+         nameLocVar = terms[0]
+         flagFoundVar = False
+         try:
+-            value =  self.objVar.Get(nameLocVar)
++            value = self.objVar.Get(nameLocVar)
+             flagFoundVar = True
+         except:
+             pass
+         if flagFoundVar:
+-            if value in terms[1:]:
+-                replace = "1"
++            if type(value) in (list, tuple):
++                terms = terms[1:]
++                if any(x in terms for x in value):
++                    replace = "1"
++                else:
++                    replace = ""
+             else:
+-                replace = ""
++                if value in terms[1:]:
++                    replace = "1"
++                else:
++                    replace = ""
+         else:
+-            self.raiseErrTemplate(_("error: variable %s does not exist")\
+-                                     %str(nameLocVar))
+-        textTemplateTmp = textTemplateTmp[:resS.start()] + replace +\
+-                textTemplateTmp[resS.end():]
++            self.raiseErrTemplate(_("error: variable %s does not exist") \
++                                  % str(nameLocVar))
++        textTemplateTmp = textTemplateTmp[:resS.start()] + replace + \
++                          textTemplateTmp[resS.end():]
+         return textTemplateTmp
+ 
+     def funcPush(self, funArgv, resS, localVars, textTemplateTmp, nameTemp):
+diff --git calculate/lib/datavars.py calculate/lib/datavars.py
+index 96ae928..f8050ec 100644
+--- calculate/lib/datavars.py
++++ calculate/lib/datavars.py
+@@ -811,39 +811,44 @@ class SimpleDataVars:
+             if not varname in self.cache:
+                 val = self.unserialize(varobj.type or "string",
+                     importVars[varobj.section].get(varname,'').encode('utf-8'))
+-                if val:
++                if val or varname in importVars[varobj.section]:
+                     self.cache[varname] = val
+ 
+-    def serialize(self,varType,value):
++    @staticmethod
++    def serialize(varType, value):
+         """
+         Serialize to string for ini file
+         """
+         fixEmpty = lambda x: str(x) or "''"
+-        fixSpace = lambda x: "'%s'"%str(x) if " " in str(x) else str(x)
+-        isListOrTuple = lambda x: type(x) in (list,tuple)
++        fixSpace = lambda x: "'%s'" % str(x) if " " in str(x) else str(x)
++        isListOrTuple = lambda x: type(x) in (list, tuple)
+         if isListOrTuple(value):
+             if "list" in varType:
+-                return ",".join(map(fixEmpty,value))
++                return ",".join(map(fixEmpty, value))
+             elif "table" in varType:
+-                return ",".join(map(lambda x:":".join(map(fixEmpty,x)),
+-                                value))
++                return ",".join(map(lambda x: ":".join(map(fixEmpty, x)),
++                                    value))
+         return fixEmpty(value)
+ 
+-    def unserialize(self,varType,value):
++    @staticmethod
++    def unserialize(varType, value):
+         """
+         Unserialize form string for varname
+         """
+-        fixEmpty = lambda x:"" if x=="''" or x=='""' else x.strip()
++        fixEmpty = lambda x: "" if x == "''" or x == '""' else x.strip()
++
+         def getList(delimeter=','):
+             def wrapper(val):
+                 if val == "":
+                     return []
+-                return map(fixEmpty,val.split(delimeter))
++                return map(fixEmpty, val.split(delimeter))
++
+             return wrapper
++
+         if "list" in varType:
+             return getList()(value)
+         if "table" in varType:
+-            return map(getList(':'),value.split(','))
++            return map(getList(':'), value.split(','))
+         return fixEmpty(value).strip("'").strip('"')
+ 
+ 
+diff --git calculate/lib/utils/files.py calculate/lib/utils/files.py
+index 6fddc6f..b9d4497 100644
+--- calculate/lib/utils/files.py
++++ calculate/lib/utils/files.py
+@@ -539,21 +539,26 @@ def removeDir(rmDir):
+         rmtree(rmDir)
+         return True
+ 
+-def getRunCommands():
++def getRunCommands(not_chroot=False):
+     """List run program"""
+     def getCmd(procNum):
+         cmdLineFile = '/proc/%s/cmdline'%procNum
+         try:
+             if path.exists(cmdLineFile):
++                if not_chroot:
++                    root_link = '/proc/%s/root'%procNum
++                    if os.readlink(root_link) != "/":
++                        return ""
+                 return open(cmdLineFile,'r').read().strip()
+-        except:
++        except Exception as e:
+             pass
+         return ""
+     if not os.access('/proc',os.R_OK):
+         return []
+-    return map(getCmd,
++    return filter(None,
++           map(getCmd,
+            filter(lambda x:x.isdigit(),
+-           listDirectory('/proc')))
++           listDirectory('/proc'))))
+ 
+ 
+ def isMount(pathname):
+diff --git calculate/lib/variables/__init__.py calculate/lib/variables/__init__.py
+index 5e18176..9d3cf79 100644
+--- calculate/lib/variables/__init__.py
++++ calculate/lib/variables/__init__.py
+@@ -41,4 +41,4 @@ class VariableClVer(ReadonlyVariable):
+     """
+     Package version
+     """
+-    value = "3.2.0"
++    value = "3.2.0.1"
+diff --git calculate/lib/variables/env.py calculate/lib/variables/env.py
+index 86f1bfb..6493ff8 100644
+--- calculate/lib/variables/env.py
++++ calculate/lib/variables/env.py
+@@ -336,6 +336,7 @@ class VariableClEmergeInfo(ReadonlyVariable):
+ 
+     def get(self):
+         return filter(lambda x:x.startswith('PORTDIR_OVERLAY=') or \
++                               x.startswith('EMERGE') or \
+                                x.startswith('PORTDIR='),
+                process("/usr/bin/emerge","--ask=n","--info",
+                        envdict=os.environ).read().split('\n'))
+@@ -354,6 +355,20 @@ class VariableClPortdirOverlay(ReadonlyVariable):
+                    line.partition("=")[2].strip('\n"\'').split(' '))
+         return []
+ 
++class VariableClEmergeDefaultOpts(ReadonlyVariable):
++    """
++    EMERGE_DEFAULT_OPTS
++    """
++    type = "list"
++
++    def get(self):
++        emergeInfo = self.Get('cl_emerge_info')
++        for line in filter(lambda x:x.startswith("EMERGE_DEFAULT_OPTS="),
++                           emergeInfo):
++            return filter(None,
++                          line.partition("=")[2].strip('\n"\'').split(' '))
++        return []
++
+ class VariableClTemplatesLocate(Variable):
+     """
+     Выбранные типы хранилищ шаблонов
+@@ -428,5 +443,8 @@ class VariableClMakeProfile(Variable):
+         val = self.get_work_link(
+             *[path.join(self.systemRoot, x) for x in files])
+         if not val:
+-            raise VariableError(_("Failed to detect the system profile"))
++            raise VariableError(
++                _("Failed to detect the system profile.") + " " +
++                _("Select profile by command {cmd}").format(
++                    cmd="cl-update-profile"))
+         return val
+diff --git calculate/lib/variables/linux.py calculate/lib/variables/linux.py
+index d49c773..f5c7a00 100644
+--- calculate/lib/variables/linux.py
++++ calculate/lib/variables/linux.py
+@@ -18,8 +18,9 @@ import os
+ from os import path
+ import re
+ import platform
++from calculate.lib.cl_template import iniParser
+ from calculate.lib.datavars import Variable, SimpleDataVars
+-from calculate.lib.utils.portage import isPkgInstalled
++from calculate.lib.utils.portage import isPkgInstalled, searchProfile
+ from calculate.lib.utils.files import readFile
+ from env import VariableClMakeProfile
+ 
+@@ -224,6 +225,27 @@ class VariableOsLinuxFiles(Variable,Linux):
+         #return str(countFiles(self.systemRoot))
+ 
+ 
++class VariableOsLinuxPkglist(Variable):
++    type = "list"
++
++    def generate_shortnames(self, make_profile):
++        for fn in searchProfile(make_profile, "calculate.env"):
++            ini = iniParser(fn)
++            value = SimpleDataVars.unserialize("string",
++                                               ini.getVar('main',
++                                                          'os_linux_shortname'))
++            yield value.encode('utf-8')
++        yield "base"
++
++    def get(self):
++        make_profile = self.Get('cl_make_profile')
++        if path.exists(make_profile):
++            return list(set(filter(None,
++                                   self.generate_shortnames(make_profile))))
++        else:
++            return []
++
++
+ class LinuxDataVars(SimpleDataVars):
+     def __init__(self, systemRoot="/"):
+         self.systemRoot = systemRoot
