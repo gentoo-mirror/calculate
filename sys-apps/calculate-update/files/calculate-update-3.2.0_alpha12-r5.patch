@@ -1,0 +1,311 @@
+diff --git update/emerge_parser.py update/emerge_parser.py
+index a9064c6..33d5699 100644
+--- update/emerge_parser.py
++++ update/emerge_parser.py
+@@ -102,12 +102,21 @@ class EmergeCommand(CommandExecutor):
+     cmd = getProgPath("/usr/bin/emerge")
+ 
+     def __init__(self, packages, extra_params=None, env=None, cwd=None,
+-                 logfile=None):
++                 logfile=None, emerge_default_opts=None):
+         extra_params = extra_params or []
+         self.child = None
+         self.packages = packages
+         self.params = self.default_params + extra_params
+-        default_env = {'CLEAN_DELAY': '0'}
++        wrong_default_opts = ("--columns","--ask ", "--ask=")
++        if emerge_default_opts is None:
++            default_env = {'CLEAN_DELAY': '0'}
++        else:
++            default_env = {
++                'CLEAN_DELAY': '0',
++                'EMERGE_DEFAULT_OPTS': " ".join(filter(
++                    lambda x: not any(y in x for y in wrong_default_opts),
++                    emerge_default_opts))
++            }
+         default_env.update(os.environ)
+         self.env = env or default_env
+         self.cwd = cwd
+diff --git update/profile.py update/profile.py
+index 524be5d..fb5188f 100644
+--- update/profile.py
++++ update/profile.py
+@@ -230,7 +230,9 @@ class ProfileRepository(object):
+         Синхронизировать репозиторий
+         """
+         git = Git()
+-        git.pullRepository(self.directory)
++        if not git.pullRepository(self.directory, quiet_error=True):
++            git.resetRepository(self.directory, to_origin=True)
++            git.pullRepository(self.directory, quiet_error=True)
+ 
+     def get_profiles(self):
+         """
+diff --git update/update.py update/update.py
+index 42031ff..053d307 100644
+--- update/update.py
++++ update/update.py
+@@ -32,12 +32,12 @@ import math
+ 
+ from package_tools import Git, Layman,\
+     EmergeLogNamedTask, EmergeLog, GitError, \
+-    PackageInformation, PackageList
++    PackageInformation, PackageList, EmergePackage
+ 
+ Colors = TextState.Colors
+ from calculate.lib.utils.files import (getProgPath, STDOUT, removeDir,
+                                        PercentProgress, process, getRunCommands,
+-                                       readFile)
++                                       readFile, listDirectory)
+ import emerge_parser
+ import logging
+ from emerge_parser import EmergeParser, EmergeCommand, EmergeError, EmergeCache
+@@ -68,6 +68,7 @@ class Update:
+             self.emerge_cache.check_list +
+             map(emerge_parser.GitCheckvalue,
+                 self.clVars.Get('update.cl_update_rep_path')))
++        self.update_map = {}
+ 
+     def _syncRepository(self, name, url, rpath, revision, branch,
+                         cb_progress=None):
+@@ -135,17 +136,18 @@ class Update:
+                     time.sleep(random.random()*3)
+                 self.endTask()
+ 
+-        emerge_running = lambda: any("/usr/bin/emerge" in x
+-                                      for x in getRunCommands())
+-        if emerge_running():
+-            if not wait_update:
+-                raise UpdateError(_("Emerge is running. "
+-                                    "Try to run later."))
+-            else:
+-                self.startTask(_("Waiting for emerge to be complete"))
+-                while emerge_running():
+-                    time.sleep(1)
+-                self.endTask()
++        if self.clVars.Get('cl_chroot_status') == 'off':
++            emerge_running = lambda: any("/usr/bin/emerge" in x
++                                          for x in getRunCommands(True))
++            if emerge_running():
++                if not wait_update:
++                    raise UpdateError(_("Emerge is running. "
++                                        "Try to run later."))
++                else:
++                    self.startTask(_("Waiting for emerge to be complete"))
++                    while emerge_running():
++                        time.sleep(1)
++                    self.endTask()
+         return True
+ 
+     def syncRepositories(self, repname, clean_on_error=True):
+@@ -316,16 +318,26 @@ class Update:
+         _print = self.color_print
+         one = _print("{0}", num)
+         two = _print("{0}", max_num)
+-        part = _(" ({current} of {maximum})").format(current=one,
++        part = _("({current} of {maximum})").format(current=one,
+                                                      maximum=two)
++        _print = _print.foreground(Colors.DEFAULT)
+         if self.is_binary_pkg(pkg,binary):
+-            _print = _print.foreground(Colors.PURPLE)
++            _colorprint = _print.foreground(Colors.PURPLE)
+         else:
+-            _print = _print.foreground(Colors.GREEN)
+-
++            _colorprint = _print.foreground(Colors.GREEN)
++
++        PackageInformation.add_info(pkg)
++        name = ""
++        if pkg.info['DESCRIPTION']:
++            name = _(pkg.info['DESCRIPTION'])
++            name = name[:1].upper() + name[1:]
++        if not name:
++            name = str(pkg)
++
++        self.printSUCCESS(
++            _("{part} {package}").format(part=part, package=name))
+         self.startTask(
+-            _("Emerging{part} {package}").format(part=part,
+-                                                package=_print(str(pkg))))
++            _("Emerging {package}").format(package=_colorprint(str(pkg))))
+ 
+     def _printInstallPackage(self, pkg, binary=False):
+         """
+@@ -337,8 +349,14 @@ class Update:
+             _print = _print.foreground(Colors.PURPLE)
+         else:
+             _print = _print.foreground(Colors.GREEN)
+-        self.startTask(_("Installing %s") %
+-                       _print(str(pkg)))
++        #print listDirectory('/var/db/pkg/%s' % pkg['CATEGORY'])
++        pkg_key = "{CATEGORY}/{PF}".format(**pkg)
++        if pkg_key in self.update_map:
++            self.startTask(_("Installing {pkg} [{oldver}]").format(
++                pkg=_print(str(pkg)), oldver=self.update_map[ pkg_key]))
++        else:
++            self.startTask(_("Installing %s") % (_print(str(pkg))))
++
+ 
+     def _printFetching(self, fn):
+         """
+@@ -516,6 +534,7 @@ class Update:
+         """
+         Вывести информацию об обновлении
+         """
++        deo = self.clVars.Get('cl_emerge_default_opts')
+         param, packages = self.getCacheOnWorld(param, packages, check=True)
+         param = [param, "-pv"]
+ 
+@@ -523,8 +542,8 @@ class Update:
+             self.printSUCCESS(_("Installed packages are up to date"))
+             self.set_need_update(False)
+             return True
+-        with EmergeParser(EmergeCommand(list(packages),
+-                                          extra_params=param)) as emerge:
++        with EmergeParser(EmergeCommand(list(packages), emerge_default_opts=deo,
++                                        extra_params=param)) as emerge:
+             try:
+                 emerge.run()
+                 if "@world" in packages:
+@@ -580,6 +599,12 @@ class Update:
+         """
+         Настроить и выполнить emerge
+         """
++        if emerge.install_packages and emerge.install_packages.list:
++            for pkg in emerge.install_packages.list:
++                rv = pkg.get('REPLACING_VERSIONS', '')
++                if rv:
++                    self.update_map["{CATEGORY}/{PF}".format(**pkg)] = \
++                        rv.partition(":")[0]
+         emerge.command.send("yes\n")
+         emerge.emerging.add_observer(self._printEmergePackage)
+         emerge.installing.add_observer(self._printInstallPackage)
+@@ -600,6 +625,7 @@ class Update:
+         """
+         Выполнить сборку пакета
+         """
++        deo = self.clVars.Get('cl_emerge_default_opts')
+         if not packages:
+             packages = [param]
+             extra_params = None
+@@ -608,7 +634,7 @@ class Update:
+             if not packages:
+                 return True
+             extra_params = [param]
+-        with EmergeParser(EmergeCommand(list(packages),
++        with EmergeParser(EmergeCommand(list(packages), emerge_default_opts=deo,
+                                         extra_params=extra_params)) as emerge:
+             try:
+                 emerge.question.action = lambda x: False
+@@ -626,7 +652,9 @@ class Update:
+         """
+         Выполнить очистку системы от лишних пакетов
+         """
+-        with EmergeParser(EmergeCommand(["--depclean"])) as emerge:
++        deo = self.clVars.Get('cl_emerge_default_opts')
++        with EmergeParser(EmergeCommand(["--depclean"],
++                                        emerge_default_opts=deo)) as emerge:
+             try:
+                 emerge.question.action = lambda x: False
+                 emerge.run()
+diff --git update/variables/update.py update/variables/update.py
+index 6ce3896..29a6c1a 100644
+--- update/variables/update.py
++++ update/variables/update.py
+@@ -31,10 +31,10 @@ from calculate.update.package_tools import Git, GitError, Layman
+ from calculate.update.profile import RepositoryStorageSet, DEFAULT_BRANCH
+ 
+ from calculate.lib.variables.linux import VariableOsLinuxName, \
+-    VariableOsLinuxSubname, VariableOsLinuxVer
++    VariableOsLinuxSubname, VariableOsLinuxVer, VariableOsLinuxShortname
+ 
+ 
+-setLocalTranslate('cl_update3',sys.modules[__name__])
++setLocalTranslate('cl_update3', sys.modules[__name__])
+ 
+ class VariableAcUpdateSync(ReadonlyVariable):
+     """
+@@ -458,7 +458,7 @@ class VariableClUpdateProfileLinuxFullname(ReadonlyVariable):
+     Имя системы в профиле
+     """
+     def init(self):
+-        self.label = _("Profile system name")
++        self.label = _("Distribution name")
+ 
+     def get(self):
+         dv = self.Get('cl_update_profile_datavars')
+@@ -466,9 +466,10 @@ class VariableClUpdateProfileLinuxFullname(ReadonlyVariable):
+             try:
+                 subname = dv.Get('os_linux_subname')
+                 linuxname = dv.Get('os_linux_name')
++                linuxver = dv.Get('os_linux_ver')
+                 if subname:
+-                    return "%s %s" % (linuxname, subname)
+-                return linuxname
++                    return "%s %s %s" % (linuxname, linuxver, subname)
++                return "%s %s" %(linuxname,linuxver)
+             except DataVarsError:
+                 raise VariableError("Wrong Calculate Linux profile")
+         return ""
+@@ -714,8 +715,10 @@ class VariableClProfileData(ReadonlyTableVariable):
+         try:
+             rep_set = self.Get('cl_update_profile_storage')
+             branch = self.Get('cl_update_profile_branch')
+-            profiles = rep_set.get_profiles(url, branch)
+             rep = rep_set.get_repository(url, branch)
++            if rep and self.Get('cl_update_profile_sync_set') == 'on':
++                rep.sync()
++            profiles = rep_set.get_profiles(url, branch)
+         except GitError:
+             return [[]]
+         arch = self.Get('os_arch_machine_gentoo')
+@@ -841,6 +844,7 @@ class DataVarsUpdateProfile(SimpleDataVars):
+     def __init__(self, profile):
+         SimpleDataVars.__init__(self,
+                                 VariableOsLinuxName(),
++                                VariableOsLinuxShortname(),
+                                 VariableOsLinuxSubname(),
+                                 VariableOsLinuxVer(),
+                                 VariableClUpdateRepData(section="update"),
+@@ -857,3 +861,15 @@ class DataVarsUpdateProfile(SimpleDataVars):
+ 
+     def __repr__(self):
+         return "Profile variables"
++
++class VariableClUpdateProfileSyncSet(Variable):
++    """
++    Не выполнять установку/обновление пакетов при обновлении
++    """
++    type = "bool"
++    value = "off"
++    opt = ["-s", "--sync"]
++
++    def init(self):
++        self.label = _("Synchronize repositories")
++        self.help = _("synchronize repositories")
+diff --git update/wsdl_update.py update/wsdl_update.py
+index 9563c11..67f2e32 100644
+--- update/wsdl_update.py
++++ update/wsdl_update.py
+@@ -106,16 +106,16 @@ class Wsdl(WsdlBase):
+             # описание груп (список лямбда функций)
+             'groups': [
+                 lambda group: group(_("Repository"),
+-                                    brief=('cl_update_profile_repo_name',
+-                                           'cl_update_profile_branch'),
+-                                    hide=("cl_update_profile_rep",),
++                                    brief=('cl_update_profile_repo_name',),
++                                    hide=('cl_update_profile_rep',
++                                          'cl_update_profile_sync_set'),
+                                     normal=('cl_update_profile_rep',),
+-                                    expert=('cl_update_profile_branch',)),
++                                    expert=('cl_update_profile_branch',
++                                            'cl_update_profile_sync_set')),
+                 lambda group: group(_("Profile"),
+                                     normal=('cl_update_profile_system',),
+                                     brief=('cl_update_profile_system',
+                                            'cl_update_profile_linux_fullname',
+-                                           'cl_update_profile_linux_ver',
+                                            'cl_update_profile_depend_data')
+                                     )],
+             'brief': {'next': __("Perform"),
