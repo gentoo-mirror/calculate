@@ -1,0 +1,9 @@
+# Calculate format=world name=world ini(update.world)<52
+
+#-ini(update.world,52)-#
+
+#?in(os_linux_pkglist, CLD, CMC)!=#
+!sys-power/upower
+sys-power/upower-pm-utils
+#in#
+

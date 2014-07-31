@@ -1,0 +1,8 @@
+# Calculate format=world name=world ini(update.world)<22
+
+#-ini(update.world,22)-#
+
+#?in(os_linux_pkglist, CLDX)!=#
+#для корректной поддержки мультимедиа клавиатур
+x11-misc/wmctrl
+#in#

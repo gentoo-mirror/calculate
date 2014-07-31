@@ -1,0 +1,8 @@
+# Calculate format=world name=world ini(update.world)<58
+
+#-ini(update.world,58)-#
+
+#?in(os_linux_pkglist, CLDX)!=#
+# write to world for keep package on during depclean (ruby is used for DEPEND)
+dev-lang/vala
+#in#

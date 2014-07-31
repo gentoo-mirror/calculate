@@ -1,0 +1,126 @@
+# Calculate name=world format=world
+
+#?in(os_linux_pkglist, CLD, CLDX, CMC, CDS, CSS, CLS)!=#
+app-misc/tmux
+#in#
+
+#?in(os_linux_pkglist, CLD, CLDX, CMC, CDS, CLS)!=#
+app-admin/logrotate
+app-admin/syslog-ng
+sys-apps/ethtool
+sys-apps/usbutils
+sys-process/vixie-cron
+#in#
+
+#?in(os_linux_pkglist, CLD, CLDX, CMC, CDS)!=#
+app-admin/hddtemp
+app-admin/testdisk
+app-cdr/cdrtools
+app-cdr/dvd+rw-tools
+app-portage/portage-utils
+sys-apps/dmidecode
+sys-apps/gptfdisk
+sys-apps/lm_sensors
+sys-apps/memtest86+
+sys-apps/inxi
+sys-apps/pciutils
+sys-apps/pv
+sys-apps/smartmontools
+sys-fs/dmraid
+sys-fs/dosfstools
+sys-fs/e2fsprogs
+sys-fs/jfsutils
+sys-fs/mdadm
+sys-fs/mtools
+sys-fs/ntfs3g
+sys-fs/xfsprogs
+sys-process/htop
+sys-process/lsof
+#in#
+
+#?in(os_linux_pkglist, CLD, CLDX, CMC)!=#
+app-admin/sudo
+app-portage/gentoolkit-dev
+net-misc/dhcpcd
+sys-apps/hdparm
+sys-apps/pcmciautils
+sys-devel/prelink
+sys-fs/exfat-utils
+sys-fs/fuse-exfat
+sys-power/acpi
+sys-power/acpid
+sys-power/cpufrequtils
+sys-power/powernowd
+sys-power/powertop
+#in#
+
+#?in(os_linux_pkglist, CLD, CLDX)!=#
+app-arch/arj
+app-arch/p7zip
+app-arch/rar
+app-arch/unace
+app-arch/unarj
+app-arch/unzip
+app-arch/zip
+app-misc/mc
+dev-python/ipython
+dev-tcltk/expect
+sys-apps/acl
+sys-apps/keyexec
+sys-apps/preload
+sys-apps/usb_modeswitch
+sys-auth/thinkfinger
+sys-block/gparted
+x11-libs/gksu
+# write to world for keep package on during depclean (ruby is used for DEPEND webkit-gtk)
+virtual/rubygems
+#in#
+
+#?in(os_linux_pkglist, CLDX)!=#
+# write to world for keep package on during depclean (ruby is used for DEPEND)
+dev-lang/vala
+#in#
+
+#?in(os_linux_pkglist, CLD, CMC)!=#
+sys-power/upower-pm-utils
+#in#
+
+#?in(os_linux_pkglist, CLS)!=#
+net-misc/dhcpcd
+#in#
+
+#?in(os_linux_pkglist, CMC)!=#
+app-misc/lirc
+sys-apps/lm_sensors
+#in#
+
+#?in(os_linux_pkglist, CLDX)!=#
+dev-python/gst-python
+dev-util/catfish
+sys-apps/mlocate
+x11-misc/sw-notify-send
+#для корректной поддержки мультимедиа клавиатур
+x11-misc/wmctrl
+#in#
+
+#?in(os_linux_pkglist, CDS)!=#
+app-antivirus/clamav
+app-editors/vim
+app-i18n/enca
+app-misc/mc
+app-portage/ufed
+dev-libs/klibc
+dev-python/psycopg
+dev-python/pyserial
+sci-libs/fftw
+sys-apps/acl
+sys-apps/iproute2
+sys-apps/kexec-tools
+sys-auth/nss_ldap
+sys-auth/pam_ldap
+sys-block/parted
+sys-block/tw_cli
+sys-fs/xfsdump
+sys-process/iotop
+#in#
+
