@@ -25,5 +25,5 @@ rm -rf /lib/modules/${PV}${EXTRAVERSION}
 echo "Remove kernel sources"
 rm -rf /usr/src/linux-${PV}${EXTRAVERSION}
 
-rm /boot/*-#-cl_kernel_uid-#*
+rm -f /boot/*-#-cl_kernel_uid-#*
 true
