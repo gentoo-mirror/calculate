@@ -1,0 +1,33 @@
+# Calculate ini(update.rev)<89 run=/bin/bash merge=sys-apps/portage
+#
+#-ini(update.rev,89)-#
+
+# migrate /etc/make.conf to /etc/portage/make.conf/
+#
+echo "Migrate make.conf"
+
+old_make_conf="/etc/make.conf"
+new_make_conf="/etc/portage/make.conf"
+custom_make_conf="${new_make_conf}/custom"
+
+need_migrate() {
+    [[ -f $old_make_conf ]] ||
+    [[ -f $new_make_conf ]] ||
+    [[ -f ${new_make_conf}.old ]]
+}
+
+# new make.conf is file
+[[ -f $new_make_conf ]] && mv -f $new_make_conf ${new_make_conf}.old
+# create make.conf directory
+[[ -e $new_make_conf ]] || mkdir -p $new_make_conf
+# rename current custom
+[[ -f $custom_make_conf ]] && need_migrate && mv -f $custom_make_conf ${custom_make_conf}.old
+# copy old make files to new make.conf directory
+( [[ -f $old_make_conf ]] && cat $old_make_conf;
+  [[ -f ${new_make_conf}.old ]] && cat ${new_make_conf}.old ) | grep -P -v ^source.*layman >$custom_make_conf
+
+# remove old
+rm -f $old_make_conf
+rm -f ${new_make_conf}.old
+
+true
