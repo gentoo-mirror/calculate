@@ -1,0 +1,5 @@
+# Calculate protected path=/etc/portage/make.conf name=0-base
+
+# Connecting overlays layman. You should not change this setting, as this may
+# disrupt the package manager.
+source /var/lib/layman/make.conf
