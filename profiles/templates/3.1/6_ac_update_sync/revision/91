@@ -1,0 +1,8 @@
+# Calculate ini(update.rev)<91 run=/bin/bash
+#
+#-ini(update.rev,91)-#
+
+[[ -L /etc/runlevels/default/alsasound ]] && /sbin/rc-update del alsasound default &>/dev/null
+[[ -e /.config ]] && rm -rf /.config
+
+true
