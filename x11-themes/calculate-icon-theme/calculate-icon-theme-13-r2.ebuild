@@ -6,7 +6,7 @@ EAPI=4
 
 inherit gnome2-utils
 
-DESCRIPTION="Wallpapers for Calculate Linux"
+DESCRIPTION="Icons theme for Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate"
 
 LICENSE="Apache-2.0"
