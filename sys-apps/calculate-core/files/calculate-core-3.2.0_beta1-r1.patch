@@ -1,0 +1,22 @@
+diff --git core/server/api_types.py core/server/api_types.py
+index 2a0c7d7..0d8d8b1 100644
+--- core/server/api_types.py
++++ core/server/api_types.py
+@@ -295,7 +295,7 @@ class GroupField(DataVarsSerializer):
+                                              onlyhelp=onlyhelp))
+             else:
+                 uniqBrief = []
+-            for varname in list(set(info['normal'])-set(uniqBrief)):
++            for varname in (x for x in info['normal'] if x not in uniqBrief):
+                 inbrief = brief and varname in info['brief_force']
+                 if brief and 'hide' in info and  varname in info['hide']:
+                     continue
+@@ -306,7 +306,7 @@ class GroupField(DataVarsSerializer):
+                                          groupVars=groupDepVars,
+                                          onlyhelp=onlyhelp))
+             if info['expert']:
+-                for varname in list(set(info['expert'])-set(uniqBrief)):
++                for varname in (x for x in info['expert'] if x not in uniqBrief):
+                     if expert == True or \
+                         expert == None and dv.getInfo(varname).wasSet:
+                         self.fields.append(Field(name = "expert",
