@@ -2,9 +2,9 @@
 MAKEOPTS="#-os_assemble_makeopts-#"
 EMERGE_DEFAULT_OPTS="--jobs=1"
 #?cl_assemble_buildpkg_set==on#
-FEATURES="buildpkg -getbinpkg"
+FEATURES="${FEATURES} buildpkg -getbinpkg"
 #cl_assemble_buildpkg_set#
 #?cl_assemble_buildpkg_set!=on#
-FEATURES="-buildpkg -getbinpkg"
+FEATURES="${FEATURES} -buildpkg -getbinpkg"
 #cl_assemble_buildpkg_set#
 PKGDIR="#-cl_assemble_pkgdir-#"
