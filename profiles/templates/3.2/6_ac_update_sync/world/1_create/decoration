@@ -5,11 +5,6 @@ media-gfx/grub-splashes-calculate
 media-gfx/syslinux-themes-calculate
 #in#
 
-#?in(os_linux_pkglist, CLD, CLDX, CMC, CLS, CDS)!=#
-media-gfx/splash-themes-calculate
-media-gfx/splashutils
-#in#
-
 #?in(os_linux_pkglist, CLD, CLDX, CLS)!=#
 media-gfx/calculate-wallpapers
 #in#
@@ -27,6 +22,7 @@ x11-themes/oxygen-gtk:3
 #in#
 
 #?in(os_linux_pkglist, CLDX)!=#
+media-gfx/lightdm-themes-calculate
 x11-themes/gnome-themes-standard
 x11-themes/gtk-engines
 x11-themes/xfwm4-themes
