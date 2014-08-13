@@ -2,6 +2,6 @@
 
 #-ini(update.rev,99)-#
 
-/usr/sbin/cl-core --method update_profile --url distros #-os_linux_shortname-#
+/usr/sbin/cl-core --method update_profile --force --url distros #-os_linux_shortname-# &>/dev/null
 
 true
