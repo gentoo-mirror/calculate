@@ -1,0 +1,7 @@
+# Calculate ini(update.rev)<99&&pkg(sys-apps/calculate-utilities)>=3.2.0_beta1 run=/bin/bash
+
+#-ini(update.rev,99)-#
+
+/usr/sbin/cl-core --method update_profile --url distros #-os_linux_shortname-#
+
+true
