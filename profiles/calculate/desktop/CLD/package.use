@@ -35,7 +35,7 @@ kde-base/plasma-workspace rss
 # required by kde-base/pykde4-4.10.0
 dev-python/PyQt4 declarative script
 
-media-libs/mlt -xine
+media-libs/mlt kdenlive -xine
 kde-base/mplayerthumbs -mplayer
 
 # remove gstreamer,introspection and geolocation dep
