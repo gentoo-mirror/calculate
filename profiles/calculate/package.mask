@@ -2,7 +2,6 @@
 
 # без патча m2crypto не позволяет работать корректно с сертификатами
 >dev-python/m2crypto-0.21.1-r1
-
 # mask all device-mapper for using lvm2
 sys-fs/device-mapper
 
@@ -15,16 +14,6 @@ sys-fs/device-mapper
 =dev-python/cherrypy-3.2.2-r1
 
 >=sys-boot/grub-2.01
-
->=media-gfx/calculate-wallpapers-14
->=media-gfx/dm-themes-calculate-14
->=media-gfx/grub-splashes-calculate-14
->=media-gfx/kdm-themes-calculate-14
->=media-gfx/plymouth-themes-calculate-14
->=media-gfx/syslinux-themes-calculate-14
->=x11-themes/calculate-icon-theme-14
-
-sys-kernel/calculate-sources-dev
 
 ~sys-apps/calculate-client-3.2.0_alpha11
 ~sys-apps/calculate-console-3.2.0_alpha11
