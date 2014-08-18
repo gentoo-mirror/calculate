@@ -1,0 +1,9 @@
+# Calculate ini(update.rev)<100 run=/bin/bash
+
+#-ini(update.rev,100)-#
+
+#?cl_chroot_status==off#
+/usr/sbin/cl-core --method desktop root --force &>/dev/null
+#cl_chroot_status#
+
+true
