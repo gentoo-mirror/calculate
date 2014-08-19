@@ -1,7 +1,7 @@
-diff --git --dist-prefixpym/cl_fill_builder.py b/pym/cl_fill_builder.py
+diff --git pym/cl_fill_builder.py pym/cl_fill_builder.py
 index 421b58b..e6c140f 100644
---- --dist-prefixpym/cl_fill_builder.py
-+++ b/pym/cl_fill_builder.py
+--- pym/cl_fill_builder.py
++++ pym/cl_fill_builder.py
 @@ -430,8 +430,9 @@ class fillVars(object, varsShare):
              imagepath = [imagepath]
          paths = filter(lambda x:os.access(x,W_OK), imagepath)
@@ -13,10 +13,10 @@ index 421b58b..e6c140f 100644
                    'ver':self.Get('os_builder_linux_build') or 
                          self.Get('os_builder_linux_ver'),
                    'march':self.Get('os_builder_arch_machine')})
-diff --git --dist-prefixscripts/cl-builder b/scripts/cl-builder
+diff --git scripts/cl-builder scripts/cl-builder
 index 150e360..8fbbe00 100644
---- --dist-prefixscripts/cl-builder
-+++ b/scripts/cl-builder
+--- scripts/cl-builder
++++ scripts/cl-builder
 @@ -18,7 +18,7 @@
  #------------------------------------------------------------------------------
  
@@ -43,10 +43,10 @@ index 150e360..8fbbe00 100644
  	then
  		if [ `ps ax | grep -v grep | grep -c "/bin/bash /usr/bin/cl-builder"` -gt 3 ];
  		then
-diff --git --dist-prefixscripts/cl-kernel b/scripts/cl-kernel
+diff --git scripts/cl-kernel scripts/cl-kernel
 deleted file mode 100644
 index 09a0ba9..0000000
---- --dist-prefixscripts/cl-kernel
+--- scripts/cl-kernel
 +++ /dev/null
 @@ -1,58 +0,0 @@
 -#!/usr/bin/env python2
@@ -107,10 +107,10 @@ index 09a0ba9..0000000
 -        sys.exit(1)
 -    
 -    sys.exit(0)
-diff --git --dist-prefixsetup.py b/setup.py
+diff --git setup.py setup.py
 index 6c4677a..3a3244f 100755
---- --dist-prefixsetup.py
-+++ b/setup.py
+--- setup.py
++++ setup.py
 @@ -102,7 +102,6 @@ setup(
      package_dir = {'calculate-builder': "."},
      packages = ['calculate-builder.pym'],

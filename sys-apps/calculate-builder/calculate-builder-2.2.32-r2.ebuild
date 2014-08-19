@@ -31,5 +31,5 @@ src_unpack() {
 	cd "${S}"
 
 	# fix variable, remove cl-kernel
-	epatch "${FILESDIR}//calculate-builder-2.2.32-r2.patch"
+	epatch "${FILESDIR}/calculate-builder-2.2.32-r2.patch"
 }
