@@ -1,0 +1,122 @@
+diff --git --dist-prefixpym/cl_fill_builder.py b/pym/cl_fill_builder.py
+index 421b58b..e6c140f 100644
+--- --dist-prefixpym/cl_fill_builder.py
++++ b/pym/cl_fill_builder.py
+@@ -430,8 +430,9 @@ class fillVars(object, varsShare):
+             imagepath = [imagepath]
+         paths = filter(lambda x:os.access(x,W_OK), imagepath)
+         if paths:
++            shortname = self.Get('os_builder_linux_shortname') or ""
+             return path.join(paths[0],"%(shortname)s-%(ver)s-%(march)s.iso"%
+-                 {'shortname':self.Get('os_builder_linux_shortname').lower(),
++                 {'shortname':shortname.lower(),
+                   'ver':self.Get('os_builder_linux_build') or 
+                         self.Get('os_builder_linux_ver'),
+                   'march':self.Get('os_builder_arch_machine')})
+diff --git --dist-prefixscripts/cl-builder b/scripts/cl-builder
+index 150e360..8fbbe00 100644
+--- --dist-prefixscripts/cl-builder
++++ b/scripts/cl-builder
+@@ -18,7 +18,7 @@
+ #------------------------------------------------------------------------------
+ 
+ # выбор строки перемонтирования разделов в зависимости от используемого модуля
+-BUILDER=/mnt/builder
++BUILDER=/run/builder
+ if [[ -n `mount | grep " / type aufs"` ]];
+ then
+ 	REMOUNT="mount -t aufs -o remount,br:/ none /"
+@@ -92,14 +92,14 @@ checkrun() {
+ 		exit;
+ 	fi
+ 	#не запустим если загрузка не в Scrach режиме
+-	if ! mount | grep /mnt/scratch &>/dev/null
++	if ! mount | grep ${BUILDER} &>/dev/null
+ 	then
+ 		echo "This program only works in the system, installed by Calculate with the option '--build'."
+ 		exit;
+ 	fi
+ 
+ 	#не запустим второй раз
+-	if mount | grep "/dev/pts on /mnt/builder/dev/pts " &>/dev/null
++	if mount | grep "/dev/pts on ${BUILDER}/dev/pts " &>/dev/null
+ 	then
+ 		if [ `ps ax | grep -v grep | grep -c "/bin/bash /usr/bin/cl-builder"` -gt 3 ];
+ 		then
+diff --git --dist-prefixscripts/cl-kernel b/scripts/cl-kernel
+deleted file mode 100644
+index 09a0ba9..0000000
+--- --dist-prefixscripts/cl-kernel
++++ /dev/null
+@@ -1,58 +0,0 @@
+-#!/usr/bin/env python2
+-#-*- coding: utf-8 -*-
+-
+-# Copyright 2010 Calculate Ltd. http://www.calculate-linux.org
+-#
+-#  Licensed under the Apache License, Version 2.0 (the "License");
+-#  you may not use this file except in compliance with the License.
+-#  You may obtain a copy of the License at
+-#
+-#      http://www.apache.org/licenses/LICENSE-2.0
+-#
+-#  Unless required by applicable law or agreed to in writing, software
+-#  distributed under the License is distributed on an "AS IS" BASIS,
+-#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-#  See the License for the specific language governing permissions and
+-#  limitations under the License.
+-
+-import sys
+-import os
+-from os import path
+-sys.path.insert(0, path.abspath('/usr/lib/calculate-2.2/calculate-lib/pym'))
+-sys.path.insert(0, path.abspath('/usr/lib/calculate-2.2/calculate-builder/pym'))
+-
+-
+-from cl_lang import lang
+-tr = lang()
+-tr.setGlobalDomain('cl_builder')
+-tr.setLanguage(sys.modules[__name__])
+-
+-from cl_kernel_cmd import kernel_cmd
+-
+-if __name__ == "__main__":
+-    kernel = kernel_cmd()
+-    kernel.logicObj.initVars()
+-    # set lang 
+-    ret = kernel.optobj.parse_args()
+-    if ret is False:
+-        sys.exit(1)
+-    options, args = ret
+-    # set color/nocolor for display messages
+-    kernel.setPrintNoColor(options)
+-    # set values to variables
+-    if not kernel.setVars(options):
+-        sys.exit(1)
+-    # print variables
+-    if options.v or options.filter or options.xml:
+-        kernel.printVars(options)
+-        sys.exit(0)
+-
+-    if options.initrd:
+-        kernel.cleanInitrd(options)
+-    elif options.symlink:
+-        if not kernel.makeSymlink(options):
+-            sys.exit(1)
+-    elif not kernel.makeKernel(options):
+-        sys.exit(1)
+-    
+-    sys.exit(0)
+diff --git --dist-prefixsetup.py b/setup.py
+index 6c4677a..3a3244f 100755
+--- --dist-prefixsetup.py
++++ b/setup.py
+@@ -102,7 +102,6 @@ setup(
+     package_dir = {'calculate-builder': "."},
+     packages = ['calculate-builder.pym'],
+     data_files = data_files,
+-    scripts=["./scripts/cl-kernel","./scripts/cl-builder",
+-             "./scripts/cl-image"],
++    scripts=["./scripts/cl-builder", "./scripts/cl-image"],
+     cmdclass={'install_data': cl_install_data},
+ )
