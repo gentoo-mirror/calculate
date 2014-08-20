@@ -10,7 +10,7 @@ get_latest_kernel() {
 get_safemode_name() {
     local kernel=$1
     #echo ${kernel/-calculate/-SafeMode}
-    [[ $kernel =~ ^([^-]+-[^-]+)-(.*)$ ]] && echo "${BASH_REMATCH[1]}-SafeMode-${BASH_REMATCH[2]}" || echo ${kernel}
+    [[ $kernel =~ ^([^-]+-[^-]+)-(.+)$ ]] && echo "${BASH_REMATCH[1]}-SafeMode-${BASH_REMATCH[2]}" || echo ${kernel}
 }
 
 get_kernel_version() {
