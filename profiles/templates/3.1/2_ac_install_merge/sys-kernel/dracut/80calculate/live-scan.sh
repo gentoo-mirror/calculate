@@ -14,7 +14,7 @@ ismounted "$LIVEPATH" && exit 0
 mkdir -p "$LIVEPATH"
 
 check_for_live() {
-    cat "$LIVEPATH/livecd" | grep -q calculate &>/dev/null
+    [[ -f $LIVEPATH/livecd ]] && cat "$LIVEPATH/livecd" | grep -q calculate &>/dev/null
 }
 
 do_live_scan() {
