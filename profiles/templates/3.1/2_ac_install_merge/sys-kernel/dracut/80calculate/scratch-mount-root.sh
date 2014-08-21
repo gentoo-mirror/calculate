@@ -16,9 +16,9 @@ mount_live_root() {
     mount -t aufs $mountoption none $NEWROOT
     if getargbool 0 scratch
     then
-        mkdir $NEWROOT/run/builder
+        mkdir /run/builder
         mountoption="-o udba=reval,br:/run/initramfs/delta=rw:/run/initramfs/squashfs=ro"
-        mount -t aufs $mountoption none $NEWROOT/run/builder
+        mount -t aufs $mountoption none /run/builder
     fi
 }
 
