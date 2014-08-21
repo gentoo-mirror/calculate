@@ -26,5 +26,7 @@ install() {
     inst_script "$moddir/scratch-live-root.sh" "/sbin/dmsquash-live-root"
     inst_script "$moddir/mount-squashfs.sh" "/sbin/mount-squashfs"
     inst_script "$moddir/iso-scan.sh" "/sbin/iso-scan"
+    inst_script "$moddir/live-scan.sh" "/sbin/live-scan"
     inst_script "$moddir/nfsroot.sh" "/sbin/nfsroot"
+    inst_hook initqueue/timeout 95 "$moddir/live-fallback.sh"
 }
