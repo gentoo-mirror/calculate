@@ -9,5 +9,3 @@ PATH=/usr/sbin:/usr/bin:/sbin:/bin
 [[ $root =~ ^live: ]] && /sbin/live-scan && cancel_wait_for_dev "${root#live:}"
 
 [ -e "$job" ] && rm -f "$job"
-
-exit 0
