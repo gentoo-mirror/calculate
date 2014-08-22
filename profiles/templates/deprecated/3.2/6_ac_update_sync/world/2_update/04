@@ -1,0 +1,9 @@
+# Calculate format=world name=world ini(update.world)<4
+
+#-ini(update.world,4)-#
+
+#?os_linux_pkglist==CLDG#
+gnome-extra/cinnamon
+gnome-extra/cinnamon-extensions
+!gnome-extra/gnome-shell-calculate
+#os_linux_pkglist#

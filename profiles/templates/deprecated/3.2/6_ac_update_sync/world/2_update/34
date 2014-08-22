@@ -1,0 +1,19 @@
+# Calculate format=world name=world ini(update.world)<34
+
+#-ini(update.world,34)-#
+
+#?in(os_linux_pkglist, CLD, CLDX, CMC, CDS, CLS, CSS)!=#
+app-misc/tmux
+#in#
+
+#?in(os_linux_pkglist, CDS, CMC)!=#
+!app-misc/screen
+#in#
+
+#?in(os_linux_pkglist, CLD)!=#
+!kde-base/kdeartwork-sounds
+
+kde-base/calendarjanitor
+kde-base/contactthemeeditor
+#in#
+

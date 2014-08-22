@@ -1,0 +1,55 @@
+# Calculate name=world format=world
+
+#?in(os_linux_pkglist, base)!=#
+app-i18n/man-pages-de
+app-i18n/man-pages-fr
+app-i18n/man-pages-it
+app-i18n/man-pages-pl
+app-i18n/man-pages-ro
+app-i18n/man-pages-ru
+#in#
+
+#?in(os_linux_pkglist, CLD, CLDX)!=#
+app-dicts/aspell-bg
+app-dicts/aspell-de
+app-dicts/aspell-en
+app-dicts/aspell-es
+app-dicts/aspell-fr
+app-dicts/aspell-it
+app-dicts/aspell-pl
+app-dicts/aspell-pt-br
+app-dicts/aspell-ro
+app-dicts/aspell-ru
+app-dicts/aspell-uk
+
+app-dicts/myspell-bg
+app-dicts/myspell-de
+app-dicts/myspell-en
+app-dicts/myspell-es
+app-dicts/myspell-fr
+app-dicts/myspell-it
+app-dicts/myspell-pl
+app-dicts/myspell-pt
+app-dicts/myspell-pt-br
+app-dicts/myspell-ro
+app-dicts/myspell-ru
+app-dicts/myspell-uk
+
+app-editors/vim
+app-office/libreoffice
+app-text/fbreader
+#in#
+
+#?in(os_linux_pkglist, CLD)!=#
+kde-misc/openofficeorg-thumbnail
+#in#
+
+#?in(os_linux_pkglist, CLDX)!=#
+app-editors/leafpad
+app-text/evince
+sci-calculators/galculator
+#in#
+
+#?in(os_linux_pkglist, CMC)!=#
+media-tv/xbmc
+#in#

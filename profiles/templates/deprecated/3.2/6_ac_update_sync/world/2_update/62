@@ -1,0 +1,21 @@
+# Calculate format=world name=world ini(update.world)<62
+
+#-ini(update.world,62)-#
+
+!media-gfx/splash-themes-calculate
+!media-gfx/splashutils
+#?pkg(sys-kernel/calculate-sources-dev)!=#
+!sys-kernel/calculate-sources-dev
+sys-kernel/calculate-sources
+#pkg#
+
+sys-auth/pam_update
+
+#?in(os_linux_pkglist,CLD,CLDX)!=#
+sys-apps/keyexec
+dev-qt/qtdbus
+#in#
+
+#?in(os_linux_pkglist,CLDX)!=#
+media-gfx/lightdm-themes-calculate
+#in#
