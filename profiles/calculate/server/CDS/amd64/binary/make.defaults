@@ -1,0 +1,2 @@
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --backtrack=15"
+FEATURES="getbinpkg -news"
