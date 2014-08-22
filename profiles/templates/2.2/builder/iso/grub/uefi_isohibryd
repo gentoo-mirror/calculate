@@ -22,6 +22,7 @@ for i in ${IMAGE_DIR}/usr/lib/grub/x86_64-efi/part_*.mod;do echo insmod `basenam
 echo "source /boot/grub/grub.cfg" >>${CD_GRUB_DIR}/x86_64-efi/grub.cfg
 tar cf - -C "${EFI_IMAGE_DIR}" boot >${MEMDISK}
 grub-mkimage -O x86_64-efi -d ${IMAGEDIR}/usr/lib/grub/x86_64-efi -m ${MEMDISK} -o ${CDROOT_DIR}/bootx64.efi -p '(memdisk)/boot/grub' search iso9660 configfile normal memdisk tar part_msdos fat
+rm -f ${CD_GRUB_DIR}/efi.img
 mkfs.msdos -C ${CD_GRUB_DIR}/efi.img $(( ($(stat -c %s "${CDROOT_DIR}/bootx64.efi") / 1024 + 55) / 32 * 32 )) &>/dev/null
 mmd -i ${CD_GRUB_DIR}/efi.img ::efi
 mmd -i ${CD_GRUB_DIR}/efi.img ::efi/boot
