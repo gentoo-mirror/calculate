@@ -1,53 +1,3 @@
-~dev-python/soaplib-1.0.0 amd64 x86
-
-~sys-fs/squashfs-tools-4.2 amd64 x86
-~sys-fs/nilfs-utils-2.1.6 amd64 x86
-
-~net-print/cnijfilter-3.80 amd64 x86
-
-~net-print/hplip-3.14.1 amd64 x86
-~net-print/hplip-plugin-3.14.1 amd64 x86
-~dev-python/reportlab-2.6 amd64 x86
-
-# need for unzip-6.0-r9
-~dev-libs/libnatspec-0.2.6 amd64 x86
-
-#for calculate-lib
-~dev-python/py-smbpasswd-1.0.1 amd64
-
-~sys-firmware/b43-firmware-6.30.163.46 amd64 x86
-~net-wireless/broadcom-sta-6.30.223.141 amd64 x86
-~net-wireless/madwimax-0.1.1 amd64 x86
-~sys-kernel/linux-firmware-20140603 amd64 x86
-
-=media-gfx/splashutils-1.5.4.4-r2 amd64 x86
-
-# need for bash-completion-2.1
-~app-admin/eselect-bashcomp-1.3.6 amd64 x86
-
-# UEFI and SecureBoot support
-=app-cdr/cdrtools-3.01_alpha24 amd64 x86
-=app-crypt/shim-signed-0.2 amd64 x86
-~app-crypt/sbsigntool-0.6 amd64 x86
-
-# need for dracut
-~sys-process/procps-3.3.9 amd64 x86
-
-~app-emulation/emul-linux-x86-bjdeps-0.1 amd64 x86
-
-~app-i18n/man-pages-ru-3.56.2172.1866.20140202 amd64 x86
-
-~perl-core/ExtUtils-Manifest-1.630.0 amd64 x86
-
-# unmask because version for amd64 is stable
-=sys-fs/lvm2-2.02.103 x86
-=sys-block/thin-provisioning-tools-0.2.8-r1 x86
-
-~sys-fs/btrfs-progs-3.14.2 amd64 x86
-
-
-~sys-boot/plymouth-openrc-plugin-0.1.2 amd64 x86
-~sys-kernel/dracut-037 amd64 x86
 ~media-gfx/calculate-wallpapers-14 amd64 x86
 ~media-gfx/dm-themes-calculate-14 amd64 x86
 ~media-gfx/grub-splashes-calculate-14 amd64 x86
@@ -56,5 +6,31 @@
 ~media-gfx/plymouth-themes-calculate-14 amd64 x86
 ~media-gfx/syslinux-themes-calculate-14 amd64 x86
 ~x11-themes/calculate-icon-theme-14 amd64 x86
-~sys-auth/pam_update-0.1.0 amd64 x86
 
+~app-admin/eselect-bashcomp-1.3.6 amd64 x86
+=app-cdr/cdrtools-3.01_alpha24 amd64 x86
+~app-crypt/sbsigntool-0.6 amd64 x86
+=app-crypt/shim-signed-0.2 amd64 x86
+~app-emulation/emul-linux-x86-bjdeps-0.1 amd64 x86
+~app-i18n/man-pages-ru-3.56.2172.1866.20140202 amd64 x86
+~dev-libs/libnatspec-0.2.6 amd64 x86
+~dev-python/py-smbpasswd-1.0.1 amd64
+~dev-python/reportlab-3.1.8 amd64 x86
+~dev-python/soaplib-1.0.0 amd64 x86
+~net-print/cnijfilter-3.80 amd64 x86
+~net-print/hplip-3.14.6 amd64 x86
+~net-print/hplip-plugin-3.14.6 amd64 x86
+~net-wireless/broadcom-sta-6.30.223.248 amd64 x86
+~net-wireless/madwimax-0.1.1 amd64 x86
+~perl-core/ExtUtils-Manifest-1.630.0 amd64 x86
+~sys-auth/pam_update-0.1.0 amd64 x86
+=sys-block/thin-provisioning-tools-0.3.2 amd64 x86
+~sys-boot/plymouth-openrc-plugin-0.1.2 amd64 x86
+~sys-firmware/b43-firmware-6.30.163.46 amd64 x86
+~sys-fs/btrfs-progs-3.14.2 amd64 x86
+~sys-fs/lvm2-2.02.109 amd64 x86
+~sys-fs/nilfs-utils-2.1.6 amd64 x86
+~sys-fs/squashfs-tools-4.2 amd64 x86
+~sys-kernel/dracut-037 amd64 x86
+~sys-kernel/linux-firmware-20140603 amd64 x86
+~sys-process/procps-3.3.9 amd64 x86

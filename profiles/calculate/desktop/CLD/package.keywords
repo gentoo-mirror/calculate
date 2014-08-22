@@ -1,16 +1,34 @@
+~app-office/akonadi-server-1.12.1 amd64 x86
+~dev-libs/libical-1.0 amd64 x86
+~dev-python/PyQt4-4.11.1 amd64 x86
+~dev-python/sip-4.16.2 amd64 x86
+~kde-misc/baloo-kcmadv-2014.04.27 amd64 x86
+~media-gfx/digikam-4.2.0 amd64 x86
+~media-libs/jasper-1.900.1 amd64 x86
+~media-libs/lcms-2.6 amd64 x86
+~media-libs/libraw-0.16.0_beta1 amd64 x86
+~media-libs/phonon-4.7.2 amd64 x86
+~media-libs/phonon-gstreamer-4.7.2 amd64 x86
+~media-libs/tiff-4.0.3 amd64 x86
+~media-plugins/kipi-plugins-4.2.0 amd64 x86
+~media-sound/amarok-2.8.0 amd64 x86
+
 <kde-base/activitymanager-4.13.4 amd64 x86
 <kde-base/akonadiconsole-4.13.4 amd64 x86
 <kde-base/akregator-4.13.4 amd64 x86
 <kde-base/amor-4.13.4 amd64 x86
 <kde-base/ark-4.13.4 amd64 x86
 <kde-base/attica-4.13.4 amd64 x86
+<kde-base/audiocd-kio-4.13.4 amd64 x86
+<kde-base/baloo-4.13.4 amd64 x86
+<kde-base/baloo-widgets-4.13.4 amd64 x86
 <kde-base/blinken-4.13.4 amd64 x86
 <kde-base/blogilo-4.13.4 amd64 x86
 <kde-base/bomber-4.13.4 amd64 x86
 <kde-base/bovo-4.13.4 amd64 x86
+<kde-base/calendarjanitor-4.13.4 amd64 x86
 <kde-base/cantor-4.13.4 amd64 x86
 <kde-base/cervisia-4.13.4 amd64 x86
-<kde-base/calendarjanitor-4.13.4 amd64 x86
 <kde-base/contactthemeeditor-4.13.4 amd64 x86
 <kde-base/dolphin-4.13.4 amd64 x86
 <kde-base/dolphin-plugins-4.13.4 amd64 x86
@@ -25,6 +43,7 @@
 <kde-base/juk-4.13.4 amd64 x86
 <kde-base/kabcclient-4.13.4 amd64 x86
 <kde-base/kaccessible-4.13.4 amd64 x86
+<kde-base/kactivities-4.13.4 amd64 x86
 <kde-base/kaddressbook-4.13.4 amd64 x86
 <kde-base/kajongg-4.13.4 amd64 x86
 <kde-base/kalarm-4.13.4 amd64 x86
@@ -92,6 +111,7 @@
 <kde-base/kdepim-common-libs-4.13.4 amd64 x86
 <kde-base/kdepim-icons-4.13.4 amd64 x86
 <kde-base/kdepim-kresources-4.13.4 amd64 x86
+<kde-base/kdepim-l10n-4.13.4 amd64 x86
 <kde-base/kdepimlibs-4.13.4 amd64 x86
 <kde-base/kdepim-meta-4.13.4 amd64 x86
 <kde-base/kdepim-runtime-4.13.4 amd64 x86
@@ -118,6 +138,7 @@
 <kde-base/keditfiletype-4.13.4 amd64 x86
 <kde-base/kephal-4.13.4 amd64 x86
 <kde-base/kfile-4.13.4 amd64 x86
+<kde-base/kfilemetadata-4.13.4 amd64 x86
 <kde-base/kfilereplace-4.13.4 amd64 x86
 <kde-base/kfind-4.13.4 amd64 x86
 <kde-base/kfloppy-4.13.4 amd64 x86
@@ -137,6 +158,7 @@
 <kde-base/kigo-4.13.4 amd64 x86
 <kde-base/killbots-4.13.4 amd64 x86
 <kde-base/kimagemapeditor-4.13.4 amd64 x86
+<kde-base/kimgio-4.13.4 amd64 x86
 <kde-base/kimono-4.13.4 amd64 x86
 <kde-base/kinfocenter-4.13.4 amd64 x86
 <kde-base/kioclient-4.13.4 amd64 x86
@@ -230,6 +252,7 @@
 <kde-base/kurifilter-plugins-4.13.4 amd64 x86
 <kde-base/kuser-4.13.4 amd64 x86
 <kde-base/kwalletd-4.13.4 amd64 x86
+<kde-base/kwalletmanager-4.13.4 amd64 x86
 <kde-base/kwin-4.13.4 amd64 x86
 <kde-base/kwordquiz-4.13.4 amd64 x86
 <kde-base/kwrite-4.13.4 amd64 x86
@@ -254,6 +277,7 @@
 <kde-base/marble-4.13.4 amd64 x86
 <kde-base/mplayerthumbs-4.13.4 amd64 x86
 <kde-base/nepomuk-4.13.4 amd64 x86
+<kde-base/nepomuk-core-4.13.4 amd64 x86
 <kde-base/nepomuk-widgets-4.13.4 amd64 x86
 <kde-base/nsplugins-4.13.4 amd64 x86
 <kde-base/okteta-4.13.4 amd64 x86
@@ -287,14 +311,4 @@
 <kde-base/systemsettings-4.13.4 amd64 x86
 <kde-base/thumbnailers-4.13.4 amd64 x86
 <kde-base/umbrello-4.13.4 amd64 x86
-<kde-base/kactivities-4.13.4 amd64 x86
-<kde-base/kdepim-l10n-4.13.4 amd64 x86
-<kde-base/audiocd-kio-4.13.4 amd64 x86
-<kde-base/nepomuk-core-4.13.4 amd64 x86
-<kde-base/kimgio-4.13.4 amd64 x86
-<kde-base/kwalletmanager-4.13.4 amd64 x86
 <kde-base/zeroconf-ioslave-4.13.4 amd64 x86
-<kde-base/baloo-widgets-4.13.4 amd64 x86
-<kde-base/kfilemetadata-4.13.4 amd64 x86
-<kde-base/baloo-4.13.4 amd64 x86
-

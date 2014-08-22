@@ -9,11 +9,6 @@ media-fonts/terminus-font -pcf
 app-admin/testdisk ntfs reiserfs
 sys-fs/ntfs3g ntfsprogs
 
-#fot 3.20
-net-print/cnijfilter ip4700 mp250 mp270 mp490 mp550 mp560 mp64
-#for 3.50
-net-print/cnijfilter net mx360 mx410 mx420 mx880 nocupsdetection
-
 media-gfx/splashutils fbcondecor
 net-fs/samba quota -winbind
 sys-fs/aufs2 inotify kernel-patch
