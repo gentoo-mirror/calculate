@@ -1,0 +1,9 @@
+# Calculate
+
+# Global variables
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+HOME=/
+
+# check update
+#-sum(c,1#-rnd(num,4)-#/170-58)-# * * * *	root	/usr/bin/nice -n19 /usr/sbin/cl-update -p --wait-another-update off &>/dev/null
