@@ -1,0 +1,256 @@
+diff --git pym/cl_builder.py pym/cl_builder.py
+index 6f90a5a..6bb8022 100644
+--- pym/cl_builder.py
++++ pym/cl_builder.py
+@@ -14,7 +14,7 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-__version__ = "2.2.32"
++__version__ = "2.2.32.1"
+ __app__ = "calculate-builder"
+ 
+ import os
+@@ -703,12 +703,16 @@ class cl_builder(color_print):
+         return bool(res)
+ 
+     def _rescratchLogic(self,force=False):
+-        self.clVars.Set('cl_builder_iso_path','/mnt/flash',True)
++        self.clVars.Set('cl_builder_iso_path','/run/initramfs/live',True)
+         self.clVars.Get('cl_builder_remove_squash')
+         buildDirectory = self.clVars.Get('cl_builder_iso_path')
+         sourceDirectory = self.clVars.Get('cl_builder_path')
+         bindDirectory = pathJoin(buildDirectory,
+                         self.clVars.Get('cl_builder_squash_path'))
++        if (self.clVars.Get('os_root_type') == 'livecd' 
++            and not os.access(self.clVars.Get('cl_builder_iso_path'),os.W_OK)):
++            remount = process("/bin/mount", "-o", "rw,remount", buildDirectory, stderr=STDOUT)
++            remount.success()
+         if not (self.clVars.Get('os_root_type') == 'livecd' \
+             and os.access(self.clVars.Get('cl_builder_iso_path'),os.W_OK)):
+             self.printERROR(
+diff --git pym/cl_fill_builder.py pym/cl_fill_builder.py
+index 421b58b..0e51827 100644
+--- pym/cl_fill_builder.py
++++ pym/cl_fill_builder.py
+@@ -187,7 +187,7 @@ class fillVars(object, varsShare):
+                                          checkExistVar=True)
+                     if res and res[0]:
+                         return _toUNICODE(res[1]).encode('utf-8')
+-            return "/mnt/builder"
++            return "/run/builder"
+         return "/"
+ 
+     def get_cl_builder_kernel(self):
+@@ -399,7 +399,7 @@ class fillVars(object, varsShare):
+         """
+         oldSquash = self.Get('cl_builder_old_squash')
+         reOldSquash = Distributive.reLive.search(oldSquash)
+-        if "/mnt/flash" in self.Get('cl_builder_iso_path') and reOldSquash:
++        if "/run/initramfs/live" in self.Get('cl_builder_iso_path') and reOldSquash:
+             newNum = self.getSquashNum(reOldSquash)+1
+             return "livecd.squashfs.%d"%newNum
+         else:
+@@ -409,9 +409,10 @@ class fillVars(object, varsShare):
+         """
+         Variable keep value of boot squash image
+         """
+-        loopValue = getCmdLineParam('loop')
+-        if loopValue:
+-            return path.basename(loopValue)
++        for loopValue in (getCmdLineParam(x)
++                          for x in ('loop', 'rd.live.squashimg')):
++            if loopValue:
++                return path.basename(loopValue)
+         return ""
+ 
+     def get_cl_builder_iso_path(self):
+@@ -430,8 +431,9 @@ class fillVars(object, varsShare):
+             imagepath = [imagepath]
+         paths = filter(lambda x:os.access(x,W_OK), imagepath)
+         if paths:
++            shortname = self.Get('os_builder_linux_shortname') or ""
+             return path.join(paths[0],"%(shortname)s-%(ver)s-%(march)s.iso"%
+-                 {'shortname':self.Get('os_builder_linux_shortname').lower(),
++                 {'shortname':shortname.lower(),
+                   'ver':self.Get('os_builder_linux_build') or 
+                         self.Get('os_builder_linux_ver'),
+                   'march':self.Get('os_builder_arch_machine')})
+@@ -479,7 +481,6 @@ class fillVars(object, varsShare):
+             suffix = "calculate=,,timezone:%s"%(timezone)
+         elif lang:
+             suffix = "calculate=lang:%s,keymap:%s" % (lang,lang)
+-        print suffix
+         return suffix
+         
+     def get_cl_builder_assemble_set(self):
+@@ -487,3 +488,13 @@ class fillVars(object, varsShare):
+             and self.Get('cl_builder_path'):
+             return "on"
+         return "off"
++
++    def get_cl_builder_root_param(self):
++        """
++        root param for iso building
++        """
++        if self.Get('cl_builder_iso_path') == '/run/initramfs/live':
++            return getCmdLineParam('root')
++        else:
++            return "live:LABEL=%s-%s"%(self.Get('os_builder_linux_shortname').upper(),
++                                  self.Get('os_builder_linux_build'))
+diff --git pym/cl_image_cmd.py pym/cl_image_cmd.py
+index f56cc8b..754bcb3 100644
+--- pym/cl_image_cmd.py
++++ pym/cl_image_cmd.py
+@@ -177,7 +177,7 @@ class image_cmd(share_cmd):
+             self.logicObj.clVars.Set('cl_builder_tree','on',True)
+ 
+         if args and args[0] == "squash":
+-            self.logicObj.clVars.Set('cl_builder_iso_path','/mnt/flash',True)
++            self.logicObj.clVars.Set('cl_builder_iso_path','/run/initramfs/live',True)
+         if values.timezone and not self.logicObj.setTimezone(values.timezone):
+             sys.exit(1)
+         if values.l and not self.logicObj.setLang(values.l):
+diff --git pym/cl_vars_builder.py pym/cl_vars_builder.py
+index 81d8c5e..71e6c82 100644
+--- pym/cl_vars_builder.py
++++ pym/cl_vars_builder.py
+@@ -73,7 +73,7 @@ class Data:
+ 
+     # directory for packing
+     cl_builder_path = {'mode':'w',
+-                       'value':'/mnt/builder'}
++                       'value':'/run/builder'}
+ 
+     # directory of system for livecd.squashfs
+     cl_builder_squash_path = {'mode':'w',
+@@ -174,6 +174,8 @@ class Data:
+ 
+     cl_builder_kernel_cmd = {'mode':'w'}
+ 
++    cl_builder_root_param = {'mode':'w'}
++
+     # lib vars
+     cl_chroot_path = {}
+     cl_env_path = {}
+diff --git scripts/cl-builder scripts/cl-builder
+index 150e360..17c7018 100644
+--- scripts/cl-builder
++++ scripts/cl-builder
+@@ -18,7 +18,7 @@
+ #------------------------------------------------------------------------------
+ 
+ # выбор строки перемонтирования разделов в зависимости от используемого модуля
+-BUILDER=/mnt/builder
++BUILDER=/run/builder
+ if [[ -n `mount | grep " / type aufs"` ]];
+ then
+ 	REMOUNT="mount -t aufs -o remount,br:/ none /"
+@@ -92,14 +92,14 @@ checkrun() {
+ 		exit;
+ 	fi
+ 	#не запустим если загрузка не в Scrach режиме
+-	if ! mount | grep /mnt/scratch &>/dev/null
++	if ! mount | grep ${BUILDER} &>/dev/null
+ 	then
+ 		echo "This program only works in the system, installed by Calculate with the option '--build'."
+ 		exit;
+ 	fi
+ 
+ 	#не запустим второй раз
+-	if mount | grep "/dev/pts on /mnt/builder/dev/pts " &>/dev/null
++	if mount | grep "/dev/pts on ${BUILDER}/dev/pts " &>/dev/null
+ 	then
+ 		if [ `ps ax | grep -v grep | grep -c "/bin/bash /usr/bin/cl-builder"` -gt 3 ];
+ 		then
+@@ -203,11 +203,11 @@ update_from_builder() {
+ 			waschange=1
+ 		done
+ 	done
+-	local roottype=$(cl-kernel -v --filter os_root_type | \
++	local roottype=$(cl-image -v --filter os_root_type | \
+ 		sed -nr 's/.*\[.\]\s//p')
+ 	if [[ "$roottype" != "livecd" ]]
+ 	then
+-		local osRootDev=$(cl-kernel -v --filter os_root_dev | \
++		local osRootDev=$(cl-image -v --filter os_root_dev | \
+ 			sed -nr 's/.*\[.\]\s//p')
+ 		rootUUID=$(blkid $osRootDev | sed -r 's/^.*UUID="([^"]+)".*/\1/')
+ 		if ! diff -q <( cat /boot/grub/grub.cfg | grep linux | \
+diff --git scripts/cl-kernel scripts/cl-kernel
+deleted file mode 100644
+index 09a0ba9..0000000
+--- scripts/cl-kernel
++++ /dev/null
+@@ -1,58 +0,0 @@
+-#!/usr/bin/env python2
+-#-*- coding: utf-8 -*-
+-
+-# Copyright 2010 Calculate Ltd. http://www.calculate-linux.org
+-#
+-#  Licensed under the Apache License, Version 2.0 (the "License");
+-#  you may not use this file except in compliance with the License.
+-#  You may obtain a copy of the License at
+-#
+-#      http://www.apache.org/licenses/LICENSE-2.0
+-#
+-#  Unless required by applicable law or agreed to in writing, software
+-#  distributed under the License is distributed on an "AS IS" BASIS,
+-#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-#  See the License for the specific language governing permissions and
+-#  limitations under the License.
+-
+-import sys
+-import os
+-from os import path
+-sys.path.insert(0, path.abspath('/usr/lib/calculate-2.2/calculate-lib/pym'))
+-sys.path.insert(0, path.abspath('/usr/lib/calculate-2.2/calculate-builder/pym'))
+-
+-
+-from cl_lang import lang
+-tr = lang()
+-tr.setGlobalDomain('cl_builder')
+-tr.setLanguage(sys.modules[__name__])
+-
+-from cl_kernel_cmd import kernel_cmd
+-
+-if __name__ == "__main__":
+-    kernel = kernel_cmd()
+-    kernel.logicObj.initVars()
+-    # set lang 
+-    ret = kernel.optobj.parse_args()
+-    if ret is False:
+-        sys.exit(1)
+-    options, args = ret
+-    # set color/nocolor for display messages
+-    kernel.setPrintNoColor(options)
+-    # set values to variables
+-    if not kernel.setVars(options):
+-        sys.exit(1)
+-    # print variables
+-    if options.v or options.filter or options.xml:
+-        kernel.printVars(options)
+-        sys.exit(0)
+-
+-    if options.initrd:
+-        kernel.cleanInitrd(options)
+-    elif options.symlink:
+-        if not kernel.makeSymlink(options):
+-            sys.exit(1)
+-    elif not kernel.makeKernel(options):
+-        sys.exit(1)
+-    
+-    sys.exit(0)
+diff --git setup.py setup.py
+index 6c4677a..3a3244f 100755
+--- setup.py
++++ setup.py
+@@ -102,7 +102,6 @@ setup(
+     package_dir = {'calculate-builder': "."},
+     packages = ['calculate-builder.pym'],
+     data_files = data_files,
+-    scripts=["./scripts/cl-kernel","./scripts/cl-builder",
+-             "./scripts/cl-image"],
++    scripts=["./scripts/cl-builder", "./scripts/cl-image"],
+     cmdclass={'install_data': cl_install_data},
+ )
