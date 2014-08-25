@@ -8,6 +8,7 @@ CD_GRUB_DIR=${CDROOT_DIR}/boot/grub
 MEMDISK=${CDROOT_DIR}/memdisk.img
 ID_FILE=id${RANDOM}.uefi
 
+rm -f ${CDROOT_DIR}/id*.uefi
 touch ${CDROOT_DIR}/${ID_FILE}
 
 mkdir -p ${BOOT_GRUB_DIR}
