@@ -17,4 +17,7 @@
 	<use>
 		<flag name='hardened'>Apply Gentoo's hardened patchset</flag>
 	</use>
+	<use>
+		<flag name='firmware'>Install linux kernel firmware</flag>
+	</use>
 </pkgmetadata>

@@ -11,9 +11,10 @@ DESCRIPTION="Calculate Linux kernel image"
 KEYWORDS="~amd64 ~x86"
 HOMEPAGE="http://www.calculate-linux.org"
 
-IUSE="plymouth themes"
+IUSE="plymouth themes firmware"
 
 DEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
+	firmware? ( sys-kernel/linux-firmware )
 	themes? ( media-gfx/plymouth-themes-calculate )
 	plymouth? ( sys-boot/plymouth sys-boot/plymouth-openrc-plugin )
 	sys-apps/v86d

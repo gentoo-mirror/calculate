@@ -11,11 +11,9 @@ SRC_URI=""
 LICENSE=""
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="firmware"
 
-DEPEND="firmware? ( sys-kernel/linux-firmware )"
+DEPEND=""
 RDEPEND="|| (
-		sys-kernel/calculate-sources-dev
 		sys-kernel/calculate-sources
 		sys-kernel/gentoo-sources
 		sys-kernel/vanilla-sources
