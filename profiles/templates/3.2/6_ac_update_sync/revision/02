@@ -1,9 +1,31 @@
-# Calculate ini(update.revision)<2 run=/bin/bash merge=sys-boot/grub,sys-process/vixie-cron
+# Calculate ini(update.revision)<2 run=/bin/bash merge=sys-process/vixie-cron
 
 #-ini(update.revision,2)-#
 
 #?cl_chroot_status==off#
 /bin/sed -i '/cl-update/d' /etc/crontab
+
+# restore crontab if it is corrupted
+if ! grep -q lastrun/cron.hourly /etc/crontab
+then
+    (cat <<EOF
+# for vixie cron
+#
+# Global variables
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+HOME=/
+
+# check scripts in cron.hourly, cron.daily, cron.weekly and cron.monthly
+59  *  * * *  root    rm -f /var/spool/cron/lastrun/cron.hourly
+9  3  * * *   root    rm -f /var/spool/cron/lastrun/cron.daily
+19 4  * * 6   root    rm -f /var/spool/cron/lastrun/cron.weekly
+29 5  1 * *   root    rm -f /var/spool/cron/lastrun/cron.monthly
+*/10  *  * * *    root    test -x /usr/sbin/run-crons && /usr/sbin/run-crons
+EOF
+)>/etc/crontab
+fi
 #cl_chroot_status#
 
 true
