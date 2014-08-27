@@ -8,7 +8,7 @@ ETYPE="sources"
 inherit calculate-kernel-6 eutils
 
 DESCRIPTION="Calculate Linux kernel image"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 HOMEPAGE="http://www.calculate-linux.org"
 
 IUSE="plymouth themes firmware"
