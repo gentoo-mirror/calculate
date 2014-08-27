@@ -1,0 +1,5 @@
+# Calculate ini(update.revision)<3 format=samba path=/etc/calculate name=ini.env merge=sys-kernel/dracut,sys-power/upower-pm-utils
+
+# reconfigure dracut,upower
+[update]
+revision = 3
