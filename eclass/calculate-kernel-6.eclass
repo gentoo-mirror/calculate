@@ -104,6 +104,7 @@ clean_for_minimal() {
 		scripts/gcc-version.sh scripts/Makefile.help \
 		scripts/Makefile.modinst scripts/Makefile.asm-generic \
 		scripts/Makefile.modbuiltin scripts/Makefile.fwinst \
+		scripts/Makefile.extrawarn \
 		scripts/depmod.sh scripts/Makefile.host \
 		scripts/Kbuild.include scripts/Makefile.modpost \
 		scripts/gcc-goto.sh scripts/Makefile.headersinst \
