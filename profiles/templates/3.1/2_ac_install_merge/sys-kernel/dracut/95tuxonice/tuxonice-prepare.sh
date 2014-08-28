@@ -34,7 +34,6 @@ if [ -e "$UI" ] && [ -e "$PROGRAM_PATH" ] && [ -e "$ENABLED_PATH" ]; then
   echo "$UI $UIOPTS" >$PROGRAM_PATH
   echo 1 >$ENABLED_PATH
 else
-  warn "$UI is not available"
   if [ -e "$ENABLED_PATH" ]; then
     echo 0 >$ENABLED_PATH
   fi
