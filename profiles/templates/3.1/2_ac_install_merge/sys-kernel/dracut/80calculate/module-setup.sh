@@ -29,4 +29,6 @@ install() {
     inst_script "$moddir/live-scan.sh" "/sbin/live-scan"
     inst_script "$moddir/nfsroot.sh" "/sbin/nfsroot"
     inst_hook initqueue/timeout 95 "$moddir/live-fallback.sh"
+
+    echo rd.skipfsck=1 >> "${initdir}/etc/cmdline.d/50-skipfsck.conf"
 }
