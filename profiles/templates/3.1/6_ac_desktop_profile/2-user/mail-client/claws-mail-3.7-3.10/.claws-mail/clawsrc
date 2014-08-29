@@ -1,17 +1,19 @@
 # Calculate format=patch dotall merge(app-misc/mc)!=
 <reg>\[Plugins_GTK2\].*?(?=\[|$)</reg>
-<text>[NotificationPlugin]
-popup_show=0
-trayicon_close_to_tray=1
-trayicon_enabled=1
-
-[Plugins_GTK2]
+<text>[Plugins_GTK2]
 /usr/lib/claws-mail/plugins/address_keeper.so
 /usr/lib/claws-mail/plugins/fancy.so
 /usr/lib/claws-mail/plugins/libravatar.so
 /usr/lib/claws-mail/plugins/notification.so
 /usr/lib/claws-mail/plugins/pdf_viewer.so
 /usr/lib/claws-mail/plugins/rssyl.so
+
+</text>
+<reg>\[NotificationPlugin\].*?(?=\[|$)</reg>
+<text>[NotificationPlugin]
+popup_show=0
+trayicon_close_to_tray=1
+trayicon_enabled=1
 
 </text>
 <reg>\[TrayIcon\].*?(?=\[|$)</reg>
