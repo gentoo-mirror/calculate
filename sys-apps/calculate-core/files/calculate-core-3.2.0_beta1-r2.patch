@@ -1,0 +1,66 @@
+diff --git core/server/api_types.py core/server/api_types.py
+index 2a0c7d7..0d8d8b1 100644
+--- core/server/api_types.py
++++ core/server/api_types.py
+@@ -295,7 +295,7 @@ class GroupField(DataVarsSerializer):
+                                              onlyhelp=onlyhelp))
+             else:
+                 uniqBrief = []
+-            for varname in list(set(info['normal'])-set(uniqBrief)):
++            for varname in (x for x in info['normal'] if x not in uniqBrief):
+                 inbrief = brief and varname in info['brief_force']
+                 if brief and 'hide' in info and  varname in info['hide']:
+                     continue
+@@ -306,7 +306,7 @@ class GroupField(DataVarsSerializer):
+                                          groupVars=groupDepVars,
+                                          onlyhelp=onlyhelp))
+             if info['expert']:
+-                for varname in list(set(info['expert'])-set(uniqBrief)):
++                for varname in (x for x in info['expert'] if x not in uniqBrief):
+                     if expert == True or \
+                         expert == None and dv.getInfo(varname).wasSet:
+                         self.fields.append(Field(name = "expert",
+diff --git core/server/func.py core/server/func.py
+index 1e1a6e2..5a6b964 100644
+--- core/server/func.py
++++ core/server/func.py
+@@ -28,7 +28,8 @@ from calculate.lib.cl_lang import setLocalTranslate,getLazyLocalTranslate
+ setLocalTranslate('cl_core3',sys.modules[__name__])
+ __ = getLazyLocalTranslate(_)
+ 
+-from calculate.lib.utils.files import process,readFile,processProgress
++from calculate.lib.utils.files import (process,readFile,processProgress,
++                                       makeDirectory)
+ from calculate.lib.datavars import DataVarsError, CriticalError
+ from calculate.lib.cl_template import TemplatesError
+ from calculate.lib.utils.content import getCfgFiles
+@@ -1103,7 +1104,7 @@ class CoreWsdl():
+             """ write data in file """
+             from baseClass import Basic
+             if not os.path.exists(Basic.pids):
+-                os.mkdir(Basic.pids)
++                makeDirectory(Basic.pids)
+             pid_file = path.join(Basic.pids, '%d.pid' % self.pid)
+             try:
+                 with open(pid_file, 'w') as f:
+diff --git core/server/local_call.py core/server/local_call.py
+index 10b9c9c..efc4a0e 100644
+--- core/server/local_call.py
++++ core/server/local_call.py
+@@ -31,6 +31,7 @@ from calculate.lib.datavars import VariableError, CriticalError
+ from calculate.lib.cl_lang import setLocalTranslate
+ from calculate.core.server.api_types import FieldAdapter
+ from calculate.lib.utils.tools import ignore
++from calculate.lib.utils.files import makeDirectory
+ from calculate.core.result_viewer import ResultViewer
+ from calculate.core.server.loaded_methods import LoadedMethods
+ from calculate.core.result_viewer_gui import ProgressGui, ErrorGui, WarningGui
+@@ -121,7 +122,7 @@ class LocalCall(object):
+             if self.clVars.Get('cl_ebuild_phase'):
+                 return
+             if not os.path.exists(pids):
+-                os.mkdir(pids)
++                makeDirectory(pids)
+             pid_file = path.join(pids, '%d.pid' % pid)
+             try:
+                 with open(pid_file, 'w') as f:
