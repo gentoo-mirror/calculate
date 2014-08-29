@@ -1,0 +1,9 @@
+diff --git data/cl-update-checker.desktop data/cl-update-checker.desktop
+index 1920f26..e99b67a 100644
+--- data/cl-update-checker.desktop
++++ data/cl-update-checker.desktop
+@@ -5,4 +5,3 @@ Comment=Check the system for updates
+ Icon=calculate-update
+ Exec=cl-update-checker
+ TryExec=cl-update-checker
+-OnlyShowIn=XFCE;

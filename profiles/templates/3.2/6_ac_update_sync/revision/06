@@ -1,0 +1,14 @@
+# Calculate ini(update.revision)<6 exec=/bin/bash
+
+#-ini(update.rev,6)-#
+
+#?pkg(mail-client/claws-mail-address_keeper)!=#
+test -f /var/db/pkg/mail-client/claws-mail-address_keeper-*/CONTENTS &&
+   sed -i '/claws-mail\/plugins\/address_keeper.so/d' /var/db/pkg/mail-client/claws-mail-address_keeper-*/CONTENTS
+#pkg#
+#?pkg(mail-client/claws-mail-fancy)!=#
+test -f /var/db/pkg/mail-client/claws-mail-fancy-*/CONTENTS &&
+   sed -i '/claws-mail\/plugins\/fancy.so/d' /var/db/pkg/mail-client/claws-mail-fancy-*/CONTENTS
+#pkg#
+
+exit 0
