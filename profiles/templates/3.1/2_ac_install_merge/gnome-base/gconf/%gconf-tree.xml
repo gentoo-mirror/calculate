@@ -14,8 +14,11 @@
 #?pkg(media-gfx/dm-themes-calculate)==&&pkg(media-gfx/cldg-themes)>=12.0_alpha1#
 								<stringvalue>/usr/share/pixmaps/calculate-gdm-#-os_x11_standart-#.jpg</stringvalue>
 #pkg#
-#?pkg(media-gfx/dm-themes-calculate)!=#
-								<stringvalue>/usr/share/wallpapers/dm-#-os_x11_standart-#.jpg</stringvalue>
+#?pkg(media-gfx/dm-themes-calculate)>=14-r1#
+								<stringvalue>/usr/share/wallpapers/Calculate-dm/contents/images/#-os_x11_standart-#.jpg</stringvalue>
+#pkg#
+#?pkg(media-gfx/dm-themes-calculate)!=&&pkg(media-gfx/dm-themes-calculate)<14-r1#
+                                                                <stringvalue>/usr/share/wallpapers/dm-#-os_x11_standart-#.jpg</stringvalue>
 #pkg#
 							</default>
 							<longdesc>File to use for the background image.</longdesc>

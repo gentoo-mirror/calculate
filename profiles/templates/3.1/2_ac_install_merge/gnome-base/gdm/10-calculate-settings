@@ -13,7 +13,10 @@ picture-uri='file:///usr/share/pixmaps/calculate-gdm.jpg'
 #?pkg(media-gfx/dm-themes-calculate)==&&pkg(media-gfx/cldg-themes)>=12.0_alpha1#
 picture-uri='file:///usr/share/pixmaps/calculate-gdm-#-os_x11_standart-#.jpg'
 #pkg#
-#?pkg(media-gfx/dm-themes-calculate)!=#
+#?pkg(media-gfx/dm-themes-calculate)>=14-r1#
+picture-uri='file:///usr/share/wallpapers/Calculate-dm/contents/images/#-os_x11_standart-#.jpg'
+#pkg#
+#?pkg(media-gfx/dm-themes-calculate)!=&&pkg(media-gfx/dm-themes-calculate)<14-r1#
 picture-uri='file:///usr/share/wallpapers/dm-#-os_x11_standart-#.jpg'
 #pkg#
 picture-options='stretched'

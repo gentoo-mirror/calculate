@@ -6,7 +6,7 @@
 \s*&lt;dir name="keyboard"&gt;)</reg>
 <text>\1\2&lt;dir name="background"&gt;
 \2        &lt;entry name="picture_filename" type="string"&gt;
-\2                 &lt;stringvalue&gt;/usr/share/wallpapers/dm-#-os_x11_standart-#.jpg&lt;/stringvalue&gt;
+\2                 &lt;stringvalue&gt;/usr/share/wallpapers/#?pkg(media-gfx/dm-themes-calculate)>=14-r1#Calculate-dm/contents/images/#pkg##?pkg(media-gfx/dm-themes-calculate)!=&&pkg(media-gfx/dm-themes-calculate)<14-r1#dm-#pkg##-os_x11_standart-#.jpg&lt;/stringvalue&gt;
 \2        &lt;/entry&gt;
 \2&lt;/dir&gt;
 \2\3</text>

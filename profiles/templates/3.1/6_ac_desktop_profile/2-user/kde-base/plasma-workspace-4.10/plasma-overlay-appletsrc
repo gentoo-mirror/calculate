@@ -31,7 +31,12 @@ timezone=Local
 slideTimer=10
 slidepaths=/usr/share/wallpapers/
 userswallpapers=
+#?pkg(media-gfx/dm-themes-calculate)>=14-r1#
+wallpaper=/usr/share/wallpapers/Calculate-dm/contents/images/#-os_x11_standart-#.jpg
+#pkg#
+#?pkg(media-gfx/dm-themes-calculate)!=&&pkg(media-gfx/dm-themes-calculate)<14-r1#
 wallpaper=/usr/share/wallpapers/dm-#-os_x11_standart-#.jpg
+#pkg#
 wallpapercolor=0,0,0
 wallpaperposition=0
 
