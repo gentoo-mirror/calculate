@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-14.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2"
 
 RDEPEND="!media-gfx/calculate-cldx-themes
 		!media-gfx/calculate-cld-themes
