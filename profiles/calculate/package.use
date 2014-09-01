@@ -12,7 +12,7 @@ sys-fs/ntfs3g ntfsprogs
 media-gfx/splashutils fbcondecor
 net-fs/samba quota -winbind
 sys-fs/aufs2 inotify kernel-patch
-sys-kernel/calculate-sources symlink vmlinuz minimal plymouth themes
+sys-kernel/calculate-sources firmware minimal plymouth symlink themes vmlinuz
 sys-kernel/dracut device-mapper net
 
 #fix update xorg
