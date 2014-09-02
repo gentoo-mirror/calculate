@@ -9,7 +9,8 @@ RESTRICT_PYTHON_ABIS="2.4 2.5 2.6 3.*"
 
 inherit distutils eutils
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2
+	http://mirror.yandex.ru/calculate/calculate3/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="Utility for setting and storing the user accounts in the domain"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"

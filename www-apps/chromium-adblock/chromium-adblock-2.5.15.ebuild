@@ -6,7 +6,8 @@ EAPI="3"
 
 inherit eutils
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2
+	http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="AdBlock for Chrome"
 HOMEPAGE="https://chrome.google.com/webstore/detail/gighmmpiobklfepjocnamgkkbiglidom"

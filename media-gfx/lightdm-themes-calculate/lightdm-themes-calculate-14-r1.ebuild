@@ -12,7 +12,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/lightdm/lightdm-calculate-${PVR}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/lightdm/lightdm-calculate-${PVR}.tar.bz2
+	http://mirror.yandex.ru/calculate/themes/lightdm/lightdm-calculate-${PVR}.tar.bz2"
 
 RDEPEND="~media-gfx/dm-themes-calculate-${PV}
 	x11-themes/gtk-engines-murrine

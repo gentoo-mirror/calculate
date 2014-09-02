@@ -12,7 +12,8 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/syslinux/syslinux-calculate-${PV}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/syslinux/syslinux-calculate-${PV}.tar.bz2
+	http://mirror.yandex.ru/calculate/themes/syslinux/syslinux-calculate-${PV}.tar.bz2"
 
 RDEPEND="!<sys-boot/calcboot-4.05.0-r1"
 

@@ -6,7 +6,8 @@ inherit eutils
 
 DESCRIPTION="Program for installation, building and upgrading system"
 HOMEPAGE="http://www.calculate-linux.org/main/ru/calculate"
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2
+	http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"

@@ -8,7 +8,8 @@ inherit eutils
 
 DESCRIPTION="18+ blacklists for SquidGuard"
 HOMEPAGE="http://www.digincore.org/"
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/squidguard-digincore/${P}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/squidguard-digincore/${P}.tar.bz2
+	http://mirror.yandex.ru/calculate/squidguard-digincore/${P}.tar.bz2"
 
 LICENSE="CCPL-Attribution-ShareAlike-NonCommercial-3.0"
 SLOT="0"

@@ -12,7 +12,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/gdm/gdm-calculate-${PV}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/gdm/gdm-calculate-${PV}.tar.bz2
+	http://mirror.yandex.ru/calculate/themes/gdm/gdm-calculate-${PV}.tar.bz2"
 
 REQUIRED_USE=""
 
