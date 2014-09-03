@@ -1,0 +1,5 @@
+# Calculate ini(update.revision)<8 format=samba path=/etc/calculate name=ini.env merge=sys-apps/baselayout
+
+# update system version
+[update]
+revision = 8
