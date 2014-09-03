@@ -1,0 +1,122 @@
+diff --git update/update.py update/update.py
+index 17f64c4..b1eda94 100644
+--- update/update.py
++++ update/update.py
+@@ -706,13 +706,34 @@ class Update:
+         Выполнить очистку системы от лишних пакетов
+         """
+         deo = self.clVars.Get('cl_emerge_default_opts')
+-        with EmergeParser(EmergeCommand(["--depclean"],
+-                                        emerge_default_opts=deo)) as emerge:
++        emerge = None
++        try:
++            emerge = EmergeParser(EmergeCommand(["--depclean"],
++                                        emerge_default_opts=deo))
+             try:
+                 emerge.question.action = lambda x: False
+                 emerge.run()
+                 if not emerge.uninstall_packages.list:
+                     return True
++                kernel_pkg = self.clVars.Get('cl_update_kernel_pkg')
++                if any(("%s-%s" % (x['CATEGORY/PN'], x['PVR'])) == kernel_pkg
++                       for x in emerge.uninstall_packages.list):
++                    pkglist = [
++                        "=%s-%s" % (x['CATEGORY/PN'], x['PVR']) for x in
++                        emerge.uninstall_packages.list
++                        if ("%s-%s" % (x['CATEGORY/PN'],
++                                      x['PVR'])) != kernel_pkg]
++                    emerge.command.send('n\n')
++                    emerge.close()
++                    emerge = None
++                    if not pkglist:
++                        return True
++                    emerge = EmergeParser(
++                        EmergeCommand(pkglist,
++                                      extra_params=["--unmerge", '--ask=y'],
++                                      emerge_default_opts=deo))
++                    emerge.question.action = lambda x: False
++                    emerge.run()
+                 self._display_remove_list(emerge)
+             except EmergeError:
+                 self.printPre(self._emerge_translate(emerge.prepare_error))
+@@ -721,6 +742,9 @@ class Update:
+                     _("Would you like to unmerge these packages?")) != 'yes'):
+                 return False
+             self._startEmerging(emerge)
++        finally:
++            if emerge:
++                emerge.close()
+         return True
+ 
+     def update_task(self, task_name):
+diff --git update/variables/update.py update/variables/update.py
+index a0634ac..acb1668 100644
+--- update/variables/update.py
++++ update/variables/update.py
+@@ -23,7 +23,7 @@ from calculate.lib.datavars import (Variable, VariableError,
+     SimpleDataVars, DataVarsError)
+ from calculate.lib.utils.portage import searchProfile
+ from calculate.lib.utils.files import readLinesFile, readFile, makeDirectory, \
+-    listDirectory
++    listDirectory, process
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+ from calculate.lib.utils.text import simplify_profiles
+@@ -901,9 +901,7 @@ class VariableClUpdateAutocheckInterval(Variable):
+         self.help = _("set interval for the updates checking")
+ 
+     def choice(self):
+-        return [["1h",_("hourly")],
+-            ["3h",_("every three hours")],
+-            ["6h",_("every six hours")],
++        return [["6h",_("every six hours")],
+             ["12h",_("every twenty hours")],
+             ["1d",_("daily")]]
+ 
+@@ -920,3 +918,33 @@ class VariableClUpdateAutocheckScheduleSet(Variable):
+     def init(self):
+         self.label = _("Consider auto-check schedule")
+         self.help = "consider auto-check schedule"
++
++class VariableClUpdateKernelVersion(ReadonlyVariable):
++    """
++    Текущая версия ядра
++    """
++    def get(self):
++        return process('/bin/uname','-r').read().strip()
++
++class VariableClUpdateKernelSrcPath(ReadonlyVariable):
++    """
++    Каталог содержащий исходный код текущего ядра
++    """
++    def get(self):
++        module_build_path = (
++        "/lib/modules/%s/build" % self.Get('cl_update_kernel_version'))
++        if path.exists(module_build_path):
++            return os.readlink(module_build_path)
++
++class VariableClUpdateKernelPkg(ReadonlyVariable):
++    """
++    Пакет текущего ядра
++    """
++    def get(self):
++        qfile = process('/usr/bin/qfile', '-vC',
++                        self.Get('cl_update_kernel_src_path'))
++        if qfile.success():
++            return qfile.read().partition(" ")[0]
++        else:
++            return ""
++
+diff --git update/wsdl_update.py update/wsdl_update.py
+index 53af585..6f95581 100644
+--- update/wsdl_update.py
++++ update/wsdl_update.py
+@@ -14,7 +14,7 @@
+ #  See the License for the specific language governing permissions and
+ #  limitations under the License.
+ 
+-import  sys, time, os
++import sys
+ 
+ from calculate.lib.datavars import VariableError,DataVarsError,DataVars
+ 
