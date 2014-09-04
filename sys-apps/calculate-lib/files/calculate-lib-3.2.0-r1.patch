@@ -1,0 +1,14 @@
+diff --git calculate/lib/utils/files.py calculate/lib/utils/files.py
+index b9d4497..09b496a 100644
+--- calculate/lib/utils/files.py
++++ calculate/lib/utils/files.py
+@@ -114,8 +114,7 @@ class process:
+                 stdin=kwarg["stdin"].getStdout
+         self.stdout = kwarg.get("stdout",PIPE)
+         self.envdict = kwarg.get("envdict",os.environ.copy())
+-        if "lang" in kwarg:
+-            self.envdict["LANG"] = kwarg.get('lang')
++        self.envdict["LANG"] = kwarg.get('lang','C')
+         self.langc = "langc" in kwarg
+ 
+         self.stderr = kwarg.get("stderr",PIPE)
