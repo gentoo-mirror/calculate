@@ -13,29 +13,8 @@ sys-fs/device-mapper
 
 =dev-python/cherrypy-3.2.2-r1
 
+# package above 2.0 has not calculate patches
 >=sys-boot/grub-2.01
-
-~sys-apps/calculate-client-3.2.0_alpha11
-~sys-apps/calculate-console-3.2.0_alpha11
-~sys-apps/calculate-console-gui-3.2.0_alpha11
-~sys-apps/calculate-core-3.2.0_alpha11
-~sys-apps/calculate-desktop-3.2.0_alpha11
-~sys-apps/calculate-i18n-3.2.0_alpha11
-~sys-apps/calculate-install-3.2.0_alpha11
-~sys-apps/calculate-lib-3.2.0_alpha11
-~sys-apps/calculate-update-3.2.0_alpha11
-~sys-apps/calculate-utilities-3.2.0_alpha11
-
-~sys-apps/calculate-client-3.2.0_alpha12
-~sys-apps/calculate-console-3.2.0_alpha12
-~sys-apps/calculate-console-gui-3.2.0_alpha12
-~sys-apps/calculate-core-3.2.0_alpha12
-~sys-apps/calculate-desktop-3.2.0_alpha12
-~sys-apps/calculate-i18n-3.2.0_alpha12
-~sys-apps/calculate-install-3.2.0_alpha12
-~sys-apps/calculate-lib-3.2.0_alpha12
-~sys-apps/calculate-update-3.2.0_alpha12
-~sys-apps/calculate-utilities-3.2.0_alpha12
 
 # calckernel is not used anymore (replace to dracut)
 sys-kernel/calckernel
