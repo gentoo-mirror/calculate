@@ -1,6 +1,6 @@
 # Calculate ini(update.revision)<4 exec=/bin/bash
 
-#-ini(update.rev,4)-#
+#-ini(update.revision,4)-#
 
 #?pkg(www-plugins/chrome-binary-plugins)!=#
 test -f /var/db/pkg/www-plugins/chrome-binary-plugins-*/CONTENTS &&
