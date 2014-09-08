@@ -1,0 +1,13 @@
+diff --git core/server/gen_pid.py core/server/gen_pid.py
+index e0915da..865d991 100644
+--- core/server/gen_pid.py
++++ core/server/gen_pid.py
+@@ -65,7 +65,7 @@ def clear_finished_pids(clVars):
+             d = pickle.load(open(pidfile))
+             if path.exists(path.join("/proc", str(d['os_pid']))):
+                 continue
+-        except (ValueError, KeyError, EOFError, OSError):
++        except BaseException:
+             pass
+         with ignore(OSError):
+             os.unlink(pidfile)
