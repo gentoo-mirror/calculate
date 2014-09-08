@@ -1,0 +1,13 @@
+diff --git console/application/methods_func.py console/application/methods_func.py
+index 8c53dab..5b6b292 100644
+--- console/application/methods_func.py
++++ console/application/methods_func.py
+@@ -67,7 +67,7 @@ def parse():
+         dest='pid_res', help=_("view the result of the process"))
+     parser.add_argument(
+         '--keep-result', action='store_true', default=False,
+-        dest='keep_result', help=_("keep the cache of the relevant "
++        dest='keep_result', help=_("keep the cache of the "
+                                    "process results"))
+     parser.add_argument(
+         '--pid-kill',  type=int, metavar = 'PID',

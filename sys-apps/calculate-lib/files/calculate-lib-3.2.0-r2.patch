@@ -1,0 +1,26 @@
+diff --git calculate/lib/utils/files.py calculate/lib/utils/files.py
+index b9d4497..09b496a 100644
+--- calculate/lib/utils/files.py
++++ calculate/lib/utils/files.py
+@@ -114,8 +114,7 @@ class process:
+                 stdin=kwarg["stdin"].getStdout
+         self.stdout = kwarg.get("stdout",PIPE)
+         self.envdict = kwarg.get("envdict",os.environ.copy())
+-        if "lang" in kwarg:
+-            self.envdict["LANG"] = kwarg.get('lang')
++        self.envdict["LANG"] = kwarg.get('lang','C')
+         self.langc = "langc" in kwarg
+ 
+         self.stderr = kwarg.get("stderr",PIPE)
+diff --git calculate/lib/variables/env.py calculate/lib/variables/env.py
+index 6493ff8..d492827 100644
+--- calculate/lib/variables/env.py
++++ calculate/lib/variables/env.py
+@@ -445,6 +445,6 @@ class VariableClMakeProfile(Variable):
+         if not val:
+             raise VariableError(
+                 _("Failed to detect the system profile.") + " " +
+-                _("Select profile by command {cmd}").format(
++                _("Select the profile with command {cmd}").format(
+                     cmd="cl-update-profile"))
+         return val

@@ -1,0 +1,13 @@
+diff --git consolegui/application/ConnectionTabs.py consolegui/application/ConnectionTabs.py
+index a2a5d16..0b78251 100644
+--- consolegui/application/ConnectionTabs.py
++++ consolegui/application/ConnectionTabs.py
+@@ -237,7 +237,7 @@ def parse():
+     parser.add_argument(
+         '--skip-options', action='store_true',
+         dest='skip_options', default=False,
+-        help=_('run method without options'))
++        help=_('run the method without options'))
+     parser.add_argument(
+         '-p', '--port', type=int, dest='port',
+         help=_('port number'))      

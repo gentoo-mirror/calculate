@@ -1,0 +1,1901 @@
+diff --git fr/cl_console3.po fr/cl_console3.po
+index 41f019f..c112d25 100644
+--- fr/cl_console3.po
++++ fr/cl_console3.po
+@@ -271,8 +271,8 @@ msgstr "dump (à utiliser avec l'option --list-pid)"
+ msgid "view the result of the process"
+ msgstr "voir le résultat du processus"
+ 
+-msgid "keep cache of process result"
+-msgstr "garder le cache du résultat du processus pertinent"
++msgid "keep the cache of the process results"
++msgstr "garder le cache du résultat du processus"
+ 
+ msgid "kill the selected process"
+ msgstr "tuer le processus sélectionné"
+diff --git fr/cl_consolegui3.po fr/cl_consolegui3.po
+index 321a2ce..04fb562 100644
+--- fr/cl_consolegui3.po
++++ fr/cl_consolegui3.po
+@@ -102,6 +102,9 @@ msgstr "langue de traduction"
+ msgid "call method"
+ msgstr "appeler la méthode"
+ 
++msgid "run the method without options"
++msgstr "lancer la méthode sans options"
++
+ msgid "port number"
+ msgstr "numéro de port"
+ 
+diff --git fr/cl_core3.po fr/cl_core3.po
+index 89dd44f..57aa4f5 100644
+--- fr/cl_core3.po
++++ fr/cl_core3.po
+@@ -27,8 +27,11 @@ msgstr "Réglages"
+ msgid "Patch"
+ msgstr "Patch"
+ 
+-msgid "Dispatch-conf"
+-msgstr "Dispatch-conf"
++msgid "Update"
++msgstr "Actualiser"
++
++msgid "Update settings"
++msgstr "Actualiser les paramètres"
+ 
+ msgid "Utilities"
+ msgstr "Utilitaires"
+@@ -412,6 +415,9 @@ msgstr "rester silencieux tant que le processus est en cours"
+ msgid "Wrong option "
+ msgstr "Option incorrecte "
+ 
++msgid "%s values:"
++msgstr "%s valeurs :"
++
+ msgid "Password"
+ msgstr "Mot de passe"
+ 
+@@ -945,6 +951,12 @@ msgstr "Lien symbolique %s supprimé"
+ msgid "Unable to import %s"
+ msgstr "Impossible d'importer %s"
+ 
++msgid "Wrong normal varaiables list"
++msgstr "Erreur dans la liste des variables de base"
++
++msgid "Wrong expert varaiables list"
++msgstr "Erreur dans la liste des variables avancées"
++
+ msgid "No certificates"
+ msgstr "Aucun certificat"
+ 
+@@ -1290,6 +1302,12 @@ msgstr "Ajouter le certificat AC et le certificat root"
+ msgid "WARNING! %s trying to replace the certificate!"
+ msgstr "ATTENTION ! %s essaie de remplacer le certificat !"
+ 
++msgid "Failed to connect"
++msgstr "Erreur de connexion"
++
++msgid "Exception: %s"
++msgstr "Exception : %s"
++
+ msgid "Certificate not found in the server database!"
+ msgstr "Certificat introuvable dans la base de données du serveur !"
+ 
+diff --git fr/cl_install3.po fr/cl_install3.po
+index 6d14e73..435c1ae 100644
+--- fr/cl_install3.po
++++ fr/cl_install3.po
+@@ -39,12 +39,12 @@ msgstr "Paramètres réseau"
+ msgid "Users"
+ msgstr "Utilisateurs"
+ 
+-msgid "Audio"
+-msgstr "Audio"
+-
+ msgid "Video"
+ msgstr "Graphisme"
+ 
++msgid "Update"
++msgstr "Mise à jour"
++
+ msgid "Start installing"
+ msgstr "Procéder à l'installation"
+ 
+@@ -66,12 +66,12 @@ msgstr "Installation PXE"
+ msgid "Configuration"
+ msgstr "Configuration"
+ 
+-msgid "Save"
+-msgstr "Sauvegarder"
+-
+ msgid "Boot"
+ msgstr "Amorçage"
+ 
++msgid "Save"
++msgstr "Sauvegarder"
++
+ msgid "Network"
+ msgstr "Réseau"
+ 
+@@ -171,11 +171,20 @@ msgstr "Le répertoire est déjà monté"
+ msgid "Failed to umount"
+ msgstr "Impossible de démonter"
+ 
++msgid "Failed to unserialize type %s"
++msgstr "Impossible de désérialiser le type %s"
++
++msgid "Failed to unserialize %s"
++msgstr "Impossible de désérialiser %s"
++
++msgid "Recovery is not implemented"
++msgstr "La récupération n'est pas disponible"
++
+ msgid "directory '%s'"
+ msgstr "répertoire '%s'"
+ 
+-msgid "Failed to format the partition"
+-msgstr "Impossible de formater la partition"
++msgid "Failed to clean directory"
++msgstr "Impossible de nettoyer le répertoire"
+ 
+ msgid "The following attributes are not specified: (%s)"
+ msgstr "Les attributs suivants n'ont pas été indiqués : (%s)"
+@@ -195,6 +204,9 @@ msgstr "Le format '%s' indiqué n'est pas supporté"
+ msgid "Failed to format %s: this partition is used as swap"
+ msgstr "Impossible de formater %s : la partition est utilisée comme swap"
+ 
++msgid "Failed to format the partition"
++msgstr "Impossible de formater la partition"
++
+ msgid "Permission denied"
+ msgstr "Accès refusé"
+ 
+@@ -278,6 +290,9 @@ msgstr "Distribution scratch incorrecte dans '%s'"
+ msgid "PXE install does not support %s"
+ msgstr "L'installation PXE ne supporte pas %s"
+ 
++msgid "layered '{file} {diff}'"
++msgstr "avec couches '{file} {diff}'"
++
+ msgid "User %s not found"
+ msgstr "L'utilisateur %s n'existe pas"
+ 
+@@ -507,7 +522,7 @@ msgstr ""
+ "Interface réseau, DHCP ou adresse IP et masque du réseau (exemple : %s)"
+ 
+ msgid "Network interface %s not found"
+-msgstr ""
++msgstr "Interface réseau %s introuvable"
+ 
+ msgid "Hostname"
+ msgstr "Nom d'hôte"
+@@ -635,7 +650,7 @@ msgid "Password for user %s missing"
+ msgstr "Le mot de passe de l'utilisateur %s est absent"
+ 
+ msgid "encrypt user profiles"
+-msgstr ""
++msgstr "chiffrer les profils utilisateurs"
+ 
+ msgid "Encrypt user profiles"
+ msgstr "Chiffrer les profils utilisateurs"
+@@ -751,6 +766,10 @@ msgid "Grub configuration unavailable for Flash install"
+ msgstr ""
+ "Il est impossible de configurer Grub si vous installez sur un support USB"
+ 
++msgid "Update configuration unavailable for Flash install"
++msgstr ""
++"La mise à jour n'est pas configurable pour l'installation sur un support USB"
++
+ msgid "Installation image"
+ msgstr "Image d'installation"
+ 
+diff --git fr/cl_lib3.po fr/cl_lib3.po
+index 51309ae..660676a 100644
+--- fr/cl_lib3.po
++++ fr/cl_lib3.po
+@@ -404,6 +404,9 @@ msgstr ""
+ "Tentative de réécriture dans le champ d'index {fieldname} dans la variable "
+ "{variablename}"
+ 
++msgid "Failed to get value %s"
++msgstr "Impossible de récupérer la valeur de %s"
++
+ msgid "Variable %s not found"
+ msgstr "Variable %s introuvable"
+ 
+@@ -695,8 +698,11 @@ msgstr "Localisation des gabarits"
+ msgid "select location for templates %s"
+ msgstr "choisir la localisation des gabarits %s"
+ 
+-msgid "Failed to detect the system profile"
+-msgstr "Impossible de détecter le profil système"
++msgid "Failed to detect the system profile."
++msgstr "Impossible de détecter le profil système."
++
++msgid "Select the profile with command {cmd}"
++msgstr "Sélectionnez le profil avec la commande {cmd}"
+ 
+ msgid "Custom action"
+ msgstr "Action aléatoire"
+diff --git fr/cl_update3.po fr/cl_update3.po
+index 5753482..cea1801 100644
+--- fr/cl_update3.po
++++ fr/cl_update3.po
+@@ -45,6 +45,12 @@ msgstr "La branche {branch} est introuvable dans le dépôt {rpath}"
+ msgid "Failed to change branch to {branch} in the {rpath} repository"
+ msgstr "Impossible de basculer vers la branche {branch} dans le dépôt {rpath}"
+ 
++msgid "Updates autocheck is not enabled"
++msgstr "La vérification automatique de mises à jour n'est pas activée"
++
++msgid "Please wait for the update time"
++msgstr "Veuillez patienter jusqu'à la prochaine vérification"
++
+ msgid "Update is already running. Try to run later."
+ msgstr "Une mise à jour est déjà en cours, veuillez réessayer plus tard"
+ 
+@@ -56,7 +62,7 @@ msgid "Emerge is running. Try to run later."
+ msgstr "Emerge est en cours d'exécution. Réessayez plus tard."
+ 
+ msgid "Waiting for emerge to be complete"
+-msgstr ""
++msgstr "Attendez la fin du processus emerge"
+ 
+ msgid "Configuration variables for repositories are not setup"
+ msgstr "Les variables de configuration des dépôts n'ont pas été configurées"
+@@ -111,7 +117,7 @@ msgid "Installing %s"
+ msgstr "Installation de %s"
+ 
+ msgid "Fetching binary packages"
+-msgstr ""
++msgstr "Récupération de paquets binaires"
+ 
+ msgid " ({current} of {maximum})"
+ msgstr " ({current} sur {maximum})"
+@@ -131,8 +137,11 @@ msgstr "Liste des paquets à installer"
+ msgid "Listing packages for removal"
+ msgstr "Liste des paquets à supprimer"
+ 
+-msgid "{size} will be downloaded"
+-msgstr "{size} seront téléchargés"
++msgid "{count} packages will be installed"
++msgstr "{count} paquets à installer"
++
++msgid "{install}{size} will be downloaded"
++msgstr "{install}{size} à télécharger"
+ 
+ msgid "Installed packages are up to date"
+ msgstr "Les paquets installés sont à jour"
+@@ -167,8 +176,8 @@ msgstr "Mettre le système à jour"
+ msgid "Update the system"
+ msgstr "Mettre le système à jour"
+ 
+-msgid "Update the Profile"
+-msgstr "Actualiser le profil"
++msgid "Change the Profile"
++msgstr "Basculer entre les profils"
+ 
+ msgid "Repository"
+ msgstr "Dépôt"
+@@ -182,6 +191,15 @@ msgstr "Exécuter"
+ msgid "Set the profile"
+ msgstr "Définir le profil"
+ 
++msgid "Configuration"
++msgstr "Configuration"
++
++msgid "Updates"
++msgstr "Mises à jour"
++
++msgid "Updates autocheck settings"
++msgstr "Paramètres de vérification automatique de mises à jour"
++
+ msgid "Emerge failed"
+ msgstr "Emerge a échoué"
+ 
+@@ -227,9 +245,6 @@ msgstr "Définition du profil en cours"
+ msgid "Switching to profile {cl_update_profile_system}"
+ msgstr "Basculement vers le profil {cl_update_profile_system}"
+ 
+-msgid "Update failed"
+-msgstr "Mise à jour échouée"
+-
+ msgid "Update manually interrupted"
+ msgstr "La mise à jour a été interrompue par l'utilisateur"
+ 
+@@ -294,8 +309,8 @@ msgstr "Configuration système"
+ msgid "Fixing the settings"
+ msgstr "Correction des paramètres"
+ 
+-msgid "Updating the list of system packages"
+-msgstr "Actualisation de la liste des paquets système"
++msgid "Update failed"
++msgstr "Mise à jour échouée"
+ 
+ msgid "System update finished!"
+ msgstr "Votre système a bien été mis à jour !"
+@@ -303,6 +318,15 @@ msgstr "Votre système a bien été mis à jour !"
+ msgid "World rebuild finished!"
+ msgstr "Votre world a bien été regénéré !"
+ 
++msgid "Updates autocheck configured!"
++msgstr "La vérification automatique de mises à jour a bien été paramétrée !"
++
++msgid "Failed to configure the updates autocheck procedure!"
++msgstr "Impossible de paramétrer la vérification automatique de mises à jour !"
++
++msgid "Configuration manually interrupted"
++msgstr "Configuration interrompue par l'utilisateur"
++
+ msgid "Rebuild world"
+ msgstr "Regénérer world"
+ 
+@@ -451,14 +475,41 @@ msgstr "Vous devez spécifier le profil"
+ msgid "Repository variables were not configured for the profile"
+ msgstr "Les variables du dépôt n'ont pas été configurées pour le profil"
+ 
+-msgid "Profile is not Calculate"
+-msgstr ""
++msgid "The selected profile is not Calculate"
++msgstr "Le profil sélectionné n'est pas Calculate"
+ 
+ msgid "Wrong Calculate profile"
+ msgstr "Profil Calculate incorrect"
+ 
+-msgid "Synchronize repositories"
+-msgstr "Dépôts synchronisés"
++msgid "Repositories to be synchronized"
++msgstr "Dépôts à synchroniser"
+ 
+-msgid "synchronize repositories"
+-msgstr "Dépôts synchronisés"
++msgid "repositories to be synchronized"
++msgstr "dépôts à synchroniser"
++
++msgid "Automatically check updates"
++msgstr "Vérifier les mises à jour automatiquement"
++
++msgid "automatically check updates"
++msgstr "vérifier les mises à jour automatiquement"
++
++msgid "Interval for the updates checking"
++msgstr "Intervalle de vérification de mises à jour"
++
++msgid "set interval for the updates checking"
++msgstr "spécifier l'intervalle de vérification de mises à jour"
++
++msgid "every six hours"
++msgstr "toutes les six heures"
++
++msgid "every twenty hours"
++msgstr "toutes les douze heures"
++
++msgid "daily"
++msgstr "chaque jour"
++
++msgid "Consider the autocheck schedule"
++msgstr "Respecter la fréquence de vérification"
++
++msgid "consider the autocheck schedule"
++msgstr "respecter la fréquence de vérification"
+diff --git ru/cl_console3.po ru/cl_console3.po
+index dbfb75a..c1cd07b 100644
+--- ru/cl_console3.po
++++ ru/cl_console3.po
+@@ -265,7 +265,7 @@ msgstr "дамп (используйте с ключом --list-pid)"
+ msgid "view the result of the process"
+ msgstr "просмотр результата работы процесса"
+ 
+-msgid "keep the cache of the relevant process results"
++msgid "keep the cache of the process results"
+ msgstr "сохранить кэш результата процесса"
+ 
+ msgid "kill the selected process"
+diff --git ru/cl_consolegui3.po ru/cl_consolegui3.po
+index 2aaf31e..6af929d 100644
+--- ru/cl_consolegui3.po
++++ ru/cl_consolegui3.po
+@@ -102,6 +102,9 @@ msgstr "язык для перевода"
+ msgid "call method"
+ msgstr "вызов метода"
+ 
++msgid "run the method without options"
++msgstr "запустить метод без параметров"
++
+ msgid "port number"
+ msgstr "номер порта"
+ 
+diff --git ru/cl_core3.po ru/cl_core3.po
+index ef675f5..e1afb04 100644
+--- ru/cl_core3.po
++++ ru/cl_core3.po
+@@ -942,10 +942,10 @@ msgstr "Удалена ссылка %s"
+ msgid "Unable to import %s"
+ msgstr "Невозможно импортировать %s"
+ 
+-msgid "Wrong normal varaiable list"
++msgid "Wrong normal varaiables list"
+ msgstr "Неправильный список обычных переменных"
+ 
+-msgid "Wrong expert varaiable list"
++msgid "Wrong expert varaiables list"
+ msgstr "Неправильный список экспертных переменных"
+ 
+ msgid "No certificates"
+@@ -1489,7 +1489,3 @@ msgstr "Ошибка сессии"
+ 
+ msgid "Please enter a correct SID"
+ msgstr "Введите корректный идентификатор сессии"
+-
+-
+-
+-
+diff --git ru/cl_install3.po ru/cl_install3.po
+index e2f8c8a..015cbaa 100644
+--- ru/cl_install3.po
++++ ru/cl_install3.po
+@@ -750,6 +750,9 @@ msgstr "grub терминал"
+ msgid "Grub configuration unavailable for Flash install"
+ msgstr "Конфигурация загрузки недоступна при установке на Flash"
+ 
++msgid "Update configuration unavailable for Flash install"
++msgstr "Настройка обновлений недоступна при установке на Flash"
++
+ msgid "Installation image"
+ msgstr "Установочный образ"
+ 
+@@ -1191,10 +1194,3 @@ msgstr "Таблица разделов"
+ 
+ msgid "set the partition table for autopartition"
+ msgstr "установить таблицу разделов для авторазметки"
+-
+-
+-
+-
+-
+-
+-
+diff --git ru/cl_lib3.po ru/cl_lib3.po
+index 0d3b6c3..3460990 100644
+--- ru/cl_lib3.po
++++ ru/cl_lib3.po
+@@ -690,7 +690,7 @@ msgstr "выбор местонахождения шаблонов %s"
+ msgid "Failed to detect the system profile."
+ msgstr "Не удалось определить профиль системы."
+ 
+-msgid "Select profile by command {cmd}"
++msgid "Select the profile with command {cmd}"
+ msgstr "Выберите профиль с помощью команды {cmd}"
+ 
+ msgid "Custom action"
+diff --git ru/cl_update3.po ru/cl_update3.po
+index 27eefc2..d1c7fed 100644
+--- ru/cl_update3.po
++++ ru/cl_update3.po
+@@ -45,10 +45,10 @@ msgstr "Ветка {branch} не найдена в {rpath} репозитори
+ msgid "Failed to change branch to {branch} in the {rpath} repository"
+ msgstr "Не удалось сменить ветку на {branch} в {rpath} репозитории"
+ 
+-msgid "Update autocheck is not enabled"
++msgid "Updates autocheck is not enabled"
+ msgstr "Автопроверка обновлений не включена"
+ 
+-msgid "Update time is not yet come"
++msgid "Please wait for the update time"
+ msgstr "Время для проверки обновлений еще не пришло"
+ 
+ msgid "Update is already running. Try to run later."
+@@ -174,8 +174,8 @@ msgstr "Обновление системы"
+ msgid "Update the system"
+ msgstr "Обновление системы"
+ 
+-msgid "Update the Profile"
+-msgstr "Обновить профиль"
++msgid "Change the Profile"
++msgstr "Сменить профиль"
+ 
+ msgid "Repository"
+ msgstr "Репозиторий"
+@@ -262,7 +262,7 @@ msgid "Updating Python"
+ msgstr "Обновление Python"
+ 
+ msgid "Find & rebuild packages broken due to a Python upgrade"
+-msgstr "Поиск и пересборка пакетов, испорченных при обновлении Python"
++msgstr "Поиск и пересборка пакетов, повреждённых при обновлении Python"
+ 
+ msgid "Updating Perl"
+ msgstr "Обновить Perl"
+@@ -270,7 +270,7 @@ msgstr "Обновить Perl"
+ msgid ""
+ "Find & rebuild packages and Perl header files broken due to a perl upgrade"
+ msgstr ""
+-"Поиск и пересборка пакетов и Perl header файлов, испорченных при обновлении "
++"Поиск и пересборка пакетов и Perl header файлов, повреждённых при обновлении "
+ "Perl"
+ 
+ msgid "Updating Calculate Utilities"
+@@ -315,10 +315,10 @@ msgstr "Обновление системы завершено!"
+ msgid "World rebuild finished!"
+ msgstr "Завершена перегенерация world!"
+ 
+-msgid "Updates autocheck settings configured!"
++msgid "Updates autocheck configured!"
+ msgstr "Параметры автопроверки обновлений настроены!"
+ 
+-msgid "Failed to configure the updates autocheck settings!"
++msgid "Failed to configure the updates autocheck procedure!"
+ msgstr "Не удалось настроить параметры автопроверки обновлений!"
+ 
+ msgid "Configuration manually interrupted"
+@@ -472,17 +472,17 @@ msgstr "Вы должны указать профиль"
+ msgid "Repository variables were not configured for the profile"
+ msgstr "В профиле не настроены переменные репозитория"
+ 
+-msgid "Profile is not Calculate"
++msgid "The selected profile is not Calculate"
+ msgstr "Профиль не Calculate"
+ 
+ msgid "Wrong Calculate profile"
+ msgstr "Неправильный Calculate профиль"
+ 
+-msgid "Synchronize repositories"
++msgid "Repositories to be synchronized"
+ msgstr "Синхронизируемые репозитории"
+ 
+-msgid "synchronize repositories"
+-msgstr "Синхронизируемые репозитории"
++msgid "repositories to be synchronized"
++msgstr "синхронизируемые репозитории"
+ 
+ msgid "Automatically check updates"
+ msgstr "Автоматически проверять обновления"
+@@ -505,5 +505,8 @@ msgstr "раз в двенадцать часов"
+ msgid "daily"
+ msgstr "раз в сутки"
+ 
+-msgid "Consider auto-check schedule"
++msgid "Consider the autocheck schedule"
+ msgstr "Учитывать график автопроверки"
++
++msgid "consider the autocheck schedule"
++msgstr "учитывать график автопроверки"
+diff --git ru/packages.po ru/packages.po
+index f9a5b34..15418c4 100644
+--- ru/packages.po
++++ ru/packages.po
+@@ -31,7 +31,7 @@ msgstr "Инструмент для обработки символическо
+ msgid "Manages ctags implementations"
+ msgstr "Инструмент для управления данными утилиты ctags"
+ 
+-msgid "An eselect module to manage /etc/fonts/conf.d symlinks."
++msgid "An eselect module to manage /etc/fonts/conf.d symlinks"
+ msgstr ""
+ "Модуль утилиты eselect для обработки символических ссылок /etc/fonts/conf.d"
+ 
+@@ -183,6 +183,11 @@ msgstr "Распаковщик ACE-файлов"
+ msgid "unzipper for pkzip-compressed files"
+ msgstr "Деархиватор файлов, сжатых методом PKZIP"
+ 
++msgid "a GTK+ based and advanced archive manager that can be used with Thunar"
++msgstr ""
++"Многофункциональное средство управления архивами, основанное на GTK+; может "
++"использоваться совместно с менеджером файлов Thunar"
++
+ msgid "utils for managing LZMA compressed files"
+ msgstr "Утилиты для работы с файлами, сжатыми с помощью алгоритма LZMA"
+ 
+@@ -236,7 +241,7 @@ msgstr ""
+ msgid "MIT Kerberos V"
+ msgstr "Kerberos V, разработан Массачусетским технологическим институтом"
+ 
+-msgid "Provides a standard configuration setup for installing PKCS#11."
++msgid "Provides a standard configuration setup for installing PKCS#11"
+ msgstr "Стандартная конфигурация для установки сертификата PKCS#11"
+ 
+ msgid ""
+@@ -359,12 +364,10 @@ msgstr "32-разрядные библиотеки"
+ msgid "32bit nls-disabled dev-libs/popt-1.13"
+ msgstr "32-битный dev-libs/popt-1.13 без поддержки NLS"
+ 
+-msgid ""
+-"32 bit lib-compat, and also libgcc_s and libstdc++ from gcc 3.3 and 3.4 for "
+-"non-multilib systems"
++msgid "32 bit lib-compat and libstdc++-v3 (compatibility metapackage)"
+ msgstr ""
+-"32-битный lib-compat, а также libgcc_s и libstdc++ из gcc 3.3 и 3.4 для "
+-"негибридных систем"
++"32-разрядные lib-compat и libstdc++-v3 (метапакет, обеспечивающий "
++"совместимость)"
+ 
+ msgid "Qt4 GUI configuration tool for Wine"
+ msgstr "Графический конфигуратор Qt4 для среды Wine"
+@@ -391,7 +394,7 @@ msgstr ""
+ "ENCA, утилита, которая определяет используемую файлом кодировку символов и "
+ "при необходимости конвертирует его"
+ 
+-msgid "A high-speed character set detection library."
++msgid "A high-speed character set detection library"
+ msgstr "Быстрая библиотека для распознавания кодировки символов"
+ 
+ msgid ""
+@@ -404,7 +407,7 @@ msgstr "Некоторые man-руководства по командам Linu
+ msgid "A somewhat comprehensive collection of Italian Linux man pages"
+ msgstr "Некоторые man-руководства по командам Linux на итальянском языке"
+ 
+-msgid "A collection of Polish translations of Linux manual pages."
++msgid "A collection of Polish translations of Linux manual pages"
+ msgstr "Man-руководства по командам Linux на польском языке"
+ 
+ msgid "A somewhat comprehensive collection of Romanian Linux man pages"
+@@ -480,16 +483,16 @@ msgstr "Серверная часть фреймворка Akonadi"
+ msgid "The GNOME Spreadsheet"
+ msgstr "Редактор таблиц для использования в среде GNOME"
+ 
+-msgid "LibreOffice, a full office productivity suite."
++msgid "LibreOffice, a full office productivity suite"
+ msgstr "LibreOffice, полный офисный пакет"
+ 
+-msgid "LibreOffice, a full office productivity suite. Binary package."
++msgid "LibreOffice, a full office productivity suite. Binary package"
+ msgstr "LibreOffice, полный офисный пакет. Бинарная версия"
+ 
+-msgid "Translations for the Libreoffice suite."
++msgid "Translations for the Libreoffice suite"
+ msgstr "Пакеты локализации офисного пакета Libreoffice"
+ 
+-msgid "Apache OpenOffice productivity suite."
++msgid "Apache OpenOffice productivity suite"
+ msgstr "Офисный пакет OpenOffice, разрабатываемый фондом Apache"
+ 
+ msgid "Support library to communicate with Apple iPhone/iPod Touch devices"
+@@ -544,10 +547,17 @@ msgstr ""
+ "Автодополнение консольных команд, специфичных для Gentoo (emerge, ebuild, "
+ "equery, repoman, layman и т.д.)"
+ 
+-msgid "A POSIX shell function to treat a variable like an array, quoting args."
++msgid "A POSIX shell function to treat a variable like an array, quoting args"
+ msgstr ""
+ "POSIX-совместимая функция для обработки переменной как массива с аргументами"
+ 
++msgid ""
++"A text document format for writing short documents, articles, books and UNIX "
++"man pages"
++msgstr ""
++"Формат текста, предназначенный для составления небольших документов, "
++"написания статей и книг, создания man-руководств для систем UNIX"
++
+ msgid "A spell checker replacement for ispell"
+ msgstr "Утилита для проверки орфографии, альтернатива ispell"
+ 
+@@ -564,7 +574,7 @@ msgstr ""
+ "Набор просмотрщиков, кодеков и других утилит для работы с файлами формата "
+ "DjVu"
+ 
+-msgid "DSSSL Stylesheets for DocBook."
++msgid "DSSSL Stylesheets for DocBook"
+ msgstr "Таблицы стилей DSSSL для DocBook"
+ 
+ msgid "Docbook SGML DTD 4.5"
+@@ -580,7 +590,7 @@ msgstr ""
+ msgid "XSL Stylesheets for Docbook"
+ msgstr "Таблицы стилей XSL для Docbook"
+ 
+-msgid "Tools for accessing and converting various ebook file formats."
++msgid "Tools for accessing and converting various ebook file formats"
+ msgstr ""
+ "Утилиты, обеспечивающие доступ к различным форматам электронных книг и их "
+ "конвертацию"
+@@ -591,7 +601,7 @@ msgstr "Библиотека-обёртка для проверки орфогр
+ msgid "Simple document viewer for GNOME"
+ msgstr "Простой просмотрщик документов для среды GNOME"
+ 
+-msgid "E-Book Reader. Supports many e-book formats."
++msgid "E-Book Reader. Supports many e-book formats"
+ msgstr "Программа для чтения электронных книг; поддерживает различные форматы"
+ 
+ msgid "Ghostscript is an interpreter for the PostScript language and for PDF"
+@@ -603,7 +613,7 @@ msgstr "Утилиты документации по проекту GNOME"
+ msgid "Spell checking widget for GTK"
+ msgstr "Виджет проверки орфографии для GTK"
+ 
+-msgid "Hunspell spell checker - an improved replacement for myspell in OOo."
++msgid "Hunspell spell checker - an improved replacement for myspell in OOo"
+ msgstr ""
+ "Утилита проверки орфографии Hunspell, улучшенная альтернатива для myspell в "
+ "OpenOffice"
+@@ -612,13 +622,14 @@ msgid "ISO language, territory, currency, script codes and their translations"
+ msgstr "ISO-коды языков, территорий, валют, сценариев"
+ 
+ msgid "Library parsing abiword documents"
+-msgstr ""
++msgstr "Библиотека синтаксического анализа для документов Abiword"
+ 
+ msgid "Library parsing various ebook formats"
+ msgstr ""
++"Библиотека синтаксического анализа для электронных книг различных форматов"
+ 
+ msgid "Library parsing Apple Keynote presentations"
+-msgstr ""
++msgstr "Библиотека синтаксического анализа для презентаций Apple Keynote"
+ 
+ msgid "Library implementing N-gram-based text categorization"
+ msgstr "Библиотека для категоризации текста, основанная на N-gram модели"
+@@ -731,11 +742,8 @@ msgid "Collection of tools for building and converting documentation"
+ msgstr "Набор утилит для сборки и конвертирования документации"
+ 
+ msgid ""
+-"vim plugin: Gentoo and portage related syntax highlighting, filetype, and "
+-"indent settings"
++"Vim syntax highlighting, filetype and indent settings for Gentoo filetypes"
+ msgstr ""
+-"Плагин Vim: подсветка синтаксиса Gentoo и Portage, определение типа файла, "
+-"настройка отступа"
+ 
+ msgid "C++ interface for the ATK library"
+ msgstr "Интерфейс C++ для библиотеки ATK"
+@@ -774,13 +782,13 @@ msgstr "Клиентская библиотека C++ для интерфейс
+ msgid "C++ interface for pango"
+ msgstr "Интерфейс C++ для pango"
+ 
+-msgid "ODBC Interface for Linux."
++msgid "ODBC Interface for Linux"
+ msgstr "Интерфейс ODBC для Linux"
+ 
+ msgid "A fast, multi-threaded, multi-user SQL database server"
+ msgstr "Быстрый многопоточный и многопользовательский сервер базы данных SQL"
+ 
+-msgid "Gentoo MySQL init scripts."
++msgid "Gentoo MySQL init scripts"
+ msgstr "Сценарии инициализации Gentoo баз данных MySQL"
+ 
+ msgid "PostgreSQL libraries and clients"
+@@ -857,7 +865,7 @@ msgstr "Язык программирования Perl; разработан Л
+ 
+ msgid ""
+ "The PHP language runtime engine: CLI, CGI, FPM/FastCGI, Apache2 and embed "
+-"SAPIs."
++"SAPIs"
+ msgstr ""
+ "Язык PHP: поддержка консольного интерфейса, CGI, FPM/FastCGI, Apache2 и "
+ "встроенных SAPI"
+@@ -910,7 +918,7 @@ msgstr "Собрание библиотек Boost для языка C++"
+ msgid "Library for MS CHM (compressed html) file format"
+ msgstr "Библиотека формата MS CHM (сжатый HTML-код)"
+ 
+-msgid "The Cyrus SASL (Simple Authentication and Security Layer)."
++msgid "The Cyrus SASL (Simple Authentication and Security Layer)"
+ msgstr ""
+ "Cyrus SASL (фреймворк для предоставления аутентификации и защиты данных)"
+ 
+@@ -970,7 +978,7 @@ msgstr ""
+ msgid "International Components for Unicode"
+ msgstr "Международные компоненты для Unicode"
+ 
+-msgid "A free stand-alone ini file parsing library."
++msgid "A free stand-alone ini file parsing library"
+ msgstr "Свободная автономная библиотека анализатора файла инициализации"
+ 
+ msgid "A JSON implementation in C"
+@@ -989,11 +997,16 @@ msgstr ""
+ msgid "A library for registering global keyboard shortcuts"
+ msgstr "Библиотека для регистрации глобальных сочетаний клавиш"
+ 
+-msgid "A minimal libc subset for use with initramfs."
++msgid "A minimal libc subset for use with initramfs"
+ msgstr ""
+ "Минимальный поднабор стандартной библиотеки C для использования с initramfs"
+ 
+ msgid ""
++"Library for Qt that implements the OAuth 1.0 authentication specification"
++msgstr ""
++"Библиотека для языка C, реализующая протокол безопасной аутентификации OAuth"
++
++msgid ""
+ "Asynchronous input/output library that uses the kernels native interface"
+ msgstr ""
+ "Библиотека асинхронного ввода/вывода, использующая интерфейс, нативно "
+@@ -1020,7 +1033,7 @@ msgstr ""
+ 
+ msgid ""
+ "Libburn is an open-source library for reading, mastering and writing optical "
+-"discs."
++"discs"
+ msgstr ""
+ "Libburn, открытая библиотека для чтения, записи и мастеринга оптических "
+ "дисков"
+@@ -1043,6 +1056,9 @@ msgstr ""
+ "Простая библиотека для языка C, предназначенная для создания процессов-"
+ "демонов"
+ 
++msgid "Library to pass menu structure across DBus"
++msgstr "Библиотека, позволяющая работать с меню с использованием DBus"
++
+ msgid "A library providing Qt implementation of DBusMenu specification"
+ msgstr "Библиотека, реализующая спецификацию DBusMenu средствами Qt"
+ 
+@@ -1065,7 +1081,7 @@ msgid "Library that converts FORTRAN to C source"
+ msgstr "Библиотека для преобразования кода на FORTRAN в C"
+ 
+ msgid ""
+-"a portable, high level programming interface to various calling conventions."
++"a portable, high level programming interface to various calling conventions"
+ msgstr ""
+ "Переносимый высокоуровневый интерфейс программирования для различных "
+ "соглашений о вызове"
+@@ -1102,8 +1118,15 @@ msgid "CORBA tree builder"
+ msgstr "Утилиты для создания деревьев файлов IDL для архитектуры CORBA"
+ 
+ msgid ""
++"A library to raise flags on DBus for other components of the desktop to pick "
++"up and visualize"
++msgstr ""
++"Библиотека индикатора сообщений DBus, позволяющая различным приложениям "
++"рабочего стола использовать и отображать их"
++
++msgid ""
+ "libisofs is an open-source library for reading, mastering and writing "
+-"optical discs."
++"optical discs"
+ msgstr ""
+ "Libisofs, открытая библиотека для чтения, записи и мастеринга оптических "
+ "дисков"
+@@ -1125,7 +1148,7 @@ msgstr ""
+ 
+ msgid ""
+ "libmcrypt is a library that provides uniform interface to access several "
+-"encryption algorithms."
++"encryption algorithms"
+ msgstr ""
+ "Libmcrypt, библиотека, обеспечивающая стандартный интерфейс доступа к ряду "
+ "алгоритмов шифрования"
+@@ -1208,7 +1231,7 @@ msgstr "Библиотека для работы с ZIP-архивами"
+ msgid "An extremely fast compression and decompression library"
+ msgstr "Чрезвычайно быстрая библиотека компрессии/декомпрессии"
+ 
+-msgid "A library for multiprecision complex arithmetic with exact rounding."
++msgid "A library for multiprecision complex arithmetic with exact rounding"
+ msgstr ""
+ "Библиотека для сложных арифметических операций с многократно увеличенной "
+ "точностью, с точным округлением"
+@@ -1315,7 +1338,7 @@ msgstr ""
+ msgid "A Perl SASL interface"
+ msgstr "Интерфейс аутентификации SASL для Perl"
+ 
+-msgid "This module provides Berkeley DB interface for Perl."
++msgid "This module provides Berkeley DB interface for Perl"
+ msgstr "Модуль Perl, предоставляющий интерфейс Berkeley DB"
+ 
+ msgid "Provides interoperable MD5-based crypt() functions"
+@@ -1487,10 +1510,10 @@ msgstr ""
+ "XML::Simple - простой API для чтения/записи в XML (прежде всего содержимого "
+ "конфигурационных файлов)"
+ 
+-msgid "Stripped down version of APC supporting only user cache."
++msgid "Stripped down version of APC supporting only user cache"
+ msgstr "Облегчённая версия APC с поддержкой только кэша пользователя"
+ 
+-msgid "An extension to track progress of a file upload."
++msgid "An extension to track progress of a file upload"
+ msgstr "Расширение для отслеживания хода выгрузки файла"
+ 
+ msgid "Universal encoding detector"
+@@ -1499,6 +1522,9 @@ msgstr "Универсальный детектор кодировки"
+ msgid "CherryPy is a pythonic, object-oriented HTTP framework"
+ msgstr "CherryPy, объектно-ориентированный HTTP-фреймворк на языке Python"
+ 
++msgid "A Python to C compiler"
++msgstr "Компилятор с языка Python на С"
++
+ msgid "Python bindings for the D-Bus messagebus"
+ msgstr "Привязки Python для шины передачи системных сообщений D-Bus"
+ 
+@@ -1559,6 +1585,9 @@ msgstr "Графическая библиотека Python (форк)"
+ msgid "Python Lex-Yacc library"
+ msgstr "Библиотека Lex-Yacc для Python"
+ 
++msgid "Text progressbar library for python"
++msgstr "Библиотека языка Python для текстового индикатора прогресса"
++
+ msgid "PostgreSQL database adapter for Python"
+ msgstr "Адаптер базы данных PostgreSQL для Python"
+ 
+@@ -1577,7 +1606,7 @@ msgstr "Привязки Python для API CUPS"
+ msgid "python binding for curl/libcurl"
+ msgstr "Привязки Python для языка Curl / библиотеки libcurl"
+ 
+-msgid "Pygments is a syntax highlighting package written in Python."
++msgid "Pygments is a syntax highlighting package written in Python"
+ msgstr ""
+ "Pygments, пакет, обеспечивающий подсветку синтаксиса; написан на Python"
+ 
+@@ -1612,7 +1641,7 @@ msgstr "Привязки Python для фреймворка Qt"
+ 
+ msgid ""
+ "This module can generate both LANMAN and NT password hashes, suitable for "
+-"use with Samba."
++"use with Samba"
+ msgstr ""
+ "Модуль, который умеет генерировать хэши паролей LanMan и NT, для "
+ "использования с Samba"
+@@ -1639,7 +1668,7 @@ msgstr ""
+ "PyZMQ, лёгкая и сверхбыстрая библиотека службы сообщений, надстройка над "
+ "библиотекой ZeroMQ"
+ 
+-msgid "Tools for generating printable PDF documents from any data source."
++msgid "Tools for generating printable PDF documents from any data source"
+ msgstr ""
+ "Утилиты для импорта текстовых документов формата PDF из любых источников "
+ "данных"
+@@ -1717,7 +1746,7 @@ msgstr "Модуль WebKit для инструментария Qt"
+ msgid "The XmlPatterns module for the Qt toolkit"
+ msgstr "Модуль XmlPatterns для инструментария Qt"
+ 
+-msgid "A JSON implementation as a Ruby extension."
++msgid "A JSON implementation as a Ruby extension"
+ msgstr "Расширение JSON в языке Ruby"
+ 
+ msgid "A LALR(1) parser generator for Ruby"
+@@ -1752,7 +1781,7 @@ msgstr ""
+ 
+ msgid ""
+ "A system for large project software construction, which is simple to use and "
+-"powerful."
++"powerful"
+ msgstr ""
+ "Система сборки крупных проектов, сочетающая мощность и простоту в "
+ "использовании"
+@@ -1815,7 +1844,7 @@ msgstr ""
+ msgid "A collection of multi-dimensional data structure and indexing algorithm"
+ msgstr "Набор многомерных структур данных и алгоритмов индексации"
+ 
+-msgid "A small build system similar to make."
++msgid "A small build system similar to make"
+ msgstr "Небольшая система сборки, подобная make"
+ 
+ msgid "Package config system that manages compile/link flags"
+@@ -1824,7 +1853,7 @@ msgstr ""
+ "компоновки"
+ 
+ msgid ""
+-"Compiles finite state machines from regular languages into executable code."
++"Compiles finite state machines from regular languages into executable code"
+ msgstr "Компилятор конечных автоматов с регулярных языков в исполняемый код"
+ 
+ msgid "tool for generating C-based recognizers from regular expressions"
+@@ -1917,7 +1946,7 @@ msgstr "Таблицы стилей XSL для Yelp"
+ msgid "Akonadi developer console"
+ msgstr "Консоль для управления сервером Akonadi"
+ 
+-msgid "KDE news feed aggregator."
++msgid "KDE news feed aggregator"
+ msgstr "RSS-агрегатор для использования в среде KDE"
+ 
+ msgid "KDE Archiving tool"
+@@ -1947,16 +1976,15 @@ msgstr "Удобный в использовании менеджер файло
+ msgid "KDE crash handler, gives the user feedback if a program crashed"
+ msgstr "Монитор ошибок KDE: информирует пользователя о сбоях в работе программ"
+ 
+-msgid "A FFmpeg based thumbnail Generator for Video Files."
++msgid "A FFmpeg based thumbnail Generator for Video Files"
+ msgstr "Генератор миниатюр видеофайлов, использующий библиотеку FFmpeg"
+ 
+ msgid ""
+-"Filelight creates an interactive map of concentric, segmented rings that "
+-"help visualise disk usage."
++"Visualise disk usage with interactive map of concentric, segmented rings"
+ msgstr ""
+-"Filelight, утилита интерактивной визуализации использования диска; "
+-"отображает диаграмму, состоящую из концентрических, поделённых на сегменты "
+-"колец"
++"Интерактивная утилита, наглядно отображающая, как используется диск; "
++"представляет файловую систему в виде концентрических колец, разделённых на "
++"сегменты"
+ 
+ msgid "A module that monitors free disk space on the home dir"
+ msgstr ""
+@@ -1982,7 +2010,7 @@ msgstr ""
+ msgid "KDE digital camera manager"
+ msgstr "Приложение KDE, отвечающее за настройку камеры"
+ 
+-msgid "Kate is an MDI texteditor."
++msgid "Kate is an MDI texteditor"
+ msgstr "Kate, текстовый редактор с поддержкой формата MDI"
+ 
+ msgid "KDE Editor KPart"
+@@ -1996,18 +2024,18 @@ msgstr "Утилита выбора символа в среде KDE"
+ 
+ msgid ""
+ "A simple password checker, used by any software in need of user "
+-"authentication."
++"authentication"
+ msgstr ""
+ "Простая программа для проверки пароля; может использоваться любым "
+ "приложением, требующим аутентификации"
+ 
+-msgid "KCMInit - runs startups initialization for Control Modules."
++msgid "KCMInit - runs startups initialization for Control Modules"
+ msgstr ""
+ "KCMInit, утилита инициализации при запуске для модулей центра управления KDE"
+ 
+ msgid ""
+ "KCMShell is a utility to host KDE control modules independently of "
+-"SystemSettings."
++"SystemSettings"
+ msgstr ""
+ "KCMShell, утилита, обеспечивающая раздельное размещение модулей центра "
+ "управления KDE и системных настроек"
+@@ -2042,12 +2070,12 @@ msgstr "Дополнительные стили и эффекты окон дл
+ msgid "oxygen cursors from kdebase"
+ msgstr "Тема курсора Oxygen из пакета kdebase"
+ 
+-msgid "Icons, localization data and various .desktop files from kdebase."
++msgid "Icons, localization data and various .desktop files from kdebase"
+ msgstr ""
+ "Иконки, файлы локализации и набор .desktop-файлов, входящие в состав "
+ "kdebase, ядра KDE"
+ 
+-msgid "Oxygen KDE4 desktop theme."
++msgid "Oxygen KDE4 desktop theme"
+ msgstr "Тема рабочего стола Oxygen для окружения KDE4"
+ 
+ msgid ""
+@@ -2058,7 +2086,7 @@ msgstr ""
+ "KIOslave делают возможным представление произвольных данных в виде файловой "
+ "системы"
+ 
+-msgid "KDE Menu query tool."
++msgid "KDE Menu query tool"
+ msgstr "Утилита поиска по меню KDE"
+ 
+ msgid "KDE menu icons"
+@@ -2084,7 +2112,7 @@ msgstr ""
+ msgid "KDE Development Scripts"
+ msgstr "Сценарии разработчика KDE"
+ 
+-msgid "Environment setting required for all KDE4 apps to run."
++msgid "Environment setting required for all KDE4 apps to run"
+ msgstr ""
+ "Настройки рабочего окружения KDE4, необходимые для нормальной работы его "
+ "приложений"
+@@ -2096,7 +2124,7 @@ msgstr ""
+ msgid "KDE internationalization package"
+ msgstr "Пакет интернационализации KDE"
+ 
+-msgid "KDE libraries needed by all KDE programs."
++msgid "KDE libraries needed by all KDE programs"
+ msgstr ""
+ "Базовые библиотеки KDE, необходимые для работы всех приложений этого "
+ "рабочего окружения"
+@@ -2123,7 +2151,7 @@ msgstr ""
+ msgid "KDE PIM internationalization package"
+ msgstr "Языковой пакет для персонального информационного менеджера KDE"
+ 
+-msgid "Common library for KDE PIM apps."
++msgid "Common library for KDE PIM apps"
+ msgstr "Стандартная библиотека для PIM-приложений среды KDE"
+ 
+ msgid "KDE PIM runtime plugin collection"
+@@ -2221,7 +2249,7 @@ msgstr "Апплет управления буфером обмена KDE и г
+ 
+ msgid ""
+ "KMail is the email component of Kontact, the integrated personal information "
+-"manager of KDE."
++"manager of KDE"
+ msgstr ""
+ "KMail, компонент личного органайзера Kontact, встроенного в окружение "
+ "рабочего стола KDE, который отвечает за электронную почту"
+@@ -2246,13 +2274,13 @@ msgstr ""
+ msgid "KDE Notes application"
+ msgstr "Приложение для быстрых заметок, интегрированное в среду KDE"
+ 
+-msgid "The KDE notification daemon."
++msgid "The KDE notification daemon"
+ msgstr "Демон уведомлений для среды KDE"
+ 
+ msgid "Paint Program for KDE"
+ msgstr "Программа для рисования в среде KDE"
+ 
+-msgid "KDE: Web browser, file manager, ..."
++msgid "KDE: Web browser and file manager"
+ msgstr "Интегрированный в KDE веб-браузер, менеджер файлов и многое другое"
+ 
+ msgid "X terminal for use with KDE"
+@@ -2273,7 +2301,7 @@ msgstr "Личный органайзер для использования в 
+ msgid "KDED Password Module"
+ msgstr "Модуль аутентификации KDED"
+ 
+-msgid "KDE: A dialer and front-end to pppd."
++msgid "KDE: A dialer and front-end to pppd"
+ msgstr "Программа дозвона и интерфейс к pppd для среды KDE"
+ 
+ msgid "A CLI application quitter"
+@@ -2325,17 +2353,17 @@ msgstr ""
+ msgid "KDE: Utility to launch applications with special window properties"
+ msgstr "Утилита KDE для открытия окон приложения с особыми свойствами"
+ 
+-msgid "KDE: A set of different KDE styles."
++msgid "KDE: A set of different KDE styles"
+ msgstr "Набор стилей рабочего окружения KDE"
+ 
+ msgid ""
+-"KSysguard is a network enabled task manager and system monitor application."
++"KSysguard is a network enabled task manager and system monitor application"
+ msgstr "KSysGuard, менеджер заданий и монитор системы с поддержкой сети"
+ 
+ msgid "KDE system log viewer"
+ msgstr "Просмотрщик системного журнала KDE"
+ 
+-msgid "Ksystraycmd embeds applications given as argument into the system tray."
++msgid "Ksystraycmd embeds applications given as argument into the system tray"
+ msgstr ""
+ "Утилита ksystraycmd; помещает приложения, заданные аргументом, в область "
+ "определений"
+@@ -2351,7 +2379,7 @@ msgstr ""
+ "Сервер пользовательского интерфейса для среды KDE, отображающий ход "
+ "выполнения задач"
+ 
+-msgid "KDE: Plugins to manage filtering URIs."
++msgid "KDE: Plugins to manage filtering URIs"
+ msgstr "Плагины для управления фильтрацией URI в среде KDE"
+ 
+ msgid "KDE application that helps you manage system users"
+@@ -2369,7 +2397,7 @@ msgstr "Интегрированный менеджер окон KDE"
+ msgid "KDE MDI editor/IDE"
+ msgstr "Текстовый MDI-редактор и интегрированная среда разработки KDE"
+ 
+-msgid "KDE daemon listening for wall and write messages."
++msgid "KDE daemon listening for wall and write messages"
+ msgstr ""
+ "Демон KDE, показывающий сообщения посланные с помощью команд wall и write"
+ 
+@@ -2387,7 +2415,7 @@ msgid "KDE Image Plugin Interface: an exiv2 library wrapper"
+ msgstr ""
+ "обёртка библиотеки exiv2, часть интерфейса KDE для обработки изображений"
+ 
+-msgid "A library for image plugins accross KDE applications."
++msgid "A library for image plugins accross KDE applications"
+ msgstr "Библиотека для графических плагинов приложений среды KDE"
+ 
+ msgid "The embeddable part of konqueror"
+@@ -2414,7 +2442,7 @@ msgstr "Библиотека, обеспечивающая базовый фун
+ msgid "Generic geographical map widget"
+ msgstr "Базовый драйвер виртуального глобуса"
+ 
+-msgid "A Thumbnail Generator for Video Files on KDE filemanagers."
++msgid "A Thumbnail Generator for Video Files on KDE filemanagers"
+ msgstr ""
+ "Генератор миниатюр видеофайлов для файловых менеджеров, используемых в среде "
+ "KDE"
+@@ -2428,12 +2456,12 @@ msgstr "Стандартные библиотеки сервера Nepomuk"
+ msgid "Widget library for nepomuk"
+ msgstr "Библиотека виджета nepomuk"
+ 
+-msgid "Okular is a universal document viewer based on KPDF for KDE 4."
++msgid "Okular is a universal document viewer based on KPDF for KDE 4"
+ msgstr ""
+ "Okular, универсальный просмотрщик документов в среде KDE4, основанный на "
+ "модуле KPDF"
+ 
+-msgid "Oxygen SVG icon theme."
++msgid "Oxygen SVG icon theme"
+ msgstr "Тема иконок Oxygen (в формате SVG)"
+ 
+ msgid "Phonon KDE Integration"
+@@ -2449,7 +2477,7 @@ msgstr ""
+ msgid "Plasma: KDE desktop framework"
+ msgstr "Plasma, фреймворк рабочего стола в среде KDE"
+ 
+-msgid "PowerDevil is an utility for KDE4 for Laptop Powermanagement."
++msgid "PowerDevil is an utility for KDE4 for Laptop Powermanagement"
+ msgstr ""
+ "PowerDevil, утилита, входящая в состав рабочего стола KDE4 и предназначенная "
+ "для контроля за электропитанием ноутбука"
+@@ -2544,8 +2572,7 @@ msgstr "Лёгкий почтовый клиент и агрегатор нов
+ msgid "Thunderbird Mail Client"
+ msgstr "Почтовый клиент Thunderbird"
+ 
+-msgid ""
+-"Bayesian spam filter designed with fast algorithms, and tuned for speed."
++msgid "Bayesian spam filter designed with fast algorithms, and tuned for speed"
+ msgstr ""
+ "Байесов спам-фильтр; использует быстрые алгоритмы, оптимизирован для скорости"
+ 
+@@ -2572,7 +2599,7 @@ msgstr ""
+ msgid "Mail delivery agent/filter"
+ msgstr "Почтовый агент/фильтр"
+ 
+-msgid "A fast and secure drop-in replacement for sendmail."
++msgid "A fast and secure drop-in replacement for sendmail"
+ msgstr "Быстрый и надёжный агент передачи почты; альтернатива Sendmail"
+ 
+ msgid "Extremely simple MTA to get mail off the system to a Mailhub"
+@@ -2637,7 +2664,7 @@ msgstr ""
+ "Демон управления питанием для среды MATE; удобен в использовании как для "
+ "ноутбуков, так и для стационарных компьютеров"
+ 
+-msgid "Replaces xscreensaver, integrating with the MATE desktop."
++msgid "Replaces xscreensaver, integrating with the MATE desktop"
+ msgstr "Альтернатива для xscreensaver; интегрирован в среду MATE"
+ 
+ msgid "The MATE System Monitor"
+@@ -2680,6 +2707,7 @@ msgstr ""
+ 
+ msgid "Standard font for Android 4.0 (Ice Cream Sandwich) and later"
+ msgstr ""
++"Стандартный шрифт для ОС Android версии 4.0 (Ice Cream Sandwich) и выше"
+ 
+ msgid "A clean fixed font for the console and X11"
+ msgstr "\"Чистый\" моноширинный шрифт для консоли и сервера X11"
+@@ -2751,6 +2779,9 @@ msgstr ""
+ msgid "Kdm theme for Calculate Linux"
+ msgstr "Тема дисплейного менеджера KDM для Calculate Linux"
+ 
++msgid "Lightdm themes for Calculate Linux"
++msgstr "Темы Calculate Linux для менеджера сеансов LightDM"
++
+ msgid "The MATE image viewer"
+ msgstr "Просмотрщик картинок для использования в среде MATE"
+ 
+@@ -2761,7 +2792,7 @@ msgid "Compress PNG files without affecting image quality"
+ msgstr "Архиватор PNG-файлов, сохраняющий качество изображения"
+ 
+ msgid "Plymouth themes for Calculate Linux"
+-msgstr ""
++msgstr "Темы Calculate Linux для экрана загрузки Plymouth"
+ 
+ msgid "Scanner Access Now Easy - Backends"
+ msgstr "Бэкенды к интерфейсу доступа к устройствам сканирования (SANE)"
+@@ -2801,14 +2832,14 @@ msgstr "Элегантный API для доступа к аудиофайлам
+ 
+ msgid ""
+ "Core libraries for a video editor designed for simple cutting, filtering and "
+-"encoding tasks."
++"encoding tasks"
+ msgstr ""
+ "Стандартные библиотеки для простого видеоредактора, предоставляющего функции "
+ "удаления ненужных частей, наложения фильтров и последующего кодирования "
+ 
+ msgid ""
+ "Plugins for avidemux; a video editor designed for simple cutting, filtering "
+-"and encoding tasks."
++"and encoding tasks"
+ msgstr ""
+ "Плагины для Avidemux, простого видеоредактора, предоставляющего функции "
+ "удаления ненужных частей, наложения фильтров и последующего кодирования "
+@@ -2825,6 +2856,11 @@ msgstr ""
+ "Клиентская библиотека, реализующая специальный алгоритм для получения "
+ "цифровых fingerprint-отпечатков аудиофайла"
+ 
++msgid "Utilities and library to convert to/from X-Face format"
++msgstr ""
++"Утилиты и библиотека, предназначенные для конвертации в формат заголовка X-"
++"Face и из него"
++
+ msgid "Free MPEG-4 audio codecs by AudioCoding.com"
+ msgstr ""
+ "Свободные аудио-кодеки стандарта MPEG-4, разработанные для проекта "
+@@ -2850,7 +2886,7 @@ msgstr "Переносимый механизм отображения шриф
+ 
+ msgid "library to use arbitrary fonts in OpenGL applications"
+ msgstr ""
+-"Библиотека, позволяющая использовать произвольные шрифты в приложениях OpenGL"
++"Библиотек, позволяющая использовать произвольные шрифты в приложениях OpenGL"
+ 
+ msgid "library for handling uncompressed audio and video data"
+ msgstr "Библиотека для работы с несжатыми аудио- и видеоданными"
+@@ -2993,7 +3029,7 @@ msgstr ""
+ "сохранение данных в формате EXIF)"
+ 
+ msgid "Library for import of FreeHand drawings"
+-msgstr ""
++msgstr "Библиотека, обеспечивающая импорт изображений FreeHand"
+ 
+ msgid ""
+ "Fast and safe graphics and drivers for about any graphics card to the Linux "
+@@ -3081,7 +3117,7 @@ msgid "Portable Network Graphics library"
+ msgstr "Переносимая сетевая библиотека для работы с растровой графикой"
+ 
+ msgid "An enhanced version of the quicktime4linux library"
+-msgstr ""
++msgstr "Улучшенная версия библиотеки quicktime4linux"
+ 
+ msgid ""
+ "LibRaw is a library for reading RAW files obtained from digital photo cameras"
+@@ -3223,13 +3259,13 @@ msgstr "Пакет сетевой поддержки для мультимеди
+ msgid "A library that handles the decoding of sound file formats"
+ msgstr "Библиотека, обеспечивающая декодирование звуковых форматов файлов"
+ 
+-msgid "sk1 vector graphics lib"
++msgid "sK1 vector graphics editor"
+ msgstr "Библиотека векторной графики sk1"
+ 
+ msgid "SDL MPEG Player Library"
+ msgstr "Библиотека MPEG-проигрывателя SDL"
+ 
+-msgid "Audio compression format designed for speech."
++msgid "Audio compression format designed for speech"
+ msgstr "Формат сжатия аудио"
+ 
+ msgid "A Type 1 Font Rasterizer Library for UNIX/X11"
+@@ -3252,6 +3288,7 @@ msgstr "Библиотека кодера VisualOn AMR-WB"
+ 
+ msgid "AudioProcessing library from the webrtc.org code base"
+ msgstr ""
++"Библиотека AudioProcessing из исходного кода webrtc.org для обработки аудио"
+ 
+ msgid "A free library for encoding X264/AVC streams"
+ msgstr "Свободная библиотека для кодирования потоков X264/AVC"
+@@ -3300,6 +3337,9 @@ msgid "GStreamer plugin for MPEG/DVD/SVCD/VCD video/audio multiplexing"
+ msgstr ""
+ "Плагин GStreamer - мультиплексор видео/аудио стандарта MPEG/DVD/SVCD/VCD"
+ 
++msgid "GStreamer plugin for the PulseAudio sound server"
++msgstr "Плагин GStreamer для обработки клиентских HTTP-серверов"
++
+ msgid "GStreamer plugin for HTTP client sources"
+ msgstr "Плагин GStreamer для обработки клиентских HTTP-серверов"
+ 
+@@ -3335,7 +3375,7 @@ msgid "Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)"
+ msgstr ""
+ "Утилиты продвинутой звуковой архитектуры ALSA (alsactl, alsamixer и др.)"
+ 
+-msgid "Advanced audio player based on KDE framework."
++msgid "Advanced audio player based on KDE framework"
+ msgstr "Многофункциональный аудиопроигрыватель для работы в среде KDE"
+ 
+ msgid "Audacious Player - Your music, your way, no exceptions"
+@@ -3346,7 +3386,7 @@ msgstr ""
+ "Современный музыкальный проигрыватель с поддержкой коллекции аудиозаписей; "
+ "был создан как порт проигрывателя Amarok 1.4 на Qt4"
+ 
+-msgid "Lossy speech compression library and tool."
++msgid "Lossy speech compression library and tool"
+ msgstr "Утилита и библиотека сжатия речи с потерями"
+ 
+ msgid "LAME Ain't an MP3 Encoder"
+@@ -3360,10 +3400,13 @@ msgstr ""
+ msgid "Musepack SV8 libraries and utilities"
+ msgstr "Библиотеки и утилиты Musepack SV8"
+ 
++msgid "Pulseaudio Volume Control, GTK based mixer for Pulseaudio"
++msgstr "Регулятор громкости для Pulseaudio; основан на GTK"
++
+ msgid "A networked sound server with an advanced plugin system"
+ msgstr "Звуковой сервер с улучшенной системой плагинов"
+ 
+-msgid "CLI program to play and record audiofiles."
++msgid "CLI program to play and record audiofiles"
+ msgstr "Консольная программа для записи и воспроизведения аудиофайлов"
+ 
+ msgid "The swiss army knife of sound processing programs"
+@@ -3372,6 +3415,9 @@ msgstr "Универсальная программа обработки зву
+ msgid "An optimised MPEG Audio Layer 2 (MP2) encoder"
+ msgstr "Оптимизированный аудиокодер стандарта MPEG Audio Layer 2 (MP2)"
+ 
++msgid "A lightweight volume control that sits in your systray"
++msgstr "Лёгкий виджет регулировки звука для отображения в системном лотке"
++
+ msgid "tools for using the Ogg Vorbis sound file format"
+ msgstr "Утилиты для использования аудиоформата Ogg Vorbis"
+ 
+@@ -3380,13 +3426,13 @@ msgstr "Гибридный аудиокодек, обеспечивающий с
+ 
+ msgid ""
+ "X(cross)platform Music Multiplexing System. The new generation of the XMMS "
+-"player."
++"player"
+ msgstr "Новое поколение аудиопроигрывателя XMMS"
+ 
+ msgid "XBMC is a free and open source media-player and entertainment hub"
+ msgstr "XBMC, свободный открытый медиапроигрыватель и центр развлечений"
+ 
+-msgid "Video editor designed for simple cutting, filtering and encoding tasks."
++msgid "Video editor designed for simple cutting, filtering and encoding tasks"
+ msgstr ""
+ "Простой видеоредактор, предоставляющий функции удаления ненужных частей, "
+ "наложения фильтров и последующего кодирования "
+@@ -3404,7 +3450,7 @@ msgstr "Утилита для захвата видео DV на системах
+ 
+ msgid ""
+ "Complete solution to record, convert and stream audio and video. Includes "
+-"libavcodec."
++"libavcodec"
+ msgstr ""
+ "Полнофункциональный пакет, содержащий утилиты записи, конвертирования и "
+ "потокового вещания аудио и видео; включает библиотеку libavcodec"
+@@ -3497,7 +3543,7 @@ msgid ""
+ "Communication package providing the X, Y, and ZMODEM file transfer protocols"
+ msgstr "Пакет передачи данных, включающий протоколы X-, Y- и ZMODEM"
+ 
+-msgid "A compact getty program for virtual consoles only."
++msgid "A compact getty program for virtual consoles only"
+ msgstr ""
+ "Компактная модификация программы getty; только для виртуальных консолей"
+ 
+@@ -3551,7 +3597,7 @@ msgstr "Сетевой экран ядра Linux"
+ 
+ msgid ""
+ "The Shoreline Firewall, commonly known as Shorewall, is a high-level tool "
+-"for configuring Netfilter."
++"for configuring Netfilter"
+ msgstr ""
+ "Shoreline Firewall, чаще именуемый Shorewall, высокоуровневый инструмент для "
+ "настройки сетевого экрана"
+@@ -3585,7 +3631,7 @@ msgstr "Стандартный FTP-клиент под Linux"
+ msgid "FTP layout package"
+ msgstr "Пакет конфигурации FTP-сервера"
+ 
+-msgid "An advanced and very configurable FTP server."
++msgid "An advanced and very configurable FTP server"
+ msgstr "Многофунциональный и тонко настраиваемый FTP-сервер"
+ 
+ msgid "port of the OpenBSD TFTP server"
+@@ -3621,7 +3667,7 @@ msgstr "Графический IRС-клиент, наследующий XChat"
+ msgid "A user friendly IRC Client for KDE4"
+ msgstr "Удобный IRC-клиент для рабочей среды KDE4"
+ 
+-msgid "Portable and multi-interface IRC client."
++msgid "Portable and multi-interface IRC client"
+ msgstr "Переносимый IRC-клиент с несколькими интерфейсами"
+ 
+ msgid "Library to access Czech eGov system \"Datove schranky\""
+@@ -3670,7 +3716,7 @@ msgstr ""
+ msgid "a library with the aim to simplify DNS programming in C"
+ msgstr "Библиотека, призванная упростить DNS-программирование на языке С"
+ 
+-msgid "C library for executing name service queries asynchronously."
++msgid "C library for executing name service queries asynchronously"
+ msgstr ""
+ "Библиотека для языка C, которая позволяет асинхронно запрашивать имена служб"
+ 
+@@ -3679,7 +3725,7 @@ msgstr ""
+ "Обёртка для bluez, написанная на Qt; используется для работы с Bluetooth в "
+ "среде KDE"
+ 
+-msgid "A portable, efficient middleware for different kinds of mail access."
++msgid "A portable, efficient middleware for different kinds of mail access"
+ msgstr ""
+ "Производительный переносимый фреймворк для доступа к почте по различным "
+ "протоколам"
+@@ -3696,7 +3742,7 @@ msgstr "Набор фунций, позволяющих блокировать 
+ 
+ msgid ""
+ "A small C library that makes it easy to run an HTTP server as part of "
+-"another application."
++"another application"
+ msgstr ""
+ "Небольшая библиотека языка C, позволяющая легко запустить HTTP-сервер как "
+ "встроенный в другое приложение"
+@@ -3746,6 +3792,7 @@ msgstr ""
+ 
+ msgid "BitTorrent library written in C++ for *nix"
+ msgstr ""
++"Библиотека С++ для систем *nix, позволяющая использовать протокол BitTorrent"
+ 
+ msgid "library for creating vnc servers"
+ msgstr "Библиотека для создания VNC-сервера"
+@@ -3763,8 +3810,8 @@ msgstr "Гибкая и производительная реализация п
+ msgid "Helper library for RESTful services"
+ msgstr "Вспомогательная библиотека для веб-сервисов REST"
+ 
+-msgid "GLib bindings for the Telepathy D-Bus protocol."
+-msgstr ""
++msgid "GLib bindings for the Telepathy D-Bus protocol"
++msgstr "Привязки GLib к протоколу Telepathy, работающему через шину D-Bus"
+ 
+ msgid "Open source web browser engine"
+ msgstr "Открытый браузерный движок"
+@@ -3787,7 +3834,7 @@ msgid "MTA layout package"
+ msgstr "Пакет конфигурации почтового сервера"
+ 
+ msgid "A download utility with segmented downloading with BitTorrent support"
+-msgstr ""
++msgstr "Утилита для загрузки файлов частями, с поддержкой протокола BitTorrent"
+ 
+ msgid "Tools for configuring the Linux kernel 802.1d Ethernet Bridge"
+ msgstr "Утилиты для настройки Ethernet-моста 802.1d в ядре Linux"
+@@ -3815,7 +3862,7 @@ msgid "Network monitoring tools including ping and ping6"
+ msgstr "Утилиты мониторинга сетевой активности; включают ping и ping6"
+ 
+ msgid "KDE frontend for various VPN clients"
+-msgstr ""
++msgstr "Фронтенд VPN-клиентов в рабочей среде KDE"
+ 
+ msgid "Database of mobile broadband service providers"
+ msgstr "База данных провайдеров широкополосного мобильного доступа в Интернет"
+@@ -3884,6 +3931,8 @@ msgstr "Улучшенный Whois-клиент"
+ 
+ msgid "Wake up hardware that is Magic Packet compliant"
+ msgstr ""
++"Утилита, позволяющая удалённо включить компьютер с помощью отправки "
++"\"волшебного пакета\" (Magic Packet)"
+ 
+ msgid "LDAP suite of application and development tools"
+ msgstr "Реализация LDAP и утилиты разработчика"
+@@ -3898,10 +3947,10 @@ msgstr "Агрегатор новостей для лент RDF/RSS/CDF/Atom/Ech
+ msgid "Tool for distributing files via a distributed network of nodes"
+ msgstr "Инструмент для обмена файлами по пиринговой сети"
+ 
+-msgid "BitTorrent client with a client/server model."
++msgid "BitTorrent client with a client/server model"
+ msgstr "Клиент-сервер для передачи данных по протоколу BitTorrent"
+ 
+-msgid "A BitTorrent program for KDE."
++msgid "A BitTorrent program for KDE"
+ msgstr "BitTorrent-клиент для платформы KDE"
+ 
+ msgid "Direct connect client, looks and works like famous DC++"
+@@ -3941,7 +3990,7 @@ msgstr ""
+ 
+ msgid ""
+ "HP Linux Imaging and Printing. Includes printer, scanner, fax drivers and "
+-"service tools."
++"service tools"
+ msgstr ""
+ "Система печати HPLIP для Linux; пакет включает драйверы принтеров, сканеров, "
+ "факсимильных аппаратов, а также сервисные утилиты"
+@@ -3961,7 +4010,7 @@ msgstr "Прокси-сервер HTTP со встроенным антивир
+ msgid "A full-featured web proxy cache"
+ msgstr "Полнофункциональный кэширующий прокси-сервер"
+ 
+-msgid "Combined filter, redirector and access controller plugin for Squid."
++msgid "Combined filter, redirector and access controller plugin for Squid"
+ msgstr ""
+ "Комбинированный фильтр, программа переадресации и плагин контроллера доступа "
+ "для Squid"
+@@ -3976,6 +4025,13 @@ msgstr ""
+ msgid "Bluetooth stack for KDE"
+ msgstr "Стек Bluetooth для KDE"
+ 
++msgid ""
++"GTK+ Bluetooth Manager, designed to be simple and intuitive for everyday "
++"bluetooth tasks"
++msgstr ""
++"Менеджер Bluetooth-соединений для повседневной работы, основанный на GTK+ и "
++"обладающий простым и интуитивным интерфейсом"
++
+ msgid "Bluetooth Tools and System Daemons for Linux"
+ msgstr "Утилиты и системные демоны Bluetooth для Linux"
+ 
+@@ -3987,7 +4043,7 @@ msgstr "Инструмент CRDA для беспроводных сетей"
+ 
+ msgid ""
+ "A reverse-engineered Linux driver for mobile WiMAX devices based on Samsung "
+-"CMC-730 chip."
++"CMC-730 chip"
+ msgstr ""
+ "Реверсный драйвер Linux для мобильных WiMAX-устройств на микрочипе Samsung "
+ "CMC-730"
+@@ -4219,6 +4275,9 @@ msgstr ""
+ msgid "XFS data management API library"
+ msgstr "Библиотека API управления данными файловой системы XFS"
+ 
++msgid "DMI (Desktop Management Interface) table related utilities"
++msgstr "Набор утилит, работающих с данными DMI (Desktop Management Interface)"
++
+ msgid "Your basic line editor"
+ msgstr "Простой построчный текстовый редактор"
+ 
+@@ -4263,6 +4322,14 @@ msgstr ""
+ "Утилита, которая, используя автообнаружение, подключает систему к локальной "
+ "сети через порт Ethernet и отключает от неё"
+ 
++msgid ""
++"A newer, better system information script for irc, administration, and "
++"system troubleshooters."
++msgstr ""
++"Обновлённый и улучшенный сценарий, позволяющий проверять системную "
++"информацию в целях администрирования и устранения неполадок с выводом в "
++"консоль и IRC"
++
+ msgid "kernel routing and traffic control utilities"
+ msgstr ""
+ "Утилиты для управления параметрами маршрутизации и контроля сетевого трафика"
+@@ -4339,7 +4406,7 @@ msgstr "Linux-утилиты пользовательского простран
+ msgid "Portage is the package management and distribution system for Gentoo"
+ msgstr "Portage, система управления пакетами и дистрибуции для Gentoo"
+ 
+-msgid "Adaptive readahead daemon."
++msgid "Adaptive readahead daemon"
+ msgstr "Адаптивный демон упреждающего чтения"
+ 
+ msgid "Pipe Viewer: a tool for monitoring the progress of data through a pipe"
+@@ -4391,7 +4458,7 @@ msgstr ""
+ msgid "Various useful Linux utilities"
+ msgstr "Коллекция полезных утилит для работы в Linux"
+ 
+-msgid "A daemon to run x86 code in an emulated environment."
++msgid "A daemon to run x86 code in an emulated environment"
+ msgstr "Демон для запуска машинного кода x86 в эмулированном окружении"
+ 
+ msgid "Prints out location of specified executables that are in your path"
+@@ -4399,7 +4466,7 @@ msgstr ""
+ "Утилита, выводящая местонахождение запрашиваемых исполняемых файлов в "
+ "предназначенных для них директориях"
+ 
+-msgid "Framework for defining and tracking users, login sessions and seats."
++msgid "Framework for defining and tracking users, login sessions and seats"
+ msgstr ""
+ "Фреймворк для определения и отслеживания состояния пользователей, сессий и "
+ "мест в системе"
+@@ -4419,13 +4486,16 @@ msgstr "Утилита для хранения пользовательског
+ msgid "PAM LDAP Module"
+ msgstr "Модуль PAM для прокотола LDAP"
+ 
++msgid "Module of the checking system update"
++msgstr "Модуль проверки системных обновлений"
++
+ msgid "Policy framework for controlling privileges for system-wide services"
+ msgstr "Фреймворк авторизации для управления системными привилегиями"
+ 
+-msgid "PolKit agent module for KDE."
++msgid "PolKit agent module for KDE"
+ msgstr "Модуль агента авторизации Polkit для KDE"
+ 
+-msgid "PolicyKit Qt4 API wrapper library."
++msgid "PolicyKit Qt4 API wrapper library"
+ msgstr "Библиотека-обёртка API PolicyKit на Qt"
+ 
+ msgid ""
+@@ -4443,7 +4513,7 @@ msgstr ""
+ "Утилита, предназначенная для создания, удаления, изменения размеров, "
+ "проверки, копирования томов и файловых систем"
+ 
+-msgid "A suite of tools for thin provisioning on Linux."
++msgid "A suite of tools for thin provisioning on Linux"
+ msgstr "Комплект утилит для динамического выделения ресурсов в Linux"
+ 
+ msgid "3ware SATA/PATA/SAS RAID controller Command Line Interface tool"
+@@ -4466,10 +4536,10 @@ msgstr ""
+ "Утилита для обнаружения на дисках операционных систем, отличных от Linux"
+ 
+ msgid "Graphical boot animation (splash) and logger"
+-msgstr ""
++msgstr "Анимированный (сплэш) экран входа в систему"
+ 
+ msgid "Plymouth plugin for OpenRC"
+-msgstr ""
++msgstr "Плагин экрана загрузки Plymouth для OpenRC"
+ 
+ msgid "SYSLINUX, PXELINUX, ISOLINUX, EXTLINUX and MEMDISK bootloaders"
+ msgstr "Загрузчики SYSLINUX, PXELINUX, ISOLINUX, EXTLINUX и MEMDISK"
+@@ -4574,13 +4644,13 @@ msgid "eCryptfs userspace utilities"
+ msgstr "Утилиты пользовательского пространства для файловой системы eCryptfs"
+ 
+ msgid "exFAT filesystem utilities"
+-msgstr ""
++msgstr "Утилиты файловой системы exFAT"
+ 
+-msgid "An interface for filesystems implemented in userspace."
++msgid "An interface for filesystems implemented in userspace"
+ msgstr "Интерфейс для файловых систем  в пользовательском пространстве"
+ 
+ msgid "exFAT filesystem FUSE module"
+-msgstr ""
++msgstr "FUSE-модуль файловой системы exFAT"
+ 
+ msgid "Fuse module to mount ISO9660"
+ msgstr "FUSE-модуль для монтирования файловых образов ISO 9660"
+@@ -4588,7 +4658,7 @@ msgstr "FUSE-модуль для монтирования файловых об
+ msgid "IBM's Journaling Filesystem (JFS) Utilities"
+ msgstr "Утилиты JFS, журналируемой файловой системы, созданной компанией IBM"
+ 
+-msgid "User-land utilities for LVM2 (device-mapper) software."
++msgid "User-land utilities for LVM2 (device-mapper) software"
+ msgstr ""
+ "Утилиты для работы с менеджером логических томов LVM2 (модуль отображения "
+ "устройств)"
+@@ -4653,13 +4723,13 @@ msgid "Calculate Linux kernel image"
+ msgstr "Образ ядра Calculate Linux"
+ 
+ msgid "Generic initramfs generation tool"
+-msgstr ""
++msgstr "Универсальная утилита для генерации initramfs"
+ 
+-msgid "Full sources including the Gentoo patchset for the 3.15 kernel tree"
+-msgstr "Полный исходный код ядра, включая патчи Gentoo для версии 3.15"
++msgid "Full sources including the Gentoo patchset for the 3.16 kernel tree"
++msgstr "Полный исходный код ядра, включая патчи Gentoo для версии 3.16"
+ 
+-msgid "Hardened kernel sources (kernel series 3.14)"
+-msgstr "Ядро повышенной безопасности hardened (версия 3.14)"
++msgid "Hardened kernel sources (kernel series 3.15)"
++msgstr "Ядро повышенной безопасности hardened (версия 3.15)"
+ 
+ msgid "Linux firmware files"
+ msgstr "Файлы прошивки Linux"
+@@ -4761,7 +4831,7 @@ msgstr "Стандартная библиотека компрессии-дек
+ 
+ msgid ""
+ "Attempts to replicate the functionality of the 'old' apm command on ACPI "
+-"systems."
++"systems"
+ msgstr ""
+ "Утилита с функционалом, аналогичным использовавшейся ранее команде apm на "
+ "системах стандарта ACPI"
+@@ -4804,6 +4874,8 @@ msgstr ""
+ 
+ msgid "The upstream upower 0.9 git branch for use with sys-power/pm-utils"
+ msgstr ""
++"Апстрим-версия upower 0.9 из Git-ветки для использования с пакетом sys-power/"
++"pm-utils"
+ 
+ msgid "base for all cron ebuilds"
+ msgstr "База для всех ebuild-сценариев планировщика cron"
+@@ -4895,7 +4967,7 @@ msgid "A virtual for the Foreign Function Interface implementation"
+ msgstr "Виртуальный пакет для реализации интерфейса вызова функций"
+ 
+ msgid "Virtual for libgudev providers"
+-msgstr ""
++msgstr "Виртуальный пакет для библиотеки libgudev"
+ 
+ msgid "Virtual for the GNU conversion library"
+ msgstr "Виртуальный пакет для библиотеки перекодировки GNU"
+@@ -4907,7 +4979,7 @@ msgid "Virtual for the GNU Standard C++ Library for <gcc-3.4"
+ msgstr "Виртуальный пакет для стандартной библиотеки GNU C++ для <gcc-3.4"
+ 
+ msgid "Virtual for libudev providers"
+-msgstr ""
++msgstr "Виртуальный пакет для библиотеки libudev"
+ 
+ msgid "Virtual for libusb"
+ msgstr "Виртуальный пакет для библиотеки libusb"
+@@ -4972,8 +5044,8 @@ msgstr "Виртуальный пакет для модуля CPAN-Meta-Requirem
+ msgid "Virtual for CPAN-Meta-YAML"
+ msgstr "Виртуальный пакет для модуля CPAN-Meta-YAML"
+ 
+-msgid "Virtual for digest-base"
+-msgstr "Виртуальный пакет для модуля Digest-Base"
++msgid "Virtual for Digest"
++msgstr "Виртуальный пакет для модуля Digest"
+ 
+ msgid "Virtual for Digest-MD5"
+ msgstr "Виртуальный пакет для модуля Digest-MD5"
+@@ -5062,8 +5134,12 @@ msgstr "Виртуальный пакет для модуля Parse-CPAN-Meta"
+ msgid "Virtual for Perl-OSType"
+ msgstr "Виртуальный пакет для модуля Perl-OSType"
+ 
+-msgid "Virtual for Scalar-List-Utils"
+-msgstr "Виртуальный пакет для модулей Scalar-List-Utils"
++msgid ""
++"Virtual for Scalar::Util and List::Util, also distributed as Scalar::List::"
++"Utils"
++msgstr ""
++"Виртуальный пакет для модулей Scalar::Util и List::Util, распространяется "
++"также как Scalar::List::Utils"
+ 
+ msgid "Virtual for Storable"
+ msgstr "Виртуальный пакет для модуля Storable"
+@@ -5089,9 +5165,6 @@ msgstr "Виртуальный пакет для версии Perl"
+ msgid "Virtual for the pkg-config implementation"
+ msgstr "Виртуальный пакет для pkg-config"
+ 
+-msgid "A virtual for the Python argparse module"
+-msgstr "Виртуальный пакет для модуля argparse для Python"
+-
+ msgid "Virtual for Python Imaging Library"
+ msgstr "Виртуальный пакет для графической библиотеки Python"
+ 
+@@ -5125,7 +5198,7 @@ msgstr "Расширение AdBlock для браузера Chrome"
+ msgid "PHP-based open-source platform and content management system"
+ msgstr "Открытая платформа и система управления содержимым; основана на PHP"
+ 
+-msgid "Joomla is a powerful Open Source Content Management System."
++msgid "Joomla is a powerful Open Source Content Management System"
+ msgstr "Joomla, мощная свободно распространяемая система управления содержимым"
+ 
+ msgid "Open-source version of Google Chrome web browser"
+@@ -5158,14 +5231,10 @@ msgstr ""
+ msgid "HTTP/HTML indexing and searching system"
+ msgstr "Система индексации и поиска по сайтам (HTTP/HTML)"
+ 
+-msgid ""
+-"Binary plugins -- native API Flash and PDF -- from Google Chrome for use in "
+-"Chromium."
+-msgstr ""
+-"Бинарные плагины Google Chrome - нативные API Flash и PDF - для "
+-"использования с Chromium"
++msgid "Binary plugins from Google Chrome for use in Chromium"
++msgstr "Бинарные плагины Google Chrome для использования с Chromium"
+ 
+-msgid "The Apache Web Server."
++msgid "The Apache Web Server"
+ msgstr "Веб-сервер Apache"
+ 
+ msgid "list X application resource database"
+@@ -5208,7 +5277,7 @@ msgid "manage utmp/wtmp entries for non-init clients"
+ msgstr ""
+ "Утилита для управления записями utmp/wtmp для неинициализированных клиентов"
+ 
+-msgid "Controls the keyboard layout of a running X server."
++msgid "Controls the keyboard layout of a running X server"
+ msgstr "Утилита для управления раскладкой клавиатуры на запущенном X-сервере"
+ 
+ msgid "Session Manager Proxy"
+@@ -5251,7 +5320,7 @@ msgid "Alter a monitor's gamma correction through the X server"
+ msgstr ""
+ "Утилита, позволяющая корректировать уровни яркости изображения через X-сервер"
+ 
+-msgid "Controls host and/or user access to a running X server."
++msgid "Controls host and/or user access to a running X server"
+ msgstr ""
+ "Утилита для управления доступом узла и/или пользователя к текущему X-серверу"
+ 
+@@ -5434,13 +5503,13 @@ msgid "X.Org Session Management library"
+ msgstr "Библиотека менеджера сеансов X.Org"
+ 
+ msgid "A lightweight implementation of Desktop Notification Spec"
+-msgstr ""
++msgstr "Компактная реализация системы уведомлений рабочего стола"
+ 
+ msgid "Common CLI routines for tinynotify-send & sw-notify-send"
+-msgstr ""
++msgstr "Стандартные CLI-процедуры для утилит tinynotify-send и sw-notify-send"
+ 
+ msgid "A system-wide notifications module for libtinynotify"
+-msgstr ""
++msgstr "Общесистемный модуль уведомлений для библиотеки libtinynotify"
+ 
+ msgid "Video Acceleration (VA) API for Linux"
+ msgstr "API для ускорения видео (VA) на Linux"
+@@ -5592,7 +5661,7 @@ msgstr ""
+ "'gcc -M'"
+ 
+ msgid ""
+-"Utils to help with the transition to the new freedesktop.org naming scheme."
++"Utils to help with the transition to the new freedesktop.org naming scheme"
+ msgstr ""
+ "Утилиты для облегчения перехода к новой схеме именования freedesktop.org"
+ 
+@@ -5620,7 +5689,7 @@ msgid "The Shared MIME-info Database specification"
+ msgstr "Спецификация общей базы данных MIME-info"
+ 
+ msgid "A system-wide variant of tinynotify-send"
+-msgstr ""
++msgstr "Общесистемная модификация утилиты уведомления tinynotify-send"
+ 
+ msgid "X.Org autotools utility macros"
+ msgstr "Макросы X.Org-утилиты autotools"
+@@ -5779,6 +5848,9 @@ msgstr "Клон терминала Rxvt с поддержкой Xft и Unicode
+ msgid "A terminal emulator for the Xfce desktop environment"
+ msgstr "Эмулятор терминала для рабочего стола Xfce"
+ 
++msgid "Icons theme for Calculate Linux"
++msgstr "Тема иконок для Calculate Linux"
++
+ msgid "Calculate X.Org mouse cursor"
+ msgstr "Тема Calculate курсора мыши X.org"
+ 
+@@ -5802,6 +5874,9 @@ msgstr "Стандартные темы приложений GNOME"
+ msgid "GTK+2 standard engines and themes"
+ msgstr "Стандартные движки и темы GTK+"
+ 
++msgid "Murrine GTK+2 Cairo Engine"
++msgstr "GTK+2 Cairo движок Murrine для оформления рабочего стола"
++
+ msgid "A port of Xfce engine to GTK+ 3.x"
+ msgstr "Движок Xfce, портированный в GTK+ 3.x"
+ 
+@@ -5819,6 +5894,9 @@ msgstr ""
+ "Набор тем оформления для среды MATE, в том числе для пользователей с "
+ "ограниченными возможностями"
+ 
++msgid "Themes for the Murrine GTK+2 Cairo Engine"
++msgstr "Темы оформления рабочего стола для движка Murrine GTK+2 Cairo Engine"
++
+ msgid "Official GTK+:2 port of KDE's Oxygen widget style"
+ msgstr "Официальный порт KDE-стиля оформления Oxygen на GTK+:2"
+ 
+@@ -5860,10 +5938,10 @@ msgstr ""
+ msgid "A basic utility library for the Xfce desktop environment"
+ msgstr "Основная библиотека утилит окружения рабочего стола Xfce"
+ 
+-msgid "A compability library for unported Xfce 4.6 plugins"
++msgid "A compability library for unported Xfce 4.6 plugins (DEPRECATED)"
+ msgstr ""
+ "Библиотека совместимости для плагинов Xfce 4.6, не портированных на более "
+-"поздние версии"
++"поздние версии (УСТАРЕЛ)"
+ 
+ msgid "File manager for the Xfce desktop environment"
+ msgstr "Менеджер файлов для рабочего стола Xfce"

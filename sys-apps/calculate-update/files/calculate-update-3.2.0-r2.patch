@@ -1,0 +1,85 @@
+diff --git update/update.py update/update.py
+index b1eda94..c2eb158 100644
+--- update/update.py
++++ update/update.py
+@@ -128,7 +128,7 @@ class Update:
+         Проверить по расписанию необходимость запуска команды
+         """
+         if not status:
+-            self.printWARNING(_("Update autocheck is not enabled"))
++            self.printWARNING(_("Updates autocheck is not enabled"))
+             return False
+         line = EmergeLog(EmergeLogNamedTask("schedule")).get_last_time()
+         re_interval = re.compile("^(\d+)\s*(hours?|days?|weeks?)?", re.I)
+@@ -150,7 +150,7 @@ class Update:
+             linetime = line.partition(":")[0]
+             if linetime.isdigit():
+                 if (time.time() - int(linetime)) < (est - 10 * MINUTE):
+-                    self.printWARNING(_("Update time is not yet come"))
++                    self.printWARNING(_("Please wait for the update time"))
+                     return False
+         self.mark_schedule()
+         return True
+diff --git update/utils/cl_setup_update.py update/utils/cl_setup_update.py
+index 730baf4..e2e2943 100644
+--- update/utils/cl_setup_update.py
++++ update/utils/cl_setup_update.py
+@@ -32,8 +32,8 @@ class ClSetupUpdateAction(Action):
+     # ошибки, которые отображаются без подробностей
+     native_error = (FilesError, UpdateError, GitError)
+ 
+-    successMessage = __("Updates autocheck settings configured!")
+-    failedMessage = __("Failed to configure the updates autocheck settings!")
++    successMessage = __("Updates autocheck configured!")
++    failedMessage = __("Failed to configure the updates autocheck procedure!")
+     interruptMessage = __("Configuration manually interrupted")
+ 
+ 
+diff --git update/variables/update.py update/variables/update.py
+index 06d5df8..3c0e1ee 100644
+--- update/variables/update.py
++++ update/variables/update.py
+@@ -800,7 +800,7 @@ class VariableClUpdateProfileSystem(Variable):
+                 if not dv.Get('os_linux_name'):
+                     raise VariableError()
+             except (DataVarsError, VariableError) as e:
+-                raise VariableError(_("Profile is not Calculate"))
++                raise VariableError(_("The selected profile is not Calculate"))
+         else:
+             raise VariableError(_("Wrong Calculate profile"))
+ 
+@@ -871,8 +871,8 @@ class VariableClUpdateProfileSyncSet(Variable):
+     opt = ["-s", "--sync"]
+ 
+     def init(self):
+-        self.label = _("Synchronize repositories")
+-        self.help = _("synchronize repositories")
++        self.label = _("Repositories to be synchronized")
++        self.help = _("repositories to be synchronized")
+ 
+ 
+ class VariableClUpdateAutocheckSet(Variable):
+@@ -916,8 +916,8 @@ class VariableClUpdateAutocheckScheduleSet(Variable):
+     opt = ["--schedule"]
+ 
+     def init(self):
+-        self.label = _("Consider auto-check schedule")
+-        self.help = "consider auto-check schedule"
++        self.label = _("Consider the autocheck schedule")
++        self.help = _("consider the autocheck schedule")
+ 
+ class VariableClUpdateKernelVersion(ReadonlyVariable):
+     """
+diff --git update/wsdl_update.py update/wsdl_update.py
+index 6f95581..fea9c45 100644
+--- update/wsdl_update.py
++++ update/wsdl_update.py
+@@ -86,7 +86,7 @@ class Wsdl(WsdlBase):
+             # категория метода
+             'category': __('Update'),
+             # заголовок метода
+-            'title': __("Update the Profile"),
++            'title': __("Change the Profile"),
+             # иконка для графической консоли
+             'image': 'preferences-system',
+             # метод присутствует в графической консоли
