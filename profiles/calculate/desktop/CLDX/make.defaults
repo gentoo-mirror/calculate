@@ -15,3 +15,5 @@ USE="${USE} -eds -gnome -kde"
 LIGHTDM_SESSION=xfce
 CL="builder client desktop console consolegui"
 THEMES="CLDX"
+
+ACCEPT_LICENSE="*"
