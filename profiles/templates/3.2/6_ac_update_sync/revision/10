@@ -1,0 +1,6 @@
+# Calculate dotall format=patch ini(update.revision)<10&&pkg(media-sound/alsa-utils)!= path=/etc/init.d name=alsasound merge=media-sound/alsa-utils
+
+#-ini(update.revision,10)-#
+
+<reg>\n\s*einfo "Setting up ALSA Mixer Levels".*?&amp;&amp;\s*restore\s*fi</reg>
+<text>\n\t\tewarn "No mixer config in ${alsastatedir}/asound.state, you have to unmute your card!"</text>
