@@ -1,0 +1,13 @@
+DEFINED_PHASES=install
+DEPEND=!media-gfx/calculate-cldx-themes !media-gfx/calculate-cld-themes !media-gfx/cld-themes !media-gfx/cldx-themes
+DESCRIPTION=Wallpapers for Calculate Linux
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers
+IUSE=themes_CLD themes_CLDX themes_CLS themes_CLDG
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+RDEPEND=!media-gfx/calculate-cldx-themes !media-gfx/calculate-cld-themes !media-gfx/cld-themes !media-gfx/cldx-themes
+REQUIRED_USE=^^ ( themes_CLD themes_CLDX themes_CLS themes_CLDG )
+SLOT=0
+SRC_URI=themes_CLD? ( ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-cld-13.tar.bz2 ) themes_CLDX? ( ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-cldx-13.tar.bz2 ) themes_CLDG? ( ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-cldg-13.tar.bz2 ) themes_CLS? ( ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-cls-13.tar.bz2 )
+_md5_=c8f7e0132cf03917841682afd2865740

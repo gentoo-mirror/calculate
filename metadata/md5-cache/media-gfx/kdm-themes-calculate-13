@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst
+DEPEND=!media-gfx/cld-themes media-gfx/dm-themes-calculate
+DESCRIPTION=Kdm theme for Calculate Linux
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/lxdm-themes-calculate
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+RDEPEND=!media-gfx/cld-themes media-gfx/dm-themes-calculate
+SLOT=0
+SRC_URI=ftp://ftp.calculate.ru/pub/calculate/themes/kdm/kdm-calculate-13.tar.bz2 http://mirror.yandex.ru/calculate/themes/kdm/kdm-calculate-13.tar.bz2
+_md5_=ca338bcf170c9f99db1e9c1bcee3cee2

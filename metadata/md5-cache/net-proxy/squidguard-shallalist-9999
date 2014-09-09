@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=net-proxy/squidguard
+DESCRIPTION=Blacklists for SquidGuard
+EAPI=3
+HOMEPAGE=http://www.shallalist.de/
+KEYWORDS=amd64 ppc ppc64 sparc x86
+LICENSE=Shalla's Blacklists - Licence
+RDEPEND=net-proxy/squidguard
+SLOT=0
+_eclasses_=eutils	06133990e861be0fe60c2b428fd025d9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=b8955ad6ff048e765f9139f95c423d98

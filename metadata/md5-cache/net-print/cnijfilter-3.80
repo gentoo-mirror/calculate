@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install postinst prepare setup
+DEPEND=sys-devel/gettext !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.14:1.14 ) >=sys-devel/autoconf-2.69 sys-devel/libtool
+DESCRIPTION=Canon InkJet Printer Driver for Linux (Pixus/Pixma-Series).
+EAPI=5
+HOMEPAGE=http://support-sg.canon-asia.com/contents/SG/EN/0100469302.html
+IUSE=+net +servicetools
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 cnijfilter
+RDEPEND=>=media-libs/libpng-1.5 >=media-libs/tiff-3.4 >=net-print/cups-1.4 servicetools? ( >=dev-libs/libxml2-2.7.3-r2 >=x11-libs/gtk+-2.6:2 ) !net-print/cnijfilter:2
+SLOT=0
+SRC_URI=http://gdlp01.c-wss.com/gds/3/0100004693/01/cnijfilter-source-3.80-1.tar.gz
+_eclasses_=autotools	ebea507d219855923e3438c953cf4ab8	eutils	06133990e861be0fe60c2b428fd025d9	flag-o-matic	75e24bac8423c515dd9c5717f08feb83	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=a51741f475ad37d2da5a045803aaee89

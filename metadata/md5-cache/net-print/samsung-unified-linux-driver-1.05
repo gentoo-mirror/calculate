@@ -1,0 +1,13 @@
+DEFINED_PHASES=install prepare setup
+DEPEND=dev-util/bin_replace_string
+DESCRIPTION=Samsung's proprietary printer driver binaries known as UnifiedLinuxDriver
+EAPI=4
+HOMEPAGE=http://www.samsung.com/us/support/downloads/ML-6512MD/XAA
+IUSE=+splix
+KEYWORDS=~amd64 ~x86 -*
+LICENSE=SAMSUNG-ELECTRONICS-software
+RDEPEND=net-print/cups sys-libs/libstdc++-v3 splix? ( net-print/splix ) !splix? ( !net-print/splix )
+SLOT=0
+SRC_URI=http://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?VPath=DR/201108/20110830105903229/UnifiedLinuxDriver_1.05.tar.gz -> samsung-unified-linux-driver-1.05.tar.gz
+_eclasses_=multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=91e6f92eb22d6a16320c26d825cebecb

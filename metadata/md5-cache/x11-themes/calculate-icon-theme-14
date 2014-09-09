@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm preinst
+DEPEND=themes_CLD? ( kde-base/oxygen-icons ) themes_CLDG? ( x11-themes/gnome-icon-theme ) themes_CLDX? ( x11-themes/elementary-icon-theme ) !media-gfx/cldx-themes !media-gfx/cld-themes !media-gfx/cldg-themes !media-gfx/cls-themes >=sys-apps/sed-4
+DESCRIPTION=Icons theme for Calculate Linux
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate
+IUSE=themes_CLD themes_CLDX themes_CLS themes_CLDG
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=themes_CLD? ( kde-base/oxygen-icons ) themes_CLDG? ( x11-themes/gnome-icon-theme ) themes_CLDX? ( x11-themes/elementary-icon-theme ) !media-gfx/cldx-themes !media-gfx/cld-themes !media-gfx/cldg-themes !media-gfx/cls-themes
+REQUIRED_USE=^^ ( themes_CLD themes_CLDX themes_CLDG )
+SLOT=0
+SRC_URI=ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-14.tar.bz2 http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-14.tar.bz2
+_eclasses_=gnome2-utils	f658eba3cc594a21cf6eef4af47daa90	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=97872004ea1fe092c1e5d87f1f9b7b8d

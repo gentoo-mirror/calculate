@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=Calculate Utilities meta package
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/main/en/calculate2
+IUSE=cl_consolegui cl_client cl_desktop cl_console
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+RDEPEND==sys-apps/calculate-install-3.2.0 =sys-apps/calculate-i18n-3.2.0-r3 =sys-apps/calculate-lib-3.2.0-r2 =sys-apps/calculate-core-3.2.0-r2 =sys-apps/calculate-update-3.2.0-r2 cl_client? ( =sys-apps/calculate-client-3.2.0 ) cl_desktop? ( =sys-apps/calculate-desktop-3.2.0 ) cl_consolegui? ( =sys-apps/calculate-console-gui-3.2.0-r1 ) cl_console? ( =sys-apps/calculate-console-3.2.0-r1 )
+SLOT=3
+_md5_=d6c8deac5c63555f355a22a8c374e544

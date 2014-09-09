@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm preinst setup
+DEPEND=x11-libs/gtk+:2 >=sys-apps/sed-4
+DESCRIPTION=Elementary icon theme is designed to be smooth, sexy, clear, and efficient
+EAPI=4
+HOMEPAGE=https://launchpad.net/elementaryicons
+IUSE=monochrome
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=http://launchpad.net/elementaryicons/2.0/2.7.1/+download/elementary-icon-theme-2.7.1.tar.gz
+_eclasses_=gnome2-utils	f658eba3cc594a21cf6eef4af47daa90	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=6c742e4e6e7ee710ff65c205357c6254

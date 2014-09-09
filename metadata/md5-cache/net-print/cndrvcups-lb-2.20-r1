@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install unpack
+DEPEND=sys-devel/automake:1.6 =net-print/cndrvcups-common-2.20*[cngplp=]
+DESCRIPTION=Canon UFR II / LIPSLX Printer Driver
+EAPI=2
+HOMEPAGE=http://www.canon.com/
+IUSE=cngplp
+KEYWORDS=~amd64 ~x86
+LICENSE=CANON
+RDEPEND=sys-devel/automake:1.6 =net-print/cndrvcups-common-2.20*[cngplp=]
+SLOT=0
+SRC_URI=http://files.canon-europe.com/files/soft40355/Software/o1113enx_l_ufr220.zip
+_eclasses_=eutils	06133990e861be0fe60c2b428fd025d9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402	versionator	cd0bcdb170807e4a1984115e9d53a26f
+_md5_=cdf7ba9fd4fb902958d7f7787dca89d3

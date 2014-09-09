@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DEPEND=www-client/chromium
+DESCRIPTION=AdBlock for Chrome
+EAPI=3
+HOMEPAGE=https://chrome.google.com/webstore/detail/gighmmpiobklfepjocnamgkkbiglidom
+KEYWORDS=amd64 x86
+LICENSE=GPL-3
+RDEPEND=www-client/chromium
+SLOT=0
+SRC_URI=ftp://ftp.calculate.ru/pub/calculate/chromium-adblock/chromium-adblock-2.5.61.tar.bz2 http://mirror.yandex.ru/calculate/chromium-adblock/chromium-adblock-2.5.61.tar.bz2
+_eclasses_=eutils	06133990e861be0fe60c2b428fd025d9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=caf606178f73eb566e3c9151abe6280d

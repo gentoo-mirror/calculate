@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install unpack
+DEPEND=>=net-print/cups-1.1.17 >=app-arch/rpm2targz-9.0.0.3g
+DESCRIPTION=Common files for the Canon CUPS Capt driver
+EAPI=2
+HOMEPAGE=http://www.canon.com/
+IUSE=-cngplp
+KEYWORDS=amd64 x86
+LICENSE=CANON
+RDEPEND=>=net-print/cups-1.1.17
+RESTRICT=mirror
+SLOT=0
+SRC_URI=http://files.canon-europe.com/files/soft39340/software/CAPT_Printer_Driver_for_Linux_V200_uk_EN.tar.gz
+_eclasses_=eutils	06133990e861be0fe60c2b428fd025d9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	rpm	b94b54b44f14d6bee3e966c8f5c86fba	toolchain-funcs	0f1760274637a138b99bb649202ea402	versionator	cd0bcdb170807e4a1984115e9d53a26f
+_md5_=3aadd232b812b68021276874b6314c0f

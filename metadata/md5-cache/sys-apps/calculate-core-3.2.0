@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare
+DEPEND=~sys-apps/calculate-lib-3.2.0 >=dev-python/soaplib-1.0 !minimal? ( dev-python/sudsds net-libs/dslib dev-python/pyopenssl dev-libs/openssl =dev-python/m2crypto-0.21.1-r1 dev-python/cherrypy ) =dev-lang/python-2.7*
+DESCRIPTION=The WSDL core for Calculate 3
+EAPI=3
+HOMEPAGE=http://www.calculate-linux.org/main/en/calculate2
+IUSE=minimal
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+RDEPEND=~sys-apps/calculate-lib-3.2.0 >=dev-python/soaplib-1.0 !minimal? ( dev-python/sudsds net-libs/dslib dev-python/pyopenssl dev-libs/openssl =dev-python/m2crypto-0.21.1-r1 dev-python/cherrypy ) =dev-lang/python-2.7*
+SLOT=3
+SRC_URI=ftp://ftp.calculate.ru/pub/calculate/calculate3/calculate-core/calculate-core-3.2.0.tar.bz2 http://mirror.yandex.ru/calculate/calculate3/calculate-core/calculate-core-3.2.0.tar.bz2
+_eclasses_=distutils	34e0f373c466bb0e97ba194735f1acf2	eutils	06133990e861be0fe60c2b428fd025d9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	python	be9965681d83c3980660a2660ac95e95	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=537e9157d9bccf05a0e462d4efa126de

@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DEPEND=sys-boot/plymouth sys-boot/plymouth-openrc-plugin
+DESCRIPTION=Plymouth themes for Calculate Linux
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/plymouth-themes-calculate
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=sys-boot/plymouth sys-boot/plymouth-openrc-plugin
+SLOT=0
+SRC_URI=ftp://ftp.calculate.ru/pub/calculate/themes/plymouth/plymouth-calculate-14-r5.tar.bz2 http://mirror.yandex.ru/calculate/themes/plymouth/plymouth-calculate-14-r5.tar.bz2
+_md5_=8fc9685fce6657acec84a965380785b7

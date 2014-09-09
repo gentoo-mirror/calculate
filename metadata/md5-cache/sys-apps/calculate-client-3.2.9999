@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install postinst postrm prepare unpack
+DEPEND=~sys-apps/calculate-desktop-3.2.9999 ~sys-apps/calculate-lib-3.2.9999 >=dev-python/python-ldap-2.0[ssl] >=sys-auth/pam_ldap-180[ssl] >=sys-auth/nss_ldap-239 >=sys-apps/keyexec-0.1.2 sys-apps/keyutils dev-lang/swig sys-auth/pam_keystore xfce? ( x11-misc/xdialog ) gnome? ( x11-misc/xdialog ) kde? ( kde-base/kdialog ) =dev-lang/python-2.7* dev-vcs/git
+DESCRIPTION=Utility for setting and storing the user accounts in the domain
+EAPI=3
+HOMEPAGE=http://www.calculate-linux.org/main/en/calculate2
+IUSE=kde xfce gnome
+LICENSE=Apache-2.0
+RDEPEND=~sys-apps/calculate-desktop-3.2.9999 ~sys-apps/calculate-lib-3.2.9999 >=dev-python/python-ldap-2.0[ssl] >=sys-auth/pam_ldap-180[ssl] >=sys-auth/nss_ldap-239 >=sys-apps/keyexec-0.1.2 sys-apps/keyutils dev-lang/swig sys-auth/pam_keystore xfce? ( x11-misc/xdialog ) gnome? ( x11-misc/xdialog ) kde? ( kde-base/kdialog ) =dev-lang/python-2.7*
+SLOT=3
+_eclasses_=distutils	34e0f373c466bb0e97ba194735f1acf2	eutils	06133990e861be0fe60c2b428fd025d9	git-2	2027b81a576527fa16bece425941e094	git-r3	6ebae45064cb04482f3c702632dd9528	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	python	be9965681d83c3980660a2660ac95e95	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=d2f5313388e8acfcc04ba912b49b031e

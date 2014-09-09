@@ -1,0 +1,13 @@
+DEFINED_PHASES=install prepare setup
+DEPEND=dev-util/bin_replace_string
+DESCRIPTION=Samsung's proprietary printer driver binaries known as UnifiedLinuxDriver
+EAPI=2
+HOMEPAGE=http:///www.samsung.com/us/support/downloads/CLX-3175FW/XA
+IUSE=doc test
+KEYWORDS=amd64 x86
+LICENSE=SAMSUNG-ELECTRONICS-software
+RDEPEND=net-print/cups sys-libs/libstdc++-v3
+SLOT=0
+SRC_URI=http://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?VPath=DR/200911/20091118142757906/UnifiedLinuxDriver_1.01.tar.gz -> samsung-unified-linux-driver-1.01.tar.gz
+_eclasses_=multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=f4316e50d447a176d0a3f254a2ecbcbc

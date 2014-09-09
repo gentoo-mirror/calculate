@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst setup unpack
+DEPEND=app-arch/p7zip app-cdr/cdrkit app-portage/layman sys-apps/bar sys-apps/hal sys-boot/grub sys-fs/dosfstools sys-fs/squashfs-tools
+DESCRIPTION=Program for installation, building and upgrading system
+HOMEPAGE=http://www.calculate-linux.org/main/ru/calculate
+KEYWORDS=x86 amd64
+LICENSE=GPL-3
+RDEPEND=app-arch/p7zip app-cdr/cdrkit app-portage/layman sys-apps/bar sys-apps/hal sys-boot/grub sys-fs/dosfstools sys-fs/squashfs-tools
+SLOT=0
+SRC_URI=ftp://ftp.calculate.ru/pub/calculate/calculate/calculate-1.3.12.tar.bz2 http://mirror.yandex.ru/calculate/calculate/calculate-1.3.12.tar.bz2
+_eclasses_=eutils	06133990e861be0fe60c2b428fd025d9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=da551c79ac27177f02ab78c49de232f9
