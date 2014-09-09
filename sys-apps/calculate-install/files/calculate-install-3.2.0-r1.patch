@@ -1,0 +1,23 @@
+diff --git data/calculate data/calculate
+index 60a24b0..d2e7ffc 100644
+--- data/calculate
++++ data/calculate
+@@ -116,9 +116,18 @@ configure_users() {
+ 	fi
+ }
+ 
++# setup alsautils astate
++setup_alsautils() {
++	local alsastatedir=/var/lib/alsa
++
++	mkdir -p "${alsastatedir}"
++	alsactl -f "${alsastatedir}/asound.state" store
++}
++
+ start() {
+ 	LANG=C /usr/sbin/cl-core --create-symlink &>/dev/null
+ 	install_video_driver
++	setup_alsautils
+ 	LANG=C create_nonroot_user
+ 	LANG=C /usr/sbin/cl-core --method setup_system --no-progress --usenew-conf --live on
+ 	LANG=C configure_users
