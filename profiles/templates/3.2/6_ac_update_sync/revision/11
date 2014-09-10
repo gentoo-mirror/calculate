@@ -1,0 +1,7 @@
+# Calculate ini(update.revision)<11 exec=/bin/bash
+
+#-ini(update.revision,11)-#
+
+/bin/rm -rf /var/cache/edb/dep/usr/portage
+
+exit 0
