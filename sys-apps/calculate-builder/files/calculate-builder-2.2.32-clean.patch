@@ -1,0 +1,20 @@
+diff --git pym/cl_builder.py pym/cl_builder.py
+index 6bb8022..056f5bc 100644
+--- pym/cl_builder.py
++++ pym/cl_builder.py
+@@ -633,6 +633,7 @@ class cl_builder(color_print):
+         if not self.checkVariables():
+             return False
+         excludeList = self._excludeList(sourceDirectory)
++        excludeList += ["/var/cache/edb/dep", "/var/cache/edb/binhost"]
+         volid = "%s-%s"%(self.clVars.Get('os_builder_linux_shortname'),
+                          self.clVars.Get('os_builder_linux_build'))
+         self.targetDistr = IsoDistributive(isoFile,bdirectory=buildDirectory,
+@@ -723,6 +724,7 @@ class cl_builder(color_print):
+         if not self.checkVariables(rescratch=True):
+             return False
+         excludeList = self._excludeList(sourceDirectory)
++        excludeList += ["/var/cache/edb/dep", "/var/cache/edb/binhost"]
+         self.targetDistr = IsoDistributive(buildDirectory,
+                                            bdirectory=buildDirectory,
+                                            exclude=excludeList,
