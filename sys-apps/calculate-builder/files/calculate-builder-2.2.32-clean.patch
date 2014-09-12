@@ -1,12 +1,18 @@
+commit 3e557f202e8830349f68084544a57bdc8823c82c
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Sep 12 12:14:15 2014 +0400
+
+    Исправлен удаление кэша
+
 diff --git pym/cl_builder.py pym/cl_builder.py
-index 6bb8022..056f5bc 100644
+index 6bb8022..483662b 100644
 --- pym/cl_builder.py
 +++ pym/cl_builder.py
 @@ -633,6 +633,7 @@ class cl_builder(color_print):
          if not self.checkVariables():
              return False
          excludeList = self._excludeList(sourceDirectory)
-+        excludeList += ["/var/cache/edb/dep", "/var/cache/edb/binhost"]
++        excludeList += ["var/cache/edb/dep", "var/cache/edb/binhost"]
          volid = "%s-%s"%(self.clVars.Get('os_builder_linux_shortname'),
                           self.clVars.Get('os_builder_linux_build'))
          self.targetDistr = IsoDistributive(isoFile,bdirectory=buildDirectory,
@@ -14,7 +20,7 @@ index 6bb8022..056f5bc 100644
          if not self.checkVariables(rescratch=True):
              return False
          excludeList = self._excludeList(sourceDirectory)
-+        excludeList += ["/var/cache/edb/dep", "/var/cache/edb/binhost"]
++        excludeList += ["var/cache/edb/dep", "var/cache/edb/binhost"]
          self.targetDistr = IsoDistributive(buildDirectory,
                                             bdirectory=buildDirectory,
                                             exclude=excludeList,
