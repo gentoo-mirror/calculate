@@ -1,0 +1,66 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index ab79671..b630637 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -3693,6 +3693,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+         resS = reFunc.search(textTemplate)
+         textTemplateTmp = textTemplate
+         flagIniFunc = False
++        writeIniFunc = False
+         while resS:
+             mark = textTemplateTmp[resS.start():resS.end()]
+             self.functText = mark[self._deltVarStart:-self._deltVarEnd]
+@@ -3707,6 +3708,8 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+                                                                 nameTemplate)
+                 resS = reFunc.search(textTemplateTmp)
+                 if funcName == "ini":
++                    if "," in funArgv:
++                        writeIniFunc = True
+                     flagIniFunc = True
+             else:
+                 self.raiseErrTemplate(
+@@ -3756,7 +3759,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+                 self.timeConfigsIni[self.fileConfigIni] = float(time.time())
+                 self.timeIni = self.getTimeFile(self.fileConfigIni)
+             # Меняем владельца в случае необходимости
+-            if os.path.exists(self.fileConfigIni):
++            if writeIniFunc and os.path.exists(self.fileConfigIni):
+                 uid, gid = getModeFile(self.fileConfigIni, "owner")
+                 if not self.uid in (uid,PORTAGEUID) or \
+                     not self.gid in (gid,PORTAGEGID):
+diff --git calculate/lib/utils/device.py calculate/lib/utils/device.py
+index 6e1b88b..26f5321 100644
+--- calculate/lib/utils/device.py
++++ calculate/lib/utils/device.py
+@@ -18,6 +18,7 @@ import sys
+ import re
+ import os
+ import time
++import os
+ from os import path
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+@@ -390,8 +391,9 @@ def refreshLVM():
+         process(vgchange,'-ay').success()
+         process(vgchange,'--refresh').success()
+         for group in getLvmGroups():
+-            process(lvchange,'-ay',group).success()
+-            process(lvchange,'--refresh',group).success()
++            if not os.environ.get('EBUILD_PHASE'):
++                process(lvchange,'-ay',group).success()
++                process(lvchange,'--refresh',group).success()
+ 
+ def loadEfiVars():
+     """
+@@ -413,8 +415,9 @@ def refreshUdev(onlyTrigger=False):
+                 os.unlink(blkidFile)
+         except:
+             pass
+-        process(udevadm,"trigger","--subsystem-match","block").success()
+-        process(udevadm,"settle","--timeout=15").success()
++        if not os.environ.get('EBUILD_PHASE'):
++            process(udevadm,"trigger","--subsystem-match","block").success()
++            process(udevadm,"settle","--timeout=15").success()
+ 
+ def getCommonDeviceName(dev):
+     """
