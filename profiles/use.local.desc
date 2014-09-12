@@ -2,12 +2,40 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+media-gfx/splash-themes-calculate:themes_CDS -
+media-gfx/splash-themes-calculate:themes_CLD -
+media-gfx/splash-themes-calculate:themes_CLDG -
+media-gfx/splash-themes-calculate:themes_CLDX -
+media-gfx/splash-themes-calculate:themes_CLS -
+media-gfx/splash-themes-calculate:themes_CMC -
+net-print/cndrvcups-common:cngplp -
+net-print/cnijfilter:net - Add network backend for CUPS
+net-print/cnijfilter:servicetools - Build service tools utility, this require very old libs
 sys-apps/calculate-install:minimal - Without Calculate Linux install support
 sys-apps/calculate-install:pxe - Enables support for PXE installation
-sys-kernel/calculate-sources:vmlinuz - Build kernel, modules and initramfs
+sys-apps/calculate-server:calculate_nodhcp -
+sys-apps/calculate-server:calculate_noftp -
+sys-apps/calculate-server:calculate_nojabber -
+sys-apps/calculate-server:calculate_nomail -
+sys-apps/calculate-server:calculate_nonamed -
+sys-apps/calculate-server:calculate_noproxy -
+sys-apps/calculate-server:calculate_nosamba -
+sys-apps/calculate-utilities:cl_client -
+sys-apps/calculate-utilities:cl_console -
+sys-apps/calculate-utilities:cl_consolegui -
+sys-apps/calculate-utilities:cl_desktop -
+sys-kernel/calckernel:lspci -
+sys-kernel/calckernel:nfs -
+sys-kernel/calculate-sources:plymouth -
+sys-kernel/calculate-sources:themes -
 sys-kernel/calculate-sources:bfq - Apply kernel patch for BFQ I/O scheduler
 sys-kernel/calculate-sources:bfs - Apply kernel patch for BF scheduler
-sys-kernel/calculate-sources:minimal - Don't install kernel sources
-sys-kernel/calculate-sources:themes - Include Calculate plymouth theme
-sys-kernel/calculate-sources:plymouth - Include plymouth
 sys-kernel/calculate-sources:firmware - Install linux kernel firmware
+sys-kernel/calculate-sources:minimal - Don't install kernel sources
+sys-kernel/calculate-sources:plymouth - Include plymouth
+sys-kernel/calculate-sources:themes - Include Calculate plymouth theme
+sys-kernel/calculate-sources:vmlinuz - Build kernel, modules and initramfs
+x11-themes/calculate-icon-theme:themes_CLD -
+x11-themes/calculate-icon-theme:themes_CLDG -
+x11-themes/calculate-icon-theme:themes_CLDX -
+x11-themes/calculate-icon-theme:themes_CLS -
