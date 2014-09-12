@@ -25,7 +25,7 @@ DEPEND="~sys-apps/calculate-lib-3.2.0
 	net-libs/dslib
 	dev-python/pyopenssl
 	dev-libs/openssl
-	=dev-python/m2crypto-0.21.1-r1
+	=dev-python/m2crypto-0.21.1-r2
 	dev-python/cherrypy )"
 RDEPEND="${DEPEND}"
 
