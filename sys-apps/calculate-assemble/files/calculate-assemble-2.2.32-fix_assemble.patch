@@ -1,0 +1,30 @@
+diff --git pym/cl_fill_assemble.py pym/cl_fill_assemble.py
+index 4de30c0..0b254b2 100644
+--- pym/cl_fill_assemble.py
++++ pym/cl_fill_assemble.py
+@@ -176,7 +176,7 @@ class fillVars(object, glob_attr):
+             if mp:
+                 return mp
+         pathBuilder = path.join("/mnt",
+-                        self.Get('os_assemble_system_profile').rpartition(
++                        self.Get('cl_assemble_id').rpartition(
+                         '/profiles/')[2].replace("/","-"))
+         if path.exists(pathBuilder):
+             try:
+@@ -374,14 +374,14 @@ class fillVars(object, glob_attr):
+         if fromEnv:
+             return fromEnv
+         return path.join("/var/calculate/remote/assemble",
+-            self.Get('os_assemble_system_profile').rpartition(
++            self.Get('cl_assemble_id').rpartition(
+                     '/profiles/')[2].replace("/","-"),
+             "packages")
+ 
+     def get_cl_assemble_linuxdir(self):
+         """Get directory, which contains distro"""
+         return path.join("/var/calculate/remote/assemble",
+-            self.Get('os_assemble_system_profile').rpartition(
++            self.Get('cl_assemble_id').rpartition(
+                     '/profiles/')[2].replace("/","-"),
+             "linux")
+ 
