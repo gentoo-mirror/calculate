@@ -1,0 +1,13 @@
+diff --git install/variables/disk.py install/variables/disk.py
+index 827081b..b0f99c1 100644
+--- install/variables/disk.py
++++ install/variables/disk.py
+@@ -109,7 +109,7 @@ class VariableOsDeviceDev(ReadonlyVariable,DeviceHelper):
+         pass
+     def get(self):
+         """Get device /dev name"""
+-        if self.master is None:
++        if self.master is None and not self.Get('cl_ebuild_phase'):
+             try:
+                 self.master, slave = pty.openpty()
+             except OSError:

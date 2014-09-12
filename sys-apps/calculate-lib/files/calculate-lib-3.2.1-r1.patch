@@ -1,0 +1,30 @@
+diff --git calculate/lib/cl_template.py calculate/lib/cl_template.py
+index ab79671..b630637 100644
+--- calculate/lib/cl_template.py
++++ calculate/lib/cl_template.py
+@@ -3693,6 +3693,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+         resS = reFunc.search(textTemplate)
+         textTemplateTmp = textTemplate
+         flagIniFunc = False
++        writeIniFunc = False
+         while resS:
+             mark = textTemplateTmp[resS.start():resS.end()]
+             self.functText = mark[self._deltVarStart:-self._deltVarEnd]
+@@ -3707,6 +3708,8 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+                                                                 nameTemplate)
+                 resS = reFunc.search(textTemplateTmp)
+                 if funcName == "ini":
++                    if "," in funArgv:
++                        writeIniFunc = True
+                     flagIniFunc = True
+             else:
+                 self.raiseErrTemplate(
+@@ -3756,7 +3759,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+                 self.timeConfigsIni[self.fileConfigIni] = float(time.time())
+                 self.timeIni = self.getTimeFile(self.fileConfigIni)
+             # Меняем владельца в случае необходимости
+-            if os.path.exists(self.fileConfigIni):
++            if writeIniFunc and os.path.exists(self.fileConfigIni):
+                 uid, gid = getModeFile(self.fileConfigIni, "owner")
+                 if not self.uid in (uid,PORTAGEUID) or \
+                     not self.gid in (gid,PORTAGEGID):
