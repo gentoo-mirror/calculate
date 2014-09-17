@@ -19,8 +19,8 @@ SLOT="3"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="~sys-apps/calculate-core-3.2.0
-	~sys-apps/calculate-install-3.2.0
+DEPEND="~sys-apps/calculate-core-3.2.1
+	~sys-apps/calculate-install-3.2.1
 	dev-python/pexpect"
 
 RDEPEND="${DEPEND}"
@@ -35,5 +35,5 @@ src_unpack() {
     cd "${S}"
 
     # apply revision changes
-    epatch "${FILESDIR}/calculate-update-3.2.0-r1.patch"
+    epatch "${FILESDIR}/calculate-update-3.2.1-r1.patch"
 }
