@@ -11,8 +11,6 @@ net-wireless/blueman network
 media-libs/mesa gbm
 # [minizip] required by www-client/chromium
 sys-libs/zlib minizip
-# [python] required by net-libs/rb_libtorrent
-dev-libs/boost python
 # [icu] required by www-client/chromium,[python] required by media-libs/mesa, app-text/gnome-doc-utils
 dev-libs/libxml2 python icu
 
