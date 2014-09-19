@@ -1,4 +1,4 @@
-#отключим зависимости, чтобы были универсальные бинарные пакеты
+# exclude deps
 app-text/hunspell -linguas_bg -linguas_de -linguas_en -linguas_es -linguas_fr -linguas_it -linguas_pl -linguas_pt -linguas_pt_BR -linguas_ro -linguas_ru -linguas_uk
 app-text/aspell -linguas_bg -linguas_de -linguas_en -linguas_es -linguas_fr -linguas_it -linguas_pl -linguas_pt_BR -linguas_ro -linguas_ru -linguas_uk
 sys-apps/man-pages -linguas_de -linguas_fr -linguas_it -linguas_pl -linguas_ro -linguas_ru
@@ -49,7 +49,6 @@ media-libs/libmng static-libs
 app-arch/bzip2 static-libs
 
 # grub multislot by default
-~sys-boot/grub-2.00 multislot truetype device-mapper
 ~sys-boot/grub-2.00_p5107 -multislot truetype device-mapper
 
 # to solve the problem conflicts with app-dicts/aspell-pt-0.50.2-r1
