@@ -1,50 +1,30 @@
 ~sys-apps/keyexec-0.1.2 amd64 x86
 ~sys-auth/pam_keystore-0.1.3 amd64 x86
 ~sys-auth/pam_client-0.2.1 amd64 x86
-~sys-auth/thinkfinger-0.3 amd64 x86
-
-~net-print/foomatic-db-4.0.20140105 amd64 x86
-#~net-print/foomatic-db-ppds-4.0.20140105 amd64 x86
-~net-print/foomatic-db-engine-4.0.11 amd64 x86
-#~net-print/foomatic-filters-4.0.17 amd64 x86
-
-~net-misc/networkmanager-0.9.8.10 amd64 x86
-#~net-misc/networkmanager-openconnect-0.9.8.6 amd64 x86
-#~net-misc/networkmanager-openswan-0.9.8.4 amd64 x86
-#~net-misc/networkmanager-openvpn-0.9.8.4 amd64 x86
-#~net-misc/networkmanager-pptp-0.9.8.4 amd64 x86
-#~net-misc/networkmanager-vpnc-0.9.8.6 amd64 x86
-~gnome-extra/nm-applet-0.9.8.10 amd64 x86
-
-~net-misc/modemmanager-1.2.0 amd64 x86
-
-~net-im/skype-4.3.0.37 amd64 x86
-
-~x11-drivers/ati-drivers-14.6_beta2 amd64 x86
-
-~media-gfx/gimp-2.8.14 amd64 x86
-~sys-devel/gettext-0.19.2 amd64 x86
-
-~sys-fs/ecryptfs-utils-104 amd64 x86
-
 www-plugins/chrome-binary-plugins:stable amd64 x86
-
-~net-misc/rdesktop-1.8.2 amd64 x86
-
-~dev-util/bin_replace_string-0.2 amd64 x86
-
-~media-video/smplayer-14.3.0 amd64 x86
 
 =app-office/libreoffice-4.2.6.3 x86
 =app-office/libreoffice-l10n-4.2.6.3-r1 x86
 
-~sys-power/upower-pm-utils-0.9.23 amd64 x86
-
+~dev-util/bin_replace_string-0.2 amd64 x86
+~gnome-extra/nm-applet-0.9.8.10 amd64 x86
+~media-gfx/gimp-2.8.14 amd64 x86
 ~media-sound/pavucontrol-2.0 amd64 x86
+~media-video/smplayer-14.3.0 amd64 x86
+~net-im/skype-4.3.0.37 amd64 x86
+~net-misc/modemmanager-1.2.0 amd64 x86
+~net-misc/networkmanager-0.9.8.10 amd64 x86
+~net-misc/rdesktop-1.8.2 amd64 x86
+~net-print/foomatic-db-4.0.20140105 amd64 x86
+~net-print/foomatic-db-engine-4.0.11 amd64 x86
+~sys-devel/gettext-0.19.2 amd64 x86
+~sys-fs/ecryptfs-utils-104 amd64 x86
+~sys-power/upower-pm-utils-0.9.23 amd64 x86
+~x11-drivers/ati-drivers-14.6_beta2 amd64 x86
 
 # http://www.calculate-linux.ru/boards/7/topics/26175
 ~x11-libs/libva-1.3.1 amd64 x86
-~x11-libs/libva-intel-driver-1.3.0 amd64 x86
+~x11-libs/libva-intel-driver-1.3.1 amd64 x86
 ~x11-libs/libva-vdpau-driver-0.7.4 amd64 x86
 
 ~x11-libs/libvdpau-0.8 amd64 x86

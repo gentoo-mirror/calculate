@@ -1,126 +1,57 @@
-#disable Xorg dependence
-media-fonts/terminus-font -X
-
-#fix fails to compile (bug 36657 http://bugs.gentoo.org/show_bug.cgi?id=366557)
-media-gfx/sane-backends -v4l
-
-dev-vcs/git -gtk
-
-app-antivirus/clamav gmp
 app-crypt/pinentry gtk
-app-emulation/wine xml
-app-text/djvu -nsplugin
-app-text/poppler-bindings gtk
-dev-db/sqlite secure-delete
-dev-qt/qtwebkit icu
 dev-vcs/git tk
 gnome-extra/nm-applet -bluetooth
-media-libs/mesa g3dvl
-media-libs/mlt melt xml
-media-libs/sdl-mixer mod
-media-libs/xine-lib xcb
-media-video/avidemux lame libsamplerate
-media-video/dvdrip subtitles
-media-video/mplayer amrnb bidi dga dts dvdnav md5sum mmxext radio vdpau -video_cards_tdfx x264
-media-video/realplayer -X
-media-video/transcode mjpeg
-media-video/xine-ui -X
-net-analyzer/nmap -gtk
+sys-fs/ecryptfs-utils suid pam
 net-libs/webkit-gtk -introspection
 net-misc/networkmanager connection-sharing dhclient -dhcpcd modemmanager
 net-wireless/blueman network
-net-wireless/wpa_supplicant ap
-www-client/chromium -tcmalloc -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_ms -linguas_nb -linguas_nl -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
-media-gfx/imagemagick -video_cards_nvidia
-media-gfx/sane-backends threads
-media-gfx/ufraw gimp
-media-libs/libsdl custom-cflags
-media-libs/mediastreamer video
-media-video/ffmpeg custom-cflags opus threads
-virtual/ffmpeg threads
-net-libs/xulrunner custom-optimization
-net-print/cndrvcups-capt -gtk
-net-print/hplip fax -X -qt3 gtk ppds snmp static-ppds new-hpcups hpijs
-sys-apps/pciutils -zlib
-sys-apps/hal laptop
-sys-block/gparted btrfs mdadm
-sys-fs/mtools -X
-sys-power/cpufreqd nvidia
-www-client/links -X
-www-plugins/adobe-flash -vdpau
-x11-base/xorg-drivers -video_cards_nvidia -video_cards_vmware -video_cards_glint -video_cards_mach64 -video_cards_mga -video_cards_r128 -video_cards_savage -video_cards_tdfx -video_cards_trident
-x11-libs/cairo cleartype glitz svg xcb
-x11-libs/libX11 xcb
-x11-misc/xscreensaver -opengl -jpeg -perl
 
-#support amarok
-dev-db/mysql embedded
-virtual/mysql embedded
 
-#for media-video/openshot-1.0.0
-media-libs/mlt frei0r
-
-#for www-client/firefox-3.6
-dev-db/sqlite fts3
-
-#for firefox 3.6.9
-net-print/cups gnutls
-
-#for cups 1.4.4
-net-nds/openldap gnutls
-
-#for sys-fs/cryptsetup-1.1.3-r3
-dev-libs/libgcrypt static-libs
-
-#for www-client/chromium-9.0.597.94
-#required by app-admin/system-config-printer-common-1.3.6, app-text/gnome-doc-utils-0.20.6, media-libs/mesa-7.11
-dev-libs/libxml2 icu python
-
-#required by net-libs/rb_libtorrent-0.15.6
-#need for media-libs/vigra
-dev-libs/boost python
-
-#need for remmina
-x11-base/xorg-server kdrive
-
-app-office/libreoffice libreoffice_extensions_pdfimport webdav
-
-x11-drivers/xf86-video-intel sna
-
-x11-drivers/nvidia-drivers -gtk
-
-x11-drivers/ati-drivers disable-watermark
-
-#required by sys-fs/udisks-1.0.4-r2
-virtual/udev gudev hwdb keymap
-sys-fs/udev keymap
-
-#required by www-client/chromium-24.0.1312.52
+# [gdm] required by x11-libs/glamor
+media-libs/mesa gbm
+# [minizip] required by www-client/chromium
 sys-libs/zlib minizip
+# [python] required by net-libs/rb_libtorrent
+dev-libs/boost python
+# [icu] required by www-client/chromium,[python] required by media-libs/mesa, app-text/gnome-doc-utils
+dev-libs/libxml2 python icu
 
-=app-office/libreoffice-3.6.4.3 branding
 
-# required by www-client/chromium-27.0.1453.93
-# required by x11-libs/glamor-0.6.0
-media-libs/mesa gles2 gbm
+# Removed unnecessary dependence
+dev-vcs/git -gtk
+net-analyzer/nmap -gtk
+net-print/cndrvcups-capt -gtk
+sys-fs/mtools -X
+x11-drivers/nvidia-drivers -gtk
+www-client/links -X
 
-sys-fs/ecryptfs-utils suid pam
 
-~media-libs/libsdl-2.0.0 -nas
+# Add support for access point mode
+net-wireless/wpa_supplicant ap
 
-# required by dev-python/ipython-1.0.0[python_targets_python2_7]
+# Disable Xorg dependence, large number of supported fonts reduces productivity.
+media-fonts/terminus-font -X
+
+# SMplayer support
+media-video/mplayer bidi -video_cards_tdfx
+
+# Enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
+net-print/hplip fax snmp hpijs -X
+
+# Include Btrfs support and support for Linux software RAID.
+sys-block/gparted btrfs mdadm
+
+x11-base/xorg-drivers -video_cards_nvidia -video_cards_vmware -video_cards_glint -video_cards_mach64 -video_cards_mga -video_cards_r128 -video_cards_savage -video_cards_tdfx -video_cards_trident
+
+# Enable UMA Acceleration Architecture
+x11-drivers/xf86-video-intel uxa
+
+# Add support for SQLite - embedded SQL database
 dev-lang/python sqlite
 
-# required by sys-devel/prelink-20110511
-dev-libs/elfutils static-libs
-
-# required by media-gfx/splashutils-1.5.4.4-r2[gpm]
-sys-libs/gpm static-libs
-
-# поддержка звуковой темы freedesktop, для исключения бульканья
-# в pulseaudio при смене громкости
+# remove the sound when changing volume in pulseaudio
 media-libs/libcanberra -sound
 
-# исключение лишнего функционала
-media-gfx/gimp -udev
+# Remove unsupported languages
+www-client/chromium -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_ms -linguas_nb -linguas_nl -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
 
