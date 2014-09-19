@@ -13,6 +13,8 @@ media-libs/mesa gbm
 sys-libs/zlib minizip
 # [icu] required by www-client/chromium,[python] required by media-libs/mesa, app-text/gnome-doc-utils
 dev-libs/libxml2 python icu
+# for using dev-libs/libxml2 [icu] - required by www-client/chromium
+dev-qt/qtwebkit icu
 
 
 # Removed unnecessary dependence
@@ -22,7 +24,6 @@ net-print/cndrvcups-capt -gtk
 sys-fs/mtools -X
 x11-drivers/nvidia-drivers -gtk
 www-client/links -X
-
 
 # Add support for access point mode
 net-wireless/wpa_supplicant ap
