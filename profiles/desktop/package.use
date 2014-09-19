@@ -37,9 +37,6 @@ media-video/mplayer bidi -video_cards_tdfx
 # Enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
 net-print/hplip fax snmp hpijs -X
 
-# Include Btrfs support and support for Linux software RAID.
-sys-block/gparted btrfs mdadm
-
 x11-base/xorg-drivers -video_cards_nvidia -video_cards_vmware -video_cards_glint -video_cards_mach64 -video_cards_mga -video_cards_r128 -video_cards_savage -video_cards_tdfx -video_cards_trident
 
 # Enable UMA Acceleration Architecture
