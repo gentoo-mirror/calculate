@@ -99,4 +99,6 @@ sys-apps/man-db -nls
 # служба кэширования имен
 sys-libs/glibc nscd
 
+# [libkms] required by sys-boot/plymouth
 x11-libs/libdrm libkms
+
