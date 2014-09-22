@@ -6,3 +6,10 @@ sys-fs/udev -introspection
 
 # Disable decorations
 sys-kernel/calculate-sources -themes -plymouth
+
+#for calculate-server
+net-ftp/proftpd ident
+
+#Suppoft UTF8 (IssueID 295)
+net-ftp/pure-ftpd charconv
+

@@ -1,3 +1,12 @@
+# [apng] required by www-client/firefox
+media-libs/libpng apng
+
+# [libkms] required by sys-boot/plymouth
+x11-libs/libdrm libkms
+
+# Removed unnecessary dependence
+sys-apps/man-db -nls
+
 # exclude deps
 app-text/hunspell -linguas_bg -linguas_de -linguas_en -linguas_es -linguas_fr -linguas_it -linguas_pl -linguas_pt -linguas_pt_BR -linguas_ro -linguas_ru -linguas_uk
 app-text/aspell -linguas_bg -linguas_de -linguas_en -linguas_es -linguas_fr -linguas_it -linguas_pl -linguas_pt_BR -linguas_ro -linguas_ru -linguas_uk
@@ -9,7 +18,6 @@ media-fonts/terminus-font -pcf
 app-admin/testdisk ntfs reiserfs
 sys-fs/ntfs3g ntfsprogs
 
-media-gfx/splashutils fbcondecor
 net-fs/samba quota -winbind
 sys-fs/aufs2 inotify kernel-patch
 sys-kernel/calculate-sources firmware minimal plymouth symlink themes vmlinuz
@@ -20,33 +28,8 @@ sys-fs/udev extras
 
 sys-fs/squashfs-tools gzip lzma
 
-#for accemble splashutils
-media-libs/jpeg static-libs
-
-#for calculate-server
-net-ftp/proftpd ident
-
-#needed for media-gfx/splashutils-1.5.4.3-r3
-media-libs/lcms static-libs
-
 #need for sys-fs/udisks-1.0.1-r1
 sys-block/parted device-mapper
-
-#need for media-gfx/splashutils-1.5.4.3-r3
-#USE=apng for firefox 7
-media-libs/libpng static-libs apng
-
-#need for media-gfx/splashutils-1.5.4.3-r3
-virtual/jpeg static-libs
-
-#required by media-gfx/splashutils-1.5.4.3-r3[truetype]
-media-libs/freetype static-libs
-
-#required by media-gfx/splashutils-1.5.4.3-r3[mng]
-media-libs/libmng static-libs
-
-#required by media-gfx/splashutils-1.5.4.4[truetype]
-app-arch/bzip2 static-libs
 
 # grub multislot by default
 ~sys-boot/grub-2.00_p5107 -multislot truetype device-mapper
@@ -57,29 +40,8 @@ app-text/aspell -linguas_pt
 # to be able to run independently of glibc
 sys-apps/busybox static
 
-#resolve
-dev-lang/php gd xml
-#
-#Suppoft UTF8 (IssueID 295)
-net-ftp/pure-ftpd charconv
-
 #required by sys-apps/calculate-lib-2.2.26
 sys-apps/file python
-
-#required by virtual/jpeg-0
-media-libs/libjpeg-turbo static-libs
-
-#required by sys-apps/calculate-console-gui-3.0.0_alpha1
-dev-python/pyside script
-
-#required by media-gfx/splashutils-1.5.4.4[truetype]
-sys-libs/zlib static-libs
-
-#required by sys-power/upower-0.9.16
-sys-fs/udev gudev
-
-#required by sys-fs/udisks-1.0.4-r1
-sys-fs/udev hwdb
 
 # add support xft and 256 color
 x11-terms/rxvt-unicode 256-color xft
@@ -93,12 +55,6 @@ sys-libs/talloc python
 # net-fs/samba-3.6.19[client]
 net-fs/cifs-utils -acl
 
-# сокращение зависимостей
-sys-apps/man-db -nls
-
-# служба кэширования имен
+# Name Service Cache Daemon
 sys-libs/glibc nscd
-
-# [libkms] required by sys-boot/plymouth
-x11-libs/libdrm libkms
 

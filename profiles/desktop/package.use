@@ -9,12 +9,18 @@ net-wireless/blueman network
 
 # [gdm] required by x11-libs/glamor
 media-libs/mesa gbm
+
 # [minizip] required by www-client/chromium
 sys-libs/zlib minizip
+
 # [icu] required by www-client/chromium,[python] required by media-libs/mesa, app-text/gnome-doc-utils
 dev-libs/libxml2 python icu
+
 # for using dev-libs/libxml2 [icu] - required by www-client/chromium
 dev-qt/qtwebkit icu
+
+# [script] required by sys-apps/calculate-console-gui
+dev-python/pyside script
 
 
 # Removed unnecessary dependence
