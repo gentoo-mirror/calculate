@@ -5,10 +5,10 @@ SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 HOME=/
 
-# check update
-#?pkg(sys-apps/calculate-update)>=3.2.0_beta2#
-#-sum(c,1#-rnd(num,4)-#/170-58)-# * * * *	root	/usr/bin/nice -n19 /usr/sbin/cl-update --schedule -p --wait-another-update off &>/dev/null
+# Check Update
+#?pkg(sys-apps/util-linux)!=#
+#-sum(c,1#-rnd(num,4)-#/170-58)-# * * * *	root	/usr/bin/nice -n19 /usr/bin/ionice -c3 /usr/sbin/cl-update --schedule -p --wait-another-update off &>/dev/null
 #pkg#
-#?pkg(sys-apps/calculate-update)<3.2.0_beta2#
-#-sum(c,1#-rnd(num,4)-#/170-58)-# * * * *	root	/usr/bin/nice -n19 /usr/sbin/cl-update -p --wait-another-update off &>/dev/null
+#?pkg(sys-apps/util-linux)==#
+#-sum(c,1#-rnd(num,4)-#/170-58)-# * * * *       root    /usr/bin/nice -n19 /usr/sbin/cl-update --schedule -p --wait-another-update off &>/dev/null
 #pkg#
