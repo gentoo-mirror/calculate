@@ -1,0 +1,25 @@
+--- data/cl-git-wrapper
++++ data/cl-git-wrapper
+@@ -22,7 +22,7 @@
+ if echo $native_reps | grep -q ,${repo_name},
+ then
+     # отбновить репозиторий через утилиты Calculate
+-    /usr/sbin/cl-core --method update --rep $repo_name --sync-only on --skip-update-metadata --skip-eix-update --update-rev=off
++    /usr/sbin/cl-core --method update --rep $repo_name --sync-only on --skip-eix-update --update-rev=off
+ else
+     # выполнить обновление через git
+     /usr/bin/git $*
+--- update/utils/cl_update.py
++++ update/utils/cl_update.py
+@@ -115,11 +115,6 @@
+         {'name': 'update:update_perl',
+          'group': __("Updating Perl"),
+          'tasks': [
+-             {'name': 'update:update_perl_pkg',
+-              'message': __('Updating {0}').format(pkg_color('dev-lang/perl')),
+-              'method': 'Update.emerge("-u","dev-lang/perl")',
+-              'condition': need_upgrade('dev-lang/perl$')
+-             },
+              {'name': 'update:perl_cleaner',
+               'message': __('Find & rebuild packages and Perl header files '
+                             'broken due to a perl upgrade'),
