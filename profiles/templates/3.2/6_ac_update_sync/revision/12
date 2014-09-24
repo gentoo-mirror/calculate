@@ -1,0 +1,16 @@
+# Calculate format=diff ini(update.revision)<12
+#-ini(update.revision,12)-#
+--- /usr/lib/python2.7/site-packages/calculate/update/utils/cl_update.py
++++ /usr/lib/python2.7/site-packages/calculate/update/utils/cl_update.py
+@@ -115,11 +115,6 @@
+         {'name': 'update:update_perl',
+          'group': __("Updating Perl"),
+          'tasks': [
+-             {'name': 'update:update_perl_pkg',
+-              'message': __('Updating {0}').format(pkg_color('dev-lang/perl')),
+-              'method': 'Update.emerge("-u","dev-lang/perl")',
+-              'condition': need_upgrade('dev-lang/perl$')
+-             },
+              {'name': 'update:perl_cleaner',
+               'message': __('Find & rebuild packages and Perl header files '
+                             'broken due to a perl upgrade'),
