@@ -35,5 +35,5 @@ src_unpack() {
     cd "${S}"
 
     # apply revision changes
-    epatch "${FILESDIR}/calculate-update-3.2.1-r1.patch"
+    epatch "${FILESDIR}/calculate-update-3.2.1-r2.patch"
 }
