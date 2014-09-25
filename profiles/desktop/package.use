@@ -45,9 +45,6 @@ net-print/hplip fax snmp hpijs -X
 
 x11-base/xorg-drivers -video_cards_nvidia -video_cards_vmware -video_cards_glint -video_cards_mach64 -video_cards_mga -video_cards_r128 -video_cards_savage -video_cards_tdfx -video_cards_trident
 
-# Enable UMA Acceleration Architecture
-x11-drivers/xf86-video-intel uxa
-
 # Add support for SQLite - embedded SQL database
 dev-lang/python sqlite
 
@@ -57,3 +54,8 @@ media-libs/libcanberra -sound
 # Remove unsupported languages
 www-client/chromium -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_ms -linguas_nb -linguas_nl -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
 
+# Name Service Cache Daemon
+sys-libs/glibc nscd
+
+# [acl] net-fs/samba-3.6.19[client]
+net-fs/cifs-utils -acl

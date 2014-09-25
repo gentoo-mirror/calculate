@@ -4,57 +4,31 @@ media-libs/libpng apng
 # [libkms] required by sys-boot/plymouth
 x11-libs/libdrm libkms
 
+#[python] required by sys-apps/calculate-lib
+sys-apps/file python
+
+
 # Removed unnecessary dependence
 sys-apps/man-db -nls
-
-# exclude deps
-app-text/hunspell -linguas_bg -linguas_de -linguas_en -linguas_es -linguas_fr -linguas_it -linguas_pl -linguas_pt -linguas_pt_BR -linguas_ro -linguas_ru -linguas_uk
-app-text/aspell -linguas_bg -linguas_de -linguas_en -linguas_es -linguas_fr -linguas_it -linguas_pl -linguas_pt_BR -linguas_ro -linguas_ru -linguas_uk
-sys-apps/man-pages -linguas_de -linguas_fr -linguas_it -linguas_pl -linguas_ro -linguas_ru
-
-#disable Xorg dependence
+net-fs/samba -winbind
 media-fonts/terminus-font -pcf
 
-app-admin/testdisk ntfs reiserfs
-sys-fs/ntfs3g ntfsprogs
 
-net-fs/samba quota -winbind
-sys-fs/aufs2 inotify kernel-patch
+# Сompile the kernel during the installation package
 sys-kernel/calculate-sources firmware minimal plymouth symlink themes vmlinuz
-sys-kernel/dracut device-mapper net
 
-#fix update xorg
-sys-fs/udev extras
-
-sys-fs/squashfs-tools gzip lzma
-
-#need for sys-fs/udisks-1.0.1-r1
-sys-block/parted device-mapper
+# Support for LZMA
+sys-fs/squashfs-tools lzma
 
 # grub multislot by default
 ~sys-boot/grub-2.00_p5107 -multislot truetype device-mapper
 
-# to solve the problem conflicts with app-dicts/aspell-pt-0.50.2-r1
-app-text/aspell -linguas_pt
-
-# to be able to run independently of glibc
-sys-apps/busybox static
-
-#required by sys-apps/calculate-lib-2.2.26
-sys-apps/file python
-
-# add support xft and 256 color
-x11-terms/rxvt-unicode 256-color xft
-
 #for support pastebin.calculate-linux.org
 app-text/wgetpaste -lodgeit-default
 
-# required by net-fs/samba-3.6.16
-sys-libs/talloc python
+# Add NTFS and Reiserfs support
+app-admin/testdisk ntfs reiserfs
 
-# net-fs/samba-3.6.19[client]
-net-fs/cifs-utils -acl
-
-# Name Service Cache Daemon
-sys-libs/glibc nscd
+# Include internal version of ntfsprogs.
+sys-fs/ntfs3g ntfsprogs
 
