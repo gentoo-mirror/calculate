@@ -1,16 +1,15 @@
-# [apng] required by www-client/firefox
+# required by www-client/firefox [apng]
 media-libs/libpng apng
 
-# [libkms] required by sys-boot/plymouth
+# required by sys-boot/plymouth [libkms]
 x11-libs/libdrm libkms
 
-#[python] required by sys-apps/calculate-lib
+# required by sys-apps/calculate-lib [python]
 sys-apps/file python
 
 
 # Removed unnecessary dependence
 sys-apps/man-db -nls
-net-fs/samba -winbind
 media-fonts/terminus-font -pcf
 
 

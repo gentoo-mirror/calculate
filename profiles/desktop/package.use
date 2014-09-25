@@ -7,19 +7,19 @@ net-misc/networkmanager connection-sharing dhclient -dhcpcd modemmanager
 net-wireless/blueman network
 
 
-# [gdm] required by x11-libs/glamor
+# required by x11-libs/glamor [gdm]
 media-libs/mesa gbm
 
-# [minizip] required by www-client/chromium
+# required by www-client/chromium [minizip]
 sys-libs/zlib minizip
 
-# [icu] required by www-client/chromium,[python] required by media-libs/mesa, app-text/gnome-doc-utils
+# required by www-client/chromium [icu], required by media-libs/mesa [python], app-text/gnome-doc-utils
 dev-libs/libxml2 python icu
 
 # for using dev-libs/libxml2 [icu] - required by www-client/chromium
 dev-qt/qtwebkit icu
 
-# [script] required by sys-apps/calculate-console-gui
+# required by sys-apps/calculate-console-gui [script]
 dev-python/pyside script
 
 
