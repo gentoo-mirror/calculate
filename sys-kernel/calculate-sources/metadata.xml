@@ -20,4 +20,10 @@
 	<use>
 		<flag name='firmware'>Install linux kernel firmware</flag>
 	</use>
+	<use>
+		<flag name='plymouth'>Adds plymouth dependence</flag>
+	</use>
+	<use>
+		<flag name='themes'>Adds Calculate themes dependence</flag>
+	</use>
 </pkgmetadata>
