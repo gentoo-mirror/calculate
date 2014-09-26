@@ -36,3 +36,9 @@ net-libs/webkit-gtk -geoloc -gstreamer -introspection
 x11-misc/lightdm -introspection
 
 sys-libs/ncurses -gpm
+
+xfce-base/thunar udisks xfce_plugins_trash
+gnome-base/gvfs udisks
+virtual/libgudev introspection
+sys-fs/udev gudev introspection
+
