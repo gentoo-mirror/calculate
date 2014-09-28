@@ -1,1 +1,1 @@
-The path to the obsolete distributions profiles.
+Obsolete path to distribution profiles, left for compatibility reasons only.
