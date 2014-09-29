@@ -7,6 +7,9 @@
 ~media-gfx/syslinux-themes-calculate-14 amd64 x86
 ~x11-themes/calculate-icon-theme-14 amd64 x86
 
+# fix it: Variable function parser still active, likely vulnerable to yet unknown parser bugs like CVE-2014-6277 (lcamtuf bug)
+~app-shells/bash-4.2_p50 amd64 x86
+
 =app-cdr/cdrtools-3.01_alpha24 amd64 x86
 ~app-crypt/sbsigntool-0.6 amd64 x86
 =app-crypt/shim-signed-0.2 amd64 x86
