@@ -2,12 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
-SUPPORT_PYTHON_ABIS="1"
-PYTHON_DEPEND="2:2.7"
-RESTRICT_PYTHON_ABIS="2.4 2.5 2.6 3.*"
+EAPI="5"
+PYTHON_COMPAT=(python2_7)
 
-inherit distutils git-2
+inherit distutils-r1 git-2
 
 EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-console.git"
 

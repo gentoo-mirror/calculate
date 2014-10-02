@@ -2,13 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI="5"
+PYTHON_COMPAT=(python2_7)
 
-SUPPORT_PYTHON_ABIS="1"
-PYTHON_DEPEND="2:2.7"
-RESTRICT_PYTHON_ABIS="2.4 2.5 2.6 3.*"
-
-inherit distutils git-2
+inherit distutils-r1 git-2
 
 EGIT_REPO_URI="git://git.calculate.ru/calculate-3/calculate-desktop.git"
 
@@ -26,16 +23,3 @@ DEPEND="~sys-apps/calculate-lib-3.2.9999
 	kde? ( kde-base/kdialog )"
 
 RDEPEND="${DEPEND}"
-
-pkg_postinst() {
-	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/install
-	if use kde || use xfce || use gnome;
-	then
-		ewarn "Please restart xdm for refreshing configuration files."
-	fi
-}
-
-pkg_prerm() {
-	:
-	#${EROOT}/usr/lib/calculate-2.2/calculate-desktop/bin/uninstall
-}
