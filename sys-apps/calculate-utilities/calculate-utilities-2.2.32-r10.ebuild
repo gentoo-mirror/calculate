@@ -20,7 +20,7 @@ cl_server
 RDEPEND="${RDEPEND}
 	!sys-apps/calculate-templates
 	!<sys-apps/calculate-install-3.0.0_alpha1
-	=sys-apps/calculate-lib-2.2.32-r2
+	=sys-apps/calculate-lib-2.2.32-r3
 	=sys-apps/calculate-i18n-2.2.32
 
 	cl_assemble? ( =sys-apps/calculate-assemble-2.2.32-r3 )

@@ -5,7 +5,7 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
-inherit distutils-r1 git-2
+inherit distutils-r1 eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2
 	http://mirror.yandex.ru/calculate/calculate2/${PN}/${P}.tar.bz2"
