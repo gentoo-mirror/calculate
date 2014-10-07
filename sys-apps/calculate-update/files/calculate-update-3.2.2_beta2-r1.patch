@@ -1,0 +1,13 @@
+diff --git data/cl-git-wrapper data/cl-git-wrapper
+index 70039b9..81b88d1 100755
+--- data/cl-git-wrapper
++++ data/cl-git-wrapper
+@@ -22,7 +22,7 @@ native_reps=,$(/usr/sbin/cl-core --method core_variables_show \
+ if echo $native_reps | grep -q ,${repo_name},
+ then
+     # отбновить репозиторий через утилиты Calculate
+-    /usr/sbin/cl-core --method update --rep $repo_name --sync-only on --skip-update-metadata --skip-eix-update -T none
++    /usr/sbin/cl-core --method update --rep $repo_name --sync-only on --skip-eix-update -T none
+ else
+     # выполнить обновление через git
+     /usr/bin/git $*
