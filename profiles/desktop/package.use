@@ -1,12 +1,3 @@
-app-crypt/pinentry gtk
-dev-vcs/git tk
-gnome-extra/nm-applet -bluetooth
-sys-fs/ecryptfs-utils suid pam
-net-libs/webkit-gtk -introspection
-net-misc/networkmanager connection-sharing dhclient -dhcpcd modemmanager
-net-wireless/blueman network
-
-
 # required by x11-libs/glamor [gdm]
 media-libs/mesa gbm
 
@@ -25,11 +16,13 @@ dev-python/pyside script
 
 # Removed unnecessary dependence
 dev-vcs/git -gtk
+gnome-extra/nm-applet -bluetooth
 net-analyzer/nmap -gtk
 net-print/cndrvcups-capt -gtk
 sys-fs/mtools -X
 x11-drivers/nvidia-drivers -gtk
 www-client/links -X
+
 
 # Add support for access point mode
 net-wireless/wpa_supplicant ap
@@ -39,6 +32,9 @@ media-fonts/terminus-font -X
 
 # SMplayer support
 media-video/mplayer bidi -video_cards_tdfx
+
+# select dhcp client, support modemmanager
+net-misc/networkmanager connection-sharing dhclient -dhcpcd modemmanager
 
 # Enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
 net-print/hplip fax snmp hpijs -X
@@ -51,8 +47,14 @@ dev-lang/python sqlite
 # remove the sound when changing volume in pulseaudio
 media-libs/libcanberra -sound
 
+# Add functionality
+net-wireless/blueman network
+
 # Remove unsupported languages
 www-client/chromium -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_ms -linguas_nb -linguas_nl -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
+
+# Support for encrypted user directories
+sys-fs/ecryptfs-utils suid
 
 # Name Service Cache Daemon
 sys-libs/glibc nscd
