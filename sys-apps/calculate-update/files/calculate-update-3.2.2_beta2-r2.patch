@@ -1,0 +1,1207 @@
+diff --git data/cl-git-wrapper data/cl-git-wrapper
+index 70039b9..81b88d1 100755
+--- data/cl-git-wrapper
++++ data/cl-git-wrapper
+@@ -22,7 +22,7 @@ native_reps=,$(/usr/sbin/cl-core --method core_variables_show \
+ if echo $native_reps | grep -q ,${repo_name},
+ then
+     # отбновить репозиторий через утилиты Calculate
+-    /usr/sbin/cl-core --method update --rep $repo_name --sync-only on --skip-update-metadata --skip-eix-update -T none
++    /usr/sbin/cl-core --method update --rep $repo_name --sync-only on --skip-eix-update -T none
+ else
+     # выполнить обновление через git
+     /usr/bin/git $*
+diff --git pym/update/emerge_parser.py pym/update/emerge_parser.py
+index 33d5699..143fa9f 100644
+--- pym/update/emerge_parser.py
++++ pym/update/emerge_parser.py
+@@ -22,7 +22,7 @@ import re
+ import sys
+ from calculate.lib.utils.colortext.palette import TextState
+ from calculate.lib.utils.tools import ignore
+-from package_tools import EmergePackage, PackageList, EmergeUpdateInfo, \
++from calculate.lib.utils.portage import EmergePackage, PackageList, EmergeUpdateInfo, \
+     EmergeRemoveInfo, Git, GitError
+ 
+ Colors = TextState.Colors
+diff --git pym/update/package_tools.py pym/update/package_tools.py
+deleted file mode 100644
+index c251007..0000000
+--- pym/update/package_tools.py
++++ /dev/null
+@@ -1,1011 +0,0 @@
+-#-*- coding: utf-8 -*-
+-
+-# Copyright 2014 Calculate Ltd. http://www.calculate-linux.org
+-#
+-#  Licensed under the Apache License, Version 2.0 (the "License");
+-#  you may not use this file except in compliance with the License.
+-#  You may obtain a copy of the License at
+-#
+-#      http://www.apache.org/licenses/LICENSE-2.0
+-#
+-#  Unless required by applicable law or agreed to in writing, software
+-#  distributed under the License is distributed on an "AS IS" BASIS,
+-#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-#  See the License for the specific language governing permissions and
+-#  limitations under the License.
+-from collections import Mapping, defaultdict
+-
+-import re
+-import sys
+-from calculate.lib.cl_template import iniParser
+-from calculate.lib.utils.colortext.palette import TextState
+-from calculate.lib.utils.tools import AddonError, SavableIterator
+-import time
+-import datetime
+-
+-Colors = TextState.Colors
+-import pexpect
+-from os import path
+-from calculate.lib.utils.files import (getProgPath, STDOUT,
+-                                       PercentProgress, process, readFile,
+-                                       readLinesFile)
+-from calculate.lib.utils.common import cmpVersion
+-from calculate.lib.utils.tools import ignore
+-from contextlib import closing
+-
+-
+-import xml.etree.ElementTree as ET
+-
+-from calculate.lib.cl_lang import setLocalTranslate, getLazyLocalTranslate
+-from functools import total_ordering
+-from itertools import ifilter, imap, chain
+-
+-setLocalTranslate('cl_update3', sys.modules[__name__])
+-__ = getLazyLocalTranslate(_)
+-
+-
+-class GitError(AddonError):
+-    """Git Error"""
+-
+-
+-class Layman:
+-    """
+-    Объект для управления репозиториями Layman
+-
+-    Args:
+-        installed: путь до installed.xml
+-        makeconf: путь до makeconf
+-    """
+-
+-    def __init__(self, installed, makeconf):
+-        self.installed = installed
+-        self.makeconf = makeconf
+-
+-    def _add_to_installed(self, rname, rurl):
+-        """
+-        Добавить репозиторий в installed.xml
+-        """
+-        if path.exists(self.installed) and readFile(self.installed).strip():
+-            tree = ET.parse(self.installed)
+-            root = tree.getroot()
+-            # если репозиторий уже присутсвует в installed.xml
+-            if root.find("repo[name='%s']" % rname) is not None:
+-                return
+-        else:
+-            root = ET.Element("repositories", version="1.0")
+-            tree = ET.ElementTree(root)
+-
+-        newrepo = ET.SubElement(root, "repo", priority="50",
+-                                quality="experimental",
+-                                status="unofficial")
+-        name = ET.SubElement(newrepo, "name")
+-        name.text = rname
+-        source = ET.SubElement(newrepo, "source", type="git")
+-        source.text = rurl
+-        try:
+-            from layman.utils import indent
+-
+-            indent(root)
+-        except ImportError as e:
+-            pass
+-        with open(self.installed, 'w') as f:
+-            f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+-            tree.write(f, encoding="utf-8")
+-
+-    def _add_to_makeconf(self, rpath):
+-        """
+-        Добавить репозиторий в layman/make.conf
+-        """
+-
+-        def fixContent(match):
+-            repos = match.group(1).strip().split('\n')
+-            if not rpath in repos:
+-                repos.insert(0, rpath)
+-            return 'PORTDIR_OVERLAY="\n%s"' % "\n".join(repos);
+-
+-        if path.exists(self.makeconf):
+-            content = readFile(self.makeconf)
+-            if "PORTDIR_OVERLAY" in content:
+-                new_content = re.sub("\APORTDIR_OVERLAY=\"([^\"]+)\"",
+-                                     fixContent, content, re.DOTALL)
+-                if new_content == content:
+-                    return
+-                else:
+-                    content = new_content
+-            else:
+-                content = 'PORTDIR_OVERLAY="\n%s"\n' % rpath + content
+-        else:
+-            content = 'PORTDIR_OVERLAY="\n%s"\n' % rpath
+-        with open(self.makeconf, 'w') as f:
+-            f.write(content)
+-
+-    def add(self, rname, rurl, rpath):
+-        """
+-        Добавить репозиторий в installed.xml и layman/make.conf
+-        """
+-        self._add_to_installed(rname, rurl)
+-        self._add_to_makeconf(rpath)
+-        return True
+-
+-    def get_installed(self):
+-        """
+-        Получить список установленных репозиториев
+-        """
+-        if path.exists(self.installed) and readFile(self.installed).strip():
+-            tree = ET.parse(self.installed)
+-            return [x.text for x in tree.findall("repo/name")]
+-        return []
+-
+-
+-class Git:
+-    """
+-    Объект для управление git репозиторием
+-    """
+-    skip_files = ["metadata/md5-cache",
+-                  "metadata/cache"]
+-
+-    def __init__(self):
+-        self._git = self.__getGit()
+-
+-    def checkExistsRep(self, rpath):
+-        """
+-        Проверить путь на наличие репозитория
+-        """
+-        if path.exists(rpath):
+-            if not path.isdir(rpath):
+-                raise GitError(
+-                    _("Repository {path} is not a directory").format(
+-                        path=rpath))
+-            if not path.isdir(self._gitDir(rpath)):
+-                raise GitError(
+-                    _("Repository {path} is not Git").format(
+-                        path=rpath))
+-            return True
+-        return False
+-
+-    def __getGit(self):
+-        """
+-        Получить утилиту git
+-        """
+-        git = getProgPath("/usr/bin/git")
+-        if not git:
+-            raise GitError(_("The Git tool is not found"))
+-        return git
+-
+-    @staticmethod
+-    def _gitDir(rpath):
+-        return path.join(rpath, ".git")
+-
+-    @staticmethod
+-    def is_git(gitpath):
+-        return path.isdir(Git._gitDir(gitpath))
+-
+-    def get_url(self, rpath, remote_name):
+-        ini_parser = iniParser(path.join(Git._gitDir(rpath), "config"))
+-        return ini_parser.getVar(u'remote "%s"'%remote_name, "url")
+-
+-    def cloneRepository(self, url, rpath, branch, cb_progress=None):
+-        """
+-        Сделать локальную копию репозитория
+-
+-        Args:
+-            url: откуда качать репозиторий
+-            rpath: куда сохранять репозиторий
+-            branch: ветка на которую необходимо переключиться
+-        """
+-        if cb_progress:
+-            gitClone = PercentProgress(self._git, "clone", "-q",
+-                                       "--no-single-branch", "--progress",
+-                                       "--verbose",
+-                                       "--depth=1", "-b", branch, url, rpath,
+-                                       part=4, stderr=STDOUT)
+-            for perc in gitClone.progress():
+-                cb_progress(perc)
+-        else:
+-            gitClone = process(self._git, "clone", "-q", "--no-single-branch",
+-                               "--depth=1", "-b", branch, url, rpath,
+-                               stderr=STDOUT)
+-        if gitClone.failed():
+-            error = gitClone.read()
+-            if "Remote branch %s not found" % branch in error:
+-                raise GitError(
+-                    _("Branch {branch} not found in repository {url}").format(
+-                        branch=branch, url=url))
+-            raise GitError(_("Failed to clone repository {url}").format(
+-                url=url), error)
+-        return True
+-
+-    def cloneRevRepository(self, url, rpath, branch, revision,
+-                           cb_progress=None):
+-        """
+-        Сделать локальную копию репозитория с указанной ревизией
+-
+-        Args:
+-            url: откуда качать репозиторий
+-            rpath: куда сохранять репозиторий
+-            branch: ветка на которую необходимо переключиться
+-            revision: если указана - сделать ревизию текущей
+-
+-        Return:
+-            Возвращает True если клонирование произведено с установкой на
+-            указанную ревизию. False если клонирование произведено с
+-            установкой на последнюю ревизию.
+-        Raises:
+-            GitError: Выполнение ключевых команд выполнено с ошибками (не
+-                удалось скачать и получить данные из удаленного репозитория)
+-        """
+-        git_dir = self._gitDir(rpath)
+-        error = []
+-
+-        def command(cmd, startpart=0):
+-            """
+-            Выполнить одну из команд необходимой для клонирования репозитория
+-            """
+-            commands = {  # инициализация пустого репозитория
+-                          'init': ["init", rpath],
+-                          # подключить указанный удаленный как origin
+-                          'add_remote': ["remote", "add", "origin", url],
+-                          # скачать последние коммиты веток
+-                          'fetchshallow': ["fetch", "--depth=1"],
+-                          # проверить есть указанный коммит
+-                          'has_revision': ["log", "-n1", revision],
+-                          # проверить есть указанный коммит
+-                          'has_branch': ["log", "-n1",
+-                                         "remotes/origin/%s" % branch],
+-                          # получить ревизию из revs тэгов
+-                          'get_rev_tag': ["fetch", "--depth=1", "origin",
+-                                          "+refs/revs/%s:refs/remotes/origin/%s" %
+-                                          (revision, branch)],
+-                          # переключиться на указанную ревизию указанной веткой
+-                          'checkout_revision': ["checkout", "-b", branch,
+-                                                revision],
+-                          # переключить на указанную ветку
+-                          'checkout': ["checkout", branch],
+-                          # установить upstream для локальной ветки
+-                          'set_track': ["branch", branch, '-u',
+-                                        "origin/%s" % branch]
+-            }
+-            if cmd == "init":
+-                wholeCommand = [self._git] + commands[cmd]
+-            else:
+-                wholeCommand = [self._git, "--git-dir", git_dir,
+-                                "--work-tree", rpath] + commands[cmd]
+-            if cb_progress and commands[cmd][0] in ("fetch", "checkout"):
+-                progressParam = {'fetch': {'part': 4, 'end': False},
+-                                 'checkout': {'part': 4, 'startpart': 3}}
+-                gitClone = PercentProgress(
+-                    *wholeCommand + ["--progress", "--verbose"],
+-                    stderr=STDOUT, **progressParam)
+-                for perc in gitClone.progress():
+-                    cb_progress(perc)
+-            else:
+-                gitCmd = process(*wholeCommand, stderr=STDOUT)
+-            if gitCmd.failed():
+-                error.append(gitCmd.read())
+-                return False
+-            return True
+-
+-        # получить последние коммиты из удаленного репозитория
+-        if command("init") and command("add_remote"):
+-            if command("get_rev_tag") or command("fetchshallow"):
+-                if not command("has_branch"):
+-                    raise GitError(
+-                        _("Branch {branch} not found in repository {url}"
+-                        ).format(branch=branch, url=url))
+-                # если среди коммитов есть указанный коммит
+-                if command("has_revision"):
+-                    # переключаемся на нужный коммита, устанавливаем связь
+-                    if command("checkout_revision") and command("set_track"):
+-                        return True
+-                elif command("checkout"):
+-                    return False
+-        raise GitError(_("Failed to clone repository {url}").format(
+-            url=url), error[-1])
+-
+-    def pullRepository(self, rpath, quiet_error=False, cb_progress=None):
+-        """
+-        Обновить репозиторий до последней версии
+-        """
+-        gitPull = process(self._git, "--git-dir", self._gitDir(rpath),
+-                          "pull", "--ff-only", stderr=STDOUT)
+-        if gitPull.failed():
+-            if not quiet_error:
+-                error = gitPull.read()
+-                raise GitError(
+-                    _("Failed to update the repository in {rpath}").format(
+-                        rpath=rpath), error)
+-            return False
+-        return True
+-
+-    def fetchRepository(self, rpath, cb_progress=None):
+-        """
+-        Получить изменения из удаленно репозитория
+-        """
+-        if cb_progress:
+-            gitFetch = PercentProgress(self._git, "--git-dir",
+-                                       self._gitDir(rpath),
+-                                       "fetch", "--progress", "--verbose",
+-                                       part=3, stderr=STDOUT)
+-            for perc in gitFetch.progress():
+-                cb_progress(perc)
+-        else:
+-            gitFetch = process(self._git, "--git-dir", self._gitDir(rpath),
+-                               "fetch", stderr=STDOUT)
+-        if gitFetch.failed():
+-            error = gitFetch.read()
+-            raise GitError(
+-                _("Failed to update the repository in {rpath}").format(
+-                    rpath=rpath), error)
+-        return True
+-
+-    def checkChanges(self, rpath):
+-        """
+-        Проверить наличие изменений пользователем файлов в репозитории
+-        """
+-        git_dir = self._gitDir(rpath)
+-        git_status = process(self._git, "--git-dir", git_dir, "--work-tree",
+-                             rpath,
+-                             "status", "--porcelain", stderr=STDOUT)
+-        if git_status.success():
+-            return not any(x.strip() for x in git_status)
+-        else:
+-            raise GitError(
+-                _("Wrong repository in the {rpath} directory").format(
+-                    rpath=rpath))
+-
+-    def parseStatusInfo(self, data):
+-        """
+-        Разобрать информацию полученную через git status -b --porcelain
+-
+-        Returns:
+-            Словарь
+-            # есть ли измененные файлы пользователем
+-            {'files':True/False,
+-            # есть коммиты после текущего
+-             'ahead':True/False,
+-            # есть коммиты перед текущим (означает, что обновление
+-            # с основной веткой не осуществляется через fast-forward
+-             'behind':True/False,
+-            # текущая ветка
+-             'branch':'',
+-            # оригинальная ветка
+-             'origin':'origin/master'}
+-        """
+-        reStatus = re.compile("^## (\w+)(?:\.\.\.(\S+))?(?:\s+\[(ahead \d+)?"
+-                              "(?:, )?(behind \d+)?\])?\n?(.*|$)", re.S)
+-        match = reStatus.search(data)
+-        if not match:
+-            return {}
+-        return {'files': True if match.group(5) else False,
+-                'ahead': True if match.group(3) else False,
+-                'behind': True if match.group(4) else False,
+-                'origin': match.group(2) or "",
+-                'branch': match.group(1)}
+-
+-    def getCurrentCommit(self, rpath):
+-        """
+-        Получить текущий коммит в репозитории
+-        """
+-        git_dir = self._gitDir(rpath)
+-        git_show = process(self._git, "--git-dir", git_dir, "show",
+-                           "--format=format:%H",
+-                           "--quiet", stderr=STDOUT)
+-        if git_show.success():
+-            return git_show.read().strip()
+-        else:
+-            raise GitError(
+-                _("Failed to get the repository status for {rpath}").format(
+-                    rpath=rpath))
+-
+-    def getStatusInfo(self, rpath):
+-        """
+-        Получить информацию об изменениях в репозитории
+-
+-        Returns:
+-            Словарь выдаваемый функцией _parseStatusInfo
+-        """
+-        git_dir = self._gitDir(rpath)
+-        git_status = process(self._git, "--git-dir", git_dir, "--work-tree",
+-                             rpath,
+-                             "status", "-b", "--porcelain", stderr=STDOUT)
+-        if git_status.success():
+-            retDict = self.parseStatusInfo(git_status.read())
+-            if not retDict:
+-                raise GitError(
+-                    _("Failed to get the repository status for {rpath}").format(
+-                        rpath=rpath))
+-            return retDict
+-        else:
+-            raise GitError(
+-                _("Wrong repository in the {rpath} directory").format(
+-                    rpath=rpath))
+-
+-    def resetRepository(self, rpath, to_origin=False, to_rev=None, info=None):
+-        """
+-        Удалить неиндексированные изменения в репозитории
+-
+-
+-        Args:
+-            to_origin: откатить все изменения до удаленного репозитория
+-            to_rev: откатить все изменения до определенной ревизии
+-            info: использовать уже полученную информация об изменения в репозитории
+-        Return:
+-            True - успешное выполнение
+-            False - нет необходимости выполнять reset
+-        Raises:
+-            GitError: выполнение комманд reset и clean прошло с ошибкой
+-        """
+-        git_dir = self._gitDir(rpath)
+-        if not info:
+-            info = self.getStatusInfo(rpath)
+-        if (all(not info[x] for x in ("files", "ahead", "behind") if x in info)
+-            and (not info["origin"] or
+-                             "origin/%s" % info["branch"] == info["origin"])):
+-            return False
+-        commit = (info['origin'] if to_origin else to_rev) or "HEAD"
+-        git_reset = process(self._git, "--git-dir", git_dir, "--work-tree",
+-                            rpath,
+-                            "reset", "--hard", commit, stderr=STDOUT)
+-        git_clean = process(self._git, "--git-dir", git_dir, "--work-tree",
+-                            rpath,
+-                            "clean", "-fd", stderr=STDOUT)
+-        if git_reset.failed() or git_clean.failed():
+-            raise GitError(_("Failed to clean the {rpath} repository").format(
+-                rpath=rpath))
+-        return True
+-
+-    def getBranch(self, rpath):
+-        """
+-        Получить текущую ветку
+-        """
+-        return self.getStatusInfo(rpath)['branch']
+-
+-    def checkoutBranch(self, rpath, branch):
+-        """
+-        Сменить ветку
+-        """
+-        git_dir = self._gitDir(rpath)
+-        git_checkout = process(self._git, "--git-dir", git_dir,
+-                               "--work-tree", rpath,
+-                               "checkout", "-f", branch, stderr=STDOUT)
+-        if git_checkout.failed():
+-            error = git_checkout.read()
+-            if "pathspec '%s' did not match" % branch in error:
+-                raise GitError(
+-                    _("Branch {branch} not found in repository {rpath}").format(
+-                        branch=branch, rpath=rpath))
+-            raise GitError(
+-                _("Failed to change branch to {branch} in the {rpath} "
+-                  "repository").format(branch=branch,
+-                                               rpath=rpath), error)
+-        return True
+-
+-
+-@total_ordering
+-class EmergePackage(Mapping):
+-    """
+-    Данные о пакете
+-
+-    Item keys: CATEGORY, P, PN, PV, P, PF, PR, PVR
+-
+-    Поддерживает сравнение объекта с другим таким же объектом по версии, либо
+-    со строкой, содержащей версию. Сравнение выполняется по категория/имя, затем
+-    по версии
+-    """
+-    default_repo = 'gentoo'
+-    prefix = r"(?:.*/var/db/pkg/|=)?"
+-    category = r"(?:(\w+(?:-\w+)?)/)?"
+-    pn = "([^/]*?)"
+-    pv = r"(?:-(\d[^-]*?))?"
+-    pr = r"(?:-(r\d+))?"
+-    tbz = r"(?:.(tbz2))?"
+-    slot = r'(?::(\w+(?:\.\w+)*(?:/\w+(?:\.\w+)*)?))?'
+-    repo = r'(?:::(\w+))?'
+-
+-    reParse = re.compile(
+-        r'^{prefix}{category}(({pn}{pv}){pr}){slot}{repo}{tbz}$'.format(
+-            prefix=prefix, category=category, pn=pn, pv=pv, pr=pr, tbz=tbz,
+-            slot=slot, repo=repo))
+-
+-    attrs = ('CATEGORY', 'PN', 'PF', 'SLOT', 'REPO', 'P', 'PV', 'PR', 'PVR',
+-             'CATEGORY/PN')
+-
+-    def _parsePackageString(self, s):
+-        """
+-        Преобразовать строка в части названия пакета
+-        """
+-        x = self.reParse.search(s)
+-        if x:
+-            CATEGORY, PF, P, PN, PV, PR, SLOT, REPO, TBZ = range(0, 9)
+-            x = x.groups()
+-            d = {'CATEGORY': x[CATEGORY] or "",
+-                 'PN': x[PN],
+-                 'PV': x[PV] or '0',
+-                 'PF': x[PF],
+-                 'P': x[P],
+-                 'SLOT': x[SLOT] or '0',
+-                 'REPO': x[REPO] or self.default_repo,
+-                 'CATEGORY/PN': "%s/%s" % (x[CATEGORY], x[PN]),
+-                 'PR': x[PR] or 'r0'}
+-            if x[PR]:
+-                d['PVR'] = "%s-%s" % (d['PV'], d['PR'])
+-            else:
+-                d['PVR'] = d['PV']
+-            if d['PF'].endswith('-r0'):
+-                d['PF'] = d['PF'][:-3]
+-            return d.copy()
+-        else:
+-            return {k: '' for k in self.attrs}
+-
+-    def __iter__(self):
+-        return iter(self.attrs)
+-
+-    def __len__(self):
+-        if not self['PN']:
+-            return 0
+-        else:
+-            return len(self.attrs)
+-
+-    def __lt__(self, version):
+-        """
+-        В объектах сравнивается совпадение категории и PF
+-        """
+-        if "CATEGORY/PN" in version and "PVR" in version:
+-            if self['CATEGORY/PN'] < version['CATEGORY/PN']:
+-                return True
+-            elif self['CATEGORY/PN'] > version['CATEGORY/PN']:
+-                return False
+-            version = "%s-%s" % (version['PV'], version['PR'])
+-        currentVersion = "%s-%s" % (self['PV'], self['PR'])
+-        return cmpVersion(currentVersion, version) == -1
+-
+-    def __eq__(self, version):
+-        if "CATEGORY" in version and "PF" in version:
+-            return ("%s/%s" % (self['CATEGORY'], self['PF']) ==
+-                    "%s/%s" % (version['CATEGORY'], version['PF']))
+-        else:
+-            currentVersion = "%s-%s" % (self['PV'], self['PR'])
+-            return cmpVersion(currentVersion, version) == 0
+-
+-    def __init__(self, package):
+-        if isinstance(package, EmergePackage):
+-            self.__result = package.__result
+-            self._package = package._package
+-        else:
+-            self._package = package
+-            self.__result = None
+-
+-    def __getitem__(self, item):
+-        if not self.__result:
+-            self.__result = self._parsePackageString(self._package)
+-        return self.__result[item]
+-
+-    def __repr__(self):
+-        return "EmergePackage(%s/%s)" % (self['CATEGORY'], self['PF'])
+-
+-    def __str__(self):
+-        return "%s/%s" % (self['CATEGORY'], self['PF'])
+-
+-
+-class PackageInformation:
+-    """
+-    Объект позволяет получать информацию о пакете из eix
+-    """
+-    eix_cmd = getProgPath("/usr/bin/eix")
+-
+-    query_packages = []
+-    information_cache = defaultdict(dict)
+-
+-    fields = ["DESCRIPTION"]
+-
+-    def __init__(self, pkg):
+-        self._pkg = pkg
+-        if not pkg in self.query_packages:
+-            self.query_packages.append(pkg)
+-
+-    def __getitem__(self, item):
+-        if not self._pkg['CATEGORY/PN'] in self.information_cache and \
+-                self.query_packages:
+-            self.query_information()
+-        try:
+-            return self.information_cache[self._pkg['CATEGORY/PN']][item]
+-        except KeyError:
+-            return ""
+-
+-    def query_information(self):
+-        pkg_list = "|".join(
+-            [x['CATEGORY/PN'].replace("+", r"\+") for x in self.query_packages])
+-        output = pexpect.spawn(self.eix_cmd, ["--xml", pkg_list]).read()
+-        re_cut = re.compile("^.*?(?=<\?xml version)",re.S)
+-        with ignore(ET.ParseError):
+-            xml = ET.fromstring(re_cut.sub('',output))
+-            for pkg in self.query_packages:
+-                cat_pn = pkg['CATEGORY/PN']
+-                if not cat_pn in self.information_cache:
+-                    descr_node = xml.find(
+-                        'category[@name="%s"]/package[@name="%s"]/description'
+-                        % (pkg['CATEGORY'], pkg['PN']))
+-                    if descr_node is not None:
+-                        self.information_cache[cat_pn]['DESCRIPTION'] = \
+-                            descr_node.text
+-        while self.query_packages:
+-            self.query_packages.pop()
+-
+-    @classmethod
+-    def add_info(cls, pkg):
+-        pkg.info = cls(pkg)
+-        return pkg
+-
+-class UnmergePackage(EmergePackage):
+-    """
+-    Информация об обновлении одного пакета
+-    """
+-    re_pkg_info = re.compile("^\s(\S+)\n\s+selected:\s(\S+)",re.MULTILINE)
+-
+-    def __init__(self, package):
+-        super(UnmergePackage, self).__init__(package)
+-        if not isinstance(package, EmergePackage):
+-            self._package = self.convert_package_info(package)
+-
+-    def convert_package_info(self, package):
+-        match = self.re_pkg_info.search(package)
+-        if match:
+-            return "%s-%s" % match.groups()
+-        return ""
+-
+-
+-def recalculate_update_info(cls):
+-    """
+-    Добавить
+-    """
+-    cls.update_info = re.compile(
+-        r"^({install_info})\s+({atom_info})\s*(?:{prev_version})?"
+-        r"\s*({use_info})?.*?({pkg_size})?$".format(
+-            install_info=cls.install_info,
+-            atom_info=cls.atom_info,
+-            prev_version=cls.prev_version,
+-            use_info=cls.use_info,
+-            pkg_size=cls.pkg_size), re.MULTILINE)
+-    return cls
+-
+-@recalculate_update_info
+-@total_ordering
+-class EmergeUpdateInfo(Mapping):
+-    """
+-    Информация об обновлении одного пакета
+-    """
+-
+-    install_info = "\[(binary|ebuild)([^\]]+)\]"
+-    atom_info = r"\S+"
+-    use_info = 'USE="[^"]+"'
+-    prev_version = "\[([^\]]+)\]"
+-    pkg_size = r"[\d,]+ \w+"
+-
+-    attrs = ['binary', 'REPLACING_VERSIONS', 'SIZE', 'new', 'newslot',
+-             'updating', 'downgrading', 'reinstall']
+-
+-    def __init__(self, data):
+-        self._data = data
+-        self._package = None
+-        self._info = {}
+-
+-    def _parseData(self):
+-        r = self.update_info.search(self._data)
+-        if r:
+-            self._info['binary'] = r.group(2) == 'binary'
+-            install_flag = r.group(3)
+-            self._info['newslot'] = "S" in install_flag
+-            self._info['new'] = "N" in install_flag and not "S" in install_flag
+-            self._info['updating'] = ("U" in install_flag and
+-                                      not "D" in install_flag)
+-            self._info['downgrading'] = "D" in install_flag
+-            self._info['reinstall'] = "R" in install_flag
+-            self._package = EmergePackage(r.group(4))
+-            self._info['REPLACING_VERSIONS'] = r.group(5) or ""
+-            self._info['SIZE'] = r.group(7) or ""
+-
+-    def __iter__(self):
+-        return chain(EmergePackage.attrs, self.attrs)
+-
+-    def __len__(self):
+-        if not self['PN']:
+-            return 0
+-        else:
+-            return len(EmergePackage.attrs) + len(self.attrs)
+-
+-    def __getitem__(self, item):
+-        if not self._info:
+-            self._parseData()
+-        if item in self._info:
+-            return self._info[item]
+-        if self._package:
+-            return self._package[item]
+-        return None
+-
+-    def __lt__(self, version):
+-        if not self._info:
+-            self._parseData()
+-        return self._package < version
+-
+-    def __eq__(self, version):
+-        if not self._info:
+-            self._parseData()
+-        return self._package == version
+-
+-    def __contains__(self, item):
+-        if not self._info:
+-            self._parseData()
+-        return item in self.attrs or item in self._package
+-
+-    def __repr__(self):
+-        return "EmergeUpdateInfo(%s/%s,%s)" % (
+-            self['CATEGORY'], self['PF'],
+-            "binary" if self.binary else "ebuild")
+-
+-    def __str__(self):
+-        return "%s/%s" % (self['CATEGORY'], self['PF'])
+-
+-@recalculate_update_info
+-class EmergeRemoveInfo(EmergeUpdateInfo):
+-    """
+-    Информация об удалении одного пакета (в списке обновляемых пакетов)
+-    """
+-    install_info = "\[(uninstall)([^\]]+)\]"
+-
+-
+-class Eix:
+-    """
+-    Вызов eix
+-
+-    package : пакет или список пакетов
+-    *options : параметры eix
+-    all_versions : отобразить все версии пакета или наилучшую
+-    """
+-    cmd = getProgPath("/usr/bin/eix")
+-
+-    class Option:
+-        Installed = '--installed'
+-        Xml = '--xml'
+-        Upgrade = '--upgrade'
+-
+-
+-    default_options = [Option.Xml]
+-
+-    def __init__(self, package, *options, **kwargs):
+-        if type(package) in (tuple, list):
+-            self.package = list(package)
+-        else:
+-            self.package = [package]
+-        self.options = list(options) + self.package + self.default_options
+-        if not kwargs.get('all_versions', False):
+-            self.__get_versions = self._get_versions
+-            self._get_versions = self._get_best_version
+-
+-    def _get_best_version(self, et):
+-        ret = None
+-        for ver in ifilter(lambda x: x.find('mask') is None,
+-                           et.iterfind('version')):
+-            ret = ver.attrib['id']
+-        yield ret
+-
+-    def get_output(self):
+-        """
+-        Получить вывод eix
+-        """
+-        with closing(process(self.cmd, *self.options)) as p:
+-            return p.read()
+-
+-    def get_packages(self):
+-        """
+-        Получить список пакетов
+-        """
+-        return list(self._parseXml(self.get_output()))
+-
+-    def _get_versions(self, et):
+-        for ver in et.iterfind('version'):
+-            yield ver.attrib['id']
+-
+-    def _get_packages(self, et):
+-        for pkg in et:
+-            for version in self._get_versions(pkg):
+-                yield "%s-%s" % (pkg.attrib['name'], version)
+-
+-    def _get_categories(self, et):
+-        for category in et:
+-            for pkg in self._get_packages(category):
+-                yield "%s/%s" % (category.attrib['name'], pkg)
+-
+-    def _parseXml(self, buffer):
+-        try:
+-            eix_xml = ET.fromstring(buffer)
+-            return self._get_categories(eix_xml)
+-        except ET.ParseError:
+-            return iter(())
+-
+-
+-class EmergeLogTask(object):
+-    def has_marker(self, line):
+-        """
+-        Определить есть ли в строке маркер задачи
+-        """
+-        return False
+-
+-    def get_begin_marker(self):
+-        """
+-        Получить маркер начала задачи
+-        """
+-        return ""
+-
+-    def get_end_marker(self):
+-        """
+-        Получить маркер завершения задачи
+-        """
+-        return ""
+-
+-
+-class EmergeLogNamedTask(EmergeLogTask):
+-    date_format = "%b %d, %Y %T"
+-
+-    def __init__(self, taskname):
+-        self.taskname = taskname
+-
+-    def has_marker(self, line):
+-        """
+-        Определить есть ли в строке маркер задачи
+-        """
+-        return self.get_end_marker() in line
+-
+-    def get_begin_marker(self):
+-        """
+-        Получить маркер начала задачи
+-        """
+-        return "Calculate: Started {taskname} on: {date}".format(
+-            taskname=self.taskname,
+-            date=datetime.datetime.now().strftime(self.date_format))
+-
+-    def get_end_marker(self):
+-        """
+-        Получить маркер завершения задачи
+-        """
+-        return " *** Calculate: Finished %s" % self.taskname
+-
+-
+-class EmergeLog:
+-    """
+-    EmergeLog(after).get_update(package_pattern)
+-    """
+-    emerge_log = "/var/log/emerge.log"
+-    re_complete_emerge = re.compile(r":::\scompleted (emerge) \(.*?\) (\S+)",
+-                                    re.M)
+-    re_complete_unmerge = re.compile(r">>>\s(unmerge) success: (\S+)", re.M)
+-
+-    def __init__(self, emerge_task=EmergeLogTask()):
+-        """
+-        @type emerge_task: EmergeLogTask
+-        """
+-        self.emerge_task = emerge_task
+-        self._list = None
+-        self._remove_list = None
+-
+-    def _get_last_changes(self):
+-        """
+-        Получить список измений по логу, от последней записи маркера
+-        """
+-        log_data = SavableIterator(iter(readLinesFile(self.emerge_log)))
+-        for line in log_data.save():
+-            if self.emerge_task.has_marker(line):
+-                log_data.save()
+-        return log_data.restore()
+-
+-    def get_last_time(self):
+-        """
+-        Получить время послдней записи маркера
+-        """
+-        last_line = ""
+-        for line in readLinesFile(self.emerge_log):
+-            if self.emerge_task.has_marker(line):
+-                last_line = line
+-        return last_line
+-
+-    @property
+-    def list(self):
+-        if self._list is None:
+-            self.get_packages()
+-        return self._list
+-
+-    @property
+-    def remove_list(self):
+-        if self._remove_list is None:
+-            self.get_packages()
+-        return self._remove_list
+-
+-    def get_packages(self):
+-        """
+-        Получить список пакетов
+-        """
+-        self._list, self._remove_list = \
+-            zip(*self._parse_log(self._get_last_changes()))
+-        self._list = filter(None,self._list)
+-        self._remove_list = filter(None, self._remove_list)
+-
+-    def _parse_log(self, data):
+-        searcher = lambda x:(self.re_complete_emerge.search(x) or
+-                            self.re_complete_unmerge.search(x))
+-        for re_match in ifilter(None, imap(searcher, data)):
+-            if re_match.group(1) == "emerge":
+-                yield re_match.group(2), None
+-            else:
+-                yield None, re_match.group(2)
+-        yield None, None
+-
+-    def _set_marker(self, text_marker):
+-        with open(self.emerge_log, 'a') as f:
+-            f.write("{0:.0f}: {1}\n".format(time.time(), text_marker))
+-
+-    def mark_begin_task(self):
+-        """
+-        Отметить в emerge.log начало выполнения задачи
+-        """
+-        marker = self.emerge_task.get_begin_marker()
+-        if marker:
+-            self._set_marker(marker)
+-
+-    def mark_end_task(self):
+-        """
+-        Отметить в emerge.log завершение выполнения задачи
+-        """
+-        marker = self.emerge_task.get_end_marker()
+-        if marker:
+-            self._set_marker(marker)
+-
+-
+-class PackageList(object):
+-    """
+-    Список пакетов с возможностью среза и сравнением с версией
+-    """
+-
+-    def __init__(self, packages):
+-        self._raw_list = packages
+-        self.result = None
+-
+-    def _packages(self):
+-        if self.result is None:
+-            self.result = filter(lambda x: x['PN'],
+-                                  imap(lambda x: (x if isinstance(x, Mapping)
+-                                                  else EmergePackage(x)),
+-                                       self._raw_list))
+-        return self.result
+-
+-    def __getitem__(self, item):
+-        re_item = re.compile(item)
+-        return PackageList([pkg for pkg in self._packages() if
+-                            re_item.search(pkg['CATEGORY/PN'])])
+-
+-    def __iter__(self):
+-        return iter(self._packages())
+-
+-    def __len__(self):
+-        return len(list(self._packages()))
+-
+-    def __lt__(self, other):
+-        return any(pkg < other for pkg in self._packages())
+-
+-    def __le__(self, other):
+-        return any(pkg <= other for pkg in self._packages())
+-
+-    def __gt__(self, other):
+-        return any(pkg > other for pkg in self._packages())
+-
+-    def __ge__(self, other):
+-        return any(pkg >= other for pkg in self._packages())
+-
+-    def __eq__(self, other):
+-        for pkg in self._packages():
+-            if pkg == other:
+-                return True
+-        else:
+-            return False
+-        return any(pkg == other for pkg in self._packages())
+-
+-    def __ne__(self, other):
+-        return any(pkg != other for pkg in self._packages())
+diff --git pym/update/profile.py pym/update/profile.py
+index aa28782..19699b7 100644
+--- pym/update/profile.py
++++ pym/update/profile.py
+@@ -19,7 +19,7 @@ import shutil
+ import os
+ from calculate.lib.utils.files import listDirectory, readFile, readLinesFile, \
+     makeDirectory, removeDir
+-from package_tools import Git
++from calculate.lib.utils.portage import Git
+ from update import UpdateError
+ 
+ from calculate.lib.cl_lang import setLocalTranslate, _
+diff --git pym/update/update.py pym/update/update.py
+index a4d1da4..0ed233c 100644
+--- pym/update/update.py
++++ pym/update/update.py
+@@ -32,7 +32,7 @@ from calculate.update.datavars import DataVarsUpdate
+ import re
+ from collections import MutableSet
+ 
+-from package_tools import Git, Layman,\
++from calculate.lib.utils.portage import Git, Layman,\
+     EmergeLogNamedTask, EmergeLog, GitError, \
+     PackageInformation, PackageList, EmergePackage
+ 
+@@ -725,7 +725,7 @@ class Update:
+             except EmergeError:
+                 self.set_need_update(False)
+                 self.emerge_cache.drop_cache("Emerge error")
+-                self.printPre(self._emerge_translate(emerge.prepare_error))
++                self._display_error(emerge.prepare_error)
+                 raise
+             if self.clVars.Get('cl_update_pretend_set') == 'on':
+                 # установить кэш: есть обновления
+@@ -780,12 +780,16 @@ class Update:
+         except EmergeError:
+             self.emerge_cache.drop_cache("Emerge error")
+             if emerge.emerging_error:
+-                self.printPre(
+-                    self._emerge_translate(emerge.emerging_error.log))
++                self._display_error(emerge.emerging_error.log)
+             else:
+-                self.printPre(self._emerge_translate(emerge.prepare_error))
++                self._display_error(emerge.prepare_error)
+             raise
+ 
++    def _display_error(self, error):
++        lines_num = int(self.clVars.Get('update.cl_update_lines_limit'))
++        error = "\n".join(str(error).split('<br/>')[-lines_num:])
++        self.printPre(self._emerge_translate(error))
++
+     def emerge(self, param, *packages):
+         """
+         Выполнить сборку пакета
+@@ -808,7 +812,7 @@ class Update:
+                     return True
+             except EmergeError:
+                 self.emerge_cache.drop_cache("Emerge error")
+-                self.printPre(self._emerge_translate(emerge.prepare_error))
++                self._display_error(emerge.prepare_error)
+                 raise
+             self._startEmerging(emerge)
+         return True
+@@ -848,7 +852,7 @@ class Update:
+                     emerge.run()
+                 self._display_remove_list(emerge)
+             except EmergeError:
+-                self.printPre(self._emerge_translate(emerge.prepare_error))
++                self._display_error(emerge.prepare_error)
+                 raise
+             if (self.askConfirm(
+                     _("Would you like to unmerge these packages?")) != 'yes'):
+diff --git pym/update/utils/cl_setup_update.py pym/update/utils/cl_setup_update.py
+index e2e2943..5d744fa 100644
+--- pym/update/utils/cl_setup_update.py
++++ pym/update/utils/cl_setup_update.py
+@@ -19,7 +19,7 @@ from calculate.core.server.func import Action, Tasks
+ from calculate.lib.cl_lang import setLocalTranslate, getLazyLocalTranslate
+ from calculate.lib.utils.files import FilesError
+ from calculate.update.update import UpdateError
+-from calculate.update.package_tools import GitError
++from calculate.lib.utils.portage import GitError
+ 
+ setLocalTranslate('cl_update3', sys.modules[__name__])
+ __ = getLazyLocalTranslate(_)
+diff --git pym/update/utils/cl_update.py pym/update/utils/cl_update.py
+index 9141722..4b338b1 100644
+--- pym/update/utils/cl_update.py
++++ pym/update/utils/cl_update.py
+@@ -21,7 +21,7 @@ from calculate.lib.utils.colortext import get_color_print, Colors
+ from calculate.lib.utils.files import FilesError
+ from calculate.update.update import UpdateError
+ from calculate.update.emerge_parser import EmergeError
+-from calculate.update.package_tools import GitError, Eix, EmergeLog, \
++from calculate.lib.utils.portage import GitError, Eix, EmergeLog, \
+     EmergeLogNamedTask, PackageList
+ 
+ setLocalTranslate('cl_update3', sys.modules[__name__])
+diff --git pym/update/utils/cl_update_profile.py pym/update/utils/cl_update_profile.py
+index 6af629e..0ba4704 100644
+--- pym/update/utils/cl_update_profile.py
++++ pym/update/utils/cl_update_profile.py
+@@ -19,7 +19,7 @@ from calculate.core.server.func import Action, Tasks
+ from calculate.lib.cl_lang import setLocalTranslate, getLazyLocalTranslate
+ from calculate.lib.utils.files import FilesError
+ from calculate.update.update import UpdateError
+-from calculate.update.package_tools import GitError
++from calculate.lib.utils.portage import GitError
+ 
+ setLocalTranslate('cl_update3', sys.modules[__name__])
+ __ = getLazyLocalTranslate(_)
+diff --git pym/update/variables/update.py pym/update/variables/update.py
+index 550e423..4b12825 100644
+--- pym/update/variables/update.py
++++ pym/update/variables/update.py
+@@ -27,7 +27,7 @@ from calculate.lib.utils.files import readLinesFile, readFile, makeDirectory, \
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+ from calculate.lib.utils.text import simplify_profiles
+-from calculate.update.package_tools import Git, GitError, Layman
++from calculate.lib.utils.portage import Git, GitError, Layman
+ from calculate.update.profile import RepositoryStorageSet, DEFAULT_BRANCH
+ 
+ from calculate.lib.variables.linux import VariableOsLinuxName, \
+@@ -229,9 +229,12 @@ class VariableClUpdateBranchName(Variable):
+ 
+     def get(self):
+         def generateBranch():
++            git = Git()
+             for reppath in self.Get('cl_update_rep_path'):
+-                headPath = path.join(reppath, ".git/HEAD")
+-                yield readFile(headPath).rpartition('/')[2].strip() or "master"
++                try:
++                    yield git.getBranch(reppath) or "master"
++                except GitError:
++                    yield "master"
+ 
+         return list(generateBranch())
+ 
+@@ -1051,4 +1054,9 @@ class VariableClUpdateKernelPkg(ReadonlyVariable):
+         else:
+             return ""
+ 
+-
++class VariableClUpdateLinesLimit(Variable):
++    """
++    Количество выводимых строк при ошибке
++    """
++    type = "int"
++    value = "30"
+diff --git pym/update/wsdl_update.py pym/update/wsdl_update.py
+index b3cd1b3..7b566dc 100644
+--- pym/update/wsdl_update.py
++++ pym/update/wsdl_update.py
+@@ -21,7 +21,7 @@ from calculate.lib.datavars import VariableError,DataVarsError,DataVars
+ from calculate.core.server.func import WsdlBase
+ from calculate.install.install import InstallError
+ from calculate.update.update import Update,UpdateError
+-from calculate.update.package_tools import GitError
++from calculate.lib.utils.portage import GitError
+ from utils.cl_update import ClUpdateAction
+ from utils.cl_update_profile import ClUpdateProfileAction
+ from utils.cl_setup_update import ClSetupUpdateAction

@@ -1,0 +1,26 @@
+diff --git pym/install/fs_manager.py pym/install/fs_manager.py
+index 402f72a..b2c2fa2 100644
+--- pym/install/fs_manager.py
++++ pym/install/fs_manager.py
+@@ -27,7 +27,7 @@ setLocalTranslate('cl_install3',sys.modules[__name__])
+ class FileSystemManager:
+     """Convert dict install option"""
+ 
+-    defaultOpt = ['noatime','nodiratime']
++    defaultOpt = ['noatime']
+     defaultBindOpts = ['bind']
+     supportFS = {
+         'ext2': {'defaultopt': defaultOpt,
+diff --git pym/install/variables/disk.py pym/install/variables/disk.py
+index b0f99c1..17b0e2c 100644
+--- pym/install/variables/disk.py
++++ pym/install/variables/disk.py
+@@ -1423,8 +1423,6 @@ class VariableOsInstallDiskOptions(ReadonlyVariable):
+         """TODO: get real options"""
+         def postProcess(opt):
+             l_opt = filter(None,opt.split(','))
+-            if "noatime" in l_opt and not "nodiratime" in l_opt:
+-                l_opt.append("nodiratime")
+             return ",".join(l_opt)
+                 
+         diskOpts = dict(filter(lambda x:x[1],
