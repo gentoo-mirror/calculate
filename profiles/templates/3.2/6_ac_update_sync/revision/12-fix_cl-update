@@ -1,4 +1,4 @@
-# Calculate format=diff ini(update.revision)<12
+# Calculate format=diff pkg(sys-apps/calculate-update)<3.2.2&&ini(update.revision)<12
 #-ini(update.revision,12)-#
 --- /usr/lib/python2.7/site-packages/calculate/update/utils/cl_update.py
 +++ /usr/lib/python2.7/site-packages/calculate/update/utils/cl_update.py

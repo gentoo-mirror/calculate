@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-apps/baselayout,sys-kernel/dracut,sys-power/upower-pm-utils ini(update.remerge)<1
+
+[update]
+remerge = 1
