@@ -1,0 +1,12 @@
+diff --git pym/update/variables/action.py pym/update/variables/action.py
+index 8e2de8e..799b1f3 100644
+--- pym/update/variables/action.py
++++ pym/update/variables/action.py
+@@ -29,6 +29,6 @@ class VariableAcUpdateSync(ReadonlyVariable):
+     """
+     def get(self):
+         action = self.Get("cl_action")
+-        if action in ("sync",):
++        if action in ("sync", 'update_profile'):
+             return "on"
+         return "off"
