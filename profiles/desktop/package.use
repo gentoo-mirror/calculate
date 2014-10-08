@@ -13,6 +13,9 @@ dev-qt/qtwebkit icu
 # required by sys-apps/calculate-console-gui [script]
 dev-python/pyside script
 
+# required by sys-devel/prelink
+dev-libs/elfutils static-libs
+
 
 # Removed unnecessary dependence
 dev-vcs/git -gtk
