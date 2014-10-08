@@ -1,0 +1,43 @@
+diff --git pym/install/variables/X11.py pym/install/variables/X11.py
+index 836803b..58dba88 100644
+--- pym/install/variables/X11.py
++++ pym/install/variables/X11.py
+@@ -27,6 +27,8 @@ from calculate.lib.utils.common import (getVideoFromXorgLog,
+                 getCompositeFromXorgconf, getVideoFromModules,
+                 getVideoFromVendor, getInstalledVideo)
+ from calculate.install.distr import DistributiveError
++import fcntl
++import struct
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+ setLocalTranslate('cl_install3',sys.modules[__name__])
+@@ -283,19 +285,15 @@ class VariableOsInstallFbResolution(ResolutionVariable):
+         self.help = _("set the framebuffer resolution")
+         self.label = _("Framebuffer resolution")
+ 
++    FBIOGET_VSCREENINFO = 0x4600
++
+     def get(self):
+         """Get current framebuffer resolution"""
+-        resolution = ""
+-        fbres = getProgPath('/sbin/fbres')
+-        if fbres:
+-            processFbres = process(fbres,stderr=STDOUT)
+-            textLines = processFbres.readlines()
+-            if textLines:
+-                cxx11,cyx11 = \
+-                    self.Get('os_install_x11_resolution').partition('x')[0::2]
+-                cxfb, cyfb = textLines[0].partition('x')[0::2]
+-                if not filter(lambda x:not x.isdigit(),
+-                       [cxfb,cyfb,cxx11,cyx11])and \
+-                    int(cxx11) >= int(cxfb) and int(cyx11) >= int(cyfb):
+-                    resolution = "%s-32"%textLines[0]
+-        return resolution or "1024x768-32"
++        try:
++            fbdev = os.open('/dev/fb0',os.O_RDONLY)
++            data = fcntl.ioctl(fbdev, self.FBIOGET_VSCREENINFO, " "*8)
++            res = struct.unpack("II",data)
++            return "%sx%s"%(res[0],res[1])
++        except (IOError,OSError):
++            pass
++        return "1024x768"
