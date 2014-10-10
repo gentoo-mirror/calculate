@@ -1,0 +1,35 @@
+commit 0a7514b5833319222779dccdcee8435486a95daa
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Fri Oct 10 11:07:53 2014 +0400
+
+    Исправлен вызов getch
+
+diff --git pym/calculate/lib/utils/files.py pym/calculate/lib/utils/files.py
+index 09b496a..7fe505a 100644
+--- pym/calculate/lib/utils/files.py
++++ pym/calculate/lib/utils/files.py
+@@ -891,14 +891,17 @@ def getch():
+     """
+     import sys, tty, termios
+ 
+-    fd = sys.stdin.fileno()
+-    old_settings = termios.tcgetattr(fd)
+     try:
+-        tty.setraw(sys.stdin.fileno())
+-        ch = sys.stdin.read(1)
+-    finally:
+-        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+-    return ch
++        fd = sys.stdin.fileno()
++        old_settings = termios.tcgetattr(fd)
++        try:
++            tty.setraw(sys.stdin.fileno())
++            ch = sys.stdin.read(1)
++        finally:
++            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
++        return ch
++    except:
++        return ""
+ 
+ def find(directory,onefilesystem=False,filetype=None,
+          fullpath=True, depth=None, downfilter=None):

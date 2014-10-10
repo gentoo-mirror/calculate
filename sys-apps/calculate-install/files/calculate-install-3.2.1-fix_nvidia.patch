@@ -1,0 +1,19 @@
+commit e88082d387e454f6337862ed06952393835eccf6
+Author: Mike Khiretskiy <mh@calculate.ru>
+Date:   Fri Oct 10 11:29:38 2014 +0400
+
+    Исправлен файл маски nvidia
+
+diff --git pym/install/install.py pym/install/install.py
+index 3ecc8b6..7c0242f 100644
+--- pym/install/install.py
++++ pym/install/install.py
+@@ -364,7 +364,7 @@ class Install:
+         if self.clVars.Get('hr_video') != 'nvidia':
+             return True
+         maskFile = '/etc/portage/package.mask'
+-        nvidiaMaskFile = path.join(maskFile,'nvidia-drivers')
++        nvidiaMaskFile = path.join(maskFile,'nvidia')
+         # если package.mask является файлом - делаем его директорией
+         if path.isfile(maskFile):
+             os.rename(maskFile,maskFile+"2")
