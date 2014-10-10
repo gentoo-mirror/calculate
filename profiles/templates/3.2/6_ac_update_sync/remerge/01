@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-apps/baselayout,sys-kernel/dracut,sys-power/upower-pm-utils ini(update.remerge)<1
+# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-apps/baselayout,sys-kernel/dracut,sys-power/upower-pm-utils,app-text/qpdfview ini(overlay-calculate.remerge)<1
 
-[update]
+[overlay-calculate]
 remerge = 1

@@ -1,6 +1,6 @@
-# Calculate ini(update.revision)<11 exec=/bin/bash
+# Calculate ini(overlay-calculate.revision)<11 exec=/bin/bash
 
-#-ini(update.revision,11)-#
+#-ini(overlay-calculate.revision,11)-#
 
 /bin/rm -rf /var/cache/edb/dep/usr/portage
 

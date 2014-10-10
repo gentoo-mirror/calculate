@@ -1,4 +1,4 @@
-# Calculate path=/etc/calculate name=ini.env format=samba cl_update_world!=update||ini(update.world)==
+# Calculate path=/etc/calculate name=ini.env format=samba cl_update_world!=update||ini(overlay-calculate.world)==
 
-[update]
-world = 11
+[overlay-calculate]
+world = 1
