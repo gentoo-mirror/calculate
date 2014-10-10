@@ -27,10 +27,13 @@ x11-drivers/nvidia-drivers -gtk
 www-client/links -X
 
 
+# Fix blocks the installation of the old nvidia video drivers
+www-client/chromium -tcmalloc
+
 # Add support for access point mode
 net-wireless/wpa_supplicant ap
 
-# Disable Xorg dependence, large number of supported fonts reduces productivity.
+# Disable Xorg dependence, large number of supported fonts reduces productivity
 media-fonts/terminus-font -X
 
 # SMplayer support
