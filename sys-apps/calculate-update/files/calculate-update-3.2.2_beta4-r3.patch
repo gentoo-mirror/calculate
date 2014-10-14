@@ -1,0 +1,60 @@
+diff --git pym/update/update_info.py pym/update/update_info.py
+index 8ab9fca..a162631 100644
+--- pym/update/update_info.py
++++ pym/update/update_info.py
+@@ -46,9 +46,13 @@ class UpdateInfo(object):
+         """
+         return SystemIni().getVar(cls.section, cls.varname) == u'on'
+ 
+-    def set_update_ready(self, value):
+-        SystemIni().setVar(self.section,
+-            {self.varname:"on" if value else "off"})
++    @classmethod
++    def set_update_ready(cls, value):
++        """
++        Установить статус обновления
++        """
++        SystemIni().setVar(cls.section,
++            {cls.varname:"on" if value else "off"})
+ 
+     def check_for_dispatch(self):
+         """
+diff --git pym/update/wsdl_update.py pym/update/wsdl_update.py
+index b295939..32d92e5 100644
+--- pym/update/wsdl_update.py
++++ pym/update/wsdl_update.py
+@@ -39,11 +39,11 @@ class Wsdl(WsdlBase):
+             # идентификатор метода
+             'method_name': "update",
+             # категория метода
+-            'category': __('Update'),
++            'category': __('Update '),
+             # заголовок метода
+             'title': __("Update the System"),
+             # иконка для графической консоли
+-            'image': 'software-properties,preferences-desktop',
++            'image': 'calculate-update',
+             # метод присутствует в графической консоли
+             'gui': True,
+             # консольная команда
+@@ -86,7 +86,7 @@ class Wsdl(WsdlBase):
+             # идентификатор метода
+             'method_name': "update_profile",
+             # категория метода
+-            'category': __('Update'),
++            'category': __('Update '),
+             # заголовок метода
+             'title': __("Change the Profile"),
+             # иконка для графической консоли
+@@ -141,9 +141,9 @@ class Wsdl(WsdlBase):
+             # категория метода
+             'category': __('Configuration'),
+             # заголовок метода
+-            'title': __("Updates"),
++            'title': __("The Update Check"),
+             # иконка для графической консоли
+-            'image': 'calculate-update',
++            'image': 'software-properties,preferences-desktop',
+             # метод присутствует в графической консоли
+             'gui': True,
+             # консольная команда

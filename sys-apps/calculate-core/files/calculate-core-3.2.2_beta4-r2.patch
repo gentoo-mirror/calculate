@@ -1,0 +1,304 @@
+diff --git pym/core/server/baseClass.py pym/core/server/baseClass.py
+index 03963ad..8461ccd 100644
+--- pym/core/server/baseClass.py
++++ pym/core/server/baseClass.py
+@@ -156,6 +156,8 @@ class Basic (DefinitionBase) :
+         sys.stdout.flush()
+         import time
+         # Waiting for closing
++        for pid in self.process_pid.keys():
++            os.kill(self.process_pid[pid].pid, 2)
+         while True:
+             num_active_process = 0
+             for pid in self.process_pid.keys():
+diff --git pym/core/server/func.py pym/core/server/func.py
+index b6941d3..fab39d5 100644
+--- pym/core/server/func.py
++++ pym/core/server/func.py
+@@ -62,7 +62,11 @@ class CommonMethods:
+             out = []
+             orig,data = data
+             data = data[FIRST]
+-            if self.clVars.Get('cl_autoupdate_set') == 'on':
++
++            origdata = readFile(orig)
++            newdata = readFile(data[CFGFNAME])
++            if (self.clVars.Get('cl_autoupdate_set') == 'on' or 
++                origdata == newdata):
+                 answ = "use new"
+             else:
+                 for i,s in enumerate(list(process("diff","-Nu",
+@@ -1106,12 +1110,14 @@ class CoreWsdl():
+         def writeFile(self):
+             """ write data in file """
+             from baseClass import Basic
++            from calculate.core.server.gen_pid import ProcessMode
+             if not os.path.exists(Basic.pids):
+                 makeDirectory(Basic.pids)
+             pid_file = path.join(Basic.pids, '%d.pid' % self.pid)
+             try:
+                 with open(pid_file, 'w') as f:
+                     d = {'name': self.process_dict['method_name'],
++                         'mode': ProcessMode.CoreDaemon,
+                          'os_pid': os.getpid(),
+                          'status': self.process_dict['status']}
+                     pickle.dump(d, f)
+diff --git pym/core/server/gen_pid.py pym/core/server/gen_pid.py
+index 865d991..2b313cf 100644
+--- pym/core/server/gen_pid.py
++++ pym/core/server/gen_pid.py
+@@ -30,6 +30,10 @@ class ProcessStatus:
+     NotFound = 3
+     Paused = 4
+ 
++class ProcessMode:
++    CoreDaemon = "core"
++    LocalCall = "local"
++
+ 
+ def search_worked_process(method_name, clVars,
+                           statuses=(ProcessStatus.Worked,)):
+@@ -45,7 +49,7 @@ def search_worked_process(method_name, clVars,
+         for pidfile in listDirectory(pids, fullPath=True):
+             try:
+                 status = pickle.load(open(pidfile))
+-                if (status['name'] == method_name and
++                if ((method_name is None or status['name'] == method_name) and
+                             status['status'] in statuses):
+                     if path.exists(path.join("/proc", str(status['os_pid']))):
+                         yield status['os_pid']
+@@ -54,6 +58,30 @@ def search_worked_process(method_name, clVars,
+ 
+     return list(generator())
+ 
++def get_pid_info(clVars, statuses=(ProcessStatus.Worked,)):
++    """
++    Получить информацию о процессах
++    """
++    def generator():
++        pids = clVars.Get('core.cl_core_pids_path')
++        for pidfile in listDirectory(pids, fullPath=True):
++            try:
++                status = pickle.load(open(pidfile))
++                if (status['status'] in statuses):
++                    if path.exists(path.join("/proc", str(status['os_pid']))):
++                        yield status
++            except (socket.error, ValueError, KeyError, EOFError, OSError):
++                pass
++
++    return list(generator())
++
++    #try:
++    #    pidfile = path.join(pids,str(pid))
++    #    status = pickle.load(open(pidfile))
++    #    return status
++    #except (socket.error, ValueError, IOError, KeyError, EOFError, OSError):
++    #    return None
++
+ 
+ def clear_finished_pids(clVars):
+     """
+diff --git pym/core/server/local_call.py pym/core/server/local_call.py
+index 5e6a3df..3a471e5 100644
+--- pym/core/server/local_call.py
++++ pym/core/server/local_call.py
+@@ -114,6 +114,7 @@ class LocalCall(object):
+ 
+         def writeFile(self):
+             """ write data in file """
++            from calculate.core.server.gen_pid import ProcessMode
+             if os.getuid():
+                 return
+             pid = os.getpid()
+@@ -127,6 +128,7 @@ class LocalCall(object):
+             try:
+                 with open(pid_file, 'w') as f:
+                     d = {'name': self.method_name,
++                         'mode': ProcessMode.LocalCall,
+                          'os_pid': pid,
+                          'status': self.method_status}
+                     pickle.dump(d, f)
+diff --git pym/core/setup_package.py pym/core/setup_package.py
+index 3285b52..0cffb90 100644
+--- pym/core/setup_package.py
++++ pym/core/setup_package.py
+@@ -23,6 +23,8 @@ import time
+ import re
+ 
+ from calculate.core.datavars import DataVarsCore,DataVars
++from calculate.core.server.gen_pid import (search_worked_process, get_pid_info,
++    ProcessMode)
+ from calculate.lib.datavars import Variable
+ from calculate.lib.cl_log import log
+ from calculate.lib import datavars
+@@ -31,6 +33,7 @@ from calculate.lib.utils.files import (runOsCommand,scanDirectory,
+ from calculate.lib.utils.common import getPasswdUsers,getTupleVersion
+ from calculate.lib.utils.portage import isPkgInstalled,reVerSplitToPV
+ from calculate.lib.utils.content import getCfgFiles,PkgContents
++from calculate.lib.utils.colortext import get_color_print
+ import pwd
+ import glob
+ from calculate.lib.utils.files import getModeFile
+@@ -108,6 +111,8 @@ class UpdateConfigs(UpdateLogger):
+     """
+     Обновить настройки пакета в пользовательских профилях
+     """
++    def init(self):
++        self.color_print = get_color_print()
+ 
+     def getXUsers(self):
+         """
+@@ -287,6 +292,40 @@ class UpdateConfigs(UpdateLogger):
+         clTempl.applyTemplates()
+         return True
+ 
++    def checkRunning(self):
++        """
++        Проверить наличие запущенных процессов в cl-core
++        """
++        from calculate.core.server.loaded_methods import LoadedMethods
++        cur_pid = os.getpid()
++        pid_list = [pid for pid in get_pid_info(self.clVars)
++                    if (pid.get("mode",'') == ProcessMode.CoreDaemon and
++                        pid.get("os_pid",'') != cur_pid)]
++        if pid_list:
++            _print = self.color_print
++            method_names = {value[0]:value[2] for key,value in 
++                            LoadedMethods.conMethods.items()}
++            self.printSUCCESS(
++                _("Calculate core is executing follow tasks now"))
++            mult = _print.bold("*")
++            for pid in pid_list:
++                name = pid['name']
++                method_name = method_names.get(name, name)
++                self.printDefault(
++                    "&nbsp;{mult} {title} ({name})".format(mult=mult,
++                        title = method_name, name=name))
++            answer = self.askConfirm(
++                _("Would you like to terminate these tasks?"), "no")
++            if answer == "no":
++                raise KeyboardInterrupt
++        return True
++
++    def restartService(self, service_name):
++        """
++        Перезапустить указанный сервис
++        """
++        os.system('/etc/init.d/%s restart &>/dev/null &'%service_name)
++        return True
+ 
+ class PackageUpdater(UpdateConfigs): #,updateUserConfigs):
+     def __init__(self):
+diff --git pym/core/utils/cl_core_restart.py pym/core/utils/cl_core_restart.py
+new file mode 100644
+index 0000000..6c165b3
+--- /dev/null
++++ pym/core/utils/cl_core_restart.py
+@@ -0,0 +1,51 @@
++#-*- coding: utf-8 -*-
++
++# Copyright 2013 Calculate Ltd. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
++
++import sys
++from calculate.core.server.func import Action,Tasks
++from calculate.lib.cl_lang import setLocalTranslate,getLazyLocalTranslate
++from calculate.lib.datavars import VariableError
++from calculate.lib.cl_template import TemplatesError
++from calculate.lib.utils.files import FilesError
++
++setLocalTranslate('cl_core3',sys.modules[__name__])
++__ = getLazyLocalTranslate(_)
++
++class ClCoreRestartAction(Action):
++    """
++    Действие для настройки параметров видео
++    """
++    # ошибки, которые отображаются без подробностей
++    native_error = (FilesError, TemplatesError,VariableError)
++
++    successMessage = __("Action successfully completed!")
++    failedMessage = __("Failed to perform action!")
++    interruptMessage = __("Action manually interrupted")
++
++    def __init__(self):
++        # список задач для дейсвия
++        self.tasks = [
++         {'name':'check_running',
++          # проверить запущенные процессы
++          'method':'UpdateConfigs.checkRunning()',
++         },
++         {'name':'restart',
++          # перезапустить calculate-core
++          'message': _("Restarting calculate-core"),
++          'method':'UpdateConfigs.restartService("calculate-core")',
++         }]
++
++        Action.__init__(self)
+diff --git pym/core/wsdl_core.py pym/core/wsdl_core.py
+index 5a57911..6c4e675 100644
+--- pym/core/wsdl_core.py
++++ pym/core/wsdl_core.py
+@@ -39,6 +39,7 @@ from calculate.core.utils.cl_core_request import (ClCoreRequestShow,
+ from calculate.core.utils.cl_core_variables import (ClCoreVariables,
+                     ClCoreVariablesShow)
+ from calculate.core.utils.cl_core_custom import ClCoreCustomAction
++from calculate.core.utils.cl_core_restart import ClCoreRestartAction
+ 
+ class Wsdl(WsdlBase):
+     methods = [
+@@ -126,7 +127,7 @@ class Wsdl(WsdlBase):
+         # идентификатор метода
+         'method_name':"core_dispatch",
+         # категория метода
+-        'category':__('Update'),
++        'category':__('Update '),
+         # заголовок метода 
+         'title':__("Update settings"),
+         # иконка для графической консоли
+@@ -610,4 +611,33 @@ class Wsdl(WsdlBase):
+                         'cl_templates_locate',
+                         'cl_dispatch_conf'),
+                 next_label=_("Perform"))]},
+-        ]
++        #
++        # перезапустить сервис calculate core
++        #
++        {
++        # идентификатор метода
++        'method_name':"core_restart",
++        # категория метода
++        'category':__('Update '),
++        # заголовок метода 
++        'title':__("Restart calculate-core"),
++        # иконка для графической консоли
++        'image':'view-refresh',
++        # метод в графической консоли
++        'gui':True,
++        # консольная команда
++        'command':'cl-core-restart',
++        # права для запуска метода 
++        'rights':['configure'],
++        # объект содержащий модули для действия
++        'logic':{'UpdateConfigs':setup_package.UpdateConfigs},
++        # описание действия
++        'action':ClCoreRestartAction,
++        # объект переменных
++        'datavars':"core",
++        'native_error':(VariableError,DataVarsError),
++        # значения по умолчанию для переменных этого метода
++        'setvars':{'cl_action!':'restart'},
++        # описание груп (список лямбда функций)
++        'groups':[]}
++    ]
