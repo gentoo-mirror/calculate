@@ -10,19 +10,14 @@ inherit distutils-r1 eutils
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2
 	http://mirror.yandex.ru/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The library for Calculate 3"
+DESCRIPTION="Qt gui console client for WSDL Calculate 3"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~amd64 ~x86"
-IUSE="minimal"
-DEPEND="!minimal? ( dev-python/py-smbpasswd )
-	>=dev-python/pyxml-0.8
-	sys-apps/iproute2
-	sys-apps/pciutils
-	dev-python/progressbar
-	sys-fs/lvm2
-	sys-fs/mdadm
-	dev-python/pyinotify
-	sys-apps/file[python]"
+KEYWORDS="amd64 x86"
+
+DEPEND="~sys-apps/calculate-core-3.2.2
+	dev-python/dbus-python
+	virtual/python-imaging
+	dev-python/pyside[script]"
 RDEPEND="${DEPEND}"

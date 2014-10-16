@@ -14,17 +14,9 @@ DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-RDEPEND=">=sys-apps/calculate-lib-3.2.2_beta2"
+RDEPEND=">=sys-apps/calculate-lib-3.2.2"
 
 DEPEND="sys-devel/gettext
 	${RDEPEND}"
-
-src_unpack() {
-    unpack "${A}"
-    cd "${S}"
-
-    # apply revision changes
-    epatch "${FILESDIR}/calculate-i18n-3.2.2_beta2-r1.patch"
-}

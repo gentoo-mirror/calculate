@@ -14,7 +14,7 @@ DESCRIPTION="The library for Calculate 3"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="minimal"
 DEPEND="!minimal? ( dev-python/py-smbpasswd )
 	>=dev-python/pyxml-0.8
@@ -26,11 +26,3 @@ DEPEND="!minimal? ( dev-python/py-smbpasswd )
 	dev-python/pyinotify
 	sys-apps/file[python]"
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-    unpack "${A}"
-    cd "${S}"
-
-    # apply revision changes
-    epatch "${FILESDIR}/calculate-lib-3.2.2_beta2-r1.patch"
-}

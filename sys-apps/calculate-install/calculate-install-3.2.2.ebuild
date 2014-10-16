@@ -14,10 +14,10 @@ DESCRIPTION="The program of installation Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="pxe minimal"
 
-DEPEND="~sys-apps/calculate-core-3.2.2_beta2
+DEPEND="~sys-apps/calculate-core-3.2.2
 	!<sys-apps/calculate-install-2.2.29
 	app-portage/layman
 	>=virtual/udev-197
@@ -33,11 +33,3 @@ DEPEND="~sys-apps/calculate-core-3.2.2_beta2
 	net-ftp/tftp-hpa
 	net-misc/dhcp
 	net-fs/nfs-utils )"
-
-src_unpack() {
-    unpack "${A}"
-    cd "${S}"
-
-    # apply revision changes
-    epatch "${FILESDIR}/calculate-install-3.2.2_beta2-r1.patch"
-}
