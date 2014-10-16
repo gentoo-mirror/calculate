@@ -4,3 +4,6 @@
 #?load(/boot/vmlinuz-3.14.17-calculate)==#
 remove_old_kernel = on
 #load#
+
+[overlay-calculate]
+revision = 15
