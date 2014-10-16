@@ -1,0 +1,6 @@
+# Calculate path=/etc/calculate name=ini.env format=samba ini(overlay-calculate.revision)<15
+
+[update]
+#?load(/boot/vmlinuz-3.14.17-calculate)==#
+remove_old_kernel = on
+#load#
