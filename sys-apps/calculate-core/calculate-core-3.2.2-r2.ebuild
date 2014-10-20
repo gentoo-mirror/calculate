@@ -28,7 +28,6 @@ DEPEND="~sys-apps/calculate-lib-3.2.2
 RDEPEND="${DEPEND}"
 
 pkg_preinst() {
-	distutils-r1_pkg_preinst
 	dosym /usr/sbin/cl-core /usr/sbin/cl-core-setup
 	dosym /usr/sbin/cl-core /usr/sbin/cl-core-patch
 }

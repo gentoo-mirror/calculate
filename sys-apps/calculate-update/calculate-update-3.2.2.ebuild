@@ -24,7 +24,6 @@ DEPEND="~sys-apps/calculate-core-3.2.2
 RDEPEND="${DEPEND}"
 
 pkg_preinst() {
-	distutils-r1_pkg_preinst
 	dosym /usr/sbin/cl-core /usr/sbin/cl-update
 	dosym /usr/sbin/cl-core /usr/sbin/cl-update-profile
 }
