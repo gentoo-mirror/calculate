@@ -9,7 +9,7 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/plymouth-themes-calc
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/plymouth/plymouth-calculate-14-r6.tar.bz2

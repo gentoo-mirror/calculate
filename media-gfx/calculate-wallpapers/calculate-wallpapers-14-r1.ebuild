@@ -9,7 +9,7 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2
