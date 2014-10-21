@@ -20,7 +20,12 @@
 	<entry name="panel_right_stick" schema="/schemas/apps/panel/objects/panel_right_stick" type="bool" value="false"/>
 	<entry name="locked" schema="/schemas/apps/panel/objects/locked"/>
 	<entry name="custom_icon" schema="/schemas/apps/panel/objects/custom_icon" type="string">
+#?pkg(x11-themes/calculate-icon-theme)>=14-r1#
+		<stringvalue>/usr/share/icons/hicolor/scalable/place/start-calculate.png</stringvalue>
+#pkg#
+#?pkg(x11-themes/calculate-icon-theme)<14-r1#
 		<stringvalue>/usr/share/icons/Calculate/scalable/place/start-here-gnome.svg</stringvalue>
+#pkg#
 	</entry>
 	<entry name="bonobo_iid" schema="/schemas/apps/panel/objects/bonobo_iid"/>
 	<entry name="launcher_location" schema="/schemas/apps/panel/objects/launcher_location"/>

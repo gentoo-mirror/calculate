@@ -97,7 +97,7 @@ dconf write /org/cinnamon/enabled-applets \[\'panel1:left:0:menu@cinnamon.org\',
 
 dconf write /org/cinnamon/overview-corner-hover false
 dconf write /org/cinnamon/menu-text \'\'
-dconf write /org/cinnamon/menu-icon \'/usr/share/icons/Calculate/32x32/places/start-here.png\'
+dconf write /org/cinnamon/menu-icon \'/usr/share/icons/gnome/32x32/places/start-calculate.png\'
 dconf write /org/gnome/desktop/background/show-desktop-icons true
 
 dconf write /org/gnome/desktop/wm/preferences/num-workspaces 4
