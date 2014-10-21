@@ -1,0 +1,61 @@
+diff --git pym/calculate/lib/cl_template.py pym/calculate/lib/cl_template.py
+index 630747d..caf2fec 100644
+--- pym/calculate/lib/cl_template.py
++++ pym/calculate/lib/cl_template.py
+@@ -3817,6 +3817,7 @@ class Template(_file,_terms,_warning,xmlShare,templateFormat,_shareTemplate):
+     """
+     # Название файла шаблона директории
+     templDirNameFile = ".calculate_directory"
++    _titleList = ("Modified", "Processed template files" + ":")
+     titleEnd = "For modify this file, create %(conf_path)s.clt template."
+     protectPaths = []
+     allContents = {}
+@@ -3825,6 +3826,23 @@ class Template(_file,_terms,_warning,xmlShare,templateFormat,_shareTemplate):
+                                       os.environ["CONFIG_PROTECT"].split(" "))
+         protectPaths = map(lambda x: os.path.normpath(x), protectPaths)
+ 
++    @classmethod
++    def removeComment(cls,text):
++        comment_symb = '#"'
++        re_comment = re.compile('(?:<!--|[{symb}]-*)\n'
++            '[{symb}]? {modified} .*\n'
++            '[{symb}]? {processed}\n'
++            '([{symb}]? /.*\n'
++            ')+[{symb}]? {endtitle}.*\n'
++            r'(-->|[{symb}]-*)\n'.format(
++                modified=cls._titleList[0],
++                processed=cls._titleList[1],
++                endtitle=cls.titleEnd%{'conf_path':'.*'},
++                symb='"#'
++            ))
++        return re_comment.sub('',text)
++
++
+     def hasError(self):
+         return self.getError() or self.bHasError
+ 
+@@ -3871,7 +3889,6 @@ class Template(_file,_terms,_warning,xmlShare,templateFormat,_shareTemplate):
+         self.__titleHead = "--------------------------------------\
+ ----------------------------------------"
+         self._titleBody = ""
+-        self._titleList = ("Modified", "Processed template files" + ":")
+         self._reVar = re.compile(("%s(?:[a-z0-9_]+\.)?[a-zA-Z0-9_-]+%s")%(self.varStart,
+                                                          self.varEnd),re.M)
+         # Условия
+diff --git pym/calculate/lib/utils/portage.py pym/calculate/lib/utils/portage.py
+index fab7fee..73a2b3b 100644
+--- pym/calculate/lib/utils/portage.py
++++ pym/calculate/lib/utils/portage.py
+@@ -725,7 +725,11 @@ class PackageInformation:
+     def query_information(self):
+         pkg_list = "|".join(
+             [x['CATEGORY/PN'].replace("+", r"\+") for x in self.query_packages])
+-        output = pexpect.spawn(self.eix_cmd, ["--xml", pkg_list]).read()
++        try:
++            output = pexpect.spawn(self.eix_cmd, ["--xml", pkg_list],
++                                   timeout=60).read()
++        except pexpect.TIMEOUT:
++            output = ""
+         re_cut = re.compile("^.*?(?=<\?xml version)",re.S)
+         with ignore(ET.ParseError):
+             xml = ET.fromstring(re_cut.sub('',output))
