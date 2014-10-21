@@ -21,6 +21,8 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		x11-themes/hicolor-icon-theme"
 
+S="${WORKDIR}"
+
 src_install() {
 	insinto /usr/share/icons
 	doins -r elementary-calculate
