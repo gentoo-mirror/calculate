@@ -38,8 +38,8 @@ net-wireless/wpa_supplicant ap
 # Disable Xorg dependence, large number of supported fonts reduces productivity
 media-fonts/terminus-font -X
 
-# SMplayer support
-media-video/mplayer bidi -video_cards_tdfx
+# SMplayer support, streaming media support
+media-video/mplayer bidi live -video_cards_tdfx
 
 # select dhcp client, support modemmanager
 net-misc/networkmanager connection-sharing dhclient -dhcpcd modemmanager
