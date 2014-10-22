@@ -1,3 +1,7 @@
+# development
+>=media-gfx/calculate-wallpapers-14-r2
+>=x11-themes/calculate-icon-theme-14-r2
+
 # fix dep
 =virtual/perl-ExtUtils-MakeMaker-6.660.0-r1
 =virtual/perl-Module-CoreList-3.30.0
@@ -7,18 +11,19 @@
 =virtual/perl-IPC-Cmd-0.800.0-r1
 =virtual/perl-Storable-2.410.0-r1
 
-# Exclude Python 3
+# exclude Python 3
 >=dev-lang/python-3
 
-# без патча m2crypto не позволяет работать корректно с сертификатами
+# without the patch does not allow to work with certificates correctly
 >dev-python/m2crypto-0.21.1-r2
+
 # mask all device-mapper for using lvm2
 sys-fs/device-mapper
 
-#temporary mask
+# temporary mask
 >=app-text/wgetpaste-2.23
 
-#жёстко связан с python3
+# requires python3
 >=app-misc/media-player-info-21
 
 =dev-python/cherrypy-3.2.2-r1
