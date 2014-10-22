@@ -50,8 +50,6 @@ src_install() {
 	fi
 	insinto /
 	doins -r .
-	dosym start-calculate.svg /usr/share/icons/hicolor/scalable/places/start-here-kde.svg
-	dosym start-calculate.svg /usr/share/icons/hicolor/scalable/places/start-here-xfce.svg
 }
 
 pkg_preinst() {
