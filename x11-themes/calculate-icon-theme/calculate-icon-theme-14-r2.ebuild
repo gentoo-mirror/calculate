@@ -22,7 +22,7 @@ REQUIRED_USE="^^ ( themes_CLD themes_CLDX themes_CLDG )"
 
 RDEPEND="themes_CLD? ( kde-base/oxygen-icons )
 	themes_CLDG? ( x11-themes/gnome-icon-theme )
-	themes_CLDX? ( x11-themes/elementary-calculate-icon )
+	themes_CLDX? ( x11-themes/elementary-icon-theme )
 	!media-gfx/cldx-themes
 	!media-gfx/cld-themes
 	!media-gfx/cldg-themes
@@ -46,7 +46,7 @@ src_install() {
 	fi
 	if use themes_CLDX
 	then
-		sed -ri 's/Inherits=.*/Inherits=elementary-calculate,elementary,hicolor/' usr/share/icons/Calculate/index.theme
+		sed -ri 's/Inherits=.*/Inherits=elementary,hicolor/' usr/share/icons/Calculate/index.theme
 	fi
 	insinto /
 	doins -r .
