@@ -15,8 +15,8 @@ KEYWORDS="~x86 ~amd64"
 IUSE="themes_CLD themes_CLDX themes_CLS
 themes_CLDG"
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-14-r1.tar.bz2
-	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-14-r1.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-14-r2.tar.bz2
+	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-14-r2.tar.bz2"
 
 REQUIRED_USE="^^ ( themes_CLD themes_CLDX themes_CLDG )"
 
