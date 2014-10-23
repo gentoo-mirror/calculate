@@ -1,0 +1,100 @@
+diff --git pym/consolegui/application/Box.py pym/consolegui/application/Box.py
+index 95f8401..53fb7c5 100755
+--- pym/consolegui/application/Box.py
++++ pym/consolegui/application/Box.py
+@@ -371,10 +371,10 @@ class MainWgt(QtGui.QMainWindow):
+             if hasattr (self, 'con_lost_lbl'):
+                 self.con_lost_lbl.hide()
+                 self.con_lost_lbl.close()
+-            self.con_lost_lbl = ConnectLostLabel \
+-                            (_("The server was restarted.") + '\n' + \
+-                            _('Reconnecting to the server.'),
+-                            self)
++            self.con_lost_lbl = ConnectLostLabel(
++                _("The server was restarted") + '.\n' + \
++                _('Reconnecting to the server') + '...',
++                self)
+             self.topmenu.Processes.setDisabled(True)
+             self.topmenu.Session.setDisabled(True)
+             self.topmenu.Back.setDisabled(True)
+diff --git pym/consolegui/application/MainClass.py pym/consolegui/application/MainClass.py
+index de8d824..bed89a8 100755
+--- pym/consolegui/application/MainClass.py
++++ pym/consolegui/application/MainClass.py
+@@ -97,21 +97,16 @@ class ApiClient(QtGui.QWidget):
+         try:
+             self.lang = config.get('other', 'lang')
+         except (ConfigParser.NoOptionError, ConfigParser.NoSectionError):
+-            self.lang = ''
++            self.lang = gettext.locale.getdefaultlocale()[0][:2]
+         if hasattr (self._parent, 'lang'):
+             if self._parent.lang:
+                 self.lang = self._parent.lang
+ 
+         try:
+             lang = gettext.translation('cl_consolegui3', languages=[self.lang])
+-        except IOError:
+-            try:
+-                self.lang = gettext.locale.getdefaultlocale()[0][:2]
+-                lang = gettext.translation('cl_consolegui3', \
+-                                           languages=[self.lang])
+-            except (TypeError,IOError) as e:
+-                self.lang = 'en'
+-                lang = gettext.translation('cl_consolegui3',fallback=True)
++        except (TypeError,IOError):
++            self.lang = 'en'
++            lang = gettext.translation('cl_consolegui3',languages=[],fallback=True)
+ 
+         try:
+             lang.install(unicode=True)
+diff --git pym/consolegui/application/TrayIcon.py pym/consolegui/application/TrayIcon.py
+index 0fd5a5d..2f4891a 100644
+--- pym/consolegui/application/TrayIcon.py
++++ pym/consolegui/application/TrayIcon.py
+@@ -180,6 +180,11 @@ class TrayIcon (QtGui.QSystemTrayIcon):
+             QtGui.QIcon.setThemeName(old_theme_name)
+ 
+     def generation_actions(self):
++        _("About")
++        _("Report a Bug")
++        _("Program settings")
++        _("Update System")
++        _("Exit Program")
+         self.actions = {
+                    'help': {
+                        'icons': ['help-about', 'help-browser'],
+diff --git pym/consolegui/application/session_function.py pym/consolegui/application/session_function.py
+index e318e35..5ce88be 100755
+--- pym/consolegui/application/session_function.py
++++ pym/consolegui/application/session_function.py
+@@ -23,6 +23,7 @@ def client_sid(sid, client, cert_id, lang):
+     """ get number session from server and write this in file """
+     new_sid = client.service.post_sid(sid, cert_id, lang)
+     sid = str(new_sid[0][0])
++    client.service.active_client(sid)
+     server_host_name = client.server_host_name
+ 
+     find_flag = False
+diff --git setup.py setup.py
+index 971b1a7..da88e6c 100755
+--- setup.py
++++ setup.py
+@@ -48,13 +48,11 @@ data_files.append(('/etc/xdg/autostart',
+ data_files.append(('/usr/share/calculate/themes/install',
+                    ['data/install/conf','data/install/welcome.jpg',
+                     'data/install/finish.jpg']))
+-for size in [16,22,24,48,64,72,96,128]:
+-    data_files.append(('/usr/share/icons/Calculate/%dx%d/apps' %(size,size),
+-                   glob('data/%dx%d/calculate-console.png' %(size,size))))
+-    data_files.append(('/usr/share/icons/Calculate/%dx%d/apps' %(size,size),
+-                   glob('data/%dx%d/calculate-install.png' %(size,size))))
+-    data_files.append(('/usr/share/icons/Calculate/%dx%d/apps' %(size,size),
+-                   glob('data/%dx%d/calculate-update.png' %(size,size))))
++for theme in ("gnome","hicolor"):
++    for size in [16,22,24,48,64,72,96,128]:
++        for iconname in ("console","install", "update"):
++            data_files.append(('/usr/share/icons/%s/%dx%d/apps' %(theme,size,size),
++                           glob('data/%dx%d/calculate-%s.png' %(size,size,iconname))))
+ 
+ __version__ = "3.2.2"
+ __app__ = "calculate-console-gui"
