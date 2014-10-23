@@ -14,12 +14,13 @@ HOMEPAGE="http://www.calculate-linux.org"
 IUSE="plymouth themes firmware"
 
 DEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
+		sys-apps/v86d
+		sys-boot/grub
+	)
 	firmware? ( sys-kernel/linux-firmware )
 	themes? ( media-gfx/plymouth-themes-calculate )
 	plymouth? ( sys-boot/plymouth sys-boot/plymouth-openrc-plugin )
-	sys-apps/v86d
-	sys-boot/grub
-	)"
+	"
 
 RDEPEND="${DEPEND}"
 
