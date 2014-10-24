@@ -11,7 +11,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 VERSION_IUSE="CL11 CL12 CL13"
-IUSE="$VERSION_IUSE"
+IUSE="+CL11 +CL12 +CL13"
 
 SRC_URI="
 	ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2
