@@ -1,0 +1,21 @@
+diff --git pym/desktop/variables/desktop.py pym/desktop/variables/desktop.py
+index b90e61f..294660d 100644
+--- pym/desktop/variables/desktop.py
++++ pym/desktop/variables/desktop.py
+@@ -355,9 +355,13 @@ class VariableClDesktopUpdateProfileSet(Variable):
+         lastTimestamp = templateFunction.getLastElog()
+         iniEnv = path.join(self.Get('ur_home_path'),'.calculate/ini.env')
+         userIni = iniParser(iniEnv)
+-        userTimestamp = userIni.getVar('main','elog').encode('utf-8')
+-        if self.Get('ur_domain_set') == 'on' or \
+-            not path.exists(iniEnv) or userTimestamp != lastTimestamp:
++        userTimestamp = userIni.getVar('main','elog')
++        if userTimestamp:
++            userTimestamp = userTimestamp.encode('utf-8')
++        profileSetup = userIni.getVar('main','profile_setup')
++        login_setup = profileSetup == 'on'
++        if (self.Get('ur_domain_set') == 'on' or login_setup or
++            not path.exists(iniEnv) or userTimestamp != lastTimestamp):
+             return 'on'
+         else:
+             return 'off'
