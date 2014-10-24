@@ -9,22 +9,22 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-VERSION_IUSE="cl11 cl12 cl13"
+KEYWORDS="amd64 x86"
+VERSION_IUSE="CL11 CL12 CL13"
 IUSE="$VERSION_IUSE"
 
 SRC_URI="
 	ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2
 	http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2
-	cl11? (
+	CL11? (
 		ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-11.tar.bz2
 		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-11.tar.bz2
 	)
-	cl12? (
+	CL12? (
 		ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-12.tar.bz2
 		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-12.tar.bz2
 	)
-	cl13? (
+	CL13? (
 		ftp://ftp.calculate.ru/pub/calculate/themes/wallpapers/wallpapers-13.tar.bz2
 		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-13.tar.bz2
 	)
@@ -45,7 +45,7 @@ src_install() {
 	do
 		if use $useflag
 		then
-			cd $WORKDIR/calculate-wallpapers-${useflag//cl}
+			cd $WORKDIR/calculate-wallpapers-${useflag//CL}
 			doins -r usr
 		fi
 	done
