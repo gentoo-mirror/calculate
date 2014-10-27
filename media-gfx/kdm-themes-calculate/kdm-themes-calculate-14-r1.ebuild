@@ -13,7 +13,7 @@ KEYWORDS="amd64 x86"
 IUSE=""
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/kdm/kdm-calculate-${PV}-r1.tar.bz2
-	http://mirror.yandex.ru/calculate/themes/kdm/kdm-calculate-${PV}.tar.bz2"
+	http://mirror.yandex.ru/calculate/themes/kdm/kdm-calculate-${PV}-r1.tar.bz2"
 
 REQUIRED_USE=""
 
