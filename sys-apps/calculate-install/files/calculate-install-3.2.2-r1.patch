@@ -1,0 +1,93 @@
+diff --git data/calculate data/calculate
+index a5f2421..45f3d71 100644
+--- data/calculate
++++ data/calculate
+@@ -121,9 +121,12 @@ setup_alsautils() {
+ 	if type alsactl &>/dev/null
+ 	then
+ 		local alsastatedir=/var/lib/alsa
++		local alsahomedir=/var/run/alsasound
++
++		checkpath -q -d -m 0700 -o root:root ${alsahomedir}
+ 
+ 		mkdir -p "${alsastatedir}"
+-		LANG=C alsactl -f "${alsastatedir}/asound.state" store
++		LANG=C alsactl -E HOME="${alsahomedir}" -I -f "${alsastatedir}/asound.state" store
+ 	fi
+ }
+ 
+diff --git pym/install/variables/system.py pym/install/variables/system.py
+index 60e868e..d4ddff2 100644
+--- pym/install/variables/system.py
++++ pym/install/variables/system.py
+@@ -34,7 +34,6 @@ from calculate.lib.encrypt import encrypt
+ import calculate.lib.cl_template as cl_template
+ 
+ from calculate.lib.cl_lang import setLocalTranslate
+-from calculate.update.variables import update
+ 
+ setLocalTranslate('cl_install3',sys.modules[__name__])
+ 
+@@ -728,30 +727,39 @@ class VariableOsInstallX11ServerSet(PackageCheckHelper):
+     package = "x11-base/xorg-server"
+ 
+ 
+-class VariableClInstallAutocheckSet(update.VariableClUpdateAutocheckSet):
++try:
++    from calculate.update.variables.update import (
++        VariableClUpdateAutocheckSet,
++        VariableClUpdateAutocheckInterval)
++    class VariableClInstallAutocheckSet(VariableClUpdateAutocheckSet):
+ 
+-    def get(self):
+-        return self.Get('update.cl_update_autocheck_set')
++        def get(self):
++            return self.Get('update.cl_update_autocheck_set')
+ 
+-    def uncompatible(self):
+-        """
+-        Update setting up unavailable for flash installation
+-        """
+-        if self.Get('os_install_root_type') == 'flash':
+-            return \
+-                _("Update configuration unavailable for Flash install")
+-        return ""
++        def uncompatible(self):
++            """
++            Update setting up unavailable for flash installation
++            """
++            if self.Get('os_install_root_type') == 'flash':
++                return \
++                    _("Update configuration unavailable for Flash install")
++            return ""
+ 
+-class VariableClInstallAutocheckInterval(
+-    update.VariableClUpdateAutocheckInterval):
+-    def get(self):
+-        return self.Get('update.cl_update_autocheck_interval')
++    class VariableClInstallAutocheckInterval(VariableClUpdateAutocheckInterval):
++        def get(self):
++            return self.Get('update.cl_update_autocheck_interval')
+ 
+-    def uncompatible(self):
+-        """
+-        Update setting up unavailable for flash installation
+-        """
+-        if self.Get('os_install_root_type') == 'flash':
+-            return \
+-                _("Update configuration unavailable for Flash install")
+-        return ""
++        def uncompatible(self):
++            """
++            Update setting up unavailable for flash installation
++            """
++            if self.Get('os_install_root_type') == 'flash':
++                return \
++                    _("Update configuration unavailable for Flash install")
++            return ""
++except ImportError:
++    class VariableClInstallAutocheckSet(Variable):
++        value = ""
++
++    class VariableClInstallAutocheckInterval(Variable):
++        value = ""

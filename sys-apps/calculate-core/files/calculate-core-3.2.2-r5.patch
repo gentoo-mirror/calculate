@@ -1,0 +1,956 @@
+diff --git data/calculate-core data/calculate-core
+index 9d69eaf..7176f02 100644
+--- data/calculate-core
++++ data/calculate-core
+@@ -41,7 +41,9 @@ start() {
+ 
+ stop(){
+ 	ebegin "Stop calculate core"
+-	start-stop-daemon --stop --signal 2 --quiet --pidfile /var/run/cl_core.pid
++	start-stop-daemon -R6 --stop --signal 2 --quiet --pidfile /var/run/cl_core.pid
++	start-stop-daemon -R6 --stop --quiet --pidfile /var/run/cl_core.pid
++	/usr/bin/pkill -f "cl-core.*--start"
+ 	eend 0
+ }
+ 
+diff --git pym/core/server/baseClass.py pym/core/server/baseClass.py
+index 9fcfb8c..6ccff6c 100644
+--- pym/core/server/baseClass.py
++++ pym/core/server/baseClass.py
+@@ -138,9 +138,9 @@ class Basic (DefinitionBase) :
+         monitoring = threading.Thread(target=monitor,
+                         args = (Basic.certbase, Basic.sids_file))
+         sid_mon = threading.Thread(target=sid_monitor,
+-                        args = (Basic.sids_file, Basic.sids))
++                        args = (Basic.sids_file, Basic.sids, self))
+         restart_watchdog = threading.Thread(target=restart,
+-                                            args = ())
++                                            args = (self.glob_process_dict,))
+         threads = []
+         for thread, success, failed in (
+             (monitoring, _("General monitoring started"), _("Monitoring error")),
+@@ -161,7 +161,10 @@ class Basic (DefinitionBase) :
+         import time
+         # Waiting for closing
+         for pid in self.process_pid.keys():
+-            os.kill(self.process_pid[pid].pid, 2)
++            try:
++                os.kill(self.process_pid[pid].pid, 2)
++            except OSError:
++                pass
+         while True:
+             num_active_process = 0
+             for pid in self.process_pid.keys():
+diff --git pym/core/server/clean.py pym/core/server/clean.py
+index 1163d54..ed57963 100644
+--- pym/core/server/clean.py
++++ pym/core/server/clean.py
+@@ -29,12 +29,18 @@ def clean(sid_file, pid_file, sid_pid, sids_dir, pids_dir):
+     """
+     for fn in (sid_file, pid_file, sid_pid):
+         if os.path.exists(fn):
+-            os.unlink(fn)
++            try:
++                os.unlink(fn)
++            except OSError:
++                pass
+ 
+     for dn in (sids_dir, pids_dir):
+         if os.path.isdir(dn):
+             for filename in glob.glob(os.path.join(dn, "*.sid")):
+-                os.unlink(filename)
++                try:
++                    os.unlink(filename)
++                except OSError:
++                    pass
+ 
+ class CoreWsdl:
+     # watch for process
+@@ -126,7 +132,7 @@ def monitor(certbase, SID_FILE):
+         time.sleep(60 * period)
+ 
+ # check client's presence
+-def sid_monitor(SID_FILE, SIDS_DIR):
++def sid_monitor(SID_FILE, SIDS_DIR, base_obj):
+     # check interval
+     period = 21
+     while True:
+@@ -155,23 +161,24 @@ def sid_monitor(SID_FILE, SIDS_DIR):
+             for filename in sids:
+                 # find file this session
+                 sid_path = SIDS_DIR + "/%d.sid"%filename
+-                if os.path.isfile(sid_path):
+-                    with open(sid_path) as fd:
+-                        # read information about session
+-                        sid_inf = pickle.load(fd)
+-                        # if number of missed inspections more 3
+-                        if sid_inf[1] > 3:
+-                            # flag client absence
+-                            sid_inf[2] = 1
+-                    fd.close()
++                with base_obj.sid_locker:
+                     if os.path.isfile(sid_path):
+-                        ft = open(sid_path, 'w')
+-                        # add to digit missed inspections
+-                        # client constantly nulls this value!
+-                        if sid_inf[1] < 4:
+-                            sid_inf[1] += 1
+-                            pickle.dump(sid_inf, ft)
+-                            ft.close()
++                        with open(sid_path) as fd:
++                            # read information about session
++                            sid_inf = pickle.load(fd)
++                            # if number of missed inspections more 3
++                            if sid_inf[1] > 3:
++                                # flag client absence
++                                sid_inf[2] = 1
++                        fd.close()
++                        if os.path.isfile(sid_path):
++                            ft = open(sid_path, 'w')
++                            # add to digit missed inspections
++                            # client constantly nulls this value!
++                            if sid_inf[1] < 4:
++                                sid_inf[1] += 1
++                                pickle.dump(sid_inf, ft)
++                                ft.close()
+         except:
+             pass
+         # check period
+diff --git pym/core/server/func.py pym/core/server/func.py
+index 9bcc4b7..bfe4254 100644
+--- pym/core/server/func.py
++++ pym/core/server/func.py
+@@ -41,6 +41,7 @@ from soaplib.service import rpc, DefinitionBase
+ from calculate.core.server.api_types import ReturnedMessage,CommonInfo
+ from calculate.core.server.api_types import ChoiceValue, Table, Option, Field, \
+                                            GroupField, ViewInfo, ViewParams
++from calculate.lib.cl_template import Template
+ from calculate.lib.datavars import DataVars
+ from loaded_methods import LoadedMethods
+ from calculate.core.depricated import safetyWrapper
+@@ -50,6 +51,17 @@ class CommonMethods:
+         """
+         Common dispatch conf. Using if ._cfg files created.
+         """
++        def normalizeConfig(text):
++            """
++            Нормализовать конфигурационный файл для сравнения:
++            * удалить calculate заголовок
++            * добавить перевод строки в конец если файл без перевода строки
++            """
++            if text.endswith('\n'):
++                return Template.removeComment(text)
++            else:
++                return "%s\n"%Template.removeComment(text)
++
+         ORIG,DATA=0,1
+         MTIME,CFGFNAME=0,1
+         FIRST=0
+@@ -69,22 +81,27 @@ class CommonMethods:
+                 origdata == newdata):
+                 answ = "use new"
+             else:
+-                for i,s in enumerate(list(process("diff","-Nu",
+-                           orig,data[CFGFNAME]))):
+-                    s = convert_console_to_xml(s)
+-                    if s.startswith('+') and i>1:
+-                        out.append('<font color="green">%s</font>'%s)
+-                    elif s.startswith('-') and i>1:
+-                        out.append('<font color="red">%s</font>'%s)
+-                    else:
+-                        out.append(s)
+-                self.printPre("<br/>".join(out))
+-                self.printSUCCESS(_("({one} of {_all}) -- {fname}").format(
+-                    one=ind+1,_all=maxInfo,fname=orig))
+-                answ = self.askChoice(_("Choose a configuration action:"),
+-                                  answers=(("zap new", _("Zap new")),
+-                                           ("use new", _("Use new")),
+-                                           ("next", _("Next"))))
++                origContent = normalizeConfig(readFile(orig))
++                newContent = normalizeConfig(readFile(data[CFGFNAME]))
++                if origContent == newContent:
++                    answ = "use new"
++                else:
++                    for i,s in enumerate(list(process("diff","-Nu",
++                               orig,data[CFGFNAME]))):
++                        s = convert_console_to_xml(s)
++                        if s.startswith('+') and i>1:
++                            out.append('<font color="green">%s</font>'%s)
++                        elif s.startswith('-') and i>1:
++                            out.append('<font color="red">%s</font>'%s)
++                        else:
++                            out.append(s)
++                    self.printPre("<br/>".join(out))
++                    self.printSUCCESS(_("({one} of {_all}) -- {fname}").format(
++                        one=ind+1,_all=maxInfo,fname=orig))
++                    answ = self.askChoice(_("Choose a configuration action:"),
++                                      answers=(("zap new", _("Zap new")),
++                                               ("use new", _("Use new")),
++                                               ("next", _("Next"))))
+             if answ == "next":
+                 continue
+             elif answ == "use new":
+@@ -972,7 +989,7 @@ class CoreWsdl():
+     def active_clients(self, sid):
+         # curThread = threading.currentThread()
+         #        REMOTE_ADDR = curThread.REMOTE_ADDR
+-        self.get_lang(sid)
++        self.get_lang(sid, "from active clients")
+         if 0 < sid < self.max_sid:
+             try:
+                 # open file its session
+@@ -987,18 +1004,19 @@ class CoreWsdl():
+                     except (OSError,IOError):
+                         pass
+                     return ActiveClientStatus.Failed
+-                with open(sid_file) as fd:
+-                    # read information about session
+-                    sid_inf = pickle.load(fd)
+-                    # reset counters
+-                    sid_inf[1] = 0
+-                    sid_inf[2] = 0
+-                fd.close()
+-                if not os.path.isfile(sid_file):
+-                    return ActiveClientStatus.Failed
+-                fd = open(sid_file, "w")
+-                pickle.dump(sid_inf, fd)
+-                fd.close()
++                with self.sid_locker:
++                    with open(sid_file) as fd:
++                        # read information about session
++                        sid_inf = pickle.load(fd)
++                        # reset counters
++                        sid_inf[1] = 0
++                        sid_inf[2] = 0
++                    fd.close()
++                    if not os.path.isfile(sid_file):
++                        return ActiveClientStatus.Failed
++                    fd = open(sid_file, "w")
++                    pickle.dump(sid_inf, fd)
++                    fd.close()
+                 return ActiveClientStatus.Success
+             except:
+                 return ActiveClientStatus.Failed
+@@ -1083,15 +1101,16 @@ class CoreWsdl():
+         sid_path = SIDS_DIR + "/%d.sid"%sid
+         if not os.path.isfile(sid_path):
+             return 1
+-        with open(sid_path) as fd:
+-            # read information about session
+-            sid_inf = pickle.load(fd)
+-            # flag absence client
+-        fd.close()
+-        if sid_inf[2] == 1:
+-            return 0
+-        else:
+-            return 1
++        with self.sid_locker:
++            with open(sid_path) as fd:
++                # read information about session
++                sid_inf = pickle.load(fd)
++                # flag absence client
++            fd.close()
++            if sid_inf[2] == 1:
++                return 0
++            else:
++                return 1
+ 
+     class Common(CommonMethods):
+         """ class to interact with the processes """
+@@ -1494,38 +1513,36 @@ class CoreWsdl():
+             results.append("No Methods")
+         return results
+ 
+-    def get_lang(self, sid):
++    def get_lang(self, sid, method_name=""):
+         """ get clients lang """
+         lang = None
+         SIDS_DIR = self.sids
+-        sid_file = SIDS_DIR+"/%d.sid" %int(sid)
+-        if os.path.exists(sid_file):
+-#            temp = open(sid_file, 'w')
+-#            temp.close()
+-            fd = open(sid_file, 'r')
+-            while 1:
+-                try:
+-                    list_sid = pickle.load(fd)
+-                except:
+-                    break
+-                # if session id found
+-                if sid == list_sid[0]:
+-                    fd.close()
+-                    lang = list_sid[3]
+-            fd.close()
+-        try:
+-            if not lang.lower() in ['fr', 'ru', 'en']:
+-                lang = "en"
+-        except:
++        with self.sid_locker:
++            sid_file = SIDS_DIR+"/%d.sid" %int(sid)
++            if os.path.exists(sid_file):
++                fd = open(sid_file, 'r')
++                while True:
++                    try:
++                        list_sid = pickle.load(fd)
++                    except BaseException as e:
++                        break
++                    # if session id found
++                    if sid == list_sid[0]:
++                        fd.close()
++                        lang = list_sid[3]
++                        break
++                fd.close()
++            try:
++                if not lang.lower() in ['fr', 'ru', 'en']:
++                    lang = "en"
++            except:
+                 lang = "en"
+-        #elif lang == "":
+-            #lang = threading.currentThread().lang
+-        import locale
+-        try:
+-            lang = locale.locale_alias[lang.lower()]
+-        except:
+-            lang = locale.locale_alias['en']
+-        return lang
++            import locale
++            try:
++                lang = locale.locale_alias[lang.lower()]
++            except:
++                lang = locale.locale_alias['en']
++            return lang
+ 
+ def create_symlink(data_path,old_data_path):
+     meths = LoadedMethods.conMethods
+diff --git pym/core/server/gen_sid.py pym/core/server/gen_sid.py
+index 5394715..8019132 100644
+--- pym/core/server/gen_sid.py
++++ pym/core/server/gen_sid.py
+@@ -20,6 +20,8 @@ from cert_cmd import find_cert_id
+ 
+ # session management
+ class CoreWsdl():
++    sid_locker = threading.Lock()
++
+     # delete client session from file (close session)
+     def del_sid_from_file(self, sid):
+         try:
+@@ -27,30 +29,31 @@ class CoreWsdl():
+             SID_FILE = self.sids_file
+             SID_FILE_T = SID_FILE + 'temp'
+ 
+-            fd = open(SID_FILE, 'r')
+-            ft = open(SID_FILE_T, 'w')
+-            while 1:
+-                try:
+-                    # read all on one record
+-                    list_sid = pickle.load(fd)
+-                except:
+-                    break
+-                # Leave all but removed
+-                if sid != list_sid[0]:
+-                    pickle.dump(list_sid, ft)
+-            fd.close()
+-            ft.close()
++            with self.sid_locker:
++                fd = open(SID_FILE, 'r')
++                ft = open(SID_FILE_T, 'w')
++                while 1:
++                    try:
++                        # read all on one record
++                        list_sid = pickle.load(fd)
++                    except:
++                        break
++                    # Leave all but removed
++                    if sid != list_sid[0]:
++                        pickle.dump(list_sid, ft)
++                fd.close()
++                ft.close()
+ 
+-            # copy all from temp file
+-            ft = open(SID_FILE_T, 'rb')
+-            fd = open(SID_FILE, 'wb')
+-            ft.seek(0)
+-            fd.write(ft.read())
+-            ft.close()
+-            fd.close()
+-            # delete temp file
+-            os.unlink(SID_FILE_T)
+-            return ['0']
++                # copy all from temp file
++                ft = open(SID_FILE_T, 'rb')
++                fd = open(SID_FILE, 'wb')
++                ft.seek(0)
++                fd.write(ft.read())
++                ft.close()
++                fd.close()
++                # delete temp file
++                os.unlink(SID_FILE_T)
++                return ['0']
+         except:
+             return ['1']
+ 
+@@ -58,21 +61,22 @@ class CoreWsdl():
+     def find_sid_in_file(self, sid):
+         SID_FILE = self.sids_file
+         # create, if file not exists
+-        if not os.path.exists(SID_FILE):
+-            temp = open(SID_FILE, 'w')
+-            temp.close()
+-        fd = open(SID_FILE, 'r')
+-        while 1:
+-            try:
+-                # read all on one record
+-                list_sid = pickle.load(fd)
+-            except:
+-                break
+-            # if session id found
+-            if sid == list_sid[0]:
+-                fd.close()
+-                return 1
+-        fd.close()
++        with self.sid_locker:
++            if not os.path.exists(SID_FILE):
++                temp = open(SID_FILE, 'w')
++                temp.close()
++            fd = open(SID_FILE, 'r')
++            while True:
++                try:
++                    # read all on one record
++                    list_sid = pickle.load(fd)
++                except:
++                    break
++                # if session id found
++                if sid == list_sid[0]:
++                    fd.close()
++                    return 1
++            fd.close()
+         return 0
+ 
+     # add session id in file
+@@ -81,39 +85,41 @@ class CoreWsdl():
+         list_sid = [sid, cert_id, datetime.datetime.now()]
+         # session's file
+         if not os.path.exists(self.sids):
+-            os.system('mkdir %s' %self.sids)
++            os.mkdir(self.sids)
+         SIDS_DIR = self.sids
+         sid_file = SIDS_DIR+"/%d.sid" %sid
+ 
+         # create session's file
+-        fp = open(sid_file, 'w')
+-        sid_list = [sid, 0, 0, lang]
+-        pickle.dump(sid_list,fp)  
+-        fp.close()
++        with self.sid_locker:
++            fp = open(sid_file, 'w')
++            sid_list = [sid, 0, 0, lang]
++            pickle.dump(sid_list,fp)  
++            fp.close()
+ 
+-        # add session in list sessions
+-        fd = open(self.sids_file, 'a')
+-        pickle.dump(list_sid,fd)
+-        fd.close()
++            # add session in list sessions
++            fd = open(self.sids_file, 'a')
++            pickle.dump(list_sid,fd)
++            fd.close()
+         return 0
+ 
+     def set_sid_lang(self, sid, lang):
+         SIDS_DIR = self.sids
+         sid_file = os.path.join(SIDS_DIR, "%d.sid" %sid)
+-        if not os.path.isfile(sid_file):
++        with self.sid_locker:
++            if not os.path.isfile(sid_file):
++                fp = open(sid_file, 'w')
++                fp.close()
++            fd = open(sid_file, 'r')
++            try:
++                list_sid = pickle.load(fd)
++            except EOFError:
++                list_sid = [sid, 0, 0, lang]
++            fd.close()
++
+             fp = open(sid_file, 'w')
++            list_sid[3] = lang
++            pickle.dump(list_sid,fp)
+             fp.close()
+-        fd = open(sid_file, 'r')
+-        try:
+-            list_sid = pickle.load(fd)
+-        except EOFError:
+-            list_sid = [sid, 0, 0, lang]
+-        fd.close()
+-
+-        fp = open(sid_file, 'w')
+-        list_sid[3] = lang
+-        pickle.dump(list_sid,fp)
+-        fp.close()
+ 
+     # issue number of new session (and registered its)
+     def sid_cmp (self, sid, cert_id, lang):
+@@ -231,49 +237,50 @@ class CoreWsdl():
+         cert_id = 0
+         results = []
+         SID_FILE = self.sids_file
+-        fd = open(SID_FILE, 'r')
+-        while 1:
+-            try:
+-                # read all on one record
+-                list_sid = pickle.load(fd)
+-            except:
+-                break
+-            # if sid found
+-            if sid == list_sid[0]:
+-                cert_id = list_sid[1]
+-        fd.close()
++        with self.sid_locker:
++            fd = open(SID_FILE, 'r')
++            while 1:
++                try:
++                    # read all on one record
++                    list_sid = pickle.load(fd)
++                except:
++                    break
++                # if sid found
++                if sid == list_sid[0]:
++                    cert_id = list_sid[1]
++            fd.close()
+ 
+         # Get information about sid
+         if cert_id == 0:
+             return ["-1"]
+ 
+-        with open(self.certbase) as fd:
+-            t = fd.read()
+-            # See each line
+-            for line in t.splitlines():
+-                # and each word in line
+-                words = line.split()
+-                    # if in line present certificate id
+-                if words[0] == str(cert_id):
+-                    # certificate id
+-                    results.append(words[0])
+-                    # Date issue certificate
+-                    results.append(words[2]+' '+words[3])
+-                    # ip
+-                    results.append(words[4])
+-                    # mac
+-                    results.append(words[5])
+-                    # client type
+-                    results.append(words[6])
+-                    if not os.path.exists(self.sids):
+-                        os.makedirs(self.sids)
+-                    sid_path = self.sids + "/%d.sid"%sid
+-                    with open(sid_path) as fs:
+-                        # read info about session
+-                        sid_inf = pickle.load(fs)
+-                    # flag absence client
+-                    results.append(str(sid_inf[2]))
++        with self.sid_locker:
++            with open(self.certbase) as fd:
++                t = fd.read()
++                # See each line
++                for line in t.splitlines():
++                    # and each word in line
++                    words = line.split()
++                        # if in line present certificate id
++                    if words[0] == str(cert_id):
++                        # certificate id
++                        results.append(words[0])
++                        # Date issue certificate
++                        results.append(words[2]+' '+words[3])
++                        # ip
++                        results.append(words[4])
++                        # mac
++                        results.append(words[5])
++                        # client type
++                        results.append(words[6])
++                        if not os.path.exists(self.sids):
++                            os.makedirs(self.sids)
++                        sid_path = self.sids + "/%d.sid"%sid
++                        with open(sid_path) as fs:
++                            # read info about session
++                            sid_inf = pickle.load(fs)
++                        # flag absence client
++                        results.append(str(sid_inf[2]))
+ 
+-                    return results
+-        fd.close()
++                        return results
+         return ["-2"]
+diff --git pym/core/server/server_class.py pym/core/server/server_class.py
+index 8486505..109ee7b 100644
+--- pym/core/server/server_class.py
++++ pym/core/server/server_class.py
+@@ -367,7 +367,10 @@ class ClApplication(Application):
+                 start_response(HTTP_403, http_resp_headers.items())
+                 return [resp]
+             if hasattr (params, 'sid'):
+-                curThread.lang = service.get_lang(params.sid)
++                curThread.lang = service.get_lang(params.sid, method_name)
++                if "get_methods" in method_name:
++                    with open('/tmp/getlang','a') as f:
++                        f.write(curThread.lang+"\n")
+ 
+         #### logging
+             if curThread.client_cert:
+diff --git pym/core/server/sid_pid_file.py pym/core/server/sid_pid_file.py
+index dec11a0..f348d9f 100644
+--- pym/core/server/sid_pid_file.py
++++ pym/core/server/sid_pid_file.py
+@@ -22,6 +22,8 @@ from calculate.lib.utils.tools import ignore
+ 
+ 
+ class CoreWsdl () :
++    sid_pid_locker = Lock()
++
+     def del_sid_pid(self, sid):
+         # delete conformity pid and sid of sid_pid file
+         if not os.path.exists(self.sids_pids):
+@@ -30,111 +32,97 @@ class CoreWsdl () :
+         #try:
+         SID_PID_T = self.sids_pids + '_temp'
+ 
+-        lock = Lock()
+-        lock.acquire()
++        with self.sid_pid_locker:
++            fd = open(self.sids_pids, 'r')
++            ft = open(SID_PID_T, 'w')
++            while 1:
++                try:
++                    #read out on 1 record
++                    list_sid = pickle.load(fd)
++                except:
++                    break
++                if sid != list_sid[0]:
++                    pickle.dump(list_sid, ft)
++                else:
++                    # end process pid = list_sid[1]
++                    self.serv_pid_kill (list_sid[1], sid, self.certbase)
++                    # delete this of process file
++                    while self.glob_process_dict[list_sid[1]]['status'] == 1:
++                        time.sleep(0.1)
++                    self.del_pid(list_sid[1])
++                    # delete process file
++                    rm_fn = path.join(self.pids, "%d.pid" % list_sid[1])
++                    if path.exists(rm_fn):
++                        with ignore(OSError):
++                            os.unlink(rm_fn)
++            fd.close()
++            ft.close()
+ 
+-        fd = open(self.sids_pids, 'r')
+-        ft = open(SID_PID_T, 'w')
+-        while 1:
+-            try:
+-                #read out on 1 record
+-                list_sid = pickle.load(fd)
+-            except:
+-                break
+-            if sid != list_sid[0]:
+-                pickle.dump(list_sid, ft)
+-            else:
+-                # end process pid = list_sid[1]
+-                self.serv_pid_kill (list_sid[1], sid, self.certbase)
+-                # delete this of process file
+-                while self.glob_process_dict[list_sid[1]]['status'] == 1:
+-                    time.sleep(0.1)
+-                self.del_pid(list_sid[1])
+-                # delete process file
+-                rm_fn = path.join(self.pids, "%d.pid" % list_sid[1])
+-                if path.exists(rm_fn):
+-                    with ignore(OSError):
+-                        os.unlink(rm_fn)
+-        fd.close()
+-        ft.close()
+-
+-        ft = open(SID_PID_T, 'rb')
+-        fd = open(self.sids_pids, 'wb')
+-        ft.seek(0)
+-        fd.write(ft.read())
+-        ft.close()
+-        fd.close()
+-
+-        # delete sid file
+-        sid_file = os.path.join(self.sids, "%d.sid"%sid)
+-        if os.path.exists(sid_file):
+-            os.unlink(sid_file)
+-        os.unlink(SID_PID_T)
+-        self.clear_cache(int(sid))
+-        lock.release()
++            ft = open(SID_PID_T, 'rb')
++            fd = open(self.sids_pids, 'wb')
++            ft.seek(0)
++            fd.write(ft.read())
++            ft.close()
++            fd.close()
++
++            # delete sid file
++            sid_file = os.path.join(self.sids, "%d.sid"%sid)
++            if os.path.exists(sid_file):
++                os.unlink(sid_file)
++            os.unlink(SID_PID_T)
++            self.clear_cache(int(sid))
+         return 0
+-        #except:
+-            #return 1
+ 
+     def del_pid_from_sid_pid(self, pid):
+         # delete conformity pid and sid of sid_pid file
+         if not os.path.exists(self.sids_pids):
+             temp = open(self.sids_pids, 'w')
+             temp.close()    
+-        #try:
+         SID_PID_T = self.sids_pids + '_temp'
+ 
+-        lock = Lock()
+-        lock.acquire()    
++        with self.sid_pid_locker:
++            fd = open(self.sids_pids, 'r')
++            ft = open(SID_PID_T, 'w')
++            while 1:
++                try:
++                    #read out on 1 record
++                    list_sid = pickle.load(fd)
++                except:
++                    break
++                if pid != list_sid[1]:
++                    pickle.dump(list_sid, ft)
++            fd.close()
++            ft.close()
+ 
+-        fd = open(self.sids_pids, 'r')
+-        ft = open(SID_PID_T, 'w')
+-        while 1:
+-            try:
+-                #read out on 1 record
+-                list_sid = pickle.load(fd)
+-            except:
+-                break
+-            if pid != list_sid[1]:
+-                pickle.dump(list_sid, ft)
+-        fd.close()
+-        ft.close()
+-
+-        ft = open(SID_PID_T, 'rb')
+-        fd = open(self.sids_pids, 'wb')
+-        ft.seek(0)
+-        fd.write(ft.read())
+-        ft.close()
+-        fd.close()
+-
+-        # delete temp file
+-        os.unlink(SID_PID_T)
+-        lock.release()
++            ft = open(SID_PID_T, 'rb')
++            fd = open(self.sids_pids, 'wb')
++            ft.seek(0)
++            fd.write(ft.read())
++            ft.close()
++            fd.close()
++
++            # delete temp file
++            os.unlink(SID_PID_T)
+         return 0
+-        #except:
+-            #return 1
+ 
+-    #
+     def find_sid_pid_file(self, sid):
+         results = []
+-        lock = Lock()
+-        lock.acquire()
+-        if not os.path.exists(self.sids_pids):
+-            temp = open(self.sids_pids, 'w')
+-            temp.close()
+-        fd = open(self.sids_pids, 'r')
+-        while 1:
+-            try:
+-                #read out on 1 record
+-                list_sid = pickle.load(fd)
+-            except:
+-                break
+-            if sid == list_sid[0]:
+-                results.append(list_sid[1])
+-        if results == []:
+-            results.append(0)
+-        fd.close()
+-        lock.release()
++        with self.sid_pid_locker:
++            if not os.path.exists(self.sids_pids):
++                temp = open(self.sids_pids, 'w')
++                temp.close()
++            fd = open(self.sids_pids, 'r')
++            while 1:
++                try:
++                    #read out on 1 record
++                    list_sid = pickle.load(fd)
++                except:
++                    break
++                if sid == list_sid[0]:
++                    results.append(list_sid[1])
++            if results == []:
++                results.append(0)
++            fd.close()
+         return results
+ 
+ 
+@@ -143,62 +131,50 @@ class CoreWsdl () :
+         results = []
+         # Check pid presence and conformity sid
+ 
+-        lock = Lock()
+-        lock.acquire()
++        with self.sid_pid_locker:
++            fd = open(self.sids_pids, 'r')
++            while 1:
++                try:
++                    #read out on 1 record
++                    list_sid = pickle.load(fd)
++                except:
++                    break
++                if sid == list_sid[0]:
++                    if pid == list_sid[1]:
++                        f = 1
++            fd.close()
+ 
+-        fd = open(self.sids_pids, 'r')
+-        while 1:
+-            try:
+-                #read out on 1 record
+-                list_sid = pickle.load(fd)
+-            except:
+-                break
+-            if sid == list_sid[0]:
+-                if pid == list_sid[1]:
+-                    f = 1
+-        fd.close()
+-        lock.release()
+-
+-        # Get information about pid
+-        if f == 1:
+-
+-            lock = Lock()
+-            lock.acquire()
+-
+-            self.glob_process_dict[pid]
+-            # process id
+-            results.append(str(pid))
+-            # current state
+-            results.append(str(self.glob_process_dict[pid]['status']))
+-            # start time
+-            results.append(str(self.glob_process_dict[pid]['time']))
+-            # process (function) name
+-            results.append(str(self.glob_process_dict[pid]['name']))
+-            # process soap method name
+-            results.append(str(self.glob_process_dict[pid]['method_name']))
+-
+-            lock.release()
++            # Get information about pid
++            if f == 1:
++
++                self.glob_process_dict[pid]
++                # process id
++                results.append(str(pid))
++                # current state
++                results.append(str(self.glob_process_dict[pid]['status']))
++                # start time
++                results.append(str(self.glob_process_dict[pid]['time']))
++                # process (function) name
++                results.append(str(self.glob_process_dict[pid]['name']))
++                # process soap method name
++                results.append(str(self.glob_process_dict[pid]['method_name']))
+         return results
+ 
+ 
+ 
+     def add_sid_pid (self, sid, pid):
+         ''' add conformity pid and sin in sid_pid file '''
+-        lock = Lock()
+-        lock.acquire()
+ 
+-        if not os.path.exists(self.sids_pids):
+-            temp = open(self.sids_pids, 'w')
+-            temp.close()
+-        lock.release()
+-        try:
+-            lock.acquire()
+-            fd = open(self.sids_pids, 'a')
+-            list = [sid, pid]
+-            pickle.dump(list,fd)
+-            fd.close()
+-            lock.release()
+-            return 0
+-        except:
+-            return 1
++        with self.sid_pid_locker:
++            if not os.path.exists(self.sids_pids):
++                temp = open(self.sids_pids, 'w')
++                temp.close()
++            try:
++                fd = open(self.sids_pids, 'a')
++                list = [sid, pid]
++                pickle.dump(list,fd)
++                fd.close()
++                return 0
++            except:
++                return 1
+ 
+diff --git pym/core/server/tasks.py pym/core/server/tasks.py
+index 9f0e3c1..1749bde 100644
+--- pym/core/server/tasks.py
++++ pym/core/server/tasks.py
+@@ -20,20 +20,13 @@ import time, datetime
+ import pickle
+ from calculate.core.datavars import DataVarsCore
+ from calculate.lib.cl_lang import setLocalTranslate
+-from calculate.core.server.gen_pid import (search_worked_process,
+-    get_pid_info,
+-    ProcessMode)
+-import logging
+ setLocalTranslate('cl_core3',sys.modules[__name__])
+ 
+-def restart():
++def restart(process_dict):
+     """
+     Функция отслеживает необходимость перезапуска демона и
+     перезапускает init.d/calculate-core
+     """
+-    def check_running(ob):
+-        return any(pid for pid in get_pid_info(ob)
+-                    if (pid.get("mode",'') == ProcessMode.CoreDaemon))
+ #    cert_live = 10080
+     # Get value of period and lifetime session from DataVars
+     ob = DataVarsCore()
+@@ -46,14 +39,10 @@ def restart():
+     service_name = "calculate-core"
+     if path.exists(restart_file):
+         os.unlink(restart_file)
+-    logger = logging.getLogger('soaplib.wsgi')
+ 
+     while True:
+-        if path.exists(restart_file) and not check_running(ob):
++        if path.exists(restart_file) and not process_dict:
+             # Частота проверки
+             os.system('/etc/init.d/%s restart &>/dev/null &'%service_name)
+             return
+-        if check_running(ob):
+-            logger.warn(str([pid for pid in get_pid_info(ob)
+-                    if (pid.get("mode",'') == ProcessMode.CoreDaemon)]))
+         time.sleep(1)
+diff --git pym/core/wsdl_core.py pym/core/wsdl_core.py
+index 6c4e675..89a334b 100644
+--- pym/core/wsdl_core.py
++++ pym/core/wsdl_core.py
+@@ -618,7 +618,7 @@ class Wsdl(WsdlBase):
+         # идентификатор метода
+         'method_name':"core_restart",
+         # категория метода
+-        'category':__('Update '),
++        'category':__('Utilities'),
+         # заголовок метода 
+         'title':__("Restart calculate-core"),
+         # иконка для графической консоли
