@@ -1,4 +1,4 @@
-# Calculate format=samba merge=x11-base/xorg-server cl_setup==video||cl_setup== path=/etc/calculate name=calculate.env
+# Calculate format=samba merge=x11-base/xorg-server cl_setup==session||cl_setup== path=/etc/calculate name=calculate.env
 
 [install]
 cl_home_crypt_set = #-cl_install_home_crypt_set-#
