@@ -1,0 +1,27 @@
+diff --git pym/install/migrate_users.py pym/install/migrate_users.py
+index d00a5c5..f862eb2 100644
+--- pym/install/migrate_users.py
++++ pym/install/migrate_users.py
+@@ -401,11 +401,11 @@ class migrate:
+         notWrite = lambda x: not os.access(x, os.W_OK)
+         filesNotRead = filter(notRead,checkThisFiles)
+         if filesNotRead:
+-            raise MigrationError(_("Failed to read files") + ": " +\
++            raise MigrationError(_("Failed to read files") + _(": ") +
+                             ", ".join(filesNotRead))
+         filesNotWrite = filter(notWrite,checkNewFiles)
+         if filesNotWrite:
+-            raise MigrationError(_("Failed to write to files") + ": " +\
++            raise MigrationError(_("Failed to write to files") + _(": ") +
+                             ", ".join(filesNotWrite))
+         # Check permissions backup files
+         checkNewBackupFiles = map(lambda x:pathJoin(self.prefixNewSystem,x+"-"),
+@@ -415,7 +415,7 @@ class migrate:
+                                     not os.access(os.path.dirname(x), os.W_OK))
+         filesNotWrite = filter(notWriteBackup, checkNewBackupFiles)
+         if filesNotWrite:
+-            raise MigrationError(_("Failed to write to files") + ": " +\
++            raise MigrationError(_("Failed to write to files") + _(": ") +
+                             ", ".join(filesNotWrite))
+         return True
+ 
