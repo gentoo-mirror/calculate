@@ -1,0 +1,22 @@
+diff --git pym/calculate/lib/cl_template.py pym/calculate/lib/cl_template.py
+index a0f773f..c08140d 100644
+--- pym/calculate/lib/cl_template.py
++++ pym/calculate/lib/cl_template.py
+@@ -3224,6 +3224,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+             self.raiseErrTemplate(_("first parameter must be resolution"))
+ 
+         re_resol = re.compile(".*?(\d+)x(\d+).*")
++        wpath = pathJoin(self._baseDir, wpath)
+         res = map(lambda x:(int(x.group(1)),int(x.group(2)),x.group()),
+               filter(None,
+               map(re_resol.search,
+@@ -5814,7 +5815,8 @@ gettext -d cl_template "$*"
+                     self.textConfig = objHeadOld.body
+                 # обработка конфигурационного файла
+                 self.textTemplate = objTempl.processingFile(self.textConfig,
+-                                    self.objVar.Get('cl_root_path'))
++                                    pathJoin(self.objVar.Get('cl_chroot_path'),
++                                        self.objVar.Get('cl_root_path')))
+                 if objTempl.getError():
+                     raise TemplatesError(_("Failed to use patch ") + \
+                                     nameFileTemplate)
