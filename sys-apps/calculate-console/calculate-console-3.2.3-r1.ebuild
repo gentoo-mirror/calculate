@@ -14,7 +14,7 @@ DESCRIPTION="Console client for WSDL Calculate 3"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 
 DEPEND="~sys-apps/calculate-core-3.2.3"
 RDEPEND="${DEPEND}"
