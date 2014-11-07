@@ -20,15 +20,9 @@ RDEPEND="net-misc/wget
 	app-i18n/enca
 	zsh-completion? ( app-shells/zsh )"
 
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	epatch "${FILESDIR}/calculate_wgetpaste-22.patch"
-}
-
 src_prepare() {
 	sed -i -e "s:/etc:\"${EPREFIX}\"/etc:g" wgetpaste || die
+	epatch "${FILESDIR}/calculate_wgetpaste-22.patch"
 }
 
 src_install() {

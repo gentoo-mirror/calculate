@@ -20,17 +20,9 @@ RDEPEND="net-misc/wget
 	app-i18n/enca
 "
 
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	epatch "${FILESDIR}/calculate_wgetpaste-25.patch"
-}
-
 src_prepare() {
 	sed -i -e "s:/etc:\"${EPREFIX}\"/etc:g" wgetpaste || die
-	epatch "${FILESDIR}"/wgetpaste-2.25-pinnwand.patch
-	epatch "${FILESDIR}"/wgetpaste-2.25-pinnwand-raw.patch
+	epatch "${FILESDIR}"/calculate_wgetpaste-25.patch
 }
 
 src_install() {
