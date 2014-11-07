@@ -17,6 +17,7 @@ IUSE="zsh-completion +lodgeit-default"
 
 DEPEND=""
 RDEPEND="net-misc/wget
+	app-i18n/enca
 	zsh-completion? ( app-shells/zsh )"
 
 src_unpack() {
