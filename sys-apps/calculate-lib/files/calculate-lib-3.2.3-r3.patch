@@ -1,5 +1,5 @@
 diff --git pym/calculate/lib/cl_template.py pym/calculate/lib/cl_template.py
-index a0f773f..62e0d5c 100644
+index a0f773f..660e970 100644
 --- pym/calculate/lib/cl_template.py
 +++ pym/calculate/lib/cl_template.py
 @@ -610,9 +610,9 @@ class fileHeader(_terms):
@@ -46,7 +46,7 @@ index a0f773f..62e0d5c 100644
                      textArgv = term[1:-1]
                      for replTerm in replTerms:
                          textArgv = textArgv.replace(*replTerm)
-+                    textArgv = re.sub(r'\\x(\d\d)',
++                    textArgv = re.sub(r'\\x([0-9a-fA-F]{2})',
 +                        lambda x:chr(int(x.group(1),16)),textArgv)
                      listArgv.append(textArgv)
                  elif term.startswith("'") and term.endswith("'"):
@@ -590,3 +590,13 @@ index 1604cce..aebb033 100644
          elif flag == "stdin":
              pwdA = sys.stdin.readline().rstrip()
              pwdB = sys.stdin.readline().rstrip()
+diff --git pym/calculate/lib/variables/__init__.py pym/calculate/lib/variables/__init__.py
+index 0e13beb..7f1f72c 100644
+--- pym/calculate/lib/variables/__init__.py
++++ pym/calculate/lib/variables/__init__.py
+@@ -41,4 +41,4 @@ class VariableClVer(ReadonlyVariable):
+     """
+     Package version
+     """
+-    value = "3.2.3"
++    value = "3.2.3.1"
