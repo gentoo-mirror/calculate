@@ -1,0 +1,592 @@
+diff --git pym/calculate/lib/cl_template.py pym/calculate/lib/cl_template.py
+index a0f773f..62e0d5c 100644
+--- pym/calculate/lib/cl_template.py
++++ pym/calculate/lib/cl_template.py
+@@ -610,9 +610,9 @@ class fileHeader(_terms):
+                                     if term in i:
+                                         foundTerm = True
+                                         errorMsg = _("Incorrect template") +\
+-                                                     ": "+ templateName +"\n"+\
++                                                     _(": ") + templateName +"\n"+\
+                                                _("template header not valid")+\
+-                                                 ": "+ i
++                                                 _(": ") + i
+                                         if function:
+                                             rezTerm = self._equalTerm(i,
+                                                                       errorMsg,
+@@ -771,9 +771,10 @@ class dirHeader(_terms):
+                             for term in self.terms:
+                                 if term in i:
+                                     foundTerm = True
+-                                    errorMsg = _("Incorrect template") +\
+-                                        ": "+ templateName +"\n"+\
+-                                        _("template header not valid")+ ": "+ i
++                                    errorMsg = (_("Incorrect template") +
++                                        _(": ") + templateName +"\n" +
++                                        _("template header not valid")+ _(": ")
++                                        + i)
+                                     if function:
+                                         rezTerm = self._equalTerm(i, errorMsg,
+                                                                   function)
+@@ -3224,6 +3225,7 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+             self.raiseErrTemplate(_("first parameter must be resolution"))
+ 
+         re_resol = re.compile(".*?(\d+)x(\d+).*")
++        wpath = pathJoin(self._baseDir, wpath)
+         res = map(lambda x:(int(x.group(1)),int(x.group(2)),x.group()),
+               filter(None,
+               map(re_resol.search,
+@@ -3358,10 +3360,13 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+             for term in terms:
+                 if term.startswith('"') and term.endswith('"'):
+                     replTerms = [(r"\'", "'"), (r'\"', '"'), (r'\n', '\n'),
+-                                 (r'\r', '\r'), (r'\t', '\t'), (r"\\", "\\")]
++                                 (r'\r', '\r'),
++                                 (r'\t', '\t'), (r"\\", "\\")]
+                     textArgv = term[1:-1]
+                     for replTerm in replTerms:
+                         textArgv = textArgv.replace(*replTerm)
++                    textArgv = re.sub(r'\\x(\d\d)',
++                        lambda x:chr(int(x.group(1),16)),textArgv)
+                     listArgv.append(textArgv)
+                 elif term.startswith("'") and term.endswith("'"):
+                     listArgv.append(term[1:-1])
+@@ -4567,7 +4572,7 @@ gettext -d cl_template "$*"
+                 self.queueExecute.extend(self.cltObj.queueExecute)
+             for processor,text,nameTemplate in self.queueExecute:
+                 if not self.executeTemplate(text,processor):
+-                    self.setError(_("Failed to execute") + ": " +\
++                    self.setError(_("Failed to execute") + _(": ") +
+                                   nameTemplate)
+                     return False
+             self.queueExecute = []
+@@ -4586,7 +4591,7 @@ gettext -d cl_template "$*"
+         """
+         Verbose output applied templates
+         """
+-        self.printWARNING(_("Calculate Utilities have changed files")+":")
++        self.printWARNING(_("Calculate Utilities have changed files")+_(":"))
+         reGrey = re.compile(r"\._cfg\d{4}_")
+         rootPath = self.objVar.Get('cl_root_path')
+         for fn in sorted(list(set(filesApply))):
+@@ -4833,7 +4838,7 @@ gettext -d cl_template "$*"
+                              if not self.functObj.checkCorrectPkgName(x)):
+                 self.printWARNING(
+                     _("Wrong package '%s' for 'merge' in the template")%
+-                              wrongPkg + ": " + templateDirFile)
++                              wrongPkg + _(": ") + templateDirFile)
+             if self.objVar.Get('cl_ebuild_phase') == 'postinst':
+                 for pkg in postmergePkgs:
+                     if not pkg in self.objVar.Get('cl_merge_pkg_pass'):
+@@ -4924,7 +4929,7 @@ gettext -d cl_template "$*"
+                 textTemplate = "%s %s"%(textTemplate[:-1],buf.rstrip())
+             FD.close()
+         except:
+-            self.setError(_("Failed to open the template") + ": " +\
++            self.setError(_("Failed to open the template") + _(": ") +
+                                templateDirFile)
+             return ("", False, [])
+ 
+@@ -4949,7 +4954,7 @@ gettext -d cl_template "$*"
+         # Директория с профилями не будет применена
+         if not objHead.headerTerm:
+             if objHead.getError():
+-                self.setError(_("Incorrect template") + ": " +\
++                self.setError(_("Incorrect template") + _(": ") +
+                               templateDirFile)
+             return ("", False, [])
+ 
+@@ -4968,8 +4973,8 @@ gettext -d cl_template "$*"
+                 path = os.path.join(self.homeDir,
+                                     path.partition("/")[2],"")[:-1]
+             elif not path or path and path[0] != "/":
+-                self.setError(_("Wrong value 'path' in the template") + ": " +\
+-                                templateDirFile)
++                self.setError(_("Wrong value 'path' in the template") +
++                              _(": ") + templateDirFile)
+                 return ("", False, [])
+             else:
+                 path = pathJoin(self._baseDir, path)
+@@ -4978,8 +4983,8 @@ gettext -d cl_template "$*"
+         if  "name" in  objHead.params:
+             nameDir = objHead.params['name']
+             if "/" in nameDir or nameDir == ".." or nameDir == ".":
+-                self.setError(_("Wrong value 'name' in the template") + ": " +\
+-                            templateDirFile)
++                self.setError(_("Wrong value 'name' in the template") +
++                              _(": ") + templateDirFile)
+                 return ("", False, [])
+             # Новый путь к директории
+             applyDir = pathJoin(path, nameDir)
+@@ -5043,8 +5048,8 @@ gettext -d cl_template "$*"
+                         self.setError(_("Failed to change the mode for "
+                             "the directory: ") +applyDir)
+             else:
+-                self.setError(_("Wrong value 'chmod' in the template") + ": " +\
+-                               templateDirFile)
++                self.setError(_("Wrong value 'chmod' in the template") +
++                              _(": ") + templateDirFile)
+                 return ("", False, [])
+         # chown - изменяем владельца и группу
+         if "chown" in objHead.params:
+@@ -5059,8 +5064,8 @@ gettext -d cl_template "$*"
+                     except:
+                         self.setError(_("No such user on the system: ")
+                                 + strUid)
+-                        self.setError(_("Wrong value 'chown' in the template")+\
+-                        ": " + templateDirFile)
++                        self.setError(_("Wrong value 'chown' in the template")+
++                                      _(": ") + templateDirFile)
+                         return ("", False, [])
+                     gid = self.getGidFromGroup(strGid)
+                     try:
+@@ -5070,8 +5075,8 @@ gettext -d cl_template "$*"
+                         self.setError(_("Group not found on the system: ")
+                                         +strGid)
+                         self.setError(
+-                            _("Wrong value 'chown' in the template") +\
+-                                      ": "+ templateDirFile)
++                            _("Wrong value 'chown' in the template") +
++                            _(": ") + templateDirFile)
+                         return ("", False, [])
+ 
+                     if not os.path.exists(applyDir):
+@@ -5085,12 +5090,12 @@ gettext -d cl_template "$*"
+                                             templateDirFile):
+                             return ("", False, [])
+                 else:
+-                    self.setError(_("Wrong value 'chown' in the template")
+-                                + ": " + templateDirFile)
++                    self.setError(_("Wrong value 'chown' in the template") +
++                                  _(": ") + templateDirFile)
+                     return ("", False, [])
+             else:
+                 self.setError(_("Wrong value 'chown' in the template") +
+-                        ": " + templateDirFile)
++                              _(": ") + templateDirFile)
+                 return ("", False, [])
+         else:
+             # Устанавливаем владельцем директории, пользователя по умолчанию
+@@ -5265,7 +5270,7 @@ gettext -d cl_template "$*"
+             self.nameFileTemplate = os.path.abspath(nameFileTemplate)
+             self.F_TEMPL = self.openTemplFile(self.nameFileTemplate)
+             if not self.F_TEMPL:
+-                self.setError(_("Failed to open the template") + ": " +\
++                self.setError(_("Failed to open the template") + _(": ") +
+                                    self.nameFileTemplate)
+                 return False
+             self.textTemplate = self.F_TEMPL.read()
+@@ -5276,7 +5281,7 @@ gettext -d cl_template "$*"
+         # файл шаблона не будет применен
+         if not objHeadNew.headerTerm:
+             if objHeadNew.getError():
+-                self.setError(_("Incorrect template") + ": " +\
++                self.setError(_("Incorrect template") + _(": ") +
+                                 nameFileTemplate)
+             return ([], False)
+ 
+@@ -5292,8 +5297,8 @@ gettext -d cl_template "$*"
+                 # Получаем путь с заменой ~ на директорию пользователя
+                 path = os.path.join(self.homeDir,path.partition("/")[2],"")[:-1]
+             elif not path or path and path[0] != "/":
+-                self.setError(_("Wrong value 'path' in the template") + ": " +\
+-                                  nameFileTemplate)
++                self.setError(_("Wrong value 'path' in the template") +
++                              _(": ") + nameFileTemplate)
+                 return ([], False)
+             else:
+                 path = pathJoin(self._baseDir, path)
+@@ -5303,8 +5308,8 @@ gettext -d cl_template "$*"
+         if objHeadNew.params.has_key("name"):
+             nameFile = objHeadNew.params['name']
+             if "/" in nameFile or nameFile == ".." or nameFile == ".":
+-                self.setError(_("Wrong value 'name' in the template") + ": " +\
+-                              nameFileTemplate)
++                self.setError(_("Wrong value 'name' in the template") +
++                              _(": ") + nameFileTemplate)
+                 return ([], False)
+             # Новый путь к оригинальному файлу
+             pathOldFile = pathJoin(path,nameFile)
+@@ -5332,14 +5337,13 @@ gettext -d cl_template "$*"
+             self.executeType = paramName
+             execPath = objHeadNew.params[paramName]
+             if not os.access(execPath,os.X_OK):
+-                self.setError(_("Wrong value '%s' in the template")%paramName \
+-                    + ": " + nameFileTemplate)
++                self.setError(_("Wrong value '%s' in the template")%paramName +
++                              _(": ") + nameFileTemplate)
+                 self.setError(_("Failed to execute %s") %execPath)
+                 return ([], False)
+             if typeAppendTemplate == "join":
+                 self.setError(_("Wrong value 'append=join' in the template") +
+-                             ": " +\
+-                                  nameFileTemplate)
++                              _(": ") + nameFileTemplate)
+                 return ([], False)
+ 
+         # Очищаем оригинальный файл
+@@ -5348,10 +5352,10 @@ gettext -d cl_template "$*"
+                 open(pathOldFile, "w").truncate(0)
+                 newBuffer = ""
+             except:
+-                self.setError(_("Template error") + ": " +\
+-                                  nameFileTemplate)
+-                self.setError(_("Failed to clear the file") + ": " +\
+-                               pathOldFile)
++                self.setError(_("Template error") + _(": ") +
++                              nameFileTemplate)
++                self.setError(_("Failed to clear the file") + _(": ") +
++                              pathOldFile)
+             return (applyFiles, False)
+         # Удаляем оригинальный файл
+         if typeAppendTemplate == "remove":
+@@ -5363,10 +5367,10 @@ gettext -d cl_template "$*"
+                     os.unlink(pathOldFile)
+                     return (applyFiles, False)
+                 except:
+-                    self.setError(_("Template error") + ": " +\
++                    self.setError(_("Template error") + _(": ") +
+                                   nameFileTemplate)
+-                    self.setError(_("Failed to delete the link") + ": " +\
+-                               pathOldFile)
++                    self.setError(_("Failed to delete the link") + _(": ") +
++                                  pathOldFile)
+                     return ([], False)
+             if os.path.isfile(pathOldFile) and self.configMode == T_ORIGIN:
+                 # удаляем файл
+@@ -5374,10 +5378,10 @@ gettext -d cl_template "$*"
+                     os.remove(pathOldFile)
+                     return (applyFiles, False)
+                 except:
+-                    self.setError(_("Template error") + ": " +\
++                    self.setError(_("Template error") + _(": ") +
+                                   nameFileTemplate)
+-                    self.setError(_("Failed to delete the file") + ": " +\
+-                               pathOldFile)
++                    self.setError(_("Failed to delete the file") + _(": ") +
++                                  pathOldFile)
+                     return ([], False)
+             return ([], False)
+         # Пропускаем обработку шаблона
+@@ -5396,10 +5400,10 @@ gettext -d cl_template "$*"
+                     newBuffer = ""
+                     os.unlink(pathOldFile)
+                 except:
+-                    self.setError(_("Template error") + ": " +\
++                    self.setError(_("Template error") + _(": ") +
+                                   nameFileTemplate)
+-                    self.setError(_("Failed to delete the link") + ": " +\
+-                               pathOldFile)
++                    self.setError(_("Failed to delete the link") + _(": ") +
++                                  pathOldFile)
+                     return ([], False)
+             if os.path.isfile(pathOldFile):
+                 # удаляем файл
+@@ -5407,10 +5411,10 @@ gettext -d cl_template "$*"
+                     newBuffer = ""
+                     os.remove(pathOldFile)
+                 except:
+-                    self.setError(_("Template error") + ": " +\
++                    self.setError(_("Template error") + _(": ") +
+                                   nameFileTemplate)
+-                    self.setError(_("Failed to delete the file") + ": " +\
+-                                    pathOldFile)
++                    self.setError(_("Failed to delete the file") + _(": ") +
++                                  pathOldFile)
+                     return ([], False)
+ 
+         flagSymlink = False
+@@ -5430,9 +5434,9 @@ gettext -d cl_template "$*"
+                             newBuffer = ""
+                             os.remove(pathOldFile)
+                         except:
+-                            self.setError(_("Template error") + ": " +\
++                            self.setError(_("Template error") + _(": ") +
+                                           nameFileTemplate)
+-                            self.setError(_("Failed to delete the file") + ": " +\
++                            self.setError(_("Failed to delete the file") + _(": ") +
+                                           pathOldFile)
+                     return ([], False)
+             elif not os.path.exists(pathOldFile):
+@@ -5454,20 +5458,20 @@ gettext -d cl_template "$*"
+                     F_CONF.close()
+                     fMode, fUid, fGid = getModeFile(templateFile)
+                 except:
+-                    self.setError(_("Template error") + ": " +\
++                    self.setError(_("Template error") + _(": ") +
+                                   nameFileTemplate)
+-                    self.setError(_("Failed to open the file") + ": " +\
+-                                          templateFile)
++                    self.setError(_("Failed to open the file") + _(": ") +
++                                  templateFile)
+                     return ([], False)
+             if os.path.exists(pathOldFile):
+                 try:
+                     newBuffer = ""
+                     os.remove(pathOldFile)
+                 except:
+-                    self.setError(_("Template error") + ": " +\
+-                                    nameFileTemplate)
+-                    self.setError(_("Failed to delete the file") + ": " +\
+-                                    pathOldFile)
++                    self.setError(_("Template error") + _(": ") +
++                                  nameFileTemplate)
++                    self.setError(_("Failed to delete the file") + _(": ") +
++                                  pathOldFile)
+                     return ([], False)
+             if foundTemplateFile:
+                 try:
+@@ -5476,7 +5480,7 @@ gettext -d cl_template "$*"
+                     FD.write(buff)
+                     FD.close()
+                 except:
+-                    self.setError(_("Template error") + ": " +\
++                    self.setError(_("Template error") + _(": ") +
+                                   nameFileTemplate)
+                     self.setError(_("Failed to create the file") + " '%s'"\
+                                   %pathOldFile)
+@@ -5503,8 +5507,8 @@ gettext -d cl_template "$*"
+                 try:
+                     os.chdir(pathLink)
+                 except:
+-                    self.setError(_("Template error") + ": " +\
+-                                    nameFileTemplate)
++                    self.setError(_("Template error") + _(": ") +
++                                  nameFileTemplate)
+                     self.setError(
+                         _("Failed to change the current directory to")+\
+                                     " " + pathLink)
+@@ -5518,8 +5522,8 @@ gettext -d cl_template "$*"
+                     preReturn(pathProg)
+                     return ([], False)
+             else:
+-                self.setError(_("Wrong value 'chmod' in the template") + ": " +\
+-                               nameFileTemplate)
++                self.setError(_("Wrong value 'chmod' in the template") +
++                              _(": ") + nameFileTemplate)
+                 preReturn(pathProg)
+                 return ([], False)
+         # chown - изменяем владельца и группу
+@@ -5541,7 +5545,7 @@ gettext -d cl_template "$*"
+                                           strUid)
+                             self.setError(
+                                 _("Wrong value 'chown' in the template") +
+-                                          ": "+ nameFileTemplate)
++                                _(": ") + nameFileTemplate)
+                             preReturn(pathProg)
+                             return ([], False)
+                     if strGid.isdigit():
+@@ -5557,7 +5561,7 @@ gettext -d cl_template "$*"
+                                           strGid)
+                             self.setError(
+                                 _("Wrong value 'chown' in the template") +
+-                                          ": "+ nameFileTemplate)
++                                _(": ") + nameFileTemplate)
+                             preReturn(pathProg)
+                             return ([], False)
+                     # Изменяем владельца файла
+@@ -5566,12 +5570,12 @@ gettext -d cl_template "$*"
+                         return ([], False)
+                 else:
+                     self.setError(_("Wrong value 'chown' in the template") +
+-                                  ": " + nameFileTemplate)
++                                  _(": ") + nameFileTemplate)
+                     preReturn(pathProg)
+                     return ([], False)
+             else:
+-                self.setError(_("Wrong value 'chown' in the template") 
+-                    + ": " + nameFileTemplate)
++                self.setError(_("Wrong value 'chown' in the template") +
++                              _(": ") + nameFileTemplate)
+                 preReturn(pathProg)
+                 return ([], False)
+         if not flagSymlink:
+@@ -5600,10 +5604,10 @@ gettext -d cl_template "$*"
+                         # иначе удаляем файл
+                         os.remove(prevOldFile)
+                 except:
+-                    self.setError(_("Template error") + ": " +\
+-                                    nameFileTemplate)
+-                    self.setError(_("Failed to delete the file") + ": " +\
+-                                    prevOldFile)
++                    self.setError(_("Template error") + _(": ") +
++                                  nameFileTemplate)
++                    self.setError(_("Failed to delete the file") + _(": ") +
++                                  prevOldFile)
+                     preReturn(pathProg)
+                     return ([], False)
+             if not "/" == pathOldFile[0]:
+@@ -5613,9 +5617,9 @@ gettext -d cl_template "$*"
+             try:
+                 os.symlink(pathOldFile, prevOldFile)
+             except:
+-                self.setError(_("Template error") + ": " +\
++                self.setError(_("Template error") + _(": ") +\
+                                     nameFileTemplate)
+-                self.setError(_("Failed to create a symbolic link") + " :" +\
++                self.setError(_("Failed to create a symbolic link") + _(": ") +\
+                                     "%s -> %s"%(prevOldFile, pathOldFile))
+                 preReturn(pathProg)
+                 return ([], False)
+@@ -5814,7 +5818,8 @@ gettext -d cl_template "$*"
+                     self.textConfig = objHeadOld.body
+                 # обработка конфигурационного файла
+                 self.textTemplate = objTempl.processingFile(self.textConfig,
+-                                    self.objVar.Get('cl_root_path'))
++                                    pathJoin(self.objVar.Get('cl_chroot_path'),
++                                        self.objVar.Get('cl_root_path')))
+                 if objTempl.getError():
+                     raise TemplatesError(_("Failed to use patch ") + \
+                                     nameFileTemplate)
+@@ -5833,9 +5838,9 @@ gettext -d cl_template "$*"
+                 if  'run' in objHeadNew.params:
+                     if not self.executeTemplate(self.textConfig,
+                                                 objHeadNew.params['run']):
+-                        self.setError(_("Wrong template") + ": " +\
++                        self.setError(_("Wrong template") + _(": ") +\
+                                       nameFileTemplate)
+-                        self.setError(_("Failed to execute") + ": " +\
++                        self.setError(_("Failed to execute") + _(": ") +\
+                                       self.nameFileConfig)
+                         return False
+                     return False
+@@ -5861,7 +5866,7 @@ gettext -d cl_template "$*"
+                     return False
+                 if "xml_" in formatTemplate:
+                     if objTemplNew.getError():
+-                        self.setError(_("Wrong template") + ": " +\
++                        self.setError(_("Wrong template") + _(": ") +\
+                                       nameFileTemplate)
+                         return False
+                     # Имя файла внутри xml xfce конфигурационных файлов
+@@ -5906,9 +5911,9 @@ gettext -d cl_template "$*"
+                 if  'run' in objHeadNew.params:
+                     if not self.executeTemplate(self.textConfig,
+                                                 objHeadNew.params['run']):
+-                        self.setError(_("Wrong template") + ": " +\
++                        self.setError(_("Wrong template") + _(": ") +\
+                                       nameFileTemplate)
+-                        self.setError(_("Failed to execute") + ": " +\
++                        self.setError(_("Failed to execute") + _(": ") +\
+                                       self.nameFileConfig)
+                         return False
+                     return False
+@@ -5935,9 +5940,9 @@ gettext -d cl_template "$*"
+                 if  'run' in objHeadNew.params:
+                     if not self.executeTemplate(self.textConfig,
+                                                 objHeadNew.params['run']):
+-                        self.setError(_("Wrong template") + ": " +\
++                        self.setError(_("Wrong template") + _(": ") +\
+                                       nameFileTemplate)
+-                        self.setError(_("Failed to execute") + ": " +\
++                        self.setError(_("Failed to execute") + _(": ") +\
+                                       self.nameFileConfig)
+                         return False
+                     return False
+@@ -5963,9 +5968,9 @@ gettext -d cl_template "$*"
+                 if  'run' in objHeadNew.params:
+                     if not self.executeTemplate(self.textConfig,
+                                                 objHeadNew.params['run']):
+-                        self.setError(_("Wrong template") + ": " +\
++                        self.setError(_("Wrong template") + _(": ") +\
+                                       nameFileTemplate)
+-                        self.setError(_("Failed to execute") + ": " +\
++                        self.setError(_("Failed to execute") + _(": ") +\
+                                       self.nameFileConfig)
+                         return False
+                     return False
+@@ -5992,7 +5997,7 @@ gettext -d cl_template "$*"
+                     return False
+                 if "xml_" in formatTemplate:
+                     if objTemplNew.getError():
+-                        self.setError(_("Wrong template") + ": " +\
++                        self.setError(_("Wrong template") + _(": ") +\
+                                         nameFileTemplate)
+                         return False
+                     nameRootNode=nameFileConfig.rpartition("/")[2].split(".")[0]
+@@ -6027,7 +6032,7 @@ gettext -d cl_template "$*"
+                     return False
+                 if "xml_" in formatTemplate:
+                     if objTemplOld.getError():
+-                        self.setError(_("Wrong template") + ": " +\
++                        self.setError(_("Wrong template") + _(": ") +\
+                                         nameFileConfig)
+                         return False
+                     nameRootNode=nameFileConfig.rpartition("/")[2].split(".")[0]
+@@ -6036,7 +6041,7 @@ gettext -d cl_template "$*"
+                 objTemplOld.join(objTemplNew)
+                 if "xml_" in formatTemplate:
+                     if objTemplOld.getError():
+-                        self.setError(_("Wrong template") + ": " +\
++                        self.setError(_("Wrong template") + _(": ") +\
+                                         nameFileTemplate)
+                         return False
+                     data = objTemplOld.getConfig().encode("UTF-8").split("\n")
+@@ -6057,16 +6062,16 @@ gettext -d cl_template "$*"
+                 if  'run' in objHeadNew.params:
+                     if not self.executeTemplate(self.textConfig,
+                                                 objHeadNew.params['run']):
+-                        self.setError(_("Wrong template") + ": " +\
++                        self.setError(_("Wrong template") + _(": ") +\
+                                       nameFileTemplate)
+-                        self.setError(_("Failed to execute") + ": " +\
++                        self.setError(_("Failed to execute") + _(": ") +\
+                                       self.nameFileConfig)
+                         return False
+                     return False
+                 return filesApply if not 'exec' in objHeadNew.params else False
+             else:
+-                self.setError(_("Wrong template option (type append)") + ": " +\
+-                               typeAppendTemplate)
++                self.setError(_("Wrong template option (type append)")
++                            + _(": ") + typeAppendTemplate)
+                 return False
+         else:
+             self.setError(_("Template type not found: ") + nameFileTemplate)
+@@ -6396,7 +6401,7 @@ class iniParser(_error, templateFormat):
+     def writeIniFile(self, txtConfig):
+         if self.readOnly:
+             self.setError(_("Failed to write to file")
+-                    + ": " + self.iniFile)
++                    + _(": ") + self.iniFile)
+             return False
+         if not os.path.exists(self.iniFile):
+             try:
+@@ -6406,11 +6411,11 @@ class iniParser(_error, templateFormat):
+                 os.chmod(self.iniFile, self.mode)
+             except:
+                 self.setError(_("Failed to create the file") +
+-                            ": " + self.iniFile)
++                            _(": ") + self.iniFile)
+                 return False
+         if not self.FD:
+             self.setError(_("Failed to write to file")
+-                    + ": " + self.iniFile)
++                    + _(": ") + self.iniFile)
+             return False
+         self.FD.truncate(0)
+         self.FD.seek(0)
+@@ -6487,7 +6492,7 @@ class iniParser(_error, templateFormat):
+                 try:
+                     objIni = self.getClassObj("plasma")(textIni)
+                 except:
+-                    self.setError(_("Incorrect file format") + ": " + \
++                    self.setError(_("Incorrect file format") + _(": ") + \
+                                     self.iniFile)
+                     self.checkIni = False
+                     return self.checkIni
+diff --git pym/calculate/lib/utils/common.py pym/calculate/lib/utils/common.py
+index 1604cce..aebb033 100644
+--- pym/calculate/lib/utils/common.py
++++ pym/calculate/lib/utils/common.py
+@@ -101,8 +101,8 @@ def getUserPassword(flag="dialog", pwDialog=False):
+             if not pwDialog:
+                 pwDialog = [_("New password"),
+                             _("Retype the new password")]
+-            pwdA = getpass.getpass(pwDialog[0]+":")
+-            pwdB = getpass.getpass(pwDialog[1]+":")
++            pwdA = getpass.getpass(pwDialog[0]+_(":"))
++            pwdB = getpass.getpass(pwDialog[1]+_(":"))
+         elif flag == "stdin":
+             pwdA = sys.stdin.readline().rstrip()
+             pwdB = sys.stdin.readline().rstrip()
