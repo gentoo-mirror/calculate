@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-DESCRIPTION="Module of the checking system update"
+DESCRIPTION="System authentification update checkup tool"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2
 	http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2"
