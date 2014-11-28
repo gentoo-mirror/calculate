@@ -1,0 +1,96 @@
+diff --git pym/update/update.py pym/update/update.py
+index ffa3f34..2f1e9f4 100644
+--- pym/update/update.py
++++ pym/update/update.py
+@@ -404,7 +404,7 @@ class Update(object):
+         cpu_num = self.clVars.Get('hr_cpu_num')
+         if repname in OverlayOwnCache():
+             self.printWARNING(
+-                _("Repository %s has own cache") % repname.capitalize())
++                _("Repository %s has its own cache") % repname.capitalize())
+         else:
+             self.startTask(_("Updating the %s repository cache") %
+                            repname.capitalize())
+@@ -914,7 +914,7 @@ class Update(object):
+         try:
+             if not profile_dv:
+                 raise UpdateError(
+-                    _("Failed to use new profile. Try again."))
++                    _("Failed to use the new profile. Try again."))
+             for var_name in ('cl_update_rep_rev',
+                              'cl_update_rep_path',
+                              'cl_update_rep_url',
+diff --git pym/update/variables/update.py pym/update/variables/update.py
+index f3a7144..b2299fc 100644
+--- pym/update/variables/update.py
++++ pym/update/variables/update.py
+@@ -58,9 +58,9 @@ class VariableClUpdateWorld(Variable):
+     metavalue = "MODE"
+ 
+     def init(self):
+-        self.help = ("'rebuild' - " + _("rebuild system packages list") +
+-                     ",\n'merge' - " + _("append profile system packages list") +
+-                     ",\n'update' - " + _("update system packages list"))
++        self.help = ("'rebuild' - " + _("rebuild the system packages list") +
++                     ",\n'merge' - " + _("append the profile packages list") +
++                     ",\n'update' - " + _("update the system packages list"))
+         self.label = _("System packages list")
+ 
+     def choice(self):
+@@ -322,10 +322,10 @@ class VariableClUpdateEgencacheForce(Variable):
+     #untrusted = True
+ 
+     def init(self):
+-        self.help = ("'force' - " + _("force the update overlays cache") +
+-                     ",\n'skip' - " + _("skip the overlays cache update") +
+-                     ",\n'auto' - " + _("update overlays cache if it is outdated"))
+-        self.label = _("Update overlays cache")
++        self.help = ("'force' - " + _("force the update of the overlays cache") +
++                     ",\n'skip' - " + _("skip the update of the overlays cache") +
++                     ",\n'auto' - " + _("update the overlays cache if outdated"))
++        self.label = _("Update the overlays cache")
+ 
+     def choice(self):
+         return [("force", _("Force")),
+@@ -564,7 +564,7 @@ class VariableClUpdateTemplatesLocate(Variable):
+ 
+     def init(self):
+         self.label = _("Templates location")
+-        self.help = _("select location for templates %s") \
++        self.help = _("select the location for templates %s") \
+                       %",".join(self.get())
+ 
+     def get(self):
+@@ -885,7 +885,7 @@ class VariableClUpdateProfileSystem(Variable):
+                     raise VariableError("")
+                 if repo_name not in list(self.Get('cl_update_profile_rep_name')):
+                     raise VariableError(
+-                        _("Overlay %s not specified in cl_update_rep_name")%
++                        _("Overlay %s is not specified in cl_update_rep_name")%
+                             repo_name)
+             except (DataVarsError,VariableError) as e:
+                 if str(e):
+@@ -1022,8 +1022,8 @@ class VariableClUpdateEmergelistSet(Variable):
+     opt = ["-e","--emergelist"]
+ 
+     def init(self):
+-        self.label = _("Emerge like packages list")
+-        self.help = _("display packages list in emerge format")
++        self.label = _("Emerge-like packages list")
++        self.help = _("display the packages list in emerge format")
+ 
+ class VariableClUpdateKernelVersion(ReadonlyVariable):
+     """
+diff --git pym/update/wsdl_update.py pym/update/wsdl_update.py
+index 250af39..61baa29 100644
+--- pym/update/wsdl_update.py
++++ pym/update/wsdl_update.py
+@@ -142,7 +142,7 @@ class Wsdl(WsdlBase):
+             # категория метода
+             'category': __('Configuration'),
+             # заголовок метода
+-            'title': __("The Update Check"),
++            'title': __("Update Check"),
+             # иконка для графической консоли
+             'image': 'software-properties,preferences-desktop',
+             # метод присутствует в графической консоли

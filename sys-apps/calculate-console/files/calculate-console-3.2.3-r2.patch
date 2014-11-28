@@ -1,0 +1,62 @@
+diff --git pym/console/application/cert_func.py pym/console/application/cert_func.py
+index b2ed3e5..7ee84bc 100644
+--- pym/console/application/cert_func.py
++++ pym/console/application/cert_func.py
+@@ -34,10 +34,7 @@ def client_post_cert (client, clVars, show_info = False):
+     """ send a certificate server for check """
+     sid = get_sid(client.SID_FILE)
+     
+-    if "LANG" in os.environ:
+-        lang = os.environ['LANG'][:2]
+-    else:
+-        lang = "C"
++    lang = os.environ['LANG'][:2]
+     _result_post_cert, _result_sid = client.service.init_session(sid, lang)
+     result_post_cert = _result_post_cert[1].integer
+     result_sid = _result_sid[1].integer
+diff --git pym/console/application/pid_information.py pym/console/application/pid_information.py
+index dc58d6b..05ebe2f 100644
+--- pym/console/application/pid_information.py
++++ pym/console/application/pid_information.py
+@@ -93,22 +93,32 @@ def client_pid_info(client):
+ 
+ def client_list_methods(client):
+     """ get & show all available methods for this certificate """
++    DAT = 0 # Access to data soap structure
++    RES = 0 # Access to result
++    COM = 0 # Getting command line
++    METH = 1 # Getting method line
++    TR_METH = 3 # Translate method name
+     results = client.service.get_methods(client.sid, client_types)
+     if not results:
+         print _('No methods available')
+         return 1
+     try:
+-        results[0][0].name
++        if results[DAT][RES][RES][COM] == '0':
++            print _('No methods available')
++            return 1
+     except:
+-        print _('No methods available')
+-        return 1
++        pass
+     print _("You can execute:"), _('use option'), '--method'
+-    for method in sorted(results[0],key=lambda x:x.name):
+-        if method.title:
+-            print "   {name} - {title}".format(name=method.name,
+-                                               title=method.title)
+-        else:
+-            print "   {name}".format(name=name)
++    group_dict = {}
++    for group in results.stringArray:
++        if len (group.string) == 4:
++            group_dict[group.string[METH]] = group.string[TR_METH]
++        if len (group.string) == 3:
++            group_dict[group.string[METH]] = group.string[TR_METH-1]
++    sort_keys = group_dict.keys()
++    sort_keys.sort()
++    for key in sort_keys:
++        print "   %s - %s" % (key, group_dict[key])
+ 
+ def client_pid_kill(client, pid):
+     sid = get_sid(client.SID_FILE)

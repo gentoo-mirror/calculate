@@ -1,0 +1,977 @@
+diff --git fr/cl_consolegui3.po fr/cl_consolegui3.po
+index d88fc12..b1a2a0f 100644
+--- fr/cl_consolegui3.po
++++ fr/cl_consolegui3.po
+@@ -118,10 +118,10 @@ msgid "Connection lost!"
+ msgstr "Connexion perdue !"
+ 
+ msgid "The server was restarted"
+-msgstr ""
++msgstr "Le serveur a été relancé"
+ 
+ msgid "Reconnecting to the server"
+-msgstr ""
++msgstr "Reconnection au serveur en cours"
+ 
+ msgid "Closing session"
+ msgstr "Fermeture de session"
+@@ -211,7 +211,7 @@ msgid "Program settings"
+ msgstr "Réglages du programme"
+ 
+ msgid "Update System"
+-msgstr ""
++msgstr "Mise à jour système"
+ 
+ msgid "Exit Program"
+ msgstr "Quitter le programme"
+@@ -583,10 +583,10 @@ msgid "Company"
+ msgstr "Société"
+ 
+ msgid "Developer:"
+-msgstr ""
++msgstr "Développeur :"
+ 
+ msgid "Calculate company"
+-msgstr ""
++msgstr "Calculate S.A.R.L."
+ 
+ msgid "Distribution website"
+ msgstr "Site web de la distribution"
+diff --git fr/cl_core3.po fr/cl_core3.po
+index c95abdb..1503572 100644
+--- fr/cl_core3.po
++++ fr/cl_core3.po
+@@ -28,7 +28,7 @@ msgid "Patch"
+ msgstr "Patch"
+ 
+ msgid "Update "
+-msgstr ""
++msgstr "Mise à jour"
+ 
+ msgid "Update settings"
+ msgstr "Actualiser les paramètres"
+@@ -139,7 +139,7 @@ msgid "Custom action"
+ msgstr "Action aléatoire"
+ 
+ msgid "Restart calculate-core"
+-msgstr ""
++msgstr "Redémarrer calculate-core"
+ 
+ msgid "Configuring dependencies: %s"
+ msgstr "On configure les dépendances : %s"
+@@ -172,11 +172,11 @@ msgstr ""
+ msgid "Using patches for the {nameProgram} package by Calculate Utilities"
+ msgstr "Application des patchs Calculate pour le paquet {nameProgram}"
+ 
+-msgid "Calculate core is executing follow tasks now"
+-msgstr ""
++msgid "Calculate core is executing the following tasks"
++msgstr "Les tâches suivantes sont en cours d'exécution par calculate-core"
+ 
+ msgid "Would you like to terminate these tasks?"
+-msgstr ""
++msgstr "Voulez-vous interrompre l'exécution de ces tâches ?"
+ 
+ msgid "Configuration skipping until calculate-utils are updated"
+ msgstr "La configuration sera omise tant que calculate-utils"
+@@ -290,7 +290,7 @@ msgid "Modification of variables manually interrupted"
+ msgstr "La modification des variables a été interrompue par l'utilisateur"
+ 
+ msgid "Restarting calculate-core"
+-msgstr ""
++msgstr "Redémarrage de calculate-core"
+ 
+ msgid "Appling patches to package sources"
+ msgstr "On applique les correctifs au code source"
+@@ -476,10 +476,10 @@ msgid "Session monitoring failed"
+ msgstr "Surveillance de la session échouée"
+ 
+ msgid "Restart watchdog started"
+-msgstr ""
++msgstr "Le chien de garde a été lancé"
+ 
+ msgid "Restart watchdog failed"
+-msgstr ""
++msgstr "Impossible de lancer le chien de garde au redémarrage"
+ 
+ msgid "Closing all processes"
+ msgstr "On ferme tous les processus"
+diff --git fr/cl_install3.po fr/cl_install3.po
+index 65e19db..9e25e84 100644
+--- fr/cl_install3.po
++++ fr/cl_install3.po
+@@ -46,7 +46,7 @@ msgid "Update"
+ msgstr "Mise à jour"
+ 
+ msgid "Perform"
+-msgstr ""
++msgstr "Exécuter"
+ 
+ msgid "Start installing"
+ msgstr "Procéder à l'installation"
+@@ -79,13 +79,13 @@ msgid "System"
+ msgstr "Système"
+ 
+ msgid "Update system settings"
+-msgstr ""
++msgstr "Mettre à jour les réglages système"
+ 
+ msgid "Locale"
+ msgstr "Locale"
+ 
+ msgid "Session"
+-msgstr ""
++msgstr "Session"
+ 
+ msgid "Failed to determine the parent device for %s"
+ msgstr "Impossible de détecter le média père pour %s"
+@@ -366,13 +366,13 @@ msgid "Failed to configure the network settings!"
+ msgstr "Impossible de configurer les paramètres du réseau !"
+ 
+ msgid "The session settings are being configured"
+-msgstr ""
++msgstr "Configuration des paramètres de la session"
+ 
+ msgid "Session settings configured!"
+-msgstr ""
++msgstr "La session a été configurée !"
+ 
+ msgid "Failed to configure the session settings!"
+-msgstr ""
++msgstr "Impossible de configurer la session !"
+ 
+ msgid "The boot parameters are being configured"
+ msgstr "On configure les paramètres d'amorçage"
+@@ -689,6 +689,8 @@ msgstr "L'auto-identification de l'utilisateur %s n'est pas acceptée"
+ 
+ msgid "The autologin is not available with domain workstations"
+ msgstr ""
++"L'authentification automatique n'est pas disponible pour les stations de "
++"travail du domaine"
+ 
+ msgid "network settings"
+ msgstr "réglages réseau"
+@@ -706,7 +708,7 @@ msgid "audio parameters"
+ msgstr "paramètres audio"
+ 
+ msgid "session settings"
+-msgstr ""
++msgstr "paramètres de la session"
+ 
+ msgid "user settings"
+ msgstr "réglages utilisateurs"
+diff --git fr/cl_lib3.po fr/cl_lib3.po
+index 8e4f896..40997fa 100644
+--- fr/cl_lib3.po
++++ fr/cl_lib3.po
+@@ -111,10 +111,10 @@ msgid "Execution of templates was interrupted with an error"
+ msgstr "L'exécution des modèles a été interrompue avec une erreur"
+ 
+ msgid "funtion takes only two parameters"
+-msgstr ""
++msgstr "la fonction n'accepte que deux paramètres"
+ 
+-msgid "first parameter must be resolution"
+-msgstr ""
++msgid "the first parameter must be the resolution"
++msgstr "le premier paramètre doit être la résolution"
+ 
+ msgid ""
+ "the third argument of the function is neither 'url' or 'purl' or 'unicode'"
+@@ -477,37 +477,37 @@ msgid "Failed to copy '%(src)s' to '%(dst)s'"
+ msgstr "Il est impossible de copier '%(src)s' vers '%(dst)s'"
+ 
+ msgid "Repository {path} is not a directory"
+-msgstr ""
++msgstr "Le dépôt {path} n'est pas un répertoire"
+ 
+ msgid "Repository {path} is not Git"
+-msgstr ""
++msgstr "{path} n'est pas un dépôt Git"
+ 
+ msgid "The Git tool is not found"
+-msgstr ""
++msgstr "L'outil Git est introuvable"
+ 
+ msgid "Branch {branch} not found in repository {url}"
+-msgstr ""
++msgstr "Branche {branch} introuvable dans le dépôt {url}"
+ 
+ msgid "Failed to clone repository {url}"
+-msgstr ""
++msgstr "Impossible de cloner le dépôt {url}"
+ 
+ msgid "Failed to update the repository in {rpath}"
+-msgstr ""
++msgstr "Impossible d'actualiser le dépôt dans {rpath}"
+ 
+ msgid "Wrong repository in the {rpath} directory"
+-msgstr ""
++msgstr "Erreur de dépôt dans le répertoire {rpath}"
+ 
+ msgid "Failed to get the repository status for {rpath}"
+-msgstr ""
++msgstr "Impossible de récupérer le statut du dépôt dans {rpath}"
+ 
+ msgid "Failed to clean the {rpath} repository"
+-msgstr ""
++msgstr "Impossible de nettoyer le dépôt {rpath}"
+ 
+ msgid "Branch {branch} not found in repository {rpath}"
+-msgstr ""
++msgstr "Branche {branch} introuvable dans le dépôt {rpath}"
+ 
+-msgid "Failed to change branch to {branch} in the {rpath} repository"
+-msgstr ""
++msgid "Failed to move to branch {branch} in the {rpath} repository"
++msgstr "Impossible de basculer vers la branche {branch} du dépôt {rpath}"
+ 
+ msgid "New password"
+ msgstr "Nouveau mot de passe"
+diff --git fr/cl_update3.po fr/cl_update3.po
+index 83faae7..37775dd 100644
+--- fr/cl_update3.po
++++ fr/cl_update3.po
+@@ -59,11 +59,11 @@ msgstr ""
+ msgid "Failed to update the cache of the {rname} repository"
+ msgstr "Impossible d'actualiser le cache du dépôt {rname}"
+ 
+-msgid "Repository %s has own cache"
+-msgstr ""
++msgid "Repository %s has its own cache"
++msgstr "Le dépôt %s dispose d'un cache"
+ 
+ msgid "Updating the %s repository cache"
+-msgstr ""
++msgstr "Actualisation du cache du dépôt %s"
+ 
+ msgid "The Emerge tool is not found"
+ msgstr "L'outil Emerge est introuvable"
+@@ -131,8 +131,8 @@ msgstr "Voulez-vous installer ces paquets ?"
+ msgid "Would you like to unmerge these packages?"
+ msgstr "Voulez-vous supprimer ces paquets ?"
+ 
+-msgid "Failed to use new profile. Try again."
+-msgstr ""
++msgid "Failed to use the new profile. Try again."
++msgstr "Impossible d'appliquer le nouveau profil.  Veuillez réessayer."
+ 
+ msgid "Wrong profile"
+ msgstr "Profil erroné"
+@@ -147,7 +147,7 @@ msgid "Failed to move the profile: %s"
+ msgstr "Impossible de déplacer le profil : %s"
+ 
+ msgid "Update "
+-msgstr ""
++msgstr "Mise à jour"
+ 
+ msgid "Update the System"
+ msgstr "Mettre le système à jour"
+@@ -173,14 +173,14 @@ msgstr "Définir le profil"
+ msgid "Configuration"
+ msgstr "Configuration"
+ 
+-msgid "The Update Check"
+-msgstr ""
++msgid "Update Check"
++msgstr "Vérification de mises à jour"
+ 
+ msgid "Updates autocheck settings"
+ msgstr "Paramètres de vérification automatique de mises à jour"
+ 
+ msgid "Save"
+-msgstr ""
++msgstr "Sauvegarder"
+ 
+ msgid "Emerge failed"
+ msgstr "Emerge a échoué"
+@@ -231,7 +231,7 @@ msgid "Fixing the settings"
+ msgstr "Correction des paramètres"
+ 
+ msgid "The system is being configured"
+-msgstr ""
++msgstr "Système en cours de configuration"
+ 
+ msgid "Updating configuration files"
+ msgstr "Mise à jour des fichiers de configuration"
+@@ -283,7 +283,7 @@ msgid "Checking reverse dependencies"
+ msgstr "Vérification des dépendances inverses"
+ 
+ msgid "Removing obsolete distfiles and binary packages"
+-msgstr ""
++msgstr "Suppression des sources et des binaires obsolètes"
+ 
+ msgid "System configuration"
+ msgstr "Configuration système"
+@@ -306,23 +306,23 @@ msgstr "Impossible de paramétrer la vérification automatique de mises à jour
+ msgid "Configuration manually interrupted"
+ msgstr "Configuration interrompue par l'utilisateur"
+ 
+-msgid "rebuild system packages list"
+-msgstr ""
++msgid "rebuild the system packages list"
++msgstr "régénérer la liste des paquets système"
+ 
+-msgid "append profile system packages list"
+-msgstr ""
++msgid "append the profile packages list"
++msgstr "ajouter la liste des paquets du profil"
+ 
+-msgid "update system packages list"
+-msgstr ""
++msgid "update the system packages list"
++msgstr "actualiser la liste des paquets système"
+ 
+ msgid "System packages list"
+-msgstr ""
++msgstr "Liste des paquets système"
+ 
+ msgid "Rebuild"
+-msgstr ""
++msgstr "Régénérer"
+ 
+ msgid "Merge"
+-msgstr ""
++msgstr "Fusionner"
+ 
+ msgid "Update"
+ msgstr "Actualiser"
+@@ -378,17 +378,17 @@ msgstr "Sauter"
+ msgid "If needed"
+ msgstr "Si besoin"
+ 
+-msgid "force the update overlays cache"
+-msgstr ""
++msgid "force the update of the overlays cache"
++msgstr "forcer l'actualisation du cache des overlays"
+ 
+-msgid "skip the overlays cache update"
+-msgstr ""
++msgid "skip the update of the overlays cache"
++msgstr "sauter l'actualisation du cache des overlays"
+ 
+-msgid "update overlays cache if it is outdated"
+-msgstr ""
++msgid "update the overlays cache if outdated"
++msgstr "actualiser le cache des overlays si obsolète"
+ 
+-msgid "Update overlays cache"
+-msgstr ""
++msgid "Update the overlays cache"
++msgstr "Actualiser le cache des overlays"
+ 
+ msgid "force the eix cache update"
+ msgstr "forcer l'actualisation du cache eix"
+@@ -440,31 +440,31 @@ msgid "Used repositories"
+ msgstr "Dépôts utilisés"
+ 
+ msgid "Overlay templates"
+-msgstr ""
++msgstr "Modèles de l'overlay"
+ 
+ msgid "Local templates"
+-msgstr ""
++msgstr "Modèles locaux"
+ 
+ msgid "Calculate overlay templates"
+-msgstr ""
++msgstr "Modèles de l'overlay Calculate"
+ 
+ msgid "Distribution templates"
+-msgstr ""
++msgstr "Modèles de la distribution"
+ 
+ msgid "Remote templates"
+-msgstr ""
++msgstr "Modèles distants"
+ 
+ msgid "clt templates"
+-msgstr ""
++msgstr "Modèles clt"
+ 
+ msgid "Templates location"
+-msgstr ""
++msgstr "Emplacement des modèles"
+ 
+-msgid "select location for templates %s"
+-msgstr ""
++msgid "select the location for templates %s"
++msgstr "définir l'emplacement des modèles %s"
+ 
+ msgid "%s overlay templates"
+-msgstr ""
++msgstr "Modèles de l'overlay %s"
+ 
+ msgid "Name"
+ msgstr "Nom"
+@@ -514,8 +514,8 @@ msgstr "Vous devez spécifier le profil"
+ msgid "Repository variables were not configured for the profile"
+ msgstr "Les variables du dépôt n'ont pas été configurées pour le profil"
+ 
+-msgid "Overlay %s not specified in cl_update_rep_name"
+-msgstr ""
++msgid "Overlay %s is not specified in cl_update_rep_name"
++msgstr "L'overlay %s ne figure pas dans la variable cl_update_rep_name"
+ 
+ msgid "The selected profile is not Calculate"
+ msgstr "Le profil sélectionné n'est pas Calculate"
+@@ -524,7 +524,7 @@ msgid "Wrong Calculate profile"
+ msgstr "Profil Calculate incorrect"
+ 
+ msgid "Update the cache"
+-msgstr ""
++msgstr "Actualiser le cache"
+ 
+ msgid "Automatically check updates"
+ msgstr "Vérifier les mises à jour automatiquement"
+@@ -553,20 +553,20 @@ msgstr "Respecter la fréquence de vérification"
+ msgid "consider the autocheck schedule"
+ msgstr "respecter la fréquence de vérification"
+ 
+-msgid "Emerge like packages list"
+-msgstr ""
++msgid "Emerge-like packages list"
++msgstr "Liste des paquets en format emerge"
+ 
+-msgid "display packages list in emerge format"
+-msgstr ""
++msgid "display the packages list in emerge format"
++msgstr "afficher la liste des paquets en format emerge"
+ 
+ msgid "Skip the system setup"
+-msgstr ""
++msgstr "Sauter la configuration du système"
+ 
+ msgid "skip the system setup"
+-msgstr ""
++msgstr "sauter la configuration du système"
+ 
+ msgid "Clean obsolete programs archives"
+-msgstr ""
++msgstr "Supprimer les archives logicielles obsolètes"
+ 
+ msgid "clean obsolete programs archives"
+-msgstr ""
++msgstr "supprimer les archives logicielles obsolètes"
+diff --git ru/cl_core3.po ru/cl_core3.po
+index da8aade..f2a87ad 100644
+--- ru/cl_core3.po
++++ ru/cl_core3.po
+@@ -170,8 +170,8 @@ msgstr "Конфигурация утилитами Calculate системных
+ msgid "Using patches for the {nameProgram} package by Calculate Utilities"
+ msgstr "Наложение патчей Calculate утилитами для {nameProgram}"
+ 
+-msgid "Calculate core is executing follow tasks now"
+-msgstr "Calculate core выполняет следующие задачи"
++msgid "Calculate core is executing the following tasks"
++msgstr "Настройка"
+ 
+ msgid "Would you like to terminate these tasks?"
+ msgstr "Вы хотите завершить эти задачи?"
+diff --git ru/cl_lib3.po ru/cl_lib3.po
+index 0381e59..6915fb2 100644
+--- ru/cl_lib3.po
++++ ru/cl_lib3.po
+@@ -109,7 +109,7 @@ msgstr "Выполнение шаблонов было прервано с ош
+ msgid "funtion takes only two parameters"
+ msgstr "функция принимает только два параметра"
+ 
+-msgid "first parameter must be resolution"
++msgid "the first parameter must be the resolution"
+ msgstr "первый параметр должен быть разрешением"
+ 
+ msgid ""
+@@ -497,7 +497,7 @@ msgstr "Не удалось очистить {rpath} репозиторий"
+ msgid "Branch {branch} not found in repository {rpath}"
+ msgstr "Ветка {branch} не найдена в {rpath} репозитории"
+ 
+-msgid "Failed to change branch to {branch} in the {rpath} repository"
++msgid "Failed to move to branch {branch} in the {rpath} repository"
+ msgstr "Не удалось сменить ветку на {branch} в {rpath} репозитории"
+ 
+ msgid "New password"
+@@ -755,3 +755,4 @@ msgstr "Необходимо указать пользователя"
+ 
+ msgid "User %s does not exist"
+ msgstr "Пользователь %s не существует"
++
+diff --git ru/cl_update3.po ru/cl_update3.po
+index fe66da4..0e65861 100644
+--- ru/cl_update3.po
++++ ru/cl_update3.po
+@@ -57,7 +57,7 @@ msgstr "Репозиторий '{repo_name}' назван '{repname} в cl_updat
+ msgid "Failed to update the cache of the {rname} repository"
+ msgstr "Не удалось обновить кэш {rname} репозитория"
+ 
+-msgid "Repository %s has own cache"
++msgid "Repository %s has its own cache"
+ msgstr "У репозитория %s есть свой кэш"
+ 
+ msgid "Updating the %s repository cache"
+@@ -129,7 +129,7 @@ msgstr "Вы хотите установить эти пакеты?"
+ msgid "Would you like to unmerge these packages?"
+ msgstr "Вы хотите удалить эти пакеты?"
+ 
+-msgid "Failed to use new profile. Try again."
++msgid "Failed to use the new profile. Try again."
+ msgstr "Не удалось установить профиль. Попытайтесь еще раз."
+ 
+ msgid "Wrong profile"
+@@ -171,7 +171,7 @@ msgstr "Установить профиль"
+ msgid "Configuration"
+ msgstr "Настройка "
+ 
+-msgid "The Update Check"
++msgid "Update Check"
+ msgstr "Проверка обновлений"
+ 
+ msgid "Updates autocheck settings"
+@@ -303,13 +303,13 @@ msgstr "Не удалось настроить параметры автопро
+ msgid "Configuration manually interrupted"
+ msgstr "Настройка прервана пользователем"
+ 
+-msgid "rebuild system packages list"
++msgid "rebuild the system packages list"
+ msgstr "переформировать список пакетов системы"
+ 
+-msgid "append profile system packages list"
++msgid "append the profile packages list"
+ msgstr "добавить список пакетов профиля"
+ 
+-msgid "update system packages list"
++msgid "update the system packages list"
+ msgstr "обновить список пакетов системы"
+ 
+ msgid "System packages list"
+@@ -375,16 +375,16 @@ msgstr "Пропустить"
+ msgid "If needed"
+ msgstr "По необходимости"
+ 
+-msgid "force the update overlays cache"
++msgid "force the update of the overlays cache"
+ msgstr "принудительно обновить кэш оверлеев"
+ 
+-msgid "skip the overlays cache update"
++msgid "skip the update of the overlays cache"
+ msgstr "пропустить обновление кэша оверлеев"
+ 
+-msgid "update overlays cache if it is outdated"
++msgid "update the overlays cache if outdated"
+ msgstr "обновить кэш оверлеев если он устарел"
+ 
+-msgid "Update overlays cache"
++msgid "Update the overlays cache"
+ msgstr "Обновить кэш оверлеев"
+ 
+ msgid "force the eix cache update"
+@@ -457,7 +457,7 @@ msgstr "clt шаблоны"
+ msgid "Templates location"
+ msgstr "Местонахождение шаблонов"
+ 
+-msgid "select location for templates %s"
++msgid "select the location for templates %s"
+ msgstr "выбор местонахождения шаблонов %s"
+ 
+ msgid "%s overlay templates"
+@@ -511,7 +511,7 @@ msgstr "Вы должны указать профиль"
+ msgid "Repository variables were not configured for the profile"
+ msgstr "В профиле не настроены переменные репозитория"
+ 
+-msgid "Overlay %s not specified in cl_update_rep_name"
++msgid "Overlay %s is not specified in cl_update_rep_name"
+ msgstr "Оверлей %s не указан в переменной cl_update_rep_name"
+ 
+ msgid "The selected profile is not Calculate"
+@@ -550,10 +550,10 @@ msgstr "Учитывать график автопроверки"
+ msgid "consider the autocheck schedule"
+ msgstr "учитывать график автопроверки"
+ 
+-msgid "Emerge like packages list"
++msgid "Emerge-like packages list"
+ msgstr "Список пакетов в формате emerge"
+ 
+-msgid "display packages list in emerge format"
++msgid "display the packages list in emerge format"
+ msgstr "отобразить список пакетов в emerge формате"
+ 
+ msgid "Skip the system setup"
+diff --git ru/packages.po ru/packages.po
+index 15418c4..4aadd54 100644
+--- ru/packages.po
++++ ru/packages.po
+@@ -339,10 +339,8 @@ msgstr "Словари русского языка для myspell/hunspell"
+ msgid "Ukrainian dictionaries for myspell/hunspell"
+ msgstr "Словари украинского языка для myspell/hunspell"
+ 
+-msgid "Legacy (stable) release of the GTK+ 2.x based codebase"
+-msgstr ""
+-"Унаследованная (стабильная) версия текстового редактора, основанного на GTK+ "
+-"2.x"
++msgid "A simple GTK2 text editor"
++msgstr "Простой текстовый редактор на GTK2"
+ 
+ msgid "Pluma text editor for the MATE desktop"
+ msgstr "Pluma, текстовый редактор для использования в среде MATE"
+@@ -364,11 +362,6 @@ msgstr "32-разрядные библиотеки"
+ msgid "32bit nls-disabled dev-libs/popt-1.13"
+ msgstr "32-битный dev-libs/popt-1.13 без поддержки NLS"
+ 
+-msgid "32 bit lib-compat and libstdc++-v3 (compatibility metapackage)"
+-msgstr ""
+-"32-разрядные lib-compat и libstdc++-v3 (метапакет, обеспечивающий "
+-"совместимость)"
+-
+ msgid "Qt4 GUI configuration tool for Wine"
+ msgstr "Графический конфигуратор Qt4 для среды Wine"
+ 
+@@ -637,7 +630,7 @@ msgstr "Библиотека для категоризации текста, о
+ msgid "An interface library to access tags for identifying languages"
+ msgstr "Библиотека интерфейса"
+ 
+-msgid "Library parsing the Microsoft Publisher documents"
++msgid "Library parsing Microsoft Publisher documents"
+ msgstr "Библиотека синтаксического анализа документов Microsoft Publisher"
+ 
+ msgid "Library parsing many pre-OSX MAC text formats"
+@@ -690,6 +683,9 @@ msgstr ""
+ "Свободная объектно-ориентированная библиотека, используемая для "
+ "синтаксического анализа и обработки SGML-файлов"
+ 
++msgid "Tools for helping translation of documentation"
++msgstr "Набор инструментов, упрощающих перевод документации"
++
+ msgid "PDF rendering library based on the xpdf-3.0 code base"
+ msgstr "Библиотека для визуализации PDF-файлов, основанная на библиотеке Xpdf"
+ 
+@@ -705,6 +701,9 @@ msgstr ""
+ "Программа, осуществляющая преобразования структуры PDF-файлов из командной "
+ "строки с сохранением целостности содержимого"
+ 
++msgid "A tabbed document viewer"
++msgstr "Программа для просмотра PDF-файлов с поддержкой вкладок"
++
+ msgid "A documentation metadata library"
+ msgstr "Библиотека метаданных документации"
+ 
+@@ -743,7 +742,7 @@ msgstr "Набор утилит для сборки и конвертирова
+ 
+ msgid ""
+ "Vim syntax highlighting, filetype and indent settings for Gentoo filetypes"
+-msgstr ""
++msgstr "Подсветка синтаксиса vim, настройки отступов и типов файлов для Gentoo"
+ 
+ msgid "C++ interface for the ATK library"
+ msgstr "Интерфейс C++ для библиотеки ATK"
+@@ -1108,11 +1107,8 @@ msgstr "Утилита с функциями обработки ошибок, и
+ msgid "Library to access weather information from online services"
+ msgstr "Библиотека для получения информации о погоде с онлайн-сервисов"
+ 
+-msgid ""
+-"An implementation of basic iCAL protocols from citadel, previously known as "
+-"aurore"
+-msgstr ""
+-"Реализация базовых протоколов iCAL в рамках проекта Citadel, ранее - Aurore"
++msgid "An implementation of basic iCAL protocols"
++msgstr "Реализация базовых протоколов iCAL"
+ 
+ msgid "CORBA tree builder"
+ msgstr "Утилиты для создания деревьев файлов IDL для архитектуры CORBA"
+@@ -1139,6 +1135,11 @@ msgstr ""
+ msgid "X.509 and CMS (PKCS#7) library"
+ msgstr "Библиотека X.509 и CMS (PKCS#7)"
+ 
++msgid "A Library for Large Linear Classification"
++msgstr ""
++"Библиотека алгоритмов линейной классификации; умеет работать с большими "
++"матрицами"
++
+ msgid "Line breaking library"
+ msgstr "Библиотека, обеспечивающая перенос строки"
+ 
+@@ -1463,11 +1464,26 @@ msgstr ""
+ msgid "The Perl RPC Module"
+ msgstr "Модуль RPC для Perl"
+ 
++msgid "Perl library for parsing the output of nsgmls"
++msgstr "Библиотека Perl для синтаксического анализа результатов работы nsgmls"
++
+ msgid "IPv6 related part of the C socket.h defines and structure manipulators"
+ msgstr ""
+ "Модуль для загрузки C-определений socket.h и манипуляторов структур, "
+ "относящихся к протоколу IPv6"
+ 
++msgid "Change terminal modes, and perform non-blocking reads"
++msgstr ""
++"Модуль, обеспечивающий переключение режимов терминала и неблокируемое чтение"
++
++msgid "Get number of occupied columns of a string on terminal"
++msgstr ""
++"Модуль, позволяющий получить количество байт, занимаемых символами в строке "
++"терминала"
++
++msgid "Internationalized substitute of Text::Wrap"
++msgstr "Локализованный модуль Text::Wrap"
++
+ msgid "A URI Perl Module"
+ msgstr "Модуль URI для Perl"
+ 
+@@ -1516,6 +1532,13 @@ msgstr "Облегчённая версия APC с поддержкой толь
+ msgid "An extension to track progress of a file upload"
+ msgstr "Расширение для отслеживания хода выгрузки файла"
+ 
++msgid ""
++"Provides pythonic idioms for iterating, searching, and modifying an HTML/XML "
++"parse tree"
++msgstr ""
++"Модуль Python, предоставляющий средства навигации, поиска и преобразования "
++"дерева синтаксического разбора HTML/XML"
++
+ msgid "Universal encoding detector"
+ msgstr "Универсальный детектор кодировки"
+ 
+@@ -1630,15 +1653,12 @@ msgstr ""
+ "Pyparsing, простой в использовании модуль Python для синтаксического анализа "
+ "текста"
+ 
+-msgid "Python bindings for the Qt toolkit"
+-msgstr "Привязки Python для инструментария Qt"
++msgid "Python bindings for the Qt framework"
++msgstr "Привязки Python для фреймворка Qt"
+ 
+ msgid "Python Serial Port Extension"
+ msgstr "Расширение Python для работы с параллельными портами"
+ 
+-msgid "Python bindings for the Qt framework"
+-msgstr "Привязки Python для фреймворка Qt"
+-
+ msgid ""
+ "This module can generate both LANMAN and NT password hashes, suitable for "
+ "use with Samba"
+@@ -1711,40 +1731,38 @@ msgstr "Модуль Qt3Support для инструментария Qt"
+ msgid "Cross-platform application development framework"
+ msgstr "Кросс-платформенный инструментарий разработки ПО"
+ 
+-msgid "The DBus module for the Qt toolkit"
+-msgstr "Модуль DBus для инструментария Qt"
++msgid "The D-Bus module for the Qt5 framework"
++msgstr "Модуль D-Bus для фреймворка Qt5"
+ 
+-msgid "The Declarative module for the Qt toolkit"
+-msgstr "Модуль Declarative для инструментария Qt"
++msgid "The QML and Quick modules for the Qt5 framework"
++msgstr "Модули QML и Quick для фреймворка Qt5"
+ 
+-msgid "The GUI module for the Qt toolkit"
+-msgstr "Модуль GUI для инструментария Qt"
++msgid "The GUI module and platform plugins for the Qt5 framework"
++msgstr "Модуль графического интерфейса и плагины платформы для фреймворка Qt5"
+ 
+-msgid "The Multimedia module for the Qt toolkit"
+-msgstr "Модуль Multimedia для инструментария Qt"
++msgid "The Multimedia module for the Qt5 framework"
++msgstr "Мультимедиа-модуль для фреймворка Qt5"
+ 
+-msgid "The OpenGL module for the Qt toolkit"
+-msgstr "Модуль OpenGL для инструментария Qt"
++msgid "OpenGL support library for the Qt5 framework"
++msgstr "Библиотека поддержки OpenGL для фреймворка Qt5"
+ 
+-msgid "The QtScript module for the Qt toolkit"
+-msgstr "Модуль QtScript для инструментария Qt"
++msgid "Application scripting library for the Qt5 framework"
++msgstr "Скриптовая библиотека приложений для фреймворка Qt5"
+ 
+-msgid "The SQL module for the Qt toolkit"
+-msgstr "Модуль SQL для инструментария Qt"
++msgid "SQL abstraction library for the Qt5 tooolkit"
++msgstr "Библиотека абстракции SQL для фреймворка Qt5"
+ 
+-msgid "The SVG module for the Qt toolkit"
+-msgstr "Модуль SVG для инструментария Qt"
++msgid "SVG rendering library for the Qt5 framework"
++msgstr "Библиотека SVG-графики для фреймворка Qt5"
+ 
+-msgid "The QtTest module for unit testing Qt applications and libraries"
+-msgstr ""
+-"Модуль QtTest для стартового тестирования приложений и библиотек, написанных "
+-"на Qt"
++msgid "Unit testing library for the Qt5 framework"
++msgstr "Библиотека модульного тестирования для фреймворка Qt5"
+ 
+-msgid "The WebKit module for the Qt toolkit"
+-msgstr "Модуль WebKit для инструментария Qt"
++msgid "WebKit rendering library for the Qt5 framework"
++msgstr "Библиотека веб-движка WebKit для фреймворка Qt5"
+ 
+-msgid "The XmlPatterns module for the Qt toolkit"
+-msgstr "Модуль XmlPatterns для инструментария Qt"
++msgid "XPath, XQuery, and XSLT support library for the Qt5 framework"
++msgstr "Библиотека поддержки языков XPath, XQuery и XSLT для фреймворка Qt5"
+ 
+ msgid "A JSON implementation as a Ruby extension"
+ msgstr "Расширение JSON в языке Ruby"
+@@ -1791,6 +1809,9 @@ msgid ""
+ msgstr ""
+ "Фронтенд для утилит find, (s)locate, doodle, tracker, beagle, strigi и pinot"
+ 
++msgid "fast compiler cache"
++msgstr "Быстрый кэш компилятора"
++
+ msgid "Cross platform Make"
+ msgstr "Кроссплатформенная утилита Make"
+ 
+@@ -1907,9 +1928,6 @@ msgstr "Набор схем настроек GSettings для рабочего 
+ msgid "Virtual filesystem implementation for gio"
+ msgstr "Виртуальная реализация файловой системы GIO"
+ 
+-msgid "GNOME Disk Utility libraries"
+-msgstr "Библиотеки дисковой утилиты, интегрированной в среду GNOME"
+-
+ msgid "Library to construct graphical interfaces at runtime"
+ msgstr ""
+ "Библиотека для создания графических интерфейсов во время исполнения программ"
+@@ -2527,6 +2545,9 @@ msgstr ""
+ "Модуль системных настроек KDE, предназначенный для настройки внешнего вида "
+ "приложений GTK"
+ 
++msgid "Alternative KDE screen management"
++msgstr "Альтернативный менеджер экрана для рабочего окружения KDE"
++
+ msgid "KDE frontend for NetworkManager"
+ msgstr "KDE-фронтенд для менеджера сетевых подключений NetworkManager"
+ 
+@@ -2785,6 +2806,9 @@ msgstr "Темы Calculate Linux для менеджера сеансов LightD
+ msgid "The MATE image viewer"
+ msgstr "Просмотрщик картинок для использования в среде MATE"
+ 
++msgid "Qt4-based image viewer"
++msgstr "Просмотрщик картинок основанный на Qt4"
++
+ msgid "NVIDIA's C graphics compiler toolkit"
+ msgstr "C-компиляторы графики NVIDIA"
+ 
+@@ -3259,7 +3283,7 @@ msgstr "Пакет сетевой поддержки для мультимеди
+ msgid "A library that handles the decoding of sound file formats"
+ msgstr "Библиотека, обеспечивающая декодирование звуковых форматов файлов"
+ 
+-msgid "sK1 vector graphics editor"
++msgid "sk1 vector graphics lib"
+ msgstr "Библиотека векторной графики sk1"
+ 
+ msgid "SDL MPEG Player Library"
+@@ -3536,9 +3560,6 @@ msgid ""
+ "Console-based network traffic monitor that keeps statistics of network usage"
+ msgstr "Консольный монитор сетевой активности, сохраняющий статистику трафика"
+ 
+-msgid "A GNOME 2 WvDial frontend"
+-msgstr "Фронтенд для использования WvDial в рабочей среде GNOME 2"
+-
+ msgid ""
+ "Communication package providing the X, Y, and ZMODEM file transfer protocols"
+ msgstr "Пакет передачи данных, включающий протоколы X-, Y- и ZMODEM"
+@@ -4113,6 +4134,11 @@ msgstr "Утилита, преобразующая программный код
+ msgid "Handling files and directories portably"
+ msgstr "Переносимый модуль поддержки операций с файлами и директориями"
+ 
++msgid "File::Temp can be used to create and open temporary files in a safe way"
++msgstr ""
++"Модуль File::Temps; используется для безопасного создания и открытия "
++"временных файлов"
++
+ msgid "load various IO modules"
+ msgstr "Инструмент загрузки различных модулей ввода-вывода"
+ 
+@@ -4322,13 +4348,8 @@ msgstr ""
+ "Утилита, которая, используя автообнаружение, подключает систему к локальной "
+ "сети через порт Ethernet и отключает от неё"
+ 
+-msgid ""
+-"A newer, better system information script for irc, administration, and "
+-"system troubleshooters."
+-msgstr ""
+-"Обновлённый и улучшенный сценарий, позволяющий проверять системную "
+-"информацию в целях администрирования и устранения неполадок с выводом в "
+-"консоль и IRC"
++msgid "A full featured system information script"
++msgstr "Полнофункциональный сценарий для просмотра информации о системе"
+ 
+ msgid "kernel routing and traffic control utilities"
+ msgstr ""
+@@ -4486,7 +4507,7 @@ msgstr "Утилита для хранения пользовательског
+ msgid "PAM LDAP Module"
+ msgstr "Модуль PAM для прокотола LDAP"
+ 
+-msgid "Module of the checking system update"
++msgid "System authentification update checkup tool"
+ msgstr "Модуль проверки системных обновлений"
+ 
+ msgid "Policy framework for controlling privileges for system-wide services"
+@@ -4522,8 +4543,9 @@ msgstr "Консольная утилита для RAID-контроллера 3
+ msgid "Module calcmenu.c32 for syslinux"
+ msgstr "Модуль calcmenu.c32 для загрузчика ядра syslinux"
+ 
+-msgid "Interact with the EFI Boot Manager"
+-msgstr "Утилита, позволяющая взаимодействовать с менеджером загрузки EFI"
++msgid "User-space application to modify the EFI boot manager"
++msgstr ""
++"Приложение для управления менеджером загрузки EFI из пользовательской среды"
+ 
+ msgid "Library for build EFI Applications"
+ msgstr "Библиотека для сборки EFI-приложений"
+@@ -4725,11 +4747,11 @@ msgstr "Образ ядра Calculate Linux"
+ msgid "Generic initramfs generation tool"
+ msgstr "Универсальная утилита для генерации initramfs"
+ 
+-msgid "Full sources including the Gentoo patchset for the 3.16 kernel tree"
+-msgstr "Полный исходный код ядра, включая патчи Gentoo для версии 3.16"
++msgid "Full sources including the Gentoo patchset for the 3.17 kernel tree"
++msgstr "Полный исходный код ядра, включая патчи Gentoo для версии 3.17"
+ 
+-msgid "Hardened kernel sources (kernel series 3.15)"
+-msgstr "Ядро повышенной безопасности hardened (версия 3.15)"
++msgid "Hardened kernel sources (kernel series 3.17)"
++msgstr "Ядро повышенной безопасности hardened (версия 3.17)"
+ 
+ msgid "Linux firmware files"
+ msgstr "Файлы прошивки Linux"
+@@ -5165,6 +5187,10 @@ msgstr "Виртуальный пакет для версии Perl"
+ msgid "Virtual for the pkg-config implementation"
+ msgstr "Виртуальный пакет для pkg-config"
+ 
++msgid "Virtual package to ease the transition to unified PostgreSQL ebuilds"
++msgstr ""
++"Виртуальный пакет для упрощения перехода на единые сценарии сборки PostgreSQL"
++
+ msgid "Virtual for Python Imaging Library"
+ msgstr "Виртуальный пакет для графической библиотеки Python"
+ 
+@@ -5474,6 +5500,9 @@ msgstr "Библиотека объектов и утилит, предназн
+ msgid "Gimp ToolKit +"
+ msgstr "Библиотека элементов интерфейса, изначально - часть GIMP"
+ 
++msgid "GL extensions for Gtk+ 2.0"
++msgstr "Расширения GL для фреймворка Gtk+ 2.0"
++
+ msgid "A text widget implementing syntax highlighting and other features"
+ msgstr "Текстовый виджет, реализующий подсветку синтаксиса и другой функционал"
+ 
+@@ -5489,6 +5518,9 @@ msgstr "Библиотека для интеграции утилиты su в д
+ msgid "X.Org Inter-Client Exchange library"
+ msgstr "Библиотека межклиентского обмена для X.Org"
+ 
++msgid "KDE screen management library"
++msgstr "Библиотека управления рабочим столом KDE"
++
+ msgid "A window navigation construction kit for MATE"
+ msgstr "Набор библиотек для написания пейджеров и списков задач для среды MATE"
+ 
+@@ -5625,6 +5657,9 @@ msgstr "X.Org-библиотека Xxf86vm"
+ msgid "Internationalized text layout and rendering library"
+ msgstr "Библиотека для форматирования и отображения текста на разных языках"
+ 
++msgid "PangoX compatibility library"
++msgstr "Библиотека совместимости для PangoX"
++
+ msgid "Low-level pixel manipulation routines"
+ msgstr "Низкоуровневые методы обработки пикселей"
+ 

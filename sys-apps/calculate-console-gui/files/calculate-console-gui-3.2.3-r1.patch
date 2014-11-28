@@ -1,0 +1,371 @@
+diff --git pym/consolegui/application/Box.py pym/consolegui/application/Box.py
+index f897b9d..53fb7c5 100755
+--- pym/consolegui/application/Box.py
++++ pym/consolegui/application/Box.py
+@@ -33,7 +33,7 @@ from session_function import ViewSessionInfo
+ from CertificateClass import CertClass
+ 
+ from pid_information import client_list_pid
+-from more import icon_visible, client_del_sid, show_msg, read_root_methods
++from more import icon_visible, client_del_sid, show_msg
+ 
+ class MainWgt(QtGui.QMainWindow):            
+     def __init__(self, ClientObj):
+@@ -146,16 +146,11 @@ class MainWgt(QtGui.QMainWindow):
+         self.left_frame.old_title = None
+ 
+ #        icon_visible(self, 'Methods', False)
+-        if not self.ClientObj.cwd:
+-            icon_visible(self, 'Back', False)
++        icon_visible(self, 'Back', False)
+         self.resize(self.cur_size)
+ 
+     def back(self):
+         if len (self.ClientObj.back_step_list) < 2:
+-            if type(self.MainFrameWgt) == DisplayMethod and self.ClientObj.cwd:
+-                self.ClientObj.cwd.pop()
+-                read_root_methods(self.ClientObj.client, self.ClientObj)
+-                
+             self.delete_MainFrameWgt()
+ 
+             self.MainFrameWgt = DisplayMethod(self, self.ClientObj)
+@@ -167,8 +162,7 @@ class MainWgt(QtGui.QMainWindow):
+             self.left_frame.old_title = None
+ 
+ #            icon_visible(self, 'Methods', False)
+-            if not self.ClientObj.cwd:
+-                icon_visible(self, 'Back', False)
++            icon_visible(self, 'Back', False)
+ 
+         else:
+             # get WindowTitle and delete last item from back_step_list
+diff --git pym/consolegui/application/ControlButton.py pym/consolegui/application/ControlButton.py
+index b5a99da..ccd7576 100644
+--- pym/consolegui/application/ControlButton.py
++++ pym/consolegui/application/ControlButton.py
+@@ -57,9 +57,9 @@ class MethodNameWgt(QtGui.QWidget):
+         self.hide()
+ 
+     def setMethodName(self, method_name):
+-        for method_info in self.ClientObj.methods_list:
+-            if method_info.name == method_name:
+-                self.meth_name.setText(method_info.title)
++        for meth_inf in self.ClientObj.methods_list:
++            if meth_inf.string[1] == method_name:
++                self.meth_name.setText(meth_inf.string[2])
+                 return
+         self.meth_name.setText(method_name)
+ 
+diff --git pym/consolegui/application/DisplayMethod.py pym/consolegui/application/DisplayMethod.py
+index 136dee2..df91f77 100755
+--- pym/consolegui/application/DisplayMethod.py
++++ pym/consolegui/application/DisplayMethod.py
+@@ -18,7 +18,6 @@ from PySide import QtGui, QtCore
+ 
+ from more import ButtonMenu, FlowLayout, get_sid, ClientServiceThread, \
+                  get_view_params, show_msg
+-from collections import namedtuple
+ 
+ class DisplayMethod(QtGui.QWidget):
+     def __init__(self, parent, ClientObj):
+@@ -29,6 +28,10 @@ class DisplayMethod(QtGui.QWidget):
+         ClientObj.back_step_list = []
+ 
+     def initUI(self, results):
++        GROUP = 0 # Getting group name
++        METH = 1 # Getting method name
++        LABEL = 2 # Get translate label
++        IMAGE = 3 # Getting image path
+         self.lable_list = []
+         self.button_list = {}
+         self.layout = QtGui.QVBoxLayout()
+@@ -71,15 +74,19 @@ class DisplayMethod(QtGui.QWidget):
+             self.setLayout(self.layout)
+             self.show()
+             return 1
+-        for method_info in results:
+-            groups_name = method_info.category
+-            if groups_name in [None,'None']:
+-                self.ClientObj.method_names[method_info.name] = method_info.title
++        for num in range (0, len(results)):
++            groups_name = results[num].string[GROUP]
++            if results[num].string[GROUP] in [None,'None']:
++                self.ClientObj.method_names[results[num].string[METH]] = \
++                                        results[num].string[LABEL]
+                 continue
+             if not groups_name in guiMethods.keys():
+                 guiMethods[groups_name] = []
+-            self.ClientObj.method_names[method_info.name] = method_info.title
+-            guiMethods[groups_name].append(method_info)
++            self.ClientObj.method_names[results[num].string[METH]] = \
++                                        results[num].string[LABEL]
++            guiMethods[groups_name].append(results[num].string[METH])
++            guiMethods[groups_name].append(results[num].string[LABEL])
++            guiMethods[groups_name].append(results[num].string[IMAGE])
+ 
+         # display all groups and methods
+         for group in guiMethods:
+@@ -110,7 +117,7 @@ class DisplayMethod(QtGui.QWidget):
+                         (sub_group_list)
+ 
+                 Button = ButtonMenu(sub_group, sub_group, \
+-                                    'folder-documents,folder', parent=self)
++                                    'folder-documents,folder', self)
+                 Button.clicked.connect(self.groupActivated \
+                                     (self.button_list[sub_group][0], \
+                                      self.button_list[sub_group][1]))
+@@ -129,13 +136,19 @@ class DisplayMethod(QtGui.QWidget):
+ 
+             if not self.layout_dict.has_key(group):
+                 self.layout_dict[group] = FlowLayout(self.groupbox_dict[group])
+-            for method_info in sorted(guiMethods[group], key=lambda x:x.title):
+-                #print method_info.status
+-                Button = ButtonMenu(method_info.name,
+-                                method_info.title,
+-                                method_info.icon,
+-                                emblem=method_info.status,
+-                                parent=self)
++            view_name_sort = filter(lambda x: guiMethods[group].index(x) % 3 \
++                                    == 1, guiMethods[group])
++            view_name_sort.sort()
++            guiMethods_sort = []
++            for sort_name in view_name_sort:
++                ind = guiMethods[group].index(sort_name)
++                for i in range(ind-1, ind+2):
++                    guiMethods_sort.append(guiMethods[group][i])
++            for method_name in range (0, len(guiMethods_sort), 3):
++                Button = ButtonMenu(guiMethods_sort[method_name],\
++                                guiMethods_sort[method_name + 1], \
++                                guiMethods_sort[method_name + 2], \
++                                self)
+                 Button.clicked.connect(self.onActivated)
+ 
+ #                try:
+diff --git pym/consolegui/application/LeftMenu.py pym/consolegui/application/LeftMenu.py
+index cd18d5b..e26ce8f 100755
+--- pym/consolegui/application/LeftMenu.py
++++ pym/consolegui/application/LeftMenu.py
+@@ -134,7 +134,7 @@ class LeftMenu(QtGui.QScrollArea):
+                         (sub_group_list)
+                 
+                 Button = ButtonMenu(sub_group, sub_group, \
+-                                            'folder-documents,folder', parent=self)
++                                            'folder-documents,folder', self)
+                 Button.clicked.connect(display_wgt.groupActivated \
+                                         (self.button_list[sub_group][0],\
+                                          self.button_list[sub_group][1]))
+@@ -147,7 +147,7 @@ class LeftMenu(QtGui.QScrollArea):
+                     continue
+             except IndexError:
+                 pass
+-            Button = ButtonMenu(groups[i], groups[i + 1], groups[i + 2], None, parent=self)
++            Button = ButtonMenu(groups[i], groups[i + 1], groups[i + 2], self)
+             Button.clicked.connect(self.onActivated)
+             if not self.button_list.has_key(sub_groups[num]):
+                 self.button_list[sub_groups[num]] = []
+diff --git pym/consolegui/application/TrayIcon.py pym/consolegui/application/TrayIcon.py
+index 25d6d62..2f4891a 100644
+--- pym/consolegui/application/TrayIcon.py
++++ pym/consolegui/application/TrayIcon.py
+@@ -275,7 +275,8 @@ class TrayIcon (QtGui.QSystemTrayIcon):
+         """
+         pid = str(self._parent.sys_update_pid)
+         client_obj = self._parent.localhost_ClientObj
+-        pids = map(str, client_pid_info(client_obj, client_obj.client, 0))
++        pids = map(str, client_list_pid(client_obj.client))
++        client_pid_info(client_obj, client_obj.client, 0)
+         if self._parent.localhost_ClientObj:
+             if pid and pid in client_obj.process_dict and pid in pids:
+                 return pid
+diff --git pym/consolegui/application/mainframe.py pym/consolegui/application/mainframe.py
+index dc42ef2..ee4691f 100755
+--- pym/consolegui/application/mainframe.py
++++ pym/consolegui/application/mainframe.py
+@@ -2238,15 +2238,12 @@ class MainFrame(QtGui.QWidget):
+                 sid = int(self.ClientObj.sid)
+                 # call method on server
+                 try:
+-                    import time
+-                    print time.time()
+                     if self.param_object:
+                         meth_result_temp = self.ClientObj.client.service[0] \
+                                     [self.method_name](sid, self.param_object)
+                     else:
+                         meth_result_temp = self.ClientObj.client.service[0] \
+                                                        [self.method_name](sid)
+-                    print time.time()
+                 except Exception, e:
+                     self.calling_error = True
+                     msg = e.message
+@@ -2259,16 +2256,6 @@ class MainFrame(QtGui.QWidget):
+                     return 1
+                 meth_result = []
+                 error = False
+-                # TODO: mark A
+-                if any(x['method_type'] == 'directory'
+-                       for x in self.ClientObj.methods_list
+-                       if x['name'] == self.method_name):
+-                    self.ClientObj.methods_list = meth_result_temp[0]
+-                    self.ClientObj.cwd.append(self.method_name)
+-                    self.ClientObj.MainWidget.display_methods()
+-                    return 0
+-                #print "DEBUG",self.ClientObj.methods_list
+-                #print "DEBUG2",self.method_name
+                 for res in meth_result_temp[0]:
+                     meth_result.append(ReturnedMessage(res.type, res.field, \
+                                                       res.message, res.expert))
+diff --git pym/consolegui/application/more.py pym/consolegui/application/more.py
+index 4029e20..8ac50f3 100755
+--- pym/consolegui/application/more.py
++++ pym/consolegui/application/more.py
+@@ -194,17 +194,7 @@ class HelpMenu(TopMenu):
+         TopMenu.mouseReleaseEvent(self, event)
+ 
+ class ButtonMenu(QtGui.QPushButton):
+-
+-    def statusIcon(self, emblem, size):
+-        status_icons = {'complete':('process-completed-symbolic',),
+-                        'warning': ('process-error-symbolic',),
+-                        'question': ('dialog-question',),
+-                        'process': ('clock',)
+-                        }
+-        for icon in status_icons.get(emblem,['']):
+-            return QtGui.QIcon.fromTheme(icon).pixmap(size)
+-
+-    def __init__(self, name, label, images, emblem=None, parent=None):
++    def __init__(self, name, label, images, parent):
+         QtGui.QPushButton.__init__(self, parent)
+         self.layout = QtGui.QVBoxLayout(self)
+         self.layout.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+@@ -221,35 +211,25 @@ class ButtonMenu(QtGui.QPushButton):
+             icon = QtGui.QIcon.fromTheme(image)
+             if not icon.isNull():
+                 pm2 = icon.pixmap(128)
++                icon_flag = False
+                 break
+             elif os.path.isfile(image):
+                 ir = QtGui.QImageReader(image)
+                 ir.setScaledSize(QtCore.QSize(32, 32))
+                 img = ir.read()
+                 pm2 = QtGui.QPixmap().fromImage(img)
++
++                icon_flag = False
+                 break
+-        else:
++        if icon_flag:
+             icon = QtGui.QIcon.fromTheme('applications-system')
+             pm2 = icon.pixmap(32)
+ 
+         pm2 = pm2.scaled(QtCore.QSize(32,32), QtCore.Qt.IgnoreAspectRatio, \
+                         QtCore.Qt.SmoothTransformation)
+ 
+-        if emblem:
+-            icon_size = 40
+-            emblem_size = 18
+-            pixmap = QtGui.QPixmap(icon_size,icon_size)
+-            pixmap.fill(QtCore.Qt.transparent)
+-            painter = QtGui.QPainter(pixmap)
+-            painter.drawPixmap(0,0,pm2)
+-            painter.drawPixmap(icon_size-emblem_size,(icon_size-emblem_size)*0.7,
+-                               self.statusIcon(emblem, emblem_size))
+-            self.image_lbl.setPixmap(pixmap)
+-            painter.end()
+-        else:
+-            self.image_lbl.setPixmap(pm2)
+-
+-        self.image_lbl.setMinimumHeight(48)
++        self.image_lbl.setPixmap(pm2)
++        self.image_lbl.setMinimumHeight(32)
+         self.image_lbl.setAlignment(QtCore.Qt.AlignHCenter)
+ 
+         # add transparency
+@@ -261,7 +241,7 @@ class ButtonMenu(QtGui.QPushButton):
+         if not label:
+             label = name
+         self.lbl = LabelWordWrap(label, self)
+-        self.lbl.setFixedHeight(32)
++        self.lbl.setFixedHeight(30)
+         self.lbl.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+         self.lbl.resize(self.lbl.sizeHint())
+         self.lbl.setStyleSheet("QLabel {border: None;}")
+@@ -281,8 +261,6 @@ class ButtonMenu(QtGui.QPushButton):
+                            "border-radius: 7px;}"
+                            "QPushButton:hover:!pressed{background-color: "
+                            "rgb(230,230,230); border-radius: 7px;}")
+-        if emblem == 'disable':
+-            self.setDisabled(True)
+         self.updateGeometry()
+ 
+     def text(self):
+@@ -2513,13 +2491,8 @@ def post_connect_action(client, ClientObj):
+     icon_visible(ClientObj.MainWidget, 'Connect', False)
+     icon_visible(ClientObj.MainWidget, 'Certificates', False)    
+ 
+-    read_root_methods(client, ClientObj)
+-
+-
+-def read_root_methods(client, ClientObj):
+     ClientObj.methods_list = client_list_methods(ClientObj.sid, client)
+-    ClientObj.cwd = []
+-    if ClientObj.methods_list is None:
++    if ClientObj.methods_list  == 1:
+         show_msg (_('No methods available!'), parent = ClientObj.MainWidget)
+         ClientObj.MainWidget.disconnect(True)
+         return 1
+@@ -2574,21 +2547,23 @@ def client_del_sid(client):
+ 
+ def client_list_methods(sid, client):
+     """ get & show all available methods for this certificate """
++    DAT = 0 # Access to data soap structure
++    RES = 0 # Access to result
++    COM = 0 # Getting command group
++
+     try:
+         results = client.service.get_methods(sid, 'gui')
+     except urllib2.URLError, e:
+         _print ('client.service.get_methods in client_list_methods Exception')
+-        return None
+-    # старый протокол
++        return 1
++    if not results:
++        return 1
+     try:
+-        results[0][0].name
++        if results[DAT][RES][RES][COM] == '0':
++            return 1
+     except:
+-        return None
+-    if results[0][0][0][0] == 1:
+-        return None
+-    if not results:
+-        return None
+-    return results[0]
++        pass
++    return results[DAT]
+ 
+ # get session id
+ def get_sid (client):
+diff --git pym/consolegui/application/pid_information.py pym/consolegui/application/pid_information.py
+index 999086a..31fc0cd 100755
+--- pym/consolegui/application/pid_information.py
++++ pym/consolegui/application/pid_information.py
+@@ -63,9 +63,9 @@ def gen_pid_ls(client):
+     try:
+         list_pid = client_list_pid(client)
+         if not list_pid:
+-            return []
++            return 0
+     except:
+-        return []
++        return 0
+     return list_pid
+ 
+ def pid_inf(ClientObj, client, sid, pids):
+@@ -111,7 +111,6 @@ def client_pid_info(ClientObj, client, pid):
+         pid_ls = gen_pid_ls(client)
+         if pid_ls:
+             pid_inf(ClientObj, client, sid, pid_ls)
+-        return pid_ls
+ #    except:
+ #        show_msg("Error get process information")
+ #        return 1
