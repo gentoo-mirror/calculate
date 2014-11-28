@@ -10,21 +10,32 @@ inherit distutils-r1 eutils
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2
 	http://mirror.yandex.ru/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
+DESCRIPTION="The program of setting and storing the user account in the domain"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="x86 amd64"
 
-RDEPEND=">=sys-apps/calculate-lib-3.2.3"
+DEPEND="~sys-apps/calculate-desktop-3.2.3
+	!<sys-apps/calculate-client-3.1.0
+	>=dev-python/python-ldap-2.0[ssl]
+	>=sys-auth/pam_ldap-180[ssl]
+	>=sys-auth/nss_ldap-239
+	sys-apps/keyutils
+	sys-auth/pam_keystore
+	sys-auth/pam_client
+	dev-lang/swig"
 
-DEPEND="sys-devel/gettext
-	${RDEPEND}"
+RDEPEND="${DEPEND}"
+
+python_install() {
+	distutils-r1_python_install --install-scripts=/usr/sbin
+}
 
 src_unpack() {
     unpack "${A}"
     cd "${S}"
 
     # apply revision changes
-    epatch "${FILESDIR}/calculate-i18n-3.2.3-r2.patch"
+    epatch "${FILESDIR}/calculate-client-3.2.3-r4.patch"
 }

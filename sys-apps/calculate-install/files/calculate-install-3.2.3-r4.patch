@@ -1,0 +1,50 @@
+diff --git pym/install/migrate_users.py pym/install/migrate_users.py
+index d00a5c5..f862eb2 100644
+--- pym/install/migrate_users.py
++++ pym/install/migrate_users.py
+@@ -401,11 +401,11 @@ class migrate:
+         notWrite = lambda x: not os.access(x, os.W_OK)
+         filesNotRead = filter(notRead,checkThisFiles)
+         if filesNotRead:
+-            raise MigrationError(_("Failed to read files") + ": " +\
++            raise MigrationError(_("Failed to read files") + _(": ") +
+                             ", ".join(filesNotRead))
+         filesNotWrite = filter(notWrite,checkNewFiles)
+         if filesNotWrite:
+-            raise MigrationError(_("Failed to write to files") + ": " +\
++            raise MigrationError(_("Failed to write to files") + _(": ") +
+                             ", ".join(filesNotWrite))
+         # Check permissions backup files
+         checkNewBackupFiles = map(lambda x:pathJoin(self.prefixNewSystem,x+"-"),
+@@ -415,7 +415,7 @@ class migrate:
+                                     not os.access(os.path.dirname(x), os.W_OK))
+         filesNotWrite = filter(notWriteBackup, checkNewBackupFiles)
+         if filesNotWrite:
+-            raise MigrationError(_("Failed to write to files") + ": " +\
++            raise MigrationError(_("Failed to write to files") + _(": ") +
+                             ", ".join(filesNotWrite))
+         return True
+ 
+diff --git pym/install/wsdl_install.py pym/install/wsdl_install.py
+index 1c117be..cf2d1ea 100644
+--- pym/install/wsdl_install.py
++++ pym/install/wsdl_install.py
+@@ -137,7 +137,8 @@ class Wsdl(WsdlBase):
+         'method_name':"install_pxe",
+         'category':__("Installation"),
+         'title':__("PXE Install"),
+-        'image':'network-server,preferences-desktop-remote-desktop',
++        'image':('gnome-network-properties,network-server,'
++                'preferences-desktop-remote-desktop'),
+         'command':'cl-install-pxe',
+         'gui':True,
+         'rights':['installpxe'],
+@@ -187,7 +188,7 @@ class Wsdl(WsdlBase):
+         'method_name':"setup_network",
+         'category':__("Configuration"),
+         'title':__("Network"),
+-        'image':'gnome-network-properties,'
++        'image':'network-workgroup,'
+                 'network-idle,preferences-system-network',
+         'command':'cl-setup-network',
+         'gui':True,

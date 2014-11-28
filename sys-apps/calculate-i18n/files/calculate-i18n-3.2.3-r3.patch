@@ -1,463 +1,1029 @@
+diff --git fr/cl_client3.po fr/cl_client3.po
+index da64448..b4b2737 100644
+--- fr/cl_client3.po
++++ fr/cl_client3.po
+@@ -15,6 +15,9 @@ msgstr ""
+ msgid "Failed to read the file"
+ msgstr "Création du fichier %s échouée"
+ 
++msgid ": "
++msgstr " : "
++
+ msgid "Failed to write to file"
+ msgstr "Impossible d'écrire dans le fichier"
+ 
+@@ -36,8 +39,8 @@ msgstr "Client"
+ msgid "Domain"
+ msgstr "Domaine"
+ 
+-msgid "Configure"
+-msgstr "Configurer"
++msgid "Perform"
++msgstr "Exécuter"
+ 
+ msgid "Domain User Login"
+ msgstr "Identification de l'utilisateur domaine"
+@@ -45,26 +48,23 @@ msgstr "Identification de l'utilisateur domaine"
+ msgid "Domain user login"
+ msgstr "Identification de l'utilisateur domaine"
+ 
+-msgid "Login"
+-msgstr "S'identifier"
+-
+ msgid "Domain User Logout"
+ msgstr "Sortie de l'utilisateur domaine"
+ 
+ msgid "Domain user logout"
+ msgstr "Sortie de l'utilisateur domaine"
+ 
+-msgid "Logout"
+-msgstr "Sortie"
+-
+ msgid "Change Password"
+ msgstr "Modifier le mot de passe"
+ 
+ msgid "Change password"
+ msgstr "Modifier le mot de passe"
+ 
++msgid "Save"
++msgstr "Sauvegarder"
++
+ msgid "RsyncProgressBar: Wrong pipe"
+-msgstr "RsyncProgressBar: Tube incorrect"
++msgstr "RsyncProgressBar : Tube incorrect"
+ 
+ msgid "Failed to write variables in file %s"
+ msgstr "Impossible d'écrire les variables dans le fichier %s"
+@@ -78,6 +78,9 @@ msgstr "Nouveau mot de passe"
+ msgid "Retype the new password"
+ msgstr "Veuillez ressaisir le nouveau mot de passe"
+ 
++msgid ":"
++msgstr " :"
++
+ msgid "ERROR"
+ msgstr "ERREUR"
+ 
+diff --git fr/cl_console3.po fr/cl_console3.po
+index c112d25..390f7f2 100644
+--- fr/cl_console3.po
++++ fr/cl_console3.po
+@@ -21,9 +21,15 @@ msgstr "Ce certificat a été révoqué !"
+ msgid "Serial"
+ msgstr "Numéro de série"
+ 
++msgid ": %s\n"
++msgstr " : %s\n"
++
+ msgid "Revoke date"
+ msgstr "Date de révocation"
+ 
++msgid ": %s"
++msgstr " : %s"
++
+ msgid "Failed to create directory %s"
+ msgstr "Création du répertoire %s échouée"
+ 
 diff --git fr/cl_consolegui3.po fr/cl_consolegui3.po
-index d88fc12..b1a2a0f 100644
+index 04fb562..b1a2a0f 100644
 --- fr/cl_consolegui3.po
 +++ fr/cl_consolegui3.po
-@@ -118,10 +118,10 @@ msgid "Connection lost!"
+@@ -117,11 +117,11 @@ msgstr "Nouvelle connexion"
+ msgid "Connection lost!"
  msgstr "Connexion perdue !"
  
- msgid "The server was restarted"
--msgstr ""
+-msgid "The server was restarted."
+-msgstr "Le serveur a été relancé."
++msgid "The server was restarted"
 +msgstr "Le serveur a été relancé"
  
- msgid "Reconnecting to the server"
--msgstr ""
+-msgid "Please try reconnecting to the server."
+-msgstr "Veuillez vous reconnecter au serveur."
++msgid "Reconnecting to the server"
 +msgstr "Reconnection au serveur en cours"
  
  msgid "Closing session"
  msgstr "Fermeture de session"
-@@ -211,7 +211,7 @@ msgid "Program settings"
- msgstr "Réglages du programme"
+@@ -201,6 +201,21 @@ msgstr "Vous n'êtes pas connecté au serveur local !"
+ msgid "System control"
+ msgstr "Gestion du système"
  
- msgid "Update System"
--msgstr ""
++msgid "About"
++msgstr "À propos"
++
++msgid "Report a Bug"
++msgstr "Signaler un bogue"
++
++msgid "Program settings"
++msgstr "Réglages du programme"
++
++msgid "Update System"
 +msgstr "Mise à jour système"
++
++msgid "Exit Program"
++msgstr "Quitter le programme"
++
+ msgid "System Update"
+ msgstr "Mise à jour système"
  
- msgid "Exit Program"
- msgstr "Quitter le programme"
-@@ -583,10 +583,10 @@ msgid "Company"
+@@ -535,7 +550,7 @@ msgid "Request %s not found on the client’s side"
+ msgstr "Requête %s introuvable du côté du serveur"
+ 
+ msgid "Signature request rejected!"
+-msgstr "Créer une requête de certificat"
++msgstr "Créer une requête de certificat !"
+ 
+ msgid "The request has not been reviewed yet."
+ msgstr "La requête n'a pas encore été examinée"
+@@ -561,14 +576,17 @@ msgstr "Le fichier contenant le certificat AC a été créé"
+ msgid "The user should not be root"
+ msgstr "L'utilisateur ne doit pas être root"
+ 
+-msgid "Makes part of Calculate Utilities 3.0.0"
+-msgstr "Fait partie des Calculate Utilities 3.0.0"
++msgid "Makes part of Calculate Utilities %s"
++msgstr "Fait partie des Calculate Utilities %s"
+ 
+ msgid "Company"
  msgstr "Société"
  
- msgid "Developer:"
--msgstr ""
+-msgid "Company website"
+-msgstr "Site web de la société"
++msgid "Developer:"
 +msgstr "Développeur :"
- 
- msgid "Calculate company"
--msgstr ""
++
++msgid "Calculate company"
 +msgstr "Calculate S.A.R.L."
  
  msgid "Distribution website"
  msgstr "Site web de la distribution"
+@@ -597,9 +615,6 @@ msgstr "Message :"
+ msgid "Send a Bug"
+ msgstr "Envoyer un bogue"
+ 
+-msgid "Report a Bug"
+-msgstr "Signaler un bogue"
+-
+ msgid "Enter a valid email!"
+ msgstr "Veuillez saisir une adresse mail valide !"
+ 
+@@ -612,9 +627,6 @@ msgstr "Erreur d'envoi"
+ msgid "The user must not be root"
+ msgstr "L'utilisateur ne doit pas être root"
+ 
+-msgid "About"
+-msgstr "À propos"
+-
+ msgid "Info"
+ msgstr "Info"
+ 
+@@ -637,7 +649,7 @@ msgid "No access to the file!"
+ msgstr "Accès au fichier refusé !"
+ 
+ msgid "Failed to obtain certificate data!"
+-msgstr "Impossible d'obtenir les données du certificat!"
++msgstr "Impossible d'obtenir les données du certificat !"
+ 
+ msgid "%s: Permission denied"
+ msgstr "%s : Déni d'accès"
 diff --git fr/cl_core3.po fr/cl_core3.po
-index c95abdb..1503572 100644
+index e2541c1..1503572 100644
 --- fr/cl_core3.po
 +++ fr/cl_core3.po
-@@ -28,7 +28,7 @@ msgid "Patch"
+@@ -21,14 +21,14 @@ msgstr "Configurer un paquet"
+ msgid "Configure a package"
+ msgstr "Configurer un paquet"
+ 
+-msgid "Setup"
+-msgstr "Réglages"
++msgid "Perform"
++msgstr "Effectuer"
+ 
+ msgid "Patch"
  msgstr "Patch"
  
- msgid "Update "
--msgstr ""
+-msgid "Update"
+-msgstr "Actualiser"
++msgid "Update "
 +msgstr "Mise à jour"
  
  msgid "Update settings"
  msgstr "Actualiser les paramètres"
-@@ -139,7 +139,7 @@ msgid "Custom action"
+@@ -138,8 +138,8 @@ msgstr "Action aléatoire"
+ msgid "Custom action"
  msgstr "Action aléatoire"
  
- msgid "Restart calculate-core"
--msgstr ""
+-msgid "Perform"
+-msgstr "Effectuer"
++msgid "Restart calculate-core"
 +msgstr "Redémarrer calculate-core"
  
  msgid "Configuring dependencies: %s"
  msgstr "On configure les dépendances : %s"
-@@ -172,11 +172,11 @@ msgstr ""
+@@ -172,8 +172,14 @@ msgstr ""
  msgid "Using patches for the {nameProgram} package by Calculate Utilities"
  msgstr "Application des patchs Calculate pour le paquet {nameProgram}"
  
--msgid "Calculate core is executing follow tasks now"
--msgstr ""
+-msgid "Configuration skipping until calculate-utilities are updated"
+-msgstr "La configuration sera omise tant que calculate-utilities"
 +msgid "Calculate core is executing the following tasks"
 +msgstr "Les tâches suivantes sont en cours d'exécution par calculate-core"
- 
- msgid "Would you like to terminate these tasks?"
--msgstr ""
++
++msgid "Would you like to terminate these tasks?"
 +msgstr "Voulez-vous interrompre l'exécution de ces tâches ?"
++
++msgid "Configuration skipping until calculate-utils are updated"
++msgstr "La configuration sera omise tant que calculate-utils"
  
- msgid "Configuration skipping until calculate-utils are updated"
- msgstr "La configuration sera omise tant que calculate-utils"
-@@ -290,7 +290,7 @@ msgid "Modification of variables manually interrupted"
+ msgid "Variable"
+ msgstr "Variable"
+@@ -202,6 +208,12 @@ msgstr "La réponse est incertaine"
+ msgid "Ambiguous answer:"
+ msgstr "Réponse ambiguë :"
+ 
++msgid ":"
++msgstr " :"
++
++msgid "%s: "
++msgstr "%s : "
++
+ msgid "Repeat: "
+ msgstr "Réessayez : "
+ 
+@@ -277,6 +289,9 @@ msgstr ""
+ msgid "Modification of variables manually interrupted"
  msgstr "La modification des variables a été interrompue par l'utilisateur"
  
- msgid "Restarting calculate-core"
--msgstr ""
++msgid "Restarting calculate-core"
 +msgstr "Redémarrage de calculate-core"
- 
++
  msgid "Appling patches to package sources"
  msgstr "On applique les correctifs au code source"
-@@ -476,10 +476,10 @@ msgid "Session monitoring failed"
+ 
+@@ -327,7 +342,7 @@ msgstr "Sujet"
+ 
+ msgid "add this certificate to trusted and continue? y/[n]: "
+ msgstr ""
+-"ajouter ce certificat aux certificats de confiance et continuer ?  y/[n]:"
++"ajouter ce certificat aux certificats de confiance et continuer ? y/[n]:"
+ 
+ msgid "WARNING!!! %s trying to replace the certificate!"
+ msgstr "ATTENTION !!! %s essaie de remplacer le certificat !"
+@@ -421,6 +436,9 @@ msgstr "%s disponibles :"
+ msgid "Password"
+ msgstr "Mot de passe"
+ 
++msgid ": "
++msgstr " : "
++
+ msgid "Repeat password: "
+ msgstr "Veuillez ressaisir le mot de passe : "
+ 
+@@ -457,6 +475,12 @@ msgstr "Surveillance de la session lancée"
+ msgid "Session monitoring failed"
  msgstr "Surveillance de la session échouée"
  
- msgid "Restart watchdog started"
--msgstr ""
++msgid "Restart watchdog started"
 +msgstr "Le chien de garde a été lancé"
- 
- msgid "Restart watchdog failed"
--msgstr ""
++
++msgid "Restart watchdog failed"
 +msgstr "Impossible de lancer le chien de garde au redémarrage"
- 
++
  msgid "Closing all processes"
  msgstr "On ferme tous les processus"
+ 
+@@ -534,7 +558,7 @@ msgid "Method not found for %s"
+ msgstr "Méthode non trouvée pour %s"
+ 
+ msgid "Method not found: "
+-msgstr "Méthode non trouvée"
++msgstr "Méthode non trouvée : "
+ 
+ msgid "Manually interrupted"
+ msgstr "Interrompu par l'utilisateur"
+@@ -613,7 +637,7 @@ msgid "Create a new private key and request?"
+ msgstr "Voulez-vous créer une nouvelle clé privée et une requête ?"
+ 
+ msgid "This server is not enabled to sign certificates!"
+-msgstr "Ce serveur n'est pas autorisé à signer les certificats"
++msgstr "Ce serveur n'est pas autorisé à signer les certificats !"
+ 
+ msgid "Certificate saved. Your certificate ID = %s"
+ msgstr "Le certificat a été sauvegardé. Votre ID de certificat est %s"
+@@ -636,7 +660,7 @@ msgid "Fingerprint = "
+ msgstr "Empreinte = "
+ 
+ msgid "Permissions: "
+-msgstr "Permissions: "
++msgstr "Permissions : "
+ 
+ msgid "all methods"
+ msgstr "toutes les méthodes"
+@@ -663,7 +687,7 @@ msgid "Certificate not found"
+ msgstr "Certificat non trouvé"
+ 
+ msgid "Delete the client certificate with ID %d? y/[n]: "
+-msgstr "Supprimer le certificat de client avec l'ID %d? y/[n]: "
++msgstr "Supprimer le certificat de client avec l'ID %d ? y/[n]: "
+ 
+ msgid "Deleted"
+ msgstr "Supprimé"
+@@ -703,7 +727,7 @@ msgid "Request for signature not found!"
+ msgstr "Requête de certificat introuvable !"
+ 
+ msgid "Request \t%s: not signed"
+-msgstr "Requête \t%s: non signée"
++msgstr "Requête \t%s : non signée"
+ 
+ msgid "Request \t%s"
+ msgstr "Requête \t%s"
+@@ -872,6 +896,9 @@ msgstr "Impossible d'importer %s"
+ msgid "No module named %s"
+ msgstr "Pas de module %s"
+ 
++msgid "User %s does not exist"
++msgstr "Le utilisateurs %s n'existe pas"
++
+ msgid "listening to https://0.0.0.0:%d"
+ msgstr "en écoute de https://0.0.0.0:%d"
+ 
+@@ -904,7 +931,7 @@ msgstr ""
+ "--use-root-as-server)"
+ 
+ msgid "Country (two letters only!): "
+-msgstr "Pays (seul le code à deux lettres est accepté !):"
++msgstr "Pays (seul le code à deux lettres est accepté !) :"
+ 
+ msgid "({one} of {_all}) -- {fname}"
+ msgstr "({one} of {_all}) -- {fname}"
+@@ -1038,9 +1065,6 @@ msgstr ""
+ "configurer les paquets dépendants dans le même répertoire que le paquet "
+ "spécifié et non pas dans la racine"
+ 
+-msgid "User %s does not exist"
+-msgstr "Le utilisateurs %s n'existe pas"
+-
+ msgid "request identifier"
+ msgstr "identifiant de requête"
+ 
+@@ -1231,7 +1255,7 @@ msgid "This certificate cannot be verified in the CRL."
+ msgstr "Ce certificat ne peut pas être vérifié contre la CRL."
+ 
+ msgid "This certificate has been revoked!"
+-msgstr "Ce certificat a été révoqué"
++msgstr "Ce certificat a été révoqué !"
+ 
+ msgid "Serial"
+ msgstr "Numéro de série"
+@@ -1239,6 +1263,9 @@ msgstr "Numéro de série"
+ msgid "Revoke date"
+ msgstr "Date de révocation"
+ 
++msgid ": %s"
++msgstr " : %s"
++
+ msgid "Error creating directory %s"
+ msgstr "Erreur de création du répertoire  %s"
+ 
+@@ -1294,7 +1321,7 @@ msgstr ""
+ "confiance (c) ou"
+ 
+ msgid "Quit (q)? s/c/[q]: "
+-msgstr "Voulez-vous quitter (q)? s/c/[q]: "
++msgstr "Voulez-vous quitter (q) ? s/c/[q]: "
+ 
+ msgid "Add the CA and root certificates"
+ msgstr "Ajouter le certificat AC et le certificat root"
+@@ -1362,7 +1389,7 @@ msgid "Failed to create the certificate ID!"
+ msgstr "Impossible de générer l'ID de certificat !"
+ 
+ msgid "%s: Permission denied"
+-msgstr "%s: Déni d'accès"
++msgstr "%s : Déni d'accès"
+ 
+ msgid "The certificate with ID = %d can execute:"
+ msgstr "Le certificat avec ID = %d peut lancer :"
+@@ -1407,7 +1434,7 @@ msgid "Process killed"
+ msgstr "Processus tué"
+ 
+ msgid "%s: Process started"
+-msgstr "%s: Processus lancé"
++msgstr "%s : Processus lancé"
+ 
+ msgid "PIDs not found for this session!"
+ msgstr "Aucun PID trouvé pour cette session !"
+@@ -1415,6 +1442,9 @@ msgstr "Aucun PID trouvé pour cette session !"
+ msgid "Failed to get PIDs from the server"
+ msgstr "Impossible de récupérer les PID du serveur"
+ 
++msgid "PID"
++msgstr "PID"
++
+ msgid "PID error"
+ msgstr "Erreur de PID"
+ 
+@@ -1497,10 +1527,10 @@ msgid "Certificate issued on %s"
+ msgstr "Certificat émis le %s"
+ 
+ msgid "IP: %s"
+-msgstr "IP: %s"
++msgstr "IP : %s"
+ 
+ msgid "MAC: %s"
+-msgstr "MAC: %s"
++msgstr "MAC : %s"
+ 
+ msgid "Client type: %s"
+ msgstr "Type de client : %s"
+diff --git fr/cl_desktop3.po fr/cl_desktop3.po
+index 737a557..a452b89 100644
+--- fr/cl_desktop3.po
++++ fr/cl_desktop3.po
+@@ -18,6 +18,9 @@ msgstr "Mot de passe utilisateur introuvable"
+ msgid "Failed to mount ecrypted data"
+ msgstr "Impossible de monter les données chiffrées"
+ 
++msgid ": "
++msgstr " : "
++
+ msgid "Recreating encrypted data"
+ msgstr "On regénère les données chiffrées"
+ 
+@@ -57,8 +60,8 @@ msgstr "Déconnecter l'utilisateur"
+ msgid "User logout"
+ msgstr "Déconnecter l'utilisateur"
+ 
+-msgid "Logout"
+-msgstr "Sortie"
++msgid "Perform"
++msgstr "Effectuer"
+ 
+ msgid "Configure User"
+ msgstr "Configurer l'utilisateur"
+@@ -66,9 +69,6 @@ msgstr "Configurer l'utilisateur"
+ msgid "Configure user"
+ msgstr "Configurer l'utilisateur"
+ 
+-msgid "Configure"
+-msgstr "Configurer"
+-
+ msgid "The user logged out from the session!"
+ msgstr "L'utilisateur a fermé la session !"
+ 
 diff --git fr/cl_install3.po fr/cl_install3.po
-index 65e19db..9e25e84 100644
+index dfa777e..9e25e84 100644
 --- fr/cl_install3.po
 +++ fr/cl_install3.po
-@@ -46,7 +46,7 @@ msgid "Update"
+@@ -45,6 +45,9 @@ msgstr "Graphisme"
+ msgid "Update"
  msgstr "Mise à jour"
  
- msgid "Perform"
--msgstr ""
++msgid "Perform"
 +msgstr "Exécuter"
- 
++
  msgid "Start installing"
  msgstr "Procéder à l'installation"
-@@ -79,13 +79,13 @@ msgid "System"
+ 
+@@ -54,9 +57,6 @@ msgstr "Installation USB"
+ msgid "Flash install"
+ msgstr "Installation USB"
+ 
+-msgid "Install"
+-msgstr "Installer"
+-
+ msgid "PXE Install"
+ msgstr "Installation PXE"
+ 
+@@ -78,12 +78,15 @@ msgstr "Réseau"
+ msgid "System"
  msgstr "Système"
  
- msgid "Update system settings"
--msgstr ""
+-msgid "Reconfigure"
+-msgstr "Reconfigurer"
++msgid "Update system settings"
 +msgstr "Mettre à jour les réglages système"
  
  msgid "Locale"
  msgstr "Locale"
  
- msgid "Session"
--msgstr ""
++msgid "Session"
 +msgstr "Session"
- 
++
  msgid "Failed to determine the parent device for %s"
  msgstr "Impossible de détecter le média père pour %s"
-@@ -366,13 +366,13 @@ msgid "Failed to configure the network settings!"
+ 
+@@ -299,6 +302,9 @@ msgstr "L'utilisateur %s n'existe pas"
+ msgid "Failed to read files"
+ msgstr "Impossible de lire les fichiers"
+ 
++msgid ": "
++msgstr " : "
++
+ msgid "Failed to write to files"
+ msgstr "Impossible d'écrire dans les fichiers"
+ 
+@@ -359,14 +365,14 @@ msgstr "Les paramètres du réseau ont bien été configurés !"
+ msgid "Failed to configure the network settings!"
  msgstr "Impossible de configurer les paramètres du réseau !"
  
- msgid "The session settings are being configured"
--msgstr ""
+-msgid "The user settings are being configured"
+-msgstr "On configure les réglages utilisateurs"
++msgid "The session settings are being configured"
 +msgstr "Configuration des paramètres de la session"
  
- msgid "Session settings configured!"
--msgstr ""
+-msgid "User settings configured!"
+-msgstr "Les réglages utilisateurs ont bien été configurés !"
++msgid "Session settings configured!"
 +msgstr "La session a été configurée !"
  
- msgid "Failed to configure the session settings!"
--msgstr ""
+-msgid "Failed to configure the user settings!"
+-msgstr "Impossible de configurer les réglages utilisateurs !"
++msgid "Failed to configure the session settings!"
 +msgstr "Impossible de configurer la session !"
  
  msgid "The boot parameters are being configured"
  msgstr "On configure les paramètres d'amorçage"
-@@ -689,6 +689,8 @@ msgstr "L'auto-identification de l'utilisateur %s n'est pas acceptée"
+@@ -681,6 +687,11 @@ msgstr "L'utilisateur %s n'existe pas"
+ msgid "Autologin is unavailable for user %s"
+ msgstr "L'auto-identification de l'utilisateur %s n'est pas acceptée"
  
- msgid "The autologin is not available with domain workstations"
- msgstr ""
++msgid "The autologin is not available with domain workstations"
++msgstr ""
 +"L'authentification automatique n'est pas disponible pour les stations de "
 +"travail du domaine"
- 
++
  msgid "network settings"
  msgstr "réglages réseau"
-@@ -706,7 +708,7 @@ msgid "audio parameters"
+ 
+@@ -696,6 +707,9 @@ msgstr "paramètres d'amorçage"
+ msgid "audio parameters"
  msgstr "paramètres audio"
  
- msgid "session settings"
--msgstr ""
++msgid "session settings"
 +msgstr "paramètres de la session"
- 
++
  msgid "user settings"
  msgstr "réglages utilisateurs"
+ 
 diff --git fr/cl_lib3.po fr/cl_lib3.po
-index 8e4f896..40997fa 100644
+index ebf90dc..40997fa 100644
 --- fr/cl_lib3.po
 +++ fr/cl_lib3.po
-@@ -111,10 +111,10 @@ msgid "Execution of templates was interrupted with an error"
+@@ -24,6 +24,9 @@ msgstr "La valeur de la fonction n'est pas une version"
+ msgid "Incorrect template"
+ msgstr "Gabarit incorrect"
+ 
++msgid ": "
++msgstr " : "
++
+ msgid "template header not valid"
+ msgstr "en-tête de gabarit invalide"
+ 
+@@ -107,6 +110,12 @@ msgstr "L'exécution des modèles a été arrêtée"
+ msgid "Execution of templates was interrupted with an error"
  msgstr "L'exécution des modèles a été interrompue avec une erreur"
  
- msgid "funtion takes only two parameters"
--msgstr ""
++msgid "funtion takes only two parameters"
 +msgstr "la fonction n'accepte que deux paramètres"
- 
--msgid "first parameter must be resolution"
--msgstr ""
++
 +msgid "the first parameter must be the resolution"
 +msgstr "le premier paramètre doit être la résolution"
- 
++
  msgid ""
  "the third argument of the function is neither 'url' or 'purl' or 'unicode'"
-@@ -477,37 +477,37 @@ msgid "Failed to copy '%(src)s' to '%(dst)s'"
+ msgstr ""
+@@ -178,7 +187,7 @@ msgid "invalid template content: "
+ msgstr "contenu de gabarit incorrect :"
+ 
+ msgid "invalid template name: "
+-msgstr "nom de gabarit incorrect :"
++msgstr "nom de gabarit incorrect : "
+ 
+ msgid "No conditions for checking the value of an action variable"
+ msgstr "Aucune condition de vérification pour une variable d'action"
+@@ -200,10 +209,7 @@ msgid "Example:"
+ msgstr "Exemple :"
+ 
+ msgid "undefined variable: "
+-msgstr "variable non définie :"
+-
+-msgid "No such templates directory"
+-msgstr "Ce répertoire de modèles n'existe pas"
++msgstr "variable non définie : "
+ 
+ msgid "Failed to execute"
+ msgstr "Exécution échouée"
+@@ -211,6 +217,9 @@ msgstr "Exécution échouée"
+ msgid "Calculate Utilities have changed files"
+ msgstr "Les utilitaires Calculate ont modifié les fichiers"
+ 
++msgid ":"
++msgstr " :"
++
+ msgid "Failed to copy {ffrom} to {fto}"
+ msgstr "Il est impossible de copier {ffrom} vers {fto}"
+ 
+@@ -467,6 +476,39 @@ msgstr "Commande non trouvée '%s'"
+ msgid "Failed to copy '%(src)s' to '%(dst)s'"
  msgstr "Il est impossible de copier '%(src)s' vers '%(dst)s'"
  
- msgid "Repository {path} is not a directory"
--msgstr ""
++msgid "Repository {path} is not a directory"
 +msgstr "Le dépôt {path} n'est pas un répertoire"
- 
- msgid "Repository {path} is not Git"
--msgstr ""
++
++msgid "Repository {path} is not Git"
 +msgstr "{path} n'est pas un dépôt Git"
- 
- msgid "The Git tool is not found"
--msgstr ""
++
++msgid "The Git tool is not found"
 +msgstr "L'outil Git est introuvable"
- 
- msgid "Branch {branch} not found in repository {url}"
--msgstr ""
++
++msgid "Branch {branch} not found in repository {url}"
 +msgstr "Branche {branch} introuvable dans le dépôt {url}"
- 
- msgid "Failed to clone repository {url}"
--msgstr ""
++
++msgid "Failed to clone repository {url}"
 +msgstr "Impossible de cloner le dépôt {url}"
- 
- msgid "Failed to update the repository in {rpath}"
--msgstr ""
++
++msgid "Failed to update the repository in {rpath}"
 +msgstr "Impossible d'actualiser le dépôt dans {rpath}"
- 
- msgid "Wrong repository in the {rpath} directory"
--msgstr ""
++
++msgid "Wrong repository in the {rpath} directory"
 +msgstr "Erreur de dépôt dans le répertoire {rpath}"
- 
- msgid "Failed to get the repository status for {rpath}"
--msgstr ""
++
++msgid "Failed to get the repository status for {rpath}"
 +msgstr "Impossible de récupérer le statut du dépôt dans {rpath}"
- 
- msgid "Failed to clean the {rpath} repository"
--msgstr ""
++
++msgid "Failed to clean the {rpath} repository"
 +msgstr "Impossible de nettoyer le dépôt {rpath}"
- 
- msgid "Branch {branch} not found in repository {rpath}"
--msgstr ""
++
++msgid "Branch {branch} not found in repository {rpath}"
 +msgstr "Branche {branch} introuvable dans le dépôt {rpath}"
- 
--msgid "Failed to change branch to {branch} in the {rpath} repository"
--msgstr ""
++
 +msgid "Failed to move to branch {branch} in the {rpath} repository"
 +msgstr "Impossible de basculer vers la branche {branch} du dépôt {rpath}"
- 
++
  msgid "New password"
  msgstr "Nouveau mot de passe"
+ 
 diff --git fr/cl_update3.po fr/cl_update3.po
-index 83faae7..37775dd 100644
+index cea1801..37775dd 100644
 --- fr/cl_update3.po
 +++ fr/cl_update3.po
-@@ -59,11 +59,11 @@ msgstr ""
+@@ -12,39 +12,6 @@ msgstr ""
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
+-msgid "Repository {path} is not a directory"
+-msgstr "Le dépôt {path} n'est pas un répertoire"
+-
+-msgid "Repository {path} is not Git"
+-msgstr "{path} n'est pas un dépôt Git"
+-
+-msgid "The Git tool is not found"
+-msgstr "L'outil Git est introuvable"
+-
+-msgid "Branch {branch} not found in repository {url}"
+-msgstr "La branche {branch} est introuvable dans le dépôt {url}"
+-
+-msgid "Failed to clone repository {url}"
+-msgstr "Impossible de cloner le dépôt {url}"
+-
+-msgid "Failed to update the repository in {rpath}"
+-msgstr "Impossible d'actualiser le dépôt dans {rpath}"
+-
+-msgid "Wrong repository in the {rpath} directory"
+-msgstr "Pas de dépôt valide dans le répertoire {rpath}"
+-
+-msgid "Failed to get the repository status for {rpath}"
+-msgstr "Impossible de récupérer le statut du dépôt dans {rpath}"
+-
+-msgid "Failed to clean the {rpath} repository"
+-msgstr "Impossible de nettoyer le dépôt {rpath}"
+-
+-msgid "Branch {branch} not found in repository {rpath}"
+-msgstr "La branche {branch} est introuvable dans le dépôt {rpath}"
+-
+-msgid "Failed to change branch to {branch} in the {rpath} repository"
+-msgstr "Impossible de basculer vers la branche {branch} dans le dépôt {rpath}"
+-
+ msgid "Updates autocheck is not enabled"
+ msgstr "La vérification automatique de mises à jour n'est pas activée"
+ 
+@@ -73,6 +40,9 @@ msgstr "On réessaie de synchroniser le dépôt {name}"
+ msgid "Failed to modify the {repname} repository"
+ msgstr "Impossible de modifier le dépôt {repname}"
+ 
++msgid ": "
++msgstr " : "
++
+ msgid "The Layman tool is not found"
+ msgstr "L'outil Layman est introuvable"
+ 
+@@ -89,6 +59,12 @@ msgstr ""
  msgid "Failed to update the cache of the {rname} repository"
  msgstr "Impossible d'actualiser le cache du dépôt {rname}"
  
--msgid "Repository %s has own cache"
--msgstr ""
 +msgid "Repository %s has its own cache"
 +msgstr "Le dépôt %s dispose d'un cache"
- 
- msgid "Updating the %s repository cache"
--msgstr ""
++
++msgid "Updating the %s repository cache"
 +msgstr "Actualisation du cache du dépôt %s"
- 
++
  msgid "The Emerge tool is not found"
  msgstr "L'outil Emerge est introuvable"
-@@ -131,8 +131,8 @@ msgstr "Voulez-vous installer ces paquets ?"
+ 
+@@ -155,6 +131,9 @@ msgstr "Voulez-vous installer ces paquets ?"
  msgid "Would you like to unmerge these packages?"
  msgstr "Voulez-vous supprimer ces paquets ?"
  
--msgid "Failed to use new profile. Try again."
--msgstr ""
 +msgid "Failed to use the new profile. Try again."
 +msgstr "Impossible d'appliquer le nouveau profil.  Veuillez réessayer."
- 
++
  msgid "Wrong profile"
  msgstr "Profil erroné"
-@@ -147,7 +147,7 @@ msgid "Failed to move the profile: %s"
+ 
+@@ -167,8 +146,8 @@ msgstr "Impossible de définir le profil : %s"
+ msgid "Failed to move the profile: %s"
  msgstr "Impossible de déplacer le profil : %s"
  
- msgid "Update "
--msgstr ""
+-msgid "Update"
+-msgstr "Actualiser"
++msgid "Update "
 +msgstr "Mise à jour"
  
  msgid "Update the System"
  msgstr "Mettre le système à jour"
-@@ -173,14 +173,14 @@ msgstr "Définir le profil"
+@@ -176,6 +155,9 @@ msgstr "Mettre le système à jour"
+ msgid "Update the system"
+ msgstr "Mettre le système à jour"
+ 
++msgid "Perform"
++msgstr "Exécuter"
++
+ msgid "Change the Profile"
+ msgstr "Basculer entre les profils"
+ 
+@@ -185,21 +167,21 @@ msgstr "Dépôt"
+ msgid "Profile"
+ msgstr "Profil"
+ 
+-msgid "Perform"
+-msgstr "Exécuter"
+-
+ msgid "Set the profile"
+ msgstr "Définir le profil"
+ 
  msgid "Configuration"
  msgstr "Configuration"
  
--msgid "The Update Check"
--msgstr ""
+-msgid "Updates"
+-msgstr "Mises à jour"
 +msgid "Update Check"
 +msgstr "Vérification de mises à jour"
  
  msgid "Updates autocheck settings"
  msgstr "Paramètres de vérification automatique de mises à jour"
  
- msgid "Save"
--msgstr ""
++msgid "Save"
 +msgstr "Sauvegarder"
- 
++
  msgid "Emerge failed"
  msgstr "Emerge a échoué"
-@@ -231,7 +231,7 @@ msgid "Fixing the settings"
- msgstr "Correction des paramètres"
  
- msgid "The system is being configured"
--msgstr ""
+@@ -245,6 +227,15 @@ msgstr "Définition du profil en cours"
+ msgid "Switching to profile {cl_update_profile_system}"
+ msgstr "Basculement vers le profil {cl_update_profile_system}"
+ 
++msgid "Fixing the settings"
++msgstr "Correction des paramètres"
++
++msgid "The system is being configured"
 +msgstr "Système en cours de configuration"
++
++msgid "Updating configuration files"
++msgstr "Mise à jour des fichiers de configuration"
++
+ msgid "Update manually interrupted"
+ msgstr "La mise à jour a été interrompue par l'utilisateur"
  
- msgid "Updating configuration files"
- msgstr "Mise à jour des fichiers de configuration"
-@@ -283,7 +283,7 @@ msgid "Checking reverse dependencies"
+@@ -254,11 +245,8 @@ msgstr "Vérification de mises à jour"
+ msgid "Calculating dependencies"
+ msgstr "Calcul des dépendances"
+ 
+-msgid "Updating Portage"
+-msgstr "Mise à jour de Portage"
+-
+-msgid "Updating {0}"
+-msgstr "Mise à jour de {0}"
++msgid "Updating packages"
++msgstr "Mise à jour des paquets"
+ 
+ msgid "Updating Python"
+ msgstr "Mise à jour de Python"
+@@ -276,12 +264,6 @@ msgstr ""
+ "Recherche et recompilation des paquets et des en-tête Perl affectés par la "
+ "mise à jour de Perl"
+ 
+-msgid "Updating Calculate Utilities"
+-msgstr "Mise à jour des Utilitaires Calculate"
+-
+-msgid "Updating packages"
+-msgstr "Mise à jour des paquets"
+-
+ msgid "Cleaning the system from needless packages"
+ msgstr "Suppression des paquets devenus inutiles"
+ 
+@@ -300,15 +282,12 @@ msgstr "Mise à jour des bibliothèques réservées"
+ msgid "Checking reverse dependencies"
  msgstr "Vérification des dépendances inverses"
  
- msgid "Removing obsolete distfiles and binary packages"
--msgstr ""
+-msgid "Updating configuration files"
+-msgstr "Mise à jour des fichiers de configuration"
++msgid "Removing obsolete distfiles and binary packages"
 +msgstr "Suppression des sources et des binaires obsolètes"
  
  msgid "System configuration"
  msgstr "Configuration système"
-@@ -306,23 +306,23 @@ msgstr "Impossible de paramétrer la vérification automatique de mises à jour
+ 
+-msgid "Fixing the settings"
+-msgstr "Correction des paramètres"
+-
+ msgid "Update failed"
+ msgstr "Mise à jour échouée"
+ 
+@@ -327,6 +306,27 @@ msgstr "Impossible de paramétrer la vérification automatique de mises à jour
  msgid "Configuration manually interrupted"
  msgstr "Configuration interrompue par l'utilisateur"
  
--msgid "rebuild system packages list"
--msgstr ""
 +msgid "rebuild the system packages list"
 +msgstr "régénérer la liste des paquets système"
- 
--msgid "append profile system packages list"
--msgstr ""
++
 +msgid "append the profile packages list"
 +msgstr "ajouter la liste des paquets du profil"
- 
--msgid "update system packages list"
--msgstr ""
++
 +msgid "update the system packages list"
 +msgstr "actualiser la liste des paquets système"
- 
- msgid "System packages list"
--msgstr ""
++
++msgid "System packages list"
 +msgstr "Liste des paquets système"
- 
- msgid "Rebuild"
--msgstr ""
++
++msgid "Rebuild"
 +msgstr "Régénérer"
- 
- msgid "Merge"
--msgstr ""
++
++msgid "Merge"
 +msgstr "Fusionner"
++
++msgid "Update"
++msgstr "Actualiser"
++
+ msgid "Rebuild world"
+ msgstr "Regénérer world"
  
- msgid "Update"
- msgstr "Actualiser"
-@@ -378,17 +378,17 @@ msgstr "Sauter"
+@@ -378,6 +378,18 @@ msgstr "Sauter"
  msgid "If needed"
  msgstr "Si besoin"
  
--msgid "force the update overlays cache"
--msgstr ""
 +msgid "force the update of the overlays cache"
 +msgstr "forcer l'actualisation du cache des overlays"
- 
--msgid "skip the overlays cache update"
--msgstr ""
++
 +msgid "skip the update of the overlays cache"
 +msgstr "sauter l'actualisation du cache des overlays"
- 
--msgid "update overlays cache if it is outdated"
--msgstr ""
++
 +msgid "update the overlays cache if outdated"
 +msgstr "actualiser le cache des overlays si obsolète"
- 
--msgid "Update overlays cache"
--msgstr ""
++
 +msgid "Update the overlays cache"
 +msgstr "Actualiser le cache des overlays"
- 
++
  msgid "force the eix cache update"
  msgstr "forcer l'actualisation du cache eix"
-@@ -440,31 +440,31 @@ msgid "Used repositories"
+ 
+@@ -427,6 +439,33 @@ msgstr "Nom de la distribution"
+ msgid "Used repositories"
  msgstr "Dépôts utilisés"
  
- msgid "Overlay templates"
--msgstr ""
++msgid "Overlay templates"
 +msgstr "Modèles de l'overlay"
- 
- msgid "Local templates"
--msgstr ""
++
++msgid "Local templates"
 +msgstr "Modèles locaux"
- 
- msgid "Calculate overlay templates"
--msgstr ""
++
++msgid "Calculate overlay templates"
 +msgstr "Modèles de l'overlay Calculate"
- 
- msgid "Distribution templates"
--msgstr ""
++
++msgid "Distribution templates"
 +msgstr "Modèles de la distribution"
- 
- msgid "Remote templates"
--msgstr ""
++
++msgid "Remote templates"
 +msgstr "Modèles distants"
- 
- msgid "clt templates"
--msgstr ""
++
++msgid "clt templates"
 +msgstr "Modèles clt"
- 
- msgid "Templates location"
--msgstr ""
++
++msgid "Templates location"
 +msgstr "Emplacement des modèles"
- 
--msgid "select location for templates %s"
--msgstr ""
++
 +msgid "select the location for templates %s"
 +msgstr "définir l'emplacement des modèles %s"
- 
- msgid "%s overlay templates"
--msgstr ""
++
++msgid "%s overlay templates"
 +msgstr "Modèles de l'overlay %s"
- 
++
  msgid "Name"
  msgstr "Nom"
-@@ -514,8 +514,8 @@ msgstr "Vous devez spécifier le profil"
+ 
+@@ -475,17 +514,17 @@ msgstr "Vous devez spécifier le profil"
  msgid "Repository variables were not configured for the profile"
  msgstr "Les variables du dépôt n'ont pas été configurées pour le profil"
  
--msgid "Overlay %s not specified in cl_update_rep_name"
--msgstr ""
 +msgid "Overlay %s is not specified in cl_update_rep_name"
 +msgstr "L'overlay %s ne figure pas dans la variable cl_update_rep_name"
- 
++
  msgid "The selected profile is not Calculate"
  msgstr "Le profil sélectionné n'est pas Calculate"
-@@ -524,7 +524,7 @@ msgid "Wrong Calculate profile"
+ 
+ msgid "Wrong Calculate profile"
  msgstr "Profil Calculate incorrect"
  
- msgid "Update the cache"
--msgstr ""
+-msgid "Repositories to be synchronized"
+-msgstr "Dépôts à synchroniser"
+-
+-msgid "repositories to be synchronized"
+-msgstr "dépôts à synchroniser"
++msgid "Update the cache"
 +msgstr "Actualiser le cache"
  
  msgid "Automatically check updates"
  msgstr "Vérifier les mises à jour automatiquement"
-@@ -553,20 +553,20 @@ msgstr "Respecter la fréquence de vérification"
+@@ -513,3 +552,21 @@ msgstr "Respecter la fréquence de vérification"
+ 
  msgid "consider the autocheck schedule"
  msgstr "respecter la fréquence de vérification"
- 
--msgid "Emerge like packages list"
--msgstr ""
++
 +msgid "Emerge-like packages list"
 +msgstr "Liste des paquets en format emerge"
- 
--msgid "display packages list in emerge format"
--msgstr ""
++
 +msgid "display the packages list in emerge format"
 +msgstr "afficher la liste des paquets en format emerge"
- 
- msgid "Skip the system setup"
--msgstr ""
++
++msgid "Skip the system setup"
 +msgstr "Sauter la configuration du système"
- 
- msgid "skip the system setup"
--msgstr ""
++
++msgid "skip the system setup"
 +msgstr "sauter la configuration du système"
- 
- msgid "Clean obsolete programs archives"
--msgstr ""
++
++msgid "Clean obsolete programs archives"
 +msgstr "Supprimer les archives logicielles obsolètes"
- 
- msgid "clean obsolete programs archives"
--msgstr ""
++
++msgid "clean obsolete programs archives"
 +msgstr "supprimer les archives logicielles obsolètes"
+diff --git ru/cl_client3.po ru/cl_client3.po
+index b11dce7..c3b5d05 100644
+--- ru/cl_client3.po
++++ ru/cl_client3.po
+@@ -15,6 +15,9 @@ msgstr ""
+ msgid "Failed to read the file"
+ msgstr "Не удалось прочитать файл"
+ 
++msgid ": "
++msgstr ": "
++
+ msgid "Failed to write to file"
+ msgstr "Не удалось записать в файл"
+ 
+@@ -75,6 +78,9 @@ msgstr "Новый пароль"
+ msgid "Retype the new password"
+ msgstr "Повторите ввод нового пароля"
+ 
++msgid ":"
++msgstr ":"
++
+ msgid "ERROR"
+ msgstr "ОШИБКА"
+ 
+diff --git ru/cl_console3.po ru/cl_console3.po
+index c1cd07b..830064a 100644
+--- ru/cl_console3.po
++++ ru/cl_console3.po
+@@ -21,9 +21,15 @@ msgstr "Данный сертификат отозван!"
+ msgid "Serial"
+ msgstr "Серийный номер"
+ 
++msgid ": %s\n"
++msgstr ": %s\n"
++
+ msgid "Revoke date"
+ msgstr "Дата отзыва"
+ 
++msgid ": %s"
++msgstr ": %s"
++
+ msgid "Failed to create directory %s"
+ msgstr "Ошибка при создании директории %s"
+ 
 diff --git ru/cl_core3.po ru/cl_core3.po
-index da8aade..f2a87ad 100644
+index eba8675..f2a87ad 100644
 --- ru/cl_core3.po
 +++ ru/cl_core3.po
-@@ -170,8 +170,8 @@ msgstr "Конфигурация утилитами Calculate системных
+@@ -170,14 +170,14 @@ msgstr "Конфигурация утилитами Calculate системных
  msgid "Using patches for the {nameProgram} package by Calculate Utilities"
  msgstr "Наложение патчей Calculate утилитами для {nameProgram}"
  
@@ -468,11 +1034,100 @@ index da8aade..f2a87ad 100644
  
  msgid "Would you like to terminate these tasks?"
  msgstr "Вы хотите завершить эти задачи?"
+ 
+-msgid "Configuration skipping until calculate-utilities are updated"
+-msgstr "Настройка пропускается, пока не будут обновлены calculate-utilities"
++msgid "Configuration skipping until calculate-utils are updated"
++msgstr "Настройка пропускается, пока не будут обновлены calculate-utils"
+ 
+ msgid "Variable"
+ msgstr "Переменная"
+@@ -206,6 +206,12 @@ msgstr "Ответ не понятен"
+ msgid "Ambiguous answer:"
+ msgstr "Неоднозначный ответ:"
+ 
++msgid ":"
++msgstr ":"
++
++msgid "%s: "
++msgstr "%s: "
++
+ msgid "Repeat: "
+ msgstr "Повтор: "
+ 
+@@ -422,6 +428,9 @@ msgstr "%s:"
+ msgid "Password"
+ msgstr "Пароль"
+ 
++msgid ": "
++msgstr ": "
++
+ msgid "Repeat password: "
+ msgstr "Повтор пароля: "
+ 
+@@ -1240,6 +1249,9 @@ msgstr "Серийный номер"
+ msgid "Revoke date"
+ msgstr "Дата отзыва"
+ 
++msgid ": %s"
++msgstr ": %s"
++
+ msgid "Error creating directory %s"
+ msgstr "Ошибка создания директории %s"
+ 
+@@ -1409,6 +1421,9 @@ msgstr "Не найден ID процесса для данной сессии!"
+ msgid "Failed to get PIDs from the server"
+ msgstr "Ошибка получения идентификаторов процессов на сервере"
+ 
++msgid "PID"
++msgstr "PID"
++
+ msgid "PID error"
+ msgstr "Ошибка идентификатора процесса"
+ 
+diff --git ru/cl_desktop3.po ru/cl_desktop3.po
+index 6095240..5ab2a51 100644
+--- ru/cl_desktop3.po
++++ ru/cl_desktop3.po
+@@ -18,6 +18,9 @@ msgstr "Не найден пароль пользователя"
+ msgid "Failed to mount ecrypted data"
+ msgstr "Не удалось подключить шифрованные данные"
+ 
++msgid ": "
++msgstr ": "
++
+ msgid "Recreating encrypted data"
+ msgstr "Пересоздание шифрованных данных"
+ 
+diff --git ru/cl_install3.po ru/cl_install3.po
+index 588b44d..52a6f61 100644
+--- ru/cl_install3.po
++++ ru/cl_install3.po
+@@ -304,6 +304,9 @@ msgstr "Не найден пользователь %s"
+ msgid "Failed to read files"
+ msgstr "Не удалось прочитать файлы"
+ 
++msgid ": "
++msgstr ": "
++
+ msgid "Failed to write to files"
+ msgstr "Не удалось записать в файлы"
+ 
 diff --git ru/cl_lib3.po ru/cl_lib3.po
-index 0381e59..6915fb2 100644
+index e5b305a..6915fb2 100644
 --- ru/cl_lib3.po
 +++ ru/cl_lib3.po
-@@ -109,7 +109,7 @@ msgstr "Выполнение шаблонов было прервано с ош
+@@ -24,6 +24,9 @@ msgstr "Значение функции не является версией"
+ msgid "Incorrect template"
+ msgstr "Неправильный шаблон"
+ 
++msgid ": "
++msgstr ": "
++
+ msgid "template header not valid"
+ msgstr "неправильный заголовок шаблона"
+ 
+@@ -106,7 +109,7 @@ msgstr "Выполнение шаблонов было прервано с ош
  msgid "funtion takes only two parameters"
  msgstr "функция принимает только два параметра"
  
@@ -481,7 +1136,17 @@ index 0381e59..6915fb2 100644
  msgstr "первый параметр должен быть разрешением"
  
  msgid ""
-@@ -497,7 +497,7 @@ msgstr "Не удалось очистить {rpath} репозиторий"
+@@ -207,6 +210,9 @@ msgstr "Не удалось выполнить"
+ msgid "Calculate Utilities have changed files"
+ msgstr "Утилиты Calculate изменили файлы"
+ 
++msgid ":"
++msgstr ":"
++
+ msgid "Failed to copy {ffrom} to {fto}"
+ msgstr "Не удалось скопировать {ffrom} в {fto}"
+ 
+@@ -491,7 +497,7 @@ msgstr "Не удалось очистить {rpath} репозиторий"
  msgid "Branch {branch} not found in repository {rpath}"
  msgstr "Ветка {branch} не найдена в {rpath} репозитории"
  
@@ -490,16 +1155,26 @@ index 0381e59..6915fb2 100644
  msgstr "Не удалось сменить ветку на {branch} в {rpath} репозитории"
  
  msgid "New password"
-@@ -755,3 +755,4 @@ msgstr "Необходимо указать пользователя"
+@@ -749,3 +755,4 @@ msgstr "Необходимо указать пользователя"
  
  msgid "User %s does not exist"
  msgstr "Пользователь %s не существует"
 +
 diff --git ru/cl_update3.po ru/cl_update3.po
-index fe66da4..0e65861 100644
+index f5d95e9..0e65861 100644
 --- ru/cl_update3.po
 +++ ru/cl_update3.po
-@@ -57,7 +57,7 @@ msgstr "Репозиторий '{repo_name}' назван '{repname} в cl_updat
+@@ -39,6 +39,9 @@ msgstr "Повторное получение {name} репозитория"
+ msgid "Failed to modify the {repname} repository"
+ msgstr "Не удалось изменить репозиторий {repname}"
+ 
++msgid ": "
++msgstr ": "
++
+ msgid "The Layman tool is not found"
+ msgstr "Утилита Layman не найдена"
+ 
+@@ -54,7 +57,7 @@ msgstr "Репозиторий '{repo_name}' назван '{repname} в cl_updat
  msgid "Failed to update the cache of the {rname} repository"
  msgstr "Не удалось обновить кэш {rname} репозитория"
  
@@ -508,7 +1183,7 @@ index fe66da4..0e65861 100644
  msgstr "У репозитория %s есть свой кэш"
  
  msgid "Updating the %s repository cache"
-@@ -129,7 +129,7 @@ msgstr "Вы хотите установить эти пакеты?"
+@@ -126,7 +129,7 @@ msgstr "Вы хотите установить эти пакеты?"
  msgid "Would you like to unmerge these packages?"
  msgstr "Вы хотите удалить эти пакеты?"
  
@@ -517,7 +1192,7 @@ index fe66da4..0e65861 100644
  msgstr "Не удалось установить профиль. Попытайтесь еще раз."
  
  msgid "Wrong profile"
-@@ -171,7 +171,7 @@ msgstr "Установить профиль"
+@@ -168,7 +171,7 @@ msgstr "Установить профиль"
  msgid "Configuration"
  msgstr "Настройка "
  
@@ -526,7 +1201,7 @@ index fe66da4..0e65861 100644
  msgstr "Проверка обновлений"
  
  msgid "Updates autocheck settings"
-@@ -303,13 +303,13 @@ msgstr "Не удалось настроить параметры автопро
+@@ -300,13 +303,13 @@ msgstr "Не удалось настроить параметры автопро
  msgid "Configuration manually interrupted"
  msgstr "Настройка прервана пользователем"
  
@@ -543,7 +1218,7 @@ index fe66da4..0e65861 100644
  msgstr "обновить список пакетов системы"
  
  msgid "System packages list"
-@@ -375,16 +375,16 @@ msgstr "Пропустить"
+@@ -372,16 +375,16 @@ msgstr "Пропустить"
  msgid "If needed"
  msgstr "По необходимости"
  
@@ -564,7 +1239,7 @@ index fe66da4..0e65861 100644
  msgstr "Обновить кэш оверлеев"
  
  msgid "force the eix cache update"
-@@ -457,7 +457,7 @@ msgstr "clt шаблоны"
+@@ -454,7 +457,7 @@ msgstr "clt шаблоны"
  msgid "Templates location"
  msgstr "Местонахождение шаблонов"
  
@@ -573,7 +1248,7 @@ index fe66da4..0e65861 100644
  msgstr "выбор местонахождения шаблонов %s"
  
  msgid "%s overlay templates"
-@@ -511,7 +511,7 @@ msgstr "Вы должны указать профиль"
+@@ -508,7 +511,7 @@ msgstr "Вы должны указать профиль"
  msgid "Repository variables were not configured for the profile"
  msgstr "В профиле не настроены переменные репозитория"
  
@@ -582,7 +1257,7 @@ index fe66da4..0e65861 100644
  msgstr "Оверлей %s не указан в переменной cl_update_rep_name"
  
  msgid "The selected profile is not Calculate"
-@@ -550,10 +550,10 @@ msgstr "Учитывать график автопроверки"
+@@ -547,10 +550,10 @@ msgstr "Учитывать график автопроверки"
  msgid "consider the autocheck schedule"
  msgstr "учитывать график автопроверки"
  

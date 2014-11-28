@@ -10,19 +10,21 @@ inherit distutils-r1 eutils
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3/${PN}/${P}.tar.bz2
 	http://mirror.yandex.ru/calculate/calculate3/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="Console client for WSDL Calculate 3"
+DESCRIPTION="The utilities for assembling tasks of Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="x86 amd64"
 
-DEPEND="~sys-apps/calculate-core-3.2.3"
-RDEPEND="${DEPEND}"
+RDEPEND=">=sys-apps/calculate-lib-3.2.3"
+
+DEPEND="sys-devel/gettext
+	${RDEPEND}"
 
 src_unpack() {
     unpack "${A}"
     cd "${S}"
 
     # apply revision changes
-    epatch "${FILESDIR}/calculate-console-3.2.3-r2.patch"
+    epatch "${FILESDIR}/calculate-i18n-3.2.3-r3.patch"
 }
