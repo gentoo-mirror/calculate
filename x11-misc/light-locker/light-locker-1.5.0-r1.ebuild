@@ -13,7 +13,7 @@ SRC_URI="https://github.com/the-cavalry/${PN}/releases/download/v${PV}/${P}.tar.
 LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="X consolekit nls static-libs systemd upower"
+IUSE="X +dpms consolekit nls static-libs systemd upower"
 
 RDEPEND="
 	x11-misc/lightdm
@@ -33,6 +33,7 @@ src_configure() {
 		$(use_with systemd)
 		$(use_with X x)
 		$(use_with X mit-ext)
+		$(use_with dpms dpms-ext)
 		$(use_with consolekit console-kit)
 		$(use_with upower)
 	)
