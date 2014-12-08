@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=net-misc/modem-manager-gui,app-admin/hardinfo ini(overlay-calculate.remerge)<11
+
+[overlay-calculate]
+remerge = 11
