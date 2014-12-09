@@ -1,0 +1,306 @@
+diff --git data/calculate data/calculate
+index 45f3d71..fcd0433 100644
+--- data/calculate
++++ data/calculate
+@@ -156,7 +156,7 @@ start() {
+ 
+ stop() {
+ 	local roottype=`variable_value main.os_root_type`
+-	if [[ $roottype == "hdd" ]] && rc-config list boot | grep -q "calculate "
++	if [[ $roottype == "hdd" ]] && rc-config list boot | grep -q -e "calculate " -e "calculate$"
+ 	then
+ 		rc-update del calculate boot
+ 		local distdir="/usr/portage/distfiles"
+diff --git pym/install/install.py pym/install/install.py
+index 7c0242f..5381246 100644
+--- pym/install/install.py
++++ pym/install/install.py
+@@ -241,7 +241,7 @@ class Install:
+                               "--target=x86_64-efi",
+                               "--efi-directory=%s"%
+                               target.getEfiDirectory(),
+-                              "-f"]
++                              "--force"]
+             # в случае установки на usb-hdd EFI загрузчик не прописывается
+             # в efivars
+             if self.clVars.Get('os_install_root_type') == 'usb-hdd':
+@@ -281,8 +281,8 @@ class Install:
+             # если GRUB2 версии 2.00 и выше, обычная установка требует
+             # параметра --target=i386-pc, иначе GRUB2 может попытаться
+             # прописать себя как UEFI
+-            if filter(lambda x:"2.00" in x,
+-                           process(cmdGrubInstall,'-v')):
++            if filter(lambda x:"2." in x,
++                           process(cmdGrubInstall,'--version')):
+                 platform = ["--target=i386-pc"]
+             else:
+                 platform = []
+@@ -291,7 +291,7 @@ class Install:
+                 grubProcess = process(cmdGrubInstall,
+                                   "--boot-directory=%s"%pathJoin(prefixBoot,
+                                   target.getBootDirectory()),
+-                                  mbrDisk, "-f", *platform,
++                                  mbrDisk, "--force", *platform,
+                                   stderr=STDOUT,envdict=os.environ)
+                 if grubProcess.failed():
+                     raise DistributiveError(_("Failed to install the bootloader"))
+diff --git pym/install/migrate_users.py pym/install/migrate_users.py
+index d00a5c5..f862eb2 100644
+--- pym/install/migrate_users.py
++++ pym/install/migrate_users.py
+@@ -401,11 +401,11 @@ class migrate:
+         notWrite = lambda x: not os.access(x, os.W_OK)
+         filesNotRead = filter(notRead,checkThisFiles)
+         if filesNotRead:
+-            raise MigrationError(_("Failed to read files") + ": " +\
++            raise MigrationError(_("Failed to read files") + _(": ") +
+                             ", ".join(filesNotRead))
+         filesNotWrite = filter(notWrite,checkNewFiles)
+         if filesNotWrite:
+-            raise MigrationError(_("Failed to write to files") + ": " +\
++            raise MigrationError(_("Failed to write to files") + _(": ") +
+                             ", ".join(filesNotWrite))
+         # Check permissions backup files
+         checkNewBackupFiles = map(lambda x:pathJoin(self.prefixNewSystem,x+"-"),
+@@ -415,7 +415,7 @@ class migrate:
+                                     not os.access(os.path.dirname(x), os.W_OK))
+         filesNotWrite = filter(notWriteBackup, checkNewBackupFiles)
+         if filesNotWrite:
+-            raise MigrationError(_("Failed to write to files") + ": " +\
++            raise MigrationError(_("Failed to write to files") + _(": ") +
+                             ", ".join(filesNotWrite))
+         return True
+ 
+diff --git pym/install/variables/autopartition.py pym/install/variables/autopartition.py
+index 1a5e7d4..8504910 100644
+--- pym/install/variables/autopartition.py
++++ pym/install/variables/autopartition.py
+@@ -39,16 +39,18 @@ setLocalTranslate('cl_install3',sys.modules[__name__])
+ 
+ 
+ class SizeHelper:
++    default_size = Sizes.M
++
+     def set(self,value):
+         # convert table from value to MB
+-        sizeMap = {'kB':1/1000.0,
+-                   'K':1/1024.0,
+-                   'M':1.0,
+-                   'Mb':1000/1024.0,
+-                   'G':1024,
+-                   'Gb':1000,
+-                   'T':1024*1024,
+-                   'Tb':1000*1000}
++        sizeMap = {'kB':Sizes.kB,
++                   'K':Sizes.K,
++                   'M':Sizes.M,
++                   'Mb':Sizes.Mb,
++                   'G':Sizes.G,
++                   'Gb':Sizes.Gb,
++                   'T':Sizes.T,
++                   'Tb':Sizes.Tb}
+         value = value.strip()
+         reSizeValue = re.compile('^(\d+)\s*(%s)?'%"|".join(sizeMap.keys()))
+         res = reSizeValue.search(value)
+@@ -57,7 +59,9 @@ class SizeHelper:
+         intValue = int(res.group(1))
+         if res.group(2):
+             intValue = intValue * sizeMap[res.group(2)]
+-        return str(int(intValue))
++        else:
++            intValue = intValue * self.default_size
++        return str(intValue)
+ 
+ MINROOTSIZE=7*Sizes.G
+ 
+@@ -377,6 +381,7 @@ class VariableClAutopartitionSwapSize(SizeHelper,AutopartitionHelper,Variable):
+     """
+     Swap size
+     """
++    type = "size-m"
+     opt = ["--swap-size"]
+     metavalue = "SIZE"
+     untrusted = True
+@@ -386,13 +391,13 @@ class VariableClAutopartitionSwapSize(SizeHelper,AutopartitionHelper,Variable):
+         self.help = _("set the swap partition size for autopartition")
+ 
+     def get(self):
+-        size = int(self.Get('hr_memory_size')) / Sizes.M
+-        if size < Sizes.K:
+-            size = Sizes.K
++        size = int(self.Get('hr_memory_size'))
++        if size < Sizes.G:
++            size = Sizes.G
+         return str(size)
+ 
+     def humanReadable(self):
+-        return humanreadableSize(int(self.Get())*Sizes.M)
++        return humanreadableSize(int(self.Get()))
+ 
+ class VariableClAutopartitionDevice(AutopartitionHelper,Variable):
+     """
+@@ -554,10 +559,23 @@ class VariableClAutopartitionScheme(AutopartitionHelper,Variable,AutoPartition):
+                 raise VariableError(
+                     _("The bios_grub partition need the partition table to be GPT"))
+ 
++class VariableClAutopartitionRootSizeDefault(Variable):
++    """
++    Размер root раздела при авторазметке
++    """
++    value = str(Sizes.G*15)
++
++class VariableClAutopartitionRootSizeMin(Variable):
++    """
++    Минимальнй размер root раздела
++    """
++    value = str(Sizes.G*7)
++
+ class VariableClAutopartitionRootSize(SizeHelper,AutopartitionHelper,Variable):
+     """
+     Root partition size for autopartition
+     """
++    type = "size-m"
+     opt = ["--root-size"]
+     metavalue = "SIZE"
+     untrusted = True
+@@ -567,25 +585,24 @@ class VariableClAutopartitionRootSize(SizeHelper,AutopartitionHelper,Variable):
+         self.help = _("set the root partition size for autopartition")
+ 
+     def get(self):
+-        if self.Get('os_install_linux_system') == 'server':
+-            size = 1024*20 # in M
+-        else:
+-            size = 1024*10 # in M
+-        deviceSize = self.Get('cl_autopartition_device_size')
+-        if Sizes().from_M(size) >= deviceSize:
+-            size = max(Sizes().to_M(deviceSize),Sizes().to_M(MINROOTSIZE))
++        size = int(self.Get('cl_autopartition_root_size_default'))
++        deviceSize = int(self.Get('cl_autopartition_device_size'))
++        minRootSize = int(self.Get('cl_autopartition_root_size_min'))
++        if size >= deviceSize:
++            size = max(deviceSize, minRootSize)
+         return str(size)
+ 
+     def check(self,value):
+-        if self.Get('cl_autopartition_device') and \
+-            self.Get('cl_autopartition_set') == "on":
+-            if int(value) < Sizes().to_M(MINROOTSIZE):
++        minRootSize = int(self.Get('cl_autopartition_root_size_min'))
++        if (self.Get('cl_autopartition_device') and 
++            self.Get('cl_autopartition_set') == "on"):
++            if int(value) < minRootSize:
+                 raise VariableError(
+                     _("The root partition should be at least {size}").format(
+-                        size="7 Gb"))
++                        size="%s Gb"%(Sizes().to_G(minRootSize))))
+ 
+     def humanReadable(self):
+-        return humanreadableSize(int(self.Get())*Sizes.M)
++        return humanreadableSize(int(self.Get()))
+ 
+ class VariableClAutopartitionTable(AutopartitionHelper,Variable):
+     """
+@@ -829,19 +846,20 @@ class VariableClAutopartitionDiskSize(ReadonlyVariable,AutopartitionHelper):
+     """
+     type = "list"
+ 
+-    def generateSize(self,scheme,memory,bootsize,uefisize,rootsize,availsize):
++    def generateSize(self,scheme,memory,bootsize,uefisize,rootsize,availsize, minrootsize):
+         args = {'swap':memory,
+                 'root': rootsize,
+                 'root2': rootsize,
+                 'boot': bootsize,
+                 'uefi': uefisize,
+                }
++        minrootsize = int(minrootsize)
+         deviceOpts = list(self.deviceOpts(scheme))
+         for line in deviceOpts[:-1]:
+             availsize -= int(args.get(line,0))
+             yield str(args.get(line,0))
+-        if "root" in deviceOpts[-1] and availsize < MINROOTSIZE:
+-                yield str(MINROOTSIZE)
++        if "root" in deviceOpts[-1] and availsize < minrootsize:
++                yield str(minrootsize)
+         elif availsize < 1*Sizes.G:
+             yield str(1*Sizes.G)
+         else:
+@@ -854,12 +872,13 @@ class VariableClAutopartitionDiskSize(ReadonlyVariable,AutopartitionHelper):
+             availSize = self.Get('cl_autopartition_device_size')
+             if device:
+                 return list(self.generateSize(scheme,
+-                           str(int(self.Get('cl_autopartition_swap_size'))
+-			          *Sizes.M),
++                           self.Get('cl_autopartition_swap_size'),
+                            self.Get('cl_autopartition_boot_size'),
+                            self.Get('cl_autopartition_uefi_size'),
+-                           str(int(self.Get('cl_autopartition_root_size'))
+-                                   *Sizes.M),int(availSize)))
++                           self.Get('cl_autopartition_root_size'),
++                           int(availSize),
++                           self.Get('cl_autopartition_root_size_min')
++                           ))
+         return []
+ 
+     def humanReadable(self):
+diff --git pym/install/variables/disk.py pym/install/variables/disk.py
+index 17b0e2c..0e9d5ed 100644
+--- pym/install/variables/disk.py
++++ pym/install/variables/disk.py
+@@ -40,7 +40,8 @@ setLocalTranslate('cl_install3',sys.modules[__name__])
+ 
+ class DeviceHelper:
+     sysBlockPath = '/sys/block'
+-    rePassDevice = re.compile("^(?!%s)"%"|".join(['fd','ram','loop']))
++    rePassDevice = re.compile("^(?!%s)"%"|".join(['sr','fd',
++                                                  'ram','loop']))
+ 
+     def getDeviceFromSysPath(self):
+         """Get interest devices from sys block path"""
+@@ -125,7 +126,8 @@ class VariableOsDeviceDev(ReadonlyVariable,DeviceHelper):
+         def _getDiskName(devpath):
+             """Get devname only for by udevadm that devpath is device (disk)"""
+             prop = getUdevDeviceInfo(devpath)
+-            if prop.get("ID_TYPE","")=="disk" and \
++            if (prop.get("ID_TYPE","")=="disk" or 
++                path.exists(path.join(devpath,"device"))) and \
+                    prop.get("DEVTYPE","")=="disk":
+                 return prop.get('DEVNAME','')
+ 
+diff --git pym/install/variables/system.py pym/install/variables/system.py
+index bbe5926..08a0006 100644
+--- pym/install/variables/system.py
++++ pym/install/variables/system.py
+@@ -533,8 +533,8 @@ class VariableOsGrub2Path(Variable):
+             return grubInstall
+         # find grub-install and check, that this is grub2-install (ver 1.99)
+         grubInstall = getProgPath('/usr/sbin/grub-install')
+-        if grubInstall and filter(lambda x:"1.99" in x or "2.00" in x,
+-                           process(grubInstall,'-v')):
++        if grubInstall and filter(lambda x:"1.99" in x or "2." in x,
++                           process(grubInstall,'--version')):
+             return grubInstall
+         return ""
+ 
+diff --git pym/install/wsdl_install.py pym/install/wsdl_install.py
+index 1c117be..cf2d1ea 100644
+--- pym/install/wsdl_install.py
++++ pym/install/wsdl_install.py
+@@ -137,7 +137,8 @@ class Wsdl(WsdlBase):
+         'method_name':"install_pxe",
+         'category':__("Installation"),
+         'title':__("PXE Install"),
+-        'image':'network-server,preferences-desktop-remote-desktop',
++        'image':('gnome-network-properties,network-server,'
++                'preferences-desktop-remote-desktop'),
+         'command':'cl-install-pxe',
+         'gui':True,
+         'rights':['installpxe'],
+@@ -187,7 +188,7 @@ class Wsdl(WsdlBase):
+         'method_name':"setup_network",
+         'category':__("Configuration"),
+         'title':__("Network"),
+-        'image':'gnome-network-properties,'
++        'image':'network-workgroup,'
+                 'network-idle,preferences-system-network',
+         'command':'cl-setup-network',
+         'gui':True,
