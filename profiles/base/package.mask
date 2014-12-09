@@ -16,9 +16,6 @@ sys-fs/device-mapper
 
 >=dev-python/cherrypy-3.2.2-r1
 
-# package above 2.0 has not calculate patches
->=sys-boot/grub-2.01
-
 # calckernel is not used anymore (replace to dracut)
 sys-kernel/calckernel
 
