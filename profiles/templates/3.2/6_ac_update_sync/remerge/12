@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=x11-themes,elementary-icon-theme,app-text/qpdfview ini(overlay-calculate.remerge)<12
+# Calculate format=samba path=/etc/calculate name=ini.env merge=x11-themes/elementary-icon-theme,app-text/qpdfview ini(overlay-calculate.remerge)<12
 
 [overlay-calculate]
 remerge = 12
