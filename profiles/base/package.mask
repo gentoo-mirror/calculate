@@ -11,6 +11,9 @@
 # mask all device-mapper for using lvm2
 sys-fs/device-mapper
 
+# package above 2.0 has not calculate patches
+>sys-boot/grub-2.02_beta2-r3
+
 # requires python3
 >=app-misc/media-player-info-21
 
