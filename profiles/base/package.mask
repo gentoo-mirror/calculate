@@ -11,13 +11,13 @@
 # mask all device-mapper for using lvm2
 sys-fs/device-mapper
 
+# package above 2.0 has not calculate patches
+>sys-boot/grub-2.02_beta2-r3
+
 # requires python3
 >=app-misc/media-player-info-21
 
 >=dev-python/cherrypy-3.2.2-r1
-
-# package above 2.0 has not calculate patches
->=sys-boot/grub-2.01
 
 # calckernel is not used anymore (replace to dracut)
 sys-kernel/calckernel

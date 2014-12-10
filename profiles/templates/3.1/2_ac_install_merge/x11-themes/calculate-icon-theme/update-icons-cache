@@ -1,5 +1,0 @@
-# Calculate exec=/bin/bash ac_install_disk==off&&cl_ebuild_phase!=
-
-echo "Updating icon cache"
-for i in /usr/share/icons/*;do  gtk-update-icon-cache -ft $i &>/dev/null; done
-exit 0
