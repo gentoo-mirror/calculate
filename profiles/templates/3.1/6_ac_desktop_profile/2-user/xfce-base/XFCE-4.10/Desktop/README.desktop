@@ -10,31 +10,19 @@ Name[ru]=Руководство по установке
 Name=Installation Guide
 Comment=
 Categories=Application;
-#?os_locale_language!=ru&&os_locale_language!=fr&&os_locale_language!=es&&pkg(www-client/chromium)==0#
+#?os_locale_language!=ru&&pkg(www-client/chromium)==0#
 Exec=xdg-open /usr/share/calculate/doc/handbook-en.html
 #os_locale_language#
-#?os_locale_language!=ru&&os_locale_language!=fr&&os_locale_language!=es&&pkg(www-client/chromium)>0#
+#?os_locale_language!=ru&&pkg(www-client/chromium)>0#
 Exec=chromium --app="file:///usr/share/calculate/doc/handbook-en.html"
 #os_locale_language#
 
 #?os_locale_language==ru&&pkg(www-client/chromium)==0#
 Exec=xdg-open /usr/share/calculate/doc/handbook-ru.html
 #os_locale_language#
-#?os_locale_language==fr&&pkg(www-client/chromium)==0#
-Exec=xdg-open /usr/share/calculate/doc/handbook-fr.html
-#os_locale_language#
-#?os_locale_language==es&&pkg(www-client/chromium)==0#
-Exec=xdg-open /usr/share/calculate/doc/handbook-es.html
-#os_locale_language#
 
 #?os_locale_language==ru&&pkg(www-client/chromium)>0#
 Exec=chromium --app="file:///usr/share/calculate/doc/handbook-ru.html"
-#os_locale_language#
-#?os_locale_language==fr&&pkg(www-client/chromium)>0#
-Exec=chromium --app="file:///usr/share/calculate/doc/handbook-fr.html"
-#os_locale_language#
-#?os_locale_language==es&&pkg(www-client/chromium)>0#
-Exec=chromium --app="file:///usr/share/calculate/doc/handbook-es.html"
 #os_locale_language#
 Icon=help-contents
 Terminal=false
