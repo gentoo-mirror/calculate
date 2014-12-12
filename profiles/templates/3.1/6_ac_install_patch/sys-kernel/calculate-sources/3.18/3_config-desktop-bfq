@@ -1,0 +1,4 @@
+# Calculate format=openrc os_linux_system==desktop name=.config
+CONFIG_IOSCHED_BFQ=y
+CONFIG_CGROUP_BFQIO=y
+CONFIG_DEFAULT_BFQ=n
