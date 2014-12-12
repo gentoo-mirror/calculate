@@ -3,7 +3,7 @@
 #-ini(overlay-calculate.revision,19)-#
 
 # key is pkg name, value is current version new reduced version split by space
-declare -A move_map=( ["xfce-base/garcon"]="0.3.0 0.3.0_beta1" )
+declare -A map_move=( ["xfce-base/garcon"]="0.3.0 0.3.0_beta1" )
 
 PKGDB=/var/db/pkg
 for pkg in ${!map_move[@]}
