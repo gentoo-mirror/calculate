@@ -1,0 +1,14 @@
+diff --git pym/cl_assemble.py pym/cl_assemble.py
+index 2b2f141..b86beaf 100644
+--- pym/cl_assemble.py
++++ pym/cl_assemble.py
+@@ -1469,7 +1469,8 @@ class cl_assemble(color_print):
+                                     x.replace('>=','\\<')),
+                       imap(lambda x:x.partition('="')[2].strip('\n"'),
+                       ifilterfalse(lambda x:x.startswith('mask_71') or \
+-                                            x.startswith('mask_96'),
++                                            x.startswith('mask_96') or \
++                                            x.startswith('mask_173'),
+                       ifilter(lambda x:x.startswith('mask_'),
+                       open(nvidiaEclass)))))+\
+                       [('ati-drivers',"",'x11-drivers/ati-drivers')]
