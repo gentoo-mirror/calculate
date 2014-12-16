@@ -4,10 +4,10 @@ load_videodrv() {
 	info "Loading frame buffer video driver"
 	# find all available fb drivers
 	videodrv_count=$(find /lib/modules \
-		-name "nouveau.ko" -o \
-		-name "uvesafb.ko" -o \
-		-name "i915.ko" -o \
-		-name "radeon.ko" |
+		-name "nouveau.ko*" -o \
+		-name "uvesafb.ko*" -o \
+		-name "i915.ko*" -o \
+		-name "radeon.ko*" |
 		grep -c "")
 	# load specified videodrv
 	modules_list=
@@ -44,7 +44,7 @@ load_videodrv() {
 	esac
 	for x in $modules_list
 	do
-		if [ "`find /lib/modules -name "${x}.ko" | grep -c ''`" -eq "1" ]
+		if [ "`find /lib/modules -name "${x}.ko*" | grep -c ''`" -eq "1" ]
 		then
 			modprobe "${x}" modeset=1 &>/dev/null
 			lsmod | grep -q "^${x}" && \
