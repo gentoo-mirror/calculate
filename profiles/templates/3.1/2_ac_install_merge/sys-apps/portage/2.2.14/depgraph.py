@@ -1,4 +1,4 @@
-# Calculate path=/usr/lib/portage/pym/_emerge pkg(sys-apps/portage)<2.2.14 format=patch
+# Calculate path=/usr/lib/python2.7/site-packages/_emerge format=patch
 <reg>(self._dynamic_config._scheduler_graph = scheduler_graph
 \s+raise self._unknown_internal_error\(\)
 \s*
