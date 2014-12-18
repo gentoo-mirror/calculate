@@ -1,0 +1,118 @@
+diff --git pym/cl_fill_builder.py pym/cl_fill_builder.py
+index 0e51827..e62d04f 100644
+--- pym/cl_fill_builder.py
++++ pym/cl_fill_builder.py
+@@ -190,73 +190,40 @@ class fillVars(object, varsShare):
+             return "/run/builder"
+         return "/"
+ 
++    def get_cl_builder_kernel_ver(self):
++        prefix = self.Get('cl_builder_path')
++        current_src = self.get_current_kernel_src(prefix)
++        src = path.join(prefix,current_src)
++        return self.get_src_kernel_version(src)
++
++    def get_kernel_object(self, objname):
++        mapFunc = {'kernel':(self.list_kernel, self.filter_kernel),
++                   'initrd':(self.list_initramfs, self.filter_initramfs),
++                   'config':(self.list_config, self.filter_config),
++                   'map':(self.list_system_map, self.filter_system_map)}
++        listf, filterf = mapFunc[objname]
++        prefix = self.Get('cl_builder_path')
++        version = self.Get('cl_builder_kernel_ver')
++        objfile = self.max_default(
++                filterf(listf(prefix),version=version),
++                key=path.getmtime,
++                default="")
++        if objfile:
++            objfile = path.basename(objfile)
++        return objfile
++
+     def get_cl_builder_kernel(self):
+         """Kernel image"""
+-        bootdir = path.join(self.Get('cl_builder_path'),'boot')
+-        modulesdir = path.join(self.Get('cl_builder_path'),'lib/modules')
+-        if not os.access(modulesdir,os.R_OK):
+-            return ""
+-        validKernel = os.listdir(modulesdir)
+-        kernelFiles = self.getFilesByType(bootdir,"Linux kernel")
+-        kernelsWithVer = \
+-            map(lambda x:(x[0],(getTupleVersion("".join(x[1].groups()[0:3:2])),
+-                                path.getmtime(x[0]))),
+-                filter(lambda x:x[1] and x[1].group() in validKernel,
+-                       map(lambda x:(x[0],self.reFindVer.search(x[1])),
+-                       kernelFiles)))
+-        if kernelsWithVer:
+-            return path.split(max(kernelsWithVer,key=itemgetter(1))[0])[-1]
+-        return ""
++        return self.get_kernel_object("kernel")
+ 
+     def get_cl_builder_initrd_install(self):
+-        kernelname = self.Get('cl_builder_kernel')
+-        reShortname = re.compile(
+-            r"^vmlinuz-(\d+\.)*\d+-(x86_64|i686)-(.*)$",re.S)
+-        res = reShortname.search(kernelname)
+-        if res:
+-            shortname = res.groups()[2]
+-            archmachine = res.groups()[1]
+-        else:
+-            shortname = self.Get('os_builder_linux_shortname')
+-            archmachine = self.Get('os_builder_arch_machine')
+-        return self.getInitrd(archmachine,
+-                              shortname,
+-                              self.Get('cl_builder_path'),
+-                              kernelname) or ""
++        return self.get_kernel_object("initrd")
+ 
+     def get_cl_builder_kernel_config(self):
+-        kernelname = self.Get('cl_builder_kernel')
+-        reShortname = re.compile(
+-            r"^vmlinuz-((?:\d+\.)*\d+)-(x86_64|i686)-(.*)$",re.S)
+-        res = reShortname.search(kernelname)
+-        bootPath = path.join(self.Get('cl_builder_path'),'boot')
+-        if res:
+-            kernelconfig = "config-%s-%s-%s"%(res.groups()[:3])
+-            if path.exists(path.join(bootPath,kernelconfig)):
+-                return kernelconfig
+-        elif path.exists(bootPath):
+-            configs = filter(lambda x:x.startswith('config'),
+-                             os.listdir(bootPath))
+-            if configs:
+-                return configs[0]
+-        return ""
++        return self.get_kernel_object("config")
+ 
+     def get_cl_builder_kernel_systemmap(self):
+-        kernelname = self.Get('cl_builder_kernel')
+-        reShortname = re.compile(
+-            r"^vmlinuz-((?:\d+\.)*\d+)-(x86_64|i686)-(.*)$",re.S)
+-        res = reShortname.search(kernelname)
+-        bootPath = path.join(self.Get('cl_builder_path'),'boot')
+-        if res:
+-            systemmap = "System.map-%s-%s-%s"%(res.groups()[:3])
+-            if path.exists(path.join(bootPath,systemmap)):
+-                return systemmap
+-        elif path.exists(bootPath):
+-            systemmaps = filter(lambda x:x.startswith('System.map'),
+-                             os.listdir(bootPath))
+-            if systemmaps:
+-                return systemmaps[0]
+-        return ""
++        return self.get_kernel_object("map")
+ 
+     def get_os_builder_linux_name(self):
+         """Build system name"""
+diff --git pym/cl_vars_builder.py pym/cl_vars_builder.py
+index 71e6c82..5ac4b59 100644
+--- pym/cl_vars_builder.py
++++ pym/cl_vars_builder.py
+@@ -82,6 +82,9 @@ class Data:
+     # directory for iso building
+     cl_builder_iso_path = {'mode':'w'}
+ 
++    # builder kernel version
++    cl_builder_kernel_ver = {}
++
+     # kernel image
+     cl_builder_kernel = {}
+ 
