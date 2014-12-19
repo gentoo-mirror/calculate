@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=net-misc/modemmanager,sys-apps/openrc,sys-kernel/dracut ini(overlay-calculate.remerge)<17
+
+[overlay-calculate]
+remerge = 17
