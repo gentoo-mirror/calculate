@@ -43,7 +43,7 @@ index e821c67..924893c 100644
  int rc_plugin_hook(RC_HOOK hook, const char *name)
  {
      int rv = 0;
-+    if check_safemode() {
++    if(check_safemode()) {
 +        return 0;
 +    }
      char* runlevel = rc_runlevel_get();
