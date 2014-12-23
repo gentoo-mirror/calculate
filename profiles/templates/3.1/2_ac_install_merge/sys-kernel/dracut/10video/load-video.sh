@@ -18,6 +18,9 @@ load_videodrv() {
 		radeon)
 			modules_list="radeon"
 			;;
+		none)
+			return 0;
+			;;
 		i915|intel)
 			modules_list="i915"
 			;;

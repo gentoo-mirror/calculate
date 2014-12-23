@@ -5,8 +5,14 @@
 
 [ -z "$calculate" ] && calculate=$(getarg calculate=)
 [ -z "$video" ] && video=$(getarg video=)
+[ -z "$bootimage" ] && bootimage=$(getarg BOOT_IMAGE=)
 
 [ -z "$calculate" ] && [ -z "$video" ] && return
+
+if [[ $bootimage != ${bootimage/SafeMode/} ]]
+then
+    echo "rd.plymouth=0" >>/etc/cmdline.d/90-noplymouth.conf
+fi
 
 if [ -n "$video" ]
 then
