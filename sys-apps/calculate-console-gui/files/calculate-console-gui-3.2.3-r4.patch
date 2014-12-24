@@ -1,0 +1,46 @@
+diff --git pym/consolegui/application/client_class.py pym/consolegui/application/client_class.py
+index 55e6363..3b788ca 100755
+--- pym/consolegui/application/client_class.py
++++ pym/consolegui/application/client_class.py
+@@ -16,6 +16,8 @@
+ 
+ from PySide import QtGui, QtCore
+ import urllib2 as u2
++if hasattr(u2,"ssl"):
++    u2.ssl._create_default_https_context = u2.ssl._create_unverified_context
+ import os, re, sys
+ from calculate.core.datavars import DataVarsCore
+ 
+diff --git pym/consolegui/application/mainframe.py pym/consolegui/application/mainframe.py
+index ee4691f..2dd2715 100755
+--- pym/consolegui/application/mainframe.py
++++ pym/consolegui/application/mainframe.py
+@@ -26,11 +26,19 @@ from more import show_msg, LabelWordWrap, MultipleChoice, SelectTable, \
+                  ReadonlyCheckBox, get_view_params, ImageLabel, SelectList, \
+                  QComboWgt, _print
+ from sudsds import WebFault
++from calculate.lib.utils.tools import Sizes
+ from SelectTable import SelectedTableWidget
+ from ReturnMessage import ReturnedMessage
+ import urllib2, time
+ from os import path
+ 
++
++def get_size_by_type(sizetype, size):
++    k = {'size-m': Sizes.M,
++         'size-g': Sizes.G}.get(sizetype,1)
++    return str(int(size) / k)
++
++
+ class CallMethod(QtCore.QThread):
+     '''For using page_offset and page_count'''
+     collect_sig = QtCore.Signal()
+@@ -212,6 +220,8 @@ class MainFrame(QtGui.QWidget):
+                     field.type and  "onepassword" in field.type:
+                     if field.name in ['cl_page_count','cl_page_offset']:
+                         continue
++                    if "size" in field.type:
++                        field.value = get_size_by_type(field.type,field.value)
+                     self.add_element_input (field, x, y)
+                     x += 2
+ 
