@@ -24,7 +24,7 @@ sys-fs/squashfs-tools lzma
 # grub multislot by default
 sys-boot/grub -multislot truetype device-mapper
 
-#for support pastebin.calculate-linux.org
+# for support pastebin.calculate-linux.org
 app-text/wgetpaste -lodgeit-default
 
 # Add NTFS and Reiserfs support
@@ -33,3 +33,5 @@ app-admin/testdisk ntfs reiserfs
 # Include internal version of ntfsprogs.
 sys-fs/ntfs3g ntfsprogs
 
+# to support the installation of the system
+app-arch/tar xattr
