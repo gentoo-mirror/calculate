@@ -1,0 +1,17 @@
+diff --git scripts/cl-builder scripts/cl-builder
+index 17c7018..a3fd0e9 100644
+--- scripts/cl-builder
++++ scripts/cl-builder
+@@ -19,7 +19,11 @@
+ 
+ # выбор строки перемонтирования разделов в зависимости от используемого модуля
+ BUILDER=/run/builder
+-if [[ -n `mount | grep " / type aufs"` ]];
++if [[ -n `mount | grep " / type overlay"` ]];
++then
++	REMOUNT="mount -t overlay -o remount overlay /"
++	REMOUNTBUILDER="mount -t overlay -o remount overlay $BUILDER"
++elif [[ -n `mount | grep " / type aufs"` ]];
+ then
+ 	REMOUNT="mount -t aufs -o remount,br:/ none /"
+ 	REMOUNTBUILDER="mount -t aufs -o remount,br:/ none $BUILDER"
