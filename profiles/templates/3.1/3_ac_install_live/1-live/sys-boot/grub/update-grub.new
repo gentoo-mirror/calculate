@@ -46,4 +46,9 @@ umount #-cl_chroot_path-#/proc #-cl_chroot_path-#/sys #-cl_chroot_path-#/dev
 #?os_root_type==hdd&&ac_install_disk==on#
 umount #-cl_chroot_path-#/mnt
 #os_root_type#
+
+#?exists(#-cl_chroot_path-#/boot/grub/unicode.pf2)!=&&exists(#-cl_chroot_path-#/usr/share/grub/unicode.pf2)!=#
+cp #-cl_chroot_path-#/usr/share/grub/unicode.pf2 #-cl_chroot_path-#/boot/grub/unicode.pf2 &>/dev/null
+#exists#
+
 exit $res
