@@ -8,4 +8,7 @@ GRUB_BACKGROUND="/boot/grub/grub-calculate.png"
 GRUB_COLOR_NORMAL="white/black" 
 GRUB_COLOR_HIGHLIGHT="magenta/black"
 !GRUB_VIDEO_BACKEND=del
+#?pkg(sys-boot/grub)>=2.02_beta2#
+GRUB_GFXPAYLOAD_LINUX=keep
+#pkg#
 GRUB_FONT="/usr/share/grub/unicode.pf2"
