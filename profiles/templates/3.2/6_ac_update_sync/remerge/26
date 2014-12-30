@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=x11-base/xorg-server,sys-apps/calculate-install ini(overlay-calculate.remerge)<26
+
+[overlay-calculate]
+remerge = 26
