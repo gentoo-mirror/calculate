@@ -64,7 +64,7 @@ vmlinuz_src_install() {
 	INSTALL_MOD_PATH=${D} emake modules_install
 	/sbin/depmod -b ${D} ${KV_FULL}
 	use plymouth && PLYMOUTH="-a plymouth"
-	/usr/bin/dracut -a calculate $PLYMOUTH video -k ${D}/lib/modules/${KV_FULL} \
+	/usr/bin/dracut -a calculate $PLYMOUTH -a video -k ${D}/lib/modules/${KV_FULL} \
 		--kver ${KV_FULL} \
 		${D}/usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL}
 	# move firmware to share, because /lib/firmware installation does collisions
