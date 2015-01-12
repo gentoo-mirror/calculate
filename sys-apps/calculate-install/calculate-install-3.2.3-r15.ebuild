@@ -23,6 +23,7 @@ DEPEND="~sys-apps/calculate-core-3.2.3
 	>=virtual/udev-197
 	!app-misc/livecd-tools
 	sys-apps/iproute2[-minimal]
+	sys-apps/coreutils[xattr]
 	!minimal? ( sys-boot/grub
 	sys-apps/gptfdisk
 	>=sys-apps/util-linux-2.19.1
