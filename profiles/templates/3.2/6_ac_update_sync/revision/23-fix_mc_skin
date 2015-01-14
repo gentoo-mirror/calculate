@@ -1,4 +1,4 @@
-# Calculate dotall format=patch pkg(app-misc/mc)!=&&ini(overlay-calculate.revision)<23&&exists(/root/.config/mc/sknins/modarcon16root-defbg.ini)!= path=/root/.config/mc/skins name=modarcon16root-defbg.ini
+# Calculate dotall format=patch pkg(app-misc/mc)!=&&ini(overlay-calculate.revision)<23&&exists(/root/.config/mc/skins/modarcon16root-defbg.ini)!= path=/root/.config/mc/skins name=modarcon16root-defbg.ini
 <reg>dhoriz=[^[]*?
 
 \[</reg>
