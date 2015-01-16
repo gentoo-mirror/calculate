@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-process/htop,x11-terms/xterm ini(overlay-calculate.remerge)<30
+
+[overlay-calculate]
+remerge = 30
