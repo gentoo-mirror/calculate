@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,18 +8,19 @@ ETYPE="sources"
 inherit calculate-kernel-6 eutils
 
 DESCRIPTION="Calculate Linux kernel image"
-KEYWORDS="amd64 x86"
+KEYWORDS="~x86 ~amd64"
 HOMEPAGE="http://www.calculate-linux.org"
 
 IUSE="plymouth themes firmware"
 
 DEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
+		sys-apps/v86d
+		sys-boot/grub
+	)
 	firmware? ( sys-kernel/linux-firmware )
 	themes? ( media-gfx/plymouth-themes-calculate )
 	plymouth? ( sys-boot/plymouth sys-boot/plymouth-openrc-plugin )
-	sys-apps/v86d
-	sys-boot/grub
-	)"
+	"
 
 RDEPEND="${DEPEND}"
 
