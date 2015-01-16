@@ -5,6 +5,8 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
+UTILS_PV="3.3.0_alpha1"
+
 inherit calculate-utils
 
 DESCRIPTION="Calculate Utilities"
