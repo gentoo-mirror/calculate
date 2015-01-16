@@ -1,0 +1,30 @@
+# Calculate chmod=0755 comment=#
+#!/bin/bash
+
+#?pkg(media-fonts/droid)!=#
+FONT='-*-droid sans-bold-*-*-*-34-*-*-*-*-*-*-*'
+#pkg#
+#?pkg(media-fonts/droid)==#
+FONT='-adobe-helvetica-bold-*-*-*-34-*-*-*-*-*-*-*'
+#pkg#
+DELAY=1
+
+state=`sudo /usr/bin/cpufreq_toggle`
+message="CPU Performance State Unknown"
+
+if [ "${state}" == "performance" ]; then
+   message="Performance Mode"
+elif [ "${state}" == "powersave" ]; then
+   message="Power Save Mode"
+elif [ "${state}" == "ondemand" ]; then
+   message="Automatic Mode"
+fi
+
+if which osd_cat &>/dev/null
+then
+	osd_cat -A center -p middle -f "${FONT}" -d ${DELAY} << EOF
+${message}
+EOF
+fi
+
+exit 0

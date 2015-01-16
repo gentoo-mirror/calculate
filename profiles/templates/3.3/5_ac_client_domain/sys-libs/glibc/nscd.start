@@ -1,0 +1,8 @@
+# Calculate exec=/bin/bash
+
+#?cl_system_boot_set==off#
+(/etc/init.d/nscd status || /etc/init.d/nscd restart ) &>/dev/null
+/etc/local.d/nscd-restart.start &>/dev/null
+#cl_system_boot_set#
+
+true

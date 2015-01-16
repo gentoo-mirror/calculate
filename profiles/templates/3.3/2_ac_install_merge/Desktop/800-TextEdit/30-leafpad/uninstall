@@ -1,0 +1,5 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(app-editors/leafpad)==&&ini(desktop.textedit)==leafpad
+
+[desktop]
+!textedit=
+textedit-removing=on

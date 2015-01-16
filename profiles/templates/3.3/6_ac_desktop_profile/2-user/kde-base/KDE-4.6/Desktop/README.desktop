@@ -1,0 +1,27 @@
+# Calculate os_root_type==livecd chmod=0755
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name[bg]=Ръководство за инсталиране
+Name[ru]=Руководство по установке
+Name=Installation Guide
+Comment=
+Categories=Application;
+#?os_locale_language!=ru&&pkg(www-client/chromium)==0#
+Exec=xdg-open /usr/share/calculate/doc/handbook-en.html
+#os_locale_language#
+#?os_locale_language!=ru&&pkg(www-client/chromium)>0#
+Exec=chromium --app="file:///usr/share/calculate/doc/handbook-en.html"
+#os_locale_language#
+#?os_locale_language==ru&&pkg(www-client/chromium)==0#
+Exec=xdg-open /usr/share/calculate/doc/handbook-ru.html
+#os_locale_language#
+#?os_locale_language==ru&&pkg(www-client/chromium)>0#
+Exec=chromium --app="file:///usr/share/calculate/doc/handbook-ru.html"
+#os_locale_language#
+Icon=text-html
+Terminal=false
+StartupNotify=false

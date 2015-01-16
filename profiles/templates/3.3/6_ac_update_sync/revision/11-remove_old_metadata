@@ -1,0 +1,7 @@
+# Calculate ini(overlay-calculate.revision)<11 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,11)-#
+
+/bin/rm -rf /var/cache/edb/dep/usr/portage
+
+exit 0

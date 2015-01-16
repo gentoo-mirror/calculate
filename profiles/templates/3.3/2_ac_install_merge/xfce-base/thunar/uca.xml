@@ -1,0 +1,25 @@
+# Calculate format=patch
+<reg>&lt;/action&gt;
+(  &lt;action&gt;
+    &lt;icon&gt;edit-find&lt;/icon&gt;
+    &lt;patterns&gt;*&lt;/patterns&gt;
+    &lt;name&gt;Search&lt;/name&gt;
+    &lt;name xml:lang="ru"&gt;Поиск&lt;/name&gt;
+    &lt;command&gt;catfish --fileman=thunar --path=%f&lt;/command&gt;
+    &lt;description&gt;find files or filders&lt;/description&gt;
+    &lt;description xml:lang="ru"&gt;найти файлы и папки&lt;/description&gt;
+    &lt;directories/&gt;
+  &lt;/action&gt;)?
+</reg>
+<text>&lt;/action&gt;
+#?pkg(dev-util/catfish)!=#  &lt;action&gt;
+    &lt;icon&gt;edit-find&lt;/icon&gt;
+    &lt;patterns&gt;*&lt;/patterns&gt;
+    &lt;name&gt;Search&lt;/name&gt;
+    &lt;name xml:lang="ru"&gt;Поиск&lt;/name&gt;
+    &lt;command&gt;catfish --fileman=thunar --path=%f&lt;/command&gt;
+    &lt;description&gt;find files or filders&lt;/description&gt;
+    &lt;description xml:lang="ru"&gt;найти файлы и папки&lt;/description&gt;
+    &lt;directories/&gt;
+  &lt;/action&gt;
+#pkg#</text>

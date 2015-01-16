@@ -1,0 +1,5 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(media-sound/clementine)==&&ini(desktop.audioplayer)==clementine
+
+[desktop]
+!audioplayer=
+audioplayer-removing=on

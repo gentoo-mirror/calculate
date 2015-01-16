@@ -1,0 +1,8 @@
+# Calculate ini(overlay-calculate.revision)<16 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,16)-#
+
+PKGDB=/var/db/pkg
+[[ -d $PKGDB/xfce-base/xfdesktop-4.11.8 ]] && mv $PKGDB/xfce-base/xfdesktop-4.11.8 $PKGDB/xfce-base/xfdesktop-4.11.7
+
+true

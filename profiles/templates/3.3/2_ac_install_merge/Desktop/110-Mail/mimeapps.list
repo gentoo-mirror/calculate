@@ -1,0 +1,6 @@
+# Calculate format=compiz protected ini(desktop.mail-removing)==on merge=kde-base/kmail,mail-client/evolution,mail-client/claws-mail
+
+#-ini(desktop.mail-removing,)-#
+
+[Added Associations]
+!x-scheme-handler/mailto=

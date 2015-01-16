@@ -1,0 +1,99 @@
+# Calculate comment=# path=/usr/bin chmod=0755
+#!/bin/bash
+
+PORTDIR=/usr/portage
+OVERLAYDIR=/var/lib/layman/calculate
+RECALCULATE_METADATA=
+
+# check run eix-checkout in this root
+already_run()
+{
+    for p in `pgrep -f /usr/bin/eix-checkout`
+    do
+        if [[ $$ != $p ]] && [[ `readlink /proc/$p/root 2>/dev/null` == '/' ]] &&
+           [[ `stat -c %i%D%d /proc/$p/root/` == `stat -c %i%D%d /` ]]
+        then
+            return 0
+        fi
+    done
+    return 1
+}
+
+# get sync-uri from repos.conf/gentoo.conf
+get_sync_uri() {
+    sed -nr '/\[gentoo\]/{:a;n;/\[/{bb;};s/^sync-uri = (.*)$/\1/p;ba;:b}' \
+        /etc/portage/repos.conf/gentoo.conf
+}
+
+# check files into directory
+is_dir_empty() {
+	[[ ! -e $1 ]] || [[ -z $(ls -A $1) ]]
+}
+
+# restore portage
+restore_portage() {
+	# create portage directory
+	[ -e $PORTDIR ] || mkdir $PORTDIR
+	# get sync-uri
+	SYNCURI=$(get_sync_uri)
+	# check about git sync-uri
+	if [[ $SYNCURI =~ ^git: ]];then
+		# clone portage reposi
+		echo "Fetching portage..."
+		(cd $(dirname $PORTDIR);git clone --depth 1 $SYNCURI portage ) &>/dev/null ||
+			echo "Failed to fetch portage!!!"
+			RECALCULATE_METADATA=1
+	fi
+}
+
+if already_run
+then
+	echo "Unpacking portage..."
+	NOECHOUNPACK=1
+fi
+# check already run
+while already_run
+do
+	sleep 1
+done
+
+[[ -z $NOECHOUNPACK ]] && echo "Checking portage..."
+# repair portage and overlay
+if is_dir_empty $PORTDIR ;then
+	restore_portage
+fi
+# Unpack portage and overlay from git
+cd $PORTDIR
+if git status --short | grep -m1 "^ D " &>/dev/null; then
+	[[ -z $NOECHOUNPACK ]] && echo "Unpacking portage..."
+	# unpack portage
+	cd $PORTDIR
+	git checkout .
+	# unpack overlay
+	cd $OVERLAYDIR
+	git checkout .
+	RECALCULATE_METADATA=1
+else
+	for pdir in $PORTDIR $OVERLAYDIR
+	do
+		cd $pdir
+		if [[ -n `git status --porcelain` ]]
+		then
+			git reset --hard `git branch | sed -rn 's|^\*\s*(\S+)|origin/\1|p'` &>/dev/null
+			git clean -fd &>/dev/null
+			RECALCULATE_METADATA=1
+		fi
+	done
+fi
+
+# if need to recalculate metadata and gencache
+if [[ -n $RECALCULATE_METADATA ]];then
+	# fix update files
+	sed 0,/'"updates"'/d /var/cache/edb/mtimedb | \
+		sed /},/,\$d | \
+		sed -r 's/"([^"]+)":\s+([0-9]+).*/touch -c -t `date -d "@\2" +%Y%m%d%H%M.%S` \1/' | \
+		bash
+	# copy metadata
+	egencache --repo=calculate --update --jobs=4
+	emerge --metadata
+fi

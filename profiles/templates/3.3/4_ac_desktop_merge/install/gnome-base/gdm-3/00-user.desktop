@@ -1,0 +1,11 @@
+# Calculate path=/etc/xdg/autostart
+
+[Desktop Entry]
+Type=Application
+Name=Dconfigurator
+Comment=Autorun configure dconf
+Exec=/bin/bash -c "$HOME/.dconfigure"
+OnlyShowIn=GNOME;
+X-GNOME-Autostart-Phase=Initialization
+X-GNOME-AutoRestart=false
+X-GNOME-Autostart-Notify=true

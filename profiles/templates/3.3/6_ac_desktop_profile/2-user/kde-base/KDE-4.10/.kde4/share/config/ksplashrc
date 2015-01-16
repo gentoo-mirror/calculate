@@ -1,0 +1,10 @@
+# Calculate format=kde
+#тема загрузки рабочего стола
+[KSplash]
+Engine=KSplashX
+#?pkg(media-gfx/kdm-themes-calculate)<14&&os_locale_lang!=pt_BR#
+Theme=CalculateSplash#-case(capitalize,os_locale_language)-#
+#pkg#
+#?pkg(media-gfx/kdm-themes-calculate)<14&&os_locale_lang==pt_BR#
+Theme=CalculateSplashPt
+#pkg#

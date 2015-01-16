@@ -1,0 +1,5 @@
+# Calculate exec=/bin/bash cl_merge_pkg!=
+
+echo "Fix files containt of net-misc/networkmanager"
+sed -i '/plasma-applet-networkmanagement.desktop/d' ${EROOT}/var/db/pkg/net-misc/networkmanager-0.9*/CONTENTS
+true

@@ -1,0 +1,5 @@
+# Calculate format=patch multiline
+<reg>define-color selected_bg_color .*;</reg>
+<text>define-color selected_bg_color #74cce7;</text>
+<reg>define-color error_bg_color .*;</reg>
+<text>define-color error_bg_color transparent;</text>

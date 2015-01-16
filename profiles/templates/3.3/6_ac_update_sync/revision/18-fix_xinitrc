@@ -1,0 +1,5 @@
+# Calculate dotall format=patch ini(overlay-calculate.revision)<18 path=/etc/X11/xinit name=xinitrc
+<reg>^\s*</reg>
+<text></text>
+<reg>Calculate ini change revision</reg>
+<text>#-ini(overlay-calculate.revision,18)-#</text>
