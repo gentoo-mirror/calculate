@@ -23,13 +23,13 @@ sys-apps/calculate-server:calculate_nomail - Includes dependencies of packages f
 sys-apps/calculate-server:calculate_nonamed - Includes dependencies of packages for DNS
 sys-apps/calculate-server:calculate_noproxy - Includes dependencies of packages for Proxy
 sys-apps/calculate-server:calculate_nosamba - Includes dependencies of packages for Samba
-sys-apps/calculate-utilities:cl_client - Includes calculate-client dependence
-sys-apps/calculate-utilities:cl_console -Includes calculate-console dependence 
-sys-apps/calculate-utilities:cl_consolegui - Includes calculate-console-gui dependence
-sys-apps/calculate-utilities:cl_desktop - Includes calculate-desktop dependence
-sys-apps/calculate-utilities:pxe - Enables support for PXE installation
-sys-apps/calculate-utilities:console - Includes console module
-sys-apps/calculate-utilities:client - Includes module for setting and storing the user accounts in the domain
+sys-apps/calculate-utils:cl_client - Includes calculate-client dependence
+sys-apps/calculate-utils:cl_console -Includes calculate-console dependence 
+sys-apps/calculate-utils:cl_consolegui - Includes calculate-console-gui dependence
+sys-apps/calculate-utils:cl_desktop - Includes calculate-desktop dependence
+sys-apps/calculate-utils:pxe - Enables support for PXE installation
+sys-apps/calculate-utils:console - Includes console module
+sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain
 sys-apps/calculate-utilities:desktop - Includes module for desktop configuration
 sys-kernel/calckernel:lspci - Adds video detect by PCI device
 sys-kernel/calckernel:nfs - Adds support for PXE boot
