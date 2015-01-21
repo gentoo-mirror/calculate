@@ -27,6 +27,10 @@ sys-apps/calculate-utilities:cl_client - Includes calculate-client dependence
 sys-apps/calculate-utilities:cl_console -Includes calculate-console dependence 
 sys-apps/calculate-utilities:cl_consolegui - Includes calculate-console-gui dependence
 sys-apps/calculate-utilities:cl_desktop - Includes calculate-desktop dependence
+sys-apps/calculate-utilities:pxe - Enables support for PXE installation
+sys-apps/calculate-utilities:console - Includes console module
+sys-apps/calculate-utilities:client - Includes module for setting and storing the user accounts in the domain
+sys-apps/calculate-utilities:desktop - Includes module for desktop configuration
 sys-kernel/calckernel:lspci - Adds video detect by PCI device
 sys-kernel/calckernel:nfs - Adds support for PXE boot
 sys-kernel/calculate-sources:plymouth - Adds plymouth dependence

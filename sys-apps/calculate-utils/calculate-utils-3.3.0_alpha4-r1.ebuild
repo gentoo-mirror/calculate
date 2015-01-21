@@ -7,7 +7,6 @@ PYTHON_COMPAT=(python2_7)
 
 UTILS_PV="3.3.0_alpha1"
 
-
 declare -A CALCULATE_MODULES=(
 	["core"]="3.3.0_alpha3"
 	["client"]="3.3.0_alpha3"
@@ -16,8 +15,8 @@ declare -A CALCULATE_MODULES=(
 
 inherit calculate-utils
 
-DESCRIPTION="Calculate Utilities"
-HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
+DESCRIPTION="A set of Calculate utilities for system management"
+HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
 SLOT="3"
