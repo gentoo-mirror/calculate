@@ -11,7 +11,7 @@ UTILS_PV="3.3.0_alpha1"
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.3.0_alpha2"
 	["core"]="3.3.0_alpha3"
-	["client"]="3.3.0_alpha3"
+	["client"]="3.3.0_alpha5"
 	["update"]="3.3.0_alpha2"
 )
 
