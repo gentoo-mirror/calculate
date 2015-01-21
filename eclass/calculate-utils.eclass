@@ -229,9 +229,19 @@ calculate-utils_src_install() {
 	done
 }
 
+python_install() {
+	if [[ $MODULE_PN == "calculate-client" ]]
+	then
+		PYTHON_INSTALL_PARAMS="--install-scripts=/usr/sbin"
+	fi
+	distutils-r1_python_install $PYTHON_INSTALL_PARAMS
+}
+
 calculate-utils_pkg_preinst() {
 	dosym /usr/sbin/cl-core /usr/sbin/cl-core-setup
 	dosym /usr/sbin/cl-core /usr/sbin/cl-core-patch
+	dosym /usr/sbin/cl-core /usr/sbin/cl-update
+	dosym /usr/sbin/cl-core /usr/sbin/cl-update-profile
 }
 
 calculate-utils_pkg_postinst() {
