@@ -15,7 +15,7 @@ declare -A CALCULATE_MODULES=(
 
 inherit calculate-utils
 
-DESCRIPTION="A set of Calculate utilities for installation, building and upgrading system"
+DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
