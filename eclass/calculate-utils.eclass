@@ -14,7 +14,12 @@ PYTHON_COMPAT=(python2_7)
 
 inherit distutils-r1 eutils versionator
 
-EXPORTED_FUNCTIONS="src_compile src_install pkg_postinst pkg_preinst"
+if [[ ${PV/9999/} != ${PV} ]]
+then
+	inherit git-2
+fi
+
+EXPORTED_FUNCTIONS="src_unpack src_compile src_install pkg_postinst pkg_preinst"
 
 CALCULATE_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3"
 MIRROR_URI="http://mirror.yandex.ru/calculate/calculate3"
@@ -83,7 +88,6 @@ prepare_variables() {
 		CALCULATE_MODULES_USE_[$module]=${CALCULATE_MODULES_USE[$module]}
 	done
 
-
 	for module in ${!CALCULATE_MODULES_[@]}
 	do
 		MODULE_PN=calculate-${module}
@@ -117,6 +121,11 @@ prepare_variables() {
 		fi
 		SRC_URI="$SRC_URI $MODULE_URI"
 	done
+
+	if [[ ${PV/9999/} != ${PV} ]]
+	then
+		SRC_URI=""
+	fi
 
 	IUSE="minimal pxe ${CALCULATE_MODULES_USE_[@]}"
 	S="${WORKDIR}"
@@ -198,6 +207,21 @@ RDEPEND="
 DEPEND="sys-devel/gettext"
 
 REQUIRED_USE="client? ( desktop )"
+
+# @FUNCTION: calculate-utils_src_unpack
+# @DESCRIPTION:
+# Unpack all modules of calculate utils
+calculate-utils_src_unpack() {
+	if [[ ${PV/9999/} != ${PV} ]]
+	then
+		for MODULE in "${MODULE_INFO[@]}"
+		do
+			MODULE_DATA=( $MODULE )
+			MODULE_PN=${MODULE_DATA[0]}
+			EGIT_SOURCEDIR=${WORKDIR}/${MODULE_PN}-${PV} EGIT_REPO_URI=git://git.calculate.ru/calculate-3/${MODULE_PN}.git git-2_src_unpack
+		done
+	fi
+}
 
 # @FUNCTION: calculate-utils_src_compile
 # @DESCRIPTION:
