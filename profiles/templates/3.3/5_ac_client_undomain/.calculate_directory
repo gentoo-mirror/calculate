@@ -1,1 +1,1 @@
-# Calculate append=skip ini(merge-calculate.client-undomain)==yes||merge(sys-apps/calculate-utils)!=&&pkg(sys-apps/calculate-utils[-client])!=&&ini(merge-calculate.client)!=||pkg(sys-apps/calculate-utils[client])!=&&client.ac_client_undomain==on
+# Calculate append=skip install.ac_install_live==on&&ini(merge-calculate.client-undomain)==yes||install.ac_install_live==on&&merge(sys-apps/calculate-utils)!=&&pkg(sys-apps/calculate-utils[-client])!=&&ini(merge-calculate.client)!=||pkg(sys-apps/calculate-utils[client])!=&&client.ac_client_undomain==on
