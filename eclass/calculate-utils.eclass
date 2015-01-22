@@ -220,6 +220,8 @@ calculate-utils_src_unpack() {
 			MODULE_PN=${MODULE_DATA[0]}
 			EGIT_SOURCEDIR=${WORKDIR}/${MODULE_PN}-${PV} EGIT_REPO_URI=git://git.calculate.ru/calculate-3/${MODULE_PN}.git git-2_src_unpack
 		done
+	else
+		distutils-r1_src_unpack
 	fi
 }
 
