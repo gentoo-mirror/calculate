@@ -133,7 +133,7 @@ RDEPEND="
 		sys-block/parted
 		dev-python/sudsds
 		net-libs/dslib
-		dev-python/pyopenssl
+		>=dev-python/pyopenssl-0.14
 		dev-libs/openssl
 		=dev-python/m2crypto-0.21.1-r2
 		dev-python/cherrypy
