@@ -16,6 +16,8 @@
 ~sys-kernel/dracut-040 amd64 x86
 ~sys-kernel/linux-firmware-20141009 amd64 x86
 ~sys-power/cpupower-3.14 amd64 x86
+# support TLSv1_2
+~dev-python/pyopenssl-0.14 amd64 x86
 
 # from the overlay
 =app-crypt/shim-signed-0.2 amd64 x86
