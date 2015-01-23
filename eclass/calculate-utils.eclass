@@ -14,11 +14,6 @@ PYTHON_COMPAT=(python2_7)
 
 inherit distutils-r1 eutils versionator
 
-if [[ ${PV/9999/} != ${PV} ]]
-then
-	inherit git-2
-fi
-
 EXPORTED_FUNCTIONS="src_compile src_install pkg_postinst pkg_preinst"
 
 CALCULATE_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3"
@@ -121,11 +116,6 @@ prepare_variables() {
 		fi
 		SRC_URI="$SRC_URI $MODULE_URI"
 	done
-
-	if [[ ${PV/9999/} != ${PV} ]]
-	then
-		SRC_URI=""
-	fi
 
 	IUSE="minimal pxe ${CALCULATE_MODULES_USE_[@]}"
 	S="${WORKDIR}"

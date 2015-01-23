@@ -5,10 +5,11 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
-inherit calculate-utils
+inherit calculate-utils git-2
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
+SRC_URI=""
 
 LICENSE="Apache-2.0"
 SLOT="3"
@@ -22,4 +23,3 @@ src_unpack() {
 		EGIT_SOURCEDIR=${WORKDIR}/${MODULE_PN}-${PV} EGIT_REPO_URI=git://git.calculate.ru/calculate-3/${MODULE_PN}.git git-2_src_unpack
 	done
 }
-
