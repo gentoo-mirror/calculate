@@ -33,3 +33,13 @@ sys-kernel/calckernel
 
 # outdated
 sys-apps/calculate
+# combined to calculate-utils
+sys-apps/calculate-lib:3
+sys-apps/calculate-install:3
+sys-apps/calculate-core:3
+sys-apps/calculate-console:3
+sys-apps/calculate-console-gui:3
+sys-apps/calculate-desktop:3
+sys-apps/calculate-client:3
+sys-apps/calculate-update:3
+=sys-apps/calculate-utils-3.2*
