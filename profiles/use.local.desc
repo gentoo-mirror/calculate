@@ -31,6 +31,7 @@ sys-apps/calculate-utils:pxe - Enables support for PXE installation
 sys-apps/calculate-utils:console - Includes console module
 sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain
 sys-apps/calculate-utils:desktop - Includes module for desktop configuration
+sys-apps/calculate-utils:server - Includes utilities WSDL server required for GUI console
 sys-kernel/calckernel:lspci - Adds video detect by PCI device
 sys-kernel/calckernel:nfs - Adds support for PXE boot
 sys-kernel/calculate-sources:plymouth - Adds plymouth dependence

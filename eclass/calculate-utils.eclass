@@ -117,7 +117,7 @@ prepare_variables() {
 		SRC_URI="$SRC_URI $MODULE_URI"
 	done
 
-	IUSE="minimal pxe ${CALCULATE_MODULES_USE_[@]}"
+	IUSE="+server minimal pxe ${CALCULATE_MODULES_USE_[@]}"
 	S="${WORKDIR}"
 }
 
@@ -234,6 +234,7 @@ python_install() {
 		PYTHON_INSTALL_PARAMS="--install-scripts=/usr/sbin"
 	fi
 	distutils-r1_python_install $PYTHON_INSTALL_PARAMS
+	use server || rm ${D}/etc/init.d/calculate-core
 }
 
 calculate-utils_pkg_preinst() {
