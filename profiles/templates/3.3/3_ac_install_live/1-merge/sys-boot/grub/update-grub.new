@@ -1,4 +1,4 @@
-# Calculate path=/tmp exec=/bin/bash os_install_root_type!=livecd&&os_install_scratch==off&&pkg(sys-boot/grub)>=2.00_p5000
+# Calculate exec=/bin/bash os_install_root_type!=livecd&&os_install_scratch==off&&pkg(sys-boot/grub)>=2.00_p5000
 
 echo "Configuring the grub"
 # mount some need directories from the current system to the installing system

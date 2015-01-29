@@ -1,4 +1,4 @@
-# Calculate exec=/bin/bash path=/tmp
+# Calculate exec=/bin/bash
 
 rc-service -i in.tftpd restart
 rc-service -i nfs restart
