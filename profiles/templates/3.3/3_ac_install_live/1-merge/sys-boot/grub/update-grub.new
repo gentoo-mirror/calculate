@@ -23,6 +23,16 @@ mount -o bind / #-cl_chroot_path-#/mnt
 [[ -f #-cl_chroot_path-#/etc/blkid.conf ]] && mv #-cl_chroot_path-#/etc/blkid.conf #-cl_chroot_path-#/etc/blkid.conf.bak
 echo "CACHE_FILE=/dev/null" >#-cl_chroot_path-#/etc/blkid.conf
 
+loaded_modules() {
+	lsmod | sed -n '2,$p' | awk '{print $1}'
+}
+
+grep_modules() {
+	lsmod | sed -n '2,$p' | awk '{print  "-e "$1}'
+}
+
+before_mods=( $(grep_modules) )
+
 #?ac_install_disk==on#
 /bin/chroot #-cl_chroot_path-# grub-mkconfig -o /boot/grub/grub.cfg &>/dev/null
 #ac_install_disk#
@@ -30,6 +40,15 @@ echo "CACHE_FILE=/dev/null" >#-cl_chroot_path-#/etc/blkid.conf
 /usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg &>/dev/null
 #ac_install_disk#
 res=$?
+
+for in in {0..3}
+do
+	for i in $(loaded_modules | grep -v ${before_mods[*]})
+	do
+		rmmod $i &>/dev/null
+	done 
+done
+
 
 [[ -f #-cl_chroot_path-#/etc/blkid.conf.bak ]] && mv #-cl_chroot_path-#/etc/blkid.conf.bak #-cl_chroot_path-#/etc/blkid.conf || rm -f #-cl_chroot_path-#/etc/blkid.conf
 
