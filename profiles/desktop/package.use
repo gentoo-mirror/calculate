@@ -26,7 +26,7 @@ net-analyzer/nmap -gtk
 net-print/cndrvcups-capt -gtk
 sys-fs/mtools -X
 www-client/links -X
-x11-drivers/nvidia-drivers -gtk
+x11-drivers/nvidia-drivers -acpi -tools
 
 
 # Fix blocks the installation of the old nvidia video drivers
