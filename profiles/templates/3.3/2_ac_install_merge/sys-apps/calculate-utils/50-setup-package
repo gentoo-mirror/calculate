@@ -14,7 +14,7 @@ CL_UPDATE_PROG=/usr/sbin/cl-core-setup
 # setup package and create postmerge package list
 setup_merge_package() {
 	rm -f /var/lib/calculate/-postmerge
-	check_skip && CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
+	[ -f ${CL_UPDATE_PROG} ] && check_skip && CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
 }
 
 # remove mark: package updating
@@ -44,7 +44,7 @@ pkg_postrm_dispatch() {
 
 # setup package umerging
 pkg_postrm_unmerge() {
-	check_skip && ${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path / --pkg-name ${PN}
+	[ -f ${CL_UPDATE_PROG} ] && check_skip && ${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path / --pkg-name ${PN}
 }
 
 # save contents file for correct package updating by cl-core-setup

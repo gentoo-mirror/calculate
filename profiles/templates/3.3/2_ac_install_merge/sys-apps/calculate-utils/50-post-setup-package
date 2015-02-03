@@ -11,7 +11,7 @@
 CL_UPDATE_PROG=/usr/sbin/cl-core-setup
 
 post_setup_package() {
-	if [[ -f  /var/lib/calculate/-postmerge ]] && check_skip
+	if [ -f ${CL_UPDATE_PROG} ] && [[ -f  /var/lib/calculate/-postmerge ]] && check_skip
 	then
 		OLDIFS=$IFS
 		IFS=/

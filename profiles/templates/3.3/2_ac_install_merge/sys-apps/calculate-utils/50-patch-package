@@ -11,7 +11,7 @@
 CL_CORE_PATCH=/usr/sbin/cl-core-patch
 
 if [[ ${EBUILD_PHASE} == "compile" ]] && [[ -d ${S} ]] && check_skip; then
-	${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} \
+	[ -f ${CL_CORE_PATCH} ] && ${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} \
 		--pkg-slot ${SLOT} --pkg-category ${CATEGORY} \
 		--pkg-path ${S} --pkg-name ${PN} --verbose
 fi
