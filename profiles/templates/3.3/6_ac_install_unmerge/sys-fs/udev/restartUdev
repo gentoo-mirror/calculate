@@ -1,0 +1,5 @@
+# Calculate  exec=/bin/bash pkg(sys-apps/eudev)!=
+
+/etc/init.d/udev restart &>/dev/null
+
+true
