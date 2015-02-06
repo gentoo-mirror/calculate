@@ -209,6 +209,11 @@ calculate-utils_src_compile() {
 		MODULE_PV=${MODULE_DATA[1]}
 		S="${WORKDIR}/${MODULE_PN}-${MODULE_PV}"
 		cd $S
+		if [[ $MODULE_PN == "calculate-lib" ]]
+		then
+			sed -ri "/class VariableClVer/{N;N;N;N;s/value = \".*?\"/value = \"${PV}\"/;}" \
+				pym/calculate/lib/variables/__init__.py
+		fi
 		distutils-r1_src_compile
 	done
 }
