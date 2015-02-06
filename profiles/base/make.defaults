@@ -2,7 +2,7 @@
 USE="${USE} -branding"
 
 # Hardware
-USE="${USE} 3dnow 3dnowext aes avx mmx mmxext popcnt sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3"
+USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 mmx mmxext popcnt sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3"
 
 # Lang
 #USE="${USE} perl python"
