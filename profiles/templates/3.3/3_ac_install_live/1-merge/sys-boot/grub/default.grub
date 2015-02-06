@@ -1,5 +1,5 @@
 # Calculate format=openrc path=/etc/default name=grub os_install_root_type!=usb-hdd&&in(os_install_x11_video_drv,other,default)==
-GRUB_CMDLINE_LINUX=" video=#-os_install_fb_resolution-# #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# doscsi#-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# splash udev quiet"
+GRUB_CMDLINE_LINUX=" video=#-os_install_fb_resolution-# #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# #-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# splash quiet"
 GRUB_GFXMODE="#-os_install_fb_resolution-#"
 
 #?os_install_linux_subname==&&os_install_scratch==off#
