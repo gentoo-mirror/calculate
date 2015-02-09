@@ -6,13 +6,13 @@ EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.3.0.4"
-	["install"]="3.3.0.3"
+	["lib"]="3.3.0.6"
+	["install"]="3.3.0.7"
 	["core"]="3.3.0.1"
-	["i18n"]="3.3.0.1"
-	["client"]="3.3.0.1"
-	["desktop"]="3.3.0.2"
-	["update"]="3.3.0.1"
+	["i18n"]="3.3.0.2"
+	["client"]="3.3.0.2"
+	["desktop"]="3.3.0.3"
+	["update"]="3.3.0.2"
 )
 
 inherit calculate-utils
@@ -22,5 +22,5 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
