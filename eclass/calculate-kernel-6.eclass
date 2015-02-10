@@ -113,7 +113,7 @@ clean_for_minimal() {
 		scripts/Makefile.clean scripts/mod/modpost \
 		include/config/kernel.release include/config/auto.conf \
 		arch/x86/Makefile_32.cpu arch/x86/Makefile \
-		System.map Makefile Kbuild"
+		System.map Kconfig Makefile Kbuild"
 	find . -type f -a \! -wholename ./.config \
 		$(echo $KEEPLIST | sed -r 's/(\S+)(\s|$)/-a \! -wholename .\/\1 /g') \
 		-a \! -name "*.h" -delete
