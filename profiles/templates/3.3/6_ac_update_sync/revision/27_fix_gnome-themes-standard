@@ -1,0 +1,33 @@
+# Calculate ini(overlay-calculate.revision)<27 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,27)-#
+
+#?pkg(x11-themes/gnome-themes-standard)<3.14#
+for delfile in 4498f0e0c1937ffe01fd06f973665830 \
+    bottom_right_corner \
+    bottom_side \
+    cross \
+    crossed_circle \
+    dnd-copy \
+    dnd-move \
+    dot_box_mask \
+    h_double_arrow \
+    hand \
+    left_ptr_help \
+    left_ptr_watch \
+    left_side \
+    link \
+    lr_angle \
+    move \
+    plus \
+    top_left_corner \
+    ul_angle \
+    v_double_arrow
+do
+    delpath="/usr/share/cursors/xorg-x11/Adwaita/cursors/${delfile}"
+    test -f /var/db/pkg/x11-themes/gnome-themes-standard-*/CONTENTS &&
+        sed -i "/ ${delpath////\/} /d" /var/db/pkg/x11-themes/gnome-themes-standard-*/CONTENTS
+done
+#pkg#
+
+exit 0
