@@ -57,7 +57,7 @@ calculate-kernel-6_src_compile() {
 
 vmlinuz_src_install() {
 	# dracut change this files in chroot of ramdisk
-	SANDBOX_WRITE="${SANDBOX_WRITE}:/etc/ld.so.cache~:/etc/ld.so.cache:/etc/mtab"
+	SANDBOX_WRITE="${SANDBOX_WRITE}:/run/blkid:/etc/ld.so.cache~:/etc/ld.so.cache:/etc/mtab"
 	cd ${S}
 	dodir /usr/share/${PN}/${PV}/boot
 	INSTALL_PATH=${D}/usr/share/${PN}/${PV}/boot emake install
