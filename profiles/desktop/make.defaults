@@ -14,7 +14,7 @@ USE="${USE} chm djvu ebook"
 USE="${USE} crypt ssl"
 
 # Hardware
-USE="${USE} acpi cairo cpudetection dbus dri ieee1394 gpm opengl scanner smp usb vdpau xcomposite"
+USE="${USE} acpi cairo cpudetection dbus dri ieee1394 gpm opengl scanner smp usb vdpau -video_cards_dummy -video_cards_fbdev -video_cards_v4l -video_cards_via xcomposite"
 
 #USE="${USE} apm bluetooth"
 
