@@ -1,0 +1,14 @@
+# Calculate ini(overlay-calculate.revision)<28 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,28)-#
+
+#?pkg(sys-fs/udisks:2)!=#
+for delfile in org.freedesktop.udisks.policy
+do
+    delpath="/usr/share/polkit-1/actions/${delfile}"
+    test -f /var/db/pkg/sys-fs/udisks-2.1*/CONTENTS &&
+        sed -i "/ ${delpath////\/} /d" /var/db/pkg/sys-fs/udisks-2.1*/CONTENTS
+done
+#pkg#
+
+exit 0
