@@ -1,0 +1,17 @@
+diff --git a/src/compositor.c b/src/compositor.c
+index 1bf3322..37df1a4 100644
+--- a/src/compositor.c
++++ b/src/compositor.c
+@@ -861,9 +861,9 @@ root_tile (ScreenInfo *screen_info)
+         XRenderColor c;
+ 
+         /* Background default to just plain ugly grey */
+-        c.red   = 0x7f00;
+-        c.green = 0x7f00;
+-        c.blue  = 0x7f00;
++        c.red   = 0x0000;
++        c.green = 0x0000;
++        c.blue  = 0x0000;
+         c.alpha = 0xffff;
+         picture = XRenderCreateSolidFill (dpy, &c);
+     }
