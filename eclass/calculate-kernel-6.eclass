@@ -38,6 +38,11 @@ calculate-kernel-6_pkg_setup() {
 
 calculate-kernel-6_src_unpack() {
 	kernel-2_src_unpack
+	cd ${S}
+	local GENTOOARCH="${ARCH}"
+	unset ARCH
+	emake defconfig || die "kernel configure failed"
+	ARCH="${GENTOOARCH}"
 }
 
 vmlinuz_src_compile() {
