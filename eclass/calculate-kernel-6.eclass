@@ -133,7 +133,9 @@ calculate-kernel-6_src_install() {
 	kernel-2_src_install
 	if ! use vmlinuz
 	then
-		cp .config ${D}/usr/share/${PN}/${PV}/boot/config-${KV_FULL}
+		dodir /usr/share/${PN}/${PV}/boot
+		insinto /usr/share/${PN}/${PV}/boot
+		newins .config config-${KV_FULL}
 	fi
 	use vmlinuz && touch ${D}/usr/src/linux-${KV_FULL}/.calculate
 }
