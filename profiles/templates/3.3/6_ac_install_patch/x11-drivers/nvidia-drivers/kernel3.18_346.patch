@@ -1,0 +1,27 @@
+# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.18&&pkg(sys-kernel/calculate-sources)<3.19&&merge(x11-drivers/nvidia-drivers)>=346.35&&merge(x11-drivers/nvidia-drivers)<346.47
+
+diff -Naur work/kernel/nv-drm.c work2/kernel/nv-drm.c
+--- work/kernel/nv-drm.c	2015-01-11 07:30:46.000000000 +0300
++++ work2/kernel/nv-drm.c	2015-03-02 16:42:55.746457079 +0300
+@@ -127,6 +127,9 @@
+     .gem_prime_get_sg_table = nv_gem_prime_get_sg_table,
+     .gem_prime_vmap = nv_gem_prime_vmap,
+     .gem_prime_vunmap = nv_gem_prime_vunmap,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 18, 0)
++    .set_busid = drm_pci_set_busid,
++#endif
+ 
+     .name = "nvidia-drm",
+     .desc = "NVIDIA DRM driver",
+diff -Naur work/kernel/nv-linux.h work2/kernel/nv-linux.h
+--- work/kernel/nv-linux.h	2015-01-11 07:30:46.000000000 +0300
++++ work2/kernel/nv-linux.h	2015-03-02 16:43:54.602457850 +0300
+@@ -2000,7 +2000,7 @@
+ #if defined(NV_FILE_HAS_INODE)
+ #define NV_FILE_INODE(file) (file)->f_inode
+ #else
+-#define NV_FILE_INODE(file) (file)->f_dentry->d_inode
++#define NV_FILE_INODE(file) (file)->f_path.f_dentry->d_inode
+ #endif
+ 
+ /* Stub out UVM in multi-RM builds */
