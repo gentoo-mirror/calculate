@@ -1,0 +1,7 @@
+# Calculate format=world name=world ini(overlay-calculate.world)<4
+
+#-ini(overlay-calculate.world,4)-#
+
+#?in(os_linux_pkglist, base)!=#
+app-arch/lz4
+#in#
