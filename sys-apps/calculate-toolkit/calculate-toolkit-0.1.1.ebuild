@@ -13,4 +13,5 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-RDEPEND=">=sys-apps/calculate-utils-3.3.0.17"
+RDEPEND=">=sys-apps/calculate-utils-3.3.0.17
+	app-arch/lz4"
