@@ -1,5 +1,5 @@
-# Calculate format=openrc path=/etc/default name=grub os_install_root_type!=usb-hdd&&in(os_install_x11_video_drv,other,default)==
-GRUB_CMDLINE_LINUX=" video=#-os_install_fb_resolution-# #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# #-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# splash quiet"
+# Calculate format=openrc path=/etc/default name=grub os_install_root_type==usb-hdd
+GRUB_CMDLINE_LINUX="zswap.enabled=1 zswap.compressor=lz4 zswap.max_pool_percent=50 video=#-os_install_fb_resolution-# #-os_install_kernel_resume-# elevator=#-os_install_kernel_scheduler-# #-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# splash quiet"
 GRUB_GFXMODE="#-os_install_fb_resolution-#"
 
 #?os_install_linux_subname==&&os_install_scratch==off#
@@ -14,7 +14,8 @@ GRUB_DISTRIBUTOR="#-os_install_linux_name-# Builder"
 #?os_install_linux_subname!=&&os_install_scratch==on#
 GRUB_DISTRIBUTOR="#-os_install_linux_name-# #-os_install_linux_subname-# Builder"
 #os_install_linux_subname#
-
+GRUB_DISABLE_OS_PROBER=true
+#
 #?os_install_grub_terminal==console#
 GRUB_TERMINAL=console
 #os_install_grub_terminal#
