@@ -20,6 +20,7 @@ DEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
 	firmware? ( sys-kernel/linux-firmware )
 	themes? ( media-gfx/plymouth-themes-calculate )
 	plymouth? ( sys-boot/plymouth sys-boot/plymouth-openrc-plugin )
+	app-arch/lz4
 	"
 
 RDEPEND="${DEPEND}"
