@@ -13,7 +13,7 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst
 IUSE="vmlinuz minimal"
 
 REQUIRED_USE="minimal? ( vmlinuz )"
-RDEPEND="vmlinuz? ( sys-kernel/dracut )"
+RDEPEND="vmlinuz? ( sys-kernel/dracut app-arch/lz4 )"
 
 detect_version
 detect_arch
@@ -69,7 +69,7 @@ vmlinuz_src_install() {
 	INSTALL_MOD_PATH=${D} emake modules_install
 	/sbin/depmod -b ${D} ${KV_FULL}
 	use plymouth && PLYMOUTH="-a plymouth"
-	/usr/bin/dracut -a calculate $PLYMOUTH -a video -k ${D}/lib/modules/${KV_FULL} \
+	/usr/bin/dracut -a calculate --lz4 $PLYMOUTH -a video -k ${D}/lib/modules/${KV_FULL} \
 		--kver ${KV_FULL} \
 		${D}/usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL}
 	# move firmware to share, because /lib/firmware installation does collisions
