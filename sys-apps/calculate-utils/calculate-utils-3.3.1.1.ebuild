@@ -5,6 +5,11 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
+declare -A CALCULATE_MODULES=(
+	["lib"]="3.3.1.1"
+	["client"]="3.3.1.1"
+)
+
 inherit calculate-utils
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
@@ -12,5 +17,5 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
