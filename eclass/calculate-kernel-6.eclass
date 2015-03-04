@@ -45,11 +45,18 @@ calculate-kernel-6_src_unpack() {
 	ARCH="${GENTOOARCH}"
 }
 
+vmlinuz_clean_localversion() {
+	sed -ri 's/^(CONFIG_LOCALVERSION=")[^"]+"/\1"/' .config
+	sed -ri 's/^(CONFIG_LOCALVERSION_AUTO)=.*$/# \1 is not set/' .config
+	rm localversion*
+}
+
 vmlinuz_src_compile() {
 	# disable sandbox
 	local GENTOOARCH="${ARCH}"
 	unset ARCH
 	cd ${S}
+	vmlinuz_clean_localversion
 	emake olddefconfig || die "kernel configure failed"
 	emake && emake modules || die "kernel build failed"
 	[ -f .config ] && cp .config .config.save
