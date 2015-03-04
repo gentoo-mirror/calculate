@@ -48,7 +48,7 @@ calculate-kernel-6_src_unpack() {
 vmlinuz_clean_localversion() {
 	sed -ri 's/^(CONFIG_LOCALVERSION=")[^"]+"/\1"/' .config
 	sed -ri 's/^(CONFIG_LOCALVERSION_AUTO)=.*$/# \1 is not set/' .config
-	rm localversion*
+	rm -f localversion*
 }
 
 vmlinuz_src_compile() {
