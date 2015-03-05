@@ -52,19 +52,11 @@ create_hostonly_initramfs() {
         local kernel_version=$(get_kernel_version $kernel)
         [[ -n $kernel_version ]] || die "Failed to detect version"
         echo "Creating Host-Only initramfs ..."
-#?os_install_x11_video_drv==#-os_x11_video_drv-#&&pkg(app-arch/lz4)!=&&kernel(rd_lz4)==y#
-        dracut -H -f --lz4 --kver $kernel_version $initrd_tmp &>/dev/null ||
-            die "Failed to create Host-Only initramfs"
-#os_install_x11_video_drv#
-#?os_install_x11_video_drv==#-os_x11_video_drv-#&&pkg(app-arch/lz4)==||os_install_x11_video_drv==#-os_x11_video_drv-#&&kernel(rd_lz4)!=y#
+#?os_install_x11_video_drv==#-os_x11_video_drv-##
         dracut -H -f --kver $kernel_version $initrd_tmp &>/dev/null ||
             die "Failed to create Host-Only initramfs"
 #os_install_x11_video_drv#
-#?os_install_x11_video_drv!=#-os_x11_video_drv-#&&pkg(app-arch/lz4)!=&&kernel(rd_lz4)==y#
-        dracut -H -f --lz4 --add-drivers="i915 uvesafb radeon nouveau" --kver $kernel_version $initrd_tmp &>/dev/null ||
-            die "Failed to create Host-Only initramfs"
-#os_install_x11_video_drv#
-#?os_install_x11_video_drv!=#-os_x11_video_drv-#&&pkg(app-arch/lz4)==||os_install_x11_video_drv!=#-os_x11_video_drv-#&&kernel(rd_lz4)!=y#
+#?os_install_x11_video_drv!=#-os_x11_video_drv-##
         dracut -H -f --add-drivers="i915 uvesafb radeon nouveau" --kver $kernel_version $initrd_tmp &>/dev/null ||
             die "Failed to create Host-Only initramfs"
 #os_install_x11_video_drv#
