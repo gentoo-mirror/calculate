@@ -1,0 +1,31 @@
+{
+   "description": "Simple minimalistic white theme for Google Chrome",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtRc/DyYLgLIaYngoUMUewveYlC4HJpd2U4mJ8HG1ArpT38lglujNtGZvoS4aGCs2PiFneksYNmFgGWbmeb75CNcKtrUlSEmJnGEOY/GKGbAG0d4uh6tXgoebNzCH9Ko8MuA7pV6h5kxbMcsXul8Hrm6G+rdveewGvDQ7l5UU5Zg71u0mdmD3doj6sRdDmrCs3X8vCxcrJvg66yCH+ssHibjVbc2ZUh8CbvtcizxbVVvFrn6m3Q7NC/+Px1/6l8OGlUVpv54nZ8af02Ti0CsQI9XF1HOMleEfB9oDgDWgCUfZ3iBhKm4WgWFX2R2e+jg63qmlzDa4sGQ5I9LwRbQqFQIDAQAB",
+   "manifest_version": 2,
+   "name": "Minimal White",
+   "theme": {
+      "colors": {
+         "bookmark_text": [ 59, 59, 59 ],
+         "button_background": [ 0, 0, 0, 0 ],
+         "frame": [ 255, 255, 255 ],
+         "ntp_background": [ 255, 255, 255 ],
+         "ntp_text": [ 59, 59, 59 ],
+         "tab_background_text": [ 96, 96, 96 ],
+         "tab_text": [ 59, 59, 59 ],
+         "toolbar": [ 239, 239, 239 ]
+      },
+      "images": {
+         "theme_frame": "images/theme_frame.png",
+         "theme_toolbar": "images/theme_toolbar.png"
+      },
+      "properties": {
+         "ntp_background_alignment": "bottom",
+         "ntp_background_repeat": "no-repeat"
+      },
+      "tints": {
+         "buttons": [ 0, 0, 0.65 ]
+      }
+   },
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.1"
+}
