@@ -9,7 +9,7 @@ inherit eutils
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2
 	http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="uBlock for Chrome"
+DESCRIPTION="An efficient blocker for Chromium"
 HOMEPAGE="https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm"
 LICENSE="GPL-3"
 SLOT="0"
