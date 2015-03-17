@@ -39,7 +39,7 @@
          {
             "name": "DistroWatch.com",
             "type": "url",
-            "url": "http://distrowatch.com/"
+            "url": "http://distrowatch.com/calculate"
          },
          {
             "name": "Gentoo Linux",
@@ -52,9 +52,9 @@
             "url": "http://tux.in.ua"
          },
          {
-            "name": "В Контакте | Calculate Linux",
+            "name": "ВКонтакте | Calculate Linux",
             "type": "url",
-            "url": "http://vkontakte.ru/club10221243"
+            "url": "https://vk.com/calculatelinux"
          }],
          "type": "folder"
       }

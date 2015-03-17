@@ -2,25 +2,28 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI="5"
 
 inherit eutils
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2
 	http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="AdBlock for Chrome"
-HOMEPAGE="https://chrome.google.com/webstore/detail/gighmmpiobklfepjocnamgkkbiglidom"
+DESCRIPTION="uBlock for Chrome"
+HOMEPAGE="https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-DEPEND="www-client/chromium"
+DEPEND="|| ( www-client/chromium
+			www-client/google-chrome )"
 
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}"
+
 src_install() {
-	dodir /usr/share/chromium-adblock
-	insinto /usr/share/chromium-adblock
+	dodir /usr/share/chrome-ublock
+	insinto /usr/share/chrome-ublock
 	doins -r *
 }
