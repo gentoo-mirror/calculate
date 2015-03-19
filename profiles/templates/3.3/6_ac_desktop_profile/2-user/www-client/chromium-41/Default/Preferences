@@ -1,26 +1,29 @@
-# Calculate pkg(www-plugins/chrome-ublock)!=
+# Calculate
 {
+   "browser": {
+      "custom_chrome_frame": false,
+      "show_home_button": true
+   },
    "bookmark_bar": {
       "show_on_all_tabs": true
    },
-   "browser": {
-      "custom_chrome_frame": false,
-      "check_default_browser": false,
-      "custom_chrome_frame": false,
-      "enable_spellchecking": true,
-      "show_home_button": true
-   },
+#?os_locale_language!=ru#
+   "homepage": "http://start.calculate-linux.org",
+#os_locale_language#
+#?os_locale_language==ru#
+   "homepage": "http://start.calculate-linux.ru",
+#os_locale_language#
+   "homepage_is_newtabpage": false,
+
    "extensions": {
-      "chrome_url_overrides": {
-         "bookmarks": [ "chrome-extension://eemcgdkfndhakfknompkggombfjjjeno/main.html" ]
-      },
       "settings": {
+#?pkg(www-plugins/chrome-ublock)!=#
          "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
             "active_permissions": {
                "api": [ "contextMenus", "storage", "tabs", "unlimitedStorage", "webNavigation", "webRequest", "webRequestBlocking" ],
                "explicit_host": [ "http://*/*", "https://*/*" ],
                "manifest_permissions": [  ],
-               "scriptable_host": [ "http://*/*", "https://*/*" ]
+               "scriptable_host": [ "http://*/*", "https://*.adblockplus.me/*", "https://*.adblockplus.org/*", "https://*/*", "https://www.fanboy.co.nz/*" ]
             },
             "commands": {
 
@@ -34,17 +37,17 @@
                "api": [ "contextMenus", "storage", "tabs", "unlimitedStorage", "webNavigation", "webRequest", "webRequestBlocking" ],
                "explicit_host": [ "http://*/*", "https://*/*" ],
                "manifest_permissions": [  ],
-               "scriptable_host": [ "http://*/*", "https://*/*" ]
+               "scriptable_host": [ "http://*/*", "https://*.adblockplus.me/*", "https://*.adblockplus.org/*", "https://*/*", "https://www.fanboy.co.nz/*" ]
             },
             "incognito_content_settings": [  ],
             "incognito_preferences": {
 
             },
             "initial_keybindings_set": true,
-            "install_time": "13066748498181957",
+            "install_time": "13071093075966601",
             "location": 1,
             "manifest": {
-               "author": "Raymond Hill",
+               "author": "The uBlock Development Team",
                "background": {
                   "page": "background.html"
                },
@@ -54,7 +57,7 @@
                      "38": "img/browsericons/icon38-off.png"
                   },
                   "default_popup": "popup.html",
-                  "default_title": "µBlock"
+                  "default_title": "uBlock"
                },
                "content_scripts": [ {
                   "all_frames": true,
@@ -66,10 +69,12 @@
                   "js": [ "js/contentscript-end.js" ],
                   "matches": [ "http://*/*", "https://*/*" ],
                   "run_at": "document_end"
+               }, {
+                  "js": [ "js/subscriber.js" ],
+                  "matches": [ "https://*.adblockplus.org/*", "https://*.adblockplus.me/*", "https://www.fanboy.co.nz/*" ],
+                  "run_at": "document_idle"
                } ],
-               "current_locale": "ru",
                "default_locale": "en",
-               "description": "Наконец-то, эффективный блокировщик для браузеров, не нагружающий ЦП и оперативную память.",
                "icons": {
                   "128": "img/icon_128.png",
                   "16": "img/icon_16.png"
@@ -77,13 +82,16 @@
                "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmJNzUNVjS6Q1qe0NRqpmfX/oSJdgauSZNdfeb5RV1Hji21vX0TivpP5gq0fadwmvmVCtUpOaNUopgejiUFm/iKHPs0o3x7hyKk/eX0t2QT3OZGdXkPiYpTEC0f0p86SQaLoA2eHaOG4uCGi7sxLJmAXc6IsxGKVklh7cCoLUgWEMnj8ZNG2Y8UKG3gBdrpES5hk7QyFDMraO79NmSlWRNgoJHX6XRoY66oYThFQad8KL8q3pf3Oe8uBLKywohU0ZrDPViWHIszXoE9HEvPTFAbHZ1umINni4W/YVs+fhqHtzRJcaKJtsTaYy+cholu5mAYeTZqtHf6bcwJ8t9i2afwIDAQAB",
                "manifest_version": 2,
                "minimum_chrome_version": "22.0",
-               "name": "µBlock",
+               "name": "uBlock",
                "options_page": "dashboard.html",
+               "options_ui": {
+                  "page": "options_ui.html"
+               },
                "permissions": [ "contextMenus", "storage", "tabs", "unlimitedStorage", "webNavigation", "webRequest", "webRequestBlocking", "http://*/*", "https://*/*" ],
                "update_url": "https://clients2.google.com/service/update2/crx",
-               "version": "0.8.5.7"
+               "version": "0.9.1.1"
             },
-            "path": "cjpalhdlnbpafiamejdnhcphjbkeiagm/0.8.5.7_0",
+            "path": "cjpalhdlnbpafiamejdnhcphjbkeiagm/0.9.1.1_0",
             "preferences": {
 
             },
@@ -93,54 +101,8 @@
             "state": 1,
             "was_installed_by_default": false,
             "was_installed_by_oem": false
-         },
-         "hnfhcmjkebafbfikmbkhdpbmfpfjgiog": {
-            "location": 1,
-            "manifest": {
-               "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCndMu10pCnXVJNSCvmc8K0CXEZZ8DU2DNgt77nkTQ2flcGgmf4yCY5QAKHMv2K9mDos38iVIcUSxuUruIXdOuQIY5JZy7Bitb5WzHQ6UfWWqoc/tEpVYi/k/+8TvORflKfgbmNX2kxrbI7gxkaTssMLYrgbrlG3KlwI7k890T2KQIDAQAB",
-               "name": "Minimal",
-               "theme": {
-                  "colors": {
-                     "bookmark_text": [ 149, 149, 149 ],
-                     "frame": [ 255, 255, 255 ],
-                     "ntp_background": [ 255, 255, 255 ],
-                     "ntp_link": [ 170, 170, 170 ],
-                     "ntp_section": [ 235, 235, 235, 1 ],
-                     "ntp_section_link": [ 149, 149, 149 ],
-                     "ntp_section_text": [ 149, 149, 149 ],
-                     "ntp_text": [ 149, 149, 149 ],
-                     "tab_background_text": [ 149, 149, 149 ],
-                     "tab_text": [ 149, 149, 149 ],
-                     "toolbar": [ 255, 255, 255 ]
-                  },
-                  "images": {
-                     "theme_button_background": "i/agxjaHJvbWV0aGVtZXNyDAsSBEZpbGUYktsBDA",
-                     "theme_frame": "i/agxjaHJvbWV0aGVtZXNyDAsSBEZpbGUYoaQBDA",
-                     "theme_tab_background": "i/agxjaHJvbWV0aGVtZXNyDAsSBEZpbGUYmtMBDA",
-                     "theme_toolbar": "i/agxjaHJvbWV0aGVtZXNyDAsSBEZpbGUYltMBDA"
-                  },
-                  "tints": {
-                     "buttons": [ 0.001, 0, 0.706 ]
-                  }
-               },
-               "version": "1.0"
-            },
-            "path": "hnfhcmjkebafbfikmbkhdpbmfpfjgiog/1.0",
-            "state": 1
          }
-      },
-      "theme": {
-         "id": "clcbojcafbggjenbeflknhfimpcikmlc",
-         "pack": "/home/#-ur_login-#/.config/chromium/Default/Extensions/clcbojcafbggjenbeflknhfimpcikmlc/1.0.1_0/Cached Theme.pak",
-         "use_system": false
-      },
-      "toolbar": [ "cjpalhdlnbpafiamejdnhcphjbkeiagm" ]
-   },
-#?os_locale_language==ru#
-   "homepage": "http://start.calculate-linux.ru/",
-#os_locale_language#
-#?os_locale_language!=ru#
-   "homepage": "http://start.calculate-linux.org/",
-#os_locale_language#
-   "homepage_is_newtabpage": false
+#pkg#
+      }
+   }
 }
