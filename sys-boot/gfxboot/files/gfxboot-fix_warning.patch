@@ -1,0 +1,140 @@
+diff --git a/gfxboot-compile.c b/gfxboot-compile.c
+index f1e1efa..28bf887 100644
+--- a/gfxboot-compile.c
++++ b/gfxboot-compile.c
+@@ -260,7 +260,10 @@ file_data_t read_file(char *name)
+   if(!f) {
+     for(u = 0; u < sizeof lib_path / sizeof *lib_path; u++) {
+       if(lib_path[u]) {
+-        asprintf(&s, "%s/%s", lib_path[u], name);
++        if(asprintf(&s, "%s/%s", lib_path[u], name) == -1) {
++          fprintf(stderr, "asprintf failed\n");
++          exit(30);
++        }
+         f = fopen(s, "r");
+         if(f) {
+           fd.name = s;
+@@ -1033,7 +1036,10 @@ void parse_config(char *name, char *log_file)
+     else if(*word == '\'') {
+       c->type = t_int;
+       c->value.u = word[1];
+-      asprintf(&c->name, "%s'", word);
++      if(asprintf(&c->name, "%s'", word) == -1) {
++        fprintf(stderr, "asprintf failed\n");
++        exit(30);
++      }
+     }
+     else if(*word == '/') {
+       c->name = strdup(word + 1);
+@@ -1274,14 +1280,14 @@ int optimize_code(FILE *lf)
+ 
+   changed = 1;
+ 
+-  optimize_code1(lf) ||
+-  optimize_code2(lf) ||
+-  optimize_code3(lf) ||
+-  optimize_code4(lf) ||
+-  optimize_code5(lf) ||
+-  optimize_code6(lf) ||
+-  optimize_code7(lf) ||
+-  (changed = 0);
++  if(!(optimize_code1(lf) ||
++      optimize_code2(lf) ||
++      optimize_code3(lf) ||
++      optimize_code4(lf) ||
++      optimize_code5(lf) ||
++      optimize_code6(lf) ||
++      optimize_code7(lf)))
++      changed = 0;
+ 
+   return changed;
+ }
+@@ -1500,22 +1506,34 @@ int optimize_code5(FILE *lf)
+             c->type = c1->type;
+             c->value = c1->value;
+             if(c->type == t_int || c->type == t_unsigned) {
+-              asprintf(&s, "%s # %s", c1->name, c->name);
++              if(asprintf(&s, "%s # %s", c1->name, c->name) == -1) {
++                fprintf(stderr, "asprintf failed\n");
++                exit(30);
++              }
+               free(c->name);
+               c->name = s;
+             }
+             else if(c->type == t_bool) {
+-              asprintf(&s, "%s # %s", c->value.u ? "true" : "false", c->name);
++              if(asprintf(&s, "%s # %s", c->value.u ? "true" : "false", c->name) == -1) {
++                fprintf(stderr, "asprintf failed\n");
++                exit(30);
++              }
+               free(c->name);
+               c->name = s;
+             }
+             else if(c->type == t_none) {
+-              asprintf(&s, ".undef # %s", c->name);
++              if(asprintf(&s, ".undef # %s", c->name) == -1) {
++                fprintf(stderr, "asprintf failed\n");
++                exit(30);
++              }
+               free(c->name);
+               c->name = s;
+             }
+             else if(c->type == t_end) {
+-              asprintf(&s, ".end # %s", c->name);
++              if(asprintf(&s, ".end # %s", c->name) == -1) {
++                fprintf(stderr, "asprintf failed\n");
++                exit(30);
++              }
+               free(c->name);
+               c->name = s;
+             }
+@@ -1558,7 +1576,10 @@ int optimize_code6(FILE *lf)
+     ) {
+       c0->type = c1->value.u;
+       c0->value.u = 0;
+-      asprintf(&s, "%s # %s", c0->type ? ".end" : ".undef", c0->name);
++      if(asprintf(&s, "%s # %s", c0->type ? ".end" : ".undef", c0->name) == -1) {
++        fprintf(stderr, "asprintf failed\n");
++        exit(30);
++      }
+       free(c0->name);
+       c0->name = s;
+ 
+@@ -1597,7 +1618,10 @@ int optimize_code7(FILE *lf)
+       c0->type = t_bool;
+       c0->value.u = c0->value.u == c1->value.u ? 1 : 0;
+       if(c2->value.u == p_ne) c0->value.u ^= 1;
+-      asprintf(&s, "%s # %s", c0->value.u ? "true" : "false", c0->name);
++      if(asprintf(&s, "%s # %s", c0->value.u ? "true" : "false", c0->name) == -1) {
++        fprintf(stderr, "asprintf failed\n");
++        exit(30);
++      }
+       free(c0->name);
+       c0->name = s;
+ 
+diff --git a/gfxboot-font.c b/gfxboot-font.c
+index 50a9df5..c0b03c0 100644
+--- a/gfxboot-font.c
++++ b/gfxboot-font.c
+@@ -337,7 +337,8 @@ int main(int argc, char **argv)
+               if(k >= 0 || (k == -1 && !obuf_left)) {
+                 ok = 1;
+                 if(!obuf_left) {
+-                  i = *(int *) obuf;
++                  void *tmp_p = obuf;
++                  i = *(int *) tmp_p;
+                   if(i >= 0x20) {
+                     insert_int_list(&opt.chars, i, i);
+                   }
+@@ -930,7 +931,10 @@ char *search_font(char *font_path, char *name)
+     if((sep = strchr(cur_path, ':'))) *sep = 0;
+ 
+     for(i = 0; i < sizeof suffix / sizeof *suffix; i++) {
+-      asprintf(&font_name, "%s/%s%s", cur_path, name, suffix[i]);
++      if(asprintf(&font_name, "%s/%s%s", cur_path, name, suffix[i]) == -1) {
++          fprintf(stderr, "asprintf failed\n");
++          exit(30);
++      }
+       if(!stat(font_name, &sbuf) && S_ISREG(sbuf.st_mode)) break;
+       free(font_name);
+       font_name = NULL;
