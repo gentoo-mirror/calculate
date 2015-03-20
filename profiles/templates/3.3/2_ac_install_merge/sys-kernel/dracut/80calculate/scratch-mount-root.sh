@@ -41,12 +41,18 @@ mount_live_root_overlay() {
 }
 
 mount_live_root() {
-    if find /lib/modules/ | grep -q overlayfs
-    then
-        mount_live_root_overlay
-    else
-        mount_live_root_aufs
-    fi
+    local module_found=
+    for typefs in overlay aufs
+    do
+        if ! mount -t $typefs -o none none /init 2>&1 | grep -q "unknown filesystem"
+        then
+            mount_live_root_$typefs
+            module_found=1
+            break
+        fi
+    done
+    [[ -z $module_found ]] && 
+        die "Cannot mount layered filesystem! Compile the kernel with CONFIG_OVERLAY_FS!"
 }
 
 [ -n "$root" -a -z "${root%%live*}" -o "$root" = "nfs" ] && mount_live_root
