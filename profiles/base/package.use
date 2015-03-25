@@ -37,3 +37,6 @@ app-arch/tar xattr
 net-misc/rsync xattr
 sys-apps/coreutils xattr
 sys-fs/squashfs-tools xattr
+
+# support layman sync for portage repositories
+app-portage/layman sync-plugin-portage
