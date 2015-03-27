@@ -1,0 +1,12 @@
+diff --git profile/samba/etc/samba/smb.conf profile/samba/etc/samba/smb.conf
+index 40391a5..d11542c 100644
+--- profile/samba/etc/samba/smb.conf
++++ profile/samba/etc/samba/smb.conf
+@@ -153,6 +153,7 @@ chown=root:root
+ 	browseable = yes
+ 	writable = yes
+ 	hide unreadable = yes
++	nt acl support = no
+ 
+ 
+ [remote]
