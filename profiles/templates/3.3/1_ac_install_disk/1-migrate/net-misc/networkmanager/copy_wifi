@@ -1,0 +1,8 @@
+# Calculate exec=/bin/bash
+
+for fn in $(grep -l type=wifi /etc/NetworkManager/system-connections/*)
+do
+	cp $fn #-cl_chroot_path-#/etc/NetworkManager/system-connections/
+done
+
+true
