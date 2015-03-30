@@ -1,0 +1,15 @@
+# Calculate ini(overlay-calculate.revision)<31 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,31)-#
+
+#?pkg(app-emulation/emul-linux-x86-bjdeps)!=#
+for delpath in  /usr/lib32/libpopt.so.0.0.0 \
+  /usr/lib32/libpopt.so.0 \
+  /usr/lib32/libpopt.so
+do
+test -f /var/db/pkg/app-emulation/emul-linux-x86-bjdeps-*/CONTENTS &&
+   sed -i "/ ${delpath////\/} /d" /var/db/pkg/app-emulation/emul-linux-x86-bjdeps-*/CONTENTS
+done
+#pkg#
+
+exit 0
