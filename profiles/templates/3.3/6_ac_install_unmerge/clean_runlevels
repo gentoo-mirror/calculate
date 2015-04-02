@@ -48,7 +48,7 @@
 #-ini(runlevels.openssh,)-#
 #ini#
 
-#?ini(runlevels.bluez)==on&&pkg(net-misc/bluez)==#
+#?ini(runlevels.bluez)==on&&pkg(net-wireless/bluez)==#
 #-ini(runlevels.bluez,)-#
 #ini#
 
