@@ -182,6 +182,7 @@ RDEPEND="
 	)
 
 	dev-python/pexpect
+	dev-python/configparser
 
 	!sys-apps/calculate-lib:3
 	!sys-apps/calculate-i18n:3
