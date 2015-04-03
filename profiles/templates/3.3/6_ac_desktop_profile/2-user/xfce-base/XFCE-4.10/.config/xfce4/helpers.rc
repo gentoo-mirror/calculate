@@ -17,7 +17,7 @@ MailReader=thunderbird
 #?pkg(mail-client/evolution)!=#
 MailReader=evolution
 #pkg#
-#?pkg(mail-client/sylpheed)!=#
+#?pgk(mail-client/claws-mail)!=||pkg(mail-client/sylpheed)!=#
 MailReader=sylpheed-claws
 #pkg#
 
