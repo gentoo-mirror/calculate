@@ -32,6 +32,11 @@ mark_update_package() {
 	touch "/var/lib/calculate/-merge-$PN--${SLOT/\//_}-$PPID"
 }
 
+# save services runlevels
+save_runlevels() {
+	find /etc/runlevels/{default,boot} >/var/lib/calculate/-runlevels-$PN
+}
+
 # dispatching unmerge or update package
 pkg_postrm_dispatch() {
 	if [[ ! -f /var/lib/calculate/-merge-$PN--${SLOT/\//_}-$PPID ]]
@@ -65,4 +70,5 @@ pre_pkg_postinst() {
 
 pre_pkg_preinst() {
 	mark_update_package
+	save_runlevels
 }

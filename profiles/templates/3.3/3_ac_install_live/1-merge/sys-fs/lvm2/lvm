@@ -1,1 +1,1 @@
-# Calculate os_install_lvm_set==on link=/etc/init.d/lvm symbolic ini(runlevels.lvm2)!=on&&ini(runlevels.lvm2,on)==
+# Calculate os_install_lvm_set==on link=/etc/init.d/lvm symbolic ini(runlevels.lvm2)!=on&&ini(runlevels.lvm2,on)==||grep(/var/log/calculate/-runlevels-lvm2,/lvm)!=
