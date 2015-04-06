@@ -1,0 +1,25 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ini(overlay-calculate.remerge)<39
+
+[overlay-calculate]
+remerge = 39
+
+[runlevels]
+!syslog-ng =
+!splashutils =
+!alsa-utils =
+!portmap =
+!cups =
+!calculate-utils/calculate-core =
+!dbus =
+!consolekit =
+!udev =
+!eudev =
+!vixie-cron =
+!openssh =
+!bluez =
+!openrc/consolefont =
+!openrc/numlock =
+!preload =
+!lvm2 =
+!mdadm =
+!calculate-utils/laptopd =
