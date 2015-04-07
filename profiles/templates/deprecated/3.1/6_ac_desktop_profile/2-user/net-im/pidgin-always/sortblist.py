@@ -1,4 +1,4 @@
-#Calculate exec=/usr/bin/python path=/tmp name=sortblist_#-ur_login-#.py
+# Calculate exec=/usr/bin/python path=/tmp name=sortblist_#-ur_login-#.py
 
 # -*- coding: utf-8 -*-
 

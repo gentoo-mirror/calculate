@@ -1,4 +1,4 @@
-#Calculate exec=/usr/bin/python
+# Calculate exec=/usr/bin/python
 
 # -*- coding: utf-8 -*-
 
