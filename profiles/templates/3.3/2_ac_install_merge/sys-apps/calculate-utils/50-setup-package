@@ -15,7 +15,7 @@ CL_UPDATE_PROG=/usr/sbin/cl-core-setup
 setup_merge_package() {
 	rm -f /var/lib/calculate/-postmerge
 	if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
-		cat /var/lib/calculate/calculate-core/cache/merge-setup.list | grep ${CATEGORY}/${PN} &>/dev/null
+		grep ${CATEGORY}/${PN} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
 	then
 		[ -f ${CL_UPDATE_PROG} ] && check_skip && CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
 	fi
@@ -55,7 +55,7 @@ pkg_postrm_dispatch() {
 # setup package umerging
 pkg_postrm_unmerge() {
 	if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
-		cat /var/lib/calculate/calculate-core/cache/merge-setup.list | grep ${CATEGORY}/${PN} &>/dev/null
+		grep ${CATEGORY}/${PN} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
 	then
 		[ -f ${CL_UPDATE_PROG} ] && check_skip && ${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path / --pkg-name ${PN}
 	fi

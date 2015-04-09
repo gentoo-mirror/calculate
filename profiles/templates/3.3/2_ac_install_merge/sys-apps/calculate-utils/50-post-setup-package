@@ -19,7 +19,7 @@ post_setup_package() {
 			[ -d /var/db/pkg/${category}/${pkgname}-* ] || continue
 			IFS=$OLDIFS
 			if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
-				cat /var/lib/calculate/calculate-core/cache/merge-setup.list | grep ${category}/${pkgname} &>/dev/null
+				grep ${category}/${pkgname} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
 			then
 				CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/"
 			fi
