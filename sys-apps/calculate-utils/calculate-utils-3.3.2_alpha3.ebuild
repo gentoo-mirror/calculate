@@ -9,8 +9,11 @@ UTILS_PV="3.3.2_alpha1"
 
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.3.2_alpha2"
-	["client"]="3.3.2_alpha2"
+	["lib"]="3.3.2_alpha3"
+	["install"]="3.3.2_alpha2"
+	["core"]="3.3.2_alpha2"
+	["client"]="3.3.2_alpha3"
+	["update"]="3.3.2_alpha2"
 )
 
 inherit calculate-utils
