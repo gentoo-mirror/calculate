@@ -1,0 +1,31 @@
+# vim: set syntax=sh
+#
+# Copyright 2015 Calculate Ltd. http://www.calculate-linux.org
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+
+
+update_cache() {
+	[[ -x /usr/libexec/calculate/cl-pkg-cache ]] &&
+		/usr/libexec/calculate/cl-pkg-cache
+}
+
+if [[ ${EBUILD_PHASE} == "setup" ]]
+then
+	if  tail -5 /var/log/emerge.log | grep -P "\(1 of.*${CATEGORY}/${P}" &>/dev/null
+	then
+		update_cache
+	fi
+fi
+
+if [[ ${EBUILD_PHASE} == "postrm" ]]
+then
+	if  tail -2 /var/log/emerge.log | grep "*** emerge " &>/dev/null
+	then
+		update_cache
+	fi
+fi

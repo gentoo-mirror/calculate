@@ -1,6 +1,6 @@
 # vim: set syntax=sh
 #
-# Copyright 2014 Calculate Ltd. http://www.calculate-linux.org
+# Copyright 2014-2015 Calculate Ltd. http://www.calculate-linux.org
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -18,7 +18,11 @@ post_setup_package() {
 		while read category pkgname;do
 			[ -d /var/db/pkg/${category}/${pkgname}-* ] || continue
 			IFS=$OLDIFS
-			CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/"
+			if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
+				cat /var/lib/calculate/calculate-core/cache/merge-setup.list | grep ${category}/${pkgname} &>/dev/null
+			then
+				CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/"
+			fi
 			IFS=/
 		done < <(sort /var/lib/calculate/-postmerge | uniq)
 		IFS=$OLDIFS

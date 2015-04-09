@@ -1,6 +1,6 @@
 # vim: set syntax=sh
 #
-# Copyright 2014 Calculate Ltd. http://www.calculate-linux.org
+# Copyright 2014-2015 Calculate Ltd. http://www.calculate-linux.org
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -11,7 +11,11 @@
 CL_CORE_PATCH=/usr/sbin/cl-core-patch
 
 if [[ ${EBUILD_PHASE} == "compile" ]] && [[ -d ${S} ]] && check_skip; then
-	[ -f ${CL_CORE_PATCH} ] && ${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} \
-		--pkg-slot ${SLOT} --pkg-category ${CATEGORY} \
-		--pkg-path ${S} --pkg-name ${PN} --verbose
+	if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-patch.list ]] ||
+		cat /var/lib/calculate/calculate-core/cache/merge-patch.list | grep ${CATEGORY}/${PN} &>/dev/null
+	then
+		[ -f ${CL_CORE_PATCH} ] && ${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} \
+			--pkg-slot ${SLOT} --pkg-category ${CATEGORY} \
+			--pkg-path ${S} --pkg-name ${PN} --verbose
+	fi
 fi
