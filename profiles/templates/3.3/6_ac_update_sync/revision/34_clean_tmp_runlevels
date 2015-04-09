@@ -1,0 +1,7 @@
+# Calculate ini(overlay-calculate.revision)<34 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,34)-#
+
+rm -rf /var/lib/calculate/-runlevels-*
+
+exit 0
