@@ -39,7 +39,7 @@ mark_update_package() {
 
 # save services runlevels
 save_runlevels() {
-	find /etc/runlevels/{default,boot} >/var/lib/calculate/-runlevels-$PN
+	find /etc/runlevels/{default,boot,sysinit,shutdown} >/var/lib/calculate/-runlevels-$PN
 }
 
 # dispatching unmerge or update package
