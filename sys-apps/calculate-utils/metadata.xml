@@ -8,7 +8,6 @@ A set of Calculate utilities for system installation, build and upgrade.
 	<use>
 		<flag name="minimal">Use minimal depends for calculate install.</flag>
 		<flag name="pxe">Enables support for PXE installation.</flag>
-		<flag name="server">Includes utilities WSDL server required for GUI console.</flag>
 		<flag name="console">Includes console module.</flag>
 		<flag name="client">Includes module for setting and storing the user accounts in the domain.</flag>
 		<flag name="desktop">Includes module for desktop configuration.</flag>
