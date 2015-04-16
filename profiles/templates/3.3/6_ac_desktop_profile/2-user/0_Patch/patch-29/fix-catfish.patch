@@ -1,3 +1,3 @@
-# Calculate format=patch pkg(xfce-base/thunar)!=&&grep(~/.config/Thunar/uca.xml,catfish\x20--fileman)!=
+# Calculate format=patch pkg(xfce-base/thunar)!=
 <reg>catfish.*?&lt;/command</reg>
 <text>catfish %f&lt;/command</text>
