@@ -40,7 +40,7 @@ USE="${USE} cups"
 USE="${USE} gphoto2"
 
 # System
-USE="${USE} consolekit nsplugin policykit tcmalloc"
+USE="${USE} consolekit nsplugin policykit"
 
 # Video
 USE="${USE} a52 aac -aalib avi cddb dv encode faac ffmpeg flash lzo matroska mplayer musepack real sdl speex srt -svga tga quicktime theora vaapi v4l v4l2 vidix win32codecs xanim x264  xinerama xv xvid xvmc"

@@ -29,7 +29,7 @@ x11-drivers/nvidia-drivers -acpi -tools
 
 
 # Fix blocks the installation of the old nvidia video drivers
-www-client/chromium -tcmalloc
+#www-client/chromium -tcmalloc
 
 # Add support for access point mode
 net-wireless/wpa_supplicant ap
