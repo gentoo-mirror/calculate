@@ -12,8 +12,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/plymouth/plymouth-calculate-14-r8.tar.bz2
-	http://mirror.yandex.ru/calculate/themes/plymouth/plymouth-calculate-14-r8.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/plymouth/plymouth-calculate-14-r9.tar.bz2
+	http://mirror.yandex.ru/calculate/themes/plymouth/plymouth-calculate-14-r9.tar.bz2"
 
 RDEPEND="sys-boot/plymouth
 sys-boot/plymouth-openrc-plugin
