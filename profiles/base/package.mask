@@ -1,6 +1,9 @@
 # exclude Python 3
 >=dev-lang/python-3
 
+# compile error
+=net-wireless/wpa_supplicant-2.4
+
 # without the patch does not allow to work with certificates correctly
 >dev-python/m2crypto-0.21.1-r2
 
