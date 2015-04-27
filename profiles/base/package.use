@@ -1,19 +1,9 @@
-# required by www-client/firefox [apng]
-media-libs/libpng apng
-
-# required by sys-boot/plymouth [libkms]
-x11-libs/libdrm libkms
-
 # required by sys-apps/calculate-lib [python]
 sys-apps/file python
 
-
-# Removed unnecessary dependence
-sys-apps/man-db -nls
-
-
 # Сompile the kernel during the installation package
-sys-kernel/calculate-sources firmware minimal plymouth symlink themes vmlinuz
+sys-kernel/calculate-sources minimal symlink vmlinuz
+
 # for support .ko.xz modules
 sys-apps/kmod lzma
 
@@ -25,12 +15,6 @@ sys-boot/grub -multislot truetype device-mapper
 
 # for support pastebin.calculate-linux.org
 app-text/wgetpaste -lodgeit-default
-
-# Add NTFS and Reiserfs support
-app-admin/testdisk ntfs reiserfs
-
-# Include internal version of ntfsprogs.
-sys-fs/ntfs3g ntfsprogs
 
 # to support the installation of the system
 app-arch/tar xattr

@@ -1,9 +1,3 @@
-# exclude Python 3
->=dev-lang/python-3
-
-# compile error
-=net-wireless/wpa_supplicant-2.4
-
 # without the patch does not allow to work with certificates correctly
 >dev-python/m2crypto-0.21.1-r2
 
@@ -16,6 +10,9 @@ sys-fs/device-mapper
 
 # package above 2.0 has not calculate patches
 >sys-boot/grub-2.02_beta2-r3
+
+# exclude Python 3
+>=dev-lang/python-3
 
 # requires python3
 >=app-misc/media-player-info-21
