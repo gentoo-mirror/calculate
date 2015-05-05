@@ -22,7 +22,9 @@ DEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
 	plymouth? ( sys-boot/plymouth sys-boot/plymouth-openrc-plugin )
 	"
 
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+!<app-emulation/virtualbox-modules-4.3.24
+"
 
 SRC_URI="${KERNEL_URI} ${ARCH_URI}"
 
