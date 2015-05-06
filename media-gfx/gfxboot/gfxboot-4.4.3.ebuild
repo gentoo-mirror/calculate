@@ -28,6 +28,7 @@ RESTRICT="mirror"
 
 src_prepare() {
 	epatch "${FILESDIR}/gfxboot-fix_warning.patch"
+	epatch "${FILESDIR}/gfxboot-fix_freetype.patch"
 }
 
 src_install() {
