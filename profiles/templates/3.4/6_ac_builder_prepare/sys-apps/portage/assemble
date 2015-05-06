@@ -3,11 +3,11 @@ MAKEOPTS="#-os_builder_makeopts-#"
 EMERGE_DEFAULT_OPTS="--jobs=1"
 #?cl_builder_buildpkg_set==on#
 FEATURES="${FEATURES} buildpkg -getbinpkg"
-#cl_assemble_buildpkg_set#
-#?cl_assemble_buildpkg_set!=on#
+#cl_builder_buildpkg_set#
+#?cl_builder_buildpkg_set!=on#
 FEATURES="${FEATURES} -buildpkg -getbinpkg"
-#cl_assemble_buildpkg_set#
-PKGDIR="#-cl_build_pkgdir-#"
+#cl_builder_buildpkg_set#
+PKGDIR="#-cl_builder_pkgdir-#"
 
 FEATURES="${FEATURES} ccache"
 CCACHE_SIZE="20G"
