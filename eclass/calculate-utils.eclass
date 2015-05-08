@@ -169,6 +169,7 @@ RDEPEND="
 		sys-auth/pam_client
 		sys-auth/pam_keystore
 		dev-lang/swig
+		dev-python/gst-python[python_targets_python2_7]
 	)
 
 	client? (
