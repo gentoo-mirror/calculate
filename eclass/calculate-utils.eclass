@@ -137,6 +137,7 @@ RDEPEND="
 		dev-libs/openssl
 		=dev-python/m2crypto-0.21.1-r2[python_targets_python2_7]
 		dev-python/cherrypy[python_targets_python2_7]
+		dev-python/pytz[python_targets_python2_7]
 	)
 	>=dev-python/pyxml-0.8[python_targets_python2_7]
 	sys-apps/iproute2[-minimal]
