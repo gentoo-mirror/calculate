@@ -15,6 +15,7 @@ depends() {
 
 installkernel() {
     [[ $hostonly ]] || instmods squashfs loop iso9660
+    instmods =drivers/usb/host =drivers/usb/phy
 }
 
 install() {
