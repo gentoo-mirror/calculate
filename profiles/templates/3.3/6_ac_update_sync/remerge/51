@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-kernel/dracut ini(overlay-calculate.remerge)<51
+# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-kernel/dracut,sys-fs/eudev ini(overlay-calculate.remerge)<51
 
 [overlay-calculate]
 remerge = 51
