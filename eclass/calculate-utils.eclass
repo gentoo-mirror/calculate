@@ -131,21 +131,21 @@ RDEPEND="
 		sys-fs/dosfstools
 		sys-fs/squashfs-tools
 		sys-block/parted
-		dev-python/sudsds
+		dev-python/sudsds[python_targets_python2_7]
 		net-libs/dslib
-		>=dev-python/pyopenssl-0.14
+		>=dev-python/pyopenssl-0.14[python_targets_python2_7]
 		dev-libs/openssl
-		=dev-python/m2crypto-0.21.1-r2
-		dev-python/cherrypy
+		=dev-python/m2crypto-0.21.1-r2[python_targets_python2_7]
+		dev-python/cherrypy[python_targets_python2_7]
 	)
-	>=dev-python/pyxml-0.8
+	>=dev-python/pyxml-0.8[python_targets_python2_7]
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
-	dev-python/progressbar
+	dev-python/progressbar[python_targets_python2_7]
 	sys-fs/lvm2
 	sys-fs/mdadm
-	dev-python/pyinotify
-	sys-apps/file[python]
+	dev-python/pyinotify[python_targets_python2_7]
+	sys-apps/file[python,python_targets_python2_7]
 
 	app-portage/layman
 	>=virtual/udev-197
@@ -161,7 +161,7 @@ RDEPEND="
 	>=dev-python/soaplib-1.0
 
 	desktop? (
-		>=dev-python/python-ldap-2.0[ssl]
+		>=dev-python/python-ldap-2.0[ssl,python_targets_python2_7]
 		media-gfx/feh
 		x11-apps/xmessage
 		sys-apps/keyutils
@@ -176,12 +176,12 @@ RDEPEND="
 	)
 
 	qt4? (
-		dev-python/dbus-python
-		virtual/python-imaging
-		dev-python/pyside[script]
+		dev-python/dbus-python[python_targets_python2_7]
+		virtual/python-imaging[python_targets_python2_7]
+		dev-python/pyside[script,python_targets_python2_7]
 	)
 
-	dev-python/pexpect
+	dev-python/pexpect[python_targets_python2_7]
 
 	!sys-apps/calculate-lib:3
 	!sys-apps/calculate-i18n:3
