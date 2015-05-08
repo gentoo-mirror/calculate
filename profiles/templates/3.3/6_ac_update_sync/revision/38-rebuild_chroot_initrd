@@ -1,0 +1,9 @@
+# Calculate ini(overlay-calculate.revision)<38 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,38)-#
+
+#?pkg(sys-kernel/dracut)!=&&main.cl_chroot_status==on#
+/usr/bin/dracut -f &>/dev/null
+#pkg#
+
+exit 0
