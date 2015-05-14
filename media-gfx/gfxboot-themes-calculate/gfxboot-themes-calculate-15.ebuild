@@ -15,7 +15,7 @@ IUSE=""
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/gfxboot/gfxboot-themes-calculate-${PV}.tar.bz2
 	http://mirror.yandex.ru/calculate/themes/gfxboot/gfxboot-themes-calculate-${PV}.tar.bz2"
 
-RDEPEND="sys-boot/gfxboot"
+RDEPEND="media-gfx/gfxboot"
 
 DEPEND="${RDEPEND}"
 
