@@ -24,7 +24,7 @@ src_compile() {
 }
 
 src_install() {
-	dodir /usr/share/themes/gfxbooot-themes-calculate
-	insinto /usr/share/themes/gfxbooot-themes-calculate
+	dodir /usr/share/themes/gfxboot-themes-calculate
+	insinto /usr/share/themes/gfxboot-themes-calculate
 	doins -r $(find install/* | grep -v -e install/log -e bootlogo.tar.gz)
 }
