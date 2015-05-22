@@ -166,13 +166,13 @@ RDEPEND="
 		media-gfx/feh
 		x11-apps/xmessage
 		sys-apps/keyutils
-		sys-auth/pam_client
 		sys-auth/pam_keystore
 		dev-lang/swig
 		dev-python/gst-python[python_targets_python2_7]
 	)
 
 	client? (
+		sys-auth/pam_client
 		>=sys-auth/pam_ldap-180[ssl]
 		>=sys-auth/nss_ldap-239
 	)
