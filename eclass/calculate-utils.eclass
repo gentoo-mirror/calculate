@@ -162,16 +162,15 @@ RDEPEND="
 	>=dev-python/soaplib-1.0
 
 	desktop? (
-		>=dev-python/python-ldap-2.0[ssl,python_targets_python2_7]
 		media-gfx/feh
 		x11-apps/xmessage
 		sys-apps/keyutils
 		sys-auth/pam_keystore
 		dev-lang/swig
-		dev-python/gst-python[python_targets_python2_7]
 	)
 
 	client? (
+		>=dev-python/python-ldap-2.0[ssl,python_targets_python2_7]
 		sys-auth/pam_client
 		>=sys-auth/pam_ldap-180[ssl]
 		>=sys-auth/nss_ldap-239
