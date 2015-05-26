@@ -7,7 +7,7 @@ do
     height=$( echo $resol | cut -dx -f2 )
     orig_height=1080
     k="$((1000 - ( 1000 - ${height}000 / ${orig_height} ) / 25 )) / 1000"
-    boxtop=$(( $height - 5 * $k ))
+    boxtop=$(( $height - 2 ))
     text_x=$(( $width / 2 ))
     text_y=$(( $height / 2 - 90 * $k ))
     text_size=$(( 28 * $k ))
@@ -33,8 +33,8 @@ text_color=0xffffff
 text_font=DroidSans.ttf
 
 #progress bar for silent mode
-box silent inter 0 ${boxtop} 0 ${height} #FFF596
-box silent 0 ${boxtop} ${width} ${height} #FFF596
+box silent inter 0 ${boxtop} 0 ${height} #9aedf3
+box silent 0 ${boxtop} ${width} ${height} #9aedf3
 
 EOF
 done
