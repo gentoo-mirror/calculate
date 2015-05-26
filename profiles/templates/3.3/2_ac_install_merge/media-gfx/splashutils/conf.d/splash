@@ -1,2 +1,6 @@
 # Calculate format=openrc
 SPLASH_VERBOSE_ON_ERRORS="no"
+#?pkg(media-gfx/splash-themes-calculate)>=14.16#
+SPLASH_THEME="calculate"
+SPLASH_THEME_SHUTDOWN="calculate_shutdown"
+#pkg#
