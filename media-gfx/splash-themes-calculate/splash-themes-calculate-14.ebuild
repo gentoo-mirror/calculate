@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-themes-calculate-14.16.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-themes-calculate-${PV}.tar.bz2"
 
 RDEPEND="media-gfx/splashutils
 !media-gfx/cld-themes
