@@ -210,12 +210,12 @@ minimumSize=#-os_x11_width-#,#-sum(panel,panel)-#
 #нижняя панель
 #------------------------------------------------------------------------------
 
-#-sum(height,,53)-#
+#-sum(height,,56)-#
 #?hr_cdrom_set==on#
-#-sum(width,,height*14)-#
+#-sum(width,,height*13)-#
 #hr_cdrom_set#
 #?hr_cdrom_set==off#
-#-sum(width,,height*13)-#
+#-sum(width,,height*12)-#
 #hr_cdrom_set#
 #-sum(apporder,,0)-#
 
@@ -304,15 +304,6 @@ plugin=icon
 zvalue=0
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][Configuration]
 Url=file:///usr/share/applications/calculate-imageedit.desktop
-[Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][LayoutInformation]
-Order=#-sum(apporder,apporder+1)-#
-
-[Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app+1)-#]
-immutability=1
-plugin=icon
-zvalue=0
-[Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][Configuration]
-Url=file:///usr/share/applications/calculate-photomanager.desktop
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][LayoutInformation]
 Order=#-sum(apporder,apporder+1)-#
 
