@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -11,20 +11,16 @@ DESCRIPTION="Calculate Linux kernel image"
 KEYWORDS="~amd64 ~x86"
 HOMEPAGE="http://www.calculate-linux.org"
 
-IUSE="plymouth themes firmware"
+IUSE="themes firmware"
 
 DEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
-		sys-apps/v86d
-		sys-boot/grub
-	)
 	firmware? ( sys-kernel/linux-firmware )
-	themes? ( media-gfx/plymouth-themes-calculate )
-	plymouth? ( sys-boot/plymouth sys-boot/plymouth-openrc-plugin )
-	"
+	themes? ( media-gfx/splash-themes-calculate )
+	sys-apps/v86d
+	sys-boot/grub
+	)"
 
-RDEPEND="${DEPEND}
-!<app-emulation/virtualbox-modules-4.3.24
-"
+RDEPEND="${DEPEND}"
 
 SRC_URI="${KERNEL_URI} ${ARCH_URI}"
 

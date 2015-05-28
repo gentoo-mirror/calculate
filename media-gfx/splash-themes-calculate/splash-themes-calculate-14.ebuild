@@ -11,7 +11,7 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-splash-the
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="amd64 x86"
 IUSE=""
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-themes-calculate-${PV}.tar.bz2"
