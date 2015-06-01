@@ -13,7 +13,7 @@ SRC_URI="https://github.com/${PN}/${PN}/tarball/${P} -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="examples"
 
 RDEPEND="
@@ -30,7 +30,7 @@ src_install() {
 # 	DOCS="soaplib_docs.markdown TODO.txt"
 	distutils-r1_src_install
 
-	rm -rf "${ED}$(python_get_sitedir)/tests/"
+	rm -rf "${ED}$(python_get_sitedir python2_7)/tests/"
 
 	if use examples ; then
 		insinto /usr/share/doc/${PF}/examples
