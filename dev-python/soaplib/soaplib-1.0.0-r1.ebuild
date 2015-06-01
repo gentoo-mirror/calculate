@@ -13,7 +13,7 @@ SRC_URI="https://github.com/${PN}/${PN}/tarball/${P} -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="examples"
 
 RDEPEND="
@@ -28,7 +28,7 @@ S="${WORKDIR}/soaplib-soaplib-2801978"
 
 src_install() {
 # 	DOCS="soaplib_docs.markdown TODO.txt"
-	distutils_src_install
+	distutils-r1_src_install
 
 	rm -rf "${ED}$(python_get_sitedir)/tests/"
 
