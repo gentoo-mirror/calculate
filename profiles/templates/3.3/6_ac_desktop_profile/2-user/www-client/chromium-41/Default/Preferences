@@ -24,7 +24,7 @@
 #?pkg(www-plugins/chrome-ublock)!=#
          "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
             "active_permissions": {
-               "api": [ "contextMenus", "storage", "tabs", "unlimitedStorage", "webNavigation", "webRequest", "webRequestBlocking" ],
+               "api": [ "contextMenus", "privacy", "storage", "tabs", "unlimitedStorage", "webNavigation", "webRequest", "webRequestBlocking" ],
                "explicit_host": [ "http://*/*", "https://*/*" ],
                "manifest_permissions": [  ],
                "scriptable_host": [ "http://*/*", "https://*.adblockplus.me/*", "https://*.adblockplus.org/*", "https://*/*", "https://www.fanboy.co.nz/*" ]
@@ -38,7 +38,7 @@
             "from_bookmark": false,
             "from_webstore": true,
             "granted_permissions": {
-               "api": [ "contextMenus", "storage", "tabs", "unlimitedStorage", "webNavigation", "webRequest", "webRequestBlocking" ],
+               "api": [ "contextMenus", "privacy", "storage", "tabs", "unlimitedStorage", "webNavigation", "webRequest", "webRequestBlocking" ],
                "explicit_host": [ "http://*/*", "https://*/*" ],
                "manifest_permissions": [  ],
                "scriptable_host": [ "http://*/*", "https://*.adblockplus.me/*", "https://*.adblockplus.org/*", "https://*/*", "https://www.fanboy.co.nz/*" ]
