@@ -4,3 +4,6 @@
 Exec=sudo /usr/bin/partitionmanager
 #отключим запрос пароля
 X-KDE-SubstituteUID=false
+#отключить отклик запуска
+StartupNotify=false
+X-KDE-StartupNotify=false
