@@ -11,16 +11,16 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="x86 amd64"
+KEYWORDS="amd64 x86"
 IUSE="themes_CLD themes_CLDX themes_CLS
 themes_CLDG"
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-14-r2.tar.bz2
-	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-14-r2.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-13-r2.tar.bz2
+	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-13-r2.tar.bz2"
 
 REQUIRED_USE="^^ ( themes_CLD themes_CLDX themes_CLDG )"
 
-RDEPEND="themes_CLD? ( kde-base/oxygen-icons )
+RDEPEND="themes_CLD? ( kde-apps/oxygen-icons )
 	themes_CLDG? ( x11-themes/gnome-icon-theme )
 	themes_CLDX? ( x11-themes/elementary-icon-theme )
 	!media-gfx/cldx-themes
