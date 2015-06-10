@@ -52,7 +52,7 @@ function preexec_install () {
     set -o functrace > /dev/null 2>&1
     shopt -s extdebug > /dev/null 2>&1
 
-    PROMPT_COMMAND="${PROMPT_COMMAND};preexec_invoke_cmd"
+    PROMPT_COMMAND="${PROMPT_COMMAND}"$'\n'"preexec_invoke_cmd;";
     trap 'preexec_invoke_exec' DEBUG
 }
 
