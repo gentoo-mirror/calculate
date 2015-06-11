@@ -14,10 +14,10 @@ UseSSL=true
 
 [Behavior]
 # automatically connect
-#?pkg(kde-base/kopete)<4.2#
+#?pkg(kde-apps/kopete)<4.2#
 autoConnect=true
 #pkg#
-#?pkg(kde-base/kopete)>=4.2#
+#?pkg(kde-apps/kopete)>=4.2#
 initialStatus=Online
 #pkg#
 
