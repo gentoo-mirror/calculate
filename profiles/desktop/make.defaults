@@ -19,7 +19,7 @@ USE="${USE} acpi cairo cpudetection dbus dri ieee1394 gpm opengl scanner smp usb
 #USE="${USE} apm bluetooth"
 
 # Internet Messager
-USE="${USE} irc jabber jingle oscar yahoo"
+USE="${USE} irc jabber oscar"
 
 # Image support
 USE="${USE} X exif fdftk gd gif imagemagick jpeg jpeg2k mng openexr pdf png raw svg tiff webp wmf wxwindows xpm" 
