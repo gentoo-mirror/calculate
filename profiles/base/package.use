@@ -1,8 +1,11 @@
 # required by sys-apps/calculate-lib [python]
 sys-apps/file python
 
+
 # Removed unnecessary dependence
 sys-apps/man-db -nls
+sys-fs/lvm2 -thin
+
 
 # Сompile the kernel during the installation package
 sys-kernel/calculate-sources firmware minimal symlink vmlinuz
