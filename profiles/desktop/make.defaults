@@ -1,8 +1,11 @@
 # Audio
-USE="${USE} alsa amr -arts audiofile cue id3tag -libav flac mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr portaudio wavpack vorbis"
+USE="${USE} alsa amr -arts audiofile cdda cue id3tag -libav flac gstreamer mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr portaudio pulseaudio wavpack vorbis"
 
 # CD and DVD
 USE="${USE} cdparanoia cdr css dvd dvdr dvdread vcd"
+
+# Decoration
+USE="${USE} -wallpapers"
 
 # Devices
 USE="${USE} ios ipod udev"
@@ -33,6 +36,9 @@ USE="${USE} spell"
 # Mail
 USE="${USE} mbox"
 
+# Network protocols
+USE="${USE} rdesktop"
+
 # Print
 USE="${USE} cups"
 
@@ -40,20 +46,20 @@ USE="${USE} cups"
 USE="${USE} gphoto2"
 
 # System
-USE="${USE} consolekit nsplugin policykit"
+USE="${USE} consolekit -dconf networkmanager nsplugin policykit udisks"
 
 # Video
 USE="${USE} a52 aac -aalib avi cddb dv encode faac ffmpeg flash lzo matroska mplayer musepack real sdl speex srt -svga tga quicktime theora vaapi v4l v4l2 vidix win32codecs xanim x264 x265 xinerama xv xvid xvmc"
 
 # Web
 #USE="${USE} -apache apache2 javascript"
-USE="${USE} libwww vhosts"
+USE="${USE} libwww vhosts webkit"
 
 # Wireless
 USE="${USE} bluetooth wimax"
 
 # Window manager and speciality
-USE="${USE} gtk libnotify qt3support"
+USE="${USE} -eds -gnome gtk libnotify qt3support -qt3 qt4"
 
 CAMERAS="*"
 INPUT_DEVICES="${INPUT_DEVICES} mutouch synaptics"
