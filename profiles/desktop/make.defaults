@@ -59,7 +59,7 @@ USE="${USE} libwww vhosts webkit"
 USE="${USE} bluetooth wimax"
 
 # Window manager and speciality
-USE="${USE} -eds -gnome gtk libnotify qt3support -qt3 qt4"
+USE="${USE} -eds -gnome gtk libnotify qt3support -qt3"
 
 CAMERAS="*"
 INPUT_DEVICES="${INPUT_DEVICES} mutouch synaptics"
