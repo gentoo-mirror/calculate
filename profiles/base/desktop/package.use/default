@@ -1,3 +1,6 @@
+# include client, desktop, console and console-gui modules
+sys-apps/calculate-utils client desktop console qt4
+
 # Calculate themes dependence
 sys-kernel/calculate-sources themes
 
@@ -104,4 +107,80 @@ sys-libs/glibc nscd
 
 # [acl] net-fs/samba-3.6.19[client]
 net-fs/cifs-utils -acl
+
+# raw? ( opencv ) tiff? ( opencv )
+media-gfx/nomacs opencv
+
+# required by media-gfx/nomacs [raw]
+media-libs/opencv qt4
+
+# required by app-text/qpdfview [pdf,qt4]
+app-text/poppler qt4
+
+# required by dev-util/catfish-1.2.2
+x11-libs/gtk+ introspection
+
+# required by x11-libs/gtk+-3.14.8
+x11-libs/gdk-pixbuf introspection
+x11-libs/pango introspection
+dev-libs/atk introspection
+
+# required by net-misc/modemmanager-1.4.0
+sys-auth/polkit introspection
+
+
+# Removed unnecessary dependence
+net-fs/samba -winbind
+media-gfx/ufraw -gtk
+mail-client/claws-mail -libindicate
+
+
+# fix work
+x11-libs/libnotify introspection
+
+# Add support for PDF, RSS, SMIME, HTML, Xface
+mail-client/claws-mail pdf rss smime webkit xface
+
+# Add file systems and raid support.
+sys-block/gparted btrfs dmraid fat mdadm ntfs reiserfs xfs
+
+# Add Catalyst Control Panel
+x11-drivers/ati-drivers qt4
+
+net-misc/remmina ssh freerdp
+
+# Build a Qt style called GTK+ that mimics the active GTK+ theme
+dev-qt/qtgui gtkstyle
+
+# Add automounting,volume monitoring, etc. Build thunar-tpa (trash) plugin for panel.
+xfce-base/thunar udisks xfce_plugins_trash
+
+xfce-base/xfdesktop thunar xfce_plugins_menu
+xfce-base/xfce4-session -xscreensaver
+x11-misc/light-locker upower
+
+# Build a plugin for the GIMP
+net-print/gutenprint gimp
+
+# [python] required by net-p2p/deluge
+net-libs/rb_libtorrent python
+
+# [python] required by net-libs/rb_libtorrent
+dev-libs/boost python
+
+# lightdm without update gobject-intraspction
+media-libs/harfbuzz icu
+net-libs/webkit-gtk -geoloc
+
+# Add support for RAW format in GIMP
+media-gfx/ufraw gimp
+
+# Install the sendto-plugin for xfce-base/thunar
+#net-wireless/blueman thunar
+
+# fix crash
+=media-sound/clementine-1.2.3 -udisks
+
+# fix compile
+=net-misc/remmina-1.2.0_rc3 vte
 
