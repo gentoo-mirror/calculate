@@ -40,6 +40,9 @@ dev-python/pyside script
 # required by sys-devel/prelink
 dev-libs/elfutils static-libs
 
+# required by virtual/libgudev-215-r1
+sys-fs/eudev gudev
+
 
 # Removed unnecessary dependence
 app-accessibility/speech-dispatcher -espeak
@@ -50,6 +53,7 @@ gnome-extra/zenity -webkit
 media-video/ffmpeg -samba
 net-analyzer/nmap -gtk
 net-dialup/rp-pppoe -X
+sys-fs/lvm2 -thin
 sys-fs/mtools -X
 www-client/links -X
 x11-drivers/nvidia-drivers -acpi -tools
@@ -72,6 +76,12 @@ net-misc/networkmanager connection-sharing dhclient -dhcpcd modemmanager
 
 # Enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
 net-print/hplip fax snmp hpijs -X
+
+#To display the icons in the menu, support xdg autostart
+x11-wm/openbox imlib xdg
+
+# Add support xft and 256 color
+x11-terms/rxvt-unicode 256-color xft
 
 x11-base/xorg-drivers -video_cards_nvidia -video_cards_vmware -video_cards_glint -video_cards_mach64 -video_cards_mga -video_cards_r128 -video_cards_savage -video_cards_tdfx -video_cards_trident
 
