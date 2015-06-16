@@ -61,6 +61,7 @@ USE="${USE} bluetooth wimax"
 # Window manager and speciality
 USE="${USE} -eds -gnome gtk libnotify qt3support -qt3"
 
+ABI_X86="32"
 CAMERAS="*"
 INPUT_DEVICES="${INPUT_DEVICES} mutouch synaptics"
 LIRC_DEVICES="devinput"
