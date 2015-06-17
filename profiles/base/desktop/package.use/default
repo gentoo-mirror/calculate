@@ -46,23 +46,85 @@ dev-libs/elfutils static-libs
 # required by virtual/libgudev-215-r1
 sys-fs/eudev gudev
 
+# support for some plasmoids
+kde-base/plasma-workspace python
 
+# required by kde-base/kopete-4.14.3-r1[ssl]
+app-crypt/qca openssl
+
+# [declarative, script, sql] required by kde-base/pykde4
+dev-python/PyQt4 declarative script sql
+
+# [melt, xml] required by media-video/kdenlive
+media-libs/mlt melt xml kdenlive -xine
+
+# [embedded] required by media-sound/amarok
+dev-db/mysql embedded
+virtual/mysql embedded
+
+# [pyqt4] required by kde-misc/synaptiks
+dev-python/pyudev pyqt4
+
+# [xmp] required by kde-base/libkexiv2
+media-gfx/exiv2 xmp
+
+# [sql] required by app-office/akonadi-server
+dev-qt/qtsql mysql
+
+
+# -----------------------------------------
 # Removed unnecessary dependence
+# -----------------------------------------
 app-accessibility/speech-dispatcher -espeak
+app-arch/p7zip -kde
 app-misc/mc -spell
+dev-util/cmake -qt4
 dev-vcs/git -gtk
 gnome-extra/nm-applet -bluetooth
 gnome-extra/zenity -webkit
+kde-apps/kdebase-runtime-meta minimal -crash-reporter
+kde-apps/print-manager -gtk
+mail-client/claws-mail -libindicate
+media-gfx/gimp -webkit
+media-gfx/ufraw -gtk
 media-video/ffmpeg -samba
 net-analyzer/nmap -gtk
 net-dialup/rp-pppoe -X
+net-fs/samba -winbind
+net-libs/webkit-gtk -geoloc
+net-misc/networkmanager-openconnect -gtk
+net-misc/networkmanager-openvpn -gtk
+net-misc/networkmanager-pptp -gtk
+net-misc/networkmanager-vpnc -gtk
+net-p2p/ktorrent -infowidget
+net-print/hplip -qt4
+net-wireless/wpa_supplicant -qt4
+sys-auth/polkit -gtk
 sys-fs/mtools -X
 www-client/links -X
 x11-drivers/nvidia-drivers -acpi -tools
 
 
-# Fix blocks the installation of the old nvidia video drivers
-#www-client/chromium -tcmalloc
+# use gstreamer for sound
+media-libs/phonon gstreamer -vlc
+
+# Enables video thumbnails generation
+kde-apps/dolphin thumbnail
+
+# Support for the KDE Image Plugin Interface.
+kde-apps/gwenview kipi
+
+# Remote desktop viewer support
+kde-apps/krdc vnc
+
+# Hardware sensors support
+kde-base/ksysguard lm_sensors
+
+# Enable support for mobile broadband devices
+kde-misc/plasma-nm modemmanager
+
+# Enable support for mobile broadband devices
+net-libs/libnm-qt modemmanager
 
 # Add support for access point mode
 net-wireless/wpa_supplicant ap
@@ -117,7 +179,7 @@ media-libs/opencv qt4
 # required by app-text/qpdfview [pdf,qt4]
 app-text/poppler qt4
 
-# required by dev-util/catfish-1.2.2
+# required by dev-util/catfish-1.2.2, app-admin/system-config-printer-gnome-1.4.3
 x11-libs/gtk+ introspection
 
 # required by x11-libs/gtk+-3.14.8
@@ -125,15 +187,8 @@ x11-libs/gdk-pixbuf introspection
 x11-libs/pango introspection
 dev-libs/atk introspection
 
-# required by net-misc/modemmanager-1.4.0
+# required by net-misc/modemmanager-1.4.0, x11-libs/gtk+-3.12.2
 sys-auth/polkit introspection
-
-
-# Removed unnecessary dependence
-net-fs/samba -winbind
-media-gfx/ufraw -gtk
-mail-client/claws-mail -libindicate
-
 
 # fix work
 x11-libs/libnotify introspection
@@ -168,9 +223,8 @@ net-libs/rb_libtorrent python
 # [python] required by net-libs/rb_libtorrent
 dev-libs/boost python
 
-# lightdm without update gobject-intraspction
+# [icu] required by www-client/chromium
 media-libs/harfbuzz icu
-net-libs/webkit-gtk -geoloc
 
 # Add support for RAW format in GIMP
 media-gfx/ufraw gimp
