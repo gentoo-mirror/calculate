@@ -1,0 +1,11 @@
+# kde? ( wxwidgets )
+app-arch/p7zip wxwidgets
+
+# -----------------------------------------
+# Removed unnecessary dependence
+# -----------------------------------------
+net-misc/networkmanager-openconnect -gtk
+net-misc/networkmanager-openvpn -gtk
+net-misc/networkmanager-pptp -gtk
+net-misc/networkmanager-vpnc -gtk
+
