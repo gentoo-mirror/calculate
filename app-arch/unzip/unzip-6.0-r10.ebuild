@@ -27,7 +27,7 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 	epatch "${FILESDIR}"/${P}-no-exec-stack.patch
-	use natspec && epatch "${FILESDIR}"/${P}-alt-natspec.patch
+	use natspec && epatch "${FILESDIR}"/${P}-natspec.patch
 	sed -i \
 		-e '/^CFLAGS/d' \
 		-e '/CFLAGS/s:-O[0-9]\?:$(CFLAGS) $(CPPFLAGS):' \
