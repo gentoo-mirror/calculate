@@ -74,6 +74,9 @@ dev-qt/qtsql mysql
 # mate-base/mate -> x11-misc/mozo-1.8.0
 mate-base/mate-menus introspection python
 
+# circular dependencies net-libs/glib-networking-2.42.1 and net-libs/libproxy-0.4.11-r2
+net-libs/libproxy -webkit
+
 
 # -----------------------------------------
 # Removed unnecessary dependence
