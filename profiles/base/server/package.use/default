@@ -24,3 +24,7 @@ sys-apps/calculate-utils console pxe
 
 # threads? ( caps )
 net-dns/bind caps
+
+# required by (sys-apps/calculate-server-2.1.16-r17
+net-ftp/proftpd ident
+
