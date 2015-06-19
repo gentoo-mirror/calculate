@@ -1,0 +1,53 @@
+#!/usr/bin/python
+# Calculate chmod=755 comment=#
+#This program is free software; you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation; either version 2 of the License, or
+#(at your option) any later version.
+
+#Copyright 2010 Vasily Petuhov aka norgen
+
+#Konversation script "Google for you"
+
+#Using:
+#Copy script to ~/.kde4/apps/konversation/scripts (mkdir if not exist), 
+#make executable. After go Konversation - Settings - Command aliases and  
+#add alias "/gog" with command line "/exec gog".
+
+#Using in chat:
+#/gog <nick> <message>
+
+import string
+import urllib
+import sys
+import subprocess
+
+SERVER = sys.argv[1];
+CHANNEL = sys.argv[2];
+target=sys.argv[3];
+mess=sys.argv[4:];
+
+TINYURL_API_URL="http://tinyurl.com/api-create.php?url=[url]"
+GOOGLE_FOR_YOU="http://lmgtfy.com/?q=[term]"
+
+def getTinyUrl(searchEngine, searchTerms, turlApiURL):
+        finalUrl = searchEngine.replace("[term]",searchTerms)
+        finalUrl = turlApiURL.replace("[url]",finalUrl)
+        return finalUrl
+
+def doWork(word, searchEngine):
+	if len(word) < 2:
+                print ("Very little word...");
+                return;
+        wordStr = "+".join(word)
+        wordStr = string.strip(wordStr)
+	tinyUrl=getTinyUrl(searchEngine,wordStr,TINYURL_API_URL)
+        endUrl = urllib.urlopen(tinyUrl).read()
+        args=['qdbus','org.kde.konversation', '/irc', 'say',SERVER, CHANNEL, (target+', '+endUrl)]
+        c='';
+        for i in args:
+            c=c+' "'+i+'"';
+        print 'command:'+c;
+        subprocess.Popen(args).communicate();
+
+doWork(mess, GOOGLE_FOR_YOU)

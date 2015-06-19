@@ -1,0 +1,6 @@
+# Calculate ini(update.rev)<45 exec=/bin/bash
+
+#-ini(update.rev,45)-#
+rm -f /etc/portage/package.use/1
+
+exit 0

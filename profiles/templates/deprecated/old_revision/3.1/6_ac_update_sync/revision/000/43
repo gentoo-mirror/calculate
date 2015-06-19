@@ -1,0 +1,7 @@
+# Calculate ini(update.rev)<43 exec=/bin/bash
+
+#-ini(update.rev,43)-#
+rm -f /etc/init.d/vnstat &>/dev/null
+rm -f /etc/runlevels/boot/calculate3 &>/dev/null
+
+exit 0

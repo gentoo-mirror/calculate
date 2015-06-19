@@ -1,0 +1,10 @@
+# Calculate format=world name=world ini(overlay-calculate.world)<2
+
+#-ini(overlay-calculate.world,2)-#
+
+#?in(os_linux_pkglist, base)!=#
+!sys-apps/calculate-utilities:0
+!sys-apps/calculate-utilities:3
+sys-apps/calculate-utils:0
+sys-apps/calculate-utils:3
+#in#

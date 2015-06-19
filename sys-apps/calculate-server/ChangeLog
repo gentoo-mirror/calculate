@@ -1,0 +1,264 @@
+# ChangeLog for sys-apps/calculate-server
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*calculate-server-2.1.16 (31 Aug 2012)
+
+  31 Aug 2012; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.16.ebuild:
+  Version bump
+
+*calculate-server-2.1.15-r4 (15 Dec 2011)
+
+  15 Dec 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.15-r3.ebuild, +calculate-server-2.1.15-r4.ebuild,
+  files/calculate-server-2.1.15-fix_proftpd.patch:
+  Update server script
+
+*calculate-server-2.1.15-r3 (13 Dec 2011)
+
+  13 Dec 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.15-r2.ebuild, +calculate-server-2.1.15-r3.ebuild,
+  files/calculate-server-2.1.15-fix_proftpd.patch:
+  Update patch
+
+*calculate-server-2.1.15-r2 (12 Dec 2011)
+
+  12 Dec 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.15-r2.ebuild,
+  +files/calculate-server-2.1.15-fix_proftpd.patch:
+  Update for fix work with proftpd
+
+*calculate-server-2.1.15-r1 (05 Dec 2011)
+
+  05 Dec 2011; Alexander Tratsevskiy (L'autre) <at@calculate.ru>
+  -calculate-server-2.1.15.ebuild, +calculate-server-2.1.15-r1.ebuild:
+  remove radius dep
+
+*calculate-server-2.1.15 (16 Nov 2011)
+
+  16 Nov 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.15.ebuild:
+  Version bump, update deps
+
+  11 Oct 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  calculate-server-9999.ebuild:
+  Update live ebuilds
+
+*calculate-server-2.1.14-r6 (18 Jul 2011)
+
+  18 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.14-r6.ebuild,
+  +files/calculate-server-2.1.14-remote_distfiles.patch:
+  Update for fix remote share point.
+
+*calculate-server-2.1.14-r5 (14 Jul 2011)
+
+  14 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.14-r5.ebuild,
+  +files/calculate-server-2.1.14-fix_add_dns_rec.patch:
+  Update for bugfix
+
+*calculate-server-2.1.14-r4 (27 Jun 2011)
+
+  27 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.14-r4.ebuild,
+  +files/calculate-server-2.1.14-add_maildomain_group.patch:
+  Update for creating maildomain group.
+
+*calculate-server-2.1.14-r3 (24 Jun 2011)
+
+  24 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.14-r3.ebuild:
+  Update for fix dep.
+
+*calculate-server-2.1.14-r2 (03 Jun 2011)
+
+  03 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.14-r2.ebuild,
+  +files/calculate-server-2.1.14-rename_param.patch:
+  Update for rename param.
+
+*calculate-server-2.1.14-r1 (31 May 2011)
+
+  31 May 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.14-r1.ebuild,
+  +files/calculate-server-2.1.14-fix_dovecot.patch:
+  Update for bugfix.
+
+*calculate-server-2.1.14 (30 May 2011)
+
+  30 May 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.14.ebuild, calculate-server-9999.ebuild:
+  Update calculate-server.
+
+*calculate-server-2.1.13-r3 (20 May 2011)
+
+  20 May 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.13-r3.ebuild,
+  +files/calculate-server-2.1.13-fix_bind.patch:
+  Update for fix bind template.
+
+*calculate-server-2.1.13-r2 (17 May 2011)
+
+  17 May 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.13-r2.ebuild,
+  +files/calculate-server-2.1.13-fifo_fix.patch:
+  Update server for fix fifo processing.
+
+  13 Apr 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  calculate-server-2.1.13.ebuild, calculate-server-2.1.13-r1.ebuild,
+  calculate-server-9999.ebuild:
+  Fix EAPI.
+
+*calculate-server-2.1.13-r1 (01 Apr 2011)
+
+  01 Apr 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.13-r1.ebuild,
+  +files/calculate-server-2.1.13-rename_cl_update.patch:
+  Update for rename cl-update.
+
+*calculate-server-2.1.13 (14 Dec 2010)
+
+  14 Dec 2010; Самоукин Алексей <as@calculate.ru>
+  +calculate-server-2.1.13.ebuild:
+  Created ejabberd certificate.
+  Using ejabberd.
+
+*calculate-server-2.1.12-r7 (02 Dec 2010)
+
+  02 Dec 2010; Самоукин Алексей <as@calculate.ru>
+  -calculate-server-2.1.12-r6.ebuild, +calculate-server-2.1.12-r7.ebuild,
+  +files/calculate-server-2.1.12-gen_id.patch:
+  Fix generate replication id.
+
+  28 Oct 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.10-r1.ebuild:
+  Remove old package.
+
+*calculate-server-2.1.12-r6 (12 Oct 2010)
+
+  12 Oct 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.12-r5.ebuild, +calculate-server-2.1.12-r6.ebuild,
+  +files/calculate-server-2.1.12-fix-remote.patch:
+  Add patch for fix permission on /var/calculate/remote.
+
+*calculate-server-2.1.12-r5 (12 Oct 2010)
+
+  12 Oct 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.12-r4.ebuild, +calculate-server-2.1.12-r5.ebuild,
+  +files/calculate-server-2.1.12-fix-squid.patch:
+  Update server for fix templates of new squid.
+
+*calculate-server-2.1.12-r4 (23 Sep 2010)
+
+  23 Sep 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.12-r3.ebuild, +calculate-server-2.1.12-r4.ebuild:
+  Added use depend for proftpd.
+
+*calculate-server-2.1.12-r3 (12 Aug 2010)
+
+  12 Aug 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +files/server_i18n_path.patch, -calculate-server-2.1.12-r2.ebuild,
+  +calculate-server-2.1.12-r3.ebuild:
+  Add path for place i18n files.
+
+*calculate-server-2.1.12-r2 (21 Jul 2010)
+
+  21 Jul 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.12-r1.ebuild, +calculate-server-2.1.12-r2.ebuild,
+  +files/calculate-server-2.1.12-r2.patch:
+  Add bugfix for calculate-server.
+
+  04 May 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  calculate-server-9999.ebuild:
+  Fix git path.
+
+*calculate-server-2.1.12-r1 (10 Apr 2010)
+*calculate-server-2.1.10-r1 (10 Apr 2010)
+
+  10 Apr 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.5-r2.ebuild, -files/calculate-server-2.1.5-r2.patch,
+  -calculate-server-2.1.6.ebuild, -calculate-server-2.1.6-r1.ebuild,
+  -calculate-server-2.1.7-r1.ebuild, -files/calculate-server-2.1.7-r1.patch,
+  -calculate-server-2.1.8.ebuild, -calculate-server-2.1.10.ebuild,
+  +calculate-server-2.1.10-r1.ebuild, -calculate-server-2.1.12.ebuild,
+  +calculate-server-2.1.12-r1.ebuild:
+  Removed old version. Fix samba depends for new ebuilds.
+
+*calculate-server-2.1.12 (06 Apr 2010)
+
+  06 Apr 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.11.ebuild, +calculate-server-2.1.12.ebuild:
+  Bump version. Remove previous.
+
+*calculate-server-2.1.11 (05 Apr 2010)
+
+  05 Apr 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.11.ebuild:
+  Bump version.
+
+*calculate-server-2.1.10 (15 Mar 2010)
+
+  15 Mar 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.9.ebuild, +calculate-server-2.1.10.ebuild:
+  Bump version.
+
+*calculate-server-2.1.9 (03 Mar 2010)
+
+  03 Mar 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.9.ebuild:
+  Version bump.
+
+*calculate-server-2.1.6-r1 (03 Dec 2009)
+
+  03 Dec 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.6-r1.ebuild:
+  Translate update.
+
+  01 Dec 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  calculate-server-2.1.6.ebuild:
+  Fix dependence.
+
+*calculate-server-2.1.6 (01 Dec 2009)
+
+  01 Dec 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.6.ebuild:
+  Ebuild for new version of calculate-server.
+
+  30 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  -files/calculate-server-2.1.4-r1.patch:
+  Remove unnecessary patch.
+
+  27 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  calculate-server-2.1.5-r2.ebuild, calculate-server-9999.ebuild:
+  Fix samba dependence
+
+  27 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.3-r1.ebuild, -calculate-server-2.1.4.ebuild,
+  -calculate-server-2.1.4-r1.ebuild, -calculate-server-2.1.5.ebuild,
+  calculate-server-2.1.5-r2.ebuild, calculate-server-9999.ebuild:
+  Deleted older calcualte-server and fix samba dependence.
+
+  27 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  calculate-server-9999.ebuild:
+  Fix samba depends for live ebuild of calculate-server
+
+*calculate-server-2.1.5-r2 (27 Nov 2009)
+
+  27 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  -calculate-server-2.1.5-r1.ebuild, +calculate-server-2.1.5-r2.ebuild:
+  Fix dependence for samba
+
+  12 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.5-r1.ebuild, +files/calculate-server-2.1.5-r1.patch:
+  Added patch, which fixed changing comments of samba users
+
+  03 Nov 2009; Mike Hirecky (mhiretskiy) <mh@calculate.ru>
+  +calculate-server-2.1.5.ebuild:
+  Fixed different bugs, added support dovecot 1.2
+
+  05 Aug 2009; Aleksandr Yakimov (yaleks) <yaleks@gentoo.ru>
+  calculate-server-2.1.3.ebuild, +metadata.xml:
+  Ebuild fix
+

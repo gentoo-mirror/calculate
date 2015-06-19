@@ -1,0 +1,137 @@
+diff --git pym/cl_template.py pym/cl_template.py
+index 99aabf6..d9bfdee 100644
+--- pym/cl_template.py
++++ pym/cl_template.py
+@@ -5380,6 +5380,9 @@ class templateClt(scanDirectoryClt, template):
+                 return False
+         return (self.createdDirs, self.filesApply)
+ 
++class IniError(Exception):
++    pass
++
+ class iniParser(_error, templateFormat):
+     """Класс для работы с ini файлами
+ 
+@@ -5408,6 +5411,16 @@ class iniParser(_error, templateFormat):
+ 
+     def openRWIniFile(self):
+         if not os.access(self.iniFile, os.R_OK):
++            if not os.path.exists(self.iniFile):
++                try:
++                    # Создание файла
++                    self.FD  = open(self.iniFile, "w+")
++                    fcntl.flock(self.FD.fileno(), fcntl.LOCK_EX)
++                    os.chmod(self.iniFile, self.mode)
++                except:
++                    error = _("Unable to create the file") + ": " + self.iniFile
++                    self.setError(error)
++                    raise IniError(error)
+             return ""
+         try:
+             self.FD = open(self.iniFile, "r+")
+@@ -5423,16 +5436,6 @@ class iniParser(_error, templateFormat):
+             self.setError(_("Unable to write to the file") + 
+                           ": " + self.iniFile)
+             return False
+-        if not os.path.exists(self.iniFile):
+-            try:
+-                # Создание файла
+-                self.FD  = open(self.iniFile, "w+")
+-                fcntl.flock(self.FD.fileno(), fcntl.LOCK_EX)
+-                os.chmod(self.iniFile, self.mode)
+-            except:
+-                self.setError(_("Unable to create the file") +
+-                              ": " + self.iniFile)
+-                return False
+         if not self.FD:
+             self.setError(_("Unable to write to the file") +
+                           ": " + self.iniFile)
+@@ -5440,8 +5443,6 @@ class iniParser(_error, templateFormat):
+         self.FD.truncate(0)
+         self.FD.seek(0)
+         self.FD.write(txtConfig)
+-        self.FD.close()
+-        self.FD = None
+         return True
+ 
+     def setVar(self, strHeader, dictVar):
+@@ -5451,37 +5452,50 @@ class iniParser(_error, templateFormat):
+         strHeader - имя области
+         dictVar - словарь переменных
+         """
+-        textIni = self.openRWIniFile()
+-        nameFomat = self.checkIniFile(textIni)
+-        if not nameFomat:
+-            return False
+-        if type(strHeader) in (tuple, list):
+-            # формат plasma
+-            classObj = self.getClassObj("plasma")
+-        else:
+-            if nameFomat == "plasma":
+-                self.setError(_("Trying to write a variable of 'samba' format"
+-                                " to file %s (format - 'plasma')")
+-                                %self.iniFile)
++        try:
++            textIni = self.openRWIniFile()
++            nameFomat = self.checkIniFile(textIni)
++            if not nameFomat:
+                 return False
+-            # формат samba
+-            classObj = self.getClassObj("samba")
+-        # создаем объект
+-        # и записываем в него содержимое ini-файла
+-        objIni = classObj(textIni)
+-        # создаем текст из строки заголовка и
+-        # словаря переменных области
+-        txtConfig = objIni.createTxtConfig(strHeader, dictVar)
+-        # создаем объект и записываем в него текст
+-        objIniAdd = classObj(txtConfig)
+-        # объединяем объекты для получения результирующего текста
+-        objIni.join(objIniAdd)
+-        # получаем текст
+-        txtConfig = objIni.getConfig().encode("UTF-8")
+-        # записываем его в ini файл
+-        if not self.writeIniFile(txtConfig):
++            if type(strHeader) in (tuple, list):
++                # формат plasma
++                classObj = self.getClassObj("plasma")
++            else:
++                if nameFomat == "plasma":
++                    self.setError(_("Trying to write a variable of 'samba' format"
++                                    " to file %s (format - 'plasma')")
++                                    %self.iniFile)
++                    return False
++                # формат samba
++                classObj = self.getClassObj("samba")
++            # создаем объект
++            # и записываем в него содержимое ini-файла
++            objIni = classObj(textIni)
++            # создаем текст из строки заголовка и
++            # словаря переменных области
++            txtConfig = objIni.createTxtConfig(strHeader, dictVar)
++            # создаем объект и записываем в него текст
++            objIniAdd = classObj(txtConfig)
++            # объединяем объекты для получения результирующего текста
++            objIni.join(objIniAdd)
++            # получаем текст
++            txtConfig = objIni.getConfig().encode("UTF-8")
++            # записываем его в ini файл
++            if not self.writeIniFile(txtConfig):
++                return False
++            return True
++        except IniError:
+             return False
+-        return True
++        finally:
++            self._closeFD()
++
++    def _closeFD(self):
++        if self.FD:
++            try:
++                self.FD.close()
++            except:
++                pass
++        self.FD = None
+ 
+     def isEmptyFile(self, textIni):
+         """Если файл пустой или содержит только комментарии - False

@@ -1,0 +1,27 @@
+diff --git pym/cl_base.py pym/cl_base.pypym/cl_base.py
+index 15a8d34..860e33a 100644
+--- pym/cl_base.py
++++ pym/cl_base.pypym/cl_base.py
+@@ -379,6 +379,7 @@ class iniParser(cl_profile._error):
+                 return False
+             self.checkIni = "samba"
+             # В файле есть данные
++            textIni = re.sub(r"^#.*$",textIni,'',re.M)
+             if not self.isEmptyFile(textIni):
+                 try:
+                     objIni = cl_profile.plasma(textIni)
+diff --git pym/cl_utils.py pym/cl_base.pypym/cl_utils.py
+index 8f25ffd..ac25984 100644
+--- pym/cl_utils.py
++++ pym/cl_base.pypym/cl_utils.py
+@@ -526,9 +526,7 @@ def getInterfaces():
+     Get available interfaces (discard which hasn't device)
+     """
+     try:
+-        return filter(lambda x:os.path.exists(
+-                        os.path.join(SYSFS_NET_PATH,x,"device")),
+-               os.listdir(SYSFS_NET_PATH))
++        return filter(lambda x: x!= "lo",os.listdir(SYSFS_NET_PATH))
+     except:
+         return []
+ 

@@ -1,0 +1,172 @@
+diff --git pym/cl_utils.py pym/cl_utils.py
+index 5c6a199..da5ef2e 100644
+--- pym/cl_utils.py
++++ pym/cl_utils.py
+@@ -1479,3 +1479,36 @@ def countFiles(dirpath,onefilesystem=True):
+             for dirname in mountDirs:
+                 dirnames.remove(dirname)
+     return num
++
++class InitrdFile(object):
++    re_kver_path = re.compile("/modules/([^/]+)/kernel")
++    def __init__(self, _file):
++        self._file = _file
++
++    def get_kernel_version(self):
++        for fn in self.get_names():
++            if "/modules/" in fn and "/kernel" in fn:
++                m = self.re_kver_path.search(fn)
++                if m:
++                    return m.group(1)
++                else:
++                    break
++        return ""
++
++    def get_names(self):
++        if not path.exists(self._file):
++            # raise IOError
++            open(self._file)
++        gz = Popen(['/bin/gzip', "-dc", self._file], stdout=PIPE, stderr=PIPE,
++            close_fds=True)
++        cpio = Popen(["/bin/cpio","-tf"], stdout=PIPE, stdin=gz.stdout,
++            stderr=PIPE, close_fds=True)
++        try:
++            for fn in cpio.stdout.xreadlines():
++                yield fn.rstrip()
++        finally:
++            cpio.terminate()
++            gz.terminate()
++
++    def __iter__(self):
++        return iter(self.get_names())
+diff --git pym/cl_vars_share.py pym/cl_vars_share.py
+index 52a114e..ec4981a 100644
+--- pym/cl_vars_share.py
++++ pym/cl_vars_share.py
+@@ -16,9 +16,11 @@
+ 
+ import os
+ import sys
+-from cl_utils import getpathenv, runOsCommand, typeFile,process
++from cl_utils import (getpathenv, runOsCommand, typeFile,process,
++                      listDirectory, InitrdFile)
+ import re
+ from os import path, R_OK
++
+ try:
+     from cl_ldap import ldapUser
+ except ImportError:
+@@ -276,10 +278,13 @@ class varsShare:
+ 
+     def getFilesByType(self,pathname,descr):
+         """Get files from "pathname" has "descr" in descriptions"""
+-        filelist = map(lambda x:path.join(pathname,x),os.listdir(pathname))
++        return list(self.get_files_by_type(pathname, descr))
++
++    def get_files_by_type(self, pathname, descr):
+         ftype = typeFile(magic=0x4).getMType
+-        filesWithType = map(lambda x:(x,ftype(x)), filelist)
+-        return filter(lambda x:descr in x[1],filesWithType)
++        for x in listDirectory(pathname, fullPath=True):
++            if descr in ftype(x):
++                yield x
+ 
+     def getInitrd(self,arch,shortname,chroot,kernel,suffix="",notsuffix=""):
+         """Get initrd for kernel"""
+@@ -629,3 +634,96 @@ class varsShare:
+             return res[:8]
+         else:
+             return "no_uid"
++
++    def get_current_kernel_src(self, prefix='/'):
++        """
++        Get current kernel source directory
++        """
++        src_path = "usr/src"
++        current_linux_src = path.join(src_path,"linux")
++        symlink_kernel = path.join(prefix,current_linux_src)
++        if not path.exists(symlink_kernel) or not path.islink(symlink_kernel):
++            raise ValueError("Failed to determine current kernel version")
++        return path.join(src_path,os.readlink(symlink_kernel))
++
++    def get_config_version(self, configfile):
++        re_config = re.compile("Automatically generated file;.*\n"
++                               ".*?Linux/\S+\s+(\S+)\s", re.M)
++        if path.exists(configfile):
++            with open(configfile) as f:
++                match = re_config.search(f.read(200))
++                if match:
++                    return match.group(1)
++
++    def get_src_kernel_version(self, kernel_src):
++        """
++        Get version of kernel from .config
++        """
++        config_path = path.join(kernel_src, ".config")
++        makefile_path = path.join(kernel_src, "Makefile")
++
++        # get version from config
++        version = self.get_config_version(config_path)
++        if version:
++            return version
++
++        # get version from Makefile
++        re_makefile = re.compile("^VERSION = (\S+)\n"
++            "PATCHLEVEL = (\S+)\n"
++            "SUBLEVEL = (\S+)\n"
++            "EXTRAVERSION = (\S*)\n", re.M)
++        if path.exists(makefile_path):
++            with open(makefile_path) as f:
++                match = re_makefile.search(f.read(200))
++                if match:
++                    return "{0}.{1}.{2}{3}".format(*match.groups())
++        return ""
++
++    def list_initramfs(self, prefix='/', bootdir='boot'):
++        boot_dir = path.join(prefix, bootdir)
++        return self.get_files_by_type(boot_dir,"ASCII cpio archive")
++
++    def filter_initramfs(self, iterable, version=None):
++        for fn in iterable:
++            if InitrdFile(fn).get_kernel_version() == version:
++                yield fn
++
++    def list_kernel(self, prefix='/', bootdir='boot'):
++        boot_dir = path.join(prefix, bootdir)
++        return self.get_files_by_type(boot_dir, "boot executable bzImage")
++
++    def filter_kernel(self, iterable, version=None):
++        ftype = typeFile(magic=0x4).getMType
++        re_kver = re.compile("bzImage, version (\S+)\s")
++        for fn in iterable:
++            m = re_kver.search(ftype(fn))
++            if m.group(1) == version:
++                yield fn
++
++    def list_config(self, prefix='/', bootdir='boot'):
++        boot_dir = path.join(prefix, bootdir)
++        return self.get_files_by_type(boot_dir, "Linux make config build file")
++
++    def filter_config(self, iterable, version=None):
++        for fn in iterable:
++            if self.get_config_version(fn) == version:
++                yield fn
++
++    def list_system_map(self, prefix='/', bootdir='boot'):
++        boot_dir = path.join(prefix, bootdir)
++        for fn in listDirectory(boot_dir):
++            if fn.startswith("System.map"):
++                yield path.join(boot_dir, fn)
++
++    def filter_system_map(self, iterable, version=None):
++        re_kver = re.compile("System.map-(\S+)$")
++        for fn in iterable:
++            m = re_kver.search(fn)
++            if m and m.group(1) == version:
++                yield fn
++
++    def max_default(self, iterable, key=lambda x:x, default=None):
++        try:
++            return max(iterable, key=key)
++        except ValueError:
++            return default

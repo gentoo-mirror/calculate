@@ -1,0 +1,27 @@
+# Calculate format=kde
+[General]
+#начало сессии
+Startup Session=new
+[Kate Document Defaults]
+#создавать резервную копию
+Backup Config Flags=0
+#код настроек (отступы пробелами)
+Basic Config Flags=48758816
+#режим расстановки отступов по умолчанию
+Indentation Mode=python
+#ширина отступа
+Indentation Width=4
+[Kate Renderer Defaults]
+#показывать лиини отступов
+Show Indentation Lines=true
+#показывать маркеры статичного переноса строк
+Word Wrap Marker=true
+[Kate View Defaults]
+#показывать полосу закладок
+Icon Bar=true
+#показывать отметки на полосе прокрутки
+Scroll Bar Marks=true
+[TipOfDay]
+#показывать сообщение дня
+RunOnStart=false
+

@@ -1,0 +1,8 @@
+# Calculate format=kde
+[Spelling]
+#?os_locale_lang==ru_RU#
+defaultLanguage=ru_RU_yo
+#os_locale_lang#
+#?os_locale_lang!=ru_RU#
+defaultLanguage=#-os_locale_lang-#
+#os_locale_lang#

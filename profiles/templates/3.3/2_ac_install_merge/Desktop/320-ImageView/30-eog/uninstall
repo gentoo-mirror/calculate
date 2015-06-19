@@ -1,0 +1,5 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(media-gfx/eog)==&&ini(desktop.imageview)==eog
+
+[desktop]
+!imageview=
+imageview-removing=on

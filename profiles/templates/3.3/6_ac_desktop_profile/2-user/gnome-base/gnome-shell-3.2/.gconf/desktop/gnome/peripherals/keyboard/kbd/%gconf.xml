@@ -1,0 +1,19 @@
+# Calculate format=xml_gconf append=join
+<?xml version="1.0"?>
+<gconf>
+	<entry name="options" type="list" ltype="string">
+#?os_locale_xkb!=us#
+		<li type="string">
+			<stringvalue>grp	grp:caps_toggle</stringvalue>
+		</li>
+#os_locale_xkb#
+		<li type="string">
+			<stringvalue>terminate	terminate:ctrl_alt_bksp</stringvalue>
+		</li>
+#?os_locale_xkb!=us#
+		<li type="string">
+			<stringvalue>grp_led	grp_led:scroll</stringvalue>
+		</li>
+#os_locale_xkb#
+	</entry>
+</gconf>

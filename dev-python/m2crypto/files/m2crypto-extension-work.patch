@@ -1,0 +1,432 @@
+diff --git a/CHANGES b/CHANGES
+index 8355a94..4f14a9a 100644
+--- a/CHANGES
++++ b/CHANGES
+@@ -1,3 +1,6 @@
++Patch
++- X509 calculated extensions work, patch by Carlos Neves
++
+ 0.21.1 - 2011-01-15
+ -------------------
+ - Distribution fix
+diff --git a/M2Crypto/X509.py b/M2Crypto/X509.py
+index eef83fe..f64289e 100644
+--- a/M2Crypto/X509.py
++++ b/M2Crypto/X509.py
+@@ -24,9 +24,11 @@ def new_extension(name, value, critical=0, _pyfree=1):
+     """
+     Create new X509_Extension instance.
+     """
+-    if name == 'subjectKeyIdentifier' and \
+-        value.strip('0123456789abcdefABCDEF:') is not '':
+-        raise ValueError('value must be precomputed hash')
++    if X509_Extension_Proxy.must_proxy(name, value):
++        # Maybe all extensions should be proxies?
++        # XXX Either all proxies (might solve other problems too), or at
++        # XXX least at least need to refactor to avoid code duplication
++        return X509_Extension_Proxy(name, value, critical, _pyfree)
+     lhash = m2.x509v3_lhash()
+     ctx = m2.x509v3_set_conf_lhash(lhash)
+     x509_ext_ptr = m2.x509v3_ext_conf(lhash, ctx, name, value)
+@@ -35,6 +37,96 @@ def new_extension(name, value, critical=0, _pyfree=1):
+     return x509_ext 
+ 
+ 
++class X509_Extension_Proxy:
++    """
++    A holder object for X509 Extensions that need to be created with
++    certificate based calculated values.
++    """
++    def __init__ (self, name, value, critical=0, _pyfree=1):
++        self.name = name
++        self.value = value
++        self.critical = critical
++        self._pyfree = _pyfree
++
++    @staticmethod
++    def must_proxy (name, value):
++        """
++        Checks if this extension name and value define a calculated extension,
++        i.e. one that needs the certificate to render a valid value.
++        """
++        # XXX Are these the only cases where we must proxy?
++        # XXX Even if they are now, it does not seem this is future proof...
++        # XXX any other way around this?
++        return (name == 'subjectKeyIdentifier' and value == 'hash') or \
++               (name == 'authorityKeyIdentifier')
++
++    def set_critical(self, critical=1):
++        """
++        Mark this extension critical or noncritical. By default an
++        extension is not critical.
++
++        @type critical:  int
++        @param critical: Nonzero sets this extension as critical.
++                         Calling this method without arguments will
++                         set this extension to critical.
++        """
++        self.critical = critical
++        return self.critical
++    
++    def get_critical(self):
++        """
++        Return whether or not this is a critical extension.
++
++        @rtype:   int
++        @return:  Nonzero if this is a critical extension.
++        """
++        return self.critical
++    
++    def get_name(self):
++        """
++        Get the extension name, for example 'subjectAltName'.
++        """
++        return self.name
++
++    def get_value(self, flag=0, indent=0):
++        """
++        Get the extension value, for example 'DNS:www.example.com'.
++        
++        @param flag:   Flag to control what and how to print.
++                       Ignored in this proxy.
++        @param indent: How many spaces to print before actual value.
++        """
++        # XXX It is a problem that this method can give different output
++        # XXX compared to the real object.
++        return (" " * indent) + self.value
++
++    def __call__ (self, cert=None):
++        """
++        Create new X509_Extension instance.
++        """
++        # XXX Why is this __call__, wouldn't it be clearer to have an explicit
++        # XXX name for this? Or is there some usage I am missing...?
++        lhash = m2.x509v3_lhash()
++        ctx = m2.x509v3_set_conf_lhash(lhash)
++        if cert:
++            if isinstance(cert, X509) and m2.x509_type_check(cert.x509):
++                m2.x509v3_set_ctx_subject(ctx, cert.x509)
++                if cert.issuer and m2.x509_type_check(cert.issuer.x509):
++                    m2.x509v3_set_ctx_issuer(ctx, cert.issuer.x509)
++                else:
++                    m2.x509v3_set_ctx_issuer(ctx, cert.x509)
++            elif isinstance(cert, Request) and cert.req:
++                m2.x509v3_set_ctx_request(ctx, cert.req)
++        else:
++            if self.name == 'subjectKeyIdentifier' and self.value == 'hash':
++                raise ValueError('value must be precomputed hash if no context is given')
++
++        x509_ext_ptr = m2.x509v3_ext_conf(lhash, ctx, self.name, self.value)
++        x509_ext = X509_Extension(x509_ext_ptr, self._pyfree)
++        x509_ext.set_critical(self.critical)
++        return x509_ext
++        
++
+ class X509_Extension:
+     """
+     X509 Extension
+@@ -117,6 +209,7 @@ class X509_Extension_Stack:
+             self.stack = m2.sk_x509_extension_new_null()
+             self._pyfree = 1
+             self.pystack = [] # This must be kept in sync with self.stack
++        self.proxies = []
+         
+     def __del__(self):
+         if getattr(self, '_pyfree', 0):
+@@ -143,6 +236,9 @@ class X509_Extension_Stack:
+         @param x509_ext: X509_Extension object to be pushed onto the stack.
+         @return: The number of extensions on the stack.
+         """
++        if isinstance(x509_ext, X509_Extension_Proxy):
++            self.proxies.append(x509_ext)
++            return len(self.proxies)
+         self.pystack.append(x509_ext)
+         ret = m2.sk_x509_extension_push(self.stack, x509_ext._ptr())
+         assert ret == len(self.pystack)
+@@ -160,6 +256,13 @@ class X509_Extension_Stack:
+             return None
+         return self.pystack.pop()
+ 
++    def process_proxies(self, cert):
++        """
++        Create extensions from stored proxies, now that we have a context to work with.
++        """
++        for p in self.proxies:
++            self.push(p(cert))
++        self.proxies = []
+ 
+ class X509_Name_Entry:
+     """
+@@ -333,6 +436,7 @@ class X509:
+         else:
+             self.x509 = m2.x509_new ()
+             self._pyfree = 1
++        self.issuer = None
+             
+     def __del__(self):
+         if getattr(self, '_pyfree', 0):
+@@ -464,15 +568,18 @@ class X509:
+         assert m2.x509_type_check(self.x509), "'x509' type error"
+         return X509_Name(m2.x509_get_issuer_name(self.x509))
+ 
+-    def set_issuer(self, name):
++    def set_issuer(self, issuer):
+         """
+-        Set issuer name.
++        Set issuer object (and set issuer name). The object will be used in extension contexts if needed.
+ 
+-        @type name:     X509_Name
+-        @param name:    subjectName field.
++        @type name:     X509_Name or X509
++        @param name:    subjectName field or issuer object.
+         """
+         assert m2.x509_type_check(self.x509), "'x509' type error"
+-        return m2.x509_set_issuer_name(self.x509, name.x509_name)
++        if isinstance(issuer, X509):
++            self.issuer = issuer
++            issuer = X509_Name(m2.x509_get_subject_name(issuer.x509))
++        return m2.x509_set_issuer_name(self.x509, issuer.x509_name)
+ 
+     def get_subject(self):
+         assert m2.x509_type_check(self.x509), "'x509' type error"
+@@ -495,6 +602,9 @@ class X509:
+         @type ext:     X509_Extension
+         @param ext:    Extension
+         """
++        if isinstance(ext, X509_Extension_Proxy):
++            ext = ext(self)
++
+         assert m2.x509_type_check(self.x509), "'x509' type error"
+         return m2.x509_add_ext(self.x509, ext.x509_ext, -1)
+ 
+@@ -966,6 +1076,7 @@ class Request:
+         @type ext_stack:  X509_Extension_Stack
+         @param ext_stack: Stack of extensions to add.
+         """
++        ext_stack.process_proxies(self)
+         return m2.x509_req_add_extensions(self.req, ext_stack._ptr())
+ 
+     def verify(self, pkey):
+diff --git a/SWIG/_x509.i b/SWIG/_x509.i
+index 0471f68..a1a5212 100644
+--- a/SWIG/_x509.i
++++ b/SWIG/_x509.i
+@@ -531,6 +531,10 @@ x509v3_set_conf_lhash(LHASH                * lhash) {
+           PyErr_SetString(PyExc_MemoryError, "x509v3_set_conf_lhash");
+           return NULL;
+       }
++      /* XXX Why is this needed? */
++      /* Make sure the structure members are nulled */
++      X509V3_set_ctx(ctx, NULL, NULL, NULL, NULL, 0);
++
+       X509V3_set_conf_lhash(ctx, lhash);        
+       return ctx;
+ }
+@@ -659,6 +663,30 @@ get_der_encoding_stack(STACK_OF(X509) *stack){
+     return encodedString; 
+ }
+ 
++/* XXX Are these simple pointers in the context, or should they be refcounted? */
++
++/* XXX Since these are really only used in one method, should these instead be
++ * XXX made into a single function, which can be called with NULL for
++ * XXX optional fields? Otherwise, what is there stopping calling 
++ * XXX set_ctx_subject without having set ctx first? */
++
++void x509v3_set_ctx_issuer(X509V3_CTX *ctx, X509 *issuer) {
++	ctx->issuer_cert = issuer;
++}
++
++void x509v3_set_ctx_subject(X509V3_CTX *ctx, X509 *subject) {
++	ctx->subject_cert = subject;
++}
++
++void x509v3_set_ctx_request(X509V3_CTX *ctx, X509_REQ *request) {
++	ctx->subject_req = request;
++}
++
++/* XXX This does not seem to be used, why is it here? */
++void x509v3_set_ctx_crl(X509V3_CTX *ctx, X509_CRL *crl) {
++	ctx->crl = crl;
++}
++
+ %}
+ 
+ /* Free malloc'ed return value for x509_name_oneline */
+diff --git a/demo/x509/calc_extensions.py b/demo/x509/calc_extensions.py
+new file mode 100644
+index 0000000..136ff86
+--- /dev/null
++++ b/demo/x509/calc_extensions.py
+@@ -0,0 +1,118 @@
++from M2Crypto import *
++import time
++
++
++#!/bin/bash
++
++## Create Root private key.
++#openssl genrsa -out rootCA.key 2048
++
++def callback(*args):
++    pass
++
++rsa = RSA.gen_key(2048, 65537, callback)
++rsa.save_key('rootCA2.key', None)
++
++#
++## Create self-signed Root certificate.
++#openssl req -config openssl.cnf -new \
++#    -x509 -extensions root_ext \
++#    -key rootCA.key -out rootCA.crt \
++#    -subj "/C=GB/O=m2crypto/CN=Root CA" -set_serial 1
++
++exts = (('basicConstraints','critical, CA:TRUE'),
++        ('keyUsage','cRLSign, keyCertSign, keyEncipherment, nonRepudiation, digitalSignature'),
++        ('subjectKeyIdentifier','hash'),
++        ('authorityKeyIdentifier','keyid,issuer:always'),
++        ('crlDistributionPoints','URI:http://ca.fcpl.com/subord4CA.crl'),
++        ('nsCertType','sslCA, emailCA, objCA'),
++        )
++
++root_priv = EVP.load_key('rootCA2.key')
++root_ca = X509.X509()
++root_ca.set_pubkey(root_priv)
++root_ca.set_serial_number(1)
++name = X509.X509_Name()
++name.C = 'GB'
++name.O = 'm2crypto'
++name.CN = 'Root CA'
++t = long(time.time()) + time.timezone
++now = ASN1.ASN1_UTCTIME()
++now.set_time(t)
++nowPlusYear = ASN1.ASN1_UTCTIME()
++nowPlusYear.set_time(t + 60 * 60 * 24 * 365)
++root_ca.set_not_before(now)
++root_ca.set_not_after(nowPlusYear)
++root_ca.set_subject_name(name)
++root_ca.set_issuer_name(root_ca.get_subject())
++for k,v in exts:
++    root_ca.add_ext(X509.new_extension(k,v))
++
++root_ca.sign(root_priv, 'sha1')
++root_ca.save_pem('rootCA2.crt')
++
++#
++#mkdir certs_db
++#touch index.txt
++#echo 02 > serial
++#
++# Create Subord private key.
++#openssl genrsa -out subordCA.key 2048
++
++rsa = RSA.gen_key(2048, 65537, callback)
++rsa.save_key('suborbCA.key', None)
++
++
++#
++## Create Subord request.
++#openssl req -config openssl.cnf -new \
++#    -key subordCA.key -out subordCA.csr \
++#    -subj "/C=GB/O=m2crypto/CN=SubOrd CA"
++
++sub_priv = EVP.load_key('rootCA2.key')
++sub_req = X509.Request()
++sub_req.set_pubkey(sub_priv)
++name = X509.X509_Name()
++name.C = 'GB'
++name.O = 'm2crypto'
++name.CN = 'SubOrd CA'
++sub_req.set_subject_name(name)
++sub_req.sign(sub_priv, 'sha1')
++sub_req.save_pem('subordCA2.csr')
++
++
++# Sign Subord request with Root CA.
++#openssl ca -config openssl.cnf \
++#    -extensions subord_ext \
++#    -in subordCA.csr -out subordCA.crt
++
++exts = (('basicConstraints','critical, CA:TRUE, pathlen:0'),
++        ('keyUsage','cRLSign, keyCertSign, keyEncipherment, nonRepudiation, digitalSignature'),
++        ('subjectKeyIdentifier','hash'),
++        ('authorityKeyIdentifier','keyid,issuer:always'),
++        ('crlDistributionPoints','URI:http://ca.fcpl.com/subord4CA.crl'),
++        ('nsCertType','sslCA, emailCA, objCA'),
++        )
++
++req = X509.load_request('subordCA2.csr')
++ca = X509.load_cert('rootCA2.crt')
++
++out = X509.X509()
++out.set_issuer(ca)
++out.set_subject_name(req.get_subject())
++t = long(time.time()) + time.timezone
++now = ASN1.ASN1_UTCTIME()
++now.set_time(t)
++nowPlusYear = ASN1.ASN1_UTCTIME()
++nowPlusYear.set_time(t + 60 * 60 * 24 * 365)
++out.set_not_before(now)
++out.set_not_after(nowPlusYear)
++for k,v in exts:
++    out.add_ext(X509.new_extension(k,v))
++out.set_pubkey(req.get_pubkey())
++out.sign(root_priv, 'sha1')
++out.save_pem('subordCA2.crt')
++
++
++
++
+diff --git a/tests/test_x509.py b/tests/test_x509.py
+index 7ea86df..0568d61 100644
+--- a/tests/test_x509.py
++++ b/tests/test_x509.py
+@@ -31,9 +31,11 @@ class X509TestCase(unittest.TestCase):
+         if not ca:
+             ext1 = X509.new_extension('subjectAltName', 'DNS:foobar.example.com')
+             ext2 = X509.new_extension('nsComment', 'Hello there')
++            ext3 = X509.new_extension('subjectKeyIdentifier', 'hash')
+             extstack = X509.X509_Extension_Stack()
+             extstack.push(ext1)
+             extstack.push(ext2)
++            extstack.push(ext3)
+             x.add_extensions(extstack)
+         self.assertRaises(ValueError, x.sign, pk, 'sha513')
+         x.sign(pk,'sha1')
+@@ -43,9 +45,15 @@ class X509TestCase(unittest.TestCase):
+         return x, pk
+ 
+     def test_ext(self):
+-        self.assertRaises(ValueError, X509.new_extension,
+-                          'subjectKeyIdentifier', 'hash')
++        ext = X509.new_extension('subjectKeyIdentifier', 'hash')
++        assert isinstance(ext, X509.X509_Extension_Proxy), ext
++        # XXX should check value too
++        self.assertRaises(ValueError, ext)
++        ext = X509.new_extension('authorityKeyIdentifier', 'keyid,issuer:always')
++        assert isinstance(ext, X509.X509_Extension_Proxy), ext
++        # XXX should check value too
+         ext = X509.new_extension('subjectAltName', 'DNS:foobar.example.com')
++        assert isinstance(ext, X509.X509_Extension), ext
+         assert ext.get_value() == 'DNS:foobar.example.com'
+         assert ext.get_value(indent=2) == '  DNS:foobar.example.com'
+         assert ext.get_value(flag=m2.X509V3_EXT_PARSE_UNKNOWN) == 'DNS:foobar.example.com'
+@@ -250,6 +258,8 @@ class X509TestCase(unittest.TestCase):
+         cert.set_pubkey(pkey) 
+         ext = X509.new_extension('basicConstraints', 'CA:TRUE')
+         cert.add_ext(ext)
++        cert.add_ext(X509.new_extension('subjectKeyIdentifier', 'hash'))
++        cert.add_ext(X509.new_extension('authorityKeyIdentifier', 'keyid,issuer:always'))
+         cert.sign(pk, 'sha1')
+ 
+         if m2.OPENSSL_VERSION_NUMBER >= 0x0090800fL:
+@@ -268,6 +278,9 @@ class X509TestCase(unittest.TestCase):
+     def test_mkcacert(self): 
+         cacert, pk, pkey = self.mkcacert()
+         assert cacert.verify(pkey)
++        ski = cacert.get_ext('subjectKeyIdentifier').get_value()
++        aki = cacert.get_ext('authorityKeyIdentifier').get_value()
++        self.assertEqual('keyid:'+ski, aki.split('\n')[0])
+         
+ 
+     def test_mkproxycert(self): 

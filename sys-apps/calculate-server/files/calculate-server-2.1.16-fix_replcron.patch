@@ -1,0 +1,28 @@
+diff --git pym/cl_ldap.py pym/cl_ldap.py
+index 924547f..f288483 100644
+--- pym/cl_ldap.py
++++ pym/cl_ldap.py
+@@ -13356,7 +13356,10 @@ incompatible"))
+                 os.chdir(path)
+                 users = os.listdir(".")
+                 users = filter(lambda x: os.path.isdir(x), users)
+-                for userName in users:
++                for dirName in users:
++                    # имя пользователя (исключая суффикс V2)
++                    userName = \
++                        dirName[:-3] if dirName.endswith('.V2') else dirName
+                     if not self.servUnixObj.searchUnixUser(userName) and\
+                         not self.servUnixObj.searchPasswdUser(userName):
+                             # Удаляем пользователя из ветки Worked
+@@ -13369,9 +13372,9 @@ in the LDAP branch 'Worked'")%userName
+                                 flagError = True
+                                 break
+                             # Удаляем директорию пользователя
+-                            self.removeDir(userName)
++                            self.removeDir(dirName)
+                             message = _("deleted %s")\
+-                                %os.path.join(path,userName)
++                                %os.path.join(path,dirName)
+                             if logObj:
+                                 logObj.writeSuccess(message)
+                             self.printWARNING(message)

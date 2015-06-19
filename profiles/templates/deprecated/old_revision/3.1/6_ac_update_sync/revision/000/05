@@ -1,0 +1,5 @@
+# Calculate ini(update.rev)<5 format=samba path=/etc/calculate name=ini.env merge=sys-fs/udisks,sys-apps/shadow
+
+# recreate settings udisks,shadow
+[update]
+rev = 5

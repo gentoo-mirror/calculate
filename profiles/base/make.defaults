@@ -1,0 +1,45 @@
+# Decoration
+USE="${USE} -branding"
+
+# Hardware
+USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 lm_sensors mmx mmxext padlock popcnt sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 xop"
+
+# Lang
+#USE="${USE} perl python"
+
+# Locale and Fonts
+USE="${USE} truetype userlocales"
+
+# Mail
+USE="${USE} -mailwrapper"
+
+# Net protocols
+USE="${USE} bittorrent ftp nfs samba"
+
+# Network connections
+USE="${USE} ppp"
+
+# Printing
+USE="${USE} foomaticdb" 
+
+# Python
+USE="${USE} -python_targets_python3_4 -python_targets_python3_3 -python_targets_python3_2 python_targets_python2_7 -ruby_targets_ruby19 -ruby_targets_ruby18"
+
+# System
+USE="${USE} -introspection logrotate threads"
+
+ACCEPT_LICENSE="*"
+AUTOCLEAN="yes"
+CPU_FLAGS_X86="mmx *"
+DISTDIR="/var/calculate/remote/distfiles"
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --binpkg-respect-use=y --quiet-build=n --with-bdeps=y --usepkg-exclude net-wireless/broadcom-sta"
+FEATURES="getbinpkg parallel-install -userpriv"
+GENTOO_MIRRORS="http://mirror.yandex.ru/gentoo-distfiles http://distfiles.gentoo.org"
+LDFLAGS="-Wl,--as-needed"
+LINGUAS="en bg de es es_ES fr it pl pt pt_BR ro ru ru_RU uk"
+NPTL_KERN_VER="3.12.0"
+PORTAGE_TMPDIR="/var/calculate/tmp"
+PORTDIR="/usr/portage"
+RUBY_TARGETS="ruby20"
+USE_EXPAND="CL THEMES"
+USE_PYTHON="2.7"

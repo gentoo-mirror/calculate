@@ -1,0 +1,7 @@
+# Calculate multiline format=patch pkg(sys-kernel/dracut)!=&&ini(overlay-calculate.revision)<21 path=/etc name=dracut.conf
+<reg>^omit_dracutmodules.*$</reg>
+<text>omit_dracutmodules+=""</text>
+<reg>^add_dracutmodules.*$</reg>
+<text>add_dracutmodules+=""</text>
+<reg>Calculate ini change revision</reg>
+<text>#-ini(overlay-calculate.revision,21)-#</text>

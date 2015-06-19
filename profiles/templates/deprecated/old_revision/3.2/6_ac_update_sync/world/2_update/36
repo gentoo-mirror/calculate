@@ -1,0 +1,9 @@
+# Calculate format=world name=world ini(update.world)<36
+
+#-ini(update.world,36)-#
+
+#?in(os_linux_pkglist, CLD)!=#
+!kde-base/kwallet
+kde-base/kwalletmanager
+#in#
+

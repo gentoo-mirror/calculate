@@ -1,0 +1,9 @@
+# Calculate format=openrc  pkg(media-gfx/splash-themes-calculate)>=14
+#?os_install_locale_lang==ru_RU#
+SPLASH_REBOOT_MESSAGE="Завершение работы..."
+SPLASH_SHUTDOWN_MESSAGE="Завершение работы..."
+#os_install_locale_lang#
+#?os_install_locale_lang!=ru_RU#
+SPLASH_REBOOT_MESSAGE="Shutting down..."
+SPLASH_SHUTDOWN_MESSAGE="Shutting down..."
+#os_install_locale_lang#

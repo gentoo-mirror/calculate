@@ -1,0 +1,25 @@
+# Guard and Security
+#USE="${USE} hardened kerberos sasl system"
+
+# Image
+USE="${USE} exif gif jpeg jpeg2k png tiff"
+
+# Locale and Fonts
+USE="${USE} -spell"
+
+# Mail
+USE="${USE} imap maildir"
+
+# Network protocols
+#USE="${USE} ldap radius"
+
+# Print
+USE="${USE} cups"
+
+# Window managers and speciality
+USE="${USE} -gnome -gtk -kde -qt3 -qt4 -qt3support -X"
+
+CL="builder console server"
+THEMES="CDS"
+
+ACCEPT_LICENSE="*"

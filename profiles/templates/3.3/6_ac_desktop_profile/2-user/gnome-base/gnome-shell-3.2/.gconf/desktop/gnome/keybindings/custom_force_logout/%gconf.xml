@@ -1,0 +1,13 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="action" type="string">
+		<stringvalue>/usr/bin/gnome-session-quit --logout --no-prompt --force</stringvalue>
+	</entry>
+	<entry name="name" type="string">
+		<stringvalue>Logout without questions</stringvalue>
+	</entry>
+	<entry name="binding" type="string">
+		<stringvalue>&lt;Shift&gt;&lt;Control&gt;&lt;Alt&gt;Delete</stringvalue>
+	</entry>
+</gconf>

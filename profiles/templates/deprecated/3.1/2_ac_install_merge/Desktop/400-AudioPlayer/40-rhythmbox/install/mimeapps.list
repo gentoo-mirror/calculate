@@ -1,0 +1,12 @@
+# Calculate format=compiz protected
+
+# Update info
+#-ini(desktop.updating, on)-#
+#-ini(desktop.audioplayer, rhythmbox)-#
+
+[Added Associations]
+audio/mp4=rhythmbox.desktop;
+audio/mpeg=rhythmbox.desktop;
+audio/x-flac=rhythmbox.desktop;
+audio/x-ms-wma=rhythmbox.desktop;
+audio/x-wav=rhythmbox.desktop;

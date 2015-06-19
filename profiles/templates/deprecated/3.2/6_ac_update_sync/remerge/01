@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-power/upower-pm-utils,app-text/qpdfview ini(overlay-calculate.remerge)<1
+
+[overlay-calculate]
+remerge = 1

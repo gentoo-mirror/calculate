@@ -1,0 +1,7 @@
+# Calculate ini(update.rev)<84 exec=/bin/bash merge=gnome-base/gnome-keyring
+#
+#-ini(update.rev,84)-#
+
+rm -rf /etc/xdg/autostart/gnome-keyring
+rm -rf /etc/xdg/autostart/pnmixer.desktop
+true

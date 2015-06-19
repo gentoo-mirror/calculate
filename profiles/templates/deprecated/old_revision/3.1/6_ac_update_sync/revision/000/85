@@ -1,0 +1,5 @@
+# Calculate ini(update.rev)<85 format=samba path=/etc/calculate name=ini.env merge=net-misc/modemmanager
+
+# reconfigure modemmanager for fix 3G modems configuring
+[update]
+rev = 85

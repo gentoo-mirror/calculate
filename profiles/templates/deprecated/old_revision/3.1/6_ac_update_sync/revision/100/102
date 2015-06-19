@@ -1,0 +1,5 @@
+# Calculate ini(update.rev)<102 format=samba path=/etc/calculate name=ini.env merge=sys-kernel/dracut
+
+# reconfigure dracut
+[update]
+rev = 102

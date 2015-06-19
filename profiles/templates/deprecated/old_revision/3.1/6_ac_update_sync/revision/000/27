@@ -1,0 +1,5 @@
+# Calculate ini(update.rev)<27 format=samba path=/etc/calculate name=ini.env merge=sys-fs/ecryptfs-utils,sys-auth/pambase
+
+# update ecryptfs pam configuration
+[update]
+rev = 27

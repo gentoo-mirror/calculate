@@ -1,0 +1,11 @@
+diff --git profile/mail/etc/dovecot/conf.d/10-mail.conf profile/mail/etc/dovecot/conf.d/10-mail.conf
+index 5869b52..4c1c0a1 100644
+--- profile/mail/etc/dovecot/conf.d/10-mail.conf
++++ profile/mail/etc/dovecot/conf.d/10-mail.conf
+@@ -2,3 +2,6 @@
+ # Тип хранения почты и расположение почтовых папок
+ mail_location = maildir:#-sr_mail_path-#/%u
+ mail_gid = maildomain
++namespace inbox {
++  inbox = yes
++}

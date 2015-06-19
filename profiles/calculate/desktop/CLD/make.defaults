@@ -1,0 +1,25 @@
+USE=""
+
+# Audio
+USE="${USE} cdda pulseaudio"
+
+# Network protocols
+USE="${USE} rdesktop"
+
+# Sql support
+#USE="${USE} mysql"
+#USE="${USE} postgres"
+
+# System
+USE="${USE} networkmanager"
+
+# Web
+USE="${USE} webkit"
+
+# Window manager and speciality
+USE="${USE} -eds -gnome kde semantic-desktop qt4 qt3support -qt3"
+
+CL="builder client desktop console consolegui"
+THEMES="CLD"
+
+ACCEPT_LICENSE="*"

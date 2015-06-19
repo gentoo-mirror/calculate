@@ -1,0 +1,6 @@
+# Calculate exec=/bin/bash os_install_root_type!=livecd&&ac_install_disk==off
+
+/bin/chown 0711 /usr/bin/gnome-keyring-daemon &>/dev/null
+/sbin/setcap cap_ipc_lock+ep /usr/bin/gnome-keyring-daemon &>/dev/null
+
+true

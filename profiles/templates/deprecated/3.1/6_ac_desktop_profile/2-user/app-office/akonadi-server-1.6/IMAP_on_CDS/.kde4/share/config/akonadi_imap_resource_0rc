@@ -1,0 +1,10 @@
+# Calculate format=kde
+[idle]
+IdleRidPath=.INBOX,imap://#-ur_login-#@#-server(mail.host)-#/
+
+[network]
+ImapPort=143
+ImapServer=#-server(mail.host)-#
+Safety=STARTTLS
+UserName=#-ur_login-#
+

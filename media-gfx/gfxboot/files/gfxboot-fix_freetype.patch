@@ -1,0 +1,13 @@
+diff --git gfxboot-font.c gfxboot-font.c
+index c0b03c0..f879c10 100644
+--- gfxboot-font.c
++++ gfxboot-font.c
+@@ -13,7 +13,7 @@
+ 
+ #include <ft2build.h>
+ #include FT_FREETYPE_H
+-#include <freetype/ftsynth.h>
++#include <freetype2/ftsynth.h>
+ 
+ 
+ #define MAGIC 0xd2828e06

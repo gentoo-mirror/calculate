@@ -1,0 +1,14 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="needs_terminal" type="bool" value="false"/>
+	<entry name="enabled" type="bool" value="true"/>
+	<entry name="command" type="string">
+#?pkg(www-client/chromium)!=#
+		<stringvalue>chromium %s</stringvalue>
+#pkg#
+#?pkg(www-client/firefox)!=&&pkg(www-client/chromium)==#
+		<stringvalue>firefox %s</stringvalue>
+#pkg#
+	</entry>
+</gconf>

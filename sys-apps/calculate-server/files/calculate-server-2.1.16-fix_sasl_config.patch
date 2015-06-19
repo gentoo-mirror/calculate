@@ -1,0 +1,17 @@
+diff --git profile/mail/etc/postfix/main.cf profile/mail/etc/postfix/main.cf
+index 308769a..de16ede 100644
+--- profile/mail/etc/postfix/main.cf
++++ profile/mail/etc/postfix/main.cf
+@@ -205,7 +205,12 @@ smtp_tls_session_cache_database = btree:${queue_directory}/smtp_scache
+ 
+ #включаем авторизацию через dovecot
+ smtpd_sasl_auth_enable = yes
++#pkg(mail-mta/postfix)<2.10.1#
+ smtpd_sasl2_auth_enable = yes
++#pkg#
++#pkg(mail-mta/postfix)>=2.10.1#
++!smtpd_sasl2_auth_enable = del
++#pkg#
+ smtpd_sasl_type = dovecot
+ smtpd_sasl_path = private/auth
+ smtpd_sasl_security_options = noanonymous

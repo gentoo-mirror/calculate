@@ -1,0 +1,10 @@
+# Calculate format=world name=world ini(update.world)<28
+
+#-ini(update.world,28)-#
+
+#?in(os_linux_shortname, CLDG, CLD, CLDX)!=#
+virtual/rubygems
+#in#
+#?in(os_linux_shortname, CDS)!=#
+!dev-ruby/libxml
+#in#

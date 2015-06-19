@@ -1,0 +1,19 @@
+USE=""
+
+# Audio
+USE="${USE} cdda gstreamer pulseaudio"
+
+# Network protocols
+USE="${USE} rdesktop"
+
+# System
+USE="${USE} -dconf -gnome-keyring networkmanager"
+
+# Window manager and specialities
+USE="${USE} -eds -gnome -kde"
+
+LIGHTDM_SESSION=xfce
+CL="builder client desktop console consolegui"
+THEMES="CLDX"
+
+ACCEPT_LICENSE="*"

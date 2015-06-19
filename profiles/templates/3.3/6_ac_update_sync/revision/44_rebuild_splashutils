@@ -1,0 +1,15 @@
+# Calculate ini(overlay-calculate.revision)<44 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,44)-#
+
+# key is pkg name, value is current version new reduced version split by space
+declare -A map_move=( ["media-gfx/splashutils"]="1.5.4.4-r5 1.5.4.4_rc73" )
+
+PKGDB=/var/db/pkg
+for pkg in ${!map_move[@]}
+do
+    vers=(${map_move[$pkg]})
+    [[ -d $PKGDB/${pkg}-${vers[0]} ]] && mv $PKGDB/${pkg}-${vers[0]} $PKGDB/${pkg}-${vers[1]}
+done
+
+true

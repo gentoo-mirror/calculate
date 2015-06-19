@@ -1,0 +1,11 @@
+# Calculate ini(update.rev)<25 exec=/bin/bash merge=app-admin/sudo
+
+#-ini(update.rev,25)-#
+
+if [[ -L /etc/runlevels/boot/calculate-core ]]
+then
+	rc-update del calculate-core boot &>/dev/null
+	rc-update add calculate-core default &>/dev/null
+fi
+
+exit 0

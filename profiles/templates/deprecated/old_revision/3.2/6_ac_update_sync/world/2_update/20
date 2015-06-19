@@ -1,0 +1,7 @@
+# Calculate format=world name=world ini(update.world)<20
+
+#-ini(update.world,20)-#
+
+#?os_linux_system==desktop#
+sys-fs/ecryptfs-utils
+#os_linux_system#

@@ -1,0 +1,42 @@
+# Calculate name=world format=world
+
+#?in(os_linux_pkglist, base)!=#
+net-fs/nfs-utils
+#in#
+
+#?in(os_linux_pkglist, CLD, CLDX, CDS, CMC)!=#
+net-dns/bind-tools
+net-firewall/shorewall
+net-misc/ntp
+net-misc/vconfig
+#in#
+
+#?in(os_linux_pkglist, CLD, CLDX, CDS)!=#
+net-dialup/pptpclient
+net-dialup/rp-pppoe
+#in#
+
+#?in(os_linux_pkglist, CLD, CLDX)!=#
+net-misc/networkmanager
+net-misc/networkmanager-openvpn
+net-misc/networkmanager-pptp
+net-misc/networkmanager-vpnc
+#in#
+
+#?in(os_linux_pkglist, CLDX)!=#
+gnome-extra/nm-applet
+#in#
+
+#?in(os_linux_pkglist, CDS)!=#
+net-dialup/ppp
+net-dialup/pptpd
+net-dialup/xl2tpd
+net-dns/ddclient
+net-firewall/ipsec-tools
+net-firewall/iptables
+net-fs/samba
+net-misc/bridge-utils
+net-misc/ifenslave
+net-misc/wol
+#in#
+

@@ -1,0 +1,10 @@
+# Calculate os_install_linux_shortname!=CSS format=openrc
+
+# On which TTYs should fbcondecor be enabled? Defaults to RC_TTY_NUMBER.
+FBCONDECOR_TTYS="1 2 3 4 5 6"
+
+# Allows to set different themes on different consoles
+# format: "<console>:<theme> <console>:<theme> (...)"
+#pkg(media-gfx/splash-themes-calculate)<14&&pkg(media-gfx/splash-themes-calculate)>=12#
+FBCONDECOR_TTY_MAP="1:calculate 2:calculate 3:calculate 4:calculate 5:calculate 6:calculate"
+#pkg#

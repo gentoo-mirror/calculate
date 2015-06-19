@@ -1,0 +1,20 @@
+diff --git pym/cl_ldap.py pym/cl_ldap.py
+index 697273e..dc5324e 100644
+--- pym/cl_ldap.py
++++ pym/cl_ldap.py
+@@ -8910,10 +8910,13 @@ for running replication")%bFile)
+             return False
+         # Получим пути к ini файлам
+         iniFiles = self.clVars.Get("cl_env_path")
+-        # Удаляем все ini файлы
++        # Удаляем секции настроек из всех ini
+         for iniFile in iniFiles:
+             if os.path.exists(iniFile):
+-                os.remove(iniFile)
++                if "remote" in iniFile:
++                    cl_base.iniParser(iniFile).delArea("client")
++                else:
++                    cl_base.iniParser(iniFile).delArea("server")
+         # Получим путь к ldap файлу
+         ldapParser = iniLdapParser()
+         ldapFile = ldapParser.nameIniFile

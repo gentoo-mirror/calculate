@@ -1,0 +1,9 @@
+# Calculate ini(overlay-calculate.revision)<17 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,17)-#
+
+#?cl_chroot_status==off#
+[[ -d /.config ]] && rm -rf /.config &>/dev/null
+#cl_chroot_status#
+
+true

@@ -1,0 +1,11 @@
+# Calculate format=samba
+#?ur_mail!=&&ur_fullname!=#
+[user]
+	name = #-ur_fullname-#
+	email = #-ur_mail-#
+#ur_mail#
+[color]
+	diff = auto
+	branch = auto
+	interactive = auto
+	status = auto

@@ -1,0 +1,18 @@
+# Calculate dotall format=patch pkg(app-misc/mc)!=&&ini(overlay-calculate.revision)<23&&exists(/root/.config/mc/skins/modarcon16root-defbg.ini)!= path=/root/.config/mc/skins name=modarcon16root-defbg.ini
+<reg>dhoriz=[^[]*?
+
+\[</reg>
+<text>dhoriz=─
+  dvert=│
+  dlefttop=┌
+  drighttop=┐
+  dleftbottom=└
+  drightbottom=┘
+  dtopmiddle=─
+  dbottommiddle=─
+  dleftmiddle=├
+  drightmiddle=┤
+
+[</text>
+<reg>Calculate ini change revision</reg>
+<text>#-ini(overlay-calculate.revision,23)-#</text>

@@ -1,0 +1,20 @@
+# Calculate ini(update.rev)<39 exec=/bin/bash
+
+#-ini(update.rev,39)-#
+
+#?pkg(sys-fs/udisks)>=2.1.0#
+contentFile=/var/db/pkg/sys-fs/udisks-2.1.0/CONTENTS
+udisksDest=/usr/share/bash-completion/udisksctl
+if [[ -f /udisksctl ]]
+then
+    mv /udisksctl $udisksDest
+    if [[ -f $contentFile ]] && grep -q udisksctl $contentFile
+    then
+        (echo -n obj $udisksDest
+         echo " $(md5sum $udisksDest | awk '{print $1}') $(stat -c%Y $udisksDest)"
+        ) >> $contentFile
+    fi
+fi
+#pkg#
+
+exit 0

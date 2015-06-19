@@ -1,0 +1,13 @@
+# Calculate format=world name=world ini(update.world)<50
+
+#-ini(update.world,50)-#
+
+#?in(os_linux_shortname, CLD, CLDX, CMC, CDS)!=#
+sys-apps/dmidecode
+#in#
+
+#?in(os_linux_shortname, CMC)!=#
+!net-dialup/pptpclient
+!net-dialup/mingetty
+!net-dialup/rp-pppoe
+#in#

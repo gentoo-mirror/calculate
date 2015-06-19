@@ -1,0 +1,9 @@
+# Calculate ini(update.rev)<52 exec=/bin/bash merge=sys-auth/pambase
+
+#-ini(update.rev,52)-#
+
+# remove pam.d/su from shadow contents (file belongs to pambase)
+test -f /var/db/pkg/sys-apps/shadow-*/CONTENTS &&
+   sed -i /pam.d\\/su/d /var/db/pkg/sys-apps/shadow-*/CONTENTS
+
+exit 0

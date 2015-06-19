@@ -1,0 +1,14 @@
+diff --git a/profile/proxy/etc/squid/squid.conf b/profile/proxy/etc/squid/squid.conf
+index 0f50a6f..31c4db6 100644
+--- a/profile/proxy/etc/squid/squid.conf
++++ b/profile/proxy/etc/squid/squid.conf
+@@ -30,8 +30,8 @@ icp_access deny all
+ htcp_access allow localnet
+ htcp_access deny all
+ http_port #-sr_proxy_port-#
+-hierarchy_stoplist cgi-bin ?
+ #?pkg(net-proxy/squid)<3.1.6#
++hierarchy_stoplist cgi-bin ?
+ logformat squid %ts.%03tu %6tr %>a %Ss/%03Hs %<st %rm %ru %un %ul %ui %Sh/%<A %mt %et
+ #pkg#
+ #?pkg(net-proxy/squid)>=3.1.6#

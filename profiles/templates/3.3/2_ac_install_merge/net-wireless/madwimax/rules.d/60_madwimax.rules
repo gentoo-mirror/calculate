@@ -1,0 +1,10 @@
+# Calculate format=patch
+<reg>(ACTION!="add", GOTO="madwimax_rules_end")
+
+(# detach buggy disk)</reg>
+<text>\1
+
+# modprobe tun for samsung wimax modem
+ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="6761", ATTR{bInterfaceNumber}=="01", RUN+="/sbin/modprobe -q tun"
+
+\2</text>

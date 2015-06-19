@@ -1,0 +1,27 @@
+commit feaac7e468f233699d39f2d1bceaef56bced5df5
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Tue May 21 11:57:55 2013 +0400
+
+    Добавлена поддержка squid 3.2
+
+diff --git profile/proxy/etc/squid/squid.conf profile/proxy/etc/squid/squid.conf
+index 9a3fb48..0f50a6f 100644
+--- profile/proxy/etc/squid/squid.conf
++++ profile/proxy/etc/squid/squid.conf
+@@ -1,9 +1,16 @@
+ # Calculate format=squid  append=replace
++#?pkg(net-proxy/squid)<3.2#
+ auth_param basic program /usr/libexec/squid/squid_ldap_auth -b "ou=Users,#-ld_proxy_dn-#" -f "(&(uid=%s)(initials=Yes))" -D "#-ld_proxy_dn-#" -W /etc/squid/squid.ldap -h localhost
++#pkg#
++#?pkg(net-proxy/squid)>=3.2#
++auth_param basic program /usr/libexec/squid/basic_ldap_auth -b "ou=Users,#-ld_proxy_dn-#" -f "(&(uid=%s)(initials=Yes))" -D "#-ld_proxy_dn-#" -W /etc/squid/squid.ldap -h localhost
++#pkg#
+ auth_param basic credentialsttl 5 minute
+ external_acl_type ldap_users ttl=300 %LOGIN %PORT /usr/lib/calculate/calculate-server/bin/proxy -s "#-ld_proxy_dn-#" -b "#-ld_base_dn-#" -P /etc/squid/squid.ldap
++#?pkg(net-proxy/squid)<3.2#
+ acl manager proto cache_object
+ acl localhost src 127.0.0.1/32
++#pkg#
+ #-sr_proxy_net_allow_pass-#
+ acl SSL_ports port 443
+ acl access_port external ldap_users

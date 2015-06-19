@@ -1,0 +1,18 @@
+# Calculate comment=# path=/etc/udev/rules.d cl_ver>=3.3.2.5
+
+#?list(os_install_net_interfaces,0)!=#
+# #-list(os_install_net_name,0)-#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,0)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,0)-#"
+#list#
+#?list(os_install_net_interfaces,1)!=#
+# #-list(os_install_net_name,1)-#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,1)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,1)-#"
+#list#
+#?list(os_install_net_interfaces,2)!=#
+# #-list(os_install_net_name,2)-#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,2)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,2)-#"
+#list#
+#?list(os_install_net_interfaces,3)!=#
+# #-list(os_install_net_name,3)-#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,3)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,3)-#"
+#list#

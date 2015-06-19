@@ -1,0 +1,6 @@
+# Calculate path=/usr/lib/calculate-2.2/calculate-builder/pym name=cl_kernel.py ini(update.rev)<11 format=patch merge=sys-boot/grub
+
+#-ini(update.rev,11)-#
+
+<reg>if filter\(lambda x:x.startswith\("grub-1.99"\),</reg>
+<text>if filter(lambda x:x.startswith("grub-1.99") or x.startswith("grub-2"),</text>

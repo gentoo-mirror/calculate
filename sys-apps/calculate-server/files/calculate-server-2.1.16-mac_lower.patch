@@ -1,0 +1,22 @@
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 924547f..59fe9a1 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -19733,6 +19736,8 @@ class servDhcp(shareLdap, shareIP):
+             return False
+         # mac адрес хоста
+         mac = options["mac"]
++        if mac:
++            mac = mac.lower()
+         if not self.isCorrectMacAddress(mac):
+             self.printERROR(_('Command line option "--mac %s" incorrectly')\
+                             %mac)
+@@ -19954,6 +19959,8 @@ eth0, eth1, ... etc."%net)
+         if options.has_key("mac"):
+             # mac адрес хоста
+             mac = options["mac"]
++            if mac:
++                mac = mac.lower()
+             if not self.isCorrectMacAddress(mac):
+                 self.printERROR(\
+                         _('Command line option "--mac %s" incorrectly') %mac)

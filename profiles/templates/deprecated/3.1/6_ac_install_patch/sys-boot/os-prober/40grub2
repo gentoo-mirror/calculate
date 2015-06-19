@@ -1,0 +1,3 @@
+# Calculate format=patch path=/linux-boot-probes/mounted/common
+<reg>&lt; ("\$mpoint/boot/grub/grub.cfg")</reg>
+<text>&lt; (sed -r /BEGIN.*os-prober/,/END.*os-prober/d \1)</text>

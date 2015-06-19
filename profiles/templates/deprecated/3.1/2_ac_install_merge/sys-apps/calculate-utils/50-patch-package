@@ -1,0 +1,17 @@
+# vim: set syntax=sh
+#
+# Copyright 2014 Calculate Ltd. http://www.calculate-linux.org
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+
+CL_CORE_PATCH=/usr/sbin/cl-core-patch
+
+if [[ ${EBUILD_PHASE} == "compile" ]] && [[ -d ${S} ]] && check_skip; then
+	${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} \
+		--pkg-slot ${SLOT} --pkg-category ${CATEGORY} \
+		--pkg-path ${S} --pkg-name ${PN} --verbose
+fi

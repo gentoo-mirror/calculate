@@ -1,0 +1,19 @@
+commit fa80839cb9ecf7b7bc17130093be93f6114a4fb0
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Tue Apr 9 09:49:30 2013 +0400
+
+    Samba domain distfiles
+
+diff --git profile/samba/etc/samba/smb.conf profile/samba/etc/samba/smb.conf
+index 4be8ede..40391a5 100644
+--- profile/samba/etc/samba/smb.conf
++++ profile/samba/etc/samba/smb.conf
+@@ -165,6 +165,8 @@ chown=root:root
+ 	security mask = 0664
+ 	force create mode = 0664
+ 	force security mode = 0664
++	force directory security mode = 2775
++	force directory mode = 2775
+ 	vfs objects = acl_xattr fake_perms
+ #pkg#
+ 

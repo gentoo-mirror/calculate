@@ -1,0 +1,41 @@
+# required by sys-apps/calculate-lib [python]
+sys-apps/file python
+
+
+# Removed unnecessary dependence
+sys-apps/man-db -nls
+sys-fs/lvm2 -thin
+
+
+# Сompile the kernel during the installation package
+sys-kernel/calculate-sources firmware minimal symlink vmlinuz
+
+# Add NTFS and Reiserfs support
+app-admin/testdisk ntfs reiserfs
+
+# Include internal version of ntfsprogs.
+sys-fs/ntfs3g ntfsprogs
+
+# for support .ko.xz modules
+sys-apps/kmod lzma
+
+# Support for LZMA
+sys-fs/squashfs-tools lzma
+
+# grub multislot by default
+sys-boot/grub -multislot truetype device-mapper
+
+# for support pastebin.calculate-linux.org
+app-text/wgetpaste -lodgeit-default
+
+# to support the installation of the system
+app-arch/tar xattr
+net-misc/rsync xattr
+sys-apps/coreutils xattr
+sys-fs/squashfs-tools xattr
+
+# support layman sync for portage repositories
+app-portage/layman sync-plugin-portage
+
+net-p2p/rtorrent daemon xmlrpc
+

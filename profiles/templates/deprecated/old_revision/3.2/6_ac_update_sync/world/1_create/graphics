@@ -1,0 +1,18 @@
+# Calculate name=world format=world
+
+#?in(os_linux_pkglist, CLD, CLDX)!=#
+media-gfx/gimp
+media-gfx/imagemagick
+#in#
+
+#?in(os_linux_pkglist, CLD)!=#
+media-gfx/digikam
+sci-libs/clapack
+#in#
+
+#?in(os_linux_pkglist, CLDX)!=#
+media-gfx/eog
+media-gfx/gtkam
+media-gfx/shotwell
+#in#
+

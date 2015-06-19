@@ -1,0 +1,21 @@
+commit 2e769052f2634658df6b04280a7bf4ba1f4fa487
+Author: Mike Khiretskiy <mh@calculate.ru>
+Date:   Thu Aug 14 10:09:42 2014 +0400
+
+    Исправлена пересборка изменных пакетов (уделены MERGING)
+
+diff --git pym/cl_assemble.py pym/cl_assemble.py
+index 0d03a51..2b2f141 100644
+--- pym/cl_assemble.py
++++ pym/cl_assemble.py
+@@ -1869,7 +1869,9 @@ class cl_assemble(color_print):
+                         yield pkg.atom
+                 except EbuildInfoError:
+                     yield pkg.atom
+-        rebuild_list = map(lambda x:"=%s"%x, rebuild_generator())
++        rebuild_list = map(lambda x:"=%s"%x, 
++                       filter(lambda x:"MERGING" not in x,
++                       rebuild_generator()))
+         print "Package list:", ",".join(rebuild_list)
+         if rebuild_list:
+             rebuild_packages = " ".join(rebuild_list)

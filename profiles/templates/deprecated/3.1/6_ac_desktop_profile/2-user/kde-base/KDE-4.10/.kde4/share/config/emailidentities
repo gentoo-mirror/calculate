@@ -1,0 +1,17 @@
+# Calculate format=kde
+#настройка kmail
+[General]
+Default Identity=1
+
+[Identity #0]
+#?server(mail.type)==imap&&env(client.os_remote_auth)!=&&ur_domain_set==on#
+Drafts=.1.directory/Drafts
+Fcc=.1.directory/Sent
+#server#
+Email Address=#-ur_mail-#
+Identity=Default
+Inline Signature=#-server(mail.signature)-#
+Name=#-ur_fullname-#
+Organization=#-server(mail.organization)-#
+Signature Type=inline
+uoid=1

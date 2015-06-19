@@ -1,0 +1,11 @@
+# Calculate multiline path=/usr/share/icons/Calculate name=index.theme
+<reg>Inherits=.*</reg>
+#?pkg(kde-apps/oxygen-icons)!=#
+<text>Inherits=oxygen,hicolor</text>
+#pkg#
+#?pkg(kde-apps/oxygen-icons)==&&pkg(x11-themes/mate-icon-theme)!=#
+<text>Inherits=mate,hicolor</text>
+#pkg#
+#?pkg(kde-apps/oxygen-icons)==&&pkg(x11-themes/mate-icon-theme)==&&pkg(x11-themes/elementary-icon-theme)!=#
+<text>Inherits=elementary,hicolor</text>
+#pkg#

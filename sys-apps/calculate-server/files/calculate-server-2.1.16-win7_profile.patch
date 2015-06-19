@@ -1,0 +1,109 @@
+commit c15ade5f6d1d9fef27e65ef6e51c370191f2dcd8
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Mon Oct 1 09:43:16 2012 +0400
+
+    Add autocreate win7 profile directory
+
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 7580ef8..697273e 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -5971,6 +5971,9 @@ of version > 2.1.10, then you can delete this file.") + "\n"
+         winProfDir =\
+             os.path.join(self.clVars.Get("sr_samba_winprof_path"),
+                                          userName)
++        win7ProfDir =\
++            os.path.join(self.clVars.Get("sr_samba_winprof_path"),
++                                         userName+".V2")
+         linProfDir =\
+                 os.path.join(self.clVars.Get("sr_samba_linprof_path"),
+                                          userName)
+@@ -5988,6 +5991,10 @@ of version > 2.1.10, then you can delete this file.") + "\n"
+                 if not self.backupDelUser(userName, 'samba/winprofile',
+                                           winProfDir):
+                     return False
++            if os.path.exists(win7ProfDir) and os.listdir(win7ProfDir):
++                if not self.backupDelUser(userName, 'samba/win7profile',
++                                          win7ProfDir):
++                    return False
+             if os.path.exists(linProfDir) and os.listdir(linProfDir):
+                 if not self.backupDelUser(userName, 'samba/linprofile',
+                                           linProfDir):
+@@ -6013,6 +6020,10 @@ of version > 2.1.10, then you can delete this file.") + "\n"
+                 _("Can not delete Samba user") + " " + str(delUser))
+             return False
+         else:
++            # Удаляем win7 профиль
++            if not win7ProfDir in notDeletedDirs and\
++                os.path.exists(win7ProfDir):
++                self.removeDir(win7ProfDir)
+             # Удаляем win профиль
+             if not winProfDir in notDeletedDirs and\
+                 os.path.exists(winProfDir):
+@@ -6154,6 +6165,9 @@ of version > 2.1.10, then you can delete this file.") + "\n"
+                 winProfDir =\
+                     os.path.join(self.clVars.Get("sr_samba_winprof_path"),
+                                             userName)
++                win7ProfDir =\
++                    os.path.join(self.clVars.Get("sr_samba_winprof_path"),
++                                            userName+".V2")
+                 linProfDir =\
+                     os.path.join(self.clVars.Get("sr_samba_linprof_path"),
+                                             userName)
+@@ -6174,6 +6188,15 @@ of version > 2.1.10, then you can delete this file.") + "\n"
+                 else:
+                     term, createDirWinProfile, removeProfileBack = resWinProf
+ 
++                resWin7Prof = self.restorePathDelUser(userName, win7ProfDir,
++                                                    "samba/win7profile", term)
++                removeProfile7Back = False
++                if not resWin7Prof:
++                    flagError = True
++                    createDirWin7Profile = False
++                else:
++                    term, createDirWin7Profile, removeProfile7Back = resWin7Prof
++
+             removeHomeBack = False
+             if not flagError:
+                 resHome = self.restorePathDelUser(userName, userHomeDir,
+@@ -6216,15 +6239,10 @@ of version > 2.1.10, then you can delete this file.") + "\n"
+                         uid = int(resPasswd.split(":")[2])
+                         gid = int(resPasswd.split(":")[3])
+                 # Не удаляемые директории
+-                notDeletedDirs = []
+-                if createDirHome and os.path.exists(createDirHome):
+-                    notDeletedDirs.append(createDirHome)
+-                if createDirLogon and os.path.exists(createDirLogon):
+-                    notDeletedDirs.append(createDirLogon)
+-                if createDirWinProfile and os.path.exists(createDirWinProfile):
+-                    notDeletedDirs.append(createDirWinProfile)
+-                if createDirLinProfile and os.path.exists(createDirLinProfile):
+-                    notDeletedDirs.append(createDirLinProfile)
++                notDeletedDirs = filter(lambda x:x and os.path.exists(x),
++                                 (createDirHome,createDirLogon,
++                                  createDirWin7Profile,
++                                  createDirWinProfile,createDirLinProfile))
+                 if (resPasswd or resSearchUnix) and\
+                     (options.has_key('n') or int(uid) >=1000):
+                     # Cоздаем домашнюю директорию
+@@ -6259,11 +6277,20 @@ if %%errorlevel%%==0 NET USE T: \\\\%s\\ftp' %(netbios,netbios,netbios)
+                     if not flagError and createDirWinProfile:
+                         if not self.createUserDir(uid,gid,createDirWinProfile):
+                             flagError = True
++                    # Cоздаем директорию профиля win7
++                    if not flagError and createDirWin7Profile:
++                        if not self.createUserDir(uid,gid,createDirWin7Profile):
++                            flagError = True
+                     # Создаем директорию профиля lin
+                     if not flagError and createDirLinProfile:
+                         if not self.createUserDir(uid,gid,createDirLinProfile):
+                             flagError = True
+             if not flagError:
++                # Удаляем директорию бекапа профиля win7
++                if removeProfile7Back and\
++                    os.path.exists(removeProfile7Back):
++                    self.removeDir(removeProfile7Back)
++                    self.removeEmptyDir(os.path.split(removeProfile7Back)[0])
+                 # Удаляем директорию бекапа профиля win
+                 if removeProfileBack and\
+                     os.path.exists(removeProfileBack):

@@ -1,0 +1,23 @@
+# Calculate run=/bin/bash
+
+cd #-cl_builder_iso_path-#/isolinux
+cpio --quiet -o >bootlogo <<EOF
+langlist
+init
+pl.tr
+en.tr
+de.tr
+pt_BR.tr
+fr.tr
+ru.tr
+uk.tr
+bg.tr
+it.tr
+ro.tr
+isolinux.cfg
+back.jpg
+16x16.fnt
+menu.cfg
+es.tr
+gfxboot.cfg
+EOF

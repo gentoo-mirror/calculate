@@ -1,0 +1,242 @@
+# include client, desktop, console and console-gui modules
+sys-apps/calculate-utils client desktop console qt4
+
+# Calculate themes dependence
+sys-kernel/calculate-sources themes
+
+# need for splashutils
+sys-libs/zlib static-libs
+media-libs/libjpeg-turbo static-libs
+virtual/jpeg static-libs
+app-arch/bzip2 static-libs
+sys-libs/gpm static-libs
+media-libs/libpng static-libs
+media-libs/freetype static-libs
+
+# use qt4
+media-video/smplayer qt4 autoshutdown
+
+# build with native HSP backend and oFono HFP backend for bluez 5
+media-sound/pulseaudio native-headset ofono-headset
+
+# required by sys-boot/plymouth [libkms]
+x11-libs/libdrm libkms
+
+# required by www-client/firefox [apng]
+media-libs/libpng apng
+
+# required by x11-libs/glamor [gdm]
+media-libs/mesa gbm
+
+# required by www-client/chromium [minizip]
+sys-libs/zlib minizip
+
+# required by www-client/chromium [icu], required by media-libs/mesa [python], app-text/gnome-doc-utils
+dev-libs/libxml2 python icu
+
+# for using dev-libs/libxml2 [icu] - required by www-client/chromium
+dev-qt/qtwebkit icu
+
+# required by sys-apps/calculate-console-gui [script]
+dev-python/pyside script
+
+# required by sys-devel/prelink
+dev-libs/elfutils static-libs
+
+# required by virtual/libgudev-215-r1
+sys-fs/eudev gudev
+
+# support for some plasmoids
+kde-base/plasma-workspace python
+
+# required by kde-base/kopete-4.14.3-r1[ssl]
+app-crypt/qca openssl
+
+# [declarative, script, sql] required by kde-base/pykde4
+dev-python/PyQt4 declarative script sql
+
+# [melt, xml] required by media-video/kdenlive
+media-libs/mlt melt xml kdenlive -xine
+
+# [embedded] required by media-sound/amarok
+dev-db/mysql embedded
+virtual/mysql embedded
+
+# [pyqt4] required by kde-misc/synaptiks
+dev-python/pyudev pyqt4
+
+# [xmp] required by kde-base/libkexiv2
+media-gfx/exiv2 xmp
+
+# [sql] required by app-office/akonadi-server
+dev-qt/qtsql mysql
+
+# mate-base/mate -> x11-misc/mozo-1.8.0
+mate-base/mate-menus introspection python
+
+# circular dependencies net-libs/glib-networking-2.42.1 and net-libs/libproxy-0.4.11-r2
+net-libs/libproxy -webkit
+
+
+# -----------------------------------------
+# Removed unnecessary dependence
+# -----------------------------------------
+app-accessibility/speech-dispatcher -espeak
+app-arch/p7zip -kde
+app-misc/mc -spell
+dev-util/cmake -qt4
+dev-vcs/git -gtk
+gnome-extra/nm-applet -bluetooth
+gnome-extra/zenity -webkit
+kde-apps/kdebase-runtime-meta minimal -crash-reporter
+kde-apps/print-manager -gtk
+mail-client/claws-mail -libindicate
+media-gfx/gimp -webkit
+media-gfx/ufraw -gtk
+media-video/ffmpeg -samba
+net-analyzer/nmap -gtk
+net-dialup/rp-pppoe -X
+net-fs/samba -winbind
+net-libs/webkit-gtk -geoloc
+net-p2p/ktorrent -infowidget
+net-print/hplip -qt4
+net-wireless/wpa_supplicant -qt4
+sys-auth/polkit -gtk
+sys-fs/mtools -X
+www-client/links -X
+x11-drivers/nvidia-drivers -acpi -tools
+
+
+# use gstreamer for sound
+media-libs/phonon gstreamer -vlc
+
+# Enables video thumbnails generation
+kde-apps/dolphin thumbnail
+
+# Support for the KDE Image Plugin Interface.
+kde-apps/gwenview kipi
+
+# Remote desktop viewer support
+kde-apps/krdc vnc
+
+# Hardware sensors support
+kde-base/ksysguard lm_sensors
+
+# Enable support for mobile broadband devices
+kde-misc/plasma-nm modemmanager
+
+# Enable support for mobile broadband devices
+net-libs/libnm-qt modemmanager
+
+# Add support for access point mode
+net-wireless/wpa_supplicant ap
+
+# Disable Xorg dependence, large number of supported fonts reduces productivity
+media-fonts/terminus-font -X
+
+# SMplayer support, streaming media support
+media-video/mplayer bidi live -video_cards_tdfx
+
+# select dhcp client, support modemmanager
+net-misc/networkmanager connection-sharing dhclient -dhcpcd modemmanager
+
+# Enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
+net-print/hplip fax snmp hpijs -X
+
+#To display the icons in the menu, support xdg autostart
+x11-wm/openbox imlib xdg
+
+# Add support xft and 256 color
+x11-terms/rxvt-unicode 256-color xft
+
+x11-base/xorg-drivers -video_cards_nvidia -video_cards_vmware -video_cards_glint -video_cards_mach64 -video_cards_mga -video_cards_r128 -video_cards_savage -video_cards_tdfx -video_cards_trident
+
+# Add support for SQLite - embedded SQL database
+dev-lang/python sqlite
+
+# remove the sound when changing volume in pulseaudio
+media-libs/libcanberra -sound
+
+# Add functionality
+net-wireless/blueman network
+
+# Remove unsupported languages
+www-client/chromium -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_cs -linguas_da -linguas_el -linguas_en_GB -linguas_es_LA -linguas_et -linguas_fa -linguas_fi -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_hr -linguas_hu -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_lt -linguas_lv -linguas_ml -linguas_mr -linguas_ms -linguas_nb -linguas_nl -linguas_sk -linguas_sl -linguas_sr -linguas_sv -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
+
+# Support for encrypted user directories
+sys-fs/ecryptfs-utils suid
+
+# Name Service Cache Daemon
+sys-libs/glibc nscd
+
+# [acl] net-fs/samba-3.6.19[client]
+net-fs/cifs-utils -acl
+
+# raw? ( opencv ) tiff? ( opencv )
+media-gfx/nomacs opencv
+
+# required by media-gfx/nomacs [raw]
+media-libs/opencv qt4
+
+# required by app-text/qpdfview [pdf,qt4]
+app-text/poppler qt4
+
+# required by dev-util/catfish-1.2.2, app-admin/system-config-printer-gnome-1.4.3
+x11-libs/gtk+ introspection
+
+# required by x11-libs/gtk+-3.14.8
+x11-libs/gdk-pixbuf introspection
+x11-libs/pango introspection
+dev-libs/atk introspection
+
+# required by net-misc/modemmanager-1.4.0, x11-libs/gtk+-3.12.2
+sys-auth/polkit introspection
+
+# fix work
+x11-libs/libnotify introspection
+
+# Add support for PDF, RSS, SMIME, HTML, Xface
+mail-client/claws-mail pdf rss smime webkit xface
+
+# Add file systems and raid support.
+sys-block/gparted btrfs dmraid fat mdadm ntfs reiserfs xfs
+
+# Add Catalyst Control Panel
+x11-drivers/ati-drivers qt4
+
+net-misc/remmina ssh freerdp
+
+# Build a Qt style called GTK+ that mimics the active GTK+ theme
+dev-qt/qtgui gtkstyle
+
+# Add automounting,volume monitoring, etc. Build thunar-tpa (trash) plugin for panel.
+xfce-base/thunar udisks xfce_plugins_trash
+
+xfce-base/xfdesktop thunar xfce_plugins_menu
+xfce-base/xfce4-session -xscreensaver
+x11-misc/light-locker upower
+
+# Build a plugin for the GIMP
+net-print/gutenprint gimp
+
+# [python] required by net-p2p/deluge
+net-libs/rb_libtorrent python
+
+# [python] required by net-libs/rb_libtorrent
+dev-libs/boost python
+
+# [icu] required by www-client/chromium
+media-libs/harfbuzz icu
+
+# Add support for RAW format in GIMP
+media-gfx/ufraw gimp
+
+# Install the sendto-plugin for xfce-base/thunar
+#net-wireless/blueman thunar
+
+# fix crash
+=media-sound/clementine-1.2.3 -udisks
+
+# fix compile
+=net-misc/remmina-1.2.0_rc3 vte
+

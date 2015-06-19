@@ -1,0 +1,192 @@
+# ChangeLog for sys-apps/calculate-i18n
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*calculate-i18n-3.0.2 (31 Aug 2012)
+*calculate-i18n-2.2.30 (31 Aug 2012)
+
+  31 Aug 2012; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.30.ebuild, +calculate-i18n-3.0.2.ebuild:
+  Bump version
+
+*calculate-i18n-2.2.28 (15 Feb 2012)
+
+  15 Feb 2012; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.28.ebuild:
+  Version bump
+
+*calculate-i18n-2.2.27-r2 (20 Dec 2011)
+
+  20 Dec 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.27-r2.ebuild, +files/calculate-i18n-2.2.27-r2.patch:
+  Update for client and builder
+
+*calculate-i18n-2.2.27-r1 (14 Dec 2011)
+
+  14 Dec 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.27-r1.ebuild, +files/calculate-i18n-2.2.27-r1.patch:
+  Update translate
+
+*calculate-i18n-2.2.27 (12 Dec 2011)
+
+  12 Dec 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.27.ebuild:
+  Bump version
+
+*calculate-i18n-2.2.26-r1 (18 Nov 2011)
+
+  18 Nov 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.26-r1.ebuild, +files/calculate-i18n-2.2.26-r1.patch:
+  Update install translate
+
+*calculate-i18n-2.2.26 (16 Nov 2011)
+
+  16 Nov 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.26.ebuild:
+  Version bump
+
+*calculate-i18n-2.2.25-r1 (10 Nov 2011)
+
+  10 Nov 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.25-r1.ebuild, +files/calculate-i18n-2.2.25-r1.patch:
+  Update for builder and assemble
+
+*calculate-i18n-2.2.25 (18 Oct 2011)
+
+  18 Oct 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-i18n-2.2.24.ebuild, +calculate-i18n-2.2.25.ebuild:
+  Version bump. Remove old.
+
+*calculate-i18n-2.2.24-r1 (28 Sep 2011)
+
+  28 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.24-r1.ebuild, +files/calculate-i18n-2.2.24-r1.patch:
+  Update for install,desktop,builder
+
+  21 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-i18n-2.2.19.ebuild, -calculate-i18n-2.2.19-r1.ebuild,
+  -calculate-i18n-2.2.19-r2.ebuild, -calculate-i18n-2.2.19-r3.ebuild,
+  -files/calculate-i18n-2.2.19_2.2.20_rc1.patch,
+  -files/calculate-i18n-2.2.19_lvmraid_rc1.patch,
+  -files/calculate-i18n-2.2.19_lvmraid_rc2.patch,
+  -calculate-i18n-2.2.20.ebuild, -calculate-i18n-2.2.20-r1.ebuild,
+  -calculate-i18n-2.2.20-r2.ebuild, -calculate-i18n-2.2.20-r3.ebuild,
+  -calculate-i18n-2.2.20-r4.ebuild, -files/calculate-i18n-2.2.20-btrfs.patch,
+  -files/calculate-i18n-2.2.20-for_assemble.patch,
+  -files/calculate-i18n-2.2.20-r2.patch, -files/calculate-i18n-2.2.20-r4.patch,
+  -calculate-i18n-2.2.21.ebuild, -calculate-i18n-2.2.21-r1.ebuild,
+  -files/calculate-i18n-2.2.21-r1.patch, -calculate-i18n-2.2.22.ebuild,
+  -calculate-i18n-2.2.22-r1.ebuild, -files/calculate-i18n-2.2.22-r1.patch,
+  -calculate-i18n-2.2.23.ebuild, -calculate-i18n-2.2.23-r1.ebuild,
+  -calculate-i18n-2.2.23-r2.ebuild, -files/calculate-i18n-2.2.23-r1.patch,
+  -files/calculate-i18n-2.2.23-r2.patch:
+  Remove old
+
+*calculate-i18n-2.2.24 (20 Sep 2011)
+
+  20 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.24.ebuild:
+  Version bump
+
+*calculate-i18n-2.2.23-r2 (06 Sep 2011)
+
+  06 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.23-r2.ebuild, +files/calculate-i18n-2.2.23-r2.patch:
+  Update for desktop
+
+*calculate-i18n-2.2.23-r1 (05 Sep 2011)
+
+  05 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.23-r1.ebuild, +files/calculate-i18n-2.2.23-r1.patch:
+  Update for --live option
+
+*calculate-i18n-2.2.23 (05 Sep 2011)
+
+  05 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.23.ebuild:
+  Version bump
+
+*calculate-i18n-2.2.22-r1 (31 Aug 2011)
+
+  31 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.22-r1.ebuild, +files/calculate-i18n-2.2.22-r1.patch:
+  Update for translate
+
+*calculate-i18n-2.2.22 (26 Aug 2011)
+
+  26 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.22.ebuild:
+  Version bump
+
+*calculate-i18n-2.2.21-r1 (22 Aug 2011)
+
+  22 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.21-r1.ebuild, +files/calculate-i18n-2.2.21-r1.patch:
+  Update for calculate-install translate
+
+*calculate-i18n-2.2.21 (18 Aug 2011)
+
+  18 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.21.ebuild:
+  Bump version
+
+*calculate-i18n-2.2.20-r4 (18 Aug 2011)
+
+  18 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.20-r4.ebuild, +files/calculate-i18n-2.2.20-r4.patch:
+  Update for fix bulgarian localization
+
+*calculate-i18n-2.2.20-r3 (15 Aug 2011)
+
+  15 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.20-r3.ebuild,
+  +files/calculate-i18n-2.2.20-for_assemble.patch:
+  Update assemble translation
+
+*calculate-i18n-2.2.20-r2 (02 Aug 2011)
+
+  02 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.20-r2.ebuild, +files/calculate-i18n-2.2.20-r2.patch:
+  Update for install
+
+*calculate-i18n-2.2.20-r1 (01 Aug 2011)
+
+  01 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.20-r1.ebuild, +files/calculate-i18n-2.2.20-btrfs.patch:
+  Update for translate message about btrfs
+
+*calculate-i18n-2.2.20 (27 Jul 2011)
+
+  27 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.20.ebuild:
+  Bump version
+
+*calculate-i18n-2.2.19-r3 (27 Jul 2011)
+
+  27 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.19-r3.ebuild,
+  +files/calculate-i18n-2.2.19_lvmraid_rc2.patch:
+  Update for lvmraid.
+
+*calculate-i18n-2.2.19-r2 (25 Jul 2011)
+
+  25 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.19-r2.ebuild,
+  +files/calculate-i18n-2.2.19_lvmraid_rc1.patch:
+  Update for lvmraid
+
+*calculate-i18n-2.2.19-r1 (20 Jul 2011)
+
+  20 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.19-r1.ebuild,
+  +files/calculate-i18n-2.2.19_2.2.20_rc1.patch:
+  Update to 2.2.20_rc1
+
+*calculate-i18n-2.2.9999 (18 Jul 2011)
+*calculate-i18n-2.2.19 (18 Jul 2011)
+
+  18 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-i18n-2.2.19.ebuild, +calculate-i18n-2.2.9999.ebuild,
+  +metadata.xml:
+  Bump version.
+

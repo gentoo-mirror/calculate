@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=net-misc/dhcp ini(overlay-calculate.remerge)<30
+
+[overlay-calculate]
+remerge = 30

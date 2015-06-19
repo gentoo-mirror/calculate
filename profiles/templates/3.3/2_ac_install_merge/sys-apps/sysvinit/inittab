@@ -1,0 +1,12 @@
+# Calculate format=patch
+<reg>(si::sysinit:/sbin/rc sysinit
+)
+(# Further system initialization, brings up the boot runlevel.)
+([\s\S]+?)
+([^\n]+tty2 linux[\s\S]+tty6 linux)</reg>
+<text>\1
+# TERMINALS
+\4
+
+\2
+\3</text>

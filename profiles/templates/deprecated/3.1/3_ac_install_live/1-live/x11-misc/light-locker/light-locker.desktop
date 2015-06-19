@@ -1,0 +1,8 @@
+# Calculate format=kde
+[Desktop Entry]
+#?os_install_root_type==livecd#
+Exec=light-locker --lock-after-screensaver=86400
+#os_install_root_type#
+#?os_install_root_type!=livecd#
+Exec=light-locker
+#os_install_root_type#

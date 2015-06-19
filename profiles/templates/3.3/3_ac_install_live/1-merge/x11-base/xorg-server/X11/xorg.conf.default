@@ -1,0 +1,31 @@
+# Calculate comment=# in(os_install_x11_video_drv,other,default)!= name=xorg.conf
+
+Section "ServerLayout"
+ Identifier "Xorg Configured"
+ Screen "Monitor"
+EndSection
+
+Section "Files"
+ FontPath "/usr/share/fonts/corefonts"
+ FontPath "/usr/share/fonts/misc"
+ FontPath "/usr/share/fonts/droid"
+EndSection
+
+Section "Module"
+ Load "dbe" # Double buffer extension
+ Load "glx" # OpenGL X protocol interface
+ Load "extmod" # Misc. required extension
+EndSection
+
+Section "Screen"
+ Identifier "Monitor"
+EndSection
+
+Section "Extensions"
+#?os_install_x11_composite==on#
+ Option "Composite" "On"
+#os_install_x11_composite#
+#?os_install_x11_composite!=on#
+ Option "Composite" "Off"
+#os_install_x11_composite#
+EndSection

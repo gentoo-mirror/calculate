@@ -1,0 +1,530 @@
+# ChangeLog for sys-apps/calculate-assemble
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*calculate-assemble-2.2.30 (31 Aug 2012)
+
+  31 Aug 2012; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.30.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.28 (15 Feb 2012)
+
+  15 Feb 2012; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.28.ebuild:
+  Version bump
+
+*calculate-assemble-2.2.27-r1 (10 Jan 2012)
+
+  10 Jan 2012; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.27-r1.ebuild,
+  +files/calculate-assemble-2.2.27-r1.patch:
+  Fix using busy devs
+
+*calculate-assemble-2.2.27 (12 Dec 2011)
+
+  12 Dec 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.27.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.26-r1 (25 Nov 2011)
+
+  25 Nov 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.26-r1.ebuild,
+  +files/calculate-assemble-2.2.26-r1.patch:
+  Update for bugfix
+
+*calculate-assemble-2.2.26 (16 Nov 2011)
+
+  16 Nov 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.26.ebuild:
+  Version bump
+
+*calculate-assemble-2.2.25-r8 (14 Nov 2011)
+
+  14 Nov 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.25-r8.ebuild,
+  +files/calculate-assemble-2.2.25-r8.patch:
+  Update for work with new portages
+
+*calculate-assemble-2.2.25-r6 (11 Nov 2011)
+
+  11 Nov 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.25-r6.ebuild,
+  +files/calculate-assemble-2.2.25-r6.patch:
+  Remove 'emerge calculate-meta' if it already has installed
+
+*calculate-assemble-2.2.25-r5 (10 Nov 2011)
+
+  10 Nov 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.25-r5.ebuild,
+  +files/calculate-assemble-2.2.25-r5.patch:
+  Update for bugfix distfiles
+
+*calculate-assemble-2.2.25-r4 (10 Nov 2011)
+
+  10 Nov 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.25-r4.ebuild,
+  +files/calculate-assemble-2.2.25-r4.patch:
+  Update for support git portages
+
+*calculate-assemble-2.2.25-r2 (24 Oct 2011)
+
+  24 Oct 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.25-r2.ebuild,
+  +files/calculate-assemble-2.2.25-r2.patch:
+  Update for combine actions
+
+*calculate-assemble-2.2.25-r1 (20 Oct 2011)
+
+  20 Oct 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.25-r1.ebuild,
+  +files/calculate-assemble-2.2.25-r1.patch:
+  Fix module-rebuild
+
+*calculate-assemble-2.2.25 (18 Oct 2011)
+
+  18 Oct 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.24.ebuild, +calculate-assemble-2.2.25.ebuild:
+  Version bump. Remove old.
+
+  11 Oct 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  calculate-assemble-2.2.9999.ebuild:
+  Update live
+
+*calculate-assemble-2.2.24-r1 (10 Oct 2011)
+
+  10 Oct 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.24-r1.ebuild,
+  +files/calculate-assemble-2.2.24-r1.patch:
+  Update for using hardened stages
+
+  21 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.18.ebuild, -calculate-assemble-2.2.19.ebuild,
+  -calculate-assemble-2.2.19-r1.ebuild,
+  -files/calculate-assemble-2.2.19_2.2.20_rc1.patch,
+  -calculate-assemble-2.2.20.ebuild, -calculate-assemble-2.2.20-r1.ebuild,
+  -calculate-assemble-2.2.20-r2.ebuild,
+  -files/calculate-assemble-2.2.20-display_deps.patch,
+  -files/calculate-assemble-2.2.20-fix_disk_dev.patch,
+  -calculate-assemble-2.2.21.ebuild, -calculate-assemble-2.2.21-r1.ebuild,
+  -files/calculate-assemble-2.2.21-r1.patch, -calculate-assemble-2.2.22.ebuild,
+  -calculate-assemble-2.2.22-r1.ebuild,
+  -files/calculate-assemble-2.2.22-r1.patch, -calculate-assemble-2.2.23.ebuild:
+  Remove old
+
+*calculate-assemble-2.2.24 (20 Sep 2011)
+
+  20 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.24.ebuild:
+  Version bump
+
+*calculate-assemble-2.2.23 (05 Sep 2011)
+
+  05 Sep 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.23.ebuild:
+  Version bump
+
+*calculate-assemble-2.2.22-r1 (31 Aug 2011)
+
+  31 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.22-r1.ebuild,
+  +files/calculate-assemble-2.2.22-r1.patch:
+  Update for feature
+
+*calculate-assemble-2.2.22 (26 Aug 2011)
+
+  26 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.22.ebuild:
+  Version bump
+
+*calculate-assemble-2.2.21-r1 (22 Aug 2011)
+
+  22 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.21-r1.ebuild,
+  +files/calculate-assemble-2.2.21-r1.patch:
+  Update for bugfix and features
+
+*calculate-assemble-2.2.21 (18 Aug 2011)
+
+  18 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.21.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.20-r2 (16 Aug 2011)
+
+  16 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.20-r2.ebuild,
+  +files/calculate-assemble-2.2.20-fix_disk_dev.patch:
+  Update for bugfix
+
+*calculate-assemble-2.2.20-r1 (15 Aug 2011)
+
+  15 Aug 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.20-r1.ebuild,
+  +files/calculate-assemble-2.2.20-display_deps.patch:
+  Update for feature adds.
+
+*calculate-assemble-2.2.20 (27 Jul 2011)
+
+  27 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.20.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.19-r1 (20 Jul 2011)
+
+  20 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.19-r1.ebuild,
+  +files/calculate-assemble-2.2.19_2.2.20_rc1.patch:
+  Update to 2.2.20_rc1
+
+*calculate-assemble-2.2.19 (18 Jul 2011)
+
+  18 Jul 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.19.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.18 (29 Jun 2011)
+
+  29 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.15.ebuild, -calculate-assemble-2.2.16.ebuild,
+  -calculate-assemble-2.2.17.ebuild, -calculate-assemble-2.2.17-r1.ebuild,
+  -files/calculate-assemble-2.2.17-x11_rebuild.patch,
+  +calculate-assemble-2.2.18.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.17-r1 (24 Jun 2011)
+
+  24 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.17-r1.ebuild,
+  +files/calculate-assemble-2.2.17-x11_rebuild.patch:
+  Update for x11 modules rebuild.
+
+*calculate-assemble-2.2.17 (22 Jun 2011)
+
+  22 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.17.ebuild:
+  Bump version
+
+  09 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.13.ebuild, -calculate-assemble-2.2.14.ebuild,
+  -calculate-assemble-2.2.14-r1.ebuild,
+  -files/calculate-assemble-2.2.14-add_preserved_rebuild.patch,
+  +calculate-assemble-2.2.16.ebuild:
+  Remove old
+
+*calculate-assemble-2.2.16 (09 Jun 2011)
+
+  09 Jun 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.16.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.15 (18 May 2011)
+
+  18 May 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.15.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.14-r1 (10 May 2011)
+
+  10 May 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.14-r1.ebuild,
+  +files/calculate-assemble-2.2.14-add_preserved_rebuild.patch:
+  Update for preserved-rebuild.
+
+*calculate-assemble-2.2.14 (20 Apr 2011)
+
+  20 Apr 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.14.ebuild:
+  Bump version
+
+  13 Apr 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.11-r2.ebuild,
+  -calculate-assemble-2.2.11-r3.ebuild,
+  -files/calculate-assemble-2.2.11-fix_listdir.patch,
+  -files/calculate-assemble-2.2.11-fix_nvidia_assembling.patch,
+  -files/calculate-assemble-2.2.11-uselist.patch,
+  -calculate-assemble-2.2.12.ebuild, -calculate-assemble-2.2.12-r1.ebuild,
+  -calculate-assemble-2.2.12-r2.ebuild,
+  -files/calculate-assemble-2.2.12-fix_unlink.patch,
+  -files/calculate-assemble-2.2.12-withvideo.patch,
+  calculate-assemble-2.2.13.ebuild, calculate-assemble-2.2.9999.ebuild:
+  Remove old. Fix EAPI.
+
+*calculate-assemble-2.2.13 (12 Apr 2011)
+
+  12 Apr 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.13.ebuild:
+  Version bump
+
+*calculate-assemble-2.2.12-r2 (24 Mar 2011)
+
+  24 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.12-r2.ebuild,
+  +files/calculate-assemble-2.2.12-fix_unlink.patch:
+  Add for bug fix.
+
+*calculate-assemble-2.2.12-r1 (24 Mar 2011)
+
+  24 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.12-r1.ebuild,
+  +files/calculate-assemble-2.2.12-withvideo.patch:
+  Update for feature.
+
+*calculate-assemble-2.2.12 (22 Mar 2011)
+
+  22 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.12.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.11-r3 (22 Mar 2011)
+
+  22 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.11-r3.ebuild,
+  +files/calculate-assemble-2.2.11-uselist.patch:
+  Update for new feature. (uselist)
+
+  18 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.8.ebuild, -calculate-assemble-2.2.8-r1.ebuild,
+  -files/calculate-assemble-2.2.8-fix_assemble_from_i686.patch,
+  -calculate-assemble-2.2.9.ebuild, -calculate-assemble-2.2.9-r1.ebuild,
+  -files/calculate-assemble-2.2.9-fix_nvidia_binary.patch,
+  -calculate-assemble-2.2.10.ebuild, -calculate-assemble-2.2.11.ebuild,
+  -calculate-assemble-2.2.11-r1.ebuild:
+  Remove old.
+
+*calculate-assemble-2.2.11-r2 (18 Mar 2011)
+
+  18 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.11-r2.ebuild,
+  +files/calculate-assemble-2.2.11-fix_nvidia_assembling.patch:
+  Update for fix nvidia-drivers assembling.
+
+*calculate-assemble-2.2.11-r1 (15 Mar 2011)
+
+  15 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.11-r1.ebuild,
+  +files/calculate-assemble-2.2.11-fix_listdir.patch:
+  Update for bug fix.
+
+*calculate-assemble-2.2.11 (11 Mar 2011)
+
+  11 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.11.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.10 (09 Mar 2011)
+
+  09 Mar 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.10.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.9-r1 (14 Feb 2011)
+
+  14 Feb 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.9-r1.ebuild,
+  +files/calculate-assemble-2.2.9-fix_nvidia_binary.patch:
+  Update for bugfix.
+
+*calculate-assemble-2.2.9 (09 Feb 2011)
+
+  09 Feb 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.9.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.8-r1 (01 Feb 2011)
+
+  01 Feb 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.8-r1.ebuild,
+  +files/calculate-assemble-2.2.8-fix_assemble_from_i686.patch:
+  Fix assemble from i686.
+
+  24 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.3.ebuild, -calculate-assemble-2.2.4.ebuild,
+  -calculate-assemble-2.2.5.ebuild, -calculate-assemble-2.2.6.ebuild,
+  -calculate-assemble-2.2.7.ebuild:
+  Clean old ebuilds.
+
+*calculate-assemble-2.2.8 (20 Jan 2011)
+
+  20 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.8_rc1.ebuild, +calculate-assemble-2.2.8.ebuild:
+  Version bump
+
+*calculate-assemble-2.2.8_rc1 (20 Jan 2011)
+
+  20 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.8_rc1.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.7 (19 Jan 2011)
+
+  19 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.7.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.6 (14 Jan 2011)
+
+  14 Jan 2011; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.6.ebuild:
+  Bump version
+
+*calculate-assemble-2.2.5 (30 Dec 2010)
+
+  30 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.5.ebuild:
+  Bump version.
+
+*calculate-assemble-2.2.4 (23 Dec 2010)
+
+  23 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1-r4.ebuild,
+  -files/calculate-assemble-2.2.1-backport.patch,
+  -calculate-assemble-2.2.4_rc2.ebuild, +calculate-assemble-2.2.4.ebuild:
+  Bump version. Remove old.
+
+*calculate-assemble-2.2.4_rc2 (22 Dec 2010)
+
+  22 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.4_rc1.ebuild,
+  +calculate-assemble-2.2.4_rc2.ebuild:
+  Bump version.
+
+*calculate-assemble-2.2.4_rc1 (22 Dec 2010)
+
+  22 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.4_rc1.ebuild:
+  Version bump.
+
+*calculate-assemble-2.2.3 (17 Dec 2010)
+
+  17 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc17.ebuild, -calculate-assemble-2.2.2.ebuild,
+  +calculate-assemble-2.2.3.ebuild:
+  Bump version.
+
+*calculate-assemble-2.2.2 (15 Dec 2010)
+
+  15 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.2.ebuild:
+  Bump version.
+
+*calculate-assemble-2.2.1 (09 Dec 2010)
+
+  09 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.1.ebuild:
+  Bump version.
+
+*calculate-assemble-2.2.1_rc17 (09 Dec 2010)
+
+  09 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc16.ebuild,
+  +calculate-assemble-2.2.1_rc17.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc16 (08 Dec 2010)
+
+  08 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc15.ebuild,
+  +calculate-assemble-2.2.1_rc16.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc15 (03 Dec 2010)
+
+  03 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc14-r1.ebuild,
+  +calculate-assemble-2.2.1_rc15.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc14 (03 Dec 2010)
+
+  03 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc13.ebuild,
+  +calculate-assemble-2.2.1_rc14.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc13 (01 Dec 2010)
+
+  01 Dec 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc12-r1.ebuild,
+  +calculate-assemble-2.2.1_rc13.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc12 (29 Nov 2010)
+
+  29 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc11-r2.ebuild,
+  +calculate-assemble-2.2.1_rc12.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc11 (26 Nov 2010)
+
+  26 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc10-r6.ebuild,
+  +calculate-assemble-2.2.1_rc11.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc10 (23 Nov 2010)
+
+  23 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc9.ebuild,
+  +calculate-assemble-2.2.1_rc10.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc9 (22 Nov 2010)
+
+  22 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc8-r4.ebuild,
+  +calculate-assemble-2.2.1_rc9.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc8 (18 Nov 2010)
+
+  18 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc7-r5.ebuild,
+  +calculate-assemble-2.2.1_rc8.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc7 (13 Nov 2010)
+
+  13 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc6-r6.ebuild,
+  +calculate-assemble-2.2.1_rc7.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc6 (10 Nov 2010)
+
+  10 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc5.ebuild,
+  +calculate-assemble-2.2.1_rc6.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc5 (03 Nov 2010)
+
+  03 Nov 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc4-r1.ebuild,
+  +calculate-assemble-2.2.1_rc5.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc4 (29 Oct 2010)
+
+  29 Oct 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc3-r2.ebuild,
+  +calculate-assemble-2.2.1_rc4.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.1_rc3 (28 Oct 2010)
+
+  28 Oct 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  -calculate-assemble-2.2.1_rc2-r2.ebuild,
+  +calculate-assemble-2.2.1_rc3.ebuild:
+  Daily update.
+
+*calculate-assemble-2.2.9999 (22 Oct 2010)
+*calculate-assemble-2.2.1_rc1 (22 Oct 2010)
+
+  22 Oct 2010; Mike Hiretsky (mhiretskiy) <mh@calculate.ru>
+  +calculate-assemble-2.2.1_rc1.ebuild, +calculate-assemble-2.2.9999.ebuild,
+  +metadata.xml:
+  First release candidat of 2.2.1. Add live ebuild.
+

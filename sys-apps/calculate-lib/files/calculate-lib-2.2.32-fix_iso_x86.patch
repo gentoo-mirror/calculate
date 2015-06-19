@@ -1,0 +1,25 @@
+diff --git pym/cl_distr.py pym/cl_distr.py
+index cfd628f..2e14a93 100644
+--- pym/cl_distr.py
++++ pym/cl_distr.py
+@@ -1301,6 +1301,7 @@ class IsoDistributive(Distributive):
+                       "-eltorito-boot %s"%efiImage]
+         else:
+             params = ["-b isolinux/isolinux.bin","-no-emul-boot",
++                    "-V %s"%self.volid,
+                     "-boot-load-size 4","-boot-info-table","-iso-level 4",
+                     "-hide boot.catalog"]
+         res,errmes = self.runOsCommand(
+diff --git pym/cl_fill.py pym/cl_fill.py
+index d559f4b..4930999 100644
+--- pym/cl_fill.py
++++ pym/cl_fill.py
+@@ -616,7 +616,7 @@ class fillVars(varsShare):
+     def get_os_scratch(self):
+         """Current system is scratch"""
+         if self.Get('os_root_type') == 'livecd':
+-            return "on" if isMount('/mnt/scratch/workspace') else "off"
++            return "on" if isMount('/run/builder') else "off"
+         else:
+             return "on" if isMount('/mnt/scratch') else "off"
+ 

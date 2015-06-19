@@ -1,0 +1,30 @@
+commit 47644c08fa88cfbc1ff972d1e60ff27b8fd93f63
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Mon Sep 24 11:52:28 2012 +0400
+
+    Fix check ip
+
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 9800c80..0de3698 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -21544,6 +21544,10 @@ network %s")%net)
+             self.printERROR(_("Not enough command line options: %s")\
+                             %", ".join(notFoundKeys))
+             return False
++        IPs = self.clVars.Get("os_net_ip").split(',')
++        if not any(IPs):
++            self.printERROR(_("Can not found ip in net interfaces"))
++            return False
+         if not forceOptions:
+             # предупреждение  при выполнении этой программы будут изменены
+             # конфигурационные файлы сервиса DHCP (программa dhcpd)
+@@ -21631,7 +21635,7 @@ network %s")%net)
+             domain = domainNames[0]
+             fullHostNameServer = "%s.%s"%(hostname,domain)
+             IPs = self.clVars.Get("os_net_ip").split(",")
+-            if not IPs:
++            if not any(IPs):
+                 self.printERROR(_("Can not found ip in net interfaces"))
+                 return False
+             ipServer = ""

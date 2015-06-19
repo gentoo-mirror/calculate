@@ -1,0 +1,5 @@
+# Calculate ini(update.rev)<86 format=samba path=/etc/calculate name=ini.env merge=sys-apps/baselayout
+
+# update /etc/issue for version update
+[update]
+rev = 86

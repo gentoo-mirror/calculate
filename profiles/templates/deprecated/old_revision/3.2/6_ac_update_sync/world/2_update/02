@@ -1,0 +1,12 @@
+# Calculate format=world name=world ini(update.world)<2
+
+#-ini(update.world,2)-#
+
+#?os_linux_pkglist==CLDX#
+dev-util/catfish
+media-gfx/shotwell
+#os_linux_pkglist#
+
+#?os_linux_pkglist==CLDG#
+!media-gfx/geeqie
+#os_linux_pkglist#
