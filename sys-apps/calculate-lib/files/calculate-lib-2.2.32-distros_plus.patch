@@ -1,0 +1,67 @@
+commit d105e8f426fbc2712ae4ed83175fc8016c1fcbad
+Author: Mike Hiretsky <mh@calculate.ru>
+Date:   Thu Jun 25 09:34:33 2015 +0300
+
+    Добавлены дистрибутивы CLD+, CLDX+, CDS+
+
+diff --git a/pym/cl_utils.py b/pym/cl_utils.py
+index b3182ea..e3ee08d 100644
+--- a/pym/cl_utils.py
++++ b/pym/cl_utils.py
+@@ -1295,10 +1295,17 @@ def detectBuild(pathname,dictInfo):
+             if "Scratch" in issue:
+                 dictInfo['name'] = "CSS"
+             else:
+-                dictInfo['name'] = "CDS"
++                if "Plus" in issue:
++                    dictInfo['name'] = "CDS+"
++                else:
++                    dictInfo['name'] = "CDS"
+         elif "Desktop" in issue:
+-            if "XFCE" in issue:
++            if "XFCE Plus" in issue:
++                dictInfo['name'] = "CLDX+"
++            elif "XFCE" in issue:
+                 dictInfo['name'] = "CLDX"
++            elif "KDE Plus" in issue:
++                dictInfo['name'] = "CLD+"
+             elif "KDE" in issue:
+                 dictInfo['name'] = "CLD"
+             elif "GNOME" in issue:
+diff --git a/pym/cl_vars_share.py b/pym/cl_vars_share.py
+index ead4d2c..c7f6307 100644
+--- a/pym/cl_vars_share.py
++++ b/pym/cl_vars_share.py
+@@ -250,10 +250,13 @@ class varsShare:
+                            "networkmanager":"net-misc/networkmanager"}
+ 
+     dictLinuxName = {"CLD":"Calculate Linux Desktop",
++                     "CLD+":"Calculate Linux Desktop",
+                      "CLDX":"Calculate Linux Desktop",
++                     "CLDX+":"Calculate Linux Desktop",
+                      "CLDG":"Calculate Linux Desktop",
+                      "CLDM":"Calculate Linux Desktop",
+                      "CDS":"Calculate Directory Server",
++                     "CDS+":"Calculate Directory Server Plus",
+                      "CLS":"Calculate Linux Scratch",
+                      "CLSM":"Calculate Linux Scratch",
+                      "CSS":"Calculate Scratch Server",
+@@ -261,13 +264,17 @@ class varsShare:
+                      "Gentoo":"Gentoo"}
+ 
+     dictLinuxSubName = {"CLD":"KDE", "CLDX":"XFCE", "CLDG":"GNOME",
+-                        "CLSM":"MATE", "CLDM":"MATE"}
++                        "CLSM":"MATE", "CLDM":"MATE",
++                        "CLD+":"KDE Plus", "CLDX+": "XFCE Plus"}
+ 
+     dictNameSystem = {'CDS':'server',
++                      'CDS+':'server',
+                       'CLD':'desktop',
++                      'CLD+':'desktop',
+                       'CLDG':'desktop',
+                       'CLDM':'desktop',
+                       'CLDX':'desktop',
++                      'CLDX+':'desktop',
+                       'CLS':'desktop',
+                       'CLSM':'desktop',
+                       'CMC':'desktop',
