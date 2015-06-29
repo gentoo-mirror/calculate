@@ -240,3 +240,6 @@ media-gfx/ufraw gimp
 # fix compile
 =net-misc/remmina-1.2.0_rc3 vte
 
+# required by www-client/chromium-43.0.2357.130 (https://bugs.gentoo.org/show_bug.cgi?id=553502)
+media-libs/libvpx postproc
+
