@@ -1,0 +1,13 @@
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index b86beaf..7e7d92b 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -1696,7 +1696,7 @@ class cl_assemble(color_print):
+         # remove Packages if it recreated
+         if path.exists(pathPackages):
+             os.unlink(pathPackages)
+-        self.runChroot("PKGDIR='%s' emaint binhost"%pkgDirPath)
++        self.runChroot("PKGDIR='%s' emaint binhost -f"%pkgDirPath)
+         if path.exists(pathPackages):
+             # remove SYNC param
+             filtredPackages = \
