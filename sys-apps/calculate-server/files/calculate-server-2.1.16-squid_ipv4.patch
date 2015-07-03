@@ -1,0 +1,10 @@
+diff --git a/profile/proxy/etc/squid/squid.conf b/profile/proxy/etc/squid/squid.conf
+index 31c4db6..9b213b9 100644
+--- a/profile/proxy/etc/squid/squid.conf
++++ b/profile/proxy/etc/squid/squid.conf
+@@ -1,4 +1,5 @@
+ # Calculate format=squid  append=replace
++dns_v4_first on
+ #?pkg(net-proxy/squid)<3.2#
+ auth_param basic program /usr/libexec/squid/squid_ldap_auth -b "ou=Users,#-ld_proxy_dn-#" -f "(&(uid=%s)(initials=Yes))" -D "#-ld_proxy_dn-#" -W /etc/squid/squid.ldap -h localhost
+ #pkg#
