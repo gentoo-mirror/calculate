@@ -1,0 +1,34 @@
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index 7e7d92b..ffdd73a 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -205,6 +205,7 @@ class cl_assemble(color_print):
+              {'command':'prelink -afmR',
+               'step':'prelink',
+               'hideout':True,
++              'check_profile': lambda x: "+" not in x,
+               'condition':'.',
+               'progname':'prelink'},
+              # get propreitary drivers
+@@ -1072,6 +1073,10 @@ class cl_assemble(color_print):
+         """World compiling"""
+         # try perform each action from action list
+         for action in self.ACTION_LIST:
++            # check profile name
++            if "check_profile" in action:
++                if not action['check_profile'](self.clVars.Get('cl_assemble_id')):
++                    continue
+             # if specified "progname" check by which in chroot this prog
+             if "progname" in action:
+                 if not self._checkChrootProgram(action["progname"]):
+@@ -1107,6 +1112,10 @@ class cl_assemble(color_print):
+         self.defaultPrint(_("The following actions will be performed")+":\n")
+         showLegend=False
+         for action in self.ACTION_LIST:
++            # check profile name
++            if "check_profile" in action:
++                if not action['check_profile'](self.clVars.Get('cl_assemble_id')):
++                    continue
+             if not "command" in action:
+                 continue
+             # if specified "progname" check by which in chroot this prog
