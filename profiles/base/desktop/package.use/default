@@ -253,3 +253,12 @@ dev-python/chardet python_targets_python3_4
 dev-python/numpy python_targets_python3_4
 dev-python/requests python_targets_python3_4
 dev-python/setuptools python_targets_python3_4
+
+# required by dev-qt/qtwidgets-5.4.2
+>=dev-qt/qtgui-5.4.2 -gtkstyle
+# required by dev-qt/qtwebkit-5.4.2
+>=dev-qt/qtcore-5.4.2 icu
+# required by dev-qt/qtcore
+dev-libs/libpcre pcre16
+# required by dev-qt/qtgui-5.4.2::gentoo[xcb]
+x11-libs/libxcb xkb
