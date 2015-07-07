@@ -1,6 +1,6 @@
 # Calculate comment=#
 MAKEOPTS="#-os_assemble_makeopts-#"
-EMERGE_DEFAULT_OPTS="--jobs=1"
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --binpkg-respect-use=n --jobs=1"
 #?cl_assemble_buildpkg_set==on#
 FEATURES="${FEATURES} buildpkg -getbinpkg"
 #cl_assemble_buildpkg_set#
