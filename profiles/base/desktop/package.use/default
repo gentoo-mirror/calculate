@@ -262,3 +262,17 @@ dev-python/setuptools python_targets_python3_4
 dev-libs/libpcre pcre16
 # required by dev-qt/qtgui-5.4.2::gentoo[xcb]
 x11-libs/libxcb xkb
+
+# required by app-emulation/virt-manager-1.1.0-r2
+net-libs/gtk-vnc python introspection
+x11-libs/vte introspection
+sys-libs/libosinfo introspection
+app-emulation/libvirt-glib python introspection
+net-misc/spice-gtk -gstreamer python introspection usbredir gtk3
+
+# required by app-office/texmaker-4.3
+app-i18n/ibus introspection
+
+# required by x11-wm/i3-4.8
+x11-libs/cairo xcb
+
