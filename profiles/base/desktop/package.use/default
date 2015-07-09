@@ -276,3 +276,7 @@ app-i18n/ibus introspection
 # required by x11-wm/i3-4.8
 x11-libs/cairo xcb
 
+# required by mail-client/geary-0.6.3-r1
+app-crypt/gcr introspection vala
+net-libs/webkit-gtk introspection
+net-libs/libsoup introspection
