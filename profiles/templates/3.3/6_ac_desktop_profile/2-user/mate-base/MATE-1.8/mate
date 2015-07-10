@@ -1,0 +1,28 @@
+# Calculate format=dconf dconf=/org/mate
+[desktop/peripherals/keyboard]
+delay=360
+numlock-state='on'
+
+#?pkg(media-fonts/droid)!=#
+[desktop/interface]
+font-name='Droid Sans 10'
+document-font-name='Droid Sans 10'
+monospace-font-name='Droid Sans Mono 10'
+
+[caja/desktop]
+font='Droid Sans 10'
+
+[marco/general]
+titlebar-font='Droid Sans Bold 10'
+#pkg#
+
+[caja/desktop]
+computer-icon-visible=false
+home-icon-visible=false
+trash-icon-visible=false
+
+[caja/preferences]
+click-policy='single'
+
+[marco/general]
+compositing-manager=true
