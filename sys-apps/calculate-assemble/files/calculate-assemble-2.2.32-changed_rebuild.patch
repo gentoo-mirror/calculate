@@ -1,0 +1,22 @@
+diff --git a/pym/cl_assemble.py b/pym/cl_assemble.py
+index ffdd73a..f3ca62b 100644
+--- a/pym/cl_assemble.py
++++ b/pym/cl_assemble.py
+@@ -173,7 +173,7 @@ class cl_assemble(color_print):
+              #{'command':'emerge -D --newuse world',
+              # 'step':'newuse'},
+              # update world
+-             {'command':'emerge -uDN --with-bdeps=y world',
++             {'command':'emerge -uDN --changed-deps=y --with-bdeps=y world',
+               'step':'update'},
+              # depclean
+              {'command':'emerge --depclean',
+@@ -1886,7 +1886,7 @@ class cl_assemble(color_print):
+         if rebuild_list:
+             rebuild_packages = " ".join(rebuild_list)
+ 
+-            cmd = self.runChroot("emerge -1 %s" % rebuild_packages,
++            cmd = self.runChroot("emerge -1a %s" % rebuild_packages,
+                                  showProcess=True)
+             if cmd.failed():
+                 raise AssembleError(
