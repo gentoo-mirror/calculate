@@ -23,7 +23,7 @@ RDEPEND="${RDEPEND}
 	=sys-apps/calculate-lib-2.2.32-r11
 	=sys-apps/calculate-i18n-2.2.32
 
-	cl_assemble? ( =sys-apps/calculate-assemble-2.2.32-r7 )
+	cl_assemble? ( =sys-apps/calculate-assemble-2.2.32-r8 )
 	cl_builder? ( =sys-apps/calculate-builder-2.2.32-r8 )
 
 	cl_server? ( =sys-apps/calculate-server-2.1.16-r18 )
