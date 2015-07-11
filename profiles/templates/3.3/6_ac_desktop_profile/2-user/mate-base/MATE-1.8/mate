@@ -1,18 +1,27 @@
 # Calculate format=dconf dconf=/org/mate
 [desktop/peripherals/keyboard]
+#?pkg(x11-themes/calculate-xcursors)!=#
+cursor-theme='calculate'
+#pkg#
 delay=360
 numlock-state='on'
 
+[desktop/peripherals/mouse]
+cursor-theme='calculate'
+
 #?pkg(media-fonts/droid)!=#
 [desktop/interface]
-font-name='Droid Sans 10'
 document-font-name='Droid Sans 10'
+font-name='Droid Sans 10'
+gtk-theme='Calculate'
+icon-theme='mate'
 monospace-font-name='Droid Sans Mono Slashed 10'
 
 [caja/desktop]
 font='Droid Sans 10'
 
 [marco/general]
+theme='Dopple-Left'
 titlebar-font='Droid Sans Bold 10'
 
 [stickynotes]
