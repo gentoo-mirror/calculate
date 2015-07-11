@@ -72,7 +72,7 @@ media-gfx/exiv2 xmp
 dev-qt/qtsql mysql
 
 # mate-base/mate -> x11-misc/mozo-1.8.0
-mate-base/mate-menus introspection python
+mate-base/mate-menus python
 
 # circular dependencies net-libs/glib-networking-2.42.1 and net-libs/libproxy-0.4.11-r2
 net-libs/libproxy -webkit
@@ -182,20 +182,6 @@ media-libs/opencv qt4
 # required by app-text/qpdfview [pdf,qt4]
 app-text/poppler qt4
 
-# required by dev-util/catfish-1.2.2, app-admin/system-config-printer-gnome-1.4.3
-x11-libs/gtk+ introspection
-
-# required by x11-libs/gtk+-3.14.8
-x11-libs/gdk-pixbuf introspection
-x11-libs/pango introspection
-dev-libs/atk introspection
-
-# required by net-misc/modemmanager-1.4.0, x11-libs/gtk+-3.12.2
-sys-auth/polkit introspection
-
-# fix work
-x11-libs/libnotify introspection
-
 # Add support for PDF, RSS, SMIME, HTML, Xface
 mail-client/claws-mail pdf rss smime webkit xface
 
@@ -264,22 +250,19 @@ dev-libs/libpcre pcre16
 x11-libs/libxcb xkb
 
 # required by app-emulation/virt-manager-1.1.0-r2
-net-libs/gtk-vnc python introspection
-x11-libs/vte introspection
-sys-libs/libosinfo introspection
-app-emulation/libvirt-glib python introspection
-net-misc/spice-gtk -gstreamer python introspection usbredir gtk3
-
-# required by app-office/texmaker-4.3
-app-i18n/ibus introspection
+net-misc/spice-gtk -gstreamer python usbredir gtk3
 
 # required by x11-wm/i3-4.8
 x11-libs/cairo xcb
 
-# required by mail-client/geary-0.6.3-r1
-app-crypt/gcr introspection vala
-net-libs/webkit-gtk introspection
-net-libs/libsoup introspection
-
 # required by x11-terms/guake-0.5.2
 x11-libs/vte python
+
+# required by mail-client/geary-0.6.3-r1
+app-crypt/gcr vala
+
+# required by gnome-extra/cinnamon-2.6.9
+dev-python/dbus-python python_targets_python3_4
+dev-python/pycairo python_targets_python3_4
+dev-python/pygobject python_targets_python3_4
+gnome-extra/cinnamon python_targets_python3_4
