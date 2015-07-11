@@ -258,6 +258,9 @@ x11-libs/cairo xcb
 # required by x11-terms/guake-0.5.2
 x11-libs/vte python
 
+# required by mail-client/geary-0.6.3-r1
+app-crypt/gcr vala
+
 # required by gnome-extra/cinnamon-2.6.9
 dev-python/dbus-python python_targets_python3_4
 dev-python/pycairo python_targets_python3_4
