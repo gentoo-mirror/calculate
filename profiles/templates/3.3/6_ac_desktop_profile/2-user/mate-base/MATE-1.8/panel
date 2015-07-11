@@ -1,7 +1,7 @@
 # Calculate format=dconf dconf=/org/mate/panel
 [general]
 toplevel-id-list=['toplevel_top', 'toplevel_bottom']
-object-id-list=['object_menu', 'object_workspace', 'object_showdesktop', 'object_windowlist', 'object_trash', 'object_notification', 'object_clock', 'object_lock', 'object_logout', 'object_browser', 'object_calc', 'object_textedit', 'object_terminal']
+object-id-list=['object_menu', 'object_home', 'object_workspace', 'object_showdesktop', 'object_windowlist', 'object_trash', 'object_notification', 'object_clock', 'object_lock', 'object_logout', 'object_browser', 'object_mail', 'object_chat', 'object_im', 'object_writer', 'object_calc', 'object_calculator', 'object_imageedit', 'object_imageview', 'object_audioplayer', 'object_videoplayer', 'object_textedit', 'object_terminal', 'object_separator_1', 'object_separator_2', 'object_separator_3']
 
 [toplevels/toplevel_top]
 orientation='top'
@@ -22,52 +22,81 @@ x-centered=true
 
 [objects/object_menu]
 toplevel-id='toplevel_top'
-position=0
+position=#-sum(pos,0)-#
 object-type='menu'
 use-menu-path=false
 panel-right-stick=false
+locked=true
 tooltip='Главное меню'
+
+[objects/object_separator_1]
+toplevel-id='toplevel_top'
+position=#-sum(pos,pos+1)-#
+object-type='separator'
+locked=true
+panel-right-stick=false
+
+[objects/object_home]
+launcher-location='home.desktop'
+toplevel-id='toplevel_top'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
+panel-right-stick=false
 
 [objects/object_workspace]
 applet-iid='WnckletFactory::WorkspaceSwitcherApplet'
 toplevel-id='toplevel_top'
-position=1
+position=#-sum(pos,pos+1)-#
 object-type='applet'
+locked=true
 panel-right-stick=false
 
 [objects/object_showdesktop]
 applet-iid='WnckletFactory::ShowDesktopApplet'
 toplevel-id='toplevel_top'
-position=2
+position=#-sum(pos,pos+1)-#
 object-type='applet'
+locked=true
 panel-right-stick=false
 
 [objects/object_windowlist]
 applet-iid='WnckletFactory::WindowListApplet'
 toplevel-id='toplevel_top'
-position=3
+position=#-sum(pos,pos+1)-#
 object-type='applet'
+locked=true
 panel-right-stick=false
 
 [objects/object_trash]
 applet-iid='TrashAppletFactory::TrashApplet'
 toplevel-id='toplevel_top'
-position=10000
+position=#-sum(pos,10000)-#
 object-type='applet'
+locked=true
 panel-right-stick=false
 
 [objects/object_notification]
 applet-iid='NotificationAreaAppletFactory::NotificationArea'
 toplevel-id='toplevel_top'
-position=10010
+position=#-sum(pos,pos+1)-#
 object-type='applet'
+locked=true
+panel-right-stick=false
+
+[objects/object_separator_2]
+toplevel-id='toplevel_top'
+position=#-sum(pos,pos+1)-#
+object-type='separator'
+locked=true
 panel-right-stick=false
 
 [objects/object_clock]
 applet-iid='ClockAppletFactory::ClockApplet'
 toplevel-id='toplevel_top'
-position=10020
+position=#-sum(pos,pos+1)-#
 object-type='applet'
+locked=true
 panel-right-stick=false
 
 [objects/object_clock/prefs]
@@ -75,44 +104,129 @@ format='24-hour'
 show-date=false
 custom-format=''
 
+[objects/object_separator_3]
+toplevel-id='toplevel_top'
+position=#-sum(pos,pos+1)-#
+object-type='separator'
+locked=true
+panel-right-stick=false
+
 [objects/object_lock]
 toplevel-id='toplevel_top'
 action-type='lock'
-position=10030
+position=#-sum(pos,pos+1)-#
 object-type='action'
+locked=true
 panel-right-stick=false
 
 [objects/object_logout]
 toplevel-id='toplevel_top'
 action-type='logout'
-position=10040
+position=#-sum(pos,pos+1)-#
 object-type='action'
+locked=true
 panel-right-stick=false
 
 [objects/object_browser]
-launcher-location='chromium-browser-chromium.desktop'
+launcher-location='calculate-browser.desktop'
 toplevel-id='toplevel_bottom'
-position=0
+position=#-sum(pos,0)-#
 object-type='launcher'
+locked=true
+panel-right-stick=false
+
+[objects/object_mail]
+launcher-location='calculate-mail.desktop'
+toplevel-id='toplevel_bottom'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
+panel-right-stick=false
+
+[objects/object_chat]
+launcher-location='calculate-chat.desktop'
+toplevel-id='toplevel_bottom'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
+panel-right-stick=false
+
+[objects/object_im]
+launcher-location='calculate-im.desktop'
+toplevel-id='toplevel_bottom'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
+panel-right-stick=false
+
+[objects/object_writer]
+launcher-location='calculate-writer.desktop'
+toplevel-id='toplevel_bottom'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
 panel-right-stick=false
 
 [objects/object_calc]
+launcher-location='calculate-calc.desktop'
+toplevel-id='toplevel_bottom'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
+panel-right-stick=false
+
+[objects/object_calculator]
 launcher-location='mate-calc.desktop'
 toplevel-id='toplevel_bottom'
-position=1
+position=#-sum(pos,pos+1)-#
 object-type='launcher'
+locked=true
+panel-right-stick=false
+
+[objects/object_imageedit]
+launcher-location='calculate-imageedit.desktop'
+toplevel-id='toplevel_bottom'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
+panel-right-stick=false
+
+[objects/object_imageview]
+launcher-location='calculate-imageview.desktop'
+toplevel-id='toplevel_bottom'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
+panel-right-stick=false
+
+[objects/object_audioplayer]
+launcher-location='calculate-audioplayer.desktop'
+toplevel-id='toplevel_bottom'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
+panel-right-stick=false
+
+[objects/object_videoplayer]
+launcher-location='calculate-videoplayer.desktop'
+toplevel-id='toplevel_bottom'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
 panel-right-stick=false
 
 [objects/object_textedit]
 launcher-location='pluma.desktop'
 toplevel-id='toplevel_bottom'
-position=2
+position=#-sum(pos,pos+1)-#
 object-type='launcher'
+locked=true
 panel-right-stick=false
 
 [objects/object_terminal]
 launcher-location='mate-terminal.desktop'
 toplevel-id='toplevel_bottom'
-position=3
+position=#-sum(pos,pos+1)-#
 object-type='launcher'
+locked=true
 panel-right-stick=false
