@@ -283,3 +283,15 @@ net-libs/libsoup introspection
 
 # required by x11-terms/guake-0.5.2
 x11-libs/vte python
+
+# required by gnome-extra/cinnamon-2.6.9
+app-accessibility/at-spi2-core introspection
+dev-libs/json-glib introspection
+dev-python/dbus-python python_targets_python3_4
+dev-python/pycairo python_targets_python3_4
+dev-python/pygobject python_targets_python3_4
+gnome-base/gconf introspection
+gnome-base/gsettings-desktop-schemas introspection
+net-misc/networkmanager introspection
+sys-apps/accountsservice introspection
+x11-libs/libxklavier introspection
