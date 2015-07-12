@@ -11,21 +11,16 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 IUSE="kde"
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-14-r2.tar.bz2
 	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-14-r2.tar.bz2"
 
 RDEPEND="kde? ( kde-apps/oxygen-icons )
-	!kde? ( || ( x11-themes/elementary-icon-theme
+	!kde? ( x11-themes/elementary-icon-theme
 			x11-themes/gnome-icon-theme
-		)
-	)
-	!media-gfx/cldx-themes
-	!media-gfx/cld-themes
-	!media-gfx/cldg-themes
-	!media-gfx/cls-themes"
+	)"
 
 DEPEND="${RDEPEND}"
 

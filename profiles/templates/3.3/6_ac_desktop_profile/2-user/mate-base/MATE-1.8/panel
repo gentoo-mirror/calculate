@@ -5,6 +5,7 @@ object-id-list=['object_menu', 'object_home', 'object_workspace', 'object_showde
 
 [toplevels/toplevel_top]
 orientation='top'
+size=32
 screen=0
 monitor=0
 
@@ -37,7 +38,7 @@ locked=true
 panel-right-stick=false
 
 [objects/object_home]
-launcher-location='home.desktop'
+launcher-location='launcher-home.desktop'
 toplevel-id='toplevel_top'
 position=#-sum(pos,pos+1)-#
 object-type='launcher'
