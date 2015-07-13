@@ -1,4 +1,13 @@
 # Calculate format=dconf dconf=/org/mate
+#pkg(media-gfx/calculate-wallpapers)!=#
+[desktop/background]
+color-shading-type='solid'
+primary-color='#000000000000'
+picture-options='zoom'
+picture-filename='/usr/share/backgrounds/calculate/Calculate Linux'
+secondary-color='#000000000000'
+#pkg#
+
 [desktop/peripherals/keyboard]
 #?pkg(x11-themes/calculate-xcursors)!=#
 cursor-theme='calculate'
