@@ -45,14 +45,19 @@ default-font='Droid Sans 10'
 
 [caja/desktop]
 computer-icon-visible=false
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+home-icon-visible=true
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
 home-icon-visible=false
+#env#
 trash-icon-visible=false
 
 [caja/preferences]
 click-policy='single'
 
 [marco/general]
-compositing-manager=true
+compositing-manager=false
 
 [marco/global-keybindings]
 switch-to-workspace-1='<Primary>F1'
