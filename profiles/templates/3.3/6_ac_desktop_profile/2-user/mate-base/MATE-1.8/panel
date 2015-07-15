@@ -1,7 +1,7 @@
 # Calculate format=dconf dconf=/org/mate/panel
 [general]
 toplevel-id-list=['toplevel_top', 'toplevel_bottom']
-object-id-list=['object_menu', 'object_home', 'object_workspace', 'object_showdesktop', 'object_windowlist', 'object_trash', 'object_notification', 'object_clock', 'object_lock', 'object_logout', 'object_browser', 'object_mail', 'object_chat', 'object_im', 'object_writer', 'object_calc', 'object_calculator', 'object_imageedit', 'object_imageview', 'object_audioplayer', 'object_videoplayer', 'object_textedit', 'object_terminal', 'object_separator_1', 'object_separator_2', 'object_separator_3']
+object-id-list=['object_menu', 'object_home', 'object_workspace', 'object_showdesktop', 'object_windowlist', 'object_trash', 'object_notification', 'object_clock', 'object_lock', 'object_shutdown', 'object_browser', 'object_mail', 'object_chat', 'object_im', 'object_writer', 'object_calc', 'object_calculator', 'object_imageedit', 'object_imageview', 'object_audioplayer', 'object_videoplayer', 'object_textedit', 'object_terminal', 'object_separator_1', 'object_separator_2', 'object_separator_3']
 
 [toplevels/toplevel_top]
 orientation='top'
@@ -120,9 +120,9 @@ object-type='action'
 locked=true
 panel-right-stick=false
 
-[objects/object_logout]
+[objects/object_shutdown]
 toplevel-id='toplevel_top'
-action-type='logout'
+action-type='shutdown'
 position=#-sum(pos,pos+1)-#
 object-type='action'
 locked=true
