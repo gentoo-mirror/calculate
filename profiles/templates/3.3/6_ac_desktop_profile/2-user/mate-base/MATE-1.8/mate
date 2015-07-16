@@ -8,6 +8,9 @@ picture-filename='/usr/share/backgrounds/calculate/Calculate Linux'
 secondary-color='#000000000000'
 #pkg#
 
+[desktop/media-handling]
+automount=false
+
 [desktop/peripherals/keyboard]
 #?pkg(x11-themes/calculate-xcursors)!=#
 cursor-theme='calculate'
