@@ -39,7 +39,12 @@ automount=false
 cursor-theme='calculate'
 #pkg#
 delay=360
+#?hr_laptop==#
 numlock-state='on'
+#hr_laptop#
+#?hr_laptop!=#
+numlock-state='off'
+#hr_laptop#
 
 [desktop/peripherals/keyboard/general]
 default-group=0
