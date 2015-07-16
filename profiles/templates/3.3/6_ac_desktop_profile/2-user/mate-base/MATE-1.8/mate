@@ -1,4 +1,20 @@
 # Calculate format=dconf dconf=/org/mate
+
+[caja/desktop]
+computer-icon-visible=false
+font='Droid Sans 10'
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+home-icon-visible=true
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+home-icon-visible=false
+#env#
+trash-icon-visible=false
+volumes-visible=false
+
+[caja/preferences]
+click-policy='single'
+
 #pkg(media-gfx/calculate-wallpapers)!=#
 [desktop/background]
 color-shading-type='solid'
@@ -7,6 +23,13 @@ picture-options='zoom'
 picture-filename='/usr/share/backgrounds/calculate/Calculate Linux'
 secondary-color='#000000000000'
 #pkg#
+
+[desktop/interface]
+document-font-name='Droid Sans 10'
+font-name='Droid Sans 10'
+gtk-theme='Calculate'
+icon-theme='Calculate'
+monospace-font-name='Droid Sans Mono Slashed 10'
 
 [desktop/media-handling]
 automount=false
@@ -27,39 +50,10 @@ font-family='Droid Sans 18'
 [desktop/peripherals/mouse]
 cursor-theme='calculate'
 
-#?pkg(media-fonts/droid)!=#
-[desktop/interface]
-document-font-name='Droid Sans 10'
-font-name='Droid Sans 10'
-gtk-theme='Calculate'
-icon-theme='Calculate'
-monospace-font-name='Droid Sans Mono Slashed 10'
-
-[caja/desktop]
-font='Droid Sans 10'
-
 [marco/general]
 side-by-side-tiling=false
 theme='Dopple-Left'
 titlebar-font='Droid Sans Bold 10'
-
-[stickynotes]
-default-font='Droid Sans 10'
-#pkg#
-
-[caja/desktop]
-computer-icon-visible=false
-#?env(client.os_remote_auth)==||ur_domain_set==off#
-home-icon-visible=true
-#env#
-#?env(client.os_remote_auth)!=&&ur_domain_set==on#
-home-icon-visible=false
-#env#
-trash-icon-visible=false
-volumes-visible=false
-
-[caja/preferences]
-click-policy='single'
 
 [marco/general]
 center-new-windows=false
@@ -71,5 +65,12 @@ switch-to-workspace-2='<Primary>F2'
 switch-to-workspace-3='<Primary>F3'
 switch-to-workspace-4='<Primary>F4'
 
+[notification-daemon]
+theme='slider'
+
 [settings-daemon/plugins/media-keys]
 screensaver='Scroll_Lock'
+
+[stickynotes]
+default-font='Droid Sans 10'
+
