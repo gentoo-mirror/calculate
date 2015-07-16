@@ -1,7 +1,7 @@
 # Calculate format=dconf dconf=/org/mate/panel
 [general]
 toplevel-id-list=['toplevel_top', 'toplevel_bottom']
-object-id-list=['object_menu', 'object_home', 'object_workspace', 'object_showdesktop', 'object_windowlist', 'object_trash', 'object_notification', 'object_clock', 'object_lock', 'object_shutdown', 'object_browser', 'object_mail', 'object_chat', 'object_im', 'object_writer', 'object_calc', 'object_calculator', 'object_imageedit', 'object_imageview', 'object_audioplayer', 'object_videoplayer', 'object_textedit', 'object_terminal', 'object_separator_1', 'object_separator_2', 'object_separator_3']
+object-id-list=['object_menu', 'object_home', 'object_workspace', 'object_showdesktop', 'object_windowlist', 'object_trash', 'object_notification', 'object_clock', 'object_lock', 'object_shutdown', 'object_browser', 'object_mail', 'object_chat', 'object_im', 'object_writer', 'object_calc', 'object_calculator', 'object_imageedit', 'object_imageview', 'object_audioplayer', 'object_videoplayer', 'object_textedit', 'object_terminal', 'object_separator_1', 'object_separator_2', 'object_separator_3'#?env(client.os_remote_auth)!=&&ur_domain_set==on#, 'object_share', 'object_ftp'#env#]
 
 [toplevels/toplevel_top]
 orientation='top'
@@ -44,6 +44,24 @@ position=#-sum(pos,pos+1)-#
 object-type='launcher'
 locked=true
 panel-right-stick=false
+
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+[objects/object_share]
+launcher-location='launcher-share.desktop'
+toplevel-id='toplevel_top'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
+panel-right-stick=false
+
+[objects/object_ftp]
+launcher-location='launcher-ftp.desktop'
+toplevel-id='toplevel_top'
+position=#-sum(pos,pos+1)-#
+object-type='launcher'
+locked=true
+panel-right-stick=false
+#env#
 
 [objects/object_workspace]
 applet-iid='WnckletFactory::WorkspaceSwitcherApplet'

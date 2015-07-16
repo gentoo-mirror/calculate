@@ -11,7 +11,7 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 IUSE="kde"
 
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-14-r3.tar.bz2

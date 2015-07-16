@@ -8,6 +8,9 @@ picture-filename='/usr/share/backgrounds/calculate/Calculate Linux'
 secondary-color='#000000000000'
 #pkg#
 
+[desktop/media-handling]
+automount=false
+
 [desktop/peripherals/keyboard]
 #?pkg(x11-themes/calculate-xcursors)!=#
 cursor-theme='calculate'
@@ -36,6 +39,7 @@ monospace-font-name='Droid Sans Mono Slashed 10'
 font='Droid Sans 10'
 
 [marco/general]
+side-by-side-tiling=false
 theme='Dopple-Left'
 titlebar-font='Droid Sans Bold 10'
 
@@ -58,6 +62,7 @@ volumes-visible=false
 click-policy='single'
 
 [marco/general]
+center-new-windows=false
 compositing-manager=false
 
 [marco/global-keybindings]
