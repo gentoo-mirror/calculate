@@ -62,11 +62,8 @@ immutability=1
 plugin=simplelauncher
 zvalue=0
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][Configuration]
-#?pkg(x11-themes/calculate-icon-theme)>=14-r1#
+#?pkg(x11-themes/calculate-icon-theme)<14-r6#
 icon=start-calculate
-#pkg#
-#?pkg(x11-themes/calculate-icon-theme)<14-r1#
-icon=start-here-kde
 #pkg#
 views=Applications,RunCommand,SwitchUser,LockScreen,Leave
 
