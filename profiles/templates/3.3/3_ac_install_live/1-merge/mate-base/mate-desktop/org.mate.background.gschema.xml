@@ -1,0 +1,4 @@
+# Calculate format=patch path=/usr/share/glib-2.0/schemas pkg(media-gfx/dm-themes-calculate)!=
+<reg>(name="picture-filename">
+\s*&lt;default&gt;)[^&lt;]+&lt;</reg>
+<text>\1'/usr/share/wallpapers/Calculate-dm/contents/images/#-wallpaper(#-os_install_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#'&lt;</text>
