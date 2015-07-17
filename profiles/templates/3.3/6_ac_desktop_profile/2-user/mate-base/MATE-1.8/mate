@@ -31,6 +31,26 @@ gtk-theme='Calculate'
 icon-theme='Calculate'
 monospace-font-name='Droid Sans Mono Slashed 10'
 
+[desktop/keybindings/custom0]
+action='xkill'
+binding='<Primary><Alt>Escape'
+#?os_locale_lang!=ru_RU#
+name='Kill a client by its X resource'
+#os_locale_lang#
+#?os_locale_lang==ru_RU#
+name='Убить клиент X ресурса'
+#os_locale_lang#
+
+[desktop/keybindings/custom1]
+action='mate-session-save --force-logout'
+binding='<Primary><Shift><Alt>Delete'
+#?os_locale_lang!=ru_RU#
+name='Log out, ignoring any existing inhibitors'
+#os_locale_lang#
+#?os_locale_lang==ru_RU#
+name='Завершить сеанс, игнорируя любые существующие препятствия'
+#os_locale_lang#
+
 [desktop/media-handling]
 automount=false
 
