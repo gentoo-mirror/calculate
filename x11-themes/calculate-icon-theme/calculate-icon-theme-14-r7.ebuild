@@ -7,15 +7,15 @@ EAPI=4
 inherit gnome2-utils
 
 DESCRIPTION="Icons theme for Calculate Linux"
-HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate"
+HOMEPAGE="http://www.calculate-linux.org/packages/x11-themes/calculate-icon-theme"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE="kde"
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-14-r3.tar.bz2
-	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-14-r3.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-14-r4.tar.bz2
+	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-14-r4.tar.bz2"
 
 RDEPEND="kde? ( kde-apps/oxygen-icons )
 	!kde? ( || ( x11-themes/elementary-icon-theme
