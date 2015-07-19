@@ -101,7 +101,6 @@ net-dialup/rp-pppoe -X
 net-fs/samba -winbind
 net-libs/webkit-gtk -geoloc
 net-p2p/ktorrent -infowidget
-net-print/hplip -kde -qt4
 net-wireless/wpa_supplicant -qt4
 sys-auth/polkit -gtk
 sys-fs/mtools -X
@@ -143,7 +142,7 @@ media-video/mplayer bidi live -video_cards_tdfx
 net-misc/networkmanager connection-sharing dhclient -dhcpcd modemmanager
 
 # Enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
-net-print/hplip fax snmp hpijs -X
+net-print/hplip fax snmp hpijs -X -kde -qt4
 
 #To display the icons in the menu, support xdg autostart
 x11-wm/openbox imlib xdg
