@@ -1,9 +1,0 @@
-# Calculate format=kde link=/usr/share/applications/gparted.desktop mirror
-[Desktop Entry]
-#?os_root_type==livecd#
-Exec=gksudo /usr/sbin/gparted %f
-#os_root_type#
-#?os_root_type!=livecd#
-Exec=gksu /usr/sbin/gparted %f
-#os_root_type#
-!OnlyShowIn=
