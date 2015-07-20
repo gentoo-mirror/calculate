@@ -271,3 +271,7 @@ dev-libs/keybinder python
 
 # required by media-tv/kodi-14.1
 net-libs/libmicrohttpd messages
+
+# support for OpenOffice.org SVG jar files, color management engine,
+# Microsoft Visio Diagrams, WordPerfect Graphics
+media-gfx/inkscape inkjar lcms visio wpg
