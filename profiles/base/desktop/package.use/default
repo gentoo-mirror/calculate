@@ -275,3 +275,7 @@ net-libs/libmicrohttpd messages
 # support for OpenOffice.org SVG jar files, color management engine,
 # Microsoft Visio Diagrams, WordPerfect Graphics
 media-gfx/inkscape inkjar lcms visio wpg
+
+# required by dev-python/PyQt5-5.4.2::gentoo[webkit]
+>=dev-qt/qtwebkit-5.4.2 printsupport
+
