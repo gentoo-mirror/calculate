@@ -279,3 +279,6 @@ media-gfx/inkscape inkjar lcms visio wpg
 # required by dev-python/PyQt5-5.4.2::gentoo[webkit]
 >=dev-qt/qtwebkit-5.4.2 printsupport
 
+#The following REQUIRED_USE flag constraints are unsatisfied: mikmod? ( mod )
+media-libs/sdl-mixer mod
+
