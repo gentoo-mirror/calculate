@@ -282,3 +282,10 @@ media-gfx/inkscape inkjar lcms visio wpg
 #The following REQUIRED_USE flag constraints are unsatisfied: mikmod? ( mod )
 media-libs/sdl-mixer mod
 
+# The following REQUIRED_USE flag constraints are unsatisfied:
+# theora? ( video ) X? ( video ) v4l? ( video )
+media-libs/mediastreamer video
+
+# required by media-video/openshot-1.4.3o
+media-libs/mlt python frei0r
+
