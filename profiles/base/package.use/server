@@ -22,3 +22,5 @@ net-dns/bind caps
 # required by (sys-apps/calculate-server-2.1.16-r17
 net-ftp/proftpd ident
 
+# required by dev-lang/php-5.6.10::gentoo
+app-eselect/eselect-php apache2
