@@ -24,8 +24,8 @@ net-ftp/proftpd ident
 # required by dev-lang/php-5.6.10::gentoo
 app-eselect/eselect-php apache2
 
-# [xmlreader] required by www-apps/mediawiki-1.23.8
+# [gd, xmlreader] required by www-apps/mediawiki-1.23.8
 # [fpm] required by virtual/httpd-php-5.6
 # [pdo] required by www-apps/drupal-8.0.0_beta11
 app-eselect/eselect-php fpm
-dev-lang/php apache2 curl fpm pdo
+dev-lang/php apache2 curl fpm gd pdo xmlreader
