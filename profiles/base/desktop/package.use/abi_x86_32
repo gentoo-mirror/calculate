@@ -1,4 +1,5 @@
 app-arch/bzip2 abi_x86_32
+dev-db/mysql abi_x86_32
 dev-db/sqlite abi_x86_32
 dev-lang/orc abi_x86_32
 dev-libs/atk abi_x86_32
@@ -12,10 +13,12 @@ dev-libs/libcroco abi_x86_32
 dev-libs/libffi abi_x86_32
 dev-libs/libgcrypt abi_x86_32
 dev-libs/libgpg-error abi_x86_32
+dev-libs/libltdl abi_x86_32
 dev-libs/libpthread-stubs abi_x86_32
 dev-libs/libtasn1 abi_x86_32
 dev-libs/libusb abi_x86_32
 dev-libs/libxml2 abi_x86_32
+dev-libs/libxslt abi_x86_32
 dev-libs/lzo abi_x86_32
 dev-libs/nettle abi_x86_32
 dev-libs/openssl abi_x86_32
@@ -25,6 +28,8 @@ dev-qt/qtdbus abi_x86_32
 dev-qt/qtgui abi_x86_32
 dev-qt/qtscript abi_x86_32
 dev-qt/qtsql abi_x86_32
+dev-qt/qtwebkit abi_x86_32
+dev-qt/qtxmlpatterns abi_x86_32
 dev-util/pkgconfig abi_x86_32
 gnome-base/librsvg abi_x86_32
 media-gfx/graphite2 abi_x86_32
@@ -36,6 +41,8 @@ media-libs/fontconfig abi_x86_32
 media-libs/freeglut abi_x86_32
 media-libs/freetype abi_x86_32
 media-libs/glu abi_x86_32
+media-libs/gst-plugins-base abi_x86_32
+media-libs/gstreamer abi_x86_32
 media-libs/harfbuzz abi_x86_32
 media-libs/jasper abi_x86_32
 media-libs/libdc1394 abi_x86_32
@@ -71,6 +78,7 @@ sys-apps/attr abi_x86_32
 sys-apps/dbus abi_x86_32
 sys-apps/tcp-wrappers abi_x86_32
 sys-apps/util-linux abi_x86_32
+sys-devel/gettext abi_x86_32
 sys-devel/llvm abi_x86_32
 sys-fs/eudev abi_x86_32
 sys-libs/gpm abi_x86_32
@@ -87,6 +95,7 @@ virtual/libiconv abi_x86_32
 virtual/libintl abi_x86_32
 virtual/libudev abi_x86_32
 virtual/libusb abi_x86_32
+virtual/mysql abi_x86_32
 virtual/opengl abi_x86_32
 virtual/pkgconfig abi_x86_32
 x11-libs/cairo abi_x86_32
@@ -112,9 +121,11 @@ x11-libs/libXfixes abi_x86_32
 x11-libs/libXft abi_x86_32
 x11-libs/libXi abi_x86_32
 x11-libs/libXinerama abi_x86_32
+x11-libs/libXmu abi_x86_32
 x11-libs/libXrandr abi_x86_32
 x11-libs/libXrender abi_x86_32
 x11-libs/libxshmfence abi_x86_32
+x11-libs/libXt abi_x86_32
 x11-libs/libXtst abi_x86_32
 x11-libs/libXv abi_x86_32
 x11-libs/libXvMC abi_x86_32
