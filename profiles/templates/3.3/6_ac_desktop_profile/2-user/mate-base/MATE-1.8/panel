@@ -28,6 +28,42 @@ object-type='menu'
 use-menu-path=false
 panel-right-stick=false
 locked=true
+#?os_locale_lang==en_US#
+tooltip='Main Menu'
+#os_locale_lang#
+#?os_locale_lang==ru_RU#
+tooltip='Главное меню'
+#os_locale_lang#
+#?os_locale_lang==de_DE#
+tooltip='Hauptmenü'
+#os_locale_lang#
+#?os_locale_lang==es_ES#
+tooltip='Menú principal'
+#os_locale_lang#
+#?os_locale_lang==it_IT#
+tooltip='Menù principale'
+#os_locale_lang#
+#?os_locale_lang==fr_FR#
+tooltip='Menu principal'
+#os_locale_lang#
+#?os_locale_lang==pl_PL#
+tooltip='Menu główne'
+#os_locale_lang#
+#?os_locale_lang==pt_PT#
+tooltip='Menu principal'
+#os_locale_lang#
+#?os_locale_lang==pt_BR#
+tooltip='Menu Principal'
+#os_locale_lang#
+#?os_locale_lang==bg_BG#
+tooltip='Основно меню'
+#os_locale_lang#
+#?os_locale_lang==ro_RO#
+tooltip='Meniu principal'
+#os_locale_lang#
+#?os_locale_lang==uk_UA#
+tooltip='головне меню'
+#os_locale_lang#
 
 [objects/object_separator_1]
 toplevel-id='toplevel_top'

@@ -1,4 +1,6 @@
 # Calculate format=dconf dconf=/org/mate
+[calc]
+show-thousands=true
 
 [caja/desktop]
 computer-icon-visible=false
@@ -76,8 +78,11 @@ font-family='Droid Sans 18'
 cursor-theme='calculate'
 
 [desktop/peripherals/touchpad]
-disable-while-typing=true
+disable-while-typing=false
 tap-to-click=true
+
+[dictionary]
+print-font='Droid Sans 12'
 
 [marco/general]
 side-by-side-tiling=false

@@ -1,0 +1,5 @@
+CFLAGS="-O2 -march=i686 -pipe"
+CXXFLAGS="${CFLAGS}"
+CHOST="i686-pc-linux-gnu"
+GRUB_PLATFORMS="pc"
+PKGDIR="/var/calculate/remote/packages/i686"

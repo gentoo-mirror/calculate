@@ -1,7 +1,0 @@
-# Calculate append=replace chmod=0755 force path=/etc/X11/xinit/xinitrc.d
-
-if [[ -f /tmp/$USER-login-status ]]
-then
-    rm /tmp/$USER-login-status
-    exit 1
-fi

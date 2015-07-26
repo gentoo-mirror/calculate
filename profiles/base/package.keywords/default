@@ -3,12 +3,12 @@
 ~app-i18n/man-pages-ru-3.71.2209.1992.20140911 amd64 x86
 ~dev-python/lxml-3.4.2 amd64 x86
 ~dev-python/pyopenssl-0.15.1 amd64 x86
-~dev-python/py-smbpasswd-1.0.1 amd64
+~dev-python/py-smbpasswd-1.0.1 amd64 x86
 ~media-video/ffmpeg-2.6.3 amd64 x86
 ~net-analyzer/speedtest-cli-0.2.5 amd64 x86
 ~net-print/gutenprint-5.2.10 amd64 x86
-~net-print/hplip-3.15.4 amd64 x86
-~net-print/hplip-plugin-3.15.4 amd64 x86
+~net-print/hplip-3.15.6 amd64 x86
+~net-print/hplip-plugin-3.15.6 amd64 x86
 ~net-wireless/broadcom-sta-6.30.223.248 amd64 x86
 ~sys-apps/ethtool-3.18 amd64 x86
 ~sys-apps/inxi-2.2.19 amd64 x86
@@ -27,8 +27,3 @@
 # support TLSv1_2
 ~dev-python/cryptography-0.7.2 amd64 x86
 ~dev-python/enum34-1.0.4 amd64 x86
-
-# from the overlay
-=app-crypt/shim-signed-0.2 amd64 x86
-~dev-python/soaplib-1.0.0 amd64 x86
-

@@ -13,6 +13,18 @@ sys-libs/gpm static-libs
 media-libs/libpng static-libs
 media-libs/freetype static-libs
 
+# support caja
+app-arch/engrampa caja
+
+# use the system components instead of bundled
+mail-client/thunderbird system-cairo system-icu system-jpeg system-libvpx system-sqlite
+
+# use the system components instead of bundled
+www-client/firefox system-cairo system-icu system-jpeg system-libvpx system-sqlite
+
+# required by www-client/firefox-39.0::gentoo[system-sqlite]
+dev-db/sqlite secure-delete
+
 # use qt4
 media-video/smplayer qt4 autoshutdown
 
@@ -82,7 +94,6 @@ net-libs/libproxy -webkit
 # Removed unnecessary dependence
 # -----------------------------------------
 app-accessibility/speech-dispatcher -espeak
-app-arch/p7zip -kde
 app-misc/mc -spell
 dev-util/cmake -qt4
 dev-vcs/git -gtk
@@ -91,6 +102,7 @@ gnome-extra/zenity -webkit
 kde-apps/kdebase-runtime-meta minimal -crash-reporter
 kde-apps/print-manager -gtk
 mail-client/claws-mail -libindicate
+mate-extra/mate-sensors-applet -video_cards_nvidia
 media-gfx/gimp -webkit
 media-gfx/imagemagick -X
 media-gfx/ufraw -gtk
@@ -100,7 +112,6 @@ net-dialup/rp-pppoe -X
 net-fs/samba -winbind
 net-libs/webkit-gtk -geoloc
 net-p2p/ktorrent -infowidget
-net-print/hplip -kde -qt4
 net-wireless/wpa_supplicant -qt4
 sys-auth/polkit -gtk
 sys-fs/mtools -X
@@ -142,7 +153,7 @@ media-video/mplayer bidi live -video_cards_tdfx
 net-misc/networkmanager connection-sharing dhclient -dhcpcd modemmanager
 
 # Enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
-net-print/hplip fax snmp hpijs -X
+net-print/hplip fax snmp hpijs -X -qt4
 
 #To display the icons in the menu, support xdg autostart
 x11-wm/openbox imlib xdg
@@ -272,3 +283,27 @@ dev-libs/keybinder python
 
 # required by media-tv/kodi-14.1
 net-libs/libmicrohttpd messages
+
+# support for OpenOffice.org SVG jar files, color management engine,
+# Microsoft Visio Diagrams, WordPerfect Graphics
+media-gfx/inkscape inkjar lcms visio wpg
+
+# required by dev-python/PyQt5-5.4.2::gentoo[webkit]
+>=dev-qt/qtwebkit-5.4.2 printsupport
+
+#The following REQUIRED_USE flag constraints are unsatisfied: mikmod? ( mod )
+media-libs/sdl-mixer mod
+
+# The following REQUIRED_USE flag constraints are unsatisfied:
+# theora? ( video ) X? ( video ) v4l? ( video )
+media-libs/mediastreamer video
+
+# required by media-video/openshot-1.4.3o
+media-libs/mlt python frei0r
+
+# required by net-im/psi-0.15::gentoo[crypt]
+app-crypt/qca gpg
+
+# required by media-video/totem-3.14.3
+media-libs/grilo playlist
+
