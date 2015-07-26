@@ -13,6 +13,18 @@ sys-libs/gpm static-libs
 media-libs/libpng static-libs
 media-libs/freetype static-libs
 
+# support caja
+app-arch/engrampa caja
+
+# use the system components instead of bundled
+mail-client/thunderbird system-cairo system-icu system-jpeg system-libvpx system-sqlite
+
+# use the system components instead of bundled
+www-client/firefox system-cairo system-icu system-jpeg system-libvpx system-sqlite
+
+# required by www-client/firefox-39.0::gentoo[system-sqlite]
+dev-db/sqlite secure-delete
+
 # use qt4
 media-video/smplayer qt4 autoshutdown
 
