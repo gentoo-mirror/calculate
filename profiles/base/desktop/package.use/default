@@ -18,8 +18,7 @@ app-arch/engrampa caja
 
 # use the system components instead of bundled
 mail-client/thunderbird system-cairo system-icu system-jpeg system-libvpx system-sqlite
-
-# use the system components instead of bundled
+media-sound/clementine system-sqlite
 www-client/firefox system-cairo system-icu system-jpeg system-libvpx system-sqlite
 
 # required by www-client/firefox-39.0::gentoo[system-sqlite]
