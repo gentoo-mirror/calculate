@@ -18,8 +18,7 @@ app-arch/engrampa caja
 
 # use the system components instead of bundled
 mail-client/thunderbird system-cairo system-icu system-jpeg system-libvpx system-sqlite
-
-# use the system components instead of bundled
+media-sound/clementine system-sqlite
 www-client/firefox system-cairo system-icu system-jpeg system-libvpx system-sqlite
 
 # required by www-client/firefox-39.0::gentoo[system-sqlite]
@@ -99,7 +98,7 @@ dev-util/cmake -qt4
 dev-vcs/git -gtk
 gnome-extra/nm-applet -bluetooth
 gnome-extra/zenity -webkit
-kde-apps/kdebase-runtime-meta minimal -crash-reporter
+kde-apps/kdebase-runtime-meta -crash-reporter
 kde-apps/print-manager -gtk
 mail-client/claws-mail -libindicate
 mate-extra/mate-sensors-applet -video_cards_nvidia
