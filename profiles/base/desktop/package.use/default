@@ -322,3 +322,6 @@ sys-apps/util-linux tty-helpers
 
 # Add support for the Qt GUI/Application
 net-im/licq qt4
+
+# Enables fuse mount points in $HOME/.gvfs for legacy application access
+gnome-base/gvfs fuse
