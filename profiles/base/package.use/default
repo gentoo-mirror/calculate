@@ -47,3 +47,6 @@ media-libs/chromaprint tools
 
 # required by media-radio/fldigi-3.22.05
 x11-libs/fltk xft
+
+# required by net-wireless/aircrack-ng-1.2_rc1-r1::gentoo[airdrop-ng]
+net-wireless/lorcon python
