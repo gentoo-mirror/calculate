@@ -329,3 +329,7 @@ gnome-base/gvfs fuse mtp
 # The following REQUIRED_USE flag constraints are unsatisfied:
 # pulseaudio? ( sound )
 dev-libs/efl sound
+
+# The following REQUIRED_USE flag constraints are unsatisfied:
+# introspection? ( deprecated )
+www-client/midori -introspection
