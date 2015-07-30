@@ -243,13 +243,6 @@ media-libs/libvpx postproc
 # required by media-gfx/digikam-4.4.0-r1
 kde-apps/marble plasma
 
-# required by blender-2.72b-r3
-media-gfx/blender python_targets_python3_4
-dev-python/chardet python_targets_python3_4
-dev-python/numpy python_targets_python3_4
-dev-python/requests python_targets_python3_4
-dev-python/setuptools python_targets_python3_4
-
 # required by dev-qt/qtwidgets-5.4.2
 >=dev-qt/qtgui-5.4.2 -gtkstyle
 # required by dev-qt/qtwebkit-5.4.2
@@ -270,12 +263,6 @@ x11-libs/vte python
 
 # required by mail-client/geary-0.6.3-r1
 app-crypt/gcr vala
-
-# required by gnome-extra/cinnamon-2.6.9
-dev-python/dbus-python python_targets_python3_4
-dev-python/pycairo python_targets_python3_4
-dev-python/pygobject python_targets_python3_4
-gnome-extra/cinnamon python_targets_python3_4
 
 # required by x11-terms/terminator-0.96-r1
 dev-libs/keybinder python

@@ -1,0 +1,14 @@
+x11-misc/compton python_targets_python3_4
+
+# required by blender-2.72b-r3
+media-gfx/blender python_targets_python3_4
+dev-python/chardet python_targets_python3_4
+dev-python/numpy python_targets_python3_4
+dev-python/requests python_targets_python3_4
+dev-python/setuptools python_targets_python3_4
+
+# required by gnome-extra/cinnamon-2.6.9
+dev-python/dbus-python python_targets_python3_4
+dev-python/pycairo python_targets_python3_4
+dev-python/pygobject python_targets_python3_4
+gnome-extra/cinnamon python_targets_python3_4
