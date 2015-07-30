@@ -336,3 +336,6 @@ www-client/midori -introspection
 
 # required by kde-apps/kopete-4.14.3-r1:4/4.14
 dev-qt/qtgui mng
+
+# Build/Install tint2conf as well
+x11-misc/tint2 tint2conf
