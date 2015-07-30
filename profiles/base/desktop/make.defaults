@@ -1,11 +1,8 @@
 # Audio
-USE="${USE} alsa amr -arts audiofile cdda cue id3tag -libav flac gstreamer mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr portaudio pulseaudio wavpack vorbis"
+USE="${USE} alsa amr -arts audiofile cdda cue id3tag flac gstreamer mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr portaudio pulseaudio wavpack vorbis"
 
 # CD and DVD
 USE="${USE} cdparanoia cdr css dvd dvdr dvdread vcd"
-
-# Decoration
-USE="${USE} -wallpapers"
 
 # Devices
 USE="${USE} ios ipod udev"
@@ -19,16 +16,11 @@ USE="${USE} crypt ssl"
 # Hardware
 USE="${USE} acpi cairo cpudetection dbus dri ieee1394 gpm opengl scanner smp usb vdpau -video_cards_dummy -video_cards_fbdev -video_cards_v4l -video_cards_via xcomposite"
 
-#USE="${USE} apm bluetooth"
-
 # Internet Messager
 USE="${USE} irc jabber oscar"
 
 # Image support
-USE="${USE} X exif fdftk gd gif imagemagick jpeg jpeg2k mng openexr pdf png raw svg tiff webp wmf wxwindows" 
-
-# Languages support
-#USE="${USE} -java"
+USE="${USE} X fdftk gd imagemagick openexr pdf png raw svg webp wmf wxwindows" 
 
 # Locale and Fonts
 USE="${USE} spell"
@@ -39,14 +31,11 @@ USE="${USE} mbox"
 # Network protocols
 USE="${USE} rdesktop"
 
-# Print
-USE="${USE} cups"
-
 # Photo
 USE="${USE} gphoto2"
 
 # System
-USE="${USE} consolekit -dconf -gnome-shell networkmanager nsplugin policykit udisks"
+USE="${USE} consolekit networkmanager nsplugin policykit udisks"
 
 # Video
 USE="${USE} a52 aac -aalib avi cddb dv encode faac ffmpeg flash lzo matroska mplayer musepack real sdl speex srt -svga tga quicktime theora vaapi v4l v4l2 vidix win32codecs xanim x264 x265 xinerama xv xvid xvmc"
@@ -59,7 +48,7 @@ USE="${USE} libwww vhosts webkit"
 USE="${USE} bluetooth wimax"
 
 # Window manager and speciality
-USE="${USE} -eds -gnome gtk libnotify qt3support -qt3"
+USE="${USE} gtk libnotify qt3support"
 
 #ABI_X86="32"
 CAMERAS="*"
@@ -68,4 +57,3 @@ LIRC_DEVICES="devinput"
 PORTAGE_NICENESS="19"
 PORTAGE_IONICE_COMMAND="ionice -c 3 -p \${PID}"
 VIDEO_CARDS="i915 i965 intel nouveau nv nvidia r100 r200 r300 r600 radeon vesa"
-
