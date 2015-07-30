@@ -1,5 +1,5 @@
 # Image support
-USE="${USE} exif gif jpeg jpeg2k png tiff"
+USE="${USE} exif gif jpeg jpeg2k png tiff -mng"
 
 # Hardware
 USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 lm_sensors mmx mmxext padlock popcnt sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 xop"
@@ -23,7 +23,7 @@ USE="${USE} cups foomaticdb"
 USE="${USE} -python_targets_python3_4 python_targets_python2_7"
 
 # Ruby
-USE="${USE} ruby_targets_ruby21 -ruby_targets_ruby20 -ruby_targets_ruby19"
+USE="${USE} ruby_targets_ruby21 ruby_targets_ruby20 -ruby_targets_ruby19"
 
 # System
 USE="${USE} introspection logrotate threads"
