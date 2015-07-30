@@ -333,3 +333,6 @@ dev-libs/efl sound
 # The following REQUIRED_USE flag constraints are unsatisfied:
 # introspection? ( deprecated )
 www-client/midori -introspection
+
+# required by kde-apps/kopete-4.14.3-r1:4/4.14
+dev-qt/qtgui mng
