@@ -1,17 +1,14 @@
-# Decoration
-USE="${USE} -branding"
+# Image support
+USE="${USE} exif gif jpeg jpeg2k png tiff -mng"
 
 # Hardware
 USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 lm_sensors mmx mmxext padlock popcnt sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 xop"
-
-# Lang
-#USE="${USE} perl python"
 
 # Locale and Fonts
 USE="${USE} truetype userlocales"
 
 # Mail
-USE="${USE} -mailwrapper"
+USE="${USE} imap"
 
 # Net protocols
 USE="${USE} bittorrent ftp nfs samba"
@@ -20,10 +17,13 @@ USE="${USE} bittorrent ftp nfs samba"
 USE="${USE} ppp"
 
 # Printing
-USE="${USE} foomaticdb" 
+USE="${USE} cups foomaticdb"
 
 # Python
-USE="${USE} -python_targets_python3_4 -python_targets_python3_3 -python_targets_python3_2 python_targets_python2_7 -ruby_targets_ruby19 -ruby_targets_ruby18"
+USE="${USE} -python_targets_python3_4 python_targets_python2_7"
+
+# Ruby
+USE="${USE} ruby_targets_ruby21 ruby_targets_ruby20 -ruby_targets_ruby19"
 
 # System
 USE="${USE} introspection logrotate threads"
@@ -39,6 +39,5 @@ LDFLAGS="-Wl,--as-needed"
 LINGUAS="en bg de es es_ES fr it pl pt pt_BR ro ru ru_RU uk"
 NPTL_KERN_VER="3.12.0"
 PORTAGE_TMPDIR="/var/calculate/tmp"
-RUBY_TARGETS="ruby20"
 USE_EXPAND="CL THEMES"
 USE_PYTHON="2.7"
