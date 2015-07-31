@@ -2,33 +2,15 @@
 >dev-python/m2crypto-0.21.1-r2
 
 # mask portage wgetpaste
-=app-text/wgetpaste-2.22
 >app-text/wgetpaste-2.25-r4
-
-#sdb-ldap - patch broken
-=net-dns/bind-9.10.1_p1
-=net-dns/bind-9.10.2_p2
-=net-dns/bind-tools-9.10.2_p2
-
-# mask all device-mapper for using lvm2
-sys-fs/device-mapper
 
 # package above 2.0 has not calculate patches
 >sys-boot/grub-2.02_beta2-r3
-
-# exclude Python 3
-#>=dev-lang/python-3
 
 # requires python3
 >=app-misc/media-player-info-21
 
 >=dev-python/cherrypy-3.2.2-r1
-
-# calckernel is not used anymore (replace to dracut)
-sys-kernel/calckernel
-
-# wrong work
->=sys-boot/plymouth-0.9.0
 
 # have not calcboot-5.10
 >=sys-boot/syslinux-5.10
