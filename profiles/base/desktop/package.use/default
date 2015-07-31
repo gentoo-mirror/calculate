@@ -323,3 +323,6 @@ www-client/midori -introspection
 
 # required by kde-apps/kopete-4.14.3-r1:4/4.14
 dev-qt/qtgui mng
+
+# add support git and cmake
+dev-qt/qt-creator cmake git
