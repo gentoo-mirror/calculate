@@ -26,5 +26,5 @@ RDEPEND="${RDEPEND}
 	cl_assemble? ( =sys-apps/calculate-assemble-2.2.32-r9 )
 	cl_builder? ( =sys-apps/calculate-builder-2.2.32-r8 )
 
-	cl_server? ( =sys-apps/calculate-server-2.1.16-r20 )
+	cl_server? ( =sys-apps/calculate-server-2.1.16-r21 )
 "
