@@ -53,6 +53,8 @@ src_unpack() {
 	# support skip templates 3.3
 	epatch "${FILESDIR}/calculate-lib-2.2.32-fix_template3.patch"
 
-	# support CLDM,CLSM
+	# support CLDM,CLSM,CLD+,CLDX+,CDS+,CLDO
 	epatch "${FILESDIR}/calculate-lib-2.2.32-cldm_clsm.patch"
+	epatch "${FILESDIR}/calculate-lib-2.2.32-distros_plus.patch"
+	epatch "${FILESDIR}/calculate-lib-2.2.32-distros_cldo.patch"
 }
