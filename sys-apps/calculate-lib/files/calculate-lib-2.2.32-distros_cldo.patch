@@ -1,0 +1,66 @@
+diff --git a/pym/cl_utils.py b/pym/cl_utils.py
+index e3ee08d..21c7dbb 100644
+--- a/pym/cl_utils.py
++++ b/pym/cl_utils.py
+@@ -1291,6 +1291,7 @@ def detectBuild(pathname,dictInfo):
+          path.exists(pathJoin(pathname,"workspace")):
+         dictInfo['type'] = " builder"
+         issue = readFile(pathJoin(pathname,'etc/gentoo-release'))
++        lower_issue = issue.lower()
+         if "Server" in issue:
+             if "Scratch" in issue:
+                 dictInfo['name'] = "CSS"
+@@ -1300,9 +1301,9 @@ def detectBuild(pathname,dictInfo):
+                 else:
+                     dictInfo['name'] = "CDS"
+         elif "Desktop" in issue:
+-            if "XFCE Plus" in issue:
++            if "xfce plus" in lower_issue:
+                 dictInfo['name'] = "CLDX+"
+-            elif "XFCE" in issue:
++            elif "xfce" in lower_issue:
+                 dictInfo['name'] = "CLDX"
+             elif "KDE Plus" in issue:
+                 dictInfo['name'] = "CLD+"
+@@ -1312,6 +1313,8 @@ def detectBuild(pathname,dictInfo):
+                 dictInfo['name'] = "CLDG"
+             elif "MATE" in issue:
+                 dictInfo['name'] = "CLDM"
++            elif "openbox" in lower_issue:
++                dictInfo['name'] = "CLDO"
+         elif "Scratch" in issue:
+             if "MATE" in issue:
+                 dictInfo['name'] = "CLSM"
+diff --git a/pym/cl_vars_share.py b/pym/cl_vars_share.py
+index c7f6307..f55a021 100644
+--- a/pym/cl_vars_share.py
++++ b/pym/cl_vars_share.py
+@@ -255,6 +255,7 @@ class varsShare:
+                      "CLDX+":"Calculate Linux Desktop",
+                      "CLDG":"Calculate Linux Desktop",
+                      "CLDM":"Calculate Linux Desktop",
++                     "CLDO":"Calculate Linux Desktop",
+                      "CDS":"Calculate Directory Server",
+                      "CDS+":"Calculate Directory Server Plus",
+                      "CLS":"Calculate Linux Scratch",
+@@ -263,9 +264,9 @@ class varsShare:
+                      "CMC":"Calculate Media Center",
+                      "Gentoo":"Gentoo"}
+ 
+-    dictLinuxSubName = {"CLD":"KDE", "CLDX":"XFCE", "CLDG":"GNOME",
+-                        "CLSM":"MATE", "CLDM":"MATE",
+-                        "CLD+":"KDE Plus", "CLDX+": "XFCE Plus"}
++    dictLinuxSubName = {"CLD":"KDE", "CLDX":"Xfce", "CLDG":"GNOME",
++                        "CLSM":"MATE", "CLDM":"MATE", "CLDO": "Openbox",
++                        "CLD+":"KDE Plus", "CLDX+": "Xfce Plus"}
+ 
+     dictNameSystem = {'CDS':'server',
+                       'CDS+':'server',
+@@ -274,6 +275,7 @@ class varsShare:
+                       'CLDG':'desktop',
+                       'CLDM':'desktop',
+                       'CLDX':'desktop',
++                      'CLDO':'desktop',
+                       'CLDX+':'desktop',
+                       'CLS':'desktop',
+                       'CLSM':'desktop',
