@@ -50,3 +50,6 @@ x11-libs/fltk xft
 
 # required by net-wireless/aircrack-ng-1.2_rc1-r1::gentoo[airdrop-ng]
 net-wireless/lorcon python
+
+# required by net-wireless/blueman-2.0
+net-dns/avahi autoipd
