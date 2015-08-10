@@ -1,0 +1,45 @@
+# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.18.20&&pkg(sys-kernel/calculate-sources)<3.19&&merge(x11-drivers/ati-drivers)>=15.7&&merge(x11-drivers/ati-drivers)<15.8
+diff --git a/common/lib/modules/fglrx/build_mod/firegl_public.c b/common/lib/modules/fglrx/build_mod/firegl_public.c
+index a8961ad..1287e80 100755
+--- a/common/lib/modules/fglrx/build_mod/firegl_public.c
++++ b/common/lib/modules/fglrx/build_mod/firegl_public.c
+@@ -4498,8 +4498,8 @@ static void kcl_mem_pat_setup (void *info)
+ 
+     if (cpu_has_pge)
+     {
+-        cr4 = read_cr4();
+-        write_cr4(cr4 & ~X86_CR4_PGE);
++        cr4 = __read_cr4();
++        __write_cr4(cr4 & ~X86_CR4_PGE);
+     }
+      __flush_tlb();
+ 
+@@ -4512,7 +4512,7 @@ static void kcl_mem_pat_setup (void *info)
+     write_cr0(cr0 & 0xbfffffff);
+     if (cpu_has_pge)
+     {
+-        write_cr4(cr4);
++        __write_cr4(cr4);
+     }
+     local_irq_restore(flags);
+ 
+@@ -4539,8 +4539,8 @@ static void kcl_mem_pat_restore (void *info)
+ 
+     if (cpu_has_pge)
+     {
+-        cr4 = read_cr4();
+-        write_cr4(cr4 & ~X86_CR4_PGE);
++        cr4 = __read_cr4();
++        __write_cr4(cr4 & ~X86_CR4_PGE);
+     }
+      __flush_tlb();
+   
+@@ -4552,7 +4552,7 @@ static void kcl_mem_pat_restore (void *info)
+     write_cr0(cr0 & 0xbfffffff);
+     if (cpu_has_pge)
+     {
+-        write_cr4(cr4);
++        __write_cr4(cr4);
+     }
+     local_irq_restore(flags);
+ 
