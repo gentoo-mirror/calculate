@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -31,16 +31,11 @@ RDEPEND="
 
 		amd64? (
 			steamruntime? (
-				|| (
-					>=app-emulation/emul-linux-x86-xlibs-20121028[-abi_x86_32(-)]
-					(
-						x11-libs/libX11[abi_x86_32]
-						x11-libs/libXau[abi_x86_32]
-						x11-libs/libxcb[abi_x86_32]
-						x11-libs/libXdmcp[abi_x86_32]
-					)
+				x11-libs/libX11[abi_x86_32]
+				x11-libs/libXau[abi_x86_32]
+				x11-libs/libxcb[abi_x86_32]
+				x11-libs/libXdmcp[abi_x86_32]
 				)
-			)
 			!steamruntime? ( >=games-util/steam-client-meta-0-r20141204[steamruntime?] )
 			>=sys-devel/gcc-4.6.0[multilib]
 			>=sys-libs/glibc-2.15[multilib]
@@ -58,6 +53,7 @@ S=${WORKDIR}/steam/
 
 src_prepare() {
 	epatch "${FILESDIR}"/steam-fix-ld-library-path.patch
+	epatch "${FILESDIR}"/steam-fix-joystick-detection.patch
 
 	if ! use steamruntime; then
 		# use system libraries if user has not set the variable otherwise and add dirty hack for unbound LD_LIBRARY_PATH if it is not set
@@ -65,7 +61,7 @@ src_prepare() {
 		# use violent force to load the system's SDL library
 		#sed -i '/export STEAM_RUNTIME=0; fi/a if \[ \"$STEAM_RUNTIME\" == "0" \]; then export LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0"; fi' steam || die
 	fi
-	
+
 	# dirty workaround to avoid crashing distro detection
 	sed -i '/(export TEXTDOMAIN=steam)/a export DISTRIB_RELEASE="FixMe"' steam || die
 
