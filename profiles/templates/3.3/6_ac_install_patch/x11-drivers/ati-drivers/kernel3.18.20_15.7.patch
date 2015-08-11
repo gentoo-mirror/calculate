@@ -43,3 +43,22 @@ index a8961ad..1287e80 100755
      }
      local_irq_restore(flags);
  
+diff --git a/common/lib/modules/fglrx/build_mod/kcl_acpi.c b/common/lib/modules/fglrx/build_mod/kcl_acpi.c
+index 3a80984..679cfbf 100755
+--- a/common/lib/modules/fglrx/build_mod/kcl_acpi.c
++++ b/common/lib/modules/fglrx/build_mod/kcl_acpi.c
+@@ -861,7 +861,13 @@ void ATI_API_CALL KCL_ACPI_No_Hotplug(void* dev)
+ #elif LINUX_VERSION_CODE >= KERNEL_VERSION(3,17,0)
+     if(pdev)
+     {
+-       pci_ignore_hotplug(pdev);
++       //pci_ignore_hotplug(pdev);
++       struct pci_dev *bridge = pdev->bus->self;
++
++       pdev->ignore_hotplug = 1;
++       /* Propagate the "ignore hotplug" setting to the parent bridge. */
++       if (bridge)
++           bridge->ignore_hotplug = 1;
+     }
+ #endif
+ }
