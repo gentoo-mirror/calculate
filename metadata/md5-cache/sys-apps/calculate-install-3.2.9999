@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=~sys-apps/calculate-lib-3.2.9999 app-portage/layman !minimal? ( sys-boot/grub sys-apps/gptfdisk sys-fs/dosfstools sys-fs/squashfs-tools sys-block/parted ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] dev-vcs/git
+DESCRIPTION=Calculate Linux installation tool
+EAPI=5
+HOMEPAGE=http://www.calculate-linux.org/main/en/calculate2
+IUSE=minimal python_targets_python2_7
+LICENSE=Apache-2.0
+RDEPEND=~sys-apps/calculate-lib-3.2.9999 app-portage/layman !minimal? ( sys-boot/grub sys-apps/gptfdisk sys-fs/dosfstools sys-fs/squashfs-tools sys-block/parted ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+REQUIRED_USE=|| ( python_targets_python2_7 )
+SLOT=3
+_eclasses_=distutils-r1	0fbebe7ad62dbe4583baab75733f8aa0	eutils	351a78113be5b393c09a2c948701ad36	git-2	1bb87192831f668cd20d93ffb1689c94	multibuild	4550e10791f720f7af3fdd911aedf518	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	python-r1	0cafc0cf4ff05a561eb084acb586152e	python-utils-r1	c595450196ccd7d3fac66424be096ffc	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=1558a2186f3954a9bc7267a235aeda14

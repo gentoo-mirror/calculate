@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm preinst prepare
+DEPEND=>=sys-apps/sed-4 virtual/pkgconfig
+DESCRIPTION=Installer, launcher and supplementary files for Valve's Steam client
+EAPI=5
+HOMEPAGE=http://steampowered.com
+IUSE=+steamruntime
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=ValveSteamLicense
+RDEPEND=app-arch/tar app-shells/bash net-misc/curl || ( >=gnome-extra/zenity-3 x11-terms/xterm ) amd64? ( steamruntime? ( || ( >=app-emulation/emul-linux-x86-xlibs-20121028[-abi_x86_32(-)] ( x11-libs/libX11[abi_x86_32] x11-libs/libXau[abi_x86_32] x11-libs/libxcb[abi_x86_32] x11-libs/libXdmcp[abi_x86_32] ) ) ) !steamruntime? ( >=games-util/steam-client-meta-0-r20141204[steamruntime?] ) >=sys-devel/gcc-4.6.0[multilib] >=sys-libs/glibc-2.15[multilib] ) x86? ( >=sys-devel/gcc-4.6.0 >=sys-libs/glibc-2.15 >=x11-libs/libX11-1.5 x11-libs/libXau x11-libs/libxcb x11-libs/libXdmcp )
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=http://repo.steampowered.com/steam/pool/steam/s/steam/steam_1.0.0.49.tar.gz
+_eclasses_=eutils	351a78113be5b393c09a2c948701ad36	fdo-mime	92d07846ea8ea54172f8c0112a47ae3d	gnome2-utils	ba8b66b446cac0566ae76d6e5bf2f914	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361	udev	37ef89be271b9ae8aa64be024ddb39b5
+_md5_=717d5b7be8f097a1fe666b34c9534667

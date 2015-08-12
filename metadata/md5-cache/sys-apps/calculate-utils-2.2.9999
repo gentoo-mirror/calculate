@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=Calculate Utilities meta package
+EAPI=3
+HOMEPAGE=http://www.calculate-linux.org/main/en/calculate2
+IUSE=cl_assemble cl_builder cl_client cl_desktop cl_installgui cl_server
+LICENSE=Apache-2.0
+RDEPEND==sys-apps/calculate-install-2.2.9999 =sys-apps/calculate-templates-2.2.9999 =sys-apps/calculate-lib-2.2.9999 cl_assemble? ( =sys-apps/calculate-assemble-2.2.9999 ) cl_builder? ( =sys-apps/calculate-builder-2.2.9999 ) cl_client? ( =sys-apps/calculate-client-2.2.9999 ) cl_desktop? ( =sys-apps/calculate-desktop-2.2.9999 ) cl_installgui? ( =app-misc/calculate-install-gui-2.2.9999 ) cl_server? ( =sys-apps/calculate-server-9999 )
+SLOT=0
+_md5_=3750eb3abc7b81e717327249406f6f35
