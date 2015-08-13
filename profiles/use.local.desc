@@ -1,45 +1,27 @@
-# Copyright 1999-2008 Gentoo Foundation.
-# Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# This file is deprecated as per GLEP 56 in favor of metadata.xml. Please add
+# your descriptions to your package's metadata.xml ONLY.
+# * generated automatically using pmaint *
 
-media-gfx/splash-themes-calculate:themes_CDS - Uses CDS splash themes
-media-gfx/splash-themes-calculate:themes_CLD - Uses CLD splash themes
-media-gfx/splash-themes-calculate:themes_CLDG - Uses CLDG splash themes
-media-gfx/splash-themes-calculate:themes_CLDX - Uses CLDX splash themes
-media-gfx/splash-themes-calculate:themes_CLS - Uses CLS splash themes
-media-gfx/splash-themes-calculate:themes_CMC - Uses CMC splash themes
-media-gfx/calculate-wallpapers:CL11 - Include Calculate Linux 11 wallpapers
-media-gfx/calculate-wallpapers:CL12 - Include Calculate Linux 12 wallpapers
-media-gfx/calculate-wallpapers:CL13 - Include Calculate Linux 13 wallpapers
-net-print/cnijfilter:net - Add network backend for CUPS
-net-print/cnijfilter:servicetools - Build service tools utility, this require very old libs
-sys-apps/calculate-install:minimal - Without Calculate Linux install support
-sys-apps/calculate-install:pxe - Enables support for PXE installation
-sys-apps/calculate-server:calculate_nodhcp - Includes dependencies of packages for DHCP
-sys-apps/calculate-server:calculate_noftp - Includes dependencies of packages for FTP
-sys-apps/calculate-server:calculate_nojabber - Includes dependencies of packages for Jabber
-sys-apps/calculate-server:calculate_nomail - Includes dependencies of packages for Mail
-sys-apps/calculate-server:calculate_nonamed - Includes dependencies of packages for DNS
-sys-apps/calculate-server:calculate_noproxy - Includes dependencies of packages for Proxy
-sys-apps/calculate-server:calculate_nosamba - Includes dependencies of packages for Samba
-sys-apps/calculate-utils:cl_client - Includes calculate-client dependence
-sys-apps/calculate-utils:cl_console -Includes calculate-console dependence 
-sys-apps/calculate-utils:cl_consolegui - Includes calculate-console-gui dependence
-sys-apps/calculate-utils:cl_desktop - Includes calculate-desktop dependence
-sys-apps/calculate-utils:pxe - Enables support for PXE installation
-sys-apps/calculate-utils:console - Includes console module
-sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain
-sys-apps/calculate-utils:desktop - Includes module for desktop configuration
-sys-kernel/calckernel:lspci - Adds video detect by PCI device
-sys-kernel/calckernel:nfs - Adds support for PXE boot
-sys-kernel/calculate-sources:themes - Adds Calculate themes dependence
+net-dns/bind:dlz - Enables dynamic loaded zones, 3rd party extension
+net-dns/bind:filter-aaaa - Enable filtering of AAAA records over IPv4
+net-dns/bind:fixed-rrset - Enables fixed rrset-order option
+net-dns/bind:gost - Enables gost OpenSSL engine support
+net-dns/bind:gssapi - Enable gssapi support
+net-dns/bind:json - Enable JSON statistics channel
+net-dns/bind:nslint - Build and install the nslint util
+net-dns/bind:rpz - Enable response policy rewriting (rpz)
+net-dns/bind:sdb-ldap - LDAP sdb back-end
+net-dns/bind:urandom - Use /dev/urandom instead of /dev/random
+sys-apps/calculate-install:minimal - Use minimal depends for calculate install.
+sys-apps/calculate-install:pxe - Enables support for PXE installation.
+sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain.
+sys-apps/calculate-utils:console - Includes console module.
+sys-apps/calculate-utils:desktop - Includes module for desktop configuration.
+sys-apps/calculate-utils:minimal - Use minimal depends for calculate install.
+sys-apps/calculate-utils:pxe - Enables support for PXE installation.
 sys-kernel/calculate-sources:bfq - Apply kernel patch for BFQ I/O scheduler
 sys-kernel/calculate-sources:bfs - Apply kernel patch for BF scheduler
 sys-kernel/calculate-sources:firmware - Install linux kernel firmware
-sys-kernel/calculate-sources:minimal - Don't install kernel sources
+sys-kernel/calculate-sources:hardened - Apply Gentoo's hardened patchset
+sys-kernel/calculate-sources:themes - Adds Calculate themes dependence
 sys-kernel/calculate-sources:vmlinuz - Build kernel, modules and initramfs
-x11-themes/calculate-icon-theme:themes_CLD - Uses CLD icon themes
-x11-themes/calculate-icon-theme:themes_CLDG - Uses CLDG icon themes
-x11-themes/calculate-icon-theme:themes_CLDX - Uses CLDX icon themes
-x11-themes/calculate-icon-theme:themes_CLS - Uses CLS icon themes
-net-dns/bind:sdb-ldap - LDAP sdb back-end
