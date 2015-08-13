@@ -1,0 +1,25 @@
+# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.18.20&&pkg(sys-kernel/calculate-sources)<3.19&&merge(x11-drivers/nvidia-drivers)>=340&&merge(x11-drivers/nvidia-drivers)<341
+diff --git a/kernel/nv-pat.c b/kernel/nv-pat.c
+index d536b89..e685956 100644
+--- a/kernel/nv-pat.c
++++ b/kernel/nv-pat.c
+@@ -35,8 +35,8 @@ static inline void nv_disable_caches(unsigned long *cr4)
+     unsigned long cr0 = read_cr0();
+     write_cr0(((cr0 & (0xdfffffff)) | 0x40000000));
+     wbinvd();
+-    *cr4 = read_cr4();
+-    if (*cr4 & 0x80) write_cr4(*cr4 & ~0x80);
++    *cr4 = __read_cr4();
++    if (*cr4 & 0x80) __write_cr4(*cr4 & ~0x80);
+     __flush_tlb();
+ }
+ 
+@@ -46,7 +46,7 @@ static inline void nv_enable_caches(unsigned long cr4)
+     wbinvd();
+     __flush_tlb();
+     write_cr0((cr0 & 0x9fffffff));
+-    if (cr4 & 0x80) write_cr4(cr4);
++    if (cr4 & 0x80) __write_cr4(cr4);
+ }
+ 
+ static int nv_determine_pat_mode(void)
