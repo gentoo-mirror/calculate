@@ -1,6 +1,7 @@
 DEFINED_PHASES=compile install unpack
 DEPEND=~sys-boot/syslinux-4.07
 DESCRIPTION=Module calcmenu.c32 for syslinux
+EAPI=0
 HOMEPAGE=http://www.calculate-linux.org/main/ru/calcboot
 KEYWORDS=amd64 x86
 LICENSE=GPL-2

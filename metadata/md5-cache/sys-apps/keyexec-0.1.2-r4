@@ -1,6 +1,7 @@
 DEFINED_PHASES=compile install
 DEPEND=net-misc/rdesktop >=sys-apps/keyutils-1.1 >=sys-auth/pam_keystore-0.1 kde? ( >=kde-base/kdelibs-4.1.0 )
 DESCRIPTION=Runs other programs with the user password, kept in the Linux kernel
+EAPI=0
 HOMEPAGE=http://www.calculate-linux.org/main/en/keyexec
 IUSE=kde
 KEYWORDS=~amd64 ~x86
