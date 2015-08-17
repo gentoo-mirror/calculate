@@ -1,0 +1,20 @@
+# support for some plasmoids
+kde-base/plasma-workspace python
+
+# mate-base/mate -> x11-misc/mozo-1.8.0
+mate-base/mate-menus python
+
+# [python] required by net-p2p/deluge
+net-libs/rb_libtorrent python
+
+# [python] required by net-libs/rb_libtorrent
+dev-libs/boost python
+
+# required by x11-terms/guake-0.5.2
+x11-libs/vte python
+
+# required by x11-terms/terminator-0.96-r1
+dev-libs/keybinder python
+
+# required by app-emulation/virt-manager-1.1.0-r2
+app-emulation/libvirt-glib python
