@@ -58,9 +58,6 @@ dev-libs/elfutils static-libs
 # required by virtual/libgudev-215-r1
 sys-fs/eudev gudev
 
-# support for some plasmoids
-kde-base/plasma-workspace python
-
 # required by kde-base/kopete-4.14.3-r1[ssl]
 app-crypt/qca openssl
 
@@ -82,9 +79,6 @@ media-gfx/exiv2 xmp
 
 # [sql] required by app-office/akonadi-server
 dev-qt/qtsql mysql
-
-# mate-base/mate -> x11-misc/mozo-1.8.0
-mate-base/mate-menus python
 
 # circular dependencies net-libs/glib-networking-2.42.1 and net-libs/libproxy-0.4.11-r2
 net-libs/libproxy -webkit
@@ -217,12 +211,6 @@ x11-misc/light-locker upower
 # Build a plugin for the GIMP
 net-print/gutenprint gimp
 
-# [python] required by net-p2p/deluge
-net-libs/rb_libtorrent python
-
-# [python] required by net-libs/rb_libtorrent
-dev-libs/boost python
-
 # [icu] required by www-client/chromium
 media-libs/harfbuzz icu
 
@@ -259,14 +247,8 @@ net-misc/spice-gtk -gstreamer python usbredir gtk3
 # required by x11-wm/i3-4.8
 x11-libs/cairo xcb
 
-# required by x11-terms/guake-0.5.2
-x11-libs/vte python
-
 # required by mail-client/geary-0.6.3-r1
 app-crypt/gcr vala
-
-# required by x11-terms/terminator-0.96-r1
-dev-libs/keybinder python
 
 # required by media-tv/kodi-14.1
 net-libs/libmicrohttpd messages
