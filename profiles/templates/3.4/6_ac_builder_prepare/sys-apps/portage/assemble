@@ -1,12 +1,6 @@
 # Calculate comment=#
 MAKEOPTS="#-os_builder_makeopts-#"
 EMERGE_DEFAULT_OPTS="--jobs=1"
-#?cl_builder_buildpkg_set==on#
-FEATURES="${FEATURES} buildpkg -getbinpkg"
-#cl_builder_buildpkg_set#
-#?cl_builder_buildpkg_set!=on#
-FEATURES="${FEATURES} -buildpkg -getbinpkg"
-#cl_builder_buildpkg_set#
 PKGDIR="#-cl_builder_pkgdir-#"
 
 FEATURES="${FEATURES} ccache"
