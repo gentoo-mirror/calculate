@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-libs/glibc ini(overlay-calculate.remerge)<64
+
+[overlay-calculate]
+remerge = 64
