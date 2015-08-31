@@ -53,3 +53,6 @@ net-wireless/lorcon python
 
 # required by net-wireless/blueman-2.0
 net-dns/avahi autoipd
+
+# Enabled iproute2 support instead of net-tools, enable socks support
+net-misc/openvpn iproute2 socks

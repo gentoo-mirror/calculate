@@ -223,6 +223,9 @@ media-gfx/ufraw gimp
 # fix crash
 =media-sound/clementine-1.2.3 -udisks
 
+# Enable support for Media Transfer Protocol
+media-sound/clementine mtp
+
 # fix compile
 =net-misc/remmina-1.2.0_rc3 vte
 
@@ -294,7 +297,7 @@ sys-apps/util-linux tty-helpers
 net-im/licq qt4
 
 # Enables fuse mount points in $HOME/.gvfs for legacy application access
-gnome-base/gvfs fuse mtp
+gnome-base/gvfs archive fuse mtp
 
 # The following REQUIRED_USE flag constraints are unsatisfied:
 # pulseaudio? ( sound )
@@ -309,3 +312,6 @@ dev-qt/qtgui mng
 
 # add support git and cmake
 dev-qt/qt-creator cmake git
+
+# Add support for net-libs/gnutls (TLS 1.0 and SSL 3.0 support)
+net-im/pidgin gnutls
