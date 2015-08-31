@@ -23,7 +23,7 @@ USE="${USE} acpi cairo cpudetection dbus dri ieee1394 gpm opengl scanner smp usb
 USE="${USE} irc jabber oscar"
 
 # Image support
-USE="${USE} X fdftk gd imagemagick openexr pdf png raw svg webp wmf wxwindows" 
+USE="${USE} X fdftk gd imagemagick openexr pdf png raw svg xmp webp wmf wxwindows" 
 
 # Locale and Fonts
 USE="${USE} spell"
