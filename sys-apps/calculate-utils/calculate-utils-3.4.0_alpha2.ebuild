@@ -18,7 +18,7 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 RDEPEND="${RDEPEND}
 	!sys-apps/calculate-builder
