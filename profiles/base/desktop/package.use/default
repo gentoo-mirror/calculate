@@ -315,3 +315,6 @@ dev-qt/qt-creator cmake git
 
 # Add support for net-libs/gnutls (TLS 1.0 and SSL 3.0 support)
 net-im/pidgin gnutls
+
+# It might be possible to solve this slot collision
+net-libs/gtk-vnc python
