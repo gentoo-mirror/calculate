@@ -5,10 +5,10 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
-UTILS_PV="3.4.0_alpha4"
+UTILS_PV="3.4.0_alpha5"
 
 declare -A CALCULATE_MODULES=(
-	["builder"]="3.4.0_alpha4"
+	["builder"]="3.4.0_alpha5"
 )
 
 inherit calculate-utils
