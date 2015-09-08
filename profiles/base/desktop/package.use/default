@@ -37,8 +37,9 @@ x11-libs/libdrm libkms
 # required by www-client/firefox [apng]
 media-libs/libpng apng
 
-# required by x11-libs/glamor [gdm], x11-drivers/xf86-video-vmware
-media-libs/mesa gbm xa
+# required by x11-libs/glamor [gdm], x11-drivers/xf86-video-vmware,
+# app-emulation/libvirt-1.2.18-r1::gentoo[qemu]
+media-libs/mesa gbm xa gles2
 
 # required by www-client/chromium [minizip]
 sys-libs/zlib minizip
