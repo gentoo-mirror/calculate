@@ -1,3 +1,4 @@
+dev-python/spyder python_targets_python3_4
 dev-util/eric python_targets_python3_4
 x11-misc/compton python_targets_python3_4
 
@@ -26,3 +27,6 @@ dev-python/pygments python_targets_python3_4
 dev-python/PyQt4 python_targets_python3_4 help
 dev-python/qscintilla-python python_targets_python3_4
 dev-python/sip python_targets_python3_4
+
+# required by spyder
+dev-python/shiboken python_targets_python3_4
