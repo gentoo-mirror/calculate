@@ -1,0 +1,10 @@
+# required by kde-frameworks/kfilemetadata-5.13.0::gentoo[pdf]
+app-text/poppler qt5
+# required by kde-frameworks/knotifications-5.13.0::gentoo[dbus]
+dev-libs/libdbusmenu-qt qt5
+# required by media-libs/phonon-4.7.2::gentoo[gstreamer]
+media-libs/phonon-gstreamer qt5
+# required by media-libs/phonon-gstreamer-4.7.2::gentoo
+media-libs/phonon qt5
+# required by kde-plasma/polkit-kde-agent-5.4.0::gentoo
+sys-auth/polkit-qt qt5
