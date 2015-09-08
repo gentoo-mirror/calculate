@@ -318,3 +318,7 @@ net-im/pidgin gnutls
 
 # It might be possible to solve this slot collision
 net-libs/gtk-vnc python
+
+# required by gnome-base/gnome-keyring-3.16.0-r1
+app-crypt/pinentry gnome-keyring
+
