@@ -1,3 +1,4 @@
+dev-util/eric python_targets_python3_4
 x11-misc/compton python_targets_python3_4
 
 # required by blender-2.72b-r3
@@ -18,3 +19,10 @@ dev-libs/libpeas python_targets_python3_4
 dev-python/mako python_targets_python3_4
 dev-python/markupsafe python_targets_python3_4
 media-sound/rhythmbox python_targets_python3_4
+
+# required by dev-util/eric-5.5.2
+dev-python/coverage python_targets_python3_4
+dev-python/pygments python_targets_python3_4
+dev-python/PyQt4 python_targets_python3_4 help
+dev-python/qscintilla-python python_targets_python3_4
+dev-python/sip python_targets_python3_4
