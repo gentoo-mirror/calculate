@@ -1,3 +1,7 @@
 # to support the build kde5
-kde-apps/kde4-l10n minimal
 kde-base/kactivities minimal
+>=kde-apps/kde4-l10n-15.08.0 minimal
+>=kde-apps/kdebase-runtime-meta-15.08.0 minimal
+>=kde-apps/kdesu-15.08.0 -handbook
+>=kde-apps/knetattach-15.08.0 -handbook
+>=kde-apps/solid-runtime-15.08.0 -bluetooth
