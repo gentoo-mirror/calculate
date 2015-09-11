@@ -5,12 +5,11 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
-UTILS_PV="3.4.0_beta1"
+UTILS_PV="3.4.0_alpha6"
 
 declare -A CALCULATE_MODULES=(
-	["builder"]="3.4.0_beta1"
+	["builder"]="3.4.0_alpha6"
 )
-
 
 inherit calculate-utils
 
@@ -19,5 +18,5 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS=""
 
