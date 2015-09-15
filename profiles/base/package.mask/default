@@ -18,6 +18,9 @@
 # not checked
 >=sys-kernel/dracut-041
 
+# upower-pm-utils better
+sys-power/upower
+
 # no tarballs
 >=media-gfx/calculate-wallpapers-15
 >=media-gfx/dm-themes-calculate-15
@@ -25,14 +28,6 @@
 >=media-gfx/lightdm-themes-calculate-15
 >=media-gfx/plymouth-themes-calculate-15
 >=media-gfx/grub-splashes-calculate-15
-
-# not compiled kde-apps/solid-runtime-15.08.0
-~net-misc/networkmanager-1.0.6
-~net-misc/networkmanager-openconnect-1.0.6
-~net-misc/networkmanager-openswan-1.0.6
-~net-misc/networkmanager-openvpn-1.0.6
-~net-misc/networkmanager-pptp-1.0.6
-~net-misc/networkmanager-vpnc-1.0.6
 
 # don't support sdb-ldap
 =net-dns/bind-9.10.2_p4
