@@ -7,6 +7,10 @@ PYTHON_COMPAT=(python2_7)
 
 UTILS_PV="3.4.0_beta2"
 
+declare -A CALCULATE_MODULES=(
+	["builder"]="3.4.0_beta2"
+)
+
 inherit calculate-utils
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
