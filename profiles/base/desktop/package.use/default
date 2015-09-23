@@ -197,8 +197,6 @@ sys-block/gparted btrfs dmraid fat mdadm ntfs reiserfs xfs
 # Add Catalyst Control Panel
 x11-drivers/ati-drivers qt4
 
-net-misc/remmina ssh freerdp
-
 # Build a Qt style called GTK+ that mimics the active GTK+ theme
 dev-qt/qtgui gtkstyle
 
@@ -226,9 +224,6 @@ media-gfx/ufraw gimp
 
 # Enable support for Media Transfer Protocol
 media-sound/clementine mtp
-
-# fix compile
-=net-misc/remmina-1.2.0_rc3 vte
 
 # required by www-client/chromium-43.0.2357.130 (https://bugs.gentoo.org/show_bug.cgi?id=553502)
 media-libs/libvpx postproc
@@ -328,3 +323,9 @@ dev-qt/qtmultimedia qml
 
 # required by media-gfx/graphviz-2.26.3-r4
 media-libs/gd fontconfig
+
+# The following REQUIRED_USE flag constraints are unsatisfied: ssh? ( vte )
+net-misc/remmina ssh freerdp vte
+
+# required by net-misc/remmina-1.2.0_rc3-r1
+x11-base/xorg-server kdrive
