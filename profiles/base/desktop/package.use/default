@@ -326,3 +326,6 @@ media-libs/gd fontconfig
 
 # The following REQUIRED_USE flag constraints are unsatisfied: ssh? ( vte )
 net-misc/remmina ssh freerdp vte
+
+# required by net-misc/remmina-1.2.0_rc3-r1
+x11-base/xorg-server kdrive
