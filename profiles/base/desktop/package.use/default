@@ -188,8 +188,8 @@ media-libs/opencv qt4
 # required by app-text/qpdfview [pdf,qt4]
 app-text/poppler qt4
 
-# Add support for PDF, RSS, SMIME, HTML, Xface
-mail-client/claws-mail pdf rss smime webkit xface
+# Add support for LDAP, PDF, RSS, SMIME, HTML, Xface
+mail-client/claws-mail ldap pdf rss smime webkit xface
 
 # Add file systems and raid support.
 sys-block/gparted btrfs dmraid fat mdadm ntfs reiserfs xfs
