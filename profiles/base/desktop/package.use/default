@@ -329,3 +329,9 @@ net-misc/remmina ssh freerdp vte
 
 # required by net-misc/remmina-1.2.0_rc3-r1
 x11-base/xorg-server kdrive
+
+# Add support for applications using legacy xembed systray icons
+#kde-plasma/plasma-desktop legacy-systray gtk2 gtk3
+
+# required by dev-libs/libappindicator-12.10.0-r300
+#dev-libs/libdbusmenu gtk3
