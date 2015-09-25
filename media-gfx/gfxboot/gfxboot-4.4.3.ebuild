@@ -12,7 +12,7 @@ SRC_URI="mirror://ubuntu/pool/main/g/gfxboot/gfxboot_${PV}.orig.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 
 IUSE=""
 
