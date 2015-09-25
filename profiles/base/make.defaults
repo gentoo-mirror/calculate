@@ -30,7 +30,7 @@ USE="${USE} introspection logrotate threads"
 
 ACCEPT_LICENSE="*"
 AUTOCLEAN="yes"
-CPU_FLAGS_X86="3dnow mmx sse sse2 *"
+CPU_FLAGS_X86="3dnow mmx sse sse2 * -aes"
 DISTDIR="/var/calculate/remote/distfiles"
 EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --binpkg-respect-use=y --quiet-build=n --with-bdeps=y --buildpkg-exclude='app-emulation/virtualbox-modules app-emulation/vmware-modules net-wireless/broadcom-sta x11-drivers/ati-drivers x11-drivers/nvidia-drivers' --jobs=4"
 FEATURES="getbinpkg parallel-install -userpriv"
