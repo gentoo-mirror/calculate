@@ -1,0 +1,14 @@
+# Calculate ini(overlay-calculate.revision)<49 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,49)-#
+
+#?pkg(sys-kernel/dracut)!=&&pkg(media-gfx/splashutils)!=&&main.cl_chroot_status==on#
+rm -f /boot/initramfs-4.2.1-calculate.img
+KVER=$(readlink /usr/src/linux)
+if [[ -n $KVER ]]
+then
+    /usr/bin/dracut --kver=${KVER#linux-} -f &>/dev/null
+fi
+#pkg#
+
+exit 0
