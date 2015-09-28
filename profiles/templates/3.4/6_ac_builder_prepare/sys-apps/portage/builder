@@ -1,6 +1,6 @@
 # Calculate comment=#
 MAKEOPTS="#-os_builder_makeopts-#"
-EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --binpkg-respect-use=n --jobs=1"
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --jobs=1"
 PKGDIR="#-cl_builder_pkgdir-#"
 
 #?pkg(dev-util/ccache)!=#
