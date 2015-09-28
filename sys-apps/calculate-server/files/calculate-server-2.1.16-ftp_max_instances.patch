@@ -1,0 +1,13 @@
+diff --git profile/ftp/etc/proftpd/proftpd.conf profile/ftp/etc/proftpd/proftpd.conf
+index feff794..fc48ea9 100644
+--- profile/ftp/etc/proftpd/proftpd.conf
++++ profile/ftp/etc/proftpd/proftpd.conf
+@@ -16,7 +16,7 @@ Port                            21
+ Umask                           022
+ 
+ #Максимальное количество подключений (защита от DOS)
+-MaxInstances                    30
++MaxInstances                    100
+ 
+ #Пользователь под кототрым работает сервер
+ User                            nobody
