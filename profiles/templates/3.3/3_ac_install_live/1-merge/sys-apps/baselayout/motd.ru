@@ -4,7 +4,7 @@
 Если какой-либо из сетевых адаптеров был обнаружен при загрузке, он будет
 автоматически сконфигурирован, если в сети доступен DHCP сервер.
 Для указания сетевых настроек используйте утилиту "cl-setup-network".
-Пример:"cl-setup-network --iface enp0s3:192.168.1.100:24 \
+Пример:"cl-setup-network --iface eth0:192.168.1.100:24 \
         --route default:192.168.1.1 --dns 192.168.1.1"
 #?os_install_linux_system==server||os_install_linux_shortname==CLS#
 И перезапустите net.eth0 командой "/etc/init.d/net.eth0 restart".
