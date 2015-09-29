@@ -152,6 +152,7 @@ RDEPEND="
 	>=virtual/udev-197
 	!app-misc/livecd-tools
 	sys-apps/coreutils[xattr]
+	sys-boot/syslinux
 
 	pxe? ( sys-apps/calculate-server
 		net-ftp/tftp-hpa
