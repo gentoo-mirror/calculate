@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-themes-calculate-${PV}.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-themes-calculate-15-r1.tar.bz2"
 
 RDEPEND="media-gfx/splashutils
 !media-gfx/cld-themes
