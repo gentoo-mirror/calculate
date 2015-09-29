@@ -21,3 +21,10 @@ sys-power/upower
 # don't support sdb-ldap
 =net-dns/bind-9.10.2_p4
 =net-dns/bind-tools-9.10.2_p4
+
+# deprecated, will be removed soon
+sys-apps/calculate-builder
+sys-apps/calculate-assemble
+sys-apps/calculate-lib:2.2
+# deprecated, calculate-server is separate package now
+sys-apps/calculate-utils:0
