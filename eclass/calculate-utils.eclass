@@ -135,7 +135,7 @@ RDEPEND="
 		net-libs/dslib
 		>=dev-python/pyopenssl-0.14[python_targets_python2_7]
 		dev-libs/openssl
-		=dev-python/m2crypto-0.22.3-r9[python_targets_python2_7]
+		=dev-python/m2crypto-0.21.1-r2[python_targets_python2_7]
 		dev-python/cherrypy[python_targets_python2_7]
 		dev-python/pytz[python_targets_python2_7]
 	)
