@@ -49,3 +49,6 @@
 # support TLSv1_2
 ~dev-python/cryptography-0.7.2 amd64 x86
 ~dev-python/enum34-1.0.4 amd64 x86
+
+# unmask cherrypy because 3.3.0 does not work with calculate-core server
+~dev-python/cherrypy-3.8.0 amd64 x86

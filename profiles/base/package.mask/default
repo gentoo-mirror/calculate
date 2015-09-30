@@ -1,5 +1,5 @@
 # without the patch does not allow to work with certificates correctly
->dev-python/m2crypto-0.21.1-r2
+<dev-python/m2crypto-0.22.3-r9
 
 # mask portage wgetpaste
 >app-text/wgetpaste-2.25-r4
@@ -10,7 +10,8 @@
 # requires python3
 >=app-misc/media-player-info-21
 
->=dev-python/cherrypy-3.2.2-r1
+# does not work with calculate-core
+~dev-python/cherrypy-3.3.0
 
 # not checked
 >=sys-kernel/dracut-041
