@@ -337,6 +337,9 @@ sci-libs/hdf5 -threads
 # Build cycles renderer
 media-gfx/blender cycles
 
+# Support HTTP streams through neon (radio)
+media-plugins/audacious-plugins http
+
 # Add support for applications using legacy xembed systray icons
 #kde-plasma/plasma-desktop legacy-systray gtk2 gtk3
 
