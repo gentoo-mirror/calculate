@@ -1,0 +1,140 @@
+# Calculate format=diff
+commit b89c317d40d7ce78c811b4ef463c0dcf47f61003
+Author: Mike Khiretskiy <mh@calculate.ru>
+Date:   Fri Oct 2 13:24:08 2015 +0300
+
+    Add LoginCommand and LogoutCommand.
+    
+    LoginCommand is script which execute before user login
+    Logout is script which execute after user logout
+
+diff --git data/CMakeLists.txt data/CMakeLists.txt
+index 51f37ab..dabe094 100644
+--- data/CMakeLists.txt
++++ data/CMakeLists.txt
+@@ -11,6 +11,8 @@ install(FILES
+     "scripts/Xsession"
+     "scripts/Xsetup"
+     "scripts/Xstop"
++    "scripts/Xlogin"
++    "scripts/Xlogout"
+     "scripts/wayland-session"
+     DESTINATION "${DATA_INSTALL_DIR}/scripts"
+     PERMISSIONS
+diff --git data/man/sddm.conf.rst.in data/man/sddm.conf.rst.in
+index a916e27..db682ae 100644
+--- data/man/sddm.conf.rst.in
++++ data/man/sddm.conf.rst.in
+@@ -94,6 +94,14 @@ OPTIONS
+ 	Path of script to execute when stopping the display server.
+ 	Default value is "@DATA_INSTALL_DIR@/scripts/Xstop".
+ 
++`LoginCommand=`
++	Path of script to execute before user login.
++	Default value is "@DATA_INSTALL_DIR@/scripts/Xlogin".
++
++`LogoutCommand=`
++	Path of script to execute after user logout.
++	Default value is "@DATA_INSTALL_DIR@/scripts/Xlogout".
++
+ `MinimumVT=`
+ 	Minimum virtual terminal number that will be used
+ 	by the first display. Virtual terminal number will
+diff --git data/scripts/Xlogin data/scripts/Xlogin
+new file mode 100755
+index 0000000..a3784ce
+--- /dev/null
++++ data/scripts/Xlogin
+@@ -0,0 +1,2 @@
++#!/bin/sh
++# Xlogin - run as root before user login
+diff --git data/scripts/Xlogout data/scripts/Xlogout
+new file mode 100755
+index 0000000..f10f56c
+--- /dev/null
++++ data/scripts/Xlogout
+@@ -0,0 +1,2 @@
++#!/bin/sh
++# Xlogout - run as root after user logout
+diff --git src/common/Configuration.h src/common/Configuration.h
+index 584f26b..ef433be 100644
+--- src/common/Configuration.h
++++ src/common/Configuration.h
+@@ -64,6 +64,10 @@ namespace SDDM {
+                                                                                                    "A script to execute when starting the display server"));
+             Entry(DisplayStopCommand,  QString,     _S(DATA_INSTALL_DIR "/scripts/Xstop"),      _S("Xstop script path\n"
+                                                                                                    "A script to execute when stopping the display server"));
++            Entry(LoginCommand,  QString,     _S(DATA_INSTALL_DIR "/scripts/Xlogin"),      _S("Xlogin script path\n"
++                                                                                                   "A script to execute before user login"));
++            Entry(LogoutCommand,  QString,     _S(DATA_INSTALL_DIR "/scripts/Xlogout"),      _S("Xlogout script path\n"
++                                                                                                   "A script to execute before user logout"));
+             Entry(MinimumVT,           int,         MINIMUM_VT,                                 _S("Minimum VT\n"
+                                                                                                    "The lowest virtual terminal number that will be used."));
+         );
+diff --git src/helper/HelperApp.cpp src/helper/HelperApp.cpp
+index a3f9430..94308e6 100644
+--- src/helper/HelperApp.cpp
++++ src/helper/HelperApp.cpp
+@@ -18,6 +18,7 @@
+  *
+  */
+ 
++#include "Configuration.h"
+ #include "HelperApp.h"
+ #include "Backend.h"
+ #include "UserSession.h"
+@@ -127,6 +128,11 @@ namespace SDDM {
+         m_user = m_backend->userName();
+         QProcessEnvironment env = authenticated(m_user);
+ 
++        if(!runExternalScript(mainConfig.XDisplay.LoginCommand.get())) {
++            exit(Auth::HELPER_SESSION_ERROR);
++            return;
++        }
++
+         if (!m_session->path().isEmpty()) {
+             env.insert(m_session->processEnvironment());
+             m_session->setProcessEnvironment(env);
+@@ -144,7 +150,30 @@ namespace SDDM {
+         return;
+     }
+ 
++    bool HelperApp::runExternalScript(const QString &command) {
++        bool ret = true;
++        QProcessEnvironment env = authenticated(m_user);
++        env.insert(m_session->processEnvironment());
++        if (!command.isEmpty() &&
++            env.value(QStringLiteral("XDG_SESSION_CLASS")) == QStringLiteral("user")) {
++            QProcess *displayStopScript = new QProcess();
++            env.insert(QStringLiteral("USER"), m_user);
++            env.insert(QStringLiteral("HOME"), QStringLiteral("/root"));
++            displayStopScript->setProcessEnvironment(env);
++            // start script
++            displayStopScript->start(command);
++            if(!displayStopScript->waitForFinished(-1) || 
++                displayStopScript->exitCode() != 0) {
++                ret = false;
++            }
++            displayStopScript->deleteLater();
++        }
++        return ret;
++    }
++
+     void HelperApp::sessionFinished(int status) {
++        // create logout script process
++        runExternalScript(mainConfig.XDisplay.LogoutCommand.get());
+         exit(status);
+     }
+ 
+diff --git src/helper/HelperApp.h src/helper/HelperApp.h
+index b83eade..fa08776 100644
+--- src/helper/HelperApp.h
++++ src/helper/HelperApp.h
+@@ -61,6 +61,7 @@ namespace SDDM {
+         UserSession *m_session { nullptr };
+         QLocalSocket *m_socket { nullptr };
+         QString m_user { };
++        bool runExternalScript(const QString &command);
+         // TODO: get rid of this in a nice clean way along the way with moving to user session X server
+         QString m_cookie { };
+     };
