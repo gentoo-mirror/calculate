@@ -27,5 +27,9 @@ sys-power/upower
 sys-apps/calculate-builder
 sys-apps/calculate-assemble
 sys-apps/calculate-lib:2.2
+
 # deprecated, calculate-server is separate package now
 sys-apps/calculate-utils:0
+
+# not compiled media-libs/libgpod-0.8.3 with this version in chroot
+=dev-lang/swig-3.0.5
