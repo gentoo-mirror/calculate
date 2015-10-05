@@ -51,6 +51,7 @@ declare -A CALCULATE_TARBALL_=()
 
 declare -A CALCULATE_MODULES_=(
 	["lib"]="$UTILS_PV"
+	["builder"]="$UTILS_PV"
 	["install"]="$UTILS_PV"
 	["core"]="$UTILS_PV"
 	["i18n"]="$UTILS_PV"
@@ -153,6 +154,11 @@ RDEPEND="
 	!app-misc/livecd-tools
 	sys-apps/coreutils[xattr]
 	sys-boot/syslinux
+
+	>=app-cdr/cdrtools-3.01_alpha13
+	>=sys-boot/grub-2.00-r3
+	>=sys-boot/syslinux-5
+	sys-fs/squashfs-tools
 
 	pxe? ( sys-apps/calculate-server
 		net-ftp/tftp-hpa
