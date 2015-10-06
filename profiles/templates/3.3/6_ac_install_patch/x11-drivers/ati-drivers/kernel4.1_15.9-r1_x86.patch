@@ -1,0 +1,29 @@
+# Calculate format=diff pkg(sys-kernel/calculate-sources)>=4.1.10&&pkg(sys-kernel/calculate-sources)<4.2&&merge(x11-drivers/ati-drivers)==15.9-r1&&os_arch_machine==i686
+diff --git common/lib/modules/fglrx/build_mod/firegl_public.c common/lib/modules/fglrx/build_mod/firegl_public.c
+index 31a9dd2..e9909d7 100755
+--- common/lib/modules/fglrx/build_mod/firegl_public.c
++++ common/lib/modules/fglrx/build_mod/firegl_public.c
+@@ -258,23 +258,6 @@
+ #define __flush_tlb_one(addr) asm volatile("invlpg (%0)" ::"r" (addr) : "memory")
+ #define __flush_tlb() native_write_cr3(native_read_cr3())
+ 
+-static inline void __flush_tlb_all(void)
+-{
+-        if (cpu_has_pge)
+-        {
+-                unsigned long flags, cr4;
+-                raw_local_irq_save(flags);
+-                cr4 = native_read_cr4();
+-                native_write_cr4(cr4 & ~X86_CR4_PGE);
+-                native_write_cr4(cr4);
+-                raw_local_irq_restore(flags);
+-        }
+-        else
+-        {
+-                __flush_tlb();
+-        }
+-}
+-
+ // ============================================================
+ /* globals */
+ 
