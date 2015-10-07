@@ -1,6 +1,6 @@
 # Calculate exec=/bin/bash
 
-grep -l type=wifi /etc/NetworkManager/system-connections/* | while read fn
+grep -l type=wifi /etc/NetworkManager/system-connections/* 2>/dev/null | while read fn
 do
 	cp "$fn" #-cl_chroot_path-#/etc/NetworkManager/system-connections/
 done
