@@ -18,7 +18,8 @@ SLOT="0"
 IUSE=""
 
 DEPEND="dev-qt/qtcore:4
-	dev-qt/qtgui:4"
+	dev-qt/qtgui:4
+	dev-qt/qtwebkit:4"
 RDEPEND="${DEPEND}
 	|| ( media-video/mpv media-video/smplayer media-video/mplayer media-video/vlc kde-base/dragon media-video/totem media-video/gnome-mplayer )"
 
