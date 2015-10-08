@@ -3,16 +3,20 @@
 Name=Calculate
 Comment=Default Calculate Linux Theme
 Comment[ru]=Стандартная тема Calculate Linux
-#?pkg(kde-apps/oxygen-icons)!=#
+
+#?pkg(kde-plasma/breeze)!=#
+Inherits=breeze,hicolor
+#pkg#
+#?pkg(kde-apps/oxygen-icons)!=&&pkg(kde-plasma/breeze)==#
 Inherits=oxygen,hicolor
 #pkg#
-#?pkg(x11-themes/mate-icon-theme)!=&&pkg(kde-apps/oxygen-icons)==#
+#?pkg(x11-themes/mate-icon-theme)!=&&pkg(kde-apps/oxygen-icons)==&&pkg(kde-plasma/breeze)==#
 Inherits=mate,hicolor
 #pkg#
-#?pkg(x11-themes/elementary-icon-theme)!=&&pkg(x11-themes/mate-icon-theme)==&&pkg(kde-apps/oxygen-icons)==#
+#?pkg(x11-themes/elementary-icon-theme)!=&&pkg(x11-themes/mate-icon-theme)==&&pkg(kde-apps/oxygen-icons)==&&pkg(kde-plasma/breeze)==#
 Inherits=elementary,hicolor
 #pkg#
-#?pkg(x11-themes/elementary-icon-theme)==&&pkg(x11-themes/mate-icon-theme)==&&pkg(kde-apps/oxygen-icons)==#
+#?pkg(x11-themes/elementary-icon-theme)==&&pkg(x11-themes/mate-icon-theme)==&&pkg(kde-apps/oxygen-icons)==&&pkg(kde-plasma/breeze)==#
 Inherits=gnome,hicolor
 #pkg#
 Example=x-directory-normal
