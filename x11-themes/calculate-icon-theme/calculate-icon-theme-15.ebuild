@@ -29,7 +29,7 @@ RDEPEND="kde? ( kde-apps/oxygen-icons )
 DEPEND="${RDEPEND}"
 
 src_install() {
-	if use kde
+	if use kde || use plasma
 	then
 		rm -r usr/share/pixmaps/gnome
 		mv  usr/share/pixmaps/oxygen usr/share/pixmaps/faces
