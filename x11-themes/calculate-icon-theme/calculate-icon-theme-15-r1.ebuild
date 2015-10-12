@@ -29,12 +29,19 @@ RDEPEND="kde? ( kde-apps/oxygen-icons )
 DEPEND="${RDEPEND}"
 
 src_install() {
-	if use kde || use plasma
+	if use plasma
 	then
 		rm -r usr/share/pixmaps/gnome
+		rm -r usr/share/pixmaps/oxygen
+		mv  usr/share/pixmaps/breeze usr/share/pixmaps/faces
+	elif use kde
+	then
+		rm -r usr/share/pixmaps/gnome
+		rm -r usr/share/pixmaps/breeze
 		mv  usr/share/pixmaps/oxygen usr/share/pixmaps/faces
 	else
 		rm -r usr/share/pixmaps/oxygen
+		rm -r usr/share/pixmaps/breeze
 		mv  usr/share/pixmaps/gnome usr/share/pixmaps/faces
 	fi
 	insinto /
