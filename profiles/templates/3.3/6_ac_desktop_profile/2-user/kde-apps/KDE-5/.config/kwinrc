@@ -1,0 +1,23 @@
+# Calculate format=kde
+[Desktops]
+Number=4
+Rows=1
+
+[Effect-PresentWindows]
+BorderActivateAll=9
+
+[MouseBindings]
+CommandActiveTitlebar2=Lower
+CommandInactiveTitlebar2=Lower
+CommandWindow2=Activate, raise and pass click
+
+[Plugins]
+cubeEnabled=true
+screenedgeEnabled=false
+
+[Windows]
+ElectricBorderCooldown=450
+ElectricBorderDelay=400
+ElectricBorderMaximize=false
+ElectricBorders=1
+ElectricBorderTiling=false
