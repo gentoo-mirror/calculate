@@ -15,3 +15,6 @@ XSESSION="Mate"
 #?pkg(kde-base/ksmserver)!=#
 XSESSION="KDE-4"
 #pkg#
+#?pkg(kde-plasma/plasma-workspace)!=#
+XSESSION="Plasma"
+#pkg#
