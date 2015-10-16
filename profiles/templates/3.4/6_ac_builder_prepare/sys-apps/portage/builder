@@ -1,4 +1,4 @@
-# Calculate comment=#
+# Calculate comment=# protected
 MAKEOPTS="#-os_builder_makeopts-#"
 EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --jobs=1"
 PKGDIR="#-cl_builder_pkgdir-#"
