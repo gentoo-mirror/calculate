@@ -56,3 +56,6 @@ net-dns/avahi autoipd
 
 # Enabled iproute2 support instead of net-tools, enable socks support
 net-misc/openvpn iproute2 socks
+
+# Using instead of bzip2
+app-arch/lbzip2 symlink
