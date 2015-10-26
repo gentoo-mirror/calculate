@@ -1,0 +1,13 @@
+diff --git a/pym/_emerge/BinpkgFetcher.py b/pym/_emerge/BinpkgFetcher.py
+index a7f2d44..91d24e0 100644
+--- a/pym/_emerge/BinpkgFetcher.py
++++ b/pym/_emerge/BinpkgFetcher.py
+@@ -133,7 +133,7 @@ class BinpkgFetcher(SpawnProcess):
+ 			if bintree._remote_has_index:
+ 				remote_mtime = bintree._remotepkgs[
+ 					bintree.dbapi._instance_key(
+-					self.pkg.cpv)].get("MTIME")
++					self.pkg.cpv)].get("_mtime_")
+ 				if remote_mtime is not None:
+ 					try:
+ 						remote_mtime = long(remote_mtime)
