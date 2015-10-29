@@ -2,7 +2,7 @@ diff --git calculate-desktop-3.4.1/data/logout.d/95syncface b/data/logout.d/95sy
 index 964796c..058ac11 100644
 --- calculate-desktop-3.4.1.orig/data/logout.d/95syncface
 +++ calculate-desktop-3.4.1/data/logout.d/95syncface
-@@ -16,18 +16,34 @@
+@@ -16,18 +16,35 @@
  #  limitations under the License.
  
  # get icon face directory from kdm config
@@ -15,6 +15,7 @@ index 964796c..058ac11 100644
 +get_sddm_icon_face_dir() {
 +	local config_file=/etc/sddm.conf
 +	if [[ -f $config_file ]]
++	then
 +		if grep ^FacesDir $config_file &>/dev/null
 +		then
 +			sed -rn 's/^FacesDir=(.*)/\1/p' $config_file
