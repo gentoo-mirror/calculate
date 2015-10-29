@@ -14,16 +14,16 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-15-r2.tar.bz2
-	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-15-r2.tar.bz2"
+SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/icon/icon-calculate-15-r4.tar.bz2
+	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-15-r4.tar.bz2"
 
 REQUIRED_USE=""
 
 RDEPEND="|| ( 
+		x11-themes/gnome-icon-theme
 		kde-plasma/breeze
 		kde-apps/oxygen-icons
 		x11-themes/elementary-icon-theme
-		x11-themes/gnome-icon-theme
 		x11-themes/mate-icon-theme
 	)"
 

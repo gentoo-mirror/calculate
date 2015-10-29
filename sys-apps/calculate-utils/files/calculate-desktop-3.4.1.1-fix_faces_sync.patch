@@ -1,0 +1,43 @@
+diff --git calculate-desktop-3.4.1/data/logout.d/95syncface b/data/logout.d/95syncface
+index 964796c..058ac11 100644
+--- calculate-desktop-3.4.1.orig/data/logout.d/95syncface
++++ calculate-desktop-3.4.1/data/logout.d/95syncface
+@@ -16,18 +16,35 @@
+ #  limitations under the License.
+ 
+ # get icon face directory from kdm config
+-get_icon_face_dir() {
++get_kdm_icon_face_dir() {
+ 	local config_file=/usr/share/config/kdm/kdmrc
+ 	[[ -f $config_file ]] && sed -rn 's/^FaceDir=(.*)/\1/p' $config_file
+ }
+ 
++get_sddm_icon_face_dir() {
++	local config_file=/etc/sddm.conf
++	if [[ -f $config_file ]]
++	then
++		if grep ^FacesDir $config_file &>/dev/null
++		then
++			sed -rn 's/^FacesDir=(.*)/\1/p' $config_file
++		else
++			echo /usr/share/sddm/faces
++		fi
++	fi
++}
++
+ run_script() {
+-	# copy .face.icon from user home directory to kdm face directory
++	# copy .face.icon from user home directory to kdm/sddm face directory
+ 	if [[ $DOMAIN_USER == "off" ]] && [[ -f $HOME_DIR/.face.icon ]]; then
+-		FACE_DIR=$(get_icon_face_dir)
++		FACE_DIR=$(get_kdm_icon_face_dir)
+ 		if [[ -n $FACE_DIR ]] && [[ -d $FACE_DIR ]];then
+ 			cp $HOME_DIR/.face.icon $FACE_DIR/${USER}.face
+ 		fi
++		FACE_DIR=$(get_sddm_icon_face_dir)
++		if [[ -n $FACE_DIR ]] && [[ -d $FACE_DIR ]];then
++			cp $HOME_DIR/.face.icon $FACE_DIR/${USER}.face.icon
++		fi
+ 	fi
+ 	return 0
+ }
