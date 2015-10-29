@@ -27,6 +27,9 @@ src_unpack() {
 	# fix prepare
 	epatch "${FILESDIR}/calculate-builder-3.4.1.1-fix_prepare.patch"
 
-	# fix sync faces
-	epatch "${FILESDIR}/calculate-desktop-3.4.1.1-fix_faces_sync.patch"
+	if use desktop
+	then
+		# fix sync faces
+		epatch "${FILESDIR}/calculate-desktop-3.4.1.1-fix_faces_sync.patch"
+	fi
 }
