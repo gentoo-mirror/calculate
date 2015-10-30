@@ -1,0 +1,9 @@
+# Calculate ini(overlay-calculate.revision)<55 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,55)-#
+
+#?cl_chroot_status==off#
+/usr/sbin/env-update
+#cl_chroot_status#
+
+exit 0

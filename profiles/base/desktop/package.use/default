@@ -62,9 +62,6 @@ sys-fs/eudev gudev
 # required by kde-base/kopete-4.14.3-r1[ssl]
 app-crypt/qca openssl
 
-# required by required by net-irc/konversation-1.6::gentoo[crypt]
-app-crypt/qca qt5
-
 # [declarative, script, sql] required by kde-base/pykde4
 dev-python/PyQt4 declarative script sql
 
