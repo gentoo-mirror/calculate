@@ -12,3 +12,5 @@ media-libs/phonon qt5
 sys-auth/polkit-qt qt5
 # required by required by net-irc/konversation-1.6::gentoo[crypt]
 app-crypt/qca qt5
+# required by dev-db/sqlitebrowser-3.7.0
+dev-libs/qcustomplot qt5
