@@ -1,3 +1,5 @@
+dev-db/sqlitebrowser qt5
+
 # required by kde-frameworks/kfilemetadata-5.13.0::gentoo[pdf]
 app-text/poppler qt5
 # required by kde-frameworks/knotifications-5.13.0::gentoo[dbus]
@@ -8,3 +10,5 @@ media-libs/phonon-gstreamer qt5
 media-libs/phonon qt5
 # required by kde-plasma/polkit-kde-agent-5.4.0::gentoo
 sys-auth/polkit-qt qt5
+# required by required by net-irc/konversation-1.6::gentoo[crypt]
+app-crypt/qca qt5
