@@ -16,6 +16,9 @@ USE="${USE} bittorrent ftp nfs samba"
 # Network connections
 USE="${USE} ppp"
 
+# Office
+USE="${USE} -aspell hunspell"
+
 # Printing
 USE="${USE} cups foomaticdb"
 
