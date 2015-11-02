@@ -1,0 +1,23 @@
+commit 2dddbea6d039fabbae0200d00fb6b8d8bc4279d7
+Author: Mike Khiretskiy <mh@calculate.ru>
+Date:   Mon Nov 2 12:55:39 2015 +0300
+
+    Исправление для выхода из сеанса в plasma5 при запущенном cl-console-gui
+
+diff --git calculate-console-gui-3.4.1.1.orig/pym/consolegui/application/ConnectionTabs.py calculate-console-gui-3.4.1/pym/consolegui/application/ConnectionTabs.py
+index 2e57806..a76148d 100644
+--- calculate-console-gui-3.4.1.1.orig/pym/consolegui/application/ConnectionTabs.py
++++ calculate-console-gui-3.4.1.1/pym/consolegui/application/ConnectionTabs.py
+@@ -511,7 +511,11 @@ class ToolTabWidget(QtGui.QTabWidget):
+     def closeEvent(self, event):
+         self.cur_pos = self.pos()
+         self.hide()
+-        event.ignore()
++        from os import environ
++        if environ.get("XSESSION","").lower() == "plasma":
++            event.accept()
++        else:
++            event.ignore()
+ 
+     def _closeEvent(self):
+             for tab_num in range(self.count()):
