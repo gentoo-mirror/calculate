@@ -3,6 +3,7 @@ sys-apps/file python
 
 
 # Removed unnecessary dependence
+app-misc/mc -spell
 sys-apps/man-db -nls
 sys-fs/lvm2 -thin
 
