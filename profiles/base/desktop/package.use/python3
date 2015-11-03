@@ -1,4 +1,5 @@
 app-editors/gedit python_targets_python3_4
+dev-python/pyopenssl python_targets_python3_4
 dev-python/spyder python_targets_python3_4
 dev-util/eric python_targets_python3_4
 x11-misc/compton python_targets_python3_4
@@ -32,3 +33,12 @@ dev-python/sip python_targets_python3_4
 # required by spyder
 dev-python/pyflakes python_targets_python3_4
 dev-python/shiboken python_targets_python3_4
+
+# required by dev-python/setuptools-18.4
+dev-python/packaging python_targets_python3_4
+dev-python/certifi python_targets_python3_4
+
+# required by dev-python/pyopenssl-0.15.1
+dev-python/cryptography python_targets_python3_4
+dev-python/ply python_targets_python3_4
+dev-python/certifi python_targets_python3_4
