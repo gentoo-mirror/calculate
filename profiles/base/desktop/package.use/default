@@ -350,3 +350,9 @@ dev-libs/libdbusmenu gtk3
 
 # add modules
 lxqt-base/lxqt-panel colorpicker cpuload dom networkmonitor screensaver sensors sysstat worldclock
+
+# required by sci-geosciences/qgis-1.8.0
+sci-libs/gdal geos
+
+# support for XPM graphics format
+x11-wm/jwm xpm
