@@ -1,0 +1,51 @@
+diff --git a/calculate-lib-3.4.1/pym/calculate/lib/cl_template.py b/calculate-lib-3.4.1/pym/calculate/lib/cl_template.py
+index 5b6799b..0200233 100644
+--- a/calculate-lib-3.4.1/pym/calculate/lib/cl_template.py
++++ b/calculate-lib-3.4.1/pym/calculate/lib/cl_template.py
+@@ -2557,7 +2557,8 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+     sMD = re.compile("[^\-\+\*\/]+")
+ 
+     # директория установленных программ
+-    basePkgDir = "/var/db/pkg"
++    pkgDir = "/var/db/pkg"
++    basePkgDir = pkgDir
+ 
+     # кэш для проверки наличия пакета в портежах
+     cachePortdir = {}
+@@ -2651,10 +2652,9 @@ class templateFunction(_error, _warning, _shareTemplate, _shareTermsFunction):
+         """Recalculate basedir and homedir"""
+         # Директория другой системы
+         self._chrootDir = self.objVar.Get("cl_chroot_path")
+-        if self._chrootDir != '/':
+-            # Изменение директории к базе пакетов
+-            self.basePkgDir = pathJoin(self._chrootDir, self.basePkgDir)
+-            self.basePkgDir = os.path.normpath(self.basePkgDir)
++        # Изменение директории к базе пакетов
++        self.basePkgDir = pathJoin(self._chrootDir, self.pkgDir)
++        self.basePkgDir = os.path.normpath(self.basePkgDir)
+         # Базовая директория переноса шаблонов "/mnt/calculate" или "/" и.т.д
+         self._baseDir=pathJoin(self._chrootDir,self.objVar.Get("cl_root_path"))
+         self._baseDir = os.path.normpath(self._baseDir)
+diff --git a/calculate-lib-3.4.1/pym/calculate/lib/utils/tools.py b/calculate-lib-3.4.1/pym/calculate/lib/utils/tools.py
+index 11fc8f7..7ecc462 100644
+--- a/calculate-lib-3.4.1/pym/calculate/lib/utils/tools.py
++++ b/calculate-lib-3.4.1/pym/calculate/lib/utils/tools.py
+@@ -282,16 +282,14 @@ class Locker(object):
+         """ Activated when used in the with statement.
+             Should automatically acquire a lock to be used in the with block.
+         """
+-        if self.lockf is not None:
+-            self.acquire()
++        self.acquire()
+         return self
+ 
+     def __exit__(self, type, value, traceback):
+         """ Activated at the end of the with statement.
+             It automatically releases the lock if it isn't locked.
+         """
+-        if self.lockf is not None:
+-            self.release()
++        self.release()
+ 
+     def __del__(self):
+         """ Make sure that the FileLock instance doesn't leave a lockfile
