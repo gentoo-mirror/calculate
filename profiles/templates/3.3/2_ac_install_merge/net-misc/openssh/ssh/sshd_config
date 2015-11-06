@@ -1,6 +1,2 @@
-# Calculate format=squid
-
-#?os_install_linux_system==server#
+# Calculate format=squid os_install_linux_system==server
 DenyUsers guest
-#os_install_linux_system#
-PermitRootLogin yes
