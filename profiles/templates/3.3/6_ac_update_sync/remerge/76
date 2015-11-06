@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=net-misc/openssh ini(overlay-calculate.remerge)<76
+
+[overlay-calculate]
+remerge = 76
