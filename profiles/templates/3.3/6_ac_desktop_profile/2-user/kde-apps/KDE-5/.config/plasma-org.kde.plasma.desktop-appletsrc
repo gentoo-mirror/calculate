@@ -164,6 +164,10 @@ plugin=org.kde.plasma.lock_logout
 DialogHeight=480
 DialogWidth=640
 
+[Containments][42][Applets][64][Configuration][General]
+show_lockScreen=true
+show_requestShutDown=true
+
 [Containments][42][Applets][65]
 immutability=1
 plugin=org.kde.plasma.notifications
