@@ -1,0 +1,10 @@
+[Desktop Entry]
+GenericName=Shutdown
+Name=Shutdown
+MimeType=text/plain;
+Exec=qdbus org.kde.ksmserver /KSMServer logout 1 -1 3
+StartupNotify=false
+Icon=system-shutdown
+Terminal=false
+Type=Application
+NoDisplay=true
