@@ -1,0 +1,10 @@
+[Desktop Entry]
+GenericName=Lock screen
+Name=Lock
+MimeType=text/plain;
+Exec=qdbus org.kde.ksmserver /ScreenSaver Lock
+StartupNotify=false
+Icon=system-lock-screen
+Terminal=false
+Type=Application
+NoDisplay=true

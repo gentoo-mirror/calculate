@@ -156,17 +156,81 @@ fontFamily=Droid Sans
 DialogHeight=480
 DialogWidth=640
 
+#?os_root_type!=livecd#
 [Containments][42][Applets][64]
 immutability=1
 plugin=org.kde.plasma.lock_logout
 
-[Containments][42][Applets][64][Configuration][ConfigDialog]
-DialogHeight=480
-DialogWidth=640
-
 [Containments][42][Applets][64][Configuration][General]
 show_lockScreen=true
 show_requestShutDown=true
+#os_root_type#
+
+#?os_root_type==livecd#
+[Containments][42][Applets][83]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][42][Applets][83][Configuration][General]
+applicationName=Lock
+applicationName[ru]=Заблокировать
+applicationName[es]=Bloquear
+applicationName[it]=Blocca
+applicationName[pt]=Bloquear
+applicationName[uk]=Заблокувати
+applicationName[bg]=Заключване
+applicationName[nl]=Vergrendelen
+applicationName[pl]=Zablokuj
+applicationName[ro]=Blochează
+applicationName[de]=Sperren
+applicationName[pt_BR]=Bloquear
+genericName=Lock the screen
+genericName[ru]=Заблокировать экран
+genericName[es]=Bloquear la pantalla
+genericName[it]=Blocca lo schermo
+genericName[pt]=Bloquear o ecrã
+genericName[uk]=Заблокувати екран
+genericName[bg]=Заключване на екрана
+genericName[nl]=Het scherm vergrendelen
+genericName[pl]=Zablokuj ekran
+genericName[ro]=Blochează ecranul
+genericName[de]=Bildschirm sperren
+genericName[pt_BR]=Bloquear a tela
+iconName=system-lock-screen
+url=file:///usr/share/applications/livecd-lock.desktop
+
+[Containments][42][Applets][84]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][42][Applets][84][Configuration][General]
+applicationName=Leave...
+applicationName[ru]=Завершить работу...
+applicationName[es]=Salir...
+applicationName[it]=Esci...
+applicationName[pt]=Sair...
+applicationName[uk]=Завершити роботу...
+applicationName[bg]=Изход...
+applicationName[nl]=Verlaten...
+applicationName[pl]=Wyjdź...
+applicationName[ro]=Pleacă...
+applicationName[de]=Verlassen ...
+applicationName[pt_BR]=Sair...
+genericName=Logout, turn off or restart the computer
+genericName[ru]=Завершить сеанс, выключить или перезагрузить компьютер
+genericName[es]=Cerrar sesión, apagar o reiniciar el equipo
+genericName[it]=Termina la sessione, spegni o riavvia il computer
+genericName[pt]=Encerrar, desligar ou reiniciar o computador
+genericName[uk]=Вийти з системи, вимкнути комп’ютер або перезавантажити систему
+genericName[bg]=Излизане, изключване или рестартиране на компютъра
+genericName[nl]=Afmelden, afsluiten of herstart de computer
+genericName[pl]=Wylogowuje, wyłącza lub uruchamia ponownie komputer
+genericName[ro]=Ieșire, închidere sau repornire calculator
+genericName[de]=Sitzung abmelden, den Rechner ausschalten oder neu starten
+genericName[pt_BR]=Encerrar a sessão, desligar ou reiniciar o computador
+iconName=system-shutdown
+url=file:///usr/share/applications/livecd-shutdown.desktop
+#os_root_type#
 
 [Containments][42][Applets][65]
 immutability=1
@@ -193,13 +257,16 @@ DialogHeight=81
 DialogWidth=#-os_x11_width-#
 
 [Containments][42][General]
-#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)==#
+#?os_root_type==livecd#
+AppletOrder=44;45;46;54;67;70;65;55;63;83;84
+#os_root_type#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)==&&os_root_type!=livecd#
 AppletOrder=44;45;47;46;54;67;70;65;55;63;64
 #env#
-#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!=#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!=&&os_root_type!=livecd#
 AppletOrder=44;45;47;48;46;54;67;70;65;55;63;64
 #env#
-#?env(client.os_remote_auth)==||ur_domain_set!=on#
+#?env(client.os_remote_auth)==&&os_root_type!=livecd||ur_domain_set!=on&&os_root_type!=livecd#
 AppletOrder=44;45;46;54;67;70;65;55;63;64
 #env#
 
