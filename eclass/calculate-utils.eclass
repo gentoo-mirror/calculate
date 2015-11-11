@@ -186,7 +186,10 @@ RDEPEND="
 
 	qt4? (
 		dev-python/dbus-python[python_targets_python2_7]
-		virtual/python-imaging[python_targets_python2_7]
+		|| (
+			dev-python/pillow[python_targets_python2_7]
+			dev-python/python-imaging[python_targets_python2_7]
+		)
 		dev-python/pyside[script,python_targets_python2_7]
 	)
 
