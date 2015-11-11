@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=app-dicts/myspell-ru ini(overlay-calculate.remerge)<79
+
+[overlay-calculate]
+remerge = 79
