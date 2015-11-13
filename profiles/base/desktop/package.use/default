@@ -363,3 +363,6 @@ media-libs/avidemux-plugins qt4
 
 # required by games-action/oolite-1.82::calculate
 sys-devel/gcc objc
+
+# required by Arduino IDE (IssueID #830)
+sys-libs/ncurses tinfo
