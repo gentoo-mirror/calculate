@@ -65,7 +65,3 @@ app-arch/pigz symlink
 
 # Add plugin aria2
 www-client/uget aria2
-
-# fix run media-video/mplayer-1.2-r1 without dev-libs/libcdio-paranoia
-# assembled with him
-media-video/mplayer -cdio
