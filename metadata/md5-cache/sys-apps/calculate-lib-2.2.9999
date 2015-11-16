@@ -7,5 +7,5 @@ IUSE=minimal
 LICENSE=Apache-2.0
 RDEPEND=~sys-apps/calculate-templates-2.2.9999 !<sys-apps/calculate-lib-2.1.8-r1 !=sys-apps/calculate-lib-2.1.9 !=sys-apps/calculate-lib-2.1.10 !minimal? ( dev-python/py-smbpasswd ) >=dev-python/pyxml-0.8 sys-apps/file[python] =dev-lang/python-2.7*
 SLOT=2.2
-_eclasses_=distutils	ad9e4720eb3e69090dd968b152fc611b	git-2	df00117322129fb906bb0a53c3d6a020	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	python	0c2c16ea4f9074d3248bd4365d03890c	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_eclasses_=distutils	ad9e4720eb3e69090dd968b152fc611b	git-2	df00117322129fb906bb0a53c3d6a020	multilib	3972ca401cf7dbb430df9995f5d8d580	python	0c2c16ea4f9074d3248bd4365d03890c	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
 _md5_=0c24b32bb8e9e9f0fd4daa08729a2c8b
