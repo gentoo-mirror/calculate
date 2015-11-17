@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="virtual/libintl:0"
 
 DEPEND="${RDEPEND}
-	>=mate-base/mate-desktop-1.12.0
+	!<mate-base/mate-desktop-1.12.0
  	gnome-extra/yelp
         >=dev-util/intltool-0.40:*
 	app-text/yelp-tools
