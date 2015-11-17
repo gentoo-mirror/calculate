@@ -367,6 +367,10 @@ sys-devel/gcc objc
 # required by Arduino IDE (IssueID #830)
 sys-libs/ncurses tinfo
 
+# wine 1.7.x
 # The following REQUIRED_USE flag constraints are unsatisfied:
 # vaapi? ( staging ), at-most-one-of ( gstreamer staging )
 app-emulation/wine -gstreamer staging
+
+# extensions without dependencies
+mate-extra/caja-extensions -cdr image-converter share
