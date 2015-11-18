@@ -18,12 +18,12 @@ LICENSE="GPL-2 LGPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="virtual/libintl:0"
+RDEPEND="virtual/libintl:0
+	>=mate-base/mate-desktop-1.12.0"
 
 DEPEND="${RDEPEND}
-	!<mate-base/mate-desktop-1.12.0
- 	gnome-extra/yelp
-        >=dev-util/intltool-0.40:*
+	gnome-extra/yelp
+	>=dev-util/intltool-0.40:*
 	app-text/yelp-tools
 	>=mate-base/mate-common-1.12:0
 	sys-devel/gettext:*
