@@ -1,8 +1,8 @@
-# Calculate chmod=0755 protected cl_builder_livemenu_path!=
+# Calculate chmod=0755 protected builder.cl_builder_livemenu_path!=
 prefix="/usr"
 exec_prefix="/usr"
 datarootdir="/usr/share"
-livepath="#-cl_builder_livemenu_path-#"
+livepath="#-builder.cl_builder_livemenu_path-#"
 
 . "/usr/share/grub/grub-mkconfig_lib"
 
