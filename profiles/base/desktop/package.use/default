@@ -377,3 +377,6 @@ mate-extra/caja-extensions -cdr image-converter share
 
 # add support ePub format
 app-text/atril epub
+
+# need for mpv, to play over ssh
+media-video/ffmpeg openssl
