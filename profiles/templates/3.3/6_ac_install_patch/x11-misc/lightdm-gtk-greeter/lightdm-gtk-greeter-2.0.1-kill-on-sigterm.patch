@@ -1,0 +1,14 @@
+# Calculate format=diff merge(x11-misc/lightdm-gtk-greeter)>=2.0.1
+diff --git a/configure b/configure
+index 374d6bc..56b0dfc 100755
+--- a/configure
++++ b/configure
+@@ -12833,7 +12833,7 @@ fi
+ if test "${enable_kill_on_sigterm+set}" = set; then :
+   enableval=$enable_kill_on_sigterm;
+ else
+-  enable_kill_on_sigterm=no
++  enable_kill_on_sigterm=yes
+ fi
+ 
+ 
