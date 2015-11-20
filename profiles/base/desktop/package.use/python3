@@ -3,6 +3,7 @@ dev-python/ndg-httpsclient python_targets_python3_4
 dev-python/pyopenssl python_targets_python3_4
 dev-python/spyder python_targets_python3_4
 dev-util/eric python_targets_python3_4
+media-video/pitivi python_targets_python3_4
 x11-misc/compton python_targets_python3_4
 
 # required by blender-2.72b-r3
@@ -55,3 +56,9 @@ dev-python/pyasn1 python_targets_python3_4
 
 # required by dev-python/cryptography-1.0.2
 virtual/python-ipaddress python_targets_python3_4
+
+# required by media-video/pitivi-0.94
+dev-python/gst-python python_targets_python3_4
+dev-python/pycanberra python_targets_python3_4
+dev-python/pyxdg python_targets_python3_4
+
