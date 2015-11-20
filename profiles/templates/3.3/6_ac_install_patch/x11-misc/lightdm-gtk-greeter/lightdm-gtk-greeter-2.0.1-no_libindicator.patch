@@ -1,0 +1,14 @@
+# Calculate format=diff merge(x11-misc/lightdm-gtk-greeter)>=2.0.1
+diff --git a/configure b/configure
+index 374d6bc..c99eefc 100755
+--- a/configure
++++ b/configure
+@@ -12415,7 +12415,7 @@ IDO_PKG=libido3-0.1
+ if test "${enable_libindicator+set}" = set; then :
+   enableval=$enable_libindicator;
+ else
+-  enable_libindicator=yes
++  enable_libindicator=no
+ fi
+ 
+ 
