@@ -380,3 +380,6 @@ app-text/atril epub
 
 # need for mpv, to play over ssh
 media-video/ffmpeg openssl
+
+# required by media-gfx/freecad-0.15.4671
+dev-libs/xerces-c icu
