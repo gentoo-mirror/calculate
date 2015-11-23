@@ -10,5 +10,5 @@ RDEPEND=!media-gfx/cld-themes !media-gfx/cldg-themes !media-gfx/cldx-themes !med
 REQUIRED_USE=^^ ( themes_CLD themes_CLDX themes_CLS themes_CLDG themes_CMC themes_CDS )
 SLOT=0
 SRC_URI=themes_CLD? ( ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cld-13.tar.bz2 ) themes_CLDX? ( ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cldx-13.tar.bz2 ) themes_CLDG? ( ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cldg-13.tar.bz2 ) themes_CMC? ( ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cmc-13.tar.bz2 ) themes_CDS? ( ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cds-13.tar.bz2 ) themes_CLS? ( ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-cls-13.tar.bz2 )
-_eclasses_=calculate	04be99762c6b6d4e13b61899ec59a7f6	eutils	f813d23e417656bf3917483643165d5a	linux-info	8f92e5ac1a1da684c5450b1b21a1f56a	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=calculate	04be99762c6b6d4e13b61899ec59a7f6	eutils	f20548a2f7b0128068388cd2ec26708a	linux-info	8f92e5ac1a1da684c5450b1b21a1f56a	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=7bdd7cdcd361f3163f3953f32c116b14
