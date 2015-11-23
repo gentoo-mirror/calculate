@@ -1,4 +1,6 @@
-include /usr/share/themes/Adwaita/gtk-2.0/gtkrc
+include '/usr/share/themes/Adwaita/gtk-2.0/gtkrc'
+
+gtk-color-scheme = "base_color:#ffffff\nfg_color:#000000\ntooltip_fg_color:#000000\nselected_bg_color:#86ABD9\nselected_fg_color:#ffffff\ntext_color:#1A1A1A\nbg_color:#EDECEB\ntooltip_bg_color:#F5F5B5"
 
 style "scrollbar" {
 	xthickness = 2
@@ -203,5 +205,3 @@ style "xfce-notifies-window"
 }
 class "XfceNotifyWindow" style "xfce-notifies-window"
 widget "*clock*"          style "calculate-clock"
-
-gtk-color-scheme = "base_color:#ffffff\nfg_color:#000000\ntooltip_fg_color:#000000\nselected_bg_color:#86ABD9\nselected_fg_color:#ffffff\ntext_color:#1A1A1A\nbg_color:#EDECEB\ntooltip_bg_color:#F5F5B5"
