@@ -8,4 +8,5 @@ LICENSE=Apache-2.0
 RDEPEND=sys-boot/plymouth sys-boot/plymouth-openrc-plugin
 SLOT=0
 SRC_URI=ftp://ftp.calculate.ru/pub/calculate/themes/plymouth/plymouth-calculate-14-r9.tar.bz2 http://mirror.yandex.ru/calculate/themes/plymouth/plymouth-calculate-14-r9.tar.bz2
+_eclass_exported_funcs=src_install:-
 _md5_=09a85bb203a286c04efd1aaeabcb3468
