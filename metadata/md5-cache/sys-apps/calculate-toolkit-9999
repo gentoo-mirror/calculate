@@ -1,0 +1,11 @@
+DEFINED_PHASES=unpack
+DEPEND=dev-vcs/git
+DESCRIPTION=Collection of administration scripts for Calculate
+EAPI=5
+HOMEPAGE=http://www.calculate-linux.org/main/en/calculate_toolkit
+LICENSE=Apache-2.0
+RDEPEND=>=sys-apps/calculate-utils-3.3.0.10
+SLOT=0
+_eclass_exported_funcs=src_unpack:git-2
+_eclasses_=git-2	df00117322129fb906bb0a53c3d6a020
+_md5_=661caeab6b88372edd3b44234030c74b

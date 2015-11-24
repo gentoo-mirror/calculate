@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=Unofficial GTK 2/3 Breeze Theme
+EAPI=5
+HOMEPAGE=https://github.com/dirruk1/gnome-breeze
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1
+SLOT=0
+SRC_URI=ftp://ftp.calculate.ru/pub/calculate/gnome-breeze/gnome-breeze-20151012.tar.bz2 http://mirror.yandex.ru/calculate/gnome-breeze/gnome-breeze-20151012.tar.bz2
+_eclass_exported_funcs=src_install:-
+_md5_=fcc214618a38a5fdda700bf0739808ae
