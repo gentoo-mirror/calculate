@@ -15,7 +15,7 @@ if [[ -d $livepath ]]; then
 $(prepare_grub_to_access_device $livedevice)
 
 if [ -f ${liverelpath}/grub.cfg ]; then
-	menuentry 'ISO images'  {
+	menuentry 'Live HDD'  {
 $(prepare_grub_to_access_device $livedevice | grub_add_tab | grub_add_tab)
 		configfile ${liverelpath}/grub.cfg
 	}
