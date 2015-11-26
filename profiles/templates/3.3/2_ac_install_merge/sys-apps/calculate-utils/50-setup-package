@@ -11,6 +11,22 @@
 CL_UPDATE_PROG=/usr/sbin/cl-core-setup
 [[ -d /var/lib/calculate ]] || mkdir /var/lib/calculate
 
+clear_systemd() {
+	local contents_fn="/var/db/pkg/${CATEGORY}/${PF}/CONTENTS"
+	cat $contents_fn | grep -e ^obj -e ^sym  | grep -e /usr/lib/systemd -e /etc/systemd | awk '{print $2}' |
+	while read fn
+	do
+		rm -f "$fn"
+	done
+	cat $contents_fn | grep ^dir  | grep -e /usr/lib/systemd -e /etc/systemd | awk '{print $2}'  | sort -r |
+	while read dn
+	do
+		[[ -d "$dn" ]] && [[ $(ls -A "$dn" | wc -l) -eq 0 ]] && rmdir "$dn"
+	done
+	sed -i '/ \/usr\/lib\/systemd/d' $contents_fn
+	sed -i '/ \/etc\/systemd/d' $contents_fn
+}
+
 # setup package and create postmerge package list
 setup_merge_package() {
 	rm -f /var/lib/calculate/-postmerge
@@ -20,6 +36,8 @@ setup_merge_package() {
 		[ -f ${CL_UPDATE_PROG} ] && check_skip && CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
 	fi
 	rm -f /var/lib/calculate/-runlevels-$PN
+
+	ls /var/db/pkg/sys-apps | grep -q openrc- && clear_systemd
 }
 
 # remove mark: package updating
