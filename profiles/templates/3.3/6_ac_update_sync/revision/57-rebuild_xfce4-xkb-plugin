@@ -3,7 +3,7 @@
 #-ini(overlay-calculate.revision,57)-#
 
 # key is pkg name, value is current version new reduced version split by space
-declare -A map_move=( ["xfce-extra/xfce4-xkb-plugin"]="0.7.1-r1 0.7.1_rc73" )
+declare -A map_move=( ["xfce-extra/xfce4-xkb-plugin"]="0.7.1 0.7.1_rc73" )
 
 PKGDB=/var/db/pkg
 for pkg in ${!map_move[@]}
