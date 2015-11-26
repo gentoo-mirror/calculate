@@ -383,3 +383,7 @@ media-video/ffmpeg openssl
 
 # required by media-gfx/freecad-0.15.4671
 dev-libs/xerces-c icu
+
+# required by app-office/texmaker-4.5
+dev-qt/qtsingleapplication qt5
+dev-qt/qtlockedfile qt5
