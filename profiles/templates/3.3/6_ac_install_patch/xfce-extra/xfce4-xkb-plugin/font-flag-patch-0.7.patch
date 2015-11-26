@@ -18,12 +18,12 @@ index 27ad119..9e563ac 100644
  
 -    scalex = (double) (width - 4) / dim.width;
 -    scaley = (double) (height - 4) / dim.height;
-+    scalex = (double) (width - 12) / dim.width;
++    scalex = (double) (width - 16) / dim.width;
 +    scaley = (double) (height - 12) / dim.height;
  
 -    layoutx = (actual_width - width) / 2 + 2;
 -    layouty = (actual_height - height) / 2 + 2;
-+    layoutx = (actual_width - width) / 2 + 6;
++    layoutx = (actual_width - width) / 2 + 8;
 +    layouty = (actual_height - height) / 2 + 6;
      cairo_translate (cr, layoutx, layouty);
  
