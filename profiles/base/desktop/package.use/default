@@ -390,3 +390,7 @@ dev-libs/xerces-c icu
 
 # not compiled with ru_RU
 =media-video/smtube-15.11.0 -linguas_ru_RU
+
+#exactly-one-of ( qt4 qt5 )
+x11-terms/qterminal qt5
+x11-libs/qtermwidget qt5
