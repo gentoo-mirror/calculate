@@ -32,7 +32,8 @@ media-video/smplayer qt4 autoshutdown
 media-sound/pulseaudio native-headset ofono-headset
 
 # required by sys-boot/plymouth [libkms]
-x11-libs/libdrm libkms
+# required by media-libs/mesa-11.0.6 [video_cards_radeonsi]
+x11-libs/libdrm libkms video_cards_amdgpu
 
 # required by www-client/firefox [apng]
 media-libs/libpng apng
