@@ -5,7 +5,7 @@
 EAPI="5"
 
 PYTHON_COMPAT=(python2_7)
-inherit distutils-r1 eutils
+inherit distutils-r1 eutils python-r1
 
 DESCRIPTION="A simple library for writing soap web services."
 HOMEPAGE="http://wiki.github.com/jkp/soaplib"
@@ -26,19 +26,13 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/soaplib-soaplib-2801978"
 
-src_install() {
-# 	DOCS="soaplib_docs.markdown TODO.txt"
-	distutils-r1_src_install
+python_install_all() {
+	distutils-r1_python_install_all
 
-	rm -rf "${ED}$(python_get_sitedir python2_7)/tests/"
+	rm -rf "${ED}$(python_get_sitedir)/tests/"
 
 	if use examples ; then
 		insinto /usr/share/doc/${PF}/examples
 		doins examples/*.py || die "doins failed"
 	fi
-}
-
-
-src_test() {
-	"$(PYTHON)" setup.py test || die "tests failed"
 }
