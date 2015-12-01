@@ -394,3 +394,6 @@ dev-libs/xerces-c icu
 #exactly-one-of ( qt4 qt5 )
 x11-terms/qterminal qt5
 x11-libs/qtermwidget qt5
+
+# required by dev-texlive/texlive-langczechslovak-2014
+app-text/texlive-core xetex
