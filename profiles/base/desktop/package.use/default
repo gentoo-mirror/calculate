@@ -389,8 +389,11 @@ dev-libs/xerces-c icu
 =app-office/texmaker-4.5 -qt5 qt4
 
 # not compiled with ru_RU
-=media-video/smtube-15.11.0 -linguas_ru_RU
+=media-video/smtube-15.11.0 -linguas_ru_RU -linguas_lt
 
 #exactly-one-of ( qt4 qt5 )
 x11-terms/qterminal qt5
 x11-libs/qtermwidget qt5
+
+# required by dev-texlive/texlive-langczechslovak-2014
+app-text/texlive-core xetex
