@@ -1,4 +1,4 @@
-# Calculate format=xml_xfce cl_ver<3.4.4.6
+# Calculate format=xml_xfce
 <?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="xfce4-panel" version="1.0">
@@ -116,7 +116,9 @@
     </property>
     <property name="plugin-8" type="string" value="showdesktop"/>
     <property name="plugin-9" type="string" value="thunar-tpa"/>
+#?os_locale_lat_set==off#
     <property name="plugin-10" type="string" value="xkb-plugin"/>
+#os_locale_lat_set#
     <property name="plugin-7" type="string" value="launcher">
       <property name="items" type="array">
         <value type="string" value="10000000007.desktop"/>
