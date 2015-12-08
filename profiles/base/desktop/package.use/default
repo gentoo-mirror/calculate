@@ -403,3 +403,7 @@ games-strategy/0ad sound
 
 # opengl? ( gui widgets ), webkit? ( network printsupport )
 dev-python/PyQt5 gui printsupport network widgets
+
+# support QGtkStyle Qt5 for Cinnamon, Gnome, MATE, LXDE, Xfce
+dev-qt/qtgui gtkstyle
+dev-qt/qtwidgets gtkstyle
