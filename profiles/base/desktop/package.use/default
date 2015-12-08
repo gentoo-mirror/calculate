@@ -200,8 +200,9 @@ sys-block/gparted btrfs dmraid fat mdadm ntfs reiserfs xfs
 # Add Catalyst Control Panel
 x11-drivers/ati-drivers qt4
 
-# Build a Qt style called GTK+ that mimics the active GTK+ theme
+# Build a Qt4/5 style called GTK+ that mimics the active GTK+ theme
 dev-qt/qtgui gtkstyle
+dev-qt/qtwidgets gtkstyle
 
 # Add automounting,volume monitoring, etc. Build thunar-tpa (trash) plugin for panel.
 xfce-base/thunar udisks xfce_plugins_trash
@@ -234,8 +235,6 @@ media-libs/libvpx postproc
 # required by media-gfx/digikam-4.4.0-r1
 kde-apps/marble plasma
 
-# required by dev-qt/qtwidgets-5.4.2
->=dev-qt/qtgui-5.4.2 -gtkstyle
 # required by dev-qt/qtwebkit-5.4.2
 >=dev-qt/qtcore-5.4.2 icu
 # required by dev-qt/qtcore
