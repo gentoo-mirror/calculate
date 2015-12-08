@@ -43,6 +43,8 @@ RDEPEND="dev-libs/openssl:0
 		dev-qt/qtdeclarative:5
 		dev-qt/qtsql:5[sqlite]
 		dev-qt/qtwebkit:5
+		media-plugins/gst-plugins-libav:1.0
+		media-libs/gst-plugins-good:1.0
 		dbus? ( dev-qt/qtdbus:5 ) )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
