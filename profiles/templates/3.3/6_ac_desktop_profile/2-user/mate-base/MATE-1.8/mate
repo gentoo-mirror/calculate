@@ -57,9 +57,7 @@ name='Завершить сеанс, игнорируя любые сущест�
 automount=false
 
 [desktop/peripherals/keyboard]
-#?pkg(x11-themes/calculate-xcursors)!=#
-cursor-theme='calculate'
-#pkg#
+cursor-theme='Calculate'
 delay=360
 #?hr_laptop==#
 numlock-state='on'
@@ -75,7 +73,7 @@ default-group=0
 font-family='Droid Sans 18'
 
 [desktop/peripherals/mouse]
-cursor-theme='calculate'
+cursor-theme='Calculate'
 
 [desktop/peripherals/touchpad]
 disable-while-typing=false
