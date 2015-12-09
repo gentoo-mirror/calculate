@@ -40,7 +40,8 @@ media-libs/libpng apng
 
 # required by x11-libs/glamor [gdm], x11-drivers/xf86-video-vmware,
 # app-emulation/libvirt-1.2.18-r1::gentoo[qemu]
-media-libs/mesa gbm xa gles2
+# kde-plasma/kwin-5.5.0
+media-libs/mesa gbm xa gles2 wayland
 
 # required by www-client/chromium [minizip]
 sys-libs/zlib minizip
