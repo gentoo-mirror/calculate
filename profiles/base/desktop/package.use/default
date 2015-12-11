@@ -83,9 +83,15 @@ media-gfx/exiv2 xmp
 # [sql] required by app-office/akonadi-server
 dev-qt/qtsql mysql
 
+# required by kde-apps/libkface-15.08.3
+media-libs/opencv contrib
+
+# required by kde-apps/okteta-15.08.3
+>=dev-qt/qtscript-5.5.1 scripttools
+
+
 # circular dependencies net-libs/glib-networking-2.42.1 and net-libs/libproxy-0.4.11-r2
 net-libs/libproxy -webkit
-
 
 # -----------------------------------------
 # Removed unnecessary dependence
@@ -135,6 +141,7 @@ kde-base/ksysguard lm_sensors
 
 # Enable support for mobile broadband devices
 kde-misc/plasma-nm modemmanager
+kde-plasma/plasma-nm modemmanager openconnect
 
 # Enable support for mobile broadband devices
 net-libs/libnm-qt modemmanager
