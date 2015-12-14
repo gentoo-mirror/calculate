@@ -58,9 +58,6 @@ dev-python/pyside script
 # required by sys-devel/prelink
 dev-libs/elfutils static-libs
 
-# required by virtual/libgudev-215-r1
-sys-fs/eudev gudev
-
 # required by kde-base/kopete-4.14.3-r1[ssl]
 app-crypt/qca openssl
 
