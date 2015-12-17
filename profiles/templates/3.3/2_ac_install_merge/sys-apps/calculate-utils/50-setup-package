@@ -37,7 +37,7 @@ setup_merge_package() {
 	fi
 	rm -f /var/lib/calculate/-runlevels-$PN
 
-	ls /var/db/pkg/sys-apps | grep -q openrc- && clear_systemd
+	ls /var/db/pkg/sys-apps | grep -q systemd- || clear_systemd
 }
 
 # remove mark: package updating
