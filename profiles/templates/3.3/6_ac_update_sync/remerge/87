@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-apps/baselayout ini(overlay-calculate.remerge)<87
+
+[overlay-calculate]
+remerge = 87
