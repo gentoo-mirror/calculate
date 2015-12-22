@@ -340,6 +340,42 @@ genericName[fr]=#-grep(/usr/share/applications/calculate-chat.desktop,\nGenericN
 iconName=#-grep(/usr/share/applications/calculate-chat.desktop,\nIcon=(.*))-#
 url=file:///usr/share/applications/calculate-chat.desktop
 
+[Containments][69][Applets][76]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][69][Applets][76][Configuration][General]
+applicationName=#-grep(/usr/share/applications/calculate-calculator.desktop,\nName=(.*))-#
+#?grep(/usr/share/applications/calculate-calculator.desktop,\nGenericName=(.*))!=#
+genericName=#-grep(/usr/share/applications/calculate-calculator.desktop,\nGenericName=(.*))-#
+#grep#
+#?grep(/usr/share/applications/calculate-calculator.desktop,\nGenericName\[ru\]=(.*))!=#
+genericName[ru]=#-grep(/usr/share/applications/calculate-calculator.desktop,\nGenericName\[ru\]=(.*))-#
+#grep#
+#?grep(/usr/share/applications/calculate-calculator.desktop,\nGenericName\[fr\]=(.*))!=#
+genericName[fr]=#-grep(/usr/share/applications/calculate-calculator.desktop,\nGenericName\[fr\]=(.*))-#
+#grep#
+iconName=#-grep(/usr/share/applications/calculate-calculator.desktop,\nIcon=(.*))-#
+url=file:///usr/share/applications/calculate-calculator.desktop
+
+[Containments][69][Applets][77]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][69][Applets][77][Configuration][General]
+applicationName=#-grep(/usr/share/applications/calculate-imageview.desktop,\nName=(.*))-#
+#?grep(/usr/share/applications/calculate-imageview.desktop,\nGenericName=(.*))!=#
+genericName=#-grep(/usr/share/applications/calculate-imageview.desktop,\nGenericName=(.*))-#
+#grep#
+#?grep(/usr/share/applications/calculate-imageview.desktop,\nGenericName\[ru\]=(.*))!=#
+genericName[ru]=#-grep(/usr/share/applications/calculate-imageview.desktop,\nGenericName\[ru\]=(.*))-#
+#grep#
+#?grep(/usr/share/applications/calculate-imageview.desktop,\nGenericName\[fr\]=(.*))!=#
+genericName[fr]=#-grep(/usr/share/applications/calculate-imageview.desktop,\nGenericName\[fr\]=(.*))-#
+#grep#
+iconName=#-grep(/usr/share/applications/calculate-imageview.desktop,\nIcon=(.*))-#
+url=file:///usr/share/applications/calculate-imageview.desktop
+
 [Containments][69][Applets][74]
 immutability=1
 plugin=org.kde.plasma.icon
@@ -381,7 +417,7 @@ DialogHeight=81
 DialogWidth=#-os_x11_width-#
 
 [Containments][69][General]
-AppletOrder=71,73,74,75
+AppletOrder=71,73,76,77,74,75
 
 [General]
 immutability=2
