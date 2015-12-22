@@ -1,3 +1,10 @@
+# Calculate format=kde
+#?os_root_type==livecd#
+[Daemon]
+Autolock=false
+LockOnResume=false
+#os_root_type#
+
 [Greeter]
 Theme=org.kde.calculate
 ThemeBackground=/usr/share/wallpapers/Calculate-dm/contents/images/#-wallpaper(#-os_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#
