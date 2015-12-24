@@ -39,7 +39,7 @@ EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --quiet-build=n --with-bdeps=y --bin
 FEATURES="getbinpkg parallel-install -userpriv"
 GENTOO_MIRRORS="http://mirror.yandex.ru/gentoo-distfiles http://distfiles.gentoo.org"
 LDFLAGS="-Wl,--as-needed"
-LINGUAS="be be_BY bg bg_BG bs cs cs_CZ da da_DK de de_DE en en_GB es es_AR es_ES es_UY es_VE et et_EE fi fi_FI fr fr_CA fr_FR hu hu_HU it it_IT kk kk_KZ lt lt_LT lv lv_LV nl nl_NL pl pl_PL pt pt_BR pt_PT ro ro_RO ru ru_RU sk sk_SK sl sl_SI sq sq_AL sr sr_RS sv sv_SE uk uk_UA"
+LINGUAS="be be_BY bg bg_BG bs cs cs_CZ da da_DK de de_DE en en_GB es es_AR es_ES es_UY es_VE et et_EE fi fi_FI fr fr_CA fr_FR hr hr_HR hu hu_HU it it_IT kk kk_KZ lt lt_LT lv lv_LV nl nl_NL pl pl_PL pt pt_BR pt_PT ro ro_RO ru ru_RU sk sk_SK sl sl_SI sq sq_AL sr sr_RS sv sv_SE uk uk_UA"
 NPTL_KERN_VER="3.12.0"
 PORTAGE_TMPDIR="/var/calculate/tmp"
 USE_EXPAND="CALCULATE THEMES"
