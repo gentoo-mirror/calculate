@@ -17,6 +17,7 @@ IUSE=""
 SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-themes-calculate-15-r2.tar.bz2"
 
 RDEPEND="media-gfx/splashutils
+media-fonts/droid
 !media-gfx/cld-themes
 !media-gfx/cldg-themes
 !media-gfx/cldx-themes
