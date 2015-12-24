@@ -1,9 +1,12 @@
 # Calculate path=/root
 
-#?pkg(x11-themes/gnome-breeze)!=
+#?pkg(kde-plasma-breeze-gtk)!=#
+include "/usr/share/themes/Breeze/gtk-2.0/gtkrc"
+#pkg#
+#?pkg(kde-plasma-breeze-gtk)==&&pkg(x11-themes/gnome-breeze)!=#
 include "/usr/share/themes/Breeze-dark-gtk/gtk-2.0/gtkrc"
 #pkg#
-#?pkg(x11-themes/gnome-breeze)==
+#?pkg(x11-themes/gnome-breeze)==&&pkg(kde-plasma-breeze-gtk)==#
 include "/usr/share/themes/Calculate/gtk-2.0/gtkrc"
 #pkg#
 include "/etc/gtk-2.0/gtkrc"
