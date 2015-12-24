@@ -11,7 +11,7 @@ declare -A CALCULATE_MODULES=(
 	["core"]="3.4.5.1"
 	["i18n"]="3.4.5.6"
 	["client"]="3.4.5.1"
-	["update"]="3.4.5.6"
+	["update"]="3.4.5.7"
 	["builder"]="3.4.5.8"
 )
 
