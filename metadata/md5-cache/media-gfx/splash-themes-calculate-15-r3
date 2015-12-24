@@ -1,13 +1,13 @@
 DEFINED_PHASES=install postinst setup
-DEPEND=media-gfx/splashutils !media-gfx/cld-themes !media-gfx/cldg-themes !media-gfx/cldx-themes !media-gfx/cls-themes !media-gfx/cmc-themes !media-gfx/cds-themes
+DEPEND=media-gfx/splashutils media-fonts/droid !media-gfx/cld-themes !media-gfx/cldg-themes !media-gfx/cldx-themes !media-gfx/cls-themes !media-gfx/cmc-themes !media-gfx/cds-themes
 DESCRIPTION=Calculate Linux theme for gensplash
 EAPI=4
 HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/calculate-splash-themes
 KEYWORDS=amd64 x86
 LICENSE=Apache-2.0
-RDEPEND=media-gfx/splashutils !media-gfx/cld-themes !media-gfx/cldg-themes !media-gfx/cldx-themes !media-gfx/cls-themes !media-gfx/cmc-themes !media-gfx/cds-themes
+RDEPEND=media-gfx/splashutils media-fonts/droid !media-gfx/cld-themes !media-gfx/cldg-themes !media-gfx/cldx-themes !media-gfx/cls-themes !media-gfx/cmc-themes !media-gfx/cds-themes
 SLOT=0
 SRC_URI=ftp://ftp.calculate.ru/pub/calculate/themes/splash/splash-themes-calculate-15-r2.tar.bz2
 _eclass_exported_funcs=pkg_postinst:calculate pkg_setup:linux-info src_install:-
 _eclasses_=calculate	04be99762c6b6d4e13b61899ec59a7f6	eutils	d9bd2ddd85a58e470b49ca997e255a4c	linux-info	8f92e5ac1a1da684c5450b1b21a1f56a	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=e115b717769492a5a657c22a4731d661
+_md5_=640f6d006e208ee558f6dd4ef6bf192a
