@@ -57,8 +57,11 @@ dev-python/pyasn1 python_targets_python3_4
 # required by dev-python/cryptography-1.0.2
 virtual/python-ipaddress python_targets_python3_4
 
-# required by media-video/pitivi-0.94
+# required by media-video/pitivi-0.95
 dev-python/gst-python python_targets_python3_4
+dev-python/matplotlib python_targets_python3_4
 dev-python/pycanberra python_targets_python3_4
+dev-python/pyparsing python_targets_python3_4
+dev-python/python-dateutil python_targets_python3_4
+dev-python/pytz python_targets_python3_4
 dev-python/pyxdg python_targets_python3_4
-
