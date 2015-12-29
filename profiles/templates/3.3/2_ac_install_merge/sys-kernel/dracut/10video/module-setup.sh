@@ -16,7 +16,7 @@ depends() {
 }
 
 installkernel() {
-    instmods radeon uvesafb nouveau i915
+    instmods radeon uvesafb nouveau i915 amdgpu
 }
 
 install() {
@@ -31,7 +31,7 @@ install() {
      inst_hook pre-trigger 01 "$moddir/load-video.sh"
      inst_hook cmdline 50 "$moddir/parse-cmdline.sh"
      mkdir -p ${initdir}/etc/modprobe.d
-     for videomodule in fglrx nvidia radeon nouveau i915 uvesafb
+     for videomodule in fglrx nvidia radeon nouveau i915 uvesafb amdgpu
      do
         echo "blacklist ${videomodule}" >>${initdir}/etc/modprobe.d/video-blacklist.conf
      done

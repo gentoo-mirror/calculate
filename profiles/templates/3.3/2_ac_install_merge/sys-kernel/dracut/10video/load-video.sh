@@ -1,4 +1,3 @@
-# Calculate chmod=0755
 
 load_videodrv() {
 	info "Loading frame buffer video driver"
@@ -7,6 +6,7 @@ load_videodrv() {
 		-name "nouveau.ko*" -o \
 		-name "uvesafb.ko*" -o \
 		-name "i915.ko*" -o \
+		-name "amdgpu.ko*" -o \
 		-name "radeon.ko*" |
 		grep -c "")
 	# load specified videodrv
@@ -17,6 +17,9 @@ load_videodrv() {
 			;;
 		radeon)
 			modules_list="radeon"
+			;;
+		amdgpu)
+			modules_list="amdgpu"
 			;;
 		none)
 			return 0;

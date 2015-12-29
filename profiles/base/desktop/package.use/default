@@ -414,3 +414,6 @@ net-misc/connman-gtk openconnect
 
 # add support DLNA/UPnP
 media-tv/kodi upnp upower
+
+# Install firmware for older chipsets
+#sys-firmware/amdgpu-ucode legacy
