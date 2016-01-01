@@ -65,7 +65,7 @@ app-crypt/qca openssl
 dev-python/PyQt4 declarative script sql
 
 # [melt, xml] required by media-video/kdenlive
-media-libs/mlt melt xml kdenlive -xine
+media-libs/mlt melt xml kdenlive -xine qt5
 
 # [embedded] required by media-sound/amarok
 dev-db/mysql embedded
