@@ -1,9 +1,0 @@
-# Calculate format=world name=world ini(update.world)<40
-
-#-ini(update.world,40)-#
-
-#?in(os_linux_pkglist, CLD)!=#
-!kde-misc/networkmanagement
-!kde-base/kdnssd
-kde-base/zeroconf-ioslave
-#in#

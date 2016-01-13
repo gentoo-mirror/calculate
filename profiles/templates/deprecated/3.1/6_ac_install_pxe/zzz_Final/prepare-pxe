@@ -1,7 +1,0 @@
-# Calculate exec=/bin/bash path=/tmp
-
-rc-service -i in.tftpd restart
-rc-service -i nfs restart
-rc-service -i dhcpd restart
-
-true

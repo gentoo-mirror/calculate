@@ -1,5 +1,0 @@
-# Calculate format=patch name=common.cfg
-<reg> (/boot)</reg>
-<text> /calculate\1</text>
-<reg> (boot.jpg|lang.cfg|keymap.cfg|vga.cfg|timezone.cfg|f1.txt|video.cfg|memtest|calcmenu.c32)</reg>
-<text> pxelinux.cfg/\1</text>

@@ -1,6 +1,0 @@
-# Calculate format=patch
-<reg>		rm /etc/.noxdm
-		return 0</reg>
-<text>		rm /etc/.noxdm
-		chvt 1
-		return 0</text>
