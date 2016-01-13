@@ -1,7 +1,0 @@
-# Calculate format=patch name=timezone.cfg
-<reg> (/boot)</reg>
-<text> /calculate\1</text>
-<reg> isolinux.cfg</reg>
-<text> pxelinux.cfg/default</text>
-<reg> (common.cfg|calcmenu.c32)</reg>
-<text> pxelinux.cfg/\1</text>
