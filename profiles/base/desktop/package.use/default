@@ -189,13 +189,13 @@ sys-libs/glibc nscd
 net-fs/cifs-utils -acl
 
 # raw? ( opencv ) tiff? ( opencv )
-media-gfx/nomacs opencv
+media-gfx/nomacs opencv qt5
 
 # required by media-gfx/nomacs [raw]
-media-libs/opencv qt4
+media-libs/opencv qt5
 
-# required by app-text/qpdfview [pdf,qt4]
-app-text/poppler qt4
+# required by app-text/qpdfview [pdf]
+app-text/poppler -qt4 qt5
 
 # Add support for LDAP, PDF, RSS, SMIME, HTML, Xface
 mail-client/claws-mail ldap pdf rss smime webkit xface
