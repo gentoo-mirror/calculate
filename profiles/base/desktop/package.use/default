@@ -189,10 +189,10 @@ sys-libs/glibc nscd
 net-fs/cifs-utils -acl
 
 # raw? ( opencv ) tiff? ( opencv )
-media-gfx/nomacs opencv qt5
+media-gfx/nomacs opencv
 
 # required by media-gfx/nomacs [raw]
-media-libs/opencv qt5
+media-libs/opencv qt4
 
 # required by app-text/qpdfview [pdf]
 app-text/poppler -qt4 qt5
