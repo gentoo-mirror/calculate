@@ -194,8 +194,8 @@ media-gfx/nomacs opencv
 # required by media-gfx/nomacs [raw]
 media-libs/opencv qt4
 
-# required by app-text/qpdfview [pdf,qt4]
-app-text/poppler qt4
+# required by app-text/qpdfview [pdf]
+app-text/poppler -qt4 qt5
 
 # Add support for LDAP, PDF, RSS, SMIME, HTML, Xface
 mail-client/claws-mail ldap pdf rss smime webkit xface
