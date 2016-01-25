@@ -14,3 +14,6 @@ sys-auth/polkit-qt qt5
 app-crypt/qca qt5
 # required by dev-db/sqlitebrowser-3.7.0
 dev-libs/qcustomplot qt5
+# required by net-p2p/qbittorrent-3.3.3
+dev-qt/qtlockedfile qt5
+dev-qt/qtsingleapplication qt5
