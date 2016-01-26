@@ -22,7 +22,7 @@ REQUIRED_USE=""
 RDEPEND="|| ( 
 		x11-themes/gnome-icon-theme
 		kde-plasma/breeze
-		kde-apps/oxygen-icons
+		kde-frameworks/oxygen-icons
 		x11-themes/elementary-icon-theme
 		x11-themes/mate-icon-theme
 	)"
