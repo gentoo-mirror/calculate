@@ -1,0 +1,77 @@
+# Calculate format=diff pkg(sys-kernel/calculate-sources)>=4.4&&pkg(sys-kernel/calculate-sources)<4.5&&merge(x11-drivers/ati-drivers)==15.12-r1&&os_arch_machine==i686
+diff --git a/common/lib/modules/fglrx/build_mod/firegl_public.c b/common/lib/modules/fglrx/build_mod/firegl_public.c
+index 1958cc7..c85d25f 100755
+--- a/common/lib/modules/fglrx/build_mod/firegl_public.c
++++ b/common/lib/modules/fglrx/build_mod/firegl_public.c
+@@ -261,23 +261,6 @@
+ #define __flush_tlb_one(addr) asm volatile("invlpg (%0)" ::"r" (addr) : "memory")
+ #define __flush_tlb() native_write_cr3(native_read_cr3())
+ 
+-static inline void __flush_tlb_all(void)
+-{
+-        if (cpu_has_pge)
+-        {
+-                unsigned long flags, cr4;
+-                raw_local_irq_save(flags);
+-                cr4 = native_read_cr4();
+-                native_write_cr4(cr4 & ~X86_CR4_PGE);
+-                native_write_cr4(cr4);
+-                raw_local_irq_restore(flags);
+-        }
+-        else
+-        {
+-                __flush_tlb();
+-        }
+-}
+-
+ // ============================================================
+ /* globals */
+ 
+@@ -1737,46 +1720,12 @@ void ATI_API_CALL KCL_SetCurrentProcessState(KCL_ENUM_ProcessState state)
+     current->state = KCL_MAP_ProcessState[state];
+ }
+ 
+-#if defined(__i386__) 
+-#ifndef __HAVE_ARCH_CMPXCHG
+-static inline 
+-unsigned long __fgl_cmpxchg(volatile void *ptr, unsigned long old,            
+-                        unsigned long new, int size)                      
+-{                                                                                       
+-    unsigned long prev;                                                             
+-    switch (size) {                                                                 
+-    case 1:                                                                         
+-        __asm__ __volatile__(LOCK_PREFIX "cmpxchgb %b1,%2"
+-                             : "=a"(prev)
+-                             : "q"(new), "m"(*__xg(ptr)), "0"(old)
+-                             : "memory");
+-        return prev;
+-    case 2:
+-        __asm__ __volatile__(LOCK_PREFIX "cmpxchgw %w1,%2"
+-                             : "=a"(prev)
+-                             : "q"(new), "m"(*__xg(ptr)), "0"(old)
+-                             : "memory");
+-        return prev;
+-    case 4:
+-        __asm__ __volatile__(LOCK_PREFIX "cmpxchgl %1,%2"
+-                             : "=a"(prev)
+-                             : "q"(new), "m"(*__xg(ptr)), "0"(old)
+-                             : "memory");
+-        return prev;
+-    }
+-    return old;
+-}
+-#endif /* cmpxchg */
+-#elif defined(__alpha__)
+-todo !!!
+-#endif
+-
+ unsigned long ATI_API_CALL kcl__cmpxchg(volatile void *ptr, unsigned long old,
+          unsigned long new, int size)
+ {
+ #ifndef __HAVE_ARCH_CMPXCHG
+ #if defined(__i386__)
+-    return __fgl_cmpxchg(ptr,old,new,size);
++    return cmpxchg((unsigned long*)ptr,old,new);
+ #elif defined(__x86_64__)
+     return cmpxchg((unsigned long*)ptr,old,new);
+ #endif
