@@ -1,0 +1,14 @@
+# Calculate format=diff pkg(sys-kernel/calculate-sources)>=4.3&&pkg(sys-kernel/calculate-sources)<4.5&&merge(net-wireless/broadcom-sta)>=6.30.223.271&&merge(net-wireless/broadcom-sta)<6.30.223.272&&os_arch_machine==i686
+diff --git a/src/shared/linux_osl.c b/src/shared/linux_osl.c
+index f879398..c098234 100644
+--- a/src/shared/linux_osl.c
++++ b/src/shared/linux_osl.c
+@@ -932,7 +932,7 @@ osl_getcycles(void)
+ 	uint cycles;
+ 
+ #if defined(__i386__)
+-	cycles = (u32)native_read_tsc();
++	cycles = (u32)rdtsc();
+ #else
+ 	cycles = 0;
+ #endif 
