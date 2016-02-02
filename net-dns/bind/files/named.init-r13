@@ -1,7 +1,7 @@
 #!/sbin/runscript
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/bind/files/named.init-r13,v 1.1 2014/01/31 21:24:49 idl0r Exp $
+# $Id$
 
 extra_commands="checkconfig checkzones"
 extra_started_commands="reload"
@@ -152,6 +152,10 @@ start() {
 				_mount /usr/share/GeoIP ${CHROOT}/usr/share/GeoIP -o bind
 			fi
 		fi
+
+		# On initial startup, if piddir inside the chroot /var/run/named
+		# Then the .../var/run part might not exist yet
+		checkpath -q -d -o root:root -m 0755 "${piddir}/.."
 	fi
 
 	checkconfig || { eend 1; return 1; }
@@ -160,6 +164,7 @@ start() {
 	_get_pidfile
 	piddir="${PIDFILE%/*}"
 	checkpath -q -d -o root:named -m 0770 "${piddir}" || {
+		eerror "Failed to create PID directory at $piddir"
 		eend 1
 		return 1
 	}

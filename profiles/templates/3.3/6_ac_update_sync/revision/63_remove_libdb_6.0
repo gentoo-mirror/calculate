@@ -1,0 +1,23 @@
+# Calculate ini(overlay-calculate.revision)<63 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,63)-#
+
+#?pkg(sys-libs/db:6.0)!=#
+DBPKG=/var/db/pkg
+OLDPN=sys-libs/db-6.0.35
+NEWPN=sys-libs/db-0_rc73
+
+if [[ -d $DBPKG/$OLDPN ]]
+then
+	mv $DBPKG/$OLDPN $DBPKG/$NEWPN
+	echo 0 >$DBPKG/$NEWPN/SLOT
+
+	grep -rnP "sys-libs/db[^ ]+:6" $DBPKG/*/*/*DEPEND | awk -F: '{print $1}' |
+	while read fn
+	do
+		sed -ri 's/(sys-libs\/db[^ ]+):[^ []+/\1/' $fn
+	done
+fi
+#pkg#
+
+exit 0
