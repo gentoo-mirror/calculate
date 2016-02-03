@@ -36,3 +36,12 @@ sys-apps/calculate-utils:0
 
 # not compiled media-libs/libgpod-0.8.3 with this version in chroot
 =dev-lang/swig-3.0.5
+
+# prevent automagic depends
+sys-libs/db:6.0
+
+# mask for migration to the new version
+dev-lang/ruby:2.0
+
+# blocking sys-firmware/amdgpu-ucode-20150803
+=sys-kernel/linux-firmware-20151207

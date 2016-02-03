@@ -428,3 +428,6 @@ media-libs/libcanberra sound
 
 # Support DLNA
 media-video/vlc upnp
+
+# required by net-im/skype-4.3.0.37-r6
+dev-qt/qtwebkit -exceptions
