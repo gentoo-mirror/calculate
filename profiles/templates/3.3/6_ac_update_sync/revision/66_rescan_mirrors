@@ -2,5 +2,7 @@
 
 #-ini(overlay-calculate.revision,66)-#
 
+#?cl_chroot_status==off#
 [update]
 !cl_update_binhost=
+#cl_chroot_status#
