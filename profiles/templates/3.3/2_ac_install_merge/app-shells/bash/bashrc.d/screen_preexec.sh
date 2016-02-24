@@ -1,4 +1,4 @@
-# Calculate comment=# path=/etc/bash
+# Calculate comment=#
 #!/bin/bash
 
 if [[ "$SCREEN_RUN_HOST" == "" ]]
