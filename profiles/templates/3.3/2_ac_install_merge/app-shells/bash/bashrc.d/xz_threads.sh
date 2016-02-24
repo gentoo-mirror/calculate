@@ -1,4 +1,4 @@
 # Calculate comment=#
 #!/bin/bash
 
-XZ_OPT="--threads=0"
+export XZ_OPT="--threads=0"
