@@ -1,5 +1,7 @@
-# Calculate comment=# path=/etc/bash
+# Calculate comment=#
 #!/bin/bash
+
+# the script used for the automatic changing of screen tab names
 
 if [[ "$SCREEN_RUN_HOST" == "" ]]
 then
