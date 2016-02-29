@@ -35,8 +35,18 @@ Ident=#-os_linux_shortname-#|#-hr_virtual-#
 Ident=Live#-os_linux_shortname-#|#-hr_virtual-#
 #os_root_type#
 Name=Default Identity
-Nicknames=#-case(capitalize,ur_login)-#-#-os_locale_language-#,#-case(capitalize,ur_login)-##-rnd(num,2)-#-#-os_locale_language-#,#-case(capitalize,ur_login)-##-rnd(num,2)-#-#-os_locale_language-#
+#?hr_virtual==virtualbox#
+##-ini(tmp.vm,VB)-#
+##hr_virtual#
+##?hr_virtual==vmware#
+##-ini(tmp.vm,VM)-#
+##hr_virtual#
+##?hr_virtual==qemu#
+##-ini(tmp.vm,QE)-#
+##hr_virtual#
+Nicknames=#-case(capitalize,ur_login)-##-ini(tmp.vm)-#-#-os_locale_language-#,#-case(capitalize,ur_login)-##-ini(tmp.vm)-##-rnd(num,2)-#-#-os_locale_language-#,#-case(capitalize,ur_login)-##-ini(tmp.vm)-##-rnd(num,2)-#-#-os_locale_language-#
 Realname=#-os_linux_name-# #-os_linux_ver-# #-os_linux_subname-#
+#-ini(tmp.vm,)-#
 
 [Flags]
 # расположить закладки наверху
