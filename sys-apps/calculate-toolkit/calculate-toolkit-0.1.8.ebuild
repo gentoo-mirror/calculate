@@ -14,4 +14,4 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 
 RDEPEND=">=sys-apps/calculate-utils-3.3.1
-	app-arch/lz4"
+	app-arch/xz-utils"

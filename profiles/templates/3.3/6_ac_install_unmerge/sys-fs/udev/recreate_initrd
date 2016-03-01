@@ -42,14 +42,14 @@ create_hostonly_initramfs() {
     [[ -n $kernel_version ]] || die "Failed to detect version"
 
     echo "Creating Safe-mode initramfs ..."
-    dracut -f --kver $kernel_version $initrd_tmp &>/dev/null ||
+    dracut --xz -f --kver $kernel_version $initrd_tmp &>/dev/null ||
         die "Failed to create Safe-mode initramfs"
     mv $initrd_tmp $initrd_safemode &>/dev/null || die "Failed to create initramfs Safe-mode"
     echo "Safe-mode initramfs has been created"
     if [[ -e $initrd_safemode ]]
     then
         echo "Creating Host-Only initramfs ..."
-        dracut -H -f --kver $kernel_version $initrd_tmp &>/dev/null ||
+        dracut -H --xz -f --kver $kernel_version $initrd_tmp &>/dev/null ||
             die "Failed to create Host-Only initramfs"
         mv $initrd_tmp $initrd &>/dev/null || die "Failed to rename initramfs"
         echo "Host-Only initramfs has been created"
