@@ -10,10 +10,21 @@
 inherit calculate eutils kernel-2
 EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst
 
-IUSE="vmlinuz minimal"
+IUSE="+vmlinuz minimal themes firmware +grub"
 
-REQUIRED_USE="minimal? ( vmlinuz )"
-RDEPEND="vmlinuz? ( sys-kernel/dracut app-arch/lz4 )"
+REQUIRED_USE="minimal? ( vmlinuz )
+	grub? ( vmlinuz )"
+
+
+DEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
+		sys-apps/v86d
+		grub? ( sys-boot/grub )
+	)
+	firmware? ( sys-kernel/linux-firmware )
+	themes? ( media-gfx/splash-themes-calculate )
+	"
+
+RDEPEND="${DEPEND} vmlinuz? ( sys-kernel/dracut app-arch/lz4 )"
 
 detect_version
 detect_arch
@@ -29,14 +40,14 @@ KV_FULL="${PV}${EXTRAVERSION}"
 
 S="${WORKDIR}/linux-${KV_FULL}"
 
-calculate-kernel-6_pkg_setup() {
+calculate-kernel-7_pkg_setup() {
 	kernel-2_pkg_setup
 	eqawarn "!!! WARNING !!!  WARNING !!!  WARNING !!!  WARNING !!!"
 	eqawarn "After the kernel assemble perform command to update modules:"
 	eqawarn "  emerge @modules-rebuild"
 }
 
-calculate-kernel-6_src_unpack() {
+calculate-kernel-7_src_unpack() {
 	kernel-2_src_unpack
 	cd ${S}
 	local GENTOOARCH="${ARCH}"
@@ -63,7 +74,7 @@ vmlinuz_src_compile() {
 	ARCH="${GENTOOARCH}"
 }
 
-calculate-kernel-6_src_compile() {
+calculate-kernel-7_src_compile() {
 	use vmlinuz && vmlinuz_src_compile
 }
 
@@ -75,7 +86,7 @@ vmlinuz_src_install() {
 	INSTALL_PATH=${D}/usr/share/${PN}/${PV}/boot emake install
 	INSTALL_MOD_PATH=${D} emake modules_install
 	/sbin/depmod -b ${D} ${KV_FULL}
-	/usr/bin/dracut -a calculate $PLYMOUTH -a video -k ${D}/lib/modules/${KV_FULL} \
+	/usr/bin/dracut --xz -a calculate $PLYMOUTH -a video -k ${D}/lib/modules/${KV_FULL} \
 		--kver ${KV_FULL} \
 		${D}/usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL}
 	# move firmware to share, because /lib/firmware installation does collisions
@@ -133,7 +144,7 @@ clean_for_minimal() {
 	rm -r Documentation
 }
 
-calculate-kernel-6_src_install() {
+calculate-kernel-7_src_install() {
 	use vmlinuz && vmlinuz_src_install
 	use minimal && clean_for_minimal
 	kernel-2_src_install
@@ -159,7 +170,7 @@ vmlinuz_pkg_postinst() {
 	calculate_update_modules
 }
 
-calculate-kernel-6_pkg_postinst() {
+calculate-kernel-7_pkg_postinst() {
 	kernel-2_pkg_postinst
 
 	KV_OUT_DIR=${ROOT}/usr/src/linux-${KV_FULL}

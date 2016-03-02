@@ -6,7 +6,7 @@
 KVER=$(readlink /usr/src/linux)
 if [[ -n $KVER ]]
 then
-    /usr/bin/dracut --kver=${KVER#linux-} -f &>/dev/null
+    /usr/bin/dracut --xz --kver=${KVER#linux-} -f &>/dev/null
 fi
 #pkg#
 
