@@ -1,0 +1,66 @@
+# Calculate format=diff pkg(sys-apps/calculate-utils)<=3.4.5.27
+Поддержка названия gentoo для /usr/portage
+
+--- /usr/lib/python2.7/site-packages/calculate/builder/builder.py
++++ /usr/lib/python2.7/site-packages/calculate/builder/builder.py
+@@ -162,7 +162,7 @@ class Builder(Update):
+                         self.clVars.Get('update.cl_update_layman_make'),
+                         self.clVars.Get('update.cl_update_layman_conf'),
+                         prefix=self.clVars.Get('cl_builder_path'))
+-        if repname != "portage":
++        if repname not in ("gentoo", "portage"):
+             layman.remove(repname, rpath_orig)
+             removeDir(rpath)
+         return True
+--- /usr/lib/python2.7/site-packages/calculate/update/update.py
++++ /usr/lib/python2.7/site-packages/calculate/update/update.py
+@@ -328,7 +328,7 @@ class Update(MethodsInterface):
+                                     dv.Get('cl_update_layman_make'),
+                                     dv.Get('cl_update_layman_conf'),
+                                     prefix=chroot_path)
+-                    if repname != "portage":
++                    if repname not in ("portage", "gentoo"):
+                         layman.add(repname, url, rpath_orig)
+                     if not self._syncRepository(repname, url, rpath, revision,
+                                                 cb_progress=self.setProgress,
+@@ -367,7 +367,7 @@ class Update(MethodsInterface):
+                             dv.Get('cl_update_layman_make'),
+                             dv.Get('cl_update_layman_conf'),
+                             prefix=chroot_path)
+-            if repname != "portage":
++            if repname not in ("portage", "gentoo"):
+                 layman.add(repname, url, rpath_orig)
+         finally:
+             mtime.restore()
+@@ -379,7 +379,7 @@ class Update(MethodsInterface):
+         """
+         Спрятать кэш
+         """
+-        if name in ("portage",):
++        if name in ("portage", "gentoo"):
+             return
+         if not name in OverlayOwnCache(self.clVars):
+             for cachename in self.metadata_cache_names:
+@@ -399,7 +399,7 @@ class Update(MethodsInterface):
+         """
+         Извлеч кэш
+         """
+-        if name in ("portage",):
++        if name in ("portage", "gentoo"):
+             return
+         cachenames = self.metadata_cache_names
+         if not name in OverlayOwnCache(self.clVars):
+diff --git a/pym/update/variables/update.py b/pym/update/variables/update.py
+index 35bd04a..e40a112 100644
+--- /usr/lib/python2.7/site-packages/calculate/update/variables/update.py
++++ /usr/lib/python2.7/site-packages/calculate/update/variables/update.py
+@@ -470,7 +470,8 @@ class VariableClUpdateSyncOverlayRep(ReadonlyVariable):
+     type = "list"
+ 
+     def get(self):
+-        return filter(lambda x: x != "portage", self.Get('cl_update_sync_rep'))
++        return filter(lambda x: x not in ("portage", "gentoo"),
++               self.Get('cl_update_sync_rep'))
+ 
+ 
+ class VariableClUpdateOutdateSet(ReadonlyVariable):
