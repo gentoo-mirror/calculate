@@ -4,6 +4,7 @@ dev-python/pyopenssl python_targets_python3_4
 dev-python/spyder python_targets_python3_4
 dev-util/eric python_targets_python3_4
 media-video/pitivi python_targets_python3_4
+#net-libs/rb_libtorrent python_targets_python3_4
 x11-misc/compton python_targets_python3_4
 
 # required by blender-2.72b-r3
@@ -65,3 +66,6 @@ dev-python/pyparsing python_targets_python3_4
 dev-python/python-dateutil python_targets_python3_4
 dev-python/pytz python_targets_python3_4
 dev-python/pyxdg python_targets_python3_4
+
+# required by net-libs/rb_libtorrent-1.0.8
+#dev-libs/boost python_targets_python3_4
