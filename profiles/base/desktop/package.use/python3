@@ -66,3 +66,6 @@ dev-python/pyparsing python_targets_python3_4
 dev-python/python-dateutil python_targets_python3_4
 dev-python/pytz python_targets_python3_4
 dev-python/pyxdg python_targets_python3_4
+
+# required by net-libs/rb_libtorrent-1.0.8
+dev-libs/boost python_targets_python3_4
