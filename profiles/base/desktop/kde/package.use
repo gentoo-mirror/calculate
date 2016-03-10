@@ -9,8 +9,8 @@ net-misc/networkmanager-vpnc -gtk
 app-crypt/qca -qt5
 
 # return flags for the CLD profile
-kde-base/kactivities -minimal
 kde-apps/gwenview semantic-desktop
+>=kde-apps/solid-runtime-15.08.0 bluetooth
 
 dev-db/sqlitebrowser qt4
 media-libs/mlt qt4
