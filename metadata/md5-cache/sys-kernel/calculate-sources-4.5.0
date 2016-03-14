@@ -9,8 +9,8 @@ LICENSE=GPL-2 freedist
 RDEPEND=!build? ( >=sys-libs/ncurses-5.2 sys-devel/make dev-lang/perl sys-devel/bc ) vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils ) sys-apps/v86d grub? ( sys-boot/grub ) ) firmware? ( sys-kernel/linux-firmware ) themes? ( media-gfx/splash-themes-calculate ) vmlinuz? ( sys-kernel/dracut app-arch/lz4 )
 REQUIRED_USE=minimal? ( vmlinuz ) grub? ( vmlinuz )
 RESTRICT=binchecks strip
-SLOT=4.4.4
-SRC_URI=mirror://kernel/linux/kernel/v4.x/patch-4.4.4.xz mirror://kernel/linux/kernel/v4.x/linux-4.4.tar.xz
+SLOT=4.5.0
+SRC_URI=mirror://kernel/linux/kernel/v4.x/linux-4.5.tar.xz
 _eclass_exported_funcs=pkg_preinst:kernel-2 pkg_postrm:kernel-2 pkg_postinst:- pkg_setup:calculate-kernel-7 src_unpack:- src_compile:calculate-kernel-7 src_test:kernel-2 src_install:calculate-kernel-7
 _eclasses_=calculate	04be99762c6b6d4e13b61899ec59a7f6	calculate-kernel-7	a46ba6f530f66051100419d8f8305f33	eutils	9d81603248f2ba3ec59124320d123e5e	kernel-2	f745fe70cd0e35af07412905687b9a7f	linux-info	fd1e29abbb02cbc49f1a14299846e9c4	multilib	3972ca401cf7dbb430df9995f5d8d580	python-any-r1	8eb13cdf35f6e43c48107b911900b2cc	python-utils-r1	2e6826f6a93ad2acf904eecf5b5fb6d2	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=01cbad2c3ed94a7f50122ea951da2b8e
