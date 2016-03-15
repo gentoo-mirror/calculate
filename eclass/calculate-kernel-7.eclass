@@ -12,8 +12,7 @@ EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst
 
 IUSE="+vmlinuz minimal themes firmware +grub"
 
-REQUIRED_USE="minimal? ( vmlinuz )
-	grub? ( vmlinuz )"
+REQUIRED_USE="minimal? ( vmlinuz )"
 
 
 DEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
