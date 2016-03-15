@@ -432,3 +432,7 @@ dev-qt/qtwebkit -exceptions
 
 # www-client/seamonkey-2.38, www-client/firefox-44.0, mail-client/thunderbird-38.5.0
 dev-db/sqlite secure-delete
+
+# The following REQUIRED_USE flag constraints are unsatisfied: wayland gles
+media-libs/libsdl2 wayland gles
+
