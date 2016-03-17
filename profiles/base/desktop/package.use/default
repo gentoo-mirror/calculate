@@ -436,3 +436,5 @@ dev-db/sqlite secure-delete
 # The following REQUIRED_USE flag constraints are unsatisfied: wayland gles
 media-libs/libsdl2 wayland gles
 
+# required by media-video/openshot-1.4.3-r1::gentoo[-libav,ffmpeg]
+media-video/ffmpeg vpx
