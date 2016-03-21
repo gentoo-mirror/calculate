@@ -14,16 +14,16 @@ IUSE="themes_CLD themes_CLDX themes_CLS
 themes_CLDG"
 
 SRC_URI="themes_CLD? (
-	ftp://ftp.calculate.ru/pub/calculate/themes/dm/dm-cld-13.tar.bz2
+	ftp://ftp.calculate-linux.org/calculate/themes/dm/dm-cld-13.tar.bz2
 )
 themes_CLDX? (
-	ftp://ftp.calculate.ru/pub/calculate/themes/dm/dm-cldx-13.tar.bz2
+	ftp://ftp.calculate-linux.org/calculate/themes/dm/dm-cldx-13.tar.bz2
 )
 themes_CLDG? (
-	ftp://ftp.calculate.ru/pub/calculate/themes/dm/dm-cldg-13.tar.bz2
+	ftp://ftp.calculate-linux.org/calculate/themes/dm/dm-cldg-13.tar.bz2
 )
 themes_CLS? (
-	ftp://ftp.calculate.ru/pub/calculate/themes/dm/dm-cls-13.tar.bz2
+	ftp://ftp.calculate-linux.org/calculate/themes/dm/dm-cls-13.tar.bz2
 )"
 
 REQUIRED_USE="^^ ( themes_CLD themes_CLDX themes_CLS themes_CLDG )"

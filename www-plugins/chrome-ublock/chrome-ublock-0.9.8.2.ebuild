@@ -6,7 +6,7 @@ EAPI="5"
 
 inherit eutils
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2
+SRC_URI="ftp://ftp.calculate-linux.org/calculate/source/${PN}/${P}.tar.bz2
 	http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="An efficient blocker for Chromium"

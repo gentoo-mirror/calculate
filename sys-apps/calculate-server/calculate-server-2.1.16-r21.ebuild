@@ -7,8 +7,8 @@ PYTHON_COMPAT=(python{2_6,2_7})
 
 inherit distutils-r1 eutils
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/calculate2/${PN}/${P}.tar.bz2
-	http://mirror.yandex.ru/calculate/calculate2/${PN}/${P}.tar.bz2"
+SRC_URI="ftp://ftp.calculate-linux.org/calculate/source/calculate2/${PN}/${P}.tar.bz2
+	http://mirror.yandex.ru/calculate/source/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="Configuration utility for Linux services"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"

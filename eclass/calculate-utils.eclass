@@ -16,8 +16,8 @@ inherit distutils-r1 eutils versionator
 
 EXPORTED_FUNCTIONS="src_compile src_install pkg_postinst pkg_preinst"
 
-CALCULATE_URI="ftp://ftp.calculate.ru/pub/calculate/calculate3"
-MIRROR_URI="http://mirror.yandex.ru/calculate/calculate3"
+CALCULATE_URI="ftp://ftp.calculate-linux.org/calculate/source/calculate3"
+MIRROR_URI="http://mirror.yandex.ru/calculate/source/calculate3"
 
 # @ECLASS-VARIABLE: CALCULATE_MODULES
 # @DESCRIPTION:
