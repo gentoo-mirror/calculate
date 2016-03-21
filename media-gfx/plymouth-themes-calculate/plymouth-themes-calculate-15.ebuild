@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-SRC_URI="ftp://ftp.calculate.ru/pub/calculate/themes/plymouth/plymouth-calculate-${PV}.tar.bz2
+SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/plymouth/plymouth-calculate-${PV}.tar.bz2
 	http://mirror.yandex.ru/calculate/themes/plymouth/plymouth-calculate-${PV}.tar.bz2"
 
 RDEPEND="sys-boot/plymouth

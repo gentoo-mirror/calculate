@@ -13,7 +13,7 @@ SYSLINUX_P=${SYSLINUX_PN}-${SYSLINUX_PV}
 DESCRIPTION="Module calcmenu.c32 for syslinux"
 HOMEPAGE="http://www.calculate-linux.org/main/ru/calcboot"
 SRC_URI="mirror://kernel/linux/utils/boot/syslinux/${SYSLINUX_PV:0:1}.xx/${SYSLINUX_P/_/-}.tar.bz2
-		ftp://ftp.calculate.ru/pub/calculate/${PN}/${P}.tar.bz2"
+		ftp://ftp.calculate-linux.org/calculate/source/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
