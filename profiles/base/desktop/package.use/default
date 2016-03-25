@@ -17,9 +17,10 @@ media-libs/freetype static-libs
 app-arch/engrampa caja
 
 # use the system components instead of bundled
+# bug firefox http://www.calculate-linux.org/issues/851
 mail-client/thunderbird system-cairo system-icu system-jpeg system-libvpx system-sqlite
 media-sound/clementine system-sqlite
-www-client/firefox system-cairo system-icu system-jpeg system-libvpx system-sqlite
+www-client/firefox system-icu system-jpeg system-libevent system-libvpx system-sqlite
 www-client/seamonkey system-icu system-jpeg system-libvpx system-sqlite
 
 # use qt4
