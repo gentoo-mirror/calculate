@@ -9,7 +9,7 @@ RESTRICT_PYTHON_ABIS="2.4 2.5 2.6 3.*"
 
 inherit distutils git-2
 
-EGIT_REPO_URI="git://git.calculate.ru/calculate-2.1/calculate-lib.git"
+EGIT_REPO_URI="git://git.calculate-linux.org/calculate-2.1/calculate-lib.git"
 
 DESCRIPTION="The library for Calculate 2"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"

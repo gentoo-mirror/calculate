@@ -7,7 +7,7 @@ PYTHON_COMPAT=(python2_7)
 
 inherit distutils-r1 git-2
 
-EGIT_REPO_URI="git://git.calculate.ru/calculate-2.1/calculate-server.git"
+EGIT_REPO_URI="git://git.calculate-linux.org/calculate-2.1/calculate-server.git"
 
 DESCRIPTION="Configuration utility for Linux services"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
