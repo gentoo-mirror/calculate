@@ -76,3 +76,6 @@ sys-libs/tevent python
 
 # required by media-video/vlc
 net-fs/samba client
+
+# Use x86emu for Video BIOS calls (32 bit)
+sys-apps/v86d x86emu
