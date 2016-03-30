@@ -68,3 +68,14 @@ www-client/uget aria2
 
 # install legacy rule generator rules and support scripts
 sys-fs/eudev rule-generator
+
+# required by net-fs/samba-4.2.9
+sys-libs/ntdb python
+sys-libs/tdb python
+sys-libs/tevent python
+
+# required by media-video/vlc
+net-fs/samba client
+
+# Use x86emu for Video BIOS calls (32 bit)
+sys-apps/v86d x86emu
