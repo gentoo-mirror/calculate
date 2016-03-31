@@ -15,8 +15,8 @@ declare -A CALCULATE_MODULES=(
 	["i18n"]="3.4.5.13"
 	["client"]="3.4.5.2"
 	["console-gui"]="3.4.5.2"
-	["update"]="3.4.5.12"
-	["builder"]="3.4.5.16"
+	["update"]="3.4.5.13"
+	["builder"]="3.4.5.18"
 )
 
 inherit calculate-utils
