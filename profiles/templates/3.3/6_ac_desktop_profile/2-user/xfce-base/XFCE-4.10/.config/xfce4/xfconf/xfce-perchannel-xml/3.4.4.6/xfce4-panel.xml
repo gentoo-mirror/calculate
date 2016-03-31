@@ -101,8 +101,9 @@
     </property>
     <property name="plugin-3" type="string" value="tasklist">
       <property name="flat-buttons" type="bool" value="true"/>
-      <property name="sort-order" type="uint" value="1"/>
+      <property name="sort-order" type="uint" value="4"/>
       <property name="window-scrolling" type="bool" value="false"/>
+      <property name="middle-click" type="uint" value="1"/>
     </property>
     <property name="plugin-4" type="string" value="pager"/>
     <property name="plugin-5" type="string" value="datetime"/>
