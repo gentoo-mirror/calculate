@@ -1,4 +1,4 @@
-# Calculate format=kernel name=.config os_linux_system==desktop&&pkg(sys-apps/calculate-utils)>=3.3.0.16
+# Calculate format=kernel name=.config os_linux_system==desktop
 CONFIG_BFQ_GROUP_IOSCHED=y
 CONFIG_DEFAULT_BFQ=y
 # CONFIG_DEFAULT_CFQ is not set
