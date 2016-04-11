@@ -120,6 +120,9 @@ x11-drivers/nvidia-drivers -acpi -tools
 xfce-extra/xfce4-sensors-plugin -video_cards_nvidia
 
 
+# support primusrun command (primus from bumblebee overlay)
+x11-drivers/nvidia-drivers compat
+
 # use gstreamer for sound
 media-libs/phonon gstreamer -vlc
 
@@ -439,3 +442,6 @@ media-libs/libsdl2 wayland gles
 
 # required by media-video/openshot-1.4.3-r1::gentoo[-libav,ffmpeg]
 media-video/ffmpeg vpx
+
+# support accountservice
+x11-misc/lightdm gnome
