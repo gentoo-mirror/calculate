@@ -120,6 +120,9 @@ x11-drivers/nvidia-drivers -acpi -tools
 xfce-extra/xfce4-sensors-plugin -video_cards_nvidia
 
 
+# support primusrun command (primus from bumblebee overlay)
+x11-drivers/nvidia-drivers compat
+
 # use gstreamer for sound
 media-libs/phonon gstreamer -vlc
 
