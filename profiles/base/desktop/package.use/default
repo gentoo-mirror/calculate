@@ -445,3 +445,8 @@ media-video/ffmpeg vpx
 
 # support accountservice
 x11-misc/lightdm gnome
+
+# required by www-client/qupzilla-2.0.0
+>=dev-qt/qtwebengine-5.6.0 widgets
+>=dev-qt/qtdeclarative-5.6.0 widgets
+
