@@ -1,0 +1,10 @@
+# Calculate ini(overlay-calculate.revision)<70 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,70)-#
+
+#?pkg(sys-devel/prelink)!=&&cl_chroot_status==off#
+echo "Revert binaries and libraries to their original content before they were prelinked..."
+/usr/sbin/prelink -au
+#pkg#
+
+exit 0
