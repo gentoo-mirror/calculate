@@ -1,6 +1,8 @@
 # to support the build kde5
 kde-apps/kde4-l10n minimal
 kde-apps/kdebase-runtime-meta -oldwallet
+kde-apps/kdecore-meta minimal
+kde-apps/kdepim-meta -nls
 kde-apps/knetattach -handbook
 kde-apps/solid-runtime -bluetooth
 
