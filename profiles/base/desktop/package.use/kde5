@@ -1,7 +1,18 @@
 # to support the build kde5
->=kde-apps/kde4-l10n-15.08.0 minimal
->=kde-apps/knetattach-15.08.0 -handbook
->=kde-apps/solid-runtime-15.08.0 -bluetooth
+kde-apps/gwenview -kipi
+kde-apps/kde4-l10n minimal
+kde-apps/kdebase-runtime-meta -oldwallet
+kde-apps/kdecore-meta minimal
+kde-apps/kdepim-meta -nls
+kde-apps/knetattach -handbook
+kde-apps/solid-runtime -bluetooth
+
 
 # with the option to install kde 5
 kde-apps/gwenview -semantic-desktop
+
+
+app-office/akonadi-server -qt4 qt5
+kde-apps/kget -bittorrent
+kde-base/baloo minimal
+media-libs/qt-gstreamer -qt4 qt5
