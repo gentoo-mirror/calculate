@@ -1,0 +1,9 @@
+# Calculate path=/etc/calculate name=ini.env format=samba ini(overlay-calculate.revision)<74
+
+[overlay-calculate]
+revision = 74
+
+#?ini(desktop.imageview)==digicam#
+[desktop]
+!imageview = 
+#ini#
