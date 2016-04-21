@@ -1,0 +1,35 @@
+# Calculate name=world format=world
+
+#?in(os_linux_pkglist, desktop)!=#
+app-editors/bluefish
+app-editors/gedit
+app-editors/gvim
+app-editors/juffed
+app-editors/latexila
+app-editors/leafpad
+#app-i18n/poedit
+app-misc/rox-filer
+app-misc/xmind
+app-office/abiword
+app-office/calligra
+app-office/gnumeric
+app-office/libreoffice
+app-office/lyx
+app-office/scribus
+app-office/texmaker
+app-text/fbreader
+app-text/kchmviewer
+app-text/keepnote
+app-text/mupdf
+app-text/qpdfview
+app-text/xournal
+dev-db/pgadmin3
+dev-util/meld
+kde-misc/openofficeorg-thumbnail
+sci-calculators/galculator
+sci-calculators/speedcrunch
+#in#
+
+#?in(os_linux_pkglist, server)!=#
+app-text/fbless
+#in#
