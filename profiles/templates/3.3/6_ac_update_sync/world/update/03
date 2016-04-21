@@ -2,6 +2,6 @@
 
 #-ini(overlay-calculate.world,3)-#
 
-#?in(os_linux_pkglist, base)!=&&pkg(sys-apps/systemd)==#
+#?in(os_linux_pkglist, calculate)!=&&pkg(sys-apps/systemd)==#
 sys-fs/eudev
 #in#
