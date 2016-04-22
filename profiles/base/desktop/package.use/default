@@ -92,6 +92,7 @@ net-libs/libproxy -webkit
 # Removed unnecessary dependence
 # -----------------------------------------
 app-accessibility/speech-dispatcher -espeak
+app-emulation/wine -samba
 app-misc/mc -spell
 dev-util/cmake -qt4
 dev-vcs/git -gtk
@@ -118,7 +119,6 @@ sys-fs/mtools -X
 www-client/links -X
 x11-drivers/nvidia-drivers -acpi -tools
 xfce-extra/xfce4-sensors-plugin -video_cards_nvidia
-
 
 # support primusrun command (primus from bumblebee overlay)
 x11-drivers/nvidia-drivers compat
@@ -452,3 +452,6 @@ x11-misc/lightdm gnome
 
 # required by sci-chemistry/chemical-mime-data-0.1.94-r2
 media-gfx/imagemagick xml
+
+# required by kde-apps/ktp-common-internals-15.12.3
+net-libs/telepathy-qt qt5
