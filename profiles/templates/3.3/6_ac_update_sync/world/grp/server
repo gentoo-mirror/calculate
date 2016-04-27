@@ -5,9 +5,6 @@ net-fs/netatalk
 #in#
 
 #?in(os_linux_pkglist, desktop)!=#
-mail-mta/ssmtp
-net-wireless/hostapd
-dev-db/mariadb
 dev-db/mongodb
 dev-db/pg_top
 dev-db/postgresql
@@ -19,7 +16,7 @@ mail-filter/opendkim
 mail-filter/postgrey
 mail-filter/procmail
 mail-filter/spamassassin
-mail-mta/postfix
+mail-mta/ssmtp
 net-dns/bind
 net-fs/netatalk
 net-fs/samba
@@ -36,8 +33,14 @@ net-misc/minidlna
 net-proxy/havp
 net-proxy/squid
 net-proxy/squidguard
+net-wireless/hostapd
 sys-apps/calculate-server
 sys-apps/most
 www-servers/lighttpd
 www-servers/nginx
+#in#
+
+#?in(os_linux_pkglist, server)!=#
+dev-db/mariadb
+mail-mta/postfix
 #in#
