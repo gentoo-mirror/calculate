@@ -1,8 +1,3 @@
 # Calculate comment=# path=/etc/portage/make.conf
 
-#?os_linux_system==desktop#
-PORTAGE_BINHOST="#-update.cl_update_binhost-#/grp/default/#-os_arch_machine-# #-update.cl_update_binhost-#/grp/x/#-os_arch_machine-#"
-#os_linux_system#
-#?os_linux_system==server#
-PORTAGE_BINHOST="#-update.cl_update_binhost-#/grp/default/#-os_arch_machine-# #-update.cl_update_binhost-#/grp/server/#-os_arch_machine-#"
-#os_linux_system#
+PORTAGE_BINHOST="#-update.cl_update_binhost-#/grp/#-os_arch_machine-#"
