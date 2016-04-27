@@ -34,7 +34,6 @@ net-proxy/havp
 net-proxy/squid
 net-proxy/squidguard
 net-wireless/hostapd
-sys-apps/calculate-server
 sys-apps/most
 www-servers/lighttpd
 www-servers/nginx
@@ -43,4 +42,5 @@ www-servers/nginx
 #?in(os_linux_pkglist, server)!=#
 dev-db/mariadb
 mail-mta/postfix
+sys-apps/calculate-server
 #in#
