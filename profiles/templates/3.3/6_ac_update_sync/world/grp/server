@@ -1,11 +1,12 @@
 # Calculate name=world format=world
 
+#?in(os_linux_pkglist, desktop, server)!=#
+net-fs/netatalk
+#in#
+
 #?in(os_linux_pkglist, desktop)!=#
 mail-mta/ssmtp
 net-wireless/hostapd
-#in#
-
-#?in(os_linux_pkglist, server)!=#
 dev-db/mariadb
 dev-db/mongodb
 dev-db/pg_top

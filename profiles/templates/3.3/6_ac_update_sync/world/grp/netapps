@@ -1,5 +1,12 @@
 # Calculate name=world format=world
 
+#?in(os_linux_pkglist, desktop, server)!=#
+net-analyzer/ettercap
+net-p2p/mldonkey
+www-client/elinks
+www-client/w3m
+#in#
+
 #?in(os_linux_pkglist, desktop)!=#
 app-text/wgetpaste
 mail-client/claws-mail
@@ -7,10 +14,22 @@ mail-client/geary
 mail-client/sylpheed
 mail-client/thunderbird
 mail-client/trojita
+net-analyzer/bmon
+net-analyzer/fail2ban
+net-analyzer/iptraf-ng
+net-analyzer/macchanger
 net-analyzer/nmap
+net-analyzer/sarg
+net-analyzer/tcpdump
 net-analyzer/traceroute
+net-analyzer/traceroute
+net-analyzer/trafshow
+net-analyzer/vnstat
 net-analyzer/wireshark
+net-analyzer/wireshark
+net-dialup/minicom
 net-ftp/filezilla
+net-ftp/tftp-hpa
 net-im/choqok
 net-im/corebird
 net-im/gajim
@@ -23,11 +42,13 @@ net-im/skype
 net-irc/hexchat
 net-irc/konversation
 net-irc/kvirc
+net-irc/weechat
 net-misc/dropbox
 net-misc/modem-manager-gui
 net-misc/remmina
 net-misc/whois
 net-misc/yandex-disk
+net-misc/youtube-dl
 net-p2p/amule
 net-p2p/deluge
 net-p2p/ktorrent
@@ -40,6 +61,8 @@ net-voip/linphone
 www-client/chromium
 www-client/epiphany
 www-client/firefox
+www-client/links
+www-client/lynx
 www-client/midori
 www-client/otter
 www-client/qupzilla
@@ -56,27 +79,4 @@ x11-plugins/purple-plugin_pack
 #?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
 www-client/opera
 www-plugins/chrome-binary-plugins
-#in#
-
-#?in(os_linux_pkglist, server)!=#
-net-analyzer/bmon
-net-analyzer/ettercap
-net-analyzer/fail2ban
-net-analyzer/iptraf-ng
-net-analyzer/macchanger
-net-analyzer/sarg
-net-analyzer/tcpdump
-net-analyzer/traceroute
-net-analyzer/trafshow
-net-analyzer/vnstat
-net-analyzer/wireshark
-net-dialup/minicom
-net-ftp/tftp-hpa
-net-irc/weechat
-net-misc/youtube-dl
-net-p2p/mldonkey
-www-client/elinks
-www-client/links
-www-client/lynx
-www-client/w3m
 #in#
