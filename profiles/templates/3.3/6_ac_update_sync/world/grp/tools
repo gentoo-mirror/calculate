@@ -1,7 +1,6 @@
 # Calculate name=world format=world
 
 #?in(os_linux_pkglist, desktop, server)!=#
-app-editors/vim
 app-misc/mc
 dev-util/ccache
 sys-apps/acl
@@ -16,7 +15,6 @@ app-admin/hddtemp
 app-admin/keepassx
 app-admin/logrotate
 app-admin/sudo
-app-admin/syslog-ng
 app-admin/sysstat
 app-admin/testdisk
 app-antivirus/clamav
@@ -40,7 +38,6 @@ app-cdr/cdrtools
 app-cdr/dvd+rw-tools
 app-cdr/gcdemu
 app-crypt/pgpdump
-app-editors/emacs
 app-editors/ghex
 app-i18n/enca
 app-laptop/tpb
@@ -53,11 +50,6 @@ app-misc/tmux
 app-misc/workrave
 app-mobilephone/wammu
 app-pda/usbmuxd
-app-portage/cpuinfo2cpuflags
-app-portage/genlop
-app-portage/gentoolkit-dev
-app-portage/portage-utils
-app-portage/ufed
 app-text/texlive
 app-text/xournal
 dev-db/mysql-workbench
@@ -193,4 +185,8 @@ x11-terms/rxvt-unicode
 x11-terms/terminator
 x11-terms/tilda
 x11-themes/geany-themes
+#in#
+
+#?in(os_linux_pkglist, server)!=#
+sys-process/cronie
 #in#
