@@ -1,0 +1,28 @@
+# Calculate name=world format=world
+
+#?in(os_linux_pkglist, desktop, server)!=#
+app-editors/vim
+#in#
+
+#?in(os_linux_pkglist, desktop)!=#
+app-editors/nano
+app-editors/dav
+app-editors/e3
+app-editors/ee
+app-editors/elvis
+app-editors/emacs
+app-editors/jasspa-microemacs
+app-editors/jed
+app-editors/joe
+app-editors/lpe
+app-editors/mg
+app-editors/nvi
+app-editors/qemacs
+app-editors/teco
+app-editors/uemacs-pk
+app-editors/vile
+app-editors/vim
+app-editors/gvim
+app-editors/xemacs
+sys-apps/ed
+#in#

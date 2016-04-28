@@ -1,4 +1,4 @@
 # Calculate comment=#
 #!/bin/bash
 
-export XZ_OPT="--threads=0 -9"
+export XZ_OPT="--threads=0 -8"

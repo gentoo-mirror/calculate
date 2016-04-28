@@ -1,3 +1,5 @@
+~app-admin/socklog-2.1.0 amd64 x86
+~app-admin/syslogread-0.92 amd64 x86
 ~app-arch/lzlib-1.7 amd64 x86
 ~app-arch/pixz-1.0.3 amd64 x86
 ~app-arch/plzip-1.4 amd64 x86
@@ -5,6 +7,7 @@
 ~app-benchmarks/bootchart2-0.14.7 amd64 x86
 ~app-cdr/cdrtools-3.02_alpha06 amd64 x86
 ~app-crypt/qca-2.1.1 amd64 x86
+~app-editors/ng-1.5_beta1 amd64 x86
 ~app-eselect/eselect-opencascade-0 amd64 x86
 ~app-i18n/man-pages-ru-3.71.2209.1992.20140911 amd64 x86
 ~app-misc/xmind-3.5.3.201506180105 amd64 x86
@@ -18,7 +21,9 @@
 ~dev-db/lmdb-0.9.17 amd64 x86
 ~dev-db/pg_top-3.7.0 amd64 x86
 ~dev-db/sqlite-3.9.2 amd64 x86
+~dev-java/resin-servlet-api-4.0.46 amd64 x86
 ~dev-lang/swig-3.0.2 amd64 x86
+~dev-libs/bglibs-1.106 amd64 x86
 ~dev-libs/crossguid-0_pre20150817 amd64 x86
 ~dev-libs/grantlee-5.1.0 amd64 x86
 ~dev-libs/kpathsea-6.2.1_p20150521 amd64 x86
@@ -41,7 +46,8 @@
 ~dev-python/pycollada-0.4 amd64 x86
 ~dev-python/pyopenssl-0.15.1 amd64 x86
 ~dev-python/py-smbpasswd-1.0.1 amd64 x86
-~dev-python/sip-4.16.9 amd64 x86
+~dev-python/sip-4.18 amd64 x86
+~dev-python/snakeoil-0.6.6 amd64 x86
 ~dev-python/spyder-2.3.5.2 amd64 x86
 ~dev-tex/bibtexu-3.71_p20150521 amd64 x86
 ~dev-util/bless-0.6.0 amd64 x86
@@ -77,6 +83,7 @@
 ~net-libs/libaccounts-glib-1.21 amd64 x86
 ~net-libs/libeXosip-4.0.0 amd64 x86
 ~net-libs/libsignon-glib-1.13 amd64 x86
+~net-libs/mbedtls-2.2.1 amd64 x86
 ~net-libs/rb_libtorrent-1.0.7 amd64 x86
 ~net-libs/signond-8.58 amd64 x86
 ~net-libs/signon-oauth2-0.21 amd64 x86
@@ -91,6 +98,7 @@
 ~sci-libs/gdal-2.0.2 amd64 x86
 ~sci-libs/ldl-2.1.0 amd64 x86
 ~sci-libs/opencascade-6.7.1 amd64 x86
+~sys-apps/pkgcore-0.9.2 amd64 x86
 ~sys-auth/consolekit-1.0.0 amd64 x86
 ~sys-boot/os-prober-1.62 amd64 x86
 ~sys-devel/gettext-0.19.4 amd64 x86
@@ -100,6 +108,12 @@
 ~sys-process/criu-2.0 amd64 x86
 ~virtual/gnustep-back-0.24.1 amd64 x86
 wwwplugins/chrome-binary-plugins:stable amd64 x86
+~www-servers/boa-0.94.14_rc21 amd64 x86
+~www-servers/bozohttpd-20140708 amd64 x86
+~www-servers/cherokee-1.2.104 amd64 x86
+~www-servers/fnord-1.11 amd64 x86
+~www-servers/hiawatha-9.15 amd64 x86
+~www-servers/resin-4.0.46 amd64 x86
 ~x11-libs/libkscreen-1.0.5_p20150822 amd64 x86
 ~x11-libs/libtinynotify-0.2.1 amd64 x86
 ~x11-libs/libtinynotify-cli-1.2.1 amd64 x86
