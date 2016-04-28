@@ -1,8 +1,10 @@
-# Calculate format=diff merge()>=2&&merge()<3
-diff -uNr ejabberd-2.0.2-beta1.ORIG/src/mod_logxml.erl ejabberd-2.0.2-beta1/src/mod_logxml.erl
---- mod_logxml.erl
-+++ mod_logxml.erl
-@@ -0,0 +1,261 @@
+# Calculate format=diff merge()>=16.01&&merge()<16.02
+diff --git a/src/mod_logxml.erl b/src/mod_logxml.erl
+new file mode 100644
+index 0000000..ac822c1
+--- /dev/null
++++ b/src/mod_logxml.erl
+@@ -0,0 +1,271 @@
 +%%%----------------------------------------------------------------------
 +%%% File    : mod_logxml.erl
 +%%% Author  : Badlop
@@ -17,7 +19,7 @@ diff -uNr ejabberd-2.0.2-beta1.ORIG/src/mod_logxml.erl ejabberd-2.0.2-beta1/src/
 +-behaviour(gen_mod).
 +
 +-export([start/2, init/7, stop/1,
-+	 send_packet/3, receive_packet/4]).
++	 send_packet/4, receive_packet/5]).
 +
 +-include("ejabberd.hrl").
 +-include("jlib.hrl").
@@ -29,35 +31,35 @@ diff -uNr ejabberd-2.0.2-beta1.ORIG/src/mod_logxml.erl ejabberd-2.0.2-beta1/src/
 +%% -------------------
 +
 +start(Host, Opts) ->
-+    Logdir = gen_mod:get_opt(logdir, Opts, "/tmp/jabberlogs/"),
++    Logdir = gen_mod:get_opt(logdir, Opts, fun(A) -> A end, "/tmp/jabberlogs/"),
 +
-+    Rd = gen_mod:get_opt(rotate_days, Opts, 1),
-+    Rf = case gen_mod:get_opt(rotate_megs, Opts, 10) of
++    Rd = gen_mod:get_opt(rotate_days, Opts, fun(A) -> A end, 1),
++    Rf = case gen_mod:get_opt(rotate_megs, Opts, fun(A) -> A end, 10) of
 +	     no -> no;
 +	     Rf1 -> Rf1*1024*1024
 +	 end,
-+    Rp = case gen_mod:get_opt(rotate_kpackets, Opts, 10) of
++    Rp = case gen_mod:get_opt(rotate_kpackets, Opts, fun(A) -> A end, 10) of
 +	     no -> no;
 +	     Rp1 -> Rp1*1000
 +	 end,
 +    RotateO = {Rd, Rf, Rp},
-+    CheckRKP = gen_mod:get_opt(check_rotate_kpackets, Opts, 1),
++    CheckRKP = gen_mod:get_opt(check_rotate_kpackets, Opts, fun(A) -> A end, 1),
 +
-+    Timezone = gen_mod:get_opt(timezone, Opts, local),
++    Timezone = gen_mod:get_opt(timezone, Opts, fun(A) -> A end, local),
 +
-+    Orientation = gen_mod:get_opt(orientation, Opts, [send, recv]),
-+    Stanza = gen_mod:get_opt(stanza, Opts, [iq, message, presence, other]),
-+    Direction = gen_mod:get_opt(direction, Opts, [internal, vhosts, external]),
++    Orientation = gen_mod:get_opt(orientation, Opts, fun(A) -> A end, [send, recv]),
++    Stanza = gen_mod:get_opt(stanza, Opts, fun(A) -> A end, [iq, message, presence, other]),
++    Direction = gen_mod:get_opt(direction, Opts, fun(A) -> A end, [internal, vhosts, external]),
 +    FilterO = {
 +      {orientation, Orientation},
 +      {stanza, Stanza},
 +      {direction, Direction}},
-+    ShowIP = gen_mod:get_opt(show_ip, Opts, false),
++    ShowIP = gen_mod:get_opt(show_ip, Opts, fun(A) -> A end, false),
 +
 +    ejabberd_hooks:add(user_send_packet, Host, ?MODULE, send_packet, 90),
 +    ejabberd_hooks:add(user_receive_packet, Host, ?MODULE, receive_packet, 90),
 +    register(gen_mod:get_module_proc(Host, ?PROCNAME),
-+	     spawn(?MODULE, init, [Host, Logdir, RotateO, CheckRKP,
++	     spawn(?MODULE, init, [binary_to_list(Host), Logdir, RotateO, CheckRKP,
 +				   Timezone, ShowIP, FilterO])).
 +
 +stop(Host) ->
@@ -115,10 +117,10 @@ diff -uNr ejabberd-2.0.2-beta1.ORIG/src/mod_logxml.erl ejabberd-2.0.2-beta1/src/
 +	FilterO,
 +    {Orientation, From, To, Packet} = E,
 +
-+    {xmlelement, Stanza_str, _Attrs, _Els} = Packet,
-+    Stanza = list_to_atom(Stanza_str),
++    {xmlel, Stanza_str, _Attrs, _Els} = Packet,
++    Stanza = list_to_atom(binary_to_list(Stanza_str)),
 +
-+    Hosts_all = ejabberd_config:get_global_option(hosts),
++    Hosts_all = ejabberd_config:get_global_option(hosts, fun(A) -> A end),
 +    {Host_local, Host_remote} = case Orientation of
 +				    send -> {From#jid.lserver, To#jid.lserver};
 +				    recv -> {To#jid.lserver, From#jid.lserver}
@@ -145,7 +147,7 @@ diff -uNr ejabberd-2.0.2-beta1.ORIG/src/mod_logxml.erl ejabberd-2.0.2-beta1/src/
 +	    {IoDevice3, Filename3, Gregorian_day3, PacketC3} =
 +		case filter(FilterO, E) of
 +		    {true, OSD} ->
-+			Div = PacketC/CheckRKP,
++			Div = calc_div(PacketC, CheckRKP),
 +			{IoDevice2, Filename2, Gregorian_day2, PacketC2} =
 +			    case Div==round(Div) of
 +				true ->
@@ -171,15 +173,17 @@ diff -uNr ejabberd-2.0.2-beta1.ORIG/src/mod_logxml.erl ejabberd-2.0.2-beta1/src/
 +		 Gregorian_day, Timezone, ShowIP, FilterO)
 +    end.
 +
-+send_packet(FromJID, ToJID, P) ->
++send_packet(P, _C2SState, FromJID, ToJID) ->
 +    Host = FromJID#jid.lserver,
 +    Proc = gen_mod:get_module_proc(Host, ?PROCNAME),
-+    Proc ! {addlog, {send, FromJID, ToJID, P}}.
++    Proc ! {addlog, {send, FromJID, ToJID, P}},
++    P.
 +
-+receive_packet(_JID, From, To, P) ->
++receive_packet(P, _C2SState, _JID, From, To) ->
 +    Host = To#jid.lserver,
 +    Proc = gen_mod:get_module_proc(Host, ?PROCNAME),
-+    Proc ! {addlog, {recv, From, To, P}}.
++    Proc ! {addlog, {recv, From, To, P}},
++    P.
 +
 +add_log(Io, Timezone, ShowIP, {Orientation, From, To, Packet}, _OSD) ->
 +    %%{Orientation, Stanza, Direction} = OSD, 
@@ -188,18 +192,21 @@ diff -uNr ejabberd-2.0.2-beta1.ORIG/src/mod_logxml.erl ejabberd-2.0.2-beta1/src/
 +		   recv -> To
 +	       end,
 +    LocalIPS = case ShowIP of
-+		   true -> 
-+		       {UserIP, _Port} = ejabberd_sm:get_user_ip(
-+					   LocalJID#jid.user,
-+					   LocalJID#jid.server,
-+					   LocalJID#jid.resource),
-+		       io_lib:format("lip=\"~s\" ", [inet_parse:ntoa(UserIP)]);
++		   true ->
++		       case ejabberd_sm:get_user_ip(
++			      LocalJID#jid.user,
++			      LocalJID#jid.server,
++			      LocalJID#jid.resource) of
++			   {UserIP, _Port} ->
++			       io_lib:format("lip=\"~s\" ", [inet_parse:ntoa(UserIP)]);
++			   undefined -> "lip=\"undefined\" "
++		       end;
 +		   false -> ""
 +	       end,
 +    TimestampISO = get_now_iso(Timezone),
 +    io:fwrite(Io, "<packet or=\"~p\" ljid=\"~s\" ~sts=\"~s\">~s</packet>~n",
 +	      [Orientation, jlib:jid_to_string(LocalJID), LocalIPS,
-+	       TimestampISO, xml:element_to_string(Packet)]).
++	       TimestampISO, binary_to_list(xml:element_to_binary(Packet))]).
 +
 +%% -------------------
 +%% File
@@ -263,4 +270,9 @@ diff -uNr ejabberd-2.0.2-beta1.ORIG/src/mod_logxml.erl ejabberd-2.0.2-beta1/src/
 +		    local -> calendar:now_to_local_time(now());
 +		    universal -> calendar:now_to_universal_time(now())
 +		end,
-+    jlib:timestamp_to_iso(TimeStamp).
++    binary_to_list(jlib:timestamp_to_iso(TimeStamp)).
++
++calc_div(A, B) when is_integer(A) and is_integer(B) and (B /= 0) ->
++    A/B;
++calc_div(_A, _B) ->
++    0.5. %% This ensures that no rotation is performed
