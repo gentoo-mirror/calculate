@@ -1,8 +1,0 @@
-# Calculate format=samba ini(overlay-calculate.revision)<66 name=calculate.env path=/etc/calculate protected
-
-#-ini(overlay-calculate.revision,66)-#
-
-#?cl_chroot_status==off#
-[update]
-!cl_update_binhost=
-#cl_chroot_status#
