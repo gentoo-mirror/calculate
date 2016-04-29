@@ -133,7 +133,7 @@ RDEPEND="
 		sys-fs/squashfs-tools
 		sys-block/parted
 		dev-python/sudsds[python_targets_python2_7]
-		net-libs/dslib
+		net-libs/dslib[python_targets_python2_7]
 		>=dev-python/pyopenssl-0.14[python_targets_python2_7]
 		dev-libs/openssl
 		=dev-python/m2crypto-0.22.3-r9[python_targets_python2_7]
@@ -149,7 +149,8 @@ RDEPEND="
 	dev-python/pyinotify[python_targets_python2_7]
 	sys-apps/file[python,python_targets_python2_7]
 
-	app-portage/layman
+	app-portage/layman[python_targets_python2_7]
+	sys-apps/portage[python_targets_python2_7]
 	>=virtual/udev-197
 	!app-misc/livecd-tools
 	sys-apps/coreutils[xattr]
