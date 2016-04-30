@@ -236,7 +236,8 @@ media-gfx/ufraw gimp
 media-sound/clementine mtp
 
 # required by www-client/chromium-43.0.2357.130 (https://bugs.gentoo.org/show_bug.cgi?id=553502)
-media-libs/libvpx postproc
+# required by www-client/firefox-46.0 [system-libvpx]
+media-libs/libvpx postproc svc
 
 # required by media-gfx/digikam-4.4.0-r1
 kde-apps/marble plasma
