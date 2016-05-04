@@ -23,7 +23,8 @@ USE="${USE} -aspell hunspell"
 USE="${USE} cups foomaticdb"
 
 # Python
-USE="${USE} -python_targets_python3_4 python_targets_python2_7"
+USE="${USE} python_targets_python3_4 -python_targets_python2_7"
+USE="${USE} python_single_target_python3_4 -python_single_target_python2_7"
 
 # Ruby
 USE="${USE} ruby_targets_ruby21 -ruby_targets_ruby20 -ruby_targets_ruby19"
