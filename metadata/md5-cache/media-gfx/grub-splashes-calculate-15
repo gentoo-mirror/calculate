@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DEPEND=!<sys-boot/calcboot-4.05.0-r1
+DESCRIPTION=Grub splashes for Calculate Linux
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/grub-splashes-calculate
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+RDEPEND=!<sys-boot/calcboot-4.05.0-r1
+SLOT=0
+SRC_URI=ftp://ftp.calculate-linux.org/calculate/themes/grub/grub-15.tar.bz2 http://mirror.yandex.ru/calculate/themes/grub/grub-15.tar.bz2
+_eclass_exported_funcs=src_install:-
+_md5_=e97448213ef75b756002a90b434c13e7

@@ -1,0 +1,13 @@
+DEFINED_PHASES=install
+DEPEND=!media-gfx/calculate-cldx-themes !media-gfx/calculate-cld-themes !media-gfx/cld-themes !media-gfx/cldx-themes
+DESCRIPTION=Wallpapers for Calculate Linux
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers
+IUSE=+CL11 +CL12 +CL13
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+RDEPEND=!media-gfx/calculate-cldx-themes !media-gfx/calculate-cld-themes !media-gfx/cld-themes !media-gfx/cldx-themes
+SLOT=0
+SRC_URI=ftp://ftp.calculate-linux.org/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2 http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2 CL11? ( ftp://ftp.calculate-linux.org/calculate/themes/wallpapers/wallpapers-11.tar.bz2 http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-11.tar.bz2 ) CL12? ( ftp://ftp.calculate-linux.org/calculate/themes/wallpapers/wallpapers-12.tar.bz2 http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-12.tar.bz2 ) CL13? ( ftp://ftp.calculate-linux.org/calculate/themes/wallpapers/wallpapers-13.tar.bz2 http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-13.tar.bz2 )
+_eclass_exported_funcs=src_install:-
+_md5_=7281ea12623d1699a3df5e8596330748
