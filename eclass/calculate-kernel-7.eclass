@@ -23,7 +23,7 @@ DEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
 	themes? ( media-gfx/splash-themes-calculate )
 	"
 
-RDEPEND="${DEPEND} vmlinuz? ( sys-kernel/dracut app-arch/lz4 )"
+RDEPEND="${DEPEND} vmlinuz? ( sys-kernel/dracut )"
 
 detect_version
 detect_arch
