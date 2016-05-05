@@ -3,7 +3,9 @@
 #?in(os_linux_pkglist, desktop, server)!=#
 app-misc/mc
 dev-util/ccache
+net-analyzer/mtr
 sys-apps/acl
+sys-apps/lshw
 sys-block/fio
 sys-power/powertop
 #in#
@@ -84,7 +86,6 @@ net-analyzer/iftop
 net-analyzer/iftop
 net-analyzer/jnettop
 net-analyzer/mbrowse
-net-analyzer/mtr
 net-analyzer/nethogs
 net-analyzer/nload
 net-analyzer/speedtest-cli
@@ -111,7 +112,6 @@ sys-apps/iucode_tool
 sys-apps/kexec-tools
 sys-apps/keyexec
 sys-apps/lm_sensors
-sys-apps/lshw
 sys-apps/memtest86+
 sys-apps/mlocate
 sys-apps/pciutils

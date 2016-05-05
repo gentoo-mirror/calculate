@@ -60,7 +60,8 @@ dev-libs/elfutils static-libs
 app-crypt/qca openssl
 
 # [declarative, script, sql] required by kde-base/pykde4
-dev-python/PyQt4 declarative script sql
+# [help] required by dev-util/eric
+dev-python/PyQt4 declarative script sql help
 
 # [melt, xml] required by media-video/kdenlive
 media-libs/mlt melt xml kdenlive -xine qt5
@@ -92,8 +93,10 @@ net-libs/libproxy -webkit
 # Removed unnecessary dependence
 # -----------------------------------------
 app-accessibility/speech-dispatcher -espeak
+app-editors/nano -spell
 app-emulation/wine -samba
 app-misc/mc -spell
+dev-lang/php -imap -spell
 dev-util/cmake -qt4
 dev-vcs/git -gtk
 gnome-extra/nm-applet -bluetooth
@@ -108,10 +111,15 @@ media-gfx/gimp -webkit
 media-gfx/imagemagick -X
 media-gfx/ufraw -gtk
 media-video/ffmpeg -samba
+net-analyzer/net-snmp -X
 net-analyzer/nmap -gtk
+net-analyzer/vnstat -gd
 net-dialup/rp-pppoe -X
 net-fs/samba -winbind
+net-irc/weechat -spell
 net-libs/webkit-gtk -geoloc
+net-misc/asterisk -bluetooth -portaudio
+net-misc/dahdi -flash
 net-p2p/ktorrent -infowidget
 net-wireless/wpa_supplicant -qt4
 sys-auth/polkit -gtk
