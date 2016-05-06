@@ -83,3 +83,8 @@ sys-apps/v86d x86emu
 # required by dev-python/ipython-3.2.1-r1
 dev-lang/python sqlite
 
+# required by media-sound/quodlibet
+media-libs/libgpod python
+
+# Enable support for Media Transfer Protocol
+kde-apps/kio-extras mtp
