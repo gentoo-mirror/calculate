@@ -64,7 +64,6 @@ www-client/firefox
 www-client/links
 www-client/lynx
 www-client/midori
-www-client/opera
 www-client/otter
 www-client/qupzilla
 www-client/qutebrowser
@@ -79,5 +78,6 @@ x11-plugins/purple-plugin_pack
 #in#
 
 #?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
+www-client/opera
 www-plugins/chrome-binary-plugins
 #in#
