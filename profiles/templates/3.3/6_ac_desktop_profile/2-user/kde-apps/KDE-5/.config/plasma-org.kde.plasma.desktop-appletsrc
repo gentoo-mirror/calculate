@@ -56,6 +56,7 @@ url=file:///home/#-ur_login-#/Home
 #?ur_domain_set!=on#
 url=file:///home/#-ur_login-#
 #ur_domain_set#
+useCustomIcon=true
 
 [Containments][42][Applets][46]
 immutability=1
@@ -83,6 +84,7 @@ wallpaperplugin=
 [Containments][42][Applets][47][Configuration][General]
 icon=folder-public
 url=file:///home/#-ur_login-#/Share
+useCustomIcon=true
 #env#
 
 #?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!=#
@@ -107,6 +109,7 @@ wallpaperplugin=
 [Containments][42][Applets][48][Configuration][General]
 icon=folder-remote
 url=file:///home/#-ur_login-#/FTP
+useCustomIcon=true
 #env#
 
 [Containments][42][Applets][54]
