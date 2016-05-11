@@ -112,6 +112,8 @@ clean_for_minimal() {
 	unset ARCH
 	ARCH="${GENTOOARCH}"
 
+	mkdir backup
+	cp Module.symvers backup
 	emake distclean &>/dev/null || die "cannot perform distclean"
 	mv .config.save .config
 	ebegin "kernel: >> Running modules_prepare..."
@@ -122,6 +124,8 @@ clean_for_minimal() {
 	do
 		rm -r arch/$rmpath
 	done
+	mv backup/Module.symvers .
+	rmdir backup
 	KEEPLIST="scripts/Makefile.lib scripts/module-common.lds \
 		scripts/gcc-version.sh scripts/Makefile.help \
 		scripts/Makefile.modinst scripts/Makefile.asm-generic \
