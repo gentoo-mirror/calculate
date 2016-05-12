@@ -6,21 +6,18 @@
 delpath=/kde4-l10n
 test -f /var/db/pkg/kde-apps/kde4-l10n-*/CONTENTS &&
    sed -i "/ ${delpath////\\/} /d" /var/db/pkg/kde-apps/kde4-l10n-*/CONTENTS
-done
 #pkg#
 
 #?pkg(kde-apps/kde-l10n)!=#
 delpath=/kde-l10n
 test -f /var/db/pkg/kde-apps/kde-l10n-*/CONTENTS &&
    sed -i "/ ${delpath////\\/} /d" /var/db/pkg/kde-apps/kde-l10n-*/CONTENTS
-done
 #pkg#
 #
 #?pkg(kde-apps/kdepim-l10n)!=#
 delpath=/kdepim-l10n
 test -f /var/db/pkg/kde-apps/kdepim-l10n-*/CONTENTS &&
    sed -i "/ ${delpath////\\/} /d" /var/db/pkg/kde-apps/kdepim-l10n-*/CONTENTS
-done
 #pkg#
 
 for dn in /kdepim-l10n /kde-l10n /kde4-l10n
