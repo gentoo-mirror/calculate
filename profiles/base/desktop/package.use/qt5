@@ -1,5 +1,6 @@
 www-client/qupzilla qt5
 dev-db/sqlitebrowser qt5
+media-video/smplayer qt5
 
 # required by kde-frameworks/kfilemetadata-5.13.0::gentoo[pdf]
 app-text/poppler qt5
@@ -18,3 +19,5 @@ dev-libs/qcustomplot qt5
 # required by net-p2p/qbittorrent-3.3.3
 dev-qt/qtlockedfile qt5
 dev-qt/qtsingleapplication qt5
+# required by media-gfx/nomacs-3.0.0
+media-libs/opencv qt5 -qt4
