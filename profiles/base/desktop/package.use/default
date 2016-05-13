@@ -125,11 +125,11 @@ net-wireless/wpa_supplicant -qt4
 sys-auth/polkit -gtk
 sys-fs/mtools -X
 www-client/links -X
-x11-drivers/nvidia-drivers -acpi -tools
+x11-drivers/nvidia-drivers -acpi
 xfce-extra/xfce4-sensors-plugin -video_cards_nvidia
 
 # support primusrun command (primus from bumblebee overlay), gtk3 support
-x11-drivers/nvidia-drivers compat gtk3
+x11-drivers/nvidia-drivers compat gtk3 tools
 
 # use gstreamer for sound
 media-libs/phonon gstreamer -vlc
