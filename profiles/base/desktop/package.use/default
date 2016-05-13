@@ -128,8 +128,8 @@ www-client/links -X
 x11-drivers/nvidia-drivers -acpi -tools
 xfce-extra/xfce4-sensors-plugin -video_cards_nvidia
 
-# support primusrun command (primus from bumblebee overlay)
-x11-drivers/nvidia-drivers compat
+# support primusrun command (primus from bumblebee overlay), gtk3 support
+x11-drivers/nvidia-drivers compat gtk3
 
 # use gstreamer for sound
 media-libs/phonon gstreamer -vlc
