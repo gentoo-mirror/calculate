@@ -1,8 +1,11 @@
 # Calculate name=world format=world
 
+#?in(os_linux_pkglist, desktop, server)!=#
+media-fonts/terminus-font
+#in#
+
 #?in(os_linux_pkglist, desktop)!=#
 app-editors/nano
-media-fonts/terminus-font
 sys-apps/calculate-toolkit
 sys-apps/ifplugd
 sys-apps/less

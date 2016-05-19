@@ -3,9 +3,9 @@ sys-apps/file python
 
 
 # Removed unnecessary dependence
+media-fonts/terminus-font -pcf
 sys-apps/man-db -nls
 sys-fs/lvm2 -thin
-
 
 # Сompile the kernel during the installation package
 sys-kernel/calculate-sources firmware minimal symlink vmlinuz
