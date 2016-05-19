@@ -1,0 +1,8 @@
+# Calculate format=patch path=/etc/conf.d name=localmount ini(overlay-calculate.revision)<81
+
+#-ini(overlay-calculate.revision,81)-#
+
+<text></text>
+<reg>no_umounts="/newroot[.][*]:/lib/splash/cache:/lib64/splash/cache.*
+</reg>
+<text></text>
