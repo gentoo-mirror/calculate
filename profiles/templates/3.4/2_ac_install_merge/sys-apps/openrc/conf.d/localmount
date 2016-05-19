@@ -1,3 +1,3 @@
 # Calculate format=openrc
 #disable unmounting of resources, created in initramfs
-no_umounts="/newroot.*:/lib/splash/cache:/lib64/splash/cache"
+no_umounts="/newroot.*:/lib/splash/cache:/lib64/splash/cache:/run/initramfs/live:/run/initramfs/isoscan"
