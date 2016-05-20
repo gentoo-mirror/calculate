@@ -2,6 +2,7 @@
 
 #?in(os_linux_pkglist, desktop)!=#
 app-emulation/dosemu
+app-emulation/lxc
 app-emulation/playonlinux
 app-emulation/q4wine
 app-emulation/qemu
@@ -12,7 +13,6 @@ app-emulation/virtualbox-extpack-oracle
 app-emulation/wine
 app-emulation/winetricks
 games-emulation/dosbox
-#app-emulation/lxc
 sci-visualization/qtiplot
 #in#
 
