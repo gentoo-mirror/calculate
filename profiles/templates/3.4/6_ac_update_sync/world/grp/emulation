@@ -2,7 +2,6 @@
 
 #?in(os_linux_pkglist, desktop)!=#
 app-emulation/dosemu
-app-emulation/lxc
 app-emulation/playonlinux
 app-emulation/q4wine
 app-emulation/qemu
@@ -18,4 +17,5 @@ sci-visualization/qtiplot
 
 #?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
 app-emulation/docker
+app-emulation/lxc
 #in#
