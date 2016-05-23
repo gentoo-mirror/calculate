@@ -12,10 +12,10 @@ app-emulation/virtualbox-extpack-oracle
 app-emulation/wine
 app-emulation/winetricks
 games-emulation/dosbox
-#app-emulation/lxc
 sci-visualization/qtiplot
 #in#
 
 #?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
 app-emulation/docker
+app-emulation/lxc
 #in#
