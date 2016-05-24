@@ -379,9 +379,6 @@ media-libs/avidemux-plugins qt4
 # required by games-action/oolite-1.82::calculate
 sys-devel/gcc objc
 
-# required by Arduino IDE (IssueID #830)
-sys-libs/ncurses tinfo
-
 # wine 1.7.x
 # The following REQUIRED_USE flag constraints are unsatisfied:
 # vaapi? ( staging ), at-most-one-of ( gstreamer staging )
