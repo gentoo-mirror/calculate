@@ -88,3 +88,6 @@ media-libs/libgpod python
 
 # Enable support for Media Transfer Protocol
 kde-apps/kio-extras mtp
+
+# needed only for binary packages
+sys-libs/ncurses tinfo
