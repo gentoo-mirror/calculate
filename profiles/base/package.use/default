@@ -91,3 +91,6 @@ kde-apps/kio-extras mtp
 
 # needed only for binary packages
 sys-libs/ncurses tinfo
+
+# needed for dracut nfs
+net-misc/iputils arping
