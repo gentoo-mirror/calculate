@@ -1,4 +1,0 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=app-admin/syslog-ng,media-gfx/splashutils,media-sound/alsa-utils,net-wireless/bluez,net-misc/openssh,net-print/cups,sys-apps/calculate-utils,sys-apps/dbus,sys-apps/openrc,sys-apps/preload,sys-auth/consolekit,sys-fs/eudev,sys-fs/lvm2,sys-fs/mdadm,sys-fs/udev,sys-process/vixie-cron ini(overlay-calculate.remerge)<47
-
-[overlay-calculate]
-remerge = 47
