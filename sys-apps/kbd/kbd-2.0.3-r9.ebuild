@@ -14,7 +14,7 @@ else
 		ftp://ftp.calculate-linux.ru/calculate/source/keymaps-addon/keymaps-addon-0.0.2.tar.bz2
 		http://mirror.yandex.ru/calculate/source/keymaps-addon/keymaps-addon-0.0.2.tar.bz2
 		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/source/keymaps-addon/keymaps-addon-0.0.2.tar.bz2"
-	KEYWORDS="alpha amd64 ~arm ~arm64 hppa ~ia64 ~m68k ~mips ~ppc ppc64 ~s390 ~sh ~sparc ~x86"
+	KEYWORDS="alpha amd64 ~arm ~arm64 hppa ~ia64 ~m68k ~mips ~ppc ppc64 ~s390 ~sh ~sparc x86"
 fi
 
 inherit autotools eutils ${SCM}
