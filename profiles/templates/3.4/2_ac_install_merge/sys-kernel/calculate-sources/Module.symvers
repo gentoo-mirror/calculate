@@ -1,4 +1,4 @@
 # Calculate format=patch os_install_arch_machine==i686 path=/usr/src/linux
 
-<reg>(alternatives_patched\s*vmlinux EXPORT_SYMBOL)_GPL</reg>
+<reg>(alternatives_patched\s+vmlinux\s+EXPORT_SYMBOL)_GPL</reg>
 <text>\1</text>
