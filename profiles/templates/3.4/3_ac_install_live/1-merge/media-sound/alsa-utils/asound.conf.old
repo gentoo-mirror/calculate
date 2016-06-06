@@ -1,0 +1,19 @@
+# Calculate name=asound.conf os_audio_default_set==on&&cl_ver<3.4.7||pkg(media-sound/pulseaudio)!=&&cl_ver<3.4.7
+#?pkg(media-sound/pulseaudio)!=#
+pcm.pulse {
+    type pulse
+}
+ctl.pulse {
+    type pulse
+}
+pcm.!default {
+    type pulse
+}
+ctl.!default {
+    type pulse
+}
+#pkg#
+#?pkg(media-sound/pulseaudio)==#
+defaults.ctl.card #-os_audio_default-#
+defaults.pcm.card #-os_audio_default-#
+#pkg#
