@@ -13,18 +13,20 @@ CL_UPDATE_PROG=/usr/sbin/cl-core-setup
 
 clear_systemd() {
 	local contents_fn="/var/db/pkg/${CATEGORY}/${PF}/CONTENTS"
-	cat $contents_fn | grep -e ^obj -e ^sym  | grep -e /usr/lib/systemd -e /etc/systemd | awk '{print $2}' |
+	cat $contents_fn | grep -e ^obj -e ^sym  | grep -e /usr/lib/systemd -e /etc/systemd -e /etc/dbus-1/system.d -e /usr/share/dbus-1/system.d | awk '{print $2}' |
 	while read fn
 	do
 		rm -f "$fn"
 	done
-	cat $contents_fn | grep ^dir  | grep -e /usr/lib/systemd -e /etc/systemd | awk '{print $2}'  | sort -r |
+	cat $contents_fn | grep ^dir  | grep -e /usr/lib/systemd -e /etc/systemd -e /etc/dbus-1/system.d -e /usr/share/dbus-1/system.d | awk '{print $2}'  | sort -r |
 	while read dn
 	do
 		[[ -d "$dn" ]] && [[ $(ls -A "$dn" | wc -l) -eq 0 ]] && rmdir "$dn"
 	done
 	sed -i '/ \/usr\/lib\/systemd/d' $contents_fn
 	sed -i '/ \/etc\/systemd/d' $contents_fn
+	sed -i '/ \/etc\/dbus-1\/system.d/d' $contents_fn
+	sed -i '/ \/usr\/share\/dbus-1\/system.d/d' $contents_fn
 }
 
 # setup package and create postmerge package list
