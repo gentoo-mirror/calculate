@@ -25,6 +25,8 @@ clear_systemd() {
 	done
 	sed -i '/ \/usr\/lib\/systemd/d' $contents_fn
 	sed -i '/ \/etc\/systemd/d' $contents_fn
+	sed -i '/ \/etc\/dbus-1\/system.d/d' $contents_fn
+	sed -i '/ \/usr\/share\/dbus-1\/system.d/d' $contents_fn
 }
 
 # setup package and create postmerge package list
