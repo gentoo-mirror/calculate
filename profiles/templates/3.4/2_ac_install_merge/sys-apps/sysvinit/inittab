@@ -1,5 +1,5 @@
 # Calculate format=patch
-<reg>(si::sysinit:/sbin/rc sysinit
+<reg>(si::sysinit:/sbin/(?:open)?rc sysinit
 )
 (# Further system initialization, brings up the boot runlevel.)
 ([\s\S]+?)
