@@ -1,6 +1,6 @@
 # Calculate format=patch
-<reg>(rc::bootwait:/sbin/rc boot
+<reg>(rc::bootwait:/sbin/(?:open)?rc boot
 
-)(l0:0:wait:/sbin/rc shutdown)</reg>
+)(l0:0:wait:/sbin/(?:open)?rc shutdown)</reg>
 <text>\1l06:06:wait:/usr/sbin/logout
 \2</text>
