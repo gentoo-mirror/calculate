@@ -94,3 +94,7 @@ sys-libs/ncurses tinfo
 
 # needed for dracut nfs
 net-misc/iputils arping
+
+# i386 support, TLS support for the VNC console server, VirtFS
+app-emulation/qemu gnutls qemu_softmmu_targets_i386 virtfs
+
