@@ -98,3 +98,8 @@ net-misc/iputils arping
 # i386 support, TLS support for the VNC console server, VirtFS
 app-emulation/qemu gnutls qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 virtfs
 
+# required by app-forensics/rkhunter-1.4.2
+sys-process/lsof rpc
+
+# required by app-emulation/lxd-2.0.1[daemon]
+app-emulation/lxc cgmanager
