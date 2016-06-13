@@ -395,12 +395,33 @@
       </mousebind>
     </context>
     <context name="Titlebar">
+<!--
+при сдвиге развернутого окна вниз держа за заголовок, оно примет обычный размер
       <mousebind button="Left" action="Drag">
         <action name="Move"/>
       </mousebind>
+-->
+      <mousebind button="Left" action="Drag">
+        <action name="If">
+          <maximized>yes</maximized>
+          <then>
+            <action name="Unmaximize"/>
+            <action name="MoveToEdge">
+              <direction>north</direction>
+            </action>
+            <action name="Move"/>
+          </then>
+        </action>
+        <action name="Move"/>
+      </mousebind>
+<!--
+конец вставки
+-->
       <mousebind button="Left" action="DoubleClick">
         <action name="ToggleMaximize"/>
       </mousebind>
+<!--
+отключение сворачивания окна в заголовок при помощи колёсика
       <mousebind button="Up" action="Click">
         <action name="if">
           <shaded>no</shaded>
@@ -421,6 +442,7 @@
           </then>
         </action>
       </mousebind>
+-->
     </context>
     <context name="Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner">
       <mousebind button="Left" action="Press">
@@ -586,6 +608,8 @@
       </mousebind>
     </context>
     <context name="Desktop">
+<!--
+Отключим смену рабочих столов колёсиком мышки
       <mousebind button="Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
@@ -596,6 +620,7 @@
           <to>next</to>
         </action>
       </mousebind>
+-->
       <mousebind button="A-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
