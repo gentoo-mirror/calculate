@@ -16,7 +16,7 @@ mail-filter/opendkim
 mail-filter/postgrey
 mail-filter/procmail
 mail-filter/spamassassin
-mail-mta/ssmtp
+mail-mta/nullmailer
 net-dns/bind
 net-fs/netatalk
 net-fs/samba
@@ -36,6 +36,7 @@ net-proxy/squid
 net-proxy/squidguard
 net-wireless/hostapd
 sys-apps/most
+virtual/mta
 #in#
 
 #?in(os_linux_pkglist, server)!=#
