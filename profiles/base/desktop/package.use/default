@@ -76,6 +76,9 @@ dev-python/pyudev pyqt4
 # [xmp] required by kde-base/libkexiv2
 media-gfx/exiv2 xmp
 
+# user preferences
+app-office/akonadi-server -mysql postgres
+
 # [sql] required by app-office/akonadi-server
 dev-qt/qtsql postgres
 
