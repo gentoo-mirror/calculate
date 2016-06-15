@@ -6,6 +6,9 @@ XSESSION="Kodi"
 #?pkg(x11-wm/openbox)!=#
 XSESSION="openbox"
 #pkg#
+#?pkg(lxqt-base/lxqt-session)!=#
+XSESSION="lxqt"
+#pkg#
 #?pkg(xfce-base/xfce4-session)!=#
 XSESSION="Xfce4"
 #pkg#
