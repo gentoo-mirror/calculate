@@ -119,6 +119,7 @@ net-analyzer/nmap -gtk
 net-analyzer/vnstat -gd
 net-dialup/rp-pppoe -X
 net-fs/samba -winbind
+net-irc/kvirc -audiofile -dcc_video -dcc_voice -perl -theora -webkit -phonon -spell doc
 net-irc/weechat -spell
 net-libs/webkit-gtk -geoloc
 net-misc/asterisk -bluetooth -portaudio
@@ -294,10 +295,6 @@ app-crypt/qca gpg
 
 # required by media-video/totem-3.14.3
 media-libs/grilo playlist
-
-# The following REQUIRED_USE flag constraints are unsatisfied:
-# audiofile? ( oss ) theora? ( dcc_video )
-net-irc/kvirc oss dcc_video
 
 # required by "net-voip/ekiga-4.0.0-r1
 net-libs/opal sip sipim xml

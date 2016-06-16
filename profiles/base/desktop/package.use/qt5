@@ -1,21 +1,14 @@
-app-text/qpdfview qt5
-dev-db/sqlitebrowser qt5
-media-sound/flacon qt5 -qt4
-media-video/smplayer qt5
-media-video/vlc qt5 -qt4
-www-client/qupzilla qt5
-
-# required by kde-frameworks/kfilemetadata-5.13.0::gentoo[pdf]
+# required by kde-frameworks/kfilemetadata-5.13.0 [pdf]
 app-text/poppler qt5
-# required by kde-frameworks/knotifications-5.13.0::gentoo[dbus]
+# required by kde-frameworks/knotifications-5.13.0 [dbus]
 dev-libs/libdbusmenu-qt qt5
-# required by media-libs/phonon-4.7.2::gentoo[gstreamer]
+# required by media-libs/phonon-4.7.2 [gstreamer]
 media-libs/phonon-gstreamer qt5
-# required by media-libs/phonon-gstreamer-4.7.2::gentoo
+# required by media-libs/phonon-gstreamer-4.7.2
 media-libs/phonon qt5
-# required by kde-plasma/polkit-kde-agent-5.4.0::gentoo
+# required by kde-plasma/polkit-kde-agent-5.4.0
 sys-auth/polkit-qt qt5
-# required by required by net-irc/konversation-1.6::gentoo[crypt]
+# required by required by net-irc/konversation-1.6 [crypt]
 app-crypt/qca qt5
 # required by dev-db/sqlitebrowser-3.7.0
 dev-libs/qcustomplot qt5
@@ -24,3 +17,12 @@ dev-qt/qtlockedfile qt5
 dev-qt/qtsingleapplication qt5
 # required by media-gfx/nomacs-3.0.0
 media-libs/opencv qt5 -qt4
+# required by mail-client/trojita-0.7 [password]
+dev-libs/qtkeychain qt5
+
+app-text/qpdfview qt5
+dev-db/sqlitebrowser qt5
+media-sound/flacon qt5 -qt4
+media-video/smplayer qt5
+media-video/vlc qt5 -qt4
+www-client/qupzilla qt5
