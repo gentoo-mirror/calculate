@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=lxqt-base/lxqt-session,x11-terms/qterminal ini(overlay-calculate.remerge)<137
+
+[overlay-calculate]
+remerge = 137
