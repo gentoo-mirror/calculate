@@ -66,10 +66,6 @@ dev-python/PyQt4 declarative script sql help
 # [melt, xml] required by media-video/kdenlive
 media-libs/mlt melt xml kdenlive -xine qt5
 
-# [embedded] required by media-sound/amarok
-dev-db/mysql embedded
-virtual/mysql embedded
-
 # [pyqt4] required by kde-misc/synaptiks
 dev-python/pyudev pyqt4
 

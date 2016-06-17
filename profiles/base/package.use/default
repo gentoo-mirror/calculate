@@ -103,3 +103,8 @@ sys-process/lsof rpc
 
 # required by app-emulation/lxd-2.0.1[daemon]
 app-emulation/lxc cgmanager
+
+# [embedded] required by media-sound/amarok
+virtual/mysql embedded
+dev-db/mariadb embedded
+dev-db/mysql embedded
