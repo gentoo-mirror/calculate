@@ -1,4 +1,4 @@
-# Calculate format=kde
+# Calculate format=kde path=/etc/xdg/autostart
 [Desktop Entry]
 Exec=/bin/bash -c "sleep 2;nm-applet"
 #?os_install_net_conf==networkmanager#
