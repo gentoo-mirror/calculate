@@ -12,6 +12,7 @@ sys-power/powertop
 
 #?in(os_linux_pkglist, desktop)!=#
 app-admin/conky
+app-admin/gamin
 app-admin/hardinfo
 app-admin/hddtemp
 app-admin/keepassx
@@ -104,6 +105,7 @@ dev-vcs/cvs
 dev-vcs/mercurial
 dev-vcs/subversion
 gnome-base/dconf-editor
+gnome-base/gnome-menus
 mail-client/evolution
 mail-client/mutt
 mail-client/sylpheed
@@ -216,6 +218,7 @@ x11-misc/i3lock
 x11-misc/i3status
 x11-misc/idesk
 x11-misc/idesk-extras
+x11-misc/obmenu
 x11-misc/openbox-menu
 x11-misc/oroborus-desklaunch
 x11-misc/oroborus-deskmenu
@@ -232,6 +235,7 @@ x11-misc/xsnow
 x11-misc/xvkbd
 x11-terms/guake
 x11-terms/rxvt-unicode
+x11-terms/sakura
 x11-terms/terminator
 x11-terms/tilda
 x11-themes/geany-themes
