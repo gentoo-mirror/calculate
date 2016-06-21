@@ -1,10 +1,15 @@
-# Calculate format=kde path=~/.config/volumeicon
+# Calculate format=kde path=~/.config/volumeicon cl_ver>=3.4.7
 [Notification]
 show_notification=true
 notification_type=1
 
 [StatusIcon]
+#?os_audio==alsa&&pkg(media-sound/qastools)!=#
+onclick=qasmixer
+#os_audio#
+#?os_audio==pulseaudio&&pkg(media-sound/pavucontrol)!=#
 onclick=pavucontrol
+#os_audio#
 
 [Hotkeys]
 up_enabled=true
