@@ -1,0 +1,12 @@
+# Calculate ini(overlay-calculate.revision)<83 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,83)-#
+
+#?pkg(x11-themes/gnome-icon-theme)!=#
+for delpath in /usr/share/icons/HighContrast/index.theme
+do
+    [[ -f /var/db/pkg/x11-themes/gnome-icon-theme-*/CONTENTS ]] && sed -i "/ ${delpath////\\/} /d" /var/db/pkg/x11-themes/gnome-icon-theme-*/CONTENTS
+done
+#pkg#
+
+exit 0
