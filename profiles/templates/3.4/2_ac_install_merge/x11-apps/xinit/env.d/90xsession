@@ -6,6 +6,9 @@ XSESSION="Kodi"
 #?pkg(x11-wm/openbox)!=#
 XSESSION="openbox"
 #pkg#
+#?pkg(gnome-extra/cinnamon-session)!=#
+XSESSION="cinnamon-session"
+#pkg#
 #?pkg(lxqt-base/lxqt-session)!=#
 XSESSION="lxqt"
 #pkg#
