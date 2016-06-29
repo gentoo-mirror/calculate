@@ -1,0 +1,20 @@
+{
+    "overlay-key": {
+        "type": "keybinding",
+        "default": "Super_L::Super_R",
+        "value": "<Alt>F1::Super_R"
+    },
+    "menu-icon": {
+        "type": "iconfilechooser",
+        "default": "/usr/share/cinnamon/theme/menu-symbolic.svg",
+        "dependency": "menu-icon-custom",
+        "indent": "true",
+        "value": "/usr/share/cinnamon/theme/menu-symbolic.svg"
+    },
+    "menu-label": {
+        "type": "entry",
+        "default": "",
+        "value": ""
+    }
+}
+
