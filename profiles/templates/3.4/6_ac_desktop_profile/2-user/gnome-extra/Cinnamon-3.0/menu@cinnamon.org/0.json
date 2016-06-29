@@ -1,19 +1,21 @@
+# Calculate format=json
 {
     "overlay-key": {
         "type": "keybinding",
-        "default": "Super_L::Super_R",
         "value": "<Alt>F1::Super_R"
+    },
+    "menu-icon-custom": {
+        "type": "checkbox",
+        "value": true
     },
     "menu-icon": {
         "type": "iconfilechooser",
-        "default": "/usr/share/cinnamon/theme/menu-symbolic.svg",
         "dependency": "menu-icon-custom",
         "indent": "true",
-        "value": "/usr/share/cinnamon/theme/menu-symbolic.svg"
+        "value": "/usr/share/pixmaps/calculate/start-here-brown.svg"
     },
     "menu-label": {
         "type": "entry",
-        "default": "",
         "value": ""
     }
 }
