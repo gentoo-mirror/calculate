@@ -1,0 +1,15 @@
+# Calculate format=json
+{
+    "launcherList": {
+        "type": "generic",
+        "value": [
+            "nemo.desktop"
+        ]
+    },
+    "allow-dragging": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Allow dragging of launchers",
+        "value": true
+    }
+}

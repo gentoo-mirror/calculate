@@ -1,0 +1,44 @@
+# Calculate format=dconf dconf=/org
+[cinnamon]
+alttab-switcher-style='icons+preview'
+
+[cinnamon/desktop/interface]
+font-name='Droid Sans 10'
+icon-theme='Calculate'
+
+[cinnamon/desktop/media-handling]
+automount=false
+
+[cinnamon/desktop/screensaver]
+lock-delay=uint32 15
+default-message='Calculate Linux Desktop'
+font-message='Droid Sans 14'
+font-time='Droid Sans 64'
+font-date='Droid Sans 24'
+
+[cinnamon/desktop/wm/preferences]
+titlebar-font='Droid Sans Bold 10'
+
+[cinnamon/muffin]
+edge-tiling=false
+
+[cinnamon/settings-daemon/plugins/power]
+lock-on-suspend=true
+sleep-display-ac=900
+
+[cinnamon/settings-daemon/plugins/xsettings]
+buttons-have-icons=true
+menus-have-icons=true
+
+[cinnamon/theme]
+name='Calculate'
+
+[nemo/desktop]
+font='Droid Serif 10'
+
+[nemo/preferences]
+click-policy='single'
+
+[gnome/desktop/interface]
+document-font-name='Droid Sans 10'
+monospace-font-name='Droid Sans Mono Slashed 10'
