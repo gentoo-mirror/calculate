@@ -1,0 +1,19 @@
+# Calculate format=compiz protected
+
+# Update info
+#-ini(desktop.updating, on)-#
+#-ini(desktop.browser, epiphany)-#
+
+[Added Associations]
+application/rss+xml=epiphany.desktop;
+application/vnd.mozilla.xul+xml=epiphany.desktop;
+application/x-font-ttx=epiphany.desktop;
+application/xhtml+xml=epiphany.desktop;
+application/xml=epiphany.desktop;
+application/xml-external-parsed-entity=epiphany.desktop;
+application/xsd=epiphany.desktop;
+application/xslt+xml=epiphany.desktop;
+application/x-ufraw=epiphany.desktop;
+text/html=epiphany.desktop;
+x-scheme-handler/http=epiphany.desktop;
+x-scheme-handler/https=epiphany.desktop;

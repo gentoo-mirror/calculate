@@ -1,0 +1,5 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(www-client/epiphany)==&&ini(desktop.browser)==epiphany
+
+[desktop]
+!browser=
+browser-removing=on
