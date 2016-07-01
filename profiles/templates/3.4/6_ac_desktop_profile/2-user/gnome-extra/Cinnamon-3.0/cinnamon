@@ -13,6 +13,20 @@ cursor-theme='Calculate'
 font-name='Droid Sans 10'
 icon-theme='Calculate'
 
+[cinnamon/desktop/keybindings/wm]
+switch-to-workspace-1=['<Primary>F1']
+switch-to-workspace-1=['<Primary>F2']
+switch-to-workspace-1=['<Primary>F3']
+switch-to-workspace-1=['<Primary>F4']
+switch-to-workspace-1=['<Primary>F5']
+switch-to-workspace-1=['<Primary>F6']
+switch-to-workspace-1=['<Primary>F7']
+switch-to-workspace-1=['<Primary>F8']
+switch-to-workspace-1=['<Primary>F9']
+switch-to-workspace-1=['<Primary>F10']
+switch-to-workspace-1=['<Primary>F11']
+switch-to-workspace-1=['<Primary>F12']
+
 [cinnamon/desktop/media-handling]
 automount=false
 
@@ -50,3 +64,8 @@ click-policy='single'
 [gnome/desktop/interface]
 document-font-name='Droid Sans 10'
 monospace-font-name='Droid Sans Mono Slashed 10'
+
+[gnome/libgnomekbd/desktop]
+default-group=0
+group-per-window=false
+
