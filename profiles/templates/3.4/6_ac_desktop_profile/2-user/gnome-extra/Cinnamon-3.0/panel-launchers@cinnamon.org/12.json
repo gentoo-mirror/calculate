@@ -2,9 +2,13 @@
 {
     "launcherList": {
         "type": "generic",
+	"default": [
+            "lockscreen.desktop",
+            "poweroff.desktop"
+	],
         "value": [
-            "nemo.desktop",
-	    "nemo.desktop"
+            "lockscreen.desktop",
+            "poweroff.desktop"
         ]
     },
     "allow-dragging": {
