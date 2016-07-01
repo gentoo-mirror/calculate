@@ -2,6 +2,12 @@
 [cinnamon]
 alttab-switcher-style='icons+preview'
 
+[cinnamon/desktop/background]
+picture-uri='file:///usr/share/backgrounds/calculate/Calculate Linux'
+
+[cinnamon/desktop/background/slideshow]
+image-source='directory:///usr/share/backgrounds/calculate'
+
 [cinnamon/desktop/interface]
 cursor-theme='Calculate'
 font-name='Droid Sans 10'
