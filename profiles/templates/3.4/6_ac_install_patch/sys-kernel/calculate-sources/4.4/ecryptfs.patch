@@ -1,4 +1,4 @@
-# Calculate format=diff merge(sys-kernel/calculate-sources)>=4.4.13&&merge(sys-kernel/calculate-sources)<=4.4.14
+# Calculate format=diff merge(sys-kernel/calculate-sources)>=4.4.13&&merge(sys-kernel/calculate-sources)<4.4.15
 From: Tyler Hicks <tyhicks <at> canonical.com>
 Subject: [PATCH] eCryptfs: Fix directory open regression in linux-stable
 Newsgroups: gmane.comp.file-systems.ecryptfs.general, gmane.linux.kernel.stable
