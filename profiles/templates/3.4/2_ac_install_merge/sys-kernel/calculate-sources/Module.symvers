@@ -2,7 +2,7 @@
 
 for fn in #-cl_chroot_path-#/usr/src/*/Module.symvers
 do
-    if [[ -f $dn ]]
+    if [[ -f $fn ]]
     then
         sed -ri 's/(alternatives_patched.*SYMBOL)_GPL/\1/' $fn
     fi
