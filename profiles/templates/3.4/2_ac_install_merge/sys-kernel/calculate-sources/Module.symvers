@@ -1,6 +1,6 @@
-# Calculate exec=/bin/bash os_install_arch_machine==i686
+# Calculate exec=/bin/bash os_install_arch_machine==i686&&ac_install_disk==off
 
-for fn in #-cl_chroot_path-#/usr/src/*/Module.symvers
+for fn in /usr/src/*/Module.symvers
 do
     if [[ -f $fn ]]
     then
