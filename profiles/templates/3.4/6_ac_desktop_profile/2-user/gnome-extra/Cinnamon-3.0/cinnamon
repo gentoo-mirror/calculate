@@ -44,9 +44,11 @@ titlebar-font='Droid Sans Bold 10'
 edge-tiling=false
 
 [cinnamon/settings-daemon/plugins/power]
+button-power='interactive'
 lid-close-ac-action='nothing'
 lock-on-suspend=true
 sleep-display-ac=900
+sleep-display-battery=900
 
 [cinnamon/settings-daemon/plugins/xsettings]
 buttons-have-icons=true
