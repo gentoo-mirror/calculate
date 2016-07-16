@@ -97,6 +97,7 @@ app-emulation/wine -samba
 app-misc/mc -spell
 app-text/evince -nsplugin
 dev-lang/php -imap -spell
+dev-libs/folks -bluetooth
 dev-util/cmake -qt4
 dev-vcs/git -gtk
 gnome-extra/nm-applet -bluetooth
@@ -468,3 +469,10 @@ net-libs/telepathy-qt farstream
 
 # Enable support Jabber, vkontakte
 net-im/qutim xmpp vkontakte
+
+# at-most-one-of ( gstreamer ffmpeg )
+app-misc/tracker ffmpeg -gstreamer -cue
+
+# required by gnome-photos (argument)
+media-plugins/grilo-plugins upnp-av
+dev-libs/libgdata gnome-online-accounts
