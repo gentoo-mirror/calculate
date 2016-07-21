@@ -476,3 +476,6 @@ app-misc/tracker ffmpeg -gstreamer -cue
 # required by gnome-photos (argument)
 media-plugins/grilo-plugins upnp-av
 dev-libs/libgdata gnome-online-accounts
+
+# required by media-sound/gnome-music-3.18.2
+media-plugins/grilo-plugins tracker
