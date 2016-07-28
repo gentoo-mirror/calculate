@@ -1,0 +1,43 @@
+# Calculate format=kde
+[Frame]
+boolCloseInTray=true
+boolShowChannelsJoinOnIrc=false
+boolShowServersConnectDialogOnStart=false
+
+[Geometry]
+rectFrameGeometry=839,112,905,560
+
+[Url]
+uintUrlMouseClickNum=1
+
+[User]
+#?hr_virtual==virtualbox#
+#-ini(tmp.vm,VB)-#
+#hr_virtual#
+#?hr_virtual==vmware#
+#-ini(tmp.vm,VM)-#
+#hr_virtual#
+#?hr_virtual==qemu#
+#-ini(tmp.vm,QE)-#
+#hr_virtual#
+stringNickname1=#-case(capitalize,ur_login)-##-ini(tmp.vm)-#-#-os_locale_language-#
+stringNickname2=#-case(capitalize,ur_login)-##-ini(tmp.vm)-##-rnd(num,2)-#-#-os_locale_language-#
+stringNickname3=#-case(capitalize,ur_login)-##-ini(tmp.vm)-##-rnd(num,2)-#-#-os_locale_language-#
+stringNickname4=#-case(capitalize,ur_login)-##-ini(tmp.vm)-##-rnd(num,2)-#-#-os_locale_language-#
+stringRealname=#-os_linux_name-# #-os_linux_ver-# #-os_linux_subname-#
+#-ini(tmp.vm,)-#
+#?os_root_type==hdd&&hr_virtual==#
+stringUsername = #-os_linux_shortname-#
+#os_root_type#
+#?os_root_type!=hdd&&hr_virtual==#
+stringUsername = Live#-os_linux_shortname-#
+#os_root_type#
+#?os_root_type==hdd&&hr_virtual!=#
+stringUsername = #-os_linux_shortname-#|#-hr_virtual-#
+#os_root_type#
+#?os_root_type!=hdd&&hr_virtual!=#
+stringUsername = Live#-os_linux_shortname-#|#-hr_virtual-#
+#os_root_type#
+stringQuitMessage=Get%20Calculate%20http://www.calculate-linux.org
+stringPartMessage=Easy%20Linux%20from%20the%20Source
+
