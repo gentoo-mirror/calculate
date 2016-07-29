@@ -13,10 +13,7 @@ Name=#calculate-fr
 #?os_locale_language==ru#
 Name=#calculate-ru
 #os_locale_language#
-#?os_locale_language==de#
-Name=#calculate-de
-#os_locale_language#
-#?in(os_locale_language,fr,ru,de)==#
+#?in(os_locale_language,fr,ru)==#
 Name=#calculate
 #in#
 Password=

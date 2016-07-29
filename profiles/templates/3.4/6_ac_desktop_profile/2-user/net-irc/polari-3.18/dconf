@@ -6,10 +6,7 @@
 #?os_locale_language==ru#
 #-ini(tmp.channel,calculate-ru)-#
 #os_locale_language#
-#?os_locale_language==de#
-#-ini(tmp.channel,calculate-de)-#
-#os_locale_language#
-#?in(os_locale_language,fr,ru,de)==#
+#?in(os_locale_language,fr,ru)==#
 #-ini(tmp.channel,calculate)-#
 #in#
 
