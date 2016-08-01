@@ -1,7 +1,6 @@
 # Calculate name=world format=world
 
 #?in(os_linux_pkglist, desktop)!=#
-games-action/oolite
 #games-action/supertuxkart
 games-arcade/briquolo
 games-arcade/lbreakout2
@@ -36,4 +35,8 @@ games-puzzle/hitori
 games-puzzle/lightsoff
 games-puzzle/quadrapassel
 games-puzzle/swell-foop
+#in#
+
+#?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
+games-action/oolite
 #in#
