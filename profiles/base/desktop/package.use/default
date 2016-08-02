@@ -134,6 +134,9 @@ xfce-extra/xfce4-sensors-plugin -video_cards_nvidia
 # support primusrun command (primus from bumblebee overlay), gtk3 support
 x11-drivers/nvidia-drivers compat gtk3 tools
 
+# use gstreamer for sound
+media-libs/phonon gstreamer -vlc
+
 # Enables video thumbnails generation
 kde-apps/dolphin thumbnail
 
@@ -480,5 +483,6 @@ media-plugins/grilo-plugins tracker
 # required by media-libs/fontconfig-infinality-20130404
 media-libs/freetype infinality
 
-# required by media-libs/phonon-4.9.0[vlc]
-media-libs/phonon-vlc qt5
+# enable color management via media-libs/opencolorio
+media-gfx/krita color-management
+
