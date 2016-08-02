@@ -9,6 +9,7 @@ www-client/w3m
 
 #?in(os_linux_pkglist, desktop)!=#
 app-text/wgetpaste
+mail-client/balsa
 mail-client/claws-mail
 mail-client/geary
 mail-client/sylpheed
@@ -29,6 +30,7 @@ net-analyzer/wireshark
 net-analyzer/wireshark
 net-dialup/minicom
 net-ftp/filezilla
+net-ftp/gftp
 net-ftp/tftp-hpa
 net-im/choqok
 net-im/corebird
@@ -62,6 +64,7 @@ net-p2p/vuze
 net-voip/ekiga
 net-voip/linphone
 www-client/chromium
+www-client/dillo
 www-client/epiphany
 www-client/firefox
 www-client/links
@@ -73,6 +76,7 @@ www-client/rekonq
 www-client/seamonkey
 www-client/uget
 www-plugins/chrome-ublock
+x11-misc/grsync
 x11-misc/x11vnc
 x11-plugins/pidgin-hotkeys
 x11-plugins/pidgin-libnotify
