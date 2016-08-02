@@ -135,7 +135,7 @@ xfce-extra/xfce4-sensors-plugin -video_cards_nvidia
 x11-drivers/nvidia-drivers compat gtk3 tools
 
 # use gstreamer for sound
-media-libs/phonon gstreamer -vlc
+media-libs/phonon -gstreamer vlc
 
 # Enables video thumbnails generation
 kde-apps/dolphin thumbnail
