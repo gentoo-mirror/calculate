@@ -36,19 +36,25 @@ default-message='Calculate Linux Desktop'
 font-message='Droid Sans 14'
 font-time='Droid Sans 64'
 font-date='Droid Sans 24'
+#?os_root_type==livecd#
+lock-enabled=false
+#os_root_type#
 
 [cinnamon/desktop/wm/preferences]
 titlebar-font='Droid Sans Bold 10'
 
 [cinnamon/muffin]
 edge-tiling=false
+placement-mode='automatic'
 
 [cinnamon/settings-daemon/plugins/power]
 button-power='interactive'
 lid-close-ac-action='nothing'
-lock-on-suspend=true
 sleep-display-ac=900
 sleep-display-battery=900
+#?os_root_type==livecd#
+lock-on-suspend=true
+#os_root_type#
 
 [cinnamon/settings-daemon/plugins/xsettings]
 buttons-have-icons=true
@@ -59,7 +65,9 @@ name='Calculate'
 
 [nemo/desktop]
 font='Droid Sans 10'
+#?env(client.os_remote_auth)==||ur_domain_set==off#
 home-icon-visible=true
+#env#
 
 [nemo/preferences]
 click-policy='single'
