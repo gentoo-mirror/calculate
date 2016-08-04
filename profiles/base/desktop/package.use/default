@@ -486,3 +486,5 @@ media-libs/freetype infinality
 # enable color management via media-libs/opencolorio
 media-gfx/krita color-management
 
+# detect GPS location (need for CLDX) IssueID #897
+x11-misc/redshift geoclue
