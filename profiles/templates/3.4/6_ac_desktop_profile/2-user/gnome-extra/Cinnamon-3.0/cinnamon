@@ -45,6 +45,7 @@ titlebar-font='Droid Sans Bold 10'
 
 [cinnamon/muffin]
 edge-tiling=false
+placement-mode='automatic'
 
 [cinnamon/settings-daemon/plugins/power]
 button-power='interactive'
@@ -64,7 +65,9 @@ name='Calculate'
 
 [nemo/desktop]
 font='Droid Sans 10'
+#?env(client.os_remote_auth)==||ur_domain_set==off#
 home-icon-visible=true
+#env#
 
 [nemo/preferences]
 click-policy='single'
