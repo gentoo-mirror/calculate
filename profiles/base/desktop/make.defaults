@@ -1,5 +1,5 @@
 # Audio
-USE="${USE} alsa amr -arts audiofile cdda cue id3tag flac gstreamer mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr portaudio pulseaudio wavpack vorbis"
+USE="${USE} alsa amr -arts audiofile cdda cue id3tag flac gstreamer mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr portaudio pulseaudio taglib wavpack vorbis"
 
 # CD and DVD
 USE="${USE} cdparanoia cdr css dvd dvdr dvdread vcd"
