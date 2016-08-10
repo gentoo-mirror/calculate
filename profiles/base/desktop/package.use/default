@@ -480,8 +480,8 @@ dev-libs/libgdata gnome-online-accounts
 # required by media-sound/gnome-music-3.18.2
 media-plugins/grilo-plugins tracker
 
-# required by media-libs/fontconfig-infinality-20130404
-media-libs/freetype infinality
+# new bytecode hinting mode for TrueType fonts that activates subpixel hinting
+media-libs/freetype cleartype_hinting
 
 # enable color management via media-libs/opencolorio
 media-gfx/krita color-management
