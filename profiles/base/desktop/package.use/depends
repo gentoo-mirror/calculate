@@ -1,2 +1,5 @@
 # required by app-emulation/docker-1.11.0[device-mapper]
 sys-fs/lvm2 thin
+
+# required by media-gfx/simple-scan-3.18.2
+dev-libs/libgusb vala
