@@ -487,3 +487,6 @@ media-gfx/krita color-management
 
 # detect GPS location (need for CLDX) IssueID #897
 x11-misc/redshift geoclue
+
+# support for XFT font renderer, drag-n-drop
+app-editors/xemacs xft dnd
