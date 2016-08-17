@@ -1,0 +1,7 @@
+# Calculate ini(overlay-calculate.revision)<87 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,87)-#
+
+[[ -d /udev-init-scripts ]] && rmdir /udev-init-scripts
+
+exit 0
