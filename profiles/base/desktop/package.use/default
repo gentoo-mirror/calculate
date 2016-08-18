@@ -31,7 +31,7 @@ media-sound/pulseaudio native-headset ofono-headset
 
 # required by sys-boot/plymouth [libkms]
 # required by media-libs/mesa-11.0.6 [video_cards_radeonsi]
-x11-libs/libdrm libkms video_cards_amdgpu
+x11-libs/libdrm libkms video_cards_amdgpu video_cards_vmware
 
 # required by www-client/firefox [apng]
 media-libs/libpng apng
