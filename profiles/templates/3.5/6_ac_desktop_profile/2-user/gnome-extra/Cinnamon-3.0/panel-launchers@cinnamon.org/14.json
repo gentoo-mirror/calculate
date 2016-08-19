@@ -1,0 +1,30 @@
+# Calculate format=json
+{
+    "launcherList": {
+        "type": "generic",
+        "value": [
+            "calculate-browser.desktop",
+            "calculate-mail.desktop",
+            "calculate-chat.desktop",
+            "calculate-im.desktop",
+            "calculate-writer.desktop",
+            "calculate-calc.desktop",
+            "calculate-calculator.desktop",
+            "calculate-imageedit.desktop",
+            "calculate-imageview.desktop",
+            "calculate-audioplayer.desktop",
+            "calculate-videoplayer.desktop",
+#?hr_cdrom_set==on#
+            "calculate-imageburn.desktop",
+#hr_cdrom_set#
+            "calculate-textedit.desktop",
+            "calculate-terminal.desktop"
+        ]
+    },
+    "allow-dragging": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Allow dragging of launchers",
+        "value": true
+    }
+}

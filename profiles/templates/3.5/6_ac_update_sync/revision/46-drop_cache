@@ -1,0 +1,4 @@
+# Calculate name=emerge_parser.py format=patch path=/usr/lib/python2.7/site-packages/calculate/update ini(overlay-calculate.revision)<46&&ini(overlay-calculate.revision,46)==&&cl_chroot_status==off&&pkg(sys-apps/calculate-utils)<3.3.2.8
+<reg>(def get_cached_package_list\(self\):)(
+        )(self\.read_cache)</reg>
+<text>\1\2return None\2\3</text>

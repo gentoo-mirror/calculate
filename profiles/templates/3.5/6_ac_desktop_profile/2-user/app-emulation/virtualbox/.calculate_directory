@@ -1,0 +1,1 @@
+# Calculate append=skip merge(app-emulation/virtualbox-bin)!=&&ini(update.virtualbox)!=off&&ini(ver.virtualbox)==&&pkg(app-emulation/virtualbox-bin)>=4.3&&exists(~/.config/VirtualBox)==||merge(app-emulation/virtualbox)!=&&ini(update.virtualbox)!=off&&ini(ver.virtualbox)==&&pkg(app-emulation/virtualbox)>=4.3&&exists(~/.config/VirtualBox)==

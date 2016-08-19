@@ -1,0 +1,12 @@
+# Calculate format=patch multiline
+<reg>^shutdown_text = .*$</reg>
+#?os_install_locale_lang==ru_RU#
+<text>shutdown_text = "Завершение работы";</text>
+#os_install_locale_lang#
+#?os_install_locale_lang!=ru_RU#
+<text>shutdown_text = "Shutting down";</text>
+#os_install_locale_lang#
+#?pkg(media-gfx/plymouth-themes-calculate)>=14-r2&&pkg(media-gfx/plymouth-themes-calculate)<15#
+<reg>^shutdown_background_image_filename = .*$</reg>
+<text>shutdown_background_image_filename = "#-wallpaper(#-install.os_install_fb_resolution-#,/usr/share/plymouth/themes/calculate)-#";</text>
+#pkg#

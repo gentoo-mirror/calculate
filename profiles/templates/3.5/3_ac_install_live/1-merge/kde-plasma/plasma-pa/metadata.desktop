@@ -1,0 +1,19 @@
+# Calculate format=kde
+
+[Desktop Entry]
+#?pkg(kde-apps/kmix)!=#
+!X-Plasma-API=
+!X-Plasma-MainScript=
+!X-Plasma-NotificationArea=
+!X-Plasma-ConfigPlugins=
+!X-KDE-PluginInfo-Name=
+!X-KDE-PluginInfo-EnabledByDefault=
+#pkg#
+#?pkg(kde-apps/kmix)==#
+X-Plasma-API=declarativeappletscript
+X-Plasma-MainScript=ui/main.qml
+X-Plasma-NotificationArea=true
+X-Plasma-ConfigPlugins=kcm_pulseaudio
+X-KDE-PluginInfo-Name=org.kde.plasma.volume
+X-KDE-PluginInfo-EnabledByDefault=true
+#pkg#

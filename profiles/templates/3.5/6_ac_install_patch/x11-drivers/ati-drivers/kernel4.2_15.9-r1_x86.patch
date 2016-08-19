@@ -1,0 +1,55 @@
+# Calculate format=diff pkg(sys-kernel/calculate-sources)>=4.2&&pkg(sys-kernel/calculate-sources)<4.3&&merge(x11-drivers/ati-drivers)==15.9-r1&&os_arch_machine==i686
+diff --git a/common/lib/modules/fglrx/build_mod/firegl_public.c b/common/lib/modules/fglrx/build_mod/firegl_public.c
+index 677565d..5189bd4 100755
+--- a/common/lib/modules/fglrx/build_mod/firegl_public.c
++++ b/common/lib/modules/fglrx/build_mod/firegl_public.c
+@@ -258,23 +258,6 @@
+ #define __flush_tlb_one(addr) asm volatile("invlpg (%0)" ::"r" (addr) : "memory")
+ #define __flush_tlb() native_write_cr3(native_read_cr3())
+ 
+-static inline void __flush_tlb_all(void)
+-{
+-        if (cpu_has_pge)
+-        {
+-                unsigned long flags, cr4;
+-                raw_local_irq_save(flags);
+-                cr4 = native_read_cr4();
+-                native_write_cr4(cr4 & ~X86_CR4_PGE);
+-                native_write_cr4(cr4);
+-                raw_local_irq_restore(flags);
+-        }
+-        else
+-        {
+-                __flush_tlb();
+-        }
+-}
+-
+ // ============================================================
+ /* globals */
+ 
+@@ -6436,21 +6436,17 @@ static int KCL_fpu_save_init(struct task_struct *tsk)
+    struct fpu *fpu = &tsk->thread.fpu;
+ 
+    if(static_cpu_has(X86_FEATURE_XSAVE)) {
+-      fpu_xsave(fpu);
+-      if (!(fpu->state->xsave.xsave_hdr.xstate_bv & XSTATE_FP))
++      copy_xregs_to_kernel(&fpu->state.xsave);
++      if (!(fpu->state.xsave.header.xfeatures & XSTATE_FP))
+ 	 return 1;
+    } else if (static_cpu_has(X86_FEATURE_FXSR)) {
+-	 fpu_fxsave(fpu);
++	 copy_fxregs_to_kernel(fpu);
+    } else {
+ 	 asm volatile("fnsave %[fx]; fwait"
+-                  : [fx] "=m" (fpu->state->fsave));
++                  : [fx] "=m" (fpu->state.fsave));
+ 	 return 0;
+    }
+ 
+-   if (unlikely(fpu->state->fxsave.swd & X87_FSW_ES)) {
+-	asm volatile("fnclex");
+-	return 0;
+-   }
+    return 1;
+ }
+ #endif

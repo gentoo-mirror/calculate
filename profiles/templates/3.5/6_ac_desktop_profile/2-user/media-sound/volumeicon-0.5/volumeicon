@@ -1,0 +1,18 @@
+# Calculate format=kde path=~/.config/volumeicon cl_ver>=3.4.7
+[Notification]
+show_notification=true
+notification_type=1
+
+[StatusIcon]
+#?install.os_audio==alsa&&pkg(media-sound/qastools)!=#
+onclick=qasmixer
+#install.os_audio#
+#?install.os_audio==pulseaudio&&pkg(media-sound/pavucontrol)!=#
+onclick=pavucontrol
+#install.os_audio#
+lmb_slider=true
+
+[Hotkeys]
+up_enabled=true
+down_enabled=true
+mute_enabled=true

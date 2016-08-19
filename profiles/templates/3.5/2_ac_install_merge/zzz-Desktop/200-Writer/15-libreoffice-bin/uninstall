@@ -1,0 +1,5 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(app-office/libreoffice-bin)==&&ini(desktop.writer)==libreoffice-bin
+
+[desktop]
+!writer=
+writer-removing=on

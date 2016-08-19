@@ -1,0 +1,28 @@
+# Calculate name=world format=world
+
+#?in(os_linux_pkglist, desktop, server)!=#
+media-gfx/grub-splashes-calculate
+media-gfx/syslinux-themes-calculate
+#in#
+
+#?in(os_linux_pkglist, desktop)!=#
+media-gfx/calculate-wallpapers
+media-gfx/dm-themes-calculate
+media-gfx/lightdm-themes-calculate
+media-gfx/plasma-themes-calculate
+x11-misc/nitrogen
+x11-themes/audacious-themes
+x11-themes/calculate-icon-theme
+x11-themes/calculate-xcursors
+x11-themes/claws-mail-theme-calculate
+x11-themes/elementary-icon-theme
+x11-themes/faenza-icon-theme
+x11-themes/gnome-themes-standard
+x11-themes/greybird
+x11-themes/gtk-engines
+x11-themes/slim-themes
+x11-themes/smplayer-skins
+x11-themes/smplayer-themes
+x11-themes/tangerine-icon-theme
+x11-themes/xfwm4-themes
+#in#

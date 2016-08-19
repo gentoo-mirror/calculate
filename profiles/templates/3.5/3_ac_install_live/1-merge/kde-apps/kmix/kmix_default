@@ -1,0 +1,32 @@
+# Calculate chmod=0755
+#!/bin/bash
+
+SELECT_CARD="#-list(os_audio_name,#-os_audio_default-#)-#"
+DBUS_KMIX="/usr/bin/qdbus org.kde.kmix"
+if ! [[ -f ~/.config/kmixctrlrc ]]
+then
+	for waittime in 1 2 4 8
+	do
+		if $DBUS_KMIX &>/dev/null
+		then
+			for cards in $($DBUS_KMIX /Mixers mixers)
+			do
+				if [[ "$($DBUS_KMIX $cards readableName)" == "$SELECT_CARD" ]]
+				then
+					CARD_ID="$($DBUS_KMIX $cards id)"
+					$DBUS_KMIX /Mixers setCurrentMaster "$CARD_ID" ""
+					$DBUS_KMIX /Mixers setPreferredMaster "$CARD_ID" ""
+					CONTROL_ID=$($DBUS_KMIX $cards masterControl)
+					$DBUS_KMIX $CONTROL_ID toggleMute
+					$DBUS_KMIX $CONTROL_ID toggleMute
+					exit 0
+				fi
+			done
+			exit 1
+		else
+			sleep $waittime
+		fi
+	done
+	exit 1
+fi
+exit 0

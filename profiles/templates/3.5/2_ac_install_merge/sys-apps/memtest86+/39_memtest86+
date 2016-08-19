@@ -1,0 +1,8 @@
+# Calculate chmod=0755
+#!/bin/sh
+exec tail -n +3 $0
+
+menuentry "memtest86+ 4.20" {
+	linux16 /boot/memtest86plus/memtest
+}
+

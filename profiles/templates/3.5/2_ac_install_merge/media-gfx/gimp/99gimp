@@ -1,0 +1,3 @@
+# discard /usr/lib64/gimp/2.0/plug-ins/hot due to an segfault prelink
+# prelink (20110106-20110511), gimp (2.6.11) (CLD-64)
+PRELINK_PATH_MASK=/usr/lib64/gimp/2.0/plug-ins/hot

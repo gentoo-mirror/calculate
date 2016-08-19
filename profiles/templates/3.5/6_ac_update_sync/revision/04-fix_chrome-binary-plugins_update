@@ -1,0 +1,10 @@
+# Calculate ini(overlay-calculate.revision)<4 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,4)-#
+
+#?pkg(www-plugins/chrome-binary-plugins)!=#
+test -f /var/db/pkg/www-plugins/chrome-binary-plugins-*/CONTENTS &&
+   sed -i '/chromium-browser\/libpdf.so/d' /var/db/pkg/www-plugins/chrome-binary-plugins-*/CONTENTS
+#pkg#
+
+exit 0

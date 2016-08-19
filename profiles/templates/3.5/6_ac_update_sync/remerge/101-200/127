@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-apps/openrc ini(overlay-calculate.remerge)<127
+
+[overlay-calculate]
+remerge = 127

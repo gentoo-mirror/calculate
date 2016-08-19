@@ -1,0 +1,14 @@
+# Calculate format=dconf dconf=/org/gnome
+
+#?os_locale_language==fr#
+#-ini(tmp.channel,calculate-fr)-#
+#os_locale_language#
+#?os_locale_language==ru#
+#-ini(tmp.channel,calculate-ru)-#
+#os_locale_language#
+#?in(os_locale_language,fr,ru)==#
+#-ini(tmp.channel,calculate)-#
+#in#
+
+[polari]
+saved-channel-list=[{'account': <'/org/freedesktop/Telepathy/Account/idle/irc/#-ur_login-#0'>, 'channel': <'##-ini(tmp.channel)-#'>}]

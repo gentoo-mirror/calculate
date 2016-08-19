@@ -1,0 +1,17 @@
+# Calculate name=ldap.conf format=ldap append=replace module(unix)!=&&server.sr_unix_set==on chmod=0644 chown=root:root path=/etc
+#
+host #-ldap.cl_ldap_host-#
+base #-ldap.ld_services_dn-#
+rootbinddn #-unix.ld_unix_dn-#
+binddn #-ldap.ld_bind_dn-#
+bindpw #-ldap.ld_bind_pw-#
+timelimit 5
+bind_timelimit 5
+port 389
+ldap_version 3
+bind_policy soft
+
+#ускорим ограничив область поиска
+nss_base_passwd #-unix.ld_unix_users_dn-#?one?shadowFlag=1
+nss_base_shadow #-unix.ld_unix_users_dn-#?one?shadowFlag=1
+nss_base_group  #-unix.ld_unix_groups_dn-#?one

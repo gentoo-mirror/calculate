@@ -1,0 +1,5 @@
+# Calculate exec=/bin/bash ac_install_disk==off
+
+echo "Updating desktop database"
+/usr/bin/update-desktop-database /usr/share/applications &>/dev/null
+true

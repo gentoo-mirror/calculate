@@ -1,0 +1,42 @@
+# Calculate name=world format=world
+
+#?in(os_linux_pkglist, desktop)!=#
+#games-action/supertuxkart
+games-arcade/briquolo
+games-arcade/lbreakout2
+games-arcade/supertux
+#games-fps/enemy-territory
+#games-fps/enemy-territory-truecombat
+#games-fps/nexuiz
+#games-fps/openarena
+#games-fps/warsow
+#games-fps/xonotic
+games-misc/xpenguins
+games-sports/xmoto
+#games-strategy/0ad
+games-strategy/freeciv
+games-util/steam-launcher
+
+# Gnome
+games-arcade/gnome-nibbles
+games-arcade/gnome-robots
+games-board/four-in-a-row
+games-board/gnome-chess
+games-board/gnome-mahjongg
+games-board/gnome-mines
+games-board/iagno
+games-board/tali
+games-puzzle/five-or-more
+games-puzzle/gnome-klotski
+games-puzzle/gnome-sudoku
+games-puzzle/gnome-taquin
+games-puzzle/gnome-tetravex
+games-puzzle/hitori
+games-puzzle/lightsoff
+games-puzzle/quadrapassel
+games-puzzle/swell-foop
+#in#
+
+#?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
+games-action/oolite
+#in#

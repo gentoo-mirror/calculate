@@ -1,0 +1,19 @@
+# Calculate ini(overlay-calculate.revision)<24 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,24)-#
+
+#?pkg(sys-devel/libtool)<2.4.3-r2#
+for delpath in  /usr/include/libltdl/lt_dlloader.h \
+  /usr/include/libltdl/lt_error.h \
+  /usr/include/libltdl/lt_system.h \
+  /usr/include/ltdl.h \
+  /usr/lib64/libltdl.la \
+  /usr/lib64/libltdl.so \
+  /usr/lib64/libltdl.so.7
+do
+test -f /var/db/pkg/sys-devel/libtool-*/CONTENTS &&
+   sed -i "/ ${delpath////\/} /d" /var/db/pkg/sys-devel/libtool-*/CONTENTS
+done
+#pkg#
+
+exit 0

@@ -1,0 +1,4 @@
+# Calculate exec=/bin/bash pkg(kde-apps/kde4-l10n)==4.14.3-r1
+
+/bin/rm -rf /usr/share/locale/*/LC_MESSAGES/akonadi_baloo_indexer.mo
+exit 0

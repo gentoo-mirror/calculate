@@ -1,0 +1,8 @@
+# Calculate append=remove name=ldap.conf force pkg(sys-apps/calculate-server)==&&module(client)==&&module(unix)==||pkg(sys-apps/calculate-server)==&&module(client)==&&module(unix)!=&&server.sr_unix_set!=on||pkg(sys-apps/calculate-server)==&&module(unix)==&&module(client)!=&&client.os_remote_auth==||pkg(sys-apps/calculate-server)==&&module(client)!=&&client.os_remote_auth==&&module(unix)!=&&server.sr_unix_set!=on
+
+# Удаляем ldap.conf если нет пакета calculate-server И
+#pkg(sys-apps/calculate-server)==&&module(client)==&&module(unix)==|| ; нет модулей client и unix
+#pkg(sys-apps/calculate-server)==&&module(client)==&&module(unix)!=&&server.sr_unix_set!=on|| ; нет модуля client, но есть не настроенный unix
+#pkg(sys-apps/calculate-server)==&&module(unix)==&&module(client)!=&&client.os_remote_auth==|| ; нет модуля unix, но есть не настроенный client
+#pkg(sys-apps/calculate-server)==&&module(client)!=&&client.os_remote_auth==&&module(unix)!=&&server.sr_unix_set!=on ; модули client и unix не настроенные
+

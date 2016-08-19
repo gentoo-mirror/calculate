@@ -1,0 +1,15 @@
+# Calculate ini(overlay-calculate.revision)<86 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,86)-#
+
+#?pkg(sys-fs/eudev)!=#
+for delpath in /etc/init.d/udev \
+  /etc/conf.d/udev \
+  /etc/runlevels/sysinit/udev
+do
+test -f /var/db/pkg/sys-fs/eudev-*/CONTENTS &&
+   sed -i "/ ${delpath////\\/} /d" /var/db/pkg/sys-fs/eudev-*/CONTENTS
+done
+#pkg#
+
+exit 0

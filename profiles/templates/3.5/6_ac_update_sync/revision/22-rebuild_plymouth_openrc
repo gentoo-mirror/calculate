@@ -1,0 +1,15 @@
+# Calculate ini(overlay-calculate.revision)<22 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,22)-#
+
+# key is pkg name, value is current version new reduced version split by space
+declare -A map_move=( ["sys-boot/plymouth-openrc-plugin"]="0.1.2 0.1.2_rc73" )
+
+PKGDB=/var/db/pkg
+for pkg in ${!map_move[@]}
+do
+    vers=(${map_move[$pkg]})
+    [[ -d $PKGDB/${pkg}-${vers[0]} ]] && mv $PKGDB/${pkg}-${vers[0]} $PKGDB/${pkg}-${vers[1]}
+done
+
+true

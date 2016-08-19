@@ -1,0 +1,14 @@
+# Calculate format=diff
+diff --git a/src/kiconloader.cpp b/src/kiconloader.cpp
+index 75ab482..328f88d 100644
+--- a/src/kiconloader.cpp
++++ b/src/kiconloader.cpp
+@@ -940,6 +940,8 @@ QString KIconLoaderPrivate::findMatchingIcon(const QString &name, int size) cons
+             //qCDebug(KICONTHEMES) << "Looking up" << currentName;
+ 
+             if (genericFallback) {
++                // restore genericFallback flag
++                genericFallback = name.endsWith(QLatin1String("-x-generic"));
+                 // we already tested the base name
+                 break;
+             }

@@ -1,0 +1,9 @@
+# Calculate format=compiz protected
+
+# Update info
+#-ini(desktop.updating, on)-#
+#-ini(desktop.writer, libreoffice-bin)-#
+
+[Added Associations]
+application/rtf=libreoffice-writer.desktop;
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop;

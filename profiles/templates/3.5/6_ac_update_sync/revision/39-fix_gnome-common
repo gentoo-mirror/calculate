@@ -1,0 +1,14 @@
+# Calculate ini(overlay-calculate.revision)<39 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,39)-#
+
+#?pkg(gnome-base/gnome-common)!=#
+for delpath in /usr/share/aclocal/ax_check_enable_debug.m4 \
+  /usr/share/aclocal/ax_code_coverage.m4
+do
+test -f /var/db/pkg/gnome-base/gnome-common-*/CONTENTS &&
+   sed -i "/ ${delpath////\/} /d" /var/db/pkg/gnome-base/gnome-common-*/CONTENTS
+done
+#pkg#
+
+exit 0

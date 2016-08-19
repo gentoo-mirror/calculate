@@ -1,0 +1,20 @@
+# Calculate format=diff
+diff --git a/lxqt-config-monitor/monitor.h b/lxqt-config-monitor/monitor.h
+index 01d313c..6674fbe 100644
+--- a/lxqt-config-monitor/monitor.h
++++ b/lxqt-config-monitor/monitor.h
+@@ -20,6 +20,7 @@
+ #ifndef _MONITOR_H_
+ #define _MONITOR_H_
+ 
++#include <QObject>
+ #include <QStringList>
+ #include <QHash>
+ #include <QList>
+@@ -79,4 +80,4 @@ public:
+ /**Gets size from string rate. String rate format is "widthxheight". Example: 800x600*/
+ QSize sizeFromString(QString str);
+ 
+-#endif // _MONITOR_H_
+\ No newline at end of file
++#endif // _MONITOR_H_

@@ -1,0 +1,26 @@
+# Calculate format=openrc
+
+#?pkg(media-tv/kodi)!=#
+XSESSION="Kodi"
+#pkg#
+#?pkg(x11-wm/openbox)!=#
+XSESSION="openbox"
+#pkg#
+#?pkg(gnome-extra/cinnamon-session)!=#
+XSESSION="cinnamon-session"
+#pkg#
+#?pkg(lxqt-base/lxqt-session)!=#
+XSESSION="lxqt"
+#pkg#
+#?pkg(xfce-base/xfce4-session)!=#
+XSESSION="Xfce4"
+#pkg#
+#?pkg(mate-base/mate-session-manager)!=#
+XSESSION="Mate"
+#pkg#
+#?pkg(kde-base/ksmserver)!=#
+XSESSION="KDE-4"
+#pkg#
+#?pkg(kde-plasma/plasma-workspace)!=&&pkg(kde-frameworks/plasma)!=#
+XSESSION="Plasma"
+#pkg#

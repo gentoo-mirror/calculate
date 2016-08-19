@@ -1,0 +1,26 @@
+# Calculate format=procmail
+#?pkg(www-client/opera)!=#
+WebBrowser=opera-browser
+#pkg#
+#?pkg(www-client/firefox)!=#
+WebBrowser=firefox
+#pkg#
+#?pkg(www-client/chromium)!=#
+WebBrowser=chromium-browser-chromium
+#pkg#
+#?pkg(www-client/qupzilla)!=#
+WebBrowser=qupzilla
+#pkg#
+
+FileManager=Thunar
+
+#?pkg(mail-client/thunderbird)!=#
+MailReader=thunderbird
+#pkg#
+#?pkg(mail-client/evolution)!=#
+MailReader=evolution
+#pkg#
+#?pgk(mail-client/claws-mail)!=||pkg(mail-client/sylpheed)!=#
+MailReader=sylpheed-claws
+#pkg#
+
