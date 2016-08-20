@@ -114,3 +114,6 @@ media-gfx/imagemagick perl
 
 # required by gnome-extra/gnome-user-share-3.18.1-r1
 www-servers/apache apache2_modules_auth_digest
+
+# add support for server configuration
+sys-apps/calculate-utils server
