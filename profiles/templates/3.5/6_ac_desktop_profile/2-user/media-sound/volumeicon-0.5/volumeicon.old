@@ -1,0 +1,13 @@
+# Calculate format=kde path=~/.config/volumeicon cl_ver<3.4.7
+[Notification]
+show_notification=true
+notification_type=1
+
+[StatusIcon]
+onclick=pavucontrol
+lmb_slider=true
+
+[Hotkeys]
+up_enabled=true
+down_enabled=true
+mute_enabled=true

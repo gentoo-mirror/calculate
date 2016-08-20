@@ -1,0 +1,4 @@
+# Calculate os_install_root_type==livecd&&pkg(sys-apps/openrc)<0.8.0 append=after comment=#
+# fix system time on livecd
+hwclock --hctosys
+

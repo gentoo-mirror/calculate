@@ -1,0 +1,37 @@
+# Calculate format=diff
+--- splash.c
++++ splash.c
+@@ -148,6 +148,24 @@ static void fix_rc_variable(char *s)
+ }
+ 
+ /*
++ * Get shutdown splash settings from /etc/conf.d/splash
++ */
++static int splash_config_gentoo_shutdown(fbspl_cfg_t *cfg, fbspl_type_t type)
++{
++	RC_STRINGLIST *confd;
++	char *t;
++
++	confd = rc_config_load("/etc/conf.d/splash");
++
++	t = rc_config_value(confd, "SPLASH_THEME_SHUTDOWN");
++	if (t)
++		fbsplash_acc_theme_set(t);
++
++	rc_stringlist_free(confd);
++	return 0;
++}
++
++/*
+  * Get splash settings from /etc/conf.d/splash
+  */
+ static int splash_config_gentoo(fbspl_cfg_t *cfg, fbspl_type_t type)
+@@ -790,6 +808,8 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+ 		config = fbsplash_lib_init(type);
+ 		splash_config_gentoo(config, type);
+ 		fbsplash_parse_kcmdline(false);
++		if(strcmp(runlev, RC_LEVEL_SHUTDOWN)==0)
++			splash_config_gentoo_shutdown(config, type);
+ 	}
+ 
+ 	/* Extremely weird.. should never happen. */

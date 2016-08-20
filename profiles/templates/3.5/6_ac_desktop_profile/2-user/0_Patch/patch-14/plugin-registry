@@ -1,0 +1,26 @@
+# Calculate format=raw path=~/.config/audacious pkg(media-sound/audacious)>=3.2
+format 8
+#?os_arch_machine!=x86_64#
+general /usr/lib/audacious/General/statusicon.so
+#os_arch_machine#
+#?os_arch_machine==x86_64#
+general /usr/lib64/audacious/General/statusicon.so
+#os_arch_machine#
+stamp 1337861282
+name Status Icon
+priority 0
+about 1
+config 1
+enabled 1
+#?os_arch_machine!=x86_64#
+general /usr/lib/audacious/General/hotkey.so
+#os_arch_machine#
+#?os_arch_machine==x86_64#
+general /usr/lib64/audacious/General/hotkey.so
+#os_arch_machine#
+stamp 1371068438
+name Global Hotkeys
+priority 0
+about 1
+config 1
+enabled 1

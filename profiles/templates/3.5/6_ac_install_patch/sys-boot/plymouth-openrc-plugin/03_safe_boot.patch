@@ -1,0 +1,51 @@
+# Calculate format=diff
+diff --git plymouth.c plymouth.c
+index e821c67..924893c 100644
+--- plymouth.c
++++ plymouth.c
+@@ -26,7 +26,10 @@
+ #include <unistd.h>
+ #include <sys/stat.h>
+ #include <term.h>
++#include <sys/types.h>
++#include <fcntl.h>
+ 
++#define MAX_COMMAND_LINE_SIZE 512
+ 
+ #ifdef DEBUG
+ #    define DBG(x) einfo("[plymouth-plugin] " x)
+@@ -190,10 +193,34 @@ bool ply_update_rootfs_rw()
+     return (command("/bin/plymouth update-root-fs --read-write") == 0);
+ }
+ 
++bool check_safemode() {
++    int fd;
++    char kernel_command_line[MAX_COMMAND_LINE_SIZE] = {0};
++    fd = open ("/proc/cmdline", O_RDONLY);
++    if (fd == -1) {
++        return false;
++    }
++    if (read (fd, kernel_command_line, sizeof (kernel_command_line)) < 0) {
++        close (fd);
++        return false;
++    }
++    close (fd);
++    char *p = strtok(kernel_command_line," ");
++    while( p ) {
++        if(strstr(p, "BOOT_IMAGE=") && strstr(p,"SafeMode")) {
++           return true;
++        }
++        p = strtok(NULL," ");
++    }
++    return false;
++}
+ 
+ int rc_plugin_hook(RC_HOOK hook, const char *name)
+ {
+     int rv = 0;
++    if(check_safemode()) {
++        return 0;
++    }
+     char* runlevel = rc_runlevel_get();
+     const char* bootlevel = getenv("RC_BOOTLEVEL");
+     const char* defaultlevel = getenv("RC_DEFAULTLEVEL");

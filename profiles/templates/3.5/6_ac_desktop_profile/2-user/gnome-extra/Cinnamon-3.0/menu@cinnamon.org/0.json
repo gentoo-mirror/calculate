@@ -1,0 +1,22 @@
+# Calculate format=json
+{
+    "overlay-key": {
+        "type": "keybinding",
+        "value": "<Alt>F1::Super_R"
+    },
+    "menu-icon-custom": {
+        "type": "checkbox",
+        "value": true
+    },
+    "menu-icon": {
+        "type": "iconfilechooser",
+        "dependency": "menu-icon-custom",
+        "indent": "true",
+        "value": "/usr/share/pixmaps/calculate/start-here-brown.svg"
+    },
+    "menu-label": {
+        "type": "entry",
+        "value": ""
+    }
+}
+

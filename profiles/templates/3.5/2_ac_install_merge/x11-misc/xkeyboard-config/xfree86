@@ -1,0 +1,9 @@
+# Calculate format=patch path=/usr/share/X11/xkb/compat
+<reg>\s*interpret\s+XF86_Ungrab\s+{
+\s*action = Private\([^)]+\);
+\s*};</reg>
+<text></text>
+<reg>interpret\s+XF86_ClearGrab\s+{
+\s*action = Private\([^)]+\);
+\s*};</reg>
+<text></text>

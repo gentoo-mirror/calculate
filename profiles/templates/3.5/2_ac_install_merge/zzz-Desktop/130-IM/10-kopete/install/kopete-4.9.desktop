@@ -1,0 +1,9 @@
+# Calculate format=kde link=/usr/share/applications/kde4/kopete.desktop name=calculate-im.desktop mirror pkg(kde-apps/kopete)>=4.9
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true
+!MimeType=
+#-exists(/usr/share/icons/hicolor/64x64/apps/kopete.png)-#
+Icon=/usr/share/icons/hicolor/64x64/apps/kopete.png
+#exists#

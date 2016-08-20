@@ -1,0 +1,9 @@
+# Calculate format=kde link=/usr/share/applications/zzz-gimp.desktop name=calculate-imageedit.desktop mirror pkg(media-gfx/gimp)>=2.6.11
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true
+!MimeType=
+#-exists(/usr/share/icons/hicolor/48x48/apps/gimp.png)-#
+Icon=/usr/share/icons/hicolor/48x48/apps/gimp.png
+#exists#

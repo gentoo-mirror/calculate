@@ -1,0 +1,9 @@
+# Calculate ini(overlay-calculate.revision)<45 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,45)-#
+
+test -f /var/db/pkg/sys-apps/baselayout-*/CONTENTS &&
+   sed -i "/ \/etc\/mtab/d" /var/db/pkg/sys-apps/baselayout-*/CONTENTS
+#
+
+exit 0

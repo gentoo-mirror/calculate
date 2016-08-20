@@ -1,0 +1,22 @@
+# Calculate chmod=0755 comment=#
+#!/bin/bash
+
+DELAY=1
+
+state=`sudo /usr/bin/cpufreq_toggle`
+message="CPU Performance State Unknown"
+
+if [ "${state}" == "performance" ]; then
+   message="Performance Mode"
+elif [ "${state}" == "powersave" ]; then
+   message="Power Save Mode"
+elif [ "${state}" == "ondemand" ]; then
+   message="Automatic Mode"
+fi
+
+if which kdialog &>/dev/null
+then
+	kdialog --passivepopup "${message}" --title "Cpu mode" ${DELAY}
+fi
+
+exit 0

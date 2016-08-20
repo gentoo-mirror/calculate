@@ -1,0 +1,11 @@
+# Calculate multiline protected path=/etc format=patch
+<reg>^(video:x?:[^:]+:)(.*),sddm(.*)$</reg>
+<text>\1\2\3</text>
+<reg>^(video:x?:[^:]+:)sddm,(.*)$</reg>
+<text>\1\2</text>
+<reg>^(video:x?:[^:]+:)sddm$</reg>
+<text>\1</text>
+<reg>^(video:x?:[^:]+:)(.+)</reg>
+<text>\1\2,sddm</text>
+<reg>^(video:x?:[^:]+:)$</reg>
+<text>\1sddm</text>

@@ -1,0 +1,19 @@
+# Calculate ini(overlay-calculate.revision)<53 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,53)-#
+
+# key is pkg name, value is current version new reduced version split by space
+declare -A map_move=( ["sys-apps/portage"]="2.2.20.1 2.2.20.1_rc73" )
+
+PKGDB=/var/db/pkg
+for pkg in ${!map_move[@]}
+do
+    vers=(${map_move[$pkg]})
+    if [[ -d $PKGDB/${pkg}-${vers[0]} ]]
+    then
+        cp -a $PKGDB/${pkg}-${vers[0]} $PKGDB/${pkg}-${vers[1]}
+        rm -rf $PKGDB/${pkg}-${vers[0]}
+    fi
+done
+
+true

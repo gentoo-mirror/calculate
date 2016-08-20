@@ -1,0 +1,16 @@
+# Calculate format=json
+{
+    "launcherList": {
+        "type": "generic",
+        "value": [
+            "lockscreen.desktop",
+            "poweroff.desktop"
+        ]
+    },
+    "allow-dragging": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Allow dragging of launchers",
+        "value": true
+    }
+}

@@ -1,0 +1,4 @@
+# Calculate path=/etc/calculate name=calculate.env format=samba merge(sys-apps/calculate-utils)!=&&pkg(sys-apps/calculate-utils)!=&&ini(merge-calculate.utils)<3.3.0_alpha3&&env(client.os_remote_client)!=
+
+[client]
+!os_remote_client =

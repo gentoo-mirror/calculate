@@ -1,0 +1,6 @@
+# Calculate run=/bin/bash
+
+SOURCE=/usr/share/doc/netifrc-0.2.2/net.example.bz2
+DEST=/etc/conf.d/net.example
+[[ -f $SOURCE ]] && bzip2 -dc $SOURCE >$DEST
+exit 0

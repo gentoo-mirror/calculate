@@ -1,0 +1,13 @@
+# Calculate format=xml_xfce path=~/.config/xfce4/xfconf/xfce-perchannel-xml pkg(xfce-base/xfdesktop)>=4.10
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-keyboard-shortcuts" version="1.0">
+  <property name="commands" type="empty">
+    <property name="default" type="empty">
+      <property name="XF86Display" type="string" value=""/>
+    </property>
+    <property name="custom" type="empty">
+      <property name="XF86Display" type="string" value=""/>
+    </property>
+  </property>
+</channel>

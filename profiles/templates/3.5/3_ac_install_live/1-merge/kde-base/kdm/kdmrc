@@ -1,0 +1,8 @@
+# Calculate format=kde
+
+[X-:*-Core]
+#?os_install_x11_video_drv==fglrx#
+# System freezes after logout with GDM or KDM ATI
+# http://ru.gentoo-wiki.com/wiki/Fglrx
+TerminateServer=true
+#os_install_x11_video_drv#

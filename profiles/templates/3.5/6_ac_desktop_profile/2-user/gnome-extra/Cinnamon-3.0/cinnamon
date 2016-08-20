@@ -1,0 +1,82 @@
+# Calculate format=dconf dconf=/org
+[cinnamon]
+alttab-switcher-style='icons+preview'
+
+[cinnamon/desktop/background]
+picture-uri='file:///usr/share/backgrounds/calculate/Calculate Linux'
+
+[cinnamon/desktop/background/slideshow]
+image-source='directory:///usr/share/backgrounds/calculate'
+
+[cinnamon/desktop/interface]
+cursor-theme='Calculate'
+font-name='Droid Sans 10'
+icon-theme='Calculate'
+
+[cinnamon/desktop/keybindings/wm]
+switch-to-workspace-1=['<Primary>F1']
+switch-to-workspace-2=['<Primary>F2']
+switch-to-workspace-3=['<Primary>F3']
+switch-to-workspace-4=['<Primary>F4']
+switch-to-workspace-5=['<Primary>F5']
+switch-to-workspace-6=['<Primary>F6']
+switch-to-workspace-7=['<Primary>F7']
+switch-to-workspace-8=['<Primary>F8']
+switch-to-workspace-9=['<Primary>F9']
+switch-to-workspace-10=['<Primary>F10']
+switch-to-workspace-11=['<Primary>F11']
+switch-to-workspace-12=['<Primary>F12']
+
+[cinnamon/desktop/media-handling]
+automount=false
+
+[cinnamon/desktop/screensaver]
+lock-delay=uint32 15
+default-message='Calculate Linux Desktop'
+font-message='Droid Sans 14'
+font-time='Droid Sans 64'
+font-date='Droid Sans 24'
+#?os_root_type==livecd#
+lock-enabled=false
+#os_root_type#
+
+[cinnamon/desktop/wm/preferences]
+titlebar-font='Droid Sans Bold 10'
+
+[cinnamon/muffin]
+edge-tiling=false
+placement-mode='automatic'
+
+[cinnamon/settings-daemon/plugins/power]
+button-power='interactive'
+lid-close-ac-action='nothing'
+sleep-display-ac=900
+sleep-display-battery=900
+#?os_root_type==livecd#
+lock-on-suspend=true
+#os_root_type#
+
+[cinnamon/settings-daemon/plugins/xsettings]
+buttons-have-icons=true
+menus-have-icons=true
+
+[cinnamon/theme]
+name='Calculate'
+
+[nemo/desktop]
+font='Droid Sans 10'
+#?env(client.os_remote_auth)==||ur_domain_set==off#
+home-icon-visible=true
+#env#
+
+[nemo/preferences]
+click-policy='single'
+
+[gnome/desktop/interface]
+document-font-name='Droid Sans 10'
+monospace-font-name='Droid Sans Mono Slashed 10'
+
+[gnome/libgnomekbd/desktop]
+default-group=0
+group-per-window=true
+

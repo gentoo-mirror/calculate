@@ -1,0 +1,50 @@
+# Calculate load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0xa011||load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0x2a42
+[Data]
+DataCount=1
+
+[Data_1]
+Comment=This group contains actions that are set up for laptop.
+Comment[ru]=Группа действий для ноутбуков.
+DataCount=1
+Enabled=true
+Name=Laptop Actions
+Name[ru]=Действия для ноутбука
+SystemGroup=0
+Type=ACTION_DATA_GROUP
+AllowMerge=true
+
+[Data_1Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_1_1]
+Comment=Increase screen backlight.
+Comment[ru]=Увеличить яркость экрана.
+Enabled=true
+Name=BacklightUp
+Name[ru]=Увеличить яркость
+Type=COMMAND_URL_SHORTCUT_ACTION_DATA
+
+[Data_1_1Actions]
+ActionsCount=1
+
+[Data_1_1Actions0]
+CommandURL=sudo /usr/bin/backlight up
+Type=COMMAND_URL
+
+[Data_1_1Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_1_1Triggers]
+Comment=Simple_action
+Comment[ru]=Простое действие
+TriggersCount=1
+
+[Data_1_1Triggers0]
+Key=Keyboard Brightness Up
+Type=SHORTCUT
+
+[Main]
+Version=2
+ImportId=brightup

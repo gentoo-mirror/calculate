@@ -1,0 +1,29 @@
+# Calculate name=world format=world
+
+#?in(os_linux_pkglist, desktop)!=#
+app-emulation/aqemu
+app-emulation/dosemu
+app-emulation/lxc
+app-emulation/open-vm-tools
+app-emulation/playonlinux
+app-emulation/q4wine
+app-emulation/qemu
+app-emulation/qemu-guest-agent
+app-emulation/virt-manager
+app-emulation/virtualbox
+app-emulation/virtualbox-additions
+app-emulation/virtualbox-extpack-oracle
+app-emulation/wine
+app-emulation/winetricks
+app-emulation/xen-tools
+games-emulation/dosbox
+games-emulation/mednafen
+games-server/mednafen-server
+sci-visualization/qtiplot
+#in#
+
+#?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
+app-emulation/docker
+app-emulation/lxd
+sys-apps/firejail
+#in#

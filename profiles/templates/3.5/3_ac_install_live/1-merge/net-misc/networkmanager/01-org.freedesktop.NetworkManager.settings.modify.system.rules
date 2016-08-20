@@ -1,0 +1,10 @@
+# Calculate append=replace path=/usr/share/polkit-1/rules.d pkg(kde-base/kdelibs)==4.11.1
+/* -*- mode: js; js-indent-level: 4; indent-tabs-mode: nil -*- */
+
+// Let users in plugdev group modify NetworkManager
+polkit.addRule(function(action, subject) {
+    if (action.id.indexOf("org.freedesktop.NetworkManager.") == 0 &&
+        subject.isInGroup("plugdev")) {
+        return polkit.Result.YES;
+    }
+});

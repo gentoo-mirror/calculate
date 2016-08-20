@@ -1,0 +1,24 @@
+# Calculate comment=#
+
+auth		required	pam_tally.so file=/var/log/faillog onerr=succeed 
+auth		required	pam_nologin.so 
+auth		substack	system-auth
+auth		required	pam_shells.so 
+
+account		required	pam_access.so 
+account		required	pam_nologin.so 
+account		include	system-auth
+account		required	pam_tally.so file=/var/log/faillog onerr=succeed 
+ 
+password	include		system-auth
+ 
+session		required	pam_env.so 
+session		include		system-auth
+#session	optional	pam_motd.so motd=/etc/motd
+session		optional	pam_mail.so
+#?pkg(sys-auth/pam_update)!=#
+session		optional	pam_update.so
+#pkg#
+#?pkg(sys-auth/consolekit)!=#
+session		optional	pam_ck_connector.so nox11
+#pkg#

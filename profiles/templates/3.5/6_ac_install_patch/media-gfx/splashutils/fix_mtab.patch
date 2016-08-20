@@ -1,0 +1,16 @@
+# Calculate format=diff
+diff --git a/splashutils-1.5.4.4/src/libfbsplash.c b/splashutils-1.5.4.4/src/libfbsplash.c
+index 1774f9d..c3faebd 100644
+--- src/libfbsplash.c
++++ src/libfbsplash.c
+@@ -495,7 +495,9 @@ int fbsplash_cache_cleanup(char **profile_save)
+ 
+ nosave:
+ 	/* Clear a stale mtab entry that might have been created by the initscripts. */
+-	system("/bin/sed -i -e '\\#"FBSPLASH_CACHEDIR"# d' /etc/mtab");
++	if(lstat("/etc/mtab", &buf) != 0 || !S_ISLNK(buf.st_mode)) {
++		system("/bin/sed -i -e '\\#"FBSPLASH_CACHEDIR"# d' /etc/mtab");
++	}
+ 
+ 	umount2(what, MNT_DETACH);
+ 	return err;
