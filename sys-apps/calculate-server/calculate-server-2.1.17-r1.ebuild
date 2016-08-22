@@ -48,8 +48,8 @@ DEPEND="=sys-apps/calculate-lib-2.1.11-r5
 		)
 	)
 	!calculate_nojabber? (
-		>=net-im/ejabberd-2.1.8[mod_pubsub,ldap]
-		>=net-im/ejabberd-16.04-r1[ldap]
+		|| ( >=net-im/ejabberd-2.1.8[mod_pubsub,ldap]
+			>=net-im/ejabberd-16.04-r1[ldap] )
 		>=media-gfx/imagemagick-6.6
 	)
 	!calculate_nonamed? ( >=net-dns/bind-9.6.1_p1[sdb-ldap] )
