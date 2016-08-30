@@ -1,0 +1,6 @@
+# Calculate format=openrc path=/etc/conf.d
+
+# сервису для запуска достаточно loopback интерфейса
+# если добавить зависимость от net.ethX, при наличии в системе
+# dbus возникает циклическая зависимость: dbus, net.ethX, slapd
+rc_need="!net net.lo"
