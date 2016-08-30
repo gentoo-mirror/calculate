@@ -1,10 +1,20 @@
 # Calculate name=world format=world
 
 #?in(os_linux_pkglist, desktop)!=#
+games-action/chromium-bsu
+games-action/minetest
+games-action/minetest_game
+games-action/openclonk
 games-action/supertuxkart
 games-arcade/briquolo
+games-arcade/frozen-bubble
+games-arcade/kobodeluxe
 games-arcade/lbreakout2
+games-arcade/opensonic
+games-arcade/solarwolf
 games-arcade/supertux
+games-arcade/tecnoballz
+games-fps/alienarena
 games-fps/enemy-territory
 games-fps/enemy-territory-truecombat
 games-fps/nexuiz
@@ -12,10 +22,16 @@ games-fps/nexuiz
 games-fps/warsow
 games-fps/xonotic
 games-misc/xpenguins
+games-puzzle/meandmyshadow
+games-rpg/freedroidrpg
 games-sports/xmoto
 games-strategy/0ad
 games-strategy/freeciv
 games-util/steam-launcher
+
+# Lode-Runner-like
+games-arcade/xscavenger
+games-arcade/holotz-castle
 
 # Gnome
 games-arcade/gnome-nibbles
