@@ -12,6 +12,7 @@ sys-power/powertop
 
 #?in(os_linux_pkglist, desktop)!=#
 app-admin/conky
+app-admin/conkyforecast
 app-admin/gamin
 app-admin/gtkdiskfree
 app-admin/hardinfo
@@ -61,6 +62,7 @@ app-arch/unzip
 app-arch/xar
 app-arch/zoo
 app-arch/zopfli
+app-backup/qt4-fsarchiver
 app-benchmarks/bootchart2
 app-benchmarks/bootchart2
 app-benchmarks/stress
@@ -122,6 +124,7 @@ mail-client/evolution
 mail-client/mutt
 mail-client/sylpheed
 media-gfx/cellwriter
+media-gfx/wally
 media-radio/fldigi
 media-sound/gimmix
 media-sound/mac
@@ -251,6 +254,7 @@ x11-misc/slim
 x11-misc/spacefm
 x11-misc/sunflower
 x11-misc/wmctrl
+x11-misc/xclip
 x11-misc/xcompmgr
 x11-misc/xrestop
 x11-misc/xscreensaver
