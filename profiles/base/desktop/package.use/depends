@@ -3,3 +3,8 @@ sys-fs/lvm2 thin
 
 # required by media-gfx/simple-scan-3.18.2
 dev-libs/libgusb vala
+
+# exactly-one-of
+media-video/openshot python_single_target_python3_4
+# required by media-video/openshot-2.0.7-r1
+media-libs/libopenshot python_single_target_python3_4
