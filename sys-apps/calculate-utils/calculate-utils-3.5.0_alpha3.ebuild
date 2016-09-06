@@ -10,12 +10,15 @@ UTILS_PV="3.5.0_alpha1"
 
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.5.0_alpha2"
-	["install"]="3.5.0_alpha2"
-	["core"]="3.5.0_alpha2"
-	["client"]="3.5.0_alpha2"
-	["console-gui"]="3.5.0_alpha2"
-	["update"]="3.5.0_alpha2"
-	["builder"]="3.5.0_alpha2"
+	["install"]="3.5.0_alpha3"
+	["core"]="3.5.0_alpha3"
+	["client"]="3.5.0_alpha3"
+	["desktop"]="3.5.0_alpha2"
+	["console-gui"]="3.5.0_alpha3"
+	["update"]="3.5.0_alpha3"
+	["builder"]="3.5.0_alpha3"
+	["ldap"]="3.5.0_alpha2"
+	["unix"]="3.5.0_alpha2"
 )
 
 inherit calculate-utils-r1
