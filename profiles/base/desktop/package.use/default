@@ -492,3 +492,6 @@ app-editors/xemacs xft dnd
 
 # required by app-backup/qt4-fsarchiver-0.6.19.6
 app-backup/fsarchiver lzma
+
+# support flash by default in the adobe-flash package$
+www-plugins/chrome-binary-plugins -flash
