@@ -231,7 +231,6 @@ sys-process/lsof
 sys-process/nmon
 sys-process/vixie-cron
 www-plugins/adobe-flash
-www-plugins/chrome-binary-plugins
 x11-apps/copyq
 x11-apps/transset
 x11-libs/gksu
@@ -274,6 +273,10 @@ x11-terms/terminator
 x11-terms/tilda
 x11-themes/geany-themes
 x11-themes/gtk-theme-switch
+#in#
+
+#?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
+www-plugins/chrome-binary-plugins
 #in#
 
 #?in(os_linux_pkglist, server)!=#
