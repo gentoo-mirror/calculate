@@ -11,3 +11,8 @@
 
 # It requires unstable x11-libs/gtk+
 =x11-themes/mate-themes-3.20.10
+
+# Conflict with ati-drivers-15.12-r1
+=x11-base/xorg-server-1.18.4
+=x11-drivers/xf86-input-evdev-2.10.3
+=x11-base/xorg-drivers-1.18-r1
