@@ -1,4 +1,4 @@
-# Calculate name=asound.conf os_audio_default_set==on&&cl_ver<3.4.7||pkg(media-sound/pulseaudio)!=&&cl_ver<3.4.7
+# Calculate protected name=asound.conf os_audio_default_set==on&&cl_ver<3.4.7||pkg(media-sound/pulseaudio)!=&&cl_ver<3.4.7
 #?pkg(media-sound/pulseaudio)!=#
 pcm.pulse {
     type pulse
