@@ -121,3 +121,7 @@ sys-apps/calculate-utils server
 # required by app-editors/neovim-0.1.5
 dev-lua/mpack luajit
 dev-lua/lpeg luajit
+
+# use dev-libs/libnatspec to correctly decode non-ascii file names
+app-arch/zip natspec
+app-arch/unzip natspec
