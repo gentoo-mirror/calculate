@@ -125,3 +125,7 @@ dev-lua/lpeg luajit
 # use dev-libs/libnatspec to correctly decode non-ascii file names
 app-arch/zip natspec
 app-arch/unzip natspec
+
+# required by sys-devel/clang-3.7.1-r100
+# required by clang (argument)
+sys-devel/llvm clang
