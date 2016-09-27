@@ -217,6 +217,7 @@ RDEPEND="
 	!sys-apps/calculate-update:3
 	!sys-apps/calculate-install:3
 	!sys-apps/calculate-core:3
+	!<sys-apps/calculate-server-2.1.18
 "
 
 DEPEND="sys-devel/gettext"
