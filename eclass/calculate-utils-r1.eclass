@@ -47,9 +47,9 @@ MIRROR_URI="http://mirror.yandex.ru/calculate/source/calculate3"
 # Example:
 : ${UTILS_PV:=$(get_version_component_range 1-3 ${PV})}
 
-declare -A CALCULATE_TARBALL_=()
+declare -g -A CALCULATE_TARBALL_=()
 
-declare -A CALCULATE_MODULES_=(
+declare -g -A CALCULATE_MODULES_=(
 	["lib"]="$UTILS_PV"
 	["builder"]="$UTILS_PV"
 	["install"]="$UTILS_PV"
@@ -64,7 +64,7 @@ declare -A CALCULATE_MODULES_=(
 	["ldap"]="$UTILS_PV"
 	["unix"]="$UTILS_PV")
 
-declare -A CALCULATE_MODULES_USE_=(
+declare -g -A CALCULATE_MODULES_USE_=(
 	["desktop"]="desktop"
 	["client"]="client"
 	["console-gui"]="qt4"
@@ -128,6 +128,7 @@ prepare_module_info() {
 	MODULE_INFO=()
 	for module in ${!CALCULATE_MODULES_[@]}
 	do
+		MODULE_USE=${CALCULATE_MODULES_USE_[$module]}
 		if [[ -z $MODULE_USE ]] || use $MODULE_USE
 		then
 				MODULE_INFO+=("calculate-$module ${CALCULATE_MODULES_[$module]}")
