@@ -96,7 +96,6 @@ prepare_variables() {
 		fi
 	done
 
-	MODULE_INFO=()
 	for module in ${!CALCULATE_MODULES_[@]}
 	do
 		MODULE_USE=${CALCULATE_MODULES_USE_[$module]}
@@ -107,19 +106,27 @@ prepare_variables() {
 		done
 		if [[ -n $MODULE_USE ]]
 		then
-			if use $MODULE_USE
-			then
-				MODULE_INFO+=("calculate-$module ${CALCULATE_MODULES_[$module]}")
-			fi
 			MODULE_URI="${MODULE_USE}? ( $MODULE_URI )"
-		else
-				MODULE_INFO+=("calculate-$module ${CALCULATE_MODULES_[$module]}")
 		fi
 		SRC_URI="$SRC_URI $MODULE_URI"
 	done
 
 	IUSE="minimal pxe ${CALCULATE_MODULES_USE_[@]}"
 	S="${WORKDIR}"
+}
+
+# @FUNCTION: prepare_module_info
+# @DESCRIPTION:
+# Prepare module info for compile and install
+prepare_module_info() {
+	MODULE_INFO=()
+	for module in ${!CALCULATE_MODULES_[@]}
+	do
+		if [[ -z $MODULE_USE ]] || use $MODULE_USE
+		then
+			MODULE_INFO+=("calculate-$module ${CALCULATE_MODULES_[$module]}")
+		fi
+	done
 }
 
 prepare_variables
@@ -215,6 +222,7 @@ REQUIRED_USE="client? ( desktop )"
 # @DESCRIPTION:
 # Compile all modules of calculate utils
 calculate-utils_src_compile() {
+	prepare_module_info
 	for MODULE in "${MODULE_INFO[@]}"
 	do
 		MODULE_DATA=( $MODULE )
@@ -235,6 +243,7 @@ calculate-utils_src_compile() {
 # @DESCRIPTION:
 # Install all modules of calculate utils
 calculate-utils_src_install() {
+	prepare_module_info
 	for MODULE in "${MODULE_INFO[@]}"
 	do
 		MODULE_DATA=( $MODULE )
