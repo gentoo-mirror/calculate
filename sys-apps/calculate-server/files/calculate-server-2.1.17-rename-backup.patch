@@ -1,0 +1,150 @@
+diff --git i18n/cl_server_ru.mo i18n/cl_server_ru.mo
+index 5b30c73..8e63d98 100644
+Binary files i18n/cl_server_ru.mo and i18n/cl_server_ru.mo differ
+diff --git pym/cl_ldap.py pym/cl_ldap.py
+index 601eee8..be22774 100644
+--- pym/cl_ldap.py
++++ pym/cl_ldap.py
+@@ -7370,7 +7370,7 @@ class servLdap(shareLdap):
+             self.printWARNING(_("The backup file is created %s days ago")\
+                               %deltaTime.days)
+         self.printWARNING(_("cl-rebuld uses a file backup, make sure it is not \
+-outdated. If the backup is obsolete, use cl-backup."))
++outdated. If the backup is obsolete, use cl-backup-server."))
+         messDialog = \
+                _("If you are ready to continue executing the program")+", "+\
+                _("input 'yes'") +", "+ _("if not 'no'")
+@@ -9023,7 +9023,7 @@ class cl_ldap(shareLdap):
+                           'cl-usermod':5,
+                           'cl-setup':6,
+                           'cl-passwd':7,
+-                          'cl-backup':8,
++                          'cl-backup-server':8,
+                           'cl-update-server':9,
+                           'cl-rebuild':10,
+                           'execserv':11,
+@@ -11288,7 +11288,7 @@ service")
+         {
+          'progAccess':(8,),
+          'helpChapter':_("Examples"),
+-         'help':pcs("  cl-backup -r", self.column_width,
++         'help':pcs("  cl-backup-server -r", self.column_width,
+              "# "+_("restore all services") + ".",
+              self.consolewidth-self.column_width)
+         },
+@@ -13633,7 +13633,7 @@ file %s")%bFile)
+             else:
+                 self.printWARNING(_("The backup file is created %s days ago")\
+                                 %deltaTime.days)
+-            self.printWARNING(_("If the backup is obsolete, use cl-backup."))
++            self.printWARNING(_("If the backup is obsolete, use cl-backup-server."))
+             messDialog = \
+                 _("If you are ready to continue executing the program")+", "+\
+                 _("input 'yes'") +", "+ _("if not 'no'")
+diff --git scripts/cl-backup scripts/cl-backup
+deleted file mode 100644
+index 37a243a..0000000
+--- scripts/cl-backup
++++ /dev/null
+@@ -1,41 +0,0 @@
+-#!/usr/bin/python
+-#-*- coding: utf-8 -*-
+-
+-# Copyright 2008-2010 Mir Calculate. http://www.calculate-linux.org
+-#
+-#  Licensed under the Apache License, Version 2.0 (the "License");
+-#  you may not use this file except in compliance with the License.
+-#  You may obtain a copy of the License at
+-#
+-#      http://www.apache.org/licenses/LICENSE-2.0
+-#
+-#  Unless required by applicable law or agreed to in writing, software
+-#  distributed under the License is distributed on an "AS IS" BASIS,
+-#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-#  See the License for the specific language governing permissions and
+-#  limitations under the License.
+-
+-import sys
+-import os
+-sys.path.insert(0,os.path.abspath('/usr/lib/calculate/calculate-lib/pym'))
+-sys.path.insert(0,os.path.abspath('/usr/lib/calculate/calculate-server/pym'))
+-import cl_base
+-tr = cl_base.lang()
+-tr.setGlobalDomain('cl_server')
+-tr.setLanguage(sys.modules[__name__])
+-import cl_ldap
+-
+-if __name__ == "__main__":
+-    ldapObj = cl_ldap.cl_ldap("cl-backup")
+-    optObj = cl_ldap.tsOpt(ldapObj,[],False)
+-    flagError = False
+-    if not optObj.flagHelp:
+-        # Настройка сервера LDAP
+-        flagError = True
+-        obj = cl_ldap.servLdap()
+-        if obj.backupLdapServer(optObj.opt):
+-            flagError = False
+-    if flagError:
+-        sys.exit(1)
+-    else:
+-        sys.exit(0)
+diff --git scripts/cl-backup-server scripts/cl-backup-server
+new file mode 100644
+index 0000000..37a243a
+--- /dev/null
++++ scripts/cl-backup-server
+@@ -0,0 +1,41 @@
++#!/usr/bin/python
++#-*- coding: utf-8 -*-
++
++# Copyright 2008-2010 Mir Calculate. http://www.calculate-linux.org
++#
++#  Licensed under the Apache License, Version 2.0 (the "License");
++#  you may not use this file except in compliance with the License.
++#  You may obtain a copy of the License at
++#
++#      http://www.apache.org/licenses/LICENSE-2.0
++#
++#  Unless required by applicable law or agreed to in writing, software
++#  distributed under the License is distributed on an "AS IS" BASIS,
++#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++#  See the License for the specific language governing permissions and
++#  limitations under the License.
++
++import sys
++import os
++sys.path.insert(0,os.path.abspath('/usr/lib/calculate/calculate-lib/pym'))
++sys.path.insert(0,os.path.abspath('/usr/lib/calculate/calculate-server/pym'))
++import cl_base
++tr = cl_base.lang()
++tr.setGlobalDomain('cl_server')
++tr.setLanguage(sys.modules[__name__])
++import cl_ldap
++
++if __name__ == "__main__":
++    ldapObj = cl_ldap.cl_ldap("cl-backup")
++    optObj = cl_ldap.tsOpt(ldapObj,[],False)
++    flagError = False
++    if not optObj.flagHelp:
++        # Настройка сервера LDAP
++        flagError = True
++        obj = cl_ldap.servLdap()
++        if obj.backupLdapServer(optObj.opt):
++            flagError = False
++    if flagError:
++        sys.exit(1)
++    else:
++        sys.exit(0)
+diff --git setup.py setup.py
+index 57532bd..8f485e7 100755
+--- setup.py
++++ setup.py
+@@ -189,7 +189,7 @@ setup(
+              "./scripts/cl-groupdel",
+              "./scripts/cl-passwd",
+              "./scripts/cl-setup",
+-             "./scripts/cl-backup",
++             "./scripts/cl-backup-server",
+              "./scripts/cl-update-server",
+              "./scripts/cl-rebuild",
+              "./scripts/cl-replication",

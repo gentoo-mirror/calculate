@@ -9,12 +9,12 @@ UTILS_PV="3.5.0_alpha1"
 
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.0_alpha4"
+	["lib"]="3.5.0_alpha5"
 	["install"]="3.5.0_alpha3"
-	["core"]="3.5.0_alpha3"
+	["core"]="3.5.0_alpha4"
 	["client"]="3.5.0_alpha3"
 	["desktop"]="3.5.0_alpha2"
-	["console-gui"]="3.5.0_alpha5"
+	["console-gui"]="3.5.0_alpha6"
 	["update"]="3.5.0_alpha3"
 	["builder"]="3.5.0_alpha3"
 	["ldap"]="3.5.0_alpha3"
