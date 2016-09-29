@@ -1,4 +1,4 @@
-# Calculate multiline format=patch autoupdate path=/etc/grub.d
+# Calculate comment=# multiline format=patch autoupdate path=/etc/grub.d
 <reg>(replacement_title=.*?Advanced options.*?)g'\)"</reg>
 <text>\1g') ..."</text>
 <reg>("submenu '.*?Advanced options for.*?grub_quote\))'</reg>

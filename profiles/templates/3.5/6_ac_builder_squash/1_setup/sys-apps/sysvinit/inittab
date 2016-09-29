@@ -1,4 +1,4 @@
-# Calculate format=patch
+# Calculate comment=# format=patch
 <reg>^(s[01])</reg>
 <text>#\1</text>
 <reg>(c[0-9]:.*agetty).*(tty\d linux)</reg>
