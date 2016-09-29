@@ -1,4 +1,4 @@
-# Calculate path=/etc/pam.d name=lightdm
+# Calculate comment=# path=/etc/pam.d name=lightdm
 #%PAM-1.0
 auth       optional		pam_env.so
 auth       include		system-login
