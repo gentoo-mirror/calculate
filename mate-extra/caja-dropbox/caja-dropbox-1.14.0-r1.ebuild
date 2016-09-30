@@ -37,7 +37,7 @@ DEPEND="${RDEPEND}
 	dev-python/docutils:0
 	virtual/pkgconfig:*"
 
-G2CONF="${G2CONF} $(use_enable debug) --disable-static"
+G2CONF="${G2CONF} --disable-static"
 
 CONFIG_CHECK="~INOTIFY_USER"
 
