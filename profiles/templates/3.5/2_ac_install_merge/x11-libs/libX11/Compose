@@ -1,0 +1,12 @@
+# Calculate comment=# path=/usr/share/X11/locale/ru_RU.UTF-8
+<Multi_key> <P> <equal>                 : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <equal> <P>                 : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <p> <equal>                 : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <equal> <p>                 : "₽" U20bd # RUBLE-CURRENCY SIGN
+
+<Multi_key> <Cyrillic_ZE> <equal>       : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <equal> <Cyrillic_ZE>       : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <Cyrillic_ze> <equal>       : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <equal> <Cyrillic_ze>       : "₽" U20bd # RUBLE-CURRENCY SIGN
+
+include "/usr/share/X11/locale/en_US.UTF-8/Compose"
