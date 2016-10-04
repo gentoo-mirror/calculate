@@ -1,0 +1,20 @@
+# Calculate format=diff
+diff --git a/libproxy/cmake/modules.cmk b/libproxy/cmake/modules.cmk
+index 017d428..7900398 100644
+--- a/libproxy/cmake/modules.cmk
++++ b/libproxy/cmake/modules.cmk
+@@ -16,7 +16,6 @@ include(cmake/modules/config_macosx.cmk)
+ include(cmake/modules/network_networkmanager.cmk)
+ include(cmake/modules/pacrunner_mozjs.cmk)
+ include(cmake/modules/pacrunner_natus.cmk)
+-include(cmake/modules/pacrunner_webkit.cmk)
+ 
+ # Build the pacrunner into libproxy unless we are building for multiple engines
+ set(BIPR 1 CACHE BOOL "Build internal pacrunner? (Always false when building more than one PR")
+@@ -41,6 +40,5 @@ px_module(ignore_ip                1                 1)
+ px_module(network_networkmanager   "${NM_FOUND}"     0       ${NM_LIBRARIES})
+ px_module(pacrunner_mozjs          "${MOZJS_FOUND}"  ${BIPR} ${MOZJS_LIBRARIES})
+ px_module(pacrunner_natus          "${NATUS_FOUND}"  ${BIPR} ${NATUS_LIBRARIES})
+-px_module(pacrunner_webkit         "${WEBKIT_FOUND}" ${BIPR} ${WEBKIT_LIBRARIES})
+ px_module(wpad_dns_alias           1                 1)
+ message("")
