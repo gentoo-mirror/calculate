@@ -44,6 +44,7 @@ style "default" {
 	GtkScrollbar::min-slider-length             = 30
 	GtkScrolledWindow::scrollbar-spacing        = 3
 	GtkScrolledWindow::scrollbars-within-bevel  = 0
+	GtkButton::inner-border                     = {2, 2, 2, 2}
 	####################
 	# Color Definitions
 	####################
