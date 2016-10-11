@@ -31,6 +31,25 @@ post_setup_package() {
 	rm -f /var/lib/calculate/-postmerge
 }
 
+fix_kernel_symlink() {
+	# restore kernel symlink to preferred by cl_install_kernel_build variable
+	local kernel_build=$(/usr/libexec/calculate/cl-variable --value install.cl_install_kernel_build 2>/dev/null)
+	if [[ $? -ne 1 ]] && [[ -n $kernel_build ]] && [[ -L /usr/src/linux ]]
+	then
+		[[ "$kernel_build" =~ ^[0-9]+\.[0-9]+$ ]] && kernel_build="${kernel_build}."
+		last_kernel="$(ls -1d /usr/src/linux-${kernel_build}* | sed 's/.*linux-//' | sort -V | tail -1)"
+		if [[ -n $last_kernel ]]
+		then
+			if [[ "$(readlink /usr/src/linux)" != "linux-${last_kernel}" ]]
+			then
+				rm /usr/src/linux
+				ln -sf linux-${last_kernel} /usr/src/linux
+			fi
+		fi
+	fi
+}
+
 post_pkg_postinst() {
+	[[ "$PN" == "calculate-sources" ]] && fix_kernel_symlink
 	post_setup_package
 }
