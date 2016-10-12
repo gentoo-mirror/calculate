@@ -58,6 +58,7 @@ url=file:///home/#-ur_login-#/Home
 url=file:///home/#-ur_login-#
 #ur_domain_set#
 useCustomIcon=true
+viewMode=1
 
 [Containments][42][Applets][46]
 immutability=1
@@ -87,6 +88,7 @@ icon=folder-public
 previews=false
 url=file:///home/#-ur_login-#/Share
 useCustomIcon=true
+viewMode=1
 #env#
 
 #?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!=#
@@ -113,6 +115,7 @@ icon=folder-remote
 previews=false
 url=file:///home/#-ur_login-#/FTP
 useCustomIcon=true
+viewMode=1
 #env#
 
 [Containments][42][Applets][54]
@@ -180,9 +183,11 @@ DialogWidth=807
 
 [Containments][42][Applets][67][Configuration][General]
 groupingStrategy=0
+highlightWindows=true
 maxStripes=1
 middleClickAction=Close
 showOnlyCurrentDesktop=true
+showToolTips=false
 sortingStrategy=1
 
 [Containments][42][Applets][70]
