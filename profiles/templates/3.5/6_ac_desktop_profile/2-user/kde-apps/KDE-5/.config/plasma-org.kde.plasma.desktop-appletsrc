@@ -29,6 +29,7 @@ DialogWidth=640
 [Containments][42][Applets][44][Configuration][General]
 appNameFormat=2
 favoriteApps=preferred://browser,systemsettings.desktop
+showRecentDocs=false
 
 [Containments][42][Applets][45]
 activityId=
@@ -50,6 +51,9 @@ wallpaperplugin=
 
 [Containments][42][Applets][45][Configuration][General]
 icon=user-home
+iconSize=3
+popups=false
+selectionMarkers=false
 previews=false
 #?ur_domain_set==on#
 url=file:///home/#-ur_login-#/Home
@@ -63,6 +67,11 @@ viewMode=1
 [Containments][42][Applets][46]
 immutability=1
 plugin=org.kde.plasma.pager
+
+[Containments][42][Applets][46][Configuration][General]
+#currentDesktopSelected=ShowDesktop
+displayedText=Number
+showWindowIcons=true
 
 #?env(client.os_remote_auth)!=&&ur_domain_set==on#
 [Containments][42][Applets][47]
@@ -85,6 +94,9 @@ wallpaperplugin=
 
 [Containments][42][Applets][47][Configuration][General]
 icon=folder-public
+iconSize=3
+popups=false
+selectionMarkers=false
 previews=false
 url=file:///home/#-ur_login-#/Share
 useCustomIcon=true
@@ -112,6 +124,9 @@ wallpaperplugin=
 
 [Containments][42][Applets][48][Configuration][General]
 icon=folder-remote
+iconSize=3
+popups=false
+selectionMarkers=false
 previews=false
 url=file:///home/#-ur_login-#/FTP
 useCustomIcon=true
@@ -159,7 +174,11 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][42][Applets][63][Configuration][Appearance]
+#?exists(/usr/lib/qt5/plugins/plasmacalendarplugins/holidaysevents.so)!=#
+enabledCalendarPlugins=/usr/lib/qt5/plugins/plasmacalendarplugins/holidaysevents.so
+#exists#
 fontFamily=Droid Sans
+showWeekNumbers=true
 
 [Containments][42][Applets][63][Configuration][ConfigDialog]
 DialogHeight=480
@@ -225,6 +244,8 @@ DialogWidth=640
 [Containments][53][General]
 ToolBoxButtonState=bottomright
 iconSize=3
+popups=false
+selectionMarkers=false
 showToolbox=false
 positions=3,9,desktop:/calculate-install.desktop,1,0,desktop:/partitionmanager.desktop,1,1,desktop:/calculate-community.desktop,2,1,desktop:/Home.desktop,0,0,desktop:/README.desktop,2,0
 sortMode=-1
