@@ -29,6 +29,7 @@ DialogWidth=640
 [Containments][42][Applets][44][Configuration][General]
 appNameFormat=2
 favoriteApps=preferred://browser,systemsettings.desktop
+showRecentDocs=false
 
 [Containments][42][Applets][45]
 activityId=
@@ -50,6 +51,7 @@ wallpaperplugin=
 
 [Containments][42][Applets][45][Configuration][General]
 icon=user-home
+iconSize=3
 previews=false
 #?ur_domain_set==on#
 url=file:///home/#-ur_login-#/Home
@@ -63,6 +65,11 @@ viewMode=1
 [Containments][42][Applets][46]
 immutability=1
 plugin=org.kde.plasma.pager
+
+[Containments][42][Applets][46][Configuration][General]
+currentDesktopSelected=ShowDesktop
+displayedText=Number
+showWindowIcons=true
 
 #?env(client.os_remote_auth)!=&&ur_domain_set==on#
 [Containments][42][Applets][47]
@@ -85,6 +92,7 @@ wallpaperplugin=
 
 [Containments][42][Applets][47][Configuration][General]
 icon=folder-public
+iconSize=3
 previews=false
 url=file:///home/#-ur_login-#/Share
 useCustomIcon=true
@@ -112,6 +120,7 @@ wallpaperplugin=
 
 [Containments][42][Applets][48][Configuration][General]
 icon=folder-remote
+iconSize=3
 previews=false
 url=file:///home/#-ur_login-#/FTP
 useCustomIcon=true
@@ -159,7 +168,11 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][42][Applets][63][Configuration][Appearance]
+#?exists(/usr/lib/qt5/plugins/plasmacalendarplugins/holidaysevents.co)!=#
+enabledCalendarPlugins=/usr/lib/qt5/plugins/plasmacalendarplugins/holidaysevents.co
+#exists#
 fontFamily=Droid Sans
+showWeekNumbers=true
 
 [Containments][42][Applets][63][Configuration][ConfigDialog]
 DialogHeight=480
