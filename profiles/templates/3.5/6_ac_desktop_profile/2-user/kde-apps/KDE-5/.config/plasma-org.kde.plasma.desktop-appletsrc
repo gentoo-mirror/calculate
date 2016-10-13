@@ -168,8 +168,8 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][42][Applets][63][Configuration][Appearance]
-#?exists(/usr/lib/qt5/plugins/plasmacalendarplugins/holidaysevents.co)!=#
-enabledCalendarPlugins=/usr/lib/qt5/plugins/plasmacalendarplugins/holidaysevents.co
+#?exists(/usr/lib/qt5/plugins/plasmacalendarplugins/holidaysevents.so)!=#
+enabledCalendarPlugins=/usr/lib/qt5/plugins/plasmacalendarplugins/holidaysevents.so
 #exists#
 fontFamily=Droid Sans
 showWeekNumbers=true
@@ -238,6 +238,8 @@ DialogWidth=640
 [Containments][53][General]
 ToolBoxButtonState=bottomright
 iconSize=3
+popups=false
+selectionMarkers=false
 showToolbox=false
 positions=3,9,desktop:/calculate-install.desktop,1,0,desktop:/partitionmanager.desktop,1,1,desktop:/calculate-community.desktop,2,1,desktop:/Home.desktop,0,0,desktop:/README.desktop,2,0
 sortMode=-1
