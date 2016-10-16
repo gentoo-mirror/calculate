@@ -1,4 +1,10 @@
 # Calculate format=kde
+[General]
+GlobalViewProps=true
+
 [IconsMode]
 FontWeight=50
 IconSize=48
+
+[PreviewSettings]
+Plugins=ffmpegthumbs,imagethumbnail,exrthumbnail,jpegthumbnail,svgthumbnail,directorythumbnail,fontthumbnail,rawthumbnail
