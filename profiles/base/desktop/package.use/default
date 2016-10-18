@@ -100,7 +100,6 @@ dev-lang/php -imap -spell
 dev-libs/folks -bluetooth
 dev-util/cmake -qt4
 dev-vcs/git -gtk
-gnome-extra/nm-applet -bluetooth
 gnome-extra/zenity -webkit
 kde-apps/kdebase-runtime-meta -crash-reporter
 kde-apps/print-manager -gtk
@@ -504,3 +503,6 @@ media-video/mediainfo wxwidgets
 
 # use postgresql database for not using '-secure-delete' sqlite USE flag
 net-irc/quassel postgres qt5
+
+# enable support for mobile broadband devices
+gnome-extra/nm-applet-1.4.0 modemmanager
