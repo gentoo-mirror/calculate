@@ -10,8 +10,7 @@ Timeout=10
 [Greeter]
 Theme=org.kde.calculate
 ThemeBackground=/usr/share/wallpapers/Calculate-dm/contents/images/#-wallpaper(#-os_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#
-#pkg#
-#?pkg(kde-plasma/kscreenlocker)>=5.8#
+#!pkg#
 [Greeter]
 WallpaperPlugin=org.kde.image
 
