@@ -205,8 +205,8 @@ media-libs/opencv qt4
 # required by kde-apps/okular-15.08.3-r1::gentoo[pdf]
 app-text/poppler qt4 qt5
 
-# Add support for LDAP, PDF, RSS, SMIME, HTML, Xface
-mail-client/claws-mail ldap pdf rss smime webkit xface
+# Add support for LDAP, PDF, RSS, SMIME, HTML, Xface, sieve filter support
+mail-client/claws-mail ldap pdf rss smime webkit xface sieve
 
 # Add file systems and raid support.
 sys-block/gparted btrfs dmraid fat mdadm ntfs reiserfs xfs
