@@ -26,7 +26,6 @@ net-ftp/proftpd
 net-ftp/vsftpd
 net-im/ejabberd
 net-irc/unrealircd
-net-mail/dovecot
 net-mail/fetchmail
 net-misc/asterisk
 net-misc/dhcp
@@ -43,5 +42,6 @@ sys-apps/most
 #?in(os_linux_pkglist, server)!=#
 dev-db/mariadb
 mail-mta/postfix
+net-mail/dovecot
 sys-apps/calculate-server
 #in#
