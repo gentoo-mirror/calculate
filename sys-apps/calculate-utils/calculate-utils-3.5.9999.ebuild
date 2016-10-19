@@ -16,6 +16,7 @@ SLOT="3"
 KEYWORDS=""
 
 src_unpack() {
+	prepare_module_info
 	for MODULE in "${MODULE_INFO[@]}"
 	do
 		MODULE_DATA=( $MODULE )
