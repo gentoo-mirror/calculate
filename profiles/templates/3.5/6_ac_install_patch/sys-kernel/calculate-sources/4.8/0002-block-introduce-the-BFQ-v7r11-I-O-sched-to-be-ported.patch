@@ -1,8 +1,9 @@
 # Calculate format=diff os_linux_system==desktop
-From 2aae32be2a18a7d0da104ae42c08cb9bce9d9c7c Mon Sep 17 00:00:00 2001
+From d9af6fcc4167cbb8433b10bbf3663c8297487f52 Mon Sep 17 00:00:00 2001
 From: Paolo Valente <paolo.valente@unimore.it>
 Date: Thu, 9 May 2013 19:10:02 +0200
-Subject: [PATCH 2/4] block: introduce the BFQ-v7r11 I/O sched for 4.7.0
+Subject: [PATCH 2/4] block: introduce the BFQ-v7r11 I/O sched, to be ported to
+ 4.8.0
 
 The general structure is borrowed from CFQ, as much of the code for
 handling I/O contexts. Over time, several useful features have been
@@ -57,12 +58,12 @@ Signed-off-by: Paolo Valente <paolo.valente@unimore.it>
 Signed-off-by: Arianna Avanzini <avanzini@google.com>
 ---
  block/Kconfig.iosched |    6 +-
- block/bfq-cgroup.c    | 1182 ++++++++++++++++
+ block/bfq-cgroup.c    | 1186 ++++++++++++++++
  block/bfq-ioc.c       |   36 +
- block/bfq-iosched.c   | 3754 +++++++++++++++++++++++++++++++++++++++++++++++++
- block/bfq-sched.c     | 1200 ++++++++++++++++
+ block/bfq-iosched.c   | 3763 +++++++++++++++++++++++++++++++++++++++++++++++++
+ block/bfq-sched.c     | 1199 ++++++++++++++++
  block/bfq.h           |  801 +++++++++++
- 6 files changed, 6975 insertions(+), 4 deletions(-)
+ 6 files changed, 6987 insertions(+), 4 deletions(-)
  create mode 100644 block/bfq-cgroup.c
  create mode 100644 block/bfq-ioc.c
  create mode 100644 block/bfq-iosched.c
@@ -92,10 +93,10 @@ index 0ee5f0f..f78cd1a 100644
  	prompt "Default I/O scheduler"
 diff --git a/block/bfq-cgroup.c b/block/bfq-cgroup.c
 new file mode 100644
-index 0000000..8610cd6
+index 0000000..8b08a57
 --- /dev/null
 +++ b/block/bfq-cgroup.c
-@@ -0,0 +1,1182 @@
+@@ -0,0 +1,1186 @@
 +/*
 + * BFQ: CGROUPS support.
 + *
@@ -260,7 +261,9 @@ index 0000000..8610cd6
 +static struct bfq_group *blkg_to_bfqg(struct blkcg_gq *blkg)
 +{
 +	struct blkg_policy_data *pd = blkg_to_pd(blkg, &blkcg_policy_bfq);
++
 +	BUG_ON(!pd);
++
 +	return pd_to_bfqg(pd);
 +}
 +
@@ -380,7 +383,8 @@ index 0000000..8610cd6
 +	blkg_stat_add_aux(&from->time, &from->time);
 +	blkg_stat_add_aux(&to->unaccounted_time, &from->unaccounted_time);
 +	blkg_stat_add_aux(&to->avg_queue_size_sum, &from->avg_queue_size_sum);
-+	blkg_stat_add_aux(&to->avg_queue_size_samples, &from->avg_queue_size_samples);
++	blkg_stat_add_aux(&to->avg_queue_size_samples,
++			  &from->avg_queue_size_samples);
 +	blkg_stat_add_aux(&to->dequeue, &from->dequeue);
 +	blkg_stat_add_aux(&to->group_wait_time, &from->group_wait_time);
 +	blkg_stat_add_aux(&to->idle_time, &from->idle_time);
@@ -472,9 +476,9 @@ index 0000000..8610cd6
 +}
 +
 +static struct bfq_group_data *cpd_to_bfqgd(struct blkcg_policy_data *cpd)
-+ {
++{
 +	return cpd ? container_of(cpd, struct bfq_group_data, pd) : NULL;
-+ }
++}
 +
 +static struct bfq_group_data *blkcg_to_bfqgd(struct blkcg *blkcg)
 +{
@@ -563,8 +567,8 @@ index 0000000..8610cd6
 +}
 +
 +/* to be used by recursive prfill, sums live and dead rwstats recursively */
-+static struct blkg_rwstat bfqg_rwstat_pd_recursive_sum(struct blkg_policy_data *pd,
-+						       int off)
++static struct blkg_rwstat
++bfqg_rwstat_pd_recursive_sum(struct blkg_policy_data *pd, int off)
 +{
 +	struct blkg_rwstat a, b;
 +
@@ -777,7 +781,6 @@ index 0000000..8610cd6
 +
 +	BUG_ON(!bfqq);
 +	bfq_bfqq_move(bfqd, bfqq, entity, bfqd->root_group);
-+	return;
 +}
 +
 +/**
@@ -805,8 +808,6 @@ index 0000000..8610cd6
 +	if (bfqg->sched_data.in_service_entity)
 +		bfq_reparent_leaf_entity(bfqd,
 +			bfqg->sched_data.in_service_entity);
-+
-+	return;
 +}
 +
 +/**
@@ -931,6 +932,7 @@ index 0000000..8610cd6
 +	bfqgd->weight = (unsigned short)val;
 +	hlist_for_each_entry(blkg, &blkcg->blkg_list, blkcg_node) {
 +		struct bfq_group *bfqg = blkg_to_bfqg(blkg);
++
 +		if (!bfqg)
 +			continue;
 +		/*
@@ -1044,7 +1046,8 @@ index 0000000..8610cd6
 +	return 0;
 +}
 +
-+static struct bfq_group *bfq_create_group_hierarchy(struct bfq_data *bfqd, int node)
++static struct bfq_group *
++bfq_create_group_hierarchy(struct bfq_data *bfqd, int node)
 +{
 +	int ret;
 +
@@ -1052,22 +1055,22 @@ index 0000000..8610cd6
 +	if (ret)
 +		return NULL;
 +
-+        return blkg_to_bfqg(bfqd->queue->root_blkg);
++	return blkg_to_bfqg(bfqd->queue->root_blkg);
 +}
 +
 +static struct blkcg_policy_data *bfq_cpd_alloc(gfp_t gfp)
 +{
-+        struct bfq_group_data *bgd;
++	struct bfq_group_data *bgd;
 +
-+        bgd = kzalloc(sizeof(*bgd), GFP_KERNEL);
-+        if (!bgd)
-+                return NULL;
-+        return &bgd->pd;
++	bgd = kzalloc(sizeof(*bgd), GFP_KERNEL);
++	if (!bgd)
++		return NULL;
++	return &bgd->pd;
 +}
 +
 +static void bfq_cpd_free(struct blkcg_policy_data *cpd)
 +{
-+        kfree(cpd_to_bfqgd(cpd));
++	kfree(cpd_to_bfqgd(cpd));
 +}
 +
 +static struct cftype bfqio_files_dfl[] = {
@@ -1202,20 +1205,19 @@ index 0000000..8610cd6
 +};
 +
 +static struct blkcg_policy blkcg_policy_bfq = {
-+       .dfl_cftypes            = bfqio_files_dfl,
-+       .legacy_cftypes         = bfqio_files,
++	.dfl_cftypes            = bfqio_files_dfl,
++	.legacy_cftypes		= bfqio_files,
 +
-+       .pd_alloc_fn            = bfq_pd_alloc,
-+       .pd_init_fn             = bfq_pd_init,
-+       .pd_offline_fn          = bfq_pd_offline,
-+       .pd_free_fn             = bfq_pd_free,
-+       .pd_reset_stats_fn      = bfq_pd_reset_stats,
++	.pd_alloc_fn		= bfq_pd_alloc,
++	.pd_init_fn		= bfq_pd_init,
++	.pd_offline_fn		= bfq_pd_offline,
++	.pd_free_fn		= bfq_pd_free,
++	.pd_reset_stats_fn	= bfq_pd_reset_stats,
 +
-+       .cpd_alloc_fn           = bfq_cpd_alloc,
-+       .cpd_init_fn            = bfq_cpd_init,
-+       .cpd_bind_fn	       = bfq_cpd_init,
-+       .cpd_free_fn            = bfq_cpd_free,
-+
++	.cpd_alloc_fn		= bfq_cpd_alloc,
++	.cpd_init_fn		= bfq_cpd_init,
++	.cpd_bind_fn		= bfq_cpd_init,
++	.cpd_free_fn		= bfq_cpd_free,
 +};
 +
 +#else
@@ -1224,6 +1226,7 @@ index 0000000..8610cd6
 +			    struct bfq_group *bfqg)
 +{
 +	struct bfq_queue *bfqq = bfq_entity_to_bfqq(entity);
++
 +	entity->weight = entity->new_weight;
 +	entity->orig_weight = entity->new_weight;
 +	if (bfqq) {
@@ -1237,6 +1240,7 @@ index 0000000..8610cd6
 +bfq_bic_update_cgroup(struct bfq_io_cq *bic, struct bio *bio)
 +{
 +	struct bfq_data *bfqd = bic_to_bfqd(bic);
++
 +	return bfqd->root_group;
 +}
 +
@@ -1258,12 +1262,13 @@ index 0000000..8610cd6
 +}
 +
 +static struct bfq_group *bfq_find_alloc_group(struct bfq_data *bfqd,
-+                                              struct blkcg *blkcg)
++					      struct blkcg *blkcg)
 +{
 +	return bfqd->root_group;
 +}
 +
-+static struct bfq_group *bfq_create_group_hierarchy(struct bfq_data *bfqd, int node)
++static struct bfq_group *
++bfq_create_group_hierarchy(struct bfq_data *bfqd, int node)
 +{
 +	struct bfq_group *bfqg;
 +	int i;
@@ -1322,10 +1327,10 @@ index 0000000..fb7bb8f
 +}
 diff --git a/block/bfq-iosched.c b/block/bfq-iosched.c
 new file mode 100644
-index 0000000..f9787a6
+index 0000000..85e2169
 --- /dev/null
 +++ b/block/bfq-iosched.c
-@@ -0,0 +1,3754 @@
+@@ -0,0 +1,3763 @@
 +/*
 + * Budget Fair Queueing (BFQ) disk scheduler.
 + *
@@ -1543,7 +1548,7 @@ index 0000000..f9787a6
 +	unsigned long back_max;
 +#define BFQ_RQ1_WRAP	0x01 /* request 1 wraps */
 +#define BFQ_RQ2_WRAP	0x02 /* request 2 wraps */
-+	unsigned wrap = 0; /* bit mask: requests behind the disk head? */
++	unsigned int wrap = 0; /* bit mask: requests behind the disk head? */
 +
 +	if (!rq1 || rq1 == rq2)
 +		return rq2;
@@ -1598,12 +1603,11 @@ index 0000000..f9787a6
 +			return rq1;
 +		else if (d2 < d1)
 +			return rq2;
-+		else {
-+			if (s1 >= s2)
-+				return rq1;
-+			else
-+				return rq2;
-+		}
++
++		if (s1 >= s2)
++			return rq1;
++		else
++			return rq2;
 +
 +	case BFQ_RQ2_WRAP:
 +		return rq1;
@@ -1890,7 +1894,7 @@ index 0000000..f9787a6
 +		 */
 +		hlist_for_each_entry(bfqq_item, &bfqd->burst_list,
 +				     burst_list_node)
-+		        bfq_mark_bfqq_in_large_burst(bfqq_item);
++			bfq_mark_bfqq_in_large_burst(bfqq_item);
 +		bfq_mark_bfqq_in_large_burst(bfqq);
 +
 +		/*
@@ -2289,7 +2293,7 @@ index 0000000..f9787a6
 +	bfqd->rq_in_driver++;
 +	bfqd->last_position = blk_rq_pos(rq) + blk_rq_sectors(rq);
 +	bfq_log(bfqd, "activate_request: new bfqd->last_position %llu",
-+		(long long unsigned)bfqd->last_position);
++		(unsigned long long) bfqd->last_position);
 +}
 +
 +static void bfq_deactivate_request(struct request_queue *q, struct request *rq)
@@ -2596,6 +2600,7 @@ index 0000000..f9787a6
 +{
 +	struct bfq_queue *bfqq = bfqd->in_service_queue;
 +	unsigned int timeout_coeff;
++
 +	if (bfqq->wr_cur_max_time == bfqd->bfq_wr_rt_max_time)
 +		timeout_coeff = 1;
 +	else
@@ -2668,6 +2673,7 @@ index 0000000..f9787a6
 +static int bfq_bfqq_budget_left(struct bfq_queue *bfqq)
 +{
 +	struct bfq_entity *entity = &bfqq->entity;
++
 +	return entity->budget - entity->service;
 +}
 +
@@ -2907,6 +2913,7 @@ index 0000000..f9787a6
 +		if (bfqd->peak_rate_samples == BFQ_PEAK_RATE_SAMPLES &&
 +		    update) {
 +			int dev_type = blk_queue_nonrot(bfqd->queue);
++
 +			if (bfqd->bfq_user_max_budget == 0) {
 +				bfqd->bfq_max_budget =
 +					bfq_calc_max_budget(bfqd->peak_rate,
@@ -3066,6 +3073,7 @@ index 0000000..f9787a6
 +			    enum bfqq_expiration reason)
 +{
 +	bool slow;
++
 +	BUG_ON(bfqq != bfqd->in_service_queue);
 +
 +	/*
@@ -3099,7 +3107,7 @@ index 0000000..f9787a6
 +	}
 +
 +	if (reason == BFQ_BFQQ_TOO_IDLE &&
-+	    bfqq->entity.service <= 2 * bfqq->entity.budget / 10 )
++	    bfqq->entity.service <= 2 * bfqq->entity.budget / 10)
 +		bfq_clear_bfqq_IO_bound(bfqq);
 +
 +	if (bfqd->low_latency && bfqq->wr_coeff == 1)
@@ -3245,7 +3253,7 @@ index 0000000..f9787a6
 +	 */
 +	idling_boosts_thr = !bfqd->hw_tag ||
 +		(!blk_queue_nonrot(bfqd->queue) && bfq_bfqq_IO_bound(bfqq) &&
-+		 bfq_bfqq_idle_window(bfqq)) ;
++		 bfq_bfqq_idle_window(bfqq));
 +
 +	/*
 +	 * The value of the next variable,
@@ -3357,7 +3365,7 @@ index 0000000..f9787a6
 +	 * (i)  each of these processes must get the same throughput as
 +	 *      the others;
 +	 * (ii) all these processes have the same I/O pattern
-+	        (either sequential or random).
++	 *      (either sequential or random).
 +	 * In fact, in such a scenario, the drive will tend to treat
 +	 * the requests of each of these processes in about the same
 +	 * way as the requests of the others, and thus to provide
@@ -3554,6 +3562,7 @@ index 0000000..f9787a6
 +static void bfq_update_wr_data(struct bfq_data *bfqd, struct bfq_queue *bfqq)
 +{
 +	struct bfq_entity *entity = &bfqq->entity;
++
 +	if (bfqq->wr_coeff > 1) { /* queue is being weight-raised */
 +		bfq_log_bfqq(bfqd, bfqq,
 +			"raising period dur %u/%u msec, old coeff %u, w %d(%d)",
@@ -3644,7 +3653,7 @@ index 0000000..f9787a6
 +	bfq_log_bfqq(bfqd, bfqq,
 +			"dispatched %u sec req (%llu), budg left %d",
 +			blk_rq_sectors(rq),
-+			(long long unsigned)blk_rq_pos(rq),
++			(unsigned long long) blk_rq_pos(rq),
 +			bfq_bfqq_budget_left(bfqq));
 +
 +	dispatched++;
@@ -3842,7 +3851,8 @@ index 0000000..f9787a6
 + * Update the entity prio values; note that the new values will not
 + * be used until the next (re)activation.
 + */
-+static void bfq_set_next_ioprio_data(struct bfq_queue *bfqq, struct bfq_io_cq *bic)
++static void
++bfq_set_next_ioprio_data(struct bfq_queue *bfqq, struct bfq_io_cq *bic)
 +{
 +	struct task_struct *tsk = current;
 +	int ioprio_class;
@@ -3875,8 +3885,8 @@ index 0000000..f9787a6
 +	}
 +
 +	if (bfqq->new_ioprio < 0 || bfqq->new_ioprio >= IOPRIO_BE_NR) {
-+		printk(KERN_CRIT "bfq_set_next_ioprio_data: new_ioprio %d\n",
-+				 bfqq->new_ioprio);
++		pr_crit("bfq_set_next_ioprio_data: new_ioprio %d\n",
++			bfqq->new_ioprio);
 +		BUG();
 +	}
 +
@@ -4000,7 +4010,7 @@ index 0000000..f9787a6
 +
 +		if (bfqq) {
 +			bfq_init_bfqq(bfqd, bfqq, bic, current->pid,
-+                                      is_sync);
++				      is_sync);
 +			bfq_init_entity(&bfqq->entity, bfqg);
 +			bfq_log_bfqq(bfqd, bfqq, "allocated");
 +		} else {
@@ -4188,7 +4198,7 @@ index 0000000..f9787a6
 +	bfq_log_bfqq(bfqd, bfqq,
 +		     "rq_enqueued: idle_window=%d (seeky %d, mean %llu)",
 +		     bfq_bfqq_idle_window(bfqq), BFQQ_SEEKY(bfqq),
-+		     (long long unsigned)bfqq->seek_mean);
++		     (unsigned long long) bfqq->seek_mean);
 +
 +	bfqq->last_request_pos = blk_rq_pos(rq) + blk_rq_sectors(rq);
 +
@@ -4739,8 +4749,7 @@ index 0000000..f9787a6
 +
 +static void bfq_slab_kill(void)
 +{
-+	if (bfq_pool)
-+		kmem_cache_destroy(bfq_pool);
++	kmem_cache_destroy(bfq_pool);
 +}
 +
 +static int __init bfq_slab_setup(void)
@@ -4771,6 +4780,7 @@ index 0000000..f9787a6
 +static ssize_t bfq_wr_max_time_show(struct elevator_queue *e, char *page)
 +{
 +	struct bfq_data *bfqd = e->elevator_data;
++
 +	return sprintf(page, "%d\n", bfqd->bfq_wr_max_time > 0 ?
 +		       jiffies_to_msecs(bfqd->bfq_wr_max_time) :
 +		       jiffies_to_msecs(bfq_wr_duration(bfqd)));
@@ -4789,25 +4799,29 @@ index 0000000..f9787a6
 +
 +	num_char += sprintf(page + num_char, "Active:\n");
 +	list_for_each_entry(bfqq, &bfqd->active_list, bfqq_list) {
-+	  num_char += sprintf(page + num_char,
-+			      "pid%d: weight %hu, nr_queued %d %d, dur %d/%u\n",
-+			      bfqq->pid,
-+			      bfqq->entity.weight,
-+			      bfqq->queued[0],
-+			      bfqq->queued[1],
-+			jiffies_to_msecs(jiffies - bfqq->last_wr_start_finish),
-+			jiffies_to_msecs(bfqq->wr_cur_max_time));
++		num_char += sprintf(page + num_char,
++				    "pid%d: weight %hu, nr_queued %d %d, ",
++				    bfqq->pid,
++				    bfqq->entity.weight,
++				    bfqq->queued[0],
++				    bfqq->queued[1]);
++		num_char += sprintf(page + num_char,
++				    "dur %d/%u\n",
++				    jiffies_to_msecs(
++					    jiffies -
++					    bfqq->last_wr_start_finish),
++				    jiffies_to_msecs(bfqq->wr_cur_max_time));
 +	}
 +
 +	num_char += sprintf(page + num_char, "Idle:\n");
 +	list_for_each_entry(bfqq, &bfqd->idle_list, bfqq_list) {
-+			num_char += sprintf(page + num_char,
-+				"pid%d: weight %hu, dur %d/%u\n",
-+				bfqq->pid,
-+				bfqq->entity.weight,
-+				jiffies_to_msecs(jiffies -
-+					bfqq->last_wr_start_finish),
-+				jiffies_to_msecs(bfqq->wr_cur_max_time));
++		num_char += sprintf(page + num_char,
++				    "pid%d: weight %hu, dur %d/%u\n",
++				    bfqq->pid,
++				    bfqq->entity.weight,
++				    jiffies_to_msecs(jiffies -
++						     bfqq->last_wr_start_finish),
++				    jiffies_to_msecs(bfqq->wr_cur_max_time));
 +	}
 +
 +	spin_unlock_irq(bfqd->queue->queue_lock);
@@ -5082,10 +5096,10 @@ index 0000000..f9787a6
 +MODULE_LICENSE("GPL");
 diff --git a/block/bfq-sched.c b/block/bfq-sched.c
 new file mode 100644
-index 0000000..a64fec1
+index 0000000..a5ed694
 --- /dev/null
 +++ b/block/bfq-sched.c
-@@ -0,0 +1,1200 @@
+@@ -0,0 +1,1199 @@
 +/*
 + * BFQ: Hierarchical B-WF2Q+ scheduler.
 + *
@@ -5716,8 +5730,7 @@ index 0000000..a64fec1
 +		if (entity->new_weight != entity->orig_weight) {
 +			if (entity->new_weight < BFQ_MIN_WEIGHT ||
 +			    entity->new_weight > BFQ_MAX_WEIGHT) {
-+				printk(KERN_CRIT "update_weight_prio: "
-+						 "new_weight %d\n",
++				pr_crit("update_weight_prio: new_weight %d\n",
 +					entity->new_weight);
 +				BUG();
 +			}
@@ -6288,7 +6301,7 @@ index 0000000..a64fec1
 +}
 diff --git a/block/bfq.h b/block/bfq.h
 new file mode 100644
-index 0000000..485d0c9
+index 0000000..2bf54ae
 --- /dev/null
 +++ b/block/bfq.h
 @@ -0,0 +1,801 @@
@@ -6723,10 +6736,10 @@ index 0000000..485d0c9
 + *                      @last_ins_in_burst.
 + * @burst_size: number of queues in the current burst of queue activations.
 + * @bfq_large_burst_thresh: maximum burst size above which the current
-+ * 			    queue-activation burst is deemed as 'large'.
++ *			    queue-activation burst is deemed as 'large'.
 + * @large_burst: true if a large queue-activation burst is in progress.
 + * @burst_list: head of the burst list (as for the above fields, more details
-+ * 		in the comments to the function bfq_handle_burst).
++ *		in the comments to the function bfq_handle_burst).
 + * @low_latency: if set to true, low-latency heuristics are enabled.
 + * @bfq_wr_coeff: maximum factor by which the weight of a weight-raised
 + *                queue is multiplied.
@@ -7094,5 +7107,5 @@ index 0000000..485d0c9
 +
 +#endif /* _BFQ_H */
 -- 
-1.9.1
+2.7.4 (Apple Git-66)
 

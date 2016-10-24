@@ -1,8 +1,8 @@
 # Calculate format=diff os_linux_system==desktop
-From 22ee35ec82fa543b65c1b6d516a086a21f723846 Mon Sep 17 00:00:00 2001
+From f2ebe596e7d72e96e0fb2be87be90f0b96e6f1b3 Mon Sep 17 00:00:00 2001
 From: Paolo Valente <paolo.valente@unimore.it>
 Date: Tue, 7 Apr 2015 13:39:12 +0200
-Subject: [PATCH 1/4] block: cgroups, kconfig, build bits for BFQ-v7r11-4.7.0
+Subject: [PATCH 1/4] block: cgroups, kconfig, build bits for BFQ-v7r11-4.8.0
 
 Update Kconfig.iosched and do the related Makefile changes to include
 kernel configuration options for BFQ. Also increase the number of
@@ -87,7 +87,7 @@ index 9eda232..4a36683 100644
  obj-$(CONFIG_BLOCK_COMPAT)	+= compat_ioctl.o
  obj-$(CONFIG_BLK_CMDLINE_PARSER)	+= cmdline-parser.o
 diff --git a/include/linux/blkdev.h b/include/linux/blkdev.h
-index 3d9cf32..8d862a0 100644
+index e79055c..931ff1e 100644
 --- a/include/linux/blkdev.h
 +++ b/include/linux/blkdev.h
 @@ -45,7 +45,7 @@ struct pr_ops;
@@ -97,8 +97,8 @@ index 3d9cf32..8d862a0 100644
 -#define BLKCG_MAX_POLS		2
 +#define BLKCG_MAX_POLS		3
  
- struct request;
  typedef void (rq_end_io_fn)(struct request *, int);
+ 
 -- 
-1.9.1
+2.7.4 (Apple Git-66)
 
