@@ -1,0 +1,17 @@
+# Calculate ini(overlay-calculate.revision)<93 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,93)-#
+
+test -f /var/db/pkg/sys-apps/baselayout-*/CONTENTS &&
+   sed -i "/ \/etc\/shadow/d" /var/db/pkg/sys-apps/baselayout-*/CONTENTS
+
+test -f /var/db/pkg/sys-apps/openrc-*/CONTENTS &&
+   sed -i "/ \/etc\/mtab/d" /var/db/pkg/sys-apps/openrc-*/CONTENTS
+
+test -f /var/db/pkg/sys-apps/openrc-*/CONTENTS &&
+   sed -i "/ \/etc\/resolv.conf/d" /var/db/pkg/sys-apps/openrc-*/CONTENTS
+
+test -f /var/db/pkg/sys-apps/util-linux-*/CONTENTS &&
+   sed -i "/ \/etc\/fstab/d" /var/db/pkg/sys-apps/util-linux-*/CONTENTS
+
+exit 0
