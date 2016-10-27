@@ -1,9 +1,9 @@
-# Calculate ini(overlay-calculate.revision)<93 exec=/bin/bash
+# Calculate ini(overlay-calculate.revision)<94 exec=/bin/bash
 
-#-ini(overlay-calculate.revision,93)-#
+#-ini(overlay-calculate.revision,94)-#
 
-test -f /var/db/pkg/sys-apps/baselayout-*/CONTENTS &&
-   sed -i "/ \/etc\/shadow/d" /var/db/pkg/sys-apps/baselayout-*/CONTENTS
+test -f /var/db/pkg/sys-apps/baselayout-[0-9]*/CONTENTS &&
+   sed -i "/ \/etc\/shadow/d" /var/db/pkg/sys-apps/baselayout-[0-9]*/CONTENTS
 
 test -f /var/db/pkg/sys-apps/openrc-*/CONTENTS &&
    sed -i "/ \/etc\/mtab/d" /var/db/pkg/sys-apps/openrc-*/CONTENTS
