@@ -117,7 +117,7 @@ prepare_variables() {
 		SRC_URI="$SRC_URI $MODULE_URI"
 	done
 
-	IUSE="minimal pxe ${CALCULATE_MODULES_USE_[@]}"
+	IUSE="minimal pxe backup ${CALCULATE_MODULES_USE_[@]}"
 	S="${WORKDIR}"
 }
 
@@ -225,7 +225,8 @@ RDEPEND="
 	!sys-apps/calculate-update:3
 	!sys-apps/calculate-install:3
 	!sys-apps/calculate-core:3
-	!sys-apps/calculate-server
+	server? ( !sys-apps/calculate-server )
+	backup? ( !sys-apps/calculate-server )
 "
 
 DEPEND="sys-devel/gettext"
@@ -236,6 +237,12 @@ REQUIRED_USE="client? ( desktop )"
 # @DESCRIPTION:
 # Compile all modules of calculate utils
 calculate-utils-r1_src_compile() {
+	if ! use backup
+	then
+		sed -ir "s/'cl-backup'/None/" calculate-core-*/pym/core/wsdl_core.py
+		sed -ir "s/'cl-backup-restore'/None/" calculate-core-*/pym/core/wsdl_core.py
+		sed -ir "s/__('Backup')/None/g" calculate-core-*/pym/core/wsdl_core.py
+	fi
 	prepare_module_info
 	for MODULE in "${MODULE_INFO[@]}"
 	do
