@@ -1,0 +1,7 @@
+# Calculate comment=# chmod=0440 module(client)!=&&client.os_remote_auth!=
+
+#?install.os_install_net_domain!=#
+%sudo-#-install.os_install_net_domain-# ALL=(ALL) ALL
+#install.os_install_net_domain#
+%sudo-#-install.os_install_net_hostname-# ALL=(ALL) ALL
+%sudo ALL=(ALL) ALL
