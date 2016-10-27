@@ -77,6 +77,7 @@ www-client/firefox
 www-client/links
 www-client/lynx
 www-client/midori
+www-client/opera
 www-client/otter
 www-client/qtweb
 www-client/qupzilla
@@ -92,8 +93,4 @@ x11-misc/x11vnc
 x11-plugins/pidgin-hotkeys
 x11-plugins/pidgin-libnotify
 x11-plugins/purple-plugin_pack
-#in#
-
-#?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
-www-client/opera
 #in#
