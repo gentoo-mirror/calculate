@@ -21,3 +21,9 @@ app-emulation/libvirt-glib python
 
 # required by kde-frameworks/kapidox-5.13.0
 media-gfx/graphviz python
+
+# required by net-misc/electrum-2.6.4
+dev-libs/protobuf-2.5.0 python
+
+# required by dev-python/tlslite-0.4.3-r1
+dev-libs/cryptlib-3.4.0 python
