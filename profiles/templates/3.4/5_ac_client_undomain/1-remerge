@@ -1,4 +1,4 @@
-# Calculate path=/etc/calculate name=ini.env format=samba merge(sys-apps/calculate-utils)!=&&pkg(sys-apps/calculate-utils[-client])!=&&ini(merge-calculate.client)!= merge=gnome-base/gdm,kde-base/kdm,net-misc/openssh,sys-apps/sysvinit,sys-auth/nss_ldap,sys-auth/pambase,sys-libs/glibc,x11-base/xorg-server
+# Calculate path=/etc/calculate name=ini.env format=samba merge(sys-apps/calculate-utils)!=&&pkg(sys-apps/calculate-utils[-client])!=&&ini(merge-calculate.client)!= merge=gnome-base/gdm,kde-base/kdm,net-misc/openssh,sys-apps/sysvinit,sys-auth/nss_ldap,sys-auth/pambase,sys-libs/glibc,x11-base/xorg-server,app-admin/sudo
 
 [merge-calculate]
 client-undomain = yes

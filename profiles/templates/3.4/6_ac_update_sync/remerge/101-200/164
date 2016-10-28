@@ -1,0 +1,4 @@
+# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-auth/pambase,app-admin/sudo ini(overlay-calculate.remerge)<164
+
+[overlay-calculate]
+remerge = 164
