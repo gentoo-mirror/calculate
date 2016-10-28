@@ -26,6 +26,8 @@ sys-apps/calculate-utils:client - Includes module for setting and storing the us
 sys-apps/calculate-utils:console - Includes console module
 sys-apps/calculate-utils:desktop - Includes module for desktop configuration
 sys-apps/calculate-utils:pxe - Enables support for PXE installation
+sys-apps/calculate-utils:backup - Includes module for system backup
+sys-apps/calculate-utils:server - Includes server module
 sys-kernel/calckernel:lspci - Adds video detect by PCI device
 sys-kernel/calckernel:nfs - Adds support for PXE boot
 sys-kernel/calculate-sources:bfq - Apply kernel patch for BFQ I/O scheduler
