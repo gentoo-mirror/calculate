@@ -19,6 +19,12 @@ dev-qt/qtsingleapplication qt5
 media-libs/opencv qt5 -qt4
 # required by mail-client/trojita-0.7 [password]
 dev-libs/qtkeychain qt5
+# required by media-sound/tomahawk-0.9.0_pre20161029
+media-libs/liblastfm qt5
+# required by media-sound/tomahawk-0.9.0_pre20161029
+media-libs/libechonest qt5
+# required by media-sound/tomahawk-0.9.0_pre20161029
+dev-libs/quazip qt5
 
 app-admin/packagekit-qt qt5
 app-misc/qlcplus qt5
