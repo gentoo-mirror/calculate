@@ -73,7 +73,7 @@ dev-python/pyudev pyqt4
 media-gfx/exiv2 xmp
 
 # user preferences
-app-office/akonadi-server -mysql postgres
+kde-apps/akonadi -mysql postgres
 
 # [sql] required by app-office/akonadi-server
 dev-qt/qtsql postgres
