@@ -13,7 +13,6 @@ app-emulation/virt-manager
 app-emulation/virtualbox
 app-emulation/virtualbox-additions
 app-emulation/virtualbox-extpack-oracle
-app-emulation/vmware-workstation
 app-emulation/wine
 app-emulation/winetricks
 app-emulation/xen-tools
@@ -26,5 +25,6 @@ sci-visualization/qtiplot
 #?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
 app-emulation/docker
 app-emulation/lxd
+app-emulation/vmware-workstation
 sys-apps/firejail
 #in#
