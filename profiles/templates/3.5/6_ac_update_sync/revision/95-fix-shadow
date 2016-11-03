@@ -2,6 +2,7 @@
 
 #-ini(overlay-calculate.revision,95)-#
 
-chmod 0600 /etc/shadow
+[[ -f /etc/shadow ]] && chmod 0600 /etc/shadow
+[[ -f /etc/shadow- ]] && chmod 0600 /etc/shadow-
 
 exit 0
