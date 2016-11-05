@@ -4,7 +4,7 @@ show-thousands=true
 
 [caja/desktop]
 computer-icon-visible=false
-font='Droid Sans 10'
+font='Droid Sans #-ini(profile.font-size)-#'
 #?env(client.os_remote_auth)==||ur_domain_set==off#
 home-icon-visible=true
 #env#
@@ -15,7 +15,7 @@ trash-icon-visible=false
 volumes-visible=false
 
 [caja/preferences]
-click-policy='single'
+click-policy='#-ini(profile.mouse-clickpolicy)-#'
 
 #pkg(media-gfx/calculate-wallpapers)!=#
 [desktop/background]
@@ -27,11 +27,11 @@ secondary-color='#000000000000'
 #pkg#
 
 [desktop/interface]
-document-font-name='Droid Sans 10'
-font-name='Droid Sans 10'
+document-font-name='Droid Sans #-ini(profile.font-size)-#'
+font-name='Droid Sans #-ini(profile.font-size)-#'
 gtk-theme='Calculate'
 icon-theme='Calculate'
-monospace-font-name='Droid Sans Mono Slashed 10'
+monospace-font-name='Droid Sans Mono Slashed #-ini(profile.font-size)-#'
 
 [desktop/keybindings/custom0]
 action='xkill'
@@ -58,7 +58,8 @@ automount=false
 
 [desktop/peripherals/keyboard]
 cursor-theme='Calculate'
-delay=360
+delay=#-ini(profile.keyboard-delay)-#
+rate=#-ini(profile.keyboard-rate)-#
 #?hr_laptop==#
 numlock-state='on'
 #hr_laptop#
@@ -74,10 +75,17 @@ font-family='Droid Sans 18'
 
 [desktop/peripherals/mouse]
 cursor-theme='Calculate'
+double-click=#-ini(profile.mouse-doubleclick-delayed)-#
+#?ini(profile.mouse-lefthanded)==on#
+left-handed=true
+#ini#
 
 [desktop/peripherals/touchpad]
 disable-while-typing=false
 tap-to-click=true
+
+[desktop/session]
+idle-delay=#-ini(profile.screensaver-delay)-#
 
 [dictionary]
 print-font='Droid Sans 12'
@@ -85,7 +93,7 @@ print-font='Droid Sans 12'
 [marco/general]
 side-by-side-tiling=false
 theme='Dopple-Left'
-titlebar-font='Droid Sans Bold 10'
+titlebar-font='Droid Sans Bold #-ini(profile.font-size)-#'
 
 [marco/general]
 center-new-windows=false
@@ -102,6 +110,22 @@ switch-to-workspace-4='<Primary>F4'
 [notification-daemon]
 theme='slider'
 
+[power-manager]
+sleep-computer-ac=#-ini(profile.power-computer-sleep)-#
+sleep-display-ac=#-ini(profile.power-display-sleep)-#
+
+[screensaver]
+#?ini(profile.screensaver-activation)==on&&os_root_type!=livecd#
+idle-activation-enabled=true
+#!ini#
+idle-activation-enabled=false
+#ini#
+#?ini(profile.screensaver-lock)==on&&os_root_type!=livecd#
+lock-enabled=true
+#!ini#
+lock-enabled=false
+#ini#
+
 [screenshot]
 last-save-directory='file://#-ini(resource.pictures)-#'
 
@@ -109,5 +133,5 @@ last-save-directory='file://#-ini(resource.pictures)-#'
 screensaver='Scroll_Lock'
 
 [stickynotes]
-default-font='Droid Sans 10'
+default-font='Droid Sans #-ini(profile.font-size)-#'
 
