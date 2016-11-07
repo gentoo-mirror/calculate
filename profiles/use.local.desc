@@ -39,9 +39,4 @@ sys-apps/calculate-utils:console - Includes console module.
 sys-apps/calculate-utils:desktop - Includes module for desktop configuration.
 sys-apps/calculate-utils:minimal - Use minimal depends for calculate install.
 sys-apps/calculate-utils:pxe - Enables support for PXE installation.
-sys-kernel/calculate-sources:bfq - Apply kernel patch for BFQ I/O scheduler
-sys-kernel/calculate-sources:bfs - Apply kernel patch for BF scheduler
-sys-kernel/calculate-sources:firmware - Install linux kernel firmware
-sys-kernel/calculate-sources:hardened - Apply Gentoo's hardened patchset
-sys-kernel/calculate-sources:themes - Adds Calculate themes dependence
 sys-kernel/calculate-sources:vmlinuz - Build kernel, modules and initramfs
