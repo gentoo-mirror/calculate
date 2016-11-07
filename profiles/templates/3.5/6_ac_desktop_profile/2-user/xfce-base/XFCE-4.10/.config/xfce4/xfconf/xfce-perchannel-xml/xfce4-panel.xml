@@ -5,7 +5,7 @@
   <property name="panels" type="uint" value="2">
     <property name="panel-0" type="empty">
       <property name="position" type="string" value="p=6;x=0;y=0"/>
-      <property name="size" type="uint" value="32"/>
+      <property name="size" type="uint" value="#-ini(profile.wm-panel-main-size)-#"/>
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="plugin-ids" type="array">
@@ -32,10 +32,16 @@
         <value type="int" value="2"/>
       </property>
       <property name="background-alpha" type="uint" value="95"/>
+      <property name="mode" type="uint" value="0"/>
+#?ini(profile.wm-panel-main-autohide)!=on#
+      <property name="autohide-behavior" type="uint" value="0"/>
+#!ini#
+      <property name="autohide-behavior" type="uint" value="2"/>
+#ini#
     </property>
     <property name="panel-1" type="empty">
       <property name="position" type="string" value="p=10;x=0;y=0"/>
-      <property name="size" type="uint" value="56"/>
+      <property name="size" type="uint" value="#-ini(profile.wm-panel-menu-size)-#"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="plugin-ids" type="array">
 #?exists(~/.config/xfce4/panel/launcher-30/10000000030.desktop)!=#
@@ -82,8 +88,13 @@
 #exists#
       </property>
       <property name="length" type="uint" value="10"/>
-      <property name="autohide" type="bool" value="true"/>
       <property name="background-alpha" type="uint" value="95"/>
+      <property name="mode" type="uint" value="0"/>
+#?ini(profile.wm-panel-menu-autohide)!=on#
+      <property name="autohide-behavior" type="uint" value="0"/>
+#!ini#
+      <property name="autohide-behavior" type="uint" value="2"/>
+#ini#
     </property>
   </property>
   <property name="plugins" type="empty">
