@@ -10,7 +10,7 @@ image-source='directory:///usr/share/backgrounds/calculate'
 
 [cinnamon/desktop/interface]
 cursor-theme='Calculate'
-font-name='Droid Sans 10'
+font-name='Droid Sans #-ini(profile.font-size)-#'
 icon-theme='Calculate'
 
 [cinnamon/desktop/keybindings/wm]
@@ -41,7 +41,7 @@ lock-enabled=false
 #os_root_type#
 
 [cinnamon/desktop/wm/preferences]
-titlebar-font='Droid Sans Bold 10'
+titlebar-font='Droid Sans Bold #-ini(profile.font-size)-#'
 
 [cinnamon/muffin]
 edge-tiling=false
@@ -64,7 +64,7 @@ menus-have-icons=true
 name='Calculate'
 
 [nemo/desktop]
-font='Droid Sans 10'
+font='Droid Sans #-ini(profile.font-size)-#'
 #?env(client.os_remote_auth)==||ur_domain_set==off#
 home-icon-visible=true
 #env#
@@ -73,8 +73,8 @@ home-icon-visible=true
 click-policy='single'
 
 [gnome/desktop/interface]
-document-font-name='Droid Sans 10'
-monospace-font-name='Droid Sans Mono Slashed 10'
+document-font-name='Droid Sans #-ini(profile.font-size)-#'
+monospace-font-name='Droid Sans Mono Slashed #-ini(profile.font-size)-#'
 
 [gnome/libgnomekbd/desktop]
 default-group=0

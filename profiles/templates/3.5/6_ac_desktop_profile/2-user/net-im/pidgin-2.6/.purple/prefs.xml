@@ -14,7 +14,7 @@
 		<pref name='conversations'>
 			<pref name='minimum_entry_lines' type='int' value='5'/>
 			<pref name='use_theme_font' type='bool' value='0'/>
-			<pref name='custom_font' type='string' value='Droid Sans 10'/>
+			<pref name='custom_font' type='string' value='Droid Sans #-ini(profile.font-size)-#'/>
 			<pref name='im'>
 				<pref name='hide_new' type='string' value='always'/>
 				<pref name='close_immediately' type='bool' value='0'/>

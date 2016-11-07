@@ -4,10 +4,10 @@
 style=Windows
 # шрифт
 #?pkg(media-fonts/droid)!=#
-font=Droid Sans,10,-1,5,50,0,0,0,0,0
+font=Droid Sans,#-ini(profile.font-size)-#,-1,5,50,0,0,0,0,0
 #pkg#
 #?pkg(media-fonts/droid)==#
-font=Verdana,10,-1,5,50,0,0,0,0,0
+font=Verdana,#-ini(profile.font-size)-#,-1,5,50,0,0,0,0,0
 #pkg#
 # цветовое оформление
 [Palette]
