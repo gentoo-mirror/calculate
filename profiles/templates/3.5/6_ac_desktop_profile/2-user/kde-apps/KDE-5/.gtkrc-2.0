@@ -6,7 +6,7 @@ style "user-font"
 	font_name="Droid Sans Regular"
 }
 widget_class "*" style "user-font"
-gtk-font-name="Droid Sans Regular 10"
+gtk-font-name="Droid Sans Regular #-ini(profile.font-size)-#"
 gtk-theme-name="Breeze"
 gtk-icon-theme-name="breeze"
 gtk-fallback-icon-theme="breeze"

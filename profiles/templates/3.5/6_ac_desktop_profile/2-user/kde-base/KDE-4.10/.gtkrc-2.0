@@ -7,7 +7,7 @@ style "user-font"
     font_name="Droid Sans"
 }
 widget_class "*" style "user-font"
-gtk-font-name="Droid Sans 10"
+gtk-font-name="Droid Sans #-ini(profile.font-size)-#"
 gtk-theme-name="oxygen-gtk"
 gtk-icon-theme-name="oxygen"
 gtk-fallback-icon-theme="oxygen"

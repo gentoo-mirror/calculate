@@ -8,15 +8,15 @@ emoticonsTheme=KMess-Cartoon
 BrowserApplication[$e]=calculate-browser.desktop
 XftHintStyle=hintmedium
 #?pkg(media-fonts/droid)!=#
-desktopFont=Droid Sans,10,-1,5,50,0,0,0,0,0
-fixed=Droid Sans Mono Slashed,10,-1,5,50,0,0,0,0,0
-font=Droid Sans,10,-1,5,50,0,0,0,0,0
-menuFont=Droid Sans,10,-1,5,50,0,0,0,0,0
+desktopFont=Droid Sans,#-ini(profile.font-size)-#,-1,5,50,0,0,0,0,0
+fixed=Droid Sans Mono Slashed,#-ini(profile.font-size)-#,-1,5,50,0,0,0,0,0
+font=Droid Sans,#-ini(profile.font-size)-#,-1,5,50,0,0,0,0,0
+menuFont=Droid Sans,#-ini(profile.font-size)-#,-1,5,50,0,0,0,0,0
 smallestReadableFont=Droid Sans,8,-1,5,50,0,0,0,0,0
-taskbarFont=Droid Sans,10,-1,5,50,0,0,0,0,0
+taskbarFont=Droid Sans,#-ini(profile.font-size)-#,-1,5,50,0,0,0,0,0
 toolBarFont=Droid Sans,8,-1,5,50,0,0,0,0,0
 [WM]
-activeFont=Droid Sans,10,-1,5,75,0,0,0,0,0
+activeFont=Droid Sans,#-ini(profile.font-size)-#,-1,5,75,0,0,0,0,0
 #pkg#
 #?pkg(media-fonts/droid)==#
 desktopFont=Verdana,10,-1,5,50,0,0,0,0,0
