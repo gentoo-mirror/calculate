@@ -20,3 +20,6 @@ net-p2p/bitcoin-qt ljr
 
 # required by sci-libs/scipy-0.16.1
 dev-python/numpy lapack
+
+# required by dev-python/pytables-3.1.1-r2
+dev-libs/c-blosc hdf5
