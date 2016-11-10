@@ -291,8 +291,8 @@ calculate-utils-r1_pkg_preinst() {
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
 	if use qt4
 	then
-		dosym /usr/bin/cl-console-gui /usr/bin/cl-console-gui-install
-		dosym /usr/bin/cl-console-gui /usr/bin/cl-console-gui-update
+		dosym /usr/lib/python-exec/python2.7/cl-console-gui /usr/bin/cl-console-gui-install
+		dosym /usr/lib/python-exec/python2.7/cl-console-gui /usr/bin/cl-console-gui-update
 	fi
 }
 
