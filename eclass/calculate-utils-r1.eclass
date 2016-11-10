@@ -285,10 +285,15 @@ python_install() {
 }
 
 calculate-utils-r1_pkg_preinst() {
-	dosym /usr/sbin/cl-core /usr/sbin/cl-core-setup
-	dosym /usr/sbin/cl-core /usr/sbin/cl-core-patch
-	dosym /usr/sbin/cl-core /usr/sbin/cl-update
-	dosym /usr/sbin/cl-core /usr/sbin/cl-update-profile
+	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
+	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
+	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
+	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
+	if use qt4
+	then
+		dosym /usr/bin/cl-console-gui /usr/sbin/cl-console-gui-install
+		dosym /usr/bin/cl-console-gui /usr/sbin/cl-console-gui-update
+	fi
 }
 
 calculate-utils-r1_pkg_postinst() {
