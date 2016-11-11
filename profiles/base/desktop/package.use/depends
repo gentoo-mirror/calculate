@@ -17,3 +17,13 @@ media-sound/pulseaudio gnome
 
 # linguas_nl_NL? ( ljr ) 
 net-p2p/bitcoin-qt ljr
+
+# required by sci-libs/scipy-0.16.1
+dev-python/numpy lapack
+
+# required by dev-python/pytables-3.1.1-r2
+dev-libs/c-blosc hdf5
+
+# The following REQUIRED_USE flag constraints are unsatisfied:
+# threads? ( !cxx !fortran )
+sci-libs/hdf5 -threads

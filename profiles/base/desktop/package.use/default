@@ -342,10 +342,6 @@ net-misc/remmina ssh freerdp vte
 # required by net-misc/remmina-1.2.0_rc3-r1, x11-drivers/xf86-video-ati-7.6.1
 x11-base/xorg-server kdrive glamor
 
-# The following REQUIRED_USE flag constraints are unsatisfied:
-# threads? ( !cxx !fortran )
-sci-libs/hdf5 -threads
-
 # Build cycles renderer
 media-gfx/blender cycles
 
@@ -505,3 +501,6 @@ net-irc/quassel postgres qt5
 
 # enable support for mobile broadband devices
 gnome-extra/nm-applet modemmanager
+
+# support an image loading and rendering
+app-admin/conky imlib
