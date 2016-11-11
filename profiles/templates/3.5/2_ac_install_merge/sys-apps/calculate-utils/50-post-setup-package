@@ -10,6 +10,7 @@
 #      http://www.apache.org/licenses/LICENSE-2.0
 
 CL_UPDATE_PROG=/usr/sbin/cl-core-setup
+[[ -f $CL_UPDATE_PROG ]] || CL_UPDATE_PROG=/usr/bin/cl-core-setup
 
 post_setup_package() {
 	if [ -f ${CL_UPDATE_PROG} ] && [[ -f  /var/lib/calculate/-postmerge ]] && check_skip
