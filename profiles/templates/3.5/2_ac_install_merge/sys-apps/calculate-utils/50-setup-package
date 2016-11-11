@@ -1,4 +1,4 @@
-# Calculate comment=#
+# Calculate comment=# protected
 # vim: set syntax=sh
 
 # Copyright 2014-2015 Calculate Ltd. http://www.calculate-linux.org
@@ -10,6 +10,7 @@
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
 CL_UPDATE_PROG=/usr/sbin/cl-core-setup
+[[ -f $CL_UPDATE_PROG ]] || CL_UPDATE_PROG=/usr/bin/cl-core-setup
 [[ -d /var/lib/calculate ]] || mkdir /var/lib/calculate
 
 clear_systemd() {
