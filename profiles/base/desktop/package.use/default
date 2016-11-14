@@ -5,13 +5,14 @@ sys-apps/calculate-utils backup client desktop console qt4
 sys-kernel/calculate-sources themes
 
 # need for splashutils
-sys-libs/zlib static-libs
-media-libs/libjpeg-turbo static-libs
-virtual/jpeg static-libs
 app-arch/bzip2 static-libs
-sys-libs/gpm static-libs
-media-libs/libpng static-libs
+app-misc/neofetch -X
 media-libs/freetype static-libs
+media-libs/libjpeg-turbo static-libs
+media-libs/libpng static-libs
+sys-libs/gpm static-libs
+sys-libs/zlib static-libs
+virtual/jpeg static-libs
 
 # support caja
 app-arch/engrampa caja
