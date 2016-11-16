@@ -9,17 +9,18 @@ UTILS_PV="3.5.0_alpha2"
 
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.0_alpha15"
+	["lib"]="3.5.0_alpha16"
 	["install"]="3.5.0_alpha6"
-	["core"]="3.5.0_alpha14"
+	["core"]="3.5.0_alpha15"
+	["i18n"]="3.5.0_alpha3"
 	["client"]="3.5.0_alpha5"
 	["desktop"]="3.5.0_alpha3"
-	["console"]="3.5.0_alpha6"
-	["console-gui"]="3.5.0_alpha17"
+	["console"]="3.5.0_alpha7"
+	["console-gui"]="3.5.0_alpha18"
 	["update"]="3.5.0_alpha3"
 	["builder"]="3.5.0_alpha3"
-	["ldap"]="3.5.0_alpha6"
-	["unix"]="3.5.0_alpha3"
+	["ldap"]="3.5.0_alpha7"
+	["unix"]="3.5.0_alpha4"
 )
 
 inherit calculate-utils-r1
