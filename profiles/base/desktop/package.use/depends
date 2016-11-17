@@ -29,7 +29,7 @@ dev-libs/c-blosc hdf5
 sci-libs/hdf5 -threads
 
 # required by dev-qt/qtwayland-5.6.1
-dev-qt/qtgui egl
+dev-qt/qtgui:5 egl
 
 # required by kde-frameworks/kwayland-5.28.0
 dev-qt/qtwayland egl
