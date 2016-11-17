@@ -5,7 +5,6 @@ app-emulation/aqemu
 app-emulation/bochs
 app-emulation/cloud-init
 app-emulation/coldfire
-app-emulation/containerd
 app-emulation/dinero
 app-emulation/dlx
 app-emulation/domi
@@ -58,15 +57,11 @@ app-emulation/virtualbox-guest-additions
 app-emulation/virtualbox-modules
 app-emulation/virt-viewer
 app-emulation/virt-what
-app-emulation/vmware-modules
 app-emulation/vmware-tools
 app-emulation/vpcs
 app-emulation/wine
 app-emulation/winetricks
 app-emulation/x48
-app-emulation/xen
-app-emulation/xen-pvgrub
-app-emulation/xen-tools
 app-emulation/xtrs
 games-emulation/desmume
 games-emulation/dosbox
@@ -77,12 +72,17 @@ sci-visualization/qtiplot
 #in#
 
 #?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
+app-emulation/containerd
 app-emulation/docker
 app-emulation/docker-compose
 app-emulation/docker-machine
 app-emulation/docker-registry
 app-emulation/docker-swarm
 app-emulation/lxd
+app-emulation/vmware-modules
 app-emulation/vmware-workstation
+app-emulation/xen
+app-emulation/xen-pvgrub
+app-emulation/xen-tools
 sys-apps/firejail
 #in#
