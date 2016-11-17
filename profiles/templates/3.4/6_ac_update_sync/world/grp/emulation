@@ -26,7 +26,7 @@ app-emulation/libvirt-glib
 app-emulation/libvirt-snmp
 app-emulation/lxc
 app-emulation/open-vm-tools
-app-emulation/open-vm-tools-kmod
+#app-emulation/open-vm-tools-kmod
 app-emulation/playonlinux
 app-emulation/q4wine
 app-emulation/qemu
@@ -34,7 +34,6 @@ app-emulation/qemu-guest-agent
 app-emulation/qemu-init-scripts
 app-emulation/qtemu
 app-emulation/rkt
-app-emulation/runv
 app-emulation/s6-overlay
 app-emulation/simh
 app-emulation/ski
@@ -78,6 +77,7 @@ app-emulation/docker-registry
 app-emulation/docker-swarm
 app-emulation/lxd
 app-emulation/runc
+app-emulation/runv
 app-emulation/vmware-modules
 app-emulation/vmware-tools
 app-emulation/vmware-workstation
