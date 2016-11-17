@@ -27,3 +27,9 @@ dev-libs/c-blosc hdf5
 # The following REQUIRED_USE flag constraints are unsatisfied:
 # threads? ( !cxx !fortran )
 sci-libs/hdf5 -threads
+
+# required by dev-qt/qtwayland-5.6.1
+dev-qt/qtgui egl
+
+# required by kde-frameworks/kwayland-5.28.0
+dev-qt/qtwayland egl
