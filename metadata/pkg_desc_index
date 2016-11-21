@@ -1,53 +1,17 @@
-app-antivirus/clamav 0.99-r1: Clam Anti-Virus Scanner
-app-arch/engrampa 1.14.1: Engrampa archive manager for MATE
-app-arch/unzip 6.0-r10: unzipper for pkzip-compressed files
 app-cdr/dumpet 2.1: A tool to dump and debug bootable CD-like images
 app-crypt/shim-signed 0.2: UEFI Shim bootloader for SecureBoot signed by Microsoft
 app-dicts/stardict-calculate-ru 1.0: The collection of Russian-English dictionaries
-app-editors/pluma 1.14.0: Pluma text editor for the MATE desktop
-app-misc/media-player-info 17-r1: A repository of data files describing media player capabilities
 app-misc/xorg-meta 7.4-r2: Calculate Linux (Xorg meta package)
-app-text/atril 1.14.1: Atril document viewer for MATE
 app-text/wgetpaste 2.22-r1 2.25-r4: Command-line interface to various pastebins
-dev-libs/libmateweather 1.14.0: MATE library to access weather information from online services
 dev-python/m2crypto 0.22.3-r9: M2Crypto: A Python crypto and SSL toolkit
 dev-python/pymilter 0.9.3: The package of Python milters that wraps the C libmilter library.
 dev-python/soaplib 1.0.0-r2: A simple library for writing soap web services.
-dev-util/eric 5.5.2-r1: A full featured Python IDE using PyQt4 and QScintilla
 games-action/oolite 1.84: Elite space trading & warfare remake
 games-util/steam-launcher 1.0.0.52: Installer, launcher and supplementary files for Valve's Steam client
-kde-misc/kde-gtk-config 2.2.1-r1: KDE systemsettings kcm to set GTK application look&feel
-lxqt-base/lxqt-session 0.10.0-r9: LXQT session manager
-mail-client/claws-mail 3.13.2-r9: An email client (and news reader) based on GTK+
-mate-base/caja 1.14.1: Caja file manager for the MATE desktop
-mate-base/libmatekbd 1.14.0: MATE keyboard configuration library
-mate-base/mate 1.12.0 1.12.0-r1: Meta ebuild for MATE, a traditional desktop environment
-mate-base/mate-applets 1.14.0 1.14.0-r1: Applets for the MATE Desktop and Panel
-mate-base/mate-common 1.14.0: Common files for development of MATE packages
-mate-base/mate-control-center 1.14.0: The MATE Desktop configuration tool
-mate-base/mate-desktop 1.14.1: Libraries for the MATE desktop that are not part of the UI
-mate-base/mate-menus 1.14.0: MATE menu system, implementing the F.D.O cross-desktop spec
-mate-base/mate-panel 1.14.1: The MATE panel
-mate-base/mate-session-manager 1.14.0: MATE session manager
-mate-base/mate-settings-daemon 1.14.0: MATE Settings Daemon
-mate-base/mdm 2.0.4 2.0.5: Mate Display Manager
-mate-extra/caja-dropbox 1.14.0-r1: Store, Sync and Share Files Online
-mate-extra/caja-extensions 1.14.0: Several Caja extensions
 mate-extra/mate-calc 1.8.0: A calculator application for MATE
-mate-extra/mate-media 1.14.0: Multimedia related programs for the MATE desktop
-mate-extra/mate-polkit 1.14.0: A MATE specific DBUS session bus service that is used to bring up authentication dialogs
-mate-extra/mate-power-manager 1.14.0: A session daemon for MATE that makes it easy to manage your laptop or desktop system
-mate-extra/mate-screensaver 1.14.1: Replaces xscreensaver, integrating with the MATE desktop
-mate-extra/mate-sensors-applet 1.14.0: MATE panel applet to display readings from hardware sensors
-mate-extra/mate-system-monitor 1.14.0: The MATE System Monitor
-mate-extra/mate-user-guide 1.14.0: MATE user-guide
-mate-extra/mate-user-share 1.14.0: Personal file sharing for the MATE desktop
-mate-extra/mate-utils 1.14.0: Utilities for the MATE desktop
-mate-extra/mintmenu 5.6.4 5.6.5: MintMenu supports filtering, favorites, easy-uninstallation, autosession, and many other features.
 media-gfx/calculate-wallpapers 14-r2 15: Wallpapers for Calculate Linux
 media-gfx/cinnamon-themes-calculate 15: Cinnamon theme for Calculate Linux
 media-gfx/dm-themes-calculate 13 14-r2 15: Wallpapers for Calculate Linux
-media-gfx/eom 1.14.1: The MATE image viewer
 media-gfx/gdm-themes-calculate 13: Gdm theme for Calculate Linux
 media-gfx/gfxboot 4.4.3: tool to test and create graphical boot logos
 media-gfx/gfxboot-themes-calculate 15 15-r2 15-r3: Gfxboot themes for Calculate Linux
@@ -59,19 +23,13 @@ media-gfx/plasma-themes-calculate 15: Plasma theme for Calculate Linux
 media-gfx/plymouth-themes-calculate 14-r4 15: Plymouth themes for Calculate Linux
 media-gfx/splash-themes-calculate 15-r3: Calculate Linux theme for gensplash
 media-gfx/syslinux-themes-calculate 13 14: Syslinux background for Calculate Linux
-media-libs/libmatemixer 1.14.0: Mixer library for MATE Desktop
 media-libs/opencv 3.1.0-r6: A collection of algorithms and sample code for various computer vision problems
-media-video/simplescreenrecorder 0.3.6 9999: A Simple Screen Recorder
-net-analyzer/mate-netspeed 1.12.0: Applet showing network traffic for MATE
-net-dns/bind 9.10.2_p3-r1 9.10.3_p2-r1 9.10.3_p4-r1: BIND - Berkeley Internet Name Domain - Name Server
-net-fs/samba 4.2.9-r1 4.2.11-r1: Samba Suite Version 4
+media-video/simplescreenrecorder 0.3.6 0.3.8 9999: A Simple Screen Recorder
+net-dns/bind 9.10.3_p4-r1: BIND - Berkeley Internet Name Domain - Name Server
 net-misc/modem-manager-gui 0.0.17 0.0.17.1 0.0.18: GUI for Modem Manager daemon.
 net-misc/networkmanager-l2tp 0.9.8.7: NetworkManager L2TP plugin
 net-print/cnijfilter 3.80: Canon InkJet Printer Driver for Linux (Pixus/Pixma-Series).
-net-print/hplip 3.16.5-r9: HP Linux Imaging and Printing - Print, scan, fax drivers and service tools
 net-print/samsung-unified-linux-driver 1.01 1.05: Samsung's proprietary printer driver binaries known as UnifiedLinuxDriver
-net-proxy/squidguard-digincore 20111116: 18+ blacklists for SquidGuard
-net-proxy/squidguard-shallalist 9999: Blacklists for SquidGuard
 sys-apps/calculate-lib 2.1.11-r5 2.1.9999: The library for Calculate 2
 sys-apps/calculate-server 2.1.16-r21 2.1.16-r22 2.1.16-r23 2.1.17 2.1.17-r1 2.1.17-r2 2.1.18 2.1.9999: Configuration utility for Linux services
 sys-apps/calculate-toolkit 0.1.7 0.1.8 0.1.9 0.1.10 9999: Collection of administration scripts for Calculate
@@ -81,7 +39,6 @@ sys-apps/keyexec 0.1.2-r4: Runs other programs with the user password, kept in t
 sys-auth/pam_client 0.2.1: Module of the waiting client daemon
 sys-auth/pam_keystore 0.1.3: Keeps a login and the password the user in the kernel
 sys-auth/pam_update 0.1.0 0.1.1 0.1.2: System authentification update checkup tool
-sys-boot/calcboot 3.86.6 4.07.0: Module calcmenu.c32 for syslinux
 sys-kernel/calculate-sources 4.1.35 4.4.33 4.8.9: Calculate Linux kernel image
 virtual/linux-sources 1: Virtual for Linux kernel sources
 virtual/mailx 1-r1: Virtual for mail implementations
@@ -89,16 +46,8 @@ virtual/modutils 0-r1: Virtual for utilities to manage Linux kernel modules
 www-plugins/chrome-ublock 0.9.8.2: An efficient blocker for Chromium
 x11-libs/libcryptui 3.12.2: User interface components for OpenPGP
 x11-misc/light-locker 1.4.0-r2: A simple locker using lightdm
-x11-misc/mate-notification-daemon 1.14.0: MATE Notification daemon
-x11-misc/mozo 1.14.0: Mozo menu editor for MATE
-x11-terms/mate-terminal 1.14.0: The MATE Terminal
 x11-themes/calculate-icon-theme 15-r6: Icons theme for Calculate Linux
 x11-themes/calculate-xcursors 13-r1 14-r1: Calculate X.Org mouse cursor
 x11-themes/claws-mail-theme-calculate 20120129: Iconset Calculate for Claws Mail
 x11-themes/elementary-icon-theme 2.7.1-r4 9999: Elementary icon theme is designed to be smooth, sexy, clear, and efficient
-x11-themes/mate-backgrounds 1.14.0: A set of backgrounds packaged with the MATE desktop
-x11-themes/mate-icon-theme 1.14.0: MATE default icon themes
-x11-themes/mate-icon-theme-faenza 1.14.0: Faenza icon theme, that was adapted for MATE desktop
-x11-themes/mate-themes 1.12.2: A set of MATE themes, with sets for users with limited or low vision
-x11-wm/marco 1.14.2: MATE default window manager
 xfce-extra/xfce4-power-manager 1.2.0: Power manager for the Xfce desktop environment
