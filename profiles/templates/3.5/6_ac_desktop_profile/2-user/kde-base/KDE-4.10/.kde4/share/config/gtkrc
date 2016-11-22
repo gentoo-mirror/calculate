@@ -8,8 +8,7 @@ style "user-font"
     # устанавливаем пользовательский шрифт
     #?pkg(media-fonts/droid)!=#
     font_name="Droid Sans #-ini(profile.font-size)-#"
-    #pkg#
-    #?pkg(media-fonts/droid)==#
+    #!pkg#
     font_name="Verdana #-ini(profile.font-size)-#"
     #pkg#
     # устанавливаем серый фон под документом  для openoffice
@@ -36,8 +35,7 @@ gtk-theme-name="qt4"
 # фонт для gtk
 #?pkg(media-fonts/droid)!=#
 gtk-font-name="Droid Sans #-ini(profile.font-size)-#"
-#pkg#
-#?pkg(media-fonts/droid)==#
+#!pkg#
 gtk-font-name="Verdana #-ini(profile.font-size)-#"
 #pkg#
 # Gtk иконки

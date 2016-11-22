@@ -26,18 +26,19 @@ stringNickname3=#-case(capitalize,ur_login)-##-ini(tmp.vm)-##-rnd(num,2)-#-#-os_
 stringNickname4=#-case(capitalize,ur_login)-##-ini(tmp.vm)-##-rnd(num,2)-#-#-os_locale_language-#
 stringRealname=#-os_linux_name-# #-os_linux_ver-# #-os_linux_subname-#
 #-ini(tmp.vm,)-#
-#?os_root_type==hdd&&hr_virtual==#
+#?hr_virtual==#
+#?os_root_type==hdd#
 stringUsername = #-os_linux_shortname-#
-#os_root_type#
-#?os_root_type!=hdd&&hr_virtual==#
+#!os_root_type#
 stringUsername = Live#-os_linux_shortname-#
 #os_root_type#
-#?os_root_type==hdd&&hr_virtual!=#
+#!hr_virtual#
+#?os_root_type==hdd#
 stringUsername = #-os_linux_shortname-#|#-hr_virtual-#
-#os_root_type#
-#?os_root_type!=hdd&&hr_virtual!=#
+#!os_root_type#
 stringUsername = Live#-os_linux_shortname-#|#-hr_virtual-#
 #os_root_type#
+#hr_virtual#
 stringQuitMessage=Get%20Calculate%20http://www.calculate-linux.org
 stringPartMessage=Easy%20Linux%20from%20the%20Source
 

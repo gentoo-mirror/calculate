@@ -6,8 +6,9 @@ Height=700
 RootItem=View0
 View0_ServiceName=khtml
 View0_ServiceType=text/html
+#?os_locale_language!=ru#
 View0_URL=http://start.calculate-linux.org
-#?os_locale_language==ru#
+#!os_locale_language#
 View0_URL=http://start.calculate-linux.ru
 #os_locale_language#
 #ширина окна браузера от экрана

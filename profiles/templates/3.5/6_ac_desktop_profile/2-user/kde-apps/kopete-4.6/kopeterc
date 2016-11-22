@@ -16,8 +16,7 @@ UseSSL=true
 # automatically connect
 #?pkg(kde-apps/kopete)<4.2#
 autoConnect=true
-#pkg#
-#?pkg(kde-apps/kopete)>=4.2#
+#!pkg#
 initialStatus=Online
 #pkg#
 

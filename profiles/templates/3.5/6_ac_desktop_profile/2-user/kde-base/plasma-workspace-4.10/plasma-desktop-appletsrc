@@ -79,9 +79,7 @@ zvalue=0
 url=file:///home/#-ur_login-#
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app)-#][LayoutInformation]
 Order=#-sum(apporder,apporder+1)-#
-#env#
-
-#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+#!env#
 [Containments][#-sum(cont,cont)-#][Applets][#-sum(app,app+1)-#]
 immutability=1
 plugin=folderview
@@ -210,8 +208,7 @@ minimumSize=#-os_x11_width-#,#-sum(panel,panel)-#
 #-sum(height,,56)-#
 #?hr_cdrom_set==on#
 #-sum(width,,height*13)-#
-#hr_cdrom_set#
-#?hr_cdrom_set==off#
+#!hr_cdrom_set#
 #-sum(width,,height*12)-#
 #hr_cdrom_set#
 #-sum(apporder,,0)-#

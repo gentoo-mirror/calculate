@@ -24,8 +24,7 @@ col=0
 row=2
 col=1
 
-#env#
-#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+#!env#
 [Home]
 row=0
 col=0

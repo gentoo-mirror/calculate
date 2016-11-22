@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.18.20&&pkg(sys-kernel/calculate-sources)<3.19&&merge(x11-drivers/nvidia-drivers)>=340&&merge(x11-drivers/nvidia-drivers)<341
+# Calculate format=diff pkg(sys-kernel/calculate-sources)=>3.18.20,3.19&&merge(x11-drivers/nvidia-drivers)=>340,341
 diff --git a/kernel/nv-pat.c b/kernel/nv-pat.c
 index d536b89..e685956 100644
 --- a/kernel/nv-pat.c

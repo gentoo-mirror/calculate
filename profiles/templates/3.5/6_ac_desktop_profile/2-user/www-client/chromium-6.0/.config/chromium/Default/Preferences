@@ -50,7 +50,7 @@
             },
             "path": "hnfhcmjkebafbfikmbkhdpbmfpfjgiog/1.0",
             "state": 1
-#?pkg(www-apps/chromium-adblock)!=&&pkg(www-apps/chromium-adblock)<2.5.61#
+#?pkg(www-apps/chromium-adblock)<>0,2.5.61#
          },
          "gighmmpiobklfepjocnamgkkbiglidom": {
             "active_permissions": {
@@ -196,8 +196,7 @@
    },
 #?os_locale_language==ru#
    "homepage": "http://start.calculate-linux.ru/",
-#os_locale_language#
-#?os_locale_language!=ru#
+#!os_locale_language#
    "homepage": "http://start.calculate-linux.org/",
 #os_locale_language#
    "homepage_is_newtabpage": false

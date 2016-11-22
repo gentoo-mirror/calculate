@@ -3,8 +3,7 @@
 <config>
 #?os_locale_language!=ru#
   <group name="Browser">
-#os_locale_language#
-#?os_locale_language==ru#
+#!os_locale_language#
   <group name="браузере">
 #os_locale_language#
 #?pkg(xfce-base/exo)!=#

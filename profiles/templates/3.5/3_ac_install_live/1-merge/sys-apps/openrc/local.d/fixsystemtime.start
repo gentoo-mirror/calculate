@@ -2,7 +2,6 @@
 # fix system time on livecd
 #?os_install_clock_type==local#
 hwclock --hctosys --localtime
-#os_install_clock_type#
-#?os_install_clock_type!=local#
+#!os_install_clock_type#
 hwclock --hctosys --utc
 #os_install_clock_type#

@@ -5,8 +5,7 @@
   <property name="Net" type="empty">
 #?main.os_linux_ver>=13#
     <property name="ThemeName" type="string" value="Calculate"/>
-#main.os_linux_ver#
-#?main.os_linux_ver<13#
+#!main.os_linux_ver#
     <property name="ThemeName" type="string" value="Adwaita"/>
 #main.os_linux_ver#
     <property name="IconThemeName" type="string" value="Calculate"/>

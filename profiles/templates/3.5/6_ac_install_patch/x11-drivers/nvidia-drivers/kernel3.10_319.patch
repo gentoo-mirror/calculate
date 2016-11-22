@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.10&&pkg(sys-kernel/calculate-sources)<3.11&&merge(x11-drivers/nvidia-drivers)>=319&&merge(x11-drivers/nvidia-drivers)<320
+# Calculate format=diff pkg(sys-kernel/calculate-sources)=>3.10,3.11&&merge(x11-drivers/nvidia-drivers)=>319,320
 diff -ur -X - NVIDIA-Linux-x86_64-319.17-no-compat32.orig/kernel/nv-i2c.c NVIDIA-Linux-x86_64-319.17-no-compat32/kernel/nv-i2c.c
 --- NVIDIA-Linux-x86_64-319.17-no-compat32.orig/kernel/nv-i2c.c	2013-04-26 00:22:30.000000000 -0400
 +++ NVIDIA-Linux-x86_64-319.17-no-compat32/kernel/nv-i2c.c	2013-05-13 05:20:55.571981365 -0400

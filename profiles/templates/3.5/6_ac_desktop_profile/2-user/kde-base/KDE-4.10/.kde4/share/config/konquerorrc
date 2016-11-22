@@ -13,7 +13,8 @@ MediumFontSize=11
 
 [UserSettings]
 #Домашняя страница
+#?os_locale_language!=ru#
 HomeURL=http://start.calculate-linux.org
-#?os_locale_language==ru#
+#!os_locale_language#
 HomeURL=http://start.calculate-linux.ru
 #os_locale_language#

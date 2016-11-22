@@ -1,4 +1,4 @@
-# Calculate format=kde pkg(sys-apps/calculate-utils:3)>=3.4.5.27
+# Calculate format=kde
 [$Version]
 update_info=konversation.upd:1.1-rememberline,konversation.upd:1.1-markerlines,konversation.upd:0.20-customfonts,konversation.upd:0.20-quickbuttons,konversation.upd:0.19-notifylists,konversation.upd:0.19-appearance,konversation.upd:0.19-browser,konversation.upd:0.19-flags,konversation.upd:0.19-highlightcolors,konversation.upd:0.19-osdcolors,konversation.upd:0.19-sortorder,konversation.upd:0.19-colors,konversation.upd:0.19-generaloptions,konversation.upd:0.19-cleanup-themes,konversation.upd:0.19-cleanup-notifylist,konversation.upd:0.19-cleanup-dcc,konversation.upd:0.19-cleanup-colors,konversation.upd:0.19-cleanup-hilightlist,konversation.upd:0.19-cleanup-notificationmessages,konversation.upd:0.19-cleanup-ledcolors,konversation.upd:0.19-cleanup-kmditaskbar,konversation.upd:0.19-channelsplitter
 
@@ -19,18 +19,19 @@ Name=#calculate
 Password=
 
 [Identity 0]
-#?os_root_type==hdd&&hr_virtual==#
+#?hr_virtual==#
+#?os_root_type==hdd#
 Ident=#-os_linux_shortname-#
-#os_root_type#
-#?os_root_type!=hdd&&hr_virtual==#
+#!os_root_type#
 Ident=Live#-os_linux_shortname-#
 #os_root_type#
-#?os_root_type==hdd&&hr_virtual!=#
+#!hr_virtual#
+#?os_root_type==hdd#
 Ident=#-os_linux_shortname-#|#-hr_virtual-#
-#os_root_type#
-#?os_root_type!=hdd&&hr_virtual!=#
+#!os_root_type#
 Ident=Live#-os_linux_shortname-#|#-hr_virtual-#
 #os_root_type#
+#hr_virtual#
 Name=Default Identity
 #?hr_virtual==virtualbox#
 #-ini(tmp.vm,VB)-#

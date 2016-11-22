@@ -6,8 +6,7 @@ LegacySaverEnabled=true
 PlasmaEnabled=false
 #?os_root_type==livecd#
 Lock=false
-#os_root_type#
-#?os_root_type!=livecd#
+#!os_root_type#
 Lock=true
 #os_root_type#
 LockGrace=60000

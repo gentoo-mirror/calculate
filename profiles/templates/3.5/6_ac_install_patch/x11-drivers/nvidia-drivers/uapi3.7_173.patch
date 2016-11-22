@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.7&&pkg(sys-kernel/calculate-sources)<3.8&&merge(x11-drivers/nvidia-drivers)>=173&&merge(x11-drivers/nvidia-drivers)<174
+# Calculate format=diff pkg(sys-kernel/calculate-sources)=>3.7,3.8&&merge(x11-drivers/nvidia-drivers)=>173,174
 diff --git a/usr/src/nv/conftest.sh b/usr/src/nv/conftest.sh
 index 29012dd..4474130 100644
 --- a/usr/src/nv/conftest.sh
