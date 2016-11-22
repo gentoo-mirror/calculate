@@ -7,14 +7,5 @@ test -f /var/db/pkg/dev-qt/qtcore-*/CONTENTS &&
    sed -i "/ \/usr\/share\/qt4\/translations/d" /var/db/pkg/dev-qt/qtcore-*/CONTENTS
 #pkg#
 #
-#?pkg(app-emulation/emul-linux-x86-bjdeps)!=#
-for delpath in /usr/lib32/libpopt.so \
-  /usr/lib32/libpopt.so.0 \
-  /usr/lib32/libpopt.so.0.0.0
-do
-test -f /var/db/pkg/app-emulation/emul-linux-x86-bjdeps-*/CONTENTS &&
-   sed -i "/ ${delpath////\/} /d" /var/db/pkg/app-emulation/emul-linux-x86-bjdeps-*/CONTENTS
-done
-#pkg#
 
 exit 0
