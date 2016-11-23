@@ -7,5 +7,5 @@
 #os_install_locale_lang#
 #?pkg(media-gfx/plymouth-themes-calculate)=>14-r2,15#
 <reg>^shutdown_background_image_filename = .*$</reg>
-<text>shutdown_background_image_filename = "#-wallpaper(#-install.os_install_fb_resolution-#,/usr/share/plymouth/themes/calculate)-#";</text>
+<text>shutdown_background_image_filename = "#-wallpaper(#-install.os_install_fb_resolution-#,/usr/share/plymouth/themes/calculate,file)-#";</text>
 #pkg#

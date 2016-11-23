@@ -2,5 +2,5 @@
 
 SOURCE=/usr/share/doc/netifrc-*/net.example.bz2
 DEST=/etc/conf.d/net.example
-[[ -f $SOURCE ]] && bzip2 -dc $SOURCE >$DEST
+[ -f $SOURCE ] && bzip2 -dc $SOURCE >$DEST
 exit 0
