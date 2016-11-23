@@ -9,8 +9,7 @@
       <property name="show-filesystem" type="bool" value="false"/>
 #?env(client.os_remote_auth)==||ur_domain_set==off#
       <property name="show-home" type="bool" value="true"/>
-#env#
-#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+#!env#
       <property name="show-home" type="bool" value="false"/>
 #env#
     </property>

@@ -1,4 +1,4 @@
-# Calculate format=diff merge(net-im/ejabberd)>=16.02&&merge(net-im/ejabberd)<16.04
+# Calculate format=diff merge(net-im/ejabberd)=>16.02,16.04
 diff --git a/src/mod_logxml.erl b/src/mod_logxml.erl
 new file mode 100644
 index 0000000..ac822c1

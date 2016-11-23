@@ -10,19 +10,18 @@ Name[ru]=Руководство по установке
 Name=Installation Guide
 Comment=
 Categories=Application;
-#?os_locale_language!=ru&&pkg(www-client/chromium)==0#
-Exec=xdg-open /usr/share/calculate/doc/handbook-en.html
-#os_locale_language#
-#?os_locale_language!=ru&&pkg(www-client/chromium)>0#
+#?os_locale_language!=ru#
+#?pkg(www-client/chromium)!=#
 Exec=chromium --app="file:///usr/share/calculate/doc/handbook-en.html"
-#os_locale_language#
-
-#?os_locale_language==ru&&pkg(www-client/chromium)==0#
-Exec=xdg-open /usr/share/calculate/doc/handbook-ru.html
-#os_locale_language#
-
-#?os_locale_language==ru&&pkg(www-client/chromium)>0#
+#!pkg#
+Exec=xdg-open /usr/share/calculate/doc/handbook-en.html
+#pkg#
+#!os_locale_language#
+#?pkg(www-client/chromium)!=#
 Exec=chromium --app="file:///usr/share/calculate/doc/handbook-ru.html"
+#!pkg#
+Exec=xdg-open /usr/share/calculate/doc/handbook-ru.html
+#pkg#
 #os_locale_language#
 Icon=text-html
 Terminal=false

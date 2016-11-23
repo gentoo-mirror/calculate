@@ -1,4 +1,4 @@
-# Calculate format=diff merge(gnome-base/gdm)>=2.20&&merge(gnome-base/gdm)<=3
+# Calculate format=diff merge(gnome-base/gdm)==2.20,3
 diff --git a/gui/gdmuser.c b/gui/gdmuser.c
 index 2dff3f6..27a169f 100644
 --- a/gui/gdmuser.c

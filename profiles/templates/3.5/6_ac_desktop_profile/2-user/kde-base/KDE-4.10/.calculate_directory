@@ -1,1 +1,1 @@
-# Calculate append=skip merge(kde-base/kdelibs)!=&&ini(update.kde)!=off&&ini(ver.kde)==&&pkg(kde-base/kdelibs)>=4.10&&pkg(kde-plasma/kwin)<5
+# Calculate append=skip mergepkg(kde-base/kdelibs)>=4.10&&ini(update.kde)!=off&&ini(ver.kde)==&&pkg(kde-plasma/kwin)<5

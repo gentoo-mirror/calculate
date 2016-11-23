@@ -8,8 +8,7 @@
         --route default:192.168.1.1 --dns 192.168.1.1"
 #?os_install_linux_system==server||os_install_linux_shortname==CLS#
 И перезапустите net.eth0 командой "/etc/init.d/net.eth0 restart".
-#os_install_linux_system#
-#?os_install_linux_system==desktop&&os_install_linux_shortname!=CLS#
+#!os_install_linux_system#
 И перезапустите NetworkManager командой "/etc/init.d/NetworkManager restart".
 #os_install_linux_system#
 
@@ -20,8 +19,7 @@ http://www.calculate-linux.org/main/ru/handbook
 
 #?os_install_linux_system==server#
 Для получения технической поддержки, выполните "irc".
-#os_install_linux_system#
-#?os_install_linux_system==desktop#
+#!os_install_linux_system#
 Пожалуйста сообщайте о любых найденных ошибках на
 http://irc.calculate-linux.ru.
 #os_install_linux_system#

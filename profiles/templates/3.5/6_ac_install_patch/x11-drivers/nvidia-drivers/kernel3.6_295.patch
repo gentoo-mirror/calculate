@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.6&&pkg(sys-kernel/calculate-sources)<3.7&&merge(x11-drivers/nvidia-drivers)>=295&&merge(x11-drivers/nvidia-drivers)<296
+# Calculate format=diff pkg(sys-kernel/calculate-sources)=>3.6,3.7&&merge(x11-drivers/nvidia-drivers)=>295,296
 --- a/kernel/nv-acpi.c
 +++ b/kernel/nv-acpi.c
 @@ -300,7 +300,11 @@ static int nv_acpi_remove(struct acpi_de

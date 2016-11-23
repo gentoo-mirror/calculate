@@ -1,4 +1,4 @@
-# Calculate merge(sys-kernel/dracut)>=37&&merge(sys-kernel/dracut)<39 format=diff
+# Calculate merge(sys-kernel/dracut)=>37,39 format=diff
 diff --git modules.d/95resume/parse-resume.sh modules.d/95resume/parse-resume.sh
 index d7b2d7f..6ab59c3 100755
 --- modules.d/95resume/parse-resume.sh

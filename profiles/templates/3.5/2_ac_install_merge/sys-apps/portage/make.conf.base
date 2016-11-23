@@ -2,8 +2,7 @@
 #?os_install_locale_language!=ru#
 # Connecting overlays layman. You should not change this setting, as this may
 # disrupt the package manager.
-#os_install_locale_language#
-#?os_install_locale_language==ru#
+#!os_install_locale_language#
 # Подключение оверлеев в layman. Вы не должны изменять этот параметр, т.к.
 # это может нарушить работу пакетного менеджера.
 #os_install_locale_language#

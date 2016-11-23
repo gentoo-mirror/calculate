@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.7&&pkg(sys-kernel/calculate-sources)<3.8&&merge(x11-drivers/nvidia-drivers)>=304&&merge(x11-drivers/nvidia-drivers)<305
+# Calculate format=diff pkg(sys-kernel/calculate-sources)=>3.7,3.8&&merge(x11-drivers/nvidia-drivers)=>304,305
 --- kernel/conftest.sh	2012-10-11 19:18:22.704848496 -0400
 +++ kernel/conftest.sh	2012-10-12 20:35:55.707213868 -0400
 @@ -20,6 +20,7 @@

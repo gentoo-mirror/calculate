@@ -58,8 +58,7 @@ selectionMarkers=false
 previews=false
 #?ur_domain_set==on#
 url=file:///home/#-ur_login-#/Home
-#ur_domain_set#
-#?ur_domain_set!=on#
+#!ur_domain_set#
 url=file:///home/#-ur_login-#
 #ur_domain_set#
 useCustomIcon=true
@@ -219,14 +218,14 @@ DialogHeight=81
 DialogWidth=#-os_x11_width-#
 
 [Containments][42][General]
-#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)==#
-AppletOrder=44;45;47;46;54;67;70;55;63;64
-#env#
-#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!=#
-AppletOrder=44;45;47;48;46;54;67;70;55;63;64
-#env#
 #?env(client.os_remote_auth)==||ur_domain_set!=on#
 AppletOrder=44;45;46;54;67;70;55;63;64
+#!env#
+#?server(ftp.host)==#
+AppletOrder=44;45;47;46;54;67;70;55;63;64
+#!server#
+AppletOrder=44;45;47;48;46;54;67;70;55;63;64
+#server#
 #env#
 
 [Containments][53]

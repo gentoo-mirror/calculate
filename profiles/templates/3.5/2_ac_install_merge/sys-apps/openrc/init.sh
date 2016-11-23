@@ -1,4 +1,4 @@
-# Calculate format=patch merge(sys-apps/openrc)!=&&pkg(sys-apps/openrc)!= path=/lib/rc/sh name=init.sh
+# Calculate format=patch mergepkg(sys-apps/openrc)!= path=/lib/rc/sh name=init.sh
 <reg>(cp -p "\$RC_LIBEXECDIR"/cache/\* "\$RC_SVCDIR" 2&gt;/dev/null
 fi
 )(

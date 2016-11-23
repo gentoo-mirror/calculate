@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.18.20&&pkg(sys-kernel/calculate-sources)<3.19&&merge(x11-drivers/ati-drivers)>=15.1&&merge(x11-drivers/ati-drivers)<15.8
+# Calculate format=diff pkg(sys-kernel/calculate-sources)=>3.18.20,3.19&&merge(x11-drivers/ati-drivers)=>15.1,15.8
 diff --git a/common/lib/modules/fglrx/build_mod/firegl_public.c b/common/lib/modules/fglrx/build_mod/firegl_public.c
 index a8961ad..1287e80 100755
 --- a/common/lib/modules/fglrx/build_mod/firegl_public.c

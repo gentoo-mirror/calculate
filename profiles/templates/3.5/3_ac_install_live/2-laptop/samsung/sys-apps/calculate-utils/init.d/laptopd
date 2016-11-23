@@ -17,8 +17,7 @@ start() {
 #?load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)!=0x8086||load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)!=0x2a42#
 	setkeycodes e008 225   # Fn+Up maps to brightnessup
 	setkeycodes e009 224   # Fn+Dn maps to brightnessdown
-#load#
-#?load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0x2a42#
+#!load#
 	setkeycodes e008 230   # Fn+Up maps to brightnessup
 	setkeycodes e009 229   # Fn+Dn maps to brightnessdown
 	/usr/bin/backlight set aa

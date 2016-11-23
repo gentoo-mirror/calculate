@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)>=3.10&&pkg(sys-kernel/calculate-sources)<3.11&&merge(net-wireless/broadcom-sta)>=6.30.223.30&&merge(net-wireless/broadcom-sta)<6.30.223.31
+# Calculate format=diff pkg(sys-kernel/calculate-sources)=>3.10,3.11&&merge(net-wireless/broadcom-sta)=>6.30.223.30,6.30.223.31
 diff -ru build.3.9/src/wl/sys/wl_linux.c build/src/wl/sys/wl_linux.c
 --- build.3.9/src/wl/sys/wl_linux.c	2013-06-18 13:48:04.109167642 +0000
 +++ build/src/wl/sys/wl_linux.c	2013-06-18 14:24:33.448198331 +0000

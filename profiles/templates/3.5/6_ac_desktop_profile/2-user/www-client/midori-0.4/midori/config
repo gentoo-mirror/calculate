@@ -14,8 +14,7 @@ toolbar-items=TabNew,Back,Forward,ReloadStop,Homepage,Panel,Location,BookmarkAdd
 load-on-startup=MIDORI_STARTUP_HOMEPAGE
 #?os_locale_language!=ru#
 homepage=http://start.calculate-linux.org
-#os_locale_language#
-#?os_locale_language==ru#
+#!os_locale_language#
 homepage=http://start.calculate-linux.ru
 #os_locale_language#
 preferred-encoding=MIDORI_ENCODING_CUSTOM

@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)>=4.3&&pkg(sys-kernel/calculate-sources)<4.5&&merge(net-wireless/broadcom-sta)>=6.30.223.271&&merge(net-wireless/broadcom-sta)<6.30.223.272&&os_arch_machine==i686
+# Calculate format=diff pkg(sys-kernel/calculate-sources)=>4.3,4.5&&merge(net-wireless/broadcom-sta)=>6.30.223.271,6.30.223.272&&os_arch_machine==i686
 diff --git a/src/shared/linux_osl.c b/src/shared/linux_osl.c
 index f879398..c098234 100644
 --- a/src/shared/linux_osl.c

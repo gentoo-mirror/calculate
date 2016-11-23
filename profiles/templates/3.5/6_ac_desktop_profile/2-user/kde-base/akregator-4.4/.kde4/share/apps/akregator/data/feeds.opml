@@ -17,8 +17,7 @@
    <outline title="DistroWatch.com: News" useCustomFetchInterval="false" version="RSS" maxArticleAge="60" description="Latest news on Linux distributions and BSD projects" htmlUrl="http://distrowatch.com/" xmlUrl="http://distrowatch.com/news/dw.xml" fetchInterval="30" type="rss" id="1493585086" archiveMode="globalDefault" maxArticleNumber="99" text="DistroWatch.com: News"/>
    <outline title="LinuxTracker" useCustomFetchInterval="false" version="RSS" maxArticleAge="60" description="Last ten linux torrents uploaded to Linuxtracker.org" htmlUrl="http://linuxtracker.org" xmlUrl="http://feeds.feedburner.com/Linuxtracker" fetchInterval="30" type="rss" id="1131344674" archiveMode="globalDefault" maxArticleNumber="99" text="LinuxTracker"/>
   </outline>
-#os_locale_language#
-#?os_locale_language==ru#
+#!os_locale_language#
   <outline isOpen="true" id="2023840312" text="Calculate Linux">
    <outline title="Планета Calculate" useCustomFetchInterval="false" version="RSS" maxArticleAge="60" description="" htmlUrl="http://www.calculate-linux.ru/blogs/ru" xmlUrl="http://www.calculate-linux.ru/blogs/ru?format=atom&amp;key=#-os_linux_shortname-##-os_linux_ver-#" fetchInterval="30" type="rss" id="1796570601" archiveMode="globalDefault" maxArticleNumber="99" text="Планета Calculate"/>
    <outline title="Форумы Calculate" useCustomFetchInterval="false" version="RSS" maxArticleAge="60" description="" htmlUrl="http://www.calculate-linux.ru/ru/projects/ru/activity?show_messages=1" xmlUrl="http://www.calculate-linux.ru/ru/projects/ru/activity.atom?key=#-os_linux_shortname-##-os_linux_ver-#&amp;show_messages=1" fetchInterval="30" type="rss" id="1816994591" archiveMode="globalDefault" maxArticleNumber="99" text="Форумы Calculate"/>

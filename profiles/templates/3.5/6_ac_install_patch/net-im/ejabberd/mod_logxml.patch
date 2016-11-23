@@ -1,4 +1,4 @@
-# Calculate format=diff merge(net-im/ejabberd)>=2&&merge(net-im/ejabberd)<3
+# Calculate format=diff merge(net-im/ejabberd)=>2,3
 diff -uNr ejabberd-2.0.2-beta1.ORIG/src/mod_logxml.erl ejabberd-2.0.2-beta1/src/mod_logxml.erl
 --- mod_logxml.erl
 +++ mod_logxml.erl

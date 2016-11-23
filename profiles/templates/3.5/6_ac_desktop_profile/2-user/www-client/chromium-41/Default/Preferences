@@ -12,8 +12,7 @@
    },
 #?os_locale_language!=ru#
    "homepage": "http://start.calculate-linux.org",
-#os_locale_language#
-#?os_locale_language==ru#
+#!os_locale_language#
    "homepage": "http://start.calculate-linux.ru",
 #os_locale_language#
    "homepage_is_newtabpage": false,

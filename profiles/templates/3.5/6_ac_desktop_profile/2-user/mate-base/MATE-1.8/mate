@@ -7,8 +7,7 @@ computer-icon-visible=false
 font='Droid Sans #-ini(profile.font-size)-#'
 #?env(client.os_remote_auth)==||ur_domain_set==off#
 home-icon-visible=true
-#env#
-#?env(client.os_remote_auth)!=&&ur_domain_set==on#
+#!env#
 home-icon-visible=false
 #env#
 trash-icon-visible=false
@@ -38,8 +37,7 @@ action='xkill'
 binding='<Primary><Alt>Escape'
 #?os_locale_lang!=ru_RU#
 name='Kill a client by its X resource'
-#os_locale_lang#
-#?os_locale_lang==ru_RU#
+#!os_locale_lang#
 name='Убить клиент X ресурса'
 #os_locale_lang#
 
@@ -48,8 +46,7 @@ action='mate-session-save --force-logout'
 binding='<Primary><Shift><Alt>Delete'
 #?os_locale_lang!=ru_RU#
 name='Log out, ignoring any existing inhibitors'
-#os_locale_lang#
-#?os_locale_lang==ru_RU#
+#!os_locale_lang#
 name='Завершить сеанс, игнорируя любые существующие препятствия'
 #os_locale_lang#
 
@@ -62,8 +59,7 @@ delay=#-ini(profile.keyboard-delay)-#
 rate=#-ini(profile.keyboard-rate)-#
 #?hr_laptop==#
 numlock-state='on'
-#hr_laptop#
-#?hr_laptop!=#
+#!hr_laptop#
 numlock-state='off'
 #hr_laptop#
 

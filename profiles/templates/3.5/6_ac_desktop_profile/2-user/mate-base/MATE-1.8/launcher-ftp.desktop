@@ -7,8 +7,7 @@ Comment=Open FTP network folder
 Comment[ru_RU]=Открыть сетевой диск FTP
 #?pkg(x11-themes/elementary-icon-theme)!=#
 Icon=folder-download
-#pkg#
-#?pkg(x11-themes/elementary-icon-theme)==#
+#!pkg#
 Icon=update-manager
 #pkg#
 URL=file:////home/#-ur_login-#/FTP
