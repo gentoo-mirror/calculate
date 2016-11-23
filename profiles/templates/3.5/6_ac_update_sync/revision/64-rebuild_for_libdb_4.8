@@ -1,32 +1,4 @@
-# Calculate ini(overlay-calculate.revision)<64 exec=/bin/bash
+# Calculate path=/etc/calculate name=ini.env format=samba ini(overlay-calculate.revision)<64 rebuild=dev-lang/perl,dev-lang/ruby,dev-libs/redland,gnome-extra/evolution-data-server,mail-filter/bogofilter,net-libs/libetpan,net-mail/mailutils,net-nds/openldap,sys-apps/iproute2,sys-libs/pam,x11-libs/libqxt,dev-libs/cyrus-sasl,net-fs/netatalk
 
-#-ini(overlay-calculate.revision,64)-#
-
-# key is pkg name, value is current version new reduced version split by space
-declare -A map_move=( ["dev-lang/perl"]="5.20.2 5.20.2_rc73"
-                      ["dev-lang/ruby"]="2.1.7 2.1.7_rc73"
-                      ["dev-lang/ruby"]="2.0.0_p647-r1 2.0.0_p647"
-                      ["dev-libs/redland"]="1.0.16 1.0.16_rc73"
-                      ["gnome-extra/evolution-data-server"]="3.16.5 3.16.5_rc73"
-                      ["mail-filter/bogofilter"]="1.2.4-r1 1.2.4_rc73"
-                      ["net-libs/libetpan"]="1.6 1.6_rc73"
-                      ["net-mail/mailutils"]="2.99.98 2.99.98_rc73"
-                      ["net-nds/openldap"]="2.4.38-r2 2.4.38_rc73"
-                      ["sys-apps/iproute2"]="4.3.0 4.3.0_rc73"
-                      ["sys-libs/pam"]="1.2.1 1.2.1_rc73"
-                      ["x11-libs/libqxt"]="0.6.2-r2 0.6.2_rc73"
-                      ["dev-libs/cyrus-sasl"]="2.1.26-r9 2.1.26_rc73"
-                      ["net-fs/netatalk"]="3.1.6 3.1.6_rc73" )
-
-PKGDB=/var/db/pkg
-for pkg in ${!map_move[@]}
-do
-    vers=(${map_move[$pkg]})
-    if [[ -d $PKGDB/${pkg}-${vers[0]} ]]
-    then
-        cp -a $PKGDB/${pkg}-${vers[0]} $PKGDB/${pkg}-${vers[1]}
-        rm -rf $PKGDB/${pkg}-${vers[0]}
-    fi
-done
-
-true
+[overlay-calculate]
+revision = 64

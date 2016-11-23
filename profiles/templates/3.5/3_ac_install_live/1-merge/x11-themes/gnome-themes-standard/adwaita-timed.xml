@@ -3,9 +3,9 @@
 <static>
 #?pkg(media-gfx/dm-themes-calculate)>=14-r1#
 #os_install_x11_resolution!=||os_install_root_type!=livecd#
-<file>/usr/share/wallpapers/Calculate-dm/contents/images/#-wallpaper(#-os_install_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#</file>
+<file>#-wallpaper(#-os_install_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#</file>
 #!os_install_x11_resolution#
-<file>/usr/share/wallpapers/Calculate-dm/contents/images/#-wallpaper(#-os_install_fb_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#</file>
+<file>#-wallpaper(#-os_install_fb_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#</file>
 #os_install_x11_resolution#
 #pkg#
 #?pkg(media-gfx/dm-themes-calculate)<>14-r1#

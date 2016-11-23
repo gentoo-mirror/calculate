@@ -1,22 +1,4 @@
-# Calculate ini(overlay-calculate.revision)<78 exec=/bin/bash
+# Calculate path=/etc/calculate name=ini.env format=samba ini(overlay-calculate.revision)<78 rebuild=kde-frameworks/kiconthemes
 
-#-ini(overlay-calculate.revision,78)-#
-
-#?pkg(kde-frameworks/kiconthemes)!=#
-declare -A map_move=( 
-        ["kde-frameworks/kiconthemes"]="5.21.0 5.21.0_rc73"
-    )
-
-PKGDB=/var/db/pkg
-for pkg in ${!map_move[@]}
-do
-    vers=(${map_move[$pkg]})
-    if [[ -d $PKGDB/${pkg}-${vers[0]} ]]
-    then
-        cp -a $PKGDB/${pkg}-${vers[0]} $PKGDB/${pkg}-${vers[1]}
-        rm -rf $PKGDB/${pkg}-${vers[0]}
-    fi
-done
-#pkg#
-
-exit 0
+[overlay-calculate]
+revision = 78

@@ -32,7 +32,7 @@ slideTimer=10
 slidepaths=/usr/share/wallpapers/
 userswallpapers=
 #?pkg(media-gfx/dm-themes-calculate)>=14-r1#
-wallpaper=/usr/share/wallpapers/Calculate-dm/contents/images/#-wallpaper(#-os_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#
+wallpaper=#-wallpaper(#-os_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#
 #pkg#
 #?pkg(media-gfx/dm-themes-calculate)<>14-r1#
 wallpaper=/usr/share/wallpapers/dm-#-os_x11_standart-#.jpg

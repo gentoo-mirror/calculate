@@ -1,15 +1,4 @@
-# Calculate ini(overlay-calculate.revision)<29 exec=/bin/bash
+# Calculate path=/etc/calculate name=ini.env format=samba ini(overlay-calculate.revision)<29 rebuild=xfce-base/xfwm4
 
-#-ini(overlay-calculate.revision,29)-#
-
-# key is pkg name, value is current version new reduced version split by space
-declare -A map_move=( ["xfce-base/xfwm4"]="4.11.2 4.11.2_rc73" )
-
-PKGDB=/var/db/pkg
-for pkg in ${!map_move[@]}
-do
-    vers=(${map_move[$pkg]})
-    [[ -d $PKGDB/${pkg}-${vers[0]} ]] && mv $PKGDB/${pkg}-${vers[0]} $PKGDB/${pkg}-${vers[1]}
-done
-
-true
+[overlay-calculate]
+revision = 29
