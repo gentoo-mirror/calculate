@@ -509,3 +509,9 @@ app-admin/conky imlib
 
 # support for suspend/resume using sys-power/upower-pm-utils
 mate-extra/mate-power-manager pm-utils
+
+# required by dev-java/netbeans-platform-8.2
+dev-java/junit source
+
+# required by dev-java/netbeans-platform-8.2
+dev-java/oracle-jdk-bin javafx
