@@ -1,4 +1,4 @@
-# Calculate load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0xa011||load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0x2a42
+# Calculate load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)==0x8086 load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0xa011||load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0x2a42
 [Data]
 DataCount=1
 

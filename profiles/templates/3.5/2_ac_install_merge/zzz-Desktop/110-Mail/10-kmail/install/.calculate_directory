@@ -1,1 +1,1 @@
-# Calculate append=skip pkg(kde-apps/kmail)!=&&ini(desktop.mail)==||pkg(kde-apps/kmail)!=&&ini(desktop.mail)==kmail
+# Calculate append=skip pkg(kde-apps/kmail)!= ini(desktop.mail)==||ini(desktop.mail)==kmail

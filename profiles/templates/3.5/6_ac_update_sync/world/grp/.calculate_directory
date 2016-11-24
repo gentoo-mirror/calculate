@@ -1,1 +1,1 @@
-# Calculate append=skip cl_update_world==merge&&os_linux_shortname==destkop||cl_update_world==merge&&os_linux_shortname==server||cl_update_world==rebuild&&os_linux_shortname==desktop||cl_update_world==rebuild&&os_linux_shortname==server
+# Calculate append=skip in(os_linux_shortname,desktop,server)!=&&in(cl_update_world,merge,rebuild)!=

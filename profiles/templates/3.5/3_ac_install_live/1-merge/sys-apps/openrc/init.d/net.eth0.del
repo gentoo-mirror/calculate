@@ -1,4 +1,4 @@
-# Calculate append=remove name=net.#-list(os_install_net_interfaces,0)-# os_install_net_conf!=openrc&&list(os_install_net_interfaces,0)!=||list(os_install_net_status,0)==off&&cl_merge_pkg!=&&list(os_install_net_interfaces,0)!=||list(os_install_net_status,0)==off&&ac_install_disk==on&&list(os_install_net_interfaces,0)!=||list(os_install_net_status,0)==off&&cl_setup==network&&list(os_install_net_interfaces,0)!=
+# Calculate append=remove name=net.#-list(os_install_net_interfaces,0)-# list(os_install_net_interfaces,0)!= os_install_net_conf!=openrc||list(os_install_net_status,0)==off&&cl_merge_pkg!=||list(os_install_net_status,0)==off&&ac_install_disk==on||list(os_install_net_status,0)==off&&cl_setup==network
 
 # Удалить файл запуска сетевой карты если (условие не является обратным):
 # сетевой интерфейс должен существовать (list(os_install_net_interfaces,0)==)

@@ -1,4 +1,4 @@
-# Calculate path=/usr/share/mate-background-properties name=calculate.xml os_install_x11_resolution!=&&pkg(mate-base/mate-session-manager)!=||os_root_type==livecd&&pkg(mate-base/mate-session-manager)!=
+# Calculate path=/usr/share/mate-background-properties name=calculate.xml pkg(mate-base/mate-session-manager)!= os_install_x11_resolution!=||os_root_type==livecd
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "mate-wp-list.dtd">
 <wallpapers>
