@@ -2,6 +2,9 @@
 
 [Midnight-Commander]
 skin=/home/#-ur_login-#/.config/mc/skins/modarcon16-defbg.ini
+#?ini(profile.editor-vi)==on#
+use_internal_edit=0
+#ini#
 
 [Layout]
 menubar_visible=0
