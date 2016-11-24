@@ -1,4 +1,4 @@
-# Calculate format=diff grep(/usr/src/linux/Makefile,VERSION\s=\s(\d+))==4&&grep(/usr/src/linux/Makefile,PATCHLEVEL\s=\s(\d+))==4&&merge(x11-drivers/ati-drivers)==15.12-r1&&os_arch_machine==i686
+# Calculate format=diff cl_install_kernel_version=>4.4,4.5&&merge(x11-drivers/ati-drivers)==15.12-r1&&os_arch_machine==i686
 diff --git a/common/lib/modules/fglrx/build_mod/firegl_public.c b/common/lib/modules/fglrx/build_mod/firegl_public.c
 index 1958cc7..c85d25f 100755
 --- a/common/lib/modules/fglrx/build_mod/firegl_public.c

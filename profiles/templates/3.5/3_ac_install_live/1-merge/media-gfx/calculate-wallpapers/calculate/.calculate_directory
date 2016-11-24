@@ -1,1 +1,1 @@
-# Calculate path=/usr/share/backgrounds os_install_x11_resolution!=&&pkg(mate-base/mate-session-manager)!=||os_install_root_type!=livecd&&pkg(mate-base/mate-session-manager)!=||os_install_x11_resolution!=&&pkg(gnome-extra/cinnamon-session)!=||os_install_root_type!=livecd&&pkg(gnome-extra/cinnamon-session)!=
+# Calculate path=/usr/share/backgrounds pkg(mate-base/mate-session-manager)!=||pkg(gnome-extra/cinnamon-session)!= os_install_x11_resolution!=||os_install_root_type!=

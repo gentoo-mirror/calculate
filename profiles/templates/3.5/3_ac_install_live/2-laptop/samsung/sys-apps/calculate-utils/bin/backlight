@@ -1,4 +1,4 @@
-# Calculate chmod=0755 comment=# load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0xa011||load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)==0x8086&&load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0x2a42
+# Calculate chmod=0755 comment=# load(char,/sys/bus/pci/devices/0000:00:02.0/vendor,root)==0x8086 load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0xa011||load(char,/sys/bus/pci/devices/0000:00:02.0/device,root)==0x2a42
 #!/bin/bash
 # increase/decrease/set/get the backlight brightness (range 0-255)
 #
