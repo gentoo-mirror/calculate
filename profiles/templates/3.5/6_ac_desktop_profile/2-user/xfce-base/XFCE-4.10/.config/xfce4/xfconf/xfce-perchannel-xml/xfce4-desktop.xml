@@ -13,7 +13,7 @@
       <property name="show-home" type="bool" value="false"/>
 #env#
     </property>
-    <property name="icon-size" type="uint" value="48"/>
+    <property name="icon-size" type="uint" value="#-ini(profile.wm-icon-size)-#"/>
     <property name="single-click" type="bool" value="true"/>
   </property>
   <property name="backdrop" type="empty">
