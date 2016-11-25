@@ -9,17 +9,17 @@ UTILS_PV="3.5.0_alpha2"
 
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.0_alpha20"
+	["lib"]="3.5.0_alpha21"
 	["install"]="3.5.0_alpha7"
 	["core"]="3.5.0_alpha15"
 	["i18n"]="3.5.0_alpha3"
 	["client"]="3.5.0_alpha5"
 	["desktop"]="3.5.0_alpha5"
 	["console"]="3.5.0_alpha7"
-	["console-gui"]="3.5.0_alpha20"
+	["console-gui"]="3.5.0_alpha21"
 	["update"]="3.5.0_alpha3"
 	["builder"]="3.5.0_alpha3"
-	["ldap"]="3.5.0_alpha7"
+	["ldap"]="3.5.0_alpha8"
 	["unix"]="3.5.0_alpha4"
 )
 
