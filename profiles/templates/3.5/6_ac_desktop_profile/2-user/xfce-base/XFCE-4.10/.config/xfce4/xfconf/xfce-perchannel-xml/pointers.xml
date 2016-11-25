@@ -3,38 +3,39 @@
 
 <channel name="pointers" version="1.0">
 #?list(cl_desktop_xfce_pointers,0)!=#
-  <property name="#-list(cl_desktop_xfce_pointers,0)!=#" version="1.0">
+  <property name="#-list(cl_desktop_xfce_pointers,0)-#" type="empty">
 #?ini(profile.mouse-lefthanded)==on#
-    <property name="RightHanded" type="bool" value="false">
+    <property name="RightHanded" type="bool" value="false"/>
+#!ini#
+    <property name="RightHanded" type="bool" value="true"/>
 #ini#
-  </preperty>
+  </property>
 #list#
 #?list(cl_desktop_xfce_pointers,1)!=#
-  <property name="#-list(cl_desktop_xfce_pointers,1)!=#" version="1.0">
+  <property name="#-list(cl_desktop_xfce_pointers,1)-#" type="empty">
 #?ini(profile.mouse-lefthanded)==on#
-    <property name="RightHanded" type="bool" value="false">
+    <property name="RightHanded" type="bool" value="false"/>
+#!ini#
+    <property name="RightHanded" type="bool" value="true"/>
 #ini#
-  </preperty>
+  </property>
 #list#
 #?list(cl_desktop_xfce_pointers,2)!=#
-  <property name="#-list(cl_desktop_xfce_pointers,2)!=#" version="1.0">
+  <property name="#-list(cl_desktop_xfce_pointers,2)-#" type="empty">
 #?ini(profile.mouse-lefthanded)==on#
-    <property name="RightHanded" type="bool" value="false">
+    <property name="RightHanded" type="bool" value="false"/>
+#!ini#
+    <property name="RightHanded" type="bool" value="true"/>
 #ini#
-  </preperty>
+  </property>
 #list#
 #?list(cl_desktop_xfce_pointers,3)!=#
-  <property name="#-list(cl_desktop_xfce_pointers,3)!=#" version="1.0">
+  <property name="#-list(cl_desktop_xfce_pointers,3)-#" type="empty">
 #?ini(profile.mouse-lefthanded)==on#
-    <property name="RightHanded" type="bool" value="false">
+    <property name="RightHanded" type="bool" value="false"/>
+#!ini#
+    <property name="RightHanded" type="bool" value="true"/>
 #ini#
-  </preperty>
-#list#
-#?list(cl_desktop_xfce_pointers,4)!=#
-  <property name="#-list(cl_desktop_xfce_pointers,4)!=#" version="1.0">
-#?ini(profile.mouse-lefthanded)==on#
-    <property name="RightHanded" type="bool" value="false">
-#ini#
-  </preperty>
+  </property>
 #list#
 </channel>
