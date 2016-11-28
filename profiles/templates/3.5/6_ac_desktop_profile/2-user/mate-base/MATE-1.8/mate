@@ -107,8 +107,8 @@ switch-to-workspace-4='<Primary>F4'
 theme='slider'
 
 [power-manager]
-sleep-computer-ac=#-ini(profile.power-computer-sleep)-#
-sleep-display-ac=#-ini(profile.power-display-sleep)-#
+sleep-computer-ac=#-sum(sleep,60*#-ini(profile.power-computer-sleep)-#)-#
+sleep-display-ac=#-sum(sleep,60*#-ini(profile.power-display-sleep)-#)-#
 
 [screensaver]
 #?ini(profile.screensaver-activation)==on&&os_root_type!=livecd#
