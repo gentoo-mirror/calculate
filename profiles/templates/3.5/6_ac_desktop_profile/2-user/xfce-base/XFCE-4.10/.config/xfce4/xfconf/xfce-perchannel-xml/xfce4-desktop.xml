@@ -14,7 +14,12 @@
 #env#
     </property>
     <property name="icon-size" type="uint" value="#-ini(profile.wm-icon-size)-#"/>
+#?ini(profile.mouse-clickpolicy)==single#
     <property name="single-click" type="bool" value="true"/>
+#ini#
+#?ini(profile.mouse-clickpolicy)!=single#
+    <property name="single-click" type="bool" value="false"/>
+#ini#
   </property>
   <property name="backdrop" type="empty">
     <property name="screen0" type="empty">
