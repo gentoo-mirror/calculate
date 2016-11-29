@@ -515,3 +515,6 @@ dev-java/junit source
 
 # required by dev-java/netbeans-platform-8.2
 dev-java/oracle-jdk-bin javafx
+
+# prevent automagic depends
+media-libs/opencv contrib_hdf
