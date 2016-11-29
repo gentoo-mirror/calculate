@@ -199,9 +199,6 @@ net-fs/cifs-utils -acl
 # raw? ( opencv ) tiff? ( opencv )
 media-gfx/nomacs opencv
 
-# required by media-gfx/nomacs [raw]
-media-libs/opencv qt4
-
 # required by app-text/qpdfview [pdf]
 # required by kde-apps/okular-15.08.3-r1::gentoo[pdf]
 app-text/poppler qt4 qt5
