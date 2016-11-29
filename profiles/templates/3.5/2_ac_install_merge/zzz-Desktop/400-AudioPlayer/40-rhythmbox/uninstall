@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(media-sound/rhythmbox)==&&ini(desktop.audioplayer)==rhythmbox
+# Calculate format=samba path=/var/lib/calculate name=ini.env ac_install_unmerge==on&&pkg(media-sound/rhythmbox)==&&ini(desktop.audioplayer)==rhythmbox
 
 [desktop]
 !audioplayer=

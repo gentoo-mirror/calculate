@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-fs/udev-init-scripts ini(overlay-calculate.remerge)<149
+# Calculate format=samba path=/var/lib/calculate name=ini.env merge=sys-fs/udev-init-scripts ini(overlay-calculate.remerge)<149
 
 [overlay-calculate]
 remerge = 149

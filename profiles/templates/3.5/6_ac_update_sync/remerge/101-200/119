@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=app-shells/bash ini(overlay-calculate.remerge)<119
+# Calculate format=samba path=/var/lib/calculate name=ini.env merge=app-shells/bash ini(overlay-calculate.remerge)<119
 
 [overlay-calculate]
 remerge = 119

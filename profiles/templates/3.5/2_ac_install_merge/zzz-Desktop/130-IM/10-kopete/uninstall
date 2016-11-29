@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(kde-apps/kopete)==&&ini(desktop.im)==kopete
+# Calculate format=samba path=/var/lib/calculate name=ini.env ac_install_unmerge==on&&pkg(kde-apps/kopete)==&&ini(desktop.im)==kopete
 
 [desktop]
 !im=
