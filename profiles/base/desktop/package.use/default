@@ -199,9 +199,6 @@ net-fs/cifs-utils -acl
 # raw? ( opencv ) tiff? ( opencv )
 media-gfx/nomacs opencv
 
-# required by media-gfx/nomacs [raw]
-media-libs/opencv qt4
-
 # required by app-text/qpdfview [pdf]
 # required by kde-apps/okular-15.08.3-r1::gentoo[pdf]
 app-text/poppler qt4 qt5
@@ -515,3 +512,6 @@ dev-java/junit source
 
 # required by dev-java/netbeans-platform-8.2
 dev-java/oracle-jdk-bin javafx
+
+# prevent automagic depends
+media-libs/opencv contrib_hdf

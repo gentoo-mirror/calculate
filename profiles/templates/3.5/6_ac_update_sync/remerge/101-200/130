@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-kernel/calculate-sources ini(overlay-calculate.remerge)<130
+# Calculate format=samba path=/var/lib/calculate name=ini.env merge=sys-kernel/calculate-sources ini(overlay-calculate.remerge)<130
 
 [overlay-calculate]
 remerge = 130

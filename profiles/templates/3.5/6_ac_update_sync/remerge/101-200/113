@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-apps/openrc,net-dns/bind,net-im/ejabberd,sys-libs/glibc,sys-fs/eudev ini(overlay-calculate.remerge)<113
+# Calculate format=samba path=/var/lib/calculate name=ini.env merge=sys-apps/openrc,net-dns/bind,net-im/ejabberd,sys-libs/glibc,sys-fs/eudev ini(overlay-calculate.remerge)<113
 
 [overlay-calculate]
 remerge = 113

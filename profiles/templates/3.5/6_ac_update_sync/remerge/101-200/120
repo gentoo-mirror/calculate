@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=kde-apps/gwenview ini(overlay-calculate.remerge)<120
+# Calculate format=samba path=/var/lib/calculate name=ini.env merge=kde-apps/gwenview ini(overlay-calculate.remerge)<120
 
 [overlay-calculate]
 remerge = 120

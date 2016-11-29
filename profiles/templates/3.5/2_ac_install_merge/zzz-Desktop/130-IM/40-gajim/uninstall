@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env ac_install_unmerge==on&&pkg(net-im/gajim)==&&ini(desktop.im)==gajim
+# Calculate format=samba path=/var/lib/calculate name=ini.env ac_install_unmerge==on&&pkg(net-im/gajim)==&&ini(desktop.im)==gajim
 
 [desktop]
 !im=

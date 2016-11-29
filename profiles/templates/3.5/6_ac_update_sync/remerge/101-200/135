@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=media-sound/volumeicon ini(overlay-calculate.remerge)<135
+# Calculate format=samba path=/var/lib/calculate name=ini.env merge=media-sound/volumeicon ini(overlay-calculate.remerge)<135
 
 [overlay-calculate]
 remerge = 135

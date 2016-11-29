@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=sys-devel/prelink ini(overlay-calculate.remerge)<109
+# Calculate format=samba path=/var/lib/calculate name=ini.env merge=sys-devel/prelink ini(overlay-calculate.remerge)<109
 
 [overlay-calculate]
 remerge = 109
