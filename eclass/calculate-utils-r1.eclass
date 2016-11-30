@@ -216,6 +216,7 @@ RDEPEND="
 
 	dev-python/pexpect[python_targets_python2_7]
 
+	!<sys-apps/calculate-lib-2.1.12
 	!sys-apps/calculate-lib:3
 	!sys-apps/calculate-i18n:3
 	!sys-apps/calculate-client:3
