@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 DEPEND="dev-libs/iniparser"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND} !>=sys-apps/calculate-utils-3.5.0_alpha38"
 
 src_compile() {
 	make CFLAGS="-Wall ${CFLAGS}" || die
