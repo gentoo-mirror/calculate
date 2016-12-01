@@ -515,3 +515,6 @@ dev-java/oracle-jdk-bin javafx
 
 # prevent automagic depends
 media-libs/opencv contrib_hdf
+
+# support for profile-guided optimization for faster binaries
+www-client/firefox pgo
