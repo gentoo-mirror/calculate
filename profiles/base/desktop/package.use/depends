@@ -33,3 +33,6 @@ dev-qt/qtgui:5 egl
 
 # required by kde-frameworks/kwayland-5.28.0
 dev-qt/qtwayland egl
+
+# required by www-client/firefox-50.0.2[pgo]
+x11-base/xorg-server xvfb
