@@ -1,0 +1,76 @@
+# Calculate comment=# pkg(sys-apps/calculate-server)!=
+# vim: set syntax=sh
+#
+# Copyright 2016 Calculate Ltd. http://www.calculate-linux.org
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+
+# added for calculate server 2.2
+# FUNC: protect_server_files
+# DESC: protect server changed files from rewrite
+
+protect_server_files() {
+    local protected_files=(
+        "${D}/etc/bind/named.conf"
+        "${D}/etc/conf.d/sortmilter"
+        "${D}/etc/dhcp/dhcpd.conf"
+        "${D}/etc/dhcp/dhcp.ldap"
+        "${D}/etc/dovecot/conf.d/10-auth.conf"
+        "${D}/etc/dovecot/conf.d/10-logging.conf"
+        "${D}/etc/dovecot/conf.d/10-mail.conf"
+        "${D}/etc/dovecot/conf.d/10-master.conf"
+        "${D}/etc/dovecot/conf.d/auth-ldap.conf.ext"
+        "${D}/etc/dovecot/conf.d/auth-system.conf.ext"
+        "${D}/etc/dovecot/dovecot.conf"
+        "${D}/etc/dovecot/dovecot-ldap.conf"
+        "${D}/etc/jabber/ejabberd.cfg"
+        "${D}/etc/jabber/ejabberd.yml"
+        "${D}/etc/openldap/schema/dnszone.schema"
+        "${D}/etc/openldap/schema/mail.schema"
+        "${D}/etc/openldap/slapd.conf"
+        "${D}/etc/postfix/ldap-aliases.cf"
+        "${D}/etc/postfix/ldap-aliases-gr.cf"
+        "${D}/etc/postfix/ldap-aliases-repl.cf"
+        "${D}/etc/postfix/ldap-recipient.cf"
+        "${D}/etc/postfix/ldap-recipient-gr.cf"
+        "${D}/etc/postfix/ldap-recipient-repl.cf"
+        "${D}/etc/postfix/main.cf"
+        "${D}/etc/procmailrc"
+        "${D}/etc/proftpd/proftpd.conf"
+        "${D}/etc/samba/smb.conf"
+        "${D}/etc/squid/squid.conf"
+        "${D}/etc/squid/squid.ldap"
+    )
+    local packages=(
+        "net-ftp/proftpd"
+        "net-fs/samba"
+        "net-mail/dovecot"
+        "net-misc/dhcp"
+        "net-dns/bind"
+        "mail-filter/procmail"
+        "net-im/ejabberd"
+        "mail-mta/postfix"
+        "net-nds/openldap"
+        "net-proxy/squid"
+    )
+    local install_pkg="${CATEGORY}/${PN}"
+    for pkg in ${packages[@]}
+    do
+        if [[ $pkg == $install_pkg ]]
+        then
+            for fn in ${protected_files[@]}
+            do
+                [[ -f $fn ]] && mv -- "$fn" "${fn}.origin"
+            done
+            break
+        fi
+    done
+}
+
+post_pkg_preinst() {
+    protect_server_files
+}
