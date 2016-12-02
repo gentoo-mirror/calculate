@@ -59,7 +59,7 @@ done
 for mdir in /bin /sbin /lib /usr/sbin /usr/bin /usr/lib /usr/libexec;do
 	umount #-cl_chroot_path-#/$mdir
 done
-#ac_arch_machine#
+#os_arch_machine#
 
 umount #-cl_chroot_path-#/proc #-cl_chroot_path-#/sys #-cl_chroot_path-#/dev
 
