@@ -9,7 +9,7 @@ UTILS_PV="3.5.0_alpha2"
 
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.0_alpha27"
+	["lib"]="3.5.0_alpha28"
 	["install"]="3.5.0_alpha9"
 	["core"]="3.5.0_alpha15"
 	["i18n"]="3.5.0_alpha3"

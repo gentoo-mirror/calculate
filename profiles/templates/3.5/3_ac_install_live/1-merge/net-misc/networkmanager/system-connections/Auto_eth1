@@ -6,7 +6,7 @@ mac-address=#-list(os_install_net_mac,1)-#
 
 [connection]
 id=#-list(os_install_net_interfaces,1)-#
-uuid=#-rnd(uuid,8)-#-#-rnd(uuid,4)-#-#-rnd(uuid,4)-#-#-rnd(uuid,4)-#-#-rnd(uuid,12)-#
+uuid=#-rnd(uuid)-#
 type=802-3-ethernet
 
 [ipv6]
