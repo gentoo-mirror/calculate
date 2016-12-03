@@ -1,2 +1,9 @@
 # required by app-emulation/docker-1.11.0[device-mapper]
 sys-libs/libseccomp static-libs
+
+# required by sys-apps/policycoreutils-2.5
+sys-libs/libsemanage python
+sys-libs/libselinux python
+
+# required by dev-python/sepolgen-1.2.3
+app-admin/setools python
