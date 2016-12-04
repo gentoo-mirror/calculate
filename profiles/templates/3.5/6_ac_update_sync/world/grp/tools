@@ -78,6 +78,7 @@ app-i18n/nabi
 app-laptop/tpb
 app-laptop/tp_smapi
 app-misc/anki
+app-misc/dvorakng
 app-misc/emelfm2
 app-misc/gtypist
 app-misc/klavaro
@@ -152,16 +153,6 @@ net-analyzer/nload
 net-analyzer/speedtest-cli
 net-fs/davfs2
 net-fs/sshfs
-net-misc/badvpn
-net-misc/clipgrab
-app-misc/dvorakng
-net-misc/iaxmodem
-net-misc/iperf
-net-misc/iperf:2
-net-misc/putty
-net-misc/quagga
-net-misc/tigervnc
-net-misc/youtube-viewer
 net-nds/shelldap
 net-news/quiterss
 net-p2p/bitcoin-qt
@@ -283,6 +274,5 @@ www-plugins/chrome-binary-plugins
 #in#
 
 #?in(os_linux_pkglist, server)!=#
-net-misc/aria2
 sys-process/cronie
 #in#
