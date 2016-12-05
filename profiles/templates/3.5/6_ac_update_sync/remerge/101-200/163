@@ -1,4 +1,4 @@
-# Calculate format=samba path=/var/lib/calculate name=ini.env merge=sys-fs/fuse ini(overlay-calculate.remerge)<163
+# Calculate format=samba name=ini.env merge=sys-fs/fuse ini(overlay-calculate.remerge)<163
 
 [overlay-calculate]
 remerge = 163

@@ -1,4 +1,4 @@
-# Calculate format=samba path=/var/lib/calculate name=ini.env merge=kde-apps/kmail,net-irc/konversation,kde-apps/kopete,app-office/libreoffice,media-gfx/gimp,kde-apps/gwenview,media-sound/amarok,media-video/smplayer,kde-apps/kwrite ini(overlay-calculate.remerge)<107
+# Calculate format=samba name=ini.env merge=kde-apps/kmail,net-irc/konversation,kde-apps/kopete,app-office/libreoffice,media-gfx/gimp,kde-apps/gwenview,media-sound/amarok,media-video/smplayer,kde-apps/kwrite ini(overlay-calculate.remerge)<107
 
 [overlay-calculate]
 remerge = 107
