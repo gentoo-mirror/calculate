@@ -9,7 +9,7 @@
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
-CL_UPDATE_PROG="/usr/bin/cl-core"
+CL_UPDATE_PROG="/usr/sbin/cl-core"
 CORE_METHOD="--method core_setup"
 [[ -d /var/lib/calculate ]] || mkdir /var/lib/calculate
 
