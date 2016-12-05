@@ -1,4 +1,4 @@
-# Calculate format=samba path=/etc/calculate name=ini.env merge=media-sound/alsa-utils ini(overlay-calculate.remerge)<170
+# Calculate format=samba name=ini.env merge=media-sound/alsa-utils ini(overlay-calculate.remerge)<#-cl_pass_file-#
 
 [overlay-calculate]
-remerge = 170
+remerge = #-cl_pass_file-#

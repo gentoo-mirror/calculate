@@ -1,4 +1,4 @@
-# Calculate format=samba path=/var/lib/calculate name=ini.env merge=sys-libs/glibc ini(overlay-calculate.remerge)<157
+# Calculate format=samba name=ini.env merge=sys-libs/glibc ini(overlay-calculate.remerge)<157
 
 [overlay-calculate]
 remerge = 157

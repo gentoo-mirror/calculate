@@ -5,6 +5,6 @@ PKGDIR="#-cl_builder_pkgdir-#"
 
 #?pkg(dev-util/ccache)!=#
 FEATURES="${FEATURES} ccache"
-CCACHE_SIZE="20G"
+CCACHE_SIZE="30G"
 CCACHE_DIR="/var/calculate/remote/tmp/ccache-#-os_builder_arch_machine-#-gcc-#-pkg(sys-devel/gcc)-#"
 #pkg#

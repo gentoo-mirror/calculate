@@ -8,7 +8,13 @@
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 
-for fn in /etc/calculate/profile.bashrc.d/*;do
+for fn in /var/lib/calculate/profile.bashrc.d/*;do
 	[[ -f $fn ]] && source ${fn} && PROFILE_BASHRC_D=1
 done
+if [[ -z ${PROFILE_BASHRC_D} ]]
+then
+    for fn in /etc/calculate/profile.bashrc.d/*;do
+        [[ -f $fn ]] && source ${fn} && PROFILE_BASHRC_D=1
+    done
+fi
 [[ -z ${PROFILE_BASHRC_D} ]] && source ${BASH_SOURCE}.old

@@ -28,6 +28,7 @@ DEPEND="=sys-apps/calculate-lib-2.1.12
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
+	!<sys-apps/calculate-utils-3.5.0_alpha44
 	!calculate_nosamba? (
 		|| ( 
 			<net-fs/samba-4[acl,client,cups,ldap,netapi,pam,server,smbclient]
@@ -57,6 +58,14 @@ DEPEND="=sys-apps/calculate-lib-2.1.12
 	!calculate_nodhcp? ( >=net-misc/dhcp-3.1.2_p1 )"
 
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# fix calculate.ldap path
+	epatch "${FILESDIR}/calculate-server-2.1.18-config_path.patch"
+}
 
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \

@@ -1,4 +1,4 @@
-# Calculate format=samba path=/var/lib/calculate name=ini.env merge=sys-kernel/dracut ini(overlay-calculate.remerge)<128
+# Calculate format=samba name=ini.env merge=sys-kernel/dracut ini(overlay-calculate.remerge)<128
 
 [overlay-calculate]
 remerge = 128
