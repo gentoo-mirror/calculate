@@ -1,4 +1,4 @@
-# Calculate format=samba path=/var/lib/calculate name=ini.env merge=x11-base/xorg-server ini(overlay-calculate.remerge)<125
+# Calculate format=samba name=ini.env merge=x11-base/xorg-server ini(overlay-calculate.remerge)<125
 
 [overlay-calculate]
 remerge = 125

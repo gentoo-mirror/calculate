@@ -9,8 +9,8 @@
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 
-CL_CORE_PATCH=/usr/sbin/cl-core-patch
-[[ -f $CL_CORE_PATCH ]] || CL_CORE_PATCH=/usr/bin/cl-core-patch
+CL_CORE_PATCH=/usr/bin/cl-core-patch
+[[ -f $CL_CORE_PATCH ]] || CL_CORE_PATCH=/usr/sbin/cl-core-patch
 
 if [[ ${EBUILD_PHASE} == "compile" ]] && [[ -d ${S} ]] && check_skip; then
 	if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-patch.list ]] ||

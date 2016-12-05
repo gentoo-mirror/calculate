@@ -14,7 +14,7 @@ DESCRIPTION="Configuration utility for Linux services"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="calculate_nomail
 calculate_nodhcp
@@ -24,11 +24,10 @@ calculate_nonamed
 calculate_nosamba
 calculate_noproxy"
 
-DEPEND="=sys-apps/calculate-lib-2.1.12
+DEPEND="=sys-apps/calculate-lib-2.1.11-r5
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
-	!<sys-apps/calculate-utils-3.5.0_alpha44
 	!calculate_nosamba? (
 		|| ( 
 			<net-fs/samba-4[acl,client,cups,ldap,netapi,pam,server,smbclient]

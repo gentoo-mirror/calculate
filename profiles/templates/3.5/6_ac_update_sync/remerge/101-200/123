@@ -1,4 +1,4 @@
-# Calculate format=samba path=/var/lib/calculate name=ini.env merge=sys-apps/baselayout,sys-boot/grub ini(overlay-calculate.remerge)<123
+# Calculate format=samba name=ini.env merge=sys-apps/baselayout,sys-boot/grub ini(overlay-calculate.remerge)<123
 
 [overlay-calculate]
 remerge = 123

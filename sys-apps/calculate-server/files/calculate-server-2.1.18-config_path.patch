@@ -1,0 +1,13 @@
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index be22774..a1d0e16 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -182,7 +182,7 @@ class iniLdapParser(cl_base.iniParser):
+     """Класс для работы c ini-файлом ldap"""
+     def __init__(self):
+         # название ini файла
+-        self.nameIniFile = "/etc/calculate/calculate.ldap"
++        self.nameIniFile = "/var/lib/calculate/calculate.ldap"
+         cl_base.iniParser.__init__(self, self.nameIniFile)
+         # права создаваемого ini-файла
+         self.setMode(0600)

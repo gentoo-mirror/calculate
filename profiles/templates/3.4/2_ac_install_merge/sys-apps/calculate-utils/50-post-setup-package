@@ -9,8 +9,9 @@
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 
-CL_UPDATE_PROG=/usr/sbin/cl-core-setup
-[[ -f $CL_UPDATE_PROG ]] || CL_UPDATE_PROG=/usr/bin/cl-core-setup
+CL_UPDATE_PROG=/usr/sbin/cl-core
+CORE_METHOD="--method core_setup"
+
 
 post_setup_package() {
 	if [ -f ${CL_UPDATE_PROG} ] && [[ -f  /var/lib/calculate/-postmerge ]] && check_skip
@@ -23,7 +24,7 @@ post_setup_package() {
 			if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
 				grep ${category}/${pkgname} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
 			then
-				CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/"
+				CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} {CORE_METHOD} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/"
 			fi
 			IFS=/
 		done < <(sort /var/lib/calculate/-postmerge | uniq)
