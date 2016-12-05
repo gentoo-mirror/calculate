@@ -10,7 +10,7 @@
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
 CL_UPDATE_PROG="/usr/bin/cl-core"
-CORE_METHOD="--method core_update"
+CORE_METHOD="--method core_setup"
 [[ -d /var/lib/calculate ]] || mkdir /var/lib/calculate
 
 clear_systemd() {
