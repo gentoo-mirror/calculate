@@ -59,6 +59,14 @@ DEPEND="=sys-apps/calculate-lib-2.1.12
 
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# fix calculate.ldap path
+	epatch "${FILESDIR}/calculate-server-2.1.18-config_path.patch"
+}
+
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \
 		[ -d /var/calculate/server-data/samba/win/profiles ] || \
