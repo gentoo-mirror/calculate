@@ -1,4 +1,4 @@
-# Calculate comment=# pkg(x11-drivers/ati-drivers)!=
+# Calculate comment=#
 # vim: set syntax=sh
 
 # Copyright 2016 Calculate Ltd. http://www.calculate-linux.org
@@ -11,7 +11,7 @@
 #
 
 post_pkg_prerm() {
-	if [[ "${CATEGORY}/${PN}" == "x11-drivers/ati-drivers" ]] && [[ "${REPLACED_BY_VERSION}" == "" ]] &&
+	if [[ "${CATEGORY}/${PN}" == "x11-drivers/ati-drivers" ]] &&
 	   [[ "$(/usr/libexec/calculate/cl-variable --value main.os_x11_video_drv)" == "fglrx" ]]
 	then
 		/usr/sbin/cl-core --method setup_video --video radeon
