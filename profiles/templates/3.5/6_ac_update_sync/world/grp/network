@@ -1,8 +1,11 @@
 # Calculate name=world format=world
 
+#?in(os_linux_pkglist, desktop, server)!=#
+net-dialup/ppp
+#in#
+
 #?in(os_linux_pkglist, desktop)!=#
 gnome-extra/nm-applet
-net-dialup/ppp
 net-dialup/pptpclient
 net-dialup/pptpd
 net-dialup/rp-pppoe
