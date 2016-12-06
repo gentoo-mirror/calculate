@@ -1,4 +1,4 @@
-# Calculate format=samba name=ini.env merge=x11-drivers/ati-drivers ini(overlay-calculate.remerge)<#-cl_pass_file-#
+# Calculate format=samba name=ini.env merge=sys-apps/calculate-utils ini(overlay-calculate.remerge)<#-cl_pass_file-#
 
 [overlay-calculate]
 remerge = #-cl_pass_file-#
