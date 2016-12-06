@@ -182,6 +182,7 @@ RDEPEND="
 	)
 
 	>=dev-python/soaplib-1.0
+	!<sys-apps/calculate-server-2.1.18-r1
 
 	desktop? (
 		media-gfx/feh
