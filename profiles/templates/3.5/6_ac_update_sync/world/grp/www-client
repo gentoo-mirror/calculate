@@ -1,0 +1,40 @@
+# Calculate name=world format=world
+
+#?in(os_linux_pkglist, desktop, server)!=#
+www-client/elinks
+www-client/links
+www-client/w3m
+#in#
+
+#?in(os_linux_pkglist, desktop)!=#
+www-client/chromium
+www-client/conkeror
+www-client/dillo
+www-client/dooble
+www-client/epiphany
+www-client/fetch
+www-client/firefox
+www-client/firefox-bin
+www-client/httrack
+www-client/lynx
+www-client/midori
+www-client/netrik
+#www-client/netsurf
+www-client/opera
+www-client/otter
+www-client/phantomjs
+www-client/pybugz
+www-client/qtweb
+www-client/qupzilla
+www-client/qutebrowser
+www-client/seamonkey
+www-client/seamonkey-bin
+www-client/surf
+www-client/surfraw
+www-client/uget
+www-client/vivaldi
+#www-client/w3mir
+#www-client/w3mmee
+#www-client/weboob
+www-client/xombrero
+#in#

@@ -1,0 +1,8 @@
+# Calculate chmod=0755 protected os_install_x11_video_drv==nvidia
+#!/bin/bash
+
+cl-setup-video --video nouveau
+
+rm /etc/local.d/nvidia-remove.*
+
+exit 0

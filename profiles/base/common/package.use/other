@@ -1,2 +1,7 @@
 # fixed to AMD CPU
 dev-libs/nettle -cpu_flags_x86_aes
+
+# -----------------------------------------
+# Removed unnecessary dependence
+# -----------------------------------------
+sci-libs/vtk tbb -video_cards_nvidia

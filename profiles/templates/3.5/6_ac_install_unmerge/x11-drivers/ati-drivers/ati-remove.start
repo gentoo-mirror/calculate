@@ -1,0 +1,8 @@
+# Calculate chmod=0755 protected os_install_x11_video_drv==fglrx
+#!/bin/bash
+
+cl-setup-video --video radeon
+
+rm /etc/local.d/ati-remove.*
+
+exit 0
