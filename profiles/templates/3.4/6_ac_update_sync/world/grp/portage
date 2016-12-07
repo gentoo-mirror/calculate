@@ -30,7 +30,6 @@ app-portage/getdelta
 app-portage/g-octave
 app-portage/gpytage
 app-portage/gpyutils
-app-portage/grs
 #app-portage/gs-elpa
 #app-portage/g-sorcery
 #app-portage/gs-pypi
@@ -55,4 +54,8 @@ app-portage/splat
 app-portage/tatt
 app-portage/ufed
 app-portage/unsandbox
+
+#?os_arch_machine==x86_64#
+app-portage/grs
+#os_arch_machine#
 #in#
