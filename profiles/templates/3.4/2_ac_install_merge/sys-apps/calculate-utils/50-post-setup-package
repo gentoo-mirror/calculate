@@ -24,7 +24,7 @@ post_setup_package() {
 			if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
 				grep ${category}/${pkgname} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
 			then
-				CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} {CORE_METHOD} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/"
+				CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} ${CORE_METHOD} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/"
 			fi
 			IFS=/
 		done < <(sort /var/lib/calculate/-postmerge | uniq)
