@@ -11,7 +11,7 @@ UTILS_PV="3.5.0_beta1"
 declare -A CALCULATE_MODULES=(
 	["install"]="3.5.0_beta2"
 	["core"]="3.5.0_beta2"
-	["console-gui"]="3.5.0_beta2"
+	["console-gui"]="3.5.0_beta3"
 	["server"]="3.5.0_beta2"
 )
 
