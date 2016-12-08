@@ -1,4 +1,4 @@
-# Calculate chmod=0755 protected os_install_x11_video_drv==nvidia
+# Calculate chmod=0755 protected grep(/etc/X11/xorg.conf,nvidia)!=
 #!/bin/bash
 
 cl-setup-video --video nouveau
