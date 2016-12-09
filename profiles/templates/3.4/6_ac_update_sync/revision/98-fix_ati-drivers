@@ -1,0 +1,9 @@
+# Calculate exec=/bin/bash ini(overlay-calculate.revision)<98 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,98)-#
+
+test -f /var/db/pkg/x11-drivers/ati-drivers-*/CONTENTS &&
+   sed -i "/lib\/modules/d" /var/db/pkg/x11-drivers/ati-drivers-*/CONTENTS
+
+
+exit 0
