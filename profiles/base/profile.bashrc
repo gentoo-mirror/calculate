@@ -1,6 +1,6 @@
 # vim: set syntax=sh
 #
-# Copyright 2014 Calculate Ltd. http://www.calculate-linux.org
+# Copyright 2016 Calculate Ltd. http://www.calculate-linux.org
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -8,13 +8,17 @@
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 
-for fn in /var/lib/calculate/profile.bashrc.d/*;do
-	[[ -f $fn ]] && source ${fn} && PROFILE_BASHRC_D=1
-done
-if [[ -z ${PROFILE_BASHRC_D} ]]
-then
-    for fn in /etc/calculate/profile.bashrc.d/*;do
-        [[ -f $fn ]] && source ${fn} && PROFILE_BASHRC_D=1
+PROFILE_BASHRC_DIRS=(/etc/calculate/profile.bashrc.d /var/lib/calculate/profile.bashrc.d)
+
+for PROFILE_BASHRC_FILE in $(( for dn in ${PROFILE_BASHRC_DIRS[@]};do ls -1 $dn 2>/dev/null;done ) | sort | uniq)
+do
+    for PROFILE_BASHRC_DN in ${PROFILE_BASHRC_DIRS[@]}
+    do
+        if [[ -f ${PROFILE_BASHRC_DN}/${PROFILE_BASHRC_FILE} ]]
+        then
+            source ${PROFILE_BASHRC_DN}/${PROFILE_BASHRC_FILE} && PROFILE_BASHRC_D=1
+            break
+        fi
     done
-fi
+done
 [[ -z ${PROFILE_BASHRC_D} ]] && source ${BASH_SOURCE}.old
