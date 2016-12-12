@@ -10,6 +10,9 @@ sys-block/fio
 sys-fs/cryptsetup
 sys-kernel/calculate-sources:4.4.37
 sys-power/powertop
+
+# magic dependence with sys-apps/hwinfo
+sys-fs/ntfs3g
 #in#
 
 #?in(os_linux_pkglist, desktop)!=#
@@ -273,7 +276,4 @@ www-plugins/chrome-binary-plugins
 
 #?in(os_linux_pkglist, server)!=#
 sys-process/cronie
-
-# magic dependence with sys-apps/hwinfo
-sys-fs/ntfs3g
 #in#
