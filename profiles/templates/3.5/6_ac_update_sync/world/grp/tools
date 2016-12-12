@@ -189,7 +189,6 @@ sys-fs/mdadm
 sys-fs/mtools
 sys-fs/mtpfs
 sys-fs/nilfs-utils
-sys-fs/ntfs3g
 sys-fs/quota
 sys-fs/reiser4progs
 sys-fs/reiserfs-defrag
@@ -274,4 +273,7 @@ www-plugins/chrome-binary-plugins
 
 #?in(os_linux_pkglist, server)!=#
 sys-process/cronie
+
+# magic dependence with sys-apps/hwinfo
+sys-fs/ntfs3g
 #in#
