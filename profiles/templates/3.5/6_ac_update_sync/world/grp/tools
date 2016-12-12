@@ -10,6 +10,9 @@ sys-block/fio
 sys-fs/cryptsetup
 sys-kernel/calculate-sources:4.4.37
 sys-power/powertop
+
+# magic dependence with sys-apps/hwinfo
+sys-fs/ntfs3g
 #in#
 
 #?in(os_linux_pkglist, desktop)!=#
@@ -189,7 +192,6 @@ sys-fs/mdadm
 sys-fs/mtools
 sys-fs/mtpfs
 sys-fs/nilfs-utils
-sys-fs/ntfs3g
 sys-fs/quota
 sys-fs/reiser4progs
 sys-fs/reiserfs-defrag
