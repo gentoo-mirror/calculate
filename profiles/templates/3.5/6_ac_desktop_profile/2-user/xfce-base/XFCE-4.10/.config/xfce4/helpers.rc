@@ -11,9 +11,6 @@ WebBrowser=chromium-browser-chromium
 #?pkg(www-client/qupzilla)!=#
 WebBrowser=qupzilla
 #pkg#
-#?#pkg(www-client/opera)==&&pkg(www-client/firefox)==&&pkg(www-client/chromium)==&&pkg(www-client/qupzilla)==#
-WebBrowser=custom-WebBrowser
-#pkg#
 
 FileManager=Thunar
 
