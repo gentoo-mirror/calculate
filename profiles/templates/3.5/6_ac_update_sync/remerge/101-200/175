@@ -1,0 +1,4 @@
+# Calculate format=samba name=ini.env merge=media-sound/alsa-utils ini(overlay-calculate.remerge)<#-cl_pass_file-#
+
+[overlay-calculate]
+remerge = #-cl_pass_file-#
