@@ -1,0 +1,4 @@
+# Calculate format=samba name=ini.env merge=net-print/hplip ini(overlay-calculate.remerge)<#-cl_pass_file-#
+
+[overlay-calculate]
+remerge = #-cl_pass_file-#
