@@ -1,0 +1,19 @@
+# Calculate format=compiz protected
+
+# Update info
+#-ini(desktop.updating, on)-#
+#-ini(desktop.browser, qutebrowser)-#
+
+[Added Associations]
+application/rss+xml=qutebrowser.desktop;
+application/vnd.mozilla.xul+xml=qutebrowser.desktop;
+application/x-font-ttx=qutebrowser.desktop;
+application/xhtml+xml=qutebrowser.desktop;
+application/xml=qutebrowser.desktop;
+application/xml-external-parsed-entity=qutebrowser.desktop;
+application/xsd=qutebrowser.desktop;
+application/xslt+xml=qutebrowser.desktop;
+application/x-ufraw=qutebrowser.desktop;
+text/html=qutebrowser.desktop;
+x-scheme-handler/http=qutebrowser.desktop;
+x-scheme-handler/https=qutebrowser.desktop;

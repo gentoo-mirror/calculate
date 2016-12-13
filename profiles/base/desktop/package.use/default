@@ -167,7 +167,7 @@ media-video/mplayer bidi live -video_cards_tdfx
 net-misc/networkmanager connection-sharing dhclient -dhcpcd modemmanager
 
 # Enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
-net-print/hplip fax snmp hpijs -X -qt4
+net-print/hplip snmp hpijs -X -qt4
 
 #To display the icons in the menu, support xdg autostart
 x11-wm/openbox imlib xdg
