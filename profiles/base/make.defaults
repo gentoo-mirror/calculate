@@ -17,7 +17,7 @@ USE="${USE} bittorrent ftp idn nfs samba"
 USE="${USE} ppp"
 
 # Office
-USE="${USE} -aspell -spell hunspell vim-syntax"
+USE="${USE} -aspell -spell hunspell"
 
 # Printing
 USE="${USE} cups foomaticdb"
