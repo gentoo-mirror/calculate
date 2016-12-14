@@ -1,0 +1,8 @@
+# Calculate path=/usr/bin comment=# chmod=755 
+#!/bin/sh
+if grep -q pulse /etc/asound.conf 2>/dev/null
+then
+	pavucontrol
+else
+	qasmixer
+fi
