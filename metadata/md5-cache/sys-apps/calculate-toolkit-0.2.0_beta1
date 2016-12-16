@@ -1,0 +1,11 @@
+DEFINED_PHASES=-
+DESCRIPTION=Collection of administration scripts for Calculate
+EAPI=5
+HOMEPAGE=http://www.calculate-linux.org
+KEYWORDS=~x86 ~amd64
+LICENSE=Apache-2.0
+RDEPEND=>=sys-apps/calculate-utils-3.5.0.2 app-arch/xz-utils
+SLOT=0
+SRC_URI=ftp://ftp.calculate-linux.org/calculate/source/calculate-toolkit/calculate-toolkit-0.2.0_beta1.tar.bz2 http://mirror.yandex.ru/calculate/source/calculate-toolkit/calculate-toolkit-0.2.0_beta1.tar.bz2
+_eclass_exported_funcs=-
+_md5_=76d3f2fbda4d9eb1dc66109b79228f8c
