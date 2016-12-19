@@ -13,6 +13,7 @@ user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.startup.homepage_override.mstone", "ignore");
 # включение новой системы HTTP кэширования, улучшает отзывчивость интерфейса
 user_pref("browser.cache.use_new_backend", 1);
+# интервал автосохранения сессии в миллисекундах
 user_pref("browser.sessionstore.interval", 60000);
 user_pref("browser.tabs.animate", false);
 # максимальное кол-во запросов в соединении
@@ -37,3 +38,5 @@ user_pref("browser.tabs.remote.autostart", true);
 # кол-во используемых процессоров
 user_pref("dom.ipc.processCount", #-hr_cpu_num-#);
 #hr_cpu_num#
+# использовать под кэш не более 50Мб
+user_pref("browser.cache.disk.capacity", 51200);
