@@ -14,6 +14,7 @@ user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.cache.use_new_backend", 1);
 user_pref("browser.sessionstore.interval", 60000);
 user_pref("browser.tabs.animate", false);
+user_pref("network.http.pipelining.max-optimistic-requests", 8);
 user_pref("network.http.pipelining.ssl", true);
 user_pref("network.http.pipelining", true);
 user_pref("network.http.proxy.pipelining", true);
