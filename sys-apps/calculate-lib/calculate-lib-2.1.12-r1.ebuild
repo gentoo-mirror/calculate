@@ -22,3 +22,11 @@ DEPEND="!<sys-apps/calculate-client-2.1.12
 		>=dev-python/python-ldap-2.0[ssl]
 		>=dev-python/pyxml-0.8"
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# fix work with calculate.env
+	epatch "${FILESDIR}/calculate-lib-2.1.12-fix_env.patch"
+}

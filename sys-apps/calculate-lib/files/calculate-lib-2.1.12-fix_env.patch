@@ -1,0 +1,37 @@
+commit 2e08c91e338af1017bab776a965df67876deec7a
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Mon Dec 19 13:06:25 2016 +0300
+
+    Исправлено использование /var/lib/calculate/calculate.env
+
+diff --git a/pym/cl_base.py b/pym/cl_base.py
+index aa79af4..52c578d 100644
+--- a/pym/cl_base.py
++++ b/pym/cl_base.py
+@@ -880,7 +880,7 @@ class DataVars(object):
+         # получаем полный путь до файла ini
+         if location == 'default':
+             name_calculate_ini = calculate_ini[3]
+-        if location == 'custom':
++        elif location == 'custom':
+             name_calculate_ini = calculate_ini[2]
+         elif location == 'local':
+             name_calculate_ini = calculate_ini[1]
+@@ -921,7 +921,7 @@ class DataVars(object):
+         # получаем полный путь до файла ini
+         if location == 'default':
+             name_calculate_ini = calculate_ini[3]
+-        if location == 'custom':
++        elif location == 'custom':
+             name_calculate_ini = calculate_ini[2]
+         elif location == 'local':
+             name_calculate_ini = calculate_ini[1]
+@@ -1033,7 +1033,7 @@ class DataVars(object):
+                         value = cl_utils.convertStrListDict(v.encode("UTF-8"))
+                         self.Set(k, value, True)
+                         importFileVars[k] = value
+-                if i < 3:
++                if i < 4:
+                     importVars[locations[i]] = importFileVars
+             i += 1
+         return importVars
