@@ -38,7 +38,6 @@ net-im/psi
 net-im/psimedia
 net-im/qutim
 net-im/skype
-net-im/skypeforlinux
 net-im/telegram-desktop-bin
 net-im/vacuum
 net-irc/hexchat
@@ -66,4 +65,7 @@ x11-misc/x11vnc
 x11-plugins/pidgin-hotkeys
 x11-plugins/pidgin-libnotify
 x11-plugins/purple-plugin_pack
+#?os_arch_machine==x86_64#
+net-im/skypeforlinux
+#os_arch_machine#
 #in#

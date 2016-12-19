@@ -36,3 +36,12 @@ dev-qt/qtwayland egl
 
 # required by www-client/firefox-50.0.2[pgo]
 x11-base/xorg-server xvfb
+
+# required by kde-apps/libkleo-16.12.0
+app-crypt/gpgme qt5
+
+# kde-apps/audiocd-kio:4" is blocking kde-apps/audiocd-kio-16.12.0
+media-sound/amarok -cdda
+
+# mikmod? ( mod )
+media-libs/sdl2-mixer mod
