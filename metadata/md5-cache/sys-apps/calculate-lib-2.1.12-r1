@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile configure install prepare test
+DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=!<sys-apps/calculate-client-2.1.12 !<sys-apps/calculate-server-2.1.11 >=dev-lang/python-2.5.2 >=dev-python/python-ldap-2.0[ssl] >=dev-python/pyxml-0.8 python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
 DESCRIPTION=The library for Calculate 2
 EAPI=5
@@ -10,6 +10,6 @@ RDEPEND=!<sys-apps/calculate-client-2.1.12 !<sys-apps/calculate-server-2.1.11 >=
 REQUIRED_USE=|| ( python_targets_python2_7 )
 SLOT=0
 SRC_URI=ftp://ftp.calculate-linux.org/calculate/source/calculate2/calculate-lib/calculate-lib-2.1.12.tar.bz2 http://mirror.yandex.ru/calculate/source/calculate2/calculate-lib/calculate-lib-2.1.12.tar.bz2
-_eclass_exported_funcs=src_prepare:distutils-r1 src_configure:distutils-r1 src_compile:distutils-r1 src_test:distutils-r1 src_install:distutils-r1
+_eclass_exported_funcs=src_unpack:- src_prepare:distutils-r1 src_configure:distutils-r1 src_compile:distutils-r1 src_test:distutils-r1 src_install:distutils-r1
 _eclasses_=distutils-r1	583a05d30524485fda6869c772682ecd	eutils	b83a2420b796f7c6eff682679d08fe25	multibuild	742139c87a9fa3766f0c2b155e5522bf	multilib	165fc17c38d1b11dac2008280dab6e80	multiprocessing	66b3bf714f8cfc1b6494db5269b4666e	python-r1	dcd61d7a5c283f18cfe763552b09eb88	python-utils-r1	d142329ab093dd20c1dd0edb5f094108	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	xdg-utils	e2b2bd56125ce8cf59ce30c642b59d48
-_md5_=81e7d383c8fed101bbeef00a61278612
+_md5_=2914283ff753457ec4e1aac8e8f4c8ae

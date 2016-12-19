@@ -1,0 +1,12 @@
+DEFINED_PHASES=unpack
+DESCRIPTION=Collection of administration scripts for Calculate
+EAPI=5
+HOMEPAGE=http://www.calculate-linux.org
+IUSE=+themes
+KEYWORDS=~x86 ~amd64
+LICENSE=Apache-2.0
+RDEPEND=>=sys-apps/calculate-utils-3.5.0.2 themes? ( media-gfx/imagemagick ) app-arch/xz-utils
+SLOT=0
+SRC_URI=ftp://ftp.calculate-linux.org/calculate/source/calculate-toolkit/calculate-toolkit-0.2.0_beta2.tar.bz2 http://mirror.yandex.ru/calculate/source/calculate-toolkit/calculate-toolkit-0.2.0_beta2.tar.bz2
+_eclass_exported_funcs=src_unpack:-
+_md5_=58f3d8ddc81d670288f8491024811ff8
