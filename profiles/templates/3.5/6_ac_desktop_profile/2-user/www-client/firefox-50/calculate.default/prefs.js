@@ -16,6 +16,7 @@ user_pref("browser.sessionstore.interval", 60000);
 user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.tabs.animate", false);
 user_pref("browser.tabs.warnOnClose", false);
+user_pref("browser.urlbar.trimURLs", false);
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("dom.enable_performance", false);
 user_pref("dom.ipc.plugins.asyncdrawing.enabled", true);
