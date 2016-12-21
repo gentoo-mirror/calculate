@@ -1,12 +1,12 @@
 DEFINED_PHASES=install
-DEPEND=~media-gfx/dm-themes-calculate-15 x11-themes/gtk-engines-murrine x11-misc/lightdm-gtk-greeter
+DEPEND=>=media-gfx/dm-themes-calculate-15 x11-themes/gtk-engines-murrine x11-misc/lightdm-gtk-greeter
 DESCRIPTION=Lightdm themes for Calculate Linux
 EAPI=4
 HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/lightdm-themes-calculate
 KEYWORDS=amd64 x86
 LICENSE=Apache-2.0
-RDEPEND=~media-gfx/dm-themes-calculate-15 x11-themes/gtk-engines-murrine x11-misc/lightdm-gtk-greeter
+RDEPEND=>=media-gfx/dm-themes-calculate-15 x11-themes/gtk-engines-murrine x11-misc/lightdm-gtk-greeter
 SLOT=0
 SRC_URI=ftp://ftp.calculate-linux.org/calculate/themes/lightdm/lightdm-calculate-15-r2.tar.bz2 http://mirror.yandex.ru/calculate/themes/lightdm/lightdm-calculate-15-r2.tar.bz2
 _eclass_exported_funcs=src_install:-
-_md5_=6944149cc8b321058a049292c4605e5e
+_md5_=61c8f7d4bc10e777b5f32ceac0641ae0

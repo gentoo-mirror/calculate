@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst setup
+DEPEND=media-gfx/splashutils media-fonts/droid !media-gfx/cld-themes !media-gfx/cldg-themes !media-gfx/cldx-themes !media-gfx/cls-themes !media-gfx/cmc-themes !media-gfx/cds-themes
+DESCRIPTION=Calculate Linux theme for gensplash
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/calculate-splash-themes
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+RDEPEND=media-gfx/splashutils media-fonts/droid !media-gfx/cld-themes !media-gfx/cldg-themes !media-gfx/cldx-themes !media-gfx/cls-themes !media-gfx/cmc-themes !media-gfx/cds-themes
+SLOT=0
+SRC_URI=ftp://ftp.calculate-linux.org/calculate/themes/splash/splash-themes-calculate-17.tar.bz2
+_eclass_exported_funcs=pkg_postinst:calculate pkg_setup:linux-info src_install:-
+_eclasses_=calculate	04be99762c6b6d4e13b61899ec59a7f6	eutils	b83a2420b796f7c6eff682679d08fe25	linux-info	af49d8ab3be91bb1d38b7201dc9e5123	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=428f414205ea0bbf6f761c6855599ea6
