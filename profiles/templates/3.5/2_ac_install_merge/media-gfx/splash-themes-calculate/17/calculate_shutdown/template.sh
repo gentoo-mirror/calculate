@@ -33,8 +33,8 @@ text_color=0xffff9c
 text_font=DroidSans.ttf
 
 #progress bar for silent mode
-box silent inter 0 ${boxtop} 0 ${height} #ffffff
-box silent 0 ${boxtop} ${width} ${height} #ffffff
+box silent inter 0 ${boxtop} 0 ${height} #ffff9c
+box silent 0 ${boxtop} ${width} ${height} #ffff9c
 
 EOF
 done

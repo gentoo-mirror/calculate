@@ -15,7 +15,7 @@ cat >$fn <<EOF
 silentpic=images/silent-${resol}.jpg
 
 # progress bar for silent mode
-box silent inter 0 ${boxtop} 0 ${height} #ffffff
-box silent 0 ${boxtop} ${width} ${height} #ffffff
+box silent inter 0 ${boxtop} 0 ${height} #da9e5c
+box silent 0 ${boxtop} ${width} ${height} #da9e5c
 EOF
 done
