@@ -8,8 +8,11 @@ user_pref("browser.fixup.alternate.suffix", ".ru");
 user_pref("browser.tabs.remote.autostart", true);
 user_pref("dom.ipc.processCount", #-hr_cpu_num-#);
 #hr_cpu_num#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on#
 user_pref("browser.cache.disk.capacity", 51200);
 user_pref("browser.cache.use_new_backend", 1);
+user_pref("browser.download.dir", "#-ini(resource.downloads)-#");
+user_pref("browser.download.folderList", 2);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.sessionhistory.max_total_viewers", 3);
 user_pref("browser.sessionstore.interval", 60000);
