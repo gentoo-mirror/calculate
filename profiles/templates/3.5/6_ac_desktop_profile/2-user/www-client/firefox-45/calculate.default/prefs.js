@@ -9,6 +9,13 @@ user_pref("browser.tabs.remote.autostart", true);
 user_pref("dom.ipc.processCount", #-hr_cpu_num-#);
 #hr_cpu_num#
 #?env(client.os_remote_auth)!=&&ur_domain_set==on#
+user_pref("dom.push.connection.enabled", false);
+user_pref("dom.push.enabled", false);
+user_pref("dom.push.serverURL", "");
+user_pref("dom.serviceWorkers.enabled", false);
+user_pref("dom.webnotifications.enabled", false);
+user_pref("dom.webnotifications.serviceworker.enabled", false);
+#env#
 user_pref("browser.cache.disk.capacity", 51200);
 user_pref("browser.cache.use_new_backend", 1);
 user_pref("browser.download.dir", "#-ini(resource.downloads)-#");
@@ -40,3 +47,7 @@ user_pref("network.http.pipelining.ssl", true);
 user_pref("network.http.pipelining", true);
 user_pref("network.http.proxy.pipelining", true);
 user_pref("privacy.trackingprotection.enabled", true);
+user_pref("toolkit.telemetry.archive.enabled", false);
+user_pref("toolkit.telemetry.cachedClientID", "");
+user_pref("toolkit.telemetry.server", "");
+user_pref("toolkit.telemetry.unified", false);
