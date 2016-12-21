@@ -9,7 +9,7 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/dm/dm-${PV}.tar.bz2
