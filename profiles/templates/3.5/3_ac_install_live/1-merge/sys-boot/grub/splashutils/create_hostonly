@@ -1,6 +1,8 @@
 # Calculate exec=/bin/bash ac_install_disk==off&&ac_install_unmerge==off&&pkg(sys-kernel/dracut)!=&&os_install_root_type!=livecd
 #!/bin/bash
 
+# the recreating of inird is performed for binary kernel only (mark .calculate in kernel sources)
+
 source /usr/share/grub/grub-mkconfig_lib
 
 get_latest_kernel() {
