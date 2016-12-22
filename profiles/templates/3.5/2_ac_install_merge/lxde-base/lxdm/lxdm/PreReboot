@@ -1,7 +1,7 @@
 # Calculate comment=# chmod=0755
 #!/bin/sh
 #
-#?module(desktop)!=#
+#?pkg(sys-apps/calculate-utils[desktop])!=#
 sleep 1
 if pgrep -f 'xdm/xdm --logout'
 then
@@ -18,6 +18,6 @@ then
 	done
 	kill -9 $XMESPID &>/dev/null
 fi
-#!module#
+#!pkg#
 # Note: this is a sample and will not be run as is.
-#module#
+#pkg#

@@ -21,13 +21,13 @@ AutoReLogin=false
 ClientLogFile=.xsession-errors-%d
 Resources=/usr/share/wallpapers/fulmine.jpg
 SessionsDirs=/usr/share/xsessions
-#?module(desktop)!=#
+#?pkg(sys-apps/calculate-utils[desktop])!=#
 Reset=/usr/share/calculate/xdm/xdm --logout
 Startup=/usr/share/calculate/xdm/xdm --login
-#!module#
+#!pkg#
 Reset=/usr/share/config/kdm/Xreset
 Startup=/usr/share/config/kdm/Xstartup
-#module#
+#pkg#
 
 [X-*-Greeter]
 AntiAliasing=true
