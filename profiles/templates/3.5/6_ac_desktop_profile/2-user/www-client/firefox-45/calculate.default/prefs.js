@@ -16,15 +16,12 @@ user_pref("dom.serviceWorkers.enabled", false);
 user_pref("dom.webnotifications.enabled", false);
 user_pref("dom.webnotifications.serviceworker.enabled", false);
 #env#
-#?os_locale_lang==ru_RU#
-user_pref("browser.search.defaultenginename", "Google");
-user_pref("browser.search.order.1", "Google");
-user_pref("browser.search.order.2", "Яндекс");
-#os_locale_lang#
 user_pref("browser.cache.disk.capacity", 51200);
 user_pref("browser.cache.use_new_backend", 1);
 user_pref("browser.download.dir", "#-ini(resource.downloads)-#");
 user_pref("browser.download.folderList", 2);
+user_pref("browser.search.defaultenginename", "Google");
+user_pref("browser.search.order.1", "Google");
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.sessionhistory.max_total_viewers", 3);
 user_pref("browser.sessionstore.interval", 60000);
