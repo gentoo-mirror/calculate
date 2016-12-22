@@ -6,7 +6,8 @@ do
     width=$( echo $resol | cut -dx -f1 )
     height=$( echo $resol | cut -dx -f2 )
     orig_height=1080
-    boxtop=$(( $height - 1 ))
+    k="$(( 1000 * $height / $orig_height ))"
+    boxtop=$(( $height - 3 * k / 1000 ))
 
 cat >$fn <<EOF
 # Calculate comment=#
@@ -15,7 +16,7 @@ cat >$fn <<EOF
 silentpic=images/silent-${resol}.jpg
 
 # progress bar for silent mode
-box silent inter 0 ${boxtop} 0 ${height} #da9e5c
-box silent 0 ${boxtop} ${width} ${height} #da9e5c
+box silent inter 0 ${boxtop} ${width} ${height} #cdc481
+box silent 0 ${boxtop} ${width} ${height} #5a1d08
 EOF
 done
