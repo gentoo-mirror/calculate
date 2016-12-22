@@ -17,11 +17,4 @@ http://www.calculate-linux.org/main/ru/handbook
 
 Для запуска ssh сервера в системе, выполните "/etc/init.d/sshd start".
 
-#?os_install_linux_system==server#
-Для получения технической поддержки, выполните "irc".
-#!os_install_linux_system#
-Пожалуйста сообщайте о любых найденных ошибках на
-http://irc.calculate-linux.ru.
-#os_install_linux_system#
-
 Спасибо за использование Calculate Linux!

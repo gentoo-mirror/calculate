@@ -1,4 +1,4 @@
-# Calculate comment=# chmod=0755 module(desktop)!=
+# Calculate comment=# chmod=0755 pkg(sys-apps/calculate-utils[desktop])!=
 #!/bin/sh
 #
 if pgrep -f 'xdm/xdm --logout'
