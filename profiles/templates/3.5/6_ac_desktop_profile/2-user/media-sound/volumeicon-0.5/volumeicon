@@ -4,12 +4,7 @@ show_notification=true
 notification_type=1
 
 [StatusIcon]
-#?install.os_audio==alsa&&pkg(media-sound/qastools)!=#
-onclick=qasmixer
-#install.os_audio#
-#?install.os_audio==pulseaudio&&pkg(media-sound/pavucontrol)!=#
-onclick=pavucontrol
-#install.os_audio#
+onclick=changemixer
 lmb_slider=true
 
 [Hotkeys]
