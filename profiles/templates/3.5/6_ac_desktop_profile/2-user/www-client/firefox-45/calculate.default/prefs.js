@@ -22,6 +22,7 @@ user_pref("browser.download.dir", "#-ini(resource.downloads)-#");
 user_pref("browser.download.folderList", 2);
 user_pref("browser.search.defaultenginename", "Google");
 user_pref("browser.search.order.1", "Google");
+user_pref("browser.search.order.2", "");
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.sessionhistory.max_total_viewers", 3);
 user_pref("browser.sessionstore.interval", 60000);
