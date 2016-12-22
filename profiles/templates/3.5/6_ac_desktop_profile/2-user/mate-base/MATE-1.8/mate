@@ -28,7 +28,11 @@ secondary-color='#000000000000'
 [desktop/interface]
 document-font-name='Droid Sans #-ini(profile.font-size)-#'
 font-name='Droid Sans #-ini(profile.font-size)-#'
+#?pkg(media-gfx/mate-themes-calculate)!=#
+gtk-theme='CalculateMate'
+#!pkg#
 gtk-theme='Calculate'
+#pkg#
 icon-theme='Calculate'
 monospace-font-name='Droid Sans Mono Slashed #-ini(profile.font-size)-#'
 
@@ -88,7 +92,11 @@ print-font='Droid Sans 12'
 
 [marco/general]
 side-by-side-tiling=false
+#?pkg(media-gfx/mate-themes-calculate)!=#
+theme='CalculateMate'
+#!pkg#
 theme='Dopple-Left'
+#pkg#
 titlebar-font='Droid Sans Bold #-ini(profile.font-size)-#'
 
 [marco/general]
