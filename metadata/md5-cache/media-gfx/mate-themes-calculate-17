@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=Mate theme for Calculate Linux
+EAPI=5
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/mate-themes-calculate
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+SLOT=0
+SRC_URI=ftp://ftp.calculate-linux.org/calculate/themes/mate/mate-themes-calculate-17.tar.bz2 http://mirror.yandex.ru/calculate/themes/plasma/mate-themes-calculate-17.tar.bz2
+_eclass_exported_funcs=src_install:-
+_md5_=52043177b61aef39f04dc8bd0b539ab0
