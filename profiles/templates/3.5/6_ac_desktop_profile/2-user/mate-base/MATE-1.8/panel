@@ -271,7 +271,7 @@ locked=true
 panel-right-stick=false
 
 [objects/object_calculator]
-launcher-location='mate-calc.desktop'
+launcher-location='calculate-calculator.desktop'
 toplevel-id='toplevel_menu'
 position=#-sum(pos,pos+1)-#
 object-type='launcher'
@@ -319,7 +319,7 @@ locked=true
 panel-right-stick=false
 
 [objects/object_terminal]
-launcher-location='mate-terminal.desktop'
+launcher-location='calculate-terminal.desktop'
 toplevel-id='toplevel_menu'
 position=#-sum(pos,pos+1)-#
 object-type='launcher'
