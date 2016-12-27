@@ -1,0 +1,9 @@
+# Calculate format=kde
+[defaults]
+Profile=Calculate
+
+[PROFILE_Calculate]
+EmailAddress=#-ur_mail-#
+FullName=#-ur_fullname-#
+Organization=#-server(mail.organization)-#
+OutgoingServer=#-server(mail.send_host)-#
