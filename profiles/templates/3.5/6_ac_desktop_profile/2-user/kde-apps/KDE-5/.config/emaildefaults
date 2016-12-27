@@ -1,9 +1,8 @@
 # Calculate format=kde
-#настройка профиля пользователя
-[Defaults]
-Profile=Default
+[defaults]
+Profile=Calculate
 
-[PROFILE_Default]
+[PROFILE_Calculate]
 EmailAddress=#-ur_mail-#
 FullName=#-ur_fullname-#
 Organization=#-server(mail.organization)-#
