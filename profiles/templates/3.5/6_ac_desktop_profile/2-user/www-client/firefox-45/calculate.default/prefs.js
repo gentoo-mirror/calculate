@@ -34,13 +34,13 @@ user_pref("media.cache_size", 0);
 user_pref("services.sync.prefs.sync.extensions.update.enabled", false);
 #!os_root_type#
 user_pref("browser.bookmarks.max_backups", 2);
+user_pref("browser.cache.disk.capacity", 102400);
 user_pref("browser.sessionstore.interval", 30000);
 #os_root_type#
 
 user_pref("beacon.enabled", false);
 user_pref("startup.homepage_welcome_url", "");
 
-user_pref("browser.cache.disk.capacity", 10240);
 user_pref("browser.cache.use_new_backend", 1);
 user_pref("browser.download.dir", "#-ini(resource.downloads)-#");
 user_pref("browser.download.folderList", 2);
