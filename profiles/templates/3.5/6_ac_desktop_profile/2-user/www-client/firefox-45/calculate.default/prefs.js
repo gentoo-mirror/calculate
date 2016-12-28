@@ -4,12 +4,10 @@ user_pref("browser.startup.homepage", "http://start.calculate-linux.org");
 user_pref("browser.startup.homepage", "http://start.calculate-linux.ru");
 user_pref("browser.fixup.alternate.suffix", ".ru");
 #os_locale_language#
-
 #?hr_cpu_num>1#
 user_pref("browser.tabs.remote.autostart", true);
 user_pref("dom.ipc.processCount", #-hr_cpu_num-#);
 #hr_cpu_num#
-
 #?env(client.os_remote_auth)!=&&ur_domain_set==on#
 user_pref("dom.push.connection.enabled", false);
 user_pref("dom.push.enabled", false);
@@ -20,16 +18,17 @@ user_pref("dom.webnotifications.serviceworker.enabled", false);
 #!env#
 user_pref("network.proxy.type", 0);
 #env#
-
 #?os_root_type==livecd#
 user_pref("app.update.auto", false);
 user_pref("browser.bookmarks.max_backups", 0);
 user_pref("browser.cache.disk_cache_ssl", false);
+user_pref("browser.cache.disk.capacity", 0);
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.cache.offline.capacity", 0);
 user_pref("browser.cache.offline.enable", false);
 user_pref("browser.search.update", false);
 user_pref("browser.sessionstore.interval", 300000);
+user_pref("dom.indexedDB.enabled", false);
 user_pref("media.cache_size", 0);
 user_pref("services.sync.prefs.sync.extensions.update.enabled", false);
 #!os_root_type#
@@ -37,14 +36,13 @@ user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.cache.disk.capacity", 102400);
 user_pref("browser.sessionstore.interval", 30000);
 #os_root_type#
-
 user_pref("beacon.enabled", false);
-user_pref("startup.homepage_welcome_url", "");
-
+user_pref("browser.cache.disk.smart_size.enabled", false);
 user_pref("browser.cache.use_new_backend", 1);
 user_pref("browser.download.dir", "#-ini(resource.downloads)-#");
 user_pref("browser.download.folderList", 2);
 user_pref("browser.eme.ui.enabled", false);
+user_pref("browser.newtabpage.enhanced", false);
 user_pref("browser.reader.detectedFirstArticle", true);
 user_pref("browser.rights.3.shown", true);
 user_pref("browser.search.geoip.url", "");
@@ -65,6 +63,7 @@ user_pref("datareporting.healthreport.about.reportUrl", "");
 user_pref("datareporting.healthreport.infoURL", "");
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
+user_pref("datareporting.sessions.current.clean", true);
 user_pref("dom.battery.enabled", false);
 user_pref("dom.disable_beforeunload", true);
 user_pref("dom.disable_window_move_resize", true);
@@ -125,6 +124,7 @@ user_pref("social.share.activationPanelEnabled", false);
 user_pref("social.shareDirectory", "");
 user_pref("social.toast-notifications.enabled", false);
 user_pref("social.whitelist", "");
+user_pref("startup.homepage_welcome_url", "");
 user_pref("toolkit.crashreporter.infoURL", "");
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.cachedClientID", "");
