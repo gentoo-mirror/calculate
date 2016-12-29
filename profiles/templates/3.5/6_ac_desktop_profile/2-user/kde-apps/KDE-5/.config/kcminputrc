@@ -6,4 +6,6 @@ RepeatRate=#-ini(profile.keyboard-rate)-#
 
 [Mouse]
 cursorTheme=Calculate
-MouseButtonMapping=#-ini(profile.mouse-lefthanded)-#
+#?ini(profile.mouse-lefthanded)==on#
+MouseButtonMapping=LeftHanded
+#ini#
