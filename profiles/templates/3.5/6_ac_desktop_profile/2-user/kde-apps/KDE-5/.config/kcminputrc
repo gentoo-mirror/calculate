@@ -1,8 +1,9 @@
 # Calculate format=kde
 [Keyboard]
 NumLock=2
-RepeatDelay=330
-RepeatRate=30
+RepeatDelay=#-ini(profile.keyboard-delay)-#
+RepeatRate=#-ini(profile.keyboard-rate)-#
 
 [Mouse]
 cursorTheme=Calculate
+MouseButtonMapping=#-ini(profile.mouse-lefthanded)-#
