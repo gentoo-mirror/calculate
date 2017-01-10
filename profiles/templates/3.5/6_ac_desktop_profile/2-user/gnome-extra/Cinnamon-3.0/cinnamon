@@ -46,6 +46,11 @@ titlebar-font='Droid Sans Bold #-ini(profile.font-size)-#'
 [cinnamon/muffin]
 edge-tiling=false
 placement-mode='automatic'
+unredirect-fullscreen-windows=true
+
+[cinnamon/session]
+quit-delay-toggle=true
+quit-time-delay=30
 
 [cinnamon/settings-daemon/plugins/power]
 button-power='interactive'
