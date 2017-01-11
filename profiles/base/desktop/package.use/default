@@ -105,6 +105,7 @@ gnome-extra/zenity -webkit
 kde-apps/kdebase-runtime-meta -crash-reporter
 kde-apps/print-manager -gtk
 kde-plasma/plasma-desktop -qt4
+mail-filter/opendkim -sasl
 mate-extra/mate-sensors-applet -video_cards_nvidia
 media-gfx/gimp -webkit
 media-gfx/imagemagick -X
@@ -518,3 +519,6 @@ media-libs/opencv contrib_hdf
 
 # support for profile-guided optimization for faster binaries
 www-client/firefox pgo
+
+# DRI3 support, UMA Acceleration Architecture
+x11-libs/libva-intel-driver dri3 uxa

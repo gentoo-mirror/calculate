@@ -8,10 +8,10 @@ USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 lm_sensors mmx mmxext padlock popcn
 USE="${USE} truetype userlocales"
 
 # Mail
-USE="${USE} imap"
+USE="${USE} imap smtp"
 
 # Net protocols
-USE="${USE} bittorrent ftp idn nfs samba"
+USE="${USE} bittorrent ftp idn nfs samba sasl"
 
 # Network connections
 USE="${USE} ppp"
