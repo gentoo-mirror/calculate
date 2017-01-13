@@ -131,4 +131,4 @@ sys-devel/llvm clang
 dev-libs/gmp pgo
 
 # conflict with kernel modules
-app-emulation/vmware-modules -vmci
+app-emulation/vmware-modules -vmci -vsock
