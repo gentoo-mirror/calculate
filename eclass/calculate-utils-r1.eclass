@@ -146,6 +146,7 @@ RDEPEND="
 		sys-fs/dosfstools
 		sys-fs/squashfs-tools
 		sys-block/parted
+		net-misc/rsync
 		dev-python/sudsds[python_targets_python2_7]
 		net-libs/dslib[python_targets_python2_7]
 		>=dev-python/pyopenssl-0.14[python_targets_python2_7]

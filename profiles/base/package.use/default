@@ -129,3 +129,6 @@ sys-devel/llvm clang
 
 # produce faster libraries
 dev-libs/gmp pgo
+
+# conflict with kernel modules
+app-emulation/vmware-modules -vmci -vsock
