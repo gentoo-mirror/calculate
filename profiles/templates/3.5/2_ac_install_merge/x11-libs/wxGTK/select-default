@@ -1,0 +1,11 @@
+# Calculate exec=/bin/bash
+
+#?pkg(x11-libs/wxGTK:3.0-gtk3)!=#
+/usr/bin/eselect wxwidgets set gtk3-unicode-3.0-gtk3 &>/dev/null
+#pkg#
+#?pkg(x11-libs/wxGTK:3.0-gtk3)==&&pkg(x11-libs/wxGTK:3.0)!=#
+/usr/bin/eselect wxwidgets set gtk2-unicode-3.0 &>/dev/null
+#pkg#
+#?pkg(x11-libs/wxGTK:3.0-gtk3)==&&pkg(x11-libs/wxGTK:3.0)==&&pkg(x11-libs/wxGTK:2.8)!=#
+/usr/bin/eselect wxwidgets set gtk2-unicode-release-2.8 &>/dev/null
+#pkg#
