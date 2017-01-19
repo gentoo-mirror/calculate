@@ -72,6 +72,17 @@ pkg_postrm_dispatch() {
 	fi
 }
 
+# restore files of packages which stashed for resolve automagic depends
+unstash_automagic_requires() {
+	local automagic_dir=/var/lib/calculate/calculate-builder/automagic-requires
+	if [[ -d $automagic_dir ]]
+	then
+		# -K - need to resolve lib -> lib64 symlink problem
+		# -X - to keep file capabilities
+		/usr/bin/rsync -aXKx ${automagic_dir}/ / && rm -rf ${automagic_dir}
+	fi
+}
+
 # setup package umerging
 pkg_postrm_unmerge() {
 	if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
@@ -95,6 +106,7 @@ pre_pkg_postinst() {
 	setup_merge_package
 	clean_contents_mark
 	clean_update_mark
+	unstash_automagic_requires
 }
 
 pre_pkg_preinst() {
