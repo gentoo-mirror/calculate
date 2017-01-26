@@ -129,3 +129,6 @@ sys-devel/llvm clang
 
 # produce faster libraries
 dev-libs/gmp pgo
+
+# hcache? ( exactly-one-of ( berkdb gdbm lmdb qdbm tokyocabinet )
+mail-client/mutt -gdbm
