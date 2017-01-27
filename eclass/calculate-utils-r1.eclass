@@ -161,6 +161,7 @@ RDEPEND="
 	dev-python/progressbar[python_targets_python2_7]
 	sys-fs/lvm2
 	sys-fs/mdadm
+	app-arch/xz-utils
 	dev-python/pyinotify[python_targets_python2_7]
 	sys-apps/file[python,python_targets_python2_7]
 

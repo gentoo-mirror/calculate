@@ -304,7 +304,8 @@ sys-apps/util-linux tty-helpers
 net-im/licq qt4
 
 # Enables fuse mount points in $HOME/.gvfs for legacy application access
-gnome-base/gvfs archive fuse mtp
+# enable storage password
+gnome-base/gvfs archive fuse mtp gnome-keyring
 
 # The following REQUIRED_USE flag constraints are unsatisfied:
 # pulseaudio? ( sound )
@@ -517,7 +518,7 @@ dev-java/oracle-jdk-bin javafx
 media-libs/opencv contrib_hdf
 
 # support for profile-guided optimization for faster binaries
-www-client/firefox pgo
+www-client/firefox pgo hwaccel
 
 # DRI3 support, UMA Acceleration Architecture
 x11-drivers/xf86-video-intel dri3 uxa
