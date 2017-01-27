@@ -132,3 +132,6 @@ dev-libs/gmp pgo
 
 # hcache? ( exactly-one-of ( berkdb gdbm lmdb qdbm tokyocabinet )
 mail-client/mutt -gdbm
+
+# enable mpeg2 codec for cutscenes
+games-engines/scummvm mpeg2
