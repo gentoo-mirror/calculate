@@ -3,7 +3,18 @@
     "launcherList": {
         "type": "generic",
         "value": [
+#?env(client.os_remote_auth)==||ur_domain_set==off#
             "homedir.desktop"
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)==#
+            "home.desktop",
+            "share.desktop"
+#env#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!=#
+            "home.desktop",
+            "share.desktop",
+            "ftp.desktop"
+#env#
         ]
     },
     "allow-dragging": {
