@@ -78,7 +78,7 @@ quit-time-delay=30
 
 [cinnamon/settings-daemon/peripherals/keyboard]
 delay=#-ini(profile.keyboard-delay)-#
-repeat-interval=#-ini(keyboard-rate)-#
+repeat-interval=#-ini(profile.keyboard-rate)-#
 
 [cinnamon/settings-daemon/peripherals/mouse]
 double-click=#-ini(profile.mouse-doubleclick-delayed)-#
