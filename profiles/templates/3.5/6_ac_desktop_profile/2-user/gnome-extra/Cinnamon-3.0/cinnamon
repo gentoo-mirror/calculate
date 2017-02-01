@@ -87,6 +87,9 @@ double-click=#-ini(profile.mouse-doubleclick-delayed)-#
 left-handed=true
 #ini#
 
+[cinnamon/settings-daemon/peripherals/touchpad]
+disable-while-typing=false
+
 [cinnamon/settings-daemon/plugins/power]
 button-power='interactive'
 lid-close-ac-action='nothing'
