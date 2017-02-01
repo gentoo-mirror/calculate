@@ -36,6 +36,7 @@ name='Завершить сеанс, игнорируя любые сущест�
 
 [cinnamon/desktop/keybindings/media-keys]
 restart-cinnamon=@as []
+screensaver=['<Control><Alt>l', 'XF86ScreenSaver', 'Scroll_Lock']
 
 [cinnamon/desktop/keybindings/wm]
 switch-to-workspace-1=['<Primary>F1']
