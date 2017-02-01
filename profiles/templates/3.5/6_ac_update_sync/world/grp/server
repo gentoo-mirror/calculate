@@ -24,7 +24,6 @@ net-ftp/ftp
 net-ftp/lftp
 net-ftp/proftpd
 net-ftp/vsftpd
-net-im/ejabberd
 net-irc/unrealircd
 net-mail/fetchmail
 #net-proxy/havp
@@ -37,6 +36,7 @@ net-wireless/hostapd
 #?in(os_linux_pkglist, server)!=#
 dev-db/mariadb
 mail-mta/postfix
+net-im/ejabberd
 net-mail/dovecot
 sys-apps/calculate-server
 #in#
