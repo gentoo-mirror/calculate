@@ -1,0 +1,19 @@
+commit bfa0828daeb6379aa675465317f1639a7964ed9e
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Wed Feb 1 16:25:39 2017 +0300
+
+    Отключена аутентификация OAUTH2 для jabber по умолчанию
+    
+    Проблема аутентификация kde telepathy
+
+diff --git a/profile/jabber/etc/jabber/ejabberd.yml b/profile/jabber/etc/jabber/ejabberd.yml
+index c588142..599020d 100644
+--- a/profile/jabber/etc/jabber/ejabberd.yml
++++ b/profile/jabber/etc/jabber/ejabberd.yml
+@@ -1,5 +1,6 @@
+ # Calculate chmod=0640 chown=root:jabber pkg(ejabberd)>=15
+ loglevel: 1
++disable_sasl_mechanisms: ["X-OAUTH2"]
+ hosts: 
+   - "localhost"
+   - #-sr_jabber_hosts_pass-#
