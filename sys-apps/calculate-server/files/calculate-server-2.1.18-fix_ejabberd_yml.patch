@@ -1,0 +1,51 @@
+commit e4d3e45feb20388dbff5a41575ac7479d5344dfe
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Thu Feb 2 13:15:55 2017 +0300
+
+    Исправлено формирование jabber.yml файла если указано несколько хостов
+
+diff --git a/profile/jabber/etc/jabber/ejabberd.yml b/profile/jabber/etc/jabber/ejabberd.yml
+index 599020d..7d5f4f2 100644
+--- a/profile/jabber/etc/jabber/ejabberd.yml
++++ b/profile/jabber/etc/jabber/ejabberd.yml
+@@ -3,7 +3,7 @@ loglevel: 1
+ disable_sasl_mechanisms: ["X-OAUTH2"]
+ hosts: 
+   - "localhost"
+-  - #-sr_jabber_hosts_pass-#
++#-sr_jabber_hosts_yml-#
+ listen: 
+   - 
+     port: #-sr_jabber_port-#
+diff --git a/pym/cl_fill_server.py b/pym/cl_fill_server.py
+index 194fe90..04c303e 100644
+--- a/pym/cl_fill_server.py
++++ b/pym/cl_fill_server.py
+@@ -546,6 +546,13 @@ class fillVars(object, cl_base.glob_attr):
+             return ", ".join(map(lambda x: '"'+x+'"', jabberHosts.split(",")))
+         return ""
+ 
++    def get_sr_jabber_hosts_yml(self):
++        """Текст в ejabberd.cfg - имена хостов с которыми работает сервис"""
++        jabberHosts = self.Get("sr_jabber_hosts")
++        if jabberHosts:
++            return "\n".join(map(lambda x: '  - "%s"' % x, jabberHosts.split(",")))
++        return ""
++
+     def get_sr_jabber_user_name(self):
+         """Имя jabber пользователя (левая часть jabber id)"""
+         userJid = self.Get("sr_jabber_user_id")
+diff --git a/pym/cl_vars_server.py b/pym/cl_vars_server.py
+index c66bd3a..2eeb339 100644
+--- a/pym/cl_vars_server.py
++++ b/pym/cl_vars_server.py
+@@ -163,6 +163,9 @@ class Data:
+     # Текст в ejabberd.cfg - имена хостов с которыми работает сервис
+     sr_jabber_hosts_pass = {}
+ 
++    # Текст в ejabberd.yml - имена хостов с которыми работает сервис
++    sr_jabber_hosts_yml = {}
++
+     # jabber id пользователя
+     sr_jabber_user_id = {'mode':"w"}
+ 
