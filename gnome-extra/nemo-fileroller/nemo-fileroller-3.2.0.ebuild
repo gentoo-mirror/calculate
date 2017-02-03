@@ -16,9 +16,9 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="doc"
 
-RDEPEND=""
 DEPEND="app-arch/file-roller
 	>=gnome-extra/nemo-${PV}[introspection]"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	if [[ ! -e configure ]] ; then
