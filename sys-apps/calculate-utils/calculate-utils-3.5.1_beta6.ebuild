@@ -10,9 +10,10 @@ UTILS_PV="3.5.1_beta1"
 
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.5.1_beta4"
+	["install"]="3.5.1_beta2"
 	["core"]="3.5.1_beta2"
-	["update"]="3.5.1_beta3"
-	["builder"]="3.5.1_beta4"
+	["update"]="3.5.1_beta5"
+	["builder"]="3.5.1_beta6"
 )
 
 inherit calculate-utils-r1
