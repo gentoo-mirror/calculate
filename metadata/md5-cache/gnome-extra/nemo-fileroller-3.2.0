@@ -1,0 +1,14 @@
+DEFINED_PHASES=prepare
+DEPEND=app-arch/file-roller >=gnome-extra/nemo-3.2.0[introspection]
+DESCRIPTION=File Roller integration for Nemo
+EAPI=5
+HOMEPAGE=https://github.com/linuxmint/nemo-extensions
+IUSE=doc
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=app-arch/file-roller >=gnome-extra/nemo-3.2.0[introspection]
+SLOT=0
+SRC_URI=https://github.com/linuxmint/nemo-extensions/archive/3.2.0.tar.gz
+_eclass_exported_funcs=src_prepare:-
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=24fd6e0a9d7e665ca8edccd2bad87cf4
