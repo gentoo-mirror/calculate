@@ -91,7 +91,6 @@ user_pref("extensions.pocket.site", "");
 user_pref("font.name.monospace.x-cyrillic", "Droid Sans Mono Slashed");
 user_pref("font.name.sans-serif.x-cyrillic", "Droid Sans");
 user_pref("font.name.serif.x-cyrillic", "Times New Roman");
-user_pref("general.autoScroll", true);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "");
