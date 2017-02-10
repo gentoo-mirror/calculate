@@ -135,3 +135,6 @@ mail-client/mutt -gdbm
 
 # enable mpeg2 codec for cutscenes
 games-engines/scummvm mpeg2
+
+# required by dev-util/nvidia-cuda-sdk-8.0.44-r1[examples]
+x11-drivers/nvidia-drivers uvm

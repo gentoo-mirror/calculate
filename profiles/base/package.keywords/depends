@@ -18,6 +18,7 @@
 ~app-crypt/gpgme-1.8.0 amd64 x86
 ~app-crypt/paperkey-1.4 amd64 x86
 ~app-crypt/qca-2.1.1 amd64 x86
+~app-crypt/veracrypt-1.19 amd64 x86
 ~app-editors/neovim-0.1.7 amd64 x86
 ~app-editors/ng-1.5_beta1 amd64 x86
 ~app-editors/vim-qt-20150102 amd64 x86
@@ -40,7 +41,7 @@
 ~app-emulation/open-vm-tools-kmod-10.0.0_p3000743 amd64 x86
 ~app-emulation/qemu-init-scripts-0.3.0 amd64 x86
 ~app-emulation/qtemu-1.0.5 amd64 x86
-~app-emulation/rkt-1.22.0 amd64 x86
+~app-emulation/rkt-1.24.0 amd64 x86
 ~app-emulation/runv-0.7.0 amd64 x86
 ~app-emulation/s6-overlay-1.18.1.3 amd64 x86
 ~app-emulation/ski-1.3.2-r1 amd64 x86
@@ -126,8 +127,8 @@
 ~dev-java/jackson-databind-2.8.5 amd64 x86
 ~dev-java/jna-4.2.2 amd64 x86
 ~dev-java/resin-servlet-api-4.0.46 amd64 x86
-~dev-lang/swig-3.0.10 amd64 x86
 ~dev-lang/lua-5.1.5 amd64 x86
+~dev-lang/swig-3.0.10 amd64 x86
 ~dev-libs/bglibs-1.106 amd64 x86
 ~dev-libs/crossguid-0_pre20150817 amd64 x86
 ~dev-libs/grantlee-5.1.0 amd64 x86
@@ -140,6 +141,7 @@
 ~dev-libs/libdbusmenu-12.10.2 amd64 x86
 ~dev-libs/libdbusmenu-qt-0.9.3_pre20140619 amd64 x86
 ~dev-libs/libdynd-0.7.2 amd64 x86
+~dev-libs/libevent-2.0.22 amd64 x86
 ~dev-libs/libgcrypt-1.7.3 amd64 x86
 ~dev-libs/libgpg-error-1.24 amd64 x86
 ~dev-libs/libical-1.0.1 amd64 x86
@@ -190,6 +192,8 @@
 ~dev-util/codeblocks-16.01 amd64 x86
 ~dev-util/ctags-20161028 amd64 x86
 ~dev-util/kbuild-0.1.9998_pre20131130 amd64 x86
+~dev-util/nvidia-cuda-sdk-8.0.44 amd64
+~dev-util/nvidia-cuda-toolkit-8.0.44 amd64
 ~gnome-extra/gnome-user-share-3.18.3 amd64 x86
 ~gnustep-base/gnustep-back-cairo-0.24.1 amd64 x86
 ~gnustep-base/gnustep-gui-0.24.1 amd64 x86
@@ -230,7 +234,9 @@
 ~media-sound/dcadec-0.2.0 amd64 x86
 ~media-sound/drumstick-1.0.2 amd64 x86
 ~net-dns/dnssec-tools-2.2 amd64 x86
+~net-fs/nfs-utils-1.3.4 amd64 x86
 ~net-fs/samba-4.2.14 amd64 x86
+~net-im/qtox-1.8.1 amd64 x86
 ~net-irc/quassel-irssi-0_p20160412 amd64 x86
 ~net-libs/accounts-qt-1.13 amd64 x86
 ~net-libs/cppzmq-0_pre150606 amd64 x86
@@ -246,6 +252,7 @@
 ~net-libs/signon-ui-0.15 amd64 x86
 ~net-libs/telepathy-accounts-signon-1.0 amd64 x86
 ~net-libs/telepathy-logger-qt-15.04.0 amd64 x86
+~net-libs/tox-0.1.6 amd64 x86
 ~net-misc/clipgrab-3.5.6 amd64 x86
 ~net-misc/dahdi-2.10.2 amd64 x86
 ~net-misc/l7-filter-userspace-0.12_beta1 amd64 x86
@@ -267,7 +274,10 @@
 ~sys-fs/ldapfuse-1.0 amd64 x86
 ~sys-fs/lxcfs-2.0.4 amd64 x86
 ~sys-fs/reiserfs-defrag-0.2.2 amd64 x86
+~sys-fs/zfs-0.6.5.9 amd64 x86
+~sys-fs/zfs-kmod-0.6.5.9 amd64 x86
 ~sys-kernel/dracut-040 amd64 x86
+~sys-kernel/spl-0.6.5.9 amd64 x86
 ~sys-libs/db-6.0.35 amd64 x86
 ~sys-libs/kpmcore-3.0.3 amd64 x86
 ~sys-process/criu-2.6 amd64 x86
