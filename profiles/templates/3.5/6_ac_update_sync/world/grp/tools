@@ -128,7 +128,6 @@ dev-util/codeblocks
 dev-util/geany
 dev-util/geany-plugins
 dev-util/gource
-dev-util/nvidia-cuda-sdk
 #dev-util/pida
 dev-util/schroot
 dev-util/strace
@@ -276,6 +275,7 @@ x11-themes/gtk-theme-switch
 #in#
 
 #?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
+dev-util/nvidia-cuda-sdk
 www-plugins/chrome-binary-plugins
 #in#
 
