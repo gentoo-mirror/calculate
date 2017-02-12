@@ -528,3 +528,9 @@ media-gfx/kphotoalbum face
 
 # required by kde-apps/akonadiconsole-16.12.2
 kde-apps/akonadi tools
+
+# required by sys-fs/e4rat-0.2.4_pre20141201
+sys-process/audit static-libs
+
+# required by x11-misc/shutter-0.93.1-r3
+virtual/imagemagick-tools perl
