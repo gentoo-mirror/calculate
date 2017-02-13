@@ -9,4 +9,7 @@ isofile=$(getarg iso-scan/filename)
 
 if [ -n "$isofile" -a "$root" = "live" ]; then
     rootok=1
+#?pkg(sys-kernel/dracut)>=044#
+    wait_for_dev -n /dev/mapper/live-rw
+#pkg#
 fi

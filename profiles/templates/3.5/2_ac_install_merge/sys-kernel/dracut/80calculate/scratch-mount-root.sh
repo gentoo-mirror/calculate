@@ -44,7 +44,7 @@ mount_live_root() {
     local module_found=
     for typefs in overlay aufs
     do
-        if ! mount -t $typefs -o none none /init 2>&1 | grep -q "unknown filesystem"
+        if ! mount -t $typefs -o remount none /init 2>&1 | grep -q "unknown filesystem"
         then
             mount_live_root_$typefs
             module_found=1
