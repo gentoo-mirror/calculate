@@ -7,7 +7,6 @@ type getarg >/dev/null 2>&1 || . /lib/dracut-lib.sh
 
 PATH=/usr/sbin:/usr/bin:/sbin:/bin
 
-echo "ISOFILE $1"
 isofile=$1
 
 [ -z "$isofile" ] && exit 1
