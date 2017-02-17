@@ -98,7 +98,7 @@ pkg_setup() {
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-2.68-doxyfile.patch \
 		"${FILESDIR}"/${PN}-2.68-fix-install-rules.patch \
-		"${FILESDIR}"/${PN}-2.70-sse2.patch
+		"${FILESDIR}"/${PN}-2.70-sse2.patch \
 		"${FILESDIR}"/${P}-ffmpeg-3.2.patch
 
 	epatch_user
