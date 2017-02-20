@@ -29,3 +29,6 @@ FocusStealingPreventionLevel=0
 [org.kde.kdecoration2]
 ButtonsOnLeft=MNS
 CloseOnDoubleClickOnMenu=true
+#?ini(profile.appearance-border)!=#
+library=#-ini(profile.appearance-border)-#
+#ini#

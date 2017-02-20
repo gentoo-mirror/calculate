@@ -18,8 +18,10 @@
     <property name="use_compositing" type="bool" value="true"/>
     <property name="wrap_windows" type="bool" value="true"/>
     <property name="wrap_resistance" type="int" value="50"/>
-#?pkg(x11-themes/xfwm4-themes)!=#
+#?ini(profile.appearance-border)!=#
+    <property name="theme" type="string" value="#-ini(profile.appearance-border)-#"/>
+#!ini#
     <property name="theme" type="string" value="Default-4.6"/>
-#pkg#
+#ini#
   </property>
 </channel>

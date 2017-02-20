@@ -16,14 +16,17 @@ volumes-visible=false
 [caja/preferences]
 click-policy='#-ini(profile.mouse-clickpolicy)-#'
 
-#pkg(media-gfx/calculate-wallpapers)!=#
 [desktop/background]
 color-shading-type='solid'
 primary-color='#000000000000'
 picture-options='zoom'
-picture-filename='/usr/share/backgrounds/calculate/Calculate Linux'
 secondary-color='#000000000000'
-#pkg#
+#?ini(profile.appearance-wallpaper)!=#
+picture-filename='#-ini(profile.appearance-wallpaper)-#'
+#ini#
+#?ini(profile.appearance-wallpaper)==&&pkg(media-gfx/calculate-wallpapers)!=#
+picture-filename='/usr/share/backgrounds/calculate/Calculate Linux'
+#ini#
 
 [desktop/interface]
 document-font-name='Droid Sans #-ini(profile.font-size)-#'
@@ -33,7 +36,11 @@ gtk-theme='CalculateMate'
 #!pkg#
 gtk-theme='Calculate'
 #pkg#
+#?ini(profile.appearance-icons)!=#
+icon-theme='#-ini(profile.appearance-icons)-#'
+#!ini#
 icon-theme='Calculate'
+#ini#
 monospace-font-name='Droid Sans Mono Slashed #-ini(profile.font-size)-#'
 
 [desktop/keybindings/custom0]
@@ -58,7 +65,11 @@ name='Завершить сеанс, игнорируя любые сущест�
 automount=false
 
 [desktop/peripherals/keyboard]
+#?ini(profile.appearance-cursor)!=#
+cursor-theme='#-ini(profile.appearance-cursor)-#'
+#!ini#
 cursor-theme='Calculate'
+#ini#
 delay=#-ini(profile.keyboard-delay)-#
 rate=#-ini(profile.keyboard-rate)-#
 #?hr_laptop==#
@@ -92,16 +103,20 @@ print-font='Droid Sans 12'
 
 [marco/general]
 side-by-side-tiling=false
-#?pkg(media-gfx/mate-themes-calculate)!=#
+#?ini(profile.appearance-style)!=#
+theme='#-ini(profile.appearance-style)-#'
+#ini#
+#?ini(profile.appearance-style)==&&pkg(media-gfx/mate-themes-calculate)!=#
 theme='CalculateMate'
-#!pkg#
-theme='Dopple-Left'
-#pkg#
+#ini#
 titlebar-font='Droid Sans Bold #-ini(profile.font-size)-#'
 
 [marco/general]
 center-new-windows=false
 compositing-manager=true
+#?ini(profile.appearance-border)!=#
+theme='#-ini(profile.appearance-border)-#'
+#ini#
 
 [marco/global-keybindings]
 #освобожаю сочетание клавиш Ctrl+Alt+Ecs
