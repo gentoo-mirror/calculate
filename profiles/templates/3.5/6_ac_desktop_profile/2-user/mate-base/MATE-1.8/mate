@@ -65,11 +65,6 @@ name='Завершить сеанс, игнорируя любые сущест�
 automount=false
 
 [desktop/peripherals/keyboard]
-#?ini(profile.appearance-cursor)!=#
-cursor-theme='#-ini(profile.appearance-cursor)-#'
-#!ini#
-cursor-theme='Calculate'
-#ini#
 delay=#-ini(profile.keyboard-delay)-#
 rate=#-ini(profile.keyboard-rate)-#
 #?hr_laptop==#
@@ -85,7 +80,11 @@ default-group=0
 font-family='Droid Sans 18'
 
 [desktop/peripherals/mouse]
+#?ini(profile.appearance-cursor)!=#
+cursor-theme='#-ini(profile.appearance-cursor)-#'
+#!ini#
 cursor-theme='Calculate'
+#ini#
 double-click=#-ini(profile.mouse-doubleclick-delayed)-#
 #?ini(profile.mouse-lefthanded)==on#
 left-handed=true
