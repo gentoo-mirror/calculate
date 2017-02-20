@@ -7,6 +7,7 @@
 # support@calculate.ru
 # @AUTHOR:
 # Author: Mir Calculate
+# @BLURB: Functions for calculate-utils
 # @DESCRIPTION:
 # This eclass use for calculate-utils ebuild
 

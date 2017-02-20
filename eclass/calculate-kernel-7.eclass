@@ -6,6 +6,14 @@
 # Original Author: © 2007-2009 Mir Calculate, Ltd. 
 # Purpose: Installing linux-desktop, linux-server. 
 # Build the kernel from source.
+# @ECLASS: calculate-kernel-7.eclass
+# @MAINTAINER:
+# support@calculate.ru
+# @AUTHOR:
+# Author: Mir Calculate
+# @BLURB: Functions for calculate-sources
+# @DESCRIPTION:
+# This eclass use for calculate-sources ebuild
 
 inherit calculate eutils kernel-2
 EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst

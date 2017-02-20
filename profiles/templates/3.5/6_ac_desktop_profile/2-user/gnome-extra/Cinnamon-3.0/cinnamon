@@ -3,7 +3,11 @@
 alttab-switcher-style='icons+preview'
 
 [cinnamon/desktop/background]
+#?ini(profile.appearance-wallpaper)!=#
+picture-uri='file://#-ini(profile.appearance-wallpaper)-#'
+#!ini#
 picture-uri='file:///usr/share/backgrounds/calculate/Calculate Linux.jpg'
+#ini#
 
 [cinnamon/desktop/background/slideshow]
 image-source='xml:///usr/share/gnome-background-properties/calculate.xml'
@@ -11,7 +15,11 @@ image-source='xml:///usr/share/gnome-background-properties/calculate.xml'
 [cinnamon/desktop/interface]
 cursor-theme='Calculate'
 font-name='Droid Sans #-ini(profile.font-size)-#'
+#ini(profile.appearance-icons)!=#
+icon-theme='#-ini(profile.appearance-icons)-#'
+#!ini#
 icon-theme='Calculate'
+#ini#
 
 [cinnamon/desktop/keybindings]
 custom-list=['custom0', 'custom1']
@@ -67,6 +75,9 @@ lock-enabled=false
 
 [cinnamon/desktop/wm/preferences]
 titlebar-font='Droid Sans Bold #-ini(profile.font-size)-#'
+#?ini(profile.appearance-border)!=#
+theme='#-ini(profile.appearance-border)-#'
+#ini#
 
 [cinnamon/muffin]
 edge-tiling=false
@@ -104,7 +115,11 @@ buttons-have-icons=true
 menus-have-icons=true
 
 [cinnamon/theme]
+#?ini(profile.appearance-style)!=#
+name='#-ini(profile.appearance-style)-#'
+#!ini#
 name='Calculate'
+#ini#
 
 [nemo/desktop]
 font='Droid Sans #-ini(profile.font-size)-#'
@@ -116,6 +131,9 @@ home-icon-visible=true
 click-policy='#-ini(profile.mouse-clickpolicy)-#'
 
 [gnome/desktop/interface]
+#?ini(profile.appearance-cursor)!=#
+cursor-theme='#-ini(profile.appearance-cursor)-#'
+#ini#
 document-font-name='Droid Sans #-ini(profile.font-size)-#'
 monospace-font-name='Droid Sans Mono Slashed #-ini(profile.font-size)-#'
 

@@ -2,12 +2,21 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header:
 
+# @ECLASS: calculate.eclass
+# @MAINTAINER:
+# support@calculate.ru
+# @AUTHOR:
+# Author: Mir Calculate
+# @BLURB: Share functions for calculate-utils and calculate-sources
+# @DESCRIPTION:
+# This eclass use for calculate-utils and calculate-sources ebuilds
+
 inherit eutils linux-info versionator
 
 EXPORT_FUNCTIONS pkg_postinst
 
 # @FUNCTION: last_arg
-# @USING: last_arg manyarguments
+# @USAGE: last_arg manyarguments
 # @DESCRIPTION:
 # print last argument
 last_arg() {
@@ -16,7 +25,7 @@ last_arg() {
 }
 
 # @FUNCTION: rm_link_with_file
-# @USING: rm_link_with_file filename
+# @USAGE: rm_link_with_file filename
 # @DESCRIPTION:
 # delete the file, and if it is symbolic then delete the file,
 # which point out a link
@@ -26,7 +35,7 @@ rm_link_with_file() {
 }
 
 # @FUNCTION: cp_link_with_file
-# @USING: cp_link_with_file filename suffix
+# @USAGE: cp_link_with_file filename suffix
 # @DESCRIPTION:
 # copy the file with the same name with the suffix, and if it is a symbolic
 # link, then also copy the target file with the addition of the suffix
@@ -283,8 +292,9 @@ calculate_set_kernelversion() {
 		${KERNEL_DIR}/Makefile
 }
 
-# FUNCTION: calculate_update_modules
-# DESCRIPTION:
+# @FUNCTION: calculate_update_modules
+# @USAGE:
+# @DESCRIPTION:
 # It calls the update-modules utility. Get from linux-mod.
 calculate_update_modules() {
 	if [ -x /sbin/update-modules ] && \
@@ -300,8 +310,9 @@ calculate_update_modules() {
 	fi
 }
 
-# FUNCTION: calculate_update_depmod
-# DESCRIPTION:
+# @FUNCTION: calculate_update_depmod
+# @USAGE:
+# @DESCRIPTION:
 # It updates the modules.dep file for the current kernel.
 # Get from linux-mod.
 calculate_update_depmod() {
@@ -322,8 +333,9 @@ calculate_update_depmod() {
 	fi
 }
 
-# FUNCTION: calculate_clean_firmwares
-# DESCRIPTION:
+# @FUNCTION: calculate_clean_firmwares
+# @USAGE:
+# @DESCRIPTION:
 # Workaround kernel issue with collising
 # firmwares across different kernel versions
 calculate_clean_firmwares() {
@@ -336,15 +348,17 @@ calculate_clean_firmwares() {
 	done
 }
 
-# FUNCTION: get_value
-# DESCRIPTION:
+# @FUNCTION: get_value
+# @USAGE:
+# @DESCRIPTION:
 # Get the value of the variable from stdio.
 get_value() {
 	sed -rn "s/^(.*\s+)?+$1=\"?([^\" ]*)\"?(\s+.*|$)/\2/p"
 }
 
-# FUNCTION: set_value
-# DESCRIPTION:
+# @FUNCTION: set_value
+# @USAGE:
+# @DESCRIPTION:
 # Set the value to the variable in the file
 set_value() {
 	local var=$1
@@ -368,22 +382,25 @@ LINUXVER=
 # Boot device.
 ROOTDEV=
 
-# FUNCTION: change_issue
-# DESCRIPTION:
+# @FUNCTION: change_issue
+# @USAGE:
+# @DESCRIPTION:
 # Change version in /etc/issue
 change_issue() {
 	sed -ri "s/${LINUXVER}/${PV}/" ${ROOT}/etc/issue
 }
 
-# FUNCTION: change_grub
-# DESCRIPTION:
+# @FUNCTION: change_grub
+# @USAGE:
+# @DESCRIPTION:
 # Change version for grub
 change_grub() {
 	sed -ri "/^title/ {:f;N;s/\nkernel/&/;tc;bf;:c;s|root=${ROOTDEV}|&|;Te;s/ ${LINUXVER} / $PV /;:e}" /boot/grub/grub.conf
 }
 
-# FUNCTION: calculate_initvars
-# DESCRIPTION:
+# @FUNCTION: calculate_initvars
+# @USAGE:
+# @DESCRIPTION:
 # Init LINUXVER,ROOTDEV
 calculate_initvars() {
 	makeProfile=/etc/make.profile
@@ -412,8 +429,9 @@ calculate_initvars() {
 	ROOTDEV=$( get_value root < ${ROOT}/proc/cmdline )
 }
 
-# FUNCTION: calculate_change_version
-# DESCRIPTION:
+# @FUNCTION: calculate_change_version
+# @USAGE:
+# @DESCRIPTION:
 # Change the version of the system in calculate.ini,issue,grub.conf
 calculate_change_version() {
 	calculate_initvars
@@ -426,8 +444,9 @@ calculate_change_version() {
 	fi
 }
 
-# FUNCTION: get_last_filename
-# DESCRIPTION:
+# @FUNCTION: get_last_filename
+# @USAGE:
+# @DESCRIPTION:
 # Get latest regular file by name
 get_last_filename() {
 	findfiles=$(ls -d $1/$2*{-[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9],[CDGXS]}$3 2>/dev/null)
@@ -443,8 +462,9 @@ get_last_filename() {
 	fi
 }
 
-# FUNCTION: calculate_get_current_initrd
-# DESCRIPTION:
+# @FUNCTION: calculate_get_current_initrd
+# @USAGE: suffix
+# @DESCRIPTION:
 # Get current initrd or initrd with suffix
 calculate_get_current_initrd() {
 	calculate_initvars
@@ -487,8 +507,9 @@ calculate_pkg_postinst() {
 	esac
 }
 
-# FUNCTION: calculate_update_ver (/boot vmlinuz
-# DESCRIPTION:
+# @FUNCTION: calculate_update_ver (/boot vmlinuz
+# @USAGE: boot_dir file_basename version source_file [suffix]
+# @DESCRIPTION:
 # Create backups of older versions before installing
 calculate_update_ver() {
   local dir=$1
@@ -503,8 +524,9 @@ calculate_update_ver() {
   cat "$src" > "$dir/$fn-$ver$suffix"
 }
 
-# FUNCTION: calculate_fix_lib_modules_contents
-# DESCRIPTION:
+# @FUNCTION: calculate_fix_lib_modules_contents
+# @USAGE: 
+# @DESCRIPTION:
 # Unlink /lib/modules files from CONTENTS
 calculate_fix_lib_modules_contents() {
     local vardb=/var/db/pkg
