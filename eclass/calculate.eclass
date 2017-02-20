@@ -2,6 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header:
 
+# @ECLASS: calculate.eclass
+# @MAINTAINER:
+# support@calculate.ru
+# @AUTHOR:
+# Author: Mir Calculate
+# @BLURB: Share functions for calculate-utils and calculate-sources
+# @DESCRIPTION:
+# This eclass use for calculate-utils and calculate-sources ebuilds
+
 inherit eutils linux-info versionator
 
 EXPORT_FUNCTIONS pkg_postinst
