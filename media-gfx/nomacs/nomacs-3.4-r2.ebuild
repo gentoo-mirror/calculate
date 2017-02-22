@@ -31,7 +31,9 @@ RDEPEND="
 	>=media-gfx/exiv2-0.25:=
 	opencv? ( media-libs/opencv:=[-qt4(-)] )
 	raw? ( >=media-libs/libraw-0.14:= )
-	tiff? ( media-libs/tiff:0 )
+	tiff? ( media-libs/tiff:0
+		dev-qt/qtimageformats
+	)
 	zip? ( >=dev-libs/quazip-0.7.2[qt5] )
 "
 DEPEND="${RDEPEND}
