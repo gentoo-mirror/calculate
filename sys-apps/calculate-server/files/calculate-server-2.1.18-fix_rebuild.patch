@@ -1,0 +1,69 @@
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index a1d0e16..519df51 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -45,7 +45,7 @@ from xml import xpath
+ # Для 32 битного целого (генерация серийного номера DNS зоны)
+ import ctypes
+ 
+-Version = "calculate-server 2.1.16"
++Version = "calculate-server 2.1.18"
+ 
+ tr = cl_base.lang()
+ tr.setLanguage(sys.modules[__name__])
+@@ -8640,6 +8640,7 @@ for running replication")%bFile)
+         if not self.removeLdapDatabase():
+             return False
+         # Если архив содержит LDAP данные
++        tarCommand = "tar -C / --transform 's|etc/calculate|var/lib/calculate|' "
+         if flagArchLdap:
+             # Накладываем профили (берем из папки backup)
+             if not self.applyProfilesFromService(self.backupDir):
+@@ -8732,22 +8733,24 @@ for running replication")%bFile)
+                     self.printERROR(_("Not supported replication service %s")\
+                                     %replServices[0])
+                     return False
+-                if self.execProg("tar -C / --files-from=%s -xjf %s"\
++                if self.execProg(tarCommand + "--files-from=%s -xjf %s"\
+                     %(listReplFile, bFile)) == False:
+                     self.printERROR(_("Can not extract archive") +\
+                                       ": "+str(bFile))
+                     return False
+             else:
+                 # Распаковываем целиком архив
+-                if self.execProg("tar -C / -xjf %s" %(bFile)) == False:
++                if self.execProg(tarCommand + "-xjf %s" %(bFile)) == False:
+                     self.printERROR(_("Can not extract archive") +\
+                                        ": "+str(bFile))
+                     return False
++                self.changeHostname()
+         else:
+             # Распаковываем целиком архив
+-            if self.execProg("tar -C / -xjf %s" %(bFile)) == False:
++            if self.execProg(tarCommand + "-xjf %s" %(bFile)) == False:
+                 self.printERROR(_("Can not extract archive") + ": "+str(bFile))
+                 return False
++            self.changeHostname()
+         # Удаляем временные файлы
+         self.removeTmpFiles()
+         # считаем переменные из ini файлов
+@@ -8768,6 +8771,19 @@ for running replication")%bFile)
+                 %", ".join(replServices) + " ...")
+         return True
+ 
++    def changeHostname(self):
++        """
++        Меняем имя хоста на имя в /etc/hosts
++        """
++        with open('/etc/hosts','r') as f:
++            hosts_data = f.read()
++            hostname_ = re.search("^127.0.0.1\s+([^.]+)",
++                                  hosts_data, flags=re.M)
++            if hostname_:
++                hostname = hostname_.group(1)
++                with open("/proc/sys/kernel/hostname",'w') as f:
++                    f.write(hostname)
++
+     def removeTmpFiles(self):
+         """Удаляем временные файлы"""
+         removeFiles=[self.tmpListFile,self.archLdifFile,
