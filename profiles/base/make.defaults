@@ -35,7 +35,7 @@ USE="${USE} spell truetype userlocales"
 USE="${USE} mimap box smtp"
 
 # Net protocols
-USE="${USE} bittorrent ftp idn nfs rdesktop samba sasl"
+USE="${USE} bittorrent ftp idn imap nfs rdesktop samba sasl"
 
 # Network connections
 USE="${USE} ppp"
