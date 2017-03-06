@@ -1,4 +1,39 @@
 sys-apps/calculate-utils console pxe
 
+sys-apps/calculate-utils -backup -client -desktop -qt4
+
 # Removed unnecessary dependence
 app-misc/mc -samba
+sys-kernel/calculate-sources -themes
+
+app-crypt/pinentry -gnome-keyring -gtk
+app-editors/vim -X
+app-misc/mc -X
+app-text/ghostscript-gpl -gtk -X
+app-text/poppler -cairo -qt4 -qt5
+dev-lang/ocaml -X
+dev-libs/gobject-introspection -cairo
+dev-vcs/git -gtk
+media-fonts/dejavu -X
+media-fonts/terminus-font -X
+media-fonts/urw-fonts -X
+media-gfx/imagemagick -djvu -svg -webp -wmf -X
+media-gfx/ufraw -gimp -gtk
+media-libs/freetype -X
+net-analyzer/ettercap -gtk
+net-analyzer/mtr -gtk
+net-dialup/ppp -gtk
+net-misc/openssh -X
+net-p2p/mldonkey -gd -gtk
+net-print/cups -X
+sys-apps/dbus -X
+sys-apps/groff -X
+sys-apps/lshw -gtk
+sys-auth/pambase -consolekit
+sys-block/fio -gtk
+sys-fs/mtools -X
+sys-power/powertop -X
+sys-process/psmisc -X
+www-client/elinks -X
+www-client/links -X
+www-client/w3m -gtk -X
