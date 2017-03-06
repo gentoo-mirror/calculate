@@ -26,7 +26,7 @@ USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 lm_sensors mmx mmxext padlock popcn
 USE="${USE} irc jabber oscar"
 
 # Image support
-USE="${USE} X fexif dftk gd gif imagemagick jpeg jpeg2k -mng openexr pdf png raw svg tiff xmp webp wmf wxwindows" 
+USE="${USE} X fexif dftk exif gd gif imagemagick jpeg jpeg2k -mng openexr pdf png raw svg tiff xmp webp wmf wxwindows" 
 
 # Locale and Fonts
 USE="${USE} spell truetype userlocales"
@@ -41,7 +41,7 @@ USE="${USE} bittorrent ftp idn nfs rdesktop samba sasl"
 USE="${USE} ppp"
 
 # Office
-USE="${USE} -aspell -spell hunspell"
+USE="${USE} -aspell -spell hunspell spell"
 
 # Photo
 USE="${USE} gphoto2"
