@@ -1,6 +1,6 @@
-#
+# Calculate name=world format=world
 
-#?in(os_linux_pkglist,
+#?in(os_linux_pkglist, server)!=#
 app-crypt/pinentry
 app-editors/vim
 app-misc/mc
