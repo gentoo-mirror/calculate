@@ -1,23 +1,50 @@
-# Image support
-USE="${USE} exif gif jpeg jpeg2k png tiff -mng"
+# Audio
+USE="${USE} alsa amr -arts audiofile cdda cue id3tag flac gstreamer mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr opus portaudio pulseaudio taglib wavpack vorbis vpx"
+
+# CD and DVD
+USE="${USE} cdparanoia cdr css dvd dvdr dvdread vcd"
+
+# Decoration
+USE="${USE} -branding -wallpapers"
+
+# Devices
+USE="${USE} ios ipod udev"
+
+# Documentation format
+USE="${USE} chm djvu ebook"
+
+# Guard and security
+USE="${USE} crypt ssl"
 
 # Hardware
+USE="${USE} acpi cairo cpudetection dbus dri ieee1394 gpm opengl pm-utils scanner smp usb vdpau -video_cards_dummy -video_cards_fbdev -video_cards_v4l video_cards_via xcomposite"
+
+# Hardware CPU
 USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 lm_sensors mmx mmxext padlock popcnt sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 xop"
 
+# Internet Messager
+USE="${USE} irc jabber oscar"
+
+# Image support
+USE="${USE} X fexif dftk gd gif imagemagick jpeg jpeg2k -mng openexr pdf png raw svg tiff xmp webp wmf wxwindows" 
+
 # Locale and Fonts
-USE="${USE} truetype userlocales"
+USE="${USE} spell truetype userlocales"
 
 # Mail
-USE="${USE} imap smtp"
+USE="${USE} mimap box smtp"
 
 # Net protocols
-USE="${USE} bittorrent ftp idn nfs samba sasl"
+USE="${USE} bittorrent ftp idn nfs rdesktop samba sasl"
 
 # Network connections
 USE="${USE} ppp"
 
 # Office
 USE="${USE} -aspell -spell hunspell"
+
+# Photo
+USE="${USE} gphoto2"
 
 # Printing
 USE="${USE} cups foomaticdb"
@@ -26,20 +53,37 @@ USE="${USE} cups foomaticdb"
 USE="${USE} ruby_targets_ruby21 -ruby_targets_ruby20 -ruby_targets_ruby19"
 
 # System
-USE="${USE} introspection logrotate threads"
+USE="${USE} consolekit introspection logrotate networkmanager nsplugin policykit threads udisks"
+
+# Video
+USE="${USE} a52 aac -aalib avi cddb dv encode faac ffmpeg flash lzo matroska mplayer musepack real sdl speex srt -svga tga quicktime theora vaapi v4l v4l2 vidix win32codecs xanim x264 x265 xinerama xv xvid xvmc"
+
+# Web
+#USE="${USE} -apache apache2 javascript"
+USE="${USE} libwww vhosts webkit"
+
+# Wireless
+USE="${USE} bluetooth wimax"
+
+# Window manager and speciality
+USE="${USE} gtk libnotify semantic-desktop qt3support -gnome"
 
 LINGUAS="en be be_BY bg bg_BG bs cs cs_CZ da da_DK de de_DE en_GB es es_AR es_ES es_LA es_UY es_VE et et_EE fi fi_FI fr fr_CA fr_FR hr hr_HR hu hu_HU it it_IT kk kk_KZ lt lt_LT lv lv_LV nl nl_NL pl pl_PL pt pt_BR pt_PT ro ro_RO ru ru_RU sk sk_SK sl sl_SI sq sq_AL sr sr_RS sv sv_SE uk uk_UA"
 L10N="${LINGUAS} de-1901 en-GB pt-BR"
 
 ACCEPT_LICENSE="*"
 AUTOCLEAN="yes"
+CAMERAS="*"
 CPU_FLAGS_X86="3dnow 3dnowext mmx sse sse2 *"
 DISTDIR="/var/calculate/remote/distfiles"
 EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --binpkg-changed-deps=n --quiet-build=n --binpkg-respect-use=y --jobs=4"
 FEATURES="getbinpkg parallel-install -userpriv"
 GENTOO_MIRRORS="http://mirror.yandex.ru/gentoo-distfiles http://distfiles.gentoo.org"
+INPUT_DEVICES="${INPUT_DEVICES} evdev mutouch synaptics"
 INSTALL_MASK="/etc/systemd /usr/lib*/systemd"
 LDFLAGS="-Wl,--as-needed"
+LIRC_DEVICES="devinput"
 NPTL_KERN_VER="4.1.0"
 PORTAGE_TMPDIR="/var/calculate/tmp"
 USE_EXPAND="CALCULATE THEMES"
+VIDEO_CARDS="amdgpu i915 i965 intel nouveau nv nvidia r100 r200 r300 r600 radeon radeonsi vesa"
