@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Display manager wallpapers for Calculate Linux
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate
+LICENSE=Apache-2.0
+SLOT=0
+SRC_URI=ftp://ftp.calculate-linux.org/calculate/themes/calculate/dm-login-17.jpg -> dm-themes-calculate-login-17.jpg http://mirror.yandex.ru/calculate/themes/calculate/dm-login-17.jpg -> dm-themes-calculate-login-17.jpg ftp://ftp.calculate-linux.org/calculate/themes/calculate/dm-splash-17.jpg -> dm-themes-calculate-splash-17.jpg http://mirror.yandex.ru/calculate/themes/calculate/dm-splash-17.jpg -> dm-themes-calculate-splash-17.jpg
+_eclass_exported_funcs=src_install:-
+_md5_=51bfec7e6f6ba5b8dd6163c1c456df04
