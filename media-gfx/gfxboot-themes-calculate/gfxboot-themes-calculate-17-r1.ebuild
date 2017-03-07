@@ -26,5 +26,7 @@ src_compile() {
 src_install() {
 	dodir /usr/share/themes/gfxboot-themes-calculate
 	insinto /usr/share/themes/gfxboot-themes-calculate
-	doins -r $(find install/* | grep -v -e install/log -e bootlogo.tar.gz)
+	doins -r $(find install/* | grep -v -e back.jpg -e install/log -e bootlogo.tar.gz)
+	insinto /usr/share/themes/Calculate
+	newins back.jpg gfxboot.jpg
 }
