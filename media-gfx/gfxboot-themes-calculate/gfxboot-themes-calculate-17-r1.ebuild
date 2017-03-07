@@ -9,7 +9,7 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/gfxboot-themes-calcu
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS=""
 IUSE=""
 
 SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/gfxboot/gfxboot-themes-calculate-${PV}.tar.bz2
@@ -26,5 +26,7 @@ src_compile() {
 src_install() {
 	dodir /usr/share/themes/gfxboot-themes-calculate
 	insinto /usr/share/themes/gfxboot-themes-calculate
-	doins -r $(find install/* | grep -v -e install/log -e bootlogo.tar.gz)
+	doins -r $(find install/* | grep -v -e back.jpg -e install/log -e bootlogo.tar.gz)
+	insinto /usr/share/themes/Calculate
+	newins back.jpg gfxboot.jpg
 }
