@@ -21,6 +21,7 @@ media-gfx/imagemagick -djvu -svg -webp -wmf -X
 media-gfx/ufraw -gimp -gtk
 media-libs/freetype -X
 media-libs/gd -webp
+media-libs/libwebp -opengl
 net-analyzer/ettercap -gtk
 net-analyzer/mtr -gtk
 net-dialup/ppp -gtk
@@ -38,3 +39,5 @@ sys-process/psmisc -X
 www-client/elinks -X
 www-client/links -X
 www-client/w3m -gtk -X
+x11-libs/cairo -X -opengl
+x11-libs/pango -X -introspection
