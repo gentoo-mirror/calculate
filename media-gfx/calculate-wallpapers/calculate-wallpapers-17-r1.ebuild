@@ -38,9 +38,9 @@ SRC_URI="
 	)
 	"
 
-RDEPEND=""
+DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
 

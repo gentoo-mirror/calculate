@@ -15,9 +15,10 @@ IUSE=""
 SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/gfxboot/gfxboot-themes-calculate-${PV}.tar.bz2
 	http://mirror.yandex.ru/calculate/themes/gfxboot/gfxboot-themes-calculate-${PV}.tar.bz2"
 
-RDEPEND="media-gfx/gfxboot"
+DEPEND="media-gfx/gfxboot
+	!<sys-apps/calculate-utils-3.5.2.6"
 
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 src_compile() {
 	emake -j1

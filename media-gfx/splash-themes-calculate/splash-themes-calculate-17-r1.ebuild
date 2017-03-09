@@ -19,7 +19,9 @@ SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-silent-
 	ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-shutdown-17.jpg -> ${PN}-shutdown-17.jpg
 	http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-17.jpg -> ${PN}-shutdown-17.jpg"
 
-DEPEND=""
+DEPEND="media-gfx/splashutils
+	media-fonts/droid
+	!<sys-apps/calculate-utils-3.5.2.6"
 
 RDEPEND="${DEPEND}"
 
