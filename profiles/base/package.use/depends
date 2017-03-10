@@ -14,3 +14,6 @@ sci-libs/vtk tbb
 # required by net-analyzer/cacti-0.8.8h
 net-analyzer/rrdtool graph
 dev-lang/php sockets
+
+# required by www-apps/nextcloud-11.0.2
+dev-lang/php xmlwriter sqlite zip
