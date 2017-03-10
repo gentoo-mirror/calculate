@@ -8,6 +8,8 @@ sys-kernel/calculate-sources -themes
 
 app-crypt/pinentry -gnome-keyring -gtk
 app-editors/vim -X
+app-emulation/qemu -gtk -opengl -virtfs
+app-emulation/qemu -opengl -gtk -pulseaudio -sdl -usb
 app-misc/mc -X
 app-text/ghostscript-gpl -gtk -X
 app-text/poppler -cairo -qt4 -qt5
@@ -25,6 +27,7 @@ media-libs/libwebp -opengl
 net-analyzer/ettercap -gtk
 net-analyzer/mtr -gtk
 net-dialup/ppp -gtk
+net-libs/libpcap -bluetooth
 net-misc/openssh -X
 net-p2p/mldonkey -gd -gtk
 net-p2p/transmission -qt5
