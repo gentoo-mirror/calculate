@@ -10,3 +10,7 @@ app-admin/setools python
 
 # smp? ( exactly-one-of ( kaapi tbb ) )
 sci-libs/vtk tbb
+
+# required by net-analyzer/cacti-0.8.8h
+net-analyzer/rrdtool graph
+dev-lang/php sockets
