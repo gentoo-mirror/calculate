@@ -11,11 +11,7 @@ cl;
 /boot/initrd;
 #?pkg(media-gfx/splashutils)!=#
 #-load(/bootmenu/bootparam.config)-# splash=silent,theme:calculate console=tty1;
-#pkg#
-#?pkg(media-gfx/plymouth-themes-calculate)!=&&pkg(media-gfx/splashutils)==#
-#-load(/bootmenu/bootparam.config)-# splash;
-#pkg#
-#?pkg(media-gfx/plymouth-themes-calculate)==&&pkg(media-gfx/splashutils)==#
+#!pkg#
 #-load(/bootmenu/bootparam.config)-# verbose;
 #pkg#
 
