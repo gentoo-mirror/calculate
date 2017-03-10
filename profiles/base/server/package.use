@@ -8,6 +8,8 @@ sys-kernel/calculate-sources -themes
 
 app-crypt/pinentry -gnome-keyring -gtk
 app-editors/vim -X
+app-emulation/qemu -gtk -opengl -virtfs
+app-emulation/qemu -opengl -gtk -pulseaudio -sdl -usb
 app-misc/mc -X
 app-text/ghostscript-gpl -gtk -X
 app-text/poppler -cairo -qt4 -qt5
