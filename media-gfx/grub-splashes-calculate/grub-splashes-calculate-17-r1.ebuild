@@ -9,13 +9,13 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/grub-splashes-calcul
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/calculate/grub-17.png -> ${P}.png
 	http://mirror.yandex.ru/calculate/themes/calculate/grub-17.png -> ${P}.png"
 
-DEPEND=""
+DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
 RDEPEND="${DEPEND}"
 

@@ -13,11 +13,16 @@ cat >$fn <<EOF
 # Calculate comment=#
 
 # background image
+#?exists(#-ini(theme.splash-silent-background)-#)!=#
 silentpic=images/silent-${resol}.jpg
+#exists#
+#?exists(#-ini(theme.splash-verbose-background)-#)!=#
 pic=images/verbose-${resol}.jpg
-
+#exists#
+#?exists(#-ini(theme.splash-silent-background)-#)!=#
 # progress bar for silent mode
 box silent inter 0 ${boxtop} ${width} ${height} #cdc481
 box silent 0 ${boxtop} ${width} ${height} #5a1d08
+#exists#
 EOF
 done

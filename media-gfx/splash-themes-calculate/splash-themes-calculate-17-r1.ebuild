@@ -9,7 +9,7 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-splash-the
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="+verbose"
 
 SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-silent-17.jpg -> ${PN}-silent-17.jpg
@@ -19,7 +19,9 @@ SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-silent-
 	ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-shutdown-17.jpg -> ${PN}-shutdown-17.jpg
 	http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-17.jpg -> ${PN}-shutdown-17.jpg"
 
-DEPEND=""
+DEPEND="media-gfx/splashutils
+	media-fonts/droid
+	!<sys-apps/calculate-utils-3.5.2.6"
 
 RDEPEND="${DEPEND}"
 

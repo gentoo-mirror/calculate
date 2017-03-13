@@ -9,7 +9,7 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/calculate/dm-login-${PV}.jpg -> ${PN}-login-${PV}.jpg
@@ -17,7 +17,7 @@ SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/calculate/dm-login-${PV}
 	ftp://ftp.calculate-linux.org/calculate/themes/calculate/dm-splash-${PV}.jpg -> ${PN}-splash-${PV}.jpg
 	http://mirror.yandex.ru/calculate/themes/calculate/dm-splash-${PV}.jpg -> ${PN}-splash-${PV}.jpg"
 
-DEPEND=""
+DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
 RDEPEND="${DEPEND}"
 
