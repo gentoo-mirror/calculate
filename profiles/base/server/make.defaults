@@ -1,7 +1,7 @@
 USE=""
 
 # Audio
-USE="${USE} -pulseaudio"
+USE="${USE} -alsa -openal -pulseaudio"
 
 # Hardware
 USE="${USE} -cairo -opengl -vdpau"
