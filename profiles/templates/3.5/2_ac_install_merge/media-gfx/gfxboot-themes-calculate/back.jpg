@@ -1,2 +1,2 @@
-# Calculate format=backgrounds stretch path=/usr/share/themes/gfxboot-themes-calculate name=back.jpg link=/usr/share/themes/Calculate/gfxboot.jpg
+# Calculate format=backgrounds stretch path=/usr/share/themes/gfxboot-themes-calculate name=back.jpg ini(theme.gfxboot-background)!=&&exists(#-ini(theme.gfxboot-background)-#)!= link=#-ini(theme.gfxboot-background)-#
 640x480
