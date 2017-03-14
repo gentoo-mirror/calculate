@@ -1,0 +1,14 @@
+# Audio
+USE="${USE} -pulseaudio"
+
+# Hardware
+USE="${USE} -cairo -opengl"
+
+# System
+USE="${USE} -consolekit -introspection -policykit"
+
+# Wireless
+USE="${USE} -bluetooth"
+
+# Window manager and speciality
+USE="${USE} -gtk -X"
