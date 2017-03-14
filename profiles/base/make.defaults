@@ -1,3 +1,5 @@
+USE=""
+
 # Audio
 USE="${USE} alsa amr -arts audiofile cdda cue id3tag flac gstreamer mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr opus portaudio pulseaudio taglib wavpack vorbis vpx"
 
