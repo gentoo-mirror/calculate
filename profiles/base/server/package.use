@@ -2,5 +2,7 @@ sys-apps/calculate-utils -backup -client console -desktop pxe -qt4
 
 # Removed unnecessary dependence
 app-misc/mc -samba
+dev-libs/glib -dbus
+media-gfx/imagemagick -djvu -svg
 sys-kernel/calculate-sources -themes
 sys-libs/glibc -gd
