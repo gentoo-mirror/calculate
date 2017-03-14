@@ -1,2 +1,2 @@
-# Calculate format=backgrounds convert=png stretch path=/boot/grub name=grub-calculate.png link=#-ini(theme.grub-background)-#
+# Calculate format=backgrounds convert=png stretch path=/boot/grub name=grub-calculate.png ini(theme.grub-background)!=&&exists(#-ini(theme.grub-background)-#)!= link=#-ini(theme.grub-background)-#
 1920x1440
