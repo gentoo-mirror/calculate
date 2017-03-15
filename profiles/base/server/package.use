@@ -5,3 +5,6 @@ app-misc/mc -samba
 media-gfx/imagemagick -djvu -svg -wmf
 sys-kernel/calculate-sources -themes
 sys-libs/glibc -gd
+
+# required by app-admin/cgmanager-0.41
+sys-libs/libnih dbus
