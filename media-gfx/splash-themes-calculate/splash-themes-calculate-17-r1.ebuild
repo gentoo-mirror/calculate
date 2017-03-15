@@ -9,7 +9,7 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-splash-the
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+verbose"
 
 SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-silent-17.jpg -> ${PN}-silent-17.jpg
