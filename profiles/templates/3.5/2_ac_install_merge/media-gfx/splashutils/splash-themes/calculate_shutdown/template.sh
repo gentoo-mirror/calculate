@@ -14,7 +14,7 @@ do
     boxtop=$(( $height - 3 * k2 / 1000 ))
 
 cat >$fn <<EOF
-# Calculate comment=#
+# Calculate comment=# exists(/etc/splash/calculate_shutdown/images/silent-${resol}.jpg)!=
 
 # background image
 silentpic=images/silent-${resol}.jpg
@@ -28,14 +28,19 @@ text_align middle middle
 text_size=${text_size}
 
 # System messages color in format [0x|#]rrggbb, or [0x|#]rrggbbaa
-text_color=0xffff9c
+text_color=0x#-ini(theme.splash-shutdown-text-color)-#
 
 # Path to TTF font, for system messages. Path may be:
 text_font=DroidSans.ttf
 
 #progress bar for silent mode
-box silent inter 0 ${boxtop} ${width} ${height} #ffff9c
-box silent 0 ${boxtop} ${width} ${height} #28171f
+#?ini(theme.splash-shutdown-progress-type)==fade#
+box silent inter 0 ${boxtop} ${width} ${height} ##-ini(theme.splash-shutdown-progress-color-begin)-#
+box silent 0 ${boxtop} ${width} ${height} ##-ini(theme.splash-shutdown-progress-color-end)-#
+#!ini#
+box silent inter 0 ${boxtop} 0 ${height} ##-ini(theme.splash-shutdown-progress-color-begin)-#
+box silent 0 ${boxtop} ${width} ${height} ##-ini(theme.splash-shutdown-progress-color-end)-#
+#ini#
 
 EOF
 done

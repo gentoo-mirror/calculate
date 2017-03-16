@@ -10,7 +10,7 @@ do
     boxtop=$(( $height - 3 * k / 1000 ))
 
 cat >$fn <<EOF
-# Calculate comment=#
+# Calculate comment=# exists(/etc/splash/calculate/images/silent-${resol}.jpg)!=||exists(/etc/splash/calculate/images/verbose-${resol}.jpg)!=
 
 # background image
 #?exists(#-ini(theme.splash-silent-background)-#)!=#
@@ -21,8 +21,13 @@ pic=images/verbose-${resol}.jpg
 #exists#
 #?exists(#-ini(theme.splash-silent-background)-#)!=#
 # progress bar for silent mode
-box silent inter 0 ${boxtop} ${width} ${height} #cdc481
-box silent 0 ${boxtop} ${width} ${height} #5a1d08
+#?ini(theme.splash-silent-progress-type)==fade#
+box silent inter 0 ${boxtop} ${width} ${height} ##-ini(theme.splash-silent-progress-color-begin)-#
+box silent 0 ${boxtop} ${width} ${height} ##-ini(theme.splash-silent-progress-color-end)-#
+#!ini#
+box silent inter 0 ${boxtop} 0 ${height} ##-ini(theme.splash-silent-progress-color-begin)-#
+box silent 0 ${boxtop} ${width} ${height} ##-ini(theme.splash-silent-progress-color-end)-#
+#ini#
 #exists#
 EOF
 done
