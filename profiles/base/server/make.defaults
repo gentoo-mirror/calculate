@@ -3,6 +3,9 @@ USE=""
 # Audio
 USE="${USE} -alsa -openal -pulseaudio"
 
+# Image support
+USE="${USE} -openexr -tiff"
+
 # Hardware
 USE="${USE} -cairo -opengl -vdpau"
 
