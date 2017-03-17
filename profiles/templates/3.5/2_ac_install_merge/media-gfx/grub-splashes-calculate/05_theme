@@ -10,7 +10,7 @@
 
 if [ "x$GRUB_TERMINAL_OUTPUT" != xconsole ]; then
 	cat <<EOF
-set color_normal=black/black
-set color_highlight=light-green/black
+set color_normal=#-ini(theme.grub-text-color)-#
+set color_highlight=#-ini(theme.grub-text-highlight-color)-#
 EOF
 fi
