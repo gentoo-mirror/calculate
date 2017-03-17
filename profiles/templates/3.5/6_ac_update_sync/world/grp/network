@@ -12,7 +12,6 @@ net-dialup/rp-pppoe
 net-dialup/xl2tpd
 net-dns/bind-tools
 net-dns/ddclient
-net-firewall/firehol
 net-firewall/fwbuilder
 net-firewall/ipsec-tools
 net-firewall/iptables
@@ -20,4 +19,7 @@ net-firewall/sanewall
 net-firewall/shorewall
 net-fs/samba
 net-misc/networkmanager-l2tp
+#?os_arch_machine==x86_64#
+net-firewall/firehol
+#os_arch_machine#
 #in#
