@@ -17,7 +17,9 @@ SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/calculate/grub-17.png ->
 
 DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
-RDEPEND="${DEPEND}"
+# need for templates
+RDEPEND="${DEPEND}
+	media-gfx/imagemagick"
 
 S="${WORKDIR}"
 

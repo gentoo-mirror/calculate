@@ -19,11 +19,11 @@ net-misc/asterisk-moh-opsound
 net-misc/autossh
 net-misc/axel
 net-misc/badvpn
-#net-misc/bfgminer
+net-misc/bfgminer
 net-misc/bridge-utils
 net-misc/bsdwhois
 net-misc/bwwhois
-#net-misc/capi4hylafax
+net-misc/capi4hylafax
 net-misc/cbqinit
 net-misc/cfengine
 net-misc/charm
@@ -45,7 +45,6 @@ net-misc/dhcpcd
 net-misc/dhcpcd-ui
 net-misc/dhcping
 net-misc/dibbler
-#net-misc/dleyna-server
 net-misc/dnetstats
 net-misc/dropbear
 #net-misc/dropbox
@@ -58,7 +57,7 @@ net-misc/gcap
 net-misc/geoipupdate
 net-misc/getdate
 net-misc/gnome-online-miners
-#net-misc/gofish
+net-misc/gofish
 net-misc/grdesktop
 #net-misc/gsasl
 net-misc/gupnp-tools
@@ -89,16 +88,16 @@ net-misc/jrdesktop
 net-misc/jumpgate
 net-misc/jwhois
 net-misc/keychain
-#net-misc/knemo
+net-misc/knemo
 net-misc/knock
 net-misc/kvpnc
 net-misc/l7-filter-userspace
 net-misc/l7-protocols
 #net-misc/libreswan
-#net-misc/libteam
+net-misc/libteam
 net-misc/linux-identd
 net-misc/lksctp-tools
-#net-misc/lldpd
+net-misc/lldpd
 #net-misc/mediatomb
 net-misc/memcached
 net-misc/mindterm
@@ -109,7 +108,7 @@ net-misc/modemmanager
 net-misc/mosh
 net-misc/mrouted
 net-misc/nat-traverse
-#net-misc/ndisc6
+net-misc/ndisc6
 net-misc/nemesis
 #net-misc/netctl
 net-misc/netdate
@@ -124,7 +123,7 @@ net-misc/netkit-talk
 net-misc/netkit-telnetd
 net-misc/netkit-timed
 net-misc/netpipes
-#net-misc/netsed
+net-misc/netsed
 net-misc/netstat-nat
 net-misc/networkmanager
 net-misc/networkmanager-openconnect
@@ -198,7 +197,6 @@ net-misc/stunnel
 #net-misc/suite3270
 net-misc/taylor-uucp
 net-misc/tcpsound
-#net-misc/telnet-bsd
 #net-misc/throttle
 net-misc/tigervnc
 net-misc/tlsdate
@@ -231,4 +229,12 @@ net-misc/youtube-viewer
 net-misc/ytalk
 net-misc/zssh
 net-misc/zsync
+#?os_arch_machine==x86_64#
+net-misc/dleyna-server
+#os_arch_machine#
+#in#
+
+#?in(os_linux_pkglist, server)!=#
+# block with desktop profile
+net-misc/telnet-bsd
 #in#
