@@ -23,7 +23,9 @@ DEPEND="media-gfx/splashutils
 	media-fonts/droid
 	!<sys-apps/calculate-utils-3.5.2.6"
 
-RDEPEND="${DEPEND}"
+# need for templates
+RDEPEND="${DEPEND}
+	media-gfx/imagemagick"
 
 S="${WORKDIR}"
 
