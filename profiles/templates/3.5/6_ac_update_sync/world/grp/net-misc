@@ -132,12 +132,10 @@ net-misc/ofono
 net-misc/oidentd
 net-misc/olsrd
 net-misc/omniORB
-net-misc/openconnect
 #net-misc/openntpd
 net-misc/openrdate
 net-misc/openssh
 net-misc/openssh-blacklist
-net-misc/openvpn
 #net-misc/openvswitch
 net-misc/packETH
 net-misc/pedro
@@ -192,7 +190,6 @@ net-misc/tcpsound
 net-misc/tigervnc
 net-misc/tlsdate
 #net-misc/tn5250
-net-misc/tor
 net-misc/ttytter
 net-misc/udpcast
 #net-misc/unison
@@ -201,7 +198,6 @@ net-misc/vconfig
 net-misc/vde
 net-misc/vinagre
 net-misc/vino
-net-misc/vpnc
 net-misc/wakeonlan
 net-misc/wget
 net-misc/whatmask
@@ -226,7 +222,11 @@ net-vpn/isatapd
 net-vpn/kvpnc
 net-vpn/miredo
 net-vpn/nstx
+net-vpn/openconnect
+net-vpn/openvpn
 net-vpn/strongswan
+net-vpn/tor
+net-vpn/vpnc
 net-vpn/vtun
 net-vpn/wireguard
 #?os_arch_machine==x86_64#
