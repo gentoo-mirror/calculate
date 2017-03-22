@@ -16,7 +16,7 @@ IUSE="debug kernel_linux networkmanager policykit +udisks +xfce_plugins_brightne
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.100
 	>=dev-libs/glib-2.24
-	|| ( <sys-power/upower-0.99 sys-power/upower-pm-utils )
+	|| ( sys-power/upower sys-power/upower-pm-utils )
 	>=x11-libs/gtk+-2.20:2
 	>=x11-libs/libnotify-0.7
 	x11-libs/libX11

@@ -1,4 +1,4 @@
-# Calculate exec=/bin/bash ac_install_disk==off&&ac_install_unmerge==off&&pkg(sys-kernel/dracut)!=&&os_install_root_type!=livecd
+# Calculate exec=/bin/bash ac_install_disk==off&&ac_install_unmerge==off&&pkg(sys-kernel/dracut)!=&&os_install_root_type!=livecd cl_setup!=themes||cl_splash_image_update_set==on
 #!/bin/bash
 
 # the recreating of inird is performed for binary kernel only (mark .calculate in kernel sources)

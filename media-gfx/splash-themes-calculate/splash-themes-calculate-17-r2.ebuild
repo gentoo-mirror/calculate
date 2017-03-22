@@ -18,8 +18,8 @@ SRC_URI="silent? (
 		ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-silent-17.jpg -> ${PN}-silent-17.jpg
 		http://mirror.yandex.ru/calculate/themes/calculate/splash-silent-17.jpg -> ${PN}-silent-17.jpg )
 	verbose? (
-		ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-verbose-17.jpg -> ${PN}-verbose-17.jpg
-		http://mirror.yandex.ru/calculate/themes/calculate/splash-verbose-17.jpg -> ${PN}-verbose-17.jpg )
+		ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-verbose-17-r1.jpg -> ${PN}-verbose-17-r1.jpg
+		http://mirror.yandex.ru/calculate/themes/calculate/splash-verbose-17-r1.jpg -> ${PN}-verbose-17-r1.jpg )
 	silent-shutdown? (
 		ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-shutdown-17.jpg -> ${PN}-shutdown-17.jpg
 		http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-17.jpg -> ${PN}-shutdown-17.jpg )"
@@ -46,7 +46,7 @@ src_install() {
 	fi
 	if use verbose
 	then
-		newins "${DISTDIR}"/${PN}-verbose-${PV}.jpg splash-verbose.jpg
+		newins "${DISTDIR}"/${PN}-verbose-${PV}-r1.jpg splash-verbose.jpg
 	fi
 }
 

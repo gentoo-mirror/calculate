@@ -19,7 +19,7 @@ RDEPEND="
 	x11-misc/lightdm
 	consolekit? ( sys-auth/consolekit )
 	systemd? ( sys-apps/systemd )
-	upower? ( sys-power/upower-pm-utils )
+	upower? ( || ( sys-power/upower-pm-utils sys-power/upower ) )
 	X? ( x11-libs/libXxf86vm )"
 DEPEND="${RDEPEND}
 	X? ( x11-proto/scrnsaverproto )
