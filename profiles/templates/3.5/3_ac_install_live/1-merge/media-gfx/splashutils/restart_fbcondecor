@@ -1,0 +1,6 @@
+# Calculate exec=/bin/bash pkg(media-gfx/splashutils[fbcondecor])!=&&ac_install_disk==off cl_setup!=themes||cl_splash_image_update_set==on cl_system_boot_set==off
+
+/usr/sbin/fbcondecor_ctl -c off --tty=1 &>/dev/null
+/etc/init.d/fbcondecor restart &>/dev/null
+
+true
