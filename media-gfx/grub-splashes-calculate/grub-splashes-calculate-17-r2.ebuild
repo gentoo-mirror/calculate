@@ -25,6 +25,6 @@ S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/themes/Calculate/
-	newins "${DISTDIR}"/${P}.png grub.png
+	newins "${DISTDIR}"/${P}-r2.png grub.png
 }
 
