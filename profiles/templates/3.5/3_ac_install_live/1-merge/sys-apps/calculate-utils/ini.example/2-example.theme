@@ -1,0 +1,260 @@
+# Calculate name=ini.env.example append=after
+#?os_install_locale_language!=ru#
+#============================== Setting themes ===============================
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+#============================== Настройки темы ===============================
+#os_install_locale_language#
+[theme]
+
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# The background image of the authorization screen. Preferred size 4266x2048.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Фоновое изображение экрана авторизации. Предпочтительный размер 4266x2048.
+#os_install_locale_language#
+; dm-login-background = /usr/share/themes/Calculate/dm-login.jpg
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# Background image during login. Preferred size 4266x2048.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Фоновое изображение во время входа в сеанс. Предпочтительный размер 4266x2048.
+#os_install_locale_language#
+; dm-login-background = /usr/share/themes/Calculate/dm-login.jpg
+
+#in#
+#?in(os_linux_pkglist, calculate)!=#
+#?os_install_locale_language!=ru#
+# Live USB boot menu. JPEG 640x480 and not more then 16K.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Фоновое изображение меню Live USB. JPEG 640x480 не более 16 Кб.
+#os_install_locale_language#
+; dm-login-background = /usr/share/themes/Calculate/dm-login.jpg
+
+#in#
+#?in(os_linux_pkglist, calculate)!=#
+#?os_install_locale_language!=ru#
+# Color selection in the Live USB menu.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Цвет выделения в Live USB меню.
+#os_install_locale_language#
+; gfxboot-select-color = 461804
+
+#in#
+#?in(os_linux_pkglist, calculate)!=#
+#?os_install_locale_language!=ru#
+# Text color in the Live USB menu.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Цвет текста в Live USB меню.
+#os_install_locale_language#
+; gfxboot-text-color = 958490
+
+#in#
+#?in(os_linux_pkglist, calculate)!=#
+#?os_install_locale_language!=ru#
+# The color of the selected text in the Live USB menu.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Цвет выделенного текста в Live USB меню.
+#os_install_locale_language#
+; gfxboot-text-highlight-color = fbcc89
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# Backround image of the system loader. It is converted to 1920x1440.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Фоновое изображения загрузчика системы. Преобразуется в 1920x1440.
+#os_install_locale_language#
+; grub-background = /usr/share/themes/Calculate/grub.png
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# Foreground/background text color of system boot loader in the presence of
+# a background image.
+# Available values: 'black', 'blue', 'green', 'cyan', 'red', 'magenta',
+# 'brown', 'light-gray', 'dark-gray', 'light-blue', 'light-green',
+# 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Цвет текста/фона загрузчика системы при наличии фонового изображения.
+# Допустимые значения: 'black', 'blue', 'green', 'cyan', 'red', 'magenta',
+# 'brown', 'light-gray', 'dark-gray', 'light-blue', 'light-green',
+# 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'.
+#os_install_locale_language#
+; grub-gfx-text-color = black/black
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# Foreground/background selected text color of system boot loader in the
+# presence of a background image.
+# Available values: 'black', 'blue', 'green', 'cyan', 'red', 'magenta',
+# 'brown', 'light-gray', 'dark-gray', 'light-blue', 'light-green',
+# 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Цвет выделенного текста/фона загрузчика системы при наличии фонового
+# изображения.
+# Допустимые значения: 'black', 'blue', 'green', 'cyan', 'red', 'magenta',
+# 'brown', 'light-gray', 'dark-gray', 'light-blue', 'light-green',
+# 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'.
+#os_install_locale_language#
+; grub-gfx-text-highlight-color = light-green/black
+
+#in#
+#?in(os_linux_pkglist, calculate)!=#
+#?os_install_locale_language!=ru#
+# Foreground/background text color of system boot loader when there is no
+# background image.
+# Available values: 'black', 'blue', 'green', 'cyan', 'red', 'magenta',
+# 'brown', 'light-gray', 'dark-gray', 'light-blue', 'light-green',
+# 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Цвет текста/фона загрузчика системы при отсутствии фонового изображения.
+# Допустимые значения: 'black', 'blue', 'green', 'cyan', 'red', 'magenta',
+# 'brown', 'light-gray', 'dark-gray', 'light-blue', 'light-green',
+# 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'.
+#os_install_locale_language#
+; grub-text-color = black/black
+
+#in#
+#?in(os_linux_pkglist, calculate)!=#
+#?os_install_locale_language!=ru#
+# Foreground/background selected text color of system boot loader when there
+# is no background image.
+# Available values: 'black', 'blue', 'green', 'cyan', 'red', 'magenta',
+# 'brown', 'light-gray', 'dark-gray', 'light-blue', 'light-green',
+# 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Цвет выделенного текста/фона загрузчика системы при отсутствии фонового
+# изображения.
+# Допустимые значения: 'black', 'blue', 'green', 'cyan', 'red', 'magenta',
+# 'brown', 'light-gray', 'dark-gray', 'light-blue', 'light-green',
+# 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'.
+#os_install_locale_language#
+; grub-text-highlight-color = light-green/black
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# Desktop background image. Preferred size 4266x2048.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Фоновое изображение рабочего стола. Предпочтительный размер 4266x2048.
+#os_install_locale_language#
+; profile-background = /usr/share/themes/Calculate/wallpaper.jpg
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# Background image of the shutdown screen. Preferred size 4266x2048.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Фоновое изображение экрана завершения работы. Предпочтительный размер 4266x2048.
+#os_install_locale_language#
+; splash-shutdown-background = /usr/share/themes/Calculate/splash-shutdown.jpg
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# The initial color of the computer shutdown indicator.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Начальный цвет индикатора завершения работы компьютера.
+#os_install_locale_language#
+; splash-shutdown-progress-color-begin = ffff9c
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# The end color of the computer shutdown indicator.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Конечный цвет индикатора завершения работы компьютера.
+#os_install_locale_language#
+; splash-shutdown-progress-color-end = 28171f
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# The type of the shutdown indicator is 'fade' or 'progress' (default).
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Тип индикатора завершения работы: 'fade' или 'progress' (по-умолчанию).
+#os_install_locale_language#
+; splash-shutdown-progress-type = fade
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# The color of the text message about the shutdown of the computer.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Цвет текста сообщения о завершении работы компьютера.
+#os_install_locale_language#
+; splash-shutdown-text-color = ffff9c
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# Background image of the system boot screen. Preferred size 4266x2048.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Фоновое изображение окна загрузки системы. Предпочтительный размер 4266x2048.
+#os_install_locale_language#
+; splash-silent-background = /usr/share/themes/Calculate/splash-silent.jpg
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# The initial color of the system boot indicator.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Начальный цвет индикатора загрузки системы.
+#os_install_locale_language#
+; splash-silent-progress-color-begin = cdc481
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# The end color of the system boot indicator.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Конечный цвет индикатора загрузки системы.
+#os_install_locale_language#
+; splash-silent-progress-color-end = 5a1d08
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# Type of the system boot indicator: 'fade' or 'progress' (default).
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Тип индикатора загрузки системы: 'fade' или 'progress' (по-умолчанию).
+#os_install_locale_language#
+; splash-silent-progress-type = fade
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# Background image of the terminal screen
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Фоновое изображение экрана терминала
+#os_install_locale_language#
+; splash-verbose-background = /usr/share/themes/Calculate/splash-verbose.jpg
+
+#in#
+
