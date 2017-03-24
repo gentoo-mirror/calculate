@@ -6,11 +6,12 @@ EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.1.1"
-	["install"]="3.5.1.1"
-	["i18n"]="3.5.1.1"
-	["update"]="3.5.1.1"
-	["builder"]="3.5.1.1"
+	["lib"]="3.5.2.13"
+	["install"]="3.5.2.4"
+	["i18n"]="3.5.2.6"
+	["client"]="3.5.2.2"
+	["update"]="3.5.2.2"
+	["builder"]="3.5.2.4"
 )
 
 inherit calculate-utils-r1
