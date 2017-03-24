@@ -12,7 +12,7 @@ cl;
 #?pkg(media-gfx/splashutils)!=#
 #-load(/bootmenu/bootparam.config)-# splash=silent,theme:calculate console=tty1;
 #!pkg#
-#-load(/bootmenu/bootparam.config)-# verbose;
+#-load(/bootmenu/bootparam.config)-# splash=off;
 #pkg#
 
 #-livemenu(submenu)-#
