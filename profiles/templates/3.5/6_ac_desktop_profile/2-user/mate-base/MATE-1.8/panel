@@ -195,9 +195,9 @@ locked=true
 panel-right-stick=false
 
 [objects/object_clock/prefs]
-format='24-hour'
+format='custom'
 show-date=false
-custom-format=''
+custom-format='<span size="xx-large" color="#FFFFFF">%H:%M</span>'
 
 [objects/object_separator_3]
 toplevel-id='toplevel_main'
