@@ -135,7 +135,6 @@ dev-util/schroot
 dev-util/strace
 dev-vcs/bzr
 dev-vcs/cvs
-dev-vcs/mercurial
 dev-vcs/qgit
 dev-vcs/subversion
 gnome-base/dconf-editor
@@ -281,5 +280,6 @@ www-plugins/chrome-binary-plugins
 #in#
 
 #?in(os_linux_pkglist, server)!=#
+dev-vcs/mercurial
 sys-process/cronie
 #in#
