@@ -28,7 +28,6 @@ user_pref("browser.cache.offline.capacity", 0);
 user_pref("browser.cache.offline.enable", false);
 user_pref("browser.search.update", false);
 user_pref("browser.sessionstore.interval", 300000);
-user_pref("dom.indexedDB.enabled", false);
 user_pref("media.cache_size", 0);
 user_pref("services.sync.prefs.sync.extensions.update.enabled", false);
 #!os_root_type#

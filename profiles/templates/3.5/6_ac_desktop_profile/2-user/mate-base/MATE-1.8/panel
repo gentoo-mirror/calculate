@@ -1,7 +1,7 @@
 # Calculate format=dconf dconf=/org/mate/panel
 [general]
 toplevel-id-list=['toplevel_main', 'toplevel_menu']
-object-id-list=['object_menu', 'object_home', 'object_workspace', 'object_showdesktop', 'object_windowlist', 'object_trash', 'object_notification', 'object_clock', 'object_lock', 'object_shutdown', 'object_browser', 'object_mail', 'object_chat', 'object_im', 'object_writer', 'object_calc', 'object_calculator', 'object_imageedit', 'object_imageview', 'object_audioplayer', 'object_videoplayer', 'object_textedit', 'object_terminal', 'object_separator_1', 'object_separator_2', 'object_separator_3'#?env(client.os_remote_auth)!=&&ur_domain_set==on#, 'object_share', 'object_ftp'#env#]
+object-id-list=['object_menu', 'object_home', 'object_workspace', 'object_showdesktop', 'object_windowlist', 'object_trash', 'object_notification', 'object_clock', 'object_lock', 'object_shutdown', 'object_browser', 'object_mail', 'object_chat', 'object_im', 'object_writer', 'object_calc', 'object_calculator', 'object_imageedit', 'object_imageview', 'object_audioplayer', 'object_videoplayer', 'object_textedit', 'object_terminal', 'object_separator_1'#?env(client.os_remote_auth)!=&&ur_domain_set==on#, 'object_share', 'object_ftp'#env#]
 
 [toplevels/toplevel_main]
 #?ini(profile.wm-panel-main-autohide)==on#
@@ -179,13 +179,6 @@ object-type='applet'
 locked=true
 panel-right-stick=false
 
-[objects/object_separator_2]
-toplevel-id='toplevel_main'
-position=#-sum(pos,pos+1)-#
-object-type='separator'
-locked=true
-panel-right-stick=false
-
 [objects/object_clock]
 applet-iid='ClockAppletFactory::ClockApplet'
 toplevel-id='toplevel_main'
@@ -195,16 +188,9 @@ locked=true
 panel-right-stick=false
 
 [objects/object_clock/prefs]
-format='24-hour'
+format='custom'
 show-date=false
-custom-format=''
-
-[objects/object_separator_3]
-toplevel-id='toplevel_main'
-position=#-sum(pos,pos+1)-#
-object-type='separator'
-locked=true
-panel-right-stick=false
+custom-format='<span size="xx-large" color="#FFFFFF">%H:%M</span>'
 
 [objects/object_lock]
 toplevel-id='toplevel_main'
