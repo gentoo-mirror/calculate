@@ -52,7 +52,8 @@ load_videodrv() {
 	do
 		if [ "`find /lib/modules -name "${x}.ko*" | grep -c ''`" -eq "1" ]
 		then
-			[ "${x}" == "i915" ] && continue
+			# i915 will be load by udev
+			[ "${x}" == "i915" ] && return
 			modprobe "${x}" modeset=1 &>/dev/null
 			lsmod | grep -q "^${x}" && \
 				[ "`cat /sys/module/${x}/refcnt`" -gt 0 ] && return 0
