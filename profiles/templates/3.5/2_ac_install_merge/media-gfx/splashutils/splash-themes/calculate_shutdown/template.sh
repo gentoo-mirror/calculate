@@ -43,4 +43,8 @@ box silent 0 ${boxtop} ${width} ${height} ##-ini(theme.splash-shutdown-progress-
 #ini#
 
 EOF
+
+cat >${fn}.remove <<EOF
+# Calculate append=remove name=${fn} exists(/etc/splash/calculate_shutdown/images/silent-${resol}.jpg)==
+EOF
 done

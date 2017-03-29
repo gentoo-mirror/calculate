@@ -30,4 +30,8 @@ box silent 0 ${boxtop} ${width} ${height} ##-ini(theme.splash-silent-progress-co
 #ini#
 #exists#
 EOF
+
+cat >${fn}.remove <<EOF
+# Calculate append=remove name=${fn} exists(/etc/splash/calculate/images/silent-${resol}.jpg)==&&exists(/etc/splash/calculate/images/verbose-${resol}.jpg)==
+EOF
 done
