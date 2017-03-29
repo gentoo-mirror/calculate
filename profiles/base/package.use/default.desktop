@@ -219,7 +219,6 @@ xfce-base/thunar udisks xfce_plugins_trash
 
 xfce-base/xfdesktop thunar xfce_plugins_menu
 xfce-base/xfce4-session -xscreensaver
-x11-misc/light-locker upower
 
 # Build a plugin for the GIMP
 net-print/gutenprint gimp
@@ -408,9 +407,6 @@ dev-python/PyQt5 gui printsupport network widgets
 net-misc/connman l2tp ofono openconnect openvpn pptp vpnc wispr
 net-misc/connman-gtk openconnect
 
-# add support DLNA/UPnP
-media-tv/kodi upnp upower
-
 # Install firmware for older chipsets
 #sys-firmware/amdgpu-ucode legacy
 
@@ -419,9 +415,6 @@ net-irc/hexchat libcanberra
 
 # Install x11-themes/sound-theme-freedesktop to get sounds on Gnome and Xfce
 media-libs/libcanberra sound
-
-# Support DLNA
-media-video/vlc upnp
 
 # required by net-im/skype-4.3.0.37-r6
 dev-qt/qtwebkit -exceptions

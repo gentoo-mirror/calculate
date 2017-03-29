@@ -7,7 +7,6 @@ net-dialup/ppp
 #?in(os_linux_pkglist, desktop)!=#
 gnome-extra/nm-applet
 net-dialup/pptpclient
-net-dialup/pptpd
 net-dialup/rp-pppoe
 net-dialup/xl2tpd
 net-dns/bind-tools
@@ -19,6 +18,7 @@ net-firewall/shorewall
 net-fs/samba
 net-misc/networkmanager-l2tp
 net-vpn/ipsec-tools
+net-vpn/pptpd
 #?os_arch_machine==x86_64#
 net-firewall/firehol
 #os_arch_machine#
