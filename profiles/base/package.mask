@@ -45,3 +45,6 @@ dev-lang/ruby:2.0
 
 # conflict with app-emulation/docker-compose-1.11.2
 ~dev-python/requests-2.12.5
+
+# this workaround is no longer required
+sys-power/upower-pm-utils
