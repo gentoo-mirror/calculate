@@ -1,0 +1,4 @@
+# Calculate format=samba name=ini.env ini(overlay-calculate.remerge)<#-cl_pass_file-# merge=sys-kernel/dracut,media-gfx/splashutils,sys-fs/eudev,sys-fs/udev
+
+[overlay-calculate]
+remerge = #-cl_pass_file-#
