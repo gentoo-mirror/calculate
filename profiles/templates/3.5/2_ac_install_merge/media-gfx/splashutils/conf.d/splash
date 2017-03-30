@@ -12,6 +12,6 @@ _splash_theme="calculate"
 #?exists(#-ini(theme.splash-shutdown-background)-#)!=#
 SPLASH_THEME_SHUTDOWN="calculate_shutdown"
 #!exists#
-!SPLASH_THEME_SHUTDOWN=
+SPLASH_THEME_SHUTDOWN=
 #exists#
 #pkg#
