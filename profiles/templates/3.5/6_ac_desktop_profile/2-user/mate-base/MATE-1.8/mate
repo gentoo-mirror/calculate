@@ -93,6 +93,10 @@ left-handed=true
 [desktop/peripherals/touchpad]
 disable-while-typing=false
 tap-to-click=true
+# двойной тап эмулирует среднюю кнопку мышки
+two-finger-click=2
+# тройной тап как правая кнопка мышки
+three-finger-click=3
 
 [desktop/session]
 idle-delay=#-ini(profile.screensaver-delay)-#
