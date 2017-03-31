@@ -22,7 +22,8 @@
 # Background image during login. Preferred size 4266x2048.
 #os_install_locale_language#
 #?os_install_locale_language==ru#
-# Фоновое изображение во время входа в сеанс. Предпочтительный размер 4266x2048.
+# Фоновое изображение во время входа в сеанс. Предпочтительный размер
+# 4266x2048.
 #os_install_locale_language#
 ; dm-login-background = /usr/share/themes/Calculate/dm-login.jpg
 
@@ -126,7 +127,7 @@
 # 'brown', 'light-gray', 'dark-gray', 'light-blue', 'light-green',
 # 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'.
 #os_install_locale_language#
-; grub-text-color = black/black
+; grub-text-color = white/black
 
 #in#
 #?in(os_linux_pkglist, calculate)!=#
@@ -144,7 +145,7 @@
 # 'brown', 'light-gray', 'dark-gray', 'light-blue', 'light-green',
 # 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'.
 #os_install_locale_language#
-; grub-text-highlight-color = light-green/black
+; grub-text-highlight-color = black/light-gray
 
 #in#
 #?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
@@ -162,7 +163,8 @@
 # Background image of the shutdown screen. Preferred size 4266x2048.
 #os_install_locale_language#
 #?os_install_locale_language==ru#
-# Фоновое изображение экрана завершения работы. Предпочтительный размер 4266x2048.
+# Фоновое изображение экрана завершения работы. Предпочтительный размер
+# 4266x2048.
 #os_install_locale_language#
 ; splash-shutdown-background = /usr/share/themes/Calculate/splash-shutdown.jpg
 
