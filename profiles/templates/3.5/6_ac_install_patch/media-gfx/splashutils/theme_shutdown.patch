@@ -1,8 +1,6 @@
-diff --git a/splashutils-gentoo-1.0.17/splash.c b/splashutils-gentoo-1.0.17/splash.c
-index 5220571..794dba1 100644
---- a/splashutils-gentoo-1.0.17/splash.c
-+++ b/splashutils-gentoo-1.0.17/splash.c
-@@ -148,6 +148,24 @@ static void fix_rc_variable(char *s)
+--- splash.c
++++ splash.c
+@@ -148,6 +148,37 @@ static void fix_rc_variable(char *s)
  }
  
  /*
@@ -18,6 +16,19 @@ index 5220571..794dba1 100644
 +	t = rc_config_value(confd, "SPLASH_THEME_SHUTDOWN");
 +	if (t)
 +		fbsplash_acc_theme_set(t);
++
++	if (strlen(t)) {
++		t = rc_config_value(confd, "SPLASH_MODE_REQ_SHUTDOWN");
++		if (t) {
++			if (!strcasecmp(t, "verbose")) {
++				cfg->reqmode = FBSPL_MODE_VERBOSE;
++			} else if (!strcasecmp(t, "silent")) {
++				cfg->reqmode = FBSPL_MODE_VERBOSE | FBSPL_MODE_SILENT;
++			} else if (!strcasecmp(t, "silentonly")) {
++				cfg->reqmode = FBSPL_MODE_SILENT;
++			}
++		}
++	}
 +
 +	rc_stringlist_free(confd);
 +	return 0;
