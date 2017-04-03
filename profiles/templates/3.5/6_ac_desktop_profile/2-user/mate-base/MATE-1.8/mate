@@ -130,7 +130,7 @@ switch-to-workspace-3='<Primary>F3'
 switch-to-workspace-4='<Primary>F4'
 
 [notification-daemon]
-theme='slider'
+theme='coco'
 
 [power-manager]
 sleep-computer-ac=#-sum(sleep,60*#-ini(profile.power-computer-sleep)-#)-#
