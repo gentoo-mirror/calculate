@@ -55,6 +55,7 @@ PATCHES=(
 	"${FILESDIR}"/steam-runtime-default.patch
 	"${FILESDIR}"/steam-set-distrib-release.patch
 	"${FILESDIR}"/steam-fix-joystick-detection.patch
+	"${FILESDIR}"/steam-fix-preload-libxcb.patch
 )
 
 pkg_setup() {
@@ -83,6 +84,11 @@ src_prepare() {
 		-e "s:@@STEAM_RUNTIME@@:$(usex steamruntime 1 0):g" \
 		steam || die
 
+	# if STEAM_RUNTIME_PREFER_HOST_LIBRARIES is enabled, steam.sh wants to
+	# parse the output of ldconfig which is not in PATH for regular users
+	sed -i \
+		-e "s,export TEXTDOMAIN=steam,export TEXTDOMAIN=steam\nexport PATH=\${PATH}:/sbin/," steam || die
+
 	# Still need EPREFIX in the DEBIAN_COMPAT sed replacement because
 	# the regular expression used by hprefixify doesn't match here.
 	hprefixify steam
@@ -98,7 +104,7 @@ src_install() {
 	insinto /usr/lib/steam/
 	doins bootstraplinux_ubuntu12_32.tar.xz
 
-	udev_dorules lib/udev/rules.d/99-steam-controller-perms.rules lib/udev/rules.d/99-HTC-Vive-perms.rules
+	udev_dorules lib/udev/rules.d/99-steam-controller-perms.rules lib/udev/rules.d/60-HTC-Vive-perms.rules
 
 	dodoc debian/changelog steam_install_agreement.txt
 	doman steam.6
