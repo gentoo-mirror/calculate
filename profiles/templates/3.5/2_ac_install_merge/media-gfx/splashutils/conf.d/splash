@@ -10,8 +10,10 @@ SPLASH_THEME="calculate"
 _splash_theme="calculate"
 #exists#
 #?exists(#-ini(theme.splash-shutdown-background)-#)!=#
+SPLASH_MODE_REQ_SHUTDOWN="silent"
 SPLASH_THEME_SHUTDOWN="calculate_shutdown"
 #!exists#
+!SPLASH_MODE_REQ_SHUTDOWN=
 SPLASH_THEME_SHUTDOWN=
 #exists#
 #pkg#
