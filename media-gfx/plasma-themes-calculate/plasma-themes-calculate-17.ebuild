@@ -16,10 +16,6 @@ SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/plasma/plasma-calculate-
 	http://mirror.yandex.ru/calculate/themes/plasma/plasma-calculate-${PV}.tar.bz2"
 
 
-RDEPEND="media-gfx/dm-themes-calculate"
-
-DEPEND="${RDEPEND}"
-
 src_install() {
 	insinto /
 	doins -r .

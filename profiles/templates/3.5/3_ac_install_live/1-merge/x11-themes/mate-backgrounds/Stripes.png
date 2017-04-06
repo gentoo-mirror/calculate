@@ -1,9 +1,2 @@
-# Calculate exec=/bin/bash pkg(media-gfx/imagemagick)!=
-#!/bin/bash
-#?os_install_x11_resolution!=#
-/usr/bin/convert #-cl_chroot_path-#/#-wallpaper(#-os_install_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-# #-cl_chroot_path-#/usr/share/backgrounds/mate/desktop/Stripes.png
-#!os_install_x11_resolution#
-/usr/bin/convert #-cl_chroot_path-#/#-wallpaper(#-os_install_fb_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-# #-cl_chroot_path-#/usr/share/backgrounds/mate/desktop/Stripes.png
-#os_install_x11_resolution#
-
-true
+# Calculate format=backgrounds convert=png path=/usr/share/backgrounds/mate/desktop name=Stripes.png link=#-ini(theme.dm-login-background)-# mirror pkg(media-gfx/imagemagick)!=&&cl_ver>=3.5.2.21
+#-os_install_x11_resolution-#
