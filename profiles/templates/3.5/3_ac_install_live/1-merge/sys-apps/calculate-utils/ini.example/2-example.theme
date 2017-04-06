@@ -25,7 +25,7 @@
 # Фоновое изображение во время входа в сеанс. Предпочтительный размер
 # 4266x2048.
 #os_install_locale_language#
-; dm-login-background = /usr/share/themes/Calculate/dm-login.jpg
+; dm-splash-background = /usr/share/themes/Calculate/dm-splash.jpg
 
 #in#
 #?in(os_linux_pkglist, calculate)!=#
@@ -35,7 +35,7 @@
 #?os_install_locale_language==ru#
 # Фоновое изображение меню Live USB. JPEG 640x480 не более 16 Кб.
 #os_install_locale_language#
-; dm-login-background = /usr/share/themes/Calculate/dm-login.jpg
+; gfxboot-background = /usr/share/themes/Calculate/gfxboot.jpg
 
 #in#
 #?in(os_linux_pkglist, calculate)!=#
