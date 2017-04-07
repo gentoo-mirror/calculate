@@ -30,10 +30,10 @@
 #in#
 #?in(os_linux_pkglist, calculate)!=#
 #?os_install_locale_language!=ru#
-# Live USB boot menu. JPEG 640x480 and not more then 16K.
+# Live USB boot menu.
 #os_install_locale_language#
 #?os_install_locale_language==ru#
-# Фоновое изображение меню Live USB. JPEG 640x480 не более 16 Кб.
+# Фоновое изображение меню Live USB.
 #os_install_locale_language#
 ; gfxboot-background = /usr/share/themes/Calculate/gfxboot.jpg
 
@@ -70,12 +70,12 @@
 #in#
 #?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
 #?os_install_locale_language!=ru#
-# Backround image of the system loader. It is converted to 1920x1440.
+# Backround image of the system loader.
 #os_install_locale_language#
 #?os_install_locale_language==ru#
-# Фоновое изображения загрузчика системы. Преобразуется в 1920x1440.
+# Фоновое изображения загрузчика системы.
 #os_install_locale_language#
-; grub-background = /usr/share/themes/Calculate/grub.png
+; grub-background = /usr/share/themes/Calculate/grub.jpg
 
 #in#
 #?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
