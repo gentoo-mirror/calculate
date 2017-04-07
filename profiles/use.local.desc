@@ -6,7 +6,12 @@ media-gfx/calculate-wallpapers:CL11 - Include Calculate Linux 11 wallpapers
 media-gfx/calculate-wallpapers:CL12 - Include Calculate Linux 12 wallpapers
 media-gfx/calculate-wallpapers:CL13 - Include Calculate Linux 13 wallpapers
 media-gfx/calculate-wallpapers:CL14 - Include Calculate Linux 14 wallpapers
+media-gfx/calculate-wallpapers:CL15 - Include Calculate Linux 15 wallpapers
 media-gfx/splash-themes-calculate:verbose - Include verbose image
+media-gfx/splash-themes-calculate:silent - Include silent image for boot
+media-gfx/splash-themes-calculate:silent-shutdown - Include silent image for shutdown
+media-gfx/dm-themes-calculate:login - Include display manager login image
+media-gfx/dm-themes-calculate:splash - Include display manager splash image
 net-dns/bind:sdb-ldap - LDAP sdb back-end
 net-print/cnijfilter:net - Add network backend for CUPS
 net-print/cnijfilter:servicetools - Build service tools utility, this require very old libs
@@ -21,8 +26,7 @@ sys-apps/calculate-server:calculate_noproxy - Includes dependencies of packages 
 sys-apps/calculate-server:calculate_nosamba - Includes dependencies of packages for Samba
 sys-apps/calculate-utils:cl_client - Includes calculate-client dependence
 sys-apps/calculate-utils:cl_consolegui - Includes calculate-console-gui dependence
-sys-apps/calculate-utils:cl_console -Includes calculate-console dependence 
-sys-apps/calculate-utils:cl_desktop - Includes calculate-desktop dependence
+sys-apps/calculate-utils:cl_console -Includes calculate-console dependence sys-apps/calculate-utils:cl_desktop - Includes calculate-desktop dependence
 sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain
 sys-apps/calculate-utils:console - Includes console module
 sys-apps/calculate-utils:desktop - Includes module for desktop configuration
