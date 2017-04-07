@@ -191,10 +191,10 @@
 #in#
 #?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
 #?os_install_locale_language!=ru#
-# The type of the shutdown indicator is 'fade' or 'progress' (default).
+# The type of the shutdown indicator is 'fade' or 'progress'.
 #os_install_locale_language#
 #?os_install_locale_language==ru#
-# Тип индикатора завершения работы: 'fade' или 'progress' (по-умолчанию).
+# Тип индикатора завершения работы: 'fade' или 'progress'.
 #os_install_locale_language#
 ; splash-shutdown-progress-type = fade
 
@@ -241,10 +241,10 @@
 #in#
 #?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
 #?os_install_locale_language!=ru#
-# Type of the system boot indicator: 'fade' or 'progress' (default).
+# Type of the system boot indicator: 'fade' or 'progress'.
 #os_install_locale_language#
 #?os_install_locale_language==ru#
-# Тип индикатора загрузки системы: 'fade' или 'progress' (по-умолчанию).
+# Тип индикатора загрузки системы: 'fade' или 'progress'.
 #os_install_locale_language#
 ; splash-silent-progress-type = fade
 
