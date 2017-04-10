@@ -144,3 +144,6 @@ media-gfx/splashutils fbcondecor
 
 # support/bindings for the Python
 media-gfx/gimp python
+
+# there is IP{,_NF}_SET or NETFILTER_XT_SET support in the kernel.
+net-firewall/ipset -modules
