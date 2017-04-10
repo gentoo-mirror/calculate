@@ -28,6 +28,16 @@
 ; dm-splash-background = /usr/share/themes/Calculate/dm-splash.jpg
 
 #in#
+#?in(os_linux_pkglist, CLDC, CLDL, CLDM, CLDX)!=#
+#?os_install_locale_language!=ru#
+# Background color during login if image is not available.
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Фоновый цвет во время входа в сеанс при отсутствии изображения.
+#os_install_locale_language#
+; dm-splash-color = 30648b
+
+#in#
 #?in(os_linux_pkglist, calculate)!=#
 #?os_install_locale_language!=ru#
 # Live USB boot menu.
