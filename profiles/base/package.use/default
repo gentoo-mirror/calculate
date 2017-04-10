@@ -147,3 +147,6 @@ media-gfx/gimp python
 
 # there is IP{,_NF}_SET or NETFILTER_XT_SET support in the kernel.
 net-firewall/ipset -modules
+
+# support/bindings for the Python language
+sys-fs/cryptsetup python
