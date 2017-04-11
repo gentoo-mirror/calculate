@@ -42,6 +42,9 @@ media-libs/libpng apng
 # kde-plasma/kwin-5.5.0
 media-libs/mesa gbm xa gles2 wayland
 
+# enable Vulkan drivers
+media-libs/mesa vulkan
+
 # required by www-client/chromium [minizip]
 sys-libs/zlib minizip
 
