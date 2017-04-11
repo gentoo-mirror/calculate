@@ -2,6 +2,11 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
+dev-python/ipython:matplotlib - Add support for dev-python/matplotlib
+dev-python/ipython:mongodb - Enable support for MongoDB via dev-python/pymongo
+dev-python/ipython:nbconvert - Enable support for converting notebooks to various formats using app-text/pandoc
+dev-python/ipython:notebook - Install requirements for the web notebook based on www-servers/tornado
+dev-python/ipython:octave - Enable octave bridge via dev-python/oct2py
 media-gfx/calculate-wallpapers:CL11 - Include Calculate Linux 11 wallpapers.
 media-gfx/calculate-wallpapers:CL12 - Include Calculate Linux 12 wallpapers.
 media-gfx/calculate-wallpapers:CL13 - Include Calculate Linux 13 wallpapers.
