@@ -1,4 +1,5 @@
 # Calculate exec=/bin/bash pkg(media-libs/fontconfig)!= load(empty,/etc/fonts/conf.avail/90-synthetic.conf)==||load(empty,/etc/fonts/conf.avail/30-metric-aliases.conf)== ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#
 
-rm -f /etc/fonts/conf.avail/90-synthetic.conf /etc/fonts/conf.avail/30-metric-aliases.conf
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+rm -f /etc/fonts/conf.avail/90-synthetic.conf /etc/fonts/conf.avail/30-metric-aliases.conf /etc/fonts/conf.d/90-synthetic.conf /etc/fonts/conf.d/30-metric-aliases.conf
 true
