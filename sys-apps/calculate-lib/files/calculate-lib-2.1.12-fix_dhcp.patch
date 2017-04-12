@@ -1,0 +1,13 @@
+diff --git pym/cl_profile.py pym/cl_profile.py
+index 87acf30..f876fd7 100644
+--- pym/cl_profile.py
++++ pym/cl_profile.py
+@@ -4729,7 +4729,7 @@ class bind(objShare):
+         startBloc = ""
+         bodyBloc = ""
+         endBloc = ""
+-        textLines = text.splitlines()
++        textLines = text.replace("} ", "}\n").splitlines()
+         findOpen = False
+         if textLines:
+             findOpen = reOpen.search(textLines[0])
