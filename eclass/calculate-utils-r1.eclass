@@ -142,6 +142,7 @@ prepare_variables
 RDEPEND="
 	!minimal? ( dev-python/py-smbpasswd
 		sys-boot/grub
+		dev-python/passlib[python_targets_python2_7]
 		sys-apps/gptfdisk
 		>=sys-apps/util-linux-2.19.1
 		sys-fs/dosfstools
