@@ -70,7 +70,6 @@ sys-apps/install-xattr
 sys-apps/inxi
 sys-apps/iotools
 sys-apps/ipmitool
-sys-apps/ipmiutil
 sys-apps/iproute2
 sys-apps/irqbalance
 sys-apps/isapnptools
@@ -168,4 +167,9 @@ sys-apps/yum
 
 #?in(os_linux_pkglist, desktop)!=&&os_arch_machine==x86_64#
 sys-apps/firejail
+#in#
+
+#?in(os_linux_pkglist, server)!=#
+# does not compile with the app-arch/rpm package
+sys-apps/ipmiutil
 #in#
