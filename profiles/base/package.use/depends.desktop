@@ -72,3 +72,6 @@ dev-libs/libnl utils
 
 # x264? ( dec_av2 ) x265? ( dec_av2 )
 x11-wm/xpra dec_av2
+
+# required by www-client/qutebrowser-0.9.1
+dev-python/PyQt5 declarative
