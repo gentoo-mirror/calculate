@@ -5,3 +5,5 @@
 <text>\1 ...'</text>
 <reg>(menuentry .*?\)') (\$CLASS|--class)</reg>
 <text>\1 --unrestricted \2</text>
+<reg>(submenu .*?...') (\\\$menuentry)</reg>
+<text>\1 --unrestricted \2</text>
