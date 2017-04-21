@@ -84,3 +84,6 @@ net-libs/libgadu gnutls
 
 # fix vfs share IssueID #550
 app-office/libreoffice gnome
+
+# required by app-emulation/docker-17.03.1[container-init]
+sys-process/tini static
