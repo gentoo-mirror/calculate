@@ -1,10 +1,4 @@
 dev-qt/qtwebkit:4 -gstreamer
-kde-apps/kdepim-l10n:4 -l10n_sr
-=kde-apps/ktp-l10n-16.04.3 -l10n_fr
 # random rebuild the package for no reason
 media-libs/babl -cpu_flags_x86_f16c -cpu_flags_x86_sse4_1
-# kde-plasma/plasma-desktop-5.9.4
-# file collision /usr/share/locale/sr/LC_SCRIPTS/kfontinst/kfontinst.js
-kde-apps/kde4-l10n -l10n_sr
-sci-calculators/keurocalc -l10n_sr
 =mate-extra/mate-power-manager-1.16.0 -pm-utils
