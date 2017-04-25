@@ -29,6 +29,9 @@ dev-libs/quazip qt5
 dev-python/PyQt5 sql help
 dev-python/qscintilla-python qt5 -qt4
 x11-libs/qscintilla qt5 -qt4
+# required by sci-geosciences/qgis-2.18.7
+x11-libs/qwtpolar qt5 -qt4
+x11-libs/qwt qt5
 
 app-admin/packagekit-qt qt5
 app-misc/qlcplus qt5
