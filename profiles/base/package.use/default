@@ -152,4 +152,4 @@ net-firewall/ipset -modules
 sys-fs/cryptsetup python
 
 # Add support for the postgresql database
-app-backup/holland postgres
+app-backup/holland postgres -mysql

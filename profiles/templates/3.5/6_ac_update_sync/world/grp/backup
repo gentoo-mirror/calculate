@@ -6,7 +6,7 @@ app-backup/attic
 app-backup/backintime
 app-backup/backup-manager
 app-backup/backupninja
-app-backup/backuppc
+#app-backup/backuppc
 app-backup/bacula
 #app-backup/bareos
 app-backup/borgbackup
@@ -40,7 +40,7 @@ app-backup/holland-backup-random
 app-backup/holland-backup-sqlite
 app-backup/holland-lib-common
 app-backup/holland-lib-lvm
-app-backup/holland-lib-mysql
+#app-backup/holland-lib-mysql
 app-backup/kbackup
 app-backup/kfoldersync
 app-backup/luckybackup
@@ -68,4 +68,8 @@ app-backup/tsm
 app-backup/untangle-https-backup
 app-backup/vzdump
 app-backup/zbackup
+#in#
+
+#?in(os_linux_pkglist, server)!=#
+app-backup/bacula
 #in#
