@@ -150,3 +150,6 @@ net-firewall/ipset -modules
 
 # support/bindings for the Python language
 sys-fs/cryptsetup python
+
+# Add support for the postgresql database
+app-backup/holland postgres
