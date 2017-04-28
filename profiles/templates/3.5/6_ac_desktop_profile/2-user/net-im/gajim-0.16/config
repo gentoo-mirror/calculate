@@ -4,5 +4,5 @@ muc_restore_timeout = -1
 notify_on_signin = False
 plugins.plugin_installer.active = False
 soundplayer = aplay
-speller_language = ru_RU (или ru)
+speller_language = #-os_locale_lang-#
 use_speller = True
