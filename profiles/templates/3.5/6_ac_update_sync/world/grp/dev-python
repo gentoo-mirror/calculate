@@ -303,7 +303,6 @@ dev-python/hachoir-regex
 dev-python/happydoc
 dev-python/hcs-utils
 dev-python/hgdistver
-dev-python/hgtools
 dev-python/hiredis
 dev-python/html2text
 dev-python/html5lib
@@ -654,7 +653,7 @@ dev-python/pysnmp
 dev-python/PySocks
 dev-python/pyspf
 dev-python/pystache
-dev-python/pysvn
+#dev-python/pysvn
 #dev-python/pytables
 dev-python/pytest
 dev-python/pytest-capturelog
@@ -786,7 +785,6 @@ dev-python/service_identity
 dev-python/setproctitle
 dev-python/setuptools
 dev-python/setuptools-git
-dev-python/setuptools_hg
 dev-python/setuptools_scm
 dev-python/shiboken
 dev-python/shortuuid
@@ -940,4 +938,12 @@ dev-python/zbase32
 dev-python/zfec
 dev-python/zope-interface
 dev-python/zsi
+#in#
+
+
+#?in(os_linux_pkglist, server)!=#
+# собираются в другом профиле чтобы не вытягивался dev-vcs/mercurial из-за
+# которого не собирается dev-lang/spidermonkey-24.2.0-r3:24
+dev-python/hgtools
+dev-python/setuptools_hg
 #in#
