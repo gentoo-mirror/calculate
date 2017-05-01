@@ -1,5 +1,9 @@
-dev-ruby/json ruby_targets_ruby22
-dev-ruby/power_assert ruby_targets_ruby22
-dev-ruby/rubygems ruby_targets_ruby22
-dev-ruby/test-unit ruby_targets_ruby22
-virtual/rubygems ruby_targets_ruby22
+dev-ruby/json ruby_targets_ruby22 -ruby_targets_ruby21
+dev-ruby/minitest-5.8.4 ruby_targets_ruby22 -ruby_targets_ruby21
+dev-ruby/power_assert ruby_targets_ruby22 -ruby_targets_ruby21
+dev-ruby/racc-1.4.11 ruby_targets_ruby22 -ruby_targets_ruby21
+dev-ruby/rake-12.0.0 ruby_targets_ruby22 -ruby_targets_ruby21
+dev-ruby/rdoc-4.2.0 ruby_targets_ruby22 -ruby_targets_ruby21
+dev-ruby/rubygems ruby_targets_ruby22 -ruby_targets_ruby21
+dev-ruby/test-unit ruby_targets_ruby22 -ruby_targets_ruby21
+virtual/rubygems ruby_targets_ruby22 -ruby_targets_ruby21
