@@ -53,7 +53,6 @@ media-sound/vimpc
 media-sound/xfmpc
 media-sound/xmms2
 media-tv/kodi
-media-tv/plex-media-server
 media-video/avidemux
 media-video/cinelerra
 media-video/dvdauthor
@@ -79,4 +78,8 @@ media-video/totem
 media-video/transcode
 media-video/vcdimager
 media-video/vlc
+
+#?os_arch_machine==x86_64#
+media-tv/plex-media-server
+#os_arch_machine#
 #in#
