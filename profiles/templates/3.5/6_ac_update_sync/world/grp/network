@@ -24,3 +24,7 @@ net-vpn/pptpd
 net-firewall/firehol
 #os_arch_machine#
 #in#
+
+#?in(os_linux_pkglist, server)!=#
+net-dns/dnsmasq
+#in#
