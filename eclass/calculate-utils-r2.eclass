@@ -118,7 +118,7 @@ prepare_variables() {
 		SRC_URI="$SRC_URI $MODULE_URI"
 	done
 
-	IUSE="+grub minimal pxe backup ${CALCULATE_MODULES_USE_[@]}"
+	IUSE="+install minimal pxe backup ${CALCULATE_MODULES_USE_[@]}"
 	S="${WORKDIR}"
 }
 
@@ -140,8 +140,7 @@ prepare_module_info() {
 prepare_variables
 
 RDEPEND="
-	grub? ( sys-boot/grub
-		>=app-cdr/cdrtools-3.01_alpha13
+	install? ( >=app-cdr/cdrtools-3.01_alpha13
 		>=sys-boot/grub-2.00-r3
 		>=sys-boot/syslinux-5
 		sys-fs/squashfs-tools
