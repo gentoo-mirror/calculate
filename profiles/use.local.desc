@@ -17,9 +17,11 @@ media-gfx/dm-themes-calculate:splash - Include display manager splash image.
 media-gfx/splash-themes-calculate:silent - Include silent image for boot.
 media-gfx/splash-themes-calculate:silent-shutdown - Include silent image for shutdown.
 media-gfx/splash-themes-calculate:verbose - Include verbose image.
+sys-apps/calculate-utils:backup - Includes backup module.
 sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain.
 sys-apps/calculate-utils:console - Includes console module.
 sys-apps/calculate-utils:desktop - Includes module for desktop configuration.
+sys-apps/calculate-utils:install - Enables support for disk installation.
 sys-apps/calculate-utils:minimal - Use minimal depends for calculate install.
 sys-apps/calculate-utils:pxe - Enables support for PXE installation.
 sys-kernel/calculate-sources:vmlinuz - Build kernel, modules and initramfs
