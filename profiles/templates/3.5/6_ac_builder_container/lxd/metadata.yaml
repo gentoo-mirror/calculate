@@ -1,0 +1,37 @@
+{
+    "architecture": "#-os_builder_arch_machine-#",
+    "creation_date": #-cl_builder_container_create_timestamp-#,
+    "properties": {
+        "architecture": "#-os_builder_arch_machine-#",
+        "description": "#-cl_builder_container_dist-# #-cl_builder_container_release-# #-os_builder_arch_machine-# (#-cl_builder_container_variant-#) (#-cl_builder_container_date-#)",
+        "name": "#-cl_builder_container_dist-#-#-cl_builder_container_release-#-#-os_builder_arch_machine-#-#-cl_builder_container_variant-#-#-cl_builder_container_date-#",
+        "os": "#-cl_builder_container_dist-#",
+        "release": "#-cl_builder_container_release-#",
+        "variant": "#-cl_builder_container_variant-#"
+    },
+    "calculate": {
+        "os_linux_build": "#-os_builder_linux_build-#",
+        "os_arch_machine": "#-os_builder_arch_machine-#",
+        "os_linux_shortname": "#-os_builder_linux_shortname-#",
+        "os_linux_subname": "#-os_builder_linux_subname-#",
+        "cl_profile_name": "#-cl_builder_profile_name-#",
+        "os_linux_name": "#-os_builder_linux_name-#",
+        "os_linux_ver": "#-os_builder_linux_ver-#"
+    },
+    "templates": {
+        "/etc/hostname": {
+            "template": "hostname.tpl",
+            "when": [
+                "create",
+                "copy"
+            ]
+        },
+        "/etc/hosts": {
+            "template": "hosts.tpl",
+            "when": [
+                "create",
+                "copy"
+            ]
+        }
+    }
+}
