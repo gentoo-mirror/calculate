@@ -44,6 +44,10 @@
 #-ini(runlevels.vixie-cron,)-#
 #ini#
 
+#?ini(runlevels.cronie)==on&&pkg(sys-process/cronie)==#
+#-ini(runlevels.cronie,)-#
+#ini#
+
 #?ini(runlevels.openssh)==on&&pkg(net-misc/openssh)==#
 #-ini(runlevels.openssh,)-#
 #ini#
