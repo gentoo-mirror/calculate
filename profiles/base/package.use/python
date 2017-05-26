@@ -28,3 +28,9 @@ dev-libs/protobuf python
 
 # required by dev-python/tlslite-0.4.3-r1
 dev-libs/cryptlib python
+
+# required by dev-util/osc-0.152.0
+app-arch/rpm python
+
+# required by dev-util/dput-ng-1.10
+dev-util/distro-info python
