@@ -106,11 +106,13 @@ dev-util/cmake -qt4
 dev-vcs/git -gtk
 gnome-extra/zenity -webkit
 kde-apps/kdebase-runtime-meta -crash-reporter
+kde-apps/kget -bittorrent
 kde-apps/print-manager -gtk
 kde-plasma/plasma-desktop -qt4
 mate-extra/mate-sensors-applet -video_cards_nvidia
 media-gfx/gimp -webkit
 media-gfx/imagemagick -X
+media-gfx/inkscape -spell
 media-gfx/ufraw -gtk
 media-video/ffmpeg -samba
 net-analyzer/net-snmp -X
@@ -143,7 +145,7 @@ media-libs/phonon gstreamer -vlc
 kde-apps/dolphin thumbnail
 
 # Support for the KDE Image Plugin Interface.
-kde-apps/gwenview kipi
+kde-apps/gwenview kipi semantic-desktop
 
 # Remote desktop viewer support
 kde-apps/krdc vnc
@@ -343,7 +345,8 @@ net-misc/remmina ssh rdp vte
 x11-base/xorg-server kdrive glamor
 
 # Build cycles renderer
-media-gfx/blender cycles
+# cycles? ( openimageio )
+media-gfx/blender cycles openimageio
 
 # Support HTTP streams through neon (radio)
 media-plugins/audacious-plugins http
