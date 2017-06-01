@@ -1,0 +1,14 @@
+DEFINED_PHASES=install
+DEPEND=!<sys-apps/calculate-utils-3.5.2.6
+DESCRIPTION=Display manager wallpapers for Calculate Linux
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate
+IUSE=+splash +login
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+RDEPEND=!<sys-apps/calculate-utils-3.5.2.6 media-gfx/imagemagick
+REQUIRED_USE=|| ( splash login )
+SLOT=0
+SRC_URI=login? ( http://mirror.calculate-linux.org/themes/calculate/dm-login-17-r1.jpg -> dm-themes-calculate-login-17.jpg http://mirror.yandex.ru/calculate/themes/calculate/dm-login-17-r1.jpg -> dm-themes-calculate-login-17.jpg ) splash? ( http://mirror.calculate-linux.org/themes/calculate/dm-splash-17.jpg -> dm-themes-calculate-splash-17.jpg http://mirror.yandex.ru/calculate/themes/calculate/dm-splash-17.jpg -> dm-themes-calculate-splash-17.jpg )
+_eclass_exported_funcs=src_install:-
+_md5_=56d631b74d3937cc57625db5ab64570d
