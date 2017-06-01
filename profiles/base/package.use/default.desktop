@@ -345,7 +345,8 @@ net-misc/remmina ssh rdp vte
 x11-base/xorg-server kdrive glamor
 
 # Build cycles renderer
-media-gfx/blender cycles
+# cycles? ( openimageio )
+media-gfx/blender cycles openimageio
 
 # Support HTTP streams through neon (radio)
 media-plugins/audacious-plugins http
