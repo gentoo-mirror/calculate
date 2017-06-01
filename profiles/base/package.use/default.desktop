@@ -106,6 +106,7 @@ dev-util/cmake -qt4
 dev-vcs/git -gtk
 gnome-extra/zenity -webkit
 kde-apps/kdebase-runtime-meta -crash-reporter
+kde-apps/kget -bittorrent
 kde-apps/print-manager -gtk
 kde-plasma/plasma-desktop -qt4
 mate-extra/mate-sensors-applet -video_cards_nvidia
@@ -143,7 +144,7 @@ media-libs/phonon gstreamer -vlc
 kde-apps/dolphin thumbnail
 
 # Support for the KDE Image Plugin Interface.
-kde-apps/gwenview kipi
+kde-apps/gwenview kipi semantic-desktop
 
 # Remote desktop viewer support
 kde-apps/krdc vnc
