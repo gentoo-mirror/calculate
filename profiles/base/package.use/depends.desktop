@@ -81,3 +81,6 @@ app-office/libreoffice gnome
 
 # required by app-emulation/docker-17.03.1[container-init]
 sys-process/tini static
+
+# required by media-libs/phonon-4.9.0[gstreamer]
+media-libs/phonon-gstreamer qt4
