@@ -6,7 +6,7 @@ EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
-	["desktop"]="3.5.5.1"
+	["desktop"]="3.5.5.2"
 )
 
 inherit calculate-utils-r2
