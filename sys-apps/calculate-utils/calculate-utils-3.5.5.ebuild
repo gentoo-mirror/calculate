@@ -5,6 +5,10 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
+declare -A CALCULATE_MODULES=(
+	["desktop"]="3.5.5.1"
+)
+
 inherit calculate-utils-r2
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
