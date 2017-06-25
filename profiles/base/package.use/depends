@@ -23,3 +23,9 @@ app-text/texlive-core cjk
 
 # required by www-apache/mod_perl-2.0.10
 dev-lang/perl ithreads
+
+# any-of ( mysql postgres sqlite )
+sys-cluster/cinder postgres
+sys-cluster/csync2 postgres
+sys-cluster/neutron postgres
+sys-cluster/nova postgres
