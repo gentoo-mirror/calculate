@@ -10,7 +10,7 @@ USE="${USE} -openexr -tiff"
 USE="${USE} -cairo -opengl -vdpau"
 
 # Video
-USE="${USE} -sdl -vaapi"
+USE="${USE} -sdl -sdl2 -vaapi"
 
 # Photo
 USE="${USE} -gimp"
