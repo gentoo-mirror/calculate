@@ -1,35 +1,14 @@
-# [blocks B      ] dev-python/logilab-common ("dev-python/logilab-common" is blocking dev-python/pytest-3.0.3)
-=dev-python/pytest-3.0.3
-
-# without the patch does not allow to work with certificates correctly
-<dev-python/m2crypto-0.22.3-r9
-
 # mask portage wgetpaste
 >app-text/wgetpaste-2.25-r4
 
 # package above 2.0 has not calculate patches
 >sys-boot/grub-2.02_beta3-r1
 
-# deprecated, will be removed soon
-sys-apps/calculate-builder
-sys-apps/calculate-assemble
-sys-apps/calculate-lib:2.2
-
 # deprecated, calculate-server is separate package now
 sys-apps/calculate-utils:0
 
 # prevent automagic depends
 sys-libs/db:6.0
-
-# mask for migration to the new version
-dev-lang/ruby:2.0
-
-# not compiled dev-lang/spidermonkey-24.2.0-r3
-=dev-libs/icu-58.1-r1
-
-# without patch
-=net-dns/bind-9.10.4_p4
-=net-dns/bind-9.11.0_p2
 
 # blocking dev-util/pida-0.6.2-r1::gentoo
 =dev-python/bpython-0.16
@@ -38,7 +17,6 @@ dev-lang/ruby:2.0
 =dev-python/billiard-3.5.0.0
 
 # not compiled
-=sys-apps/ipmiutil-3.0.2
 =app-admin/packagekit-base-1.1.5-r1
 
 # conflict with app-emulation/docker-compose-1.11.2
