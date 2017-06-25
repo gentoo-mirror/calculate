@@ -96,7 +96,7 @@ sys-libs/ncurses tinfo
 net-misc/iputils arping
 
 # i386 support, TLS support for the VNC console server, VirtFS
-app-emulation/qemu gnutls qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 virtfs
+app-emulation/qemu gnutls spice sdl2 usbredir xfs qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 virtfs
 
 # required by app-forensics/rkhunter-1.4.2
 sys-process/lsof rpc
@@ -156,3 +156,6 @@ app-backup/holland postgres -mysql
 
 # Build for use with thread-capable perl
 www-apache/mod_perl ithreads
+
+# required by app-emulation/libvirt-3.3.0[virt-network]
+net-dns/dnsmasq script
