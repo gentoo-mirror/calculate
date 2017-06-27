@@ -5,7 +5,15 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
-inherit calculate-utils-r1
+declare -A CALCULATE_MODULES=(
+	["lib"]="3.5.5.2"
+	["install"]="3.5.5.4"
+	["core"]="3.5.5.2"
+	["i18n"]="3.5.5.1"
+	["desktop"]="3.5.5.3"
+)
+
+inherit calculate-utils-r2
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
