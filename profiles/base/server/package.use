@@ -1,4 +1,4 @@
-sys-apps/calculate-utils -backup -client console -desktop pxe -qt4
+sys-apps/calculate-utils -backup -client console -desktop -qt4 pxe
 
 # Removed unnecessary dependence
 app-misc/mc -samba
