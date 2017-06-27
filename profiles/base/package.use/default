@@ -159,3 +159,6 @@ www-apache/mod_perl ithreads
 
 # required by app-emulation/libvirt-3.3.0[virt-network]
 net-dns/dnsmasq script
+
+# Enable virtual networking (NAT) support for guests
+app-emulation/libvirt virt-network
