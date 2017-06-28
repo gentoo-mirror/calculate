@@ -90,3 +90,15 @@ media-libs/phonon qt4
 
 # any-of ( chrome qt5 )
 net-misc/hotot qt5
+
+# required by gnome-extra/gnome-builder-3.22.4[git]
+dev-libs/libgit2-glib ssh
+
+# required by gnome-extra/gnome-contacts-3.22.1
+dev-libs/folks eds
+
+# required by dev-libs/folks-0.11.3[eds]
+gnome-extra/evolution-data-server vala
+
+# required by dev-libs/libgit2-glib-0.24.4
+dev-libs/libgit2 ssh
