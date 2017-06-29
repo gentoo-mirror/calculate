@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Touchpad Tap fix
+Exec=/usr/bin/synclient TapButton2=2 TapButton3=3
+OnlyShowIn=#?pkg(mate-base/mate-session-manager)!=#MATE;#pkg##?pkg(gnome-extra/cinnamon-session)!=#X-Cinnamon;#pkg#
+NoDisplay=true
+#?pkg(gnome-extra/cinnamon-session)!=#
+X-GNOME-Autostart-Notify=false
+X-GNOME-AutoRestart=false
+#pkg#
+#?pkg(mate-base/mate-session-manager)!=#
+X-MATE-Autostart-Notify=false
+X-MATE-AutoRestart=false
+#pkg#
