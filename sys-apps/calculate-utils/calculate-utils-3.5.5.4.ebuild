@@ -10,7 +10,7 @@ declare -A CALCULATE_MODULES=(
 	["install"]="3.5.5.4"
 	["core"]="3.5.5.2"
 	["i18n"]="3.5.5.1"
-	["client"]="3.5.5.1"
+	["client"]="3.5.5.2"
 	["desktop"]="3.5.5.3"
 	["console-gui"]="3.5.5.1"
 )
