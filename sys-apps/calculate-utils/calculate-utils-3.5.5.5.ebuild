@@ -6,11 +6,11 @@ EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.5.3"
+	["lib"]="3.5.5.4"
 	["install"]="3.5.5.4"
 	["core"]="3.5.5.2"
 	["i18n"]="3.5.5.1"
-	["client"]="3.5.5.3"
+	["client"]="3.5.5.4"
 	["desktop"]="3.5.5.3"
 	["console-gui"]="3.5.5.1"
 )
