@@ -3,7 +3,7 @@ Type=Application
 Name=Touchpad Tap fix
 Exec=/usr/libexec/calculate/fix-touchpad.sh
 #?pkg(mate-base/mate-session-manager)!=||pkg(gnome-extra/cinnamon-session)!=#
-OnlyShowIn=MATE;X-Cinamon;
+OnlyShowIn=MATE;X-Cinnamon;
 #pkg#
 NoDisplay=true
 #?pkg(gnome-extra/cinnamon-session)!=#
