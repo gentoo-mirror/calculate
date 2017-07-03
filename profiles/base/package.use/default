@@ -162,3 +162,6 @@ net-dns/dnsmasq script
 
 # Enable virtual networking (NAT) support for guests
 app-emulation/libvirt virt-network
+
+# required by sys-apps/microcode-ctl-1.23
+sys-firmware/intel-microcode monolithic
