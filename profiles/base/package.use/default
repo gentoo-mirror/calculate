@@ -165,3 +165,6 @@ app-emulation/libvirt virt-network
 
 # required by sys-apps/microcode-ctl-1.23
 sys-firmware/intel-microcode monolithic
+
+# use ipv4 instead of ipv6
+net-p2p/opentracker -ipv6
