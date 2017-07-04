@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install unpack
+DEPEND=>=dev-libs/libowfat-0.27 >=dev-vcs/git-1.8.2.1
+DESCRIPTION=An open and free bittorrent tracker
+EAPI=6
+HOMEPAGE=http://erdgeist.org/arts/software/opentracker/
+IUSE=ipv6 blacklist +whitelist debug gzip restrict-stats live-sync log-network
+LICENSE=BEER-WARE
+SLOT=0
+_eclass_exported_funcs=src_unpack:git-r3 src_compile:- src_install:-
+_eclasses_=git-r3	cbafa3261c37c7e3af44bb16a34ea390
+_md5_=5999befecb8639fa9adb00c6139b14a2
