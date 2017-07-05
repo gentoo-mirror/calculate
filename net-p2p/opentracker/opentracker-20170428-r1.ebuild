@@ -36,6 +36,7 @@ src_compile() {
 	use restrict-stats && sed -i '/DWANT_RESTRICT_STATS/s/^#*//' Makefile
 	use live-sync && sed -i '/DWANT_SYNC_LIVE/s/^#*//' Makefile
 	use log-network && sed -i '/DWANT_LOG_NETWORKS/s/^#*//' Makefile
+	sed -i '/DWANT_IP_FROM_QUERY_STRING/s/^#*//' Makefile
 
 	if use debug; then
 		sed -i '/D_DEBUG_HTTPERROR/s/^#*//' Makefile

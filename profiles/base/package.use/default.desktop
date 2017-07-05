@@ -535,3 +535,6 @@ dev-qt/qtdeclarative xml
 # support for the Qt GUI/Application
 app-backup/backintime qt4
 app-backup/bacula qt4
+
+# required by app-office/gnucash-2.6.15
+x11-libs/goffice:0.8 gnome
