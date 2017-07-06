@@ -29,3 +29,15 @@ sys-cluster/cinder postgres
 sys-cluster/csync2 postgres
 sys-cluster/neutron postgres
 sys-cluster/nova postgres
+
+# upnp? ( expat )
+media-sound/mpd expat
+
+# pulseaudio? ( !portaudio )
+media-sound/snd -portaudio
+
+# required by media-sound/rosegarden-13.04
+media-libs/libsamplerate sndfile
+
+# required by media-sound/ncmpcpp-0.7.7[unicode]
+dev-libs/boost icu
