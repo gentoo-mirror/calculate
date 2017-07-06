@@ -14,41 +14,43 @@ VERSION_IUSE="CL11 CL12 CL13 CL14 CL15"
 IUSE="+CL11 +CL12 +CL13 +CL14 +CL15"
 
 SRC_URI="
-	ftp://ftp.calculate-linux.org/calculate/themes/wallpapers/wallpapers-17.tar.bz2
-	http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-17.tar.bz2
+	http://mirror.calculate-linux.org/themes/calculate/wallpaper-17.jpg -> ${P}.jpg
+	http://mirror.yandex.ru/calculate/themes/calculate/wallpaper-17.jpg -> ${P}.jpg
 	CL15? (
-		ftp://ftp.calculate-linux.org/calculate/themes/wallpapers/wallpapers-15.tar.bz2
+		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-15.tar.bz2
 		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-15.tar.bz2
 	)
 	CL14? (
-		ftp://ftp.calculate-linux.org/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2
+		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-14-r1.tar.bz2
 		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2
 	)
 	CL11? (
-		ftp://ftp.calculate-linux.org/calculate/themes/wallpapers/wallpapers-11.tar.bz2
+		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-11.tar.bz2
 		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-11.tar.bz2
 	)
 	CL12? (
-		ftp://ftp.calculate-linux.org/calculate/themes/wallpapers/wallpapers-12.tar.bz2
+		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-12.tar.bz2
 		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-12.tar.bz2
 	)
 	CL13? (
-		ftp://ftp.calculate-linux.org/calculate/themes/wallpapers/wallpapers-13.tar.bz2
+		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-13.tar.bz2
 		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-13.tar.bz2
 	)
 	"
 
-RDEPEND="!media-gfx/calculate-cldx-themes
-		!media-gfx/calculate-cld-themes
-		!media-gfx/cld-themes
-		!media-gfx/cldx-themes"
+DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
-DEPEND="${RDEPEND}"
+# need for templates
+RDEPEND="${DEPEND}
+	media-gfx/imagemagick"
+
+S="${WORKDIR}"
 
 src_install() {
-	insinto /
-	doins -r .
+	insinto /usr/share/themes/Calculate/
+	newins "${DISTDIR}"/${P}.jpg wallpaper.jpg
 
+	insinto /
 	for useflag in $VERSION_IUSE
 	do
 		if use $useflag
@@ -66,4 +68,3 @@ src_install() {
 		fi
 	done
 }
-
