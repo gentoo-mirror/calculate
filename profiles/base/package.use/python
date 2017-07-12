@@ -37,3 +37,12 @@ dev-util/distro-info python
 
 # required by app-vim/gundo-2.6.1
 app-editors/vim python
+
+# required by app-accessibility/orca-3.22.2
+app-accessibility/speech-dispatcher python
+
+# required by app-accessibility/orca-3.22.2[braille]
+app-accessibility/brltty python
+
+# required by app-accessibility/orca-3.22.2[braille]
+dev-libs/liblouis python
