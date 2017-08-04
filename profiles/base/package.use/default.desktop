@@ -170,7 +170,7 @@ media-fonts/terminus-font -X
 media-video/mplayer bidi live -video_cards_tdfx
 
 # select dhcp client, support modemmanager
-net-misc/networkmanager connection-sharing -dhclient dhcpcd modemmanager
+net-misc/networkmanager connection-sharing dhclient modemmanager
 
 # Enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
 net-print/hplip snmp hpijs -X -qt4
