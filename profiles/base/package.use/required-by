@@ -26,6 +26,9 @@ net-wireless/lorcon python
 # required by net-wireless/blueman-2.0
 net-dns/avahi autoipd
 
+# required by net-ftp/qshare-2.1.5-r1
+net-dns/avahi mdnsresponder-compat
+
 # required by net-fs/samba-4.2.9
 sys-libs/ntdb python
 sys-libs/tdb python
@@ -488,6 +491,7 @@ app-eselect/eselect-php apache2
 app-eselect/eselect-php fpm
 dev-lang/php apache2 curl fpm gd mysql pdo xmlreader
 
-# required by mail-client/roundcube-1.2.5[spell]
-dev-lang/php spell
+# required by mail-client/alpine-2.00-r7
+net-libs/c-client chappa
+
 
