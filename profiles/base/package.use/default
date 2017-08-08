@@ -1,25 +1,32 @@
-# required by sys-apps/calculate-lib [python]
-sys-apps/file python
+# server
+dev-vcs/git cgi curl perl webdav
+mail-mta/postfix ldap sasl dovecot-sasl
+net-dns/bind ldap sdb-ldap dlz
+net-im/ejabberd ldap sqlite
+net-mail/dovecot pop3d ldap sieve managesieve
+net-nds/openldap syslog
+net-proxy/squid ldap
+net-ftp/proftpd -ipv6 -acl ldap openssl
+net-fs/samba ldap aio
 
+net-misc/asterisk alsa dahdi span speex vorbis
+net-misc/asterisk-extra-sounds alaw g722 g729 siren14 siren7 sln16 ulaw wav
+net-misc/asterisk-moh-opsound alaw g722 g729 siren14 siren7 sln16 ulaw wav
+net-misc/asterisk-core-sounds alaw g722 g729 siren14 siren7 sln16 ulaw wav
 
-# Removed unnecessary dependence
-media-fonts/terminus-font -pcf
-sys-apps/man-db -nls
-sys-fs/lvm2 -thin
-
-# Сompile the kernel during the installation package
+# сompile the kernel during the installation package
 sys-kernel/calculate-sources firmware minimal symlink vmlinuz
 
-# Add NTFS and Reiserfs support
+# add NTFS and Reiserfs support
 app-admin/testdisk ntfs reiserfs
 
-# Include internal version of ntfsprogs.
+# include internal version of ntfsprogs.
 sys-fs/ntfs3g ntfsprogs
 
 # for support .ko.xz modules
 sys-apps/kmod lzma
 
-# Support for LZMA
+# support for LZMA
 sys-fs/squashfs-tools lzma
 
 # grub multislot by default
@@ -39,54 +46,25 @@ app-portage/layman sync-plugin-portage
 
 net-p2p/rtorrent daemon xmlrpc
 
-# required by app-mobilephone/wammu-0.35
-app-mobilephone/gammu python
-
-# required by media-sound/picard-1.3.1
-media-libs/chromaprint tools
-
-# required by media-radio/fldigi-3.22.05
-x11-libs/fltk xft
-
-# required by net-wireless/aircrack-ng-1.2_rc1-r1::gentoo[airdrop-ng]
-net-wireless/lorcon python
-
-# required by net-wireless/blueman-2.0
-net-dns/avahi autoipd
-
-# Enabled iproute2 support instead of net-tools, enable socks support
+# enabled iproute2 support instead of net-tools, enable socks support
 net-misc/openvpn iproute2 socks
 
-# Using instead of bzip2
+# using instead of bzip2
 app-arch/lbzip2 symlink
 
-# Using instead of gzip
+# using instead of gzip
 app-arch/pigz symlink
 
-# Add plugin aria2
+# add plugin aria2
 www-client/uget aria2
 
 # install legacy rule generator rules and support scripts
 sys-fs/eudev rule-generator
 
-# required by net-fs/samba-4.2.9
-sys-libs/ntdb python
-sys-libs/tdb python
-sys-libs/tevent python
-
-# required by media-video/vlc
-net-fs/samba client
-
-# Use x86emu for Video BIOS calls (32 bit)
+# use x86emu for Video BIOS calls (32 bit)
 sys-apps/v86d x86emu
 
-# required by dev-python/ipython-3.2.1-r1
-dev-lang/python sqlite
-
-# required by media-sound/quodlibet
-media-libs/libgpod python
-
-# Enable support for Media Transfer Protocol
+# enable support for Media Transfer Protocol
 kde-apps/kio-extras mtp
 
 # needed only for binary packages
@@ -98,48 +76,17 @@ net-misc/iputils arping
 # i386 support, TLS support for the VNC console server, VirtFS
 app-emulation/qemu gnutls spice sdl2 usbredir xfs qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 virtfs
 
-# required by app-forensics/rkhunter-1.4.2
-sys-process/lsof rpc
-
-# required by app-emulation/lxd-2.0.1[daemon]
-app-emulation/lxc cgmanager
-
-# [embedded] required by media-sound/amarok
-virtual/mysql embedded
-dev-db/mariadb embedded
-dev-db/mysql embedded
-
-# required by x11-misc/shutter-0.90
-media-gfx/imagemagick perl
-
-# required by gnome-extra/gnome-user-share-3.18.1-r1
-www-servers/apache apache2_modules_auth_digest
-
-# required by app-editors/neovim-0.1.5
-dev-lua/mpack luajit
-dev-lua/lpeg luajit
-
 # use dev-libs/libnatspec to correctly decode non-ascii file names
 app-arch/zip natspec
 app-arch/unzip natspec
 
-# required by sys-devel/clang-3.7.1-r100
-# required by clang (argument)
-sys-devel/llvm clang
-
 # produce faster libraries
 dev-libs/gmp pgo
-
-# hcache? ( exactly-one-of ( berkdb gdbm lmdb qdbm tokyocabinet )
-mail-client/mutt -gdbm
 
 # enable mpeg2 codec for cutscenes
 games-engines/scummvm mpeg2
 
-# required by dev-util/nvidia-cuda-sdk-8.0.44-r1[examples]
-x11-drivers/nvidia-drivers uvm
-
-# Support for the fbcondecor kernel patch
+# support for the fbcondecor kernel patch
 media-gfx/splashutils fbcondecor
 
 # support/bindings for the Python
@@ -151,20 +98,299 @@ net-firewall/ipset -modules
 # support/bindings for the Python language
 sys-fs/cryptsetup python
 
-# Add support for the postgresql database
+# add support for the postgresql database
 app-backup/holland postgres -mysql
 
-# Build for use with thread-capable perl
+# build for use with thread-capable perl
 www-apache/mod_perl ithreads
 
-# required by app-emulation/libvirt-3.3.0[virt-network]
-net-dns/dnsmasq script
-
-# Enable virtual networking (NAT) support for guests
+# enable virtual networking (NAT) support for guests
 app-emulation/libvirt virt-network
-
-# required by sys-apps/microcode-ctl-1.23
-sys-firmware/intel-microcode monolithic
 
 # use ipv4 instead of ipv6
 net-p2p/opentracker -ipv6
+
+# fix vfs share IssueID #550
+app-office/libreoffice gnome
+
+# include backup, client, desktop, console and console-gui modules
+sys-apps/calculate-utils backup client desktop console qt4
+
+# Calculate themes dependence
+sys-kernel/calculate-sources themes
+
+# support caja
+app-arch/engrampa caja
+
+# use the system components instead of bundled
+# bug firefox http://www.calculate-linux.org/issues/851
+mail-client/thunderbird system-cairo system-icu system-jpeg system-libvpx system-sqlite
+media-sound/clementine system-sqlite
+www-client/firefox system-icu system-jpeg system-libevent system-libvpx system-sqlite
+www-client/seamonkey system-icu system-jpeg system-libvpx system-sqlite
+
+# use qt4
+media-video/smplayer qt4 autoshutdown
+
+# build with native HSP backend and oFono HFP backend for bluez 5
+media-sound/pulseaudio native-headset ofono-headset
+
+# enable Vulkan drivers
+media-libs/mesa vulkan
+
+# user preferences
+kde-apps/akonadi -mysql postgres
+
+
+# circular dependencies net-libs/glib-networking-2.42.1 and net-libs/libproxy-0.4.11-r2
+net-libs/libproxy -webkit
+
+# support primusrun command (primus from bumblebee overlay), gtk3 support
+x11-drivers/nvidia-drivers compat gtk3 tools
+
+# use gstreamer for sound
+media-libs/phonon gstreamer -vlc
+
+# enables video thumbnails generation
+kde-apps/dolphin thumbnail
+
+# support for the KDE Image Plugin Interface.
+kde-apps/gwenview kipi semantic-desktop
+
+# remote desktop viewer support
+kde-apps/krdc vnc
+
+# hardware sensors support
+kde-base/ksysguard lm_sensors
+
+# enable support for mobile broadband devices
+kde-misc/plasma-nm modemmanager
+kde-plasma/plasma-nm modemmanager openconnect
+
+# enable support for mobile broadband devices
+net-libs/libnm-qt modemmanager
+
+# add support for access point mode
+net-wireless/wpa_supplicant ap
+
+# disable Xorg dependence, large number of supported fonts reduces productivity
+media-fonts/terminus-font -X
+
+# SMplayer support, streaming media support
+media-video/mplayer bidi live -video_cards_tdfx
+
+# select dhcp client, support modemmanager
+net-misc/networkmanager connection-sharing dhclient modemmanager
+
+# enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
+net-print/hplip snmp hpijs -X -qt4
+
+# to display the icons in the menu, support xdg autostart
+x11-wm/openbox imlib xdg
+
+# add support xft and 256 color
+x11-terms/rxvt-unicode 256-color xft
+
+x11-base/xorg-drivers -video_cards_nvidia -video_cards_vmware -video_cards_glint -video_cards_mach64 -video_cards_mga -video_cards_r128 -video_cards_savage -video_cards_tdfx -video_cards_trident
+
+# remove the sound when changing volume in pulseaudio
+media-libs/libcanberra -sound
+
+# add functionality
+net-wireless/blueman network
+
+# support for encrypted user directories
+sys-fs/ecryptfs-utils suid
+
+# name Service Cache Daemon
+sys-libs/glibc nscd
+
+# raw? ( opencv ) tiff? ( opencv )
+media-gfx/nomacs opencv
+
+# add support for LDAP, PDF, RSS, SMIME, HTML, Xface, sieve filter support
+mail-client/claws-mail ldap pdf rss smime webkit xface sieve
+
+# add file systems and raid support.
+sys-block/gparted btrfs dmraid fat mdadm ntfs reiserfs xfs
+
+# add Catalyst Control Panel
+x11-drivers/ati-drivers qt4
+
+# build a Qt4/5 style called GTK+ that mimics the active GTK+ theme
+dev-qt/qtgui gtkstyle
+dev-qt/qtwidgets gtkstyle
+
+# add automounting,volume monitoring, etc. Build thunar-tpa (trash) plugin for panel.
+xfce-base/thunar udisks xfce_plugins_trash
+
+xfce-base/xfdesktop thunar xfce_plugins_menu
+xfce-base/xfce4-session -xscreensaver
+
+# build a plugin for the GIMP
+net-print/gutenprint gimp
+
+# add support for RAW format in GIMP
+media-gfx/ufraw gimp
+
+# install the sendto-plugin for xfce-base/thunar
+#net-wireless/blueman thunar
+
+# fix crash
+=media-sound/clementine-1.2.3 -udisks
+
+# enable support for Media Transfer Protocol
+media-sound/clementine mtp dropbox googledrive
+
+# support for OpenOffice.org SVG jar files, color management engine,
+# Microsoft Visio Diagrams, WordPerfect Graphics
+media-gfx/inkscape inkjar lcms visio wpg
+
+# mikmod? ( mod ) timidity? ( midi )
+media-libs/sdl-mixer mod timidity midi
+
+# the following REQUIRED_USE flag constraints are unsatisfied:
+# theora? ( video ) X? ( video ) v4l? ( video )
+media-libs/mediastreamer video
+
+# add support for the Qt GUI/Application
+net-im/licq qt4
+
+# enables fuse mount points in $HOME/.gvfs for legacy application access
+# enable storage password
+gnome-base/gvfs archive fuse mtp gnome-keyring
+
+# the following REQUIRED_USE flag constraints are unsatisfied:
+# pulseaudio? ( sound )
+dev-libs/efl sound
+
+# the following REQUIRED_USE flag constraints are unsatisfied:
+# introspection? ( deprecated )
+www-client/midori -introspection
+
+# add support git and cmake
+dev-qt/qt-creator cmake git
+
+# add support for net-libs/gnutls (TLS 1.0 and SSL 3.0 support)
+net-im/pidgin gnutls
+
+# it might be possible to solve this slot collision
+net-libs/gtk-vnc python
+
+# build cycles renderer
+# cycles? ( openimageio )
+media-gfx/blender cycles openimageio
+
+# support HTTP streams through neon (radio)
+media-plugins/audacious-plugins http
+
+# add support for applications using legacy xembed systray icons
+kde-plasma/plasma-desktop legacy-systray gtk2 gtk3 touchpad qt4
+
+# add modules
+lxqt-base/lxqt-panel colorpicker cpuload dom networkmonitor screensaver sensors sysstat worldclock
+
+# support for XPM graphics format
+x11-wm/jwm xpm
+
+# support GUI/Application
+media-video/avidemux qt4
+media-libs/avidemux-plugins qt4
+
+# wine 1.7.x
+# The following REQUIRED_USE flag constraints are unsatisfied:
+# vaapi? ( staging ), at-most-one-of ( gstreamer staging )
+app-emulation/wine -gstreamer staging
+
+# extensions without dependencies
+mate-extra/caja-extensions -cdr image-converter share
+
+# add support ePub format
+app-text/atril epub
+
+# need for mpv, to play over ssh
+media-video/ffmpeg openssl
+
+# enable sound support
+games-strategy/0ad sound
+
+# opengl? ( gui widgets ), webkit? ( network printsupport )
+dev-python/PyQt5 gui printsupport network widgets
+
+# vpn, bluetooth, etc support
+net-misc/connman l2tp ofono openconnect openvpn pptp vpnc wispr
+net-misc/connman-gtk openconnect
+
+# install firmware for older chipsets
+#sys-firmware/amdgpu-ucode legacy
+
+# enable sound event support using
+net-irc/hexchat libcanberra
+
+# install x11-themes/sound-theme-freedesktop to get sounds on Gnome and Xfce
+media-libs/libcanberra sound
+
+# www-client/seamonkey-2.38, www-client/firefox-44.0, mail-client/thunderbird-38.5.0
+dev-db/sqlite secure-delete
+
+# the following REQUIRED_USE flag constraints are unsatisfied: wayland gles
+media-libs/libsdl2 wayland gles
+
+# support accountservice
+x11-misc/lightdm gnome
+
+# enable support Jabber, vkontakte
+net-im/qutim xmpp vkontakte
+
+# at-most-one-of ( gstreamer ffmpeg )
+app-misc/tracker ffmpeg -gstreamer -cue
+
+# new bytecode hinting mode for TrueType fonts that activates subpixel hinting
+media-libs/freetype cleartype_hinting
+
+# enable color management, enable sound support for animations
+media-gfx/krita color-management qtmedia
+
+# detect GPS location (need for CLDX) IssueID #897
+x11-misc/redshift geoclue
+
+# support for XFT font renderer, drag-n-drop
+app-editors/xemacs xft dnd
+
+# support flash by default in the adobe-flash package$
+www-plugins/chrome-binary-plugins -flash
+
+# support for wxWidgets/wxGTK GUI toolkit
+media-video/mediainfo wxwidgets
+
+# use postgresql database for not using '-secure-delete' sqlite USE flag
+net-irc/quassel postgres qt5
+
+# enable support for mobile broadband devices
+gnome-extra/nm-applet modemmanager
+
+# support an image loading and rendering
+app-admin/conky imlib
+
+# prevent automagic depends
+media-libs/opencv contrib_hdf
+
+# support for profile-guided optimization for faster binaries
+www-client/firefox pgo hwaccel
+
+# DRI3 support, UMA Acceleration Architecture
+x11-drivers/xf86-video-intel dri3 uxa
+
+# enable face detection and recognition
+media-gfx/kphotoalbum face
+
+# support for the Qt GUI/Application
+app-backup/backintime qt4
+app-backup/bacula qt4
+
+# support for some plasmoids
+kde-base/plasma-workspace python
+
+# mate-base/mate -> x11-misc/mozo-1.8.0
+mate-base/mate-menus python
+

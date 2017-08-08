@@ -1,0 +1,47 @@
+# remove unsupported languages
+www-client/chromium -linguas_am -linguas_ar -linguas_bn -linguas_ca -linguas_el -linguas_fa -linguas_fil -linguas_gu -linguas_he -linguas_hi -linguas_id -linguas_ja -linguas_kn -linguas_ko -linguas_ml -linguas_mr -linguas_ms -linguas_nb -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_vi -linguas_zh_CN -linguas_zh_TW
+www-client/opera -linguas_af -linguas_am -linguas_ar -linguas_az -linguas_bn -linguas_ca -linguas_el -linguas_es_419 -linguas_fa -linguas_fil -linguas_fy -linguas_gd -linguas_gu -linguas_he -linguas_hi -linguas_id -linguas_ja -linguas_kk -linguas_kn -linguas_ko -linguas_me -linguas_mk -linguas_ml -linguas_mr -linguas_ms -linguas_nb -linguas_nn -linguas_pa -linguas_sw -linguas_ta -linguas_te -linguas_th -linguas_tr -linguas_uz -linguas_vi -linguas_zh_CN -linguas_zh_TW -linguas_zu
+
+# removed unnecessary dependence
+app-accessibility/speech-dispatcher -espeak
+app-editors/nano -spell
+app-emulation/wine -samba
+app-misc/mc -spell
+app-text/evince -nsplugin
+dev-lang/php -imap
+dev-libs/folks -bluetooth
+dev-util/cmake -qt4
+dev-vcs/git -gtk
+gnome-extra/zenity -webkit
+kde-apps/kdebase-runtime-meta -crash-reporter
+kde-apps/kget -bittorrent
+kde-apps/print-manager -gtk
+kde-plasma/plasma-desktop -qt4
+mate-extra/mate-sensors-applet -video_cards_nvidia
+media-fonts/terminus-font -pcf
+media-gfx/gimp -webkit
+media-gfx/imagemagick -X -raw
+media-gfx/inkscape -spell
+media-video/ffmpeg -samba
+net-analyzer/net-snmp -X
+net-analyzer/nmap -gtk
+net-analyzer/vnstat -gd
+net-dialup/rp-pppoe -X
+net-fs/samba -winbind
+net-irc/kvirc -audiofile -dcc_video -dcc_voice -theora -webkit -phonon -spell doc
+net-irc/weechat -spell
+net-libs/webkit-gtk -geoloc
+net-misc/asterisk -bluetooth
+net-misc/dahdi -flash
+net-misc/remmina -webkit
+net-p2p/ktorrent -infowidget
+net-wireless/wpa_supplicant -qt4
+sys-apps/man-db -nls
+sys-auth/polkit -gtk
+sys-fs/lvm2 -thin
+sys-fs/mtools -X
+www-client/firefox -pulseaudio
+www-client/links -X
+x11-drivers/nvidia-drivers -acpi
+x11-terms/gnome-terminal -nautilus
+xfce-extra/xfce4-sensors-plugin -video_cards_nvidia
