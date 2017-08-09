@@ -17,3 +17,6 @@ app-editors/gedit python_single_target_python3_4
 # hcache? ( exactly-one-of ( berkdb gdbm lmdb qdbm tokyocabinet )
 mail-client/mutt -gdbm
 
+# exactly-one-of ( expat xml )
+media-libs/libmetalink expat
+
