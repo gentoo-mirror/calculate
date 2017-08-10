@@ -14,10 +14,10 @@ IUSE="+splash +login"
 
 REQUIRED_USE="|| ( splash login )"
 
-SRC_URI="login? ( http://mirror.calculate-linux.org/themes/calculate/dm-login-${PV}-r1.jpg -> ${PN}-login-${PV}.jpg
-	http://mirror.yandex.ru/calculate/themes/calculate/dm-login-${PV}-r1.jpg -> ${PN}-login-${PV}.jpg )
-	splash? ( http://mirror.calculate-linux.org/themes/calculate/dm-splash-${PV}.jpg -> ${PN}-splash-${PV}.jpg
-	http://mirror.yandex.ru/calculate/themes/calculate/dm-splash-${PV}.jpg -> ${PN}-splash-${PV}.jpg )"
+SRC_URI="login? ( http://mirror.calculate-linux.org/themes/calculate/dm-login-${PV}-r1.jpg -> ${PN}-login-${PVR}.jpg
+	http://mirror.yandex.ru/calculate/themes/calculate/dm-login-${PV}-r1.jpg -> ${PN}-login-${PVR}.jpg )
+	splash? ( http://mirror.calculate-linux.org/themes/calculate/dm-splash-${PV}.jpg -> ${PN}-splash-${PVR}.jpg
+	http://mirror.yandex.ru/calculate/themes/calculate/dm-splash-${PV}.jpg -> ${PN}-splash-${PVR}.jpg )"
 
 DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 

@@ -14,8 +14,8 @@ VERSION_IUSE="CL11 CL12 CL13 CL14 CL15"
 IUSE="+CL11 +CL12 +CL13 +CL14 +CL15"
 
 SRC_URI="
-	http://mirror.calculate-linux.org/themes/calculate/wallpaper-17.jpg -> ${P}.jpg
-	http://mirror.yandex.ru/calculate/themes/calculate/wallpaper-17.jpg -> ${P}.jpg
+	http://mirror.calculate-linux.org/themes/calculate/wallpaper-17.jpg -> ${PF}.jpg
+	http://mirror.yandex.ru/calculate/themes/calculate/wallpaper-17.jpg -> ${PF}.jpg
 	CL15? (
 		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-15.tar.bz2
 		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-15.tar.bz2
@@ -48,7 +48,7 @@ S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/themes/Calculate/
-	newins "${DISTDIR}"/${P}.jpg wallpaper.jpg
+	newins "${DISTDIR}"/${PF}.jpg wallpaper.jpg
 
 	insinto /
 	for useflag in $VERSION_IUSE
