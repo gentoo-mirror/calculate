@@ -494,4 +494,9 @@ dev-lang/php apache2 curl fpm gd mysql pdo xmlreader
 # required by mail-client/alpine-2.00-r7
 net-libs/c-client chappa
 
+# required by media-plugins/vdr-ttxtsubs-0.3.0
+media-video/vdr ttxtsubs
+
+# required by dev-lang/lazarus-1.0.12
+dev-lang/fpc source
 

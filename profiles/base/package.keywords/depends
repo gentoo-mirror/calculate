@@ -81,7 +81,7 @@
 ~app-emulation/open-vm-tools-kmod-10.0.0_p3000743 amd64 x86
 ~app-emulation/qemu-init-scripts-0.3.0 amd64 x86
 ~app-emulation/qtemu-1.0.5 amd64 x86
-~app-emulation/rkt-1.26.0 amd64 x86
+~app-emulation/rkt-1.28.1 amd64 x86
 ~app-emulation/runv-0.7.0 amd64 x86
 ~app-emulation/s6-overlay-1.18.1.3 amd64 x86
 ~app-emulation/ski-1.3.2 amd64 x86
@@ -179,7 +179,7 @@
 ~dev-java/jna-4.2.2 amd64 x86
 ~dev-java/resin-servlet-api-4.0.46 amd64 x86
 ~dev-lang/lua-5.1.5 amd64 x86
-~dev-lang/rust-1.16.0 amd64 x86
+~dev-lang/rust-1.19.0 amd64 x86
 ~dev-lang/spidermonkey-38.2.1_rc0 amd64 x86
 ~dev-lang/swig-3.0.10 amd64 x86
 ~dev-libs/bglibs-1.106 amd64 x86
@@ -214,8 +214,8 @@
 ~dev-libs/mimetic-0.9.8 amd64 x86
 ~dev-libs/msgpack-1.1.0 amd64 x86
 ~dev-libs/npth-1.2 amd64 x86
-~dev-libs/nspr-4.15 amd64 x86
-~dev-libs/nss-3.31 amd64 x86
+~dev-libs/nspr-4.16 amd64 x86
+~dev-libs/nss-3.32 amd64 x86
 ~dev-libs/qcustomplot-1.3.2 amd64 x86
 ~dev-libs/qoauth-2.0.1_pre20160315 amd64 x86
 ~dev-libs/quazip-0.7.2 amd64 x86
@@ -232,8 +232,7 @@
 ~dev-util/bdelta-0.3.1 amd64 x86
 ~dev-util/bitcoin-tx-0.13.2 amd64 x86
 ~dev-util/bless-0.6.0 amd64 x86
-~dev-util/cargo-0.17.0 ~amd64
-~dev-util/cargo-0.17.0 amd64 x86
+~dev-util/cargo-0.20.0 amd64 x86
 ~dev-util/ccache-3.3.4 amd64 x86
 ~dev-util/cmake-3.6.3 amd64 x86
 ~dev-util/codeblocks-16.01 amd64 x86
@@ -289,6 +288,8 @@
 ~media-plugins/gst-plugins-mpg123-1.10.5 amd64 x86
 ~media-plugins/gst-plugins-soup-0.10.31 amd64 x86
 ~media-plugins/gst-transcoder-1.8.2 amd64 x86
+~media-plugins/vdr-dvbhddevice-2.1.6_p20141116 amd64 x86
+~media-plugins/xsynth-dssi-0.9.4 amd64 x86
 ~media-sound/audex-0.79 amd64 x86
 ~media-sound/baudline-1.08 amd64 x86
 ~media-sound/dcadec-0.2.0 amd64 x86
@@ -342,6 +343,7 @@
 ~net-vpn/i2p-0.9.30 amd64 x86
 ~net-vpn/i2pd-2.14.0 amd64 x86
 ~sci-libs/flann-1.9.1 amd64 x86
+~sci-libs/linux-gpib-4.0.4_rc2 amd64 x86
 ~sci-libs/orocos_kdl-1.3.1 amd64 x86
 ~sci-mathematics/rstudio-1.0.136 amd64
 ~sec-policy/apparmor-profiles-2.11.0 amd64
@@ -378,6 +380,7 @@
 ~sys-process/criu-2.6 amd64 x86
 ~sys-process/glances-2.6.1 amd64 x86
 ~virtual/gnustep-back-0.24.1 amd64 x86
+~virtual/rust-1.19.0 amd64 x86
 ~www-apps/nextcloud-11.0.3 amd64 x86
 ~www-servers/boa-0.94.14_rc21 amd64 x86
 ~www-servers/bozohttpd-20170201 amd64 x86
