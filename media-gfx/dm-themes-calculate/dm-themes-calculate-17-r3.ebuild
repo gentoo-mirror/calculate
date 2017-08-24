@@ -29,7 +29,7 @@ S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/themes/Calculate/
-	use login && newins "${DISTDIR}"/${PN}-login-${PV}.jpg dm-login.jpg
-	use splash && newins "${DISTDIR}"/${PN}-splash-${PV}.jpg dm-splash.jpg
+	use login && newins "${DISTDIR}"/${PN}-login-${PVR}.jpg dm-login.jpg
+	use splash && newins "${DISTDIR}"/${PN}-splash-${PVR}.jpg dm-splash.jpg
 }
 
