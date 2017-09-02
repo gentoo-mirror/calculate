@@ -502,3 +502,15 @@ dev-lang/fpc source
 
 # required by dev-python/pyglet-1.1.4-r2[alsa]
 media-libs/alsa-lib alisp
+
+# required by net-analyzer/munin-2.0.33
+net-analyzer/rrdtool perl
+
+# required by net-analyzer/smokeping-2.6.9
+net-analyzer/fping suid
+
+# required by net-analyzer/tcpreplay-4.1.2-r1
+sys-devel/autogen libopts
+
+# required by net-analyzer/etherape-0.9.14
+gnome-base/libgnomecanvas glade
