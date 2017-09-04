@@ -15,3 +15,6 @@ net-p2p/bitcoin-qt ljr
 
 # threads? ( caps )
 net-dns/bind caps
+
+# smtp? ( libuv )
+net-libs/libwebsockets libuv
