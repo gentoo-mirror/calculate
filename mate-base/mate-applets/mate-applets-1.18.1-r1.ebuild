@@ -67,7 +67,7 @@ PATCHES=( "${FILESDIR}/${PN}-1.14.1-revert-upstream-cpupower-4.7-fix.patch" )
 src_configure() {
 	mate_src_configure \
 		--libexecdir=/usr/libexec/mate-applets \
-		$(usex cpupower --with-cpufreq-lib=cpupower) \
+		$(usex cpupower --with-cpufreq-lib=cpupower --disable-cpufreq) \
 		$(use_with X x) \
 		$(use_with upower) \
 		$(use_enable ipv6) \
