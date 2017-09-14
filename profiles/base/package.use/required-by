@@ -514,3 +514,10 @@ sys-devel/autogen libopts
 
 # required by net-analyzer/etherape-0.9.14
 gnome-base/libgnomecanvas glade
+
+# required by sys-power/suspend-1.0_p20150810[crypt]
+dev-libs/libgcrypt static-libs
+dev-libs/libgpg-error static-libs
+
+# required by sys-power/suspend-1.0_p20150810[lzo]
+dev-libs/lzo static-libs

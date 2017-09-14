@@ -15,3 +15,5 @@ net-p2p/mldonkey -gd
 # not compiled with ru_RU
 =media-video/smtube-15.11.0 -linguas_ru_RU -linguas_lt
 
+# not compiled xfsdump on x86
+sys-block/gparted -xfs
