@@ -31,7 +31,7 @@ CDEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
 
 DEPEND="${CDEPEND}
 	themes? ( media-gfx/splash-themes-calculate )
-	!minimal? ( dev-util/pkgconfig )
+	!minimal? ( virtual/pkgconfig )
 	"
 
 RDEPEND="${CDEPEND} vmlinuz? ( sys-kernel/dracut )"
