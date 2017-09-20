@@ -59,7 +59,7 @@ create_hostonly_initramfs() {
             die "Failed to create Host-Only initramfs"
 #os_install_x11_video_drv#
 #?os_install_x11_video_drv!=#-os_x11_video_drv-##
-        dracut -H --xz -f --add-drivers="i915 uvesafb radeon nouveau" --kver $kernel_version $initrd_tmp &>/dev/null ||
+        dracut -H --xz -f --add-drivers="i915 amdgpu uvesafb radeon nouveau" --kver $kernel_version $initrd_tmp &>/dev/null ||
             die "Failed to create Host-Only initramfs"
 #os_install_x11_video_drv#
         mv $initrd_tmp $initrd &>/dev/null || die "Failed to rename initramfs"
