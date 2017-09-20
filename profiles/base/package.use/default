@@ -394,3 +394,5 @@ kde-base/plasma-workspace python
 # mate-base/mate -> x11-misc/mozo-1.8.0
 mate-base/mate-menus python
 
+# adds support for suspend/resume using sys-power/pm-utils
+sys-auth/consolekit pm-utils
