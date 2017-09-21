@@ -20,3 +20,5 @@ mail-client/mutt -gdbm
 # exactly-one-of ( expat xml )
 media-libs/libmetalink expat
 
+# exactly-one-of ( openssl nss gnutls )
+net-fs/s3fs openssl

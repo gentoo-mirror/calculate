@@ -13,3 +13,5 @@ net-misc/hotot qt5
 # any-of ( mysql postgres sqlite )
 mail-client/roundcube sqlite
 
+# any-of ( iptables nftables )
+net-misc/connman iptables
