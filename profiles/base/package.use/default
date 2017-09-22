@@ -396,3 +396,6 @@ mate-base/mate-menus python
 
 # adds support for suspend/resume using sys-power/pm-utils
 sys-auth/consolekit pm-utils
+
+# enable Glamor OpenGL 2D acceleration
+x11-drivers/xf86-video-amdgpu glamor
