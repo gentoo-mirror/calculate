@@ -1,10 +1,12 @@
 # Calculate format=procmail path=~/.config/gajim
 avatar_position_in_roster = right
 just_connected_bg_color = #faf5cb
+just_disconnected_bg_color = #f5e4c8
 muc_restore_lines = -1
 muc_restore_timeout = -1
 notify_on_signin = False
 plugins.plugin_installer.active = False
+remote_commands = True
 remote_control = True
 restored_messages_small = False
 restore_lines = 100
@@ -12,6 +14,7 @@ send_on_ctrl_enter = True
 show_ascii_formatting_chars = False
 show_contacts_number = False
 show_roster_on_startup = last_state
+show_self_contact = never
 soundevents.contact_connected.enabled = False
 soundevents.contact_disconnected.enabled = False
 soundevents.next_message_received_focused.enabled = False
