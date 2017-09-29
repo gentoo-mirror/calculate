@@ -333,8 +333,8 @@ media-libs/libcanberra sound
 # www-client/seamonkey-2.38, www-client/firefox-44.0, mail-client/thunderbird-38.5.0
 dev-db/sqlite secure-delete
 
-# the following REQUIRED_USE flag constraints are unsatisfied: wayland gles
-media-libs/libsdl2 wayland gles
+# include OpenGL ES support
+media-libs/libsdl2 gles
 
 # support accountservice
 x11-misc/lightdm gnome
