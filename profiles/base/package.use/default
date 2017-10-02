@@ -80,9 +80,6 @@ app-emulation/qemu gnutls spice sdl2 usbredir xfs qemu_softmmu_targets_i386 qemu
 app-arch/zip natspec
 app-arch/unzip natspec
 
-# produce faster libraries
-dev-libs/gmp pgo
-
 # enable mpeg2 codec for cutscenes
 games-engines/scummvm mpeg2
 
@@ -375,8 +372,8 @@ app-admin/conky imlib
 # prevent automagic depends
 media-libs/opencv contrib_hdf
 
-# support for profile-guided optimization for faster binaries
-www-client/firefox pgo hwaccel
+# force-enable hardware-accelerated rendering
+www-client/firefox hwaccel
 
 # DRI3 support, UMA Acceleration Architecture
 x11-drivers/xf86-video-intel dri3 uxa
