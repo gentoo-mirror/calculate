@@ -133,7 +133,7 @@ media-video/smplayer qt4 autoshutdown
 media-sound/pulseaudio native-headset ofono-headset
 
 # enable Vulkan drivers
-media-libs/mesa vulkan
+media-libs/mesa vulkan wayland
 
 # user preferences
 kde-apps/akonadi -mysql postgres
