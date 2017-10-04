@@ -87,6 +87,7 @@ user_pref("extensions.pocket.api", "");
 user_pref("extensions.pocket.enabled", false);
 user_pref("extensions.pocket.oAuthConsumerKey", "");
 user_pref("extensions.pocket.site", "");
+user_pref("extensions.screenshots.disabled", true);
 user_pref("font.name.monospace.x-cyrillic", "Droid Sans Mono Slashed");
 user_pref("font.name.sans-serif.x-cyrillic", "Droid Sans");
 user_pref("font.name.serif.x-cyrillic", "Times New Roman");
