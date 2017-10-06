@@ -11,3 +11,8 @@ media-sound/amarok -cdda
 # threads? ( !cxx !fortran )
 sci-libs/hdf5 -threads
 
+dev-qt/qtcore:4 qt3support
+dev-qt/qtdeclarative:4 qt3support
+dev-qt/qtgui:4 qt3support
+dev-qt/qtopengl:4 qt3support
+dev-qt/qtsql:4 qt3support
