@@ -9,8 +9,8 @@ UTILS_PV="3.5.7_alpha1"
 
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.7_alpha2"
-	["install"]="3.5.7_alpha2"
+	["lib"]="3.5.7_alpha3"
+	["install"]="3.5.7_alpha3"
 	["console-gui"]="3.5.7_alpha2"
 )
 
