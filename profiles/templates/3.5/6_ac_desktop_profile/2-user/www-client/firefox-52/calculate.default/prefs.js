@@ -35,7 +35,9 @@ user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.cache.disk.capacity", 102400);
 user_pref("browser.sessionstore.interval", 30000);
 #os_root_type#
+
 user_pref("beacon.enabled", false);
+user_pref("breakpad.reportURL", "");
 user_pref("browser.cache.disk.smart_size.enabled", false);
 user_pref("browser.cache.use_new_backend", 1);
 user_pref("browser.download.dir", "#-ini(resource.downloads)-#");
@@ -72,6 +74,7 @@ user_pref("dom.disable_window_open_feature.personalbar", true);
 user_pref("dom.disable_window_open_feature.titlebar", true);
 user_pref("dom.disable_window_open_feature.toolbar", true);
 user_pref("dom.enable_performance", false);
+user_pref("dom.gamepad.extensions.enabled", false);
 user_pref("dom.ipc.plugins.asyncdrawing.enabled", true);
 user_pref("dom.ipc.plugins.asyncInit.enabled", true);
 user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
@@ -100,7 +103,6 @@ user_pref("media.getusermedia.screensharing.allowed_domains", "");
 user_pref("media.getusermedia.screensharing.enabled", false);
 user_pref("media.navigator.enabled", false);
 user_pref("media.video_stats.enabled", false);
-user_pref("memory.free_dirty_pages", true);
 user_pref("memory.free_dirty_pages", true);
 user_pref("network.allow-experiments", false);
 user_pref("network.dnsCacheEntries", 200);
