@@ -255,8 +255,11 @@ kde-apps/marble plasma
 >=dev-qt/qtcore-5.4.2 icu
 
 # required by dev-qt/qtcore
+dev-libs/libpcre pcre16
+
 # required by app-shells/fish-2.6.0
-dev-libs/libpcre pcre16 pcre32
+dev-libs/libpcre pcre32
+dev-libs/libpcre2 pcre32
 
 # required by dev-qt/qtgui-5.4.2::gentoo[xcb]
 x11-libs/libxcb xkb
