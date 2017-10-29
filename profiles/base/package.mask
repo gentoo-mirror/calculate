@@ -32,3 +32,6 @@ sys-libs/db:6.0
 
 # blocks
 =dev-python/eventlet-0.20.1-r1
+
+# conflict with media-video/transcode-1.1.7-r3
+=media-gfx/imagemagick-6.9.9.20
