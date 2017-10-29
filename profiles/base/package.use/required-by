@@ -534,3 +534,6 @@ media-fonts/culmus fancy
 
 # required by dev-qt/qt-creator-4.4.1[cmake]
 dev-util/cmake server
+
+# required by net-libs/webkit-gtk-2.18.2[gstreamer]
+media-libs/gst-plugins-bad egl
