@@ -31,3 +31,7 @@ sys-libs/db:6.0
 
 # conflict with media-video/transcode-1.1.7-r3
 =media-gfx/imagemagick-6.9.9.20
+
+# conflict with dev-libs/boost-1.62.0-r1:0/1.62.0
+=dev-libs/boost-1.63.0
+=dev-util/boost-build-1.63.0
