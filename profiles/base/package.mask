@@ -16,9 +16,6 @@ sys-libs/db:6.0
 # conflict with app-emulation/docker-compose-1.11.2
 ~dev-python/requests-2.12.5
 
-# increased line spacing
-=media-libs/freetype-2.8
-
 # <sys-power/cpupower-4.7 required by (mate-base/mate-applets-1.18.1
 =sys-power/cpupower-4.9.0
 
@@ -28,10 +25,13 @@ sys-libs/db:6.0
 # not compiled
 =app-admin/packagekit-base-1.1.5-r1
 =dev-ruby/gherkin-2.12.2
-=sci-libs/fftw-3.3.6_p2
 
 # blocks
 =dev-python/eventlet-0.20.1-r1
 
 # conflict with media-video/transcode-1.1.7-r3
 =media-gfx/imagemagick-6.9.9.20
+
+# conflict with dev-libs/boost-1.62.0-r1:0/1.62.0
+=dev-libs/boost-1.63.0
+=dev-util/boost-build-1.63.0
