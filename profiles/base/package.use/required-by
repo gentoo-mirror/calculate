@@ -35,7 +35,8 @@ sys-libs/tdb python
 sys-libs/tevent python
 
 # required by media-video/vlc
-net-fs/samba client
+# required by app-emulation/wine-vanilla-2.0.2-r1[samba]
+net-fs/samba client winbind
 
 # required by dev-python/ipython-3.2.1-r1
 dev-lang/python sqlite
