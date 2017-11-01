@@ -6,6 +6,7 @@ www-client/opera -linguas_af -linguas_am -linguas_ar -linguas_az -linguas_bn -li
 app-accessibility/speech-dispatcher -espeak
 app-editors/nano -spell
 app-emulation/wine -samba
+app-emulation/wine-vanilla -gstreamer
 app-misc/mc -spell
 app-text/evince -nsplugin
 dev-lang/php -imap
@@ -27,7 +28,6 @@ net-analyzer/net-snmp -X
 net-analyzer/nmap -gtk
 net-analyzer/vnstat -gd
 net-dialup/rp-pppoe -X
-net-fs/samba -winbind
 net-irc/kvirc -audiofile -dcc_video -dcc_voice -theora -webkit -phonon -spell doc
 net-irc/weechat -spell
 net-libs/webkit-gtk -geoloc
