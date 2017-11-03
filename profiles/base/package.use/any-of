@@ -15,3 +15,6 @@ mail-client/roundcube sqlite
 
 # any-of ( iptables nftables )
 net-misc/connman iptables
+
+# any-of ( emacs fcitx4 ibus )
+app-i18n/mozc -ibus fcitx4
