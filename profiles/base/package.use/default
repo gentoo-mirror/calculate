@@ -399,3 +399,6 @@ x11-drivers/xf86-video-amdgpu glamor
 
 # builds libffmpeg.so to enable media playback in Chromium-based browsers like Opera and Vivaldi
 media-video/ffmpeg chromium
+
+# support for Japanese input https://www.youtube.com/watch?v=NtA4C4HR7LE
+app-i18n/fcitx gtk2 gtk3 qt4
