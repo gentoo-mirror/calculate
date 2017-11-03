@@ -35,3 +35,6 @@ sys-libs/db:6.0
 # conflict with dev-libs/boost-1.62.0-r1:0/1.62.0
 =dev-libs/boost-1.63.0
 =dev-util/boost-build-1.63.0
+
+# dev-db/m17n-db-1.6.4 required by dev-db/m17n-contrib-1.1.14
+=dev-db/m17n-db-1.7.0
