@@ -18,3 +18,6 @@ net-misc/connman iptables
 
 # any-of ( emacs fcitx4 ibus )
 app-i18n/mozc -ibus fcitx4
+
+# any-of ( cgi mono perl go lua php pypy python python_asyncio python_gevent ruby )
+www-servers/uwsgi python
