@@ -12,4 +12,5 @@
 cat <<EOF
 set superusers="root"
 password_pbkdf2 root #-cl_grub_pwd-#
+export superusers
 EOF
