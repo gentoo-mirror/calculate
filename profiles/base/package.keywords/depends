@@ -1,5 +1,5 @@
 ~app-admin/elektra-0.8.15 amd64 x86
-~app-admin/mongo-tools-3.4.6 amd64 x86
+~app-admin/mongo-tools-3.4.10 amd64 x86
 ~app-admin/packagekit-base-1.1.5 amd64 x86
 ~app-admin/socklog-2.1.0 amd64 x86
 ~app-admin/syslogread-0.92 amd64 x86
@@ -18,7 +18,7 @@
 ~app-arch/vimball-0.5.1 amd64 x86
 ~app-backup/attic-0.16 amd64 x86
 ~app-backup/bareos-16.2.4 amd64 x86
-~app-backup/borgbackup-1.0.10 amd64 x86
+~app-backup/borgbackup-1.1.2 amd64 x86
 ~app-backup/borgweb-0.2.0 amd64 x86
 ~app-backup/btrbk-0.25.1 amd64 x86
 ~app-backup/bup-0.29.1 amd64 x86
@@ -164,7 +164,7 @@
 ~dev-cpp/eigen-3.2.5 amd64 x86
 ~dev-cpp/lucene++-3.0.7 amd64 x86
 ~dev-cpp/websocketpp-0.7.0 amd64 x86
-~dev-db/mongodb-3.4.6 amd64 x86
+~dev-db/mongodb-3.4.10 amd64 x86
 ~dev-db/pgtap-0.97.0 amd64 x86
 ~dev-db/pg_top-3.7.0 amd64 x86
 ~dev-db/postgis-2.3.3 amd64 x86
@@ -186,7 +186,28 @@
 ~dev-java/jackson-annotations-2.8.5 amd64 x86
 ~dev-java/jackson-databind-2.8.5 amd64 x86
 ~dev-java/jna-4.2.2 amd64 x86
+~dev-java/netbeans-apisupport-8.2 amd64 x86
+~dev-java/netbeans-cnd-8.2 amd64 x86
+~dev-java/netbeans-dlight-8.2 amd64 x86
+~dev-java/netbeans-enterprise-8.2 amd64 x86
+~dev-java/netbeans-ergonomics-8.2 amd64 x86
+~dev-java/netbeans-extide-8.2 amd64 x86
+~dev-java/netbeans-groovy-8.2 amd64 x86
+~dev-java/netbeans-harness-8.2 amd64 x86
+~dev-java/netbeans-ide-8.2 amd64 x86
+~dev-java/netbeans-java-8.2 amd64 x86
+~dev-java/netbeans-javacard-8.2 amd64 x86
+~dev-java/netbeans-javadoc-8.2 amd64 x86
+~dev-java/netbeans-javafx-8.2 amd64 x86
+~dev-java/netbeans-mobility-8.2 amd64 x86
+~dev-java/netbeans-nb-8.2 amd64 x86
+~dev-java/netbeans-php-8.2 amd64 x86
+~dev-java/netbeans-platform-8.2 amd64 x86
+~dev-java/netbeans-profiler-8.2 amd64 x86
+~dev-java/netbeans-webcommon-8.2 amd64 x86
+~dev-java/netbeans-websvccommon-8.2 amd64 x86
 ~dev-java/resin-servlet-api-4.0.46 amd64 x86
+~dev-java/sun-jaf-1.1.1 amd64 x86
 ~dev-lang/lua-5.1.5 amd64 x86
 ~dev-lang/rust-1.19.0 amd64 x86
 ~dev-lang/spidermonkey-38.2.1_rc0 amd64 x86
@@ -252,6 +273,7 @@
 ~dev-util/ctags-20161028 amd64 x86
 ~dev-util/gyp-20170904022846 amd64 x86
 ~dev-util/kbuild-0.1.9998_pre20131130 amd64 x86
+~dev-util/netbeans-8.2 amd64 x86
 ~dev-util/nvidia-cuda-sdk-8.0.44 amd64
 ~dev-util/nvidia-cuda-toolkit-8.0.44 amd64
 ~dev-util/patchbin-20160208 amd64 x86
@@ -275,6 +297,7 @@
 ~media-libs/elles_icc_profiles-20160501.0932 amd64 x86
 ~media-libs/fontconfig-ultimate-2015.08.01 amd64 x86
 ~media-libs/gd-2.1.1 amd64 x86
+~media-libs/gexiv2-0.10.6 amd64 x86
 ~media-libs/gst-plugins-base-1.10.5 amd64 x86
 ~media-libs/gst-plugins-ugly-1.10.5 amd64 x86
 ~media-libs/gstreamer-1.10.5 amd64 x86
@@ -399,10 +422,10 @@
 ~sys-fs/ldapfuse-1.0 amd64 x86
 ~sys-fs/lxcfs-2.0.4 amd64 x86
 ~sys-fs/reiserfs-defrag-0.2.2 amd64 x86
-~sys-fs/zfs-0.6.5.9 amd64 x86
-~sys-fs/zfs-kmod-0.6.5.9 amd64 x86
+~sys-fs/zfs-0.7.2 amd64 x86
+~sys-fs/zfs-kmod-0.7.2 amd64 x86
 ~sys-kernel/dracut-040 amd64 x86
-~sys-kernel/spl-0.6.5.9 amd64 x86
+~sys-kernel/spl-0.7.2 amd64 x86
 ~sys-libs/db-6.0.35 amd64 x86
 ~sys-libs/kpmcore-3.0.3 amd64 x86
 ~sys-libs/libapparmor-2.11.1 amd64 x86
