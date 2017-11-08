@@ -6,15 +6,18 @@ dev-vcs/git
 sys-apps/calculate-utils:3
 sys-apps/openrc
 
-#?in(os_linux_pkglist,container)==#
+#?in(os_linux_pkglist,CCS)==#
 app-portage/gentoolkit
+sys-fs/eudev
+#in#
+
+#?in(os_linux_pkglist,container)==#
 media-gfx/gfxboot-themes-calculate
 net-fs/nfs-utils
 sys-apps/v86d
 sys-boot/grub:2
 sys-boot/os-prober
 sys-fs/e2fsprogs
-sys-fs/eudev
 sys-kernel/calculate-sources
 #?os_arch_machine==x86_64#
 sys-boot/efibootmgr
