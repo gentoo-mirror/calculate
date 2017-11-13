@@ -24,3 +24,6 @@ www-servers/uwsgi python
 
 # any-of ( proxy account container object )
 sys-cluster/swift container
+
+# any-of ( java lua mono perl php python ruby tcl )
+dev-libs/xapian-bindings python
