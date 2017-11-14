@@ -4,13 +4,13 @@
 
 EAPI=5
 
-inherit eutils
+inherit eutils unpacker
 DESCRIPTION="Free calls, text and picture sharing with anyone, anywhere!"
 HOMEPAGE="http://www.viber.com"
 SRC_URI="http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb"
 
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 RESTRICT="strip"
 S="${WORKDIR}"
@@ -19,8 +19,7 @@ S="${WORKDIR}"
 LICENSE="EULA"
 
 src_prepare() {
-	unpack ./control.tar.gz
-	unpack ./data.tar.xz
+    unpack_deb ${A}
 }
 
 src_install(){
