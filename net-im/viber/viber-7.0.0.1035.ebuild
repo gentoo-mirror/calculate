@@ -13,8 +13,8 @@ SRC_URI="
 
 
 SLOT="0"
-KEYWORDS="amd64"
-IUSE="pulseaudio +apulse"
+KEYWORDS="~amd64"
+IUSE="pulseaudio apulse"
 REQUIRED_USE="apulse? ( !pulseaudio )"
 
 QA_PREBUILT="*"
