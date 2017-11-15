@@ -10,7 +10,7 @@
 #os_install_locale_language#
 [theme]
 
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Authorization screen image. Preferred size 4266x2048
 #os_install_locale_language#
@@ -23,7 +23,7 @@
 ; dm-login-background = /usr/share/themes/Calculate/dm-login.jpg
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Login screen image. Preferred size 4266x2048
 #os_install_locale_language#
@@ -37,7 +37,7 @@
 ; dm-splash-background = /usr/share/themes/Calculate/dm-splash.jpg
 
 #in#
-#?in(os_linux_pkglist, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Background color on the login screen, if screen image not defined
 #os_install_locale_language#
@@ -102,7 +102,7 @@
 ; gfxboot-text-highlight-color = fbcc89
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Calculate load screen image
 #os_install_locale_language#
@@ -115,7 +115,7 @@
 ; grub-background = /usr/share/themes/Calculate/grub.jpg
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Bootloader foreground/background text color if screen image defined.
 # Accepted values: 'black', 'blue', 'green', 'cyan', 'red', 'magenta',
@@ -137,7 +137,7 @@
 ; grub-gfx-text-color = black/black
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Bootloader foreground/background selected text color if screen image
 # defined. Accepted values: 'black', 'blue', 'green', 'cyan', 'red',
@@ -206,7 +206,7 @@
 ; grub-text-highlight-color = black/light-gray
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Desktop wallpaper. Preferred size 4266x2048
 #os_install_locale_language#
@@ -219,7 +219,7 @@
 ; profile-background = /usr/share/themes/Calculate/wallpaper.jpg
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Shutdown screen image. Preferred size 4266x2048
 #os_install_locale_language#
@@ -233,7 +233,7 @@
 ; splash-shutdown-background = /usr/share/themes/Calculate/splash-shutdown.jpg
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Start color of the shutdown indicator
 #os_install_locale_language#
@@ -246,7 +246,7 @@
 ; splash-shutdown-progress-color-begin = ffff9c
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # End color of the shutdown indicator
 #os_install_locale_language#
@@ -259,7 +259,7 @@
 ; splash-shutdown-progress-color-end = 28171f
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Shutdown indicator type: 'fade' or 'progress'
 #os_install_locale_language#
@@ -272,7 +272,7 @@
 ; splash-shutdown-progress-type = fade
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Shutdown notification text color
 #os_install_locale_language#
@@ -285,7 +285,7 @@
 ; splash-shutdown-text-color = ffff9c
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # System boot screen. Preferred size 4266x2048
 #os_install_locale_language#
@@ -299,7 +299,7 @@
 ; splash-silent-background = /usr/share/themes/Calculate/splash-silent.jpg
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Start color of the system boot indicator
 #os_install_locale_language#
@@ -312,7 +312,7 @@
 ; splash-silent-progress-color-begin = cdc481
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # End color of the system boot indicator
 #os_install_locale_language#
@@ -325,7 +325,7 @@
 ; splash-silent-progress-color-end = 5a1d08
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # System boot indicator type: 'fade' or 'progress'
 #os_install_locale_language#
@@ -338,7 +338,7 @@
 ; splash-silent-progress-type = fade
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Terminal background image
 #os_install_locale_language#

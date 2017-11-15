@@ -1,4 +1,4 @@
-# Calculate comment=# name=ini.env.example append=after in(os_linux_pkglist,CLD,CLDL,CLDC,CLDM,CLDX)!=
+# Calculate comment=# name=ini.env.example append=after in(os_linux_pkglist,CLD,CLDL,CLDC,CLDM,CLDX,CCDX)!=
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 #=========================== User profile settings ===========================
 #os_install_locale_language#
@@ -10,7 +10,7 @@
 #os_install_locale_language#
 [profile]
 
-#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Window border size
 #os_install_locale_language#
@@ -23,7 +23,7 @@
 ; appearance-border =
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Mouse cursor theme
 #os_install_locale_language#
@@ -36,7 +36,7 @@
 ; appearance-cursor = Calculate
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Icon theme
 #os_install_locale_language#
@@ -49,7 +49,7 @@
 ; appearance-icons = Calculate
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Look and feel
 #os_install_locale_language#
@@ -75,7 +75,7 @@
 ; appearance-theme =
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Desktop wallpaper. To change it, we recommended to use the parameters in
 # the “theme” section
@@ -91,7 +91,7 @@
 ; appearance-wallpaper =
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Font size
 #os_install_locale_language#
@@ -104,7 +104,7 @@
 ; font-size = 10
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Keyboard delay (milliseconds)
 #os_install_locale_language#
@@ -117,7 +117,7 @@
 ; keyboard-delay = 330
 
 #in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Keyboard repeat rate (characters per second)
 #os_install_locale_language#
@@ -130,7 +130,7 @@
 ; keyboard-rate = 30
 
 #in#
-#?in(os_linux_pkglist, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Mouse click policy ('single' or 'double')
 #os_install_locale_language#
@@ -143,7 +143,7 @@
 ; mouse-clickpolicy = single
 
 #in#
-#?in(os_linux_pkglist, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Mouse double click delay (milliseconds)
 #os_install_locale_language#
@@ -156,7 +156,7 @@
 ; mouse-doubleclick-delayed = 400
 
 #in#
-#?in(os_linux_pkglist, CLDC, CLDC, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLDC, CLDC, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Left hand mouse configuration
 #os_install_locale_language#
@@ -236,7 +236,7 @@
 ; screensaver-lock = on
 
 #in#
-#?in(os_linux_pkglist, CLDX)!=#
+#?in(os_linux_pkglist, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Wallpaper change interval in minutes, '0' - newer
 #os_install_locale_language#
@@ -249,7 +249,7 @@
 ; wallpaper-cycle = 0
 
 #in#
-#?in(os_linux_pkglist, CLDX)!=#
+#?in(os_linux_pkglist, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Icon size
 #os_install_locale_language#
@@ -262,7 +262,7 @@
 ; wm-icon-size = 48
 
 #in#
-#?in(os_linux_pkglist, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Automatically hide the main panel
 #os_install_locale_language#
@@ -289,7 +289,7 @@
 ; wm-panel-main-position = top
 
 #in#
-#?in(os_linux_pkglist, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Main panel size
 #os_install_locale_language#
@@ -302,7 +302,7 @@
 ; wm-panel-main-size = 32
 
 #in#
-#?in(os_linux_pkglist, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Automatically hide the menu panel
 #os_install_locale_language#
@@ -328,7 +328,7 @@
 ; wm-panel-menu-position = bottom
 
 #in#
-#?in(os_linux_pkglist, CLDM, CLDX)!=#
+#?in(os_linux_pkglist, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Quick Launch panel size
 #os_install_locale_language#
