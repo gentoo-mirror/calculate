@@ -569,3 +569,9 @@ sys-libs/cracklib python
 
 # required by x11-themes/zukitwo-shell-2016.08.08
 x11-themes/zuki-themes gnome-shell
+
+# required by net-mail/notmuch-0.24.2[crypt]
+dev-libs/gmime smime
+
+# required by net-mail/vchkuser-0.4
+mail-mta/netqmail qmail-spp

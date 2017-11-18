@@ -1,0 +1,1123 @@
+diff -ruN bind-9.11.1-P3.orig/bin/named/main.c bind-9.11.1-P3/bin/named/main.c
+--- bind-9.11.1-P3.orig/bin/named/main.c	2017-01-31 09:17:11.000000000 +0300
++++ bind-9.11.1-P3/bin/named/main.c	2017-02-16 09:14:50.342182446 +0300
+@@ -88,6 +88,7 @@
+  * Include header files for database drivers here.
+  */
+ /* #include "xxdb.h" */
++#include "ldapdb.h"
+ 
+ #ifdef CONTRIB_DLZ
+ /*
+@@ -873,6 +874,8 @@
+ 	if (!isc_log_wouldlog(ns_g_lctx, ISC_LOG_DEBUG(99)))
+ 		return;
+ 
++	ldapdb_clear();
++
+ 	isc_log_write(ns_g_lctx, NS_LOGCATEGORY_GENERAL, NS_LOGMODULE_MAIN,
+ 		      ISC_LOG_DEBUG(99), "Symbol table:");
+ 
+@@ -1163,6 +1166,24 @@
+ 				   isc_result_totext(result));
+ #endif
+ 
++        result = ldapdb_init();
++        if (result != ISC_R_SUCCESS)
++        {
++            isc_log_write(ns_g_lctx, NS_LOGCATEGORY_GENERAL, NS_LOGMODULE_MAIN,
++                          ISC_LOG_ERROR, 
++                          "SDB ldap module initialisation failed: %s.",
++                          isc_result_totext(result)
++                );
++            isc_log_write(ns_g_lctx, NS_LOGCATEGORY_GENERAL, NS_LOGMODULE_MAIN,
++                          ISC_LOG_ERROR, 
++                          "SDB ldap zone database will be unavailable."
++                );
++        }else
++            isc_log_write(ns_g_lctx, NS_LOGCATEGORY_GENERAL, NS_LOGMODULE_MAIN,
++                          ISC_LOG_NOTICE, "SDB ldap zone database module loaded."
++                         );
++
++
+ 	ns_server_create(ns_g_mctx, &ns_g_server);
+ 
+ #ifdef HAVE_LIBSECCOMP
+@@ -1205,6 +1226,8 @@
+ 
+ 	dns_name_destroy();
+ 
++        ldapdb_clear();
++
+ 	isc_log_write(ns_g_lctx, NS_LOGCATEGORY_GENERAL, NS_LOGMODULE_MAIN,
+ 		      ISC_LOG_NOTICE, "exiting");
+ 	ns_log_shutdown();
+diff -ruN bind-9.11.1-P3.orig/bin/named/Makefile.in bind-9.11.1-P3/bin/named/Makefile.in
+--- bind-9.11.1-P3.orig/bin/named/Makefile.in	2017-01-31 09:17:11.000000000 +0300
++++ bind-9.11.1-P3/bin/named/Makefile.in	2017-02-16 09:08:13.629208524 +0300
+@@ -23,10 +23,10 @@
+ #
+ # Add database drivers here.
+ #
+-DBDRIVER_OBJS =
+-DBDRIVER_SRCS =
++DBDRIVER_OBJS =	ldapdb.@O@
++DBDRIVER_SRCS =	ldapdb.c
+ DBDRIVER_INCLUDES =
+-DBDRIVER_LIBS =
+++DBDRIVER_LIBS =	-lldap -llber -ldb
+ 
+ DLZ_DRIVER_DIR =	${top_srcdir}/contrib/dlz/drivers
+ 
+diff -ruN bind-9.11.1-P3.orig/bin/tools/Makefile.in bind-9.11.1-P3/bin/tools/Makefile.in
+--- bind-9.11.1-P3.orig/bin/tools/Makefile.in	2017-01-31 09:17:11.000000000 +0300
++++ bind-9.11.1-P3/bin/tools/Makefile.in	2017-02-16 09:21:58.990154269 +0300
+@@ -15,23 +15,28 @@
+ CINCLUDES =	${DNS_INCLUDES} ${ISC_INCLUDES} ${ISCCFG_INCLUDES} \
+ 		${LWRES_INCLUDES} ${OMAPI_INCLUDES} ${BIND9_INCLUDES}
+ 
+-CDEFINES =	@CRYPTO@ -DVERSION=\"${VERSION}\"
++CDEFINES =	@CRYPTO@ -DVERSION=\"${VERSION}\" -DBIND9
+ CWARNINGS =
+ 
+ DNSLIBS =	../../lib/dns/libdns.@A@ @DNS_CRYPTO_LIBS@
+ BIND9LIBS =	../../lib/bind9/libbind9.@A@
++ISCCFGLIBS =	../../lib/isccfg/libisccfg.@A@
++ISCCCLIBS =	../../lib/isccc/libisccc.@A@
+ ISCLIBS =	../../lib/isc/libisc.@A@ @DNS_CRYPTO_LIBS@
+ ISCNOSYMLIBS =	../../lib/isc/libisc-nosymtbl.@A@
+-ISCCFGLIBS = 	../../lib/isccfg/libisccfg.@A@
+ LWRESLIBS =	../../lib/lwres/liblwres.@A@
+ 
+ DNSDEPLIBS =	../../lib/dns/libdns.@A@
++ISCCFGDEPLIBS =	../../lib/isccfg/libisccfg.@A@
++ISCCCDEPLIBS =	../../lib/isccc/libisccc.@A@
+-BIND9DEPLIBS =	../../lib/bind9/libbind9.@A@
+ ISCDEPLIBS =	../../lib/isc/libisc.@A@
+-ISCCFGDEPLIBS = ../../lib/isccfg/libisccfg.@A@
+ LWRESDEPLIBS =	../../lib/lwres/liblwres.@A@
++BIND9DEPLIBS =	../../lib/bind9/libbind9.@A@
++DEPLIBS =	${LWRESDEPLIBS} ${DNSDEPLIBS} ${BIND9DEPLIBS} \
++		${ISCCFGDEPLIBS} ${ISCCCDEPLIBS} ${ISCDEPLIBS}
++LIBS =		${LWRESLIBS} ${DNSLIBS} ${BIND9LIBS} \
++		${ISCCFGLIBS} ${ISCCCLIBS} ${ISCLIBS} ${DBDRIVER_LIBS} @LIBS@
+ 
+-LIBS =		${ISCLIBS} @LIBS@
+ NOSYMLIBS =	${ISCNOSYMLIBS} @LIBS@
+ 
+ SUBDIRS =
+@@ -41,17 +47,19 @@
+ TARGETS =	arpaname@EXEEXT@ named-journalprint@EXEEXT@ \
+ 		named-rrchecker@EXEEXT@  nsec3hash@EXEEXT@ \
+ 		genrandom@EXEEXT@ isc-hmac-fixup@EXEEXT@ mdig@EXEEXT@ \
+-		@DNSTAPTARGETS@ @NZDTARGETS@
++		@DNSTAPTARGETS@ @NZDTARGETS@ ldap2zone@EXEEXT@ \
++		zone2ldap@EXEEXT@
+ 
+ DNSTAPSRCS  =	dnstap-read.c
+ NZDSRCS  =	named-nzd2nzf.c
+ SRCS =		arpaname.c named-journalprint.c named-rrchecker.c \
+ 		nsec3hash.c genrandom.c isc-hmac-fixup.c mdig.c \
+-		@DNSTAPSRCS@ @NZDSRCS@
++		@DNSTAPSRCS@ @NZDSRCS@ ldap2zone.c zone2ldap.c
+ 
+ MANPAGES =	arpaname.1 dnstap-read.1 genrandom.8 \
+ 		isc-hmac-fixup.8 mdig.1 named-journalprint.8 \
+-		named-nzd2nzf.8 named-rrchecker.1 nsec3hash.8
++		named-nzd2nzf.8 named-rrchecker.1 nsec3hash.8 \
++		ldap2zone.1 zone2ldap.1
+ 
+ HTMLPAGES =	arpaname.html dnstap-read.html genrandom.html \
+ 		isc-hmac-fixup.html mdig.html named-journalprint.html \
+@@ -104,6 +112,12 @@
+ 	export LIBS0="${ISCCFGLIBS} ${ISCCCLIBS} ${BIND9LIBS} ${DNSLIBS}"; \
+ 	${FINALBUILDCMD}
+ 
++ldap2zone@EXEEXT@: ldap2zone.@O@ ${DEPLIBS}
++	${LIBTOOL_MODE_LINK} ${PURIFY} ${CC} ${CFLAGS} ${LDFLAGS} -o $@ ldap2zone.@O@ -lldap -llber ${LIBS}
++
++zone2ldap@EXEEXT@: zone2ldap.@O@ ${DEPLIBS}
++	${LIBTOOL_MODE_LINK} ${PURIFY} ${CC} ${CFLAGS} ${LDFLAGS} -o $@ zone2ldap.@O@ -lldap -llber ${LIBS}
++
+ doc man:: ${MANOBJS}
+ 
+ docclean manclean maintainer-clean::
+@@ -140,7 +154,11 @@
+ 		${DESTDIR}${sbindir}
+ 	${LIBTOOL_MODE_INSTALL} ${INSTALL_PROGRAM} mdig@EXEEXT@ \
+ 		${DESTDIR}${bindir}
++	${LIBTOOL_MODE_INSTALL} ${INSTALL_PROGRAM} zone2ldap@EXEEXT@ ${DESTDIR}${sbindir}
++	${LIBTOOL_MODE_INSTALL} ${INSTALL_PROGRAM} ldap2zone@EXEEXT@ ${DESTDIR}${sbindir}
+ 	${INSTALL_DATA} ${srcdir}/arpaname.1 ${DESTDIR}${mandir}/man1
++	${INSTALL_DATA} ${srcdir}/zone2ldap.1 ${DESTDIR}${mandir}/man1
++	${INSTALL_DATA} ${srcdir}/ldap2zone.1 ${DESTDIR}${mandir}/man1
+ 	${INSTALL_DATA} ${srcdir}/isc-hmac-fixup.8 ${DESTDIR}${mandir}/man8
+ 	${INSTALL_DATA} ${srcdir}/named-journalprint.8 ${DESTDIR}${mandir}/man8
+ 	${INSTALL_DATA} ${srcdir}/named-rrchecker.1 ${DESTDIR}${mandir}/man1
+diff -ruN bind-9.11.1-P3.orig/contrib/sdb/ldap/ldap2zone.1 bind-9.11.1-P3/contrib/sdb/ldap/ldap2zone.1
+--- bind-9.11.1-P3.orig/contrib/sdb/ldap/ldap2zone.1	1970-01-01 03:00:00.000000000 +0300
++++ bind-9.11.1-P3/contrib/sdb/ldap/ldap2zone.1	2017-02-16 09:33:33.854108592 +0300
+@@ -0,0 +1,41 @@
++.\" Copyright (C) 2004, 2005 Stig Venaas <venaas@uninett.no>
++.\" 
++.\" Permission to use, copy, modify, and distribute this software for any
++.\" purpose with or without fee is hereby granted, provided that the above
++.\" copyright notice and this permission notice appear in all copies.
++.\" Manpage written by Jan Gorig
++.TH ldap2zone 1 "15 March 2010" "BIND9"
++.SH NAME
++ldap2zone - Creates zone file from LDAP dnszone information
++.SH SYNOPSIS
++.B ldap2zone zone-name LDAP-URL default-ttl [serial]
++.SH DESCRIPTION
++ldap2zone is a tool that reads info for a zone from LDAP and constructs a standard plain ascii zone file that is written to the standard output. The LDAP information has to be stored using the dnszone schema. The schema is used by BIND with LDAP back-end.
++
++\fBzone-name\fR
++.RS 4
++Name of the zone, eg "mydomain.net."
++.RE
++.PP
++\fBLDAP-URL\fR
++.RS 4
++LDAP URL to dnszone information
++.RE
++.PP
++\fBdefault-ttl\fR
++.RS 4
++Default TTL value to be used in zone
++.RE
++.PP
++\fBserial\fR
++.RS 4
++(optional) Program checks this number to be different than SOA serial number.
++.RE
++
++.SH "EXIT STATUS"
++Exits with 0 on success or 1 on failure.
++.SH "SEE ALSO"
++named(8) ldap(3) 
++http://www.venaas.no/dns/ldap2zone/
++.SH "COPYRIGHT"
++Copyright (C) 2004, 2005 Stig Venaas
+diff -ruN bind-9.11.1-P3.orig/contrib/sdb/ldap/ldap2zone.c bind-9.11.1-P3/contrib/sdb/ldap/ldap2zone.c
+--- bind-9.11.1-P3.orig/contrib/sdb/ldap/ldap2zone.c	1970-01-01 03:00:00.000000000 +0300
++++ bind-9.11.1-P3/contrib/sdb/ldap/ldap2zone.c	2017-02-16 09:34:10.392106190 +0300
+@@ -0,0 +1,411 @@
++/*
++ * Copyright (C) 2004, 2005 Stig Venaas <venaas@uninett.no>
++ * $Id: ldap2zone.c,v 1.1 2007/07/24 15:18:00 atkac Exp $
++ *
++ * Permission to use, copy, modify, and distribute this software for any
++ * purpose with or without fee is hereby granted, provided that the above
++ * copyright notice and this permission notice appear in all copies.
++ */
++
++#define LDAP_DEPRECATED 1
++
++#include <sys/types.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <ctype.h>
++
++#include <ldap.h>
++
++struct string {
++    void *data;
++    size_t len;
++};
++
++struct assstack_entry {
++    struct string key;
++    struct string val;
++    struct assstack_entry *next;
++};
++
++struct assstack_entry *assstack_find(struct assstack_entry *stack, struct string *key);
++void assstack_push(struct assstack_entry **stack, struct assstack_entry *item);
++void assstack_insertbottom(struct assstack_entry **stack, struct assstack_entry *item);
++void printsoa(struct string *soa);
++void printrrs(char *defaultttl, struct assstack_entry *item);
++void print_zone(char *defaultttl, struct assstack_entry *stack);
++void usage(char *name);
++void err(char *name, const char *msg);
++int putrr(struct assstack_entry **stack, struct berval *name, char *type, char *ttl, struct berval *val);
++
++struct assstack_entry *assstack_find(struct assstack_entry *stack, struct string *key) {
++    for (; stack; stack = stack->next)
++	if (stack->key.len == key->len && !memcmp(stack->key.data, key->data, key->len))
++	    return stack;
++    return NULL;
++}
++
++void assstack_push(struct assstack_entry **stack, struct assstack_entry *item) {
++    item->next = *stack;
++    *stack = item;
++}
++
++void assstack_insertbottom(struct assstack_entry **stack, struct assstack_entry *item) {
++    struct assstack_entry *p;
++    
++    item->next = NULL;
++    if (!*stack) {
++	*stack = item;
++	return;
++    }
++    /* find end, should keep track of end somewhere */
++    /* really a queue, not a stack */
++    p = *stack;
++    while (p->next)
++	p = p->next;
++    p->next = item;
++}
++
++void printsoa(struct string *soa) {
++    char *s;
++    size_t i;
++    
++    s = (char *)soa->data;
++    i = 0;
++    while (i < soa->len) {
++	putchar(s[i]);
++	if (s[i++] == ' ')
++	    break;
++    }
++    while (i < soa->len) {
++	putchar(s[i]);
++	if (s[i++] == ' ')
++	    break;
++    } 
++    printf("(\n\t\t\t\t");
++    while (i < soa->len) {
++	putchar(s[i]);
++	if (s[i++] == ' ')
++	    break;
++    }
++    printf("; Serialnumber\n\t\t\t\t");
++    while (i < soa->len) {
++	if (s[i] == ' ')
++	    break;
++	putchar(s[i++]);
++    }
++    i++;
++    printf("\t; Refresh\n\t\t\t\t");
++    while (i < soa->len) {
++	if (s[i] == ' ')
++	    break;
++	putchar(s[i++]);
++    }
++    i++;
++    printf("\t; Retry\n\t\t\t\t");
++    while (i < soa->len) {
++	if (s[i] == ' ')
++	    break;
++	putchar(s[i++]);
++    }
++    i++;
++    printf("\t; Expire\n\t\t\t\t");
++    while (i < soa->len) {
++	putchar(s[i++]);
++    }
++    printf(" )\t; Minimum TTL\n");
++}
++
++void printrrs(char *defaultttl, struct assstack_entry *item) {
++    struct assstack_entry *stack;
++    char *s;
++    int first;
++    size_t i;
++    char *ttl, *type;
++    int top;
++    
++    s = (char *)item->key.data;
++
++    if (item->key.len == 1 && *s == '@') {
++	top = 1;
++	printf("@\t");
++    } else {
++	top = 0;
++	for (i = 0; i < item->key.len; i++)
++	    putchar(s[i]);
++	if (item->key.len < 8)
++	    putchar('\t');
++	putchar('\t');
++    }
++    
++    first = 1;
++    for (stack = (struct assstack_entry *) item->val.data; stack; stack = stack->next) {
++	ttl = (char *)stack->key.data;
++	s = strchr(ttl, ' ');
++	*s++ = '\0';
++	type = s;
++	
++	if (first)
++	    first = 0;
++        else
++	    printf("\t\t");
++	    
++	if (strcmp(defaultttl, ttl))
++	    printf("%s", ttl);
++	putchar('\t');
++	
++	if (top) {
++	    top = 0;
++	    printf("IN\t%s\t", type);
++	    /* Should always be SOA here */
++	    if (!strcmp(type, "SOA")) {
++		printsoa(&stack->val);
++		continue;
++	    }
++	} else
++	    printf("%s\t", type);
++
++	s = (char *)stack->val.data;
++	for (i = 0; i < stack->val.len; i++)
++	    putchar(s[i]);
++	putchar('\n');
++    }
++}
++
++void print_zone(char *defaultttl, struct assstack_entry *stack) {
++    printf("$TTL %s\n", defaultttl);
++    for (; stack; stack = stack->next)
++	printrrs(defaultttl, stack);
++};
++
++void usage(char *name) {
++    fprintf(stderr, "Usage:%s zone-name LDAP-URL default-ttl [serial]\n", name);
++    exit(1);
++};
++
++void err(char *name, const char *msg) {
++    fprintf(stderr, "%s: %s\n", name, msg);
++    exit(1);
++};
++
++int putrr(struct assstack_entry **stack, struct berval *name, char *type, char *ttl, struct berval *val) {
++    struct string key;
++    struct assstack_entry *rr, *rrdata;
++    
++    /* Do nothing if name or value have 0 length */
++    if (!name->bv_len || !val->bv_len)
++	return 0;
++
++    /* see if already have an entry for this name */
++    key.len = name->bv_len;
++    key.data = name->bv_val;
++
++    rr = assstack_find(*stack, &key);
++    if (!rr) {
++	/* Not found, create and push new entry */
++	rr = (struct assstack_entry *) malloc(sizeof(struct assstack_entry));
++	if (!rr)
++	    return -1;
++	rr->key.len = name->bv_len;
++	rr->key.data = (void *) malloc(rr->key.len);
++	if (!rr->key.data) {
++	    free(rr);
++	    return -1;
++	}
++	memcpy(rr->key.data, name->bv_val, name->bv_len);
++	rr->val.len = sizeof(void *);
++	rr->val.data = NULL;
++	if (name->bv_len == 1 && *(char *)name->bv_val == '@')
++	    assstack_push(stack, rr);
++	else
++	    assstack_insertbottom(stack, rr);
++    }
++
++    rrdata = (struct assstack_entry *) malloc(sizeof(struct assstack_entry));
++    if (!rrdata) {
++	free(rr->key.data);
++	free(rr);
++	return -1;
++    }
++    rrdata->key.len = strlen(type) + strlen(ttl) + 1;
++    rrdata->key.data = (void *) malloc(rrdata->key.len);
++    if (!rrdata->key.data) {
++	free(rrdata);
++	free(rr->key.data);
++	free(rr);
++	return -1;
++    }
++    sprintf((char *)rrdata->key.data, "%s %s", ttl, type);
++	
++    rrdata->val.len = val->bv_len;
++    rrdata->val.data = (void *) malloc(val->bv_len);
++    if (!rrdata->val.data) {
++	free(rrdata->key.data);
++	free(rrdata);
++	free(rr->key.data);
++	free(rr);
++	return -1;
++    }
++    memcpy(rrdata->val.data, val->bv_val, val->bv_len);
++
++    if (!strcmp(type, "SOA"))
++	assstack_push((struct assstack_entry **) &(rr->val.data), rrdata);
++    else
++	assstack_insertbottom((struct assstack_entry **) &(rr->val.data), rrdata);
++    return 0;
++}
++
++int main(int argc, char **argv) {
++    char *s, *hostporturl, *base = NULL;
++    char *ttl, *defaultttl;
++    LDAP *ld;
++    char *fltr = NULL;
++    LDAPMessage *res, *e;
++    char *a, **ttlvals, **soavals, *serial;
++    struct berval **vals, **names;
++    char type[64];
++    BerElement *ptr;
++    int i, j, rc, msgid;
++    struct assstack_entry *zone = NULL;
++    
++    if (argc < 4 || argc > 5)
++        usage(argv[0]);
++
++    hostporturl = argv[2];
++
++    if (hostporturl != strstr( hostporturl, "ldap"))
++	err(argv[0], "Not an LDAP URL");
++
++    s = strchr(hostporturl, ':');
++
++    if (!s || strlen(s) < 3 || s[1] != '/' || s[2] != '/')
++	err(argv[0], "Not an LDAP URL");
++
++    s = strchr(s+3, '/');
++    if (s) {
++	*s++ = '\0';
++	base = s;
++	s = strchr(base, '?');
++	if (s)
++	    err(argv[0], "LDAP URL can only contain host, port and base");
++    }
++
++    defaultttl = argv[3];
++    
++    rc = ldap_initialize(&ld, hostporturl);
++    if (rc != LDAP_SUCCESS)
++	err(argv[0], "ldap_initialize() failed");
++
++    if (argc == 5) {
++	/* serial number specified, check if different from one in SOA */
++	fltr = (char *)malloc(strlen(argv[1]) + strlen("(&(relativeDomainName=@)(zoneName=))") + 1);
++	sprintf(fltr, "(&(relativeDomainName=@)(zoneName=%s))", argv[1]);
++	msgid = ldap_search(ld, base, LDAP_SCOPE_SUBTREE, fltr, NULL, 0);
++	if (msgid == -1)
++	    err(argv[0], "ldap_search() failed");
++
++	while ((rc = ldap_result(ld, msgid, 0, NULL, &res)) != LDAP_RES_SEARCH_RESULT ) {
++	    /* not supporting continuation references at present */
++	    if (rc != LDAP_RES_SEARCH_ENTRY)
++		err(argv[0], "ldap_result() returned cont.ref? Exiting");
++
++	    /* only one entry per result message */
++	    e = ldap_first_entry(ld, res);
++	    if (e == NULL) {
++		ldap_msgfree(res);
++		err(argv[0], "ldap_first_entry() failed");
++	    }
++	
++	    soavals = ldap_get_values(ld, e, "SOARecord");
++	    if (soavals)
++		break;
++	}
++
++	ldap_msgfree(res);
++	if (!soavals) {
++		err(argv[0], "No SOA Record found");
++	}
++	
++	/* We have a SOA, compare serial numbers */
++	/* Only checkinf first value, should be only one */
++	s = strchr(soavals[0], ' ');
++	s++;
++	s = strchr(s, ' ');
++	s++;
++	serial = s;
++	s = strchr(s, ' ');
++	*s = '\0';
++	if (!strcmp(serial, argv[4])) {
++	    ldap_value_free(soavals);
++	    err(argv[0], "serial numbers match");
++	}
++	ldap_value_free(soavals);
++    }
++
++    if (!fltr)
++	fltr = (char *)malloc(strlen(argv[1]) + strlen("(zoneName=)") + 1);
++    if (!fltr)
++	err(argv[0], "Malloc failed");
++    sprintf(fltr, "(zoneName=%s)", argv[1]);
++
++    msgid = ldap_search(ld, base, LDAP_SCOPE_SUBTREE, fltr, NULL, 0);
++    if (msgid == -1)
++	err(argv[0], "ldap_search() failed");
++
++    while ((rc = ldap_result(ld, msgid, 0, NULL, &res)) != LDAP_RES_SEARCH_RESULT ) {
++	/* not supporting continuation references at present */
++	if (rc != LDAP_RES_SEARCH_ENTRY)
++	    err(argv[0], "ldap_result() returned cont.ref? Exiting");
++
++	/* only one entry per result message */
++	e = ldap_first_entry(ld, res);
++	if (e == NULL) {
++	    ldap_msgfree(res);
++	    err(argv[0], "ldap_first_entry() failed");
++	}
++	
++	names = ldap_get_values_len(ld, e, "relativeDomainName");
++	if (!names)
++	    continue;
++	
++	ttlvals = ldap_get_values(ld, e, "dNSTTL");
++	ttl = ttlvals ? ttlvals[0] : defaultttl;
++
++	for (a = ldap_first_attribute(ld, e, &ptr); a != NULL; a = ldap_next_attribute(ld, e, ptr)) {
++	    char *s;
++
++	    for (s = a; *s; s++)
++		*s = toupper(*s);
++	    s = strstr(a, "RECORD");
++	    if ((s == NULL) || (s == a) || (s - a >= (signed int)sizeof(type))) {
++		ldap_memfree(a);
++		continue;
++	    }
++			
++	    strncpy(type, a, s - a);
++	    type[s - a] = '\0';
++	    vals = ldap_get_values_len(ld, e, a);
++	    if (vals) {
++		for (i = 0; vals[i]; i++)
++		    for (j = 0; names[j]; j++)
++			if (putrr(&zone, names[j], type, ttl, vals[i]))
++			    err(argv[0], "malloc failed");
++		ldap_value_free_len(vals);
++	    }
++	    ldap_memfree(a);
++	}
++
++	if (ptr)
++	    ber_free(ptr, 0);
++	if (ttlvals)
++	    ldap_value_free(ttlvals);
++	ldap_value_free_len(names);
++	/* free this result */
++	ldap_msgfree(res);
++    }
++
++    /* free final result */
++    ldap_msgfree(res);
++
++    print_zone(defaultttl, zone);
++    return 0;
++}
+diff -ruN bind-9.11.1-P3.orig/contrib/sdb/ldap/ldapdb.c bind-9.11.1-P3/contrib/sdb/ldap/ldapdb.c
+--- bind-9.11.1-P3.orig/contrib/sdb/ldap/ldapdb.c	2017-01-31 09:17:11.000000000 +0300
++++ bind-9.11.1-P3/contrib/sdb/ldap/ldapdb.c	2017-02-16 09:35:06.651102492 +0300
+@@ -25,6 +25,7 @@
+ /* Using LDAPv3 by default, change this if you want v2 */
+ #ifndef LDAPDB_LDAP_VERSION
+ #define LDAPDB_LDAP_VERSION 3
++#define LDAP_DEPRECATED 1
+ #endif
+ 
+ #include <config.h>
+diff -ruN bind-9.11.1-P3.orig/contrib/sdb/ldap/zone2ldap.c bind-9.11.1-P3/contrib/sdb/ldap/zone2ldap.c
+--- bind-9.11.1-P3.orig/contrib/sdb/ldap/zone2ldap.c	2017-01-31 09:17:11.000000000 +0300
++++ bind-9.11.1-P3/contrib/sdb/ldap/zone2ldap.c	2017-02-16 10:10:52.874053522 +0300
+@@ -13,6 +13,9 @@
+  * ditched dNSDomain2 schema support. Version 0.3-ALPHA
+  */
+ 
++
++#define LDAP_DEPRECATED 1
++
+ #include <errno.h>
+ #include <string.h>
+ #include <stdlib.h>
+@@ -24,6 +27,7 @@
+ #include <isc/hash.h>
+ #include <isc/mem.h>
+ #include <isc/print.h>
++#include <isc/hash.h>
+ #include <isc/result.h>
+ #include <isc/string.h>
+ 
+@@ -62,16 +66,19 @@
+ ldap_info;
+ 
+ /* usage Info */
+-void usage ();
++void usage (void);
++
++/* Check for existence of (and possibly add) containing dNSZone objects */
++int lookup_dns_zones( ldap_info *ldinfo);
+ 
+ /* Add to the ldap dit */
+ void add_ldap_values (ldap_info * ldinfo);
+ 
+ /* Init an ldap connection */
+-void init_ldap_conn ();
++void init_ldap_conn (void);
+ 
+ /* Ldap error checking */
+-void ldap_result_check (char *msg, char *dn, int err);
++void ldap_result_check (const char *msg, char *dn, int err);
+ 
+ /* Put a hostname into a char ** array */
+ char **hostname_to_dn_list (char *hostname, char *zone, unsigned int flags);
+@@ -80,14 +87,14 @@
+ int get_attr_list_size (char **tmp);
+ 
+ /* Get a DN */
+-char *build_dn_from_dc_list (char **dc_list, unsigned int ttl, int flag);
++char *build_dn_from_dc_list (char **dc_list, unsigned int ttl, int flag, char *zone);
+ 
+ /* Add to RR list */
+ void add_to_rr_list (char *dn, char *name, char *type, char *data,
+ 		     unsigned int ttl, unsigned int flags);
+ 
+ /* Error checking */
+-void isc_result_check (isc_result_t res, char *errorstr);
++void isc_result_check (isc_result_t res, const char *errorstr);
+ 
+ /* Generate LDIF Format files */
+ void generate_ldap (dns_name_t * dnsname, dns_rdata_t * rdata,
+@@ -96,11 +103,33 @@
+ /* head pointer to the list */
+ ldap_info *ldap_info_base = NULL;
+ 
+-char *argzone, *ldapbase, *binddn, *bindpw = NULL;
+-char *ldapsystem = "localhost";
+-static char *objectClasses[] =
+-  { "top", "dNSZone", NULL };
+-static char *topObjectClasses[] = { "top", NULL };
++ldap_info *
++locate_by_dn (char *dn);
++void
++init_ldap_conn ();
++void usage();
++
++static char *argzone, *ldapbase, *binddn, *bindpw = NULL;
++
++/* these are needed to placate gcc4's const-ness const-ernations : */
++static char localhost[] = "localhost";
++static char *ldapsystem=&(localhost[0]);
++/* dnszone schema class names: */
++static char topClass    [] ="top";
++static char dNSZoneClass[] ="dNSZone";
++static char objectClass [] ="objectClass";
++static char dcObjectClass[]="dcObject";
++/* dnszone schema attribute names: */
++static char relativeDomainName[]="relativeDomainName";
++static char dNSTTL            []="dNSTTL";
++static char zoneName          []="zoneName";
++static char dc                []="dc";
++static char sameZone          []="@";
++/* LDAPMod mod_values: */
++static char *objectClasses    []= { &(topClass[0]), &(dNSZoneClass[0]), NULL };
++static char *topObjectClasses []= { &(topClass[0]), &(dcObjectClass[0]), &(dNSZoneClass[0]), NULL };
++static char *dn_buffer      [64]={NULL};
++
+ LDAP *conn;
+ unsigned int debug = 0;
+ 
+@@ -124,12 +153,12 @@
+   isc_result_t result;
+   char *basedn;
+   ldap_info *tmp;
+-  LDAPMod *base_attrs[2];
+-  LDAPMod base;
++  LDAPMod *base_attrs[5];
++  LDAPMod base, dcBase, znBase, rdnBase;
+   isc_buffer_t buff;
+-  char *zonefile;
++  char *zonefile=0L;
+   char fullbasedn[1024];
+-  char *ctmp;
++  char *ctmp, *zn, *dcp[2], *znp[2], *rdn[2];
+   dns_fixedname_t fixedzone, fixedname;
+   dns_rdataset_t rdataset;
+   char **dc_list;
+@@ -142,7 +171,7 @@
+   extern char *optarg;
+   extern int optind, opterr, optopt;
+   int create_base = 0;
+-  int topt;
++  int topt, dcn, zdn, znlen;
+ 
+   if (argc < 2)
+     {
+@@ -150,7 +179,7 @@
+       exit (-1);
+     }
+ 
+-  while ((topt = getopt (argc, argv, "D:w:b:z:f:h:?dcv")) != -1)
++  while ((topt = getopt ((int) argc, argv, "D:Ww:b:z:f:h:?dcv")) != -1)
+     {
+       switch (topt)
+ 	{
+@@ -173,6 +202,9 @@
+ 	  if (bindpw == NULL)
+ 	    fatal("strdup");
+ 	  break;
++	case 'W':
++	  bindpw = getpass("Enter LDAP Password: ");
++	  break;
+ 	case 'b':
+ 	  ldapbase = strdup (optarg);
+ 	  if (ldapbase == NULL)
+@@ -296,18 +328,54 @@
+ 	printf ("Creating base zone DN %s\n", argzone);
+ 
+       dc_list = hostname_to_dn_list (argzone, argzone, DNS_TOP);
+-      basedn = build_dn_from_dc_list (dc_list, 0, NO_SPEC);
+ 
+-      for (ctmp = &basedn[strlen (basedn)]; ctmp >= &basedn[0]; ctmp--)
++      basedn = build_dn_from_dc_list (dc_list, 0, NO_SPEC, argzone);
++      if (debug)
++	printf ("base DN %s\n", basedn);
++
++      for (ctmp = &basedn[strlen (basedn)], dcn=0; ctmp >= &basedn[0]; ctmp--)
+ 	{
+ 	  if ((*ctmp == ',') || (ctmp == &basedn[0]))
+ 	    {
+ 	      base.mod_op = LDAP_MOD_ADD;
+-	      base.mod_type = "objectClass";
++	      base.mod_type = objectClass;
+ 	      base.mod_values = topObjectClasses;
+-	      base_attrs[0] = &base;
+-	      base_attrs[1] = NULL;
+ 
++	      base_attrs[0] = (void*)&base;
++	     
++	      dcBase.mod_op = LDAP_MOD_ADD;
++	      dcBase.mod_type = dc;
++	      dcp[0]=dc_list[dcn];
++	      dcp[1]=0L;
++	      dcBase.mod_values=dcp;
++	      base_attrs[1] = (void*)&dcBase;
++
++	      znBase.mod_op = LDAP_MOD_ADD;
++	      znBase.mod_type = zoneName;	      
++	      for( zdn = dcn, znlen = 0; zdn >= 0; zdn-- )
++		  znlen += strlen(dc_list[zdn])+1;
++	      znp[0] = (char*)malloc(znlen+1);
++	      znp[1] = 0L;
++	      for( zdn = dcn, zn=znp[0]; zdn >= 0; zdn-- )		  
++		  zn+=sprintf(zn,"%s%s",dc_list[zdn], 
++			      ((zdn > 0) && (*(dc_list[zdn-1])!='.')) ? "." : ""
++		             );
++
++	      znBase.mod_values = znp;
++	      base_attrs[2] = (void*)&znBase;
++
++	      rdnBase.mod_op = LDAP_MOD_ADD;
++	      rdnBase.mod_type = relativeDomainName;
++	      rdn[0] = strdup(sameZone);
++	      rdn[1] = 0L;
++	      rdnBase.mod_values = rdn;
++	      base_attrs[3] = (void*)&rdnBase;
++	      
++	      dcn++;
++ 
++	      base.mod_values = topObjectClasses;
++	      base_attrs[4] = NULL;	      
++	      
+ 	      if (ldapbase)
+ 		{
+ 		  if (ctmp != &basedn[0])
+@@ -323,6 +391,10 @@
+ 		  else
+ 		    sprintf (fullbasedn, "%s", ctmp);
+ 		}
++
++	      if( debug )
++		  printf("Full base dn: %s\n", fullbasedn);
++
+ 	      result = ldap_add_s (conn, fullbasedn, base_attrs);
+ 	      ldap_result_check ("intial ldap_add_s", fullbasedn, result);
+ 	    }
+@@ -362,7 +434,7 @@
+  * I should probably rename this function, as not to cause any
+  * confusion with the isc* routines. Will exit on error. */
+ void
+-isc_result_check (isc_result_t res, char *errorstr)
++isc_result_check (isc_result_t res, const char *errorstr)
+ {
+   if (res != ISC_R_SUCCESS)
+     {
+@@ -402,14 +474,14 @@
+   isc_result_check (result, "dns_rdata_totext");
+   data[isc_buffer_usedlength (&buff)] = 0;
+ 
+-  dc_list = hostname_to_dn_list (name, argzone, DNS_OBJECT);
++  dc_list = hostname_to_dn_list ((char*)name, argzone, DNS_OBJECT);
+   len = (get_attr_list_size (dc_list) - 2);
+-  dn = build_dn_from_dc_list (dc_list, ttl, WI_SPEC);
++  dn = build_dn_from_dc_list (dc_list, ttl, WI_SPEC, argzone);
+ 
+   if (debug)
+     printf ("Adding %s (%s %s) to run queue list.\n", dn, type, data);
+ 
+-  add_to_rr_list (dn, dc_list[len], type, data, ttl, DNS_OBJECT);
++  add_to_rr_list (dn, dc_list[len], (char*)type, (char*)data, ttl, DNS_OBJECT);
+ }
+ 
+ 
+@@ -450,6 +522,8 @@
+   char ldap_type_buffer[128];
+   char charttl[64];
+ 
++  char *zn;
++  int znlen;
+ 
+   if ((tmp = locate_by_dn (dn)) == NULL)
+     {
+@@ -469,14 +543,14 @@
+       if (tmp->attrs == (LDAPMod **) NULL)
+ 	fatal("calloc");
+ 
+-      for (i = 0; i < flags; i++)
++      for (i = 0; i < (int)flags; i++)
+ 	{
+ 	  tmp->attrs[i] = (LDAPMod *) malloc (sizeof (LDAPMod));
+ 	  if (tmp->attrs[i] == (LDAPMod *) NULL)
+ 	    fatal("malloc");
+ 	}
+       tmp->attrs[0]->mod_op = LDAP_MOD_ADD;
+-      tmp->attrs[0]->mod_type = "objectClass";
++      tmp->attrs[0]->mod_type = objectClass;
+ 
+       if (flags == DNS_OBJECT)
+ 	tmp->attrs[0]->mod_values = objectClasses;
+@@ -491,7 +565,7 @@
+ 	}
+ 
+       tmp->attrs[1]->mod_op = LDAP_MOD_ADD;
+-      tmp->attrs[1]->mod_type = "relativeDomainName";
++      tmp->attrs[1]->mod_type = relativeDomainName;
+       tmp->attrs[1]->mod_values = (char **) calloc (sizeof (char *), 2);
+ 
+       if (tmp->attrs[1]->mod_values == (char **)NULL)
+@@ -520,7 +594,7 @@
+ 	 fatal("strdup");
+ 
+       tmp->attrs[3]->mod_op = LDAP_MOD_ADD;
+-      tmp->attrs[3]->mod_type = "dNSTTL";
++      tmp->attrs[3]->mod_type = dNSTTL;
+       tmp->attrs[3]->mod_values = (char **) calloc (sizeof (char *), 2);
+ 
+       if (tmp->attrs[3]->mod_values == (char **)NULL)
+@@ -533,14 +607,25 @@
+       if (tmp->attrs[3]->mod_values[0] == NULL)
+ 	 fatal("strdup");
+ 
++      znlen=strlen(gbl_zone);      
++      if ( *(gbl_zone + (znlen-1)) == '.' )
++      { /* ldapdb MUST search by relative zone name */
++	  zn = (char*)malloc(znlen);
++	  strncpy(zn,gbl_zone,znlen-1);
++	  *(zn + (znlen-1))='\0';	  
++      }else
++      {
++	  zn = gbl_zone;
++      }
++
+       tmp->attrs[4]->mod_op = LDAP_MOD_ADD;
+-      tmp->attrs[4]->mod_type = "zoneName";
++      tmp->attrs[4]->mod_type = zoneName;
+       tmp->attrs[4]->mod_values = (char **)calloc(sizeof(char *), 2);
+ 
+       if (tmp->attrs[4]->mod_values == (char **)NULL)
+ 	 fatal("calloc");
+ 
+-      tmp->attrs[4]->mod_values[0] = gbl_zone;
++      tmp->attrs[4]->mod_values[0] = zn;
+       tmp->attrs[4]->mod_values[1] = NULL;
+ 
+       tmp->attrs[5] = NULL;
+@@ -625,46 +710,72 @@
+ hostname_to_dn_list (char *hostname, char *zone, unsigned int flags)
+ {
+   char *tmp;
+-  static char *dn_buffer[64];
+   int i = 0;
+-  char *zname;
+-  char *hnamebuff;
+-
+-  zname = strdup (hostname);
+-  if (zname == NULL)
+-	fatal("strdup");
+-
+-  if (flags == DNS_OBJECT)
+-    {
+-
+-      if (strlen (zname) != strlen (zone))
+-	{
+-	  tmp = &zname[strlen (zname) - strlen (zone)];
+-	  *--tmp = '\0';
+-	  hnamebuff = strdup (zname);
+-	  if (hnamebuff == NULL)
+-		fatal("strdup");
+-	  zname = ++tmp;
+-	}
+-      else
+-	hnamebuff = "@";
+-    }
+-  else
+-    {
+-      zname = zone;
+-      hnamebuff = NULL;
+-    }
+-
+-  for (tmp = strrchr (zname, '.'); tmp != (char *) 0;
+-       tmp = strrchr (zname, '.'))
+-    {
+-      *tmp++ = '\0';
+-      dn_buffer[i++] = tmp;
+-    }
+-  dn_buffer[i++] = zname;
+-  dn_buffer[i++] = hnamebuff;
+   dn_buffer[i] = NULL;
+ 
++  char *hname=0L, *last=0L;
++  int hlen=strlen(hostname), zlen=(strlen(zone));
++
++  /*  printf("hostname: %s zone: %s\n",hostname, zone); */
++  hname=0L;
++  if(flags == DNS_OBJECT)
++  {
++      if( (zone[ zlen - 1 ] == '.') && (hostname[hlen - 1] != '.') )
++      {
++	  hname=(char*)malloc(hlen + 1);
++	  hlen += 1;
++	  sprintf(hname, "%s.", hostname);
++	  hostname = hname;
++      }
++      if(strcmp(hostname, zone) == 0)
++      {
++	  if( hname == 0 )
++	      hname=strdup(hostname);
++  	  last = strdup(sameZone);
++      }else
++      {	   
++	  if(  (hlen < zlen) 
++	     ||( strcmp( hostname + (hlen - zlen), zone ) != 0)
++	    )
++	  {
++	      if( hname != 0 )
++		  free(hname);
++	      hname=(char*)malloc( hlen + zlen + 1);
++	      if( *zone == '.' )
++		  sprintf(hname, "%s%s", hostname, zone);
++	      else
++		  sprintf(hname,"%s",zone);
++	  }else
++	  {
++	      if( hname == 0 )
++		  hname = strdup(hostname);
++	  }
++	  last = hname;
++      }
++  }else
++  { /* flags == DNS_TOP */
++      hname = strdup(zone);
++      last = hname;
++  }
++
++  for (tmp = strrchr (hname, '.'); tmp != (char *) 0;
++       tmp = strrchr (hname, '.'))
++  {
++      if( *( tmp + 1 ) != '\0' )
++      {
++	  *tmp = '\0';
++	  dn_buffer[i++] = ++tmp;
++      }else
++      { /* trailing '.' ! */
++	  dn_buffer[i++] = strdup(".");
++	  *tmp = '\0';
++	  if( tmp == hname )
++	      break;
++      }	  
++  }
++  if( ( last != hname ) && (tmp != hname) )
++      dn_buffer[i++] = hname;
++  dn_buffer[i++] = last;
+   return dn_buffer;
+ }
+ 
+@@ -674,24 +785,32 @@
+  * exception of "@"/SOA. */
+ 
+ char *
+-build_dn_from_dc_list (char **dc_list, unsigned int ttl, int flag)
++build_dn_from_dc_list (char **dc_list, unsigned int ttl, int flag, char *zone)
+ {
+   int size;
+-  int x;
++  int x, znlen;
+   static char dn[1024];
+   char tmp[128];
++  char zn[DNS_NAME_MAXTEXT+1];
+ 
+   bzero (tmp, sizeof (tmp));
+   bzero (dn, sizeof (dn));
+   size = get_attr_list_size (dc_list);
++  znlen = strlen(zone);
++  if ( *(zone + (znlen-1)) == '.' )
++  { /* ldapdb MUST search by relative zone name */
++      memcpy(&(zn[0]),zone,znlen-1);
++      *(zn + (znlen-1))='\0';
++      zone = zn;
++  }
+   for (x = size - 2; x > 0; x--)
+     {
+     if (flag == WI_SPEC)
+     {
+       if (x == (size - 2) && (strncmp (dc_list[x], "@", 1) == 0) && (ttl))
+-	sprintf (tmp, "relativeDomainName=%s + dNSTTL=%d,", dc_list[x], ttl);
+++	sprintf (tmp, "zoneName=%s + relativeDomainName=%s,", zone, dc_list[x]);
+       else if (x == (size - 2))
+-	      sprintf(tmp, "relativeDomainName=%s,",dc_list[x]);
+++	      sprintf(tmp, "zoneName=%s + relativeDomainName=%s,", zone, dc_list[x]);
+       else
+ 	      sprintf(tmp,"dc=%s,", dc_list[x]);
+     }
+@@ -717,6 +836,7 @@
+ init_ldap_conn ()
+ {
+   int result;
++  char ldb_tag[]="LDAP Bind";
+   conn = ldap_open (ldapsystem, LDAP_PORT);
+   if (conn == NULL)
+     {
+@@ -726,12 +846,12 @@
+     }
+ 
+   result = ldap_simple_bind_s (conn, binddn, bindpw);
+-  ldap_result_check ("ldap_simple_bind_s", "LDAP Bind", result);
++  ldap_result_check ("ldap_simple_bind_s", ldb_tag , result);
+ }
+ 
+ /* Like isc_result_check, only for LDAP */
+ void
+-ldap_result_check (char *msg, char *dn, int err)
++ldap_result_check (const char *msg, char *dn, int err)
+ {
+   if ((err != LDAP_SUCCESS) && (err != LDAP_ALREADY_EXISTS))
+     {
+@@ -770,5 +890,8 @@
+ usage ()
+ {
+   fprintf (stderr,
+-	   "zone2ldap -D [BIND DN] -w [BIND PASSWORD] -b [BASE DN] -z [ZONE] -f [ZONE FILE] -h [LDAP HOST] "
+-	   "[-c Create LDAP Base structure][-d Debug Output (lots !)] \n ");}
++	   "zone2ldap -D [BIND DN] [-w BIND PASSWORD | -W:prompt] -b [BASE DN] -z [ZONE] -f [ZONE FILE] -h [LDAP HOST]\n"
++	   "\t[-c Create LDAP Base structure][-d Debug Output (lots !)]\n "
++          );
++}
++
