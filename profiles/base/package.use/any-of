@@ -27,3 +27,6 @@ sys-cluster/swift container
 
 # any-of ( java lua mono perl php python ruby tcl )
 dev-libs/xapian-bindings python
+
+# at-most-one-of ( alsa pulseaudio )
+games-action/descent3-demo alsa -pulseaudio
