@@ -578,3 +578,6 @@ mail-mta/netqmail qmail-spp
 
 # required by sys-devel/llvmgold-4
 sys-devel/llvm gold
+
+# required by sys-libs/libcxx-3.9.1[libcxxrt]
+sys-libs/libcxxrt -libunwind
