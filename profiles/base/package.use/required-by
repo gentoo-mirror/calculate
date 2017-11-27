@@ -581,3 +581,6 @@ sys-devel/llvm gold
 
 # required by sys-libs/libcxx-3.9.1[libcxxrt]
 sys-libs/libcxxrt -libunwind
+
+# required by dev-python/collectd-rabbitmq-1.19.0
+app-admin/collectd collectd_plugins_python
