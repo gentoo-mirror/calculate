@@ -132,6 +132,12 @@ dev-libs/elfutils static-libs
 # required by kde-base/kopete-4.14.3-r1[ssl]
 app-crypt/qca openssl
 
+# required by required by net-irc/konversation-1.6 [crypt]
+app-crypt/qca qt5
+
+# equired by kde-frameworks/kdelibs-4.14.37:4
+app-crypt/qca qt4
+
 # [declarative, script, sql] required by kde-base/pykde4
 # [help] required by dev-util/eric
 dev-python/PyQt4 declarative script sql help
@@ -450,9 +456,6 @@ media-libs/phonon qt5
 
 # required by kde-plasma/polkit-kde-agent-5.4.0
 sys-auth/polkit-qt qt5
-
-# required by required by net-irc/konversation-1.6 [crypt]
-app-crypt/qca qt5
 
 # required by dev-db/sqlitebrowser-3.7.0
 dev-libs/qcustomplot qt5
