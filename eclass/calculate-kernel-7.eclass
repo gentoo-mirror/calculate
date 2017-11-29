@@ -18,7 +18,7 @@
 inherit calculate eutils kernel-2
 EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst
 
-IUSE="+vmlinuz uksm minimal themes firmware +grub"
+IUSE="+vmlinuz minimal themes firmware +grub"
 
 REQUIRED_USE="minimal? ( vmlinuz )
 	grub? ( vmlinuz )"
