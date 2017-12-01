@@ -30,3 +30,6 @@ net-misc/mediatomb -taglib
 
 # opengl? ( plasma )
 kde-frameworks/kdelibs:4 plasma
+
+# qt5? ( !libnotify )
+media-plugins/audacious-plugins -libnotify
