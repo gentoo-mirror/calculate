@@ -8,12 +8,6 @@ app-accessibility/julius -pulseaudio
 x11-terms/qterminal qt5
 x11-libs/qtermwidget qt5
 
-# exactly-one-of
-media-video/openshot python_single_target_python3_4
-
-# exactly-one-of
-app-editors/gedit python_single_target_python3_4
-
 # hcache? ( exactly-one-of ( berkdb gdbm lmdb qdbm tokyocabinet )
 mail-client/mutt -gdbm
 
