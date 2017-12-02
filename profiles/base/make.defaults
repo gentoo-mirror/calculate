@@ -51,6 +51,9 @@ USE="${USE} gphoto2"
 # Printing
 USE="${USE} cups foomaticdb"
 
+# Python
+USE="${USE} -python_single_target_python3_4"
+
 # Ruby
 #USE="${USE} ruby_targets_ruby22 ruby_targets_ruby21 -ruby_targets_ruby20 -ruby_targets_ruby19"
 

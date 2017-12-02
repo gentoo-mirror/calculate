@@ -295,9 +295,6 @@ sys-fs/lvm2 thin
 # required by media-gfx/simple-scan-3.18.2
 dev-libs/libgusb vala
 
-# required by media-video/openshot-2.0.7-r1
-media-libs/libopenshot python_single_target_python3_4
-
 # required by sci-visualization/qtiplot-0.9.8.9-r3
 dev-libs/quazip qt4
 
@@ -446,7 +443,7 @@ dev-libs/liblouis python
 app-text/poppler qt5
 
 # required by kde-frameworks/knotifications-5.13.0 [dbus]
-dev-libs/libdbusmenu-qt qt5
+dev-libs/libdbusmenu-qt qt5 qt4
 
 # required by media-libs/phonon-4.7.2 [gstreamer]
 media-libs/phonon-gstreamer qt5
@@ -455,7 +452,7 @@ media-libs/phonon-gstreamer qt5
 media-libs/phonon qt5
 
 # required by kde-plasma/polkit-kde-agent-5.4.0
-sys-auth/polkit-qt qt5
+sys-auth/polkit-qt qt5 qt4
 
 # required by dev-db/sqlitebrowser-3.7.0
 dev-libs/qcustomplot qt5
