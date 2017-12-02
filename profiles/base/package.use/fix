@@ -17,3 +17,6 @@ net-p2p/mldonkey -gd
 
 # not compiled xfsdump on x86
 sys-block/gparted -xfs
+
+# block with imagemagick<7
+media-libs/libopenshot -imagemagick
