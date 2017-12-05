@@ -18,7 +18,6 @@
 inherit calculate eutils kernel-2
 EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst
 
-IUSE="+vmlinuz minimal themes firmware +grub"
 
 REQUIRED_USE="minimal? ( vmlinuz )
 	grub? ( vmlinuz )"
@@ -38,6 +37,8 @@ RDEPEND="${CDEPEND} vmlinuz? ( sys-kernel/dracut )"
 
 detect_version
 detect_arch
+
+IUSE="+vmlinuz muqss pae minimal themes firmware +grub"
 
 if [[ ${KV_MAJOR} -lt 3 ]]
 then
