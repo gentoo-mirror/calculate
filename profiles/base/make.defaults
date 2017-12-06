@@ -4,7 +4,7 @@ USE=""
 USE="${USE} alsa amr -arts audiofile cdda cue id3tag flac gstreamer mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr opus pulseaudio taglib wavpack vorbis vpx"
 
 # CD and DVD
-USE="${USE} cdparanoia cdr css dvd dvdr dvdread vcd"
+USE="${USE} cdparanoia css dvd dvdr dvdread vcd"
 
 # Decoration
 USE="${USE} -branding -wallpapers"
