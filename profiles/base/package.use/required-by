@@ -584,3 +584,12 @@ sys-libs/libcxxrt -libunwind
 
 # required by dev-python/collectd-rabbitmq-1.19.0
 app-admin/collectd collectd_plugins_python
+
+# required by sci-visualization/mayavi-4.3.0
+sci-libs/vtk python
+
+# required by sci-visualization/veusz-1.25.1
+dev-python/PyQt4 compat
+
+# required by sci-visualization/mayavi-4.5.0
+sci-libs/vtk rendering
