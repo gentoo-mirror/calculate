@@ -13,6 +13,7 @@ A set of Calculate utilities for system installation, build and upgrade.
 		<flag name="install">Enables support for disk installation.</flag>
 		<flag name="minimal">Use minimal depends for calculate install.</flag>
 		<flag name="pxe">Enables support for PXE installation.</flag>
+		<flag name="dbus">Enables ability to run core server by dbus.</flag>
 	</use>
 </pkgmetadata>
 
