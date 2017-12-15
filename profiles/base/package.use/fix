@@ -20,3 +20,10 @@ sys-block/gparted -xfs
 
 # block with imagemagick<7
 media-libs/libopenshot -imagemagick
+
+# dev-libs/libsodium:0/18= required by (net-libs/zeromq-4.2.2-r2:0/5
+# dev-libs/libsodium:0/18 required by (dev-python/pynacl-1.1.2:0/0
+=dev-libs/libsodium-1.0.15
+
+#<www-client/seamonkey-2.49.5.0_p0" is blocking x11-plugins/enigmail-1.9.8.3-r1
+=x11-plugins/enigmail-1.9.8.3-r1
