@@ -405,3 +405,7 @@ app-i18n/fcitx gtk2 gtk3 qt4
 
 # add man
 app-emulation/lxc doc
+
+# Add support for the postgresql database
+www-apps/nextcloud postgres -sqlite
+www-apps/owncloud postgres -sqlite

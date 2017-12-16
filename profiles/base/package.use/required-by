@@ -382,7 +382,7 @@ net-analyzer/rrdtool graph
 dev-lang/php sockets
 
 # required by www-apps/nextcloud-11.0.2
-dev-lang/php xmlwriter sqlite zip
+dev-lang/php xmlwriter zip
 
 # required by dev-texlive/texlive-langcjk-2016
 app-text/texlive-core cjk
@@ -491,14 +491,11 @@ media-libs/qimageblitz qt5
 # required by (sys-apps/calculate-server-2.1.16-r17
 net-ftp/proftpd ident
 
-# required by dev-lang/php-5.6.10::gentoo
-app-eselect/eselect-php apache2
-
 # [gd, xmlreader] required by www-apps/mediawiki-1.23.8
 # [fpm] required by virtual/httpd-php-5.6
 # [pdo] required by www-apps/drupal-8.0.0_beta11
 app-eselect/eselect-php fpm
-dev-lang/php apache2 curl fpm gd mysql pdo xmlreader
+dev-lang/php curl fpm gd pdo postgres xmlreader
 
 # required by mail-client/alpine-2.00-r7
 net-libs/c-client chappa
