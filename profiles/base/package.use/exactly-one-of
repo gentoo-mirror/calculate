@@ -9,7 +9,7 @@ x11-terms/qterminal qt5
 x11-libs/qtermwidget qt5
 
 # hcache? ( exactly-one-of ( berkdb gdbm lmdb qdbm tokyocabinet )
-mail-client/mutt -gdbm
+mail-client/mutt -gdbm -lmdb
 
 # exactly-one-of ( expat xml )
 media-libs/libmetalink expat
