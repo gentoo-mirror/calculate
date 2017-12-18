@@ -495,7 +495,7 @@ net-ftp/proftpd ident
 # [fpm] required by virtual/httpd-php-5.6
 # [pdo] required by www-apps/drupal-8.0.0_beta11
 app-eselect/eselect-php fpm
-dev-lang/php curl fpm gd pdo postgres xmlreader
+dev-lang/php curl fpm gd mysql pdo postgres xmlreader
 
 # required by mail-client/alpine-2.00-r7
 net-libs/c-client chappa

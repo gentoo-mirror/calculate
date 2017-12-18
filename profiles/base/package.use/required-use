@@ -33,3 +33,6 @@ kde-frameworks/kdelibs:4 plasma
 
 # qt5? ( !libnotify )
 media-plugins/audacious-plugins -libnotify
+
+# lm_sensors? ( opencl )
+net-misc/bfgminer opencl
