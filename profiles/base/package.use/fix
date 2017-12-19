@@ -27,3 +27,6 @@ media-libs/libopenshot -imagemagick
 
 #<www-client/seamonkey-2.49.5.0_p0" is blocking x11-plugins/enigmail-1.9.8.3-r1
 =x11-plugins/enigmail-1.9.8.3-r1
+
+# not compiled with app-emulation/virtualbox-guest-additions-5.2.2
+x11-drivers/xf86-video-virtualbox -dri
