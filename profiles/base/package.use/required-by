@@ -461,6 +461,9 @@ dev-libs/qcustomplot qt5
 dev-qt/qtlockedfile qt5
 dev-qt/qtsingleapplication qt5
 
+# required by net-im/vacuum-1.2.5
+dev-qt/qtlockedfile qt4
+ 
 # required by media-gfx/nomacs-3.0.0
 media-libs/opencv qt5
 
