@@ -1,4 +1,4 @@
-# Calculate format=diff os_install_arch_machine==x86_64&&pkg(sys-kernel/calculate-sources)>=4.11&&merge(x11-drivers/nvidia-drivers)=>340.104,340.105
+# Calculate format=diff os_install_arch_machine==x86_64&&pkg(sys-kernel/calculate-sources)=>4.11,4.13&&merge(x11-drivers/nvidia-drivers)=>340.104,340.105
 --- kernel/uvm/nvidia_uvm_lite.c	2017-09-27 13:50:46.334075042 +0200
 +++ kernel/uvm/nvidia_uvm_lite.c	2017-09-27 13:56:06.358041280 +0200
 @@ -818,7 +818,11 @@
