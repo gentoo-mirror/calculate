@@ -26,4 +26,13 @@
 	<use>
 		<flag name='grub'>Adds sys-boot/grub dependence</flag>
 	</use>
+	<use>
+		<flag name='uksm'>Build kernel with UKSM</flag>
+	</use>
+	<use>
+		<flag name='pae'>Build kernel with PAE</flag>
+	</use>
+	<use>
+		<flag name='muqss'>Build kernel with MuQSS</flag>
+	</use>
 </pkgmetadata>
