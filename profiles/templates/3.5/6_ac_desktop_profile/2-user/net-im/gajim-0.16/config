@@ -1,8 +1,8 @@
 # Calculate format=procmail path=~/.config/gajim
 #?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(jabber.host)!=#
-accounts.jabber.calculate.ru.autoconnect = True
-accounts.jabber.calculate.ru.savepass = True
-accounts.jabber.calculate.ru.sync_with_global_status = True
+accounts.#-server(jabber.host)-#.autoconnect = True
+accounts.#-server(jabber.host)-#.savepass = True
+accounts.#-server(jabber.host)-#.sync_with_global_status = True
 accounts.#-server(jabber.host)-#.custom_port = #-server(jabber.port)-#
 accounts.#-server(jabber.host)-#.hostname = #-server(jabber.host)-#
 accounts.#-server(jabber.host)-#.name = #-cut(0,!,#-replace("\x40","!",ur_jid)-#)-#
