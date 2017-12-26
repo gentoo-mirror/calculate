@@ -151,6 +151,7 @@ clean_for_minimal() {
 		scripts/gcc-goto.sh scripts/Makefile.headersinst \
 		scripts/Makefile.build scripts/basic/fixdep \
 		scripts/Makefile.clean scripts/mod/modpost \
+		tools/objtool/objtool \
 		include/config/kernel.release include/config/auto.conf \
 		arch/x86/Makefile_32.cpu arch/x86/Makefile \
 		System.map Kconfig Makefile Kbuild"
