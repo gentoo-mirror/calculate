@@ -24,7 +24,7 @@ calculate_nonamed
 calculate_nosamba
 calculate_noproxy"
 
-DEPEND="=sys-apps/calculate-lib-2.1.11-r5
+DEPEND="=sys-apps/calculate-lib-2.1.12-r2
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
