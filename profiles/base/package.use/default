@@ -4,7 +4,7 @@ mail-mta/postfix ldap sasl dovecot-sasl
 net-dns/bind ldap sdb-ldap dlz
 net-im/ejabberd ldap sqlite
 net-mail/dovecot pop3d ldap sieve managesieve
-net-nds/openldap syslog
+net-nds/openldap syslog -sasl
 net-proxy/squid ldap
 net-ftp/proftpd -ipv6 -acl ldap openssl
 net-fs/samba ldap aio
