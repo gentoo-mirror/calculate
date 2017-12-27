@@ -24,13 +24,16 @@ calculate_nonamed
 calculate_nosamba
 calculate_noproxy"
 
-DEPEND="=sys-apps/calculate-lib-2.1.11-r5
+DEPEND="=sys-apps/calculate-lib-2.1.12-r2
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
+	!<sys-apps/calculate-utils-3.5.0_alpha44
 	!calculate_nosamba? (
-		>=net-fs/samba-3.4.6[acl,client,cups,ldap,netapi,pam,server,smbclient]
-		<net-fs/samba-4.0.0
+		|| ( 
+			<net-fs/samba-4[acl,client,cups,ldap,netapi,pam,server,smbclient]
+			>=net-fs/samba-4[acl,client,cups,ldap,pam]
+		)
 	)
 	!calculate_nomail? ( 
 		|| ( <net-mail/dovecot-1.2.0[pop3d,ldap,pam,ssl]
@@ -46,7 +49,8 @@ DEPEND="=sys-apps/calculate-lib-2.1.11-r5
 		)
 	)
 	!calculate_nojabber? (
-		>=net-im/ejabberd-2.1.8[mod_pubsub]
+		|| ( >=net-im/ejabberd-2.1.8[mod_pubsub,ldap]
+			>=net-im/ejabberd-16.04-r1[ldap] )
 		>=media-gfx/imagemagick-6.6
 	)
 	!calculate_nonamed? ( >=net-dns/bind-9.6.1_p1[sdb-ldap] )
@@ -54,65 +58,6 @@ DEPEND="=sys-apps/calculate-lib-2.1.11-r5
 	!calculate_nodhcp? ( >=net-misc/dhcp-3.1.2_p1 )"
 
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# ftp .Trash-uid
-	epatch "${FILESDIR}/calculate-server-2.1.16-ftp_trash.patch"
-
-	# fix check ip
-	epatch "${FILESDIR}/calculate-server-2.1.16-fix_ip_check.patch"
-
-	# fix get ip
-	epatch "${FILESDIR}/calculate-server-2.1.16-fix_get_ip.patch"
-
-	# add win7 profile dir
-	epatch "${FILESDIR}/calculate-server-2.1.16-win7_profile.patch"
-
-	# fix work with calculate.env
-	epatch "${FILESDIR}/calculate-server-2.1.16-fix_inienv.patch"
-
-	# fix jabber tls
-	epatch "${FILESDIR}/calculate-server-2.1.16-jabber_tls.patch"
-
-	# fix empty ip
-	epatch "${FILESDIR}/calculate-server-2.1.16-fix_empty_ip.patch"
-
-	# add smtp auth
-	epatch "${FILESDIR}/calculate-server-2.1.16-smtp_auth.patch"
-
-	# add samba options for remote work distfiles
-	epatch "${FILESDIR}/calculate-server-2.1.16-distfiles.patch"
-
-	# support squid 3.2
-	epatch "${FILESDIR}/calculate-server-2.1.16-fix_proxy.patch"
-
-	# fix sasl config
-	epatch "${FILESDIR}/calculate-server-2.1.16-fix_sasl_config.patch"
-
-	# fix repl cron script
-	epatch "${FILESDIR}/calculate-server-2.1.16-fix_replcron.patch"
-
-	# fix mac address
-	epatch "${FILESDIR}/calculate-server-2.1.16-mac_lower.patch"
-
-	# fix dovecot conf
-	epatch "${FILESDIR}/calculate-server-2.1.16-fix_dovecot.patch"
-	
-	# nt acl support off for share
-	epatch "${FILESDIR}/calculate-server-2.1.16-nt_acl.patch"
-
-	# discard obsolete squid option
-	epatch "${FILESDIR}/calculate-server-2.1.16-fix_proxy2.patch"
-
-	# add ipv4 squid option
-	epatch "${FILESDIR}/calculate-server-2.1.16-squid_ipv4.patch"
-
-	# change ftp max instances
-	epatch "${FILESDIR}/calculate-server-2.1.16-ftp_max_instances.patch"
-}
 
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \
