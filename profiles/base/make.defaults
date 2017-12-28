@@ -16,7 +16,7 @@ USE="${USE} ios ipod udev"
 USE="${USE} chm djvu ebook"
 
 # Guard and security
-USE="${USE} crypt ssl"
+USE="${USE} crypt ssl cracklib"
 
 # Hardware
 USE="${USE} acpi cairo cpudetection dbus dri ieee1394 gpm opengl scanner smp upower usb vdpau -video_cards_dummy -video_cards_fbdev -video_cards_v4l video_cards_via xcomposite"
