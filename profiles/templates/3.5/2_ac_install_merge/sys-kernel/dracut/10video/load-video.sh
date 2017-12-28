@@ -54,7 +54,12 @@ load_videodrv() {
 		then
 			# i915 will be load by udev
 			[ "${x}" == "i915" ] && return
-			modprobe "${x}" modeset=1 &>/dev/null
+			if [ "${x}" == "amdgpu" ]
+			then
+				modprobe amdgpu cik_support=1 si=support=1 &>/dev/null
+			else
+				modprobe "${x}" modeset=1 &>/dev/null
+			fi
 			lsmod | grep -q "^${x}" && \
 				[ "`cat /sys/module/${x}/refcnt`" -gt 0 ] && return 0
 		fi
