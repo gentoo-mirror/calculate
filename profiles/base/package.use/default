@@ -49,8 +49,8 @@ app-portage/layman sync-plugin-portage
 
 net-p2p/rtorrent daemon xmlrpc
 
-# enabled iproute2 support instead of net-tools, enable socks support
-net-misc/openvpn iproute2 socks
+# the best performance with least CPU usage
+net-vpn/openvpn lz4
 
 # using instead of bzip2
 app-arch/lbzip2 symlink
