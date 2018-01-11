@@ -80,6 +80,9 @@ else
 fi
 
 ln -s ${SQUASHED_LOOPDEV} /dev/mapper/live-rw
+#?pkg(sys-kernel/dracut)>=045#
+ln -s ${SQUASHED_LOOPDEV} /run/rootfsbase
+#pkg#
 
 need_shutdown
 

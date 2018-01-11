@@ -28,7 +28,6 @@ for arg in $CMDLINE; do case $arg in ro|rw) liverw=$arg ;; esac; done
 mkdir -m 0755 -p /run/initramfs/live
 mount -n -t $fstype -o ${liverw:-ro} $livedev /run/initramfs/live
 if [ "$?" != "0" ]; then
-	echo "FAILED1!"
 	die "Failed to mount block device of live image"
 	exit 1
 fi
