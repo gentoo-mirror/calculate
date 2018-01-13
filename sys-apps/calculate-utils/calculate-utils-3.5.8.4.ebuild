@@ -7,7 +7,7 @@ PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.5.8.2"
-	["install"]="3.5.8.2"
+	["install"]="3.5.8.3"
 	["update"]="3.5.8.1"
 	["builder"]="3.5.8.1"
 )
