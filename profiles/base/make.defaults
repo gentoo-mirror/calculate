@@ -54,9 +54,6 @@ USE="${USE} cups foomaticdb"
 # Python
 USE="${USE} -python_single_target_python3_4"
 
-# Ruby
-#USE="${USE} ruby_targets_ruby22 ruby_targets_ruby21 -ruby_targets_ruby20 -ruby_targets_ruby19"
-
 # System
 USE="${USE} caps cgroups consolekit introspection logrotate networkmanager nsplugin pgo policykit threads udisks"
 
@@ -87,7 +84,7 @@ INPUT_DEVICES="${INPUT_DEVICES} evdev mutouch synaptics"
 INSTALL_MASK="/etc/systemd /usr/lib*/systemd"
 LDFLAGS="-Wl,--as-needed"
 LIRC_DEVICES="devinput"
-NPTL_KERN_VER="4.1.0"
+NPTL_KERN_VER="4.4.0"
 PORTAGE_TMPDIR="/var/calculate/tmp"
 USE_EXPAND="CALCULATE THEMES"
 VIDEO_CARDS="amdgpu i915 i965 intel nouveau nv nvidia r100 r200 r300 r600 radeon qxl radeonsi vesa"
