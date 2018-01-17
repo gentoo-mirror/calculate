@@ -22,4 +22,4 @@ USE="${USE} -abi_x86_32 -consolekit -gnome-keyring -introspection -policykit"
 USE="${USE} -bluetooth -wimax"
 
 # Window manager and speciality
-USE="${USE} -dbus -gtk -qt -qt4 -qt5 -mime -X -xcb"
+USE="${USE} -dbus -gtk -qt -qt4 -qt5 -X -xcb"
