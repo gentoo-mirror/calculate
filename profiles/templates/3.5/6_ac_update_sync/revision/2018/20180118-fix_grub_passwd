@@ -2,7 +2,7 @@
 
 #-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
 
-if grep 8DF.*732A.*AC740 /etc/grub.d/07_passwd &>/dev/null
+if grep sha512.25000.8DF15E2BA53446.*11CA3D4BA57AA.*F0CFAC740 /etc/grub.d/07_passwd &>/dev/null
 then
 	rm -f /etc/grub.d/07_passwd
 fi
