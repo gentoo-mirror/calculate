@@ -96,6 +96,7 @@
 ~app-emulation/vagrant-1.9.2 amd64 x86
 ~app-emulation/virtio-win-0.1.126 amd64 x86
 ~app-emulation/vpcs-0.6 amd64 x86
+~app-emulation/wine-mono-4.7.1 amd64 x86
 ~app-eselect/eselect-opencascade-0 amd64 x86
 ~app-eselect/eselect-renpy-0.7 amd64 x86
 ~app-eselect/eselect-vi-1.1.9 amd64 x86
@@ -322,6 +323,7 @@
 ~dev-vcs/git-annex-6.20170101 amd64 x86
 ~dev-vcs/hg-git-0.8.10 amd64 x86
 ~dev-vcs/hgsubversion-1.8.6 amd64 x86
+~games-board/simsu-1.3.4 amd64 x86
 ~gnome-extra/gnome-user-share-3.18.3 amd64 x86
 ~gnome-extra/nautilus-tracker-tags-1.12.3 amd64 x86
 ~gnustep-base/gnustep-back-cairo-0.24.1 amd64 x86
@@ -481,10 +483,10 @@
 ~sys-auth/consolekit-1.0.0 amd64 x86
 ~sys-auth/elogind-234.4 amd64 x86
 ~sys-boot/os-prober-1.71 amd64 x86
-~sys-devel/clang-5.0.0 amd64 x86
-~sys-devel/clang-runtime-5.0.0 amd64 x86
-~sys-devel/llvm-5.0.0 amd64 x86
-~sys-devel/llvm-common-5.0.0 amd64 x86
+~sys-devel/clang-5.0.1 amd64 x86
+~sys-devel/clang-runtime-5.0.1 amd64 x86
+~sys-devel/llvm-5.0.1 amd64 x86
+~sys-devel/llvm-common-5.0.1 amd64 x86
 ~sys-devel/llvmgold-5 amd64 x86
 ~sys-fs/clamfs-1.0.1 amd64 x86
 ~sys-fs/ecryptfs-utils-108 amd64 x86
@@ -495,13 +497,13 @@
 ~sys-fs/zfs-0.7.5 amd64 x86
 ~sys-fs/zfs-kmod-0.7.5 amd64 x86
 ~sys-kernel/spl-0.7.5 amd64 x86
-~sys-libs/compiler-rt-5.0.0 amd64 x86
-~sys-libs/compiler-rt-sanitizers-5.0.0 amd64 x86
+~sys-libs/compiler-rt-5.0.1 amd64 x86
+~sys-libs/compiler-rt-sanitizers-5.0.1 amd64 x86
 ~sys-libs/db-6.0.35 amd64 x86
 ~sys-libs/kpmcore-3.0.3 amd64 x86
 ~sys-libs/libapparmor-2.11.1 amd64 x86
 ~sys-libs/libcxxrt-0.0_p20170515 amd64 x86
-~sys-libs/libomp-5.0.0 amd64 x86
+~sys-libs/libomp-5.0.1 amd64 x86
 ~sys-libs/libstatgrab-0.91 amd64 x86
 ~sys-libs/libudev-compat-186 amd64 x86
 ~sys-process/acct-6.6.4 amd64 x86
