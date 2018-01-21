@@ -28,8 +28,9 @@ sys-libs/db:6.0
 # not compiled media-video/ffmpeg with this version
 =media-libs/openjpeg-2.2.0
 
-# blocks
+# blocks dev-python/oslo-privsep-1.22.1, dev-python/glance_store-0.22.0, dev-python/oslo-service-1.25.1
 =dev-python/eventlet-0.20.1-r1
+=dev-python/eventlet-0.21.1-r1
 
 # conflict with media-video/transcode-1.1.7-r3
 =media-gfx/imagemagick-6.9.9.20
