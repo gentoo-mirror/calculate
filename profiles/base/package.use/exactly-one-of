@@ -16,3 +16,6 @@ media-libs/libmetalink expat
 
 # exactly-one-of ( openssl nss gnutls )
 net-fs/s3fs openssl
+
+# ruby? ( exactly-one-of ( ruby_targets_ruby22 ruby_targets_ruby23 ) )
+net-irc/epic5 -ruby_targets_ruby22
