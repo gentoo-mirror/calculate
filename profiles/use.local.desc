@@ -26,7 +26,8 @@ sys-apps/calculate-server:calculate_noproxy - Includes dependencies of packages 
 sys-apps/calculate-server:calculate_nosamba - Includes dependencies of packages for Samba
 sys-apps/calculate-utils:cl_client - Includes calculate-client dependence
 sys-apps/calculate-utils:cl_consolegui - Includes calculate-console-gui dependence
-sys-apps/calculate-utils:cl_console -Includes calculate-console dependence sys-apps/calculate-utils:cl_desktop - Includes calculate-desktop dependence
+sys-apps/calculate-utils:cl_console - Includes calculate-console dependence
+sys-apps/calculate-utils:cl_desktop - Includes calculate-desktop dependence
 sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain
 sys-apps/calculate-utils:console - Includes console module
 sys-apps/calculate-utils:desktop - Includes module for desktop configuration
