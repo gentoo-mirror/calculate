@@ -23,3 +23,5 @@ USE="${USE} -bluetooth -wimax"
 
 # Window manager and speciality
 USE="${USE} -dbus -gtk -qt -qt4 -qt5 -X -xcb"
+
+CAMERAS=""

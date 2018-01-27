@@ -1,4 +1,4 @@
-# Calculate format=kde link=/usr/share/applications/org.kde.PartitionManager.desktop os_root_type==livecd mirror chmod=0755
+# Calculate format=kde link=/usr/share/applications/org.kde.partitionmanager.desktop os_root_type==livecd mirror chmod=0755
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Exec=sudo /usr/bin/partitionmanager
