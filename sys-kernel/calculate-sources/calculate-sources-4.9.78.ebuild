@@ -13,6 +13,8 @@ HOMEPAGE="http://www.calculate-linux.org"
 
 SRC_URI="${KERNEL_URI} ${ARCH_URI}"
 
+IUSE="uksm muqss"
+
 src_unpack() {
 	calculate-kernel-7_src_unpack
 }

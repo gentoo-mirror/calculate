@@ -38,7 +38,7 @@ RDEPEND="${CDEPEND} vmlinuz? ( sys-kernel/dracut )"
 detect_version
 detect_arch
 
-IUSE="+vmlinuz uksm muqss pae minimal themes firmware +grub"
+IUSE="+vmlinuz pae minimal themes firmware +grub"
 
 if [[ ${KV_MAJOR} -lt 3 ]]
 then
