@@ -15,7 +15,7 @@ PYTHON_COMPAT=(python2_7)
 
 inherit distutils-r1 eutils versionator
 
-EXPORTED_FUNCTIONS="src_compile src_install pkg_postinst pkg_preinst"
+EXPORTED_FUNCTIONS="src_compile src_install pkg_preinst"
 
 CALCULATE_URI="ftp://ftp.calculate-linux.org/calculate/source/calculate3"
 MIRROR_URI="http://mirror.yandex.ru/calculate/source/calculate3"
@@ -308,13 +308,4 @@ calculate-utils-r3_pkg_preinst() {
 		dosym /usr/lib/python-exec/python2.7/cl-console-gui /usr/bin/cl-console-gui-install
 		dosym /usr/lib/python-exec/python2.7/cl-console-gui /usr/bin/cl-console-gui-update
 	fi
-}
-
-calculate-utils-r3_pkg_postinst() {
-	einfo "For autoconfigure calculate-core for adminuser perform:"
-	einfo "  cl-core --bootstrap <username>"
-	einfo "For run calculate-core perform:"
-	einfo "  /etc/init.d/calculate-core start"
-	einfo "Add calcualte core to autorun:"
-	einfo "  rc-update add calculate-core boot"
 }

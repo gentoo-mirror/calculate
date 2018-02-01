@@ -11,9 +11,6 @@ virtual/jpeg static-libs
 # required by sys-apps/calculate-lib [python]
 sys-apps/file python
 
-# required by app-mobilephone/wammu-0.35
-app-mobilephone/gammu python
-
 # required by media-sound/picard-1.3.1
 media-libs/chromaprint tools
 
@@ -594,3 +591,9 @@ dev-python/PyQt4 compat
 
 # required by sci-visualization/mayavi-4.5.0
 sci-libs/vtk rendering
+
+# required by app-text/active-dvi-1.10.2-r1
+dev-ml/camlimages postscript
+
+# required by app-text/llpp-26b_p20180114
+dev-ml/lablgl glut
