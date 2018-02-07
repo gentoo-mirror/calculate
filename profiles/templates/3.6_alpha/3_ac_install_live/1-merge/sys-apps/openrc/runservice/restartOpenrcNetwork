@@ -1,4 +1,4 @@
-# Calculate exec=/bin/bash cl_setup==network&&env(client.os_remote_auth)==
+# Calculate exec=/bin/bash  cl_network_configure_set==on cl_setup==network&&env(client.os_remote_auth)==
 
 #?os_install_net_conf==openrc#
 #?list(os_install_net_interfaces,0)!=#

@@ -1,4 +1,4 @@
-# Calculate format=kde name=#-list(os_install_net_interfaces,2)-# list(os_install_net_interfaces,2)!=&&exists(/sys/class/net/#-list(os_install_net_interfaces,2)-#/master)==&&os_install_net_conf==networkmanager chmod=0600
+# Calculate format=kde name=#-list(os_install_net_interfaces,2)-# list(os_install_net_interfaces,2)!=&&exists(/sys/class/net/#-list(os_install_net_interfaces,2)-#/master)==&&os_install_net_conf==networkmanager chmod=0600 protected
 
 [802-3-ethernet]
 duplex=full

@@ -1,0 +1,4 @@
+# Calculate exec=/bin/bash
+
+rsync -a --delete /etc/NetworkManager/ #-cl_chroot_path-#/etc/NetworkManager/
+true
