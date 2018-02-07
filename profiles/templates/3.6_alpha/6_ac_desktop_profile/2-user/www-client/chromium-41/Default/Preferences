@@ -1,0 +1,114 @@
+# Calculate
+{
+   "browser": {
+      "custom_chrome_frame": false,
+      "show_home_button": true
+   },
+   "bookmark_bar": {
+      "show_on_all_tabs": true
+   },
+   "local_discovery": {
+      "notifications_enabled": false
+   },
+#?os_locale_language!=ru#
+   "homepage": "http://start.calculate-linux.org",
+#!os_locale_language#
+   "homepage": "http://start.calculate-linux.ru",
+#os_locale_language#
+   "homepage_is_newtabpage": false,
+
+   "extensions": {
+      "theme": {
+         "id": "",
+         "use_system": true
+      },
+      "settings": {
+#?pkg(www-plugins/chrome-ublock)!=#
+         "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
+            "active_permissions": {
+               "api": [ "contextMenus", "privacy", "storage", "tabs", "unlimitedStorage", "webNavigation", "webRequest", "webRequestBlocking" ],
+               "explicit_host": [ "http://*/*", "https://*/*" ],
+               "manifest_permissions": [  ],
+               "scriptable_host": [ "http://*/*", "https://*.adblockplus.me/*", "https://*.adblockplus.org/*", "https://*/*", "https://www.fanboy.co.nz/*" ]
+            },
+            "commands": {
+
+            },
+            "content_settings": [  ],
+            "creation_flags": 9,
+            "events": [  ],
+            "from_bookmark": false,
+            "from_webstore": true,
+            "granted_permissions": {
+               "api": [ "contextMenus", "privacy", "storage", "tabs", "unlimitedStorage", "webNavigation", "webRequest", "webRequestBlocking" ],
+               "explicit_host": [ "http://*/*", "https://*/*" ],
+               "manifest_permissions": [  ],
+               "scriptable_host": [ "http://*/*", "https://*.adblockplus.me/*", "https://*.adblockplus.org/*", "https://*/*", "https://www.fanboy.co.nz/*" ]
+            },
+            "incognito_content_settings": [  ],
+            "incognito_preferences": {
+
+            },
+            "initial_keybindings_set": true,
+            "install_time": "13071093075966601",
+            "location": 1,
+            "manifest": {
+               "author": "The uBlock Development Team",
+               "background": {
+                  "page": "background.html"
+               },
+               "browser_action": {
+                  "default_icon": {
+                     "19": "img/browsericons/icon19-off.png",
+                     "38": "img/browsericons/icon38-off.png"
+                  },
+                  "default_popup": "popup.html",
+                  "default_title": "uBlock"
+               },
+               "content_scripts": [ {
+                  "all_frames": true,
+                  "js": [ "js/vapi-client.js", "js/contentscript-start.js" ],
+                  "matches": [ "http://*/*", "https://*/*" ],
+                  "run_at": "document_start"
+               }, {
+                  "all_frames": true,
+                  "js": [ "js/contentscript-end.js" ],
+                  "matches": [ "http://*/*", "https://*/*" ],
+                  "run_at": "document_end"
+               }, {
+                  "js": [ "js/subscriber.js" ],
+                  "matches": [ "https://*.adblockplus.org/*", "https://*.adblockplus.me/*", "https://www.fanboy.co.nz/*" ],
+                  "run_at": "document_idle"
+               } ],
+               "default_locale": "en",
+               "icons": {
+                  "128": "img/icon_128.png",
+                  "16": "img/icon_16.png"
+               },
+               "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmJNzUNVjS6Q1qe0NRqpmfX/oSJdgauSZNdfeb5RV1Hji21vX0TivpP5gq0fadwmvmVCtUpOaNUopgejiUFm/iKHPs0o3x7hyKk/eX0t2QT3OZGdXkPiYpTEC0f0p86SQaLoA2eHaOG4uCGi7sxLJmAXc6IsxGKVklh7cCoLUgWEMnj8ZNG2Y8UKG3gBdrpES5hk7QyFDMraO79NmSlWRNgoJHX6XRoY66oYThFQad8KL8q3pf3Oe8uBLKywohU0ZrDPViWHIszXoE9HEvPTFAbHZ1umINni4W/YVs+fhqHtzRJcaKJtsTaYy+cholu5mAYeTZqtHf6bcwJ8t9i2afwIDAQAB",
+               "manifest_version": 2,
+               "minimum_chrome_version": "22.0",
+               "name": "uBlock",
+               "options_page": "dashboard.html",
+               "options_ui": {
+                  "page": "options_ui.html"
+               },
+               "permissions": [ "contextMenus", "storage", "tabs", "unlimitedStorage", "webNavigation", "webRequest", "webRequestBlocking", "http://*/*", "https://*/*" ],
+               "update_url": "https://clients2.google.com/service/update2/crx",
+               "version": "0.9.8.2"
+            },
+            "path": "cjpalhdlnbpafiamejdnhcphjbkeiagm/0.9.8.2_0",
+            "preferences": {
+
+            },
+            "regular_only_preferences": {
+
+            },
+            "state": 1,
+            "was_installed_by_default": false,
+            "was_installed_by_oem": false
+         }
+#pkg#
+      }
+   }
+}

@@ -1,0 +1,25 @@
+# Calculate format=xml_xfce
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-keyboard-shortcuts" version="1.0">
+  <property name="commands" type="empty">
+    <property name="default" type="empty">
+      <property name="Scroll_Lock" type="string" value="xflock4"/>
+      <property name="Print" type="string" value="xfce4-screenshooter -f"/>
+      <property name="&lt;Alt&gt;Print" type="string" value="xfce4-screenshooter -w"/>
+      <property name="&lt;Control&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-session-logout"/>
+      <property name="&lt;Shift&gt;&lt;Control&gt;&lt;Alt&gt;Delete" type="string" value="xfce4-session-logout --logout"/>
+      <property name="&lt;Control&gt;&lt;Alt&gt;Escape" type="string" value="xkill"/>
+      <property name="XF86Search" type="string" value="xdg-open /usr/share/applications/catfish.desktop"/>
+      <property name="XF86Tools" type="string" value="xdg-open /usr/share/applications/calculate-audioplayer.desktop"/>
+      <property name="XF86Calculator" type="string" value="xdg-open /usr/share/applications/calculate-calculator.desktop"/>
+#?pkg(x11-misc/wmctrl)!=#
+      <property name="XF86HomePage" type="string" value="wmctrl -s 0"/>
+#pkg#
+      <property name="XF86Display" type="string" value=""/>
+#?pkg(net-im/gajim)!=#
+      <property name="&lt;Primary&gt;grave" type="string" value="gajim-remote show_next_pending_event"/>
+#pkg#
+    </property>
+  </property>
+</channel>

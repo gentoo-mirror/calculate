@@ -1,0 +1,13 @@
+# Calculate format=openrc protected
+
+# CLDC, gedit - bg_BG.utf8 causes the typing problem
+#?in(os_install_locale_locale, bg_BG.utf8, kk_KZ.utf8)!=#
+#?os_install_locale_locale==bg_BG.utf8#
+LANG="bg_BG.UTF-8"
+#!os_install_locale_locale#
+LANG="kk_KZ.UTF-8"
+#os_install_locale_locale#
+#!in#
+LANG="#-os_install_locale_locale-#"
+#in#
+LC_NUMERIC=POSIX

@@ -1,0 +1,5 @@
+# Calculate format=samba path=/var/lib/calculate name=ini.env ac_install_unmerge==on&&pkg(kde-apps/kcalc)==&&ini(desktop.calculator)==kcalc
+
+[desktop]
+!calculator=
+calculator-removing=on

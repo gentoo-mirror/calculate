@@ -1,0 +1,67 @@
+# Calculate exec=/bin/bash pkg(sys-kernel/dracut)!=&&os_install_root_type!=livecd&&cl_chroot_status==off
+#!/bin/bash
+
+source /usr/share/grub/grub-mkconfig_lib
+
+get_latest_kernel() {
+    version_find_latest /boot/vmlinuz-*
+}
+
+get_safemode_name() {
+    local kernel=$1
+    [[ $kernel =~ ^([^-]+-[^-]+)-(.+)$ ]] && echo "${BASH_REMATCH[1]}-SafeMode-${BASH_REMATCH[2]}" || echo ${kernel}
+}
+
+get_kernel_version() {
+    local kernel=$1
+    file -L $kernel | sed -r 's/.*version (\S+)\s+.*/\1/'
+}
+
+get_kernel_initramfs() {
+    local kernel=$1
+    echo ${kernel/vmlinuz-/initramfs-}.img
+}
+
+is_calculate_kernel() {
+    local kernel=$1
+    local kernel_version=$(get_kernel_version $kernel)
+    [[ -f /usr/src/linux-${kernel_version}/.calculate ]]
+}
+
+die() {
+    echo $@ 1>&2
+    exit 1
+}
+
+create_hostonly_initramfs() {
+    local kernel_safemode=$(get_safemode_name $kernel)
+    local initrd=$(get_kernel_initramfs $kernel)
+    local initrd_tmp=$(get_kernel_initramfs $kernel).tmp
+    local initrd_safemode=$(get_safemode_name $initrd)
+    local kernel_version=$(get_kernel_version $kernel)
+    [[ -n $kernel_version ]] || die "Failed to detect version"
+
+    echo "Creating Safe-mode initramfs ..."
+    dracut --xz -f --kver $kernel_version $initrd_tmp &>/dev/null ||
+        die "Failed to create Safe-mode initramfs"
+    mv $initrd_tmp $initrd_safemode &>/dev/null || die "Failed to create initramfs Safe-mode"
+    echo "Safe-mode initramfs has been created"
+    if [[ -e $initrd_safemode ]]
+    then
+        echo "Creating Host-Only initramfs ..."
+        dracut -H --xz -f --kver $kernel_version $initrd_tmp &>/dev/null ||
+            die "Failed to create Host-Only initramfs"
+        mv $initrd_tmp $initrd &>/dev/null || die "Failed to rename initramfs"
+        echo "Host-Only initramfs has been created"
+    fi
+}
+
+kernel=$(get_latest_kernel)
+
+if [[ -e $kernel ]] && [[ -e $(get_kernel_initramfs $kernel) ]]
+then
+    is_calculate_kernel $kernel && create_hostonly_initramfs $kernel
+else
+    echo "Re-creating initramfs was skipped"
+fi
+exit 0

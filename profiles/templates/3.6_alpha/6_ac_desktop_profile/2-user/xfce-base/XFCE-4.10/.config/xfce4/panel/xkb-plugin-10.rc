@@ -1,0 +1,13 @@
+display_type=1
+group_policy=2
+default_group=0
+never_modify_config=false
+model=pc104
+layouts=#-os_locale_xkbname-#
+variants=,
+#?os_locale_language==us#
+toggle_option=
+#!os_locale_language#
+toggle_option=grp:caps_toggle,grp_led:scroll
+#os_locale_language#
+compose_key_position=

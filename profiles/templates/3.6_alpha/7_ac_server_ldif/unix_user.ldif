@@ -1,0 +1,42 @@
+# Calculate env=unix format=ldif cl_unix_action==useradd
+# Unix primary group
+#?cl_unix_create_group_set==on#
+dn: cn=#-ur_unix_primary_group-#,#-ld_unix_groups_dn-#
+objectClass: posixGroup
+cn: #-ur_unix_primary_group-#
+gidNumber: #-ur_unix_gid-#
+description: #-ur_unix_group_comment-#
+#cl_unix_create_group_set#
+
+# Unix account
+dn: uid=#-ur_unix_login-#,ou=Users,#-ld_unix_dn-#
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+#?ur_unix_comment==#
+cn: #-ur_unix_login-#
+#!ur_unix_comment#
+cn: #-ur_unix_comment-#
+#ur_unix_comment#
+gidNumber: #-ur_unix_gid-#
+homeDirectory: #-ur_unix_home_path-#
+loginShell: #-ur_unix_shell-#
+# число дней с 1970 года в течении которых будет действовать пароль
+shadowExpire: -1
+# зарезервированный аттрибут (У нас это видимость пользователя другим компьютером)
+shadowFlag: #-ur_unix_visible_flag-#
+# число дней, после устаревания пароля для блокировки учётной записи
+shadowInactive: -1
+# Дата последнего измения пароля в днях с 1970 года (26 августа 2008 года)
+shadowLastChange: 14117
+# максимальное количество дней действия пароля
+shadowMax: 999999
+# минимальное количество дней действия пароля
+shadowMin: 0
+# число дней, за сколько пользователя начнут предупреждать, что пароль устаревает
+shadowWarning: 7
+sn: #-ur_unix_login-#
+uid: #-ur_unix_login-#
+uidNumber: #-ur_unix_uid-#
+userPassword: #-ur_unix_hash-#

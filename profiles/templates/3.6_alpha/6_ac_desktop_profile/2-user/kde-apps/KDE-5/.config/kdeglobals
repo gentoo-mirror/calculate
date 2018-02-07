@@ -1,0 +1,24 @@
+# Calculate format=kde
+[General]
+fixed=Droid Sans Mono Slashed,#-ini(profile.font-size)-#,-1,0,50,0,0,0,0,0
+font=Droid Sans,#-ini(profile.font-size)-#,-1,0,50,0,0,0,0,0
+menuFont=Droid Sans,#-ini(profile.font-size)-#,-1,0,50,0,0,0,0,0
+smallestReadableFont=Droid Sans,9,-1,0,50,0,0,0,0,0
+toolBarFont=Droid Sans,#-ini(profile.font-size)-#,-1,0,50,0,0,0,0,0
+
+[Icons]
+#?ini(profile.appearance-icons)!=#
+Theme=#-ini(profile.appearance-icons)-#
+#!ini#
+Theme=Calculate
+#ini#
+
+[WM]
+activeFont=Droid Sans,#-ini(profile.font-size)-#,-1,0,50,0,0,0,0,0
+
+[KDE]
+#?ini(profile.appearance-style)!=#
+LookAndFeelPackage=#-ini(profile.appearance-style)-#
+#!ini#
+LookAndFeelPackage=org.kde.calculate
+#ini#

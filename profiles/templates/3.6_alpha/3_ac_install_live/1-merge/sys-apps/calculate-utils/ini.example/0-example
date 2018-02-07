@@ -1,0 +1,18 @@
+# Calculate comment=# name=ini.env.example
+#?os_install_locale_language==ru#
+# Это файл настройки параметров шаблонов участвующих в настройке системы
+# и профиля пользователя.
+#
+#os_install_locale_language#
+#?os_install_locale_language!=ru#
+# Any line which starts with a ; (semi-colon) or a # (hash) is a comment and
+# is ignored. In this example we will use a # for commentry and a ; for parts
+# of the config file that you may wish to enable
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Все строки, начинающиеся с ";" (точка с запятой) или "#" (хэш) являются
+# комментариями, а # игнорируется. В этом примере мы будем использовать "#"
+# для комментариев, а ";" для частей конфигурационного файла, которые вы
+# можете включить
+#os_install_locale_language#
+#

@@ -1,0 +1,41 @@
+# Calculate format=xml_xfce
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="pointers" version="1.0">
+#?list(cl_desktop_xfce_pointers,0)!=#
+  <property name="#-list(cl_desktop_xfce_pointers,0)-#" type="empty">
+#?ini(profile.mouse-lefthanded)==on#
+    <property name="RightHanded" type="bool" value="false"/>
+#!ini#
+    <property name="RightHanded" type="bool" value="true"/>
+#ini#
+  </property>
+#list#
+#?list(cl_desktop_xfce_pointers,1)!=#
+  <property name="#-list(cl_desktop_xfce_pointers,1)-#" type="empty">
+#?ini(profile.mouse-lefthanded)==on#
+    <property name="RightHanded" type="bool" value="false"/>
+#!ini#
+    <property name="RightHanded" type="bool" value="true"/>
+#ini#
+  </property>
+#list#
+#?list(cl_desktop_xfce_pointers,2)!=#
+  <property name="#-list(cl_desktop_xfce_pointers,2)-#" type="empty">
+#?ini(profile.mouse-lefthanded)==on#
+    <property name="RightHanded" type="bool" value="false"/>
+#!ini#
+    <property name="RightHanded" type="bool" value="true"/>
+#ini#
+  </property>
+#list#
+#?list(cl_desktop_xfce_pointers,3)!=#
+  <property name="#-list(cl_desktop_xfce_pointers,3)-#" type="empty">
+#?ini(profile.mouse-lefthanded)==on#
+    <property name="RightHanded" type="bool" value="false"/>
+#!ini#
+    <property name="RightHanded" type="bool" value="true"/>
+#ini#
+  </property>
+#list#
+</channel>

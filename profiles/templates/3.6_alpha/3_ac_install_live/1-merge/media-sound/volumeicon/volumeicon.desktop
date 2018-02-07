@@ -1,0 +1,12 @@
+# Calculate format=kde path=/etc/xdg/autostart
+
+[Desktop Entry]
+Name=VolumeIcon
+Comment=A lightweight volume control that sits in your systray
+#?os_audio==pulseaudio#
+Exec=/bin/bash -c "sleep 7;volumeicon"
+#!os_audio#
+Exec=volumeicon
+#os_audio#
+Terminal=false
+Type=Application

@@ -1,0 +1,15 @@
+# Calculate path=/var/lib/calculate name=ini.env format=samba mergepkg(sys-apps/calculate-utils)!=&&ini(merge-calculate.utils)<3.5.0_alpha44
+
+[system]
+#?ini(update.last_update)!=#
+last_update = #-ini(update.last_update)-#
+#ini#
+#?ini(update.last_check)!=#
+last_check = #-ini(update.last_check)-#
+#ini#
+
+[update]
+!remove_old_kernel =
+!last_update =
+!updates =
+!last_check =

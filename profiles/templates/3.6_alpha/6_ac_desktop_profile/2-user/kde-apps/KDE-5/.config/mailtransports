@@ -1,0 +1,12 @@
+# Calculate format=kde server(mail.host)!=&&env(client.os_remote_auth)!=&&ur_domain_set==on
+[General]
+default-transport=1
+
+[Transport 1]
+#auth=true
+#encryption=TLS
+host=#-server(mail.host)-#
+id=1
+name=SMTP
+#storepass=true
+user=#-ur_login-#

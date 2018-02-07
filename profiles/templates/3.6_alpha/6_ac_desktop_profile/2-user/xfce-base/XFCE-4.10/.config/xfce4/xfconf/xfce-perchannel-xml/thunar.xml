@@ -1,0 +1,12 @@
+# Calculate format=xml_xfce
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="thunar" version="1.0">
+  <property name="misc-single-click-timeout" type="uint" value="0"/>
+#?ini(profile.mouse-clickpolicy)==single#
+  <property name="misc-single-click" type="bool" value="true"/>
+#ini#
+#?ini(profile.mouse-clickpolicy)!=single#
+  <property name="misc-single-click" type="bool" value="false"/>
+#ini#
+</channel>

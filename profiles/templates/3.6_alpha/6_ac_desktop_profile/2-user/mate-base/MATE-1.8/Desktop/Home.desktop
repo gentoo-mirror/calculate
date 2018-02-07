@@ -1,0 +1,9 @@
+# Calculate chmod=755 format=kde env(client.os_remote_auth)!=&&ur_domain_set==on append=replace
+[Desktop Entry]
+Version=1.0
+Name=Home
+Comment=Open home network folder
+Comment[ru_RU]=Открыть сетевой диск с личными файлами
+Icon=user-home
+URL=file:////home/#-ur_login-#/Home
+Type=Link

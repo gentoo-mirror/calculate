@@ -1,0 +1,5 @@
+# Calculate format=samba path=/var/lib/calculate name=ini.env ac_install_unmerge==on&&pkg(media-gfx/geeqie)==&&ini(desktop.imageview)==geeqie
+
+[desktop]
+!imageview=
+imageview-removing=on

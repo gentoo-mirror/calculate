@@ -1,0 +1,17 @@
+# Calculate format=diff merge(x11-misc/lightdm)>=1.18
+diff --git a/src/seat.c b/src/seat.c
+index e3be8f9..4b4fe5e 100644
+--- a/src/seat.c
++++ b/src/seat.c
+@@ -781,7 +781,10 @@ session_stopped_cb (Session *session, Seat *seat)
+     }
+ 
+     /* Cleanup */
+-    if (!IS_GREETER_SESSION (session))
++    // don't launch cleanup script for non-authenticated session and on switch
++    // sessions
++    if (!IS_GREETER_SESSION (session) && session_get_is_authenticated(session) &&
++        !find_user_session (seat, session_get_username (session), session))
+     {
+         const gchar *script;
+         script = seat_get_string_property (seat, "session-cleanup-script");

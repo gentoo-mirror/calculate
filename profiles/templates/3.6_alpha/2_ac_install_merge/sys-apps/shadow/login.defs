@@ -1,0 +1,13 @@
+# Calculate comment=# format=patch path=/etc
+<reg>
+ENV_SUPATH\tPATH=/sbin:/bin:/usr/sbin:/usr/bin
+</reg>
+<text>
+ENV_SUPATH\tPATH=/usr/sbin:/usr/bin:/sbin:/bin
+</text>
+<reg>
+ENV_PATH\tPATH=/bin:/usr/bin
+</reg>
+<text>
+ENV_PATH\tPATH=/usr/bin:/bin
+</text>

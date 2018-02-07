@@ -1,0 +1,14 @@
+# Calculate format=diff
+diff --git a/src/ui/clipboard.cpp b/src/ui/clipboard.cpp
+index 4492661..45b09ec 100644
+--- a/src/ui/clipboard.cpp
++++ b/src/ui/clipboard.cpp
+@@ -1402,7 +1402,7 @@ void ClipboardManagerImpl::_inkscape_wait_for_targets(std::list<Glib::ustring> &
+ 
+         Glib::ustring target;
+         if (atom_name) {
+-            target = Glib::ScopedPtr<char>(atom_name).get(); //This frees the gchar*.
++            target = Gdk::ScopedPtr<char>(atom_name).get(); //This frees the gchar*.
+         }
+ 
+         listTargets.push_back(target);

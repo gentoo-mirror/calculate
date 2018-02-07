@@ -1,0 +1,7 @@
+# Calculate format=contents ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-# exec=/bin/bash
+
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+!sys-apps/calculate-utils /var/lib/calculate/calculate-update/*
+!sys-apps/calculate-utils /var/lib/calculate/calculate-builder/*
+!sys-apps/calculate-utils /var/lib/calculate/calculate.ldap
+!sys-apps/calculate-utils /var/lib/calculate/*.env

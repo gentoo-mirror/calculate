@@ -1,0 +1,7 @@
+# Calculate format=world name=world ini(overlay-calculate.world)<7
+
+#-ini(overlay-calculate.world,7)-#
+
+#?in(os_linux_pkglist, calculate)!=#
+!x11-drivers/ati-drivers
+#in#

@@ -1,0 +1,13 @@
+# Calculate path=/etc/xdg/autostart os_audio==alsa
+
+[Desktop Entry]
+Exec=/usr/libexec/calculate/kmix_default
+OnlyShowIn=KDE;
+Type=Application
+MimeType=
+Terminal=false
+X-KDE-autostart-after=kmix_autostart
+X-KDE-StartupNotify=false
+Icon=kmix
+GenericName=KMix default channel
+Name=KMix default

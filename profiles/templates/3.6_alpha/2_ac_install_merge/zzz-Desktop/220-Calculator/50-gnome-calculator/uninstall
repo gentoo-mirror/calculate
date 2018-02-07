@@ -1,0 +1,5 @@
+# Calculate format=samba path=/var/lib/calculate name=ini.env ac_install_unmerge==on&&pkg(gnome-extra/gnome-calculator)==&&ini(desktop.calculator)==gnome-calculator
+
+[desktop]
+!calculator=
+calculator-removing=on

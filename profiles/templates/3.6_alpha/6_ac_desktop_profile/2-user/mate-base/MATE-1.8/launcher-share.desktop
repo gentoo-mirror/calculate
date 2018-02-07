@@ -1,0 +1,10 @@
+# Calculate path=~/.config/mate/panel2.d/default/launchers chmod=755 env(client.os_remote_auth)!=&&ur_domain_set==on
+
+[Desktop Entry]
+Version=1.0
+Name=Share
+Comment=Open share network folder
+Comment[ru_RU]=Открыть сетевой диск с сетевыми ресурсами
+Icon=folder-remote
+URL=file:////home/#-ur_login-#/Share
+Type=Link

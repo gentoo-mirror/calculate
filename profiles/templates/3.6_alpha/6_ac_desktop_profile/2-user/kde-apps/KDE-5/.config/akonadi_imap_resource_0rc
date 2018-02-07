@@ -1,0 +1,7 @@
+# Calculate format=kde server(mail.type)==imap&&env(client.os_remote_auth)!=&&ur_domain_set==on
+[idle]
+IdleRidPath=.INBOX,imap://#-ur_login-#@#-server(mail.send_host)-#/
+
+[network]
+ImapServer=#-server(mail.send_host)-#
+UserName=#-ur_login-#

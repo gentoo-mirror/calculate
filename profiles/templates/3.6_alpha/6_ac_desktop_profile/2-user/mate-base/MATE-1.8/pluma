@@ -1,0 +1,9 @@
+# Calculate format=dconf dconf=/org/mate/pluma
+
+#?pkg(media-fonts/droid)!=#
+[/]
+editor-font='Droid Sans Mono Slashed #-ini(profile.font-size)-#'
+print-font-body-pango='Droid Sans Mono Slashed 9'
+print-font-header-pango='Droid Sans #-ini(profile.font-size)-#'
+print-font-numbers-pango='Droid Sans 8'
+#pkg#

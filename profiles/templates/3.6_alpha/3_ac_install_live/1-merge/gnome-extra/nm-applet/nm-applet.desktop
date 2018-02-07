@@ -1,0 +1,11 @@
+# Calculate format=kde path=/etc/xdg/autostart
+[Desktop Entry]
+Exec=/bin/bash -c "sleep 2;nm-applet"
+#?os_install_net_conf==networkmanager#
+X-GNOME-Autostart-enabled=true
+NotShowIn=KDE;
+#!os_install_net_conf#
+X-GNOME-Autostart-enabled=false
+X-MATE-Autostart-enabled=false
+NotShowIn=KDE;XFCE;LXQt;
+#os_install_net_conf#

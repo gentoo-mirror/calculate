@@ -1,0 +1,5 @@
+# Calculate run=/bin/bash cl_ebuild_phase!=&&ac_install_unmerge!=on
+
+# remove for autoswitch binutils
+rm /etc/env.d/binutils/config-*
+exit 0

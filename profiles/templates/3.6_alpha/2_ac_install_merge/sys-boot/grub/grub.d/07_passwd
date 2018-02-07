@@ -1,0 +1,16 @@
+# Calculate comment=# chmod=0700 cl_ver>=3.5.2.26&&cl_grub_pwd!=&&cl_chroot_status==off protected
+#!/bin/sh
+# grub-mkconfig helper script.
+# Copyright 2016 Calculate Ltd. http://www.calculate-linux.org
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+
+cat <<EOF
+set superusers="root"
+password_pbkdf2 root #-cl_grub_pwd-#
+export superusers
+EOF

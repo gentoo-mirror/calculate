@@ -1,0 +1,8 @@
+# Calculate format=samba ini(overlay-calculate.revision)<66 name=calculate.env 
+
+#-ini(overlay-calculate.revision,88)-#
+
+#?cl_chroot_status==off#
+[update]
+!cl_update_binhost=
+#cl_chroot_status#

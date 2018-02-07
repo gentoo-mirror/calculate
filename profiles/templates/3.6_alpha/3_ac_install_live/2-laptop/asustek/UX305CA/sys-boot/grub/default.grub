@@ -1,0 +1,6 @@
+# Calculate format=openrc path=/etc/default name=grub
+#?os_install_linux_system==desktop&&kernel(zswap)==y#
+GRUB_CMDLINE_LINUX="zswap.enabled=1 zswap.compressor=lz4 zswap.max_pool_percent=30 video=#-os_install_fb_resolution-# #-os_install_kernel_resume-# #-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# splash=silent,theme:calculate pci=noaer console=tty1 quiet"
+#!os_install_linux_system#
+GRUB_CMDLINE_LINUX="video=#-os_install_fb_resolution-# #-os_install_kernel_resume-# #-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# splash=silent,theme:calculate pci=noaer console=tty1 quiet"
+#os_install_linux_system#

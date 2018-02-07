@@ -1,0 +1,7 @@
+# Calculate format=kde path=/usr/share/applications
+[Desktop Entry]
+#?os_install_net_conf!=networkmanager#
+NoDisplay=true
+#!os_install_net_conf#
+!NoDisplay=
+#os_install_net_conf#

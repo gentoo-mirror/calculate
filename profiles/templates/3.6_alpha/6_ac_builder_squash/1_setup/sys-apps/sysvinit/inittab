@@ -1,0 +1,9 @@
+# Calculate comment=# format=patch cl_ver<3.5.4.1||cl_builder_container_set==off
+<reg>^(s[01])</reg>
+<text>#\1</text>
+<reg>(c[0-9]:.*agetty).*(tty\d linux)</reg>
+<text>\1 -nl /bin/bashlogin 38400 \2</text>
+<reg>^# Lxc main console.*\n.*$</reg>
+<text></text>
+<reg>^# clean container shutdown.*\n.*$</reg>
+<text></text>

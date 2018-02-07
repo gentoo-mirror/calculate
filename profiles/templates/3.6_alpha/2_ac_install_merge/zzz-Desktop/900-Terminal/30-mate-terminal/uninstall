@@ -1,0 +1,5 @@
+# Calculate format=samba path=/var/lib/calculate name=ini.env ac_install_unmerge==on&&pkg(x11-terms/mate-terminal)==&&ini(desktop.terminal)==mate-terminal
+
+[desktop]
+!terminal=
+terminal-removing=on

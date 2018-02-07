@@ -1,0 +1,9 @@
+# Calculate ini(overlay-calculate.revision)<68 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,68)-#
+
+#?pkg(sys-firmware/amdgpu-ucode)!=&&pkg(sys-kernel/linux-firmware)!=#
+:> /var/db/pkg/sys-firmware/amdgpu-ucode*/CONTENTS
+#pkg#
+
+exit 0

@@ -1,0 +1,12 @@
+# Calculate format=compiz protected
+
+# Update info
+#-ini(desktop.updating, on)-#
+#-ini(desktop.audioplayer, clementine)-#
+
+[Added Associations]
+audio/mp4=clementine.desktop;
+audio/mpeg=clementine.desktop;
+audio/x-flac=clementine.desktop;
+audio/x-ms-wma=clementine.desktop;
+audio/x-wav=clementine.desktop;

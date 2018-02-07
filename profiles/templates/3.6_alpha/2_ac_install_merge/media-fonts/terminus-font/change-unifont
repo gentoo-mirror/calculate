@@ -1,0 +1,5 @@
+# Calculate run=/bin/bash pkg(sys-boot/grub)!=&&ac_install_disk==off
+
+#?exists(#-cl_chroot_path-#/usr/share/fonts/terminus/ter-x18n.pcf.gz)!=#
+/usr/bin/grub-mkfont -o #-cl_chroot_path-#/usr/share/grub/unicode.pf2 #-cl_chroot_path-#/usr/share/fonts/terminus/ter-x18n.pcf.gz
+#exists#

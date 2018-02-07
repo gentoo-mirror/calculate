@@ -1,0 +1,10 @@
+# Calculate path=~/.config/xfce4/xfconf/xfce-perchannel-xml format=xml_xfce pkg(xfce-base/xfce4-session)!=
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-keyboard-shortcuts" version="1.0">
+  <property name="commands" type="empty">
+    <property name="custom" type="empty">
+      <property name="&lt;Primary&gt;grave" type="string" value="gajim-remote show_next_pending_event"/>
+    </property>
+  </property>
+</channel>

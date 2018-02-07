@@ -1,0 +1,37 @@
+# Calculate comment=#
+# vim: set syntax=sh
+#
+# Copyright 2014 Calculate Ltd. http://www.calculate-linux.org
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+
+if [[ ${CATEGORY}/${PN} == "sys-libs/db" ]]
+then
+fix_libdb_6() {
+	if [[ -f /usr/include/db4.8/db.h ]] &&
+	   [[ -f /usr/include/db4.8/db_185.h ]] &&
+	   [[ -f /usr/lib/libdb-4.8.so ]]
+	then
+		ln -sf db4.8/db.h /usr/include/db.h
+		ln -sf db4.8/db_185.h /usr/include/db_185.h
+		ln -sf libdb-4.8.so /usr/lib/libdb.so
+	fi
+}
+post_pkg_postrm() {
+	if [[ $PV == '0_rc73' ]]
+	then
+		fix_libdb_6
+	fi
+}
+
+post_pkg_postinst() {
+	if [[ $SLOT == "4.8" ]] && [[ -d /var/db/pkg/sys-libs/db-0_rc73 ]]
+	then
+		fix_libdb_6
+	fi
+}
+fi

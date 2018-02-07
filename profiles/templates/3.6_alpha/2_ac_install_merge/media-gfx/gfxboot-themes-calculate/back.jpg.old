@@ -1,0 +1,1 @@
+# Calculate path=/usr/share/themes/gfxboot-themes-calculate name=back.jpg cl_ver<3.5.2.22||pkg(media-gfx/imagemagick)== ini(theme.gfxboot-background)!=&&exists(#-ini(theme.gfxboot-background)-#)!= link=#-ini(theme.gfxboot-background)-# force mirror

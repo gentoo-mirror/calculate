@@ -1,0 +1,8 @@
+# Calculate format=compiz protected
+
+# Update info
+#-ini(desktop.updating, on)-#
+#-ini(desktop.mail, claws-mail)-#
+
+[Added Associations]
+x-scheme-handler/mailto=claws-mail.desktop;

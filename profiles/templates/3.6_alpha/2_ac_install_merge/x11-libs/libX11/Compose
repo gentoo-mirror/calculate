@@ -1,0 +1,24 @@
+# Calculate append=before comment=# path=/usr/share/X11/locale/en_US.UTF-8 grep(/usr/share/X11/locale/en_US.UTF-8/Compose,Calculate\x20definitions)==
+
+# UTF-8 (Unicode) compose sequence
+# Calculate definitions
+
+<Multi_key> <P> <minus>                 : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <minus> <P>                 : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <p> <minus>                 : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <minus> <p>                 : "₽" U20bd # RUBLE-CURRENCY SIGN
+
+<Multi_key> <Cyrillic_ZE> <minus>       : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <minus> <Cyrillic_ZE>       : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <Cyrillic_ze> <minus>       : "₽" U20bd # RUBLE-CURRENCY SIGN
+<Multi_key> <minus> <Cyrillic_ze>       : "₽" U20bd # RUBLE-CURRENCY SIGN
+
+<Multi_key> <Z> <equal>                 : "₴" U20bd # HRYVNIA-CURRENCY SIGN
+<Multi_key> <equal> <Z>                 : "₴" U20bd # HRYVNIA-CURRENCY SIGN
+<Multi_key> <z> <equal>                 : "₴" U20bd # HRYVNIA-CURRENCY SIGN
+<Multi_key> <equal> <z>                 : "₴" U20bd # HRYVNIA-CURRENCY SIGN
+
+<Multi_key> <Cyrillic_YA> <equal>       : "₴" U20bd # HRYVNIA-CURRENCY SIGN
+<Multi_key> <equal> <Cyrillic_YA>       : "₴" U20bd # HRYVNIA-CURRENCY SIGN
+<Multi_key> <Cyrillic_ya> <equal>       : "₴" U20bd # HRYVNIA-CURRENCY SIGN
+<Multi_key> <equal> <Cyrillic_ya>       : "₴" U20bd # HRYVNIA-CURRENCY SIGN

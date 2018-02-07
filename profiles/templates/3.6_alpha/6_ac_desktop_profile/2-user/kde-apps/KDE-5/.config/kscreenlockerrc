@@ -1,0 +1,19 @@
+# Calculate format=kde
+#?os_root_type==livecd#
+[Daemon]
+Autolock=false
+LockOnResume=false
+#os_root_type#
+Timeout=10
+
+#?pkg(kde-plasma/kscreenlocker)<>0,5.8#
+[Greeter]
+Theme=org.kde.calculate
+ThemeBackground=#-wallpaper(#-os_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#
+#!pkg#
+[Greeter]
+WallpaperPlugin=org.kde.image
+
+[Greeter][Wallpaper][org.kde.image][General]
+Image=file://#-wallpaper(#-os_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#
+#pkg#

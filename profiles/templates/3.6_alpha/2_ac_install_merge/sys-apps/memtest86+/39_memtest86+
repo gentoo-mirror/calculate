@@ -1,0 +1,3 @@
+# Calculate comment=# multiline format=patch autoupdate
+<reg>(Memtest86\+') (\{)</reg>
+<text>\1 --unrestricted \2</text>

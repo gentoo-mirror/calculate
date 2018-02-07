@@ -1,0 +1,16 @@
+# Calculate name=10000000007.desktop
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Lock Screen
+Name[ru]=Блокирование сеанса
+Comment=
+#?pkg(x11-misc/light-locker)!=#
+Exec=xflock4
+#!pkg#
+Exec=xscreensaver-command -lock
+#pkg#
+Icon=system-lock-screen
+Path=
+Terminal=false
+StartupNotify=false

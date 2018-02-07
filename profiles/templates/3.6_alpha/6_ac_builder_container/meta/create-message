@@ -1,0 +1,9 @@
+You just created a Gentoo container (release=#-cl_builder_container_release-#, arch=#-cl_builder_container_arch-#, variant=#-cl_builder_container_variant-#)
+
+To enable sshd, run: rc-update add sshd
+
+For security reason, container images ship without user accounts
+and without a root password.
+
+Use lxc-attach or chroot directly into the rootfs to set a root password
+or create user accounts.
