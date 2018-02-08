@@ -7,3 +7,5 @@
 !sys-apps/baselayout /etc/hosts
 !net-misc/networkmanager /etc/NetworkManager/NetworkManager.conf
 !net-misc/networkmanager /etc/system-connections/*
+!net-misc/networkmanager /etc/runlevels/default/NetworkManager
+!net-misc/networkmanager /etc/runlevels/boot/NetworkManager
