@@ -1,0 +1,14 @@
+# Calculate path=~/.config/mate/panel2.d/default/launchers chmod=755 env(client.os_remote_auth)!=&&ur_domain_set==on&&server(ftp.host)!=
+
+[Desktop Entry]
+Version=1.0
+Name=FTP
+Comment=Open FTP network folder
+Comment[ru_RU]=Открыть сетевой диск FTP
+#?pkg(x11-themes/elementary-icon-theme)!=#
+Icon=folder-download
+#!pkg#
+Icon=update-manager
+#pkg#
+URL=file:////home/#-ur_login-#/FTP
+Type=Link

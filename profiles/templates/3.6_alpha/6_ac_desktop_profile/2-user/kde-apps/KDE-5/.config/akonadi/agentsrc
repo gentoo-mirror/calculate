@@ -1,0 +1,6 @@
+# Calculate format=kde env(client.os_remote_auth)!=&&ur_domain_set==on&&server(mail.type)==imap
+[InstanceCounters]
+akonadi_imap_resource\InstanceCounter=1
+
+[Instances]
+akonadi_imap_resource_0\AgentType=akonadi_imap_resource

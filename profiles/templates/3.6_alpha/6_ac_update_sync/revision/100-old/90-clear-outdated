@@ -1,0 +1,14 @@
+# Calculate ini(overlay-calculate.revision)<90 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,90)-#
+
+for fn in /etc/conf.d/fbcondecor \
+    /etc/runlevels/default/fbcondecor \
+    /etc/runlevels/sysinit/udev-mount \
+    /etc/runlevels/boot/calculate-builder \
+    /etc/runlevels/default/calculate-builder
+do
+    rm -f "${fn}"
+done
+
+true

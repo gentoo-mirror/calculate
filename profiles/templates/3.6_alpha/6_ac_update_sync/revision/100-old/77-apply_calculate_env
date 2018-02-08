@@ -1,0 +1,7 @@
+# Calculate ini(overlay-calculate.revision)<77 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,77)-#
+
+/usr/sbin/etc-update --automode -5 /etc/calculate/calculate.env &>/dev/null
+
+exit 0

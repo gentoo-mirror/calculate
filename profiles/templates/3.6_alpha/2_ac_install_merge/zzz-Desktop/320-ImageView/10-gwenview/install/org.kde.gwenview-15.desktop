@@ -1,0 +1,9 @@
+# Calculate format=kde link=/usr/share/applications/org.kde.gwenview.desktop name=calculate-imageview.desktop mirror pkg(kde-apps/gwenview)>=15
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true
+!MimeType=
+#-exists(/usr/share/icons/hicolor/64x64/apps/gwenview.png)-#
+Icon=/usr/share/icons/hicolor/64x64/apps/gwenview.png
+#exists#

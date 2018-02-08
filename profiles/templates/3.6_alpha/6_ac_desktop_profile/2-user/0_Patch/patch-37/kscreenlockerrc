@@ -1,0 +1,6 @@
+# Calculate format=kde path=~/.config pkg(kde-plasma/kscreenlocker)>=5.8
+[Greeter]
+WallpaperPlugin=org.kde.image
+
+[Greeter][Wallpaper][org.kde.image][General]
+Image=file://#-wallpaper(#-os_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#

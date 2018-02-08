@@ -1,0 +1,8 @@
+# Calculate ini(overlay-calculate.revision)<95 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,95)-#
+
+[[ -f /etc/shadow ]] && chmod 0600 /etc/shadow
+[[ -f /etc/shadow- ]] && chmod 0600 /etc/shadow-
+
+exit 0

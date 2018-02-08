@@ -1,0 +1,13 @@
+# Calculate chmod=755 format=kde env(client.os_remote_auth)==||ur_domain_set==off append=replace
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=Home
+Name[ru]=Домашняя папка
+Comment=Browser Home
+Categories=Application;
+Exec=pcmanfm-qt /home/#-ur_login-#
+Icon=user-home
+Terminal=false
+StartupNotify=false

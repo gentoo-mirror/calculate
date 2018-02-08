@@ -1,0 +1,19 @@
+# Calculate format=diff
+diff --git common.sh common.sh
+index 30e245e..c295a15 100644
+--- common.sh
++++ common.sh
+@@ -147,12 +147,7 @@ unescape_mount () {
+ }
+ 
+ ro_partition () {
+-	if type blockdev >/dev/null 2>&1 && \
+-	   [ "$(blockdev --getro "$1")" = 0 ] && \
+-	   blockdev --setro "$1"; then
+-		cleanup_ro_partitions="${cleanup_ro_partitions:+$cleanup_ro_partitions }$1"
+-		trap cleanup EXIT HUP INT QUIT TERM
+-	fi
++	:
+ }
+ 
+ find_label () {

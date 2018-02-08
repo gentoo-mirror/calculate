@@ -1,0 +1,16 @@
+# Calculate format=diff
+diff --git a/src/rc/Makefile b/src/rc/Makefile
+index 9d33192..4999edf 100644
+--- a/src/rc/Makefile
++++ b/src/rc/Makefile
+@@ -50,9 +50,7 @@ ${SRCS}: version.h
+ .PHONY:	version.h.tmp
+ version.h.tmp:
+ 	echo "#define VERSION \"${VERSION}${GITVER}\"" >$@
+-	if test -n "${BRANDING}"; then \
+-		echo "#define BRANDING \"${BRANDING}\"" >> $@; \
+-	fi
++	echo "#define BRANDING \"Calculate Linux\"" >> $@; \
+ 
+ version.h: version.h.tmp
+ 	cmp -s $@.tmp $@ && rm $@.tmp || mv $@.tmp $@

@@ -1,0 +1,11 @@
+# Calculate multiline name=inittab comment=# format=patch cl_ver>=3.5.4.1&&cl_builder_container_set==on
+<reg>^#(s[01])</reg>
+<text>\1</text>
+<reg>^([c][0-9]:.*agetty).*(tty?\d linux)</reg>
+<text>#\1 38400 \2</text>
+<reg>^([s][0-9]:.*agetty.*ttyS\d.*)$</reg>
+<text>#\1</text>
+<reg>\n+^# Lxc main console.*\n.*(\n|$)</reg>
+<text>\n</text>
+<reg>^# clean container shutdown.*\n.*(\n|$)</reg>
+<text></text>

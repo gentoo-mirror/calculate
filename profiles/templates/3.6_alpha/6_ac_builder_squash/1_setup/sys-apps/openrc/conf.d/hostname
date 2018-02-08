@@ -1,0 +1,7 @@
+# Calculate format=openrc protected
+
+#?cl_ver<3.5.4.1||cl_builder_container_set==off#
+hostname="calculate"
+#!cl_ver#
+hostname="LXC_NAME"
+#cl_ver#

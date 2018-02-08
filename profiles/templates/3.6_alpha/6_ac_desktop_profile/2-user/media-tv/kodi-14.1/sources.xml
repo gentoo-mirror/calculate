@@ -1,0 +1,45 @@
+# Calculate path=~/.kodi/userdata
+<sources>
+    <programs>
+        <default pathversion="1"></default>
+    </programs>
+    <video>
+        <default pathversion="1"></default>
+        <source>
+#?os_locale_lang==en_US#
+            <name>My Video</name>
+#os_locale_lang#
+#?os_locale_lang==ru_RU#
+            <name>Моё видео</name>
+#os_locale_lang#
+            <path pathversion="1">#-ini(resource.videos)-#</path>
+        </source>
+    </video>
+    <music>
+        <default pathversion="1"></default>
+        <source>
+#?os_locale_lang==en_US#
+            <name>My Music</name>
+#os_locale_lang#
+#?os_locale_lang==ru_RU#
+            <name>Моя музыка</name>
+#os_locale_lang#
+            <path pathversion="1">#-ini(resource.music)-#</path>
+        </source>
+    </music>
+    <pictures>
+        <default pathversion="1"></default>
+        <source>
+#?os_locale_lang==en_US#
+            <name>My Pictures</name>
+#os_locale_lang#
+#?os_locale_lang==ru_RU#
+            <name>Мои фотографии</name>
+#os_locale_lang#
+            <path pathversion="1">#-ini(resource.pictures)-#</path>
+        </source>
+    </pictures>
+    <files>
+        <default pathversion="1"></default>
+    </files>
+</sources>

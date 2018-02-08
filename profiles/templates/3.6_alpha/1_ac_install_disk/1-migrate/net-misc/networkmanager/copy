@@ -1,0 +1,6 @@
+# Calculate exec=/bin/bash
+
+rsync -a --delete /etc/NetworkManager/ #-cl_chroot_path-#/etc/NetworkManager/
+rsync -a --delete --include "NetworkManager" --exclude "*" /etc/runlevels/boot/ #-cl_chroot_path-#/etc/runlevels/boot/
+rsync -a --delete --include "NetworkManager" --exclude "*" /etc/runlevels/default/ #-cl_chroot_path-#/etc/runlevels/default/
+true

@@ -1,0 +1,4 @@
+# Calculate multiline format=patch
+<reg>local bg_color=.*$</reg>
+<text>local bg_color="#-ini(theme.dm-splash-color)-#"</text>
+

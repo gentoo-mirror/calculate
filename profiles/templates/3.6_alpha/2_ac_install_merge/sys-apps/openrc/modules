@@ -1,0 +1,9 @@
+# Calculate comment=# path=/etc/conf.d pkg(sys-apps/openrc)<0.21
+
+# autoload modules from /etc/modules-load.d/*.conf files
+if ls /etc/modules-load.d/*.conf &>/dev/null;then
+	for f in /etc/modules-load.d/*.conf;do
+		[ -d "${f}" ] && continue
+		modules="${modules} $(/bin/sed -re 's/\s*([#;].*$)?//' -e 's/^(\S+)\s.*/\1/' -e '/^$/d' "${f}")" || :
+	done
+fi

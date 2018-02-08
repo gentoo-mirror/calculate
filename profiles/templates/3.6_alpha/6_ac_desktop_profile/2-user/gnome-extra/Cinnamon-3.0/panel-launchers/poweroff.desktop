@@ -1,0 +1,10 @@
+# Calculate format=kde
+
+[Desktop Entry]
+Name=Power off
+Comment=Power off
+Exec=cinnamon-session-quit --power-off
+Icon=gnome-shutdown
+Terminal=false
+Type=Application
+StartupNotify=false

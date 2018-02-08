@@ -1,0 +1,23 @@
+# Calculate format=diff merge(sys-boot/grub)>=2.00
+diff --git util/grub.d/10_linux.in util/grub.d/10_linux.in
+index 14402e8..7cca45d 100644
+--- util/grub.d/10_linux.in
++++ util/grub.d/10_linux.in
+@@ -31,7 +31,7 @@ CLASS="--class gnu-linux --class gnu --class os"
+ if [ "x${GRUB_DISTRIBUTOR}" = "x" ] ; then
+   OS=GNU/Linux
+ else
+-  OS="${GRUB_DISTRIBUTOR} GNU/Linux"
++  OS="${GRUB_DISTRIBUTOR}"
+   CLASS="--class $(echo ${GRUB_DISTRIBUTOR} | tr 'A-Z' 'a-z' | cut -d' ' -f1) ${CLASS}"
+ fi
+ 
+@@ -197,6 +204,8 @@ while [ "x$list" != "x" ] ; do
+ 	   "initrd-${alt_version}" "initramfs-${alt_version}.img" \
+ 	   "initramfs-genkernel-${version}" \
+ 	   "initramfs-genkernel-${alt_version}" \
++	   "initramfs-${version}" \
++	   "initramfs-${version}-install" \
+ 	   "initramfs-genkernel-${GENKERNEL_ARCH}-${version}" \
+ 	   "initramfs-genkernel-${GENKERNEL_ARCH}-${alt_version}"; do
+     if test -e "${dirname}/${i}" ; then

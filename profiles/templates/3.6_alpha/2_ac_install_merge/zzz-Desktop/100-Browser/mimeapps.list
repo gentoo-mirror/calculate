@@ -1,0 +1,17 @@
+# Calculate format=compiz protected ini(desktop.browser-removing)==on merge=www-client/firefox,www-client/chromium,www-client/qupzilla,www-client/opera,www-client/epiphany,www-client/qutebrowser
+
+#-ini(desktop.browser-removing,)-#
+
+[Added Associations]
+!application/rss+xml=
+!application/vnd.mozilla.xul+xml=
+!application/x-font-ttx=
+!application/xhtml+xml=
+!application/xml=
+!application/xml-external-parsed-entity=
+!application/xsd=
+!application/xslt+xml=
+!application/x-ufraw=
+!text/html=
+!x-scheme-handler/http=
+!x-scheme-handler/https=

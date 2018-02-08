@@ -1,0 +1,14 @@
+# Calculate format=diff
+diff --git src/gs-manager.c src/gs-manager.c
+index 32eeb52..a0cb142 100644
+--- src/gs-manager.c
++++ src/gs-manager.c
+@@ -480,7 +480,7 @@ gs_manager_timed_switch (GSManager *manager)
+ 
+         gs_debug ("Start switch to greeter timer");
+ 
+-        manager->priv->greeter_timeout_id = g_timeout_add_seconds (10,
++        manager->priv->greeter_timeout_id = g_timeout_add_seconds (3,
+                                                                    (GSourceFunc)switch_greeter_timeout,
+                                                                    manager);
+ }

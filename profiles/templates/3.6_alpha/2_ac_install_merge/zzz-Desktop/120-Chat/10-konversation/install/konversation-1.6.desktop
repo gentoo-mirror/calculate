@@ -1,0 +1,9 @@
+# Calculate format=kde link=/usr/share/applications/org.kde.konversation.desktop name=calculate-chat.desktop mirror pkg(net-irc/konversation)>=1.6
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true
+!MimeType=
+#-exists(/usr/share/icons/hicolor/64x64/apps/konversation.png)-#
+Icon=/usr/share/icons/hicolor/64x64/apps/konversation.png
+#exists#

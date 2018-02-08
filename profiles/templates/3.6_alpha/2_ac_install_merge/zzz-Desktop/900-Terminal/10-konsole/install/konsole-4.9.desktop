@@ -1,0 +1,6 @@
+# Calculate format=kde link=/usr/share/applications/kde4/konsole.desktop name=calculate-terminal.desktop mirror pkg(kde-apps/konsole)>=4.9&&pkg(kde-apps/konsole)<15
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true
+!MimeType=

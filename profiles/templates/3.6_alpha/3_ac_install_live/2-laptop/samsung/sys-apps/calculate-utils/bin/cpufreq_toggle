@@ -1,0 +1,18 @@
+# Calculate chmod=0755 comment=#
+#!/bin/bash
+
+current=`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor`
+future=unknown
+
+if [ "$current" == "performance" ]; then
+   future="ondemand"
+elif [ "$current" == "ondemand" ]; then
+   future="powersave"
+else
+   future="performance"
+fi
+
+echo "$future" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo "$future" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+
+echo "$future"

@@ -1,0 +1,8 @@
+# Calculate exec=/bin/bash cl_ebuild_phase!=
+
+# autoswitch to new gcc
+echo "The current gcc config will be automatically switch to the newly"
+echo "installed gcc version ${GCC_CONFIG_VER}"
+gcc-config ${CTARGET}-${GCC_CONFIG_VER} &>/dev/null
+/usr/sbin/env-update
+exit 0

@@ -1,0 +1,31 @@
+# Calculate env=ldap format=ldif server.cl_server_name==ldap
+# Directory Server
+dn: #-ld_base_dn-#
+objectClass: dcObject
+objectClass: organization
+dc: #-ld_base_root-#
+o: Calculate Directory Server
+
+# Services
+dn: ou=Services,#-ld_base_dn-#
+objectClass: top
+objectClass: organizationalUnit
+ou: Services
+
+# Admin
+dn: #-ld_admin_dn-#
+cn: #-ld_admin_login-#
+sn: #-ld_admin_login-#
+objectClass: person
+objectClass: top
+description: LDAP Administrator stuff
+userPassword: #-ld_admin_hash-#
+
+# Bind
+dn: #-ld_bind_dn-#
+cn: #-ld_bind_login-#
+sn: #-ld_bind_login-#
+objectClass: person
+objectClass: top
+description: LDAP Proxy User
+userPassword: #-ld_bind_hash-#

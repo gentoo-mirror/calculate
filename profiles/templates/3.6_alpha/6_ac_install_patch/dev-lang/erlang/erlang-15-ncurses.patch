@@ -1,0 +1,14 @@
+# Calculate format=diff
+diff --git a/otp_src_R15B03/erts/configure b/otp_src_R15B03/erts/configure
+index 166f716..d01d32f 100755
+--- a/otp_src_R15B03/erts/configure
++++ b/otp_src_R15B03/erts/configure
+@@ -18337,7 +18337,7 @@ TERMCAP_LIB=
+ if test "x$with_termcap" != "xno" &&
+    test "X$host" != "Xwin32"; then
+     # try these libs
+-    termcap_libs="ncurses curses termcap termlib"
++    termcap_libs="tinfo ncurses curses termcap termlib"
+ 
+     for termcap_lib in $termcap_libs; do
+ 	as_ac_Lib=`echo "ac_cv_lib_$termcap_lib''_tgetent" | $as_tr_sh`

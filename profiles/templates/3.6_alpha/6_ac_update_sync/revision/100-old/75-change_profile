@@ -1,0 +1,17 @@
+# Calculate ini(overlay-calculate.revision)<75 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,75)-#
+
+for arch in x86 amd64
+do
+	for pname in CLD CLDX CDS
+	do
+		if [[ "$(readlink -f /etc/portage/make.profile)" =~ .*distros/profiles/${pname}\+/${arch}$ ]]
+		then
+			rm /etc/portage/make.profile
+			ln -sf ../../var/lib/layman/distros/profiles/${pname}/${arch} /etc/portage/make.profile
+		fi
+	done
+done
+
+exit 0

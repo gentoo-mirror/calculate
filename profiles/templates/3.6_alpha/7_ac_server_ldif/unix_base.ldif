@@ -1,0 +1,21 @@
+# Calculate env=unix format=ldif cl_unix_action==setup
+# Unix Server
+
+dn: #-ld_unix_dn-#
+objectClass: top
+objectClass: organizationalUnit
+ou: #-ld_unix_login-#
+userPassword: #-ld_unix_hash-#
+
+# Users
+dn: ou=Users,#-ld_unix_dn-#
+objectClass: top
+objectClass: organizationalUnit
+ou: Users
+
+# Groups
+dn: ou=Groups,#-ld_unix_dn-#
+objectClass: top
+objectClass: organizationalUnit
+ou: Groups
+

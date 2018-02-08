@@ -1,0 +1,12 @@
+# Calculate format=dconf dconf=/org/gnome
+[epiphany]
+enable-smooth-scrolling=true
+keyword-search-url='https://google.com/search?q=%s'
+restore-session-policy='crashed'
+
+[epiphany/web]
+default-encoding='UTF-8'
+monospace-font='Droid Sans Mono Slashed 11'
+sans-serif-font='Droid Sans 11'
+serif-font='Droid Serif 11'
+use-gnome-fonts=false

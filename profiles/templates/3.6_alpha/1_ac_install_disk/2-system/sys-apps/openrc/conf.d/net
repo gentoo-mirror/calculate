@@ -1,0 +1,7 @@
+# Calculate comment=# os_install_linux_system==server&&load(empty,/etc/conf.d/net)==
+#?pkg(net-misc/dhcp[client])!=#
+modules="!plug dhclient"
+#!pkg#
+modules="!plug"
+#pkg#
+ifplugd="--no-beep"

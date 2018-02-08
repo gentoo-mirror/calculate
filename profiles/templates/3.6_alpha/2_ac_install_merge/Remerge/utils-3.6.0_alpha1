@@ -1,0 +1,11 @@
+# Calculate format=contents mergepkg(sys-apps/calculate-utils)!=&&ini(merge-calculate.utils)<3.6.0_alpha1
+!sys-apps/openrc /etc/conf.d/net
+!sys-apps/openrc /etc/init.d/net.*
+!sys-apps/openrc /etc/runlevels/default/net.*
+!sys-apps/openrc /etc/runlevels/boot/net.*
+!sys-apps/openrc /etc/conf.d/hostname
+!sys-apps/baselayout /etc/hosts
+!net-misc/networkmanager /etc/NetworkManager/NetworkManager.conf
+!net-misc/networkmanager /etc/system-connections/*
+!net-misc/networkmanager /etc/runlevels/default/NetworkManager
+!net-misc/networkmanager /etc/runlevels/boot/NetworkManager

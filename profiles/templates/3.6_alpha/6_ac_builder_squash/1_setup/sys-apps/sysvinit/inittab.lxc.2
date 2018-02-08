@@ -1,0 +1,5 @@
+# Calculate append=after name=inittab cl_ver>=3.5.4.1&&cl_builder_container_set==on
+# Lxc main console
+1:12345:respawn:/sbin/agetty --noclear 115200 console linux
+# clean container shutdown on SIGPWR
+pf:12345:powerwait:/sbin/halt

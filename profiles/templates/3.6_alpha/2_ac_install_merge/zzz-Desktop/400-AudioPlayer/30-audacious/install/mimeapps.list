@@ -1,0 +1,12 @@
+# Calculate format=compiz protected
+
+# Update info
+#-ini(desktop.updating, on)-#
+#-ini(desktop.audioplayer, audacious)-#
+
+[Added Associations]
+audio/mp4=audacious.desktop;
+audio/mpeg=audacious.desktop;
+audio/x-flac=audacious.desktop;
+audio/x-ms-wma=audacious.desktop;
+audio/x-wav=audacious.desktop;

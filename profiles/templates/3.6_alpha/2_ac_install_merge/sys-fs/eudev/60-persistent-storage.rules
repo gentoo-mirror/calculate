@@ -1,0 +1,7 @@
+# Calculate format=patch path=/lib/udev/rules.d
+<reg>(# probe filesystem metadata of disks)
+(KERNEL!="sr\*", IMPORT\{builtin\}="blkid")</reg>
+<text>\1
+KERNEL!="sr*", ATTRS{size}=="0", ATTRS{removable}=="1", GOTO="skip_blkid"
+\2
+LABEL="skip_blkid"</text>

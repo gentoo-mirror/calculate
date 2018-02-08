@@ -1,0 +1,9 @@
+# Calculate comment=# chmod=0755
+#!/bin/sh
+r
+#?pkg(sys-apps/calculate-utils[desktop])!=#
+bash -c "/usr/bin/sessreg -a -l $DISPLAY $USER &" &
+/usr/share/calculate/xdm/xdm --login || kill -9 $PPID
+#!pkg#
+# Note: this is a sample and will not be run as is.
+#pkg#

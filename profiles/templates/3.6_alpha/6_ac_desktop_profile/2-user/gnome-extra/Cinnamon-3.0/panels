@@ -1,0 +1,11 @@
+# Calculate format=dconf dconf=/org
+
+[cinnamon]
+enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:left:1:panel-launchers@cinnamon.org:1', 'panel1:left:2:workspace-switcher@cinnamon.org:2', 'panel1:left:3:show-desktop@cinnamon.org:3', 'panel1:left:4:window-list@cinnamon.org:4', 'panel1:right:0:trash@cinnamon.org:5', 'panel1:right:1:sound@cinnamon.org:6', #?install.os_install_net_conf!=openrc#'panel1:right:2:network@cinnamon.org:7', #install.os_install_net_conf#'panel1:right:3:power@cinnamon.org:8', 'panel1:right:4:systray@cinnamon.org:9', 'panel1:right:5:keyboard@cinnamon.org:10', 'panel1:right:6:calendar@cinnamon.org:11', 'panel1:right:7:panel-launchers@cinnamon.org:12', 'panel2:center:0:panel-launchers@cinnamon.org:13']
+next-applet-id=16
+panel-launchers=['DEPRECATED']
+panels-autohide=['1:false', '2:true']
+panels-enabled=['1:0:top','2:0:bottom']
+panels-height=['1:32', '2:56']
+panels-resizable=['1:true', '2:true']
+panels-hide-delay=['1:0', '2:200']

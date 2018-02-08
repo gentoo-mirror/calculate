@@ -1,0 +1,7 @@
+# Calculate env=unix format=ldif cl_unix_action==groupadd
+# Unix group
+dn: cn=#-ur_unix_group_name-#,#-ld_unix_groups_dn-#
+objectClass: posixGroup
+cn: #-ur_unix_group_name-#
+gidNumber: #-ur_unix_group_id-#
+description: #-ur_unix_group_comment-#

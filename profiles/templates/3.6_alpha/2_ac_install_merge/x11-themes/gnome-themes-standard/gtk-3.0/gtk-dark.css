@@ -1,0 +1,8 @@
+# Calculate pkg(x11-themes/gnome-themes-standard)>=3.8
+
+/* lightdm greeter color scheme */
+@define-color lightdm_bg_color #000000;
+@define-color lightdm_fg_color #ffffff;
+
+@import url("resource:///org/gnome/adwaita/gtk-main.css");
+@import url("apps/lightdm-gtk-greeter.css");

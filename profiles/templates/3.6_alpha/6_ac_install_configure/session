@@ -1,0 +1,7 @@
+# Calculate format=samba merge=x11-base/xorg-server,x11-misc/lightdm cl_setup==session||cl_setup== path=/var/lib/calculate name=calculate.env
+
+[main]
+cl_home_crypt_set = #-cl_install_home_crypt_set-#
+
+[install]
+cl_autologin = #-cl_autologin-#

@@ -1,0 +1,17 @@
+# Calculate ini(overlay-calculate.revision)<85 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,85)-#
+
+#?pkg(sys-kernel/calculate-sources)!=#
+if ! [ -L /usr/src/linux ]
+then
+    for fn in /usr/src/linux/linux-*-calculate
+    do
+        mv $fn /usr/src/linux.symlink || break
+    done
+    rm -rf /usr/src/linux
+    mv /usr/src/linux.symlink /usr/src/linux
+fi
+#pkg#
+
+exit 0

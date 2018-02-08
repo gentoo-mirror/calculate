@@ -1,0 +1,9 @@
+# Calculate format=kde link=/usr/share/applications/org.kde.kwrite.desktop name=calculate-textedit.desktop mirror pkg(kde-apps/kwrite)>=15
+
+# Hide icon
+[Desktop Entry]
+NoDisplay=true
+!MimeType=
+#-exists(/usr/share/icons/hicolor/64x64/apps/kwrite.png)-#
+Icon=/usr/share/icons/hicolor/64x64/apps/kwrite.png
+#exists#

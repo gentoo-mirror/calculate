@@ -1,0 +1,14 @@
+# Calculate ini(overlay-calculate.revision)<71 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,71)-#
+
+#?pkg(kde-apps/kde4-l10n)!=#
+for delpath in /usr/share/doc/HTML/sr@latin/khelpcenter/index.cache.bz2 \
+    /usr/share/doc/HTML/sr@latin/khelpcenter/index.docbook
+do
+test -f /var/db/pkg/kde-apps/kde4-l10n-*/CONTENTS &&
+   sed -i "/ ${delpath////\\/} /d" /var/db/pkg/kde-apps/kde4-l10n-*/CONTENTS
+done
+#pkg#
+
+exit 0

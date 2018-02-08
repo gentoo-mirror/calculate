@@ -1,0 +1,15 @@
+# Calculate format=kde
+[Keyboard]
+NumLock=2
+RepeatDelay=#-ini(profile.keyboard-delay)-#
+RepeatRate=#-ini(profile.keyboard-rate)-#
+
+[Mouse]
+#?ini(profile.appearance-cursor)!=#
+cursorTheme=#-ini(profile.appearance-cursor)-#
+#!ini#
+cursorTheme=Calculate
+#ini#
+#?ini(profile.mouse-lefthanded)==on#
+MouseButtonMapping=LeftHanded
+#ini#

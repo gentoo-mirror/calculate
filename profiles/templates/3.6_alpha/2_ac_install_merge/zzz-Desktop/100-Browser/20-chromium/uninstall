@@ -1,0 +1,5 @@
+# Calculate format=samba path=/var/lib/calculate name=ini.env ac_install_unmerge==on&&pkg(www-client/chromium)==&&ini(desktop.browser)==chromium
+
+[desktop]
+!browser=
+browser-removing=on

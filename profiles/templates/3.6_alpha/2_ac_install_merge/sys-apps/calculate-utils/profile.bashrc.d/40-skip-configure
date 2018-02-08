@@ -1,0 +1,25 @@
+# Calculate comment=# protected
+# vim: set syntax=sh
+#
+# Copyright 2014 Calculate Ltd. http://www.calculate-linux.org
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+
+
+check_skip() {
+	declare -A SKIPPKGS=( 
+	   ["calculate-install"]="1"
+	   ["calculate-lib"]="1"
+	   ["calculate-console"]="1"
+	   ["calculate-console-gui"]="1"
+	   ["calculate-core"]="1"
+	   ["calculate-desktop"]="1"
+	   ["calculate-client"]="1"
+	   ["calculate-update"]="1" )
+
+	[[ -z ${SKIPPKGS[$PN]} ]]
+}

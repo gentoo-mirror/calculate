@@ -1,0 +1,15 @@
+# Calculate append=replace pkg(x11-themes/gnome-themes-standard)>=3.8 path=/usr/share/themes/Adwaita/backgrounds
+<background>
+<static>
+#?pkg(media-gfx/dm-themes-calculate)>=14-r1#
+#os_install_x11_resolution!=||os_install_root_type!=livecd#
+<file>#-wallpaper(#-os_install_x11_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#</file>
+#!os_install_x11_resolution#
+<file>#-wallpaper(#-os_install_fb_resolution-#,/usr/share/wallpapers/Calculate-dm/contents/images)-#</file>
+#os_install_x11_resolution#
+#pkg#
+#?pkg(media-gfx/dm-themes-calculate)<>14-r1#
+<file>/usr/share/wallpapers/dm-#-os_x11_standart-#.jpg</file>
+#pkg#
+</static>
+</background>

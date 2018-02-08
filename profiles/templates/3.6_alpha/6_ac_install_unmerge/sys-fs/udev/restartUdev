@@ -1,0 +1,5 @@
+# Calculate  exec=/bin/bash pkg(sys-fs/eudev)!=&&cl_chroot_status==off
+
+/etc/init.d/udev restart &>/dev/null
+
+true

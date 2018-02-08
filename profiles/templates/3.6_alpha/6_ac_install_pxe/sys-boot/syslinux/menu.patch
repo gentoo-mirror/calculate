@@ -1,0 +1,9 @@
+# Calculate format=patch name=menu.cfg
+<reg> root=/dev/ram0</reg>
+<text> real_root=/dev/nfs nfsroot=#-os_install_pxe_ip-#:#-os_install_pxe_path-#/calculate</text>
+<reg> root=live:\S+</reg>
+<text> root=nfs:#-os_install_pxe_ip-#:#-os_install_pxe_path-#/calculate</text>
+<reg>([ =])(/boot)</reg>
+<text>\1/calculate\2</text>
+<reg>KERNEL memtest</reg>
+<text>KERNEL calculate/syslinux/memtest</text>

@@ -1,0 +1,10 @@
+# Calculate chmod=755 format=kde env(client.os_remote_auth)!=&&ur_domain_set==on
+[Desktop Entry]
+Name=Share
+Comment=Open share network folder
+Comment[ru_RU]=Открыть сетевой диск с сетевыми ресурсами
+Icon=folder-remote
+Exec=nemo /home/#-ur_login-#/Share
+Terminal=false
+Type=Application
+StartupNotify=false

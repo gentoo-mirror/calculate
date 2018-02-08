@@ -1,0 +1,5 @@
+# Calculate format=contents ini(overlay-calculate.revision)<98 exec=/bin/bash
+
+#-ini(overlay-calculate.revision,98)-#
+!x11-drivers/ati-drivers /lib
+!x11-drivers/ati-drivers /lib/*

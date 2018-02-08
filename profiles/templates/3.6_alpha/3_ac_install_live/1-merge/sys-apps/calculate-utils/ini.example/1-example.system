@@ -1,0 +1,25 @@
+# Calculate comment=# name=ini.env.example append=after
+#?os_install_locale_language!=ru&&os_install_locale_language!=fr#
+#============================= System settings ===============================
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+#============================ Настройки системы ==============================
+#os_install_locale_language#
+#?os_install_locale_language==fr#
+#============================ Paramètres système =============================
+#os_install_locale_language#
+[system]
+#?os_install_locale_language!=ru&&os_install_locale_language!=fr#
+# Kernel and modules to be removed once sys-kernel/calculate-sources has been
+# uninstalled
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Удалить ядро и модули при удалении пакета sys-kernel/calculate-sources
+#os_install_locale_language#
+#?os_install_locale_language==fr#
+# Le noyau ainsi que les modules de celui-ci seront supprimés dès que le
+# paquet sys-kernel/calculate-sources aura été installé
+#os_install_locale_language#
+; remove_old_kernel = on
+
+

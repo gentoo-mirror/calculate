@@ -1,0 +1,8 @@
+# Calculate chmod=0755
+#!/bin/sh
+# Xstop - run as root after stopping X
+
+if ! pgrep -f /usr/bin/X
+then
+    [[ -x /usr/sbin/logout ]] && /usr/sbin/logout
+fi

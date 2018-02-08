@@ -1,0 +1,5 @@
+# Calculate format=samba path=/var/lib/calculate name=ini.env ac_install_unmerge==on&&pkg(mate-extra/mate-calc)==&&ini(desktop.calculator)==mate-calc
+
+[desktop]
+!calculator=
+calculator-removing=on

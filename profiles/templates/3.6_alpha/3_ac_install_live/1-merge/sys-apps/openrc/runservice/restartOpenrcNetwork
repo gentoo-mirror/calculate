@@ -1,0 +1,18 @@
+# Calculate exec=/bin/bash  cl_network_configure_set==on cl_setup==network&&env(client.os_remote_auth)==
+
+#?os_install_net_conf==openrc#
+#?list(os_install_net_interfaces,0)!=#
+[[ -f /etc/init.d/net.#-list(os_install_net_interfaces,0)-# ]] && /etc/init.d/net.#-list(os_install_net_interfaces,0)-# restart &>/dev/null || ifconfig #-list(os_install_net_interfaces,0)-# down
+#list#
+#?list(os_install_net_interfaces,1)!=#
+[[ -f /etc/init.d/net.#-list(os_install_net_interfaces,1)-# ]] && /etc/init.d/net.#-list(os_install_net_interfaces,1)-# restart &>/dev/null || ifconfig #-list(os_install_net_interfaces,1)-# down
+#list#
+#?list(os_install_net_interfaces,2)!=#
+[[ -f /etc/init.d/net.#-list(os_install_net_interfaces,2)-# ]] && /etc/init.d/net.#-list(os_install_net_interfaces,2)-# restart &>/dev/null || ifconfig #-list(os_install_net_interfaces,2)-# down
+#list#
+#?list(os_install_net_interfaces,3)!=#
+[[ -f /etc/init.d/net.#-list(os_install_net_interfaces,3)-# ]] && /etc/init.d/net.#-list(os_install_net_interfaces,3)-# restart &>/dev/null || ifconfig #-list(os_install_net_interfaces,3)-# down
+#list#
+#os_install_net_conf#
+
+true

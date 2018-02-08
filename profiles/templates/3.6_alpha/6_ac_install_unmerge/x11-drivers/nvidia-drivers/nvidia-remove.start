@@ -1,0 +1,8 @@
+# Calculate chmod=0755 protected grep(/etc/X11/xorg.conf,nvidia)!=
+#!/bin/bash
+
+cl-setup-video --video nouveau
+
+rm /etc/local.d/nvidia-remove.*
+
+exit 0
