@@ -1,5 +1,5 @@
-DEFINED_PHASES=install postinst postrm preinst prepare setup unpack
-DEPEND=x11-libs/gtk+:2 >=sys-apps/sed-4 >=dev-vcs/bzr-2.0.1
+DEFINED_PHASES=install postinst postrm preinst setup unpack
+DEPEND=x11-libs/gtk+:2 >=sys-apps/sed-4 >=dev-vcs/bzr-2.6.0
 DESCRIPTION=Elementary icon theme is designed to be smooth, sexy, clear, and efficient
 EAPI=4
 HOMEPAGE=https://launchpad.net/elementaryicons
@@ -7,5 +7,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RESTRICT=binchecks strip
 SLOT=0
-_eclasses_=bzr	c898d6ae4252d437c1a0d5d6196eb028	desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	b4eee44966573b7fb6761e507910b306	gnome2-utils	4d211d7614f303710fca59db6ec12c88	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9	xdg-utils	f2c8335407f0b935b0a96d4adf23ef25
+_eclasses_=bzr	fdfb7f923d3d9bc0881ff88e9b62fb30	desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	b4eee44966573b7fb6761e507910b306	gnome2-utils	4d211d7614f303710fca59db6ec12c88	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	885c7d8dd70a58825f3d17e35a3cd1e9	xdg-utils	f2c8335407f0b935b0a96d4adf23ef25
 _md5_=42e10487fda66445c1328b016b7cac51
