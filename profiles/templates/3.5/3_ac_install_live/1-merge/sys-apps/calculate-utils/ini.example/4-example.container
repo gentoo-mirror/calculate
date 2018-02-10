@@ -1,0 +1,36 @@
+# Calculate comment=# name=ini.env.example append=after ini(container.type)==desktop
+#?os_install_locale_language!=ru#
+#============================= Xorg settings ===============================
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+#============================ Настройки Xorg ==============================
+#os_install_locale_language#
+[xorg]
+#?os_install_locale_language!=ru#
+# virtual terminal number
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# номер виртуального терминала
+#os_install_locale_language#
+; vt = 7
+#?os_install_locale_language!=ru#
+# bus id for isolate video device
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# идентификатор шины для изолирования видеокарты
+#os_install_locale_language#
+; busid = PCI:0:0:2:0
+#?os_install_locale_language!=ru#
+# `on` for disable virtual terminal switching
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# `on` для отключения возможности переключать виртуальные терминалы
+#os_install_locale_language#
+; sharevts = off
+#?os_install_locale_language!=ru#
+# multiuser mode
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# многопользователейский режим
+#os_install_locale_language#
+; multiuser = on

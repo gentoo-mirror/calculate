@@ -62,3 +62,17 @@ dns_servers="#-os_install_net_dns-#"
 dns_search="#-os_install_net_dns_search-#"
 #os_install_net_dns_search#
 ifplugd="--no-beep"
+#?ini(container.type)==desktop#
+#?list(os_install_net_interfaces,0)!=#
+rc_net_#-list(os_install_net_interfaces,0)-#_provide="net"
+#list#
+#?list(os_install_net_interfaces,1)!=#
+rc_net_#-list(os_install_net_interfaces,1)-#_provide="net"
+#list#
+#?list(os_install_net_interfaces,2)!=#
+rc_net_#-list(os_install_net_interfaces,2)-#_provide="net"
+#list#
+#?list(os_install_net_interfaces,3)!=#
+rc_net_#-list(os_install_net_interfaces,3)-#_provide="net"
+#list#
+#ini#
