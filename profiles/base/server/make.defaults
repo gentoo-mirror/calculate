@@ -4,13 +4,13 @@ USE=""
 USE="${USE} -alsa -openal -pulseaudio"
 
 # Image support
-USE="${USE} -openexr -tiff"
+USE="${USE} -openexr -svg -tiff"
 
 # Hardware
 USE="${USE} -cairo -opengl -vdpau"
 
 # Video
-USE="${USE} -sdl -sdl2 -vaapi"
+USE="${USE} -sdl -sdl2 -vaapi -xv"
 
 # Photo
 USE="${USE} -gimp"
@@ -22,6 +22,6 @@ USE="${USE} -abi_x86_32 -consolekit -gnome-keyring -introspection -policykit"
 USE="${USE} -bluetooth -wimax"
 
 # Window manager and speciality
-USE="${USE} -dbus -gtk -qt -qt4 -qt5 -X -xcb"
+USE="${USE} -dbus -gtk -qt -qt4 -qt5 -libnotify -X -xcb"
 
 CAMERAS=""
