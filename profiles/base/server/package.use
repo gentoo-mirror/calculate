@@ -11,3 +11,6 @@ sys-libs/glibc -gd
 
 # required by app-admin/cgmanager-0.41
 sys-libs/libnih dbus
+
+# required by net-misc/networkmanager-1.8.4
+net-wireless/wpa_supplicant dbus
