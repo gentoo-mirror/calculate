@@ -1,4 +1,8 @@
 # Calculate comment=# ini(container.type)==host path=/lib/udev/rules.d
+
+# PS/2 keyboard and mouse
+ACTION=="add|remove", DEVPATH=="/devices/platform/i8042/*", ENV{ID_LXC}="all"
+
 # USB devices
 ACTION=="add|remove", ENV{ID_BUS}=="usb", ENV{ID_LXC}="all"
 
