@@ -1,0 +1,16 @@
+commit d603441f1d6ea25774c1791a78fc4b8fe989c94f
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Fri Feb 16 11:08:14 2018 +0300
+
+    Изсправлен init.d/sortmilter для openrc
+
+diff --git a/data/sortmilter.init b/data/sortmilter.init
+index ff03154..0d8bed6 100755
+--- a/data/sortmilter.init
++++ b/data/sortmilter.init
+@@ -1,4 +1,4 @@
+-#!/sbin/runscript
++#!/sbin/openrc-run
+ # Copyright 2010-2011 Mir Calculate.
+ # Distributed under the terms of the GNU General Public License v2
+ # $Header: $
