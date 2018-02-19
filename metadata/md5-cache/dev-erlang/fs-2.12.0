@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=>=dev-erlang/fast_xml-1.1.21 >=dev-lang/erlang-17.1 sys-fs/inotify-tools dev-lang/erlang dev-util/rebar >=sys-apps/gawk-4.1
+DESCRIPTION=Erlang File System Listener
+EAPI=6
+HOMEPAGE=https://github.com/synrc/fs
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=ISC
+RDEPEND=>=dev-erlang/fast_xml-1.1.21 >=dev-lang/erlang-17.1 sys-fs/inotify-tools dev-lang/erlang
+SLOT=0
+SRC_URI=https://github.com/synrc/fs/archive/2.12.0.tar.gz -> fs-2.12.0.tar.gz
+_eclasses_=rebar	f135c419c43bc8841cd57d1d53ed1da8
+_md5_=526388a9948a2a944a6282a54bc1c7d7
