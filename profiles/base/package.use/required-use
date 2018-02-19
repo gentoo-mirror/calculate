@@ -36,3 +36,6 @@ media-plugins/audacious-plugins -libnotify
 
 # lm_sensors? ( opencl )
 net-misc/bfgminer opencl
+
+# spell? ( exactly-one-of ( aspell enchant hunspell ) )
+net-im/vacuum -enchant
