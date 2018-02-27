@@ -8,11 +8,15 @@
 
 
 # AMD64 Profiles
-#amd64		desktop/amd64					dev
-#amd64		server/amd64					dev
+#amd64		default/amd64/17/desktop			stable
+#amd64		default/amd64/17/server				stable
+amd64		default/amd64/18/desktop			exp
+amd64		default/amd64/18/server				exp
 
 # x86 Profiles
-#x86		desktop/x86					dev
-#x86		server/x86					dev
+#x86		default/x86/17/desktop				stable
+#x86		default/x86/17/server				stable
+x86		default/x86/18/desktop				exp
+x86		default/x86/18/server				exp
 
 # vim: set ts=8

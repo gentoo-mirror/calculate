@@ -1,0 +1,6 @@
+CFLAGS="-O2 -march=x86-64 -pipe"
+CXXFLAGS="${CFLAGS}"
+CHOST="x86_64-pc-linux-gnu"
+GRUB_PLATFORMS="efi-64 efi-32 pc"
+PKGDIR="/var/calculate/packages/x86_64"
+PORTAGE_BINHOST="ftp://ftp.calculate-linux.org/calculate/grp/x86_64"

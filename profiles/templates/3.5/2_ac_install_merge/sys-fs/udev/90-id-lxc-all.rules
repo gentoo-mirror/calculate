@@ -1,5 +1,8 @@
 # Calculate comment=# ini(container.type)==host path=/lib/udev/rules.d
 
+# VirtualBox
+ACTION=="add|remove", DEVPATH=="/devices/virtual/misc/vbox*", ENV{ID_LXC}="all"
+
 # PS/2 keyboard and mouse
 ACTION=="add|remove", DEVPATH=="/devices/platform/i8042/*", ENV{ID_LXC}="all"
 

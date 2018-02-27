@@ -1,0 +1,90 @@
+USE=""
+
+# Audio
+USE="${USE} alsa amr -arts audiofile cdda cue id3tag flac gstreamer mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr opus pulseaudio taglib wavpack vorbis vpx"
+
+# CD and DVD
+USE="${USE} cdparanoia css dvd dvdr dvdread vcd"
+
+# Decoration
+USE="${USE} -branding -wallpapers"
+
+# Devices
+USE="${USE} ios ipod udev"
+
+# Documentation format
+USE="${USE} chm djvu ebook"
+
+# Guard and security
+USE="${USE} crypt ssl cracklib"
+
+# Hardware
+USE="${USE} acpi cairo cpudetection dbus dri ieee1394 gpm opengl scanner smp upower usb vdpau -video_cards_dummy -video_cards_fbdev -video_cards_v4l video_cards_via xcomposite"
+
+# Hardware CPU
+USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 lm_sensors mmx mmxext padlock popcnt sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 xop"
+
+# Internet Messager
+USE="${USE} gadu irc jabber oscar"
+
+# Image support
+USE="${USE} fexif dftk exif gd gif imagemagick jpeg jpeg2k -mng openexr pdf png raw svg tiff xmp webp wmf wxwindows" 
+
+# Locale and Fonts
+USE="${USE} spell truetype userlocales"
+
+# Mail
+USE="${USE} mimap box smtp"
+
+# Net protocols
+USE="${USE} bittorrent ftp idn imap nfs rdesktop samba sasl vnc"
+
+# Network connections
+USE="${USE} ppp upnp"
+
+# Office
+USE="${USE} -aspell -spell hunspell spell"
+
+# Photo
+USE="${USE} gphoto2"
+
+# Printing
+USE="${USE} cups foomaticdb"
+
+# Python
+USE="${USE} -python_single_target_python3_4"
+
+# System
+USE="${USE} caps cgroups consolekit introspection logrotate lz4 lzo networkmanager nsplugin pgo policykit threads udisks"
+
+# Video
+USE="${USE} a52 aac -aalib avi cddb dv encode faac ffmpeg flash matroska mplayer musepack real sdl speex srt -svga tga quicktime theora vaapi v4l v4l2 vidix win32codecs xanim x264 x265 xinerama xv xvid xvmc"
+
+# Web
+#USE="${USE} -apache apache2 javascript"
+USE="${USE} libwww vhosts webkit"
+
+# Wireless
+USE="${USE} bluetooth wimax"
+
+# Window manager and speciality
+USE="${USE} gtk libnotify semantic-desktop -gnome X"
+
+L10N="en be bg bs cs da de de-1901 es es-AR es-ES es-MX et fi fr fr-CA hr hu it kk lt lv nl pl pt pt-BR pt-PT ro ru sk sl sr sq sv uk"
+
+ACCEPT_LICENSE="*"
+AUTOCLEAN="yes"
+CAMERAS="*"
+CPU_FLAGS_X86="3dnow 3dnowext mmx sse sse2 *"
+DISTDIR="/var/calculate/remote/distfiles"
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --binpkg-changed-deps=n --quiet-build=n --binpkg-respect-use=y --jobs=4"
+FEATURES="getbinpkg parallel-install -userpriv"
+GENTOO_MIRRORS="http://mirror.yandex.ru/gentoo-distfiles http://distfiles.gentoo.org"
+INPUT_DEVICES="${INPUT_DEVICES} evdev mutouch synaptics"
+INSTALL_MASK="/etc/systemd /usr/lib*/systemd"
+LDFLAGS="-Wl,--as-needed"
+LIRC_DEVICES="devinput"
+NPTL_KERN_VER="4.4.0"
+PORTAGE_TMPDIR="/var/calculate/tmp"
+USE_EXPAND="CALCULATE THEMES"
+VIDEO_CARDS="amdgpu i915 i965 intel nouveau nv nvidia r100 r200 r300 r600 radeon qxl radeonsi vesa"
