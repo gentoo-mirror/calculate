@@ -385,6 +385,9 @@ dev-lang/php sockets
 # required by www-apps/nextcloud-11.0.2
 dev-lang/php xmlwriter zip
 
+# required by www-apps/owncloud-10.0.6-r1
+dev-lang/php intl
+
 # required by dev-texlive/texlive-langcjk-2016
 app-text/texlive-core cjk
 
