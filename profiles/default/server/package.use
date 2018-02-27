@@ -14,3 +14,6 @@ sys-libs/libnih dbus
 
 # required by net-misc/networkmanager-1.8.4
 net-wireless/wpa_supplicant dbus
+
+# required by net-misc/networkmanager-1.8.4
+net-dns/dnsmasq dbus
