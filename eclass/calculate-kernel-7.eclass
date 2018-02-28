@@ -19,8 +19,7 @@ inherit calculate eutils kernel-2
 EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst
 
 
-REQUIRED_USE="minimal? ( vmlinuz )
-	grub? ( vmlinuz )"
+REQUIRED_USE="minimal? ( vmlinuz )"
 
 CDEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
 		sys-apps/v86d
