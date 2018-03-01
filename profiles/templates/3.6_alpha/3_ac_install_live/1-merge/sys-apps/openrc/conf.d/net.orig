@@ -1,7 +1,15 @@
 # Calculate comment=# os_install_net_conf==openrc cl_network_configure_set==on ac_install_disk==on||cl_setup==network||os_install_root_type==livecd||cl_merge_pkg!= protected
 
 #?os_install_linux_system==server#
+#?pkg(net-misc/dhcp[client])!=#
+modules="!plug dhclient"
+#!pkg#
 modules="!plug"
+#pkg#
+#!os_install_linux_system#
+#?pkg(net-misc/dhcp[client])!=#
+modules="dhclient"
+#pkg#
 #os_install_linux_system#
 #?cl_ver>=3.5&&list(os_install_net_interfaces,0)!=&&exists(/sys/class/net/#-list(os_install_net_interfaces,0)-#/master)==#
 #?list(os_install_net_dhcp_set,0)!=on&&list(os_install_net_ip,0)!=#
