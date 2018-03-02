@@ -1,4 +1,4 @@
-# Calculate comment=# multiline format=patch autoupdate
+# Calculate chmod=0755 comment=# multiline format=patch autoupdate
 <reg>(replacement_title=.*?Advanced options.*?)g'\)"</reg>
 <text>\1g') ..."</text>
 <reg>("submenu '.*?Advanced options for.*?grub_quote\))'</reg>
