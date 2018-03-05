@@ -81,7 +81,7 @@ EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --binpkg-changed-deps=n --quiet-buil
 FEATURES="getbinpkg parallel-install -userpriv"
 GENTOO_MIRRORS="http://mirror.yandex.ru/gentoo-distfiles http://distfiles.gentoo.org"
 INPUT_DEVICES="${INPUT_DEVICES} evdev mutouch synaptics"
-INSTALL_MASK="/etc/systemd /usr/lib*/systemd"
+INSTALL_MASK="/etc/systemd /usr/lib*/systemd /etc/shorewall{,6}/*[^.]???? /etc/shorewall{,6}/???? /etc/shorewall{,6}/???"
 LDFLAGS="-Wl,--as-needed"
 LIRC_DEVICES="devinput"
 NPTL_KERN_VER="4.4.0"
