@@ -142,6 +142,9 @@ dev-python/PyQt4 declarative script sql help
 # [melt, xml] required by media-video/kdenlive
 media-libs/mlt melt xml kdenlive -xine qt5
 
+# required by media-video/shotcut-18.03
+media-libs/mlt sdl2
+
 # [pyqt4] required by kde-misc/synaptiks
 dev-python/pyudev pyqt4
 
