@@ -14,6 +14,12 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE="+client server"
 REQUIRED_USE="|| ( client server )"
+RDEPEND="sys-apps/openrc
+	net-misc/openssh
+
+	server? ( sys-fs/cryptsetup
+		net-misc/rsync
+	)"
 
 src_install() {
 	if use client
