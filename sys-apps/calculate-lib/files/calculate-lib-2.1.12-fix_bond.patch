@@ -1,0 +1,17 @@
+diff --git a/pym/cl_utils.py b/pym/cl_utils.py
+index dc626c6..44c1cc2 100644
+--- a/pym/cl_utils.py
++++ b/pym/cl_utils.py
+@@ -527,7 +527,11 @@ def getInterfaces():
+     Get available interfaces (discard which hasn't device)
+     """
+     try:
+-        return filter(lambda x: x!= "lo",os.listdir(SYSFS_NET_PATH))
++        return [x
++            for x in os.listdir(SYSFS_NET_PATH)
++            if x != "lo" and os.path.exists(
++                os.path.join(SYSFS_NET_PATH,x,"dev_id"))
++        ]
+     except:
+         return []
+ 
