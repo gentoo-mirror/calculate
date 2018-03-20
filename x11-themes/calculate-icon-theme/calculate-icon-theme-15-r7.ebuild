@@ -20,7 +20,7 @@ SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/icon/icon-calculate-15-r
 REQUIRED_USE=""
 
 RDEPEND="|| ( 
-		x11-themes/gnome-icon-theme
+		x11-themes/adwaita-icon-theme
 		kde-plasma/breeze
 		kde-frameworks/oxygen-icons
 		x11-themes/elementary-icon-theme
