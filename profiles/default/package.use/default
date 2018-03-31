@@ -177,7 +177,7 @@ media-video/mplayer bidi live -video_cards_tdfx
 net-misc/networkmanager connection-sharing dhclient modemmanager
 
 # enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
-net-print/hplip snmp hpijs -X -qt4
+net-print/hplip snmp hpijs -X
 
 # to display the icons in the menu, support xdg autostart
 x11-wm/openbox imlib xdg
@@ -207,9 +207,6 @@ mail-client/claws-mail ldap pdf rss smime webkit xface sieve
 
 # add file systems and raid support.
 sys-block/gparted btrfs dmraid fat mdadm ntfs reiserfs xfs
-
-# add Catalyst Control Panel
-x11-drivers/ati-drivers qt4
 
 # build a Qt4/5 style called GTK+ that mimics the active GTK+ theme
 dev-qt/qtgui gtkstyle
@@ -246,9 +243,6 @@ media-libs/sdl-mixer mod timidity midi
 # the following REQUIRED_USE flag constraints are unsatisfied:
 # theora? ( video ) X? ( video ) v4l? ( video )
 media-libs/mediastreamer video
-
-# add support for the Qt GUI/Application
-net-im/licq qt4
 
 # enables fuse mount points in $HOME/.gvfs for legacy application access
 # enable storage password
@@ -288,8 +282,8 @@ lxqt-base/lxqt-panel colorpicker cpuload dom networkmonitor screensaver sensors 
 x11-wm/jwm xpm
 
 # support GUI/Application
-media-video/avidemux qt4
-media-libs/avidemux-plugins qt4
+media-video/avidemux qt5
+media-libs/avidemux-plugins qt5
 
 # wine 1.7.x
 # The following REQUIRED_USE flag constraints are unsatisfied:
@@ -382,7 +376,7 @@ media-gfx/kphotoalbum face
 
 # support for the Qt GUI/Application
 app-backup/backintime qt4
-app-backup/bacula qt4
+app-backup/bacula qt5
 
 # support for some plasmoids
 kde-base/plasma-workspace python

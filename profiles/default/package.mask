@@ -54,3 +54,6 @@ sys-libs/db:6.0
 >=xfce-extra/xfce4-datetime-plugin-0.7
 >=xfce-extra/xfce4-notifyd-0.3
 >=xfce-extra/xfce4-xkb-plugin-0.8
+
+# conflict with kde-frameworks/kdelibs-4.14.37
+=dev-libs/libdbusmenu-qt-0.9.3_pre20160218-r2
