@@ -1,8 +1,12 @@
 # not compiled
 =app-admin/packagekit-base-1.1.5-r1
+=app-emacs/slime-2.20
+=dev-db/myodbc-5.2.7-r3
 =dev-python/bottleneck-1.0.0
 =dev-ruby/gherkin-2.12.2
-=dev-db/myodbc-5.2.7-r3
+
+# not compiled media-video/ffmpeg with this version
+=media-libs/openjpeg-2.2.0
 
 # mask portage wgetpaste
 >app-text/wgetpaste-2.25-r4
@@ -24,9 +28,6 @@ sys-libs/db:6.0
 
 # <sys-power/cpupower-4.7 required by (mate-base/mate-applets-1.18.1
 =sys-power/cpupower-4.9.0
-
-# not compiled media-video/ffmpeg with this version
-=media-libs/openjpeg-2.2.0
 
 # blocks dev-python/oslo-privsep-1.22.1, dev-python/glance_store-0.22.0, dev-python/oslo-service-1.25.1
 =dev-python/eventlet-0.20.1-r1
