@@ -3,7 +3,7 @@
 Name=FTP
 Comment=Open FTP network folder
 Comment[ru_RU]=Открыть сетевой диск FTP
-Icon=folder-download-symbolic
+Icon=folder-download
 Exec=nemo /home/#-ur_login-#/FTP
 Terminal=false
 Type=Application
