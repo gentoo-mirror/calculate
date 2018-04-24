@@ -28,6 +28,8 @@ CDEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
 	firmware? ( sys-kernel/linux-firmware )"
 
 DEPEND="${CDEPEND}
+	>=sys-devel/bison-1.875
+	>=sys-devel/flex-2.5.4
 	themes? ( media-gfx/splash-themes-calculate )
 	!minimal? ( virtual/pkgconfig )
 	"
