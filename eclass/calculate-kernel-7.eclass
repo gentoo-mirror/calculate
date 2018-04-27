@@ -148,6 +148,7 @@ clean_for_minimal() {
 		scripts/Makefile.gcc-plugins \
 		Module.symvers \
 		scripts/Makefile.ubsan \
+		scripts/Makefile.kcov \
 		scripts/Kbuild.include scripts/Makefile.modpost \
 		scripts/gcc-goto.sh scripts/Makefile.headersinst \
 		scripts/Makefile.build scripts/basic/fixdep \
