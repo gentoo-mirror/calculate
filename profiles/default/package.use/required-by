@@ -624,3 +624,6 @@ media-libs/libmygpo-qt qt5
 
 # required by games-arcade/rocksndiamonds-4.1.0.0
 media-libs/sdl2-mixer timidity
+
+# required by www-client/uget-2.2.0 [aria2]
+net-misc/aria2 xmlrpc
