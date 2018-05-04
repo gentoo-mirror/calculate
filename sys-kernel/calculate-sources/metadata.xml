@@ -6,33 +6,27 @@
 		Full sources including the Calculate patchset for the kernel.
 	</longdescription>
 	<use>
-		<flag name='vmlinuz'>Build kernel, modules and initramfs</flag>
-	</use>
-	<use>
-		<flag name='bfq'>Apply kernel patch for BFQ I/O scheduler</flag>
-	</use>
-	<use>
-		<flag name='bfs'>Apply kernel patch for BF scheduler</flag>
-	</use>
-	<use>
-		<flag name='hardened'>Apply Gentoo's hardened patchset</flag>
+		<flag name='desktop'>Desktop kernel configuration</flag>
 	</use>
 	<use>
 		<flag name='firmware'>Install linux kernel firmware</flag>
 	</use>
 	<use>
-		<flag name='themes'>Adds Calculate themes dependence</flag>
-	</use>
-	<use>
 		<flag name='grub'>Adds sys-boot/grub dependence</flag>
 	</use>
 	<use>
-		<flag name='uksm'>Build kernel with UKSM</flag>
+		<flag name='muqss'>Build kernel with MuQSS</flag>
 	</use>
 	<use>
 		<flag name='pae'>Build kernel with PAE</flag>
 	</use>
 	<use>
-		<flag name='muqss'>Build kernel with MuQSS</flag>
+		<flag name='themes'>Adds Calculate themes dependence</flag>
+	</use>
+	<use>
+		<flag name='uksm'>Build kernel with UKSM</flag>
+	</use>
+	<use>
+		<flag name='vmlinuz'>Build kernel, modules and initramfs</flag>
 	</use>
 </pkgmetadata>
