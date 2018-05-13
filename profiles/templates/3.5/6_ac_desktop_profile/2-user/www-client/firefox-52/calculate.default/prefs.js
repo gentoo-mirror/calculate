@@ -134,3 +134,7 @@ user_pref("toolkit.telemetry.cachedClientID", "");
 user_pref("toolkit.telemetry.infoURL", "");
 user_pref("toolkit.telemetry.server", "");
 user_pref("toolkit.telemetry.unified", false);
+
+user_pref("network.tcp.tcp_fastopen_enable", true);
+user_pref("accessibility.force_disabled", 1);
+
