@@ -403,8 +403,9 @@ app-emulation/lxc doc
 www-apps/nextcloud postgres -sqlite
 www-apps/owncloud postgres -sqlite
 
+# support for Google Chromecast
 # Fix open directories with audio files (issue #1042)
-media-video/vlc xml
+media-video/vlc chromecast xml
 
 # xml support
 app-editors/emacs libxml2 xft
