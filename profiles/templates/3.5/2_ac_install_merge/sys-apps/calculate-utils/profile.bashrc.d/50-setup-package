@@ -10,6 +10,7 @@
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
 CL_UPDATE_PROG="/usr/sbin/cl-core"
+RUN_CORE="/usr/bin/python2 ${CL_UPDATE_PROG}"
 CORE_METHOD="--method core_setup"
 [[ -d /var/lib/calculate ]] || mkdir /var/lib/calculate
 
@@ -19,7 +20,7 @@ setup_merge_package() {
 	if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
 		grep ${CATEGORY}/${PN} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
 	then
-		[ -f ${CL_UPDATE_PROG} ] && check_skip && CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${CL_UPDATE_PROG} ${CORE_METHOD} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
+		[ -f ${CL_UPDATE_PROG} ] && check_skip && CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${RUN_CORE} ${CORE_METHOD} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
 	fi
 	rm -f /var/lib/calculate/-runlevels-$PN
 }
@@ -36,7 +37,7 @@ clean_contents_mark() {
 
 # mark: package updating
 mark_update_package() {
-	touch "/var/lib/calculate/-merge-$PN--${SLOT/\//_}-$PPID"
+	touch "/var/lib/calculate/-merge-$PN--${SLOT/\/*}-$PPID"
 }
 
 # save services runlevels
@@ -46,7 +47,7 @@ save_runlevels() {
 
 # dispatching unmerge or update package
 pkg_postrm_dispatch() {
-	if [[ ! -f /var/lib/calculate/-merge-$PN--${SLOT/\//_}-$PPID ]]
+	if [[ ! -f /var/lib/calculate/-merge-$PN--${SLOT/\/*}-$PPID ]]
 	then
 		pkg_postrm_unmerge
 	else
@@ -70,7 +71,7 @@ pkg_postrm_unmerge() {
 	if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
 		grep ${CATEGORY}/${PN} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
 	then
-		[ -f ${CL_UPDATE_PROG} ] && check_skip && ${CL_UPDATE_PROG} ${CORE_METHOD} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path / --pkg-name ${PN}
+		[ -f ${CL_UPDATE_PROG} ] && check_skip && ${RUN_CORE} ${CORE_METHOD} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT} --pkg-category ${CATEGORY} --pkg-path / --pkg-name ${PN}
 	fi
 }
 
