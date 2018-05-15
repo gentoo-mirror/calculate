@@ -630,3 +630,6 @@ net-misc/aria2 xmlrpc
 
 # required by x11-misc/xflux-gui-1.1.10
 dev-libs/libappindicator python
+
+# required by sys-boot/os-prober-1.76-r1
+sys-boot/grub mount
