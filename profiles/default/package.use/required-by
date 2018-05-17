@@ -248,8 +248,8 @@ dev-qt/qthelp compat
 # required by sys-power/apcupsd-3.14.8-r2
 sys-apps/util-linux tty-helpers
 
-# required by kde-apps/kopete-4.14.3-r1:4/4.14
-dev-qt/qtgui mng
+# required by media-sound/picard-2.0.0_beta3 kde-apps/kopete-4.14.3-r1:4/4.14
+dev-qt/qtgui accessibility mng
 
 # required by www-client/chromium-43.0.2357.130 (https://bugs.gentoo.org/show_bug.cgi?id=553502)
 # required by www-client/firefox-46.0 [system-libvpx]
