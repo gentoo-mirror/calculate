@@ -27,3 +27,6 @@ media-libs/libopenshot -imagemagick
 
 #<www-client/seamonkey-2.49.5.0_p0" is blocking x11-plugins/enigmail-1.9.8.3-r1
 =x11-plugins/enigmail-1.9.8.3-r1
+
+# Missins support for required CPU baseline features. Was tested at the start of the `nomacs`. Also with these options is not going to the virtualbox.
+media-libs/opencv -cpu_flags_x86_fma3 -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_popcnt -cpu_flags_x86_sse4_2
