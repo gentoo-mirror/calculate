@@ -52,7 +52,7 @@ fi
 # fix the backup as daily if there was no error
 if [[ $res -ne 1 ]]
 then
-    rsnapshot $configfile daily
+    rsnapshot -c $configfile daily
     # write current time to backup for reference
     date >${snapshot_root}/daily.0/timestamp
     exit 0
