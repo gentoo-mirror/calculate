@@ -28,34 +28,38 @@ get_retain_value() {
     awk -F"\t" "{if (\$1 == \"retain\" && \$2 == \"$1\") print \$3}" | tail -1
 }
 
+declare -A res
+
 base_configfile=/etc/rsnapshot.conf
-configfile=${1:-$base_configfile}
+configfiles=${@:-$base_configfile}
 
-snapshot_root="$(cat $base_configfile $configfile | get_value snapshot_root)"
-retain_daily="$(cat $base_configfile $configfile | get_retain_value daily)"
+for configfile in $configfiles
+do
+	rsnapshot -c $configfile sync
+	res["$configfile"]=$?
+done
 
-# prepare backup snapshot
-rsnapshot -c $configfile sync
-res=$?
+for configfile in $configfiles
+do
+	snapshot_root="$(cat $base_configfile $configfile | get_value snapshot_root)"
+	retain_daily="$(cat $base_configfile $configfile | get_retain_value daily)"
 
-# calculating the day of the week when need to do rotation, so that a copy
-# comes in weekly from Monday
-if [[ $(date +"%w") -eq $(( ($retain_daily + 1) % 7 )) ]]
-then
-    # it's time to make a monthly backup
-    if [[ $(( $(date +"%s") / $weekseconds % 4 )) -eq 0 ]]
-    then
-        rsnapshot -c $configfile monthly
-    fi
-    rsnapshot -c $configfile weekly
-fi
-# fix the backup as daily if there was no error
-if [[ $res -ne 1 ]]
-then
-    rsnapshot -c $configfile daily
-    # write current time to backup for reference
-    date >${snapshot_root}/daily.0/timestamp
-    exit 0
-else
-    exit 1
-fi
+	# calculating the day of the week when need to do rotation, so that a copy
+	# comes in weekly from Monday
+	if [[ $(date +"%w") -eq $(( ($retain_daily + 1) % 7 )) ]]
+	then
+	    # it's time to make a monthly backup
+	    if [[ $(( $(date +"%s") / $weekseconds % 4 )) -eq 0 ]]
+	    then
+		rsnapshot -c $configfile monthly
+	    fi
+	    rsnapshot -c $configfile weekly
+	fi
+	# fix the backup as daily if there was no error
+	if [[ ${res["$configfile"]} -ne 1 ]]
+	then
+	    rsnapshot -c $configfile daily
+	    # write current time to backup for reference
+	    date >${snapshot_root}/daily.0/timestamp
+	fi
+done
