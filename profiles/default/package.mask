@@ -1,5 +1,4 @@
 # not compiled
-=app-admin/packagekit-base-1.1.5-r1
 =app-emacs/slime-2.20
 =dev-db/myodbc-5.2.7-r3
 =dev-java/commons-math-2.1-r2
@@ -7,14 +6,8 @@
 =dev-ruby/gherkin-2.12.2
 =sci-geosciences/qgis-3.0.2
 
-# not compiled media-video/ffmpeg with this version
-=media-libs/openjpeg-2.2.0
-
 # mask portage wgetpaste
 >app-text/wgetpaste-2.25-r4
-
-# deprecated, calculate-server is separate package now
-sys-apps/calculate-utils:0
 
 # prevent automagic depends
 sys-libs/db:6.0
@@ -25,26 +18,12 @@ sys-libs/db:6.0
 # <dev-python/billiard-3.4 required by dev-python/celery-3.1.24-r1
 =dev-python/billiard-3.5.0.0
 
-# conflict with app-emulation/docker-compose-1.11.2
-~dev-python/requests-2.12.5
-
-# <sys-power/cpupower-4.7 required by (mate-base/mate-applets-1.18.1
-=sys-power/cpupower-4.9.0
-
 # blocks dev-python/oslo-privsep-1.22.1, dev-python/glance_store-0.22.0, dev-python/oslo-service-1.25.1
 =dev-python/eventlet-0.20.1-r1
 =dev-python/eventlet-0.21.0-r1
 =dev-python/eventlet-0.21.1-r1
 
-# conflict with media-video/transcode-1.1.7-r3
-=media-gfx/imagemagick-6.9.9.20
-
-# conflict with dev-libs/boost-1.62.0-r1:0/1.62.0
-=dev-libs/boost-1.63.0
-=dev-util/boost-build-1.63.0
-
 # livecd does not work
-=sys-kernel/dracut-045-r2
 =app-shells/bash-4.4_p12
 
 # not downloadable
