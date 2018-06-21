@@ -20,21 +20,11 @@ installkernel() {
 }
 
 install() {
-#    inst_dir /lib/modules/keys
-     inst_binary /usr/sbin/lspci
-     inst_binary /usr/bin/sleep
-     inst_binary /bin/grep
-     inst_binary /sbin/lsmod
-     inst_binary /usr/bin/find
      inst_binary /usr/bin/cut
-     inst_simple /usr/share/misc/pci.ids
-     inst_hook pre-trigger 01 "$moddir/load-video.sh"
+     inst_script "$moddir/select-video.sh" "/sbin/select-video.sh"
+     inst_hook pre-pivot 50 "$moddir/system-video-blacklist.sh"
      inst_hook cmdline 50 "$moddir/parse-cmdline.sh"
      mkdir -p ${initdir}/etc/modprobe.d
-     for videomodule in fglrx nvidia radeon nouveau uvesafb amdgpu vboxvideo
-     do
-        echo "blacklist ${videomodule}" >>${initdir}/etc/modprobe.d/video-blacklist.conf
-     done
 #
 #    inst_hook pre-trigger 01 "$moddir/load-modsign-keys.sh"
 #
