@@ -25,11 +25,4 @@ install() {
      inst_hook pre-pivot 50 "$moddir/system-video-blacklist.sh"
      inst_hook cmdline 50 "$moddir/parse-cmdline.sh"
      mkdir -p ${initdir}/etc/modprobe.d
-#
-#    inst_hook pre-trigger 01 "$moddir/load-modsign-keys.sh"
-#
-#    for x in /lib/modules/keys/* ; do
-#        [[ "${x}" = "/lib/modules/keys/*" ]] && break
-#        inst_simple "${x}"
-#    done
 }
