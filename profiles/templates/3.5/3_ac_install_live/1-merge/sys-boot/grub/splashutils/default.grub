@@ -41,3 +41,4 @@ GRUB_TERMINAL=console
 #!os_install_grub_terminal#
 !GRUB_TERMINAL=
 #os_install_grub_terminal#
+GRUB_GFX_PAYLOAD="#-os_install_fb_resolution-#"
