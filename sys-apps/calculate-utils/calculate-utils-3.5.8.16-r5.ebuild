@@ -6,7 +6,7 @@ EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.8.9"
+	["lib"]="3.5.8.10"
 	["install"]="3.5.8.11"
 	["i18n"]="3.5.8.2"
 	["update"]="3.5.8.2"
