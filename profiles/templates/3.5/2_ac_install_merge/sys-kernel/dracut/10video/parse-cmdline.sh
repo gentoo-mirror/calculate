@@ -42,3 +42,5 @@ then
         esac
     done
 fi
+
+/sbin/select-video.sh /etc/modprobe.d/video-blacklist.conf $videodrv

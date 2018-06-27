@@ -19,6 +19,14 @@ EndSection
 
 Section "Screen"
  Identifier "Monitor"
+  Subsection "Display"
+    Viewport 0 0
+    Depth 24
+#?hr_virtual!=&&os_install_x11_resolution_preferred!=#
+    Modes "#-os_install_x11_resolution_preferred-#"
+#hr_virtual#
+    Modes "#-os_install_x11_resolution-#"
+  EndSubsection
 EndSection
 
 Section "Extensions"
