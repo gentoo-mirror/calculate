@@ -30,3 +30,6 @@ media-libs/libopenshot -imagemagick
 
 # Missins support for required CPU baseline features. Was tested at the start of the `nomacs`. Also with these options is not going to the virtualbox.
 media-libs/opencv -cpu_flags_x86_fma3 -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_popcnt -cpu_flags_x86_sse4_2
+
+# removed package
+dev-python/pyside -webkit
