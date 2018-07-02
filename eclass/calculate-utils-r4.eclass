@@ -192,7 +192,7 @@ RDEPEND="
 		sys-apps/keyutils
 		sys-auth/pam_keystore
 		dev-lang/swig
-		dev-qt/qtdbus:4
+		dev-qt/qtdbus:5
 	)
 
 	server? (
