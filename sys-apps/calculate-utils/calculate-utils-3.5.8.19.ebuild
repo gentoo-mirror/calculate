@@ -6,14 +6,15 @@ EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.8.5"
-	["install"]="3.5.8.6"
+	["lib"]="3.5.8.11"
+	["install"]="3.5.8.12"
 	["i18n"]="3.5.8.2"
-	["update"]="3.5.8.1"
+	["console-gui"]="3.5.8.1"
+	["update"]="3.5.8.2"
 	["builder"]="3.5.8.4"
 )
 
-inherit calculate-utils-r3
+inherit calculate-utils-r4
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"

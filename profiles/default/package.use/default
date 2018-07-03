@@ -114,7 +114,7 @@ net-p2p/opentracker -ipv6
 app-office/libreoffice gnome
 
 # include backup, client, desktop, console and console-gui modules
-sys-apps/calculate-utils backup client desktop console qt4
+sys-apps/calculate-utils backup client desktop console qt5
 
 # support caja
 app-arch/engrampa caja
@@ -273,7 +273,7 @@ media-gfx/blender cycles openimageio
 media-plugins/audacious-plugins http
 
 # add support for applications using legacy xembed systray icons
-kde-plasma/plasma-desktop legacy-systray gtk2 gtk3 touchpad qt4
+kde-plasma/plasma-desktop touchpad
 
 # add modules
 lxqt-base/lxqt-panel colorpicker cpuload dom networkmonitor screensaver sensors sysstat worldclock
@@ -354,7 +354,7 @@ www-plugins/chrome-binary-plugins -flash
 media-video/mediainfo wxwidgets
 
 # use postgresql database for not using '-secure-delete' sqlite USE flag
-net-irc/quassel postgres qt5
+net-irc/quassel postgres
 
 # enable support for mobile broadband devices
 gnome-extra/nm-applet modemmanager
@@ -375,8 +375,9 @@ x11-drivers/xf86-video-intel dri3 uxa
 media-gfx/kphotoalbum face
 
 # support for the Qt GUI/Application
-app-backup/backintime qt4
+app-backup/backintime qt5
 app-backup/bacula qt5
+net-print/hplip qt5
 
 # support for some plasmoids
 kde-base/plasma-workspace python
@@ -394,7 +395,7 @@ x11-drivers/xf86-video-amdgpu glamor
 media-video/ffmpeg chromium
 
 # support for Japanese input https://www.youtube.com/watch?v=NtA4C4HR7LE
-app-i18n/fcitx gtk2 gtk3 qt4
+app-i18n/fcitx gtk2 gtk3
 
 # add man
 app-emulation/lxc doc

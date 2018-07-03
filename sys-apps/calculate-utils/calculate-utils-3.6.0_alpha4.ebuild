@@ -5,20 +5,23 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
+UTILS_PV="3.6.0_alpha1"
+
+
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.8.4"
-	["install"]="3.5.8.4"
-	["i18n"]="3.5.8.2"
-	["update"]="3.5.8.1"
-	["builder"]="3.5.8.2"
+	["lib"]="3.6.0_alpha3"
+	["install"]="3.6.0_alpha3"
+	["i18n"]="3.6.0_alpha2"
+	["console-gui"]="3.6.0_alpha2"
+	["builder"]="3.6.0_alpha3"
 )
 
-inherit calculate-utils-r3
+inherit calculate-utils-r4
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="amd64 x86"
+KEYWORDS=""
 

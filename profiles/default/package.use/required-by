@@ -120,20 +120,11 @@ dev-libs/libxml2 python icu
 # for using dev-libs/libxml2 [icu] - required by www-client/chromium
 dev-qt/qtwebkit icu
 
-# required by sys-apps/calculate-console-gui [script]
-dev-python/pyside script
-
 # required by sys-devel/prelink
 dev-libs/elfutils static-libs
 
 # required by kde-base/kopete-4.14.3-r1[ssl]
 app-crypt/qca openssl
-
-# required by required by net-irc/konversation-1.6 [crypt]
-app-crypt/qca qt5
-
-# equired by kde-frameworks/kdelibs-4.14.37:4
-app-crypt/qca qt4
 
 # [declarative, script, sql] required by kde-base/pykde4
 # [help] required by dev-util/eric
@@ -144,9 +135,6 @@ media-libs/mlt melt xml kdenlive -xine qt5
 
 # required by media-video/shotcut-18.03
 media-libs/mlt sdl2
-
-# [pyqt4] required by kde-misc/synaptiks
-dev-python/pyudev pyqt4
 
 # [xmp] required by kde-base/libkexiv2
 media-gfx/exiv2 xmp
@@ -159,10 +147,6 @@ media-libs/opencv contrib
 
 # required by kde-apps/okteta-15.08.3
 >=dev-qt/qtscript-5.5.1 scripttools
-
-# required by app-text/qpdfview [pdf]
-# required by kde-apps/okular-15.08.3-r1::gentoo[pdf]
-app-text/poppler qt4 qt5
 
 # [icu] required by www-client/chromium
 media-libs/harfbuzz icu
@@ -177,9 +161,6 @@ media-plugins/grilo-plugins tracker
 # required by kde-apps/ktp-call-ui-16.04.1
 net-libs/telepathy-qt farstream
 
-# required by app-backup/qt4-fsarchiver-0.6.19.6
-app-backup/fsarchiver lzma
-
 # required by net-im/skype-4.3.0.37-r6
 dev-qt/qtwebkit -exceptions
 
@@ -192,9 +173,6 @@ media-video/ffmpeg vpx
 
 # required by sci-chemistry/chemical-mime-data-0.1.94-r2
 media-gfx/imagemagick xml
-
-# required by kde-apps/ktp-common-internals-15.12.3
-net-libs/telepathy-qt qt5
 
 # required by kde-apps/ktp-text-ui-15.12.3
 kde-apps/ktp-common-internals otr
@@ -296,9 +274,6 @@ sys-fs/lvm2 thin
 # required by media-gfx/simple-scan-3.18.2
 dev-libs/libgusb vala
 
-# required by sci-visualization/qtiplot-0.9.8.9-r3
-dev-libs/quazip qt4
-
 # required by kde-plasma/plasma-pa-5.8.3
 media-sound/pulseaudio gnome
 
@@ -329,9 +304,6 @@ media-gfx/pstoedit plotutils
 # required by x11-misc/xdg-utils-1.1.1-r1, net-print/cups-2.1.4[X]
 app-text/xmlto text
 
-# required by sci-geosciences/qgis-2.18.3-r1
-x11-libs/qwt designer qt4
-
 # required by net-misc/libteam-1.22
 dev-libs/libnl utils
 
@@ -343,12 +315,6 @@ net-libs/libgadu gnutls
 
 # required by app-emulation/docker-17.03.1[container-init]
 sys-process/tini static
-
-# required by media-libs/phonon-4.9.0[gstreamer]
-media-libs/phonon-gstreamer qt4
-
-# required by media-libs/phonon-gstreamer-4.9.0-r1
-media-libs/phonon qt4
 
 # required by gnome-extra/gnome-builder-3.22.4[git]
 dev-libs/libgit2-glib ssh
@@ -446,57 +412,16 @@ app-accessibility/brltty python
 # required by app-accessibility/orca-3.22.2[braille]
 dev-libs/liblouis python
 
+# required by app-text/qpdfview [pdf]
+# required by kde-apps/okular-15.08.3-r1::gentoo[pdf]
 # required by kde-frameworks/kfilemetadata-5.13.0 [pdf]
 app-text/poppler qt5
 
-# required by kde-frameworks/knotifications-5.13.0 [dbus]
-dev-libs/libdbusmenu-qt qt5 qt4
-
-# required by media-libs/phonon-4.7.2 [gstreamer]
-media-libs/phonon-gstreamer qt5
-
-# required by media-libs/phonon-gstreamer-4.7.2
-media-libs/phonon qt5
-
-# required by kde-plasma/polkit-kde-agent-5.4.0
-sys-auth/polkit-qt qt5 qt4
-
-# required by dev-db/sqlitebrowser-3.7.0
-dev-libs/qcustomplot qt5
-
-# required by net-p2p/qbittorrent-3.3.3
-dev-qt/qtlockedfile qt5
-dev-qt/qtsingleapplication qt5
-
-# required by net-im/vacuum-1.2.5
-dev-qt/qtlockedfile qt4
- 
 # required by media-gfx/nomacs-3.0.0
 media-libs/opencv qt5
 
-# required by mail-client/trojita-0.7 [password]
-dev-libs/qtkeychain qt5
-
-# required by media-sound/tomahawk-0.9.0_pre20161029
-media-libs/liblastfm qt5
-
-# required by media-sound/tomahawk-0.9.0_pre20161029
-media-libs/libechonest qt5
-
-# required by media-sound/tomahawk-0.9.0_pre20161029
-dev-libs/quazip qt5
-
 # required by dev-util/eric-17.04
 dev-python/PyQt5 sql help
-dev-python/qscintilla-python qt5 -qt4
-x11-libs/qscintilla qt5 -qt4
-
-# required by sci-geosciences/qgis-2.18.7
-x11-libs/qwtpolar qt5 -qt4
-x11-libs/qwt qt5
-
-# required by media-video/kamerka-0.12_p20161002
-media-libs/qimageblitz qt5
 
 # required by (sys-apps/calculate-server-2.1.16-r17
 net-ftp/proftpd ident
@@ -616,9 +541,6 @@ dev-scheme/scm libscm
 # required by dev-python/collectd-rabbitmq-1.19.0-r1
 app-metrics/collectd collectd_plugins_python
 
-# required by media-sound/clementine-1.3.1_p20180319
-media-libs/libmygpo-qt qt5
-
 # required by games-arcade/rocksndiamonds-4.1.0.0
 media-libs/sdl2-mixer timidity
 
@@ -633,3 +555,6 @@ sys-boot/grub mount
 
 # required by dev-python/python-virtkey-0.60.0-r1, app-admin/packagekit-base-1.1.7-r1
 dev-libs/glib -python_single_target_python3_5 python_single_target_python2_7
+
+# webkit? ( qt5 )
+sys-libs/gwenhywfar qt5

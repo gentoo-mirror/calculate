@@ -4,12 +4,6 @@ sys-cluster/csync2 postgres
 sys-cluster/neutron postgres
 sys-cluster/nova postgres
 
-# any-of (chrome qt4)
-net-misc/hotot qt4
-
-# any-of ( chrome qt5 )
-net-misc/hotot qt5
-
 # any-of ( mysql postgres sqlite )
 mail-client/roundcube sqlite
 

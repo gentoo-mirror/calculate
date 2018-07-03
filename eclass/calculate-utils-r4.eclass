@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# @ECLASS: calculate-utils-r3.eclass
+# @ECLASS: calculate-utils-r4.eclass
 # @MAINTAINER:
 # support@calculate.ru
 # @AUTHOR:
@@ -68,7 +68,7 @@ declare -g -A CALCULATE_MODULES_=(
 declare -g -A CALCULATE_MODULES_USE_=(
 	["desktop"]="desktop"
 	["client"]="client"
-	["console-gui"]="qt4"
+	["console-gui"]="qt5"
 	["console"]="console"
 	["server"]="server"
 	["ldap"]="server"
@@ -192,7 +192,7 @@ RDEPEND="
 		sys-apps/keyutils
 		sys-auth/pam_keystore
 		dev-lang/swig
-		dev-qt/qtdbus:4
+		dev-qt/qtdbus:5
 	)
 
 	server? (
@@ -209,13 +209,13 @@ RDEPEND="
 		>=sys-auth/nss_ldap-239
 	)
 
-	qt4? (
+	qt5? (
 		dev-python/dbus-python[python_targets_python2_7]
 		|| (
 			dev-python/pillow[python_targets_python2_7]
 			dev-python/imaging[python_targets_python2_7]
 		)
-		dev-python/pyside[script,python_targets_python2_7]
+		dev-python/PyQt5[python_targets_python2_7]
 	)
 
 	dbus? (
@@ -242,10 +242,10 @@ DEPEND="sys-devel/gettext"
 
 REQUIRED_USE="client? ( desktop )"
 
-# @FUNCTION: calculate-utils-r3_src_compile
+# @FUNCTION: calculate-utils-r4_src_compile
 # @DESCRIPTION:
 # Compile all modules of calculate utils
-calculate-utils-r3_src_compile() {
+calculate-utils-r4_src_compile() {
 	if ! use backup
 	then
 		sed -ir "s/'cl-backup'/None/" calculate-core-*/pym/core/wsdl_core.py
@@ -269,10 +269,10 @@ calculate-utils-r3_src_compile() {
 	done
 }
 
-# @FUNCTION: calculate-utils-r3_src_install
+# @FUNCTION: calculate-utils-r4_src_install
 # @DESCRIPTION:
 # Install all modules of calculate utils
-calculate-utils-r3_src_install() {
+calculate-utils-r4_src_install() {
 	prepare_module_info
 	for MODULE in "${MODULE_INFO[@]}"
 	do
@@ -298,12 +298,12 @@ python_install() {
 	distutils-r1_python_install $PYTHON_INSTALL_PARAMS
 }
 
-calculate-utils-r3_pkg_preinst() {
+calculate-utils-r4_pkg_preinst() {
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
-	if use qt4
+	if use qt5
 	then
 		dosym /usr/lib/python-exec/python2.7/cl-console-gui /usr/bin/cl-console-gui-install
 		dosym /usr/lib/python-exec/python2.7/cl-console-gui /usr/bin/cl-console-gui-update
