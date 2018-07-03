@@ -13,17 +13,14 @@ dev-lang/php -imap -spell
 dev-libs/folks -bluetooth
 dev-python/translate-toolkit -html
 dev-qt/qtgui -vnc
-dev-util/cmake -qt4
 dev-vcs/git -gtk
 gnome-extra/zenity -webkit
 kde-apps/kdebase-runtime-meta -crash-reporter
 kde-apps/kget -bittorrent
 kde-apps/print-manager -gtk
-kde-plasma/plasma-desktop -qt4
 mail-client/roundcube -spell
 mate-extra/mate-sensors-applet -video_cards_nvidia
 media-fonts/terminus-font -pcf
-media-gfx/gimp -webkit
 media-gfx/imagemagick -X -raw
 media-gfx/inkscape -spell
 media-video/ffmpeg -samba
@@ -36,10 +33,8 @@ net-irc/weechat -spell
 net-libs/webkit-gtk -geoloc
 net-misc/asterisk -bluetooth
 net-misc/dahdi -flash
-net-misc/remmina -webkit
 net-p2p/ktorrent -infowidget
 net-print/cups -X
-net-wireless/wpa_supplicant -qt4
 sys-apps/man-db -nls
 sys-apps/portage -rsync-verify
 sys-auth/polkit -gtk
