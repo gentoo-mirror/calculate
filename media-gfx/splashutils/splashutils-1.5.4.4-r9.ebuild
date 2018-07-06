@@ -120,6 +120,7 @@ src_prepare() {
 	epatch_user
 	export PKG_CONFIG="pkg-config --static"
 	eautoreconf
+	epatch "${FILESDIR}"/splashutils-1.5.4.4-sysmacros.patch
 }
 
 src_configure() {
