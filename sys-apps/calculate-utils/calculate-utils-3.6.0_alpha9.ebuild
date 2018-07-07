@@ -12,7 +12,7 @@ declare -A CALCULATE_MODULES=(
 	["lib"]="3.6.0_alpha3"
 	["install"]="3.6.0_alpha3"
 	["i18n"]="3.6.0_alpha2"
-	["console-gui"]="3.6.0_alpha2"
+	["console-gui"]="3.6.0_alpha8"
 	["builder"]="3.6.0_alpha3"
 )
 
