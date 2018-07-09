@@ -3,7 +3,7 @@ DEPEND=!build? ( sys-apps/sed >=sys-devel/binutils-2.11.90.0.31 ) vmlinuz? ( || 
 DESCRIPTION=Calculate Linux kernel image
 EAPI=5
 HOMEPAGE=http://www.calculate-linux.org
-IUSE=uksm muqss symlink build +vmlinuz desktop pae minimal themes firmware +grub
+IUSE=uksm muqss kernel_linux symlink build +vmlinuz desktop pae minimal themes firmware +grub
 KEYWORDS=amd64 x86
 LICENSE=GPL-2 linux-firmware
 RDEPEND=!build? ( >=sys-libs/ncurses-5.2 sys-devel/make dev-lang/perl sys-devel/bc virtual/libelf ) vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils ) grub? ( sys-boot/grub ) ) firmware? ( sys-kernel/linux-firmware ) vmlinuz? ( sys-kernel/dracut )
@@ -11,5 +11,5 @@ REQUIRED_USE=minimal? ( vmlinuz )
 RESTRICT=binchecks strip
 SLOT=4.14.52
 SRC_URI=mirror://kernel/linux/kernel/v4.x/patch-4.14.52.xz mirror://kernel/linux/kernel/v4.x/linux-4.14.tar.xz
-_eclasses_=calculate	0125f4656b834b3e1e0ee7afd9db925f	calculate-kernel-7	f39e4b8c238a71fe0303d98e5610689b	desktop	1b286a7e7143d8c4ec89cd0d2743a097	epatch	9a5f039771f143195164a15a4faa41a1	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	5b8ce72259e08104b337fe28c6de5dbc	kernel-2	9c959482618084f1edf862d4783a73b4	linux-info	aedb720bff5a5dec9b87edd351382bfc	ltprune	607e058da37aa6dabfa408b7d61da72e	multilib	97f470f374f2e94ccab04a2fb21d811e	preserve-libs	ef207dc62baddfddfd39a164d9797648	python-any-r1	6faea633ae2f79f6d55dcfd431b79fbf	python-utils-r1	7db901256449fef43c3aaa4d486c1c63	toolchain-funcs	1e35303c63cd707f6c3422b4493d5607	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	versionator	26ca8a8bd95d6a74122c08ba98a4ee72
+_eclasses_=calculate	0125f4656b834b3e1e0ee7afd9db925f	calculate-kernel-7	f39e4b8c238a71fe0303d98e5610689b	desktop	1b286a7e7143d8c4ec89cd0d2743a097	epatch	9a5f039771f143195164a15a4faa41a1	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	5b8ce72259e08104b337fe28c6de5dbc	kernel-2	9c959482618084f1edf862d4783a73b4	linux-info	ee2d911941350f117c3c9032783bb0e2	ltprune	607e058da37aa6dabfa408b7d61da72e	multilib	97f470f374f2e94ccab04a2fb21d811e	preserve-libs	ef207dc62baddfddfd39a164d9797648	python-any-r1	6faea633ae2f79f6d55dcfd431b79fbf	python-utils-r1	7db901256449fef43c3aaa4d486c1c63	toolchain-funcs	1e35303c63cd707f6c3422b4493d5607	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	versionator	26ca8a8bd95d6a74122c08ba98a4ee72
 _md5_=716874ca9ef0858774e89251f2bbde8e
