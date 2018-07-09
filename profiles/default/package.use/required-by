@@ -223,8 +223,9 @@ net-libs/ptlib wav xml
 # required by sci-visualization/qtiplot-0.9.8.9-r2
 dev-qt/qthelp compat
 
+# required by sys-apps/gptfdisk-1.0.1
 # required by sys-power/apcupsd-3.14.8-r2
-sys-apps/util-linux tty-helpers
+sys-apps/util-linux static-libs tty-helpers
 
 # required by media-sound/picard-2.0.0_beta3 kde-apps/kopete-4.14.3-r1:4/4.14
 dev-qt/qtgui accessibility mng
@@ -555,3 +556,6 @@ sys-boot/grub mount
 
 # webkit? ( qt5 )
 sys-libs/gwenhywfar qt5
+
+# required by sys-apps/gptfdisk-1.0.1
+dev-libs/popt static-libs
