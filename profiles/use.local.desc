@@ -2,6 +2,16 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
+app-misc/lirc:audio - Support using an audio device connected to an IR receiver
+app-misc/lirc:devinput - Support the devinput input device
+app-misc/lirc:ftdi - Support FTDI devices
+app-misc/lirc:gtk - Include GTK support which enables the use of lirc-setup
+app-misc/lirc:hardware-carrier - The transmitter device generates its clock signal in hardware
+app-misc/lirc:iguanair - Support iguanaIR devices
+app-misc/lirc:inputlirc - Add a dependency on app-misc/inputlircd
+app-misc/lirc:irman - Add a dependency on media-libs/libirman
+app-misc/lirc:transmitter - Add transmitter support to some lirc-drivers (e.g. serial)
+app-misc/lirc:uinput - Enable support for uinput
 media-gfx/calculate-wallpapers:CL11 - Include Calculate Linux 11 wallpapers.
 media-gfx/calculate-wallpapers:CL12 - Include Calculate Linux 12 wallpapers.
 media-gfx/calculate-wallpapers:CL13 - Include Calculate Linux 13 wallpapers.
