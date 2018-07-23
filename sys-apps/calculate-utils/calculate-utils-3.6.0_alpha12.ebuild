@@ -9,7 +9,7 @@ UTILS_PV="3.6.0_alpha1"
 
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.6.0_alpha4"
+	["lib"]="3.6.0_alpha5"
 	["install"]="3.6.0_alpha5"
 	["i18n"]="3.6.0_alpha2"
 	["console-gui"]="3.6.0_alpha8"
