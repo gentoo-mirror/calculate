@@ -34,9 +34,9 @@ SLEEPCMD=:
 if type dm-tool &>/dev/null; then
     if type gnome-screensaver-command &>/dev/null; then
         gnome-screensaver-command --lock &>/dev/null &&
-            $SLEEPCMD && dm-tool lock &>/dev/null && exit
+            $SLEEPCMD && dm-tool switch-to-greeter &>/dev/null && exit
     else
-        dm-tool lock &>/dev/null && exit
+        dm-tool switch-to-greeter &>/dev/null && exit
     fi
 fi
 

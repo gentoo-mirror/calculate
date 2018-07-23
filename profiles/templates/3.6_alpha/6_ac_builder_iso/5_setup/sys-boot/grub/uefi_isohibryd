@@ -32,7 +32,7 @@ then
 else
     SPT=63
 fi
-mkfs.fat -C ${CD_GRUB_DIR}/efi.img $(( ($(stat -c %s "${CDROOT_DIR}/bootx64.efi") / 1024 + 55) / $SPT * $SPT )) &>/dev/null
+mkfs.fat -C ${CD_GRUB_DIR}/efi.img $(( ($(stat -c %s "${CDROOT_DIR}/bootx64.efi") / 1024 + 64) / $SPT * $SPT )) &>/dev/null
 mmd -i ${CD_GRUB_DIR}/efi.img ::efi
 mmd -i ${CD_GRUB_DIR}/efi.img ::efi/boot
 mcopy -i ${CD_GRUB_DIR}/efi.img ${CDROOT_DIR}/bootx64.efi ::efi/boot/bootx64.efi
