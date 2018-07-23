@@ -44,6 +44,10 @@ password   required     pam_deny.so
 
 session    required     pam_env.so
 session    required     pam_limits.so
+#?pkg(sys-auth/elogind)!=#
+-session   optional     pam_loginuid.so
+-session   optional     pam_elogind.so
+#pkg#
 session    required     pam_unix.so
 #?pkg(sys-fs/ecryptfs-utils)!=#
 session    optional     pam_ecryptfs.so unwrap

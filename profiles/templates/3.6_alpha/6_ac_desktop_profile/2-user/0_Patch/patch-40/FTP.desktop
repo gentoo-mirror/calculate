@@ -1,0 +1,3 @@
+# Calculate path="#-ini(resource.desktop)-#" pkg(gnome-extra/cinnamon-session)!=&&ini(resource.desktop)!=&&exists(#-ini(resource.desktop)-#/FTP.desktop)!=
+<reg>Icon=update-manager</reg>
+<text>Icon=folder-download</text>
