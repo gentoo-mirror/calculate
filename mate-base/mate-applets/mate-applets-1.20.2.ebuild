@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -8,17 +8,16 @@ PYTHON_COMPAT=( python2_7 )
 inherit mate python-single-r1
 
 if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="~amd64 ~arm ~x86"
+	KEYWORDS="amd64 ~arm ~arm64 x86"
 fi
 
 DESCRIPTION="Applets for the MATE Desktop and Panel"
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
 
-IUSE="X cpupower ipv6 policykit +upower"
+IUSE="X ipv6 policykit +upower"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-#cpupower #593470
 COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.74:0
@@ -31,7 +30,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=mate-base/mate-panel-1.17.0
 	>=net-wireless/wireless-tools-28_pre9:0
 	>=sys-apps/dbus-1.1.2:0
-	cpupower? ( <sys-power/cpupower-4.7 )
+	sys-power/cpupower
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.14:3
 	x11-libs/gtksourceview:3.0
@@ -62,12 +61,12 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext:*
 	virtual/pkgconfig:*"
 
-PATCHES=( "${FILESDIR}/${PN}-1.14.1-revert-upstream-cpupower-4.7-fix.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.16.0-cpupower-4.7.patch" )
 
 src_configure() {
 	mate_src_configure \
 		--libexecdir=/usr/libexec/mate-applets \
-		$(usex cpupower --with-cpufreq-lib=cpupower --disable-cpufreq) \
+		--with-cpufreq-lib=cpupower \
 		$(use_with X x) \
 		$(use_with upower) \
 		$(use_enable ipv6) \
@@ -80,11 +79,10 @@ src_test() {
 }
 
 src_install() {
-	python_fix_shebang invest-applet
 	mate_src_install
 
 	local APPLETS="accessx-status battstat charpick command cpufreq drivemount
-			geyes invest-applet mateweather multiload netspeed stickynotes
+			geyes mateweather multiload netspeed stickynotes
 			timerapplet trashapplet"
 
 	for applet in ${APPLETS}; do
