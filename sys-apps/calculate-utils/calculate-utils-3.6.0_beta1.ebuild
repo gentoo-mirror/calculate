@@ -5,14 +5,7 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
-declare -A CALCULATE_MODULES=(
-	["lib"]="3.5.8.11"
-	["install"]="3.5.8.12"
-	["i18n"]="3.5.8.2"
-	["console-gui"]="3.5.8.1"
-	["update"]="3.5.8.2"
-	["builder"]="3.5.8.4"
-)
+UTILS_PV="3.6.0_beta1"
 
 inherit calculate-utils-r4
 
