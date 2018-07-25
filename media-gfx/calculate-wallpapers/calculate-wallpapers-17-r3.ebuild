@@ -14,27 +14,27 @@ VERSION_IUSE="CL11 CL12 CL13 CL14 CL15"
 IUSE="+CL11 +CL12 +CL13 +CL14 +CL15"
 
 SRC_URI="
-	http://mirror.calculate-linux.org/themes/calculate/wallpaper-17-r1.jpg -> ${PF}.jpg
-	http://mirror.yandex.ru/calculate/themes/calculate/wallpaper-17-r1.jpg -> ${PF}.jpg
+	https://mirror.calculate-linux.org/themes/calculate/wallpaper-17.jpg -> ${PF}.jpg
+	https://mirror.yandex.ru/calculate/themes/calculate/wallpaper-17.jpg -> ${PF}.jpg
 	CL15? (
-		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-15.tar.bz2
-		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-15.tar.bz2
+		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-15.tar.bz2
+		https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-15.tar.bz2
 	)
 	CL14? (
-		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-14-r1.tar.bz2
-		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2
+		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-14-r1.tar.bz2
+		https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2
 	)
 	CL11? (
-		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-11.tar.bz2
-		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-11.tar.bz2
+		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-11.tar.bz2
+		https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-11.tar.bz2
 	)
 	CL12? (
-		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-12.tar.bz2
-		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-12.tar.bz2
+		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-12.tar.bz2
+		https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-12.tar.bz2
 	)
 	CL13? (
-		http://mirror.calculate-linux.org/themes/wallpapers/wallpapers-13.tar.bz2
-		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-13.tar.bz2
+		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-13.tar.bz2
+		https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-13.tar.bz2
 	)
 	"
 
