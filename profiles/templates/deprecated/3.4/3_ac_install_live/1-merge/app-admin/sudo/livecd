@@ -1,6 +1,0 @@
-# Calculate comment=# chmod=0440 os_install_root_type==livecd
-
-Defaults	env_keep += "HOME"
-Defaults	env_keep += "QT_PLUGIN_PATH"
-
-%wheel	ALL=(ALL) NOPASSWD: ALL

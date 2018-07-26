@@ -1,9 +1,0 @@
-# Calculate format=kde path=/usr/share/applications
-
-[Desktop Entry]
-#?os_audio!=alsa#
-NoDisplay=true
-#os_audio#
-#?os_audio==alsa#
-!NoDisplay=
-#os_audio#

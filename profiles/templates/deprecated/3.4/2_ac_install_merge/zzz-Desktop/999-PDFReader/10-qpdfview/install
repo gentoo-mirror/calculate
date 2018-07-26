@@ -1,8 +1,0 @@
-# Calculate format=compiz protected name=mimeapps.list pkg(app-text/qpdfview)!=&&ini(desktop.pdfreader)==||pkg(app-text/qpdfview)!=&&ini(desktop.pdfreader)==qpdfview
-
-# Update info
-#-ini(desktop.updating, on)-#
-#-ini(desktop.pdfreader, qpdfview)-#
-
-[Added Associations]
-application/pdf=qpdfview.desktop;
