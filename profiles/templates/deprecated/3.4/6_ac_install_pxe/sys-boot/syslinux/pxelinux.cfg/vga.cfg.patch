@@ -1,7 +1,0 @@
-# Calculate format=patch name=vga.cfg exists(#-os_install_pxe_path-#/pxelinux.cfg/vga.cfg)!=
-<reg> (/boot)</reg>
-<text> /calculate\1</text>
-<reg> isolinux.cfg</reg>
-<text> pxelinux.cfg/default</text>
-<reg> (common.cfg|calcmenu.c32)</reg>
-<text> pxelinux.cfg/\1</text>
