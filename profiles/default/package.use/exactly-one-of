@@ -16,5 +16,5 @@ net-fs/s3fs openssl
 # ruby? ( exactly-one-of ( ruby_targets_ruby22 ruby_targets_ruby23 ) )
 net-irc/epic5 -ruby_targets_ruby22
 
-# exactly-one-of ( python_single_target_python2_7 python_single_target_python3_4 python_single_target_python3_5 )
-kde-apps/lokalize python_single_target_python2_7
+# exactly-one-of ( python_single_target_python2_7 python_single_target_python3_4 python_single_target_python3_5 python_single_target_python3_6 )
+kde-apps/lokalize -python_single_target_python2_7
