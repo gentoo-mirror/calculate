@@ -370,12 +370,15 @@ media-libs/libsamplerate sndfile
 # required by media-sound/ncmpcpp-0.7.7[unicode]
 dev-libs/boost icu
 
+# [python] required by net-libs/rb_libtorrent
+dev-libs/boost python
+
+# required by sci-electronics/kicad-4.0.7
+dev-libs/boost context
+
 # [python] required by net-p2p/deluge
 net-libs/rb_libtorrent python
 net-libs/libtorrent-rasterbar python
-
-# [python] required by net-libs/rb_libtorrent
-dev-libs/boost python
 
 # required by x11-terms/guake-0.5.2
 x11-libs/vte python
