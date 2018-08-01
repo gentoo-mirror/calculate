@@ -1,23 +1,23 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI="5"
 
 SCM=""
 if [[ ${PV} == "9999" ]] ; then
-	SCM="git-r3"
+	SCM="autotools git-r3"
 	EGIT_REPO_URI="https://git.kernel.org/cgit/linux/kernel/git/legion/${PN}.git"
 	EGIT_BRANCH="master"
 else
-	SRC_URI="ftp://ftp.kernel.org/pub/linux/utils/kbd/${P}.tar.xz
+	SRC_URI="https://www.kernel.org/pub/linux/utils/kbd/${P}.tar.xz
 		ftp://ftp.calculate-linux.ru/calculate/source/keymaps-addon/keymaps-addon-0.0.2.tar.bz2
 		http://mirror.yandex.ru/calculate/source/keymaps-addon/keymaps-addon-0.0.2.tar.bz2
 		ftp://ftp.linux.kiev.ua/pub/Linux/Calculate/source/keymaps-addon/keymaps-addon-0.0.2.tar.bz2"
-	KEYWORDS="alpha amd64 ~arm ~arm64 hppa ~ia64 ~m68k ~mips ~ppc ppc64 ~s390 ~sh ~sparc x86"
+
+	KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 fi
 
-inherit autotools eutils ${SCM}
+inherit eutils ${SCM}
 
 DESCRIPTION="Keyboard and console utilities"
 HOMEPAGE="http://kbd-project.org/"
@@ -26,7 +26,8 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="nls pam test"
 
-RDEPEND="pam? ( virtual/pam )"
+RDEPEND="pam? ( virtual/pam )
+	app-arch/gzip"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	test? ( dev-libs/check )"
@@ -40,7 +41,6 @@ src_unpack() {
 	cd "${S}"
 	cp -r ../keymaps data/
 
-
 	# Rename conflicting keymaps to have unique names, bug #293228
 	cd "${S}"/data/keymaps/i386 || die
 	mv dvorak/no.map dvorak/no-dvorak.map || die
@@ -51,8 +51,9 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-2.0.0-tests.patch #485116
-	eautoreconf
+	if [[ ${PV} == "9999" ]] ; then
+		eautoreconf
+	fi
 }
 
 src_configure() {

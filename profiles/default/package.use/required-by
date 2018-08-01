@@ -562,3 +562,12 @@ sys-libs/gwenhywfar qt5
 
 # required by sys-apps/gptfdisk-1.0.1
 dev-libs/popt static-libs
+
+# required by sci-mathematics/4ti2
+sci-mathematics/glpk gmp
+
+# required by sci-mathematics/wxmaxima-15.08.2
+sci-visualization/gnuplot wxwidgets
+
+# required by sci-mathematics/coq-8.6[gtk]
+dev-ml/lablgtk sourceview
