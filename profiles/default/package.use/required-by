@@ -571,3 +571,6 @@ sci-visualization/gnuplot wxwidgets
 
 # required by sci-mathematics/coq-8.6[gtk]
 dev-ml/lablgtk sourceview
+
+# required by sci-chemistry/votca-xtp-1.4
+sci-libs/votca-tools sqlite
