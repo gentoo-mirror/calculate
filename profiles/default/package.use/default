@@ -415,7 +415,8 @@ app-editors/emacs libxml2 xft
 app-admin/webalizer -nls
 
 # support for the improved mySQL libraries
-dev-lang/php mysqli
+# support for process creation functions (nextcloud php occ)
+dev-lang/php mysqli pcntl
 
 # enables drawing tool
 x11-misc/shutter drawing
