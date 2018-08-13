@@ -1,0 +1,49 @@
+# Calculate format=diff merge(x11-misc/light-locker)>=1.8.0
+diff --git a/src/gs-manager.c b/src/gs-manager.c
+index 2ffcef3..a1d2a0f 100644
+--- a/src/gs-manager.c
++++ b/src/gs-manager.c
+@@ -734,6 +734,13 @@ gs_manager_get_blank_screen (GSManager *manager)
+         return manager->priv->blank;
+ }
+ 
++void
++gs_manager_set_lid_closed_property (GSManager *manager,
++                                    gboolean   closed)
++{
++        manager->priv->closed = closed;
++}
++
+ void
+ gs_manager_set_lid_closed (GSManager *manager,
+                            gboolean   closed)
+diff --git a/src/gs-manager.h b/src/gs-manager.h
+index ebf369e..e67c43b 100644
+--- a/src/gs-manager.h
++++ b/src/gs-manager.h
+@@ -67,10 +67,12 @@ void        gs_manager_set_blank_screen     (GSManager  *manager,
+                                              gboolean    active);
+ 
+ gboolean    gs_manager_get_blank_screen     (GSManager  *manager);
+-
+ void        gs_manager_set_lid_closed       (GSManager *manager,
+                                              gboolean   closed);
+ 
++void        gs_manager_set_lid_closed_property  (GSManager *manager,
++                                                 gboolean   closed);
++
+ void        gs_manager_set_lock_after       (GSManager  *manager,
+                                              guint       lock_after);
+ 
+diff --git a/src/gs-monitor.c b/src/gs-monitor.c
+index f0e2592..533a097 100644
+--- a/src/gs-monitor.c
++++ b/src/gs-monitor.c
+@@ -419,6 +419,7 @@ listener_lid_closed_cb (GSListener *listener,
+                                        (GSourceFunc)gs_monitor_lock_session,
+                                        monitor);
+                 monitor->priv->perform_lock = FALSE;
++                gs_manager_set_lid_closed_property (monitor->priv->manager, closed);
+                 return;
+         }
+ 
