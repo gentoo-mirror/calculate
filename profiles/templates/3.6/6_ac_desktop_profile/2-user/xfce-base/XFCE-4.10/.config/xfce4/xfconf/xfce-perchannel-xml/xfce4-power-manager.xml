@@ -5,5 +5,8 @@
   <property name="xfce4-power-manager" type="empty">
     <property name="power-button-action" type="uint" value="3"/>
     <property name="lid-action-on-battery" type="uint" value="1"/>
+#?hr_laptop!=#
+    <property name="show-tray-icon" type="bool" value="true"/>
+#hr_laptop#
   </property>
 </channel>
