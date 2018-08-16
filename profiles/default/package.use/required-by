@@ -577,3 +577,6 @@ sci-libs/votca-tools sqlite
 
 # required by sci-misc/nco-4.5.1-r2
 sci-libs/netcdf tools -dap
+
+# required by app-editors/retext-7.0.3
+dev-python/markdown pygments
