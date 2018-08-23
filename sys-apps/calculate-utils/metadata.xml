@@ -15,6 +15,7 @@ A set of Calculate utilities for system installation, build and upgrade.
 		<flag name="pxe">Enables support for PXE installation.</flag>
 		<flag name="dbus">Enables ability to run core server by dbus.</flag>
 		<flag name="qt5">Include Qt5 gui console</flag>
+		<flag name="gpg">Enables the signature checking</flag>
 	</use>
 </pkgmetadata>
 
