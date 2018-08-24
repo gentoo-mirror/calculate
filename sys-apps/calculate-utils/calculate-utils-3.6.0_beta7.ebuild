@@ -8,7 +8,7 @@ PYTHON_COMPAT=(python2_7)
 UTILS_PV="3.6.0_beta1"
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.6.0_beta4"
+	["lib"]="3.6.0_beta6"
 	["install"]="3.6.0_beta4"
 	["core"]="3.6.0_beta3"
 	["i18n"]="3.6.0_beta4"
@@ -31,5 +31,5 @@ RDEPEND="
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 
