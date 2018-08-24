@@ -7,13 +7,12 @@ PYTHON_COMPAT=(python2_7)
 
 UTILS_PV="3.6.0_beta1"
 
-
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.6.0_beta4"
 	["install"]="3.6.0_beta4"
 	["core"]="3.6.0_beta3"
 	["i18n"]="3.6.0_beta4"
-	["update"]="3.6.0_beta10"
+	["update"]="3.6.0_beta11"
 	["builder"]="3.6.0_beta4"
 )
 
