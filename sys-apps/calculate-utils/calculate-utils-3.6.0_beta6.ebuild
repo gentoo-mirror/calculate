@@ -12,8 +12,8 @@ declare -A CALCULATE_MODULES=(
 	["lib"]="3.6.0_beta4"
 	["install"]="3.6.0_beta4"
 	["core"]="3.6.0_beta3"
-	["i18n"]="3.6.0_beta2"
-	["update"]="3.6.0_beta8"
+	["i18n"]="3.6.0_beta4"
+	["update"]="3.6.0_beta10"
 	["builder"]="3.6.0_beta4"
 )
 
