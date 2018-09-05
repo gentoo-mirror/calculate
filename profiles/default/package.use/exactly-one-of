@@ -26,4 +26,4 @@ media-sound/wildmidi -openal
 app-text/wklej -python_single_target_python2_7 -vim
 
 # exactly-one-of ( l10n_en l10n_fr l10n_it l10n_ja l10n_nl l10n_pl )
-app-doc/kicad-doc -l10n_* l10n_en
+app-doc/kicad-doc -l10n_fr -l10n_it -l10n_nl l10n_pl l10n_en
