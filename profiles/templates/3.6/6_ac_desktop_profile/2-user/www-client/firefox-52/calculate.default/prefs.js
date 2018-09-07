@@ -36,6 +36,7 @@ user_pref("browser.cache.disk.capacity", 102400);
 user_pref("browser.sessionstore.interval", 30000);
 #os_root_type#
 
+user_pref("accessibility.force_disabled", 1);
 user_pref("beacon.enabled", false);
 user_pref("breakpad.reportURL", "");
 user_pref("browser.cache.disk.smart_size.enabled", false);
@@ -115,6 +116,7 @@ user_pref("network.http.pipelining", true);
 user_pref("network.http.proxy.pipelining", true);
 user_pref("network.http.request.max-start-delay", 5);
 user_pref("network.proxy.socks_remote_dns", true);
+user_pref("network.tcp.tcp_fastopen_enable", true);
 user_pref("offline-apps.allow_by_default", false);
 user_pref("privacy.donottrackheader.enabled", true);
 user_pref("privacy.trackingprotection.enabled", true);
@@ -131,10 +133,7 @@ user_pref("startup.homepage_welcome_url", "");
 user_pref("toolkit.crashreporter.infoURL", "");
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.cachedClientID", "");
+user_pref("toolkit.telemetry.enabled", false);
 user_pref("toolkit.telemetry.infoURL", "");
 user_pref("toolkit.telemetry.server", "");
 user_pref("toolkit.telemetry.unified", false);
-
-user_pref("network.tcp.tcp_fastopen_enable", true);
-user_pref("accessibility.force_disabled", 1);
-
