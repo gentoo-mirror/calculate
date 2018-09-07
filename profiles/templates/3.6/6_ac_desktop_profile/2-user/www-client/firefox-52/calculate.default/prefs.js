@@ -119,7 +119,6 @@ user_pref("network.proxy.socks_remote_dns", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
 user_pref("offline-apps.allow_by_default", false);
 user_pref("privacy.donottrackheader.enabled", true);
-user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.introCount", 20);
 user_pref("security.ssl.errorReporting.enabled", false);
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
