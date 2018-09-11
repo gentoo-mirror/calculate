@@ -12,7 +12,7 @@ EGIT_COMMIT="335dbece103e2cbf6c7cf819ab6672c2956b17b3"
 
 LICENSE="LGPL-2"
 SLOT="5"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 
 DEPEND="
 	x11-libs/gtk+:2
