@@ -12,6 +12,10 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
+RDEPEND="
+	x11-themes/qtstyleplugins
+"
+
 SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/mate/${P}.tar.bz2
 	http://mirror.yandex.ru/calculate/themes/mate/${P}.tar.bz2"
 
