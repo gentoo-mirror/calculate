@@ -62,6 +62,7 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 		# fix init.d/sortmilter
 		"${FILESDIR}"/calculate-server-2.1.19-fix_sortmilter.patch
+		"${FILESDIR}"/calculate-server-2.1.19-fix_mailservice.patch
 )
 
 pkg_postinst() {
