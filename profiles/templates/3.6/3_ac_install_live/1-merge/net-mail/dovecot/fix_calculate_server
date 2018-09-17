@@ -1,0 +1,12 @@
+# Calculate exec=/bin/bash pkg(sys-apps/calculate-server)!=&&pkg(net-mail/dovecot)>=2.3&&grep(/var/lib/calculate/calculate.env,sr_mail_set\s+=\s+on)!=&&grep(/etc/dovecot/conf.d/10-ssl.conf,^ssl_dh)==
+
+echo "ssl_dh = </etc/ssl/dovecot/dh.pem" >>/etc/dovecot/conf.d/10-ssl.conf
+
+if ! [[ -f /etc/ssl/dovecot/dh.pem ]]
+then
+    dd if=/var/lib/dovecot/ssl-parameters.dat bs=1 skip=88 | openssl dhparam -inform der >/etc/ssl/dovecot/dh.pem
+    chown dovecot. /etc/ssl/dovecot/dh.pem
+    chmod 600 /etc/ssl/dovecot/dh.pem
+fi
+
+return true
