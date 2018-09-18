@@ -1,0 +1,14 @@
+# Calculate format=diff os_install_arch_machine==i686
+diff --git a/style/adwaitastyle.cpp b/style/adwaitastyle.cpp
+index 3a47007..2e28815 100644
+--- a/style/adwaitastyle.cpp
++++ b/style/adwaitastyle.cpp
+@@ -414,7 +414,7 @@ namespace Adwaita
+         }
+ 
+         if (!widget->parent() || !qobject_cast<QWidget *>(widget->parent())) {
+-            addEventFilter( widget );
++            //addEventFilter( widget );
+         }
+ 
+         // base class polishing
