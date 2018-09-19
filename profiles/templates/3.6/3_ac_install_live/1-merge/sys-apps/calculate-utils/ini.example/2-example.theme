@@ -134,7 +134,7 @@
 # 'red', 'magenta', 'brown', 'light-gray', 'dark-gray', 'light-blue',
 # 'light-green', 'light-cyan', 'light-red', 'light-magenta', 'yellow', 'white'
 #os_install_locale_language#
-; grub-gfx-text-color = black/black
+; grub-gfx-text-color = white/black
 
 #in#
 #?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
@@ -158,7 +158,7 @@
 # 'light-blue', 'light-green', 'light-cyan', 'light-red', 'light-magenta',
 # 'yellow', 'white'
 #os_install_locale_language#
-; grub-gfx-text-highlight-color = light-green/black
+; grub-gfx-text-highlight-color = black/light-gray
 
 #in#
 #?in(os_linux_pkglist, calculate)!=#
