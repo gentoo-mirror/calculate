@@ -1,0 +1,6 @@
+# Calculate multiline format=patch path=~/.config/xfce4/xfconf/xfce-perchannel-xml
+<reg>(^\s+)(&lt;property name="[^"]+" type="string" value=)"xkb-plugin"/(&gt;)</reg>
+<text>\1\2"xkb"\3
+\1  &lt;property name="display-scale" type="uint" value="66"/&gt;
+\1  &lt;property name="display-type" type="uint" value="1"/&gt;
+\1&lt;/property&gt;</text>
