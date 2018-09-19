@@ -3,5 +3,10 @@
 
 <channel name="xfce4-notifyd" version="1.0">
   <property name="expire-timeout" type="int" value="2"/>
+#?pkg(xfce-extra/xfce4-notifyd)<0.4#
   <property name="theme" type="string" value="lightdm-calculate"/>
+#pkg#
+#?pkg(xfce-extra/xfce4-notifyd)>=0.4#
+  <property name="theme" type="string" value="Default"/>
+#pkg#
 </channel>
