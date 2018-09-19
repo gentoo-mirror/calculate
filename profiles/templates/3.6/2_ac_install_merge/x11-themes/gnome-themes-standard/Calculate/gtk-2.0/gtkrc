@@ -2,49 +2,7 @@ include '/usr/share/themes/Adwaita/gtk-2.0/gtkrc'
 
 gtk-color-scheme = "insensitive_bg_color:#F4F4F4"
 
-style "scrollbar" {
-	xthickness = 2
-	ythickness = 2
-
-	engine "clearlooks" {
-		hint = "scrollbar"
-		colorize_scrollbar = TRUE
-		style = GUMMY
-	}
-}
-
-style "hscrollbar" {
-
-	engine "clearlooks" {
-		hint = "hscrollbar"
-		colorize_scrollbar = TRUE
-		style = GUMMY
-	}
-}
-
-style "vscrollbar" {
-
-	engine "clearlooks" {
-		hint = "vscrollbar"
-		colorize_scrollbar = TRUE
-		style = GUMMY
-	}
-}
-
-
 style "default" {
-	GtkScrollbar::trough-border = 0
-	GtkRange::trough-border     = 2
-	GtkRange::slider-width      = 15
-	GtkRange::stepper-size      = 15
-
-	GtkScrollbar::activate-slider               = 1
-	GtkScrollbar::has-backward-stepper          = 1
-	GtkScrollbar::has-forward-stepper           = 1
-	GtkScrollbar::min-slider-length             = 30
-	GtkScrolledWindow::scrollbar-spacing        = 3
-	GtkScrolledWindow::scrollbars-within-bevel  = 0
-	GtkButton::inner-border                     = {2, 2, 2, 2}
 	####################
 	# Color Definitions
 	####################
@@ -74,9 +32,6 @@ style "default" {
 }
 
 class "GtkWidget" style "default"
-class "GtkScrollbar" style "scrollbar"
-class "GtkHScrollbar" style "hscrollbar"
-class "GtkVScrollbar" style "vscrollbar"
 
 style "panel"
 {
