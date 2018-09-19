@@ -55,6 +55,7 @@ style "panel"
     #light window switch desktops
     bg[SELECTED]      = "#aaaaaa"
 
+    GtkButton::inner-border = {2, 2, 2, 2}
 }
 
 style "calculate-clock"
