@@ -30,7 +30,7 @@
         <value type="int" value="7"/>
         <value type="int" value="2"/>
       </property>
-      <property name="background-alpha" type="uint" value="95"/>
+      <property name="background-alpha" type="uint" value="100"/>
       <property name="mode" type="uint" value="0"/>
 #?ini(profile.wm-panel-main-autohide)!=on#
       <property name="autohide-behavior" type="uint" value="0"/>
@@ -87,7 +87,7 @@
 #exists#
       </property>
       <property name="length" type="uint" value="10"/>
-      <property name="background-alpha" type="uint" value="95"/>
+      <property name="background-alpha" type="uint" value="100"/>
       <property name="mode" type="uint" value="0"/>
 #?ini(profile.wm-panel-menu-autohide)!=on#
       <property name="autohide-behavior" type="uint" value="0"/>
@@ -128,7 +128,14 @@
     <property name="plugin-8" type="string" value="showdesktop"/>
     <property name="plugin-9" type="string" value="thunar-tpa"/>
 #?os_locale_lat_set==off#
+#?pkg(xfce-extra/xfce4-xkb-plugin)>=0.8.1#
+    <property name="plugin-10" type="string" value="xkb"/>
+      <property name="display-scale" type="uint" value="66"/>
+      <property name="display-type" type="uint" value="1"/>
+    </property>
+#!pkg#
     <property name="plugin-10" type="string" value="xkb-plugin"/>
+#pkg#
 #os_locale_lat_set#
     <property name="plugin-7" type="string" value="launcher">
       <property name="items" type="array">
