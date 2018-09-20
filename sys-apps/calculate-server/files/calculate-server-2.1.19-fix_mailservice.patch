@@ -210,11 +210,3 @@ index 49273d7..1622598 100644
              if options.has_key("host"):
                  newHostName = options['host']
                  if not "." in newHostName:
-@@ -8040,7 +8084,6 @@ outdated. If the backup is obsolete, use cl-backup-server."))
-                         if not 'mail' in replServices:
-                             replServices.append('mail')
-         # генерируем название файла архива
--        strData = time.strftime("%Y%m%d%H%M%S",time.localtime(time.time()))
-         backupFile = "%s.tar.bz2" %strData
-         # если существуют удаляем файлы в /tmp
-         self.removeTmpFiles()
