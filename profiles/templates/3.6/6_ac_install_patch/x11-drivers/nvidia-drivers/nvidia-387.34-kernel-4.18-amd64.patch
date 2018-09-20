@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)=>4.18&&merge(x11-drivers/nvidia-drivers)=>387.34,388
+# Calculate format=diff pkg(sys-kernel/calculate-sources)=>4.18&&merge(x11-drivers/nvidia-drivers)=>387.34,388&&os_install_arch_machine==x86_64
 diff --git a/kernel/nvidia-drm/nvidia-drm-connector.c b/kernel/nvidia-drm/nvidia-drm-connector.c
 index b834021..46d1fe6 100644
 --- a/kernel/nvidia-drm/nvidia-drm-connector.c
@@ -202,57 +202,3 @@ index ad5091b..e0d97d4 100644
      nv->rc_timer_enabled = 1;
      mod_timer(&nvl->rc_timer, jiffies + HZ); /* set our timeout for 1 second */
      nv_printf(NV_DBG_INFO, "NVRM: rc timer initialized\n");
-diff --git a/nvidia-cuda-mps-control.1.gz b/nvidia-cuda-mps-control.1.gz
-deleted file mode 100644
-index e36124c..0000000
-Binary files a/nvidia-cuda-mps-control.1.gz and /dev/null differ
-diff --git a/nvidia-installer.1.gz b/nvidia-installer.1.gz
-deleted file mode 100644
-index 3ba0e0d..0000000
-Binary files a/nvidia-installer.1.gz and /dev/null differ
-diff --git a/nvidia-modprobe.1.gz b/nvidia-modprobe.1.gz
-deleted file mode 100644
-index 792b962..0000000
-Binary files a/nvidia-modprobe.1.gz and /dev/null differ
-diff --git a/nvidia-persistenced.1.gz b/nvidia-persistenced.1.gz
-deleted file mode 100644
-index 7bebc77..0000000
-Binary files a/nvidia-persistenced.1.gz and /dev/null differ
-diff --git a/nvidia-settings-387.34/src/libXNVCtrl/utils.mk b/nvidia-settings-387.34/src/libXNVCtrl/utils.mk
-index 66dbb16..6157e4b 100644
---- a/nvidia-settings-387.34/src/libXNVCtrl/utils.mk
-+++ b/nvidia-settings-387.34/src/libXNVCtrl/utils.mk
-@@ -475,7 +475,7 @@ endef
- define READ_ONLY_OBJECT_FROM_FILE_RULE
-   $$(OUTPUTDIR)/$$(notdir $(1)).o: $(1)
- 	$(at_if_quiet)cd $$(dir $(1)); \
--	$$(call quiet_cmd_no_at,LD) -r -z noexecstack --format=binary \
-+	$$(call quiet_cmd_no_at,NVLD) -r -z noexecstack --format=binary \
- 	    $$(notdir $(1)) -o $$(OUTPUTDIR_ABSOLUTE)/$$(notdir $$@)
- 	$$(call quiet_cmd,OBJCOPY) \
- 	    --rename-section .data=.rodata,contents,alloc,load,data,readonly \
-diff --git a/nvidia-settings-387.34/utils.mk b/nvidia-settings-387.34/utils.mk
-index 66dbb16..6157e4b 100644
---- a/nvidia-settings-387.34/utils.mk
-+++ b/nvidia-settings-387.34/utils.mk
-@@ -475,7 +475,7 @@ endef
- define READ_ONLY_OBJECT_FROM_FILE_RULE
-   $$(OUTPUTDIR)/$$(notdir $(1)).o: $(1)
- 	$(at_if_quiet)cd $$(dir $(1)); \
--	$$(call quiet_cmd_no_at,LD) -r -z noexecstack --format=binary \
-+	$$(call quiet_cmd_no_at,NVLD) -r -z noexecstack --format=binary \
- 	    $$(notdir $(1)) -o $$(OUTPUTDIR_ABSOLUTE)/$$(notdir $$@)
- 	$$(call quiet_cmd,OBJCOPY) \
- 	    --rename-section .data=.rodata,contents,alloc,load,data,readonly \
-diff --git a/nvidia-settings.1.gz b/nvidia-settings.1.gz
-deleted file mode 100644
-index 84c9567..0000000
-Binary files a/nvidia-settings.1.gz and /dev/null differ
-diff --git a/nvidia-smi.1.gz b/nvidia-smi.1.gz
-deleted file mode 100644
-index 998588e..0000000
-Binary files a/nvidia-smi.1.gz and /dev/null differ
-diff --git a/nvidia-xconfig.1.gz b/nvidia-xconfig.1.gz
-deleted file mode 100644
-index bbf7b69..0000000
-Binary files a/nvidia-xconfig.1.gz and /dev/null differ
