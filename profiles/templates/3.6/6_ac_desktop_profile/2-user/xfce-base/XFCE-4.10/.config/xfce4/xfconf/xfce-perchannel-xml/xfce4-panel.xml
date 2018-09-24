@@ -129,7 +129,7 @@
     <property name="plugin-9" type="string" value="thunar-tpa"/>
 #?os_locale_lat_set==off#
 #?pkg(xfce-extra/xfce4-xkb-plugin)>=0.8.1#
-    <property name="plugin-10" type="string" value="xkb"/>
+    <property name="plugin-10" type="string" value="xkb">
       <property name="display-scale" type="uint" value="66"/>
       <property name="display-type" type="uint" value="1"/>
     </property>
