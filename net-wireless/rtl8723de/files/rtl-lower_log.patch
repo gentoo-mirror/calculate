@@ -1,0 +1,19 @@
+commit bb771c15d3becceb401ef74f8bb5ea5c3ce6688c
+Author: jeremyb31 <jeremy53561@gmail.com>
+Date:   Sun Dec 24 14:59:44 2017 -0600
+
+    lower default log level
+
+diff --git a/Makefile b/Makefile
+index 063e647..731c462 100644
+--- a/Makefile
++++ b/Makefile
+@@ -76,7 +76,7 @@ CONFIG_RTW_GRO = y
+ CONFIG_RTW_DEBUG = y
+ # default log level is _DRV_INFO_ = 4,
+ # please refer to "How_to_set_driver_debug_log_level.doc" to set the available level.
+-CONFIG_RTW_LOG_LEVEL = 4
++CONFIG_RTW_LOG_LEVEL = 1
+ ######################## Wake On Lan ##########################
+ CONFIG_WOWLAN = n
+ CONFIG_GPIO_WAKEUP = n
