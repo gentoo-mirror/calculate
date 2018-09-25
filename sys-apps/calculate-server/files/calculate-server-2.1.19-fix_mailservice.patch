@@ -101,7 +101,7 @@ index 49273d7..1622598 100644
      def createCertificate(self, sslCountry="US",
                                  sslState="California",
                                  sslLocality="Santa Barbara",
-@@ -1850,9 +1882,35 @@ This command is not allowed."))
+@@ -1850,9 +1882,36 @@ This command is not allowed."))
                                  certFileMode=0400,
                                  keyFile="/tmp/server.key",
                                  keyFileMode=0400,
@@ -119,7 +119,7 @@ index 49273d7..1622598 100644
 +        if genDH and dhFile:
 +            certAndKeyFiles = [dhFile, certFile, keyFile]
 +            foundCertFiles = filter(lambda x: os.path.exists(x), certAndKeyFiles)
-+            if len(foundCertFiles) == 2 and not os.path.exists(dhFile):
++            if not os.path.exists(dhFile):
 +                rndFile = "/tmp/%s.rnd" %strData
 +                self.execProg("dd if=/dev/urandom of=%s count=1"%rndFile)
 +                if not os.path.exists(rndFile):
@@ -132,6 +132,7 @@ index 49273d7..1622598 100644
 +                    return False
 +                if os.path.exists(rndFile):
 +                    os.remove(rndFile)
++            foundCertFiles = filter(lambda x: os.path.exists(x), certAndKeyFiles)
 +            if len(foundCertFiles)==3:
 +                return True
 +        elif genDH:
