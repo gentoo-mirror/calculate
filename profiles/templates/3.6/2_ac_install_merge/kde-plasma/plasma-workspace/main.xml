@@ -1,0 +1,6 @@
+# Calculate format=patch path=/usr/share/plasma/plasmoids/org.kde.plasma.private.systemtray/contents/config
+<reg>(\s+&lt;entry name="shownItems" type="StringList"&gt;
+\s+&lt;label&gt;All items that are shown. It's a comma-separated string list of unique identifiers that are either plasmoid plugin ids or StatusNotifier ids.&lt;/label&gt;
+\s+&lt;default&gt;)(&lt;/default&gt;
+\s+&lt;/entry&gt;)</reg>
+<text>\1Calculate Update Checker,Calculate Console\2</text>
