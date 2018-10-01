@@ -1,0 +1,79 @@
+# Calculate format=diff
+diff --git a/Makefile b/Makefile
+index 8c912fe..d3a0fcb 100644
+--- a/Makefile
++++ b/Makefile
+@@ -270,7 +270,7 @@ LDFLAGS = -Wl,--as-needed
+ LIBICONV = 
+ LIBINTL = 
+ LIBOBJS = 
+-LIBS = -ltinfo -lncursesw 
++LIBS = -ltinfow -lncursesw 
+ LN_S = ln -s
+ LTLIBICONV = 
+ LTLIBINTL = 
+diff --git a/doc/Makefile b/doc/Makefile
+index d0ffac3..5b9f827 100644
+--- a/doc/Makefile
++++ b/doc/Makefile
+@@ -225,7 +225,7 @@ LDFLAGS = -Wl,--as-needed
+ LIBICONV = 
+ LIBINTL = 
+ LIBOBJS = 
+-LIBS = -ltinfo -lncursesw 
++LIBS = -ltinfow -lncursesw 
+ LN_S = ln -s
+ LTLIBICONV = 
+ LTLIBINTL = 
+diff --git a/lessons/Makefile b/lessons/Makefile
+index cf57058..7039d86 100644
+--- a/lessons/Makefile
++++ b/lessons/Makefile
+@@ -182,7 +182,7 @@ LDFLAGS = -Wl,--as-needed
+ LIBICONV = 
+ LIBINTL = 
+ LIBOBJS = 
+-LIBS = -ltinfo -lncursesw 
++LIBS = -ltinfow -lncursesw 
+ LN_S = ln -s
+ LTLIBICONV = 
+ LTLIBINTL = 
+diff --git a/m4/Makefile b/m4/Makefile
+index 724c7f1..ac2a0de 100644
+--- a/m4/Makefile
++++ b/m4/Makefile
+@@ -152,7 +152,7 @@ LDFLAGS = -Wl,--as-needed
+ LIBICONV = 
+ LIBINTL = 
+ LIBOBJS = 
+-LIBS = -ltinfo -lncursesw 
++LIBS = -ltinfow -lncursesw 
+ LN_S = ln -s
+ LTLIBICONV = 
+ LTLIBINTL = 
+diff --git a/src/Makefile b/src/Makefile
+index bba372b..f0394e9 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -231,7 +231,7 @@ LDFLAGS = -Wl,--as-needed
+ LIBICONV = 
+ LIBINTL = 
+ LIBOBJS = 
+-LIBS = -ltinfo -lncursesw 
++LIBS = -ltinfow -lncursesw 
+ LN_S = ln -s
+ LTLIBICONV = 
+ LTLIBINTL = 
+diff --git a/tools/Makefile b/tools/Makefile
+index 4f13da7..5527fe7 100644
+--- a/tools/Makefile
++++ b/tools/Makefile
+@@ -204,7 +204,7 @@ LDFLAGS = -Wl,--as-needed
+ LIBICONV = 
+ LIBINTL = 
+ LIBOBJS = 
+-LIBS = -ltinfo -lncursesw 
++LIBS = -ltinfow -lncursesw 
+ LN_S = ln -s
+ LTLIBICONV = 
+ LTLIBINTL = 
