@@ -1,0 +1,21 @@
+# Calculate name=#-pop(l)-##-pop(h)-##-push(h)-##-push(l)-##-sum(h,h)-#.#-sum(l,l)-#.10@calculate.source
+#-pop(l)-##-pop(h)-#
+[Data Source]
+DisplayName=#-ur_mail-#
+Enabled=true
+Parent=#-sum(h,h)-#.#-sum(l,l)-#.2@calculate
+
+[Mail Transport]
+BackendName=smtp
+
+[Authentication]
+Host=#-server(mail.host)-#
+Method=none
+Port=25
+ProxyUid=system-proxy
+RememberPassword=true
+User=
+CredentialName=
+
+[Security]
+Method=none
