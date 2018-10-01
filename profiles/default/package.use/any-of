@@ -27,3 +27,6 @@ games-action/descent3-demo alsa -pulseaudio
 
 # any-of ( mysql postgres sqlite )
 mail-client/roundcube postgres -sqlite
+
+# any-of ( kvm xen lxc )
+app-emulation/ganeti lxc

@@ -1,0 +1,27 @@
+# Calculate name=#-push(h,#-rnd(num,10)-#)-##-push(l,#-rnd(num,4)-#)-##-sum(h,h)-#.#-sum(l,l)-#.0@calculate.source
+#-pop(l)-##-pop(h)-##-push(h)-##-push(l)-#
+[Data Source]
+DisplayName=#-ur_mail-#
+Enabled=true
+Parent=#-sum(h,h)-#.#-sum(l,l)-#.2@calculate
+
+[Mail Composition]
+Bcc=
+Cc=
+DraftsFolder=folder://#-sum(h,h)-#.#-sum(l,l)-#.2%40calculate/Drafts
+ReplyStyle=default
+SignImip=true
+TemplatesFolder=folder://local/Templates
+
+[Mail Identity]
+Address=#-ur_mail-#
+Aliases=
+Name=#-ur_fullname-#
+Organization=#-server(mail.organization)-#
+ReplyTo=#-ur_mail-#
+SignatureUid=none
+
+[Mail Submission]
+SentFolder=folder://#-sum(h,h)-#.#-sum(l,l)-#.2%40calculate/Sent
+TransportUid=#-sum(h,h)-#.#-sum(l,l)-#.10@calculate
+RepliesToOriginFolder=false
