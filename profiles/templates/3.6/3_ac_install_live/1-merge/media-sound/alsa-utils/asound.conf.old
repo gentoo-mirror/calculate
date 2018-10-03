@@ -1,0 +1,23 @@
+# Calculate comment=# name=asound.conf protected pkg(sys-apps/calculate-utils)<3.6.0.12
+#?os_audio==alsa#
+pcm.!default {
+    type hw
+    card #-cut(0,,#-os_audio_default-#)-#
+    device #-cut(1,,#-os_audio_default-#)-#
+}
+ctl.!default {
+    type hw
+    card #-cut(0,,#-os_audio_default-#)-#
+}
+pcm.!default {
+    type plug
+    slave.pcm "dmixer"
+}
+pcm.dmixer {
+    type dmix
+    ipc_key 1024
+    slave {
+       pcm "hw:#-os_audio_default-#"
+    }
+}
+#os_audio#
