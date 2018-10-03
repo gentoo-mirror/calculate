@@ -569,8 +569,8 @@ sci-mathematics/glpk gmp
 # required by sci-mathematics/wxmaxima-15.08.2
 sci-visualization/gnuplot wxwidgets
 
-# required by sci-mathematics/coq-8.6[gtk]
-dev-ml/lablgtk sourceview
+# required by sci-mathematics/coq-8.6[gtk], dev-ml/ocamlgraph [gtk]
+dev-ml/lablgtk sourceview gnomecanvas
 
 # required by sci-chemistry/votca-xtp-1.4
 sci-libs/votca-tools sqlite

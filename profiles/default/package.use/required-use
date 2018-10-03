@@ -48,3 +48,6 @@ media-libs/sdl2-mixer midi
 
 # vnc? ( fbcon )
 dev-libs/efl fbcon
+
+# ogre? ( !opengl ) opengl? ( !ogre )
+dev-games/mygui -ogre
