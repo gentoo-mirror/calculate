@@ -1,4 +1,4 @@
-commit a2df152b0849fe2ca5fdf11f039db1c708aa4a1c
+commit 5675cc832a13c52988cd371ae480fe8aa46a5275
 Author: Хирецкий Михаил <mh@calculate.ru>
 Date:   Mon Sep 17 14:11:29 2018 +0300
 
@@ -59,7 +59,7 @@ index de16ede..01058ee 100644
  #?sr_mail_relay_set==off#mailbox_command = /usr/bin/procmail -m /etc/procmailrc#sr_mail_relay_set#
 +smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, defer_unauth_destination
 diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
-index 49273d7..1622598 100644
+index 49273d7..5480365 100644
 --- a/pym/cl_ldap.py
 +++ b/pym/cl_ldap.py
 @@ -1835,6 +1835,38 @@ This command is not allowed."))
@@ -101,7 +101,7 @@ index 49273d7..1622598 100644
      def createCertificate(self, sslCountry="US",
                                  sslState="California",
                                  sslLocality="Santa Barbara",
-@@ -1850,9 +1882,36 @@ This command is not allowed."))
+@@ -1850,21 +1882,49 @@ This command is not allowed."))
                                  certFileMode=0400,
                                  keyFile="/tmp/server.key",
                                  keyFileMode=0400,
@@ -110,6 +110,13 @@ index 49273d7..1622598 100644
                                  genDH=False):
          """Создает сертификат"""
 -        if genDH:
+-            keyFile = certFile
+-            certAndKeyFiles = [certFile]
+-            foundCertFiles = filter(lambda x: os.path.exists(x),certAndKeyFiles)
+-            if len(foundCertFiles)==1:
+-                return True
+-        else:
+-            certAndKeyFiles = [certFile, keyFile]
 +        sslFile = "/usr/bin/openssl"
 +        strData = time.strftime("%Y%m%d%H%M%S",time.localtime(time.time()))
 +        if not os.path.exists(sslFile):
@@ -118,7 +125,8 @@ index 49273d7..1622598 100644
 +
 +        if genDH and dhFile:
 +            certAndKeyFiles = [dhFile, certFile, keyFile]
-+            foundCertFiles = filter(lambda x: os.path.exists(x), certAndKeyFiles)
+             foundCertFiles = filter(lambda x: os.path.exists(x), certAndKeyFiles)
+-            if len(foundCertFiles)==2:
 +            if not os.path.exists(dhFile):
 +                rndFile = "/tmp/%s.rnd" %strData
 +                self.execProg("dd if=/dev/urandom of=%s count=1"%rndFile)
@@ -134,12 +142,27 @@ index 49273d7..1622598 100644
 +                    os.remove(rndFile)
 +            foundCertFiles = filter(lambda x: os.path.exists(x), certAndKeyFiles)
 +            if len(foundCertFiles)==3:
-+                return True
-+        elif genDH:
-             keyFile = certFile
-             certAndKeyFiles = [certFile]
-             foundCertFiles = filter(lambda x: os.path.exists(x),certAndKeyFiles)
-@@ -1888,7 +1946,6 @@ nsCertType = %s
+                 return True
+-        # Удаляем файл сертификата
+-        map(lambda x: os.remove(x), foundCertFiles)
++        else:
++            if genDH:
++                keyFile = certFile
++                certAndKeyFiles = [certFile]
++                foundCertFiles = filter(lambda x: os.path.exists(x),certAndKeyFiles)
++                if len(foundCertFiles)==1:
++                    return True
++            else:
++                certAndKeyFiles = [certFile, keyFile]
++                foundCertFiles = filter(lambda x: os.path.exists(x), certAndKeyFiles)
++                if len(foundCertFiles)==2:
++                    return True
++            # Удаляем файл сертификата
++            map(lambda x: os.remove(x), foundCertFiles)
+         uidAndGid  = self.getUserUidAndGid(userName, groupName)
+         if not uidAndGid:
+             return False
+@@ -1888,7 +1948,6 @@ nsCertType = %s
  """%(sslBits, sslCountry, sslState, sslLocality, sslOrganization, sslUnit,
       sslCommonName, sslEmail, nsCertType)
          # генерируем название файла конфигурации
@@ -147,7 +170,7 @@ index 49273d7..1622598 100644
          cnfFile = "/tmp/%s.cnf" %strData
          if genDH:
              rndFile = "/tmp/%s.rnd" %strData
-@@ -1896,10 +1953,6 @@ nsCertType = %s
+@@ -1896,10 +1955,6 @@ nsCertType = %s
              if not os.path.exists(rndFile):
                  self.printERROR(_("Can not create %s")%rndFile)
                  return False
@@ -158,7 +181,7 @@ index 49273d7..1622598 100644
          # Cоздание директорий
          for fileName in certAndKeyFiles:
              dirName = os.path.split(fileName)[0]
-@@ -4835,11 +4888,7 @@ if you want to continue to run the program again"))
+@@ -4835,11 +4890,7 @@ if you want to continue to run the program again"))
          self.clVars.Set("sr_mail_crypt", mailCrypt, True)
          if not self.applyProfilesFromService('mail'):
              return False
@@ -171,7 +194,7 @@ index 49273d7..1622598 100644
              return False
          # Проверим запущен ли ldap
          if not self.getRunService("ldap"):
-@@ -5708,18 +5757,8 @@ in Unix service") %str(jabberId))
+@@ -5708,18 +5759,8 @@ in Unix service") %str(jabberId))
               "PASS":self.clVars.Get("ld_jabber_pw")})
          self.printOK(_("Added ldif file") + " ...")
          # создаем сертификат если есть используем прежний
@@ -192,7 +215,7 @@ index 49273d7..1622598 100644
          if not os.path.exists("/etc/jabber/ssl.pem"):
              self.printERROR(_("Can not create Jabber certificate"))
              return False
-@@ -7497,6 +7536,9 @@ outdated. If the backup is obsolete, use cl-backup-server."))
+@@ -7497,6 +7538,9 @@ outdated. If the backup is obsolete, use cl-backup-server."))
                  self.clVars.Set("sr_proxy_host",fullHostName,True)
          # Настройка почты
          if serviceUpdate in ["all","mail"]:
@@ -202,7 +225,7 @@ index 49273d7..1622598 100644
              history,history_domain,history_path = \
                  self.getMailHistoryData(options)
              if options.has_key("t"):
-@@ -7525,6 +7567,8 @@ outdated. If the backup is obsolete, use cl-backup-server."))
+@@ -7525,6 +7569,8 @@ outdated. If the backup is obsolete, use cl-backup-server."))
          previousJabberHost = self.clVars.Get("sr_jabber_host")
          if serviceUpdate in ["all","jabber"]:
              # Устанавливаем основной хост jabber cервиса
