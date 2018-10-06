@@ -51,3 +51,6 @@ dev-libs/efl fbcon
 
 # ogre? ( !opengl ) opengl? ( !ogre )
 dev-games/mygui -ogre
+
+# ssl? ( any-of ( gnutls openssl ) )
+app-admin/rsyslog openssl
