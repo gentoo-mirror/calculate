@@ -1,0 +1,8 @@
+# Calculate chmod=0755
+#!/bin/sh
+
+if grep -q "os_audio = pulse" /var/lib/calculate/calculate.env 2>/dev/null
+	exec /opt/viber/viber-bin "$@"
+else
+	exec /usr/bin/apulse /opt/viber/viber-bin "$@"
+fi

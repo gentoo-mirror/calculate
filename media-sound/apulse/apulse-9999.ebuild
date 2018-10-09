@@ -16,8 +16,7 @@ KEYWORDS=""
 
 DEPEND="dev-libs/glib:2[${MULTILIB_USEDEP}]
 	media-libs/alsa-lib[${MULTILIB_USEDEP}]"
-RDEPEND="${DEPEND}
-	!!media-plugins/alsa-plugins[pulseaudio]"
+RDEPEND="${DEPEND}"
 
 MULTILIB_CHOST_TOOLS=( /usr/bin/apulse )
 
