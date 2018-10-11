@@ -25,4 +25,10 @@ install() {
      inst_hook pre-pivot 50 "$moddir/system-video-blacklist.sh"
      inst_hook cmdline 50 "$moddir/parse-cmdline.sh"
      mkdir -p ${initdir}/etc/modprobe.d
+     if [ -f /etc/modprobe.d/amdgpu.conf ]; then
+           inst_multiple /etc/modprobe.d/amdgpu.conf
+     fi
+     if [ -f /etc/modprobe.d/vboxvideo.conf ]; then
+           inst_multiple /etc/modprobe.d/vboxvideo.conf
+     fi
 }
