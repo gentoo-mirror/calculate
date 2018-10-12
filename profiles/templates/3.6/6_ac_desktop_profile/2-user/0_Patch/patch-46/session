@@ -1,0 +1,4 @@
+# Calculate multiline pkg(xfce-base/xfce4-session)!=&&exists(~/.cache/sessions/xfce4-session-#-os_net_hostname-#:0)!= path=~/.cache/sessions name=xfce4-session-#-os_net_hostname-#:0 format=patch
+<reg>^Client\d+_RestartCommand=xfce4-power-manager.*$
+</reg>
+<text></text>
