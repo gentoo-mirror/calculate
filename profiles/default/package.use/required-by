@@ -595,3 +595,6 @@ dev-lang/luajit lua52compat
 
 # required by "sci-electronics/kicad-packages3d-5.0.0
 sci-electronics/kicad oce
+
+# required by www-apache/mod_security-2.9.1-r1
+dev-libs/apr-util openssl
