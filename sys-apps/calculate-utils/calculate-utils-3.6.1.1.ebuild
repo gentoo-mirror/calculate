@@ -6,6 +6,7 @@ EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
+	["install"]="3.6.1.1"
 	["core"]="3.6.1.1"
 )
 
@@ -24,5 +25,5 @@ RDEPEND="
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 
