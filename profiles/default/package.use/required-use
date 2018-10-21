@@ -54,3 +54,6 @@ dev-games/mygui -ogre
 
 # ssl? ( any-of ( gnutls openssl ) )
 app-admin/rsyslog openssl
+
+# inspector? ( icu )
+net-libs/nodejs icu
