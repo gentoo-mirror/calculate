@@ -6,10 +6,10 @@ EAPI=6
 DESCRIPTION="A framework for 2D games in Lua"
 HOMEPAGE="http://love2d.org/"
 SRC_URI="https://www.bitbucket.org/rude/${PN}/downloads/${P}-linux-src.tar.gz"
-KEYWORDS="~amd64 ~arm ~x86"
 
 LICENSE="ZLIB"
-SLOT="0.8"
+SLOT="0.7"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
@@ -18,7 +18,7 @@ RDEPEND="
 	media-libs/devil[mng,png,tiff]
 	media-libs/freetype:2
 	media-libs/libmodplug
-	media-libs/libsdl[joystick,opengl,video]
+	media-libs/libsdl[joystick,opengl]
 	media-libs/libvorbis
 	media-libs/openal
 	media-sound/mpg123
@@ -29,11 +29,13 @@ DEPEND="${RDEPEND}
 	media-libs/tiff:0
 "
 
-PATCHES=( "${FILESDIR}"/${P}-freetype2.patch
-	"${FILESDIR}"/${P}-pthread.patch )
+S="${WORKDIR}/${PN}-HEAD"
+
+PATCHES=( "${FILESDIR}"/${PN}-0.8.0-freetype2.patch
+	"${FILESDIR}"/${PN}-0.8.0-pthread.patch )
 
 src_install() {
-	DOCS="readme.md changes.txt" \
+	DOCS="readme.txt changes.txt" \
 		default
 
 	mv "${ED}/usr/bin/${PN}" "${ED}/usr/bin/${PN}-${SLOT}" || die
