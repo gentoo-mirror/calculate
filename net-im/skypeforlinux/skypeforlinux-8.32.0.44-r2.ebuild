@@ -21,6 +21,7 @@ QA_PREBUILT="*"
 RESTRICT="mirror bindist strip" #299368
 
 RDEPEND="
+	app-crypt/libsecret[${MULTILIB_USEDEP}]
 	dev-libs/atk[${MULTILIB_USEDEP}]
 	dev-libs/expat[${MULTILIB_USEDEP}]
 	dev-libs/glib:2[${MULTILIB_USEDEP}]
@@ -51,7 +52,11 @@ RDEPEND="
 	x11-libs/libXtst[${MULTILIB_USEDEP}]
 	x11-libs/libxcb[${MULTILIB_USEDEP}]
 	x11-libs/libxkbfile[${MULTILIB_USEDEP}]
-	x11-libs/pango[${MULTILIB_USEDEP}]"
+	x11-libs/pango[${MULTILIB_USEDEP}]
+	|| (
+		sys-auth/elogind
+		sys-apps/systemd
+	)"
 
 src_unpack() {
 	rpm_src_unpack ${A}
@@ -65,6 +70,8 @@ src_prepare() {
 		-e "s!^Categories=.*!Categories=Network;InstantMessaging;Telephony;!" \
 		-e "/^OnlyShowIn=/d" \
 		-i usr/share/applications/skypeforlinux.desktop || die
+	# fix size icon in systray
+	dd if=<(echo "'' : '@2x';") of=usr/share/skypeforlinux/resources/app.asar  bs=1 count=11 seek=55848804 conv=notrunc
 }
 
 src_install() {
