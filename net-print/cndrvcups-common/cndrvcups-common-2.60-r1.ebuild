@@ -23,6 +23,9 @@ DEPEND=">=net-print/cups-1.1.17
 	>=x11-libs/gtk+-2.0.0
 	>=gnome-base/libglade-2.0.0"
 
+RDEPEND="${DEPEND}
+	!net-print/cndrvcups-common-lb"
+
 S=${WORKDIR}/${PN}-$(get_version_component_range 1-2)
 
 dir=/usr/$(get_libdir)

@@ -29,6 +29,7 @@ QA_TEXTRELS="${dir:1}/libcaiocaptnet.so.1.0.0"
 RDEPEND="${DEPEND}
 	>=sys-apps/portage-2.1.1_pre1
 	app-text/ghostscript-gpl
+	!net-print/cndrvcups-lb
 	amd64? (
 			x11-libs/pangox-compat
 			dev-libs/popt[abi_x86_32]
