@@ -71,8 +71,14 @@ src_prepare() {
 		-e "/^OnlyShowIn=/d" \
 		-i usr/share/applications/skypeforlinux.desktop || die
 	# fix size icon in systray
-	dd if=<(echo "'' : '@2x';") of=usr/share/skypeforlinux/resources/app.asar  bs=1 count=11 seek=55848804 conv=notrunc
+	local regexp=$(echo -n "const hiDPISuffix = platform.isMac() ? '@2x' : '';" | hexdump -ve '1/1 "%.2X"')
+	local replacement=$(echo -n "const hiDPISuffix = platform.isMac() ? '' : '@2x';" | hexdump -ve '1/1 "%.2X"')
+	hexdump -ve '1/1 "%.2X"' usr/share/skypeforlinux/resources/app.asar |
+		sed "s/${regexp}/${replacement}/g" |
+		xxd -r -p >usr/share/skypeforlinux/resources/app.asar.patched
+	mv usr/share/skypeforlinux/resources/app.asar.patched usr/share/skypeforlinux/resources/app.asar
 }
+
 
 src_install() {
 	dodir /opt
