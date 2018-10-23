@@ -1,0 +1,66 @@
+diff --git a/allgen.sh b/allgen.sh
+index b0f713a..9534bb4 100755
+--- a/allgen.sh
++++ b/allgen.sh
+@@ -48,18 +48,8 @@ cd ppd
+ cd -
+
+ cd statusui
+-if [ -x /usr/bin/automake-1.6 ] ; then
+-	./autogen.sh
+-elif [ -x /usr/bin/automake-1.7 ] ; then
+-	./autogen.sh
+-elif [ -x /usr/bin/automake-1.8 ] ; then
+-	./autogen.sh
+-elif [ -x /usr/bin/automake-1.9 ] ; then
+-	./autogen.sh
+-else
+-	./autogen-old.sh
+-fi
+-
++ ./autogen.sh
+ cd -
++
+ make
+
+diff --git a/statusui/configures/configure.in.new b/statusui/configures/configure.in.new
+index 5369623..abd0072 100644
+--- a/statusui/configures/configure.in.new
++++ b/statusui/configures/configure.in.new
+@@ -32,8 +32,7 @@ AC_C_CONST
+ AC_C_INLINE
+ AC_TYPE_SIZE_T
+
+-AM_PATH_GTK(1.2.0, ,
+-            AC_MSG_ERROR(Cannot find GTK: Is gtk-config in path?))
++AM_PATH_GTK(1.2.0, ,AC_MSG_ERROR(Cannot find GTK: Is gtk-config in path?))
+
+ GETTEXT_PACKAGE=captstatusui
+ AC_SUBST(GETTEXT_PACKAGE)
+diff --git a/statusui/configures/configure.in.old b/statusui/configures/configure.in.old
+index ab9562a..103c6ed 100644
+--- a/statusui/configures/configure.in.old
++++ b/statusui/configures/configure.in.old
+@@ -11,8 +11,7 @@ AC_PROG_CC
+ AM_PROG_CC_STDC
+ AC_HEADER_STDC
+
+-AM_PATH_GTK(1.2.0, ,
+-            AC_MSG_ERROR(Cannot find GTK: Is gtk-config in path?))
++AM_PATH_GTK(1.2.0, , AC_MSG_ERROR(Cannot find GTK: Is gtk-config in path?))
+
+ dnl Add the languages which your application supports here.
+ ALL_LINGUAS="ja"
+
+
+diff --git a/statusui/src/ppapdata.c b/statusui/src/ppapdata.c
+index 745ba02..be70056 100644
+--- a/statusui/src/ppapdata.c
++++ b/statusui/src/ppapdata.c
+@@ -23,6 +23,7 @@
+ #include <string.h>
+
+ #include <cups/cups.h>
++#include <cups/ppd.h>
+ #include "uimain.h"
+ #include "cnsktmodule.h"
