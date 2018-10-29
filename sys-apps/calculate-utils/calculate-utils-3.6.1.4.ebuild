@@ -9,7 +9,7 @@ declare -A CALCULATE_MODULES=(
 	["lib"]="3.6.1.2"
 	["install"]="3.6.1.1"
 	["core"]="3.6.1.1"
-	["client"]="3.6.1.1"
+	["client"]="3.6.1.2"
 )
 
 inherit calculate-utils-r4
