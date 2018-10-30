@@ -1,4 +1,4 @@
-# Calculate format=diff merge(x11-misc/lightdm)>=1.18
+# Calculate format=diff merge(x11-misc/lightdm)=>1.18,1.26
 diff --git a/src/seat.c b/src/seat.c
 index e3be8f9..4b4fe5e 100644
 --- a/src/seat.c
