@@ -29,8 +29,8 @@ sys-fs/ntfs3g ntfsprogs
 # for support .ko.xz modules
 sys-apps/kmod lzma
 
-# support for LZMA
-sys-fs/squashfs-tools lzma
+# support for zstd
+sys-fs/squashfs-tools zstd
 
 # grub multislot by default
 sys-boot/grub -multislot device-mapper
