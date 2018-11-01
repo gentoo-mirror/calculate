@@ -19,24 +19,31 @@ set prefix=(\$root)/boot/grub
 source \$prefix/x86_64-efi/grub.cfg
 EOF
 
+makefat() {
+	IMG=$1
+	SOURCESIZE=$2
+	SPT=$3
+	rm -f "$IMG"
+	mkfs.fat -C -v "$IMG" $(( ($SOURCESIZE / 1024 + 64) / $SPT * $SPT )) 2>/dev/null |
+		sed -rn 's/.* ([0-9]+) sectors per track.*/\1/p'
+}
 
 for i in ${IMAGE_DIR}/usr/lib/grub/x86_64-efi/part_*.mod;do echo insmod `basename $i .mod`;done >${CD_GRUB_DIR}/x86_64-efi/grub.cfg
 echo "source /boot/grub/grub.cfg" >>${CD_GRUB_DIR}/x86_64-efi/grub.cfg
 tar cf - -C "${EFI_IMAGE_DIR}" boot >${MEMDISK}
-grub-mkimage -O x86_64-efi -d ${IMAGEDIR}/usr/lib/grub/x86_64-efi -m ${MEMDISK} -o ${CDROOT_DIR}/bootx64.efi -p '(memdisk)/boot/grub' search iso9660 configfile normal memdisk tar part_msdos fat
-rm -f ${CD_GRUB_DIR}/efi.img
-MKFSVER=$(mkfs.fat 2>/dev/null | sed -nr "s/mkfs.fat\s([0-9]).*/\1/;/[0-9]/p")
-if [[ -n $MKFSVER && $MKFSVER -lt 4 ]]
+BOOTEFI="${CDROOT_DIR}/bootx64.efi"
+grub-mkimage -O x86_64-efi -d ${IMAGEDIR}/usr/lib/grub/x86_64-efi -m ${MEMDISK} -o "${BOOTEFI}" -p '(memdisk)/boot/grub' search iso9660 configfile normal memdisk tar part_msdos fat
+BOOTEFISIZE=$(stat -c %s "${BOOTEFI}")
+EFIIMG="${CD_GRUB_DIR}/efi.img"
+SECTORS=$(makefat "${EFIIMG}" $BOOTEFISIZE 32)
+if [[ $SECTORS -ne 32 ]]
 then
-    SPT=32
-else
-    SPT=63
+	makefat "${CD_GRUB_DIR}/efi.img" $BOOTEFISIZE $SECTORS &>/dev/null
 fi
-mkfs.fat -C ${CD_GRUB_DIR}/efi.img $(( ($(stat -c %s "${CDROOT_DIR}/bootx64.efi") / 1024 + 64) / $SPT * $SPT )) &>/dev/null
-mmd -i ${CD_GRUB_DIR}/efi.img ::efi
-mmd -i ${CD_GRUB_DIR}/efi.img ::efi/boot
-mcopy -i ${CD_GRUB_DIR}/efi.img ${CDROOT_DIR}/bootx64.efi ::efi/boot/bootx64.efi
-rm ${CDROOT_DIR}/bootx64.efi
+mmd -i "${EFIIMG}" ::efi
+mmd -i "${EFIIMG}" ::efi/boot
+mcopy -i "${EFIIMG}" "${BOOTEFI}" ::efi/boot/bootx64.efi
+rm "${BOOTEFI}"
 rm ${MEMDISK}
-rm -r ${EFI_IMAGE_DIR}
+rm -r "${EFI_IMAGE_DIR}"
 exit 0
