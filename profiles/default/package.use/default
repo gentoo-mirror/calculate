@@ -296,8 +296,10 @@ mate-extra/caja-extensions -cdr image-converter share
 # add support ePub format
 app-text/atril epub
 
-# need for mpv, to play over ssh
-media-video/ffmpeg openssl
+# openssl support needed for mpv, to play over ssh
+# builds libffmpeg.so to enable media playback in Chromium-based browsers like Opera and Vivaldi
+# xcb for video capture screen monitor
+media-video/ffmpeg openssl chromium xcb
 
 # enable sound support
 games-strategy/0ad sound
@@ -390,9 +392,6 @@ sys-auth/consolekit pm-utils
 
 # enable Glamor OpenGL 2D acceleration
 x11-drivers/xf86-video-amdgpu glamor
-
-# builds libffmpeg.so to enable media playback in Chromium-based browsers like Opera and Vivaldi
-media-video/ffmpeg chromium
 
 # support for Japanese input https://www.youtube.com/watch?v=NtA4C4HR7LE
 app-i18n/fcitx gtk2 gtk3
