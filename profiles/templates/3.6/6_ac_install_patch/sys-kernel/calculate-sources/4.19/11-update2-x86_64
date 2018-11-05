@@ -1,0 +1,6 @@
+# Calculate format=kernel name=.config os_install_arch_machine==x86_64
+# CONFIG_BPF_JIT_ALWAYS_ON is not set
+# CONFIG_BPF_STREAM_PARSER is not set
+CONFIG_BPF_SYSCALL=y
+CONFIG_CGROUP_BPF=y
+# CONFIG_XDP_SOCKETS is not set
