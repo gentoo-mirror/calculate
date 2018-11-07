@@ -1,0 +1,22 @@
+# Calculate format=diff
+Description: Fix FTBFS with glibc 2.27 on i386
+ cpudetect.c uses the non-standard "struct sigcontext" in its SIGILL handler. As
+ of glibc 2.27, this is not defined in strict standards compliant mode.
+ .
+ Fix by defining _GNU_SOURCE in cpudetect.c.
+Author: James Cowgill <jcowgill@debian.org>
+Bug: https://trac.mplayerhq.hu/ticket/2343
+Bug-Debian: https://bugs.debian.org/896805
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/cpudetect.c
++++ b/cpudetect.c
+@@ -16,6 +16,8 @@
+  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+  */
+ 
++#define _GNU_SOURCE
++
+ #include "mpx86asm.h"
+ #include "config.h"
+ #include "cpudetect.h"
