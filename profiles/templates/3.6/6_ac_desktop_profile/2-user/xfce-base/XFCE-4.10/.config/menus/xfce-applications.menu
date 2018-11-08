@@ -31,11 +31,22 @@
         <Name>Settings</Name>
         <Directory>xfce-settings.directory</Directory>
         <Include>
-            <Category>Settings</Category>
+            <Filename>xfce-settings-manager.desktop</Filename>
+        </Include>
+        <Include>
+            <And>
+                <Category>Settings</Category>
+                <Not><Category>DesktopSettings</Category></Not>
+                <Not><Category>X-XFCE-HardwareSettings</Category></Not>
+                <Not><Category>X-XFCE-SettingsDialog</Category></Not>
+                <Not><Category>X-XFCE-PersonalSettings</Category></Not>
+            </And>
         </Include>
         
         <Layout>
             <Filename>xfce-settings-manager.desktop</Filename>
+            <Separator/>
+            <Merge type="all"/>
         </Layout>
     </Menu>
     
@@ -113,7 +124,6 @@
     <Menu>
         <Name>System</Name>
         <Directory>xfce-system.directory</Directory>
-        <OnlyUnallocated/>
         <Include>
             <Category>System</Category>
         </Include>
@@ -124,7 +134,7 @@
         <Directory>xfce-other.directory</Directory>
         <OnlyUnallocated/>
         <Include>
-            <All/>
+            <Not><Category>Settings</Category></Not>
         </Include>
     </Menu>
     
