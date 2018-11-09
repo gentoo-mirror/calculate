@@ -1,0 +1,59 @@
+# Calculate format=kde path=/usr/share/applications
+
+[Desktop Entry]
+#?os_audio!=pulseaudio#
+NoDisplay=true
+#!os_audio#
+!NoDisplay=
+#os_audio#
+Comment[cs]=Upravit úroveň hlasitosti
+Comment[da]=Justér lydstyrkeniveau
+Comment[de]=Lautstärke anpassen
+Comment[es]=Ajustar el nivel de volumen
+Comment[fi]=Säädä äänenvoimakkuutta
+Comment[fr]=Régler le niveau du volume
+Comment[hu]=Hangerő beállítása
+Comment[it]=Regola il livello del volume
+Comment[nl]=Geluidsniveau aanpassen
+Comment[pl]=Dostosowanie poziomu głośności
+Comment[pt]=Ajustar o nível do volume
+Comment[pt_BR]=Ajuste o nível do volume
+Comment[ru]=Настройка уровня громкости
+Comment[sk]=Upraviť úroveň hlasitosti
+Comment[sr]=Подесите ниво јачине звука
+Comment[sv]=Justera volymnivån
+Comment[uk]=Скоригуйте рівень гучності
+GenericName[cs]=Ovládání hlasitosti
+GenericName[da]=Lydstyrkekontrol
+GenericName[de]=Lautstärkeregler
+GenericName[es]=Control de Volumen
+GenericName[fi]=Äänenvoimakkuus
+GenericName[fr]=Contrôle du volume
+GenericName[hu]=Hangerőszabályzó
+GenericName[it]=Regolazione del volume
+GenericName[nl]=Volumeregeling
+GenericName[pl]=Kontrola głośności
+GenericName[pt_BR]=Controle de volume
+GenericName[pt]=Controlo de Volume
+GenericName[ru]=Громкость
+GenericName[sk]=Ovládanie hlasitosti
+GenericName[sr]=Контрола јачине звука
+GenericName[sv]=Volymkontroll
+GenericName[uk]=Керування гучністю
+Name[cs]=Ovládání hlasitosti PulseAudio
+Name[da]=Lydstyrkekontrol for PulseAudio
+Name[de]=PulseAudio-Lautstärkeregler
+Name[es]=Control de Volumen de PulseAudio
+Name[fi]=PulseAudion äänenvoimakkuuden hallinta
+Name[fr]=Contrôle du volume PulseAudio
+Name[hu]=PulseAudio hangerőszabályzó
+Name[it]=Regolazione del volume PulseAudio
+Name[nl]=PulseAudio-volumeregeling
+Name[pl]=Kontrola głośności PulseAudio
+Name[pt_BR]=Controle de volume do PulseAudio
+Name[pt]=Controlo de Volume PulseAudio
+Name[ru]=Регулятор громкости PulseAudio
+Name[sk]=Ovládanie hlasitosti PulseAudio
+Name[sr]=PulseAudio контрола јачине звука
+Name[sv]=Volymkontroll för PulseAudio
+Name[uk]=Керування гучністю PulseAudio
