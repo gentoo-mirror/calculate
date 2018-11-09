@@ -1,0 +1,8 @@
+# Calculate format=kde path=/usr/share/applications
+
+[Desktop Entry]
+#?os_audio!=pulseaudio#
+NoDisplay=true
+#!os_audio#
+!NoDisplay=
+#os_audio#
