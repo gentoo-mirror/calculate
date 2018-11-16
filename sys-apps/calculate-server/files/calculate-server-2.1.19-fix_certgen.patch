@@ -1,0 +1,13 @@
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 5480365..11bf6f9 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -1862,7 +1862,7 @@ This command is not allowed."))
+         # Создаем сертификат для Postfix
+         if not self.createCertificate(sslOrganization="Postfix IMAP Server",
+                                 userName="postfix", groupName="postfix",
+-                                certFile="/etc/ssl/postfix/server.pem",
++                                certFile="/etc/ssl/postfix/server.crt",
+                                 keyFile="/etc/ssl/postfix/server.key"):
+             return False
+         return True
