@@ -54,6 +54,9 @@ USE="${USE} cups foomaticdb"
 # Python
 #USE="${USE} -python_single_target_python3_4"
 
+# Ruby
+USE="${USE} -ruby_targets_ruby23"
+
 # System
 USE="${USE} caps cgroups consolekit introspection logrotate lz4 lzo networkmanager nsplugin pgo policykit threads udisks"
 
