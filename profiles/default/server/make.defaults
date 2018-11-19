@@ -4,7 +4,7 @@ USE=""
 USE="${USE} -alsa -openal -pulseaudio"
 
 # Image support
-USE="${USE} -openexr -svg -tiff"
+USE="${USE} -openexr -pdf -svg -tiff"
 
 # Hardware
 USE="${USE} -cairo -opengl -vdpau"
