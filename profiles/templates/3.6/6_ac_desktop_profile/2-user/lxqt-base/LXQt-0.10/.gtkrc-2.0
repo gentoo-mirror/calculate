@@ -1,0 +1,12 @@
+# Calculate comment=# path=~
+include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
+include "/etc/gtk-2.0/gtkrc"
+style "user-font" 
+{
+	font_name="Droid Sans Regular"
+}
+widget_class "*" style "user-font"
+gtk-font-name="Droid Sans Regular #-ini(profile.font-size)-#"
+gtk-icon-theme-name="Calculate"
+gtk-menu-images=1
+gtk-button-images = 0
