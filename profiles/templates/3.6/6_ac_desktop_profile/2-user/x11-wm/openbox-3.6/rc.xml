@@ -43,7 +43,11 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
+#?pkg(media-gfx/lxqt-themes-calculate)!=#
+    <name>Calculate</name>
+#!pkg#
     <name>Clearlooks</name>
+#pkg#
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
