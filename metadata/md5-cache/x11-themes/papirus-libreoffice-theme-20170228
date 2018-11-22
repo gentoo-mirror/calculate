@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=Papirus icon theme for LibreOffice
+EAPI=6
+HOMEPAGE=https://git.io/papirus-libreoffice-theme
+KEYWORDS=x86 amd64
+LICENSE=GPL-3
+RDEPEND=|| ( app-office/libreoffice app-office/libreoffice-bin )
+SLOT=0
+SRC_URI=https://github.com/PapirusDevelopmentTeam/papirus-libreoffice-theme/archive/20170228.tar.gz -> papirus-libreoffice-theme-20170228.tar.gz
+_md5_=24c038e92ca48056a7ba0fd79240946a
