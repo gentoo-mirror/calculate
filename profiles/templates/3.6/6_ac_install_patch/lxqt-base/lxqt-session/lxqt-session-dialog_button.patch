@@ -1,0 +1,24 @@
+# Calculate format=diff
+diff --git a/lxqt-leave/leavedialog.ui b/lxqt-leave/leavedialog.ui
+index c418949..34cf24c 100644
+--- a/lxqt-leave/leavedialog.ui
++++ b/lxqt-leave/leavedialog.ui
+@@ -46,17 +46,10 @@
+        </spacer>
+       </item>
+       <item>
+-       <widget class="QToolButton" name="cancelButton">
++       <widget class="QPushButton" name="cancelButton">
+         <property name="text">
+          <string>Cancel</string>
+         </property>
+-        <property name="icon">
+-         <iconset theme="dialog-cancel">
+-          <normaloff>.</normaloff>.</iconset>
+-        </property>
+-        <property name="toolButtonStyle">
+-         <enum>Qt::ToolButtonTextBesideIcon</enum>
+-        </property>
+        </widget>
+       </item>
+      </layout>
