@@ -23,7 +23,10 @@ never_send_retrcpt=1
 uri_open_command=xdg-open '%s'
 ext_editor_command=xdg-open '%s'
 mime_textviewer=xdg-open '%s'
-#?pkg(x11-themes/claws-mail-theme-calculate)!=#
+#?pkg(x11-themes/claws-mail-theme-papirus)!=#
+pixmap_theme_path=/usr/share/claws-mail/themes/Papirus
+#pkg#
+#?pkg(x11-themes/claws-mail-theme-papirus)==&&pkg(x11-themes/claws-mail-theme-calculate)!=#
 pixmap_theme_path=/usr/share/claws-mail/themes/Calculate
 #pkg#
 #?os_locale_lang!=en_US#
