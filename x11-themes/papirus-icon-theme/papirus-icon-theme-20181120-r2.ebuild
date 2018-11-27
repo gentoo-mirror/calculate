@@ -25,6 +25,15 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	default_src_prepare
+	cd $S
+	for size in 16x16 22x22 24x24
+	do
+		rm -f Papirus/$size/panel/clementine-panel{,-grey}.svg
+	done
+}
+
 src_install() {
 	default_src_install
 	for size in 16x16 22x22 24x24 32x32 48x48 64x64
