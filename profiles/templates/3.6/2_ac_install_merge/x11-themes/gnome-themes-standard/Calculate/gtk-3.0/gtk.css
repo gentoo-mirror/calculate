@@ -238,12 +238,14 @@ panel-toplevel.background button:checked:not(#tasklist-button) {
 .mate-panel-menu-bar button:active,
 .mate-panel-menu-bar button:checked { color: #eeeeec; outline-color: rgba(238, 238, 236, 0.3); border-color: #1b1f20; background-image: image(#25292b); box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; transition-duration: 50ms; }
 
-.mate-panel-menu-bar button:hover { color: #eeeeec; outline-color: rgba(238, 238, 236, 0.3); border-color: #1b1f20; border-bottom-color: #0b0c0c; text-shadow: 0 -1px rgba(0, 0, 0, 0.779451); -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.779451); box-shadow: inset 0 1px rgba(255, 255, 255, 0.05); background-image: linear-gradient(to bottom, #353c3e, #2e3436 60%, #2a2e30); -gtk-icon-filter: brightness(1.2); }
+#?pkg(mate-base/mate-panel)!=#
+.mate-panel-menu-bar button:hover { color: #eeeeec; outline-color: rgba(238, 238, 236, 0.3); border-color: #1b1f20; border-bottom-color: #0b0c0c; text-shadow: 0 -1px rgba(0, 0, 0, 0.779451); -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.779451); box-shadow: inset 0 1px rgba(255, 255, 255, 0.05); background-image: linear-gradient(to bottom, #353c3e, #2e3436 60%, #2a2e30); }
+#pkg#
 
 .panel button:active,
 .panel button:checked { color: #eeeeec; outline-color: rgba(238, 238, 236, 0.3); border-color: #1b1f20; background-image: image(#25292b); box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; transition-duration: 50ms; }
 
-.panel button:hover { color: #eeeeec; outline-color: rgba(238, 238, 236, 0.3); border-color: #1b1f20; border-bottom-color: #0b0c0c; text-shadow: 0 -1px rgba(0, 0, 0, 0.779451); -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.779451); box-shadow: inset 0 1px rgba(255, 255, 255, 0.05); background-image: image(#252726); -gtk-icon-filter: brightness(1.2); }
+.panel button:hover { color: #eeeeec; outline-color: rgba(238, 238, 236, 0.3); border-color: #1b1f20; border-bottom-color: #0b0c0c; text-shadow: 0 -1px rgba(0, 0, 0, 0.779451); -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.779451); box-shadow: inset 0 1px rgba(255, 255, 255, 0.05); background-image: image(#252726); }
 
 .panel button,
 .panel button:checked { color: #eeeeec; outline-color: rgba(238, 238, 236, 0.3); border-color: #1b1f20; background-image: image(#343938); box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; transition-duration: 50ms; }
