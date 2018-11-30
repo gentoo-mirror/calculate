@@ -21,6 +21,7 @@ installkernel() {
 
 install() {
      inst_binary /usr/bin/cut
+     inst_binary /bin/grep
      inst_script "$moddir/select-video.sh" "/sbin/select-video.sh"
      inst_hook pre-pivot 50 "$moddir/system-video-blacklist.sh"
      inst_hook cmdline 50 "$moddir/parse-cmdline.sh"
