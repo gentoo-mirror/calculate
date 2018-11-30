@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -13,7 +12,7 @@ DESCRIPTION="Installer, launcher and supplementary files for Valve's Steam clien
 HOMEPAGE="http://steampowered.com"
 SRC_URI="http://repo.steampowered.com/steam/pool/steam/s/steam/steam_${PV}.tar.gz"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 LICENSE="ValveSteamLicense"
 
 RESTRICT="bindist mirror"
@@ -30,6 +29,7 @@ RDEPEND="
 			)
 
 		steamruntime? (
+			virtual/opengl[abi_x86_32]
 			x11-libs/libX11[abi_x86_32]
 			x11-libs/libXau[abi_x86_32]
 			x11-libs/libxcb[abi_x86_32]
@@ -55,7 +55,6 @@ PATCHES=(
 	"${FILESDIR}"/steam-runtime-default.patch
 	"${FILESDIR}"/steam-set-distrib-release.patch
 	"${FILESDIR}"/steam-fix-joystick-detection.patch
-	"${FILESDIR}"/steam-fix-preload-libxcb.patch
 )
 
 pkg_setup() {
@@ -77,17 +76,15 @@ src_prepare() {
 	default
 
 	sed -i 's:TAG+="uaccess":\0, TAG+="udev-acl":g' \
-		lib/udev/rules.d/99-steam-controller-perms.rules || die
+		lib/udev/rules.d/60-steam-input.rules || die
 
 	sed -i \
 		-e "s:@@DEBIAN_COMPAT@@:${EPREFIX}/usr/$(get_libdir)/debiancompat$(use amd64 && echo "\\:${EPREFIX}/usr/$(ABI=x86 get_libdir)/debiancompat"):g" \
 		-e "s:@@STEAM_RUNTIME@@:$(usex steamruntime 1 0):g" \
 		steam || die
 
-	# if STEAM_RUNTIME_PREFER_HOST_LIBRARIES is enabled, steam.sh wants to
-	# parse the output of ldconfig which is not in PATH for regular users
-	sed -i \
-		-e "s,export TEXTDOMAIN=steam,export TEXTDOMAIN=steam\nexport PATH=\${PATH}:/sbin/," steam || die
+	# use steam launcher version as release number as it is a bit more helpful than the baselayout version
+	sed -i -e "s,export DISTRIB_RELEASE=\"2.2\",export DISTRIB_RELEASE=\"${PVR}\"," steam || die
 
 	# Still need EPREFIX in the DEBIAN_COMPAT sed replacement because
 	# the regular expression used by hprefixify doesn't match here.
@@ -104,9 +101,9 @@ src_install() {
 	insinto /usr/lib/steam/
 	doins bootstraplinux_ubuntu12_32.tar.xz
 
-	udev_dorules lib/udev/rules.d/99-steam-controller-perms.rules lib/udev/rules.d/60-HTC-Vive-perms.rules
+	udev_dorules lib/udev/rules.d/60-steam-input.rules lib/udev/rules.d/60-steam-vr.rules
 
-	dodoc debian/changelog steam_install_agreement.txt
+	dodoc debian/changelog steam_subscriber_agreement.txt
 	doman steam.6
 
 	domenu steam.desktop
