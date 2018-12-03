@@ -404,8 +404,9 @@ www-apps/nextcloud postgres -sqlite
 www-apps/owncloud postgres -sqlite
 
 # support for Google Chromecast
+# support SRT/SSA/ASS
 # Fix open directories with audio files (issue #1042)
-media-video/vlc chromecast xml
+media-video/vlc chromecast libass xml
 
 # xml support
 app-editors/emacs libxml2 xft
