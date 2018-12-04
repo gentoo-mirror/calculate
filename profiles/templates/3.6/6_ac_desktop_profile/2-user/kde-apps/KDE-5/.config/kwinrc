@@ -26,6 +26,11 @@ ElectricBorders=1
 ElectricBorderTiling=false
 FocusStealingPreventionLevel=0
 
+#?hr_virtual==virtualbox#
+[Compositing]
+Backend=XRender
+#hr_virtual#
+
 [org.kde.kdecoration2]
 CloseOnDoubleClickOnMenu=true
 #?ini(profile.appearance-border)!=#
