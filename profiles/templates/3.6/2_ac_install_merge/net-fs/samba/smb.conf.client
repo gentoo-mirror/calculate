@@ -1,0 +1,4 @@
+# Calculate name=smb.conf format=samba pkg(kde-apps/kio-extras)!=||pkg(gnome-base/gvfs)!=&&grep(/etc/samba/smb.conf,client\x20max\x20protocol)==
+
+[global]
+client max protocol = NT1
