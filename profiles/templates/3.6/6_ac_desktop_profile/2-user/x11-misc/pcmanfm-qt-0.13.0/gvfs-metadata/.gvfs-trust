@@ -1,0 +1,16 @@
+# Calculate path=~
+
+# добавление в доверенные desktop файлы иконки на рабочем столе
+for fn in calculate-community.desktop \
+	calculate-install.desktop \
+	FTP.desktop \
+	gparted.desktop \
+	Home.desktop \
+	Home-nodomain.desktop \
+	README.desktop \
+	Share.desktop
+do
+	gio set "#-ini(resource.desktop)-#/$fn" "metadata::trust" true &>/dev/null
+done
+rm -f ~/.gvfs-trust
+rm -f ~/.config/autostart/gvfs-trust.desktop
