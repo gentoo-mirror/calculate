@@ -1,7 +1,9 @@
 # Calculate format=kde path=/etc/xdg/autostart
 [Desktop Entry]
 #?os_audio==pulseaudio#
-Hidden=False
+!Hidden=
+!OnlyShowIn=
 #!os_audio#
-Hidden=True
+Hidden=true
+OnlyShowIn=
 #os_audio#
