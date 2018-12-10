@@ -26,7 +26,11 @@
             "type": "section",
             "title": "Appearance",
             "keys": [
+#?pkg(gnome-extra/cinnamon)>=4#
+                "menu-custom",
+#!pkg#
                 "menu-icon-custom",
+#pkg#
                 "menu-icon",
                 "menu-label"
             ]
@@ -67,6 +71,16 @@
         "default": "Super_L::Super_R",
         "value": "<Alt>F1::Super_R"
     },
+
+#?pkg(gnome-extra/cinnamon)>=4#
+    "menu-custom": {
+        "type": "switch",
+        "default": false,
+        "description": "Use a custom icon and label",
+        "tooltip": "Checking this to specify a custom icon and label",
+        "value": true
+    },
+#!pkg#
     "menu-icon-custom": {
         "type": "switch",
         "default": false,
@@ -74,12 +88,17 @@
         "tooltip": "Unchecking this allows the theme to set the icon",
         "value": true
     },
+#pkg#
     "menu-icon": {
         "type": "iconfilechooser",
         "default": "/usr/share/cinnamon/theme/menu-symbolic.svg",
         "description": "Icon",
         "tooltip": "Select an icon to show in the panel.",
+#?pkg(gnome-extra/cinnamon)>=4#
         "dependency": "menu-icon-custom",
+#!pkg#
+        "dependency": "menu-custom",
+#pkg#
         "indent": "true",
         "value": "/usr/share/pixmaps/calculate/start-here-brown.svg"
     },
