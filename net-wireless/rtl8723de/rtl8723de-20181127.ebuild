@@ -4,11 +4,11 @@
 EAPI=5
 inherit linux-info linux-mod
 
-COMMIT="f76dba0e3778cf8a8d80e3ebbda113546651fa3d"
+COMMIT="0009232fe3b88546a41da4468cdef6de640adf57"
 
 DESCRIPTION="Realtek RTL8723DE module for Linux kernel"
-HOMEPAGE="https://github.com/jeremyb31/rtl8723de"
-SRC_URI="https://github.com/jeremyb31/rtl8723de/archive/${COMMIT}.zip -> rtl8723de-${PV}.zip"
+HOMEPAGE="https://github.com/smlinux/rtl8723de"
+SRC_URI="https://github.com/smlinux/rtl8723de/archive/${COMMIT}.zip -> rtl8723de-${PV}.zip"
 
 LICENSE="GPL-2"
 KEYWORDS="amd64 x86"
