@@ -1,0 +1,11 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=Binary firmware for Realtek Ethernet
+EAPI=6
+HOMEPAGE=https://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git
+KEYWORDS=amd64 x86
+LICENSE=linux-firmware ( BSD ISC MIT no-source-code ) GPL-2 GPL-2+ freedist
+RDEPEND=!sys-kernel/linux-firmware
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/snapshot/linux-firmware-1cb4e51018293c14642f115b5868cda92b879161.tar.gz -> linux-firmware-20181026.tar.gz
+_md5_=5de39797ad60620ea7c21dfad8bb9899
