@@ -24,7 +24,8 @@ REQUIRED_USE="minimal? ( vmlinuz )"
 CDEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
 		grub? ( sys-boot/grub )
 	)
-	firmware? ( sys-kernel/linux-firmware )"
+	firmware? ( || ( sys-kernel/linux-firmware
+		sys-firmware/eth-firmware ) )"
 
 DEPEND="${CDEPEND}
 	>=sys-devel/bison-1.875
