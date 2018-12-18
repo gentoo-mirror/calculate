@@ -16,7 +16,7 @@ LICENSE="ZOOM"
 SLOT="0"
 KEYWORDS="amd64"
 
-RESTRICT="mirror"
+RESTRICT="mirror preserve-libs"
 
 IUSE="pulseaudio"
 
@@ -34,6 +34,14 @@ RDEPEND="${DEPEND}
 	media-libs/gstreamer
 	media-libs/gst-plugins-base
 	media-libs/mesa
+	dev-qt/qtsql
+	dev-qt/qtconcurrent
+	dev-qt/qtmultimedia
+	dev-qt/qt3d
+	dev-qt/qtquickcontrols2
+	dev-qt/qtdeclarative
+	dev-qt/qtsvg
+	dev-qt/qtxmlpatterns
 	x11-libs/libxcb
 	x11-libs/libXcomposite
 	x11-libs/libXi
