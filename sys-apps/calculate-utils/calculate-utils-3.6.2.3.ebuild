@@ -7,13 +7,14 @@ PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.6.2.1"
-	["install"]="3.6.2.4"
-	["core"]="3.6.2.1"
+	["install"]="3.6.2.7"
+	["core"]="3.6.2.2"
+	["i18n"]="3.6.2.1"
 	["client"]="3.6.2.1"
 	["desktop"]="3.6.2.1"
 	["console"]="3.6.2.1"
-	["console-gui"]="3.6.2.1"
-	["builder"]="3.6.2.1"
+	["console-gui"]="3.6.2.2"
+	["builder"]="3.6.2.2"
 )
 
 inherit calculate-utils-r4
@@ -31,5 +32,5 @@ RDEPEND="
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 
