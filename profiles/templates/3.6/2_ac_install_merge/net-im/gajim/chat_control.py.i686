@@ -1,0 +1,5 @@
+# Calculate format=patch dotall mergepkg(net-im/gajim)!= os_install_arch_machine==i686 path=/usr/lib/python2.7/site-packages/gajim name=chat_control.py
+<reg>(def update_status_display.*?self.parent_win.redraw_tab\(self\))
+.*?(
+\s+def _info)</reg>
+<text>\1\2</text>
