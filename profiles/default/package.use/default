@@ -249,10 +249,6 @@ media-libs/mediastreamer video
 gnome-base/gvfs archive fuse mtp gnome-keyring
 
 # the following REQUIRED_USE flag constraints are unsatisfied:
-# pulseaudio? ( sound )
-dev-libs/efl sound
-
-# the following REQUIRED_USE flag constraints are unsatisfied:
 # introspection? ( deprecated )
 www-client/midori -introspection
 
@@ -429,3 +425,7 @@ media-sound/deadbeef mac
 
 # Add xface support used
 mail-client/sylpheed ldap xface
+
+# The following REQUIRED_USE flag constraints are unsatisfied:
+# egl gles
+dev-libs/efl gles egl -sdl -opengl

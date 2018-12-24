@@ -173,6 +173,7 @@ RDEPEND="
 
 	app-portage/layman[python_targets_python2_7]
 	sys-apps/portage[python_targets_python2_7]
+	dev-python/pyxattr[python_targets_python2_7]
 	>=virtual/udev-197
 	!app-misc/livecd-tools
 	sys-apps/coreutils[xattr]
