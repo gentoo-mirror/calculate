@@ -1,5 +1,6 @@
-# Calculate path=/etc/portage/package.use name=custom protected exists(/etc/portage/package.use/custom)==||ac_install_disk==on||os_install_root_type==livecd
-#?os_linux_system==desktop#
-#media-libs/openimageio cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_f16c
-#media-libs/opencv cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_fma3 cpu_flags_x86_popcnt cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_ssse3
-#os_linux_system#
+# Calculate path=/etc/portage/package.use name=custom.#-case(lower,os_install_linux_shortname)-# protected exists(/etc/portage/package.use/custom.#-case(lower,os_install_linux_shortname)-#)==
+#?os_install_locale_lang==ru_RU#
+# этот файл будет перенесён при установке #-os_install_linux_shortname-#
+#!os_install_locale_lang#
+# this file will be migrate to new #-os_install_linux_shortname-# installation
+#os_install_locale_lang#
