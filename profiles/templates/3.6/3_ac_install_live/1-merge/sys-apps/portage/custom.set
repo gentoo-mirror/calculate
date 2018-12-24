@@ -1,4 +1,4 @@
-# Calculate path=/etc/portage/package.keywords name=custom.#-case(lower,os_install_linux_shortname)-# protected exists(/etc/portage/package.keywords/custom.#-case(lower,os_install_linux_shortname)-#)==
+# Calculate path=/etc/portage/sets name=custom.#-case(lower,os_install_linux_shortname)-# exists(/etc/portage/sets/custom.#-case(lower,os_install_linux_shortname)-#)== protected 
 #?os_install_locale_lang==ru_RU#
 # этот файл будет перенесён при установке #-os_install_linux_shortname-#
 #!os_install_locale_lang#
