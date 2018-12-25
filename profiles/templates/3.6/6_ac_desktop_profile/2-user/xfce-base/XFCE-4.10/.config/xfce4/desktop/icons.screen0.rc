@@ -20,7 +20,18 @@ col=1
 row=2
 col=0
 
+#?os_locale_language!=ru&&os_locale_language!=bg&&os_locale_language!=uk#
 [Calculate Linux Community]
+#os_locale_language#
+#?os_locale_language==bg#
+[Calculate Linux Общност]
+#os_locale_language#
+#?os_locale_language==ru#
+[Сообщество Calculate Linux]
+#os_locale_language#
+#?os_locale_language==uk#
+[Cпівтовариство Calculate Linux]
+#os_locale_language#
 row=2
 col=1
 
