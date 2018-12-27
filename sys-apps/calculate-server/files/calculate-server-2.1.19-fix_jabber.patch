@@ -1,0 +1,51 @@
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 11bf6f9..39b3167 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -5284,6 +5284,7 @@ in Jabber service"))
+         # Изменяемые аттрибуты пользователя
+         modAttrs = []
+         # Изменяем Jabber ID
++        jabber_hosts = self.get_jabber_hosts()
+         if options.has_key('j'):
+             # Изменяем JID
+             jabberId = options['j']
+@@ -5293,6 +5294,10 @@ in Jabber service"))
+                 if len(jabberId.split("@")) != 2:
+                     self.printERROR(_("JID %s incorrect") %jabberId)
+                     return False 
++                if jabberId.rpartition('@')[2] not in jabber_hosts:
++                    self.printERROR(
++                        _("JID %s not supported on these jabber hosts") %jabberId)
++                    return False
+             searchUser = self.searchUserToId(jabberId)
+             if searchUser:
+                 foundUserName = searchUser[0][0][1]['uid'][0]
+@@ -5552,10 +5557,16 @@ in Unix service") %str(jabberId))
+             return False
+         return True
+ 
++    def get_jabber_hosts(self):
++        jabber_host = self.clVars.Get('sr_jabber_host')
++        jabber_hosts = self.clVars.Get('sr_jabber_hosts').split(',')
++        jabber_hosts.append(jabber_host)
++        return list(set(jabber_hosts))
+ 
+     @adminConnectLdap
+     def addUserJabberServer(self, userName, options, checkSetup=True):
+         """Добавляет jabber пользователя"""
++        jabber_hosts = self.get_jabber_hosts()
+         # Проверим установлен ли сервис jabber
+         if checkSetup and not self.initialChecks("jabber"):
+             return False
+@@ -5570,6 +5581,10 @@ in Unix service") %str(jabberId))
+                 if len(jabberId.split("@")) != 2:
+                     self.printERROR(_("JID %s incorrect") %jabberId)
+                     return False
++                if jabberId.rpartition('@')[2] not in jabber_hosts:
++                    self.printERROR(
++                        _("JID %s not supported on these jabber hosts") %jabberId)
++                    return False
+         # добавляем jabberID в Unix
+         if self.isServiceSetup("unix",False):
+             if not self.servUnixObj.setUserJabberID(userName, jabberId):
