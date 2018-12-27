@@ -1,11 +1,11 @@
 # Calculate format=procmail path=~/.config/gajim
-#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(jabber.host)!=#
-accounts.#-server(jabber.host)-#.autoconnect = True
-accounts.#-server(jabber.host)-#.savepass = True
-accounts.#-server(jabber.host)-#.sync_with_global_status = True
-accounts.#-server(jabber.host)-#.custom_port = #-server(jabber.port)-#
-accounts.#-server(jabber.host)-#.hostname = #-server(jabber.host)-#
-accounts.#-server(jabber.host)-#.name = #-cut(0,!,#-replace("\x40","!",ur_jid)-#)-#
+#?env(client.os_remote_auth)!=&&ur_domain_set==on&&server(jabber.host)!=&&ur_jid!=#
+accounts.#-cut(1,!,#-replace("\x40","!",ur_jid)-#)-#.autoconnect = True
+accounts.#-cut(1,!,#-replace("\x40","!",ur_jid)-#)-#.savepass = True
+accounts.#-cut(1,!,#-replace("\x40","!",ur_jid)-#)-#.sync_with_global_status = True
+accounts.#-cut(1,!,#-replace("\x40","!",ur_jid)-#)-#.custom_port = #-server(jabber.port)-#
+accounts.#-cut(1,!,#-replace("\x40","!",ur_jid)-#)-#.hostname = #-cut(1,!,#-replace("\x40","!",ur_jid)-#)-#
+accounts.#-cut(1,!,#-replace("\x40","!",ur_jid)-#)-#.name = #-cut(0,!,#-replace("\x40","!",ur_jid)-#)-#
 #env#
 avatar_position_in_roster = left
 chat_avatar_height = 64
