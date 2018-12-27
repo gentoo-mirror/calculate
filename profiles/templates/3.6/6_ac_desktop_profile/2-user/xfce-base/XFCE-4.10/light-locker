@@ -1,0 +1,5 @@
+# Calculate format=dconf dconf=/apps pkg(gnome-base/dconf)!=&&os_root_type==livecd
+
+[light-locker]
+lock-after-screensaver=uint32 0
+late-locking=false
