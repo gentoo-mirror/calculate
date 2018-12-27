@@ -27,8 +27,8 @@ index bba5f7a..ad9cceb 100644
 +            else
 +            {
 +                int i = 0;
-+                const int current_cnt = btns.count();
-+                const int border = qMin(btns.count(), m_desktopCount);
++                const int current_cnt = m_buttons->buttons().count();
++                const int border = qMin(current_cnt, m_desktopCount);
 +                // drop urgency for window from all desktops
 +                for ( ; i < border; ++i)
 +                {
