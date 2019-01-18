@@ -59,7 +59,7 @@ src_prepare() {
 src_install() {
 	insinto /
 	doins -r *
-	fperms a+x /opt/zoom/{zoom,ZoomLauncher,zoom.sh}
+	fperms a+x /opt/zoom/{zoom,ZoomLauncher,zoom.sh,zopen,zoomlinux}
 }
 
 pkg_preinst() {
