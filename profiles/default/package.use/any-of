@@ -33,3 +33,6 @@ app-emulation/ganeti lxc
 
 # any-of ( b100 b200 e300 mpmd n230 usrp1 usrp2 x300 )
 net-wireless/uhd b100 b200 e300 mpmd n230 usrp1 usrp2 x300
+
+# any-of ( php_targets_php7-2 )
+dev-php/pecl-mcrypt php_targets_php7-2
