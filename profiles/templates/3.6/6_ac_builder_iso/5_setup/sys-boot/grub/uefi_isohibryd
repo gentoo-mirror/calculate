@@ -24,7 +24,7 @@ makefat() {
 	SOURCESIZE=$2
 	SPT=$3
 	rm -f "$IMG"
-	mkfs.fat -C -v "$IMG" $(( ($SOURCESIZE / 1024 + 64) / $SPT * $SPT )) 2>/dev/null |
+	mkfs.fat -C -n UEFI -v "$IMG" $(( ($SOURCESIZE / 1024 + 64) / $SPT * $SPT )) 2>/dev/null |
 		sed -rn 's/.* ([0-9]+) sectors per track.*/\1/p'
 }
 
