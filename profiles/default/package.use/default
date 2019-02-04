@@ -364,7 +364,7 @@ app-admin/conky imlib
 media-libs/opencv contrib_hdf
 
 # force-enable hardware-accelerated rendering, disable branding, disable screenshot extension
-www-client/firefox hwaccel bindist -screenshot
+www-client/firefox hwaccel bindist -screenshot -pgo -lto
 
 # DRI3 support, UMA Acceleration Architecture
 x11-drivers/xf86-video-intel dri3 uxa
