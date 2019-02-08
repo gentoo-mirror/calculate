@@ -38,4 +38,4 @@ session    include      system-auth
 session    required     pam_env.so
 session    optional     pam_xauth.so
 # need for xautologin
-session    optional     pam_ck_connector.so nox11
+-session    optional     pam_ck_connector.so nox11
