@@ -1,0 +1,15 @@
+[Plymouth Theme]
+Name=Calculate
+Description=Simple theme that shows progressbar, image and text
+ModuleName=calculate
+
+[calculate]
+ImageDir=/usr/share/plymouth/themes/calculate
+BackgroundStartColor=0x000000
+BackgroundEndColor=0x000000
+ProgressbarColor=0xcdc481
+BootImage=/usr/share/plymouth/themes/calculate/boot
+ShutdownImage=/usr/share/plymouth/themes/calculate/shutdown
+ShutdownText=Shutdown...
+ShutdownFont=DroidSand 30
+ShutdownTextColor=0xaaaaaa
