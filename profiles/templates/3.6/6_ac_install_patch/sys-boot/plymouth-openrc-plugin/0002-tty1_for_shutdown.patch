@@ -1,0 +1,19 @@
+# Calculate format=diff
+commit a08cdcecbd5fefba0feb5aa96ad908b493e68659
+Author: Mir Calculate <support@calculate.ru>
+Date:   Wed Feb 13 16:31:33 2019 +0300
+
+    Переключение на tty1 при запуске plymouth во время shutdown
+
+diff --git a/plymouth.c b/plymouth.c
+index 57a4b7f..ab25871 100644
+--- a/plymouth.c
++++ b/plymouth.c
+@@ -216,6 +216,7 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+             if(!ply_start(PLY_MODE_SHUTDOWN)
+                     || !ply_update_rootfs_rw())
+                 rv = 1;
++            command("/usr/bin/chvt 1");
+         }
+         break;
+ 
