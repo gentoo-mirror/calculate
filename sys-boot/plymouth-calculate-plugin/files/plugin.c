@@ -80,7 +80,7 @@ ply_progress_bar_draw_area_color (ply_progress_bar_t *progress_bar,
                             long                y,
                             unsigned long       width,
                             unsigned long       height,
-			    uint32_t		progressbar_color)
+                            uint32_t            progressbar_color)
 {
         ply_rectangle_t paint_area;
 
@@ -161,7 +161,8 @@ struct _ply_boot_splash_plugin
 
         uint32_t                       background_start_color;
         uint32_t                       background_end_color;
-        uint32_t                       progressbar_color;
+        uint32_t                       boot_progressbar_color;
+        uint32_t                       shutdown_progressbar_color;
         uint32_t                       shutdown_color;
 
         ply_trigger_t                 *idle_trigger;
@@ -170,6 +171,8 @@ struct _ply_boot_splash_plugin
         uint32_t                       is_visible : 1;
         uint32_t                       is_animating : 1;
         uint32_t                       is_idle : 1;
+        uint32_t                       is_boot_progressbar : 1;
+        uint32_t                       is_shutdown_progressbar : 1;
 };
 
 bool is_dir(const char* path) {
@@ -474,9 +477,11 @@ view_start_animation (view_t *view)
                                     screen_width / 2.0 - width / 2.0,
                                     view->logo_area.y + view->logo_area.height + height / 2);
         }
-        ply_progress_bar_show (view->progress_bar,
-                               view->display,
-                               0, screen_height - ply_progress_bar_get_height (view->progress_bar));
+        if ((plugin->mode == PLY_BOOT_SPLASH_MODE_SHUTDOWN && plugin->is_shutdown_progressbar) ||
+            (plugin->mode == PLY_BOOT_SPLASH_MODE_BOOT_UP && plugin->is_boot_progressbar))
+                ply_progress_bar_show (view->progress_bar,
+                                       view->display,
+                                       0, screen_height - ply_progress_bar_get_height (view->progress_bar));
         view_redraw (view);
 }
 
@@ -563,14 +568,14 @@ create_plugin (ply_key_file_t *key_file)
         free(color);
 
         if (asprintf (&image_path, "%s/lock.png", image_dir) != -1) {
-		plugin->lock_image = ply_image_new (image_path);
-		free (image_path);
-	}
+                plugin->lock_image = ply_image_new (image_path);
+                free (image_path);
+        }
 
         if (asprintf (&image_path, "%s/box.png", image_dir) != -1) {
-		plugin->box_image = ply_image_new (image_path);
-		free (image_path);
-	}
+                plugin->box_image = ply_image_new (image_path);
+                free (image_path);
+        }
 
         plugin->image_dir = image_dir;
         plugin->views = ply_list_new ();
@@ -593,12 +598,34 @@ create_plugin (ply_key_file_t *key_file)
 
         free (color);
 
-        color = ply_key_file_get_value (key_file, "calculate", "ProgressbarColor");
+        color = ply_key_file_get_value (key_file, "calculate", "BootProgressbarColor");
 
-        if (color != NULL)
-                plugin->progressbar_color = strtol (color, NULL, 0);
-        else
-                plugin->progressbar_color = 0xffffff;
+        if (color != NULL && strcasecmp(color, "off") == 0) {
+                plugin->is_boot_progressbar = false;
+                plugin->boot_progressbar_color = 0xffffff;
+	} else {
+                plugin->is_boot_progressbar = true;
+                if (color != NULL)
+                        plugin->boot_progressbar_color = strtol (color, NULL, 0);
+                else
+                        plugin->boot_progressbar_color = 0xffffff;
+        }
+
+        free (color);
+
+        color = ply_key_file_get_value (key_file, "calculate", "ShutdownProgressbarColor");
+
+        if (color != NULL && strcasecmp(color, "off") == 0) {
+                plugin->is_shutdown_progressbar = false;
+                plugin->shutdown_progressbar_color = 0xffffff;
+	
+        } else {
+                plugin->is_shutdown_progressbar = true;
+                if (color != NULL)
+                        plugin->shutdown_progressbar_color = strtol (color, NULL, 0);
+                else
+                        plugin->shutdown_progressbar_color = 0xffffff;
+        }
 
         free (color);
 
@@ -683,17 +710,17 @@ draw_logo (view_t             *view,
                 int yres = screen_height;
 
                 if (plugin->mode == PLY_BOOT_SPLASH_MODE_SHUTDOWN && plugin->shutdown_image) {
-			image_path = detect_image(plugin->shutdown_image, xres, yres);
-			plugin->logo_image = ply_image_new (image_path);
-			free (image_path);
-			if (!ply_image_load (plugin->logo_image))
-				return;
+                        image_path = detect_image(plugin->shutdown_image, xres, yres);
+                        plugin->logo_image = ply_image_new (image_path);
+                        free (image_path);
+                        if (!ply_image_load (plugin->logo_image))
+                                return;
                 } else if (plugin->mode == PLY_BOOT_SPLASH_MODE_BOOT_UP && plugin->boot_image) {
-			image_path = detect_image(plugin->boot_image, xres, yres);
-			plugin->logo_image = ply_image_new (image_path);
-			free (image_path);
-			if (!ply_image_load (plugin->logo_image))
-				return;
+                        image_path = detect_image(plugin->boot_image, xres, yres);
+                        plugin->logo_image = ply_image_new (image_path);
+                        free (image_path);
+                        if (!ply_image_load (plugin->logo_image))
+                                return;
                 } else {
                         plugin->logo_image = ply_image_new ("");
                 }
@@ -820,8 +847,10 @@ on_draw (view_t             *view,
                 ply_throbber_draw_area (view->throbber,
                                         pixel_buffer, x, y, width, height);
                 ply_progress_bar_draw_area_color (view->progress_bar,
-                                            pixel_buffer, x, y, width, height,
-                                            plugin->progressbar_color);
+                    pixel_buffer, x, y, width, height,
+                    plugin->mode == PLY_BOOT_SPLASH_MODE_SHUTDOWN ?
+                        plugin->shutdown_progressbar_color :
+                        plugin->boot_progressbar_color);
         }
         ply_label_draw_area (view->message_label,
                              pixel_buffer,
