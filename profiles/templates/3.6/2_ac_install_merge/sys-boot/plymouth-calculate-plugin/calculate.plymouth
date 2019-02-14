@@ -1,0 +1,39 @@
+# Calculate format=kde path=/usr/share/plymouth/themes/calculate
+[Plymouth Theme]
+Name=Calculate
+Description=Simple theme that shows progressbar, image and text for shutdown
+ModuleName=calculate
+
+[calculate]
+ImageDir=/usr/share/plymouth/themes/calculate
+BackgroundStartColor=0x000000
+BackgroundEndColor=0x000000
+#?ini(theme.splash-silent-progress-color-begin)!=&&ini(theme.splash-silent-progress-color-begin)!=off#
+BootProgressbarColor=0x#-ini(theme.splash-silent-progress-color-begin)-#
+#ini#
+#?ini(theme.splash-silent-progress-color-begin)==off#
+BootProgressbarColor=off
+#ini#
+#?ini(theme.splash-silent-progress-color-begin)==#
+!BootProgressbarColor=
+#ini#
+#?ini(theme.splash-shutdown-progress-color-begin)!=&&ini(theme.splash-shutdown-progress-color-begin)!=off#
+ShutdownProgressbarColor=0x#-ini(theme.splash-shutdown-progress-color-begin)-#
+#ini#
+#?ini(theme.splash-shutdown-progress-color-begin)==off#
+ShutdownProgressbarColor=off
+#ini#
+#?ini(theme.splash-shutdown-progress-color-begin)==#
+!ShutdownProgressbarColor=
+#ini#
+#?ini(theme.splash-silent-background)!=#
+BootImage=/usr/share/plymouth/themes/calculate/boot
+#!ini#
+!BootImage=
+#ini#
+#?ini(theme.splash-shutdown-background)!=#
+ShutdownImage=/usr/share/plymouth/themes/calculate/.shutdown
+#!ini#
+!ShutdownImage=
+#ini#
+ShutdownTextColor=0x#-ini(theme.splash-shutdown-text-color)-#

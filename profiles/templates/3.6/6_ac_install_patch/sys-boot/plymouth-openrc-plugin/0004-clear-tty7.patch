@@ -1,0 +1,66 @@
+# Calculate format=diff
+commit af8a98a844fe3911cfc60618000ddde8a2466518
+Author: Mir Calculate <support@calculate.ru>
+Date:   Wed Feb 13 16:48:08 2019 +0300
+
+    Добавлена очистка tty7 после загрузки
+
+diff --git a/Makefile b/Makefile
+index 0ba94f9..cebdbd7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,7 +7,7 @@ PKG          := $(PKG_NAME)-$(PKG_VERSION)
+ BZIP2        := bzip2 -f -9
+ GZIP         := gzip -f -9
+ CFLAGS 	     += -fPIC -Wall
+-LDLIBS       := -leinfo -lrc
++LDLIBS       := -leinfo -lrc -lncurses
+ LDFLAGS      += -fPIC -shared
+ 
+ INSTALL      := install -D
+diff --git a/plymouth.c b/plymouth.c
+index 7089150..f2658f6 100644
+--- a/plymouth.c
++++ b/plymouth.c
+@@ -25,6 +25,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ #include <sys/stat.h>
++#include <term.h>
+ 
+ 
+ #ifdef DEBUG
+@@ -94,6 +95,25 @@ bool ply_message(const char* hook, const char* name)
+ }
+ 
+ 
++void clear_tty(char *tty) {
++    FILE *f = fopen(tty,"w");
++    if(f) {
++        int result;
++        char *clear_screen_token = "\x1b[3J";
++        char *hide_cursor_token = NULL;
++        int fd = fileno(f);
++
++        fwrite(clear_screen_token, strlen(clear_screen_token), 1, f);
++        setupterm(NULL, fd, &result);
++        if(result > 0) {
++            hide_cursor_token = tigetstr("civis");
++            fwrite(hide_cursor_token, strlen(hide_cursor_token), 1, f);
++        }
++        fclose(f);
++    }
++}
++
++
+ bool ply_ping()
+ {
+     return (system("/bin/plymouth --ping") == 0);
+@@ -243,6 +263,7 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+             if(!ply_quit(PLY_MODE_BOOT))
+                 rv = 1;
+             restart_console_font();
++            clear_tty("/dev/tty7");
+         }
+         break;
+ 

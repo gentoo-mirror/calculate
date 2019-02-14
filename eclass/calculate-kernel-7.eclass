@@ -30,7 +30,8 @@ CDEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
 DEPEND="${CDEPEND}
 	>=sys-devel/bison-1.875
 	>=sys-devel/flex-2.5.4
-	themes? ( media-gfx/splash-themes-calculate )
+	themes? ( || ( media-gfx/splash-themes-calculate
+		sys-boot/plymouth-calculate-plugin ) )
 	!minimal? ( virtual/pkgconfig )
 	"
 
