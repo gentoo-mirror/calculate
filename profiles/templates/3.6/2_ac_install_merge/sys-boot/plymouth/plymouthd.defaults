@@ -1,0 +1,10 @@
+# Calculate format=kde path=/usr/share/plymouth
+[Daemon]
+#?pkg(sys-boot/plymouth-calculate-plugin)!=#
+Theme=calculate
+#!pkg#
+Theme=spinner
+#pkg#
+ShowDelay=1
+FBDeviceTimeout=2
+DeviceTimeout=20
