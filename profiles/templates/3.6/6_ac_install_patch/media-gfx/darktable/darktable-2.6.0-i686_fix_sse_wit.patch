@@ -1,4 +1,4 @@
-# Calculate format=diff merge(media-gfx/darktable)!=2.6.0&&os_install_arch_machine==i686
+# Calculate format=diff merge(media-gfx/darktable)==2.6.0&&os_install_arch_machine==i686
 diff --git a/src/iop/filmic.c b/src/iop/filmic.c
 index fd6a176..99096ca 100644
 --- a/src/iop/filmic.c
