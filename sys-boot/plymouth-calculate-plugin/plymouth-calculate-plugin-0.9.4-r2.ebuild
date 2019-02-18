@@ -22,15 +22,10 @@ HOMEPAGE="https://www.calculate-linux.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
+IUSE="debug gdm +gtk +libkms +pango +split-usr static-libs"
 
 CDEPEND="
-	>=media-libs/libpng-1.2.16:=
-	dev-libs/glib:2
-	>=x11-libs/gtk+-3.14:3
-	x11-libs/cairo
-	x11-libs/libdrm[libkms]
-	>=x11-libs/pango-1.21
+	~sys-boot/${MY_P}[debug?,gdm?,gtk?,libkms?,pango?,split-usr?,static-libs?]
 "
 DEPEND="${CDEPEND}
 	app-text/docbook-xsl-stylesheets
@@ -38,7 +33,6 @@ DEPEND="${CDEPEND}
 	virtual/pkgconfig
 "
 RDEPEND="${CDEPEND}
-	~sys-boot/plymouth-0.9.4
 	virtual/udev
 	!<sys-kernel/dracut-0.37-r3
 "
@@ -65,10 +59,13 @@ src_configure() {
 		--enable-documentation
 		--enable-systemd-integration
 		--with-systemdunitdir="$(systemd_get_systemunitdir)"
-		--enable-drm
-		--enable-gtk
-		--enable-pango
-		--enable-shared
+		$(use_enable !static-libs shared)
+		$(use_enable static-libs static)
+		$(use_enable debug tracing)
+		$(use_enable gtk gtk)
+		$(use_enable libkms drm)
+		$(use_enable pango)
+		$(use_enable gdm gdm-transition)
 	)
 	econf "${myconf[@]}"
 }
