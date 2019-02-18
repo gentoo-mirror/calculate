@@ -1,4 +1,4 @@
-# Calculate format=backgrounds convert=png stretch path=/usr/share/plymouth/themes/calculate/boot name= link=#-ini(theme.splash-silent-background)-# mirror exists(#-ini(theme.splash-silent-background)-#)!=
+# Calculate format=backgrounds convert=png stretch name= link=#-ini(theme.splash-silent-picture)-# mirror exists(#-ini(theme.splash-silent-picture)-#)!=
 #?cl_chroot_status==on#
 1024x768
 640x480
