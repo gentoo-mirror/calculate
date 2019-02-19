@@ -1,0 +1,23 @@
+# Calculate format=diff
+commit c0e512de2352611112c5476e0032514e2b2d713c
+Author: Mir Calculate <support@calculate.ru>
+Date:   Tue Feb 19 12:17:41 2019 +0300
+
+    Добавлена возможность указать запуск splash только для shutdown
+
+diff --git a/src/main.c b/src/main.c
+index f8f980c..c702c10 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -916,6 +916,11 @@ plymouth_should_show_default_splash (state_t *state)
+                 return true;
+         }
+ 
++        if (ply_kernel_command_line_has_argument ("splash=shutdown") && state->mode == PLY_MODE_SHUTDOWN) {
++                ply_trace ("using default splash because kernel command line has option \"splash=shutdown\"");
++                return true;
++        }
++
+         if (ply_kernel_command_line_has_argument ("splash=silent")) {
+                 ply_trace ("using default splash because kernel command line has option \"splash=silent\"");
+                 return true;

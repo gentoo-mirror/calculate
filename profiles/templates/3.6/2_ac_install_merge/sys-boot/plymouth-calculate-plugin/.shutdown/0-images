@@ -1,4 +1,4 @@
-# Calculate format=backgrounds convert=png stretch path=/usr/share/plymouth/themes/calculate/.shutdown name= link=#-ini(theme.splash-shutdown-background)-# mirror exists(#-ini(theme.splash-shutdown-background)-#)!=
+# Calculate format=backgrounds convert=png stretch name= link=#-ini(theme.splash-shutdown-picture)-# mirror exists(#-ini(theme.splash-shutdown-picture)-#)!=
 #?cl_chroot_status==on#
 1024x768
 640x480

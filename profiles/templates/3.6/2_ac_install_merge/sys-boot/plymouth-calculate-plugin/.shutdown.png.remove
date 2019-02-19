@@ -1,0 +1,2 @@
+# Calculate append=remove name=.shutdown.png ini(theme.splash-shutdown-type)!=logo||ini(theme.splash-shutdown-picture)==||exists(#-ini(theme.splash-shutdown-picture)-#)==||pkg(media-gfx/imagemagick)==
+

@@ -161,6 +161,8 @@ struct _ply_boot_splash_plugin
 
         uint32_t                       background_start_color;
         uint32_t                       background_end_color;
+        uint32_t                       shutdown_background_start_color;
+        uint32_t                       shutdown_background_end_color;
         uint32_t                       boot_progressbar_color;
         uint32_t                       shutdown_progressbar_color;
         uint32_t                       shutdown_color;
@@ -580,7 +582,7 @@ create_plugin (ply_key_file_t *key_file)
         plugin->image_dir = image_dir;
         plugin->views = ply_list_new ();
 
-        color = ply_key_file_get_value (key_file, "calculate", "BackgroundStartColor");
+        color = ply_key_file_get_value (key_file, "calculate", "BootBackgroundStartColor");
 
         if (color != NULL)
                 plugin->background_start_color = strtol (color, NULL, 0);
@@ -589,12 +591,30 @@ create_plugin (ply_key_file_t *key_file)
 
         free (color);
 
-        color = ply_key_file_get_value (key_file, "calculate", "BackgroundEndColor");
+        color = ply_key_file_get_value (key_file, "calculate", "BootBackgroundEndColor");
 
         if (color != NULL)
                 plugin->background_end_color = strtol (color, NULL, 0);
         else
                 plugin->background_end_color = 0x000000;
+
+        free (color);
+
+        color = ply_key_file_get_value (key_file, "calculate", "ShutdownBackgroundStartColor");
+
+        if (color != NULL)
+                plugin->shutdown_background_start_color = strtol (color, NULL, 0);
+        else
+                plugin->shutdown_background_start_color = 0x000000;
+
+        free (color);
+
+        color = ply_key_file_get_value (key_file, "calculate", "ShutdownBackgroundEndColor");
+
+        if (color != NULL)
+                plugin->shutdown_background_end_color = strtol (color, NULL, 0);
+        else
+                plugin->shutdown_background_end_color = 0x000000;
 
         free (color);
 
@@ -670,6 +690,8 @@ draw_background (view_t             *view,
                  int                 width,
                  int                 height)
 {
+        uint32_t                       start_color;
+        uint32_t                       end_color;
         ply_boot_splash_plugin_t *plugin;
         ply_rectangle_t area;
 
@@ -679,14 +701,19 @@ draw_background (view_t             *view,
         area.y = y;
         area.width = width;
         area.height = height;
+	
+        if (plugin->mode == PLY_BOOT_SPLASH_MODE_SHUTDOWN) {
+		start_color = plugin->shutdown_background_start_color;
+		end_color = plugin->shutdown_background_end_color;
+	} else {
+		start_color = plugin->background_start_color;
+		end_color = plugin->background_end_color;
+	}
 
-        if (plugin->background_start_color != plugin->background_end_color)
-                ply_pixel_buffer_fill_with_gradient (pixel_buffer, &area,
-                                                     plugin->background_start_color,
-                                                     plugin->background_end_color);
+        if (start_color != end_color)
+                ply_pixel_buffer_fill_with_gradient (pixel_buffer, &area, start_color, end_color);
         else
-                ply_pixel_buffer_fill_with_hex_color (pixel_buffer, &area,
-                                                      plugin->background_start_color);
+                ply_pixel_buffer_fill_with_hex_color (pixel_buffer, &area, start_color);
 }
 
 static void

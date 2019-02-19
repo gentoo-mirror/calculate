@@ -1,1 +1,1 @@
-# Calculate append=remove path=/usr/share/plymouth/themes/calculate name=boot ini(theme.splash-silent-background)==||exists(#-ini(theme.splash-silent-background)-#)==
+# Calculate append=remove name=boot ini(theme.splash-silent-type)!=background||ini(theme.splash-silent-picture)==||exists(#-ini(theme.splash-silent-picture)-#)==
