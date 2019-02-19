@@ -22,6 +22,7 @@ SRC_URI="silent? (
 		http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-${PV}.jpg -> ${PN}-shutdown-${PV}.jpg )"
 
 DEPEND="sys-boot/plymouth-calculate-plugin
+	sys-boot/plymouth-openrc-plugin
 	media-fonts/droid
 	!<sys-apps/calculate-utils-3.5.4"
 
