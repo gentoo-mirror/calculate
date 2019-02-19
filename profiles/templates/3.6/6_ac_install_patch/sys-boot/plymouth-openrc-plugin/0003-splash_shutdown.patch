@@ -1,0 +1,60 @@
+# Calculate format=diff
+commit 58f0dbc03cdd6eccdc475cfb770ba3f41e4707b9
+Author: Mir Calculate <support@calculate.ru>
+Date:   Tue Feb 19 11:51:06 2019 +0300
+
+    Не запускать plymouthd при загрузке если есть параметр splash=shutdown
+
+diff --git a/plymouth.c b/plymouth.c
+index f2658f6..08b7935 100644
+--- a/plymouth.c
++++ b/plymouth.c
+@@ -22,6 +22,8 @@
+ #include <stdarg.h>
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <fcntl.h>
++#include <ctype.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <sys/stat.h>
+@@ -174,6 +176,30 @@ bool ply_update_status(int hook, const char* name)
+     return true;
+ }
+ 
++bool kernel_command_has_argument(const char *argument)
++{
++    char buf[4096];
++    int fd;
++    fd = open("/proc/cmdline", O_RDONLY);
++    
++    if( fd < 0 ) {
++        return false;
++    }
++    if(read(fd, buf, 4095) < 0) {
++        close(fd);
++        return false;
++    }
++    close(fd);
++    char *found_arg = strstr(buf, argument);
++    if(found_arg == NULL)
++        return false;
++
++    if(found_arg == buf || found_arg[-1] == ' ') {
++        char endch = *(found_arg+strlen(argument));
++        return (isspace(endch) || endch == '\0') ? true : false;
++    }
++    return false;
++}
+ 
+ bool ply_update_rootfs_rw()
+ {
+@@ -249,7 +275,7 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+         /* Start the Plymouth daemon and show splash when entering the boot
+          * runlevel. Required /proc and /sys should already be mounted in
+          * sysinit runlevel. */
+-        if(strcmp(name, bootlevel) == 0) {
++        if(strcmp(name, bootlevel) == 0 && !kernel_command_has_argument("splash=shutdown")) {
+             DBG("ply_start(PLY_MODE_BOOT)");
+             if(!ply_start(PLY_MODE_BOOT))
+                 rv = 1;
