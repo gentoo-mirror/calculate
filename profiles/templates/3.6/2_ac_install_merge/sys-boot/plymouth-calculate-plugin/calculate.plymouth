@@ -10,6 +10,8 @@ BootBackgroundStartColor=0x#-ini(theme.splash-silent-background-color-begin)-#
 BootBackgroundEndColor=0x#-ini(theme.splash-silent-background-color-end)-#
 ShutdownBackgroundStartColor=0x#-ini(theme.splash-shutdown-background-color-begin)-#
 ShutdownBackgroundEndColor=0x#-ini(theme.splash-shutdown-background-color-end)-#
+!ShutdownProgressbarColor=
+!BootProgressbarColor=
 #?ini(theme.splash-silent-picture)!=&&ini(theme.splash-silent-type)==background#
 BootImage=/usr/share/plymouth/themes/calculate/boot
 #ini#

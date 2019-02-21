@@ -13,7 +13,19 @@ cl;
 #-load(/bootmenu/bootparam.config)-# splash=silent,theme:calculate console=tty1;
 #pkg#
 #?pkg(media-gfx/splashutils)==&&pkg(sys-boot/plymouth)!=#
+#?ini(theme.splash-silent-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-silent-picture)-#,root)!=&&ini(theme.splash-shutdown-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-shutdown-picture)-#,root)!=#
+#-load(/bootmenu/bootparam.config)-# splash;
+#ini#
+#pkg#
+#?ini(theme.splash-silent-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-silent-picture)-#,root)!=&&ini(theme.splash-shutdown-picture)==||ini(theme.splash-silent-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-silent-picture)-#,root)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-shutdown-picture)-#,root)==#
 #-load(/bootmenu/bootparam.config)-# splash=silent;
+#ini#
+#?ini(theme.splash-shutdown-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-shutdown-picture)-#,root)!=&&ini(theme.splash-silent-picture)==||ini(theme.splash-shutdown-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-shutdown-picture)-#,root)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-silent-picture)-#,root)==#
+#-load(/bootmenu/bootparam.config)-# splash=shutdown rd.plymouth=0;
+#ini#
+#?ini(theme.splash-silent-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-silent-picture)-#,root)!=||ini(theme.splash-shutdown-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-shutdown-picture)-#,root)!=##!ini#
+#-load(/bootmenu/bootparam.config)-# verbose rd.plymouth=0;
+#ini#
 #pkg#
 #?pkg(media-gfx/splashutils)==&&pkg(sys-boot/plymouth)==#
 #-load(/bootmenu/bootparam.config)-# verbose;
