@@ -175,6 +175,7 @@ struct _ply_boot_splash_plugin
         uint32_t                       is_idle : 1;
         uint32_t                       is_boot_progressbar : 1;
         uint32_t                       is_shutdown_progressbar : 1;
+        uint32_t                       is_progressbar : 1;
 };
 
 bool is_dir(const char* path) {
@@ -434,6 +435,7 @@ view_start_animation (view_t *view)
         long width, height;
         long x,y;
         int number_of_frames;
+        int yoffset = 0;
 
         assert (view != NULL);
 
@@ -464,6 +466,7 @@ view_start_animation (view_t *view)
                 x = 0;
                 y = screen_height / 2;
                 ply_label_show (view->shutdown_label, view->display, x, y);
+                yoffset = ply_label_get_height(view->shutdown_label) * 2;
         }
 
         plugin->is_idle = false;
@@ -473,17 +476,14 @@ view_start_animation (view_t *view)
         if (number_of_frames > 0) {
                 width = ply_throbber_get_width (view->throbber);
                 height = ply_throbber_get_height (view->throbber);
+                y = view->logo_area.y + view->logo_area.height + height / 2;
+
                 ply_throbber_start (view->throbber,
                                     plugin->loop,
                                     view->display,
                                     screen_width / 2.0 - width / 2.0,
-                                    view->logo_area.y + view->logo_area.height + height / 2);
+                                    (y + height < screen_height) ? y : (screen_height / 2 + yoffset));
         }
-        if ((plugin->mode == PLY_BOOT_SPLASH_MODE_SHUTDOWN && plugin->is_shutdown_progressbar) ||
-            (plugin->mode == PLY_BOOT_SPLASH_MODE_BOOT_UP && plugin->is_boot_progressbar))
-                ply_progress_bar_show (view->progress_bar,
-                                       view->display,
-                                       0, screen_height - ply_progress_bar_get_height (view->progress_bar));
         view_redraw (view);
 }
 
@@ -618,36 +618,11 @@ create_plugin (ply_key_file_t *key_file)
 
         free (color);
 
-        color = ply_key_file_get_value (key_file, "calculate", "BootProgressbarColor");
-
-        if (color != NULL && strcasecmp(color, "off") == 0) {
-                plugin->is_boot_progressbar = false;
-                plugin->boot_progressbar_color = 0xffffff;
-	} else {
-                plugin->is_boot_progressbar = true;
-                if (color != NULL)
-                        plugin->boot_progressbar_color = strtol (color, NULL, 0);
-                else
-                        plugin->boot_progressbar_color = 0xffffff;
-        }
-
-        free (color);
-
-        color = ply_key_file_get_value (key_file, "calculate", "ShutdownProgressbarColor");
-
-        if (color != NULL && strcasecmp(color, "off") == 0) {
-                plugin->is_shutdown_progressbar = false;
-                plugin->shutdown_progressbar_color = 0xffffff;
-	
-        } else {
-                plugin->is_shutdown_progressbar = true;
-                if (color != NULL)
-                        plugin->shutdown_progressbar_color = strtol (color, NULL, 0);
-                else
-                        plugin->shutdown_progressbar_color = 0xffffff;
-        }
-
-        free (color);
+        plugin->is_boot_progressbar = false;
+        plugin->is_shutdown_progressbar = false;
+        plugin->boot_progressbar_color = 0xffffff;
+        plugin->shutdown_progressbar_color = 0xffffff;
+        plugin->is_progressbar = false;
 
         return plugin;
 }
@@ -701,14 +676,14 @@ draw_background (view_t             *view,
         area.y = y;
         area.width = width;
         area.height = height;
-	
+
         if (plugin->mode == PLY_BOOT_SPLASH_MODE_SHUTDOWN) {
-		start_color = plugin->shutdown_background_start_color;
-		end_color = plugin->shutdown_background_end_color;
-	} else {
-		start_color = plugin->background_start_color;
-		end_color = plugin->background_end_color;
-	}
+                start_color = plugin->shutdown_background_start_color;
+                end_color = plugin->shutdown_background_end_color;
+        } else {
+                start_color = plugin->background_start_color;
+                end_color = plugin->background_end_color;
+        }
 
         if (start_color != end_color)
                 ply_pixel_buffer_fill_with_gradient (pixel_buffer, &area, start_color, end_color);
@@ -1261,4 +1236,32 @@ ply_progress_bar_new (void)
         progress_bar->area.height = BAR_HEIGHT;
 
         return progress_bar;
+}
+static void
+ply_progress_bar_update_area (ply_progress_bar_t *progress_bar,
+                              long                x,
+                              long                y)
+{
+        unsigned long display_width;
+
+        progress_bar->area.x = x;
+        progress_bar->area.y = y;
+        progress_bar->area.height = BAR_HEIGHT;
+
+        display_width = ply_pixel_display_get_width (progress_bar->display);
+        progress_bar->area.width = (long) (display_width * progress_bar->percent_done);
+}
+
+void
+ply_progress_bar_draw (ply_progress_bar_t *progress_bar)
+{
+        if (progress_bar->is_hidden)
+                return;
+
+        ply_progress_bar_update_area (progress_bar, progress_bar->area.x, progress_bar->area.y);
+        ply_pixel_display_draw_area (progress_bar->display,
+                                     progress_bar->area.x,
+                                     progress_bar->area.y,
+                                     progress_bar->area.width,
+                                     progress_bar->area.height);
 }
