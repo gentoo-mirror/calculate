@@ -89,22 +89,9 @@ src_install() {
 
 	insinto /usr/share/plymouth/themes/calculate
 	doins box.png bullet.png entry.png lock.png
+
+	cd ${S}/themes/spinner
+	doins throbber-00*.png
+
 	doins ${FILESDIR}/calculate.plymouth
-
-	#insinto /usr/share/plymouth
-	#newins "${DISTDIR}"/gentoo-logo.png bizcom.png
-
-	#if use split-usr ; then
-	#	# Install compatibility symlinks as some rdeps hardcode the paths
-	#	dosym ../usr/bin/plymouth /bin/plymouth
-	#	dosym ../usr/sbin/plymouth-set-default-theme /sbin/plymouth-set-default-theme
-	#	dosym ../usr/sbin/plymouthd /sbin/plymouthd
-	#fi
-
-	#readme.gentoo_create_doc
-
-	## looks like make install create /var/run/plymouth
-	## this is not needed for systemd, same should hold for openrc
-	## so remove
-	#rm -rf "${D}"/var/run
 }
