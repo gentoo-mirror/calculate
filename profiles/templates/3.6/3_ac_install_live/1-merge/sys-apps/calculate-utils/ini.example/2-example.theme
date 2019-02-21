@@ -253,19 +253,6 @@
 
 #in#
 #?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
-#?os_install_locale_language!=ru&&os_install_locale_language!=fr#
-# Color of the shutdown indicator ('off' for disable)
-#os_install_locale_language#
-#?os_install_locale_language==ru#
-# Цвет индикатора прогресса завершения работы компьютера (off - не отображать)
-#os_install_locale_language#
-#?os_install_locale_language==fr#
-# Couleur de l’indicateur d’arrêt
-#os_install_locale_language#
-; splash-shutdown-progress-color = off
-
-#in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru#
 # The way to display the image for shutdown screen:
 # 'logo' or 'background'
@@ -321,19 +308,6 @@
 # Для фонового изображения предпочтительный размер - 4266x2048
 #os_install_locale_language#
 ; splash-silent-picture = /usr/share/themes/Calculate/splash-silent.png
-
-#in#
-#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
-#?os_install_locale_language!=ru&&os_install_locale_language!=fr#
-# Color of the boot indicator ('off' for disable)
-#os_install_locale_language#
-#?os_install_locale_language==ru#
-# Цвет индикатора прогресса загрузки компьютера (off - не отображать)
-#os_install_locale_language#
-#?os_install_locale_language==fr#
-# Couleur de l’indicateur d’arrêt
-#os_install_locale_language#
-; splash-silent-progress-color = cdc481
 
 #in#
 #?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
