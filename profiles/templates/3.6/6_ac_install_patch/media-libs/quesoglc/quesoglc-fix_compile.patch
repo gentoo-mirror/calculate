@@ -1,0 +1,14 @@
+# Calculate format=diff
+diff --git a/src/unicode.c b/src/unicode.c
+index 25e200c..b848867 100644
+--- a/src/unicode.c
++++ b/src/unicode.c
+@@ -25,6 +25,8 @@
+  *  defines the routines used to manipulate Unicode strings and characters
+  */
+ 
++#undef HAVE_CONFIG_H
+ #include <fribidi/fribidi.h>
++#define HAVE_CONFIG_H
+ 
+ #include "internal.h"
