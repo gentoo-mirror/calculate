@@ -6,7 +6,7 @@ for arch in x86 amd64
 do
 	for pname in CLDXE
 	do
-		if [[ "$(readlink -f /etc/portage/make.profile)" =~ .*distros/profiles/${pname}\+/${arch}$ ]]
+		if [[ "$(readlink -f /etc/portage/make.profile)" =~ .*distros/profiles/${pname}/${arch}$ ]]
 		then
 			rm /etc/portage/make.profile
 			ln -sf ../../var/lib/layman/distros/profiles/CLDXS/${arch} /etc/portage/make.profile
