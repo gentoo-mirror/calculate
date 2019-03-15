@@ -400,7 +400,7 @@ www-apps/nextcloud postgres -sqlite
 www-apps/owncloud postgres -sqlite
 
 # add support for the postgresql database
-net-im/prosody postgres
+net-im/prosody libevent postgres
 dev-lua/luadbi postgres
 
 # support for Google Chromecast
