@@ -1,6 +1,7 @@
 ~app-accessibility/speech-dispatcher-0.8.7 amd64 x86
 ~app-admin/elektra-0.8.20 amd64 x86
 ~app-admin/glance-17.0.0 amd64 x86
+~app-admin/mongo-tools-4.0.6 amd64
 ~app-admin/restart-services-0.14.4 amd64 x86
 ~app-admin/socklog-2.1.0 amd64 x86
 ~app-admin/syslogread-0.92 amd64 x86
@@ -391,7 +392,7 @@
 ~app-misc/enum-1.1 amd64 x86
 ~app-misc/evemu-2.7.0 amd64 x86
 ~app-misc/faq-0.0.2 amd64 x86
-~app-misc/fdutils-5.5.20060227 amd64 x86
+=app-misc/fdutils-5.5.20060227 amd64 x86
 ~app-misc/fhem-5.9 amd64 x86
 ~app-misc/fujiplay-1.33 amd64 x86
 ~app-misc/g15message-1.0.0 amd64 x86
@@ -542,6 +543,7 @@
 ~dev-cpp/lucene++-3.0.7 amd64 x86
 ~dev-cpp/websocketpp-0.8.1 amd64 x86
 ~dev-db/go-etcd-2.0.0 amd64 x86
+~dev-db/mongodb-4.0.6 amd64
 ~dev-db/mysql-workbench-6.3.10 amd64 x86
 ~dev-db/pgtap-0.97.0 amd64 x86
 ~dev-db/pg_top-3.7.0 amd64 x86
@@ -957,7 +959,7 @@
 ~net-misc/hylafaxplus-5.5.9 amd64 x86
 ~net-misc/l7-filter-userspace-0.12_beta1 amd64 x86
 ~net-misc/netsed-0.01b amd64 x86
-~net-misc/putty-0.70 amd64 x86
+~net-misc/putty-0.71 amd64 x86
 ~net-misc/radvd-2.17 amd64 x86
 ~net-misc/remmina-1.2.31.2 amd64 x86
 ~net-misc/unison-2.48.4 amd64 x86
