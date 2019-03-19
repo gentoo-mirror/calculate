@@ -11,6 +11,7 @@ app-misc/mc -spell
 app-text/evince -nsplugin
 dev-lang/php -imap -spell
 dev-libs/folks -bluetooth
+dev-python/PyQt5 -webengine -webkit
 dev-python/translate-toolkit -html
 dev-qt/qtgui -vnc
 dev-vcs/git -gtk
@@ -21,7 +22,7 @@ kde-apps/print-manager -gtk
 mail-client/roundcube -spell
 mate-extra/mate-sensors-applet -video_cards_nvidia
 media-fonts/terminus-font -pcf
-media-gfx/imagemagick -X -raw
+media-gfx/imagemagick -raw
 media-gfx/inkscape -spell
 media-video/ffmpeg -samba
 net-analyzer/net-snmp -X
