@@ -3,14 +3,12 @@ app-arch/engrampa 1.20.2: Engrampa archive manager for MATE
 app-crypt/openpgp-keys-calculate-release 20180827: OpenPGP keys used for Calculate binary packages
 app-dicts/stardict-calculate-ru 1.0: The collection of Russian-English dictionaries
 app-editors/featherpad 0.9.1: Lightweight Qt5 Plain-Text Editor for Linux
-app-editors/pluma 1.20.4: Pluma text editor for the MATE desktop
 app-eselect/eselect-oodict 20100228: Manages configuration of dictionaries for OpenOffice.Org
 app-misc/xorg-meta 7.4-r2: Calculate Linux (Xorg meta package)
 app-text/atril 1.20.3: Atril document viewer for MATE
 app-text/wgetpaste 2.22-r1 2.25-r4: Command-line interface to various pastebins
 dev-lang/mono 4.4.1.0-r1: Mono runtime and class libraries, a C# compiler/interpreter
 dev-libs/klibc 2.0.4-r3 2.0.4-r4: A minimal libc subset for use with initramfs
-dev-libs/libmateweather 1.20.2: MATE library to access weather information from online services
 dev-python/m2crypto 0.22.3-r9 0.24.0-r9: M2Crypto: A Python crypto and SSL toolkit
 dev-python/pymilter 0.9.3: The package of Python milters that wraps the C libmilter library.
 dev-python/python-caja 1.20.2: Python bindings for the Caja file manager
@@ -19,32 +17,6 @@ dev-util/eclipse-sdk-bin 4.9.0: Eclipse SDK
 games-util/steam-launcher 1.0.0.56: Installer, launcher and supplementary files for Valve's Steam client
 gnome-extra/nemo-fileroller 3.2.0: File Roller integration for Nemo
 lxqt-base/lxqt-l10n 0.13.0_p20181121: LXQt localisation package
-mate-base/caja 1.20.3: Caja file manager for the MATE desktop
-mate-base/libmatekbd 1.20.2: MATE keyboard configuration library
-mate-base/mate 1.20: Meta ebuild for MATE, a traditional desktop environment
-mate-base/mate-applets 1.20.3: Applets for the MATE Desktop and Panel
-mate-base/mate-applets-meta 1.20: Meta package for MATE panel applets
-mate-base/mate-common 1.20.0: Common files for development of MATE packages
-mate-base/mate-control-center 1.20.4: The MATE Desktop configuration tool
-mate-base/mate-desktop 1.20.4: Libraries for the MATE desktop that are not part of the UI
-mate-base/mate-menus 1.20.2: MATE menu system, implementing the F.D.O cross-desktop spec
-mate-base/mate-panel 1.20.4: The MATE panel
-mate-base/mate-session-manager 1.20.2: MATE session manager
-mate-base/mate-settings-daemon 1.20.4: MATE Settings Daemon
-mate-extra/caja-dropbox 1.20.0: Store, Sync and Share Files Online
-mate-extra/caja-extensions 1.20.2: Several Caja extensions
-mate-extra/mate-calc 1.20.3: Calculator for MATE
-mate-extra/mate-indicator-applet 1.20.1: MATE indicator applet
-mate-extra/mate-media 1.20.2: Multimedia related programs for the MATE desktop
-mate-extra/mate-netbook 1.20.1-r1: MATE utilities for netbooks
-mate-extra/mate-polkit 1.20.2: A MATE specific DBUS service that is used to bring up authentication dialogs
-mate-extra/mate-power-manager 1.20.3: A session daemon for MATE that makes it easy to manage your laptop or desktop
-mate-extra/mate-screensaver 1.20.3: Replaces xscreensaver, integrating with the MATE desktop
-mate-extra/mate-sensors-applet 1.20.3: MATE panel applet to display readings from hardware sensors
-mate-extra/mate-system-monitor 1.20.2: The MATE System Monitor
-mate-extra/mate-user-guide 1.20.2: User documentation for MATE Desktop
-mate-extra/mate-user-share 1.20.1: Personal file sharing for the MATE desktop
-mate-extra/mate-utils 1.20.2: Utilities for the MATE desktop
 media-gfx/calculate-wallpapers 14-r2 15 17-r3 18: Wallpapers for Calculate Linux
 media-gfx/cinnamon-themes-calculate 15: Cinnamon theme for Calculate Linux
 media-gfx/dm-themes-calculate 13 14-r2 15 17-r4 18: Display manager wallpapers for Calculate Linux
@@ -60,7 +32,6 @@ media-gfx/plasma-themes-calculate 15 17 17-r1: Plasma theme for Calculate Linux
 media-gfx/splash-themes-calculate 15-r3 17-r2 18-r1 18-r2 19: Calculate Linux theme for gensplash
 media-gfx/splashutils 1.5.4.4-r9: Framebuffer splash utilities
 media-libs/freeimage 3.15.4-r2: Image library supporting many formats
-media-libs/libmatemixer 1.20.1: Mixer library for MATE Desktop
 media-sound/apulse 0.1.12_p20180803: PulseAudio emulation for ALSA
 net-dns/bind 9.11.0_p5-r1 9.11.1_p3-r1 9.11.2_p1-r1: BIND - Berkeley Internet Name Domain - Name Server
 net-im/gajim-httpupload 20171025: Http upload plugins for Gajim
@@ -93,22 +64,14 @@ www-plugins/chrome-ublock 0.9.8.2: An efficient blocker for Chromium
 www-plugins/firefox-ublock 1.17.1.1: An efficient blocker for Firefox
 x11-libs/libcryptui 3.12.2: User interface components for OpenPGP
 x11-libs/libfm-qt 0.13.1_p20181126: Qt port of libfm, a library providing components to build desktop file managers
-x11-misc/mate-notification-daemon 1.20.2: MATE Notification daemon
-x11-misc/mozo 1.20.2: Mozo menu editor for MATE
 x11-misc/pcmanfm-qt 0.13.0_p20181127: Fast lightweight tabbed filemanager (Qt port)
-x11-terms/mate-terminal 1.20.2: The MATE Terminal
 x11-themes/calculate-icon-theme 15-r7 15-r8 15-r9: Icons theme for Calculate Linux
 x11-themes/calculate-xcursors 13-r1 14-r1: Calculate X.Org mouse cursor
 x11-themes/claws-mail-theme-calculate 20120129: Iconset Calculate for Claws Mail
 x11-themes/claws-mail-theme-papirus 20181024: Iconset Papirus for Claws Mail
 x11-themes/elementary-icon-theme 2.7.1-r4 2.7.1-r5: Elementary icon theme is designed to be smooth, sexy, clear, and efficient
-x11-themes/mate-backgrounds 1.20.0: A set of backgrounds packaged with the MATE desktop
-x11-themes/mate-icon-theme 1.20.3: MATE default icon themes
-x11-themes/mate-icon-theme-faenza 1.20.0: Faenza icon theme, that was adapted for MATE desktop
-x11-themes/mate-themes 3.22.17: A set of MATE themes, with sets for users with limited or low vision
 x11-themes/papirus-icon-theme 20181120-r2: Papirus icon theme for GTK and KDE
 x11-themes/papirus-libreoffice-theme 20170228: Papirus icon theme for LibreOffice
 x11-themes/papirus-smplayer-theme 20170119: Papirus icon themes for SMPlayer
 x11-themes/qtstyleplugins 1.0_pre20170311: Additional style plugins for Qt5 (gtk2, cleanlook, plastic, motif)
-x11-wm/marco 1.20.3: MATE default window manager
 xfce-extra/xfce4-datetime-plugin 0.6.2: A panel plug-in with date, time and embedded calender
