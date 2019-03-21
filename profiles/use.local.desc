@@ -12,8 +12,6 @@ media-gfx/dm-themes-calculate:splash - Include display manager splash image.
 media-gfx/splash-themes-calculate:silent - Include silent image for boot.
 media-gfx/splash-themes-calculate:silent-shutdown - Include silent image for shutdown.
 media-gfx/splash-themes-calculate:verbose - Include verbose image.
-media-gfx/splashutils:fbcondecor - Support for the fbcondecor kernel patch.
-media-gfx/splashutils:klibc - Compile against dev-libs/klibc
 sys-apps/calculate-utils:backup - Includes backup module.
 sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain.
 sys-apps/calculate-utils:console - Includes console module.
@@ -24,5 +22,4 @@ sys-apps/calculate-utils:install - Enables support for disk installation.
 sys-apps/calculate-utils:minimal - Use minimal depends for calculate install.
 sys-apps/calculate-utils:pxe - Enables support for PXE installation.
 sys-apps/calculate-utils:qt5 - Include Qt5 gui console
-sys-apps/v86d:x86emu - Use x86emu for Video BIOS calls
 sys-kernel/calculate-sources:desktop - Desktop kernel configuration
