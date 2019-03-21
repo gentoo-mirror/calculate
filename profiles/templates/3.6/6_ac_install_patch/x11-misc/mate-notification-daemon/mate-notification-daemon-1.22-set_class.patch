@@ -1,0 +1,23 @@
+# Calculate format=diff
+diff --git a/src/themes/coco/coco-theme.c b/src/themes/coco/coco-theme.c
+index 2401e6c..efa555e 100644
+--- a/src/themes/coco/coco-theme.c
++++ b/src/themes/coco/coco-theme.c
+@@ -372,6 +372,7 @@ get_theme_info(char **theme_name,
+ GtkWindow *
+ create_notification(UrlClickedCb url_clicked)
+ {
++	GtkStyleContext* context;
+ 	GtkWidget *win;
+ 	GtkWidget *main_vbox;
+ 	GtkWidget *vbox;
+@@ -388,6 +389,9 @@ create_notification(UrlClickedCb url_clicked)
+ 	gtk_window_set_resizable(GTK_WINDOW(win), FALSE);
+ 	windata->win = win;
+ 
++	context = gtk_widget_get_style_context (win);
++	gtk_style_context_add_class (context, "app-notification");
++
+ 	windata->rtl = gtk_widget_get_default_direction();
+ 	windata->composited = FALSE;
+ 	screen = gtk_window_get_screen(GTK_WINDOW(win));
