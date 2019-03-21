@@ -1,4 +1,0 @@
-# Calculate format=contents ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#&&pkg(sys-boot/grub)!=&&pkg(sys-apps/memtest86+)!=
-
-#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
-sys-boot/grub,sys-apps/memtest86+ /etc/grub.d/39_memtest86+

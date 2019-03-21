@@ -1,9 +1,0 @@
-# Calculate format=contents ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#&&pkg(dev-libs/klibc)<2
-
-#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
-!dev-libs/klibc /usr/lib*/klibc/include/asm/*
-!dev-libs/klibc /usr/lib*/klibc/include/asm
-!dev-libs/klibc /usr/lib*/klibc/include/asm-generic/*
-!dev-libs/klibc /usr/lib*/klibc/include/asm-generic
-!dev-libs/klibc /usr/lib*/klibc/include/linux/*
-!dev-libs/klibc /usr/lib*/klibc/include/linux

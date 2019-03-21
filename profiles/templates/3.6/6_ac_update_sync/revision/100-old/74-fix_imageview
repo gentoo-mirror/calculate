@@ -1,9 +1,0 @@
-# Calculate name=ini.env format=samba ini(overlay-calculate.revision)<74
-
-[overlay-calculate]
-revision = 74
-
-#?ini(desktop.imageview)==digikam#
-[desktop]
-!imageview = 
-#ini#
