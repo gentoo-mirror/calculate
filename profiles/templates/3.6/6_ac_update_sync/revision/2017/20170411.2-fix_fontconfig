@@ -1,7 +1,0 @@
-# Calculate format=contents pkg(media-libs/fontconfig)!= exists(/etc/fonts/conf.avail/90-synthetic.conf)==&&ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-# rebuild=media-libs/fontconfig
-
-#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
-!media-libs/fontconfig /etc/fonts/conf.avail/90-synthetic.conf
-!media-libs/fontconfig /etc/fonts/conf.avail/30-metric-aliases.conf
-!media-libs/fontconfig /etc/fonts/conf.d/90-synthetic.conf
-!media-libs/fontconfig /etc/fonts/conf.d/30-metric-aliases.conf

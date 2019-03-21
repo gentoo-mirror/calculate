@@ -1,4 +1,0 @@
-# Calculate format=patch path=/root/.porthole name=prefs.xml ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#&&pkg(app-portage/porthole)!=&&exists(/root/.porthole/prefs.xml)!=
-#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
-<reg>emerge --sync</reg>
-<text>cl-update --sync-only --no-progress</text>

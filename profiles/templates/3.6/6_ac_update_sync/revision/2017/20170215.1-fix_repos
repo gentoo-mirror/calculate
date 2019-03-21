@@ -1,5 +1,0 @@
-# Calculate format=patch multiline dotall path=/var/lib/layman name=installed.xml ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#&&pkg(app-portage/layman)!=
-#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
-<reg>^\s*&lt;repo[^\n]+
-\s*&lt;name&gt;gentoo.*?&lt;/repo>$\n</reg>
-<text></text>
