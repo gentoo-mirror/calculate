@@ -1,12 +1,18 @@
 # Calculate format=dconf dconf=/org/gnome
 
+#?in(os_locale_language,es,es_UY)!=#
+#-ini(tmp.channel,calculate-es)-#
+#in#
+#?in(os_locale_language,pt,pt_BR)!=#
+#-ini(tmp.channel,calculate-pt)-#
+#in#
 #?os_locale_language==fr#
 #-ini(tmp.channel,calculate-fr)-#
 #os_locale_language#
 #?os_locale_language==ru#
 #-ini(tmp.channel,calculate-ru)-#
 #os_locale_language#
-#?in(os_locale_language,fr,ru)==#
+#?in(os_locale_language,fr,ru,es,es_UY,pt,pt_BR)==#
 #-ini(tmp.channel,calculate)-#
 #in#
 
