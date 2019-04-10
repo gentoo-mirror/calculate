@@ -1,12 +1,18 @@
 # Calculate format=kde path=/usr/share/applications name=calculate-chat.desktop ini(desktop.chat)==hexchat
 
 [Desktop Entry]
+#?in(os_locale_language,es,es_UY)!=#
+Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-es"
+#in#
+#?in(os_locale_language,pt,pt_BR)!=#
+Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-pt"
+#in#
 #?os_locale_language==fr#
 Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-fr"
 #os_locale_language#
 #?os_locale_language==ru#
 Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-ru"
 #os_locale_language#
-#?in(os_locale_language,fr,ru)==#
+#?in(os_locale_language,fr,ru,es,es_UY,pt,pt_BR)==#
 Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate"
 #in#
