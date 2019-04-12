@@ -14,8 +14,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="+qt5"
 
-SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/icon/icon-calculate-15-r6.tar.bz2
-	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-15-r6.tar.bz2"
+SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/icon/icon-calculate-19.tar.bz2
+	http://mirror.yandex.ru/calculate/themes/icon/icon-calculate-19.tar.bz2"
 
 REQUIRED_USE=""
 
