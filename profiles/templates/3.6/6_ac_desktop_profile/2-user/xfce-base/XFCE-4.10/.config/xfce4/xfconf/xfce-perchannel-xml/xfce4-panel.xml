@@ -162,7 +162,7 @@
     </property>
     <property name="plugin-23" type="string" value="directorymenu">
       <property name="base-directory" type="string" value="/home/#-ur_login-#/FTP"/>
-#?pkg(x11-themes/elementary-icon-theme)!=#
+#?pkg(x11-themes/elementary-icon-theme)!=||pkg(x11-themes/elementary-xfce-icon-theme)!=#
       <property name="icon-name" type="string" value="folder-download"/>
 #!pkg#
       <property name="icon-name" type="string" value="zen-icon"/>
