@@ -354,7 +354,7 @@
 ~app-emulation/wine-mono-4.7.3 amd64 x86
 ~app-emulation/xen-tools-4.11.1 x86
 ~app-eselect/eselect-electron-2.1 amd64 x86
-~app-eselect/eselect-opencascade-0 amd64 x86
+~app-eselect/eselect-opencascade-1 amd64 x86
 ~app-eselect/eselect-renpy-0.7 amd64 x86
 ~app-eselect/eselect-vi-1.1.9 amd64 x86
 ~app-forensics/libewf-20171104 amd64 x86
@@ -732,6 +732,7 @@
 ~dev-perl/LWP-UserAgent-Cached-0.60.0 amd64 x86
 ~dev-python/atomicwrites-1.2.1 amd64 x86
 ~dev-python/click-log-0.3.2 amd64 x86
+~dev-python/e4u-0.1_rc5 amd64 x86
 ~dev-python/icalendar-3.11.7 amd64 x86
 ~dev-python/msgpack-0.5.6 amd64 x86
 ~dev-python/pkipplib-0.07 amd64 x86
@@ -852,12 +853,14 @@
 ~media-libs/mediastreamer-2.9.0 amd64 x86
 ~media-libs/mlt-6.6.0 amd64 x86
 ~media-libs/opencollada-1.6.63 amd64 x86
+~media-libs/opencv-3.4.1 amd64 x86
 ~media-libs/openexr-2.2.0 amd64 x86
 ~media-libs/openicc-0.1.0 amd64 x86
 ~media-libs/openimageio-1.8.17 amd64 x86
 =media-libs/oyranos-0.9.6 amd64 x86
 ~media-libs/qhull-2015.2 amd64 x86
 ~media-libs/qimageblitz-0.0.6_p20131029 amd64 x86
+~media-libs/qt-gstreamer-1.2.0 amd64 x86
 =media-libs/rubberband-1.8.1 amd64 x86
 ~media-libs/sdl-pango-0.1.2 amd64 x86
 ~media-libs/SoQt-1.5.0 amd64 x86
@@ -930,6 +933,9 @@
 ~net-im/kadu-4.3 amd64 x86
 ~net-im/qtox-1.16.3 amd64 x86
 ~net-im/toxic-0.8.2 amd64 x86
+~net-im/transwhat-0.2.2 amd64 x86
+~net-im/transwhat-0.2.2 amd64 x86
+~net-im/yowsup-2.5.7 amd64 x86
 ~net-irc/irssi-1.0.2 amd64 x86
 ~net-irc/irssi-xmpp-0.53 amd64 x86
 ~net-libs/accounts-qt-1.13 amd64 x86
@@ -1137,6 +1143,7 @@
 ~sys-fs/loop-aes-3.7n amd64 x86
 ~sys-fs/lufis-0.3 amd64 x86
 ~sys-fs/lufs-0.9.7 amd64 x86
+~sys-fs/lvm2-2.02.184 amd64 x86
 ~sys-fs/lxcfs-2.0.4 amd64 x86
 ~sys-fs/pytagsfs-0.9.2 amd64 x86
 ~sys-fs/quotatool-1.6.2 amd64 x86

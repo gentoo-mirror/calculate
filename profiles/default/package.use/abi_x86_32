@@ -112,14 +112,18 @@ sys-apps/dbus abi_x86_32
 sys-apps/lm_sensors abi_x86_32
 sys-apps/tcp-wrappers abi_x86_32
 sys-apps/util-linux abi_x86_32
+sys-devel/flex abi_x86_32
 sys-devel/gettext abi_x86_32
 sys-devel/llvm abi_x86_32
 sys-fs/eudev abi_x86_32
 sys-libs/binutils-libs abi_x86_32
+sys-libs/cracklib abi_x86_32
+sys-libs/db abi_x86_32
 sys-libs/gpm abi_x86_32
 sys-libs/libcap abi_x86_32
 sys-libs/libraw1394 abi_x86_32
 sys-libs/ncurses abi_x86_32
+sys-libs/pam abi_x86_32
 sys-libs/readline abi_x86_32
 sys-libs/zlib abi_x86_32
 virtual/ffmpeg abi_x86_32
@@ -134,6 +138,7 @@ virtual/libudev abi_x86_32
 virtual/libusb abi_x86_32
 virtual/mysql abi_x86_32
 virtual/opengl abi_x86_32
+virtual/pam abi_x86_32
 virtual/pkgconfig abi_x86_32
 x11-base/xcb-proto  abi_x86_32
 x11-libs/cairo abi_x86_32
