@@ -3,6 +3,9 @@ USE=""
 # Audio
 USE="${USE} -alsa -openal -pulseaudio"
 
+# Documentation format
+USE="${USE} -postscript"
+
 # Image support
 USE="${USE} -openexr -pdf -svg -tiff"
 
