@@ -10,7 +10,7 @@ declare -A CALCULATE_MODULES=(
 	["core"]="3.6.4.1"
 )
 
-inherit calculate-utils-r5
+inherit calculate-utils-r4
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
