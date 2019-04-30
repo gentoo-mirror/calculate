@@ -42,8 +42,7 @@
 ~app-backup/simplebackup-1.8.1 amd64 x86
 ~app-backup/snapback2-1.1.0 amd64 x86
 ~app-backup/snapper-0.8.1 amd64 x86
-~app-backup/tarsnap-1.0.39 amd64 x86
-~app-backup/tarsnap-1.0.39 amd64 x86
+~app-backup/tarsnap-1.0.37 amd64 x86
 ~app-backup/tob-0.26 amd64 x86
 ~app-backup/tsm-7.1.4.4 amd64 x86
 ~app-backup/untangle-https-backup-0.0.10 amd64 x86
@@ -70,7 +69,7 @@
 ~app-crypt/codegroup-20080907 amd64 x86
 ~app-crypt/coolkey-1.1.0 amd64 x86
 ~app-crypt/crackpkcs12-0.2.10 amd64 x86
-~app-crypt/debian-archive-keyring-2019.1 amd64 x86
+~app-crypt/debian-archive-keyring-2017.7 amd64 x86
 ~app-crypt/dehydrated-0.6.2 amd64 x86
 ~app-crypt/dieharder-3.31.1 amd64 x86
 ~app-crypt/efitools-1.8.1 amd64 x86
@@ -83,7 +82,7 @@
 ~app-crypt/gifshuffle-2.0 amd64 x86
 ~app-crypt/gkeys-0.2 amd64 x86
 ~app-crypt/gnupg-2.1.18 amd64 x86
-~app-crypt/gnupg-pkcs11-scd-0.9.2 amd64 x86
+~app-crypt/gnupg-pkcs11-scd-0.9.1 amd64 x86
 ~app-crypt/gpgme-1.8.0 amd64 x86
 ~app-crypt/gpgstats-0.5 amd64 x86
 ~app-crypt/hashcat-4.2.0 amd64 x86
@@ -117,9 +116,8 @@
 ~app-crypt/pkcrack-1.2.2 amd64 x86
 ~app-crypt/pkcs11-data-0.7.4 amd64 x86
 ~app-crypt/pkcs11-dump-0.3.4 amd64 x86
-~app-crypt/qca-2.2.1 amd64 x86
+~app-crypt/qca-2.1.1 amd64 x86
 ~app-crypt/rainbowcrack-1.7 amd64
-~app-crypt/sbsigntools-0.9.2 amd64 x86
 ~app-crypt/scrypt-1.2.0 amd64 x86
 ~app-crypt/scute-1.5.0 amd64 x86
 ~app-crypt/sgeps-0_pre15 amd64 x86
@@ -506,7 +504,7 @@
 ~app-text/landslide-1.1.3 amd64 x86
 ~app-text/languagetool-3.5 amd64 x86
 ~app-text/llpp-26b_p20180114 amd64 x86
-=app-text/mupdf-1.14.0-r2 amd64 x86
+~app-text/mupdf-1.14.0 amd64 x86
 ~app-text/podofo-0.9.6_pre20171027 amd64 x86
 ~app-text/poppler-0.62.0 amd64 x86
 ~app-text/ps2pkm-1.7_p20150521 amd64 x86
@@ -540,7 +538,6 @@
 ~app-vim/vim-rest-console-2.5.0 amd64 x86
 ~app-vim/vim-spell-da-20060116 amd64 x86
 ~dev-cpp/antlr-cpp-2.7.7 amd64 x86
-~dev-cpp/commoncpp2-1.8.1 amd64 x86
 ~dev-cpp/eigen-3.2.5 amd64 x86
 ~dev-cpp/glibmm-2.54.1 amd64 x86
 ~dev-cpp/glog-0.3.5 amd64 x86
@@ -548,7 +545,6 @@
 ~dev-cpp/lucene++-3.0.7 amd64 x86
 ~dev-cpp/websocketpp-0.8.1 amd64 x86
 ~dev-db/go-etcd-2.0.0 amd64 x86
-~dev-db/libzdb-3.1 amd64 x86
 ~dev-db/mongodb-4.0.6 amd64
 ~dev-db/mysql-workbench-6.3.10 amd64 x86
 ~dev-db/pgadmin4-4.3 amd64 x86
@@ -556,7 +552,6 @@
 ~dev-db/pg_top-3.7.0 amd64 x86
 ~dev-db/postgis-2.3.3 amd64 x86
 ~dev-db/slony1-2.2.6 amd64 x86
-~dev-db/sqlcipher-4.0.1 amd64 x86
 ~dev-db/sqlite-3.27.2 amd64 x86
 ~dev-db/sqlitebrowser-3.10.1 amd64 x86
 ~dev-dotnet/gtk-sharp-2.12.21 amd64 x86
@@ -709,7 +704,6 @@
 ~dev-libs/npth-1.2 amd64 x86
 ~dev-libs/nspr-4.19 amd64 x86
 ~dev-libs/nss-3.42 amd64 x86
-~dev-libs/openssl-1.1.0j amd64 x86
 ~dev-libs/poco-1.9.0 amd64 x86
 ~dev-libs/qcustomplot-1.3.2 amd64 x86
 ~dev-libs/qoauth-2.0.1_pre20160315 amd64 x86
@@ -732,7 +726,6 @@
 ~dev-lisp/sbcl-1.4.7 amd64 x86
 ~dev-lua/lpeg-1.0.0 amd64 x86
 ~dev-lua/luafilesystem-1.6.3 amd64 x86
-~dev-lua/luasec-0.7 amd64 x86
 ~dev-lua/mpack-1.0.2 amd64 x86
 ~dev-ml/lablgtk-2.18.4 amd64 x86
 ~dev-perl/Curses-1.360.0 amd64 x86
@@ -741,7 +734,6 @@
 ~dev-python/click-log-0.3.2 amd64 x86
 ~dev-python/e4u-0.1_rc5 amd64 x86
 ~dev-python/icalendar-3.11.7 amd64 x86
-~dev-python/m2crypto-0.31.0 amd64 x86
 ~dev-python/msgpack-0.5.6 amd64 x86
 ~dev-python/pkipplib-0.07 amd64 x86
 ~dev-python/pygame_sdl2-6.99.12.4 amd64 x86
@@ -758,7 +750,6 @@
 ~dev-ruby/ruby-xslt-0.9.10 amd64 x86
 ~dev-scheme/guile-2.0.14 amd64 x86
 ~dev-tcltk/expect-5.45.4 amd64 x86
-~dev-tcltk/tls-1.7.16 amd64 x86
 ~dev-tex/biblatex-3.7 amd64 x86
 ~dev-tex/bibtexu-3.71_p20150521 amd64 x86
 ~dev-tex/latex2html-2017.2 amd64 x86
@@ -795,7 +786,6 @@
 ~games-engines/love-0.7.2 amd64 x86
 ~games-engines/love-0.8.0 amd64 x86
 ~gnome-extra/gnome-user-share-3.18.3 amd64 x86
-~gnome-extra/libgda-5.2.8 amd64 x86
 ~gnome-extra/nautilus-tracker-tags-1.12.3 amd64 x86
 ~gnome-extra/nm-applet-1.8.18 amd64 x86
 ~gnustep-base/gnustep-back-cairo-0.24.1 amd64 x86
@@ -826,7 +816,7 @@
 ~media-gfx/zbar-0.10_p20121015 amd64 x86
 ~media-libs/allegro-4.4.2 amd64 x86
 ~media-libs/assimp-4.0.1 amd64 x86
-~media-libs/babl-0.1.62 amd64 x86
+~media-libs/babl-0.1.60 amd64 x86
 ~media-libs/bcg729-1.0.4 amd64 x86
 ~media-libs/ctl-1.5.2 amd64 x86
 ~media-libs/dav1d-0.2.1 amd64 x86
@@ -834,7 +824,8 @@
 ~media-libs/faac-1.29.9.2 amd64 x86
 ~media-libs/fontconfig-ultimate-2015.08.01 amd64 x86
 ~media-libs/gd-2.1.1 amd64 x86
-~media-libs/gegl-0.4.14 amd64 x86
+~media-libs/gegl-0.2.0 amd64 x86
+~media-libs/gegl-0.4.12 amd64 x86
 ~media-libs/gexiv2-0.10.6 amd64 x86
 ~media-libs/gst-plugins-base-1.10.5 amd64 x86
 ~media-libs/gst-plugins-ugly-1.10.5 amd64 x86
@@ -918,18 +909,15 @@
 ~media-video/mkvtoolnix-18.0.0 amd64 x86
 ~media-video/pitivi-0.98.1 amd64 x86
 ~media-video/replex-0.1.6.8 amd64 x86
-~media-video/rtmpdump-2.4_p20161210 amd64 x86
 ~media-video/subtitleeditor-0.54.0 amd64 x86
 ~media-video/syncplay-1.5.1 amd64 x86
 ~media-video/vcdimager-2.0.1 amd64 x86
 ~media-video/webcamoid-8.1.0 amd64 x86
 ~net-analyzer/argus-clients-3.0.8.2 amd64 x86
 ~net-analyzer/cacti-1.1.28 amd64 x86
-~net-analyzer/flow-tools-0.68.5.1 amd64 x86
 ~net-analyzer/hunt-1.5 amd64 x86
 ~net-analyzer/munin-plugins-zfs-0.20170127 amd64 x86
 ~net-analyzer/nagios-4.3.4 amd64 x86
-~net-analyzer/net-snmp-5.8 amd64 x86
 ~net-analyzer/netwatch-1.3.0.1 amd64 x86
 ~net-analyzer/scanlogd-2.2.7 amd64 x86
 ~net-analyzer/tcpdump-4.9.2 amd64 x86
@@ -964,7 +952,6 @@
 ~net-libs/libeXosip-4.0.0 amd64 x86
 ~net-libs/libgadu-1.12.2 amd64 x86
 ~net-libs/libhackrf-2018.01.1 amd64 x86
-~net-libs/libircclient-1.10 amd64 x86
 ~net-libs/libkgapi-5.3.1 amd64 x86
 ~net-libs/libnftnl-1.1.1 amd64 x86
 ~net-libs/librsync-2.0.0 amd64 x86
@@ -975,7 +962,6 @@
 ~net-libs/netwib-5.39.0 amd64 x86
 ~net-libs/quasselc-0_p20170111 amd64 x86
 ~net-libs/rb_libtorrent-1.0.10 amd64 x86
-~net-libs/serf-1.3.9 amd64 x86
 ~net-libs/signond-8.58 amd64 x86
 ~net-libs/signon-oauth2-0.21 amd64 x86
 ~net-libs/signon-ui-0.15 amd64 x86
@@ -983,7 +969,6 @@
 ~net-libs/telepathy-accounts-signon-1.0 amd64 x86
 ~net-libs/telepathy-logger-qt-15.04.0 amd64 x86
 ~net-libs/tox-0.2.8 amd64 x86
-~net-libs/wvstreams-4.6.1 amd64 x86
 ~net-libs/zeromq-4.2.3 amd64 x86
 ~net-mail/courier-imap-4.18.2 amd64 x86
 ~net-mail/ytnef-1.9.2 amd64 x86
@@ -1019,7 +1004,6 @@
 ~net-print/pykota-1.26 amd64 x86
 ~net-print/splix-2.0.0_p20130826 amd64 x86
 ~net-print/sshlpr-1 amd64 x86
-~net-proxy/squid-4.6 amd64 x86
 ~net-proxy/squirm-1.26 amd64 x86
 ~net-vpn/i2p-0.9.39 amd64 x86
 ~net-vpn/i2pd-2.20.0 amd64 x86
@@ -1028,7 +1012,6 @@
 ~net-wireless/bladerf-firmware-2.2.0 amd64 x86
 ~net-wireless/blueberry-1.1.13 amd64 x86
 ~net-wireless/bluez-tools-0_p20161212 amd64 x86
-~net-wireless/crda-3.18 amd64 x86
 ~net-wireless/hackrf-tools-2018.01.1 amd64 x86
 ~net-wireless/portapack-firmware-20170808 amd64 x86
 ~net-wireless/unifi-5.10.17 amd64
@@ -1113,7 +1096,6 @@
 ~sys-apps/portage-2.3.40 amd64 x86
 ~sys-apps/s6-2.6.1.1 amd64 x86
 ~sys-apps/s6-portable-utils-2.2.1.1 amd64 x86
-~sys-apps/ucspi-ssl-0.99 amd64 x86
 ~sys-apps/util-linux-2.31.1 amd64 x86
 ~sys-apps/yarn-1.13.0 amd64 x86
 ~sys-apps/yum-3.4.3_p20130218 amd64 x86
@@ -1193,7 +1175,6 @@
 ~sys-libs/libomp-5.0.1 amd64 x86
 ~sys-libs/libstatgrab-0.91 amd64 x86
 ~sys-libs/libudev-compat-186 amd64 x86
-~sys-libs/openipmi-2.0.27 amd64 x86
 ~sys-power/upower-0.99.7 amd64 x86
 ~sys-process/acct-6.6.4 amd64 x86
 ~sys-process/criu-3.11 amd64
@@ -1207,7 +1188,6 @@
 ~virtual/rust-1.32.0 amd64 x86
 ~www-apache/passenger-6.0.1 amd64 x86
 ~www-client/chromium-73.0.3683.75 amd64 x86
-~www-client/elinks-0.12_pre6 amd64 x86
 ~www-client/vivaldi-2.1.1337.47_p1 amd64 x86
 ~www-client/w3mmee-0.3.2_p24 amd64 x86
 ~www-servers/boa-0.94.14_rc21 amd64 x86
