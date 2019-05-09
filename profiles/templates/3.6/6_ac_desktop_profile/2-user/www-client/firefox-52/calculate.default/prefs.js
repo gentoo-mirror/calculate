@@ -37,6 +37,7 @@ user_pref("browser.sessionstore.interval", 30000);
 #os_root_type#
 
 user_pref("accessibility.force_disabled", 1);
+user_pref("accessibility.typeaheadfind", false);
 user_pref("beacon.enabled", false);
 user_pref("breakpad.reportURL", "");
 user_pref("browser.cache.disk.smart_size.enabled", false);
