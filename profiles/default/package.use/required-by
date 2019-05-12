@@ -239,7 +239,11 @@ dev-libs/libpcre2 pcre32
 x11-libs/libxcb xkb
 
 # required by app-emulation/virt-manager-1.1.0-r2
-net-misc/spice-gtk -gstreamer python usbredir gtk3
+# gnome-extra/gnome-boxes-3.30.3
+net-misc/spice-gtk -gstreamer python usbredir gtk3 smartcard vala
+
+# required by gnome-extra/gnome-boxes-3.30.3
+app-emulation/spice smartcard
 
 # required by x11-wm/i3-4.8
 x11-libs/cairo xcb
@@ -603,7 +607,7 @@ net-wireless/gnuradio grc
 
 # required by www-client/chromium-70.0.3538.67
 net-libs/nodejs inspector
-
+app-emulation/qemu-3.1.0-r4 smartcard
 # required by app-crypt/yubikey-manager-qt-1.0.0
 dev-qt/qtquickcontrols2 widgets
 
@@ -621,3 +625,6 @@ media-video/mpv libmpv
 
 # required by dev-python/python-ldap-3.1.0-r1
 net-nds/openldap sasl
+
+# required by gnome-extra/gnome-boxes-3.30.3
+app-emulation/qemu smartcard
