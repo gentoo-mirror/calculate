@@ -1,8 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI="7"
 
 DEADBEEF_GUI="yes"
 
@@ -19,9 +18,7 @@ KEYWORDS="~amd64 ~x86"
 
 S="${WORKDIR}/ddb_replaygain_control-${GITHUB_COMMIT}"
 
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-cflags.patch"
-}
+PATCHES=( "${FILESDIR}/${PN}-cflags.patch" )
 
 src_compile() {
 	use gtk2 && emake gtk2

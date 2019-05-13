@@ -1,21 +1,17 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI="7"
 
 DEADBEEF_GUI="yes"
 
-inherit autotools deadbeef-plugins git-r3
+inherit autotools deadbeef-plugins
 
 GITLAB_COMMIT="47bc3fe0fe151dfbb75f90f9e4d5e9a7affd280a"
-EGIT_COMMIT="${EGIT_COMMIT}"
 
 DESCRIPTION="DeaDBeeF filebrowser plugin"
 HOMEPAGE="https://gitlab.com/zykure/deadbeef-fb"
-#SRC_URI="https://gitlab.com/zykure/deadbeef-fb/repository/archive.tar.gz?ref=${PV/*_p/} -> ${P}.tar.gz"
-EGIT_REPO_URI="https://gitlab.com/zykure/deadbeef-fb.git"
-
+SRC_URI="https://gitlab.com/zykure/deadbeef-fb/repository/archive.tar.gz?ref=${GITLAB_COMMIT} -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
@@ -26,8 +22,12 @@ RDEPEND+=" !media-plugins/deadbeef-librarybrowser:0"
 
 DEPEND="${RDEPEND}"
 
+S="${WORKDIR}/deadbeef-fb-${GITLAB_COMMIT}-${GITLAB_COMMIT}"
+
+PATCHES=( -p0 "${FILESDIR}/${PN}-avoid-version-${PV}.patch" )
+
 src_prepare() {
-    epatch "${FILESDIR}/${PN}-new-avoid-version.patch"
+	default
 	eautoreconf
 }
 

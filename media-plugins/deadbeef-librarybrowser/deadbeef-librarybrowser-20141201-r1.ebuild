@@ -1,8 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI="7"
 
 DEADBEEF_GUI="yes"
 
@@ -23,9 +22,10 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${PN}-${GITHUB_COMMIT}"
 
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-avoid-version.patch"
+PATCHES=( -p0 "${FILESDIR}/${PN}-avoid-version.patch" )
 
+src_prepare() {
+	default
 	eautoreconf
 }
 

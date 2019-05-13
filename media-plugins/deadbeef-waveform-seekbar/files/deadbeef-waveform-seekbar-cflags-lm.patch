@@ -1,17 +1,19 @@
---- Makefile.old	2017-11-15 17:37:42.000000000 +0300
-+++ Makefile	2017-11-15 17:38:46.000000000 +0300
-@@ -36,8 +36,8 @@
+diff --git a/Makefile b/Makefile
+index e06b20c..a0867f8 100644
+--- a/Makefile
++++ b/Makefile
+@@ -36,8 +36,8 @@ GTK3_LIBS?=`pkg-config --libs gtk+-3.0`
  SQLITE_LIBS?=-lsqlite3
  
  CC?=gcc
--CFLAGS+=-Wall -O2 -fPIC -std=c99 -D_GNU_SOURCE
+-CFLAGS+=-Wall -fPIC -std=c99 -D_GNU_SOURCE
 -LDFLAGS+=-shared
-+CFLAGS+=-Wall -O2 -fPIC -std=c99 -D_GNU_SOURCE -lm
++CFLAGS+=-Wall -fPIC -std=c99 -D_GNU_SOURCE -lm
 +LDFLAGS+=-shared -lm
  
  GTK2_DIR?=gtk2
  GTK3_DIR?=gtk3
-@@ -52,8 +52,8 @@
+@@ -52,8 +52,8 @@ define compile
  endef
  
  define link

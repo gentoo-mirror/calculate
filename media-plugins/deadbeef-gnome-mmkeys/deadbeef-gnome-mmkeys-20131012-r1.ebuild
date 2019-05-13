@@ -1,12 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI="7"
 
 inherit deadbeef-plugins
 
-GITHUB_COMMIT="c0da8e4fbfb2fb584916cf1ea4895fecbea1ac23"
+GITHUB_COMMIT="8e95cd380ba457fe6b666e5e704aa823d5eca1fa"
 
 DESCRIPTION="DeaDBeeF gnome (via dbus) multimedia keys plugin"
 HOMEPAGE="https://github.com/barthez/deadbeef-gnome-mmkeys"
@@ -18,3 +17,5 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND+=" sys-apps/dbus:0"
 
 S="${WORKDIR}/${PN}-${GITHUB_COMMIT}"
+
+PATCHES=( "${FILESDIR}/${PN}.patch" )

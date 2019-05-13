@@ -1,12 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI="7"
 
 inherit deadbeef-plugins
 
-GITHUB_COMMIT="224c2cf3371c4e0b68b1531fc1cb9983739cda69"
+GITHUB_COMMIT="a1961cd2f0686a7bdf0915f1fc7d62b5aba369bd"
 
 DESCRIPTION="DeaDBeeF bs2b dsp plugin"
 HOMEPAGE="https://github.com/Alexey-Yakovenko/bs2b"
@@ -20,3 +19,5 @@ RDEPEND+=" media-libs/libbs2b:0"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/bs2b-${GITHUB_COMMIT}"
+
+PATCHES=( "${FILESDIR}/${PN}.patch" )

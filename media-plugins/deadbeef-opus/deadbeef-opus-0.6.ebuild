@@ -1,16 +1,14 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI="7"
 
 inherit deadbeef-plugins
 
 DESCRIPTION="DeaDBeeF ogg opus decoder plugin"
 HOMEPAGE="https://bitbucket.org/Lithopsian/deadbeef-opus"
-SRC_URI="https://bitbucket.org/Lithopsian/${PN}/get/v${PV}.tar.bz2 -> ${P}.tar.bz2"
+SRC_URI="https://bitbucket.org/Lithopsian/${PN}/downloads/opus-${PV}.tar.gz -> ${P}.tar.gz"
 
-BB_COMMIT="b8da8c5d8bea"
 RESTRICT+=" strip"
 
 LICENSE="GPL-2"
@@ -21,4 +19,4 @@ RDEPEND+=" >=media-libs/opusfile-0.5:0[float,http]
 
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}/Lithopsian-${PN}-${BB_COMMIT}"
+S="${WORKDIR}/opus-${PV}"
