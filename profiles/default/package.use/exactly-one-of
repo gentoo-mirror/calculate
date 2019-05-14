@@ -29,4 +29,7 @@ app-doc/kicad-doc -l10n_fr -l10n_it -l10n_nl -l10n_pl
 net-dns/mydns postgres
 
 # exactly-one-of ( elogind systemd )
+gnome-base/gdm elogind
+gnome-base/gnome-control-center elogind
+gnome-base/gnome-settings-daemon elogind
 gnome-extra/cinnamon-session elogind

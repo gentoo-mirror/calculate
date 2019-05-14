@@ -1,8 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI="7"
 
 DESCRIPTION="Meta package for DeaDBeeF player third party plugins"
 HOMEPAGE="http://deadbeef.sourceforge.net"

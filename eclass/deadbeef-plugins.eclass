@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 # @ECLASS: deadbeef-plugins.eclass
 # @MAINTAINER:
@@ -10,8 +9,8 @@
 # This eclass makes trivial deadbeef plugin ebuilds possible.
 # Many things that would normally be done manually is automated.
 
-if [[ "${EAPI}" -lt 5 ]] ; then
-	die "EAPI="${EAPI}" is not supported"
+if [[ "${EAPI}" -lt 6 ]] ; then
+	die "EAPI=${EAPI} is not supported"
 fi
 
 inherit eutils

@@ -1,12 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI="7"
 
 inherit deadbeef-plugins
 
-GITHUB_COMMIT="4647e18f8e210e45fa01b1ef7296d2c4234c0f05"
+GITHUB_COMMIT="103341b7388d38110181494bb9763daa9dafa63e"
 
 DESCRIPTION="DeaDBeeF sox resampler plugin"
 HOMEPAGE="https://github.com/silentlexx/deadbeef_soxr"

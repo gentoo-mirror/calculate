@@ -1,14 +1,13 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI="7"
 
 DEADBEEF_GUI="yes"
 
 inherit deadbeef-plugins
 
-GITHUB_COMMIT="77930b490bbedb2c56a246075894ec26ae07c38f"
+GITHUB_COMMIT="940d8d72a46993619c3fba4cde5e30c95f5a4b82"
 
 DESCRIPTION="DeaDBeeF vu meter plugin"
 HOMEPAGE="https://github.com/cboxdoerfer/ddb_vu_meter"

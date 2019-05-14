@@ -1,8 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI="5"
+EAPI="7"
 
 DEADBEEF_GUI="yes"
 
@@ -22,9 +21,10 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}/deadbeef-statusnotifier-plugin-${PV}"
 
 src_configure() {
-	local mycmakeargs="
-		$(cmake-utils_use_use gtk2 GTK2)
-		$(cmake-utils_use_use gtk3 GTK3)"
+	local mycmakeargs=(
+		-DUSE_GTK2="$(usex gtk2)"
+		-DUSE_GTK3="$(usex gtk3)"
+	)
 	cmake-utils_src_configure
 }
 
