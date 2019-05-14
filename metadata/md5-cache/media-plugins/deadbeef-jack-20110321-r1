@@ -1,0 +1,13 @@
+DEFINED_PHASES=install
+DEPEND=virtual/jack:0 media-sound/deadbeef:0
+DESCRIPTION=DeaDBeeF jack output plugin
+EAPI=7
+HOMEPAGE=https://github.com/Alexey-Yakovenko/jack
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=virtual/jack:0 media-sound/deadbeef:0
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/Alexey-Yakovenko/jack/archive/62d1e6ac0452b7baa92fcc75b59bcb960df06da8.tar.gz -> deadbeef-jack-20110321.tar.gz
+_eclasses_=deadbeef-plugins	2a81bfb0b9817ac638fe4ebd60348e99	eutils	6e6c2737b59a4b982de6fb3ecefd87f8
+_md5_=93cdf8c0b4692702da0cb913d6452ae3

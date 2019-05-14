@@ -1,0 +1,13 @@
+DEFINED_PHASES=install
+DEPEND=media-sound/deadbeef:0
+DESCRIPTION=DeaDBeeF simple stereo widener plugin
+EAPI=7
+HOMEPAGE=https://github.com/Alexey-Yakovenko/stereo-widener
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=media-sound/deadbeef:0
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/Alexey-Yakovenko/stereo-widener/archive/d3990d772b02cdc6206f067748f5d1f9650616fb.tar.gz -> deadbeef-stereo-widener-20110319.tar.gz
+_eclasses_=deadbeef-plugins	2a81bfb0b9817ac638fe4ebd60348e99	eutils	6e6c2737b59a4b982de6fb3ecefd87f8
+_md5_=4b3685b4b729606a2830f06244de1015

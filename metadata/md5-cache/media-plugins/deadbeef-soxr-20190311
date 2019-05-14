@@ -1,0 +1,13 @@
+DEFINED_PHASES=install
+DEPEND=media-libs/soxr:0 media-sound/deadbeef:0
+DESCRIPTION=DeaDBeeF sox resampler plugin
+EAPI=7
+HOMEPAGE=https://github.com/silentlexx/deadbeef_soxr
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-libs/soxr:0 media-sound/deadbeef:0
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/silentlexx/deadbeef_soxr/archive/103341b7388d38110181494bb9763daa9dafa63e.tar.gz -> deadbeef-soxr-20190311.tar.gz
+_eclasses_=deadbeef-plugins	2a81bfb0b9817ac638fe4ebd60348e99	eutils	6e6c2737b59a4b982de6fb3ecefd87f8
+_md5_=c6a500094f7be7406ee9e20c7f321c3b

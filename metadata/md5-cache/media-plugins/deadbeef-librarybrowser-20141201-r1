@@ -1,0 +1,16 @@
+BDEPEND=>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=!media-plugins/deadbeef-fb:0 media-sound/deadbeef:0 gtk2? ( media-sound/deadbeef:0[gtk2] ) gtk3? ( media-sound/deadbeef:0[gtk3] )
+DESCRIPTION=DeaDBeeF filebrowser plugin that resemble foobar2k music library
+EAPI=7
+HOMEPAGE=https://github.com/JesseFarebro/deadbeef-librarybrowser
+IUSE=+gtk2 gtk3
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=!media-plugins/deadbeef-fb:0 media-sound/deadbeef:0 gtk2? ( media-sound/deadbeef:0[gtk2] ) gtk3? ( media-sound/deadbeef:0[gtk3] )
+REQUIRED_USE=|| ( gtk2 gtk3 )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/JesseFarebro/deadbeef-librarybrowser/archive/68e1a92339be65cbeda09304e74f1744ff1c127d.tar.gz -> deadbeef-librarybrowser-20141201.tar.gz
+_eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	deadbeef-plugins	2a81bfb0b9817ac638fe4ebd60348e99	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	1d91b03d42ab6308b5f4f6b598ed110e	toolchain-funcs	8c7f9d80beedd16f2e5a7f612c609529
+_md5_=2a3d7143772035af61c7ec138169fb2b
