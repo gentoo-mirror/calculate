@@ -8,7 +8,7 @@ inherit eutils unpacker
 DESCRIPTION="Free calls, text and picture sharing with anyone, anywhere!"
 HOMEPAGE="http://www.viber.com"
 SRC_URI="
-	amd64? ( http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb -> ${P}.deb )
+	amd64? ( http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb -> ${PVR}.deb )
 "
 
 IUSE="+apulse"
@@ -35,5 +35,5 @@ src_install(){
 	fowners root:audio /opt/${PN}/${PN} /opt/${PN}/${PN}-bin
 	fperms 755 /opt/${PN}/${PN} /opt/${PN}/${PN}-bin
 	sed -i -e '/^Exec/s/Viber/viber/' ${ED}/usr/share/applications/viber.desktop
-	fperms 755 /opt/${PN}/QtWebEngineProcess
+	fperms 755 /opt/${PN}/libexec/QtWebEngineProcess
 }
