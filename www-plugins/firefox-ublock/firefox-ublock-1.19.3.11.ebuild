@@ -6,9 +6,9 @@ EAPI="5"
 
 inherit eutils
 
-MYPV="1.17.1b1"
+MYPV="1.19.3b11"
 
-SRC_URI="https://github.com/gorhill/uBlock/releases/download/$MYPV/uBlock0.firefox.signed.xpi"
+SRC_URI="https://github.com/gorhill/uBlock/releases/download/$MYPV/uBlock0_${MYPV}.firefox.signed.xpi"
 
 DESCRIPTION="An efficient blocker for Firefox"
 HOMEPAGE="https://github.com/gorhill/uBlock"
@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}"
 
 src_unpack() {
-	cp ${DISTDIR}/uBlock0.firefox.signed.xpi ${S}/
+	cp ${DISTDIR}/uBlock0_${MYPV}.firefox.signed.xpi ${S}/uBlock0.firefox.signed.xpi
 }
 
 src_install() {
