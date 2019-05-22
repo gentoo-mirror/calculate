@@ -8,7 +8,7 @@ inherit eutils unpacker
 DESCRIPTION="Free calls, text and picture sharing with anyone, anywhere!"
 HOMEPAGE="http://www.viber.com"
 SRC_URI="
-	amd64? ( http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb -> ${P}.deb )
+	amd64? ( http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb -> ${PVR}.deb )
 "
 
 IUSE="+apulse"
