@@ -292,7 +292,7 @@ app-text/atril epub
 # openssl support needed for mpv, to play over ssh
 # builds libffmpeg.so to enable media playback in Chromium-based browsers like Opera and Vivaldi
 # xcb for video capture screen monitor
-media-video/ffmpeg openssl chromium xcb
+media-video/ffmpeg openssl chromium xcb libaom
 
 # enable sound support
 games-strategy/0ad sound
