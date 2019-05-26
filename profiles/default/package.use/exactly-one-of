@@ -33,3 +33,6 @@ gnome-base/gdm elogind
 gnome-base/gnome-control-center elogind
 gnome-base/gnome-settings-daemon elogind
 gnome-extra/cinnamon-session elogind
+
+# exactly-one-of ( agent hybrid local server ) at-most-one-of ( mysql postgres )
+net-analyzer/ossec-hids hybrid postgres
