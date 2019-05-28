@@ -39,3 +39,6 @@ dev-php/pecl-mcrypt php_targets_php7-2
 
 # any-of ( mysql postgres sqlite )
 sys-cluster/placement sqlite
+
+# any-of ( perl python ruby php5-6 php7-1 php7-2 )
+www-servers/nginx-unit python

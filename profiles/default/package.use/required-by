@@ -631,3 +631,6 @@ app-emulation/qemu smartcard
 
 # required by dev-util/lldb-7.1.0
 sys-devel/clang xml
+
+# required by dev-db/mysql-workbench-8.0.14
+net-libs/libssh server
