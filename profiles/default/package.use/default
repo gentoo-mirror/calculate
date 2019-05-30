@@ -402,8 +402,9 @@ dev-lua/luadbi postgres
 
 # support for Google Chromecast
 # support SRT/SSA/ASS
+# Enable support for the skins2 interface
 # Fix open directories with audio files (issue #1042)
-media-video/vlc chromecast libass xml
+media-video/vlc chromecast libass skins xml
 
 # xml support
 app-editors/emacs libxml2 xft
