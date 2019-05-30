@@ -54,7 +54,13 @@ src_prepare() {
 }
 
 src_compile() {
-	yarn run build || die "Build failed"
+	if use x86; then
+		# Currently, by default v8 has a memory limit of 512MB on 32-bit systems,
+		# and 1.4GB on 64-bit systems.
+		NODE_OPTIONS="--max_old_space_size=1536" yarn run build || die "Build failed"
+	else
+		yarn run build || die "Build failed"
+	fi
 
 	if use abi_x86_32; then
 		"${S}"/node_modules/.bin/build --linux --ia32 || die "Bundling failed"
