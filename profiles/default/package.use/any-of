@@ -34,11 +34,45 @@ app-emulation/ganeti lxc
 # any-of ( b100 b200 e300 mpmd n230 usrp1 usrp2 x300 )
 net-wireless/uhd b100 b200 e300 mpmd n230 usrp1 usrp2 x300
 
-# any-of ( php_targets_php7-2 )
-dev-php/pecl-mcrypt php_targets_php7-2
-
 # any-of ( mysql postgres sqlite )
 sys-cluster/placement sqlite
 
 # any-of ( perl python ruby php5-6 php7-1 php7-2 )
 www-servers/nginx-unit python
+
+
+# any-of ( php_targets_php7-2 )
+dev-php/pecl-mcrypt php_targets_php7-2
+
+# any-of ( php_targets_php5-6 php_targets_php7-0 php_targets_php7-1 )                            
+dev-php/pecl-mailparse php_targets_php7-1                                                        
+
+# any-of ( php_targets_php7-0 php_targets_php5-6 )                                               
+dev-php/pecl-yaz php_targets_php7-0                                                              
+
+# any-of ( php_targets_php5-6 php_targets_php7-0 php_targets_php7-1 )                            
+dev-php/pecl-ssh2 php_targets_php7-1                                                             
+
+# any-of ( php_targets_php5-6 php_targets_php7-0 php_targets_php7-1 )                            
+dev-php/pecl-propro php_targets_php7-1                                                           
+
+# any-of ( php_targets_php5-6 php_targets_php7-0 php_targets_php7-1 )                            
+dev-php/pecl-http php_targets_php7-1                                                             
+
+# any-of ( php_targets_php5-6 )                                                                  
+dev-php/pecl-memcache php_targets_php5-6                                                         
+
+# any-of ( php_targets_php5-6 php_targets_php7-0 php_targets_php7-1 )                            
+dev-php/pecl-event php_targets_php7-1                                                            
+
+# any-of ( php_targets_php5-6 )                                                                  
+dev-php/pecl-mongo php_targets_php5-6                                                            
+
+# any-of ( php_targets_php5-6 php_targets_php7-0 php_targets_php7-1 )                            
+dev-php/pecl-raphf php_targets_php7-1                                                            
+
+# any-of ( php_targets_php5-6 php_targets_php7-0 php_targets_php7-1 )                            
+dev-php/pecl-apcu php_targets_php7-1                                                             
+
+# any-of ( php_targets_php7-0 php_targets_php5-6 )                                               
+dev-php/pecl-yaz php_targets_php7-0
