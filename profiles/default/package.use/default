@@ -431,3 +431,6 @@ mail-client/sylpheed ldap xface
 # The following REQUIRED_USE flag constraints are unsatisfied:
 # egl gles
 dev-libs/efl gles egl -sdl -opengl
+
+# Enable Active Directory support
+net-fs/samba ads gnutls
