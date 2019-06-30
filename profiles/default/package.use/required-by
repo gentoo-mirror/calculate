@@ -634,3 +634,6 @@ sys-devel/clang xml
 
 # required by dev-db/mysql-workbench-8.0.14
 net-libs/libssh server
+
+# required by dev-php/pecl-imagick-3.4.4
+media-gfx/imagemagick -openmp
