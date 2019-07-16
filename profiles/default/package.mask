@@ -1,12 +1,6 @@
 # block with perl-core/File-Path-2.150.0
 ~virtual/perl-File-Path-2.150.0
 
-# block with docker
-=app-emulation/runc-1.0.0_rc7
-
-# need inkscape
-=mate-extra/mate-utils-1.22.1
-
 # crash cinnamon-settings
 =dev-python/pillow-6.0.0
 =dev-python/pillow-5.4.1
@@ -19,14 +13,9 @@
 # prevent automagic depends
 sys-libs/db:6.0
 
-# looks bad
->=xfce-extra/xfce4-datetime-plugin-0.7
-
 # not compiled
 =dev-php/ming-php-0.4.8
 =app-emacs/ecb-2.50_pre20170728
-
-=app-portage/eclass-manpages-20190310
 
 # not compiled dev-java/netbeans-ide-8.2-r1 with dev-java/ant-core-1.10.5
 ~dev-java/ant-1.10.5
