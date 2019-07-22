@@ -360,8 +360,8 @@ app-admin/conky imlib
 # prevent automagic depends
 media-libs/opencv contrib_hdf
 
-# force-enable hardware-accelerated rendering, support ALSA, disable branding, disable screenshot extension
-www-client/firefox hwaccel bindist -pulseaudio -screenshot -pgo -lto
+# force-enable hardware-accelerated rendering, support ALSA, disable screenshot extension
+www-client/firefox hwaccel -pulseaudio -screenshot -pgo -lto
 
 # DRI3 support, UMA Acceleration Architecture
 x11-drivers/xf86-video-intel dri3 uxa
