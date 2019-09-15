@@ -107,9 +107,6 @@ app-emulation/libvirt virt-network
 # use ipv4 instead of ipv6
 net-p2p/opentracker -ipv6
 
-# fix vfs share IssueID #550
-app-office/libreoffice gnome
-
 # include backup, client, desktop, console and console-gui modules
 sys-apps/calculate-utils backup client desktop console qt5
 
@@ -434,3 +431,6 @@ dev-libs/efl gles egl -sdl -opengl
 
 # Enable Active Directory support
 net-fs/samba ads gnutls
+
+# Enable PDF import
+app-office/libreoffice pdfimport
