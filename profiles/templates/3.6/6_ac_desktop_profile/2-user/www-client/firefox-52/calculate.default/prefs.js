@@ -101,6 +101,7 @@ user_pref("general.warnOnAboutConfig", false);
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "");
 user_pref("javascript.options.asyncstack", true);
+user_pref("media.autoplay.default", 0);
 user_pref("media.eme.apiVisible", false);
 user_pref("media.getusermedia.screensharing.allowed_domains", "");
 user_pref("media.getusermedia.screensharing.enabled", false);
