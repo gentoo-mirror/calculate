@@ -148,9 +148,6 @@ media-plugins/grilo-plugins tracker
 # required by kde-apps/ktp-call-ui-16.04.1
 net-libs/telepathy-qt farstream
 
-# required by net-im/skype-4.3.0.37-r6
-dev-qt/qtwebkit -exceptions
-
 # required by media-video/openshot-1.4.3-r1::gentoo[-libav,ffmpeg]
 media-video/ffmpeg vpx
 
@@ -646,3 +643,6 @@ dev-libs/libdazzle vala
 
 # required by media-tv/kodi-18.4
 net-misc/curl http2
+
+# required by app-portage/kuroo-0.90.5_p20180410
+kde-plasma/kde-cli-tools kdesu
