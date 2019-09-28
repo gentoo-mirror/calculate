@@ -646,3 +646,6 @@ net-misc/curl http2
 
 # required by app-portage/kuroo-0.90.5_p20180410
 kde-plasma/kde-cli-tools kdesu
+
+# required by app-editors/neovim-0.4.2
+dev-lua/luv luajit
