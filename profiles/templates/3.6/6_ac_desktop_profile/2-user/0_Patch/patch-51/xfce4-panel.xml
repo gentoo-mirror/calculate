@@ -1,0 +1,7 @@
+# Calculate format=patch path=~/.config/xfce4/xfconf/xfce-perchannel-xml
+<reg>(plugin-30".*
+\s+&lt;property name="items.*)
+(\s+)(&lt;/property.*)</reg>
+<text>\1
+\2  &lt;value type="string" value="10000000030.desktop"/&gt;
+\2\3</text>
