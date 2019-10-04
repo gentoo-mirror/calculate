@@ -21,7 +21,11 @@
 #?ini(profile.appearance-border)!=#
     <property name="theme" type="string" value="#-ini(profile.appearance-border)-#"/>
 #!ini#
+#?pkg(media-gfx/xfce-themes-calculate)!=#
+    <property name="theme" type="string" value="Default-4.12"/>
+#!pkg#
     <property name="theme" type="string" value="Default"/>
+#pkg#
 #ini#
   </property>
 </channel>
