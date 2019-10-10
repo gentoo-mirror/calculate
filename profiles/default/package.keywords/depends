@@ -39,7 +39,7 @@
 ~app-backup/restic-0.9.5 amd64 x86
 ~app-backup/simplebackup-1.8.1 amd64 x86
 ~app-backup/snapper-0.8.1 amd64 x86
-~app-backup/tarsnap-1.0.37 amd64 x86
+~app-backup/tarsnap-1.0.39 amd64 x86
 ~app-backup/tob-0.26 amd64 x86
 ~app-backup/tsm-7.1.8.0 amd64 x86
 ~app-backup/untangle-https-backup-0.0.10 amd64 x86
@@ -47,7 +47,7 @@
 ~app-backup/zbackup-1.4.4 amd64 x86
 ~app-benchmarks/bootchart2-0.14.7 amd64 x86
 ~app-cdr/dumpet-2.1_p20140601 amd64 x86
-~app-crypt/acme-sh-2.7.9 amd64 x86
+~app-crypt/acme-sh-2.8.3 amd64 x86
 ~app-crypt/acr38u-1.7.11 amd64 x86
 ~app-crypt/aescrypt-3.0.6b amd64 x86
 ~app-crypt/af_alg-0.0.1 amd64 x86
@@ -351,7 +351,7 @@
 ~app-misc/brewtarget-2.3.1 amd64 x86
 ~app-misc/btail-0.3 amd64 x86
 ~app-misc/cadubi-1.3 amd64 x86
-~app-misc/carbon-c-relay-3.3 amd64 x86
+~app-misc/carbon-c-relay-3.5 amd64 x86
 ~app-misc/cbview-0.06 amd64 x86
 ~app-misc/ckb-0.2.9 amd64 x86
 ~app-misc/crunch-3.6 amd64 x86
@@ -666,8 +666,9 @@
 ~lxde-base/lxappearance-obconf-0.2.1 amd64 x86
 ~lxqt-base/libsysstat-0.4.2 amd64 x86
 ~mail-client/etpan-ng-0.7.1 amd64 x86
+~mail-filter/imapfilter-2.6.12 amd64 x86
 ~mail-filter/spampd-2.42 amd64 x86
-~mail-mta/netqmail-1.0.6 amd64 x86
+~mail-mta/netqmail-1.06 amd64 x86
 ~media-gfx/farbfeld-4 amd64 x86
 ~media-gfx/geeqie-1.4 amd64 x86
 ~media-gfx/gnome-raw-thumbnailer-3.0.0 amd64 x86
@@ -744,6 +745,7 @@
 ~media-sound/snd-17.4 amd64 x86
 ~media-sound/spotify-1.1.5 amd64
 ~media-sound/terminatorx-4.0.1 amd64 x86
+~media-sound/umurmur-0.2.17 amd64 x86
 ~media-tv/dtv-scan-tables-0_p20171003 amd64 x86
 ~media-tv/linuxtv-dvb-apps-1.1.1.20140321 amd64 x86
 ~media-tv/plex-media-server-1.14.1 amd64
@@ -759,6 +761,7 @@
 ~media-video/webcamoid-8.1.0 amd64 x86
 ~net-analyzer/argus-clients-3.0.8.2 amd64 x86
 ~net-analyzer/hunt-1.5 amd64 x86
+~net-analyzer/hydra-9.0 amd64 x86
 ~net-analyzer/munin-plugins-zfs-0.20170127 amd64 x86
 ~net-analyzer/nagios-4.3.4 amd64 x86
 ~net-analyzer/netwatch-1.3.0.1 amd64 x86
@@ -788,12 +791,14 @@
 ~net-libs/kimap2-0.3.0 amd64
 ~net-libs/libgadu-1.12.2 amd64 x86
 ~net-libs/libhackrf-2018.01.1 amd64 x86
+~net-libs/libircclient-1.10 amd64 x86
 ~net-libs/libnftnl-1.1.1 amd64 x86
 ~net-libs/loudmouth-1.5.3 amd64 x86
 ~net-libs/netwib-5.39.0 amd64 x86
 ~net-libs/quasselc-0_p20170111 amd64 x86
 ~net-libs/telepathy-accounts-signon-1.0 amd64 x86
 ~net-libs/tox-0.2.8 amd64 x86
+~net-libs/wvstreams-4.6.1_p14 amd64 x86
 ~net-mail/courier-imap-4.18.2 amd64 x86
 ~net-mail/qmail-autoresponder-2.0 amd64 x86
 ~net-misc/gofish-1.2 amd64 x86
@@ -801,9 +806,11 @@
 ~net-misc/l7-filter-userspace-0.12_beta1 amd64 x86
 ~net-misc/netsed-0.01b amd64 x86
 ~net-misc/ofono-1.29 amd64 x86
+~net-misc/omniORB-4.2.2 amd64 x86
 ~net-misc/putty-0.71 amd64 x86
 ~net-misc/radvd-2.17 amd64 x86
 ~net-misc/remmina-1.2.31.2 amd64 x86
+~net-misc/sstp-client-1.0.12 amd64 x86
 ~net-misc/unison-2.48.4 amd64 x86
 ~net-misc/x2goclient-4.1.2.1 amd64 x86
 ~net-nds/gssproxy-0.8.2 amd64 x86
@@ -892,7 +899,7 @@
 ~sci-libs/vtk-8.1.0 amd64 x86
 ~sci-libs/xdrfile-1.1.4 amd64 x86
 ~sci-mathematics/num-utils-0.5 amd64 x86
-~sci-mathematics/rstudio-1.1.383 amd64 x86
+~sci-mathematics/rstudio-1.2.1335 amd64 x86
 ~sci-misc/netlogo-bin-6.0.2 amd64 x86
 ~sci-physics/cernlib-2006 amd64 x86
 ~sci-physics/lhapdf-6.2.3 amd64 x86
@@ -909,9 +916,12 @@
 ~sys-apps/s6-2.6.1.1 amd64 x86
 ~sys-apps/s6-portable-utils-2.2.1.1 amd64 x86
 ~sys-apps/ucspi-proxy-1.1 amd64 x86
+~sys-apps/ucspi-ssl-0.99e amd64 x86
 ~sys-apps/yarn-1.13.0 amd64 x86
+~sys-auth/munge-0.5.13 amd64 x86
 ~sys-auth/ykpers-1.19.0 amd64 x86
 ~sys-boot/plymouth-openrc-plugin-0.1.2 amd64 x86
+~sys-cluster/torque-6.0.4 amd64 x86
 ~sys-firmware/b43legacy-firmware-3.130.20.0 amd64 x86
 ~sys-firmware/ipxe-1.0.0_p20180211 amd64 x86
 ~sys-firmware/midisport-firmware-1.2 amd64 x86
@@ -982,6 +992,7 @@
 ~virtual/libstdc++-3.3 amd64 x86
 ~virtual/rust-1.37.0 amd64 x86
 ~www-client/chromium-77.0.3865.90 amd64 x86
+~www-client/httrack-3.49.2 amd64 x86
 ~www-client/w3mmee-0.3.2_p24 amd64 x86
 ~www-servers/boa-0.94.14_rc21 amd64 x86
 ~www-servers/bozohttpd-20170201 amd64 x86
@@ -1073,7 +1084,7 @@
 ~x11-misc/xdo-0.5.7 amd64 x86
 ~x11-misc/xdock-0.3.0 amd64 x86
 ~x11-misc/xgestures-0.4 amd64 x86
-~x11-misc/xiccd-0.2.4 amd64 x86
+~x11-misc/xiccd-0.3.0 amd64 x86
 ~x11-misc/xidle-26052015 amd64 x86
 ~x11-misc/xkblayout-state-0_p20180118 amd64 x86
 ~x11-misc/xkbset-0.5_p6 amd64 x86
@@ -1088,6 +1099,7 @@
 ~x11-misc/xvfb-run-1.19.3_p2 amd64 x86
 ~x11-misc/xwit-3.4_p15 amd64 x86
 ~x11-plugins/asmon-0.71 amd64 x86
+~x11-plugins/wmmaiload-2.3.0 amd64 x86
 ~x11-terms/lilyterm-0.9.9.4 amd64 x86
 ~x11-terms/pangoterm-0.0_pre20160305 amd64 x86
 ~x11-themes/clearlooks-phenix-7.0.1 amd64 x86
