@@ -655,3 +655,6 @@ dev-python/sphinx latex
 
 # required by app-cdr/xfburn-0.5.5-r2
 xfce-base/exo gtk2
+
+# required by kde-frameworks/kapidox-5.60.0
+media-gfx/graphviz python_single_target_python2_7 -python_single_target_python3_6
