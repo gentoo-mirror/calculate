@@ -17,7 +17,7 @@ SRC_URI="amd64? ( ${SRC_BASE}-x86_64.tar.gz&r=1 -> eclipse-java-${RNAME}-${SR}-l
 
 LICENSE="EPL-1.0"
 SLOT="4.13"
-KEYWORDS="x86 amd64"
+KEYWORDS="amd64"
 IUSE=""
 
 RDEPEND="
@@ -34,8 +34,6 @@ src_install() {
 
 	exeinto ${dest}
 	doexe eclipse
-
-	dohtml -r readme/*
 
 	cp "${FILESDIR}"/eclipserc-bin-${SLOT} "${T}" || die
 	cp "${FILESDIR}"/eclipse-bin-${SLOT} "${T}" || die
