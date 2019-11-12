@@ -1,0 +1,12 @@
+# Calculate format=contents os_arch_machine==x86_64 ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-# merge=app-office/libreoffice
+
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+!sys-apps/portage /usr/lib/python2.7/site-packages/portage/dbapi/bintree.py
+!app-office/libreoffice /usr/lib/libreoffice/share/xdg/draw.desktop
+!app-office/libreoffice /usr/lib/libreoffice/share/xdg/base.desktop
+!app-office/libreoffice /usr/lib/libreoffice/share/xdg/calc.desktop
+!app-office/libreoffice /usr/lib/libreoffice/share/xdg/impress.desktop
+!app-office/libreoffice /usr/lib/libreoffice/share/xdg/startcenter.desktop
+!app-office/libreoffice /usr/lib/libreoffice/share/xdg/math.desktop
+!app-office/libreoffice /usr/lib/libreoffice/share/xdg/writer.desktop
+!net-print/cndrvcups-common-lb /usr/lib/libc3pl.so
