@@ -17,7 +17,7 @@ if [[ ${EBUILD_PHASE} == "compile" ]] && [[ -d ${S} ]] && check_skip; then
 		grep ${CATEGORY}/${PN} /var/lib/calculate/calculate-core/cache/merge-patch.list &>/dev/null
 	then
 		[ -f ${CL_CORE_PATCH} ] && ${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} \
-			--pkg-slot ${SLOT} --pkg-category ${CATEGORY} \
+			--pkg-slot ${SLOT/\/*} --pkg-category ${CATEGORY} \
 			--pkg-path ${S} --pkg-name ${PN} --verbose
 	fi
 fi
