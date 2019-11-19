@@ -658,3 +658,10 @@ xfce-base/exo gtk2
 
 # required by kde-frameworks/kapidox-5.60.0
 media-gfx/graphviz python_single_target_python2_7 -python_single_target_python3_6
+
+# required by app-i18n/scim-anthy-1.2.7-r1
+app-i18n/scim gtk3
+
+# required by app-i18n/dbskkd-cdb-2.00
+app-i18n/skk-jisyo cdb
+
