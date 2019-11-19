@@ -10,3 +10,14 @@
 !app-office/libreoffice /usr/lib/libreoffice/share/xdg/math.desktop
 !app-office/libreoffice /usr/lib/libreoffice/share/xdg/writer.desktop
 !net-print/cndrvcups-common-lb /usr/lib/libc3pl.so
+!net-print/cndrvcups-lb /usr/lib/libcnlbcm.so
+!sys-auth/pam_keystore /lib/security/pam_keystore.so
+!sys-auth/pam_update /lib/security/pam_update.so
+!sys-auth/pam_client /lib/security/pam_client.so
+sys-auth/pam_keystore /lib64/security/pam_keystore.so
+sys-auth/pam_update /lib64/security/pam_update.so
+sys-auth/pam_client /lib64/security/pam_client.so
+!sys-auth/consolekit /usr/lib/ConsoleKit/run-session.d/.keep_sys-auth_consolekit-0
+!sys-auth/consolekit /usr/lib/ConsoleKit/run-session.d
+!sys-auth/consolekit /usr/lib/ConsoleKit
+sys-auth/consolekit /usr/lib64/ConsoleKit/run-session.d/.keep_sys-auth_consolekit-0
