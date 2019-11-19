@@ -1,7 +1,7 @@
 # Calculate run=/bin/bash os_arch_machine==x86_64 exists(/lib32)==l ini(overlay-calculate.revision)=>20191116.3
 
 get_packages() {
-	awk -F: '{print $1}' | sort -u | sed 's,/CONTENTS,,' | grep -v _rc73
+	awk -F: '{print $1}' | sort -u | sed 's,/CONTENTS,,'
 }
 
 check_lib32() {
@@ -20,7 +20,7 @@ check_llvm32() {
 }
 
 downgrade_for_rebuild() {
-	while read pf;
+	grep -v _rc73 | while read pf;
 	do
 		pv_new="$(sed 's,-r[0-9]\+,,' <<<$pf)_rc73"
 		mv /var/db/pkg/$pf /var/db/pkg/$pv_new	
