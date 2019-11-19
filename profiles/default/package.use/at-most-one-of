@@ -4,3 +4,6 @@ media-sound/audacious qt5 -gtk -gtk3
 
 # at-most-one-of ( gtk sdl )
 app-emulation/vice -sdl
+
+# at-most-one-of ( lcd_devices_hd44780 lcd_devices_hd44780-i2c )
+app-misc/lcd4linux -lcd_devices_hd44780-i2c
