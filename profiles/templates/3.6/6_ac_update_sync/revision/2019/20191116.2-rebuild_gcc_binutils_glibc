@@ -2,12 +2,12 @@
 
 echo "A new set of 17.1 amd64 Gentoo profiles has been selected."
 echo "Rebuild sys-devel/gcc"
-if emerge -1O dev-libs/mpfr dev-libs/mpc dev-libs/libbytesize dev-libs/rasqal sys-devel/gcc &>/dev/null
+if emerge -g1O dev-libs/mpfr dev-libs/mpc dev-libs/libbytesize dev-libs/rasqal sys-devel/gcc &>/dev/null
 then
 	echo "Rebuild sys-devel/binutils"
-	if emerge -1O sys-devel/binutils &>/dev/null
+	if emerge -g1O sys-devel/binutils &>/dev/null
 	then
 		echo "Rebuild sys-libs/glibc"
-		emerge -1O sys-libs/glibc &>/dev/null
+		emerge -g1O sys-libs/glibc &>/dev/null
 	fi
 fi
