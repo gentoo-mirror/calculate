@@ -25,7 +25,11 @@ BUILD_TARGET_ARCH="${ARCH}"
 src_unpack() {
 	unpack "${A}"
 	cd "${S}"
+
+	# fix32 bit
+	epatch "${FILESDIR}/32bit.patch"
 }
+
 
 pkg_setup() {
 	linux-mod_pkg_setup
