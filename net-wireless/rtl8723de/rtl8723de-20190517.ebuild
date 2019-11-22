@@ -4,14 +4,14 @@
 EAPI=5
 inherit linux-info linux-mod
 
-COMMIT="53556670f23ad0167618f95a041f47ef0cd52e98"
+COMMIT="3904e4caa5fbfc20fd04c1d06a6c664240656931"
 
 DESCRIPTION="Realtek RTL8723DE module for Linux kernel"
-HOMEPAGE="https://github.com/jeremyb31/rtl8723de"
-SRC_URI="https://github.com/jeremyb31/rtl8723de/archive/${COMMIT}.zip -> rtl8723de-${PV}.zip"
+HOMEPAGE="https://github.com/smlinux/rtl8723de"
+SRC_URI="https://github.com/smlinux/rtl8723de/archive/${COMMIT}.zip -> rtl8723de-${PV}.zip"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 DEPEND="virtual/linux-sources"
 RDEPEND=""
@@ -21,6 +21,15 @@ S="${WORKDIR}/rtl8723de-${COMMIT}"
 MODULE_NAMES="8723de(net/wireless)"
 BUILD_TARGETS="all"
 BUILD_TARGET_ARCH="${ARCH}"
+
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+
+	# fix work with calculate.env
+	epatch "${FILESDIR}/rtl-lower_log.patch"
+	epatch "${FILESDIR}/rtl-20190515-kernel-4.19.patch"
+}
 
 pkg_setup() {
 	linux-mod_pkg_setup
