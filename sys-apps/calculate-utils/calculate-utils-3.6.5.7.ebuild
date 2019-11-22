@@ -8,7 +8,7 @@ PYTHON_COMPAT=(python2_7)
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.6.5.4"
 	["install"]="3.6.5.3"
-	["update"]="3.6.5.1"
+	["update"]="3.6.5.2"
 )
 
 inherit calculate-utils-r5
