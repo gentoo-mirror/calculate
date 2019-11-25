@@ -1,4 +1,4 @@
-# Calculate run=/bin/bash os_arch_machine==x86_64 exists(/lib32)==l ini(overlay-calculate.revision)=>20191116.3
+# Calculate run=/bin/bash os_arch_machine==x86_64 exists(/lib32)==l ini(overlay-calculate.revision)>=20191116.3
 
 get_packages() {
 	awk -F: '{print $1}' | sort -u | sed 's,/CONTENTS,,'
