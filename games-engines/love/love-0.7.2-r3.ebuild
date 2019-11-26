@@ -32,6 +32,7 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/${PN}-HEAD"
 
 PATCHES=( "${FILESDIR}"/${PN}-0.8.0-freetype2.patch
+	"${FILESDIR}"/${PN}-0.7.2-glext.patch
 	"${FILESDIR}"/${PN}-0.8.0-pthread.patch )
 
 src_install() {
