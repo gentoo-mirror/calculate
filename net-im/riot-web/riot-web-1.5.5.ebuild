@@ -16,7 +16,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_BRANCH="develop"
 else
 	SRC_URI="https://github.com/vector-im/riot-web/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="amd64"
 fi
 
 LICENSE="Apache-2.0"
@@ -55,19 +55,9 @@ src_prepare() {
 }
 
 src_compile() {
-	if use x86; then
-		# Currently, by default v8 has a memory limit of 512MB on 32-bit systems,
-		# and 1.4GB on 64-bit systems.
-		NODE_OPTIONS="--max_old_space_size=1536" yarn run build || die "Build failed"
-	else
-		yarn run build || die "Build failed"
-	fi
+	yarn run build || die "Build failed"
 
-	if use abi_x86_32; then
-		"${S}"/node_modules/.bin/electron-builder --linux --ia32 || die "Bundling failed"
-	elif use abi_x86_64; then
-		"${S}"/node_modules/.bin/electron-builder --linux --x64 || die "Bundling failed"
-	fi
+	"${S}"/node_modules/.bin/electron-builder --linux --x64 || die "Bundling failed"
 }
 
 src_install() {
