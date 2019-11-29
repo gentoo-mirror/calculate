@@ -1,0 +1,45 @@
+From 5b370c97462836b29facdfd8cd533d153c9f360e Mon Sep 17 00:00:00 2001
+From: jiblime <47689567+jiblime@users.noreply.github.com>
+Date: Tue, 5 Nov 2019 06:53:37 -0800
+Subject: [PATCH] xfsdump-3.0.4-no-symlink refresh
+ http://web.archive.org/web/20160324213842/http://oss.sgi.com/bugzilla/show_bug.cgi?id=876
+ https://bugs.gentoo.org/311881
+
+---
+ dump/Makefile    | 4 +---
+ restore/Makefile | 4 +---
+ 2 files changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/dump/Makefile b/dump/Makefile
+index 66f00d3..d8daa19 100644
+--- a/dump/Makefile
++++ b/dump/Makefile
+@@ -100,9 +100,7 @@ install: default
+ 	$(INSTALL) -m 755 -d $(PKG_ROOT_SBIN_DIR)
+ 	$(LTINSTALL) -m 755 $(LTCOMMAND) $(PKG_ROOT_SBIN_DIR)
+ 	$(INSTALL) -m 755 -d $(PKG_SBIN_DIR)
+-	# skip symlink when /sbin is alread symlinked to /usr/sbin, like on Fedora
+-	test $(PKG_ROOT_SBIN_DIR) -ef $(PKG_SBIN_DIR) || \
+-		$(INSTALL) -S $(PKG_ROOT_SBIN_DIR)/$(LTCOMMAND) $(PKG_SBIN_DIR)/$(LTCOMMAND)
++
+ install-dev:
+ 
+ .dep: $(COMMINCL) $(COMMON) $(INVINCL) $(INVCOMMON)
+diff --git a/restore/Makefile b/restore/Makefile
+index ac3f8c8..40da38a 100644
+--- a/restore/Makefile
++++ b/restore/Makefile
+@@ -114,9 +114,7 @@ install: default
+ 	$(INSTALL) -m 755 -d $(PKG_ROOT_SBIN_DIR)
+ 	$(LTINSTALL) -m 755 $(LTCOMMAND) $(PKG_ROOT_SBIN_DIR)
+ 	$(INSTALL) -m 755 -d $(PKG_SBIN_DIR)
+-	# skip symlink when /sbin is alread symlinked to /usr/sbin, like on Fedora
+-	test $(PKG_ROOT_SBIN_DIR) -ef $(PKG_SBIN_DIR) || \
+-		$(INSTALL) -S $(PKG_ROOT_SBIN_DIR)/$(LTCOMMAND) $(PKG_SBIN_DIR)/$(LTCOMMAND)
++
+ install-dev:
+ 
+ .dep: $(COMMINCL) $(COMMON) $(INVINCL) $(INVCOMMON)
+-- 
+2.23.0
+

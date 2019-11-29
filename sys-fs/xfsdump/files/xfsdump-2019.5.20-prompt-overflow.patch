@@ -1,0 +1,27 @@
+From 9c07f7f654a16c96f49716b9073432826729f59a Mon Sep 17 00:00:00 2001
+From: jiblime <47689567+jiblime@users.noreply.github.com>
+Date: Tue, 5 Nov 2019 06:56:57 -0800
+Subject: [PATCH] xfsdump-3.0.5-prompt-overflow refresh
+ http://web.archive.org/web/20160324213842/http://oss.sgi.com/bugzilla/show_bug.cgi?id=876
+ https://bugs.gentoo.org/335115
+
+---
+ dump/content.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/dump/content.c b/dump/content.c
+index f710fe4..2cfcd5f 100644
+--- a/dump/content.c
++++ b/dump/content.c
+@@ -6338,7 +6338,7 @@ static bool_t
+ Media_prompt_erase(drive_t *drivep)
+ {
+ 	fold_t fold;
+-	char question[100];
++	char question[200];
+ 	char *preamblestr[PREAMBLEMAX];
+ 	size_t preamblecnt;
+ 	char *querystr[QUERYMAX];
+-- 
+2.23.0
+
