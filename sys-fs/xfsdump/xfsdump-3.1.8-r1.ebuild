@@ -12,7 +12,7 @@ SRC_URI="https://git.kernel.org/pub/scm/fs/xfs/xfsdump-dev.git/snapshot/xfsdump-
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="amd64 x86"
 IUSE="ncurses nls"
 
 RDEPEND="
