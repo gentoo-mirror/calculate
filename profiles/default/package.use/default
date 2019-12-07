@@ -437,3 +437,6 @@ app-office/libreoffice pdfimport
 
 # Hardware sensors support
 xfce-extra/xfce4-sensors-plugin lm-sensors
+
+# Enable monitoring of hdd temperature (app-admin/hddtemp)
+sys-apps/inxi hddtemp
