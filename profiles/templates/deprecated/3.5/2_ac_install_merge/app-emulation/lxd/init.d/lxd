@@ -1,3 +1,0 @@
-# Calculate format=patch multiline
-<reg>if \[ \$RC_GOINGDOWN = YES \] \|\| \[ \$RC_REBOOT = YES \]; then</reg>
-<text>if [[ $RC_GOINGDOWN = YES ]] || [[ $RC_REBOOT = YES ]]; then</text>

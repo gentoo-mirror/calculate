@@ -1,8 +1,0 @@
-# Calculate run=/bin/bash cl_chroot_status==off&&ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#
-
-if [[ -d /var/calculate/server ]]
-then
-    chmod 0700 /var/calculate/server &>/dev/null
-    chown root:root /var/calculate/server &>/dev/null
-fi
-true

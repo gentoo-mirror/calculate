@@ -1,5 +1,0 @@
-# Calculate format=patch
-<reg>(if ! fbcondecor_set_theme "\$\{theme\}" "\$\{TTY\}")(; then)</reg>
-<text>\1 &amp;&gt;/dev/null \2</text>
-<reg>sbin/runscript</reg>
-<text>sbin/openrc-run</text>

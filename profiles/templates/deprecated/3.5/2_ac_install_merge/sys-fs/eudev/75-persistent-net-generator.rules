@@ -1,3 +1,0 @@
-# Calculate format=patch path=/lib/udev/rules.d
-<reg>(KERNEL!=")(eth\*)</reg>
-<text>\1en*|wl*|sl*|ww*|\2</text>
