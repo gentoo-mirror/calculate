@@ -1,3 +1,0 @@
-# Calculate path=/etc/udev/rules.d
-
-SUBSYSTEM=="firmware", ACTION=="add", ATTR{loading}="-1"

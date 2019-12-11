@@ -1,8 +1,0 @@
-# Calculate format=samba ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-# path=/var/lib/calculate name=calculate.env
-
-#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
-
-#?os_linux_build<=20170201&&cl_chroot_status==off#
-[update]
-cl_update_with_bdeps_set = on
-#os_linux_build#

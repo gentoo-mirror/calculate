@@ -1,4 +1,0 @@
-# Calculate format=patch multiline dotall path=/etc/portage/repos.conf name=layman.conf ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#&&pkg(app-portage/layman)!=&&exists(/etc/portage/repos.conf/layman.conf)!=
-#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
-<reg>^\[gentoo\].*?(\n\n|\Z)</reg>
-<text></text>

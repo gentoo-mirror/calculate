@@ -1,3 +1,0 @@
-# Calculate append=after path=/var/calculate/server/conf name=group_right.conf cl_chroot_status==off&&exists(/var/calculate/server)!=&&grep(/var/calculate/server/conf/group_right.conf,system_update)== ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#
-system_update update,setupsystem,configure
-#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
