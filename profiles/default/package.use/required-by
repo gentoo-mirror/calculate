@@ -676,3 +676,6 @@ dev-python/pallets-sphinx-themes -python_targets_python2_7
 
 # required by media-sound/jack2[opus]
 media-libs/opus custom-modes
+
+# required by dev-python/pyzmq-17.1.0
+net-libs/zeromq drafts
