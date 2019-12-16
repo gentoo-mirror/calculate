@@ -53,7 +53,10 @@ create_repo_calculate() {
 	gentoofn=/etc/portage/repos.conf/gentoo.conf
 
 	rm -f $gentoofn
-	[[ -f $reposcalculatefn ]] && return 0
+	if [[ -f $reposcalculatefn ]] && grep -F "[calculate]" $reposcalculatefn &>/dev/null
+	then
+		return 0
+	fi
 
 	echo "Move layman to /var/db/repos"
 	pushd /var/lib/layman &>/dev/null
@@ -68,7 +71,6 @@ create_repo_calculate() {
 	location = /usr/portage
 	auto-sync = Yes
 	sync-type = calculate
-	
 	EOF
 
 	for dn in *
@@ -91,6 +93,16 @@ create_repo_calculate() {
 			fi
 		fi
 	done
+
+
+	if [[ -d /var/calculate/custom-overlay ]]
+	then
+		cat >>$reposcalculatefn <<-EOF
+
+		[custom]
+		location = /var/calculate/custom-overlay
+		EOF
+	fi
 
 	popd
 }
