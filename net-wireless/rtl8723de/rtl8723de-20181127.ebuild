@@ -13,7 +13,8 @@ SRC_URI="https://github.com/smlinux/rtl8723de/archive/${COMMIT}.zip -> rtl8723de
 LICENSE="GPL-2"
 KEYWORDS="amd64 x86"
 
-DEPEND="virtual/linux-sources"
+DEPEND="virtual/linux-sources
+	app-arch/unzip"
 RDEPEND=""
 
 S="${WORKDIR}/rtl8723de-${COMMIT}"
