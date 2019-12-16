@@ -1,0 +1,3 @@
+# Calculate format=patch os_install_arch_machine==i686 path=/usr/lib/python2.7/site-packages/calculate/lib name=cl_template.py
+<reg>dirsTemplates = self.objVar.Get\("cl_template_path_use"\)</reg>
+<text>dirsTemplates = [os.path.realpath(x) for x in self.objVar.Get("cl_template_path_use")]</text>

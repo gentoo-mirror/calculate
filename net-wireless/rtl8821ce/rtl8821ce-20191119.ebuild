@@ -13,7 +13,8 @@ SRC_URI="https://codeload.github.com/tomaspinho/rtl8821ce/zip/${COMMIT} -> rtl88
 LICENSE="GPL-2"
 KEYWORDS="amd64 x86"
 
-DEPEND="virtual/linux-sources"
+DEPEND="virtual/linux-sources
+	app-arch/unzip"
 RDEPEND=""
 
 S="${WORKDIR}/rtl8821ce-${COMMIT}"

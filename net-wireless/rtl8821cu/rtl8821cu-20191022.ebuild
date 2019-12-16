@@ -13,7 +13,8 @@ SRC_URI="https://github.com/brektrou/rtl8821CU/archive/${COMMIT}.zip -> rtl8821c
 LICENSE="GPL-2"
 KEYWORDS="amd64 x86"
 
-DEPEND="virtual/linux-sources"
+DEPEND="virtual/linux-sources
+	app-arch/unzip"
 RDEPEND=""
 
 S="${WORKDIR}/rtl8821CU-${COMMIT}"
