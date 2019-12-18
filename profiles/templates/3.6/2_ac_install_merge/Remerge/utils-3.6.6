@@ -133,6 +133,8 @@ change_profile() {
 	fi
 }
 
+[[ -d /var/db/repos ]] || mkdir -p /var/db/repos
+
 create_repo_calculate
 convert_layman_to_eselect_repo
 change_profile
