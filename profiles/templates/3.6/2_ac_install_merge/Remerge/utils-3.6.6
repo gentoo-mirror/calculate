@@ -41,6 +41,18 @@ convert_layman_to_eselect_repo() {
 	<repositories encoding="unicode" version="1.0">
 	</repositories>
 	EOF
+
+	# move repos from layman to db/repos
+	sed -n 's/location = //p' $eselectfn |
+	while read line
+	do
+		repospath="$line"
+		laymanpath="${line//\/var\/db\/repos/\/var\/lib\/layman}"
+		if [[ -d $laymanpath ]] && ! [[ -d $repospath ]]
+		then
+			mv $laymanpath $repospath
+		fi
+	done
 }
 
 create_repo_calculate() {
