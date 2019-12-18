@@ -1,3 +1,10 @@
+# Calculate run=/bin/bash
+
+for dn in /usr/#-os_install_lib_path-#/python*/site-packages/portage/sync/modules
+do
+    [[ -d $dn ]] || continue
+    [[ -d $dn/calculate ]] || mkdir -p $dn/calculate
+    cat >$dn/calculate/calculate.py <<EOF
 # Copyright 2005-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
@@ -46,3 +53,5 @@ class CalculateSync(NewBase):
 			self.logger(self.xterm_titles, msg)
 			writemsg_level(msg + "\n", noiselevel=-1, level=logging.ERROR)
 		return (exitcode, False)
+EOF
+done

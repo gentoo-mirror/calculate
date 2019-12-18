@@ -1,3 +1,10 @@
+# Calculate run=/bin/bash
+
+for dn in /usr/#-os_install_lib_path-#/python*/site-packages/portage/sync/modules
+do
+    [[ -d $dn ]] || continue
+    [[ -d $dn/calculate ]] || mkdir -p $dn/calculate
+    cat >$dn/calculate/__init__.py <<EOF
 # Copyright 2014-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
@@ -27,3 +34,5 @@ module_spec = {
 		}
 	}
 }
+EOF
+done
