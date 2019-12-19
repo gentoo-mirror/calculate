@@ -1,6 +1,6 @@
 # Calculate run=/bin/bash
 
-for dn in /usr/#-os_install_lib_path-#/python*/site-packages/portage/sync/modules
+for dn in /usr/lib*/python*/site-packages/portage/sync/modules
 do
     [[ -d $dn ]] || continue
     [[ -d $dn/calculate ]] || mkdir -p $dn/calculate
