@@ -1,2 +1,6 @@
 # Calculate chmod=0755
+#?pkg(kde-plasma/plasma-workspace)<5.17.4#
 startkde
+#!pkg#
+startplasma-x11
+#pkg#
