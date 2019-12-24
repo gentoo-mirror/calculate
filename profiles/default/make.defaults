@@ -22,7 +22,7 @@ USE="${USE} crypt ssl cracklib"
 USE="${USE} acpi cairo cpudetection dbus dri ieee1394 gpm opengl scanner smp upower usb vdpau -video_cards_dummy -video_cards_v4l video_cards_via xcomposite"
 
 # Hardware CPU
-USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 lm_sensors mmx mmxext padlock popcnt sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 xop"
+USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 lm-sensors mmx mmxext padlock popcnt sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 xop"
 
 # Internet Messager
 USE="${USE} gadu irc jabber oscar"
