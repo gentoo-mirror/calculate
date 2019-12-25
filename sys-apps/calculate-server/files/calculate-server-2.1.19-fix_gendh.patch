@@ -1,0 +1,28 @@
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 39b3167..00279a2 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -1901,7 +1901,10 @@ This command is not allowed."))
+                 if not os.path.exists(rndFile):
+                     self.printERROR(_("Can not create %s")%rndFile)
+                     return False
+-                textLine = self.execProg("%s gendh -rand %s 512 >> %s"\
++                self.printOK(
++                    _("Generating DH. This is going to take a long time")
++                    + " ...", printBR=False)
++                textLine = self.execProg("%s dhparam -dsaparam -rand %s 4096 >> %s"\
+                                          %(sslFile, rndFile, dhFile))
+                 if textLine == False:
+                     self.printERROR(_("Can not create DH certificate %s")%certFile)
+@@ -1971,7 +1974,10 @@ nsCertType = %s
+             return False
+         # Создание DH
+         if genDH:
+-            textLine = self.execProg("%s gendh -rand %s 512 >> %s"\
++            self.printOK(
++                _("Generating DH. This is going to take a long time")
++                + " ...", printBR=False)
++            textLine = self.execProg("%s dhparam -dsaparam -rand %s 4096 >> %s"\
+                                      %(sslFile, rndFile, certFile))
+             if textLine == False:
+                 self.printERROR(_("Can not create DH certificate %s")%certFile)
