@@ -6,4 +6,7 @@ polkit.addRule(function(action, subject) {
     if (action.id == "org.gentoo.pkexec.gparted" && subject.active) {
              return polkit.Result.YES;
    }
+    if (action.id == "org.gnome.gparted" && subject.active) {
+             return polkit.Result.YES;
+   }
 });
