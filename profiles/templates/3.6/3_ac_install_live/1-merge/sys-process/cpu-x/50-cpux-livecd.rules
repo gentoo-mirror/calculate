@@ -1,0 +1,9 @@
+# Calculate comment=// os_install_root_type==livecd path=/etc/polkit-1/rules.d
+// Run gparted on livecd without authorization
+//
+
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.pkexec.cpu-x" && subject.active) {
+             return polkit.Result.YES;
+   }
+});
