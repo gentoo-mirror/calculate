@@ -10,7 +10,7 @@
          {
             "name": "Документация",
             "type": "url",
-            "url": "https://wiki.calculate-linux.org/ru"
+            "url": "https://wiki.calculate-linux.org/en"
          },
          {
             "name": "Форумы",
