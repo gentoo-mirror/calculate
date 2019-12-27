@@ -5,32 +5,17 @@
          "children": [{
             "name": "Домашняя",
             "type": "url",
-            "url": "http://www.calculate-linux.ru"
+            "url": "https://www.calculate-linux.org/ru"
          },
          {
             "name": "Документация",
             "type": "url",
-            "url": "http://www.calculate-linux.ru/main/ru"
+            "url": "https://wiki.calculate-linux.org/ru"
          },
          {
             "name": "Форумы",
             "type": "url",
-            "url": "http://www.calculate-linux.ru/projects/ru/boards"
-         },
-         {
-            "name": "Рассылка",
-            "type": "url",
-            "url": "http://www.calculate-linux.ru/main/ru/maillist"
-         },
-         {
-            "name": "Ошибки",
-            "type": "url",
-            "url": "http://www.calculate-linux.ru/projects/calculatelinux/issues"
-         },
-         {
-            "name": "Блоги",
-            "type": "url",
-            "url": "http://www.calculate-linux.ru/blogs/ru"
+            "url": "https://forum.calculate-linux.org"
          }],
          "type": "folder"
       },
