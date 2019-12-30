@@ -9,4 +9,6 @@ account    include		system-login
 password   include		system-login
 
 session    include		system-auth
+#?pkg(gnome-base/gnome-keyring)!=&&pkg(mate-base/mate-session-manager)==#
 session    optional		pam_gnome_keyring.so auto_start
+#pkg#
