@@ -19,5 +19,12 @@ if [[ ${EBUILD_PHASE} == "compile" ]] && [[ -d ${S} ]] && check_skip; then
 		[ -f ${CL_CORE_PATCH} ] && ${CL_CORE_PATCH} --no-progress --pkg-version ${PVR} \
 			--pkg-slot ${SLOT/\/*} --pkg-category ${CATEGORY} \
 			--pkg-path ${S} --pkg-name ${PN} --verbose
+		if [[ $? -eq 2 ]]
+		then
+			if /usr/libexec/calculate/cl-variable --value main.cl_template_wrong_patch | grep break &>/dev/null
+			then
+				die "Failed to apply Calculate utilities patch"
+			fi
+		fi
 	fi
 fi
