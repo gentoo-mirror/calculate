@@ -1,4 +1,5 @@
 # Calculate format=diff
+Патч для загрузки с неполных raid массивов
 diff --git modules.d/90mdraid/parse-md.sh modules.d/90mdraid/parse-md.sh
 index dd7bda2..3c88b6f 100755
 --- modules.d/90mdraid/parse-md.sh
