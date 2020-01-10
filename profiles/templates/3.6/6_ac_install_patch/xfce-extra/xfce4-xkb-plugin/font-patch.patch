@@ -1,0 +1,14 @@
+# Calculate format=diff
+diff --git a/panel-plugin/xkb-cairo.c b/panel-plugin/xkb-cairo.c
+index 9939b96..c047606 100644
+--- a/panel-plugin/xkb-cairo.c
++++ b/panel-plugin/xkb-cairo.c
+@@ -28,7 +28,7 @@
+ #include "xkb-cairo.h"
+ #include "xkb-util.h"
+ 
+-#define XKB_PREFERRED_FONT "Courier New, Courier 10 Pitch, Monospace Bold"
++#define XKB_PREFERRED_FONT "Droid Sans, Courier New, Courier 10 Pitch, Monospace Bold"
+ 
+ 
+ 
