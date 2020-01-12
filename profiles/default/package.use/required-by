@@ -674,3 +674,6 @@ media-libs/opus custom-modes
 # required by dev-python/pyzmq-17.1.0
 net-libs/zeromq drafts
 
+# required by net-nds/rpcbind
+sys-fs/quota rpc
+
