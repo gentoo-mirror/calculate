@@ -27,6 +27,9 @@
 		<flag name='uksm'>Build kernel with UKSM</flag>
 	</use>
 	<use>
+		<flag name='fsync'>Build kernel with futex-wait-multiple patchset</flag>
+	</use>
+	<use>
 		<flag name='vmlinuz'>Build kernel, modules and initramfs</flag>
 	</use>
 </pkgmetadata>
