@@ -46,3 +46,4 @@ sys-kernel/calculate-sources:themes - Adds Calculate themes dependence
 sys-kernel/calculate-sources:vmlinuz - Build kernel, modules and initramfs
 sys-kernel/calculate-sources:pae - Build kernel with PAE
 sys-kernel/calculate-sources:muqss - Build kernel with MuQSS
+sys-kernel/calculate-sources:fsync - Build kernel with futex-wait-multiple patchset
