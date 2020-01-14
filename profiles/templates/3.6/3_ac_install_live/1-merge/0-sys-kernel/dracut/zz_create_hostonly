@@ -1,9 +1,76 @@
-# Calculate exec=/bin/bash ac_install_disk==off&&ac_install_unmerge==off&&pkg(sys-kernel/dracut)!=&&os_install_root_type!=livecd cl_setup!=themes||cl_splash_image_update_set==on
+# Calculate exec=/bin/bash ac_install_disk==off&&ac_install_unmerge==off&&os_install_root_type!=livecd cl_setup!=themes||cl_splash_image_update_set==on
 #!/bin/bash
 
 # the recreating of inird is performed for binary kernel only (mark .calculate in kernel sources)
 
-source /usr/share/grub/grub-mkconfig_lib
+version_sort ()
+{
+  case $version_sort_sort_has_v in
+    yes)
+      LC_ALL=C sort -V;;
+    no)
+      LC_ALL=C sort -n;;
+    *)
+      if sort -V </dev/null > /dev/null 2>&1; then
+        version_sort_sort_has_v=yes
+	LC_ALL=C sort -V
+      else
+        version_sort_sort_has_v=no
+        LC_ALL=C sort -n
+      fi;;
+   esac
+}
+
+version_test_numeric ()
+{
+  version_test_numeric_a="$1"
+  version_test_numeric_cmp="$2"
+  version_test_numeric_b="$3"
+  if [ "$version_test_numeric_a" = "$version_test_numeric_b" ] ; then
+    case "$version_test_numeric_cmp" in
+      ge|eq|le) return 0 ;;
+      gt|lt) return 1 ;;
+    esac
+  fi
+  if [ "$version_test_numeric_cmp" = "lt" ] ; then
+    version_test_numeric_c="$version_test_numeric_a"
+    version_test_numeric_a="$version_test_numeric_b"
+    version_test_numeric_b="$version_test_numeric_c"
+  fi
+  if (echo "$version_test_numeric_a" ; echo "$version_test_numeric_b") | version_sort | head -n 1 | grep -qx "$version_test_numeric_b" ; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+version_test_gt ()
+{
+  version_test_gt_a="`echo "$1" | sed -e "s/[^-]*-//"`"
+  version_test_gt_b="`echo "$2" | sed -e "s/[^-]*-//"`"
+  version_test_gt_cmp=gt
+  if [ "x$version_test_gt_b" = "x" ] ; then
+    return 0
+  fi
+  case "$version_test_gt_a:$version_test_gt_b" in
+    *.old:*.old) ;;
+    *.old:*) version_test_gt_a="`echo "$version_test_gt_a" | sed -e 's/\.old$//'`" ; version_test_gt_cmp=gt ;;
+    *:*.old) version_test_gt_b="`echo "$version_test_gt_b" | sed -e 's/\.old$//'`" ; version_test_gt_cmp=ge ;;
+  esac
+  version_test_numeric "$version_test_gt_a" "$version_test_gt_cmp" "$version_test_gt_b"
+  return "$?"
+}
+
+version_find_latest ()
+{
+  version_find_latest_a=""
+  for i in "$@" ; do
+    if version_test_gt "$i" "$version_find_latest_a" ; then
+      version_find_latest_a="$i"
+    fi
+  done
+  echo "$version_find_latest_a"
+}
 
 get_latest_kernel() {
     version_find_latest /boot/vmlinuz-*
