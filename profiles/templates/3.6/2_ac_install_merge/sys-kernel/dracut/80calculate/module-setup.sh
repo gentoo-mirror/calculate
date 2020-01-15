@@ -9,7 +9,11 @@ check() {
 depends() {
     # if dmsetup is not installed, then we cannot support fedora/red hat
     # style live images
-    [[ $hostonly ]] || echo rootfs-block dmsquash-live
+#?pkg(sys-kernel/dracut)<049#
+    [[ $hostonly ]] || echo rootfs-block dmsquash-live 
+#!pkg#
+    [[ $hostonly ]] || echo rootfs-block dmsquash-live network-legacy
+#pkg#
     return 0
 }
 
@@ -24,6 +28,7 @@ install() {
         inst_multiple umount dmsetup blkid dd losetup grep blockdev cat cut sed rmdir pidof
         inst_hook mount 20 "$moddir/scratch-mount-root.sh"
         inst_hook cmdline 31 "$moddir/iso-scan-rootok.sh"
+     	inst_hook pre-pivot 50 "$moddir/copy-resolv.sh"
         inst_script "$moddir/scratch-live-root.sh" "/sbin/dmsquash-live-root"
         inst_script "$moddir/mount-squashfs.sh" "/sbin/mount-squashfs"
         inst_script "$moddir/iso-scan.sh" "/sbin/iso-scan"

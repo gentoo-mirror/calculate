@@ -8,7 +8,7 @@ COMMIT="27f98a55cc48b9a26e6eb4127976c8feb95867d8"
 
 DESCRIPTION="Realtek RTL8821CE Driver module for Linux kernel"
 HOMEPAGE="https://github.com/tomaspinho/rtl8821ce"
-SRC_URI="https://codeload.github.com/tomaspinho/rtl8821ce/zip/${COMMIT} -> rtl8821c-${PV}.zip"
+SRC_URI="https://codeload.github.com/tomaspinho/rtl8821ce/zip/${COMMIT} -> rtl8821ce-${PV}.zip"
 
 LICENSE="GPL-2"
 KEYWORDS="amd64 x86"
