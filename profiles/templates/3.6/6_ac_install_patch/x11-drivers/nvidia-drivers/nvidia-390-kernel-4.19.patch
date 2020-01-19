@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-kernel/calculate-sources)=>4.19,5.4&&merge(x11-drivers/nvidia-drivers)=>390,397
+# Calculate format=diff pkg(sys-kernel/calculate-sources)=>4.19,5.4&&merge(x11-drivers/nvidia-drivers)=>390,397&&os_arch_machine==x86_64
 diff --git a/kernel/nvidia-drm/nvidia-drm-connector.c b/kernel/nvidia-drm/nvidia-drm-connector.c
 index dbda66d..99333d9 100644
 --- a/kernel/nvidia-drm/nvidia-drm-connector.c
