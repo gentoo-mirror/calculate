@@ -15,6 +15,11 @@ update_cache() {
 		/usr/libexec/calculate/cl-pkg-cache
 }
 
+calculate_configurable_package() {
+	! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
+		grep ${CATEGORY}/${PN} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
+}
+
 if [[ ${EBUILD_PHASE} == "setup" ]]
 then
 	if  tail -5 /var/log/emerge.log | grep -P "\(1 of.*${CATEGORY}/${P}" &>/dev/null

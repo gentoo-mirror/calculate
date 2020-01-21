@@ -24,7 +24,12 @@ post_setup_package() {
 			if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
 				grep ${category}/${pkgname} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
 			then
-				CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${RUN_CORE} ${CORE_METHOD} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/"
+				pkg_lockfile=/var/calculate/tmp/portage/$category/.${pkgname}.calculate_lockfile
+				(
+					flock -x -w 1 73 || exit 1;
+					fuser /var/db/pkg/$category/.${pkgname}*.portage_lockfile &>/dev/null || CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${RUN_CORE} ${CORE_METHOD} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/";
+					rm $pkg_lockfile
+				) 73>$pkg_lockfile
 			fi
 			IFS=/
 		done < <(sort /var/lib/calculate/-postmerge | uniq)
@@ -54,4 +59,5 @@ fix_kernel_symlink() {
 post_pkg_postinst() {
 	[[ "$PN" == "calculate-sources" ]] && fix_kernel_symlink
 	post_setup_package
+	calculate_unlock_setup
 }
