@@ -677,3 +677,5 @@ net-libs/zeromq drafts
 # required by net-nds/rpcbind
 sys-fs/quota rpc
 
+# required by media-libs/ganv-1.4.2-r1[introspection]
+dev-libs/gobject-introspection doctool
