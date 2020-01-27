@@ -14,6 +14,7 @@ RUN_CORE="/usr/bin/python2 ${CL_UPDATE_PROG}"
 CORE_METHOD="--method core_setup"
 
 post_setup_package() {
+	local remove_dir_list=""
 	if [ -f ${CL_UPDATE_PROG} ] && [[ -f  /var/lib/calculate/-postmerge ]] && check_skip
 	then
 		OLDIFS=$IFS
@@ -24,7 +25,13 @@ post_setup_package() {
 			if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
 				grep ${category}/${pkgname} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
 			then
-				pkg_lockfile=/var/calculate/tmp/portage/$category/.${pkgname}.calculate_lockfile
+				pkg_lockfile_dir=/var/calculate/tmp/portage/$category
+				pkg_lockfile="$pkg_lockfile_dir"/.${pkgname}.calculate_lockfile
+				if ! [[ -d $pkg_lockfile_dir ]]
+				then
+					mkdir -p $pkg_lockfile_dir
+					remove_dir_list="$remove_dir_list $pkg_lockfile_dir"
+				fi
 				(
 					flock -x -w 1 73 || exit 1;
 					fuser /var/db/pkg/$category/.${pkgname}*.portage_lockfile &>/dev/null || CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${RUN_CORE} ${CORE_METHOD} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-path "/";
@@ -32,10 +39,11 @@ post_setup_package() {
 				) 73>$pkg_lockfile
 			fi
 			IFS=/
-		done < <(sort /var/lib/calculate/-postmerge | uniq)
+		done < <(awk '!x[$0]++' /var/lib/calculate/-postmerge)
 		IFS=$OLDIFS
 	fi
 	rm -f /var/lib/calculate/-postmerge
+	[[ -n $remove_dir_list ]] && rmdir $remove_dir_list
 }
 
 fix_kernel_symlink() {
