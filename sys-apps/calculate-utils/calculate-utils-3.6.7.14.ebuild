@@ -10,7 +10,7 @@ declare -A CALCULATE_MODULES=(
 	["install"]="3.6.7.7"
 	["core"]="3.6.7.3"
 	["i18n"]="3.6.7.4"
-	["update"]="3.6.7.5"
+	["update"]="3.6.7.6"
 	["builder"]="3.6.7.5"
 )
 
