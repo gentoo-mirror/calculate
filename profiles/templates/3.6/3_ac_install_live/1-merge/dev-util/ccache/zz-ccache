@@ -1,0 +1,4 @@
+# Calculate comment=# path=/etc/portage/make.conf
+
+FEATURES="${FEATURES} ccache"
+CCACHE_DIR="/var/calculate/ccache"

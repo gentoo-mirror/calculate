@@ -1,1142 +1,1144 @@
-~app-accessibility/speech-dispatcher-0.8.7 amd64 x86
-~app-admin/elektra-0.8.20 amd64 x86
-~app-admin/reportmagic-2.21 amd64 x86
-~app-admin/restart-services-0.14.4 amd64 x86
-~app-admin/socklog-2.1.0 amd64 x86
-~app-admin/watchfolder-0.3.3 amd64 x86
-~app-admin/webapp-config-1.55 amd64 x86
-~app-arch/bloscpack-0.16.0 amd64 x86
-~app-arch/ipkg-utils-1.7.050831 amd64 x86
-~app-arch/lcab-1.0_beta12 amd64 x86
-~app-arch/lzlib-1.11 amd64 x86
-~app-arch/lzma-9.20 amd64 x86
-~app-arch/pigz-2.4 amd64 x86
-~app-arch/pixz-1.0.6 amd64 x86
-~app-arch/plzip-1.8 amd64 x86
-~app-arch/vimball-0.5.1 amd64 x86
-~app-backup/amanda-3.5.1 amd64 x86
-~app-backup/attic-0.16 amd64 x86
-~app-backup/bareos-16.2.7 amd64 x86
-~app-backup/borgbackup-1.1.9 amd64 x86
-~app-backup/borgweb-0.2.0 amd64 x86
-~app-backup/btrbk-0.27.0 amd64 x86
-~app-backup/bup-0.29.2 amd64 x86
-~app-backup/cdbackup-0.7.1 amd64 x86
-~app-backup/cpdup-1.18 amd64 x86
-~app-backup/hdup-2.0.14 amd64 x86
-~app-backup/kfoldersync-3.4.1 amd64 x86
-~app-backup/mirdir-2.1 amd64 x86
-~app-backup/mylvmbackup-0.14 amd64 x86
-~app-backup/pdumpfs-1.3 amd64 x86
-~app-backup/rdedup-1.0.2 amd64 x86
-~app-backup/rdiff-backup-1.3.3 amd64 x86
-~app-backup/rdumpfs-0.1 amd64 x86
-~app-backup/rdup-1.1.15 amd64 x86
-~app-backup/rear-1.17.1 amd64 x86
-~app-backup/restic-0.9.5 amd64 x86
-~app-backup/simplebackup-1.8.1 amd64 x86
-~app-backup/snapper-0.8.4 amd64 x86
-~app-backup/tarsnap-1.0.39 amd64 x86
-~app-backup/tob-0.26 amd64 x86
-~app-backup/tsm-7.1.8.0 amd64 x86
-~app-backup/untangle-https-backup-0.0.10 amd64 x86
-~app-backup/vzdump-1.2 amd64 x86
-~app-backup/zbackup-1.4.4 amd64 x86
-~app-benchmarks/bootchart2-0.14.8 amd64 x86
-~app-cdr/dumpet-2.1_p20140601 amd64 x86
-~app-crypt/acme-sh-2.8.3 amd64 x86
-~app-crypt/acr38u-1.7.11 amd64 x86
-~app-crypt/aescrypt-3.0.6b amd64 x86
-~app-crypt/af_alg-0.0.1 amd64 x86
-~app-crypt/asedriveiiie-serial-3.5 amd64 x86
-~app-crypt/asedriveiiie-usb-3.5 amd64 x86
-~app-crypt/asekey-3.7 amd64 x86
-~app-crypt/bestcrypt-2.0.14 amd64 x86
-~app-crypt/bsign-0.4.5 amd64 x86
-~app-crypt/cardpeek-0.7.2 amd64 x86
-~app-crypt/cfssl-1.3.2 amd64 x86
-~app-crypt/chntpw-140201 amd64 x86
-~app-crypt/ckpass-0.2 amd64 x86
-~app-crypt/codecrypt-1.8 amd64 x86
-~app-crypt/codegroup-20080907 amd64 x86
-~app-crypt/coolkey-1.1.0 amd64 x86
-~app-crypt/crackpkcs12-0.2.10 amd64 x86
-~app-crypt/debian-archive-keyring-2019.1 amd64 x86
-~app-crypt/dehydrated-0.6.2 amd64 x86
-~app-crypt/dieharder-3.31.1 amd64 x86
-~app-crypt/efitools-1.8.1 amd64 x86
-~app-crypt/eid-mw-4.4.1 amd64 x86
-~app-crypt/ekeyd-1.1.5 amd64 x86
-~app-crypt/elettra-1.0 amd64 x86
-~app-crypt/envchain-1.0.0 amd64 x86
-~app-crypt/etcd-ca-0_p20150423 amd64 x86
-~app-crypt/fcrackzip-1.0 amd64 x86
-~app-crypt/gifshuffle-2.0 amd64 x86
-~app-crypt/gkeys-0.2 amd64 x86
-~app-crypt/gnupg-2.1.18 amd64 x86
-~app-crypt/gnupg-pkcs11-scd-0.9.2 amd64 x86
-~app-crypt/gpgstats-0.5 amd64 x86
-~app-crypt/hashcat-4.2.0 amd64 x86
-~app-crypt/hashcat-utils-1.9 amd64 x86
-~app-crypt/hmaccalc-0.9.14 amd64 x86
-~app-crypt/ima-evm-utils-1.1 amd64 x86
-~app-crypt/jetring-0.25 amd64 x86
-~app-crypt/jitterentropy-2.1.1 amd64 x86
-~app-crypt/kali-archive-keyring-2015.2 amd64 x86
-~app-crypt/kbfs-2.11.0 amd64 x86
-~app-crypt/kencfs-plasma-2.0.2_alpha amd64 x86
-~app-crypt/keybase-4.7.0 amd64 x86
-~app-crypt/libb2-0.98 amd64 x86
+~app-accessibility/speech-dispatcher-0.8.7 amd64
+~app-admin/elektra-0.8.20 amd64
+~app-admin/reportmagic-2.21 amd64
+~app-admin/restart-services-0.14.4 amd64
+~app-admin/socklog-2.1.0 amd64
+~app-admin/watchfolder-0.3.3 amd64
+~app-admin/webapp-config-1.55 amd64
+~app-arch/bloscpack-0.16.0 amd64
+~app-arch/ipkg-utils-1.7.050831 amd64
+~app-arch/lcab-1.0_beta12 amd64
+~app-arch/lzlib-1.11 amd64
+~app-arch/lzma-9.20 amd64
+~app-arch/pigz-2.4 amd64
+~app-arch/pixz-1.0.6 amd64
+~app-arch/plzip-1.8 amd64
+~app-arch/vimball-0.5.1 amd64
+~app-backup/amanda-3.5.1 amd64
+~app-backup/attic-0.16 amd64
+~app-backup/bareos-16.2.7 amd64
+~app-backup/borgbackup-1.1.9 amd64
+~app-backup/borgweb-0.2.0 amd64
+~app-backup/btrbk-0.27.0 amd64
+~app-backup/bup-0.29.2 amd64
+~app-backup/cdbackup-0.7.1 amd64
+~app-backup/cpdup-1.18 amd64
+~app-backup/hdup-2.0.14 amd64
+~app-backup/kfoldersync-3.4.1 amd64
+~app-backup/mirdir-2.1 amd64
+~app-backup/mylvmbackup-0.14 amd64
+~app-backup/pdumpfs-1.3 amd64
+~app-backup/rdedup-1.0.2 amd64
+~app-backup/rdiff-backup-1.3.3 amd64
+~app-backup/rdumpfs-0.1 amd64
+~app-backup/rdup-1.1.15 amd64
+~app-backup/rear-1.17.1 amd64
+~app-backup/restic-0.9.5 amd64
+~app-backup/simplebackup-1.8.1 amd64
+~app-backup/snapper-0.8.4 amd64
+~app-backup/tarsnap-1.0.39 amd64
+~app-backup/tob-0.26 amd64
+~app-backup/tsm-7.1.8.0 amd64
+~app-backup/untangle-https-backup-0.0.10 amd64
+~app-backup/vzdump-1.2 amd64
+~app-backup/zbackup-1.4.4 amd64
+~app-benchmarks/bootchart2-0.14.8 amd64
+~app-cdr/dumpet-2.1_p20140601 amd64
+~app-crypt/acme-sh-2.8.3 amd64
+~app-crypt/acr38u-1.7.11 amd64
+~app-crypt/aescrypt-3.0.6b amd64
+~app-crypt/af_alg-0.0.1 amd64
+~app-crypt/asedriveiiie-serial-3.5 amd64
+~app-crypt/asedriveiiie-usb-3.5 amd64
+~app-crypt/asekey-3.7 amd64
+~app-crypt/bestcrypt-2.0.14 amd64
+~app-crypt/bsign-0.4.5 amd64
+~app-crypt/cardpeek-0.7.2 amd64
+~app-crypt/cfssl-1.3.2 amd64
+~app-crypt/chntpw-140201 amd64
+~app-crypt/ckpass-0.2 amd64
+~app-crypt/codecrypt-1.8 amd64
+~app-crypt/codegroup-20080907 amd64
+~app-crypt/coolkey-1.1.0 amd64
+~app-crypt/crackpkcs12-0.2.10 amd64
+~app-crypt/debian-archive-keyring-2019.1 amd64
+~app-crypt/dehydrated-0.6.2 amd64
+~app-crypt/dieharder-3.31.1 amd64
+~app-crypt/efitools-1.8.1 amd64
+~app-crypt/eid-mw-4.4.1 amd64
+~app-crypt/ekeyd-1.1.5 amd64
+~app-crypt/elettra-1.0 amd64
+~app-crypt/envchain-1.0.0 amd64
+~app-crypt/etcd-ca-0_p20150423 amd64
+~app-crypt/fcrackzip-1.0 amd64
+~app-crypt/gifshuffle-2.0 amd64
+~app-crypt/gkeys-0.2 amd64
+~app-crypt/gnupg-2.1.18 amd64
+~app-crypt/gnupg-pkcs11-scd-0.9.2 amd64
+~app-crypt/gpgstats-0.5 amd64
+~app-crypt/hashcat-4.2.0 amd64
+~app-crypt/hashcat-utils-1.9 amd64
+~app-crypt/hmaccalc-0.9.14 amd64
+~app-crypt/ima-evm-utils-1.1 amd64
+~app-crypt/jetring-0.25 amd64
+~app-crypt/jitterentropy-2.1.1 amd64
+~app-crypt/kali-archive-keyring-2015.2 amd64
+~app-crypt/kbfs-2.11.0 amd64
+~app-crypt/kencfs-plasma-2.0.2_alpha amd64
+~app-crypt/keybase-4.7.0 amd64
+~app-crypt/libb2-0.98 amd64
 ~app-crypt/libnitrokey-3.5 amd64
-~app-crypt/libykneomgr-0.1.8 amd64 x86
-~app-crypt/loop-aes-losetup-2.28.2 amd64 x86
-~app-crypt/manuale-1.1.0 amd64 x86
-~app-crypt/md4sum-0.02.03 amd64 x86
-~app-crypt/nasty-0.6 amd64 x86
+~app-crypt/libykneomgr-0.1.8 amd64
+~app-crypt/loop-aes-losetup-2.28.2 amd64
+~app-crypt/manuale-1.1.0 amd64
+~app-crypt/md4sum-0.02.03 amd64
+~app-crypt/nasty-0.6 amd64
 ~app-crypt/nitrokey-app-1.4 amd64
-~app-crypt/nwipe-0.25 amd64 x86
-~app-crypt/onak-0.5.0 amd64 x86
-~app-crypt/openvpn-blacklist-0.5 amd64 x86
-~app-crypt/pdfcrack-0.16 amd64 x86
-~app-crypt/pesign-0.113 amd64 x86
-~app-crypt/pius-2.2.4 amd64 x86
-~app-crypt/pkcrack-1.2.2 amd64 x86
-~app-crypt/pkcs11-data-0.7.4 amd64 x86
-~app-crypt/pkcs11-dump-0.3.4 amd64 x86
+~app-crypt/nwipe-0.25 amd64
+~app-crypt/onak-0.5.0 amd64
+~app-crypt/openvpn-blacklist-0.5 amd64
+~app-crypt/pdfcrack-0.16 amd64
+~app-crypt/pesign-0.113 amd64
+~app-crypt/pius-2.2.4 amd64
+~app-crypt/pkcrack-1.2.2 amd64
+~app-crypt/pkcs11-data-0.7.4 amd64
+~app-crypt/pkcs11-dump-0.3.4 amd64
 ~app-crypt/rainbowcrack-1.7 amd64
-~app-crypt/scrypt-1.2.0 amd64 x86
-~app-crypt/scute-1.5.0 amd64 x86
-~app-crypt/signify-24 amd64 x86
-~app-crypt/tc-play-2.0 amd64 x86
-~app-crypt/tpm-emulator-0.7.5 amd64 x86
-~app-crypt/ubuntu-keyring-2018.09.18.1 amd64 x86
+~app-crypt/scrypt-1.2.0 amd64
+~app-crypt/scute-1.5.0 amd64
+~app-crypt/signify-24 amd64
+~app-crypt/tc-play-2.0 amd64
+~app-crypt/tpm-emulator-0.7.5 amd64
+~app-crypt/ubuntu-keyring-2018.09.18.1 amd64
 ~app-crypt/yubikey-manager-qt-1.1.3 amd64
-~app-crypt/zulucrypt-5.4.0 amd64 x86
-~app-dicts/bookview-3.2.1 amd64 x86
-~app-dicts/dikt-2s_p1 amd64 x86
-~app-dicts/eblook-1.6.1 amd64 x86
-~app-dicts/edictionary-2.6 amd64 x86
-~app-dicts/freedict-deu-eng-1.0 amd64 x86
-~app-dicts/freedict-eng-fra-1.0 amd64 x86
-~app-dicts/freedict-eng-ita-1.0 amd64 x86
-~app-dicts/freedict-eng-swe-1.0 amd64 x86
-~app-dicts/freedict-fra-eng-1.0 amd64 x86
-~app-dicts/freedict-ita-eng-1.0 amd64 x86
-~app-dicts/gwaei-3.6.2 amd64 x86
-~app-dicts/mecab-naist-jdic-0.6.3b_p20111013 amd64 x86
-~app-dicts/mecab-unidic-2.1.2 amd64 x86
-~app-dicts/sword-ab-1.3 amd64 x86
-~app-dicts/sword-abbott-1.1 amd64 x86
-~app-dicts/sword-abs_essay_goodsam_swb-1.0 amd64 x86
-~app-dicts/sword-acv-2.0 amd64 x86
-~app-dicts/sword-afr1953-1.2 amd64 x86
-~app-dicts/sword-akjv-1.4 amd64 x86
-~app-dicts/sword-alb-1.2 amd64 x86
-~app-dicts/sword-aleppo-1.1 amd64 x86
-~app-dicts/sword-amtract-1.1 amd64 x86
-~app-dicts/sword-arasvd-1.1 amd64 x86
-~app-dicts/sword-armeastern-1.1 amd64 x86
-~app-dicts/sword-armwestern-1.1 amd64 x86
-~app-dicts/sword-asv-1.3 amd64 x86
-~app-dicts/sword-barnes-1.1 amd64 x86
-~app-dicts/sword-bashautin-1.5 amd64 x86
-~app-dicts/sword-bbe-1.3 amd64 x86
-~app-dicts/sword-br_en-1.1 amd64 x86
-~app-dicts/sword-bulcarigradnt-1.0 amd64 x86
-~app-dicts/sword-bulveren-1.0 amd64 x86
-~app-dicts/sword-burjudson-1.1 amd64 x86
-~app-dicts/sword-bwe-1.0 amd64 x86
-~app-dicts/sword-byz-1.10 amd64 x86
-~app-dicts/sword-cbc-1.1 amd64 x86
-~app-dicts/sword-chamorro-2.7 amd64 x86
-~app-dicts/sword-chincvs-1.0 amd64 x86
-~app-dicts/sword-chincvt-1.0 amd64 x86
-~app-dicts/sword-chiun-2.0 amd64 x86
-~app-dicts/sword-chiuns-2.0 amd64 x86
-~app-dicts/sword-clarke-1.0 amd64 x86
-~app-dicts/sword-common-1.3 amd64 x86
-~app-dicts/sword-cro-1.0 amd64 x86
-~app-dicts/sword-czebkr-1.1 amd64 x86
-~app-dicts/sword-czecep-1.4 amd64 x86
-~app-dicts/sword-czekms-1.4 amd64 x86
-~app-dicts/sword-czenkb-1.1 amd64 x86
-~app-dicts/sword-daily-1.0 amd64 x86
-~app-dicts/sword-dan-2.1 amd64 x86
-~app-dicts/sword-darby-1.1 amd64 x86
-~app-dicts/sword-dbd-1.1 amd64 x86
-~app-dicts/sword-diaglott-1.1 amd64 x86
-~app-dicts/sword-drc-1.1 amd64 x86
-~app-dicts/sword-dtn-1.0 amd64 x86
-~app-dicts/sword-dutkant-1.1 amd64 x86
-~app-dicts/sword-dutsvv-1.5 amd64 x86
-~app-dicts/sword-easton-1.2 amd64 x86
-~app-dicts/sword-emtv-1.3 amd64 x86
-~app-dicts/sword-esperanto-1.6 amd64 x86
-~app-dicts/sword-est-1.1 amd64 x86
-~app-dicts/sword-family-1.1 amd64 x86
-~app-dicts/sword-farsiopv-1.0 amd64 x86
-~app-dicts/sword-finbiblia-1.1 amd64 x86
-~app-dicts/sword-finney-1.1 amd64 x86
-~app-dicts/sword-finpr-1.2 amd64 x86
-~app-dicts/sword-finpr92-1.1 amd64 x86
-~app-dicts/sword-frebbb-1.1 amd64 x86
-~app-dicts/sword-frecrampon-1.1 amd64 x86
-~app-dicts/sword-frecrl-1.2 amd64 x86
-~app-dicts/sword-frelsg-1.3 amd64 x86
-~app-dicts/sword-fremartin-1.2 amd64 x86
-~app-dicts/sword-fresegond-1.6 amd64 x86
-~app-dicts/sword-geneva-1.1 amd64 x86
-~app-dicts/sword-geneva1599-1.1 amd64 x86
-~app-dicts/sword-gerelb1871-1.1 amd64 x86
-~app-dicts/sword-gerelb1905-1.5 amd64 x86
-~app-dicts/sword-gerlut1545-1.2 amd64 x86
-~app-dicts/sword-gersch-1.1 amd64 x86
-~app-dicts/sword-greekhebrew-1.1 amd64 x86
-~app-dicts/sword-hebmodern-1.1 amd64 x86
-~app-dicts/sword-hebrewgreek-1.1 amd64 x86
-~app-dicts/sword-heretics-1.1 amd64 x86
-~app-dicts/sword-hitchcock-1.3 amd64 x86
-~app-dicts/sword-hnv-1.8 amd64 x86
-~app-dicts/sword-hunkar-1.7 amd64 x86
-~app-dicts/sword-hunuj-1.2 amd64 x86
-~app-dicts/sword-icelandic-1.1 amd64 x86
-~app-dicts/sword-institutes-1.2 amd64 x86
-~app-dicts/sword-isbe-1.6 amd64 x86
-~app-dicts/sword-isv-1.5 amd64 x86
-~app-dicts/sword-itadio-1.0 amd64 x86
-~app-dicts/sword-itarive-1.0 amd64 x86
-~app-dicts/sword-jfb-2.2 amd64 x86
-~app-dicts/sword-josephus-1.1 amd64 x86
-~app-dicts/sword-jps-1.2 amd64 x86
-~app-dicts/sword-jst-1.1 amd64 x86
-~app-dicts/sword-jubilee2000-1.1 amd64 x86
-~app-dicts/sword-kekchi-1.5 amd64 x86
-~app-dicts/sword-kjv-2.3 amd64 x86
-~app-dicts/sword-kjvd-1.1 amd64 x86
-~app-dicts/sword-klv-2.2 amd64 x86
-~app-dicts/sword-klven_iklingon-2.1 amd64 x86
-~app-dicts/sword-klviklingon_en-2.1 amd64 x86
-~app-dicts/sword-korean-1.1 amd64 x86
-~app-dicts/sword-la_en-1.1 amd64 x86
-~app-dicts/sword-latvian-1.1 amd64 x86
-~app-dicts/sword-lightfoot-1.0 amd64 x86
-~app-dicts/sword-litv-1.3 amd64 x86
-~app-dicts/sword-luther-1.1 amd64 x86
-~app-dicts/sword-mak-1.0 amd64 x86
-~app-dicts/sword-manxgaelic-1.1 amd64 x86
-~app-dicts/sword-maori-1.1 amd64 x86
-~app-dicts/sword-mhc-1.6 amd64 x86
-~app-dicts/sword-mhcc-1.1 amd64 x86
-~app-dicts/sword-mkjv-1.3 amd64 x86
-~app-dicts/sword-montgomery-1.3 amd64 x86
-~app-dicts/sword-murdock-1.2 amd64 x86
-~app-dicts/sword-nave-1.1 amd64 x86
-~app-dicts/sword-norsk-1.5 amd64 x86
-~app-dicts/sword-orthodoxy-1.0 amd64 x86
-~app-dicts/sword-packard-1.2 amd64 x86
-~app-dicts/sword-personal-1.0 amd64 x86
-~app-dicts/sword-peshitta-1.1 amd64 x86
-~app-dicts/sword-pilgrim-1.0 amd64 x86
-~app-dicts/sword-pnt-1.1 amd64 x86
-~app-dicts/sword-practice-1.0 amd64 x86
-~app-dicts/sword-rkjnt-1.0 amd64 x86
-~app-dicts/sword-rnkjv-1.5 amd64 x86
-~app-dicts/sword-robinson-2.0 amd64 x86
-~app-dicts/sword-romcor-1.2 amd64 x86
-~app-dicts/sword-rotherham-1.6 amd64 x86
-~app-dicts/sword-rst-1.6 amd64 x86
-~app-dicts/sword-rusmakarij-1.1 amd64 x86
-~app-dicts/sword-rwebster-1.3 amd64 x86
-~app-dicts/sword-rwp-1.9 amd64 x86
-~app-dicts/sword-saoa-1.0 amd64 x86
-~app-dicts/sword-scofield-1.0 amd64 x86
-~app-dicts/sword-scotsgaelic-1.2 amd64 x86
-~app-dicts/sword-sme-1.7 amd64 x86
-~app-dicts/sword-smith-1.3 amd64 x86
-~app-dicts/sword-sparv-1.5 amd64 x86
-~app-dicts/sword-sparvg2004-1.0 amd64 x86
-~app-dicts/sword-spasev-1.1 amd64 x86
-~app-dicts/sword-spavnt-1.2 amd64 x86
-~app-dicts/sword-spurious-1.0 amd64 x86
-~app-dicts/sword-strongsgreek-1.2 amd64 x86
-~app-dicts/sword-strongshebrew-1.2 amd64 x86
-~app-dicts/sword-swahili-1.1 amd64 x86
-~app-dicts/sword-tagalog-1.1 amd64 x86
-~app-dicts/sword-tcr-1.1 amd64 x86
-~app-dicts/sword-tdavid-1.1 amd64 x86
-~app-dicts/sword-tfg-1.5 amd64 x86
-~app-dicts/sword-tisch-1.3 amd64 x86
-~app-dicts/sword-torrey-1.3 amd64 x86
-~app-dicts/sword-tr-1.2 amd64 x86
-~app-dicts/sword-tsk-1.4 amd64 x86
-~app-dicts/sword-twenty-1.1 amd64 x86
-~app-dicts/sword-tyndale-1.0 amd64 x86
-~app-dicts/sword-ukjv-1.1 amd64 x86
-~app-dicts/sword-ukrainian-1.3 amd64 x86
-~app-dicts/sword-uma-1.2 amd64 x86
-~app-dicts/sword-umgreek-1.6 amd64 x86
-~app-dicts/sword-vulgate-1.1 amd64 x86
-~app-dicts/sword-vulgate_hebps-1.1 amd64 x86
-~app-dicts/sword-web-1.8 amd64 x86
-~app-dicts/sword-webster-1.2 amd64 x86
-~app-dicts/sword-webstersdict-1.1 amd64 x86
-~app-dicts/sword-wesley-1.1 amd64 x86
-~app-dicts/sword-weymouth-1.1 amd64 x86
-~app-dicts/sword-whnu-1.10 amd64 x86
-~app-dicts/sword-wlc-1.4 amd64 x86
-~app-dicts/sword-wulfila-1.0 amd64 x86
-~app-dicts/sword-wycliffe-1.0 amd64 x86
-~app-dicts/sword-xhosa-1.1 amd64 x86
-~app-dicts/sword-ylt-1.1 amd64 x86
-~app-dicts/wnn-ldic-1.04 amd64 x86
-~app-editors/emacs-25.3 amd64 x86
-~app-editors/emacs-26.1 amd64 x86
-~app-editors/kakoune-0_pre20171120 amd64 x86
-~app-editors/le-1.16.5 amd64 x86
-~app-editors/neovim-0.4.2 amd64 x86
-~app-editors/ng-1.5_beta1 amd64 x86
-~app-editors/qhexedit2-0.8.4_p20170719 amd64 x86
-~app-editors/qxmledit-0.9.10 amd64 x86
-~app-editors/retext-7.0.4 amd64 x86
-~app-editors/shed-1.15 amd64 x86
-~app-editors/zile-2.4.14 amd64 x86
-~app-emacs/ess-18.10.2 amd64 x86
-~app-emacs/evil-1.2.13 amd64 x86
-~app-emacs/nxml-svg-schemas-1.1.20081123 amd64 x86
-~app-emacs/yc-5.2.1 amd64 x86
-~app-emulation/bochs-2.6.9 amd64 x86
-~app-emulation/coldfire-0.3.1 amd64 x86
+~app-crypt/zulucrypt-5.4.0 amd64
+~app-dicts/bookview-3.2.1 amd64
+~app-dicts/dikt-2s_p1 amd64
+~app-dicts/eblook-1.6.1 amd64
+~app-dicts/edictionary-2.6 amd64
+~app-dicts/freedict-deu-eng-1.0 amd64
+~app-dicts/freedict-eng-fra-1.0 amd64
+~app-dicts/freedict-eng-ita-1.0 amd64
+~app-dicts/freedict-eng-swe-1.0 amd64
+~app-dicts/freedict-fra-eng-1.0 amd64
+~app-dicts/freedict-ita-eng-1.0 amd64
+~app-dicts/gwaei-3.6.2 amd64
+~app-dicts/mecab-naist-jdic-0.6.3b_p20111013 amd64
+~app-dicts/mecab-unidic-2.1.2 amd64
+~app-dicts/sword-ab-1.3 amd64
+~app-dicts/sword-abbott-1.1 amd64
+~app-dicts/sword-abs_essay_goodsam_swb-1.0 amd64
+~app-dicts/sword-acv-2.0 amd64
+~app-dicts/sword-afr1953-1.2 amd64
+~app-dicts/sword-akjv-1.4 amd64
+~app-dicts/sword-alb-1.2 amd64
+~app-dicts/sword-aleppo-1.1 amd64
+~app-dicts/sword-amtract-1.1 amd64
+~app-dicts/sword-arasvd-1.1 amd64
+~app-dicts/sword-armeastern-1.1 amd64
+~app-dicts/sword-armwestern-1.1 amd64
+~app-dicts/sword-asv-1.3 amd64
+~app-dicts/sword-barnes-1.1 amd64
+~app-dicts/sword-bashautin-1.5 amd64
+~app-dicts/sword-bbe-1.3 amd64
+~app-dicts/sword-br_en-1.1 amd64
+~app-dicts/sword-bulcarigradnt-1.0 amd64
+~app-dicts/sword-bulveren-1.0 amd64
+~app-dicts/sword-burjudson-1.1 amd64
+~app-dicts/sword-bwe-1.0 amd64
+~app-dicts/sword-byz-1.10 amd64
+~app-dicts/sword-cbc-1.1 amd64
+~app-dicts/sword-chamorro-2.7 amd64
+~app-dicts/sword-chincvs-1.0 amd64
+~app-dicts/sword-chincvt-1.0 amd64
+~app-dicts/sword-chiun-2.0 amd64
+~app-dicts/sword-chiuns-2.0 amd64
+~app-dicts/sword-clarke-1.0 amd64
+~app-dicts/sword-common-1.3 amd64
+~app-dicts/sword-cro-1.0 amd64
+~app-dicts/sword-czebkr-1.1 amd64
+~app-dicts/sword-czecep-1.4 amd64
+~app-dicts/sword-czekms-1.4 amd64
+~app-dicts/sword-czenkb-1.1 amd64
+~app-dicts/sword-daily-1.0 amd64
+~app-dicts/sword-dan-2.1 amd64
+~app-dicts/sword-darby-1.1 amd64
+~app-dicts/sword-dbd-1.1 amd64
+~app-dicts/sword-diaglott-1.1 amd64
+~app-dicts/sword-drc-1.1 amd64
+~app-dicts/sword-dtn-1.0 amd64
+~app-dicts/sword-dutkant-1.1 amd64
+~app-dicts/sword-dutsvv-1.5 amd64
+~app-dicts/sword-easton-1.2 amd64
+~app-dicts/sword-emtv-1.3 amd64
+~app-dicts/sword-esperanto-1.6 amd64
+~app-dicts/sword-est-1.1 amd64
+~app-dicts/sword-family-1.1 amd64
+~app-dicts/sword-farsiopv-1.0 amd64
+~app-dicts/sword-finbiblia-1.1 amd64
+~app-dicts/sword-finney-1.1 amd64
+~app-dicts/sword-finpr-1.2 amd64
+~app-dicts/sword-finpr92-1.1 amd64
+~app-dicts/sword-frebbb-1.1 amd64
+~app-dicts/sword-frecrampon-1.1 amd64
+~app-dicts/sword-frecrl-1.2 amd64
+~app-dicts/sword-frelsg-1.3 amd64
+~app-dicts/sword-fremartin-1.2 amd64
+~app-dicts/sword-fresegond-1.6 amd64
+~app-dicts/sword-geneva-1.1 amd64
+~app-dicts/sword-geneva1599-1.1 amd64
+~app-dicts/sword-gerelb1871-1.1 amd64
+~app-dicts/sword-gerelb1905-1.5 amd64
+~app-dicts/sword-gerlut1545-1.2 amd64
+~app-dicts/sword-gersch-1.1 amd64
+~app-dicts/sword-greekhebrew-1.1 amd64
+~app-dicts/sword-hebmodern-1.1 amd64
+~app-dicts/sword-hebrewgreek-1.1 amd64
+~app-dicts/sword-heretics-1.1 amd64
+~app-dicts/sword-hitchcock-1.3 amd64
+~app-dicts/sword-hnv-1.8 amd64
+~app-dicts/sword-hunkar-1.7 amd64
+~app-dicts/sword-hunuj-1.2 amd64
+~app-dicts/sword-icelandic-1.1 amd64
+~app-dicts/sword-institutes-1.2 amd64
+~app-dicts/sword-isbe-1.6 amd64
+~app-dicts/sword-isv-1.5 amd64
+~app-dicts/sword-itadio-1.0 amd64
+~app-dicts/sword-itarive-1.0 amd64
+~app-dicts/sword-jfb-2.2 amd64
+~app-dicts/sword-josephus-1.1 amd64
+~app-dicts/sword-jps-1.2 amd64
+~app-dicts/sword-jst-1.1 amd64
+~app-dicts/sword-jubilee2000-1.1 amd64
+~app-dicts/sword-kekchi-1.5 amd64
+~app-dicts/sword-kjv-2.3 amd64
+~app-dicts/sword-kjvd-1.1 amd64
+~app-dicts/sword-klv-2.2 amd64
+~app-dicts/sword-klven_iklingon-2.1 amd64
+~app-dicts/sword-klviklingon_en-2.1 amd64
+~app-dicts/sword-korean-1.1 amd64
+~app-dicts/sword-la_en-1.1 amd64
+~app-dicts/sword-latvian-1.1 amd64
+~app-dicts/sword-lightfoot-1.0 amd64
+~app-dicts/sword-litv-1.3 amd64
+~app-dicts/sword-luther-1.1 amd64
+~app-dicts/sword-mak-1.0 amd64
+~app-dicts/sword-manxgaelic-1.1 amd64
+~app-dicts/sword-maori-1.1 amd64
+~app-dicts/sword-mhc-1.6 amd64
+~app-dicts/sword-mhcc-1.1 amd64
+~app-dicts/sword-mkjv-1.3 amd64
+~app-dicts/sword-montgomery-1.3 amd64
+~app-dicts/sword-murdock-1.2 amd64
+~app-dicts/sword-nave-1.1 amd64
+~app-dicts/sword-norsk-1.5 amd64
+~app-dicts/sword-orthodoxy-1.0 amd64
+~app-dicts/sword-packard-1.2 amd64
+~app-dicts/sword-personal-1.0 amd64
+~app-dicts/sword-peshitta-1.1 amd64
+~app-dicts/sword-pilgrim-1.0 amd64
+~app-dicts/sword-pnt-1.1 amd64
+~app-dicts/sword-practice-1.0 amd64
+~app-dicts/sword-rkjnt-1.0 amd64
+~app-dicts/sword-rnkjv-1.5 amd64
+~app-dicts/sword-robinson-2.0 amd64
+~app-dicts/sword-romcor-1.2 amd64
+~app-dicts/sword-rotherham-1.6 amd64
+~app-dicts/sword-rst-1.6 amd64
+~app-dicts/sword-rusmakarij-1.1 amd64
+~app-dicts/sword-rwebster-1.3 amd64
+~app-dicts/sword-rwp-1.9 amd64
+~app-dicts/sword-saoa-1.0 amd64
+~app-dicts/sword-scofield-1.0 amd64
+~app-dicts/sword-scotsgaelic-1.2 amd64
+~app-dicts/sword-sme-1.7 amd64
+~app-dicts/sword-smith-1.3 amd64
+~app-dicts/sword-sparv-1.5 amd64
+~app-dicts/sword-sparvg2004-1.0 amd64
+~app-dicts/sword-spasev-1.1 amd64
+~app-dicts/sword-spavnt-1.2 amd64
+~app-dicts/sword-spurious-1.0 amd64
+~app-dicts/sword-strongsgreek-1.2 amd64
+~app-dicts/sword-strongshebrew-1.2 amd64
+~app-dicts/sword-swahili-1.1 amd64
+~app-dicts/sword-tagalog-1.1 amd64
+~app-dicts/sword-tcr-1.1 amd64
+~app-dicts/sword-tdavid-1.1 amd64
+~app-dicts/sword-tfg-1.5 amd64
+~app-dicts/sword-tisch-1.3 amd64
+~app-dicts/sword-torrey-1.3 amd64
+~app-dicts/sword-tr-1.2 amd64
+~app-dicts/sword-tsk-1.4 amd64
+~app-dicts/sword-twenty-1.1 amd64
+~app-dicts/sword-tyndale-1.0 amd64
+~app-dicts/sword-ukjv-1.1 amd64
+~app-dicts/sword-ukrainian-1.3 amd64
+~app-dicts/sword-uma-1.2 amd64
+~app-dicts/sword-umgreek-1.6 amd64
+~app-dicts/sword-vulgate-1.1 amd64
+~app-dicts/sword-vulgate_hebps-1.1 amd64
+~app-dicts/sword-web-1.8 amd64
+~app-dicts/sword-webster-1.2 amd64
+~app-dicts/sword-webstersdict-1.1 amd64
+~app-dicts/sword-wesley-1.1 amd64
+~app-dicts/sword-weymouth-1.1 amd64
+~app-dicts/sword-whnu-1.10 amd64
+~app-dicts/sword-wlc-1.4 amd64
+~app-dicts/sword-wulfila-1.0 amd64
+~app-dicts/sword-wycliffe-1.0 amd64
+~app-dicts/sword-xhosa-1.1 amd64
+~app-dicts/sword-ylt-1.1 amd64
+~app-dicts/wnn-ldic-1.04 amd64
+~app-editors/emacs-25.3 amd64
+~app-editors/emacs-26.1 amd64
+~app-editors/kakoune-0_pre20171120 amd64
+~app-editors/le-1.16.5 amd64
+~app-editors/neovim-0.4.2 amd64
+~app-editors/ng-1.5_beta1 amd64
+~app-editors/qhexedit2-0.8.4_p20170719 amd64
+~app-editors/qxmledit-0.9.10 amd64
+~app-editors/retext-7.0.4 amd64
+~app-editors/shed-1.15 amd64
+~app-editors/zile-2.4.14 amd64
+~app-emacs/ess-18.10.2 amd64
+~app-emacs/evil-1.2.13 amd64
+~app-emacs/nxml-svg-schemas-1.1.20081123 amd64
+~app-emacs/yc-5.2.1 amd64
+~app-emulation/bochs-2.6.9 amd64
+~app-emulation/coldfire-0.3.1 amd64
 ~app-emulation/containerd-1.2.6 amd64
-~app-emulation/dlx-1.0.0 amd64 x86
+~app-emulation/dlx-1.0.0 amd64
 ~app-emulation/docker-machine-0.13.0 amd64
 ~app-emulation/docker-registry-2.7.1 amd64
 ~app-emulation/docker-swarm-1.2.5 amd64
-~app-emulation/dynamips-0.2.18 amd64 x86
-~app-emulation/edumips64-1.2 amd64 x86
-~app-emulation/faudio-19.09 amd64 x86
-~app-emulation/ganeti-2.15.2 amd64 x86
-~app-emulation/ganeti-instance-image-0.6 amd64 x86
-~app-emulation/gxemul-0.6.0 amd64 x86
+~app-emulation/dynamips-0.2.18 amd64
+~app-emulation/edumips64-1.2 amd64
+~app-emulation/faudio-19.09 amd64
+~app-emulation/ganeti-2.15.2 amd64
+~app-emulation/ganeti-instance-image-0.6 amd64
+~app-emulation/gxemul-0.6.0 amd64
 ~app-emulation/hyperd-0.7.0 amd64
-~app-emulation/libspectrum-1.4.4 amd64 x86
+~app-emulation/libspectrum-1.4.4 amd64
 ~app-emulation/libvirt-snmp-0.0.3 amd64
-~app-emulation/qemu-init-scripts-0.3.0 amd64 x86
+~app-emulation/qemu-init-scripts-0.3.0 amd64
 ~app-emulation/rkt-1.29.0 amd64
 ~app-emulation/runv-0.7.0 amd64
 ~app-emulation/s6-overlay-1.18.1.3 amd64
-~app-emulation/ski-1.3.2 amd64 x86
-~app-emulation/softgun-0.22 amd64 x86
+~app-emulation/ski-1.3.2 amd64
+~app-emulation/softgun-0.22 amd64
 ~app-emulation/virtio-win-0.1.160 amd64
-~app-emulation/wine-mono-4.9.4 amd64 x86
-~app-emulation/xen-tools-4.11.1 x86
-~app-eselect/eselect-electron-2.1 amd64 x86
-~app-eselect/eselect-opencascade-1 amd64 x86
-~app-eselect/eselect-renpy-0.7 amd64 x86
-~app-eselect/eselect-vi-1.1.9 amd64 x86
-~app-forensics/libewf-20171104 amd64 x86
-~app-i18n/poedit-2.2.3 amd64 x86
-~app-i18n/scim-1.4.18 amd64 x86
-~app-i18n/scim-wnn-1.0.0 amd64 x86
-~app-i18n/sunpinyin-2.0.4_pre20130108 amd64 x86
-~app-i18n/sunpinyin-data-20130220 amd64 x86
-~app-i18n/tegaki-zinnia-japanese-0.3 amd64 x86
-~app-i18n/tomoe-0.6.0 amd64 x86
-~app-i18n/tomoe-gtk-0.6.0 amd64 x86
-~app-i18n/unicode-data-9.0.0 amd64 x86
-~app-misc/abduco-0.6 amd64 x86
-~app-misc/abook-0.6.1 amd64 x86
-~app-misc/aldo-0.7.7 amd64 x86
-~app-misc/anki-2.1.0_beta27 amd64 x86
-~app-misc/bb-1.3.0_rc1 amd64 x86
-~app-misc/beancounter-0.8.10 amd64 x86
-~app-misc/bgrep-0_p20110121 amd64 x86
-~app-misc/blink1-1.98 amd64 x86
-~app-misc/brewtarget-2.3.1 amd64 x86
-~app-misc/btail-0.3 amd64 x86
-~app-misc/cadubi-1.3 amd64 x86
-~app-misc/carbon-c-relay-3.5 amd64 x86
-~app-misc/cbview-0.06 amd64 x86
-~app-misc/ckb-0.2.9 amd64 x86
-~app-misc/ckermit-9.0.302 amd64 x86
-~app-misc/crunch-3.6 amd64 x86
-~app-misc/dateutils-0.4.3 amd64 x86
-~app-misc/ddate-0.2.2 amd64 x86
-~app-misc/ddccontrol-0.4.2_p20140105 amd64 x86
-~app-misc/ddccontrol-db-20061014_p20121105 amd64 x86
-~app-misc/ddcutil-0.9.1 amd64 x86
-~app-misc/egads-0.9.5 amd64 x86
-~app-misc/email2trac-2.8.8 amd64 x86
-~app-misc/enum-1.1 amd64 x86
-~app-misc/evemu-2.7.0 amd64 x86
-~app-misc/faq-0.0.2 amd64 x86
-=app-misc/fdutils-5.5.20060227 amd64 x86
-~app-misc/fhem-5.9 amd64 x86
-~app-misc/g15message-1.0.0 amd64 x86
-~app-misc/g15mpd-1.0.0 amd64 x86
-~app-misc/g15stats-1.9.7 amd64 x86
-~app-misc/gcal-4.1 amd64 x86
-~app-misc/gcalcli-4.0.0_alpha3 amd64 x86
-~app-misc/geoclue-2.4.13 amd64 x86
-~app-misc/glastree-1.04 amd64 x86
-~app-misc/gnutu-2.5 amd64 x86
-~app-misc/goobook-1.9 amd64 x86
-~app-misc/grabcartoons-2.8.4_p20141112 amd64 x86
-~app-misc/gtk-sunlight-0.4.2 amd64 x86
-~app-misc/hachoir-subfile-0.5.3 amd64 x86
-~app-misc/hachoir-urwid-1.1 amd64 x86
-~app-misc/hddled-0.3 amd64 x86
-~app-misc/hello-2.10 amd64 x86
-~app-misc/hexcompare-1.0.4 amd64 x86
-~app-misc/i2bits-0.1.0 amd64 x86
-~app-misc/icdiff-1.9.1 amd64 x86
-~app-misc/imgurbash2-3.1 amd64 x86
-~app-misc/irtrans-irclient-6.01.05 amd64 x86
-~app-misc/irtrans-irserver-6.09.04 amd64 x86
-~app-misc/khal-0.10.1 amd64 x86
-~app-misc/kryoflux-dtc-2.6 amd64 x86
-~app-misc/lcd4linux-0.11.0_pre20170527 amd64 x86
-~app-misc/lfm-2.3 amd64 x86
-~app-misc/linuxspa-0.7.1 amd64 x86
-~app-misc/lirc-0.10.1 amd64 x86
-~app-misc/ltunify-0.2 amd64 x86
-~app-misc/matew-1.9 amd64 x86
-~app-misc/mediacrush-cli-1.1.2 amd64 x86
-~app-misc/metromap-0.1.4 amd64 x86
-~app-misc/mkcert-1.1.2 amd64 x86
-~app-misc/mswinurl_launcher-1.0 amd64 x86
-~app-misc/neofetch-1.9.1 amd64 x86
-~app-misc/nnn-1.9 amd64 x86
-~app-misc/notary-0.6.1 amd64 x86
-~app-misc/nullmodem-0.0.6 amd64 x86
-~app-misc/openastro-1.1.56 amd64 x86
-~app-misc/openastro-data-1.8 amd64 x86
-~app-misc/pet-0.3.6 amd64 x86
-~app-misc/physlock-11 amd64 x86
-~app-misc/prog-express-3.7.8 amd64 x86
-~app-misc/radeontop-1.1 amd64 x86
-~app-misc/razertool-0.0.7 amd64 x86
-~app-misc/rbutil-1.4.0 amd64 x86
-~app-misc/resolve-march-native-0.9.2 amd64 x86
-~app-misc/rundeck-bin-2.6.8 amd64 x86
-~app-misc/rundeck-cli-bin-0.1.11 amd64 x86
-~app-misc/selecta-0.0.7 amd64 x86
-~app-misc/slmon-0.5.13 amd64 x86
-~app-misc/sonypid-1.9 amd64 x86
-~app-misc/taskd-1.1.0 amd64 x86
-~app-misc/tek-1.3.0 amd64 x86
-~app-misc/timew-1.1.1 amd64 x86
-~app-misc/tmate-2.2.1 amd64 x86
-~app-misc/tmux2html-0.1.11 amd64 x86
-~app-misc/todo-2.10 amd64 x86
-~app-misc/tpconfig-3.1.3 amd64 x86
-~app-misc/ttysnoop-0.12d amd64 x86
-~app-misc/vcontrold-0.98.6 amd64 x86
-~app-misc/vit-1.3 amd64 x86
-~app-misc/vittk-1.3 amd64 x86
-~app-misc/vzstats-0.5.1 amd64 x86
-~app-misc/xmind-3.5.3.201506180105 amd64 x86
-~app-misc/yq-2.7.2 amd64 x86
-~app-mobilephone/gammu-1.38.5 amd64 x86
-~app-mobilephone/gnokii-0.6.31 amd64 x86
-~app-mobilephone/wammu-0.44 amd64 x86
-~app-office/calcurse-4.4.0 amd64 x86
-~app-portage/deltup-0.4.6 amd64 x86
-~app-portage/diffmask-0.3.3 amd64 x86
-~app-portage/distpatch-0.1.2 amd64 x86
-~app-portage/fquery-0.2.3 amd64 x86
-~app-portage/gentoolkit-0.4.5 amd64 x86
-~app-portage/getdelta-0.7.9 amd64 x86
-~app-portage/g-octave-0.4.1 amd64 x86
-~app-portage/gpytage-0.3.0_rc1 amd64 x86
-~app-portage/gpyutils-0.2.2 amd64 x86
-~app-portage/install-mask-0.1.1 amd64 x86
-~app-portage/java-ebuilder-0.3.0 amd64 x86
-~app-portage/kuroo-0.90.5_p20180410 amd64 x86
-~app-portage/pqlop-0.02 amd64 x86
-~app-portage/repo-commit-0.4.1 amd64 x86
-~app-portage/tatt-0.4 amd64 x86
-~app-portage/unsandbox-1 amd64 x86
-~app-shells/gentoo-zsh-completions-20180228 amd64 x86
-~app-shells/ksh-2020.0.0_alpha1 amd64 x86
-~app-shells/ksh-2020.0.0 amd64 x86
-~app-text/htmlc-2.60.0 amd64 x86
-~app-text/landslide-1.1.3 amd64 x86
-~app-text/languagetool-4.5 amd64 x86
-~app-text/zathura-pdf-mupdf-0.3.5 amd64 x86
-~app-vim/csound-syntax-20160804 amd64 x86
-~app-vim/curcmdmode-1.0 amd64 x86
-~app-vim/exheres-syntax-20090310 amd64 x86
-~app-vim/gitlog-5.1.0 amd64 x86
-~app-vim/git-patch-tags-0.2 amd64 x86
-~app-vim/gundo-2.6.2 amd64 x86
-~app-vim/languagetool-1.30 amd64 x86
-~app-vim/phpdocs-0.26 amd64 x86
-~app-vim/project-1.4.1 amd64 x86
-~app-vim/pyclewn-2.1 amd64 x86
-~app-vim/pydoc-2.0 amd64 x86
-~app-vim/pytest-1.1.4 amd64 x86
-~app-vim/rails-5.2 amd64 x86
-~app-vim/recover-0.18 amd64 x86
-~app-vim/ri-browser-1.2 amd64 x86
-~app-vim/rust-vim-1_pre20180125 amd64 x86
-~app-vim/session-2.13.1 amd64 x86
-~app-vim/sleuth-1.1 amd64 x86
-~app-vim/tasklist-1.0.1 amd64 x86
-~app-vim/vimbuddy-0.9.2 amd64 x86
-~app-vim/vimclojure-2.3.6 amd64 x86
-~app-vim/vim-r-1.2.6 amd64 x86
-~app-vim/vim-rest-console-2.5.0 amd64 x86
-~app-vim/vim-spell-da-20060116 amd64 x86
-~dev-cpp/antlr-cpp-2.7.7 amd64 x86
-~dev-cpp/glog-0.4.0 amd64 x86
-~dev-cpp/gtest-1.8.0 amd64 x86
-~dev-cpp/lucene++-3.0.7 amd64 x86
-~dev-cpp/websocketpp-0.8.1 amd64 x86
-~dev-db/go-etcd-2.0.0 amd64 x86
+~app-emulation/wine-gecko-2.47.1 amd64
+~app-emulation/wine-mono-4.9.4 amd64
+~app-emulation/xen-tools-4.11.1
+~app-eselect/eselect-electron-2.1 amd64
+~app-eselect/eselect-opencascade-1 amd64
+~app-eselect/eselect-renpy-0.7 amd64
+~app-eselect/eselect-vi-1.1.9 amd64
+~app-forensics/libewf-20171104 amd64
+~app-i18n/poedit-2.2.3 amd64
+~app-i18n/scim-1.4.18 amd64
+~app-i18n/scim-wnn-1.0.0 amd64
+~app-i18n/sunpinyin-2.0.4_pre20130108 amd64
+~app-i18n/sunpinyin-data-20130220 amd64
+~app-i18n/tegaki-zinnia-japanese-0.3 amd64
+~app-i18n/tomoe-0.6.0 amd64
+~app-i18n/tomoe-gtk-0.6.0 amd64
+~app-i18n/unicode-data-9.0.0 amd64
+~app-misc/abduco-0.6 amd64
+~app-misc/abook-0.6.1 amd64
+~app-misc/aldo-0.7.7 amd64
+~app-misc/anki-2.1.0_beta27 amd64
+~app-misc/bb-1.3.0_rc1 amd64
+~app-misc/beancounter-0.8.10 amd64
+~app-misc/bgrep-0_p20110121 amd64
+~app-misc/blink1-1.98 amd64
+~app-misc/brewtarget-2.3.1 amd64
+~app-misc/btail-0.3 amd64
+~app-misc/cadubi-1.3 amd64
+~app-misc/carbon-c-relay-3.5 amd64
+~app-misc/cbview-0.06 amd64
+~app-misc/ckb-0.2.9 amd64
+~app-misc/ckermit-9.0.302 amd64
+~app-misc/crunch-3.6 amd64
+~app-misc/dateutils-0.4.3 amd64
+~app-misc/ddate-0.2.2 amd64
+~app-misc/ddccontrol-0.4.2_p20140105 amd64
+~app-misc/ddccontrol-db-20061014_p20121105 amd64
+~app-misc/ddcutil-0.9.1 amd64
+~app-misc/egads-0.9.5 amd64
+~app-misc/email2trac-2.8.8 amd64
+~app-misc/enum-1.1 amd64
+~app-misc/evemu-2.7.0 amd64
+~app-misc/faq-0.0.2 amd64
+=app-misc/fdutils-5.5.20060227 amd64
+~app-misc/fhem-5.9 amd64
+~app-misc/g15message-1.0.0 amd64
+~app-misc/g15mpd-1.0.0 amd64
+~app-misc/g15stats-1.9.7 amd64
+~app-misc/gcal-4.1 amd64
+~app-misc/gcalcli-4.0.0_alpha3 amd64
+~app-misc/geoclue-2.4.13 amd64
+~app-misc/glastree-1.04 amd64
+~app-misc/gnutu-2.5 amd64
+~app-misc/goobook-1.9 amd64
+~app-misc/grabcartoons-2.8.4_p20141112 amd64
+~app-misc/gtk-sunlight-0.4.2 amd64
+~app-misc/hachoir-subfile-0.5.3 amd64
+~app-misc/hachoir-urwid-1.1 amd64
+~app-misc/hddled-0.3 amd64
+~app-misc/hello-2.10 amd64
+~app-misc/hexcompare-1.0.4 amd64
+~app-misc/i2bits-0.1.0 amd64
+~app-misc/icdiff-1.9.1 amd64
+~app-misc/imgurbash2-3.1 amd64
+~app-misc/irtrans-irclient-6.01.05 amd64
+~app-misc/irtrans-irserver-6.09.04 amd64
+~app-misc/kryoflux-dtc-2.6 amd64
+~app-misc/lcd4linux-0.11.0_pre20170527 amd64
+~app-misc/lfm-2.3 amd64
+~app-misc/linuxspa-0.7.1 amd64
+~app-misc/lirc-0.10.1 amd64
+~app-misc/ltunify-0.2 amd64
+~app-misc/matew-1.9 amd64
+~app-misc/mediacrush-cli-1.1.2 amd64
+~app-misc/metromap-0.1.4 amd64
+~app-misc/mkcert-1.1.2 amd64
+~app-misc/mswinurl_launcher-1.0 amd64
+~app-misc/neofetch-1.9.1 amd64
+~app-misc/nnn-1.9 amd64
+~app-misc/notary-0.6.1 amd64
+~app-misc/nullmodem-0.0.6 amd64
+~app-misc/openastro-1.1.56 amd64
+~app-misc/openastro-data-1.8 amd64
+~app-misc/pet-0.3.6 amd64
+~app-misc/physlock-11 amd64
+~app-misc/prog-express-3.7.8 amd64
+~app-misc/radeontop-1.1 amd64
+~app-misc/razertool-0.0.7 amd64
+~app-misc/rbutil-1.4.0 amd64
+~app-misc/resolve-march-native-0.9.2 amd64
+~app-misc/rundeck-bin-2.6.8 amd64
+~app-misc/rundeck-cli-bin-0.1.11 amd64
+~app-misc/selecta-0.0.7 amd64
+~app-misc/slmon-0.5.13 amd64
+~app-misc/sonypid-1.9 amd64
+~app-misc/taskd-1.1.0 amd64
+~app-misc/tek-1.3.0 amd64
+~app-misc/timew-1.1.1 amd64
+~app-misc/tmate-2.2.1 amd64
+~app-misc/tmux2html-0.1.11 amd64
+~app-misc/todo-2.10 amd64
+~app-misc/tpconfig-3.1.3 amd64
+~app-misc/ttysnoop-0.12d amd64
+~app-misc/vcontrold-0.98.6 amd64
+~app-misc/vit-1.3 amd64
+~app-misc/vittk-1.3 amd64
+~app-misc/vzstats-0.5.1 amd64
+~app-misc/xmind-3.5.3.201506180105 amd64
+~app-misc/yq-2.7.2 amd64
+~app-mobilephone/gammu-1.38.5 amd64
+~app-mobilephone/gnokii-0.6.31 amd64
+~app-mobilephone/wammu-0.44 amd64
+~app-office/calcurse-4.4.0 amd64
+~app-portage/deltup-0.4.6 amd64
+~app-portage/diffmask-0.3.3 amd64
+~app-portage/distpatch-0.1.2 amd64
+~app-portage/fquery-0.2.3 amd64
+~app-portage/gentoolkit-0.4.5 amd64
+~app-portage/getdelta-0.7.9 amd64
+~app-portage/g-octave-0.4.1 amd64
+~app-portage/gpytage-0.3.0_rc1 amd64
+~app-portage/gpyutils-0.2.2 amd64
+~app-portage/install-mask-0.1.1 amd64
+~app-portage/java-ebuilder-0.3.0 amd64
+~app-portage/kuroo-0.90.5_p20180410 amd64
+~app-portage/pqlop-0.02 amd64
+~app-portage/repo-commit-0.4.1 amd64
+~app-portage/tatt-0.4 amd64
+~app-portage/unsandbox-1 amd64
+~app-shells/gentoo-zsh-completions-20180228 amd64
+~app-shells/ksh-2020.0.0_alpha1 amd64
+~app-shells/ksh-2020.0.0 amd64
+~app-text/htmlc-2.60.0 amd64
+~app-text/landslide-1.1.3 amd64
+~app-text/languagetool-4.5 amd64
+~app-text/zathura-pdf-mupdf-0.3.5 amd64
+~app-vim/csound-syntax-20160804 amd64
+~app-vim/curcmdmode-1.0 amd64
+~app-vim/exheres-syntax-20090310 amd64
+~app-vim/gitlog-5.1.0 amd64
+~app-vim/git-patch-tags-0.2 amd64
+~app-vim/gundo-2.6.2 amd64
+~app-vim/languagetool-1.30 amd64
+~app-vim/phpdocs-0.26 amd64
+~app-vim/project-1.4.1 amd64
+~app-vim/pyclewn-2.1 amd64
+~app-vim/pydoc-2.0 amd64
+~app-vim/pytest-1.1.4 amd64
+~app-vim/rails-5.2 amd64
+~app-vim/recover-0.18 amd64
+~app-vim/ri-browser-1.2 amd64
+~app-vim/rust-vim-1_pre20180125 amd64
+~app-vim/session-2.13.1 amd64
+~app-vim/sleuth-1.1 amd64
+~app-vim/tasklist-1.0.1 amd64
+~app-vim/vimbuddy-0.9.2 amd64
+~app-vim/vimclojure-2.3.6 amd64
+~app-vim/vim-r-1.2.6 amd64
+~app-vim/vim-rest-console-2.5.0 amd64
+~app-vim/vim-spell-da-20060116 amd64
+~dev-cpp/antlr-cpp-2.7.7 amd64
+~dev-cpp/glog-0.4.0 amd64
+~dev-cpp/gtest-1.8.0 amd64
+~dev-cpp/lucene++-3.0.7 amd64
+~dev-cpp/websocketpp-0.8.1 amd64
+~dev-db/go-etcd-2.0.0 amd64
 ~dev-db/mongodb-4.0.6 amd64
-~dev-db/pgadmin4-4.3 amd64 x86
-~dev-db/pg_top-3.7.0 amd64 x86
-~dev-db/slony1-2.2.6 amd64 x86
-~dev-db/sqlitebrowser-3.11.1 amd64 x86
-~dev-dotnet/gtk-sharp-2.12.21 amd64 x86
-~dev-embedded/gpsim-0.30.0 amd64 x86
-~dev-embedded/ponyprog-3.0.0 amd64 x86
-~dev-erlang/meck-0.8.12 amd64 x86
-~dev-games/physfs-3.0.2 amd64 x86
-~dev-go/go-crypto-0_pre20180816 amd64 x86
-~dev-go/go-net-0_pre20180816 amd64 x86
-~dev-go/go-protobuf-1.2.0 amd64 x86
-~dev-go/go-sqlite3-1.1.0_p20160307 amd64 x86
-~dev-go/go-sys-0_pre20180816 amd64 x86
-~dev-go/go-text-0.3.0 amd64 x86
-~dev-go/go-tools-0_pre20190911 amd64 x86
-~dev-haskell/c2hs-0.28.3 amd64 x86
-~dev-haskell/hashtables-1.2.1.0 amd64 x86
-~dev-haskell/language-c-0.7.1 amd64 x86
-~dev-java/animal-sniffer-annotations-1.15 amd64 x86
-~dev-java/browserlauncher2-1.3 amd64 x86
-~dev-java/commons-collections-4.1 amd64 x86
-~dev-java/commons-imaging-0.97 amd64 x86
-~dev-java/error-prone-annotations-2.0.14 amd64 x86
-~dev-java/gradle-bin-3.4.1 amd64 x86
-~dev-java/guava-20.0 amd64 x86
-~dev-java/j2objc-annotations-1.2 amd64 x86
-~dev-java/jackson-2.9.10 amd64 x86
-~dev-java/jackson-annotations-2.9.10 amd64 x86
-~dev-java/javacc-5.0 amd64 x86
-~dev-java/jchart2d-3.2.2 amd64 x86
-~dev-java/jide-oss-3.6.18 amd64 x86
-~dev-java/jna-4.2.2 amd64 x86
-~dev-java/junit-3.8.2 amd64 x86
-~dev-java/lucene-2.4.1 amd64 x86
-~dev-java/netbeans-apisupport-8.2 amd64 x86
-~dev-java/netbeans-cnd-8.2 amd64 x86
-~dev-java/netbeans-dlight-8.2 amd64 x86
-~dev-java/netbeans-enterprise-8.2 amd64 x86
-~dev-java/netbeans-ergonomics-8.2 amd64 x86
-~dev-java/netbeans-extide-8.2 amd64 x86
-~dev-java/netbeans-groovy-8.2 amd64 x86
-~dev-java/netbeans-harness-8.2 amd64 x86
-~dev-java/netbeans-ide-8.2 amd64 x86
-~dev-java/netbeans-java-8.2 amd64 x86
-~dev-java/netbeans-javacard-8.2 amd64 x86
-~dev-java/netbeans-javadoc-8.2 amd64 x86
-~dev-java/netbeans-javafx-8.2 amd64 x86
-~dev-java/netbeans-mobility-8.2 amd64 x86
-~dev-java/netbeans-nb-8.2 amd64 x86
-~dev-java/netbeans-php-8.2 amd64 x86
-~dev-java/netbeans-platform-8.2 amd64 x86
-~dev-java/netbeans-profiler-8.2 amd64 x86
-~dev-java/netbeans-webcommon-8.2 amd64 x86
-~dev-java/netbeans-websvccommon-8.2 amd64 x86
-~dev-java/resin-servlet-api-4.0.46 amd64 x86
-~dev-java/sun-jaf-1.1.1 amd64 x86
-~dev-java/swing-layout-1.0.4 amd64 x86
-~dev-java/swingx-1.6.4 amd64 x86
-~dev-java/swingx-beaninfo-1.6.4 amd64 x86
-~dev-java/swingx-ws-1.0_p20110515 amd64 x86
-~dev-java/xom-1.3.2 amd64 x86
-~dev-lang/execline-2.3.0.4 amd64 x86
-~dev-lang/gprolog-1.4.5 amd64 x86
-~dev-lang/icon-9.5.1 amd64 x86
-~dev-lang/lua-5.1.5 amd64 x86
-~dev-lang/mono-basic-4.7 amd64 x86
-~dev-lang/php-5.6.40 amd64 x86
-~dev-lang/R-3.5.3 amd64 x86
-~dev-lang/rust-1.37.0 amd64 x86
-~dev-lang/rust-bin-1.37.0 amd64 x86
-~dev-lang/spidermonkey-52.9.1_pre1 amd64 x86
+~dev-db/pgadmin4-4.3 amd64
+~dev-db/pg_top-3.7.0 amd64
+~dev-db/slony1-2.2.6 amd64
+~dev-db/sqlitebrowser-3.11.1 amd64
+~dev-dotnet/gtk-sharp-2.12.21 amd64
+~dev-embedded/gpsim-0.30.0 amd64
+~dev-embedded/ponyprog-3.0.0 amd64
+~dev-erlang/meck-0.8.12 amd64
+~dev-games/physfs-3.0.2 amd64
+~dev-go/go-crypto-0_pre20180816 amd64
+~dev-go/go-net-0_pre20180816 amd64
+~dev-go/go-protobuf-1.2.0 amd64
+~dev-go/go-sqlite3-1.1.0_p20160307 amd64
+~dev-go/go-sys-0_pre20180816 amd64
+~dev-go/go-text-0.3.0 amd64
+~dev-go/go-tools-0_pre20190911 amd64
+~dev-haskell/c2hs-0.28.3 amd64
+~dev-haskell/hashtables-1.2.1.0 amd64
+~dev-haskell/language-c-0.7.1 amd64
+~dev-java/animal-sniffer-annotations-1.15 amd64
+~dev-java/browserlauncher2-1.3 amd64
+~dev-java/commons-collections-4.1 amd64
+~dev-java/commons-imaging-0.97 amd64
+~dev-java/error-prone-annotations-2.0.14 amd64
+~dev-java/gradle-bin-3.4.1 amd64
+~dev-java/guava-20.0 amd64
+~dev-java/j2objc-annotations-1.2 amd64
+~dev-java/jackson-2.9.10 amd64
+~dev-java/jackson-annotations-2.9.10 amd64
+~dev-java/javacc-5.0 amd64
+~dev-java/jchart2d-3.2.2 amd64
+~dev-java/jide-oss-3.6.18 amd64
+~dev-java/jna-4.2.2 amd64
+~dev-java/junit-3.8.2 amd64
+~dev-java/lucene-2.4.1 amd64
+~dev-java/netbeans-apisupport-8.2 amd64
+~dev-java/netbeans-cnd-8.2 amd64
+~dev-java/netbeans-dlight-8.2 amd64
+~dev-java/netbeans-enterprise-8.2 amd64
+~dev-java/netbeans-ergonomics-8.2 amd64
+~dev-java/netbeans-extide-8.2 amd64
+~dev-java/netbeans-groovy-8.2 amd64
+~dev-java/netbeans-harness-8.2 amd64
+~dev-java/netbeans-ide-8.2 amd64
+~dev-java/netbeans-java-8.2 amd64
+~dev-java/netbeans-javacard-8.2 amd64
+~dev-java/netbeans-javadoc-8.2 amd64
+~dev-java/netbeans-javafx-8.2 amd64
+~dev-java/netbeans-mobility-8.2 amd64
+~dev-java/netbeans-nb-8.2 amd64
+~dev-java/netbeans-php-8.2 amd64
+~dev-java/netbeans-platform-8.2 amd64
+~dev-java/netbeans-profiler-8.2 amd64
+~dev-java/netbeans-webcommon-8.2 amd64
+~dev-java/netbeans-websvccommon-8.2 amd64
+~dev-java/resin-servlet-api-4.0.46 amd64
+~dev-java/sun-jaf-1.1.1 amd64
+~dev-java/swing-layout-1.0.4 amd64
+~dev-java/swingx-1.6.4 amd64
+~dev-java/swingx-beaninfo-1.6.4 amd64
+~dev-java/swingx-ws-1.0_p20110515 amd64
+~dev-java/xom-1.3.2 amd64
+~dev-lang/execline-2.3.0.4 amd64
+~dev-lang/gprolog-1.4.5 amd64
+~dev-lang/icon-9.5.1 amd64
+~dev-lang/lua-5.1.5 amd64
+~dev-lang/mono-basic-4.7 amd64
+~dev-lang/php-5.6.40 amd64
+~dev-lang/R-3.5.3 amd64
+~dev-lang/rust-1.37.0 amd64
+~dev-lang/rust-bin-1.37.0 amd64
+~dev-lang/spidermonkey-52.9.1_pre1 amd64
 =dev-libs/beignet-1.3.2 amd64
-~dev-libs/bglibs-2.04 amd64 x86
-~dev-libs/boost-1.65.0 amd64 x86
-~dev-libs/btparse-0.35 amd64 x86
-~dev-libs/cppcodec-0.2 amd64 x86
-~dev-libs/crossguid-0_pre20150817 amd64 x86
-~dev-libs/ding-libs-0.6.1 amd64 x86
-~dev-libs/efl-1.21.1 amd64 x86
-~dev-libs/elfutils-0.176 amd64 x86
-~dev-libs/flatbuffers-1.10.0 amd64 x86
-~dev-libs/folks-0.11.4 amd64 x86
-~dev-libs/gf2x-1.2 amd64 x86
-~dev-libs/glib-2.54.3 amd64 x86
-~dev-libs/go-fuse-0_p20150422 amd64 x86
-~dev-libs/grantlee-5.1.0 amd64 x86
-~dev-libs/g-wrap-1.9.14 amd64 x86
-~dev-libs/icu-65.1 amd64 x86
-~dev-libs/iniparser-4.1 amd64 x86
-~dev-libs/injeqt-1.2.0 amd64 x86
+~dev-libs/bglibs-2.04 amd64
+~dev-libs/boost-1.65.0 amd64
+~dev-libs/btparse-0.35 amd64
+~dev-libs/cppcodec-0.2 amd64
+~dev-libs/crossguid-0_pre20150817 amd64
+~dev-libs/ding-libs-0.6.1 amd64
+~dev-libs/efl-1.21.1 amd64
+~dev-libs/elfutils-0.176 amd64
+~dev-libs/flatbuffers-1.10.0 amd64
+~dev-libs/folks-0.11.4 amd64
+~dev-libs/gf2x-1.2 amd64
+~dev-libs/glib-2.54.3 amd64
+~dev-libs/go-fuse-0_p20150422 amd64
+~dev-libs/grantlee-5.1.0 amd64
+~dev-libs/g-wrap-1.9.14 amd64
+~dev-libs/icu-65.1 amd64
+~dev-libs/iniparser-4.1 amd64
+~dev-libs/injeqt-1.2.0 amd64
 ~dev-libs/kasync-0.3.0 amd64
-~dev-libs/kdiagram-2.6.0 amd64 x86
-~dev-libs/libappindicator-12.10.0 amd64 x86
-~dev-libs/libcdio-2.0.0 amd64 x86
-~dev-libs/libdbusmenu-qt-0.9.3_pre20160218 amd64 x86
-~dev-libs/libdynd-0.7.2 amd64 x86
-~dev-libs/libindicator-12.10.1 amd64 x86
-~dev-libs/libkpass-6 amd64 x86
-~dev-libs/libplatform-2.1.0.1 amd64 x86
-~dev-libs/libqtxdg-3.3.1 amd64 x86
-~dev-libs/libsecp256k1-0.0.0_pre20151118 amd64 x86
-~dev-libs/libsodium-1.0.16 amd64 x86
-~dev-libs/libtecla-1.6.3 amd64 x86
-~dev-libs/libtermkey-0.20 amd64 x86
-~dev-libs/libvterm-0.1.1 amd64 x86
-~dev-libs/lzo-2.10 amd64 x86
-~dev-libs/mathjax-2.7.0 amd64 x86
-~dev-libs/mimetic-0.9.8 amd64 x86
-~dev-libs/mmtf-cpp-1.0.0 amd64 x86
-~dev-libs/msgpack-1.1.0 amd64 x86
-~dev-libs/nspr-4.24 amd64 x86
-~dev-libs/nss-3.49 amd64 x86
-~dev-libs/poco-1.9.0 amd64 x86
-~dev-libs/qoauth-2.0.1_pre20160315 amd64 x86
-~dev-libs/rapidxml-1.13 amd64 x86
+~dev-libs/kdiagram-2.6.0 amd64
+~dev-libs/libappindicator-12.10.0 amd64
+~dev-libs/libcdio-2.0.0 amd64
+~dev-libs/libdbusmenu-qt-0.9.3_pre20160218 amd64
+~dev-libs/libdynd-0.7.2 amd64
+~dev-libs/libindicator-12.10.1 amd64
+~dev-libs/libkpass-6 amd64
+~dev-libs/libplatform-2.1.0.1 amd64
+~dev-libs/libqtxdg-3.3.1 amd64
+~dev-libs/libsecp256k1-0.0.0_pre20151118 amd64
+~dev-libs/libsodium-1.0.16 amd64
+~dev-libs/libtecla-1.6.3 amd64
+~dev-libs/libtermkey-0.20 amd64
+~dev-libs/libvterm-0.1.1 amd64
+~dev-libs/lzo-2.10 amd64
+~dev-libs/mathjax-2.7.0 amd64
+~dev-libs/mimetic-0.9.8 amd64
+~dev-libs/mmtf-cpp-1.0.0 amd64
+~dev-libs/msgpack-1.1.0 amd64
+~dev-libs/nspr-4.24 amd64
+~dev-libs/nss-3.49 amd64
+~dev-libs/poco-1.9.0 amd64
+~dev-libs/qoauth-2.0.1_pre20160315 amd64
+~dev-libs/rapidxml-1.13 amd64
 ~dev-libs/sink-0.8.0 amd64
-~dev-libs/skalibs-2.6.3.0 amd64 x86
-~dev-libs/spsdeclib-5.1 amd64 x86
-~dev-libs/tinyxml-2.6.2 amd64 x86
-~dev-libs/tvision-2.2.1.4 amd64 x86
-~dev-libs/ucommon-6.5.7 amd64 x86
-~dev-libs/unibilium-1.1.4 amd64 x86
-~dev-libs/unibilium-2.0.0 amd64 x86
-~dev-libs/univalue-1.0.2 amd64 x86
-~dev-libs/wnn7sdk-20011017 amd64 x86
-~dev-lisp/alexandria-20171029 amd64 x86
-~dev-lisp/clx-0.7.5 amd64 x86
-~dev-lua/luafilesystem-1.6.3 amd64 x86
-~dev-lua/luv-1.32.0.0 amd64 x86
-~dev-ml/lablgtk-2.18.4 amd64 x86
-~dev-perl/Curses-1.360.0 amd64 x86
-~dev-perl/LWP-UserAgent-Cached-0.60.0 amd64 x86
-~dev-perl/Net-Pcap-0.180.0 amd64 x86
-~dev-ruby/gruff-0.7.0 amd64 x86
-~dev-ruby/hoe-3.16.0 amd64 x86
-~dev-ruby/minitest-5.11.3 amd64 x86
-~dev-ruby/paint-2.1.1 amd64 x86
-~dev-ruby/rmagick-2.16.0 amd64 x86
-~dev-ruby/ruby-xslt-0.9.10 amd64 x86
-~dev-scheme/guile-2.0.14 amd64 x86
-~dev-tcltk/expect-5.45.4 amd64 x86
-~dev-tex/biblatex-3.7 amd64 x86
-~dev-tex/latex2html-2017.2 amd64 x86
-~dev-texlive/texlive-bibtexextra-2019 amd64 x86
-~dev-texlive/texlive-fontsextra-2019 amd64 x86
-~dev-texlive/texlive-langenglish-2019 amd64 x86
-~dev-util/android-sdk-update-manager-24.4.1 amd64 x86
-~dev-util/bdelta-0.3.1 amd64 x86
-~dev-util/bless-0.6.0 amd64 x86
-~dev-util/boost-build-1.65.0 amd64 x86
-~dev-util/cbindgen-0.10.1 amd64 x86
-~dev-util/ccache-3.7.2 amd64 x86
-~dev-util/cmake-3.9.6 amd64 x86
-~dev-util/codeblocks-17.12 amd64 x86
+~dev-libs/skalibs-2.6.3.0 amd64
+~dev-libs/spdlog-1.5.0 amd64
+~dev-libs/spsdeclib-5.1 amd64
+~dev-libs/tinyxml-2.6.2 amd64
+~dev-libs/tvision-2.2.1.4 amd64
+~dev-libs/ucommon-6.5.7 amd64
+~dev-libs/unibilium-1.1.4 amd64
+~dev-libs/unibilium-2.0.0 amd64
+~dev-libs/univalue-1.0.2 amd64
+~dev-libs/wnn7sdk-20011017 amd64
+~dev-lisp/alexandria-20171029 amd64
+~dev-lisp/clx-0.7.5 amd64
+~dev-lua/luafilesystem-1.6.3 amd64
+~dev-lua/luv-1.32.0.0 amd64
+~dev-ml/lablgtk-2.18.4 amd64
+~dev-perl/Curses-1.360.0 amd64
+~dev-perl/LWP-UserAgent-Cached-0.60.0 amd64
+~dev-perl/Net-Pcap-0.180.0 amd64
+~dev-ruby/gruff-0.7.0 amd64
+~dev-ruby/hoe-3.16.0 amd64
+~dev-ruby/minitest-5.11.3 amd64
+~dev-ruby/paint-2.1.1 amd64
+~dev-ruby/rmagick-2.16.0 amd64
+~dev-ruby/ruby-xslt-0.9.10 amd64
+~dev-scheme/guile-2.0.14 amd64
+~dev-tcltk/expect-5.45.4 amd64
+~dev-tex/biblatex-3.7 amd64
+~dev-tex/latex2html-2017.2 amd64
+~dev-texlive/texlive-bibtexextra-2019 amd64
+~dev-texlive/texlive-fontsextra-2019 amd64
+~dev-texlive/texlive-langenglish-2019 amd64
+~dev-util/android-sdk-update-manager-24.4.1 amd64
+~dev-util/bdelta-0.3.1 amd64
+~dev-util/bless-0.6.0 amd64
+~dev-util/boost-build-1.65.0 amd64
+~dev-util/cbindgen-0.10.1 amd64
+~dev-util/ccache-3.7.2 amd64
+~dev-util/cmake-3.9.6 amd64
+~dev-util/codeblocks-17.12 amd64
 ~dev-util/electron-2.0.17 amd64
-~dev-util/gn-0.1463 amd64 x86
-~dev-util/gyp-20170904022846 amd64 x86
-~dev-util/kbuild-0.1.9998.3149 amd64 x86
-~dev-util/lcov-1.14 amd64 x86
-~dev-util/netbeans-8.2 amd64 x86
-~dev-util/netsurf-buildsystem-1.8 amd64 x86
+~dev-util/gn-0.1463 amd64
+~dev-util/gyp-20170904022846 amd64
+~dev-util/kbuild-0.1.9998.3149 amd64
+~dev-util/lcov-1.14 amd64
+~dev-util/netbeans-8.2 amd64
+~dev-util/netsurf-buildsystem-1.8 amd64
 ~dev-util/nvidia-cuda-sdk-9.2.88 amd64
-~dev-util/patchbin-20160208 amd64 x86
-~dev-util/patchelf-0.10 amd64 x86
-~dev-util/rats-2.4 amd64 x86
-~dev-util/shadowman-2 amd64 x86
-~dev-vcs/tortoisehg-4.9 amd64 x86
-~games-engines/love-0.7.2 amd64 x86
-~games-engines/love-0.8.0 amd64 x86
-~lxde-base/lxappearance-obconf-0.2.1 amd64 x86
-~lxqt-base/libsysstat-0.4.2 amd64 x86
-~mail-client/etpan-ng-0.7.1 amd64 x86
-~mail-filter/imapfilter-2.6.12 amd64 x86
-~mail-filter/spampd-2.42 amd64 x86
-~mail-mta/netqmail-1.06 amd64 x86
-~media-gfx/farbfeld-4 amd64 x86
-~media-gfx/fontforge-20190317 amd64 x86
-~media-gfx/geeqie-1.4 amd64 x86
-~media-gfx/gnome-raw-thumbnailer-3.0.0 amd64 x86
-~media-gfx/librecad-2.1.3 amd64 x86
-~media-gfx/mypaint-1.2.1 amd64 x86
-~media-gfx/mypaint-brushes-1.3.0 amd64 x86
-~media-gfx/openscad-2019.05 amd64 x86
-~media-gfx/raw-thumbnailer-0.2.1 amd64 x86
-~media-gfx/scour-0.35 amd64 x86
-~media-gfx/springgraph-88 amd64 x86
-~media-gfx/synnefo-1.1.0 amd64 x86
-~media-gfx/uniconvertor-2.0_pre379 amd64 x86
-~media-libs/allegro-4.4.2 amd64 x86
-~media-libs/assimp-4.0.1 amd64 x86
-~media-libs/babl-0.1.72 amd64 x86
-~media-libs/bcg729-1.0.4 amd64 x86
-~media-libs/ctl-1.5.2 amd64 x86
-~media-libs/elles_icc_profiles-20160501.0932 amd64 x86
-~media-libs/faac-1.29.9.2 amd64 x86
-~media-libs/fontconfig-ultimate-2015.08.01 amd64 x86
-~media-libs/gegl-0.2.0 amd64 x86
-~media-libs/gegl-0.4.18 amd64 x86
-~media-libs/glm-0.9.9.6 amd64 x86
-~media-libs/harfbuzz-2.5.3 amd64 x86
-~media-libs/icc-profiles-basiccolor-printing2009-1.2.0 amd64 x86
-~media-libs/icc-profiles-openicc-1.3.1 amd64 x86
-~media-libs/jpeg-8d amd64 x86
-~media-libs/libaacplus-2.0.2 amd64 x86
-~media-libs/libaom-1.0.0 amd64 x86
-~media-libs/libggigcp-1.0.2 amd64 x86
-~media-libs/libggimisc-2.2.2 amd64 x86
-~media-libs/libjpeg-turbo-2.0.2 amd64 x86
-~media-libs/liblingoteach-0.2.3 amd64 x86
-~media-libs/libmypaint-1.3.0 amd64 x86
-~media-libs/libnsgif-0.2.1 amd64 x86
-~media-libs/libopenraw-0.1.2 amd64 x86
-~media-libs/libvpx-1.7.0 amd64 x86
-~media-libs/libwebp-1.0.2 amd64 x86
-~media-libs/libXcm-0.5.4 amd64 x86
-~media-libs/mlt-6.16.0 amd64 x86
-~media-libs/opencollada-1.6.63 amd64 x86
-~media-libs/opencv-3.4.1 amd64 x86
-~media-libs/openicc-0.1.0 amd64 x86
-~media-libs/openimageio-1.8.17 amd64 x86
-=media-libs/oyranos-0.9.6 amd64 x86
-~media-libs/qhull-2015.2 amd64 x86
-~media-libs/qt-gstreamer-1.2.0 amd64 x86
-~media-libs/sdl-pango-0.1.2 amd64 x86
-~media-libs/shaderc-2019.0 amd64 x86
-~media-libs/SoQt-1.5.0 amd64 x86
-~media-libs/speex-1.2.0 amd64 x86
-~media-libs/speexdsp-1.2_rc3 amd64 x86
-~media-libs/suil-0.10.0 amd64 x86
-~media-libs/taglib-1.11.1_p20181028 amd64 x86
-~media-libs/vigra-1.11.1 amd64 x86
-~media-libs/x265-1.8 amd64 x86
-~media-plugins/gst-transcoder-1.8.2 amd64 x86
-~media-plugins/vdr-dvbhddevice-2.2.0_p20180420 amd64 x86
-~media-plugins/vdr-epgsearch-1.0.1_p20141227 amd64 x86
-~media-plugins/xsynth-dssi-0.9.4 amd64 x86
-~media-sound/audex-0.95_pre20190721 amd64 x86
-~media-sound/baudline-1.08 amd64 x86
-~media-sound/bpmdetect-0.7.0_pre20170810 amd64 x86
-~media-sound/dcadec-0.2.0 amd64 x86
-~media-sound/gmusicbrowser-1.1.15_p20160530 amd64 x86
-~media-sound/gramofile-1.6_p9 amd64 x86
-~media-sound/herrie-2.2 amd64 x86
-~media-sound/lyvi-2.0.0 amd64 x86
-~media-sound/mp3splt-2.6.2 amd64 x86
-~media-sound/mpfc-1.3.8.1 amd64 x86
-~media-sound/orpheus-1.6 amd64 x86
-~media-sound/pavucontrol-qt-0.4.0 amd64 x86
-~media-sound/qjackctl-0.4.5 amd64 x86
-~media-sound/qmidiroute-0.4.0 amd64 x86
-~media-sound/qtagger-1.0.1_p20150402 amd64 x86
-~media-sound/snd-17.4 amd64 x86
+~dev-util/patchbin-20160208 amd64
+~dev-util/patchelf-0.10 amd64
+~dev-util/rats-2.4 amd64
+~dev-util/shadowman-2 amd64
+~dev-vcs/tortoisehg-4.9 amd64
+~games-engines/love-0.7.2 amd64
+~games-engines/love-0.8.0 amd64
+~lxde-base/lxappearance-obconf-0.2.1 amd64
+~lxqt-base/libsysstat-0.4.2 amd64
+~mail-client/etpan-ng-0.7.1 amd64
+~mail-filter/imapfilter-2.6.12 amd64
+~mail-filter/spampd-2.42 amd64
+~mail-mta/netqmail-1.06 amd64
+~media-gfx/farbfeld-4 amd64
+~media-gfx/fontforge-20190317 amd64
+~media-gfx/geeqie-1.4 amd64
+~media-gfx/gnome-raw-thumbnailer-3.0.0 amd64
+~media-gfx/librecad-2.1.3 amd64
+~media-gfx/mypaint-1.2.1 amd64
+~media-gfx/mypaint-brushes-1.3.0 amd64
+~media-gfx/openscad-2019.05 amd64
+~media-gfx/raw-thumbnailer-0.2.1 amd64
+~media-gfx/scour-0.35 amd64
+~media-gfx/springgraph-88 amd64
+~media-gfx/synnefo-1.1.0 amd64
+~media-gfx/uniconvertor-2.0_pre379 amd64
+~media-libs/allegro-4.4.2 amd64
+~media-libs/assimp-4.0.1 amd64
+~media-libs/babl-0.1.74 amd64
+~media-libs/bcg729-1.0.4 amd64
+~media-libs/ctl-1.5.2 amd64
+~media-libs/elles_icc_profiles-20160501.0932 amd64
+~media-libs/faac-1.29.9.2 amd64
+~media-libs/fontconfig-ultimate-2015.08.01 amd64
+~media-libs/gegl-0.2.0 amd64
+~media-libs/gegl-0.4.18 amd64
+~media-libs/glm-0.9.9.6 amd64
+~media-libs/harfbuzz-2.5.3 amd64
+~media-libs/icc-profiles-basiccolor-printing2009-1.2.0 amd64
+~media-libs/icc-profiles-openicc-1.3.1 amd64
+~media-libs/jpeg-8d amd64
+~media-libs/libaacplus-2.0.2 amd64
+~media-libs/libaom-1.0.0 amd64
+~media-libs/libggigcp-1.0.2 amd64
+~media-libs/libggimisc-2.2.2 amd64
+~media-libs/libjpeg-turbo-2.0.2 amd64
+~media-libs/liblingoteach-0.2.3 amd64
+~media-libs/libmypaint-1.3.0 amd64
+~media-libs/libnsgif-0.2.1 amd64
+~media-libs/libopenraw-0.1.2 amd64
+~media-libs/libvpx-1.7.0 amd64
+~media-libs/libwebp-1.0.2 amd64
+~media-libs/libXcm-0.5.4 amd64
+~media-libs/mlt-6.16.0 amd64
+~media-libs/opencollada-1.6.63 amd64
+~media-libs/opencv-3.4.1 amd64
+~media-libs/openicc-0.1.0 amd64
+~media-libs/openimageio-1.8.17 amd64
+=media-libs/oyranos-0.9.6 amd64
+~media-libs/qhull-2015.2 amd64
+~media-libs/qt-gstreamer-1.2.0 amd64
+~media-libs/sdl-pango-0.1.2 amd64
+~media-libs/shaderc-2019.0 amd64
+~media-libs/SoQt-1.5.0 amd64
+~media-libs/speex-1.2.0 amd64
+~media-libs/speexdsp-1.2_rc3 amd64
+~media-libs/suil-0.10.0 amd64
+~media-libs/taglib-1.11.1_p20181028 amd64
+~media-libs/vigra-1.11.1 amd64
+~media-libs/x265-1.8 amd64
+~media-plugins/gst-transcoder-1.8.2 amd64
+~media-plugins/vdr-dvbhddevice-2.2.0_p20180420 amd64
+~media-plugins/vdr-epgsearch-1.0.1_p20141227 amd64
+~media-plugins/xsynth-dssi-0.9.4 amd64
+~media-sound/audex-0.95_pre20190721 amd64
+~media-sound/baudline-1.08 amd64
+~media-sound/bpmdetect-0.7.0_pre20170810 amd64
+~media-sound/dcadec-0.2.0 amd64
+~media-sound/gmusicbrowser-1.1.15_p20160530 amd64
+~media-sound/gramofile-1.6_p9 amd64
+~media-sound/herrie-2.2 amd64
+~media-sound/lyvi-2.0.0 amd64
+~media-sound/mp3splt-2.6.2 amd64
+~media-sound/mpfc-1.3.8.1 amd64
+~media-sound/orpheus-1.6 amd64
+~media-sound/pavucontrol-qt-0.4.0 amd64
+~media-sound/qjackctl-0.4.5 amd64
+~media-sound/qmidiroute-0.4.0 amd64
+~media-sound/qtagger-1.0.1_p20150402 amd64
+~media-sound/snd-17.4 amd64
 ~media-sound/spotify-1.1.5 amd64
-~media-sound/terminatorx-4.0.1 amd64 x86
-~media-sound/umurmur-0.2.17 amd64 x86
-~media-tv/dtv-scan-tables-0_p20171003 amd64 x86
-~media-tv/linuxtv-dvb-apps-1.1.1.20140321 amd64 x86
+~media-sound/terminatorx-4.0.1 amd64
+~media-sound/umurmur-0.2.17 amd64
+~media-tv/dtv-scan-tables-0_p20171003 amd64
+~media-tv/linuxtv-dvb-apps-1.1.1.20140321 amd64
 ~media-tv/plex-media-server-1.14.1 amd64
-~media-video/baka-mplayer-2.0.4 amd64 x86
-~media-video/ffdiaporama-2.2_pre20140701 amd64 x86
-~media-video/motion-4.1.1 amd64 x86
-~media-video/pitivi-0.98.1 amd64 x86
-~media-video/subtitleeditor-0.54.0 amd64 x86
-~media-video/syncplay-1.5.1 amd64 x86
-~media-video/vcdimager-2.0.1 amd64 x86
-~media-video/vdr-2.2.0 amd64 x86
-~media-video/webcamoid-8.1.0 amd64 x86
-~net-analyzer/argus-clients-3.0.8.2 amd64 x86
-~net-analyzer/hunt-1.5 amd64 x86
-~net-analyzer/hydra-9.0 amd64 x86
-~net-analyzer/labrea-2.5 amd64 x86
-~net-analyzer/munin-plugins-zfs-0.20170127 amd64 x86
-~net-analyzer/nagios-4.3.4 amd64 x86
-~net-analyzer/netwatch-1.3.0.1 amd64 x86
-~net-analyzer/sarg-2.3.11 amd64 x86
-~net-analyzer/scanlogd-2.2.7 amd64 x86
-~net-analyzer/tcpdump-4.9.2 amd64 x86
-~net-analyzer/tcptrace-6.6.7_p4_p1 amd64 x86
-~net-analyzer/ttcp-1.12 amd64 x86
-~net-dns/dnscrypt-proxy-2.0.33 amd64 x86
-~net-dns/dnssec-tools-2.2.3 amd64 x86
-~net-dns/dnstop-20140915 amd64 x86
-~net-firewall/pglinux-2.3.1_p20171006 amd64 x86
-~net-firewall/rtsp-conntrack-4.18 amd64 x86
-~net-firewall/xtables-addons-3.7 amd64 x86
-~net-im/kadu-4.3 amd64 x86
-~net-im/qtox-1.16.3 amd64 x86
-~net-im/toxic-0.8.2 amd64 x86
-~net-im/transwhat-0.2.2 amd64 x86
-~net-im/transwhat-0.2.2 amd64 x86
-~net-im/yowsup-2.5.7 amd64 x86
-~net-irc/irssi-1.0.2 amd64 x86
-~net-irc/irssi-xmpp-0.53 amd64 x86
-~net-libs/biblesync-1.1.2 amd64 x86
-~net-libs/cppzmq-0_pre150606 amd64 x86
-~net-libs/cvm-0.97 amd64 x86
-~net-libs/daq-2.0.2 amd64 x86
-~net-libs/dleyna-renderer-0.5.0 amd64 x86
-~net-libs/gloox-1.0.22 amd64 x86
-~net-libs/kdav2-0.3.0 amd64 x86
+~media-video/baka-mplayer-2.0.4 amd64
+~media-video/ffdiaporama-2.2_pre20140701 amd64
+~media-video/motion-4.1.1 amd64
+~media-video/pitivi-0.98.1 amd64
+~media-video/subtitleeditor-0.54.0 amd64
+~media-video/syncplay-1.5.1 amd64
+~media-video/vcdimager-2.0.1 amd64
+~media-video/vdr-2.2.0 amd64
+~media-video/webcamoid-8.1.0 amd64
+~net-analyzer/argus-clients-3.0.8.2 amd64
+~net-analyzer/hunt-1.5 amd64
+~net-analyzer/hydra-9.0 amd64
+~net-analyzer/labrea-2.5 amd64
+~net-analyzer/munin-plugins-zfs-0.20170127 amd64
+~net-analyzer/nagios-4.3.4 amd64
+~net-analyzer/netwatch-1.3.0.1 amd64
+~net-analyzer/sarg-2.3.11 amd64
+~net-analyzer/scanlogd-2.2.7 amd64
+~net-analyzer/tcpdump-4.9.2 amd64
+~net-analyzer/tcptrace-6.6.7_p4_p1 amd64
+~net-analyzer/ttcp-1.12 amd64
+~net-dns/dnscrypt-proxy-2.0.33 amd64
+~net-dns/dnssec-tools-2.2.3 amd64
+~net-dns/dnstop-20140915 amd64
+~net-firewall/pglinux-2.3.1_p20171006 amd64
+~net-firewall/rtsp-conntrack-4.18 amd64
+~net-firewall/xtables-addons-3.7 amd64
+~net-im/kadu-4.3 amd64
+~net-im/qtox-1.16.3 amd64
+~net-im/toxic-0.8.2 amd64
+~net-im/transwhat-0.2.2 amd64
+~net-im/transwhat-0.2.2 amd64
+~net-im/yowsup-2.5.7 amd64
+~net-irc/irssi-1.0.2 amd64
+~net-irc/irssi-xmpp-0.53 amd64
+~net-libs/biblesync-1.1.2 amd64
+~net-libs/cppzmq-0_pre150606 amd64
+~net-libs/cvm-0.97 amd64
+~net-libs/daq-2.0.2 amd64
+~net-libs/dleyna-renderer-0.5.0 amd64
+~net-libs/gloox-1.0.22 amd64
+~net-libs/kdav2-0.3.0 amd64
 ~net-libs/kimap2-0.3.0 amd64
-~net-libs/libgadu-1.12.2 amd64 x86
-~net-libs/libhackrf-2018.01.1 amd64 x86
-~net-libs/libircclient-1.10 amd64 x86
-~net-libs/libktorrent-2.1.1 amd64 x86
-~net-libs/libnftnl-1.1.5 amd64 x86
-~net-libs/loudmouth-1.5.3 amd64 x86
-~net-libs/nativebiginteger-0.9.42 amd64 x86
-~net-libs/netwib-5.39.0 amd64 x86
-~net-libs/quasselc-0_p20170111 amd64 x86
-~net-libs/telepathy-accounts-signon-1.0 amd64 x86
-~net-libs/tox-0.2.9 amd64 x86
-~net-libs/wvstreams-4.6.1_p14 amd64 x86
-~net-libs/xrootd-4.10.1 amd64 x86
-~net-mail/courier-imap-4.18.2 amd64 x86
-~net-mail/qmail-autoresponder-2.0 amd64 x86
-~net-misc/gofish-1.2 amd64 x86
-~net-misc/hylafaxplus-5.6.1 amd64 x86
-~net-misc/l7-filter-userspace-0.12_beta1 amd64 x86
-~net-misc/l7-protocols-2009.05.28 amd64 x86
-~net-misc/netsed-0.01b amd64 x86
-~net-misc/ofono-1.31 amd64 x86
-~net-misc/omniORB-4.2.2 amd64 x86
-~net-misc/putty-0.71 amd64 x86
-~net-misc/rabbitmq-server-3.8.0 amd64 x86
-~net-misc/radvd-2.17 amd64 x86
-~net-misc/remmina-1.2.31.2 amd64 x86
-~net-misc/sstp-client-1.0.12 amd64 x86
-~net-misc/ubridge-0.9.16 amd64 x86
-~net-misc/unison-2.48.4 amd64 x86
-~net-misc/x2goclient-4.1.2.1 amd64 x86
-~net-nds/gssproxy-0.8.2 amd64 x86
-~net-nds/ldapvi-1.7_p20101214 amd64 x86
-~net-nds/rpcbind-0.2.4 amd64 x86
-~net-nntp/kwooty-1.1.0_p20150623 amd64 x86
-~net-p2p/deluge-2.0.3 amd64 x86
-~net-p2p/ktorrent-5.1.2 amd64 x86
-~net-p2p/mldonkey-3.1.6 amd64 x86
-~net-p2p/multibit-0.5.18 amd64 x86
-~net-p2p/vuze-5.7.2.0 amd64 x86
-~net-p2p/vuze-coreplugins-5.7.2.0 amd64 x86
-~net-print/apsfilter-7.2.8 amd64 x86
-~net-print/brlaser-4 amd64 x86
-~net-print/c2esp-27 amd64 x86
-~net-print/cnijfilter2-5.50 amd64 x86
-~net-print/dymo-cups-drivers-1.4.0 amd64 x86
-~net-print/pkpgcounter-3.50 amd64 x86
-~net-print/pnm2ppa-1.13 amd64 x86
-~net-print/pykota-1.26 amd64 x86
-~net-print/splix-2.0.0_p20130826 amd64 x86
-~net-print/sshlpr-1 amd64 x86
-~net-proxy/squirm-1.26 amd64 x86
-~net-vpn/i2p-0.9.42 amd64 x86
-~net-vpn/i2pd-2.28.0 amd64 x86
-~net-vpn/networkmanager-strongswan-1.4.4 amd64 x86
-~net-vpn/networkmanager-wireguard-0_pre20191128 amd64 x86
-~net-vpn/wireguard-modules-0.0.20200121 amd64 x86
-~net-vpn/wireguard-tools-1.0.20200121 amd64 x86
-~net-wireless/bladerf-firmware-2.2.0 amd64 x86
-~net-wireless/blueberry-1.1.13 amd64 x86
-~net-wireless/bluez-tools-0_p20161212 amd64 x86
-~net-wireless/hackrf-tools-2018.01.1 amd64 x86
-~net-wireless/portapack-firmware-20190405 amd64 x86
-~sci-biology/fasttree-2.1.8 amd64 x86
-~sci-calculators/gonvert-0.2.39 amd64 x86
-~sci-calculators/grpn-1.4.0 amd64 x86
-~sci-calculators/qalculate-gtk-2.2.0 amd64 x86
-~sci-chemistry/pymol-2.3.0 amd64 x86
-~sci-chemistry/pymol-plugins-bni-tools-0.27 amd64 x86
-~sci-chemistry/pymol-plugins-dssp-110430 amd64 x86
-~sci-chemistry/pymol-plugins-emovie-1.0.4 amd64 x86
-~sci-chemistry/pymol-plugins-promol-3.0.2 amd64 x86
-~sci-electronics/espresso-ab-1.0 amd64 x86
-~sci-electronics/gwave-20120229 amd64 x86
-~sci-geosciences/bt747-2.1.7 amd64 x86
-~sci-geosciences/gpscorrelate-1.6.1 amd64 x86
-~sci-geosciences/gpxpy-0.8.6 amd64 x86
-~sci-geosciences/gpx-viewer-0.4.0 amd64 x86
-~sci-geosciences/grass-7.4.4 amd64 x86
-~sci-geosciences/gshhs-1.13 amd64 x86
-~sci-geosciences/gshhs-data-2.2.0 amd64 x86
-~sci-geosciences/mapnik-3.0.18 amd64 x86
-~sci-geosciences/mapserver-7.0.5 amd64 x86
-~sci-geosciences/mc2bsbh-0.0.9 amd64 x86
-~sci-geosciences/merkaartor-0.18.3 amd64 x86
-~sci-geosciences/opencpn-4.8.2 amd64 x86
-~sci-geosciences/opencpn-plugin-br24radar-2.1 amd64 x86
-~sci-geosciences/opencpn-plugin-climatology-1.0.20180316 amd64 x86
-~sci-geosciences/opencpn-plugin-dr-1.1 amd64 x86
-~sci-geosciences/opencpn-plugin-findit-1.1007 amd64 x86
-~sci-geosciences/opencpn-plugin-gxradar-1.1 amd64 x86
-~sci-geosciences/opencpn-plugin-iacfleet-0.9 amd64 x86
-~sci-geosciences/opencpn-plugin-launcher-1.1 amd64 x86
-~sci-geosciences/opencpn-plugin-logbookkonni-1.3002 amd64 x86
-~sci-geosciences/opencpn-plugin-objsearch-0.7 amd64 x86
-~sci-geosciences/opencpn-plugin-ocpndebugger-1.3 amd64 x86
-~sci-geosciences/opencpn-plugin-ocpn_draw-1.3.14 amd64 x86
-~sci-geosciences/opencpn-plugin-oesenc-1.6.0 amd64 x86
-~sci-geosciences/opencpn-plugin-otcurrent-1.2 amd64 x86
-~sci-geosciences/opencpn-plugin-polar-1.1007 amd64 x86
-~sci-geosciences/opencpn-plugin-radar-0.98 amd64 x86
-~sci-geosciences/opencpn-plugin-route-1.2 amd64 x86
-~sci-geosciences/opencpn-plugins-meta-4.2.0 amd64 x86
-~sci-geosciences/opencpn-plugin-squiddio-0.7 amd64 x86
-~sci-geosciences/opencpn-plugin-statusbar-0.5.20180316 amd64 x86
-~sci-geosciences/opencpn-plugin-watchdog-1.9.051 amd64 x86
-~sci-geosciences/opencpn-plugin-weatherfax-1.3.20180316 amd64 x86
-~sci-geosciences/opencpn-plugin-weather_routing-1.10.1 amd64 x86
-~sci-geosciences/readosm-1.0.0e amd64 x86
-~sci-geosciences/tappy-0.9.0 amd64 x86
-~sci-geosciences/tilecache-2.11 amd64 x86
-~sci-geosciences/viking-1.6.2 amd64 x86
-~sci-libs/flann-1.9.1 amd64 x86
-~sci-libs/gsl-2.5 amd64 x86
-~sci-libs/libqalculate-2.2.0 amd64 x86
-~sci-libs/linux-gpib-4.1.0 amd64 x86
-~sci-libs/mpfi-1.5.3 amd64 x86
-~sci-libs/oce-0.18.3 amd64 x86
-~sci-libs/orocos_kdl-1.3.1 amd64 x86
-~sci-libs/tamu_anova-0.2 amd64 x86
-~sci-libs/vtk-8.1.0 amd64 x86
-~sci-libs/xdrfile-1.1.4 amd64 x86
-~sci-mathematics/num-utils-0.5 amd64 x86
-~sci-mathematics/rstudio-1.2.1335 amd64 x86
-~sci-misc/netlogo-bin-6.0.2 amd64 x86
-~sci-physics/cernlib-2006 amd64 x86
-~sci-physics/lhapdf-6.2.3 amd64 x86
-~sci-visualization/opendx-4.4.4 amd64 x86
-~sci-visualization/xgraph-12.1 amd64 x86
+~net-libs/libgadu-1.12.2 amd64
+~net-libs/libhackrf-2018.01.1 amd64
+~net-libs/libircclient-1.10 amd64
+~net-libs/libktorrent-2.1.1 amd64
+~net-libs/libnftnl-1.1.5 amd64
+~net-libs/loudmouth-1.5.3 amd64
+~net-libs/nativebiginteger-0.9.42 amd64
+~net-libs/netwib-5.39.0 amd64
+~net-libs/quasselc-0_p20170111 amd64
+~net-libs/telepathy-accounts-signon-1.0 amd64
+~net-libs/tox-0.2.9 amd64
+~net-libs/wvstreams-4.6.1_p14 amd64
+~net-libs/xrootd-4.10.1 amd64
+~net-mail/courier-imap-4.18.2 amd64
+~net-mail/qmail-autoresponder-2.0 amd64
+~net-misc/gofish-1.2 amd64
+~net-misc/hylafaxplus-5.6.1 amd64
+~net-misc/l7-filter-userspace-0.12_beta1 amd64
+~net-misc/l7-protocols-2009.05.28 amd64
+~net-misc/netsed-0.01b amd64
+~net-misc/ofono-1.31 amd64
+~net-misc/omniORB-4.2.2 amd64
+~net-misc/putty-0.71 amd64
+~net-misc/rabbitmq-server-3.8.0 amd64
+~net-misc/radvd-2.17 amd64
+~net-misc/remmina-1.2.31.2 amd64
+~net-misc/sstp-client-1.0.12 amd64
+~net-misc/ubridge-0.9.16 amd64
+~net-misc/unison-2.48.4 amd64
+~net-misc/x2goclient-4.1.2.1 amd64
+~net-nds/gssproxy-0.8.2 amd64
+~net-nds/ldapvi-1.7_p20101214 amd64
+~net-nds/rpcbind-0.2.4 amd64
+~net-nntp/kwooty-1.1.0_p20150623 amd64
+~net-p2p/deluge-2.0.3 amd64
+~net-p2p/ktorrent-5.1.2 amd64
+~net-p2p/mldonkey-3.1.6 amd64
+~net-p2p/multibit-0.5.18 amd64
+~net-p2p/vuze-5.7.2.0 amd64
+~net-p2p/vuze-coreplugins-5.7.2.0 amd64
+~net-print/apsfilter-7.2.8 amd64
+~net-print/brlaser-4 amd64
+~net-print/c2esp-27 amd64
+~net-print/cnijfilter2-5.50 amd64
+~net-print/dymo-cups-drivers-1.4.0 amd64
+~net-print/pkpgcounter-3.50 amd64
+~net-print/pnm2ppa-1.13 amd64
+~net-print/pykota-1.26 amd64
+~net-print/splix-2.0.0_p20130826 amd64
+~net-print/sshlpr-1 amd64
+~net-proxy/squirm-1.26 amd64
+~net-vpn/i2p-0.9.42 amd64
+~net-vpn/i2pd-2.28.0 amd64
+~net-vpn/networkmanager-strongswan-1.4.4 amd64
+~net-vpn/networkmanager-wireguard-0_pre20191128 amd64
+~net-vpn/wireguard-modules-0.0.20200121 amd64
+~net-vpn/wireguard-tools-1.0.20200121 amd64
+~net-wireless/bladerf-firmware-2.2.0 amd64
+~net-wireless/blueberry-1.1.13 amd64
+~net-wireless/bluez-tools-0_p20161212 amd64
+~net-wireless/hackrf-tools-2018.01.1 amd64
+~net-wireless/portapack-firmware-20190405 amd64
+~sci-biology/fasttree-2.1.8 amd64
+~sci-calculators/gonvert-0.2.39 amd64
+~sci-calculators/grpn-1.4.0 amd64
+~sci-calculators/qalculate-gtk-2.2.0 amd64
+~sci-chemistry/pymol-2.3.0 amd64
+~sci-chemistry/pymol-plugins-bni-tools-0.27 amd64
+~sci-chemistry/pymol-plugins-dssp-110430 amd64
+~sci-chemistry/pymol-plugins-emovie-1.0.4 amd64
+~sci-chemistry/pymol-plugins-promol-3.0.2 amd64
+~sci-electronics/espresso-ab-1.0 amd64
+~sci-electronics/gwave-20120229 amd64
+~sci-geosciences/bt747-2.1.7 amd64
+~sci-geosciences/gpscorrelate-1.6.1 amd64
+~sci-geosciences/gpxpy-0.8.6 amd64
+~sci-geosciences/gpx-viewer-0.4.0 amd64
+~sci-geosciences/grass-7.4.4 amd64
+~sci-geosciences/gshhs-1.13 amd64
+~sci-geosciences/gshhs-data-2.2.0 amd64
+~sci-geosciences/mapnik-3.0.18 amd64
+~sci-geosciences/mapserver-7.0.5 amd64
+~sci-geosciences/mc2bsbh-0.0.9 amd64
+~sci-geosciences/merkaartor-0.18.3 amd64
+~sci-geosciences/opencpn-4.8.2 amd64
+~sci-geosciences/opencpn-plugin-br24radar-2.1 amd64
+~sci-geosciences/opencpn-plugin-climatology-1.0.20180316 amd64
+~sci-geosciences/opencpn-plugin-dr-1.1 amd64
+~sci-geosciences/opencpn-plugin-findit-1.1007 amd64
+~sci-geosciences/opencpn-plugin-gxradar-1.1 amd64
+~sci-geosciences/opencpn-plugin-iacfleet-0.9 amd64
+~sci-geosciences/opencpn-plugin-launcher-1.1 amd64
+~sci-geosciences/opencpn-plugin-logbookkonni-1.3002 amd64
+~sci-geosciences/opencpn-plugin-objsearch-0.7 amd64
+~sci-geosciences/opencpn-plugin-ocpndebugger-1.3 amd64
+~sci-geosciences/opencpn-plugin-ocpn_draw-1.3.14 amd64
+~sci-geosciences/opencpn-plugin-oesenc-1.6.0 amd64
+~sci-geosciences/opencpn-plugin-otcurrent-1.2 amd64
+~sci-geosciences/opencpn-plugin-polar-1.1007 amd64
+~sci-geosciences/opencpn-plugin-radar-0.98 amd64
+~sci-geosciences/opencpn-plugin-route-1.2 amd64
+~sci-geosciences/opencpn-plugins-meta-4.2.0 amd64
+~sci-geosciences/opencpn-plugin-squiddio-0.7 amd64
+~sci-geosciences/opencpn-plugin-statusbar-0.5.20180316 amd64
+~sci-geosciences/opencpn-plugin-watchdog-1.9.051 amd64
+~sci-geosciences/opencpn-plugin-weatherfax-1.3.20180316 amd64
+~sci-geosciences/opencpn-plugin-weather_routing-1.10.1 amd64
+~sci-geosciences/readosm-1.0.0e amd64
+~sci-geosciences/tappy-0.9.0 amd64
+~sci-geosciences/tilecache-2.11 amd64
+~sci-geosciences/viking-1.6.2 amd64
+~sci-libs/flann-1.9.1 amd64
+~sci-libs/gsl-2.5 amd64
+~sci-libs/libqalculate-2.2.0 amd64
+~sci-libs/linux-gpib-4.1.0 amd64
+~sci-libs/mpfi-1.5.3 amd64
+~sci-libs/oce-0.18.3 amd64
+~sci-libs/orocos_kdl-1.3.1 amd64
+~sci-libs/tamu_anova-0.2 amd64
+~sci-libs/vtk-8.1.0 amd64
+~sci-libs/xdrfile-1.1.4 amd64
+~sci-mathematics/num-utils-0.5 amd64
+~sci-mathematics/rstudio-1.2.1335 amd64
+~sci-misc/netlogo-bin-6.0.2 amd64
+~sci-physics/cernlib-2006 amd64
+~sci-physics/lhapdf-6.2.3 amd64
+~sci-visualization/gwyddion-2.55 amd64
+~sci-visualization/opendx-4.4.4 amd64
+~sci-visualization/xgraph-12.1 amd64
 ~sec-policy/apparmor-profiles-2.13.3 amd64
 ~sys-apps/apparmor-2.13.3 amd64
 ~sys-apps/apparmor-utils-2.13.3 amd64
-~sys-apps/fix-gnustack-0.1 amd64 x86
-~sys-apps/kbd-2.2.0 amd64 x86
-~sys-apps/keyutils-1.5.11 amd64 x86
-~sys-apps/miscfiles-1.5 amd64 x86
-~sys-apps/nvme-cli-1.6 amd64 x86
-~sys-apps/pkgcore-0.10.8 amd64 x86
-~sys-apps/s6-2.6.1.1 amd64 x86
-~sys-apps/s6-portable-utils-2.2.1.1 amd64 x86
-~sys-apps/ucspi-proxy-1.1 amd64 x86
-~sys-apps/ucspi-ssl-0.99e amd64 x86
-~sys-apps/yarn-1.21.1 amd64 x86
-~sys-auth/munge-0.5.13 amd64 x86
-~sys-auth/ykpers-1.19.0 amd64 x86
-~sys-boot/plymouth-openrc-plugin-0.1.2 amd64 x86
-~sys-cluster/torque-6.0.4 amd64 x86
-~sys-devel/qconf-2.4 amd64 x86
-~sys-firmware/b43legacy-firmware-3.130.20.0 amd64 x86
-~sys-firmware/ipxe-1.0.0_p20180211 amd64 x86
-~sys-firmware/iwl6050-ucode-41.28.5.1 amd64 x86
-~sys-firmware/midisport-firmware-1.2 amd64 x86
-~sys-firmware/nvidia-firmware-340.32 amd64 x86
-~sys-firmware/seabios-1.11.0 amd64 x86
-~sys-firmware/sgabios-0.1_pre8 amd64 x86
-~sys-firmware/sigrok-firmware-fx2lafw-0.1.6 amd64 x86
-~sys-fs/android-file-transfer-linux-3.9 amd64 x86
-~sys-fs/archivemount-0.8.12 amd64 x86
-~sys-fs/autorun-3.17 amd64 x86
-~sys-fs/bcache-tools-1.0.8_p20140220 amd64 x86
-~sys-fs/bindfs-1.14.1 amd64 x86
-~sys-fs/clamfs-1.0.1 amd64 x86
-~sys-fs/compsize-1.1 amd64 x86
-~sys-fs/copyfs-1.0.1 amd64 x86
-~sys-fs/cryfs-0.9.9 amd64 x86
-~sys-fs/cryptsetup-2.2.2 amd64 x86
-~sys-fs/dislocker-0.7.1 amd64 x86
-~sys-fs/dmg2img-1.6.7 amd64 x86
-~sys-fs/duperemove-0.11.1 amd64 x86
-~sys-fs/e2tools-0.0.16 amd64 x86
-~sys-fs/ecryptfs-utils-108 amd64 x86
-~sys-fs/etcd-fs-0_p20170517 amd64 x86
-~sys-fs/ext3grep-0.10.2 amd64 x86
-~sys-fs/fatresize-1.0.4 amd64 x86
-~sys-fs/fragview-0.1.1 amd64 x86
-~sys-fs/fuse-convmvfs-0.2.6 amd64 x86
-~sys-fs/fuse-zip-0.4.5 amd64 x86
-~sys-fs/jdiskreport-bin-1.4.1 amd64 x86
-~sys-fs/jmtpfs-0.5 amd64 x86
-~sys-fs/ldapfuse-1.0 amd64 x86
-~sys-fs/libeatmydata-105 amd64 x86
-~sys-fs/libfat-0.3a amd64 x86
-~sys-fs/loop-aes-3.7n amd64 x86
-~sys-fs/lufis-0.3 amd64 x86
-~sys-fs/lufs-0.9.7 amd64 x86
-~sys-fs/lvm2-2.02.184 amd64 x86
-~sys-fs/quotatool-1.6.2 amd64 x86
-~sys-fs/rar2fs-1.27.2 amd64 x86
-~sys-fs/rarfs-0.1.1 amd64 x86
-~sys-fs/reiserfs-defrag-0.2.2 amd64 x86
-~sys-fs/snapraid-11.2 amd64 x86
-~sys-fs/squashfuse-0.1.100 amd64 x86
-~sys-fs/tmsu-0.7.0 amd64 x86
-~sys-fs/ufsutils-8.2_p3 amd64 x86
-~sys-fs/unionfs-fuse-2.0 amd64 x86
-~sys-fs/wpflash-0 amd64 x86
-~sys-fs/xwmfs-0.83 amd64 x86
-~sys-fs/yaffs2utils-0.2.9 amd64 x86
-~sys-fs/zerofree-1.0.4 amd64 x86
-~sys-fs/zfs-0.8.2 amd64 x86
-~sys-fs/zfs-auto-snapshot-1.2.4 amd64 x86
-~sys-fs/zfs-kmod-0.8.2 amd64 x86
-~sys-kernel/spl-0.7.13 amd64 x86
-~sys-libs/kpmcore-4.0.0 amd64 x86
-~sys-libs/libapparmor-2.13.3 amd64 x86
-~sys-libs/libixp-0.5_p20110208 amd64 x86
-~sys-libs/libstatgrab-0.91 amd64 x86
-~sys-libs/libstdc++-v3-3.3.6 amd64 x86
-~sys-libs/libudev-compat-186 amd64 x86
-~sys-process/acct-6.6.4 amd64 x86
-~sys-process/bcron-0.11 amd64 x86
+~sys-apps/fix-gnustack-0.1 amd64
+~sys-apps/kbd-2.2.0 amd64
+~sys-apps/keyutils-1.5.11 amd64
+~sys-apps/miscfiles-1.5 amd64
+~sys-apps/nvme-cli-1.6 amd64
+~sys-apps/pkgcore-0.10.8 amd64
+~sys-apps/s6-2.6.1.1 amd64
+~sys-apps/s6-portable-utils-2.2.1.1 amd64
+~sys-apps/ucspi-proxy-1.1 amd64
+~sys-apps/ucspi-ssl-0.99e amd64
+~sys-apps/yarn-1.21.1 amd64
+~sys-auth/munge-0.5.13 amd64
+~sys-auth/ykpers-1.19.0 amd64
+~sys-boot/plymouth-openrc-plugin-0.1.2 amd64
+~sys-cluster/torque-6.0.4 amd64
+~sys-devel/qconf-2.4 amd64
+~sys-firmware/b43legacy-firmware-3.130.20.0 amd64
+~sys-firmware/ipxe-1.0.0_p20180211 amd64
+~sys-firmware/iwl6050-ucode-41.28.5.1 amd64
+~sys-firmware/midisport-firmware-1.2 amd64
+~sys-firmware/nvidia-firmware-340.32 amd64
+~sys-firmware/seabios-1.11.0 amd64
+~sys-firmware/sgabios-0.1_pre8 amd64
+~sys-firmware/sigrok-firmware-fx2lafw-0.1.6 amd64
+~sys-fs/android-file-transfer-linux-3.9 amd64
+~sys-fs/archivemount-0.8.12 amd64
+~sys-fs/autorun-3.17 amd64
+~sys-fs/bcache-tools-1.0.8_p20140220 amd64
+~sys-fs/bindfs-1.14.1 amd64
+~sys-fs/clamfs-1.0.1 amd64
+~sys-fs/compsize-1.1 amd64
+~sys-fs/copyfs-1.0.1 amd64
+~sys-fs/cryfs-0.9.9 amd64
+~sys-fs/cryptsetup-2.2.2 amd64
+~sys-fs/dislocker-0.7.1 amd64
+~sys-fs/dmg2img-1.6.7 amd64
+~sys-fs/duperemove-0.11.1 amd64
+~sys-fs/e2tools-0.0.16 amd64
+~sys-fs/ecryptfs-utils-108 amd64
+~sys-fs/etcd-fs-0_p20170517 amd64
+~sys-fs/ext3grep-0.10.2 amd64
+~sys-fs/fatresize-1.0.4 amd64
+~sys-fs/fragview-0.1.1 amd64
+~sys-fs/fuse-convmvfs-0.2.6 amd64
+~sys-fs/fuse-zip-0.4.5 amd64
+~sys-fs/jdiskreport-bin-1.4.1 amd64
+~sys-fs/jmtpfs-0.5 amd64
+~sys-fs/ldapfuse-1.0 amd64
+~sys-fs/libeatmydata-105 amd64
+~sys-fs/libfat-0.3a amd64
+~sys-fs/loop-aes-3.7n amd64
+~sys-fs/lufis-0.3 amd64
+~sys-fs/lufs-0.9.7 amd64
+~sys-fs/lvm2-2.02.184 amd64
+~sys-fs/quotatool-1.6.2 amd64
+~sys-fs/rar2fs-1.27.2 amd64
+~sys-fs/rarfs-0.1.1 amd64
+~sys-fs/reiserfs-defrag-0.2.2 amd64
+~sys-fs/snapraid-11.2 amd64
+~sys-fs/squashfuse-0.1.100 amd64
+~sys-fs/tmsu-0.7.0 amd64
+~sys-fs/ufsutils-8.2_p3 amd64
+~sys-fs/unionfs-fuse-2.0 amd64
+~sys-fs/wpflash-0 amd64
+~sys-fs/xwmfs-0.83 amd64
+~sys-fs/yaffs2utils-0.2.9 amd64
+~sys-fs/zerofree-1.0.4 amd64
+~sys-fs/zfs-0.8.2 amd64
+~sys-fs/zfs-auto-snapshot-1.2.4 amd64
+~sys-fs/zfs-kmod-0.8.2 amd64
+~sys-kernel/spl-0.7.13 amd64
+~sys-libs/kpmcore-4.0.0 amd64
+~sys-libs/libapparmor-2.13.3 amd64
+~sys-libs/libixp-0.5_p20110208 amd64
+~sys-libs/libstatgrab-0.91 amd64
+~sys-libs/libstdc++-v3-3.3.6 amd64
+~sys-libs/libudev-compat-186 amd64
+~sys-process/acct-6.6.4 amd64
+~sys-process/bcron-0.11 amd64
 ~sys-process/criu-3.11 amd64
-~sys-process/memwatch-0.3.3 amd64 x86
-~sys-process/numad-0.5 amd64 x86
-~sys-process/tini-0.18.0 amd64 x86
-~virtual/cargo-1.37.0 amd64 x86
-~virtual/libstdc++-3.3 amd64 x86
-~virtual/rust-1.37.0 amd64 x86
-~virtual/wireguard-1 amd64 x86
-~www-client/chromium-79.0.3945.130 x86
-~www-client/httrack-3.49.2 amd64 x86
-~www-client/w3mmee-0.3.2_p24 amd64 x86
-~www-servers/boa-0.94.14_rc21 amd64 x86
-~www-servers/bozohttpd-20170201 amd64 x86
-~www-servers/cherokee-1.2.104 amd64 x86
-~www-servers/fnord-1.11 amd64 x86
-~www-servers/hiawatha-9.15 amd64 x86
-~www-servers/resin-4.0.48 amd64 x86
-~www-servers/tornado-5.1 amd64 x86
-~x11-base/xcb-proto-1.13 amd64 x86
-~x11-drivers/xf86-video-vboxvideo-1.0.0 amd64 x86
-~x11-libs/guile-gtk-2.1 amd64 x86
-~x11-libs/libcryptui-3.12.2 amd64 x86
-~x11-libs/libtinynotify-0.2.1 amd64 x86
-~x11-libs/libtinynotify-cli-1.2.1 amd64 x86
-~x11-libs/libtinynotify-systemwide-0.1 amd64 x86
-~x11-libs/qtermwidget-0.14.1 amd64 x86
-~x11-libs/xapps-1.4.2 amd64 x86
-~x11-misc/accessx-0951 amd64 x86
-~x11-misc/bbacpi-0.1.5 amd64 x86
-~x11-misc/bbcd-0.3.1 amd64 x86
-~x11-misc/bbkeys-0.9.1 amd64 x86
-~x11-misc/bbtime-0.1.5 amd64 x86
-~x11-misc/blockdpy-1 amd64 x86
-~x11-misc/cairo-clock-0.3.4 amd64 x86
-~x11-misc/devilspie-0.23 amd64 x86
-~x11-misc/dex-0.8.0 amd64 x86
-~x11-misc/dsx-0.1 amd64 x86
-~x11-misc/dxpc-3.9.2 amd64 x86
-~x11-misc/easystroke-0.6.0 amd64 x86
-~x11-misc/enlightenment-extra-0.0.1 amd64 x86
-~x11-misc/flow-pomodoro-1.2.0 amd64 x86
-~x11-misc/fracplanet-0.5.1 amd64 x86
-~x11-misc/fraqtive-0.4.8 amd64 x86
-~x11-misc/ftmenu-0.4.0 amd64 x86
-~x11-misc/gbdfed-1.6 amd64 x86
-~x11-misc/genmenu-1.1.0 amd64 x86
-~x11-misc/googsystray-1.3.1 amd64 x86
-~x11-misc/gpaste-3.20.3 amd64 x86
-~x11-misc/gromit-20041213 amd64 x86
-~x11-misc/grub2-theme-preview-1.3.2 amd64 x86
-~x11-misc/gtk2fontsel-0.1 amd64 x86
-~x11-misc/iconbox-0.2 amd64 x86
-~x11-misc/j4-dmenu-desktop-2.17 amd64 x86
-~x11-misc/kapow-1.5.8 amd64 x86
-~x11-misc/kaqaz-1.2.0 amd64 x86
-~x11-misc/kbdd-0.7.1 amd64 x86
-~x11-misc/libinput-gestures-2.48 amd64 x86
-~x11-misc/lightdm-1.26.0 amd64 x86
-~x11-misc/lightdm-gtk-greeter-2.0.6 amd64 x86
-~x11-misc/lightdm-mini-greeter-0.3.2 amd64 x86
-~x11-misc/light-locker-1.8.0 amd64 x86
-~x11-misc/lineak-defaultplugin-0.9.0 amd64 x86
-~x11-misc/lsw-0.3 amd64 x86
-~x11-misc/magick-rotation-1.6.2 amd64 x86
-~x11-misc/mgm-1.2 amd64 x86
-~x11-misc/mugshot-0.4.1 amd64 x86
-~x11-misc/nts-82 amd64 x86
-~x11-misc/obconf-2.0.4 amd64 x86
-~x11-misc/obmenu-generator-0.85 amd64 x86
-~x11-misc/oroborus-deskmenu-1.4.5 amd64 x86
-~x11-misc/oroborus-keylaunch-1.3.9 amd64 x86
-~x11-misc/peksystray-0.4.0 amd64 x86
-~x11-misc/piedock-1.6.9 amd64 x86
-~x11-misc/primus-0.2 amd64 x86
-~x11-misc/qarma-1 amd64 x86
-~x11-misc/qt5ct-0.35 amd64 x86
-~x11-misc/quitcount-3.1.3 amd64 x86
-~x11-misc/rss-glx-0.9.1 amd64 x86
-~x11-misc/safeeyes-2.0.9 amd64 x86
-~x11-misc/screen-message-0.25 amd64 x86
-~x11-misc/seetxt-0.72 amd64 x86
-~x11-misc/sent-1 amd64 x86
-~x11-misc/set_opacity-1.0 amd64 x86
-~x11-misc/sisctrl-0.0.20051202 amd64 x86
-~x11-misc/slop-7.4 amd64 x86
-~x11-misc/sprop-0.1 amd64 x86
-~x11-misc/superswitcher-0.6 amd64 x86
-~x11-misc/sxhkd-0.6.1 amd64 x86
-~x11-misc/tabbed-0.6 amd64 x86
-~x11-misc/tinynotify-send-1.2.1 amd64 x86
-~x11-misc/unclutter-xfixes-1.5 amd64 x86
-~x11-misc/urxvtconfig-1.0 amd64 x86
-~x11-misc/vnc2swf-0.5.0 amd64 x86
-~x11-misc/vym-2.7.1 amd64 x86
-~x11-misc/wayv-0.3 amd64 x86
-~x11-misc/whaw-0.2 amd64 x86
-~x11-misc/xcalib-0.10 amd64 x86
-~x11-misc/xcape-1.2 amd64 x86
-~x11-misc/xcave-2.4.0 amd64 x86
-~x11-misc/xdo-0.5.7 amd64 x86
-~x11-misc/xdock-0.3.0 amd64 x86
-~x11-misc/xgestures-0.4 amd64 x86
-~x11-misc/xiccd-0.3.0 amd64 x86
-~x11-misc/xidle-26052015 amd64 x86
-~x11-misc/xkblayout-state-0_p20180118 amd64 x86
-~x11-misc/xkbset-0.5_p6 amd64 x86
-~x11-misc/xnee-3.19 amd64 x86
-~x11-misc/xplanetFX-2.6.14 amd64 x86
-~x11-misc/xprintidle-2.1 amd64 x86
-~x11-misc/xsr-1.0.0 amd64 x86
-~x11-misc/xss-lock-0.3.0_p20140302 amd64 x86
-~x11-misc/xssstate-1.1 amd64 x86
-~x11-misc/xstroke-0.6 amd64 x86
-~x11-misc/xtrace-1.4.0 amd64 x86
-~x11-misc/xvfb-run-1.19.3_p2 amd64 x86
-~x11-misc/xwit-3.4_p15 amd64 x86
-~x11-plugins/asmon-0.71 amd64 x86
-~x11-plugins/wmmaiload-2.3.0 amd64 x86
-~x11-terms/lilyterm-0.9.9.4 amd64 x86
-~x11-terms/pangoterm-0.0_pre20160305 amd64 x86
-~x11-themes/clearlooks-phenix-7.0.1 amd64 x86
-~x11-themes/gartoon-0.5 amd64 x86
-~x11-wm/bspwm-0.9.9 amd64 x86
-~x11-wm/echinus-0.4.9 amd64 x86
-~x11-wm/goomwwm-1.0.0 amd64 x86
-~x11-wm/matwm2-0.1.2_pre3 amd64 x86
-~x11-wm/notion-3_p2015061300 amd64 x86
-~x11-wm/plwm-2.7_rc1 amd64 x86
-~x11-wm/sithwm-1.2.3 amd64 x86
-~x11-wm/subtle-0.11.3244 amd64 x86
-~x11-wm/windowmaker-0.95.8 amd64 x86
-~x11-wm/wmfs-201003 amd64 x86
-~x11-wm/wmii-3.9.2 amd64 x86
-~xfce-extra/xfce4-indicator-plugin-2.3.3 amd64 x86
+~sys-process/memwatch-0.3.3 amd64
+~sys-process/numad-0.5 amd64
+~sys-process/tini-0.18.0 amd64
+~virtual/cargo-1.37.0 amd64
+~virtual/libstdc++-3.3 amd64
+~virtual/rust-1.37.0 amd64
+~virtual/wireguard-1 amd64
+~www-client/chromium-79.0.3945.130
+~www-client/httrack-3.49.2 amd64
+~www-client/w3mmee-0.3.2_p24 amd64
+~www-servers/boa-0.94.14_rc21 amd64
+~www-servers/bozohttpd-20170201 amd64
+~www-servers/cherokee-1.2.104 amd64
+~www-servers/fnord-1.11 amd64
+~www-servers/hiawatha-9.15 amd64
+~www-servers/resin-4.0.48 amd64
+~www-servers/tornado-5.1 amd64
+~x11-base/xcb-proto-1.13 amd64
+~x11-drivers/xf86-video-vboxvideo-1.0.0 amd64
+~x11-libs/guile-gtk-2.1 amd64
+~x11-libs/libcryptui-3.12.2 amd64
+~x11-libs/libtinynotify-0.2.1 amd64
+~x11-libs/libtinynotify-cli-1.2.1 amd64
+~x11-libs/libtinynotify-systemwide-0.1 amd64
+~x11-libs/qtermwidget-0.14.1 amd64
+~x11-libs/xapps-1.4.2 amd64
+~x11-misc/accessx-0951 amd64
+~x11-misc/bbacpi-0.1.5 amd64
+~x11-misc/bbcd-0.3.1 amd64
+~x11-misc/bbkeys-0.9.1 amd64
+~x11-misc/bbtime-0.1.5 amd64
+~x11-misc/blockdpy-1 amd64
+~x11-misc/cairo-clock-0.3.4 amd64
+~x11-misc/devilspie-0.23 amd64
+~x11-misc/dex-0.8.0 amd64
+~x11-misc/dsx-0.1 amd64
+~x11-misc/dxpc-3.9.2 amd64
+~x11-misc/easystroke-0.6.0 amd64
+~x11-misc/enlightenment-extra-0.0.1 amd64
+~x11-misc/flow-pomodoro-1.2.0 amd64
+~x11-misc/fracplanet-0.5.1 amd64
+~x11-misc/fraqtive-0.4.8 amd64
+~x11-misc/ftmenu-0.4.0 amd64
+~x11-misc/gbdfed-1.6 amd64
+~x11-misc/genmenu-1.1.0 amd64
+~x11-misc/googsystray-1.3.1 amd64
+~x11-misc/gpaste-3.20.3 amd64
+~x11-misc/gromit-20041213 amd64
+~x11-misc/grub2-theme-preview-1.3.2 amd64
+~x11-misc/gtk2fontsel-0.1 amd64
+~x11-misc/iconbox-0.2 amd64
+~x11-misc/j4-dmenu-desktop-2.17 amd64
+~x11-misc/kapow-1.5.8 amd64
+~x11-misc/kaqaz-1.2.0 amd64
+~x11-misc/kbdd-0.7.1 amd64
+~x11-misc/libinput-gestures-2.48 amd64
+~x11-misc/lightdm-1.26.0 amd64
+~x11-misc/lightdm-gtk-greeter-2.0.6 amd64
+~x11-misc/lightdm-mini-greeter-0.3.2 amd64
+~x11-misc/light-locker-1.8.0 amd64
+~x11-misc/lineak-defaultplugin-0.9.0 amd64
+~x11-misc/lsw-0.3 amd64
+~x11-misc/magick-rotation-1.6.2 amd64
+~x11-misc/mgm-1.2 amd64
+~x11-misc/mugshot-0.4.1 amd64
+~x11-misc/nts-82 amd64
+~x11-misc/obconf-2.0.4 amd64
+~x11-misc/obmenu-generator-0.85 amd64
+~x11-misc/oroborus-deskmenu-1.4.5 amd64
+~x11-misc/oroborus-keylaunch-1.3.9 amd64
+~x11-misc/peksystray-0.4.0 amd64
+~x11-misc/piedock-1.6.9 amd64
+~x11-misc/primus-0.2 amd64
+~x11-misc/qarma-1 amd64
+~x11-misc/qt5ct-0.35 amd64
+~x11-misc/quitcount-3.1.3 amd64
+~x11-misc/rss-glx-0.9.1 amd64
+~x11-misc/safeeyes-2.0.9 amd64
+~x11-misc/screen-message-0.25 amd64
+~x11-misc/seetxt-0.72 amd64
+~x11-misc/sent-1 amd64
+~x11-misc/set_opacity-1.0 amd64
+~x11-misc/sisctrl-0.0.20051202 amd64
+~x11-misc/slop-7.4 amd64
+~x11-misc/sprop-0.1 amd64
+~x11-misc/superswitcher-0.6 amd64
+~x11-misc/sxhkd-0.6.1 amd64
+~x11-misc/tabbed-0.6 amd64
+~x11-misc/tinynotify-send-1.2.1 amd64
+~x11-misc/unclutter-xfixes-1.5 amd64
+~x11-misc/urxvtconfig-1.0 amd64
+~x11-misc/vnc2swf-0.5.0 amd64
+~x11-misc/vym-2.7.1 amd64
+~x11-misc/wayv-0.3 amd64
+~x11-misc/whaw-0.2 amd64
+~x11-misc/xcalib-0.10 amd64
+~x11-misc/xcape-1.2 amd64
+~x11-misc/xcave-2.4.0 amd64
+~x11-misc/xdo-0.5.7 amd64
+~x11-misc/xdock-0.3.0 amd64
+~x11-misc/xgestures-0.4 amd64
+~x11-misc/xiccd-0.3.0 amd64
+~x11-misc/xidle-26052015 amd64
+~x11-misc/xkblayout-state-0_p20180118 amd64
+~x11-misc/xkbset-0.5_p6 amd64
+~x11-misc/xnee-3.19 amd64
+~x11-misc/xplanetFX-2.6.14 amd64
+~x11-misc/xprintidle-2.1 amd64
+~x11-misc/xsr-1.0.0 amd64
+~x11-misc/xss-lock-0.3.0_p20140302 amd64
+~x11-misc/xssstate-1.1 amd64
+~x11-misc/xstroke-0.6 amd64
+~x11-misc/xtrace-1.4.0 amd64
+~x11-misc/xvfb-run-1.19.3_p2 amd64
+~x11-misc/xwit-3.4_p15 amd64
+~x11-plugins/asmon-0.71 amd64
+~x11-plugins/wmmaiload-2.3.0 amd64
+~x11-terms/lilyterm-0.9.9.4 amd64
+~x11-terms/pangoterm-0.0_pre20160305 amd64
+~x11-themes/clearlooks-phenix-7.0.1 amd64
+~x11-themes/gartoon-0.5 amd64
+~x11-wm/bspwm-0.9.9 amd64
+~x11-wm/echinus-0.4.9 amd64
+~x11-wm/goomwwm-1.0.0 amd64
+~x11-wm/matwm2-0.1.2_pre3 amd64
+~x11-wm/notion-3_p2015061300 amd64
+~x11-wm/plwm-2.7_rc1 amd64
+~x11-wm/sithwm-1.2.3 amd64
+~x11-wm/subtle-0.11.3244 amd64
+~x11-wm/windowmaker-0.95.8 amd64
+~x11-wm/wmfs-201003 amd64
+~x11-wm/wmii-3.9.2 amd64
+~xfce-extra/xfce4-indicator-plugin-2.3.3 amd64

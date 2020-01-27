@@ -1,0 +1,4 @@
+# Calculate path=/etc/portage/make.conf name=custom format=patch ini(overlay-calculate.revision)=>20191116.3,#-cut(0,-,#-cl_pass_file-#)-#&&exists(/etc/portage/make.conf/custom)!=
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+<reg>FEATURES="([^"\$])</reg>
+<text>FEATURES="${FEATURES} \1</text>
