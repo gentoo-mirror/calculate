@@ -1,0 +1,70 @@
+# Calculate chmod=0755
+#!/sbin/openrc-run
+# Copyright 1999-2007 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+VPNDIR=${VPNDIR:-/etc/wireguard}
+VPN=${SVCNAME#*.}
+[[ $VPN == wireguard ]] && VPN="wg0"
+VPNCONF="${VPNDIR}/${VPN}.conf"
+
+depend() {
+	need localmount net
+	use dns
+	after bootmisc
+}
+
+checkconfig() {
+	if [ ! -e /sys/module/wireguard ]; then
+		if ! modprobe wireguard ; then
+			eerror "WireGuard support is not available" \
+				"in this kernel"
+			return 1
+		fi
+	fi
+	return 0
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+
+	checkconfig || return 1
+
+	output="$(/usr/bin/wg-quick up ${VPNCONF} 2>&1)"
+	res=$?
+	if [[ $res != 0 ]]
+	then
+		while read line;
+		do
+			eerror "  ${line:4}"
+		done <<<$output
+	else
+		while read line;
+		do
+			einfo "  ${line:4}"
+		done <<<$output
+	fi
+
+	eend $res
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+
+	output="$(/usr/bin/wg-quick down ${VPNCONF} 2>&1)"
+	if [[ $? != 0 ]]
+	then
+		while read line;
+		do
+			ewarn "  ${line:4}"
+		done <<<$output
+	else
+		while read line;
+		do
+			einfo "  ${line:4}"
+		done <<<$output
+	fi
+	eend 0
+}
+
+# vim: set ts=4 :
