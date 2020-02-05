@@ -679,3 +679,6 @@ sys-fs/quota rpc
 
 # required by media-libs/ganv-1.4.2-r1[introspection]
 dev-libs/gobject-introspection doctool
+
+# required by dev-ruby/rrdtool-bindings-1.6.0
+net-analyzer/rrdtool graph
