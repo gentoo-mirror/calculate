@@ -17,3 +17,5 @@ IUSE=""
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND=""
+
+PATCHES=( "${FILESDIR}/progressbar-2.3-python3.3.patch" )
