@@ -3,17 +3,18 @@
 
 EAPI=7
 
-MY_PV="5.3.4"
+MY_PV="5.3.7"
+ARCH_FILE="zoiper5_${MY_PV}_x86_64.tar.xz"
 
 DESCRIPTION="Free VoIP softphone for non-commercial use"
 HOMEPAGE="www.zoiper.com"
-SRC_URI="https://www.zoiper.com/en/voip-softphone/download/zoiper5/for/linux -> zoiper5_${MY_PV}_x86_64.tar.xz"
+SRC_URI="https://www.zoiper.com/en/voip-softphone/download/zoiper5/for/linux -> $ARCH_FILE"
 
 LICENSE="EULA"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="pulseaudio"
-RESTRICT="binchecks bindist strip"
+RESTRICT="binchecks fetch bindist strip"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -31,6 +32,14 @@ RDEPEND="${DEPEND}
 BDEPEND=""
 
 S="${WORKDIR}"
+
+pkg_nofetch() {
+	einfo "Please download ${ARCH_FILE} and move it to"
+	einfo "your distfiles directory:"
+	einfo
+	einfo "https://www.zoiper.com/en/voip-softphone/download/current"
+	einfo
+}
 
 src_install() {
 	insinto /opt
