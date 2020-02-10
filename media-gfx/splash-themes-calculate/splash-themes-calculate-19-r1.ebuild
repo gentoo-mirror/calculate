@@ -28,7 +28,8 @@ DEPEND="sys-boot/plymouth-calculate-plugin
 
 # need for templates
 RDEPEND="${DEPEND}
-	media-gfx/imagemagick"
+	|| ( media-gfx/imagemagick
+	media-gfx/graphicsmagick )"
 
 S="${WORKDIR}"
 

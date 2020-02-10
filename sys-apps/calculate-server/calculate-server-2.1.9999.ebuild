@@ -33,7 +33,8 @@ DEPEND="=sys-apps/calculate-lib-9999
 	>=net-dns/bind-9.6.1_p1[sdb-ldap]
 	>=net-proxy/squid-3.0.14[ldap,pam,ssl]
 	>=net-misc/dhcp-3.1.2_p1
-	>=media-gfx/imagemagick-6.6
+	|| ( media-gfx/imagemagick
+		media-gfx/graphicsmagick )
 	dev-python/pymilter"
 
 RDEPEND="${DEPEND}"

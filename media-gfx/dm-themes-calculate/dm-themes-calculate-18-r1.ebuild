@@ -23,7 +23,8 @@ DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
 # need for templates
 RDEPEND="${DEPEND}
-	media-gfx/imagemagick"
+	|| ( media-gfx/imagemagick
+	media-gfx/graphicsmagick )"
 
 S="${WORKDIR}"
 
