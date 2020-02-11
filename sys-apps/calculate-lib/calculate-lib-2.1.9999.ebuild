@@ -5,7 +5,7 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
-inherit distutils-r1 git-2
+inherit distutils-r1 git-r3
 
 EGIT_REPO_URI="git://git.calculate-linux.org/calculate-2.1/calculate-lib.git"
 

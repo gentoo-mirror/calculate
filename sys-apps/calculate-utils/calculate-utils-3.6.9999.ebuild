@@ -5,7 +5,7 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
-inherit calculate-utils-r6 git-2
+inherit calculate-utils-r6 git-r3
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
@@ -21,6 +21,6 @@ src_unpack() {
 	do
 		MODULE_DATA=( $MODULE )
 		MODULE_PN=${MODULE_DATA[0]}
-		EGIT_SOURCEDIR=${WORKDIR}/${MODULE_PN}-${PV} EGIT_REPO_URI=git://git.calculate-linux.org/calculate-3/${MODULE_PN}.git git-2_src_unpack
+		EGIT_CHECKOUT_DIR=${WORKDIR}/${MODULE_PN}-${PV} EGIT_REPO_URI=git://git.calculate-linux.org/calculate-3/${MODULE_PN}.git git-r3_src_unpack
 	done
 }

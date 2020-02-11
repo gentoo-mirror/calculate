@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Cryptodata management tools"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_access"
@@ -22,7 +22,7 @@ src_install() {
 	then
 		DESTDIR=$D emake install_client
 	fi
-	
+
 	if use server
 	then
 		DESTDIR=$D emake install_server
