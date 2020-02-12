@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DEPEND=!<sys-apps/calculate-utils-3.5.2.6
+DESCRIPTION=Wallpapers for Calculate Linux
+EAPI=4
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers
+IUSE=+CL11 +CL12 +CL13 +CL14 +CL15
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+RDEPEND=!<sys-apps/calculate-utils-3.5.2.6 || ( media-gfx/imagemagick media-gfx/graphicsmagick )
+SLOT=0
+SRC_URI=https://mirror.calculate-linux.org/themes/calculate/wallpaper-17.jpg -> calculate-wallpapers-17-r4.jpg https://mirror.yandex.ru/calculate/themes/calculate/wallpaper-17.jpg -> calculate-wallpapers-17-r4.jpg CL15? ( https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-15.tar.bz2 https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-15.tar.bz2 ) CL14? ( https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-14-r1.tar.bz2 https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2 ) CL11? ( https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-11.tar.bz2 https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-11.tar.bz2 ) CL12? ( https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-12.tar.bz2 https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-12.tar.bz2 ) CL13? ( https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-13.tar.bz2 https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-13.tar.bz2 )
+_md5_=6211542e10a0b8c775d45a1db76fd027
