@@ -51,7 +51,8 @@ DEPEND="=sys-apps/calculate-lib-2.1.12-r2
 	!calculate_nojabber? (
 		|| ( >=net-im/ejabberd-2.1.8[mod_pubsub,ldap]
 			>=net-im/ejabberd-16.04-r1[ldap] )
-		>=media-gfx/imagemagick-6.6
+		|| ( media-gfx/imagemagick
+			media-gfx/graphicsmagick )
 	)
 	!calculate_nonamed? ( >=net-dns/bind-9.6.1_p1[sdb-ldap] )
 	!calculate_noproxy? ( >=net-proxy/squid-3.0.14[ldap,pam,ssl] )

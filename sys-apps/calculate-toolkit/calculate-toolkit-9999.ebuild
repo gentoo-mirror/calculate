@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Collection of administration scripts for Calculate"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_toolkit"

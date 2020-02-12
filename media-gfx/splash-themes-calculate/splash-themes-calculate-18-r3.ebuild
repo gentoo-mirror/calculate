@@ -21,8 +21,8 @@ SRC_URI="silent? (
 		ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-verbose-18.jpg -> ${PN}-verbose-18.jpg
 		http://mirror.yandex.ru/calculate/themes/calculate/splash-verbose-18.jpg -> ${PN}-verbose-18.jpg )
 	silent-shutdown? (
-		ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-shutdown-18.jpg -> ${PN}-shutdown-18.jpg
-		http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-18.jpg -> ${PN}-shutdown-18.jpg )"
+		ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-shutdown-18-r1.jpg -> ${PN}-shutdown-18-r1.jpg
+		http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-18-r1.jpg -> ${PN}-shutdown-18-r1.jpg )"
 
 DEPEND="media-gfx/splashutils
 	media-fonts/droid
@@ -30,7 +30,8 @@ DEPEND="media-gfx/splashutils
 
 # need for templates
 RDEPEND="${DEPEND}
-	media-gfx/imagemagick"
+	|| ( media-gfx/imagemagick
+	media-gfx/graphicsmagick )"
 
 S="${WORKDIR}"
 
@@ -42,7 +43,7 @@ src_install() {
 	fi
 	if use silent-shutdown
 	then
-		newins "${DISTDIR}"/${PN}-shutdown-${PV}.jpg splash-shutdown.jpg
+		newins "${DISTDIR}"/${PN}-shutdown-18-r1.jpg splash-shutdown.jpg
 	fi
 	if use verbose
 	then

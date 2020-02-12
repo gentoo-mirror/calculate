@@ -12,19 +12,20 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/calculate/grub-18-r1.jpg -> ${PF}.jpg
-	http://mirror.yandex.ru/calculate/themes/calculate/grub-18-r1.jpg -> ${PF}.jpg"
+SRC_URI="ftp://ftp.calculate-linux.org/calculate/themes/calculate/grub-17-r1.jpg -> ${P}.jpg
+	http://mirror.yandex.ru/calculate/themes/calculate/grub-17-r1.jpg -> ${P}.jpg"
 
 DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
 # need for templates
 RDEPEND="${DEPEND}
-	media-gfx/imagemagick"
+	|| ( media-gfx/imagemagick
+	media-gfx/graphicsmagick )"
 
 S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/themes/Calculate/
-	newins "${DISTDIR}"/${PF}.jpg grub.jpg
+	newins "${DISTDIR}"/${P}.jpg grub.jpg
 }
 

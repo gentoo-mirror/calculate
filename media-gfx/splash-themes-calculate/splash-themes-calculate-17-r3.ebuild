@@ -30,7 +30,9 @@ DEPEND="media-gfx/splashutils
 
 # need for templates
 RDEPEND="${DEPEND}
-	media-gfx/imagemagick"
+	|| ( media-gfx/imagemagick
+	media-gfx/graphicsmagick )"
+
 
 S="${WORKDIR}"
 

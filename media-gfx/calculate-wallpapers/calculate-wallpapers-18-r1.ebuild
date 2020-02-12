@@ -10,12 +10,16 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
-VERSION_IUSE="CL11 CL12 CL13 CL14 CL15"
-IUSE="+CL11 +CL12 +CL13 +CL14 +CL15"
+VERSION_IUSE="CL11 CL12 CL13 CL14 CL15 CL17"
+IUSE="+CL11 +CL12 +CL13 +CL14 +CL15 +CL17"
 
 SRC_URI="
-	https://mirror.calculate-linux.org/themes/calculate/wallpaper-17.jpg -> ${PF}.jpg
-	https://mirror.yandex.ru/calculate/themes/calculate/wallpaper-17.jpg -> ${PF}.jpg
+	https://mirror.calculate-linux.org/themes/calculate/wallpaper-18.jpg -> ${PF}.jpg
+	https://mirror.yandex.ru/calculate/themes/calculate/wallpaper-18.jpg -> ${PF}.jpg
+	CL17? (
+		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-17.tar.bz2
+		https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-17.tar.bz2
+	)
 	CL15? (
 		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-15.tar.bz2
 		https://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-15.tar.bz2
@@ -42,7 +46,8 @@ DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
 # need for templates
 RDEPEND="${DEPEND}
-	media-gfx/imagemagick"
+	|| ( media-gfx/imagemagick
+	media-gfx/graphicsmagick )"
 
 S="${WORKDIR}"
 
@@ -63,6 +68,10 @@ src_install() {
 			if [[ $useflag == CL15 ]]
 			then
 				mv usr/share/wallpapers/Calculate_Linux usr/share/wallpapers/Calculate_Linux_15
+			fi
+			if [[ $useflag == CL17 ]]
+			then
+				mv usr/share/wallpapers/Calculate_Linux usr/share/wallpapers/Calculate_Linux_17
 			fi
 			doins -r usr
 		fi

@@ -5,22 +5,21 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
-inherit calculate-utils-r6 git-r3
+declare -A CALCULATE_MODULES=(
+	["lib"]="3.6.7.13"
+	["install"]="3.6.7.7"
+	["core"]="3.6.7.3"
+	["i18n"]="3.6.7.7"
+	["update"]="3.6.7.7"
+	["builder"]="3.6.7.5"
+)
+
+inherit calculate-utils-r6
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
-SRC_URI=""
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS=""
+KEYWORDS="amd64"
 
-src_unpack() {
-	prepare_module_info
-	for MODULE in "${MODULE_INFO[@]}"
-	do
-		MODULE_DATA=( $MODULE )
-		MODULE_PN=${MODULE_DATA[0]}
-		EGIT_CHECKOUT_DIR=${WORKDIR}/${MODULE_PN}-${PV} EGIT_REPO_URI=git://git.calculate-linux.org/calculate-3/${MODULE_PN}.git git-r3_src_unpack
-	done
-}

@@ -5,7 +5,7 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
-inherit distutils-r1 git-2
+inherit distutils-r1 git-r3
 
 EGIT_REPO_URI="git://git.calculate-linux.org/calculate-2.1/calculate-server.git"
 
@@ -33,7 +33,8 @@ DEPEND="=sys-apps/calculate-lib-9999
 	>=net-dns/bind-9.6.1_p1[sdb-ldap]
 	>=net-proxy/squid-3.0.14[ldap,pam,ssl]
 	>=net-misc/dhcp-3.1.2_p1
-	>=media-gfx/imagemagick-6.6
+	|| ( media-gfx/imagemagick
+		media-gfx/graphicsmagick )
 	dev-python/pymilter"
 
 RDEPEND="${DEPEND}"
