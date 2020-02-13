@@ -4,23 +4,10 @@ sci-libs/lapack-reference
 
 =dev-python/pyflakes-2.1.1
 
-
 # deprecated
 sys-process/vixie-cron
 
-# locks in dependencies
-=app-misc/graphlcd-base-1.0.2
-=app-misc/glcdprocdriver-0.1.2
-=dev-python/dnspython-1.16.0
-=dev-libs/openssl-compat-1.0.2t-r1
-=dev-python/flake8-3.7.9
-
-# block with perl-core/File-Path-2.150.0
-~virtual/perl-File-Path-2.150.0
-
 # crash cinnamon-settings
-=dev-python/pillow-6.0.0
-=dev-python/pillow-5.4.1
 
 =dev-python/keyring-18.0.1
 
@@ -30,32 +17,3 @@ sys-process/vixie-cron
 # prevent automagic depends
 sys-libs/db:6.0
 
-# not compiled
-=app-emacs/ecb-2.50_pre20170728
-=dev-php/ming-php-0.4.8
-=net-news/snownews-1.6.10
-=sci-mathematics/alt-ergo-2.3.0
-
-# not compiled dev-java/netbeans-ide-8.2-r1 with dev-java/ant-core-1.10.5
-~dev-java/ant-1.10.5
-~dev-java/ant-antlr-1.10.5
-~dev-java/ant-apache-bcel-1.10.5
-~dev-java/ant-apache-bsf-1.10.5
-~dev-java/ant-apache-log4j-1.10.5
-~dev-java/ant-apache-oro-1.10.5
-~dev-java/ant-apache-regexp-1.10.5
-~dev-java/ant-apache-resolver-1.10.5
-~dev-java/ant-apache-xalan2-1.10.5
-~dev-java/ant-commons-logging-1.10.5
-~dev-java/ant-commons-net-1.10.5
-~dev-java/ant-core-1.10.5
-~dev-java/ant-jai-1.10.5
-~dev-java/ant-javamail-1.10.5
-~dev-java/ant-jdepend-1.10.5
-~dev-java/ant-jmf-1.10.5
-~dev-java/ant-jsch-1.10.5
-~dev-java/ant-junit-1.10.5
-~dev-java/ant-junit4-1.10.5
-~dev-java/ant-junitlauncher-1.10.5
-~dev-java/ant-swing-1.10.5
-~dev-java/ant-testutil-1.10.5
