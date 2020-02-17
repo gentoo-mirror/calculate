@@ -682,3 +682,6 @@ dev-libs/gobject-introspection doctool
 
 # required by dev-ruby/rrdtool-bindings-1.6.0
 net-analyzer/rrdtool graph
+
+# required by dev-db/myodbc-8.0.19
+dev-db/mysql-connector-c static-libs
