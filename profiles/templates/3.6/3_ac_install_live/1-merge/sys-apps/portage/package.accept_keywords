@@ -1,4 +1,4 @@
-# Calculate path=/etc/portage/package.keywords name=custom protected exists(/etc/portage/package.keywords/custom)==
+# Calculate path=/etc/portage/package.accept_keywords name=custom protected exists(/etc/portage/package.accept_keywords/custom)==
 #?os_install_locale_lang==ru_RU#
 # Этот файл будет перенесён при установке системы
 #!os_install_locale_lang#
