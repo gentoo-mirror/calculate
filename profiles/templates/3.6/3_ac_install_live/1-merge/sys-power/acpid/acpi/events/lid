@@ -1,0 +1,5 @@
+# Calculate comment=#
+# /etc/acpi/events/lid
+
+event=button/lid LID close
+action=/etc/acpi/actions/lid.sh %e
