@@ -38,4 +38,4 @@ gnome-extra/cinnamon-session elogind
 net-analyzer/ossec-hids hybrid postgres
 
 # exactly-one-of ( iptables nftables )
-net-misc/connman iptables
+net-misc/connman -nftables
