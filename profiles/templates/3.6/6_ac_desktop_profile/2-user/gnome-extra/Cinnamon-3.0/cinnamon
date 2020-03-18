@@ -106,7 +106,8 @@ three-finger-click=3
 
 [cinnamon/settings-daemon/plugins/power]
 button-power='interactive'
-lid-close-ac-action='nothing'
+lid-close-battery-action='suspend'
+lid-close-ac-action='suspend'
 sleep-display-ac=#-sum(sleep,60*#-ini(profile.power-display-sleep)-#)-#
 sleep-display-battery=#-sum(sleep,60*#-ini(profile.power-display-sleep)-#)-#
 #?os_root_type==livecd#
