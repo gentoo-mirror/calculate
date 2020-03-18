@@ -136,6 +136,8 @@ theme='coco'
 [power-manager]
 sleep-computer-ac=#-sum(sleep,60*#-ini(profile.power-computer-sleep)-#)-#
 sleep-display-ac=#-sum(sleep,60*#-ini(profile.power-display-sleep)-#)-#
+button-lid-ac='suspend'
+button-lid-battery='suspend'
 
 [screensaver]
 #?ini(profile.screensaver-activation)==on&&os_root_type!=livecd#
