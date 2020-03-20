@@ -685,3 +685,6 @@ net-analyzer/rrdtool graph
 
 # required by dev-db/myodbc-8.0.19
 dev-db/mysql-connector-c static-libs
+
+# required by dev-util/rpmdevtools-8.10-r2
+app-arch/rpm python_single_target_python3_6
