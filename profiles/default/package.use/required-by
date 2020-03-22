@@ -688,3 +688,6 @@ dev-db/mysql-connector-c static-libs
 
 # required by dev-util/rpmdevtools-8.10-r2
 app-arch/rpm python_single_target_python3_6
+
+# required by net-firewall/firewalld-0.7.1-r2
+net-firewall/nftables xtables
