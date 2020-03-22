@@ -39,6 +39,3 @@ net-analyzer/ossec-hids hybrid postgres
 
 # exactly-one-of ( iptables nftables )
 net-misc/connman -nftables
-
-# exactly-one-of ( python_single_target_python2_7 python_single_target_python3_6 )
-app-arch/rpm -python_single_target_python2_7
