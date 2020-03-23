@@ -685,3 +685,15 @@ dev-db/mysql-connector-c static-libs
 
 # required by net-firewall/firewalld-0.7.1-r2
 net-firewall/nftables xtables
+
+# required by dev-libs/Ice-3.6.4
+sys-libs/db cxx
+
+# required by media-gfx/pstoedit-3.70-r1[imagemagick]
+media-gfx/imagemagick cxx
+
+# required by dev-util/rpmdevtools-8.10-r2
+app-arch/rpm python
+
+# required by sci-mathematics/cgal-4.11.3[gmp]
+dev-libs/gmp cxx
