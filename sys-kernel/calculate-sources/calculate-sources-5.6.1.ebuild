@@ -13,7 +13,7 @@ HOMEPAGE="http://www.calculate-linux.org"
 
 SRC_URI="${KERNEL_URI} ${ARCH_URI}"
 
-IUSE="uksm fsync"
+IUSE="fsync uksm"
 
 src_unpack() {
 	calculate-kernel-7_src_unpack
