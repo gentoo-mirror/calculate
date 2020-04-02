@@ -697,3 +697,9 @@ app-arch/rpm python
 
 # required by sci-mathematics/cgal-4.11.3[gmp]
 dev-libs/gmp cxx
+
+# required by dev-libs/elfutils-0.177
+sys-libs/zlib static-libs
+
+# required by dev-libs/elfutils-0.177[bzip2]
+app-arch/bzip2 static-libs
