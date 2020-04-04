@@ -703,3 +703,6 @@ sys-libs/zlib static-libs
 
 # required by dev-libs/elfutils-0.177[bzip2]
 app-arch/bzip2 static-libs
+
+# required by net-vpn/networkmanager-l2tp-1.8.2
+net-dialup/ppp eap-tls
