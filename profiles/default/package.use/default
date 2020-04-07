@@ -429,8 +429,8 @@ dev-libs/efl gles egl -sdl -opengl
 # Enable Active Directory support
 net-fs/samba ads gnutls
 
-# Enable PDF import
-app-office/libreoffice pdfimport
+# Enable PDF import, Build the Office Development Kit
+app-office/libreoffice pdfimport odk
 
 # Hardware sensors support
 xfce-extra/xfce4-sensors-plugin lm-sensors
