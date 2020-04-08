@@ -6,7 +6,6 @@ sci-libs/lapack-reference
 sys-process/vixie-cron
 
 # crash cinnamon-settings
-
 =dev-python/keyring-18.0.1
 
 # mask portage wgetpaste
@@ -15,3 +14,5 @@ sys-process/vixie-cron
 # prevent automagic depends
 sys-libs/db:6.0
 
+# don't compile
+~x11-wm/marco-1.22.4
