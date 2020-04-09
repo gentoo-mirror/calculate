@@ -11,7 +11,7 @@ SRC_URI="
 	amd64? ( http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb -> ${PF}.deb )
 "
 
-IUSE="+apulse"
+IUSE="apulse"
 SLOT="0"
 KEYWORDS="amd64"
 
