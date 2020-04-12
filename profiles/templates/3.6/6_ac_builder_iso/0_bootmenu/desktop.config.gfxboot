@@ -1,5 +1,8 @@
 # Calculate name=system.config pkg(media-gfx/gfxboot-themes-calculate)!=
 HEADER
+
+#-livemenu(submenu)-#
+
 cl;
 #?os_builder_linux_subname!=#
 #-os_builder_linux_name-# #-os_builder_linux_ver-# #-os_builder_linux_subname-# Live#-cl_builder_cdname-#;
@@ -16,7 +19,6 @@ cl;
 #?ini(theme.splash-silent-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-silent-picture)-#,root)!=&&ini(theme.splash-shutdown-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-shutdown-picture)-#,root)!=#
 #-load(/bootmenu/bootparam.config)-# splash;
 #ini#
-#pkg#
 #?ini(theme.splash-silent-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-silent-picture)-#,root)!=&&ini(theme.splash-shutdown-picture)==||ini(theme.splash-silent-picture)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-silent-picture)-#,root)!=&&exists(#-cl_chroot_path-#/#-ini(theme.splash-shutdown-picture)-#,root)==#
 #-load(/bootmenu/bootparam.config)-# splash=silent;
 #ini#
@@ -30,7 +32,4 @@ cl;
 #?pkg(media-gfx/splashutils)==&&pkg(sys-boot/plymouth)==#
 #-load(/bootmenu/bootparam.config)-# verbose;
 #pkg#
-
-#-livemenu(submenu)-#
-
 FOOTER
