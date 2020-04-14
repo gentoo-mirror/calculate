@@ -54,7 +54,6 @@ do_cache() {
         else
             SQUASHED="${LIVECACHE}/livecd.squashfs"
             echo "Unmounting media from /var/initramfs/live"
-            umount -n /run/initramfs/live
             umount -nd /run/initramfs/live
             [[ -d /run/initramfs/isoscan ]] && umount -nd /run/initramfs/isoscan
         fi
