@@ -2,6 +2,8 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
+app-emulation/virt-manager:policykit - Enables sys-auth/polkit authentication support, required when using app-emulation/libvirt with PolicyKit authentication
+app-emulation/virt-manager:sasl - Depend on the proper libraries needed to connect to SASL-enabled libvirtd instances (e.g. Kerberos-protected instances).
 media-gfx/calculate-wallpapers:CL11 - Include Calculate Linux 11 wallpapers.
 media-gfx/calculate-wallpapers:CL12 - Include Calculate Linux 12 wallpapers.
 media-gfx/calculate-wallpapers:CL13 - Include Calculate Linux 13 wallpapers.

@@ -3,6 +3,7 @@ app-crypt/openpgp-keys-calculate-release 20180827: OpenPGP keys used for Calcula
 app-crypt/shim-signed 0.2: UEFI Shim bootloader for SecureBoot signed by Microsoft
 app-dicts/stardict-calculate-ru 1.0: The collection of Russian-English dictionaries
 app-editors/featherpad 0.9.1 9999: Lightweight Qt5 Plain-Text Editor for Linux
+app-emulation/virt-manager 2.2.1-r3: A graphical tool for administering virtual machines
 app-eselect/eselect-blas 0.2-r1: BLAS/CBLAS module for eselect
 app-eselect/eselect-lapack 0.2-r1: LAPACK module for eselect
 app-eselect/eselect-oodict 20100228: Manages configuration of dictionaries for OpenOffice.Org
@@ -16,12 +17,14 @@ dev-perl/Crypt-Curve25519 0.60.0-r1: Shared secret elliptic-curve Diffie-Hellman
 dev-python/cherrypy 3.8.0: CherryPy is a pythonic, object-oriented HTTP framework
 dev-python/m2crypto 0.22.3-r9 0.24.0-r9: M2Crypto: A Python crypto and SSL toolkit
 dev-python/nodeenv 1.3.3: Node.js virtual environment builder
+dev-python/numpy 1.16.5-r1: Fast array and numerical python library
 dev-python/progressbar 2.3-r4: Text progressbar library for python
 dev-python/py-smbpasswd 1.0.2: Module capable of generating both LANMAN and NT password hashes, for e.g. Samba
 dev-python/pymilter 0.9.3: The package of Python milters that wraps the C libmilter library.
 dev-python/pyxml 0.8.4-r3: A collection of libraries to process XML with Python
 dev-python/soaplib 1.0.0-r2: A simple library for writing soap web services.
 dev-python/sudsds 1.0.1-r1: Lightweight SOAP client - Czech NIC labs fork
+dev-util/catfish 1.4.13-r1: A frontend for find, (s)locate, doodle, tracker, beagle, strigi and pinot
 dev-util/eclipse-sdk-bin 4.5.2 4.6.3 4.7.3 4.8.0 4.9.0 4.13.0: Eclipse SDK
 games-action/oolite 1.86: Elite space trading & warfare remake
 games-engines/love 0.7.2-r3 0.8.0-r3: A framework for 2D games in Lua
@@ -99,7 +102,7 @@ sys-firmware/eth-firmware 20181026: Binary firmware for Realtek Ethernet
 sys-fs/dmraid 1.0.0_rc16-r4: Device-mapper RAID tool and library
 sys-fs/squashfs-tools 4.3_p6-r1: Tool for creating compressed filesystem type squashfs
 sys-fs/xfsdump 3.1.8-r1: xfs dump/restore utilities
-sys-kernel/calculate-sources 4.19.112 4.19.114 5.4.25 5.4.31 5.5.16 5.6.3: Calculate Linux kernel image
+sys-kernel/calculate-sources 4.19.112 4.19.115 5.4.32 5.5.17 5.6.4: Calculate Linux kernel image
 sys-libs/libcpuid 0.4.1: A small C library for x86 (and x86_64) CPU detection and feature extraction
 sys-process/cpu-x 3.2.4 9999: A Free software that gathers information on CPU, motherboard and more
 sys-process/vixie-cron 4.1-r15: Paul Vixie's cron daemon, a fully featured crond implementation
