@@ -1,0 +1,44 @@
+{
+    "autofill": {
+        "credit_card_enabled": false,
+        "orphan_rows_removed": true,
+        "profile_enabled": false
+    },
+    "browser": {
+        "custom_chrome_frame": false,
+        "default_browser_infobar_last_declined": "13231513009794340"
+    },
+    "credentials_enable_autosignin": false,
+    "credentials_enable_service": false,
+    "download": {
+        "default_directory": "#-ini(resource.downloads)-#",
+        "directory_upgrade": true
+    },
+    "enable_do_not_track": true,
+    "local_discovery": {
+        "notifications_enabled": false
+    },
+    "savefile": {
+        "default_directory": "#-ini(resource.downloads)-#"
+    },
+    "session": {
+        "restore_on_startup": 4,
+        "startup_urls": [
+#?os_locale_language!=ru#
+            "https://start.calculate-linux.org"
+#!os_locale_language#
+            "https://start.calculate-linux.ru"
+#os_locale_language#
+        ]
+    },
+    "signin": {
+        "allowed": false,
+        "allowed_on_next_startup": false
+    },
+    "sync": {
+        "requested": true
+    },
+    "translate": {
+        "enabled": false
+    }
+}
