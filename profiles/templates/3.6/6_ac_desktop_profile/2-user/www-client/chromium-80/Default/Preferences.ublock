@@ -1,0 +1,164 @@
+# Calculate format=json name=Preferences
+{
+    "extensions": {
+        "commands": {
+            "linux:Alt+Down": {
+                "command_name": "_execute_browser_action",
+                "extension": "hlpjhlifkgmoibhollggngbbhbejecph",
+                "global": false
+            }
+        },
+        "settings": {
+            "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
+                "active_permissions": {
+                    "api": [
+                        "contextMenus",
+                        "privacy",
+                        "storage",
+                        "tabs",
+                        "unlimitedStorage",
+                        "webNavigation",
+                        "webRequest",
+                        "webRequestBlocking"
+                    ],
+                    "explicit_host": [
+                        "<all_urls>",
+                        "chrome://favicon/*"
+                    ],
+                    "manifest_permissions": [],
+                    "scriptable_host": [
+                        "http://*/*",
+                        "https://*/*"
+                    ]
+                },
+                "content_settings": [],
+                "creation_flags": 9,
+                "events": [],
+                "from_bookmark": false,
+                "from_webstore": true,
+                "granted_permissions": {
+                    "api": [
+                        "contextMenus",
+                        "privacy",
+                        "storage",
+                        "tabs",
+                        "unlimitedStorage",
+                        "webNavigation",
+                        "webRequest",
+                        "webRequestBlocking"
+                    ],
+                    "explicit_host": [
+                        "<all_urls>",
+                        "chrome://favicon/*"
+                    ],
+                    "manifest_permissions": [],
+                    "scriptable_host": [
+                        "http://*/*",
+                        "https://*/*"
+                    ]
+                },
+                "incognito_content_settings": [],
+                "incognito_preferences": {},
+                "location": 1,
+                "manifest": {
+                    "author": "All uBlock Origin contributors",
+                    "background": {
+                        "page": "background.html"
+                    },
+                    "browser_action": {
+                        "default_icon": {
+                            "16": "img/icon_16.png",
+                            "32": "img/icon_32.png"
+                        },
+                        "default_popup": "popup.html",
+                        "default_title": "uBlock Origin"
+                    },
+                    "content_scripts": [
+                        {
+                            "all_frames": true,
+                            "js": [
+                                "/js/vapi.js",
+                                "/js/vapi-client.js",
+                                "/js/contentscript.js"
+                            ],
+                            "matches": [
+                                "http://*/*",
+                                "https://*/*"
+                            ],
+                            "run_at": "document_start"
+                        },
+                        {
+                            "all_frames": false,
+                            "js": [
+                                "/js/scriptlets/subscriber.js"
+                            ],
+                            "matches": [
+                                "http://*/*",
+                                "https://*/*"
+                            ],
+                            "run_at": "document_idle"
+                        }
+                    ],
+                    "content_security_policy": "script-src 'self'; object-src 'self'",
+                    "default_locale": "en",
+                    "icons": {
+                        "128": "img/icon_128.png",
+                        "16": "img/icon_16.png",
+                        "32": "img/icon_32.png",
+                        "64": "img/icon_64.png"
+                    },
+                    "incognito": "split",
+                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmJNzUNVjS6Q1qe0NRqpmfX/oSJdgauSZNdfeb5RV1Hji21vX0TivpP5gq0fadwmvmVCtUpOaNUopgejiUFm/iKHPs0o3x7hyKk/eX0t2QT3OZGdXkPiYpTEC0f0p86SQaLoA2eHaOG4uCGi7sxLJmAXc6IsxGKVklh7cCoLUgWEMnj8ZNG2Y8UKG3gBdrpES5hk7QyFDMraO79NmSlWRNgoJHX6XRoY66oYThFQad8KL8q3pf3Oe8uBLKywohU0ZrDPViWHIszXoE9HEvPTFAbHZ1umINni4W/YVs+fhqHtzRJcaKJtsTaYy+cholu5mAYeTZqtHf6bcwJ8t9i2afwIDAQAB",
+                    "options_ui": {
+                        "open_in_tab": true,
+                        "page": "dashboard.html"
+                    },
+                    "permissions": [
+                        "contextMenus",
+                        "privacy",
+                        "storage",
+                        "tabs",
+                        "unlimitedStorage",
+                        "webNavigation",
+                        "webRequest",
+                        "webRequestBlocking",
+                        "<all_urls>"
+                    ],
+                    "short_name": "uBlock\u2080",
+                    "storage": {
+                        "managed_schema": "managed_storage.json"
+                    },
+                    "update_url": "https://clients2.google.com/service/update2/crx",
+                    "version": "1.24.4",
+                    "web_accessible_resources": [
+                        "/web_accessible_resources/*"
+                    ]
+                },
+                "needs_sync": true,
+                "never_activated_since_loaded": true,
+                "path": "cjpalhdlnbpafiamejdnhcphjbkeiagm/1.24.4_0",
+                "preferences": {
+                    "enable_a_ping": false,
+                    "net.network_prediction_options": 2
+                },
+                "regular_only_preferences": {},
+                "state": 1,
+                "was_installed_by_default": false,
+                "was_installed_by_oem": false,
+                "withholding_permissions": false
+            }
+        },
+        "toolbar": [
+            "cjpalhdlnbpafiamejdnhcphjbkeiagm"
+        ]
+    },
+    "protection": {
+        "macs": {
+            "extensions": {
+                "settings": {
+                    "cjpalhdlnbpafiamejdnhcphjbkeiagm": "4013706C949FD89AD1F588F32A08A9656D83C0A61DB56C141341E60CF4404C95"
+                }
+            }
+        }
+    }
+}
