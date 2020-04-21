@@ -1,4 +1,4 @@
-# Calculate pkg(www-plugins/chrome-freedommarks)!=&&ini(user_credentials.nextcloud_url)!=&&ini(user_credentials.nextcloud_login)!=&&ini(user_credentials.nextcloud_pw)!= exec=/bin/bash
+# Calculate pkg(www-plugins/chrome-freedommarks)!=&&ini(user_credentials.nextcloud_url)!=&&ini(user_credentials.nextcloud_login)!=&&ini(user_credentials.nextcloud_pw)!= run=/bin/bash
 
 plugin_id="gmmpjoepfelkmeedfkfkadgkhholibko"
 mkdir -p #-ur_home_path-#/.config/chromium/Default/Extensions/${plugin_id}

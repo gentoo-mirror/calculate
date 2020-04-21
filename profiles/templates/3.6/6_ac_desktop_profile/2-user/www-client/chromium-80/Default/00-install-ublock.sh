@@ -1,4 +1,4 @@
-# Calculate pkg(www-plugins/chrome-ublock)!= exec=/bin/bash
+# Calculate pkg(www-plugins/chrome-ublock)!= run=/bin/bash
 
 plugin_id="cjpalhdlnbpafiamejdnhcphjbkeiagm"
 mkdir -p #-ur_home_path-#/.config/chromium/Default/Extensions/$plugin_id

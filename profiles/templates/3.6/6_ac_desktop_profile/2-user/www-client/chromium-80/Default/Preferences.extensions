@@ -1,6 +1,7 @@
 # Calculate format=json name=Preferences
 {
     "extensions": {
+#?exists(~/.config/chromium/Default/Extensions/hlpjhlifkgmoibhollggngbbhbejecph)!=#
         "commands": {
             "linux:Alt+Down": {
                 "command_name": "_execute_browser_action",
@@ -8,8 +9,9 @@
                 "global": false
             }
         },
+#exists#
         "settings": {
-#?pkg(www-plugins/chrome-ublock)!=#
+#?exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=#
             "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
                 "active_permissions": {
                     "api": [
@@ -148,11 +150,11 @@
                 "was_installed_by_oem": false,
                 "withholding_permissions": false
             }
-#pkg#
-#?pkg(www-plugins/chrome-ublock)!=&&pkg(www-plugins/chrome-freedommarks)!=&&ini(user_credentials.nextcloud_url)!=&&ini(user_credentials.nextcloud_login)!=&&ini(user_credentials.nextcloud_pw)!=#
+#exists#
+#?exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=&&exists(~/.config/chromium/Default/Extensions/gmmpjoepfelkmeedfkfkadgkhholibko)!=||exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=&&exists(~/.config/chromium/Default/Extensions/hlpjhlifkgmoibhollggngbbhbejecph)!=#
 	    ,
-#pkg#
-#?pkg(www-plugins/chrome-freedommarks)!=&&ini(user_credentials.nextcloud_url)!=&&ini(user_credentials.nextcloud_login)!=&&ini(user_credentials.nextcloud_pw)!=#
+#exists#
+#?exists(~/.config/chromium/Default/Extensions/gmmpjoepfelkmeedfkfkadgkhholibko)!=#
             "gmmpjoepfelkmeedfkfkadgkhholibko": {
                 "active_permissions": {
                     "api": [
@@ -241,7 +243,184 @@
                 "was_installed_by_oem": false,
                 "withholding_permissions": false
             }
-#pkg#
+#exists#
+#?exists(~/.config/chromium/Default/Extensions/gmmpjoepfelkmeedfkfkadgkhholibko)!=&&exists(~/.config/chromium/Default/Extensions/hlpjhlifkgmoibhollggngbbhbejecph)!=#
+	    ,
+#exists#
+#?exists(~/.config/chromium/Default/Extensions/hlpjhlifkgmoibhollggngbbhbejecph)!=#
+            "hlpjhlifkgmoibhollggngbbhbejecph": {
+                "active_permissions": {
+                    "api": [
+                        "clipboardWrite",
+                        "contextMenus",
+                        "notifications",
+                        "storage",
+                        "tabs",
+                        "webRequest",
+                        "webRequestBlocking"
+                    ],
+                    "explicit_host": [
+                        "*://*/*"
+                    ],
+                    "manifest_permissions": [],
+                    "scriptable_host": [
+                        "http://*/*",
+                        "https://*/*"
+                    ]
+                },
+                "commands": {
+                    "_execute_browser_action": {
+                        "suggested_key": "Alt+Down",
+                        "was_assigned": true
+                    }
+                },
+                "content_settings": [],
+                "creation_flags": 9,
+                "events": [],
+                "from_bookmark": false,
+                "from_webstore": true,
+                "granted_permissions": {
+                    "api": [
+                        "clipboardWrite",
+                        "contextMenus",
+                        "notifications",
+                        "storage",
+                        "tabs",
+                        "webRequest",
+                        "webRequestBlocking"
+                    ],
+                    "explicit_host": [
+                        "*://*/*"
+                    ],
+                    "manifest_permissions": [],
+                    "scriptable_host": [
+                        "http://*/*",
+                        "https://*/*"
+                    ]
+                },
+                "incognito_content_settings": [],
+                "incognito_preferences": {},
+                "location": 1,
+                "manifest": {
+                    "author": "Sander Brand",
+                    "background": {
+                        "scripts": [
+                            "/js/vendor/jquery/jquery.js",
+                            "/js/lib/data/tlds.js",
+                            "/js/lib/parseTLD.js",
+                            "/js/lib/parseUrl.js",
+                            "/js/vendor/sjcl/sjcl.js",
+                            "/js/lib/promise.js",
+                            "/js/lib/API/base.js",
+                            "/js/lib/API/storage.js",
+                            "/js/lib/API/runtime.js",
+                            "/js/lib/API/i18n.js",
+                            "/js/lib/API/notifications.js",
+                            "/js/lib/API/cookies.js",
+                            "/js/lib/API/browser_action.js",
+                            "/js/lib/API/tabs.js",
+                            "/js/lib/API/contextmenus.js",
+                            "/js/lib/API/web_request.js",
+                            "/js/lib/api.js",
+                            "/js/lib/sharingAcl.js",
+                            "/js/vendor/sha/sha.js",
+                            "/js/lib/otp.js",
+                            "/js/lib/passwordgen.js",
+                            "/js/background/service/contextMenu.js",
+                            "/js/background/service/background.js",
+                            "/js/background/service/httpAuth.js"
+                        ]
+                    },
+                    "browser_action": {
+                        "default_icon": "icons/icon19.png",
+                        "default_popup": "/html/browser_action/browser_action.html",
+                        "default_title": "Passman"
+                    },
+                    "commands": {
+                        "_execute_browser_action": {
+                            "suggested_key": {
+                                "chromeos": "Alt+Down",
+                                "linux": "Alt+Down",
+                                "mac": "Alt+Down",
+                                "windows": "Alt+Down"
+                            }
+                        }
+                    },
+                    "content_scripts": [
+                        {
+                            "all_frames": true,
+                            "css": [
+                                "/css/doorhanger-iframe.css"
+                            ],
+                            "js": [
+                                "/js/lib/promise.js",
+                                "/js/vendor/sjcl/sjcl.js",
+                                "/js/lib/API/base.js",
+                                "/js/lib/API/runtime.js",
+                                "/js/lib/API/extension.js",
+                                "/js/lib/API/cookies.js",
+                                "/js/lib/API/i18n.js",
+                                "/js/vendor/jquery/jquery.js",
+                                "/js/lib/jQuerytoObject.js",
+                                "/js/lib/findForm.js",
+                                "/js/lib/parseUrl.js",
+                                "/js/lib/parseTLD.js",
+                                "/js/lib/data/tlds.js",
+                                "/js/lib/domchanged.js",
+                                "/js/background/inject/inject.js"
+                            ],
+                            "jsBuild": [],
+                            "matches": [
+                                "http://*/*",
+                                "https://*/*"
+                            ]
+                        }
+                    ],
+                    "current_locale": "ru",
+                    "default_locale": "en",
+                    "externally_connectable": {
+                        "ids": []
+                    },
+                    "homepage_url": "https://github.com/nextcloud/passman-chrome-extension",
+                    "icons": {
+                        "128": "icons/icon128.png",
+                        "16": "icons/icon16.png",
+                        "32": "icons/icon32.png",
+                        "48": "icons/icon48.png",
+                        "64": "icons/icon64.png"
+                    },
+                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjh6l38PY428rbh+PDk2R4mVjSxL3YxEEwBCeMWp5qqD1hghOy/v9iT4wCeXITYy39bloj9/rWX97hrA9qixq17z2lLUW/BPFfV2fkuBfs2M/Mfx/npdtHfwJL1FL4mHG/XRaMDwVQOHkh2aOSXmS1CG5GITJEalRohjwjBOlQzQDREUg5G3x3eMWDrzjcZJKY2Kd8BFbmwh7xmg3S+gU/N6rI0G+X6Ohx76DD4oDRc6Edj5O6T4aUVX09PtPCx2pKyU159t2a+s3BHiSIEw2C4rwVOW2izsfjHqrjapctOrUIUOGMqEtfidm4W5nuYtkmZ1eF4v68bN6Ftj2YyrgjwIDAQAB",
+                    "manifest_version": 2,
+                    "name": "Passman",
+                    "permissions": [
+                        "*://*/*",
+                        "notifications",
+                        "tabs",
+                        "clipboardWrite",
+                        "storage",
+                        "contextMenus",
+                        "webRequest",
+                        "webRequestBlocking"
+                    ],
+                    "short_name": "Passman",
+                    "update_url": "https://clients2.google.com/service/update2/crx",
+                    "version": "2.1.2",
+                    "web_accessible_resources": [
+                        "html/inject/doorhanger.html",
+                        "html/inject/password_picker.html",
+                        "html/inject/auto_login.html",
+                        "fonts/*",
+                        "icons/*"
+                    ]
+                },
+                "needs_sync": true,
+                "never_activated_since_loaded": true,
+                "path": "hlpjhlifkgmoibhollggngbbhbejecph/2.1.2_0",
+                "preferences": {},
+                "regular_only_preferences": {},
+                "state": 1
+            }
+#exists#
 	},
         "toolbar": [
             "cjpalhdlnbpafiamejdnhcphjbkeiagm",
@@ -254,7 +433,8 @@
             "extensions": {
                 "settings": {
                     "cjpalhdlnbpafiamejdnhcphjbkeiagm": "4013706C949FD89AD1F588F32A08A9656D83C0A61DB56C141341E60CF4404C95",
-                    "gmmpjoepfelkmeedfkfkadgkhholibko": "C253FB70BF73E16A7589C63B4D16FF1A4CE1D498FE35271E18A47DD5074E1DF7"
+                    "gmmpjoepfelkmeedfkfkadgkhholibko": "C253FB70BF73E16A7589C63B4D16FF1A4CE1D498FE35271E18A47DD5074E1DF7",
+                    "hlpjhlifkgmoibhollggngbbhbejecph": "241E0496ECDC2F8F819D56195B5A9422E3A3591BEB58FD6A619CF5EC2BA9627D"
                 }
             }
         }

@@ -8,7 +8,7 @@ from os import path
 data = json.load(sys.stdin)
 
 if len(sys.argv) < 3:
-    sys.stderr.write("chrome-ublock.py chrome-dir ext-id")
+    sys.stderr.write("configure.py chrome-dir ext-id")
     sys.exit(1)
 
 chrome_dir = sys.argv[1]
