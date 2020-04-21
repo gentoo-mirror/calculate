@@ -1,7 +1,7 @@
 # Calculate pkg(www-plugins/chrome-ublock)!= exec=/bin/bash
 
 plugin_id="cjpalhdlnbpafiamejdnhcphjbkeiagm"
-mkdir -p #-ur_home_path-#/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm
+mkdir -p #-ur_home_path-#/.config/chromium/Default/Extensions/$plugin_id
 mkdir -p "#-ur_home_path-#/.config/chromium/Default/Local Extension Settings"
 cp -r /usr/share/chrome-ublock/* #-ur_home_path-#/.config/chromium/Default/Extensions/$plugin_id
 

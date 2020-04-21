@@ -9,6 +9,7 @@
             }
         },
         "settings": {
+#?pkg(www-plugins/chrome-ublock)!=#
             "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
                 "active_permissions": {
                     "api": [
@@ -147,16 +148,113 @@
                 "was_installed_by_oem": false,
                 "withholding_permissions": false
             }
-        },
+#pkg#
+#?pkg(www-plugins/chrome-ublock)!=&&pkg(www-plugins/chrome-freedommarks)!=&&ini(user_credentials.nextcloud_url)!=&&ini(user_credentials.nextcloud_login)!=&&ini(user_credentials.nextcloud_pw)!=#
+	    ,
+#pkg#
+#?pkg(www-plugins/chrome-freedommarks)!=&&ini(user_credentials.nextcloud_url)!=&&ini(user_credentials.nextcloud_login)!=&&ini(user_credentials.nextcloud_pw)!=#
+            "gmmpjoepfelkmeedfkfkadgkhholibko": {
+                "active_permissions": {
+                    "api": [
+                        "activeTab",
+                        "storage",
+                        "tabs"
+                    ],
+                    "explicit_host": [
+                        "https://*/*"
+                    ],
+                    "manifest_permissions": []
+                },
+                "commands": {},
+                "content_settings": [],
+                "creation_flags": 9,
+                "events": [],
+                "from_bookmark": false,
+                "from_webstore": true,
+                "granted_permissions": {
+                    "api": [
+                        "activeTab",
+                        "storage",
+                        "tabs"
+                    ],
+                    "explicit_host": [
+                        "https://*/*"
+                    ],
+                    "manifest_permissions": []
+                },
+                "incognito_content_settings": [],
+                "incognito_preferences": {},
+                "location": 1,
+                "manifest": {
+                    "applications": {
+                        "gecko": {
+                            "id": "freedommarks.extension@venturin.net",
+                            "strict_min_version": "48.0"
+                        }
+                    },
+                    "background": {
+                        "scripts": [
+                            "js/background.js"
+                        ]
+                    },
+                    "browser_action": {
+                        "browser_style": true,
+                        "default_icon": "icons/FreedomMarks_dark_32x32.png",
+                        "default_popup": "FreedomMarks.html",
+                        "default_title": "FreedomMarks",
+                        "theme_icons": [
+                            {
+                                "dark": "icons/FreedomMarks_dark_32x32.png",
+                                "light": "icons/FreedomMarks_light_32x32.png",
+                                "size": 32
+                            },
+                            {
+                                "dark": "icons/FreedomMarks_dark_48x48.png",
+                                "light": "icons/FreedomMarks_light_48x48.png",
+                                "size": 48
+                            }
+                        ]
+                    },
+                    "homepage_url": "https://github.com/damko/freedommarks-browser-webextension",
+                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2YORuM1OGySufoF4W0JZfF9IMHrEscT7TjEDSh+92HlbcG5JIDmY9F8I7rQ3DC900IiwT2hsIaTSbP8+teTFhmgXe2hPSXTBKjcBXkTinPlsk1Lf24UYjMQtxWr/15WlZQ1YUBCQg6bydP3H/4wRxx9WlxTgcvJMgPeQIZ+/VkTi7cyQcwYHIn+Z+tye9Fo6SPrfhdVusEwJY1cSZE/OpkS7fSNg2Lp6MSxrgu0fq/6VEFtW6/Sq2WY8XlI3PqJy2oywdSu+MjGj+HNTG0w6W69+jsKJZmHFmy1mGpm6P9Hys70WLXkF76AjnVqLYn7KC0k6NeRKOC7TLSOQtwVnJQIDAQAB",
+                    "manifest_version": 2,
+                    "name": "FreedomMarks",
+                    "options_ui": {
+                        "page": "FreedomMarks_options.html"
+                    },
+                    "permissions": [
+                        "tabs",
+                        "activeTab",
+                        "storage",
+                        "https://*/*"
+                    ],
+                    "update_url": "https://clients2.google.com/service/update2/crx",
+                    "version": "0.1.2"
+                },
+                "needs_sync": true,
+                "never_activated_since_loaded": true,
+                "path": "gmmpjoepfelkmeedfkfkadgkhholibko/0.1.2_0",
+                "preferences": {},
+                "regular_only_preferences": {},
+                "state": 1,
+                "was_installed_by_default": false,
+                "was_installed_by_oem": false,
+                "withholding_permissions": false
+            }
+#pkg#
+	},
         "toolbar": [
-            "cjpalhdlnbpafiamejdnhcphjbkeiagm"
+            "cjpalhdlnbpafiamejdnhcphjbkeiagm",
+            "hlpjhlifkgmoibhollggngbbhbejecph",
+            "gmmpjoepfelkmeedfkfkadgkhholibko"
         ]
     },
     "protection": {
         "macs": {
             "extensions": {
                 "settings": {
-                    "cjpalhdlnbpafiamejdnhcphjbkeiagm": "4013706C949FD89AD1F588F32A08A9656D83C0A61DB56C141341E60CF4404C95"
+                    "cjpalhdlnbpafiamejdnhcphjbkeiagm": "4013706C949FD89AD1F588F32A08A9656D83C0A61DB56C141341E60CF4404C95",
+                    "gmmpjoepfelkmeedfkfkadgkhholibko": "C253FB70BF73E16A7589C63B4D16FF1A4CE1D498FE35271E18A47DD5074E1DF7"
                 }
             }
         }

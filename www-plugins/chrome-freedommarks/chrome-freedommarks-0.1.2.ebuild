@@ -18,7 +18,8 @@ KEYWORDS="amd64 x86"
 DEPEND="|| ( www-client/chromium
 	www-client/google-chrome )"
 
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	dev-python/plyvel"
 
 S="${WORKDIR}"
 
@@ -26,4 +27,6 @@ src_install() {
 	dodir /usr/share/${PN}
 	insinto /usr/share/${PN}
 	doins -r *
+	doins ${FILESDIR}/configure.py
+	fperms 755 /usr/share/$PN/configure.py
 }
