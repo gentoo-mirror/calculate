@@ -1,23 +1,22 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 # Please report bugs/suggestions on: https://github.com/anyc/steam-overlay
 # or come to #gentoo-gamerlay in freenode IRC
 
-inherit eutils gnome2-utils linux-info prefix udev xdg
+inherit linux-info prefix udev xdg-utils
 
 DESCRIPTION="Installer, launcher and supplementary files for Valve's Steam client"
-HOMEPAGE="http://steampowered.com"
-SRC_URI="http://repo.steampowered.com/steam/pool/steam/s/steam/steam_${PV}.tar.gz"
+HOMEPAGE="https://steampowered.com"
+SRC_URI="https://repo-steampowered-com.steamos.cloud/steam/pool/steam/s/steam/steam_${PV}.tar.gz"
 
-KEYWORDS="amd64 x86"
-LICENSE="ValveSteamLicense"
-
-RESTRICT="bindist mirror"
+LICENSE="ValveSteamLicense MIT"
 SLOT="0"
+KEYWORDS="amd64 ~x86"
 IUSE="+steamruntime"
+RESTRICT="bindist mirror test"
 
 RDEPEND="
 		app-arch/tar
@@ -36,7 +35,7 @@ RDEPEND="
 			x11-libs/libXdmcp[abi_x86_32]
 			)
 		!steamruntime? (
-			>=games-util/steam-client-meta-0-r20141204[steamruntime?]
+			>=games-util/steam-client-meta-0-r20190331[steamruntime?]
 			)
 
 		amd64? (
@@ -48,14 +47,7 @@ RDEPEND="
 			>=sys-libs/glibc-2.15
 			)"
 
-S=${WORKDIR}/steam/
-
-PATCHES=(
-	"${FILESDIR}"/steam-fix-ld-library-path.patch
-	"${FILESDIR}"/steam-runtime-default.patch
-	"${FILESDIR}"/steam-set-distrib-release.patch
-	"${FILESDIR}"/steam-fix-joystick-detection.patch
-)
+S="${WORKDIR}/${PN}"
 
 pkg_setup() {
 	linux-info_pkg_setup
@@ -71,61 +63,60 @@ pkg_setup() {
 	fi
 }
 
+path_entries() {
+	local multilib=${1}
+	shift
+
+	while true; do
+		echo -n ${EPREFIX}/usr/$(get_libdir)/${1}$(${multilib} && use amd64 && echo :${EPREFIX}/usr/$(ABI=x86 get_libdir)/${1})
+		shift
+
+		if [[ -n ${1} ]]; then
+			echo -n :
+		else
+			break
+		fi
+	done
+}
+
+native_path_entries() { path_entries false "${@}"; }
+multilib_path_entries() { path_entries true "${@}"; }
+
 src_prepare() {
 	xdg_environment_reset
 	default
 
 	sed -i 's:TAG+="uaccess":\0, TAG+="udev-acl":g' \
-		lib/udev/rules.d/60-steam-input.rules || die
+		subprojects/steam-devices/*.rules || die
 
-	sed -i \
-		-e "s:@@DEBIAN_COMPAT@@:${EPREFIX}/usr/$(get_libdir)/debiancompat$(use amd64 && echo "\\:${EPREFIX}/usr/$(ABI=x86 get_libdir)/debiancompat"):g" \
-		-e "s:@@STEAM_RUNTIME@@:$(usex steamruntime 1 0):g" \
-		steam || die
+	sed \
+		-e "s#@@PVR@@#${PVR}#g" \
+		-e "s#@@GENTOO_LD_LIBRARY_PATH@@#$(multilib_path_entries debiancompat fltk)#g" \
+		-e "s#@@STEAM_RUNTIME@@#$(usex steamruntime 1 0)#g" \
+		"${FILESDIR}"/steam-wrapper.sh > steam-wrapper.sh || die
 
-	# use steam launcher version as release number as it is a bit more helpful than the baselayout version
-	sed -i -e "s,export DISTRIB_RELEASE=\"2.2\",export DISTRIB_RELEASE=\"${PVR}\"," steam || die
-
-	# Still need EPREFIX in the DEBIAN_COMPAT sed replacement because
-	# the regular expression used by hprefixify doesn't match here.
-	hprefixify steam
-}
-
-src_compile() {
-	:
+	# Still need EPREFIX in the sed replacements above because the
+	# regular expression used by hprefixify doesn't match there.
+	hprefixify bin_steam.sh steam-wrapper.sh
 }
 
 src_install() {
-	dobin steam
+	emake install-{icons,bootstrap,desktop} \
+		  DESTDIR="${D}" PREFIX="${EPREFIX}/usr"
 
-	insinto /usr/lib/steam/
-	doins bootstraplinux_ubuntu12_32.tar.xz
+	newbin steam-wrapper.sh steam
+	exeinto /usr/lib/steam
+	doexe bin_steam.sh
 
-	udev_dorules lib/udev/rules.d/60-steam-input.rules lib/udev/rules.d/60-steam-vr.rules
-
-	dodoc debian/changelog steam_subscriber_agreement.txt
+	dodoc README debian/changelog
 	doman steam.6
 
-	domenu steam.desktop
-
-	cd icons/ || die
-	for s in * ; do
-		doicon -s ${s} ${s}/steam.png
-	done
-
-	# tgz archive contains no separate pixmap, see #38
-	insinto /usr/share/pixmaps/
-	newins 48/steam_tray_mono.png steam_tray_mono.png
-}
-
-pkg_preinst() {
-	xdg_pkg_preinst
-	gnome2_icon_savelist
+	udev_dorules subprojects/steam-devices/60-steam-{input,vr}.rules
 }
 
 pkg_postinst() {
-	xdg_pkg_postinst
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
+	xdg_desktop_database_update
 	udev_reload
 
 	elog "Execute ${EPREFIX}/usr/bin/steam to download and install the actual"
@@ -157,6 +148,6 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	xdg_pkg_postrm
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
+	xdg_desktop_database_update
 }
