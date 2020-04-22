@@ -706,3 +706,6 @@ app-arch/bzip2 static-libs
 
 # required by net-vpn/networkmanager-l2tp-1.8.2
 net-dialup/ppp eap-tls
+
+# required by gnome-extra/evolution-data-server-3.34.4[vala]
+dev-libs/libical vala
