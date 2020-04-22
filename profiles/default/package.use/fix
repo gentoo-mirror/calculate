@@ -45,3 +45,6 @@ media-gfx/inkscape -imagemagick
 
 # not compiled
 app-misc/lcd4linux -lcd_devices_curses
+
+# fix dep
+=mate-extra/caja-extensions-1.24.0 -upnp
