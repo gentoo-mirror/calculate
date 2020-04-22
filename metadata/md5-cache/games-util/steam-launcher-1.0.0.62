@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=compile install postinst postrm prepare setup
+DEFINED_PHASES=install postinst postrm prepare setup
 DESCRIPTION=Installer, launcher and supplementary files for Valve's Steam client
 EAPI=7
-HOMEPAGE=http://steampowered.com
+HOMEPAGE=https://steampowered.com
 IUSE=+steamruntime kernel_linux
-KEYWORDS=amd64 x86
-LICENSE=ValveSteamLicense
+KEYWORDS=amd64 ~x86
+LICENSE=ValveSteamLicense MIT
 RDEPEND=app-arch/tar app-shells/bash net-misc/curl || ( >=gnome-extra/zenity-3 x11-terms/xterm ) steamruntime? ( virtual/opengl[abi_x86_32] x11-libs/libX11[abi_x86_32] x11-libs/libXau[abi_x86_32] x11-libs/libxcb[abi_x86_32] x11-libs/libXdmcp[abi_x86_32] ) !steamruntime? ( >=games-util/steam-client-meta-0-r20190331[steamruntime?] ) amd64? ( >=sys-devel/gcc-4.6.0[multilib] >=sys-libs/glibc-2.15[multilib] ) x86? ( >=sys-devel/gcc-4.6.0 >=sys-libs/glibc-2.15 )
-RESTRICT=bindist mirror
+RESTRICT=bindist mirror test
 SLOT=0
-SRC_URI=http://repo.steampowered.com/steam/pool/steam/s/steam/steam_1.0.0.59.tar.gz
-_eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	linux-info	ed97304af323c7b2f6934f229982cb7d	multilib	318e8ae683e57fd3ccd0d31a769d8ee8	prefix	c2993e4c430c1ee24f278983d6189501	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c	udev	452708c3f55cf6e918b045adb949a9e6	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=ad2219e5421c5fce590ca5c59cc33f99
+SRC_URI=https://repo-steampowered-com.steamos.cloud/steam/pool/steam/s/steam/steam_1.0.0.62.tar.gz
+_eclasses_=linux-info	ed97304af323c7b2f6934f229982cb7d	multilib	318e8ae683e57fd3ccd0d31a769d8ee8	prefix	c2993e4c430c1ee24f278983d6189501	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c	udev	452708c3f55cf6e918b045adb949a9e6	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=7cb84efbd453e6b54399363f969b20f1
