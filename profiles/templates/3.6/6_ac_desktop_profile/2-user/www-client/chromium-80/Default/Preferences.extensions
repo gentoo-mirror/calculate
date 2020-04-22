@@ -1,0 +1,442 @@
+# Calculate format=json name=Preferences
+{
+    "extensions": {
+#?exists(~/.config/chromium/Default/Extensions/hlpjhlifkgmoibhollggngbbhbejecph)!=#
+        "commands": {
+            "linux:Alt+Down": {
+                "command_name": "_execute_browser_action",
+                "extension": "hlpjhlifkgmoibhollggngbbhbejecph",
+                "global": false
+            }
+        },
+#exists#
+        "settings": {
+#?exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=#
+            "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
+                "active_permissions": {
+                    "api": [
+                        "contextMenus",
+                        "privacy",
+                        "storage",
+                        "tabs",
+                        "unlimitedStorage",
+                        "webNavigation",
+                        "webRequest",
+                        "webRequestBlocking"
+                    ],
+                    "explicit_host": [
+                        "<all_urls>",
+                        "chrome://favicon/*"
+                    ],
+                    "manifest_permissions": [],
+                    "scriptable_host": [
+                        "http://*/*",
+                        "https://*/*"
+                    ]
+                },
+                "content_settings": [],
+                "creation_flags": 9,
+                "events": [],
+                "from_bookmark": false,
+                "from_webstore": true,
+                "granted_permissions": {
+                    "api": [
+                        "contextMenus",
+                        "privacy",
+                        "storage",
+                        "tabs",
+                        "unlimitedStorage",
+                        "webNavigation",
+                        "webRequest",
+                        "webRequestBlocking"
+                    ],
+                    "explicit_host": [
+                        "<all_urls>",
+                        "chrome://favicon/*"
+                    ],
+                    "manifest_permissions": [],
+                    "scriptable_host": [
+                        "http://*/*",
+                        "https://*/*"
+                    ]
+                },
+                "incognito_content_settings": [],
+                "incognito_preferences": {},
+                "location": 1,
+                "manifest": {
+                    "author": "All uBlock Origin contributors",
+                    "background": {
+                        "page": "background.html"
+                    },
+                    "browser_action": {
+                        "default_icon": {
+                            "16": "img/icon_16.png",
+                            "32": "img/icon_32.png"
+                        },
+                        "default_popup": "popup.html",
+                        "default_title": "uBlock Origin"
+                    },
+                    "content_scripts": [
+                        {
+                            "all_frames": true,
+                            "js": [
+                                "/js/vapi.js",
+                                "/js/vapi-client.js",
+                                "/js/contentscript.js"
+                            ],
+                            "matches": [
+                                "http://*/*",
+                                "https://*/*"
+                            ],
+                            "run_at": "document_start"
+                        },
+                        {
+                            "all_frames": false,
+                            "js": [
+                                "/js/scriptlets/subscriber.js"
+                            ],
+                            "matches": [
+                                "http://*/*",
+                                "https://*/*"
+                            ],
+                            "run_at": "document_idle"
+                        }
+                    ],
+                    "content_security_policy": "script-src 'self'; object-src 'self'",
+                    "default_locale": "en",
+                    "icons": {
+                        "128": "img/icon_128.png",
+                        "16": "img/icon_16.png",
+                        "32": "img/icon_32.png",
+                        "64": "img/icon_64.png"
+                    },
+                    "incognito": "split",
+                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmJNzUNVjS6Q1qe0NRqpmfX/oSJdgauSZNdfeb5RV1Hji21vX0TivpP5gq0fadwmvmVCtUpOaNUopgejiUFm/iKHPs0o3x7hyKk/eX0t2QT3OZGdXkPiYpTEC0f0p86SQaLoA2eHaOG4uCGi7sxLJmAXc6IsxGKVklh7cCoLUgWEMnj8ZNG2Y8UKG3gBdrpES5hk7QyFDMraO79NmSlWRNgoJHX6XRoY66oYThFQad8KL8q3pf3Oe8uBLKywohU0ZrDPViWHIszXoE9HEvPTFAbHZ1umINni4W/YVs+fhqHtzRJcaKJtsTaYy+cholu5mAYeTZqtHf6bcwJ8t9i2afwIDAQAB",
+                    "options_ui": {
+                        "open_in_tab": true,
+                        "page": "dashboard.html"
+                    },
+                    "permissions": [
+                        "contextMenus",
+                        "privacy",
+                        "storage",
+                        "tabs",
+                        "unlimitedStorage",
+                        "webNavigation",
+                        "webRequest",
+                        "webRequestBlocking",
+                        "<all_urls>"
+                    ],
+                    "short_name": "uBlock\u2080",
+                    "storage": {
+                        "managed_schema": "managed_storage.json"
+                    },
+                    "update_url": "https://clients2.google.com/service/update2/crx",
+                    "version": "1.24.4",
+                    "web_accessible_resources": [
+                        "/web_accessible_resources/*"
+                    ]
+                },
+                "needs_sync": true,
+                "never_activated_since_loaded": true,
+                "path": "cjpalhdlnbpafiamejdnhcphjbkeiagm/1.24.4_0",
+                "preferences": {
+                    "enable_a_ping": false,
+                    "net.network_prediction_options": 2
+                },
+                "regular_only_preferences": {},
+                "state": 1,
+                "was_installed_by_default": false,
+                "was_installed_by_oem": false,
+                "withholding_permissions": false
+            }
+#exists#
+#?exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=&&exists(~/.config/chromium/Default/Extensions/gmmpjoepfelkmeedfkfkadgkhholibko)!=||exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=&&exists(~/.config/chromium/Default/Extensions/hlpjhlifkgmoibhollggngbbhbejecph)!=#
+	    ,
+#exists#
+#?exists(~/.config/chromium/Default/Extensions/gmmpjoepfelkmeedfkfkadgkhholibko)!=#
+            "gmmpjoepfelkmeedfkfkadgkhholibko": {
+                "active_permissions": {
+                    "api": [
+                        "activeTab",
+                        "storage",
+                        "tabs"
+                    ],
+                    "explicit_host": [
+                        "https://*/*"
+                    ],
+                    "manifest_permissions": []
+                },
+                "commands": {},
+                "content_settings": [],
+                "creation_flags": 9,
+                "events": [],
+                "from_bookmark": false,
+                "from_webstore": true,
+                "granted_permissions": {
+                    "api": [
+                        "activeTab",
+                        "storage",
+                        "tabs"
+                    ],
+                    "explicit_host": [
+                        "https://*/*"
+                    ],
+                    "manifest_permissions": []
+                },
+                "incognito_content_settings": [],
+                "incognito_preferences": {},
+                "location": 1,
+                "manifest": {
+                    "applications": {
+                        "gecko": {
+                            "id": "freedommarks.extension@venturin.net",
+                            "strict_min_version": "48.0"
+                        }
+                    },
+                    "background": {
+                        "scripts": [
+                            "js/background.js"
+                        ]
+                    },
+                    "browser_action": {
+                        "browser_style": true,
+                        "default_icon": "icons/FreedomMarks_dark_32x32.png",
+                        "default_popup": "FreedomMarks.html",
+                        "default_title": "FreedomMarks",
+                        "theme_icons": [
+                            {
+                                "dark": "icons/FreedomMarks_dark_32x32.png",
+                                "light": "icons/FreedomMarks_light_32x32.png",
+                                "size": 32
+                            },
+                            {
+                                "dark": "icons/FreedomMarks_dark_48x48.png",
+                                "light": "icons/FreedomMarks_light_48x48.png",
+                                "size": 48
+                            }
+                        ]
+                    },
+                    "homepage_url": "https://github.com/damko/freedommarks-browser-webextension",
+                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2YORuM1OGySufoF4W0JZfF9IMHrEscT7TjEDSh+92HlbcG5JIDmY9F8I7rQ3DC900IiwT2hsIaTSbP8+teTFhmgXe2hPSXTBKjcBXkTinPlsk1Lf24UYjMQtxWr/15WlZQ1YUBCQg6bydP3H/4wRxx9WlxTgcvJMgPeQIZ+/VkTi7cyQcwYHIn+Z+tye9Fo6SPrfhdVusEwJY1cSZE/OpkS7fSNg2Lp6MSxrgu0fq/6VEFtW6/Sq2WY8XlI3PqJy2oywdSu+MjGj+HNTG0w6W69+jsKJZmHFmy1mGpm6P9Hys70WLXkF76AjnVqLYn7KC0k6NeRKOC7TLSOQtwVnJQIDAQAB",
+                    "manifest_version": 2,
+                    "name": "FreedomMarks",
+                    "options_ui": {
+                        "page": "FreedomMarks_options.html"
+                    },
+                    "permissions": [
+                        "tabs",
+                        "activeTab",
+                        "storage",
+                        "https://*/*"
+                    ],
+                    "update_url": "https://clients2.google.com/service/update2/crx",
+                    "version": "0.1.2"
+                },
+                "needs_sync": true,
+                "never_activated_since_loaded": true,
+                "path": "gmmpjoepfelkmeedfkfkadgkhholibko/0.1.2_0",
+                "preferences": {},
+                "regular_only_preferences": {},
+                "state": 1,
+                "was_installed_by_default": false,
+                "was_installed_by_oem": false,
+                "withholding_permissions": false
+            }
+#exists#
+#?exists(~/.config/chromium/Default/Extensions/gmmpjoepfelkmeedfkfkadgkhholibko)!=&&exists(~/.config/chromium/Default/Extensions/hlpjhlifkgmoibhollggngbbhbejecph)!=#
+	    ,
+#exists#
+#?exists(~/.config/chromium/Default/Extensions/hlpjhlifkgmoibhollggngbbhbejecph)!=#
+            "hlpjhlifkgmoibhollggngbbhbejecph": {
+                "active_permissions": {
+                    "api": [
+                        "clipboardWrite",
+                        "contextMenus",
+                        "notifications",
+                        "storage",
+                        "tabs",
+                        "webRequest",
+                        "webRequestBlocking"
+                    ],
+                    "explicit_host": [
+                        "*://*/*"
+                    ],
+                    "manifest_permissions": [],
+                    "scriptable_host": [
+                        "http://*/*",
+                        "https://*/*"
+                    ]
+                },
+                "commands": {
+                    "_execute_browser_action": {
+                        "suggested_key": "Alt+Down",
+                        "was_assigned": true
+                    }
+                },
+                "content_settings": [],
+                "creation_flags": 9,
+                "events": [],
+                "from_bookmark": false,
+                "from_webstore": true,
+                "granted_permissions": {
+                    "api": [
+                        "clipboardWrite",
+                        "contextMenus",
+                        "notifications",
+                        "storage",
+                        "tabs",
+                        "webRequest",
+                        "webRequestBlocking"
+                    ],
+                    "explicit_host": [
+                        "*://*/*"
+                    ],
+                    "manifest_permissions": [],
+                    "scriptable_host": [
+                        "http://*/*",
+                        "https://*/*"
+                    ]
+                },
+                "incognito_content_settings": [],
+                "incognito_preferences": {},
+                "location": 1,
+                "manifest": {
+                    "author": "Sander Brand",
+                    "background": {
+                        "scripts": [
+                            "/js/vendor/jquery/jquery.js",
+                            "/js/lib/data/tlds.js",
+                            "/js/lib/parseTLD.js",
+                            "/js/lib/parseUrl.js",
+                            "/js/vendor/sjcl/sjcl.js",
+                            "/js/lib/promise.js",
+                            "/js/lib/API/base.js",
+                            "/js/lib/API/storage.js",
+                            "/js/lib/API/runtime.js",
+                            "/js/lib/API/i18n.js",
+                            "/js/lib/API/notifications.js",
+                            "/js/lib/API/cookies.js",
+                            "/js/lib/API/browser_action.js",
+                            "/js/lib/API/tabs.js",
+                            "/js/lib/API/contextmenus.js",
+                            "/js/lib/API/web_request.js",
+                            "/js/lib/api.js",
+                            "/js/lib/sharingAcl.js",
+                            "/js/vendor/sha/sha.js",
+                            "/js/lib/otp.js",
+                            "/js/lib/passwordgen.js",
+                            "/js/background/service/contextMenu.js",
+                            "/js/background/service/background.js",
+                            "/js/background/service/httpAuth.js"
+                        ]
+                    },
+                    "browser_action": {
+                        "default_icon": "icons/icon19.png",
+                        "default_popup": "/html/browser_action/browser_action.html",
+                        "default_title": "Passman"
+                    },
+                    "commands": {
+                        "_execute_browser_action": {
+                            "suggested_key": {
+                                "chromeos": "Alt+Down",
+                                "linux": "Alt+Down",
+                                "mac": "Alt+Down",
+                                "windows": "Alt+Down"
+                            }
+                        }
+                    },
+                    "content_scripts": [
+                        {
+                            "all_frames": true,
+                            "css": [
+                                "/css/doorhanger-iframe.css"
+                            ],
+                            "js": [
+                                "/js/lib/promise.js",
+                                "/js/vendor/sjcl/sjcl.js",
+                                "/js/lib/API/base.js",
+                                "/js/lib/API/runtime.js",
+                                "/js/lib/API/extension.js",
+                                "/js/lib/API/cookies.js",
+                                "/js/lib/API/i18n.js",
+                                "/js/vendor/jquery/jquery.js",
+                                "/js/lib/jQuerytoObject.js",
+                                "/js/lib/findForm.js",
+                                "/js/lib/parseUrl.js",
+                                "/js/lib/parseTLD.js",
+                                "/js/lib/data/tlds.js",
+                                "/js/lib/domchanged.js",
+                                "/js/background/inject/inject.js"
+                            ],
+                            "jsBuild": [],
+                            "matches": [
+                                "http://*/*",
+                                "https://*/*"
+                            ]
+                        }
+                    ],
+                    "current_locale": "ru",
+                    "default_locale": "en",
+                    "externally_connectable": {
+                        "ids": []
+                    },
+                    "homepage_url": "https://github.com/nextcloud/passman-chrome-extension",
+                    "icons": {
+                        "128": "icons/icon128.png",
+                        "16": "icons/icon16.png",
+                        "32": "icons/icon32.png",
+                        "48": "icons/icon48.png",
+                        "64": "icons/icon64.png"
+                    },
+                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjh6l38PY428rbh+PDk2R4mVjSxL3YxEEwBCeMWp5qqD1hghOy/v9iT4wCeXITYy39bloj9/rWX97hrA9qixq17z2lLUW/BPFfV2fkuBfs2M/Mfx/npdtHfwJL1FL4mHG/XRaMDwVQOHkh2aOSXmS1CG5GITJEalRohjwjBOlQzQDREUg5G3x3eMWDrzjcZJKY2Kd8BFbmwh7xmg3S+gU/N6rI0G+X6Ohx76DD4oDRc6Edj5O6T4aUVX09PtPCx2pKyU159t2a+s3BHiSIEw2C4rwVOW2izsfjHqrjapctOrUIUOGMqEtfidm4W5nuYtkmZ1eF4v68bN6Ftj2YyrgjwIDAQAB",
+                    "manifest_version": 2,
+                    "name": "Passman",
+                    "permissions": [
+                        "*://*/*",
+                        "notifications",
+                        "tabs",
+                        "clipboardWrite",
+                        "storage",
+                        "contextMenus",
+                        "webRequest",
+                        "webRequestBlocking"
+                    ],
+                    "short_name": "Passman",
+                    "update_url": "https://clients2.google.com/service/update2/crx",
+                    "version": "2.1.2",
+                    "web_accessible_resources": [
+                        "html/inject/doorhanger.html",
+                        "html/inject/password_picker.html",
+                        "html/inject/auto_login.html",
+                        "fonts/*",
+                        "icons/*"
+                    ]
+                },
+                "needs_sync": true,
+                "never_activated_since_loaded": true,
+                "path": "hlpjhlifkgmoibhollggngbbhbejecph/2.1.2_0",
+                "preferences": {},
+                "regular_only_preferences": {},
+                "state": 1
+            }
+#exists#
+	},
+        "toolbar": [
+            "cjpalhdlnbpafiamejdnhcphjbkeiagm",
+            "hlpjhlifkgmoibhollggngbbhbejecph",
+            "gmmpjoepfelkmeedfkfkadgkhholibko"
+        ]
+    },
+    "protection": {
+        "macs": {
+            "extensions": {
+                "settings": {
+                    "cjpalhdlnbpafiamejdnhcphjbkeiagm": "4013706C949FD89AD1F588F32A08A9656D83C0A61DB56C141341E60CF4404C95",
+                    "gmmpjoepfelkmeedfkfkadgkhholibko": "C253FB70BF73E16A7589C63B4D16FF1A4CE1D498FE35271E18A47DD5074E1DF7",
+                    "hlpjhlifkgmoibhollggngbbhbejecph": "241E0496ECDC2F8F819D56195B5A9422E3A3591BEB58FD6A619CF5EC2BA9627D"
+                }
+            }
+        }
+    }
+}
