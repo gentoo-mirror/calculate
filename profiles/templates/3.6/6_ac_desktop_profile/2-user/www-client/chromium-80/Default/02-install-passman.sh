@@ -34,7 +34,7 @@ MASTER_PW="calculate"
         "generatedPasswordLength": 12,
         "ignorePath": true,
         "ignoreProtocol": true,
-        "ignoreSubdomain": true,
+        "ignoreSubdomain": false,
         "ignored_sites": [],
 #?ini(user_credentials.passman_pw_remember)==on#
         "remember_password": true,
