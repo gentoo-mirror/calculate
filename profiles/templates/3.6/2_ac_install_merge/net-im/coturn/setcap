@@ -1,0 +1,4 @@
+# Calculate exec=/bin/bash pkg(sys-libs/libcap)!=
+
+setcap 'cap_net_bind_service=+ep' /usr/bin/turnserver &>/dev/null
+exit 0
