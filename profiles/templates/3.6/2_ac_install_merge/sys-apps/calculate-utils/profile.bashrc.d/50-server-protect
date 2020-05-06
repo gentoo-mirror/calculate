@@ -15,35 +15,35 @@
 
 protect_server_files() {
     local protected_files=(
-        "${D}/etc/bind/named.conf"
-        "${D}/etc/conf.d/sortmilter"
-        "${D}/etc/dhcp/dhcpd.conf"
-        "${D}/etc/dhcp/dhcp.ldap"
-        "${D}/etc/dovecot/conf.d/10-auth.conf"
-        "${D}/etc/dovecot/conf.d/10-logging.conf"
-        "${D}/etc/dovecot/conf.d/10-mail.conf"
-        "${D}/etc/dovecot/conf.d/10-master.conf"
-        "${D}/etc/dovecot/conf.d/auth-ldap.conf.ext"
-        "${D}/etc/dovecot/conf.d/auth-system.conf.ext"
-        "${D}/etc/dovecot/dovecot.conf"
-        "${D}/etc/dovecot/dovecot-ldap.conf"
-        "${D}/etc/jabber/ejabberd.cfg"
-        "${D}/etc/jabber/ejabberd.yml"
-        "${D}/etc/openldap/schema/dnszone.schema"
-        "${D}/etc/openldap/schema/mail.schema"
-        "${D}/etc/openldap/slapd.conf"
-        "${D}/etc/postfix/ldap-aliases.cf"
-        "${D}/etc/postfix/ldap-aliases-gr.cf"
-        "${D}/etc/postfix/ldap-aliases-repl.cf"
-        "${D}/etc/postfix/ldap-recipient.cf"
-        "${D}/etc/postfix/ldap-recipient-gr.cf"
-        "${D}/etc/postfix/ldap-recipient-repl.cf"
-        "${D}/etc/postfix/main.cf"
-        "${D}/etc/procmailrc"
-        "${D}/etc/proftpd/proftpd.conf"
-        "${D}/etc/samba/smb.conf"
-        "${D}/etc/squid/squid.conf"
-        "${D}/etc/squid/squid.ldap"
+        "/etc/bind/named.conf"
+        "/etc/conf.d/sortmilter"
+        "/etc/dhcp/dhcpd.conf"
+        "/etc/dhcp/dhcp.ldap"
+        "/etc/dovecot/conf.d/10-auth.conf"
+        "/etc/dovecot/conf.d/10-logging.conf"
+        "/etc/dovecot/conf.d/10-mail.conf"
+        "/etc/dovecot/conf.d/10-master.conf"
+        "/etc/dovecot/conf.d/auth-ldap.conf.ext"
+        "/etc/dovecot/conf.d/auth-system.conf.ext"
+        "/etc/openldap/slapd.conf"
+        "/etc/dovecot/dovecot.conf"
+        "/etc/dovecot/dovecot-ldap.conf"
+        "/etc/jabber/ejabberd.cfg"
+        "/etc/jabber/ejabberd.yml"
+        "/etc/openldap/schema/dnszone.schema"
+        "/etc/openldap/schema/mail.schema"
+        "/etc/postfix/ldap-aliases.cf"
+        "/etc/postfix/ldap-aliases-gr.cf"
+        "/etc/postfix/ldap-aliases-repl.cf"
+        "/etc/postfix/ldap-recipient.cf"
+        "/etc/postfix/ldap-recipient-gr.cf"
+        "/etc/postfix/ldap-recipient-repl.cf"
+        "/etc/postfix/main.cf"
+        "/etc/procmailrc"
+        "/etc/proftpd/proftpd.conf"
+        "/etc/samba/smb.conf"
+        "/etc/squid/squid.conf"
+        "/etc/squid/squid.ldap"
     )
     local packages=(
         "net-ftp/proftpd"
@@ -64,7 +64,24 @@ protect_server_files() {
         then
             for fn in ${protected_files[@]}
             do
-                [[ -f $fn ]] && mv -- "$fn" "${fn}.origin"
+	    	if [[ -f ${D}/$fn ]]
+		then
+			if [[ "$fn" == "/etc/openldap/slapd.conf" ]] && [[ $pkg == "net-nds/openldap" ]]
+			then
+				if [[ -f $fn ]]
+				then
+					contmd5="$(cat /var/db/pkg/net-nds/openldap-*/CONTENTS | grep " /etc/openldap/slapd.conf " | awk '{print $3}')"
+					curmd5="$(md5sum $fn | awk '{print $1}')"
+					if [[ $contmd5 != $curmd5 ]]
+					then
+						mv -- "${D}/$fn" "${D}/${fn}.origin"
+					fi
+				fi
+				cp -- "${D}/$fn" "${D}/${fn}.origin"
+			else
+				mv -- "${D}/$fn" "${D}/${fn}.origin"
+			fi
+		fi
             done
             break
         fi
