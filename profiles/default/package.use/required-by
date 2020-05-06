@@ -709,3 +709,6 @@ net-dialup/ppp eap-tls
 
 # required by gnome-extra/evolution-data-server-3.34.4[vala]
 dev-libs/libical vala
+
+# required by net-misc/econnman-1.1-r1
+dev-libs/efl connman
