@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI="7"
 PYTHON_COMPAT=(python2_7)
 
-inherit calculate-utils-r6 git-r3
+inherit calculate-utils-r8 git-r3
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
