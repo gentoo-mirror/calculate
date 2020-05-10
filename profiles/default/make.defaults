@@ -52,7 +52,7 @@ USE="${USE} gphoto2"
 USE="${USE} cups foomaticdb"
 
 # Python
-#USE="${USE} -python_single_target_python3_4"
+USE="${USE} python_targets_python2_7 python_targets_python3_6 python_single_target_python3_6"
 
 # System
 USE="${USE} caps cgroups consolekit introspection logrotate lz4 lzo networkmanager nsplugin pgo policykit threads udisks"
