@@ -706,3 +706,6 @@ dev-libs/libical vala
 
 # required by net-misc/econnman-1.1-r1
 dev-libs/efl connman
+
+# required by app-vim/vim-latex-1.10.0-r1
+app-editors/gvim -python_single_target_python3_7 python_single_target_python3_6 python
