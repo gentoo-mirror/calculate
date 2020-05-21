@@ -64,8 +64,19 @@ fix_kernel_symlink() {
 	fi
 }
 
+clean_binary_bdepends() {
+	if [[ $EMERGE_FROM == binary ]]
+	then
+		local _bdep=/var/db/pkg/$CATEGORY/$PF/BDEPEND
+		local _dep=/var/db/pkg/$CATEGORY/$PF/DEPEND
+		[[ -f $_bdep ]] && mv $_bdep $_bdep.binary
+		[[ -f $_dep ]] && mv $_dep $_dep.binary
+	fi
+}
+
 post_pkg_postinst() {
 	[[ "$PN" == "calculate-sources" ]] && fix_kernel_symlink
 	post_setup_package
 	calculate_unlock_setup
+	clean_binary_bdepends
 }
