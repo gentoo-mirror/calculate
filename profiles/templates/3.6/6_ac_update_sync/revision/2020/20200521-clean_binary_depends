@@ -1,0 +1,15 @@
+# Calculate run=/bin/bash ini(overlay-calculate.revision)=>20191116.3,#-cut(0,-,#-cl_pass_file-#)-#
+
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+
+find /var/db/pkg -name BINPKGMD5 -print |
+while read line
+do
+	PKGDN="$(dirname $line)"
+	bdependfile="$PKGDN/BDEPEND"
+	dependfile="$PKGDN/DEPEND"
+	[[ -f $bdependfile ]] && mv $bdependfile $bdependfile.binary
+	[[ -f $dependfile ]] && mv $dependfile $dependfile.binary
+done
+
+exit 0
