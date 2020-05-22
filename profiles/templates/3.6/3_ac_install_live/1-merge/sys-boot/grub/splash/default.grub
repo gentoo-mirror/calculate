@@ -27,7 +27,7 @@ GRUB_CMDLINE_LINUX="video=#-os_install_fb_resolution-# #-os_install_kernel_resum
 #pkg#
 
 #?pkg(media-gfx/splashutils)==&&pkg(sys-boot/plymouth)==#
-GRUB_CMDLINE_LINUX="video=#-os_install_fb_resolution-# #-os_install_kernel_resume-# #-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# splash=off console=tty1 quiet"
+GRUB_CMDLINE_LINUX="video=#-os_install_fb_resolution-# #-os_install_kernel_resume-# #-os_install_kernel_attr-# calculate=video:#-os_install_x11_video_drv-# rd.plymouth=0 splash=off console=tty1 quiet"
 #pkg#
 GRUB_GFXMODE="#-os_install_fb_resolution-#"
 
