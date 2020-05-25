@@ -1,4 +1,4 @@
-# Calculate unprotected name=smb.conf format=samba pkg(kde-apps/kio-extras)!=||pkg(gnome-base/gvfs)!=
+# Calculate protected name=smb.conf format=samba pkg(kde-apps/kio-extras)!=||pkg(gnome-base/gvfs)!=
 
 [global]
 #?grep(/etc/samba/smb.conf,client\x20max\x20protocol)==#
