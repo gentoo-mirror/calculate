@@ -1,0 +1,57 @@
+# Calculate chmod=0755
+#!/sbin/openrc-run
+# Copyright 2020 Mir Calculate. http://www.calculate-linux.org
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+
+depend()
+{
+	after clock root swap
+	before localmount
+	keyword -docker -jail -lxc -openvz -prefix -systemd-nspawn -vserver
+}
+
+start()
+{
+	if [[ $START == "always" ]] || [[ -z $(swapon --noheading) ]]
+	then
+		ebegin "Activating zram swap devices"
+		local disksize;
+		modprobe zram
+		echo ${COMP_ALGORITHM:-zstd} >/sys/block/zram0/comp_algorithm
+		if [[ ${DISKSIZE:-200%} =~ ^([0-9]+)%$ ]]
+		then
+			local perc="${BASH_REMATCH[1]}"
+			local memorysize="$(free -b | awk '{if ($1 == "Mem:") {print $2}}')"
+			disksize="$(( $memorysize * $perc / 100 ))"
+		else
+			disksize="${DISKSIZE}"
+		fi
+		echo $disksize >/sys/block/zram0/disksize
+		mkswap /dev/zram0
+
+		swapon -p 100 /dev/zram0 &>/dev/null
+	fi
+	eend 0 # If swapon has nothing todo it errors, so always return 0
+}
+
+stop()
+{
+	if [[ -n $(swapon --noheading | grep /dev/zram0) ]]
+	then
+		ebegin "Deactivating zram swap devices"
+		swapoff /dev/zram0 &>/dev/null
+		echo 1 >/sys/block/zram0/reset
+	fi
+	eend 0
+}
