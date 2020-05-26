@@ -1,18 +1,12 @@
 # Calculate protected exists(/etc/conf.d/zram)==
-# RESTORE_ON_START:
+
 # Compression algorithm for zram disk
+COMPRESSION="zstd"
 
-COMP_ALGORITHM="zstd"
-
-# DISKSIZE:
-# Zram disk size
-# Memory percent or absolute value with suffix (K,M,G)
-
+# Zram disk size in percent of RAM or absolute value with suffix (K,M,G)
 DISKSIZE="200%"
 
-# START
 # Start zram swap disk
-# withoutswap - start only system swapless
+# swapless - start only for swapless system
 # always - start anyway
-
-START="withoutswap"
+START="swapless"
