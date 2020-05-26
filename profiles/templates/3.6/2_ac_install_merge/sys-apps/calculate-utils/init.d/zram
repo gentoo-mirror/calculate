@@ -23,24 +23,26 @@ depend()
 
 start()
 {
-	if [[ $START == "always" ]] || [[ -z $(swapon --noheading) ]]
+	[[ -d /sys/block/zram0 ]] || modprobe zram
+	if [[ -d /sys/block/zram0 ]]
 	then
-		ebegin "Activating zram swap devices"
-		local disksize;
-		modprobe zram
-		echo ${COMPRESSION:-zstd} >/sys/block/zram0/comp_algorithm
-		if [[ ${DISKSIZE:-200%} =~ ^([0-9]+)%$ ]]
+		if [[ $START == "always" ]] || [[ -z $(swapon --noheading) ]]
 		then
-			local perc="${BASH_REMATCH[1]}"
-			local memorysize="$(free -b | awk '{if ($1 == "Mem:") {print $2}}')"
-			disksize="$(( $memorysize * $perc / 100 ))"
-		else
-			disksize="${DISKSIZE}"
+			ebegin "Activating zram swap devices"
+			local disksize;
+			echo ${COMPRESSION:-zstd} >/sys/block/zram0/comp_algorithm
+			if [[ ${DISKSIZE:-200%} =~ ^([0-9]+)%$ ]]
+			then
+				local perc="${BASH_REMATCH[1]}"
+				local memorysize="$(free -b | awk '{if ($1 == "Mem:") {print $2}}')"
+				disksize="$(( $memorysize * $perc / 100 ))"
+			else
+				disksize="${DISKSIZE}"
+			fi
+			echo $disksize >/sys/block/zram0/disksize
+			mkswap /dev/zram0
+			swapon -p 100 /dev/zram0 &>/dev/null
 		fi
-		echo $disksize >/sys/block/zram0/disksize
-		mkswap /dev/zram0
-
-		swapon -p 100 /dev/zram0 &>/dev/null
 	fi
 	eend 0 # If swapon has nothing todo it errors, so always return 0
 }
