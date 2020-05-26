@@ -28,7 +28,7 @@ start()
 		ebegin "Activating zram swap devices"
 		local disksize;
 		modprobe zram
-		echo ${COMP_ALGORITHM:-zstd} >/sys/block/zram0/comp_algorithm
+		echo ${COMPRESSION:-zstd} >/sys/block/zram0/comp_algorithm
 		if [[ ${DISKSIZE:-200%} =~ ^([0-9]+)%$ ]]
 		then
 			local perc="${BASH_REMATCH[1]}"
