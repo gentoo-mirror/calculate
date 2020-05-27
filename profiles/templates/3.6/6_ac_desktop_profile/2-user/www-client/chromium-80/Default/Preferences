@@ -1,5 +1,10 @@
 # Calculate format=json
 {
+#?pkg(www-client/chromium)>=83#
+    "omnibox": {
+        "prevent_url_elisions": true
+    },
+#pkg#
     "autofill": {
         "credit_card_enabled": false,
         "orphan_rows_removed": true,
