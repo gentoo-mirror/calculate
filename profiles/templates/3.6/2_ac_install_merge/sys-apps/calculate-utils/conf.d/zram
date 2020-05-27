@@ -8,4 +8,8 @@ DISKSIZE="200%"
 # Start zram swap disk
 # swapless - start only for swapless system
 # always - start anyway
+#?cl_chroot_status==on#
+START="always"
+#!cl_chroot_status#
 START="swapless"
+#cl_chroot_status#

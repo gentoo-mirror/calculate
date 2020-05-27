@@ -40,7 +40,7 @@ start()
 				disksize="${DISKSIZE}"
 			fi
 			echo $disksize >/sys/block/zram0/disksize
-			mkswap /dev/zram0
+			mkswap -L zramswap /dev/zram0
 			swapon -p 100 /dev/zram0 &>/dev/null
 		fi
 	fi
@@ -49,7 +49,7 @@ start()
 
 stop()
 {
-	if [[ -n $(swapon --noheading | grep /dev/zram0) ]]
+	if [[ ${RC_RUNLEVEL} != "shutdown" ]] && [[ -n $(swapon --noheading | grep /dev/zram0) ]]
 	then
 		ebegin "Deactivating zram swap devices"
 		swapoff /dev/zram0 &>/dev/null
