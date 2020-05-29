@@ -1,0 +1,29 @@
+# Calculate run=/bin/bash ini(overlay-calculate.revision)=>20191116.3,#-cut(0,-,#-cl_pass_file-#)-#
+
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+
+get_packages() {
+	awk -F: '{print $1}' | sort -u | sed -r 's,/.?DEPEND,,'
+}
+
+virtualpam() {
+	cd /var/db/pkg
+	grep -rnP "virtual/pam" */*/*DEPEND
+}
+
+downgrade_for_rebuild() {
+	grep -v _rc73 | sort -u | while read pf;
+	do
+		pv_new="$(sed 's,-r[0-9]\+,,' <<<$pf)_rc73"
+		mv /var/db/pkg/$pf /var/db/pkg/$pv_new
+	done
+}
+
+PACKAGES="$(virtualpam | get_packages)"
+
+if [[ -n $PACKAGES ]]
+then
+	downgrade_for_rebuild <<<$PACKAGES
+fi
+
+exit 0
