@@ -65,7 +65,11 @@ fix_kernel_symlink() {
 }
 
 clean_binary_bdepends() {
-	if [[ $EMERGE_FROM == binary ]]
+	local bdeps=$(/usr/libexec/calculate/cl-variable --value update.cl_update_with_bdeps_set 2>/dev/null)
+	local _instmark=/var/db/pkg/$CATEGORY/$PF/EMERGE_FROM
+	echo -n $EMERGE_FROM >$_instmark
+	
+	if [[ $EMERGE_FROM == binary ]] && [[ $bdeps == auto ]]
 	then
 		local _bdep=/var/db/pkg/$CATEGORY/$PF/BDEPEND
 		local _dep=/var/db/pkg/$CATEGORY/$PF/DEPEND
