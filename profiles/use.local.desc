@@ -47,3 +47,8 @@ sys-kernel/calculate-sources:vmlinuz - Build kernel, modules and initramfs
 sys-kernel/calculate-sources:pae - Build kernel with PAE
 sys-kernel/calculate-sources:muqss - Build kernel with MuQSS
 sys-kernel/calculate-sources:fsync - Build kernel with futex-wait-multiple patchset
+sys-apps/kmod:lzma - Enable support for XZ compressed modules
+sys-apps/kmod:pkcs7 - Enable PKCS#7 signature parsing for modinfo
+sys-apps/kmod:tools - Install module loading/unloading tools
+sys-apps/kmod:zlib - Enable support for gzipped modules
+sys-apps/kmod:zstd - Enable support for ZSTD compressed modules
