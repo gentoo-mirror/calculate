@@ -25,7 +25,8 @@ CDEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
 		grub? ( sys-boot/grub )
 	)
 	firmware? ( || ( sys-kernel/linux-firmware
-		sys-firmware/eth-firmware ) )"
+		sys-firmware/eth-firmware ) )
+	sys-apps/kmod[zstd]"
 
 DEPEND="${CDEPEND}
 	>=sys-devel/bison-1.875
