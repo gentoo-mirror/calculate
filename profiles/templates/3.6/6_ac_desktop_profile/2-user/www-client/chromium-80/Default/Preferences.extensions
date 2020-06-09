@@ -132,14 +132,14 @@
                         "managed_schema": "managed_storage.json"
                     },
                     "update_url": "https://clients2.google.com/service/update2/crx",
-                    "version": "1.24.4",
+                    "version": "#-pkg(www-plugins/chrome-ublock)-#",
                     "web_accessible_resources": [
                         "/web_accessible_resources/*"
                     ]
                 },
                 "needs_sync": true,
                 "never_activated_since_loaded": true,
-                "path": "cjpalhdlnbpafiamejdnhcphjbkeiagm/1.24.4_0",
+                "path": "cjpalhdlnbpafiamejdnhcphjbkeiagm/#-pkg(www-plugins/chrome-ublock)-#_0",
                 "preferences": {
                     "enable_a_ping": false,
                     "net.network_prediction_options": 2

@@ -18,7 +18,7 @@ NETWHITELIST=""
     "netWhitelist": "[$NETWHITELIST\"about-scheme\",\"chrome-extension-scheme\",\"moz-extension-scheme\",\"opera-scheme\",\"vivaldi-scheme\",\"wyciwyg-scheme\"]",
     "selectedFilterLists": "[\"user-filters\",\"assets.json\",\"public_suffix_list.dat\",\"ublock-resources\",\"ublock-filters\",\"ublock-badware\",\"ublock-privacy\",\"ublock-abuse\",\"ublock-unbreak\",\"easylist\",\"easyprivacy\",\"malware-0\",\"malware-1\",\"plowe-0\",\"RUS-0\"]",
     "selfieMagic": "25",
-    "version": "\"1.24.4\""
+    "version": "\"#-pkg(www-plugins/chrome-ublock)-#\""
 }
 EOF
 
