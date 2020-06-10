@@ -30,6 +30,6 @@ cl;
 #ini#
 #pkg#
 #?pkg(media-gfx/splashutils)==&&pkg(sys-boot/plymouth)==#
-#-load(/bootmenu/bootparam.config)-# verbose;
+#-load(/bootmenu/bootparam.config)-# verbose rd.plymouth=0;
 #pkg#
 FOOTER
