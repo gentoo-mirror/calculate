@@ -121,12 +121,26 @@ create_hostonly_initramfs() {
         local kernel_version=$(get_kernel_version $kernel)
         [[ -n $kernel_version ]] || die "Failed to detect version"
         echo "Creating Host-Only initramfs ..."
+        local kernelconfig="/boot/config-$kernel_version"
+        local compresstype=""
+        if grep -q CONFIG_RD_ZSTD=y $kernelconfig &>/dev/null
+        then
+            compresstype="--zstd"
+        elif grep -q CONFIG_RD_GZIP=y $kernelconfig &>/dev/null
+        then
+            compresstype="--gzip"
+        elif grep -q CONFIG_RD_XZ=y $kernelconfig &>/dev/null
+        then
+            compresstype="--xz"
+        else
+            die "Failed to detect initramfs support compression"
+        fi
 #?os_install_x11_video_drv==#-os_x11_video_drv-##
-        dracut -H --xz -f --kver $kernel_version $initrd_tmp &>/dev/null ||
+        dracut -H $compresstype -f --kver $kernel_version $initrd_tmp &>/dev/null ||
             die "Failed to create Host-Only initramfs"
 #os_install_x11_video_drv#
 #?os_install_x11_video_drv!=#-os_x11_video_drv-##
-        dracut -H --xz -f --add-drivers="i915 amdgpu uvesafb radeon nouveau" --kver $kernel_version $initrd_tmp &>/dev/null ||
+        dracut -H $compresstype -f --add-drivers="i915 amdgpu uvesafb radeon nouveau" --kver $kernel_version $initrd_tmp &>/dev/null ||
             die "Failed to create Host-Only initramfs"
 #os_install_x11_video_drv#
         mv $initrd_tmp $initrd &>/dev/null || die "Failed to rename initramfs"
