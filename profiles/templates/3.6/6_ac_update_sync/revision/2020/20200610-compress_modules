@@ -1,0 +1,57 @@
+# Calculate run=/bin/bash ini(overlay-calculate.revision)=>20191116.3,#-cut(0,-,#-cl_pass_file-#)-# merge=sys-apps/calculate-utils
+
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+
+# qfile hack
+_qfile() {
+    (cd /; qfile $*)
+}
+
+qfile_pkgname() {
+    _qfile $* | sed -r 's/:? .*$//;'
+}
+
+
+remove_content() {
+	sed -i "\,obj $2,d" /var/db/pkg/$1-[0-9]*/CONTENTS
+}
+
+add_content() {
+	modmd5="$(md5sum $2 | cut -d " " -f 1)"
+	modtime="$(stat -c %Y $2)"
+	echo "obj $2 $modmd5 $modtime" >>/var/db/pkg/$1-[0-9]*/CONTENTS
+}
+
+kernel_version=$(readlink /usr/src/linux | sed 's/.*linux-//')
+
+if grep -q MODULE_COMPRESS_ZSTD /boot/config-$kernel_version &>/dev/null
+then
+	compress_module() {
+		zstd --rm $1 &>/dev/null </dev/null
+		echo "$1.zst"
+	}
+elif grep -q MODULE_COMPRESS_XZ /boot/config-$kernel_version &>/dev/null
+then
+	compress_module() {
+		xz $1 &>/dev/null </dev/null
+		echo "$1.xz"
+	}
+else
+	exit 0
+fi
+
+find /lib/modules/$kernel_version -name "*.ko" | while read line;
+do
+	modname="$line"
+	package="$(qfile_pkgname $line)"
+	compressedname="$(compress_module $modname)"
+	if [[ -n $package ]] && [[ -f $compressedname ]]
+	then
+		remove_content $package $modname
+		add_content $package $compressedname
+	fi 
+done
+
+depmod -a $kernel_version
+
+exit 0
