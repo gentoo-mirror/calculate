@@ -164,8 +164,9 @@ kde-apps/ktp-common-internals otr
 # required by dev-qt/qtwebengine-5.6.0
 dev-qt/qtwebchannel qml
 
+# add support for the framework for loop optimizations
 # required by games-action/oolite-1.82::calculate
-sys-devel/gcc objc
+sys-devel/gcc graphite objc
 
 # required by media-gfx/freecad-0.15.4671
 dev-libs/xerces-c icu
