@@ -91,3 +91,5 @@ sys-apps/kmod:zlib - Enable support for gzipped modules
 sys-apps/kmod:zstd - Enable support for ZSTD compressed modules
 sys-auth/fingerprint-gui:upekbsapi - Add UPEK BSAPI drivers for identify functions on some readers
 sys-kernel/calculate-sources:desktop - Desktop kernel configuration
+x11-misc/compton:drm - Enable VSync with DRM_IOCTL_WAIT_VBLANK
+x11-misc/compton:opengl - Enable VSync with SGI_swap_control OpenGL extension
