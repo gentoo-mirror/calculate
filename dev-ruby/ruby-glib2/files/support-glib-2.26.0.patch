@@ -1,0 +1,32 @@
+From f34f99f0c6a752084f90e52c382e329d02ad22fd Mon Sep 17 00:00:00 2001
+From: Mamoru TASAKA <mtasaka@fedoraproject.org>
+Date: Fri, 6 Sep 2019 12:19:21 +0900
+Subject: [PATCH] glib2: fix parser in MkEnums for resent GLib
+
+GLib 2.62.0 introduced some deprecation warnings for macros in gtestutils.h with the commit https://gitlab.gnome.org/GNOME/glib/commit/40ff4759774516b7dff3b07303a98fc1626b2d0e .
+This patch makes GLib::MkEnums correctly parse header files in GLib 2.62.0 again.
+From c6fba15e10d379127441902b6d80f923797eb98b Mon Sep 17 00:00:00 2001
+From: Kouhei Sutou <kou@clear-code.com>
+Date: Sun, 8 Sep 2019 11:11:40 +0900
+Subject: [PATCH] Don't capture enum typedef attribute
+
+---
+ glib2/lib/glib-mkenums.rb | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/glib2/lib/glib-mkenums.rb b/glib2/lib/glib-mkenums.rb
+index 37545ece8..fc9f2e93e 100644
+--- a/lib/glib-mkenums.rb
++++ b/lib/glib-mkenums.rb
+@@ -112,7 +112,10 @@ def self.parse(data, g_type_prefix, options={})
+       data.force_encoding("utf-8") if data.respond_to?(:force_encoding)
+       data.scan(/^\s*typedef\s+enum\s*(\/\*<\s*flags\s*>\*\/)?\s*
+                 \{?\s*(.*?)
+-                \}\s*(\w+);/mx) do |force_flags, constants, name|
++                \}\s*(\w+)
++                # GLIB_DEPRECATED_TYPE_IN_2_38_FOR(GTestSubprocessFlags)
++                (?:\s+[\w()\s]+)?
++                ;/mx) do |force_flags, constants, name|
+         enum_options = {}
+         enum_options[:force_flags] = !force_flags.nil?
+         force_flags_patterns = [(options[:force_flags] || [])].flatten
