@@ -12,7 +12,7 @@ IUSE=""
 RDEPEND+=" >=dev-libs/glib-2"
 DEPEND+=" >=dev-libs/glib-2"
 
-RUBY_PATCHES=( support-glib-2.26.0.patch )
+PATCHES=( ${FILESDIR}/support-glib-2.26.0.patch )
 
 ruby_add_bdepend "dev-ruby/pkg-config
 	test? ( >=dev-ruby/test-unit-2 )"
