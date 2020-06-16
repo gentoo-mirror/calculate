@@ -8,12 +8,12 @@ ETYPE="sources"
 inherit calculate-kernel-8 eutils
 
 DESCRIPTION="Calculate Linux kernel image"
-KEYWORDS=""
+KEYWORDS="~amd64"
 HOMEPAGE="http://www.calculate-linux.org"
 
 SRC_URI="${KERNEL_URI} ${ARCH_URI}"
 
-IUSE=""
+IUSE="fsync muqss uksm"
 
 src_unpack() {
 	calculate-kernel-8_src_unpack
