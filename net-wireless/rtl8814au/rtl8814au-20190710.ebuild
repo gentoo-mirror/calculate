@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/zebulon2/rtl8814au"
 SRC_URI="https://github.com/zebulon2/rtl8814au/archive/${COMMIT}.zip -> rtl8814au-${PV}.zip"
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64"
 
 DEPEND="virtual/linux-sources
 	app-arch/unzip"
