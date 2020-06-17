@@ -4,29 +4,33 @@
 EAPI=5
 inherit linux-mod
 
-COMMIT="0401e4754637144bb7480aafd6b89d93ed97825d"
+COMMIT="69765eb288a8dfad3b055b906760b53e02ab1dea"
 
-DESCRIPTION="Realtek 8821(*U)/8811CU/8812A/8192E/8814A/8822B/8723(*U)/8188E(**) module for Linux kernel"
-HOMEPAGE="https://github.com/brektrou/rtl8821CU"
-SRC_URI="https://github.com/brektrou/rtl8821CU/archive/${COMMIT}.zip -> rtl8821cu-${PV}.zip"
+DESCRIPTION="Realtek RTL8821CE Driver module for Linux kernel"
+HOMEPAGE="https://github.com/tomaspinho/rtl8821ce"
+SRC_URI="https://codeload.github.com/tomaspinho/rtl8821ce/zip/${COMMIT} -> rtl8821ce-${PV}.zip"
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64"
 
 DEPEND="virtual/linux-sources
 	app-arch/unzip"
 RDEPEND=""
 
-S="${WORKDIR}/rtl8821CU-${COMMIT}"
+S="${WORKDIR}/rtl8821ce-${COMMIT}"
 
-MODULE_NAMES="8821cu(net/wireless)"
+MODULE_NAMES="8821ce(net/wireless)"
 BUILD_TARGETS="all"
 BUILD_TARGET_ARCH="${ARCH}"
 
 src_unpack() {
 	unpack "${A}"
 	cd "${S}"
+
+	# fix32 bit
+	epatch "${FILESDIR}/32bit.patch"
 }
+
 
 pkg_setup() {
 	linux-mod_pkg_setup
