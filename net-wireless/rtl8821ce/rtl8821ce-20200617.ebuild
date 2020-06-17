@@ -23,15 +23,6 @@ MODULE_NAMES="8821ce(net/wireless)"
 BUILD_TARGETS="all"
 BUILD_TARGET_ARCH="${ARCH}"
 
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-
-	# fix32 bit
-	epatch "${FILESDIR}/32bit.patch"
-}
-
-
 pkg_setup() {
 	linux-mod_pkg_setup
 	BUILD_PARAMS="KERN_DIR=${KV_DIR} KSRC=${KV_DIR} KERN_VER=${KV_FULL} O=${KV_OUT_DIR} V=1 KBUILD_VERBOSE=1"
