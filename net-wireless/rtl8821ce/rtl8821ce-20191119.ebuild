@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/tomaspinho/rtl8821ce"
 SRC_URI="https://codeload.github.com/tomaspinho/rtl8821ce/zip/${COMMIT} -> rtl8821ce-${PV}.zip"
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64"
 
 DEPEND="virtual/linux-sources
 	app-arch/unzip"

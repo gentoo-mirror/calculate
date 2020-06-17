@@ -4,22 +4,22 @@
 EAPI=5
 inherit linux-mod
 
-COMMIT="0401e4754637144bb7480aafd6b89d93ed97825d"
+COMMIT="741fa1fb07faf909f53de675a218a886e8dc23cd"
 
-DESCRIPTION="Realtek 8821(*U)/8811CU/8812A/8192E/8814A/8822B/8723(*U)/8188E(**) module for Linux kernel"
-HOMEPAGE="https://github.com/brektrou/rtl8821CU"
-SRC_URI="https://github.com/brektrou/rtl8821CU/archive/${COMMIT}.zip -> rtl8821cu-${PV}.zip"
+DESCRIPTION="Realtek 8814AU USB WiFi module for Linux kernel"
+HOMEPAGE="https://github.com/zebulon2/rtl8814au"
+SRC_URI="https://github.com/zebulon2/rtl8814au/archive/${COMMIT}.zip -> rtl8814au-${PV}.zip"
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64"
 
 DEPEND="virtual/linux-sources
 	app-arch/unzip"
 RDEPEND=""
 
-S="${WORKDIR}/rtl8821CU-${COMMIT}"
+S="${WORKDIR}/rtl8814au-${COMMIT}"
 
-MODULE_NAMES="8821cu(net/wireless)"
+MODULE_NAMES="8814au(net/wireless)"
 BUILD_TARGETS="all"
 BUILD_TARGET_ARCH="${ARCH}"
 
