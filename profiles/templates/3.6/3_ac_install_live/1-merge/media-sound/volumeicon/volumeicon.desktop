@@ -1,4 +1,4 @@
-# Calculate format=kde path=/etc/xdg/autostart
+# Calculate format=kde path=/etc/xdg/autostart os_audio!=pulseaudio||pkg(media-sound/pavucontrol)!=
 
 [Desktop Entry]
 Name=VolumeIcon
