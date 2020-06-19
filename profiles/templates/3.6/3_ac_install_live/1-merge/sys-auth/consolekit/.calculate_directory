@@ -1,1 +1,1 @@
-# Calculate path=/etc/polkit-1 name=rules.d chown=polkitd:root chmod=700
+# Calculate append=skip mergepkg()!=&&pkg(sys-auth/polkit)!=
