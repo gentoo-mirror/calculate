@@ -5,16 +5,6 @@
 EAPI="7"
 PYTHON_COMPAT=(python2_7)
 
-declare -A CALCULATE_MODULES=(
-	["lib"]="3.6.7.18"
-	["install"]="3.6.7.12"
-	["core"]="3.6.7.4"
-	["i18n"]="3.6.7.9"
-	["console-gui"]="3.6.7.1"
-	["update"]="3.6.7.9"
-	["builder"]="3.6.7.9"
-)
-
 inherit calculate-utils-r8
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
