@@ -224,9 +224,10 @@ media-gfx/ufraw gimp
 # enable support for Media Transfer Protocol
 media-sound/clementine mtp dropbox googledrive
 
+# enable support for CorelDRAW files
 # support for OpenOffice.org SVG jar files, color management engine,
 # Microsoft Visio Diagrams, WordPerfect Graphics
-media-gfx/inkscape inkjar lcms visio wpg
+media-gfx/inkscape cdr inkjar lcms visio wpg
 
 # mikmod? ( mod ) timidity? ( midi )
 media-libs/sdl-mixer mod timidity midi
