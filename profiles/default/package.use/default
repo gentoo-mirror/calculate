@@ -126,8 +126,8 @@ media-video/smplayer autoshutdown streaming
 # build with native HSP backend and oFono HFP backend for bluez 5
 media-sound/pulseaudio native-headset ofono-headset
 
-# enable Vulkan drivers
-media-libs/mesa vulkan wayland
+# enable Direct 3D9 API, Vulkan drivers
+media-libs/mesa d3d9 vulkan wayland
 
 # user preferences
 kde-apps/akonadi -mysql postgres
@@ -224,9 +224,10 @@ media-gfx/ufraw gimp
 # enable support for Media Transfer Protocol
 media-sound/clementine mtp dropbox googledrive
 
+# enable support for CorelDRAW files
 # support for OpenOffice.org SVG jar files, color management engine,
 # Microsoft Visio Diagrams, WordPerfect Graphics
-media-gfx/inkscape inkjar lcms visio wpg
+media-gfx/inkscape cdr inkjar lcms visio wpg
 
 # mikmod? ( mod ) timidity? ( midi )
 media-libs/sdl-mixer mod timidity midi
