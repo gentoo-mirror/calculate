@@ -45,7 +45,7 @@ RDEPEND="app-accessibility/at-spi2-atk:2
 	x11-libs/libXScrnSaver
 	x11-libs/pango"
 DEPEND="${RDEPEND}"
-BDEPEND=""
+BDEPEND="sys-apps/yarn"
 
 QA_PREBUILT="
 	/opt/Rocket.Chat/chrome-sandbox
