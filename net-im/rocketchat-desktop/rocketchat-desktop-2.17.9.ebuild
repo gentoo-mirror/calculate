@@ -68,9 +68,9 @@ src_prepare() {
 }
 
 src_compile() {
-	yarn || die
-	NODE_ENV=production yarn gulp build || die
-	NODE_ENV=production yarn electron-builder --linux deb || die
+	PATH="${PATH}:$S/node_modules/.bin" yarn || die
+	PATH="${PATH}:$S/node_modules/.bin" NODE_ENV=production yarn gulp build || die
+	PATH="${PATH}:$S/node_modules/.bin" NODE_ENV=production yarn electron-builder --linux deb || die
 }
 
 src_install() {
