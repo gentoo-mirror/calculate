@@ -449,3 +449,9 @@ www-client/chromium widevine
 
 # Enable display of detailed memory information using dev-qt/qtwebengine
 kde-plasma/libksysguard webengine
+
+# Enable Vulkan drivers
+app-emulation/wine-staging vulkan
+
+# Include the vulkan layers
+media-libs/vulkan-loader layers
