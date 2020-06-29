@@ -11,7 +11,7 @@ inherit unpacker xdg-utils
 MYPN="Rocket.Chat.Electron"
 
 SRC_URI="https://github.com/RocketChat/${MYPN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -26,8 +26,10 @@ RDEPEND="app-accessibility/at-spi2-atk:2
 	dev-libs/expat
 	dev-libs/nspr
 	dev-libs/nss
-	>=net-libs/nodejs-12.14.0
 	net-print/cups
+	dev-libs/atk:0
+	dev-libs/glib:2
+	gnome-base/gconf:2
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
@@ -45,32 +47,29 @@ RDEPEND="app-accessibility/at-spi2-atk:2
 	x11-libs/libXScrnSaver
 	x11-libs/pango"
 DEPEND="${RDEPEND}"
-BDEPEND="sys-apps/yarn"
+BDEPEND="dev-python/nodeenv"
 
 QA_PREBUILT="
-	/opt/Rocket.Chat/chrome-sandbox
 	/opt/Rocket.Chat/rocketchat-desktop
-	/opt/Rocket.Chat/libEGL.so
-	/opt/Rocket.Chat/libGLESv2.so
-	/opt/Rocket.Chat/libffmpeg.so
-	/opt/Rocket.Chat/swiftshader/libvk_swiftshader.so
-	/opt/Rocket.Chat/swiftshader/libEGL.so
-	/opt/Rocket.Chat/swiftshader/libGLESv2.so"
+	/opt/Rocket.Chat/libnode.so
+	/opt/Rocket.Chat/libffmpeg.so"
 
 S="${WORKDIR}/$MYPN-${PV}"
 
 src_prepare() {
 	default
-	sed -i 's,"@babel/preset-env".*,"@babel/preset-env": "^7.7.4"\,,' package.json
-	npm install node-gyp || die
-	npm install yarn || die
+	nodeenv -n 10.16.3 .node-10
+	source .node-10/bin/activate
+	npm install -g node-gyp || die
+	npm install -g yarn || die
 	npm update || die
 }
 
 src_compile() {
-	PATH="${PATH}:$S/node_modules/.bin" yarn || die
-	PATH="${PATH}:$S/node_modules/.bin" NODE_ENV=production yarn gulp build || die
-	PATH="${PATH}:$S/node_modules/.bin" NODE_ENV=production yarn electron-builder --linux deb || die
+	source .node-10/bin/activate
+	yarn || die
+	yarn gulp build-app --env=release || die
+	yarn electron-builder --linux deb || die
 }
 
 src_install() {
