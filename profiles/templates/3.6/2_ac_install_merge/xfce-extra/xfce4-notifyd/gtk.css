@@ -1,0 +1,44 @@
+# Calculate path=/usr/share/themes/Calculate/xfce-notify-4.0
+
+#XfceNotifyWindow {
+    background-color: alpha(#282a33,0.9);
+    border-radius: 0 0 2px 2px;
+    border-width: 0 1px 1px 1px;
+    padding: 10px;
+    border-style: solid;
+    border-color: rgba(13, 14, 17, 0.4);
+}
+
+#XfceNotifyWindow:hover {
+    border-radius: 0 0 2px 2px;
+    border-width: 0 1px 1px 1px;
+    padding: 10px;
+    border-style: solid;
+    border-color: rgba(13, 14, 17, 0.4);
+}
+
+#XfceNotifyWindow label,
+#XfceNotifyWindow image {
+    color: #ffffff;
+}
+
+#XfceNotifyWindow label#summary {
+    font-weight: Bold;
+}
+
+#XfceNotifyWindow button {
+    border-color: rgba(13, 14, 17, 0.4);
+    background-image: none;
+    background-color: rgba(82, 148, 226, 0);
+    color: #d3dae3;
+    box-shadow: inset 0 1px rgba(255,255,255,0.5);
+    text-shadow: none;
+}
+
+#XfceNotifyWindow button:hover {
+    background-image: none;
+    background-color: rgba(105, 110, 134, 0.5);
+    color: #d3dae3;
+    box-shadow: inset 0 1px rgba(255,255,255,0.5);
+    text-shadow: none;
+}
