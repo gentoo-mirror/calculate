@@ -6,7 +6,10 @@
 #?pkg(xfce-extra/xfce4-notifyd)<0.4#
   <property name="theme" type="string" value="lightdm-calculate"/>
 #pkg#
-#?pkg(xfce-extra/xfce4-notifyd)>=0.4#
+#?pkg(xfce-extra/xfce4-notifyd)>=0.4&&pkg(xfce-extra/xfce4-notifyd)<0.6#
   <property name="theme" type="string" value="Default"/>
+#pkg#
+#?pkg(xfce-extra/xfce4-notifyd)>=0.6#
+  <property name="theme" type="string" value="Calculate"/>
 #pkg#
 </channel>
