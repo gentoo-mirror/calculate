@@ -11,7 +11,7 @@ inherit unpacker xdg-utils
 MYPN="Rocket.Chat.Electron"
 
 SRC_URI="https://github.com/RocketChat/${MYPN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 LICENSE="Apache-2.0"
 SLOT="0"
