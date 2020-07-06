@@ -121,10 +121,9 @@ app-crypt/qca openssl
 dev-python/PyQt4 declarative script sql help
 
 # [melt, xml] required by media-video/kdenlive
-media-libs/mlt melt xml kdenlive -xine qt5
-
-# required by media-video/shotcut-18.03
-media-libs/mlt sdl2
+# required by media-video/openshot-1.4.3o
+# required by media-video/shotcut
+media-libs/mlt melt xml kdenlive -xine qt5 python frei0r sdl2 jack
 
 # [xmp] required by kde-base/libkexiv2
 media-gfx/exiv2 xmp
@@ -255,9 +254,6 @@ net-libs/libmicrohttpd messages
 
 # required by dev-python/PyQt5-5.4.2::gentoo[webkit]
 >=dev-qt/qtwebkit-5.4.2 printsupport
-
-# required by media-video/openshot-1.4.3o
-media-libs/mlt python frei0r
 
 # required by app-emulation/docker-1.11.0[device-mapper]
 sys-fs/lvm2 thin
