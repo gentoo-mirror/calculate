@@ -48,3 +48,6 @@ app-misc/lcd4linux -lcd_devices_curses
 
 # fix dep
 =mate-extra/caja-extensions-1.24.0 -upnp
+
+# binary package causes problems with claws-mail, rdesktop, etc. on CPU without support for this feature
+dev-libs/nettle -cpu_flags_x86_sha
