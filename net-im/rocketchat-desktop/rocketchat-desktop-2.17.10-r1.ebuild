@@ -15,7 +15,7 @@ KEYWORDS="amd64"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE=""
+IUSE="+emoji"
 REQUIRED_USE=""
 
 RESTRICT="network-sandbox"
@@ -43,7 +43,8 @@ RDEPEND="app-accessibility/at-spi2-atk:2
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/libXScrnSaver
-	x11-libs/pango"
+	x11-libs/pango
+	emoji? ( media-fonts/noto-emoji )"
 DEPEND="${RDEPEND}"
 BDEPEND="sys-apps/yarn"
 
