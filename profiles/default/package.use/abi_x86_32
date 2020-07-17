@@ -17,6 +17,7 @@ dev-libs/gmp abi_x86_32
 dev-libs/icu abi_x86_32
 dev-libs/json-c abi_x86_32
 dev-libs/libcroco abi_x86_32
+dev-libs/libevent abi_x86_32
 dev-libs/libffi abi_x86_32
 dev-libs/libgcrypt abi_x86_32
 dev-libs/libgpg-error abi_x86_32
@@ -111,10 +112,13 @@ media-sound/mpg123 abi_x86_32
 media-sound/pulseaudio abi_x86_32
 media-sound/wavpack abi_x86_32
 media-video/ffmpeg abi_x86_32
+net-dns/avahi abi_x86_32
 net-dns/libidn2 abi_x86_32
 net-libs/gnutls abi_x86_32
 net-libs/libasyncns abi_x86_32
+net-libs/nghttp2 abi_x86_32
 net-libs/srt abi_x86_32
+net-misc/curl abi_x86_32
 net-nds/openldap abi_x86_32
 net-print/cups abi_x86_32
 sys-apps/attr abi_x86_32
@@ -130,6 +134,7 @@ sys-fs/eudev abi_x86_32
 sys-libs/binutils-libs abi_x86_32
 sys-libs/cracklib abi_x86_32
 sys-libs/db abi_x86_32
+sys-libs/gdbm abi_x86_32
 sys-libs/gpm abi_x86_32
 sys-libs/libcap abi_x86_32
 sys-libs/libraw1394 abi_x86_32
