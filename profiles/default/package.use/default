@@ -455,3 +455,5 @@ app-emulation/wine-staging vulkan
 
 # Include the vulkan layers
 media-libs/vulkan-loader layers
+
+x11-base/xorg-server -elogind
