@@ -14,7 +14,7 @@ SRC_URI="https://repo-steampowered-com.steamos.cloud/steam/pool/steam/s/steam/st
 
 LICENSE="ValveSteamLicense MIT"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+steamruntime"
 RESTRICT="bindist mirror test"
 
