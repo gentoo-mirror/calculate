@@ -127,7 +127,7 @@ media-video/smplayer autoshutdown streaming
 media-sound/pulseaudio native-headset ofono-headset
 
 # enable Direct 3D9 API, Vulkan drivers
-media-libs/mesa d3d9 vulkan wayland
+media-libs/mesa d3d9 wayland
 
 # user preferences
 kde-apps/akonadi -mysql postgres
@@ -449,9 +449,6 @@ www-client/chromium widevine
 
 # Enable display of detailed memory information using dev-qt/qtwebengine
 kde-plasma/libksysguard webengine
-
-# Enable Vulkan drivers
-app-emulation/wine-staging vulkan
 
 # Include the vulkan layers
 media-libs/vulkan-loader layers
