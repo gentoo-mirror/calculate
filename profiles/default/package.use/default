@@ -454,3 +454,6 @@ kde-plasma/libksysguard webengine
 media-libs/vulkan-loader layers
 
 x11-base/xorg-server -elogind
+
+# Build Noto Emoji font with supplied images
+media-fonts/noto-emoji buildfont
