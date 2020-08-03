@@ -24,6 +24,8 @@ dev-java/xjavac 20110814: The implementation of the javac compiler for IBM JDK 1
 dev-libs/klibc 2.0.4-r3 2.0.4-r4: A minimal libc subset for use with initramfs
 dev-ml/extlib 1.7.6-r1: Standard library extensions for O'Caml
 dev-perl/Crypt-Curve25519 0.60.0-r1: Shared secret elliptic-curve Diffie-Hellman generator
+dev-python/PyQt5 5.14.2 5.15.0: Python bindings for the Qt framework
+dev-python/PyQt5-sip 4.19.22 4.19.23: Private sip module for PyQt5
 dev-python/dogpile-core 0.4.1-r1: Copy-on-write locking mechanism for expensive resources
 dev-python/flask-cors 2.1.0-r1: A Flask extension for Cross Origin Resource Sharing (CORS)
 dev-python/jplephem 2.6-r1: Python version of NASA DE4xx ephemerides for Astronomical Alamanac
@@ -34,8 +36,10 @@ dev-python/pillow 6.2.2-r1: Python Imaging Library (fork)
 dev-python/py-smbpasswd 1.0.2: Module capable of generating both LANMAN and NT password hashes, for e.g. Samba
 dev-python/pymilter 0.9.3: The package of Python milters that wraps the C libmilter library.
 dev-python/pyminuit 1.2.1-r2: Minuit numerical function minimization in Python
+dev-python/python-ldap 3.2.0: Various LDAP-related Python modules
 dev-python/pyxattr 0.6.0-r3: Python interface to xattr
 dev-python/pyxml 0.8.4-r3: A collection of libraries to process XML with Python
+dev-python/sip 4.19.22 4.19.23: Python extension module generator for C and C++ libraries
 dev-python/sjcl 0.2.1: Decrypt and encrypt messages compatible to the SJCL message format
 dev-python/soaplib 1.0.0-r2: A simple library for writing soap web services.
 dev-python/sphinxcontrib-doxylink 1.5-r1: Extension to link to external Doxygen API documentation
@@ -120,7 +124,7 @@ sys-apps/calculate-access 0.1.2 9999: Cryptodata management tools
 sys-apps/calculate-lib 2.1.11-r5 2.1.12-r1 2.1.12-r2 2.1.12-r3 2.1.9999: The library for Calculate 2
 sys-apps/calculate-server 2.1.18-r7 2.1.19 2.1.19-r1 2.1.19-r2 2.1.19-r7 2.1.19-r8 2.1.19-r9 2.1.19-r10 2.1.19-r11 2.1.19-r12 2.1.9999: Configuration utility for Linux services
 sys-apps/calculate-toolkit 0.2.1 0.2.2 0.2.3 0.2.5 0.2.6 9999: Collection of administration scripts for Calculate
-sys-apps/calculate-utils 3.6.7.32 3.6.7.42 3.6.8 3.6.9999: A set of Calculate utilities for system installation, build and upgrade
+sys-apps/calculate-utils 3.6.7.32 3.6.7.42 3.6.8 3.6.8-r1 3.6.9999: A set of Calculate utilities for system installation, build and upgrade
 sys-apps/file 5.37-r2: identify a file's format by scanning binary data for patterns
 sys-apps/keyexec 0.1.2-r4: Runs other programs with the user password, kept in the Linux kernel
 sys-apps/kmod 26-r6: library and tools for managing linux kernel modules
@@ -132,9 +136,10 @@ sys-boot/plymouth-calculate-plugin 0.9.4-r3: Calculate plugin for plymouth
 sys-boot/plymouth-openrc-plugin 0.1.3-r1: Plymouth plugin for OpenRC
 sys-firmware/eth-firmware 20181026: Binary firmware for Realtek Ethernet
 sys-fs/dmraid 1.0.0_rc16-r4: Device-mapper RAID tool and library
+sys-fs/ecryptfs-utils 111_p20170609: eCryptfs userspace utilities
 sys-fs/squashfs-tools 4.3_p6-r1: Tool for creating compressed filesystem type squashfs
 sys-fs/xfsdump 3.1.8-r1: xfs dump/restore utilities
-sys-kernel/calculate-sources 4.19.131 4.19.134 5.4.45 5.4.53 5.7.10: Calculate Linux kernel image
+sys-kernel/calculate-sources 4.19.131 4.19.136 5.4.45 5.4.55 5.7.12 5.8.0: Calculate Linux kernel image
 sys-libs/libcpuid 0.4.1: A small C library for x86 (and x86_64) CPU detection and feature extraction
 sys-process/cpu-x 3.2.4 9999: A Free software that gathers information on CPU, motherboard and more
 sys-process/vixie-cron 4.1-r15: Paul Vixie's cron daemon, a fully featured crond implementation
