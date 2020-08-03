@@ -199,6 +199,7 @@ RDEPEND="
 		sys-auth/pam_keystore
 		dev-lang/swig
 		dev-qt/qdbus:5
+		dev-python/pygobject[python_targets_python2_7]
 	)
 
 	server? (

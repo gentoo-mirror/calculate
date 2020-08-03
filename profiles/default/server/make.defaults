@@ -19,7 +19,7 @@ USE="${USE} -sdl -sdl2 -vaapi -xv"
 USE="${USE} -gimp"
 
 # System
-USE="${USE} -abi_x86_32 -consolekit -gnome-keyring -introspection -policykit"
+USE="${USE} -abi_x86_32 -elogind -gnome-keyring -introspection -policykit"
 
 # Wireless
 USE="${USE} -bluetooth -wimax"
