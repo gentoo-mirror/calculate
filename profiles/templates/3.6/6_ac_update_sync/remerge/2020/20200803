@@ -1,0 +1,4 @@
+# Calculate format=samba name=ini.env ini(overlay-calculate.remerge)<#-cl_pass_file-# merge=sys-auth/elogind,sys-auth/pambase,x11-misc/sddm,x11-base/xorg-server
+
+[overlay-calculate]
+remerge = #-cl_pass_file-#
