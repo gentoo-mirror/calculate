@@ -64,4 +64,5 @@ then
 else
     echo "Re-creating initramfs was skipped"
 fi
-exit 0
+
+true
