@@ -36,7 +36,8 @@ START_STOP_ARGS=
 #?pkg(x11-misc/lightdm)==&&pkg(x11-misc/sddm)!=#
 DISPLAYMANAGER="sddm"
 START_STOP_ARGS=
-#!pkg#
+#pkg#
+#?pkg(x11-misc/lightdm)==&&pkg(x11-misc/sddm)==#
 XUSER=#-cl_autologin-#
 DISPLAYMANAGER="bash"
 START_STOP_ARGS="--background -- /usr/bin/xautologin $XUSER $CHECKVT"
