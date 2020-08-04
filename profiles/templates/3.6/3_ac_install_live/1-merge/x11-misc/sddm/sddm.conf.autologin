@@ -1,0 +1,11 @@
+# Calculate pkg(sys-apps/calculate-utils[desktop])!= format=kde name=sddm.conf
+
+#?cl_autologin!=#
+[Autologin]
+User=#-cl_autologin-#
+Session=#-desktop.cl_desktop_xsession-#
+#!cl_autologin#
+[Autologin]
+!User=
+!Session=
+#cl_autologin#
