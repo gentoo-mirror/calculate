@@ -2,4 +2,5 @@
 
 echo "Updating desktop database"
 /usr/bin/update-desktop-database /usr/share/applications &>/dev/null
+
 true
