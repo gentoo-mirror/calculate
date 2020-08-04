@@ -1,4 +1,4 @@
-# Calculate exec=/bin/bash
+# Calculate exec=/bin/bash ac_install_disk==off
 
 #?pkg(x11-libs/wxGTK:3.0-gtk3)!=#
 /usr/bin/eselect wxwidgets set gtk3-unicode-3.0-gtk3 &>/dev/null
