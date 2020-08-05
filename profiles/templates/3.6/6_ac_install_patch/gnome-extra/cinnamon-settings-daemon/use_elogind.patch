@@ -1,0 +1,31 @@
+# Calculate format=diff
+diff --git a/plugins/common/csd-power-helper.c b/plugins/common/csd-power-helper.c
+index 5a83072..4fedfeb 100644
+--- a/plugins/common/csd-power-helper.c
++++ b/plugins/common/csd-power-helper.c
+@@ -32,8 +32,6 @@
+ #define CONSOLEKIT_DBUS_PATH_MANAGER            "/org/freedesktop/ConsoleKit/Manager"
+ #define CONSOLEKIT_DBUS_INTERFACE_MANAGER       "org.freedesktop.ConsoleKit.Manager"
+ 
+-#ifdef HAVE_LOGIND
+-
+ static gboolean
+ use_logind (void)
+ {
+@@ -49,16 +47,6 @@
+     return should_use_logind;
+ }
+ 
+-#else /* HAVE_LOGIND */
+-
+-static gboolean
+-use_logind (void)
+-{
+-    return FALSE;
+-}
+-
+-#endif /* HAVE_LOGIND */
+-
+ static void
+ logind_stop (void)
+ {

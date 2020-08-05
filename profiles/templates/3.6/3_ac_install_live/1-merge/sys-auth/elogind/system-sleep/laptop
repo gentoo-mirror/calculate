@@ -1,0 +1,42 @@
+# Calculate chmod=0755
+#!/bin/bash
+
+DEBUG_LOG=/dev/null
+SUSPEND_FILE="/run/systemd/suspend_modules"
+
+unload_module() {
+	modname="$1"
+	if lsmod | grep "^$modname " &>/dev/null
+	then
+		if rmmod $modname
+		then
+			echo $modname >>$SUSPEND_FILE
+			echo "Unload module $modname" >>$DEBUG_LOG
+		else
+			echo "Failed to unload module $modname" >>$DEBUG_LOG
+		fi
+	else
+		echo "Requested module $modname is not loaded" >>$DEBUG_LOG
+	fi
+}
+
+load_modules() {
+	while read line
+	do
+		echo "Load module $line" >>$DEBUG_LOG
+		modprobe $line
+	done
+}
+
+case $1/$2 in
+	pre/*)
+		echo "Handle $1/$2 by module suspender" >>$DEBUG_LOG
+		:> ${SUSPEND_FILE}
+		unload_module i2c_hid
+		;;
+	post/*)
+		echo "Handle $1/$2 by module suspender" >>$DEBUG_LOG
+		load_modules <${SUSPEND_FILE}
+		rm -f ${SUSPEND_FILE}
+		;;
+esac
