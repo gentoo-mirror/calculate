@@ -32,7 +32,11 @@ account    required     pam_unix.so
 account    sufficient   pam_ldap.so
 #pkg#
 
+#?pkg(sys-libs/pam)>=1.4#
+password   required     pam_passwdqc.so min=8,8,8,8,8 retry=3
+#!pkg#
 password   required     pam_cracklib.so difok=2 minlen=8 dcredit=2 ocredit=2 retry=3
+#pkg#
 password   sufficient   pam_unix.so nullok sha256 shadow use_authtok
 #?pkg(sys-fs/ecryptfs-utils)!=#
 password   optional     pam_ecryptfs.so
