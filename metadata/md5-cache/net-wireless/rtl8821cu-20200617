@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install postinst postrm preinst setup
-DEPEND=virtual/linux-sources kernel_linux? ( virtual/modutils ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
+DEPEND=virtual/linux-sources kernel_linux? ( sys-apps/kmod[tools] ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
 DESCRIPTION=Realtek 8821(*U)/8811CU/8812A/8192E/8814A/8822B/8723(*U)/8188E(**) module for Linux kernel
 EAPI=7
 HOMEPAGE=https://github.com/brektrou/rtl8821CU
 IUSE=kernel_linux kernel_linux
 KEYWORDS=~amd64
 LICENSE=GPL-2
-RDEPEND=kernel_linux? ( virtual/modutils )
+RDEPEND=kernel_linux? ( sys-apps/kmod[tools] )
 SLOT=0
 SRC_URI=https://github.com/brektrou/rtl8821CU/archive/5c510c9f14352fed4906a10921040b9e46b58346.tar.gz -> rtl8821cu-20200617.tar.gz
-_eclasses_=eutils	fcb2aa98e1948b835b5ae66ca52868c5	linux-info	c90a203b1c14cfa77bd3e37a0e96c955	linux-mod	9991808b521b5a8c569c9c4ccf8893f6	multilib	2477ebe553d3e4d2c606191fe6c33602	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
+_eclasses_=eutils	fcb2aa98e1948b835b5ae66ca52868c5	linux-info	c90a203b1c14cfa77bd3e37a0e96c955	linux-mod	63c06dfa12648f13855f5f4348af824c	multilib	2477ebe553d3e4d2c606191fe6c33602	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
 _md5_=94e9c32b123e2f6cb7c25947d6682b01
