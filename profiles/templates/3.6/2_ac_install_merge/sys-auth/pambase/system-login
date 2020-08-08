@@ -1,6 +1,5 @@
 # Calculate comment=#
 
-auth		required	pam_tally.so file=/var/log/faillog onerr=succeed 
 auth		required	pam_nologin.so 
 auth		substack	system-auth
 auth		required	pam_shells.so 
@@ -8,7 +7,6 @@ auth		required	pam_shells.so
 account		required	pam_access.so 
 account		required	pam_nologin.so 
 account		include	system-auth
-account		required	pam_tally.so file=/var/log/faillog onerr=succeed 
  
 password	include		system-auth
  
