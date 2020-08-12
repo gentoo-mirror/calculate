@@ -5,7 +5,7 @@
 EAPI=5
 ETYPE="sources"
 
-inherit calculate-kernel-7 eutils
+inherit calculate-kernel-8 eutils
 
 DESCRIPTION="Calculate Linux kernel image"
 KEYWORDS="~amd64"
@@ -13,12 +13,12 @@ HOMEPAGE="http://www.calculate-linux.org"
 
 SRC_URI="${KERNEL_URI} ${ARCH_URI}"
 
-IUSE="uksm"
+IUSE="fsync muqss uksm"
 
 src_unpack() {
-	calculate-kernel-7_src_unpack
+	calculate-kernel-8_src_unpack
 }
 
 pkg_postinst() {
-	calculate-kernel-7_pkg_postinst
+	calculate-kernel-8_pkg_postinst
 }
