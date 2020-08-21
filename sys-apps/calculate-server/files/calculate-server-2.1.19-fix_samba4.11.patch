@@ -1,0 +1,134 @@
+diff --git a/profile/samba/etc/samba/smb.conf b/profile/samba/etc/samba/smb.conf
+index d11542c..8b25c18 100644
+--- a/profile/samba/etc/samba/smb.conf
++++ b/profile/samba/etc/samba/smb.conf
+@@ -10,8 +10,7 @@ chown=root:root
+ 
+ 	# Права на создание файлов
+ 	# --------------------------------------------------------------------
+-	#маска создаваемых директорий для Windows и cifs-клиентов
+-	directory mask = 0755
++#?pkg(samba)<4.10#
+ 	#маска для изменения прав на директории для cifs-клиентов
+ 	directory security mask = 0755
+ 	#маска создаваемых директорий для smbfs-клиентов
+@@ -20,11 +19,27 @@ chown=root:root
+ 	#для cifs и smbfs клиентов
+ 	security mask = 0644
+ 	force security mode = 0644
++#pkg#
++#?pkg(samba)>=4.10#
++	!directory security mask =
++	!force directory security mode =
++	!security mask =
++	!force security mode =
++#pkg#
++	#маска создаваемых директорий для Windows и cifs-клиентов
++	directory mask = 0755
++	force directory mode = 0755
+ 	#права файлов на создаваемые и модифицируемые файлы из Windows
+ 	create mask = 0644
++	force create mode = 0644
+ 
++#?pkg(samba)<4.10#
+ 	# добавление админских привилегий в домене группе Domain Admins
+ 	enable privileges = yes
++#pkg#
++#?pkg(samba)>=4.10#
++	!enable privileges =
++#pkg#
+ 
+ 	# Настройки LDAP
+ 	# --------------------------------------------------------------------
+@@ -59,7 +74,12 @@ chown=root:root
+ 
+ 	dos charset = 866
+ 	unix charset = UTF-8
++#?pkg(samba)<4.10#
+ 	display charset = UTF-8
++#pkg#
++#?pkg(samba)>=4.10#
++	!display charset =
++#pkg#
+ 
+ 	local master = yes
+ 	domain master = yes
+@@ -79,14 +99,25 @@ chown=root:root
+ 	#interfaces = 127.0.0.1 eth0
+ 	map to guest = bad user
+ 	security = user
++
++#?pkg(samba)<4.11#
+ 	encrypt passwords = yes
++#pkg#
++#?pkg(samba)>=4.11#
++	!encrypt passwords =
++#pkg#
+ 	# Запрет изменения пароля пользователя windows компьютера
+-	unix password sync = yes
++	unix password sync = no
++#?pkg(samba)<4.11#
+ 	null passwords = no
++#pkg#
++#?pkg(samba)>=4.11#
++	!null passwords =
++#pkg#
+ 	hide unreadable = yes
+ 	hide dot files = yes
+ 	socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+-
++	server min protocol = NT1
+  
+ 	# Поддержка wins
+ 	# --------------------------------------------------------------------
+@@ -124,12 +155,24 @@ chown=root:root
+ 	path = #-sr_samba_linprof_path-#/%u
+ 	browseable = No
+ 	writable = yes
++#?pkg(samba)<4.11#
+ 	directory mask = 0777
+ 	directory security mask = 0777
+ 	force directory security mode = 0
+ 	create mask = 0777
+ 	security mask = 0777
+ 	force security mode = 0
++#pkg#
++#?pkg(samba)>=4.11#
++	!directory security mask = 
++	!force directory security mode = 
++	!security mask = 
++	!force security mode = 
++	directory mask = 0777
++	force directory mode = 0
++	create mask = 0777
++	force create mode = 0
++#pkg#
+ 	force user = %U
+ 	valid users = %U
+ 	hide unreadable = no
+@@ -162,7 +205,7 @@ chown=root:root
+ 	browseable = No
+ 	writable = yes
+ 	hide unreadable = yes
+-#?pkg(net-fs/samba)>=3.5.8#
++#?pkg(net-fs/samba)<4.11#
+ 	security mask = 0664
+ 	force create mode = 0664
+ 	force security mode = 0664
+@@ -170,6 +213,16 @@ chown=root:root
+ 	force directory mode = 2775
+ 	vfs objects = acl_xattr fake_perms
+ #pkg#
++#pkg(net-fs/samba)>=4.11#
++	force create mode = 0664
++	force directory mode = 2775
++	!security mask =
++	!force directory security mode =
++	vfs objects = acl_xattr
++	inherit acls = yes
++	inherit owner = yes
++	inherit permissions = yes
++#pkg#
+ 
+ #Удаляем ресурс для FTP - сервис FTP не установлен
+ #?sr_ftp_set==off#

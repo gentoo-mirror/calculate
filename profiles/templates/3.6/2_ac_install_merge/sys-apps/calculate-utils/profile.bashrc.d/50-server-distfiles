@@ -15,6 +15,16 @@
 change_permissions() {
 	local directory=$1
 	[[ -d $1 ]] || return
+
+	local out="$(getfacl $directory 2>/dev/null)"
+	if ! (grep -q default:user:900:rwx <<<$out && grep -q ^user:900:rwx <<<$out)
+	then
+		setfacl -R -m d:u:900:rwx,u:900:rwx $directory
+	fi
+	if ! (grep -q "owner: portage" <<<$out )
+	then
+		chown 900 $directory
+	fi
 	
 	addwrite ${directory}
 	# get owner from parent directory
