@@ -1,0 +1,5 @@
+# Calculate format=openrc path=/etc/conf.d
+
+#?pkg(sys-apps/calculate-server)!=#
+daemon_list="smbd nmbd winbind"
+#pkg#
