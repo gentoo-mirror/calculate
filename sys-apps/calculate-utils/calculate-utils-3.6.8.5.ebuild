@@ -6,7 +6,7 @@ EAPI="7"
 PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.6.8.2"
+	["lib"]="3.6.8.3"
 	["core"]="3.6.8.2"
 	["client"]="3.6.8.1"
 	["desktop"]="3.6.8.6"

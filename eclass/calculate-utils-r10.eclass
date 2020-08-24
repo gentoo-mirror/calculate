@@ -168,7 +168,6 @@ RDEPEND="
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils
-	dev-python/pyinotify[python_targets_python2_7]
 	sys-apps/file[python,python_targets_python2_7]
 
 	app-eselect/eselect-repository
