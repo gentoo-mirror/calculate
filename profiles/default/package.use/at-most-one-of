@@ -7,3 +7,6 @@ app-emulation/vice -sdl
 
 # at-most-one-of ( lcd_devices_hd44780 lcd_devices_hd44780-i2c )
 app-misc/lcd4linux -lcd_devices_hd44780-i2c
+
+# at-most-one-of ( cracklib pam )
+sys-apps/shadow -cracklib
