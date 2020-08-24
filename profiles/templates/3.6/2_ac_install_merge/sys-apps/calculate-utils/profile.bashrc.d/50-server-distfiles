@@ -21,10 +21,6 @@ change_permissions() {
 	then
 		setfacl -R -m d:u:900:rwx,u:900:rwx $directory
 	fi
-	if ! (grep -q "owner: portage" <<<$out )
-	then
-		chown 900 $directory
-	fi
 	
 	addwrite ${directory}
 	# get owner from parent directory

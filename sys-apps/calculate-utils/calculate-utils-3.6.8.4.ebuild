@@ -1,0 +1,23 @@
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+EAPI="7"
+PYTHON_COMPAT=(python2_7)
+
+declare -A CALCULATE_MODULES=(
+	["lib"]="3.6.8.2"
+	["core"]="3.6.8.2"
+	["client"]="3.6.8.1"
+	["desktop"]="3.6.8.6"
+)
+
+inherit calculate-utils-r10
+
+DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
+HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
+
+LICENSE="Apache-2.0"
+SLOT="3"
+KEYWORDS="amd64"
+
