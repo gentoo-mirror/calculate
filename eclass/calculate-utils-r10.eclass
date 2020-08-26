@@ -168,7 +168,6 @@ RDEPEND="
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils
-	sys-apps/file[python,python_targets_python2_7]
 
 	app-eselect/eselect-repository
 	|| (
@@ -176,7 +175,6 @@ RDEPEND="
 		sys-apps/portage[python_targets_python3_7]
 		sys-apps/portage[python_targets_python3_8]
 	)
-	dev-python/pyxattr[python_targets_python2_7]
 	>=virtual/udev-197
 	!app-misc/livecd-tools
 	sys-apps/coreutils[xattr]
