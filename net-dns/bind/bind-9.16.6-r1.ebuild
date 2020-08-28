@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Re dlz/mysql and threads, needs to be verified..
@@ -12,9 +12,9 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
+PYTHON_COMPAT=( python3_{6..9} )
 
-inherit python-r1 eutils autotools toolchain-funcs flag-o-matic multilib db-use user systemd
+inherit python-r1 eutils autotools toolchain-funcs flag-o-matic multilib db-use systemd
 
 MY_PV="${PV/_p/-P}"
 MY_PV="${MY_PV/_rc/rc}"
@@ -28,12 +28,12 @@ RRL_PV="${MY_PV}"
 
 DESCRIPTION="Berkeley Internet Name Domain - Name Server"
 HOMEPAGE="https://www.isc.org/software/bind"
-SRC_URI="https://downloads.isc.org/isc/bind9/${PV}/${P}.tar.gz
+SRC_URI="https://downloads.isc.org/isc/bind9/${PV}/${P}.tar.xz
 	doc? ( mirror://gentoo/dyndns-samples.tbz2 )"
 
 LICENSE="Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0"
 SLOT="0"
-KEYWORDS="alpha amd64 arm arm64 ~hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux"
 # -berkdb by default re bug 602682
 IUSE="-berkdb +caps dlz dnstap doc dnsrps fixed-rrset geoip geoip2 gssapi
 json ldap libressl lmdb mysql odbc postgres python selinux static-libs
@@ -48,10 +48,15 @@ REQUIRED_USE="
 	mysql? ( dlz )
 	odbc? ( dlz )
 	ldap? ( dlz )
+	dnsrps? ( dlz )
 	python? ( ${PYTHON_REQUIRED_USE} )
-	sdb-ldap? ( dlz )"
+	sdb-ldap? ( dlz )
+"
 
-DEPEND="!libressl? ( dev-libs/openssl:=[-bindist] )
+DEPEND="
+	acct-group/named
+	acct-user/named
+	!libressl? ( dev-libs/openssl:=[-bindist] )
 	libressl? ( dev-libs/libressl:= )
 	mysql? ( dev-db/mysql-connector-c:0= )
 	odbc? ( >=dev-db/unixODBC-2.2.6 )
@@ -70,7 +75,9 @@ DEPEND="!libressl? ( dev-libs/openssl:=[-bindist] )
 		${PYTHON_DEPS}
 		dev-python/ply[${PYTHON_USEDEP}]
 	)
-	sdb-ldap? ( net-nds/openldap )"
+	dev-libs/libuv:=
+	sdb-ldap? ( net-nds/openldap )
+"
 
 RDEPEND="${DEPEND}
 	selinux? ( sec-policy/selinux-bind )
@@ -79,35 +86,19 @@ RDEPEND="${DEPEND}
 S="${WORKDIR}/${MY_P}"
 
 # bug 479092, requires networking
-RESTRICT="test"
-
-pkg_setup() {
-	ebegin "Creating named group and user"
-	enewgroup named 40
-	enewuser named 40 -1 /etc/bind named
-	eend ${?}
-}
+# bug 710840, cmocka fails LDFLAGS='-Wl,-O1'
+#RESTRICT="test"
 
 src_prepare() {
 	default
-
-	export LDFLAGS="${LDFLAGS} -L${EPREFIX}/usr/$(get_libdir) -ldl"
-
-	# Adjusting PATHs in manpages
-	for i in bin/{named/named.8,check/named-checkconf.8,rndc/rndc.8} ; do
-		sed -i \
-			-e 's:/etc/named.conf:/etc/bind/named.conf:g' \
-			-e 's:/etc/rndc.conf:/etc/bind/rndc.conf:g' \
-			-e 's:/etc/rndc.key:/etc/bind/rndc.key:g' \
-			"${i}" || die "sed failed, ${i} doesn't exist"
-	done
+	export LDFLAGS="${LDFLAGS} -L${EPREFIX}/usr/$(get_libdir)"
 
 	if use dlz; then
 		# sdb-ldap patch as per  bug #160567
 		# Upstream URL: http://bind9-ldap.bayour.com/
 		# New patch take from bug 302735
 		if use sdb-ldap; then
-			eapply "${FILESDIR}"/bind-9.14.8-sdb-ldap.patch
+			eapply "${FILESDIR}"/bind-9.16.6-sdb-ldap.patch
 			cp -fp contrib/sdb/ldap/ldapdb.[ch] bin/named/
 			cp -fp contrib/sdb/ldap/{ldap2zone.1,ldap2zone.c} bin/tools/
 			cp -fp contrib/sdb/ldap/{zone2ldap.1,zone2ldap.c} bin/tools/
@@ -124,16 +115,26 @@ src_prepare() {
 	rm aclocal.m4 || die
 	rm -rf libtool.m4/ || die
 	eautoreconf
+
+	use python && python_copy_sources
 }
 
 src_configure() {
+	bind_configure --without-python
+	use python && python_foreach_impl python_configure
+}
+
+bind_configure() {
 	local myeconfargs=(
+		AR="$(type -P $(tc-getAR))"
+		--prefix="${EPREFIX}"/usr
 		--sysconfdir=/etc/bind
 		--localstatedir=/var
 		--with-libtool
 		--enable-full-report
 		--without-readline
 		--with-openssl="${EPREFIX}"/usr
+		--without-cmocka
 		$(use_enable caps linux-caps)
 		$(use_enable dnsrps)
 		$(use_enable dnstap)
@@ -144,19 +145,19 @@ src_configure() {
 		$(use_with dlz dlz-filesystem)
 		$(use_with dlz dlz-stub)
 		$(use_with gssapi)
-		$(use_with json libjson)
+		$(use_with json json-c)
 		$(use_with ldap dlz-ldap)
 		$(use_with mysql dlz-mysql)
 		$(use_with odbc dlz-odbc)
 		$(use_with postgres dlz-postgres)
 		$(use_with lmdb)
-		$(use_with python)
 		$(use_with xml libxml2)
 		$(use_with zlib)
+		"${@}"
 	)
 
-	use geoip && myeconfargs+=( --with-geoip )
-	use geoip2 && myeconfargs+=( --with-geoip2 )
+	use geoip && myeconfargs+=( --enable-geoip )
+	use geoip2 && myeconfargs+=( --with-maxminddb )
 
 	# bug #158664
 #	gcc-specs-ssp && replace-flags -O[23s] -O
@@ -171,14 +172,32 @@ src_configure() {
 	echo '#undef SO_BSDCOMPAT' >> config.h
 }
 
+python_configure() {
+	pushd "${BUILD_DIR}" >/dev/null || die
+	bind_configure --with-python
+	popd >/dev/null || die
+}
+
+src_compile() {
+	default
+	use python && python_foreach_impl python_compile
+}
+
+python_compile() {
+	pushd "${BUILD_DIR}"/bin/python >/dev/null || die
+	emake
+	popd >/dev/null || die
+}
+
 src_install() {
 	default
+
+	# don't create /var/run
+	rmdir "${ED}"/var/run || die
 
 	dodoc CHANGES README
 
 	if use doc; then
-		dodoc doc/arm/Bv9ARM.pdf
-
 		docinto misc
 		dodoc -r doc/misc/
 
@@ -211,7 +230,7 @@ src_install() {
 	newenvd "${FILESDIR}"/10bind.env 10bind
 
 	# Let's get rid of those tools and their manpages since they're provided by bind-tools
-	rm -f "${ED}"/usr/share/man/man1/{dig,host,nslookup}.1* || die
+	rm -f "${ED}"/usr/share/man/man1/{dig,host,nslookup,delv,nsupdate}.1* || die
 	rm -f "${ED}"/usr/share/man/man8/nsupdate.8* || die
 	rm -f "${ED}"/usr/bin/{dig,host,nslookup,nsupdate} || die
 	rm -f "${ED}"/usr/sbin/{dig,host,nslookup,nsupdate} || die
@@ -229,15 +248,7 @@ src_install() {
 	# bug 405251
 	find "${ED}" -type f -name '*.la' -delete || die
 
-	if use python; then
-		install_python_tools() {
-			dosbin bin/python/dnssec-{checkds,coverage}
-		}
-		python_foreach_impl install_python_tools
-
-		python_replicate_script "${ED}/usr/sbin/dnssec-checkds"
-		python_replicate_script "${ED}/usr/sbin/dnssec-coverage"
-	fi
+	use python && python_foreach_impl python_install
 
 	# bug 450406
 	dosym named.cache /var/bind/root.cache
@@ -245,9 +256,7 @@ src_install() {
 	dosym ../../var/bind/pri /etc/bind/pri
 	dosym ../../var/bind/sec /etc/bind/sec
 	dosym ../../var/bind/dyn /etc/bind/dyn
-	keepdir /var/bind/{pri,sec,dyn}
-
-	dodir /var/log/named
+	keepdir /var/bind/{pri,sec,dyn} /var/log/named
 
 	fowners root:named /{etc,var}/bind /var/log/named /var/bind/{sec,pri,dyn}
 	fowners root:named /var/bind/named.cache /var/bind/pri/localhost.zone /etc/bind/{bind.keys,named.conf}
@@ -259,6 +268,15 @@ src_install() {
 	systemd_dotmpfilesd "${FILESDIR}"/named.conf
 	exeinto /usr/libexec
 	doexe "${FILESDIR}/generate-rndc-key.sh"
+}
+
+python_install() {
+	pushd "${BUILD_DIR}"/bin/python >/dev/null || die
+	emake DESTDIR="${D}" install
+	python_scriptinto /usr/sbin
+	python_doscript dnssec-{checkds,coverage}
+	python_optimize
+	popd >/dev/null || die
 }
 
 pkg_postinst() {
