@@ -2,22 +2,12 @@ sci-libs/blas-reference
 sci-libs/cblas-reference
 sci-libs/lapack-reference
 
-# deprecated
-sys-process/vixie-cron
-
 # mask portage wgetpaste
 >app-text/wgetpaste-2.25-r4
 
 # prevent automagic depends
 sys-libs/db:6.0
 
-=net-dns/bind-9.14.12
-
 =dev-python/PyQt5-5.14.2-r1
 =dev-python/PyQt5-sip-4.19.22-r1
 =dev-python/sip-4.19.22-r1
-
-# not supported gnome-extra/libgda-5.2.8-r1
-=dev-libs/libxml2-2.9.10
-=dev-libs/libxml2-2.9.10-r1
-=dev-libs/libxslt-1.1.34
