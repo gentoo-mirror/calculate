@@ -710,3 +710,6 @@ dev-qt/qtwebsockets qml
 
 # required by www-apache/mod_gnutls-0.8.2-r2
 net-libs/gnutls pkcs11
+
+# required by mail-filter/afew-3.0.0[python_single_target_python3_7]
+net-mail/notmuch python
