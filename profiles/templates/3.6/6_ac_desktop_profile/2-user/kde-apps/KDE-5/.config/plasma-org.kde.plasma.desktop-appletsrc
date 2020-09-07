@@ -193,6 +193,14 @@ plugin=org.kde.plasma.lock_logout
 
 [Containments][42][Applets][64][Configuration][General]
 show_lockScreen=true
+show_requestShutDown=false
+
+[Containments][42][Applets][65]
+immutability=1
+plugin=org.kde.plasma.lock_logout
+
+[Containments][42][Applets][65][Configuration][General]
+show_lockScreen=false
 show_requestShutDown=true
 
 [Containments][42][Applets][67]
@@ -222,12 +230,12 @@ DialogWidth=#-os_x11_width-#
 
 [Containments][42][General]
 #?env(client.os_remote_auth)==||ur_domain_set!=on#
-AppletOrder=44;45;46;54;67;70;55;63;64
+AppletOrder=44;45;46;54;67;70;55;63;64;65
 #!env#
 #?server(ftp.host)==#
-AppletOrder=44;45;47;46;54;67;70;55;63;64
+AppletOrder=44;45;47;46;54;67;70;55;63;64;65
 #!server#
-AppletOrder=44;45;47;48;46;54;67;70;55;63;64
+AppletOrder=44;45;47;48;46;54;67;70;55;63;64;65
 #server#
 #env#
 
@@ -246,7 +254,13 @@ DialogWidth=640
 
 [Containments][53][General]
 ToolBoxButtonState=bottomright
+#?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
+iconSize=4
+labelWidth=2
+#!cl_ver#
 iconSize=3
+labelWidth=1
+#cl_ver#
 popups=false
 selectionMarkers=false
 showToolbox=false
