@@ -20,6 +20,10 @@ icon-theme='#-ini(profile.appearance-icons)-#'
 #!ini#
 icon-theme='Calculate'
 #ini#
+#?cl_ver>=3.6.8.8&&install.cl_install_dpi!=#
+#-sum(dpi,,#-install.cl_install_dpi-#)-#
+text-scaling-factor=#-sum(dpii,dpi/96)-#.#-sum(dpid,dpi*1000/96-dpii*1000)-#
+#cl_ver#
 
 [cinnamon/desktop/keybindings]
 custom-list=['custom0', 'custom1']

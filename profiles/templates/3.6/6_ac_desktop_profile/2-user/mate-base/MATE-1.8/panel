@@ -27,7 +27,11 @@ y-centered=true
 orientation='right'
 y-centered=true
 #ini#
+#?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
+size=#-ini(profile.wm-panel-main-hisize)-#
+#!cl_ver#
 size=#-ini(profile.wm-panel-main-size)-#
+#cl_ver#
 screen=0
 monitor=0
 
@@ -58,7 +62,11 @@ x-right=0
 #ini#
 enable-buttons=false
 expand=false
+#?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
+size=#-ini(profile.wm-panel-menu-hisize)-#
+#!cl_ver#
 size=#-ini(profile.wm-panel-menu-size)-#
+#cl_ver#
 screen=0
 monitor=0
 

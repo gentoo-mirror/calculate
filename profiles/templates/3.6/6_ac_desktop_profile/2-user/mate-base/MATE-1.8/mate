@@ -28,6 +28,11 @@ picture-filename='#-ini(profile.appearance-wallpaper)-#'
 picture-filename='/usr/share/backgrounds/calculate/Calculate Linux'
 #ini#
 
+#?cl_ver>=3.6.8.8&&install.cl_install_dpi!=#
+[desktop/font-rendering]
+dpi=#-install.cl_install_dpi-#.0
+#cl_ver#
+
 [desktop/interface]
 document-font-name='Droid Sans #-ini(profile.font-size)-#'
 font-name='Droid Sans #-ini(profile.font-size)-#'

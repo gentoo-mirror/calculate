@@ -195,15 +195,17 @@ RDEPEND="
 		sys-auth/pam_keystore
 		dev-lang/swig
 		dev-qt/qdbus:5
+		sys-apps/edid-decode
 		|| (
-			dev-python/pygobject[python_targets_python3_7]
-			dev-python/pygobject[python_targets_python3_6]
-			dev-python/pygobject[python_targets_python3_8]
-		)
-		|| (
+			( dev-python/pygobject[python_targets_python3_7]
 			dev-python/dbus-python[python_targets_python3_7]
+			)
+			( dev-python/pygobject[python_targets_python3_6]
 			dev-python/dbus-python[python_targets_python3_6]
+			)
+			( dev-python/pygobject[python_targets_python3_8]
 			dev-python/dbus-python[python_targets_python3_8]
+			)
 		)
 	)
 

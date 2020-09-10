@@ -249,7 +249,7 @@
 ; wallpaper-cycle = 0
 
 #in#
-#?in(os_linux_pkglist, CLDX, CCDX)!=#
+#?in(os_linux_pkglist, CLD, CLDL, CLDM, CLDC, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Icon size
 #os_install_locale_language#
@@ -260,6 +260,19 @@
 # Taille des icônes
 #os_install_locale_language#
 ; wm-icon-size = 48
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDL, CLDM, CLDC, CLDX, CCDX)!=#
+#?os_install_locale_language!=ru&&os_install_locale_language!=fr#
+# Icon size for high DPI
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Размер иконок для большого DPI
+#os_install_locale_language#
+#?os_install_locale_language==fr#
+# Taille des icônes (pour un DPI élevé)
+#os_install_locale_language#
+; wm-icon-hisize = 55
 
 #in#
 #?in(os_linux_pkglist, CLDM, CLDX, CCDX)!=#
@@ -289,7 +302,7 @@
 ; wm-panel-main-position = top
 
 #in#
-#?in(os_linux_pkglist, CLDM, CLDX, CCDX)!=#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Main panel size
 #os_install_locale_language#
@@ -300,6 +313,19 @@
 # Taille de la barre d’outils principale
 #os_install_locale_language#
 ; wm-panel-main-size = 32
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDC, CLDL, CLDM, CLDX, CCDX)!=#
+#?os_install_locale_language!=ru&&os_install_locale_language!=fr#
+# Main panel size for high DPI
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Размер главной панели для большого DPI
+#os_install_locale_language#
+#?os_install_locale_language==fr#
+# Taille de la barre d’outils principale (pour un DPI élevé)
+#os_install_locale_language#
+; wm-panel-main-hisize = 36
 
 #in#
 #?in(os_linux_pkglist, CLDM, CLDX, CCDX)!=#
@@ -328,7 +354,7 @@
 ; wm-panel-menu-position = bottom
 
 #in#
-#?in(os_linux_pkglist, CLDM, CLDX, CCDX)!=#
+#?in(os_linux_pkglist, CLD, CLDL, CLDM, CLDC, CLDX, CCDX)!=#
 #?os_install_locale_language!=ru&&os_install_locale_language!=fr#
 # Quick Launch panel size
 #os_install_locale_language#
@@ -339,6 +365,19 @@
 # Taille de la barre de lancement rapide
 #os_install_locale_language#
 ; wm-panel-menu-size = 56
+
+#in#
+#?in(os_linux_pkglist, CLD, CLDL, CLDM, CLDC, CLDX, CCDX)!=#
+#?os_install_locale_language!=ru&&os_install_locale_language!=fr#
+# Quick Launch panel size for high DPI
+#os_install_locale_language#
+#?os_install_locale_language==ru#
+# Размер панели быстрого запуска для большого DPI
+#os_install_locale_language#
+#?os_install_locale_language==fr#
+# Taille de la barre de lancement rapide (pour un DPI élevé)
+#os_install_locale_language#
+; wm-panel-menu-hisize = 64
 
 #in#
 
