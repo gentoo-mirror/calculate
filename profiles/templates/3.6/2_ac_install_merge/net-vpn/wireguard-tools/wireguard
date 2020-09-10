@@ -70,9 +70,9 @@ stop() {
 
 reload() {
         ebegin "Reloading ${SVCNAME}"
-        grep -v Address /etc/wireguard/${VPN}.conf >/etc/wireguard/${VPN}-clear.conf
-        /usr/bin/wg syncconf ${VPN} /etc/wireguard/${VPN}-clear.conf
-        rm /etc/wireguard/${VPN}-clear.conf
+        grep -v Address ${VPNCONF} >${VPNCONF}.clear
+        /usr/bin/wg syncconf ${VPN} ${VPNCONF}.clear
+        rm ${VPNCONF}.clear
         eend 0
 }
 
