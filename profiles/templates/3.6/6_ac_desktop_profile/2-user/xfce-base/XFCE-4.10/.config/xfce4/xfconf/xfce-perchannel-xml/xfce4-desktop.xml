@@ -14,9 +14,9 @@
 #env#
     </property>
 #?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
-    <property name="icon-size" type="uint" value="#-ini(profile.wm-icon-hisize)-#"/>
+    <property name="icon-size" type="uint" value="64"/>
 #!cl_ver#
-    <property name="icon-size" type="uint" value="#-ini(profile.wm-icon-size)-#"/>
+    <property name="icon-size" type="uint" value="48"/>
 #cl_ver#
 #?ini(profile.mouse-clickpolicy)==single#
     <property name="single-click" type="bool" value="true"/>

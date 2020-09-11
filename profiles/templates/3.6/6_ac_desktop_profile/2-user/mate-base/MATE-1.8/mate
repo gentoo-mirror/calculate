@@ -2,6 +2,15 @@
 [calc]
 show-thousands=true
 
+#?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
+[caja/icon-view]
+default-use-tighter-layout=true
+default-zoom-level='large'
+
+[caja/compact-view]
+default-zoom-level='largest'
+#cl_ver#
+
 [caja/desktop]
 computer-icon-visible=false
 font='Droid Sans #-ini(profile.font-size)-#'
@@ -15,6 +24,9 @@ volumes-visible=false
 
 [caja/preferences]
 click-policy='#-ini(profile.mouse-clickpolicy)-#'
+#?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
+default-folder-viewer='compact-view'
+#cl_ver#
 
 [desktop/background]
 color-shading-type='solid'

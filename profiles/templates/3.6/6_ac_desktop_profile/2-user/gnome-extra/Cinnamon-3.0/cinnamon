@@ -138,6 +138,14 @@ home-icon-visible=true
 [nemo/preferences]
 click-policy='#-ini(profile.mouse-clickpolicy)-#'
 
+
+[nemo/icon-view]
+#?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
+default-zoom-level='standard'
+#!cl_ver#
+default-zoom-level='small'
+#cl_ver#
+
 [gnome/desktop/interface]
 #?ini(profile.appearance-cursor)!=#
 cursor-theme='#-ini(profile.appearance-cursor)-#'

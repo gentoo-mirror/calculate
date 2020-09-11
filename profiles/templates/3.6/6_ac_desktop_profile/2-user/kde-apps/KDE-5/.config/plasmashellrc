@@ -3,20 +3,19 @@ Height #-os_x11_height-#=466
 Width #-os_x11_width-#=747
 
 #?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
-#-sum(iconsize,,#-ini(profile.wm-icon-hisize)-#+9)-#
+#-sum(iconsize,,64)-#
 #!cl_ver#
-#-sum(iconsize,,#-ini(profile.wm-icon-size)-#+9)-#
+#-sum(iconsize,,48)-#
 #cl_ver#
-#-sum(iconsize,,iconsize/16*16)-#
 
 #?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
-#-sum(mainthickness,,#-ini(profile.wm-panel-main-hisize)-#)-#
-#-sum(menuthickness,,#-ini(profile.wm-panel-menu-hisize)-#+4)-#
-#-sum(iconwidth,,#-ini(profile.wm-panel-menu-hisize)-#+4)-#
+#-sum(mainthickness,,40)-#
+#-sum(menuthickness,,68)-#
+#-sum(iconwidth,,68)-#
 #!cl_ver#
-#-sum(mainthickness,,#-ini(profile.wm-panel-main-size)-#)-#
-#-sum(menuthickness,,#-ini(profile.wm-panel-menu-size)-#)-#
-#-sum(iconwidth,,iconsize+4)-#
+#-sum(mainthickness,,32)-#
+#-sum(menuthickness,,56)-#
+#-sum(iconwidth,,52)-#
 #cl_ver#
 
 #-sum(menuwidth,,iconwidth*13+2)-#
