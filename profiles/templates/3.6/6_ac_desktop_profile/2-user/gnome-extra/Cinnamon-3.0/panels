@@ -7,11 +7,11 @@ panel-launchers=['DEPRECATED']
 panels-autohide=['1:false', '2:true']
 panels-enabled=['1:0:top','2:0:bottom']
 #?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
-panels-height=['1:#-ini(profile.wm-panel-main-hisize)-#', '2:#-ini(profile.wm-panel-menu-hisize)-#']
-panel-zone-icon-sizes='[{"panelId": 1, "left": 0, "center": 0, "right": 32}, {"left": 0, "center": 0, "right": 0, "panelId": 2}]'
-panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 20, "center": 20, "right": 20}, {"left": 28, "center": 28, "right": 28, "panelId": 2}]'
+panels-height=['1:40', '2:68']
+panel-zone-icon-sizes='[{"panelId": 1, "left": 0, "center": 0, "right": 32}, {"left": 64, "center": 64, "right": 64, "panelId": 2}]'
+panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 24, "center": 24, "right": 24}, {"left": 28, "center": 28, "right": 28, "panelId": 2}]'
 #!cl_ver#
-panels-height=['1:#-ini(profile.wm-panel-main-size)-#', '2:#-ini(profile.wm-panel-menu-size)-#']
+panels-height=['1:32', '2:56']
 #cl_ver#
 panels-resizable=['1:true', '2:true']
 panels-hide-delay=['1:0', '2:200']

@@ -6,9 +6,9 @@
     <property name="panel-0" type="empty">
       <property name="position" type="string" value="p=6;x=0;y=0"/>
 #?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
-      <property name="size" type="uint" value="#-ini(profile.wm-panel-main-hisize)-#"/>
+      <property name="size" type="uint" value="40"/>
 #!cl_ver#
-      <property name="size" type="uint" value="#-ini(profile.wm-panel-main-size)-#"/>
+      <property name="size" type="uint" value="32"/>
 #cl_ver#
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
@@ -48,9 +48,9 @@
     <property name="panel-1" type="empty">
       <property name="position" type="string" value="p=10;x=0;y=0"/>
 #?cl_ver>=3.6.8.8&&install.cl_install_scaling==hi#
-      <property name="size" type="uint" value="#-ini(profile.wm-panel-menu-hisize)-#"/>
+      <property name="size" type="uint" value="68"/>
 #!cl_ver#
-      <property name="size" type="uint" value="#-ini(profile.wm-panel-menu-size)-#"/>
+      <property name="size" type="uint" value="56"/>
 #cl_ver#
       <property name="position-locked" type="bool" value="true"/>
       <property name="plugin-ids" type="array">
