@@ -35,6 +35,6 @@ DEPEND="=sys-apps/calculate-lib-9999
 	>=net-misc/dhcp-3.1.2_p1
 	|| ( media-gfx/imagemagick
 		media-gfx/graphicsmagick )
-	dev-python/pymilter"
+	dev-python/pymilter-python2"
 
 RDEPEND="${DEPEND}"

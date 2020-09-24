@@ -16,6 +16,6 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-DEPEND=">=dev-python/python-ldap-2.0[ssl]
+DEPEND=">=dev-python/python2-ldap-2.0[ssl]
 		>=dev-python/pyxml-0.8"
 RDEPEND="${DEPEND}"
