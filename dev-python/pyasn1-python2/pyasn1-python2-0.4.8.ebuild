@@ -21,6 +21,10 @@ RESTRICT="test"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
+RDEPEND="
+	!dev-python/pyasn1[python_targets_python2_7]
+"
+
 python_install_all() {
 	distutils-r1_python_install_all
 	rm -r ${D}/usr/share
