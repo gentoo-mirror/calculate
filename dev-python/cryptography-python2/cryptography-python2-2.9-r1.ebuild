@@ -39,7 +39,7 @@ RDEPEND="
 		dev-python/ipaddress[${PYTHON_USEDEP}]
 	' -2)
 	$(python_gen_cond_dep '
-		>=dev-python/cffi-1.8:=[${PYTHON_USEDEP}]
+		>=dev-python/cffi-python2-1.8:=[${PYTHON_USEDEP}]
 	' 'python*')
 	"
 DEPEND="${RDEPEND}

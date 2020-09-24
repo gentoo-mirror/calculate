@@ -19,7 +19,9 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
-DEPEND="mail-filter/libmilter"
+DEPEND="
+	!dev-python/pymilter[python_targets_python2_7]
+	mail-filter/libmilter"
 RDEPEND="${DEPEND}"
 
 RESTRICT="test"
