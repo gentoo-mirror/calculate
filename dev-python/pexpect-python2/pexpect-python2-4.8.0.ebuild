@@ -22,7 +22,7 @@ IUSE="examples"
 RESTRICT="test"
 
 RDEPEND="
-	!dev-python/pexecpt[python_targets_python2_7]
+	!dev-python/pexpect[python_targets_python2_7]
 	>=dev-python/ptyprocess-python2-0.5[${PYTHON_USEDEP}]"
 DEPEND=""
 S="${WORKDIR}/${MY_PN}-${PV}"
