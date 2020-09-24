@@ -64,7 +64,10 @@ RDEPEND="
 	>=dev-qt/qtxml-${QT_PV}
 	bluetooth? ( >=dev-qt/qtbluetooth-${QT_PV} )
 	dbus? (
-		dev-python/dbus-python[${PYTHON_USEDEP}]
+		python_targets_python2_7? (
+			dev-python/dbus-python2[python_targets_python2_7]
+		)
+		dev-python/dbus-python[python_targets_python3_6(-)?,python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_6(-),-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
 		>=dev-qt/qtdbus-${QT_PV}
 	)
 	declarative? ( >=dev-qt/qtdeclarative-${QT_PV}[widgets?] )
