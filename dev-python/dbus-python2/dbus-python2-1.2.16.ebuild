@@ -73,4 +73,6 @@ src_install() {
 python_install_all() {
 	distutils-r1_python_install_all
 	rm -r ${D}/usr/share
+	rm -r ${D}/usr/include/dbus-1.0/dbus-python.h
+	rm -r ${D}/usr/*/pkgconfig/dbus-python.pc
 }
