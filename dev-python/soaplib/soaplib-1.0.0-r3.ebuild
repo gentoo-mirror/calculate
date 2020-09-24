@@ -18,7 +18,7 @@ IUSE="examples"
 
 RDEPEND="
 	dev-python/lxml
-	dev-python/pytz
+	dev-python/pytz-python2
 "
 DEPEND="${RDEPEND}
 	dev-python/setuptools

@@ -40,7 +40,7 @@ DEPEND="=sys-apps/calculate-lib-2.1.12-r4
 			>=net-mail/dovecot-1.2.0[ldap,pam,ssl(+)]
 		)
 		>=mail-filter/procmail-3.22
-		dev-python/pymilter
+		dev-python/pymilter-python2
 		>=mail-mta/postfix-2.2[ldap,pam,ssl,sasl,dovecot-sasl]
 	)
 	!calculate_noftp? (

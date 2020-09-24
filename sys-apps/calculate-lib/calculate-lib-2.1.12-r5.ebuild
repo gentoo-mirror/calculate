@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="5"
-PYTHON_COMPAT=(python2_7)
+PYTHON_COMPAT=( python2_7 )
 
 inherit distutils-r1 eutils
 
@@ -18,8 +18,7 @@ KEYWORDS="amd64 x86"
 IUSE=""
 DEPEND="!<sys-apps/calculate-client-2.1.12
 		!<sys-apps/calculate-server-2.1.11
-		>=dev-lang/python-2.5.2
-		>=dev-python/python-ldap-2.0[ssl,python_targets_python2_7]
+		>=dev-python/python2-ldap-2.0[ssl]
 		>=dev-python/pyxml-0.8"
 RDEPEND="${DEPEND}"
 

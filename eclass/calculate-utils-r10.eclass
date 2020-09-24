@@ -155,16 +155,16 @@ RDEPEND="
 		net-misc/rsync
 		dev-python/sudsds[python_targets_python2_7]
 		net-libs/dslib[python_targets_python2_7]
-		>=dev-python/pyopenssl-0.14[python_targets_python2_7]
+		>=dev-python/pyopenssl-python2-0.14
 		dev-libs/openssl
-		dev-python/m2crypto[python_targets_python2_7]
-		dev-python/pytz[python_targets_python2_7]
+		dev-python/m2crypto-python2
+		dev-python/pytz-python2
 	)
 	gpg? (
 		app-crypt/gnupg
 		app-crypt/openpgp-keys-calculate-release
 	)
-	>=dev-python/pyxml-0.8[python_targets_python2_7]
+	>=dev-python/pyxml-0.8
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils
@@ -212,31 +212,31 @@ RDEPEND="
 	server? (
 		sys-auth/pam_ldap
 		sys-auth/nss_ldap
-		dev-python/python-ldap
+		dev-python/python2-ldap
 	)
 
 	client? (
 		dev-python/py-smbpasswd
-		>=dev-python/python-ldap-2.0[ssl,python_targets_python2_7]
+		>=dev-python/python2-ldap-2.0[ssl]
 		sys-auth/pam_client
 		>=sys-auth/pam_ldap-180[ssl]
 		>=sys-auth/nss_ldap-239
 	)
 
 	qt5? (
-		dev-python/dbus-python[python_targets_python2_7]
+		dev-python/dbus-python2
 		|| (
 			dev-python/pillow[python_targets_python2_7]
 			dev-python/imaging[python_targets_python2_7]
 		)
-		dev-python/PyQt5[python_targets_python2_7]
+		dev-python/PyQt5
 	)
 
 	dbus? (
-		dev-python/dbus-python
+		dev-python/dbus-python2
 	)
 
-	dev-python/pexpect[python_targets_python2_7]
+	dev-python/pexpect-python2
 
 	!<sys-apps/calculate-lib-2.1.12
 	!sys-apps/calculate-lib:3

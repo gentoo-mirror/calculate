@@ -17,8 +17,8 @@ KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="
-	dev-python/pyasn1[${PYTHON_USEDEP}]
-	dev-python/pyopenssl[${PYTHON_USEDEP}]
+	dev-python/pyasn1-python2[${PYTHON_USEDEP}]
+	dev-python/pyopenssl-python2[${PYTHON_USEDEP}]
 	>=dev-python/sudsds-1.0.1[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}

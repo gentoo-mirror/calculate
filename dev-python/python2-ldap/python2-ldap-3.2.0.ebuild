@@ -2,9 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( pypy3 python{2_7,3_{6,7,8}} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit distutils-r1
+
+MY_PN=python-ldap
+MY_P=$MY_PN-$PV
 
 DESCRIPTION="Various LDAP-related Python modules"
 HOMEPAGE="https://www.python-ldap.org/en/latest/
@@ -14,7 +17,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/python-ldap/python-ldap.git"
 	inherit git-r3
 else
-	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+	SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 	KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ppc ppc64 sparc x86 ~x86-solaris"
 fi
 
@@ -26,8 +29,9 @@ IUSE="examples sasl ssl"
 # https://github.com/python-ldap/python-ldap/issues/224
 RDEPEND="
 	!dev-python/pyldap
-	>=dev-python/pyasn1-0.3.7[${PYTHON_USEDEP}]
-	>=dev-python/pyasn1-modules-0.1.5[${PYTHON_USEDEP}]
+	!dev-python/python-ldap[python_targets_python2_7]
+	>=dev-python/pyasn1-python2-0.3.7[${PYTHON_USEDEP}]
+	>=dev-python/pyasn1-modules-python2-0.1.5[${PYTHON_USEDEP}]
 	>net-nds/openldap-2.4.11:=[sasl?,ssl?]
 "
 # We do not link against cyrus-sasl but we use some
@@ -37,8 +41,8 @@ BDEPEND="
 	sasl? ( >=dev-libs/cyrus-sasl-2.1 )
 "
 
-distutils_enable_tests pytest
-distutils_enable_sphinx Doc
+S="${WORKDIR}/${MY_PN}-${PV}"
+RESTRICT="test"
 
 python_prepare_all() {
 	# The live ebuild won't compile if setuptools_scm < 1.16.2 is installed
@@ -57,35 +61,12 @@ python_prepare_all() {
 	distutils-r1_python_prepare_all
 }
 
-python_test() {
-	# Run all tests which don't require slapd
-	local ignored_tests=(
-		t_bind.py
-		t_cext.py
-		t_edit.py
-		t_ldapobject.py
-		t_ldap_options.py
-		t_ldap_sasl.py
-		t_ldap_schema_subentry.py
-		t_ldap_syncrepl.py
-		t_slapdobject.py
-	)
-	pushd Tests >/dev/null || die
-	pytest -vv ${ignored_tests[@]/#/--ignore } \
-		|| die "tests failed with ${EPYTHON}"
-	popd > /dev/null || die
-}
-
 python_install() {
 	distutils-r1_python_install
 	python_optimize
 }
 
 python_install_all() {
-	if use examples; then
-		docinto examples
-		dodoc -r Demo/.
-		docompress -x /usr/share/doc/${PF}/examples
-	fi
 	distutils-r1_python_install_all
+	rm -r ${D}/usr/share
 }
