@@ -57,7 +57,7 @@ REQUIRED_USE="
 QT_PV="5.12:5"
 
 RDEPEND="
-	!dev-python/PyQt5-python2[python_targets_python2_7]
+	!dev-python/PyQt5[python_targets_python2_7]
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/enum34[${PYTHON_USEDEP}]
