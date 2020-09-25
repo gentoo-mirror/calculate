@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{6,7,8,9} )
+PYTHON_COMPAT=( python2_7 )
 inherit python-r1 toolchain-funcs
 
 DESCRIPTION="Python extension module generator for C and C++ libraries"
@@ -20,17 +20,20 @@ fi
 # Sub-slot based on SIP_API_MAJOR_NR from siplib/sip.h
 SLOT="0/12"
 LICENSE="|| ( GPL-2 GPL-3 SIP )"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="doc"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~sparc x86"
+IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT="test"
 
-DEPEND="${PYTHON_DEPS}"
+DEPEND="
+	!dev-python/sip[python_targets_python2_7]
+	${PYTHON_DEPS}"
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${MY_P}
 
-PATCHES=( "${FILESDIR}"/${PN}-4.18-darwin.patch )
+PATCHES=( "${FILESDIR}"/${MY_PN}-4.18-darwin.patch )
 
 src_prepare() {
 	# Sub-slot sanity check
@@ -50,10 +53,6 @@ src_prepare() {
 
 src_configure() {
 	configuration() {
-		if ! python_is_python3; then
-			local CFLAGS="${CFLAGS} -fno-strict-aliasing"
-		fi
-
 		local incdir=$(python_get_includedir)
 		local myconf=(
 			"${PYTHON}"
@@ -92,7 +91,5 @@ src_install() {
 		python_optimize
 	}
 	python_foreach_impl run_in_build_dir installation
-
-	einstalldocs
-	use doc && dodoc -r doc/html
+	mv ${D}/usr/bin/sip ${D}/usr/bin/sip2.7
 }

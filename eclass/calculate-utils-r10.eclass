@@ -229,7 +229,7 @@ RDEPEND="
 			dev-python/pillow[python_targets_python2_7]
 			dev-python/imaging[python_targets_python2_7]
 		)
-		dev-python/PyQt5
+		dev-python/PyQt5-python2
 	)
 
 	dbus? (
