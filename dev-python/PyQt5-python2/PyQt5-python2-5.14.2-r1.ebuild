@@ -3,24 +3,26 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{6..9} )
+PYTHON_COMPAT=( python2_7 )
 inherit multibuild python-r1 qmake-utils
 
 DESCRIPTION="Python bindings for the Qt framework"
 HOMEPAGE="https://www.riverbankcomputing.com/software/pyqt/intro"
 
-MY_P=${PN}-${PV/_pre/.dev}
+MY_PN=PyQt5
+MY_P=${MY_PN}-${PV/_pre/.dev}
 if [[ ${PV} == *_pre* ]]; then
 	SRC_URI="https://dev.gentoo.org/~pesa/distfiles/${MY_P}.tar.gz"
 else
-	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+	SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_PN}-${PV}.tar.gz"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 arm arm64 ~ppc ~ppc64 x86"
+RESTRICT="test"
 
-# TODO: QtNfc, QtQuick3D, QtRemoteObjects
+# TODO: QtNfc, QtRemoteObjects
 IUSE="bluetooth dbus debug declarative designer examples gles2-only gui help location
 	multimedia network networkauth opengl positioning printsupport sensors serialport
 	sql +ssl svg testlib webchannel webkit websockets widgets x11extras xmlpatterns"
@@ -59,15 +61,12 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/enum34[${PYTHON_USEDEP}]
 	' -2)
-	>=dev-python/PyQt5-sip-4.19.23:=[${PYTHON_USEDEP}]
+	>=dev-python/PyQt5-sip-python2-4.19.20:=
 	>=dev-qt/qtcore-${QT_PV}
 	>=dev-qt/qtxml-${QT_PV}
 	bluetooth? ( >=dev-qt/qtbluetooth-${QT_PV} )
 	dbus? (
-		python_targets_python2_7? (
-			dev-python/dbus-python2[python_targets_python2_7]
-		)
-		dev-python/dbus-python[python_targets_python3_6(-)?,python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_6(-),-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
+		dev-python/dbus-python2[python_targets_python2_7]
 		>=dev-qt/qtdbus-${QT_PV}
 	)
 	declarative? ( >=dev-qt/qtdeclarative-${QT_PV}[widgets?] )
@@ -94,7 +93,7 @@ RDEPEND="
 	xmlpatterns? ( >=dev-qt/qtxmlpatterns-${QT_PV} )
 "
 DEPEND="${RDEPEND}
-	>=dev-python/sip-4.19.23[${PYTHON_USEDEP}]
+	>=dev-python/sip-python2-4.19.20
 	dbus? ( virtual/pkgconfig )
 "
 
@@ -124,6 +123,7 @@ src_configure() {
 			--qsci-api
 			--enable=QtCore
 			--enable=QtXml
+			--sip=${EPREFIX}/usr/bin/sip2.7
 			$(pyqt_use_enable bluetooth)
 			$(pyqt_use_enable dbus QtDBus)
 			$(usex dbus '' --no-python-dbus)
@@ -161,14 +161,14 @@ src_configure() {
 		# Fix parallel install failure
 		if python_is_python3; then
 			sed -i -e '/INSTALLS += distinfo/i distinfo.depends = install_subtargets install_pep484_stubs install_qscintilla_api' \
-				${PN}.pro || die
+				${MY_PN}.pro || die
 		else
 			sed -i -e '/INSTALLS += distinfo/i distinfo.depends = install_subtargets install_qscintilla_api' \
-				${PN}.pro || die
+				${MY_PN}.pro || die
 		fi
 
 		# Run eqmake to respect toolchain and build flags
-		eqmake5 -recursive ${PN}.pro
+		eqmake5 -recursive ${MY_PN}.pro
 	}
 	python_foreach_impl run_in_build_dir configuration
 }
@@ -179,7 +179,7 @@ src_compile() {
 
 src_install() {
 	installation() {
-		local tmp_root=${D}/${PN}_tmp_root
+		local tmp_root=${D}/${MY_PN}_tmp_root
 		emake INSTALL_ROOT="${tmp_root}" install
 
 		local bin_dir=${tmp_root}${EPREFIX}/usr/bin
@@ -189,7 +189,7 @@ src_install() {
 			rm "${bin_dir}/${exe}" || die
 		done
 
-		local uic_dir=${tmp_root}$(python_get_sitedir)/${PN}/uic
+		local uic_dir=${tmp_root}$(python_get_sitedir)/${MY_PN}/uic
 		if python_is_python3; then
 			rm -r "${uic_dir}"/port_v2 || die
 		else
@@ -200,10 +200,7 @@ src_install() {
 		python_optimize
 	}
 	python_foreach_impl run_in_build_dir installation
-
-	einstalldocs
-
-	if use examples; then
-		dodoc -r examples
-	fi
+	rm -r ${D}/usr/share
+	rm -r ${D}/usr/bin
+	rm -r ${D}/usr/lib/python-exec
 }
