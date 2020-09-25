@@ -203,4 +203,5 @@ src_install() {
 	rm -r ${D}/usr/share
 	rm -r ${D}/usr/bin
 	rm -r ${D}/usr/lib/python-exec
+	rm -r ${D}/usr/lib*/qt5
 }
