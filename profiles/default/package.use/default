@@ -294,8 +294,10 @@ games-strategy/0ad sound
 
 # opengl? ( gui widgets ), webkit? ( network printsupport )
 dev-python/PyQt5 gui printsupport network widgets
+dev-python/PyQt5-python2 gui printsupport network widgets
 #  webengine? ( widgets? ( webchannel ) )
 dev-python/PyQt5 webengine webchannel
+dev-python/PyQt5-python2 webengine webchannel
 
 # vpn, bluetooth, etc support
 net-misc/connman l2tp ofono openconnect openvpn pptp vpnc wispr
