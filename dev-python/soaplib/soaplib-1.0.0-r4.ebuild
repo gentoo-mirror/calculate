@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="examples"
 
 RDEPEND="
-	dev-python/lxml
+	dev-python/lxml-python2
 	dev-python/pytz-python2
 "
 DEPEND="${RDEPEND}

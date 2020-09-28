@@ -185,7 +185,7 @@ RDEPEND="
 		net-fs/nfs-utils
 	)
 
-	>=dev-python/soaplib-1.0
+	>=dev-python/soaplib-1.0-r3
 	!<sys-apps/calculate-server-2.1.18-r1
 
 	desktop? (
