@@ -25,7 +25,7 @@ RESTRICT="test"
 DEPEND="dev-libs/libffi:="
 RDEPEND="${DEPEND}
 	!dev-python/cffi[python_targets_python2_7]
-	dev-python/pycparser[${PYTHON_USEDEP}]"
+	dev-python/pycparser-python2[${PYTHON_USEDEP}]"
 BDEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
