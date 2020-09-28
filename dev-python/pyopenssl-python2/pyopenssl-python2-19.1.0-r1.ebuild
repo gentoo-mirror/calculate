@@ -27,7 +27,7 @@ RESTRICT="test"
 
 RDEPEND="
 	!dev-python/pyopenssl[python_targets_python2_7]
-	>=dev-python/six-1.5.2[${PYTHON_USEDEP}]
+	>=dev-python/six-python2-1.5.2[${PYTHON_USEDEP}]
 	dev-python/cryptography-python2"
 DEPEND="${RDEPEND}"
 

@@ -22,6 +22,7 @@ RESTRICT="test"
 
 # Note: lib{xml2,xslt} are used as C libraries, not Python modules.
 RDEPEND="
+	!dev-python/lxml[python_targets_python2_7]
 	>=dev-libs/libxml2-2.9.5
 	>=dev-libs/libxslt-1.1.28"
 DEPEND="${RDEPEND}"

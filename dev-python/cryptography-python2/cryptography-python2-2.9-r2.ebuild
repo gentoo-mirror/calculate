@@ -33,7 +33,7 @@ RDEPEND="
 	libressl? ( >=dev-libs/libressl-2.8:0= )
 	idna? ( >=dev-python/idna-2.1[${PYTHON_USEDEP}] )
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	>=dev-python/six-1.4.1[${PYTHON_USEDEP}]
+	>=dev-python/six-python2-1.4.1[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-python/enum34[${PYTHON_USEDEP}]
 		dev-python/ipaddress[${PYTHON_USEDEP}]
