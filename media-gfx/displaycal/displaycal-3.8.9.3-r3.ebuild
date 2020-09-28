@@ -20,21 +20,16 @@ IUSE=""
 
 DEPEND="
 	>=media-gfx/argyllcms-1.1.0
-	dev-python/wxpython:3.0[${PYTHON_USEDEP}]
+	dev-python/wxpython2:3.0[${PYTHON_USEDEP}]
 	>=x11-libs/libX11-1.3.3
 	>=x11-apps/xrandr-1.3.2
 	>=x11-libs/libXxf86vm-1.1.0
 	>=x11-libs/libXinerama-1.1
 "
 RDEPEND="${DEPEND}
-	dev-python/faulthandler[${PYTHON_USEDEP}]
-	|| (
-		dev-python/numpy-python2[${PYTHON_USEDEP}]
-		>=dev-python/numpy-1.2.1[${PYTHON_USEDEP}]
-	)
-	|| (
-		dev-python/dbus-python2[${PYTHON_USEDEP}]
-	)
+	dev-python/faulthandler-python2[${PYTHON_USEDEP}]
+	dev-python/numpy-python2[${PYTHON_USEDEP}]
+	dev-python/dbus-python2[${PYTHON_USEDEP}]
 "
 
 # Just in case someone renames the ebuild
