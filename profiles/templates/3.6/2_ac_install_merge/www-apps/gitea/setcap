@@ -1,0 +1,5 @@
+# Calculate exec=/bin/bash pkg(sys-libs/libcap)!=
+
+setcap 'cap_net_bind_service=+ep' /usr/bin/gitea &>/dev/null
+
+true
