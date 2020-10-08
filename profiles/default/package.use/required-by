@@ -714,3 +714,7 @@ net-libs/gnutls pkcs11
 
 # required by mail-filter/afew-3.0.0[python_single_target_python3_7]
 net-mail/notmuch python
+
+# required by kde-plasma/kwin-5.19.5-r1
+kde-frameworks/kitemmodels qml
+
