@@ -448,8 +448,8 @@ dev-libs/libgpg-error static-libs
 # required by sys-power/suspend-1.0_p20150810[lzo]
 dev-libs/lzo static-libs
 
-# required by dev-vcs/git-cola-2.11, dev-python/qtconsole-4.7.5
-dev-python/QtPy gui printsupport
+# required by dev-vcs/git-cola-2.11, dev-python/qtconsole-4.7.5, dev-python/pytest-qt-3.3.0
+dev-python/QtPy gui printsupport testlib
 
 # required by dev-tex/culmus-latex-0.7
 media-fonts/culmus fancy
