@@ -21,11 +21,11 @@ SLOT="2.7"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ppc ppc64 sparc x86 ~amd64-linux ~x86-linux"
 IUSE="examples imagequant jpeg jpeg2k lcms test tiff tk truetype webp zlib"
 REQUIRED_USE="test? ( jpeg tiff )"
-RESTRICT="!test? ( test )"
+RESTRICT="test"
 
 RDEPEND="
 	!dev-python/pillow:0[python_targets_python2_7]
-	dev-python/olefile[${PYTHON_USEDEP}]
+	dev-python/olefile-python2
 	imagequant? ( media-gfx/libimagequant:0 )
 	jpeg? ( virtual/jpeg:0 )
 	jpeg2k? ( media-libs/openjpeg:2= )
@@ -36,10 +36,6 @@ RDEPEND="
 	zlib? ( sys-libs/zlib:0= )"
 DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	test? (
-		dev-python/pytest[${PYTHON_USEDEP}]
-		media-gfx/imagemagick[png]
-	)
 "
 
 distutils_enable_sphinx docs \
