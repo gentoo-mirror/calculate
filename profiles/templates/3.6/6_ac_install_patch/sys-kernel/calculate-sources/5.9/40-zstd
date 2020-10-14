@@ -1,5 +1,2 @@
 # Calculate format=kernel name=.config 
-# CONFIG_KERNEL_XZ is not set
-CONFIG_KERNEL_ZSTD=y
 CONFIG_MODULE_COMPRESS_ZSTD=y
-CONFIG_ZSTD_DECOMPRESS=y
