@@ -1,0 +1,4 @@
+# Calculate name=ini.env format=samba ini(overlay-calculate.revision)=>20191116.3,#-cut(0,-,#-cl_pass_file-#)-# rebuild=kde-frameworks/frameworkintegration,kde-frameworks/qqc2-desktop-style,kde-apps/eventviews,kde-apps/mailcommon,kde-apps/libksieve,media-video/smplayer,kde-apps/kmail,kde-frameworks/kxmlgui,kde-plasma/plasma-integration,kde-frameworks/kdeclarative,kde-frameworks/kio
+
+[overlay-calculate]
+revision = #-cut(0,-,#-cl_pass_file-#)-#
