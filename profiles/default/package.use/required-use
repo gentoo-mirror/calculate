@@ -47,8 +47,9 @@ sci-geosciences/gpsd python
 media-libs/sdl2-mixer midi
 
 # vnc? ( fbcon )
+# wayland? ( gles2-only )
 # pulseaudio? ( sound )
-dev-libs/efl fbcon sound
+dev-libs/efl fbcon gles2-only sound
 
 # ogre? ( !opengl ) opengl? ( !ogre )
 dev-games/mygui -ogre
@@ -70,3 +71,12 @@ dev-libs/efl gles2
 
 # openal? ( wxwidgets )
 games-emulation/vbam wxwidgets
+
+# wayland? ( egl )
+media-libs/clutter egl
+
+# wayland? ( gles2 )
+media-libs/cogl gles2
+
+# wayland? ( gles2 )
+media-libs/libsdl2 gles2

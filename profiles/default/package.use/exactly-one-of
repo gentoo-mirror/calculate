@@ -33,3 +33,7 @@ net-analyzer/ossec-hids hybrid postgres
 
 # exactly-one-of ( iptables nftables )
 net-misc/connman -nftables
+
+# exactly-one-of ( gbm raspberry-pi wayland X )
+media-tv/kodi -wayland
+

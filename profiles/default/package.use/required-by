@@ -697,8 +697,8 @@ net-dialup/ppp eap-tls
 # required by gnome-extra/evolution-data-server-3.34.4[vala]
 dev-libs/libical vala
 
-# required by net-misc/econnman-1.1-r1
-dev-libs/efl connman
+# required by net-misc/econnman-1.1-r1, x11-wm/enlightenment-0.24.2[wayland]
+dev-libs/efl connman drm
 
 # required by sci-chemistry/votca-xtp-1.6
 sci-libs/hdf5 cxx
@@ -717,4 +717,7 @@ net-mail/notmuch python
 
 # required by kde-plasma/kwin-5.19.5-r1
 kde-frameworks/kitemmodels qml
+
+# required by kde-apps/krfb-20.04.3[wayland]
+sys-apps/xdg-desktop-portal screencast
 
