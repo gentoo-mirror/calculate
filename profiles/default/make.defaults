@@ -68,7 +68,7 @@ USE="${USE} libwww vhosts webkit"
 USE="${USE} bluetooth wimax"
 
 # Window manager and speciality
-USE="${USE} gtk libnotify semantic-desktop -gnome X"
+USE="${USE} gtk libnotify semantic-desktop -gnome X wayland"
 
 L10N="en be bg bs cs da de de-1901 es es-AR es-CL es-ES es-MX et fi fr fr-CA hr hu it kk lt lv nl pl pt pt-BR pt-PT ro ru sk sl sr sq sv uk"
 
