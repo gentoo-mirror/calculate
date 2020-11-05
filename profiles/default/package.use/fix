@@ -57,3 +57,6 @@ app-arch/brotli python
 
 # not compiled
 media-video/transcode -imagemagick
+
+# not compiled
+app-misc/lcdproc -lcd_devices_glcd -png -lcd_devices_g15
