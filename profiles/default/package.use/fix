@@ -42,6 +42,7 @@ dev-util/electron -system-ssl
 
 # block <media-gfx/imagemagick-7:=
 media-gfx/inkscape -imagemagick
+app-misc/graphlcd-base -imagemagick
 
 # not compiled
 app-misc/lcd4linux -lcd_devices_curses
