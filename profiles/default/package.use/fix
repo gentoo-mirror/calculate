@@ -42,6 +42,7 @@ dev-util/electron -system-ssl
 
 # block <media-gfx/imagemagick-7:=
 media-gfx/inkscape -imagemagick
+app-misc/graphlcd-base -imagemagick
 
 # not compiled
 app-misc/lcd4linux -lcd_devices_curses
@@ -55,3 +56,8 @@ dev-libs/nettle -cpu_flags_x86_sha
 # not compiled
 app-arch/brotli python
 
+# not compiled
+media-video/transcode -imagemagick
+
+# not compiled
+app-misc/lcdproc -lcd_devices_glcd -png -lcd_devices_g15
