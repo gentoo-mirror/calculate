@@ -23,9 +23,7 @@ RDEPEND="
 	!dev-python/m2crypto[python_targets_python2_7]
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:0= )
-	$(python_gen_cond_dep '
-		dev-python/typing[${PYTHON_USEDEP}]
-	' -2)
+	dev-python/typing-python2
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
