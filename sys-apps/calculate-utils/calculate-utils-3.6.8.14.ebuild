@@ -12,7 +12,7 @@ declare -A CALCULATE_MODULES=(
 	["i18n"]="3.6.8.5"
 	["client"]="3.6.8.2"
 	["desktop"]="3.6.8.6"
-	["console-gui"]="3.6.8.1"
+	["console-gui"]="3.6.8.2"
 )
 
 inherit calculate-utils-r11
