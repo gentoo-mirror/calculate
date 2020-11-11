@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# @ECLASS: calculate-utils-r8.eclass
+# @ECLASS: calculate-utils-r11.eclass
 # @MAINTAINER:
 # support@calculate.ru
 # @AUTHOR:
@@ -151,34 +151,31 @@ RDEPEND="
 		sys-fs/mdadm
 	)
 	!minimal? (
-		dev-python/passlib[python_targets_python2_7]
 		>=sys-apps/util-linux-2.19.1
 		net-misc/rsync
 		dev-python/sudsds[python_targets_python2_7]
 		net-libs/dslib[python_targets_python2_7]
-		>=dev-python/pyopenssl-0.14[python_targets_python2_7]
+		>=dev-python/pyopenssl-python2-0.14
 		dev-libs/openssl
-		dev-python/m2crypto[python_targets_python2_7]
-		dev-python/pytz[python_targets_python2_7]
+		dev-python/m2crypto-python2
+		dev-python/pytz-python2
 	)
 	gpg? (
 		app-crypt/gnupg
 		app-crypt/openpgp-keys-calculate-release
 	)
-	>=dev-python/pyxml-0.8[python_targets_python2_7]
+	>=dev-python/pyxml-0.8
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils
-	dev-python/pyinotify[python_targets_python2_7]
-	sys-apps/file[python,python_targets_python2_7]
 
 	app-eselect/eselect-repository
 	|| (
 		sys-apps/portage[python_targets_python3_6]
 		sys-apps/portage[python_targets_python3_7]
 		sys-apps/portage[python_targets_python3_8]
+		sys-apps/portage[python_targets_python3_9]
 	)
-	dev-python/pyxattr[python_targets_python2_7]
 	>=virtual/udev-197
 	!app-misc/livecd-tools
 	sys-apps/coreutils[xattr]
@@ -189,7 +186,7 @@ RDEPEND="
 		net-fs/nfs-utils
 	)
 
-	>=dev-python/soaplib-1.0
+	>=dev-python/soaplib-1.0-r3
 	!<sys-apps/calculate-server-2.1.18-r1
 
 	desktop? (
@@ -199,37 +196,45 @@ RDEPEND="
 		sys-auth/pam_keystore
 		dev-lang/swig
 		dev-qt/qdbus:5
-		dev-python/pygobject[python_targets_python2_7]
+		sys-apps/edid-decode
+		|| (
+			( dev-python/pygobject[python_targets_python3_7]
+			dev-python/dbus-python[python_targets_python3_7]
+			)
+			( dev-python/pygobject[python_targets_python3_6]
+			dev-python/dbus-python[python_targets_python3_6]
+			)
+			( dev-python/pygobject[python_targets_python3_8]
+			dev-python/dbus-python[python_targets_python3_8]
+			)
+		)
 	)
 
 	server? (
 		sys-auth/pam_ldap
 		sys-auth/nss_ldap
-		dev-python/python-ldap
+		dev-python/python2-ldap
 	)
 
 	client? (
 		dev-python/py-smbpasswd
-		>=dev-python/python-ldap-2.0[ssl,python_targets_python2_7]
+		>=dev-python/python2-ldap-2.0[ssl]
 		sys-auth/pam_client
 		>=sys-auth/pam_ldap-180[ssl]
 		>=sys-auth/nss_ldap-239
 	)
 
 	qt5? (
-		dev-python/dbus-python[python_targets_python2_7]
-		|| (
-			dev-python/pillow[python_targets_python2_7]
-			dev-python/imaging[python_targets_python2_7]
-		)
-		dev-python/PyQt5[python_targets_python2_7]
+		dev-python/dbus-python2
+		media-gfx/imagemagick[jpeg]
+		dev-python/PyQt5-python2
 	)
 
 	dbus? (
-		dev-python/dbus-python
+		dev-python/dbus-python2
 	)
 
-	dev-python/pexpect[python_targets_python2_7]
+	dev-python/pexpect-python2
 
 	!<sys-apps/calculate-lib-2.1.12
 	!sys-apps/calculate-lib:3
@@ -249,10 +254,10 @@ DEPEND="sys-devel/gettext"
 
 REQUIRED_USE="client? ( desktop )"
 
-# @FUNCTION: calculate-utils-r8_src_compile
+# @FUNCTION: calculate-utils-r11_src_compile
 # @DESCRIPTION:
 # Compile all modules of calculate utils
-calculate-utils-r8_src_compile() {
+calculate-utils-r11_src_compile() {
 	if ! use backup
 	then
 		sed -ir "s/'cl-backup'/None/" calculate-core-*/pym/core/wsdl_core.py
@@ -276,10 +281,10 @@ calculate-utils-r8_src_compile() {
 	done
 }
 
-# @FUNCTION: calculate-utils-r8_src_install
+# @FUNCTION: calculate-utils-r11_src_install
 # @DESCRIPTION:
 # Install all modules of calculate utils
-calculate-utils-r8_src_install() {
+calculate-utils-r11_src_install() {
 	prepare_module_info
 	for MODULE in "${MODULE_INFO[@]}"
 	do
@@ -305,7 +310,7 @@ python_install() {
 	distutils-r1_python_install $PYTHON_INSTALL_PARAMS
 }
 
-calculate-utils-r8_pkg_preinst() {
+calculate-utils-r11_pkg_preinst() {
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update

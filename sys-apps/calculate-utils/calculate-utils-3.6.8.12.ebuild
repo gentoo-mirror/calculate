@@ -6,11 +6,16 @@ EAPI="7"
 PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
-	["core"]="3.6.8.2"
+	["lib"]="3.6.8.7"
+	["install"]="3.6.8.3"
+	["core"]="3.6.8.3"
+	["i18n"]="3.6.8.5"
+	["client"]="3.6.8.2"
 	["desktop"]="3.6.8.6"
+	["console-gui"]="3.6.8.1"
 )
 
-inherit calculate-utils-r9
+inherit calculate-utils-r11
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
