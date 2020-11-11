@@ -5,7 +5,7 @@
 EAPI="7"
 PYTHON_COMPAT=(python2_7)
 
-inherit calculate-utils-r8 git-r3
+inherit calculate-utils-r11 git-r3
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
