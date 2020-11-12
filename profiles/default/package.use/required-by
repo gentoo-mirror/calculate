@@ -721,3 +721,7 @@ kde-frameworks/kitemmodels qml
 # required by kde-apps/krfb-20.04.3[wayland]
 sys-apps/xdg-desktop-portal screencast
 
+# required by media-gfx/digikam-7.1.0::gentoo
+# # required by @selected
+# # required by @world (argument)
+>=media-libs/opencv-4.5.0 contribdnn
