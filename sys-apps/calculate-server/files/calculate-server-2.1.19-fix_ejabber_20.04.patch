@@ -1,12 +1,12 @@
 diff --git a/profile/jabber/etc/jabber/ejabberd.yml b/profile/jabber/etc/jabber/ejabberd.yml
-index 6706b1e..e4e44c2 100644
+index 6706b1e..3bad236 100644
 --- a/profile/jabber/etc/jabber/ejabberd.yml
 +++ b/profile/jabber/etc/jabber/ejabberd.yml
 @@ -58,6 +58,35 @@ acl:
    local: 
      user_regexp: 
        - ""
-+#?pkg(ejabber)>=20.04#
++#?pkg(ejabberd)>=20.04#
 +access: 
 +  announce: 
 +    - allow: admin
@@ -34,7 +34,7 @@ index 6706b1e..e4e44c2 100644
 +      register: 
 +        - deny
 +#pkg#
-+#?pkg(ejabber)<20.04#
++#?pkg(ejabberd)<20.04#
  access: 
    announce: 
      admin: allow
@@ -46,12 +46,16 @@ index 6706b1e..e4e44c2 100644
  language: "en"
  modules: 
    mod_adhoc: []
-@@ -122,7 +152,7 @@ modules:
+@@ -122,7 +152,12 @@ modules:
    mod_pubsub: 
      access_createnode: pubsub_createnode
      plugins: 
--      - "default"
++#?pkg(ejabberd)>=20.04#
 +      - "flat"
++#pkg#
++#?pkg(ejabberd)<20.04#
+       - "default"
++#pkg#
        - "pep"
    mod_register: 
      welcome_message: 
