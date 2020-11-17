@@ -26,10 +26,10 @@ media-libs/libopenshot -imagemagick
 =x11-plugins/enigmail-1.9.8.3-r1
 
 # Missins support for required CPU baseline features. Was tested at the start of the `nomacs`. Also with these options is not going to the virtualbox.
-media-libs/opencv -cpu_flags_x86_fma3 -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_popcnt -cpu_flags_x86_sse4_1 -cpu_flags_x86_sse4_2 -cpu_flags_x86_ssse3 -cpu_flags_x86_avx512f
+media-libs/opencv -cpu_flags_x86_fma3 -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_avx512f -cpu_flags_x86_popcnt -cpu_flags_x86_sse4_1 -cpu_flags_x86_sse4_2 -cpu_flags_x86_ssse3
 
 # Missins support for required CPU baseline features. Was tested at the start of the `blender`.
-media-libs/openimageio -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_avx512f -cpu_flags_x86_f16c
+media-libs/openimageio -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_avx512f -cpu_flags_x86_avx512f -cpu_flags_x86_f16c
 
 # not compiled
 dev-java/sbt binary
