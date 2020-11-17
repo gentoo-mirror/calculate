@@ -59,3 +59,23 @@ index 6706b1e..3bad236 100644
        - "pep"
    mod_register: 
      welcome_message: 
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index 00279a2..f07b3e4 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -1836,6 +1836,7 @@ This command is not allowed."))
+             return self.dialogYesNo(message)
+ 
+     def createJabberCertificate(self):
++        hostname = self.clVars.Get("sr_jabber_host")
+         # создаем сертификат если есть используем прежний
+         if not os.path.exists("/etc/jabber/ssl.pem"):
+             if os.path.exists("/etc/jabber/self-cert.sh"):
+@@ -1846,6 +1847,7 @@ This command is not allowed."))
+                                      "Automatically-generated ejabberd SSL key",
+                                               userName="jabber",
+                                               groupName="jabber",
++                                              sslCommonName=hostname,
+                                               certFile="/etc/jabber/ssl.pem",
+                                               genDH=True):
+                     return False
