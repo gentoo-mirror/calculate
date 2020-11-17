@@ -1,0 +1,57 @@
+diff --git a/profile/jabber/etc/jabber/ejabberd.yml b/profile/jabber/etc/jabber/ejabberd.yml
+index 6706b1e..e4e44c2 100644
+--- a/profile/jabber/etc/jabber/ejabberd.yml
++++ b/profile/jabber/etc/jabber/ejabberd.yml
+@@ -58,6 +58,35 @@ acl:
+   local: 
+     user_regexp: 
+       - ""
++#?pkg(ejabber)>=20.04#
++access: 
++  announce: 
++    - allow: admin
++  c2s: 
++    - deny: blocked
++    - allow
++  configure: 
++    - allow: admin
++  local:
++    - allow: local
++  muc: 
++    - allow
++  muc_admin: 
++    - allow: admin
++  pubsub_createnode: 
++    - allow
++  register: 
++    - allow
++host_config: 
++  "localhost": 
++    access: 
++      c2s: 
++        - allow: admin
++        - deny
++      register: 
++        - deny
++#pkg#
++#?pkg(ejabber)<20.04#
+ access: 
+   announce: 
+     admin: allow
+@@ -91,6 +120,7 @@ host_config:
+         all: deny
+       register: 
+         all: deny
++#pkg#
+ language: "en"
+ modules: 
+   mod_adhoc: []
+@@ -122,7 +152,7 @@ modules:
+   mod_pubsub: 
+     access_createnode: pubsub_createnode
+     plugins: 
+-      - "default"
++      - "flat"
+       - "pep"
+   mod_register: 
+     welcome_message: 
