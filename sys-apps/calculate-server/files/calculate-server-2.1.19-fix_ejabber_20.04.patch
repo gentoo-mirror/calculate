@@ -7,7 +7,7 @@ index 6706b1e..3bad236 100644
      user_regexp: 
        - ""
 +#?pkg(ejabberd)>=20.04#
-+access: 
++access_rules: 
 +  announce: 
 +    - allow: admin
 +  c2s: 
