@@ -1,0 +1,7 @@
+# Calculate format=samba name=ini.env ini(overlay-calculate.remerge)<#-cl_pass_file-# merge=app-admin/syslog-ng,media-sound/alsa-utils,sys-apps/dbus,sys-apps/openrc,sys-fs/udev,sys-process/cronie,net-misc/openssh,net-wireless/bluez,sys-fs/lvm2,sys-fs/mdadm,dev-libs/libcgroup,net-nds/portmap,net-print/cups,sys-apps/calculate-utils,sys-fs/fuse,sys-power/acpid
+
+[!runlevels]
+del = del
+
+[overlay-calculate]
+remerge = #-cl_pass_file-#
