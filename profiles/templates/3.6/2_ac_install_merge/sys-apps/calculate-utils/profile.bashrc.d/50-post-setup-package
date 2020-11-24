@@ -8,13 +8,35 @@
 #  You may obtain a copy of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
-
 CL_UPDATE_PROG=/usr/sbin/cl-core
 RUN_CORE="/usr/bin/python2 ${CL_UPDATE_PROG}"
 CORE_METHOD="--method core_setup"
 
 post_setup_package() {
 	local remove_dir_list=""
+	if [ -f ${CL_UPDATE_PROG} ] && [[ $PN == "calculate-utils" ]] && [[ -f /var/lib/calculate/calculate-core/setup-failed.list ]]
+	then
+		while read category pkgname mypvr myslot;do
+			if [[ -n $category ]]
+			then
+				pkg_lockfile_dir=/var/calculate/tmp/portage/$category
+				pkg_lockfile="$pkg_lockfile_dir"/.${pkgname}.calculate_lockfile
+				if ! [[ -d $pkg_lockfile_dir ]]
+				then
+					mkdir -p $pkg_lockfile_dir
+					remove_dir_list="$remove_dir_list $pkg_lockfile_dir"
+				fi
+				(
+					flock -x -w 1 73 || exit 1;
+					fuser /var/db/pkg/$category/.${pkgname}*.portage_lockfile &>/dev/null || CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${RUN_CORE} ${CORE_METHOD} --no-progress --pkg-name $pkgname --pkg-category $category --pkg-slot $myslot --pkg-version $mypvr --pkg-path "/";
+					rm -f /var/lib/calculate/-runlevels-$pkgname
+					rm $pkg_lockfile
+				) 73>$pkg_lockfile
+			fi
+		done </var/lib/calculate/calculate-core/setup-failed.list
+		rm -f /var/lib/calculate/calculate-core/setup-failed.list
+	fi
+
 	if [ -f ${CL_UPDATE_PROG} ] && [[ -f  /var/lib/calculate/-postmerge ]] && check_skip
 	then
 		OLDIFS=$IFS

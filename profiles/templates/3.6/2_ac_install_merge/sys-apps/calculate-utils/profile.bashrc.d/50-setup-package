@@ -20,7 +20,14 @@ setup_merge_package() {
 	if ! [[ -f /var/lib/calculate/calculate-core/cache/merge-setup.list ]] ||
 		grep ${CATEGORY}/${PN} /var/lib/calculate/calculate-core/cache/merge-setup.list &>/dev/null
 	then
-		[ -f ${CL_UPDATE_PROG} ] && check_skip && CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${RUN_CORE} ${CORE_METHOD} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT/\/*} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
+		if [ -f ${CL_UPDATE_PROG} ] && check_skip
+		then
+			if ! CTARGET=${CTARGET} GCC_CONFIG_VER=${GCC_CONFIG_VER} ${RUN_CORE} ${CORE_METHOD} --no-progress --pkg-version ${PVR} --pkg-slot ${SLOT/\/*} --pkg-category ${CATEGORY} --pkg-path "/" --pkg-name ${PN}
+			then
+				echo $CATEGORY $PN $PVR ${SLOT/\/*} >>/var/lib/calculate/calculate-core/setup-failed.list
+				return 1
+			fi
+		fi
 	fi
 	rm -f /var/lib/calculate/-runlevels-$PN
 }
