@@ -228,6 +228,7 @@ RDEPEND="
 		dev-python/dbus-python2
 		media-gfx/imagemagick[jpeg]
 		dev-python/PyQt5-python2
+		dev-python/pyinotify-python2
 	)
 
 	dbus? (
