@@ -51,6 +51,7 @@ dev-python/pyasn1-modules-python2 0.2.8: pyasn1 modules
 dev-python/pyasn1-python2 0.4.8: ASN.1 library for Python
 dev-python/pycairo-python2 1.18.2: Python bindings for the cairo library
 dev-python/pycparser-python2 2.20: C parser and AST generator written in Python
+dev-python/pyinotify-python2 0.9.6: Python module used for monitoring filesystems events
 dev-python/pymilter-python2 0.9.3: The package of Python milters that wraps the C libmilter library.
 dev-python/pyminuit 1.2.1-r2: Minuit numerical function minimization in Python
 dev-python/pyopengl-python2 3.1.0: Python OpenGL bindings
@@ -147,7 +148,7 @@ sys-apps/calculate-access 0.1.2 9999: Cryptodata management tools
 sys-apps/calculate-lib 2.1.12-r5 2.1.9999: The library for Calculate 2
 sys-apps/calculate-server 2.1.19-r15 2.1.19-r19 2.1.9999: Configuration utility for Linux services
 sys-apps/calculate-toolkit 0.2.1 0.2.2 0.2.3 0.2.5 0.2.6 9999: Collection of administration scripts for Calculate
-sys-apps/calculate-utils 3.6.8.10 3.6.8.11 3.6.8.14 3.6.8.15 3.6.9999: A set of Calculate utilities for system installation, build and upgrade
+sys-apps/calculate-utils 3.6.8.10 3.6.8.11 3.6.8.14 3.6.8.15-r1 3.6.9999: A set of Calculate utilities for system installation, build and upgrade
 sys-apps/file 5.37-r2: identify a file's format by scanning binary data for patterns
 sys-apps/keyexec 0.1.2-r4: Runs other programs with the user password, kept in the Linux kernel
 sys-apps/kmod 26-r6 27-r3: library and tools for managing linux kernel modules
