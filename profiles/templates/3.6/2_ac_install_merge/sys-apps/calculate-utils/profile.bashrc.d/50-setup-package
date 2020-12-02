@@ -44,12 +44,18 @@ clean_contents_mark() {
 
 # mark: package updating
 mark_update_package() {
-	touch "/var/lib/calculate/-merge-$PN--${SLOT/\/*}-$PPID"
+	if [[ -d /var/lib/calculate ]]
+	then
+		touch "/var/lib/calculate/-merge-$PN--${SLOT/\/*}-$PPID"
+	fi
 }
 
 # save services runlevels
 save_runlevels() {
-	find /etc/runlevels/{default,boot,sysinit,shutdown} >/var/lib/calculate/-runlevels-$PN
+	if [[ -d /var/lib/calculate ]]
+	then
+		find /etc/runlevels/{default,boot,sysinit,shutdown} >/var/lib/calculate/-runlevels-$PN
+	fi
 }
 
 # dispatching unmerge or update package
@@ -84,7 +90,10 @@ pkg_postrm_unmerge() {
 
 # save contents file for correct package updating by cl-core-setup
 pkg_postrm_update() {
-	cp /var/db/pkg/${CATEGORY}/${PF}/CONTENTS /var/lib/calculate/-CONTENTS-$PN
+	if [[ -d /var/lib/calculate ]]
+	then
+		cp /var/db/pkg/${CATEGORY}/${PF}/CONTENTS /var/lib/calculate/-CONTENTS-$PN
+	fi
 }
 
 pre_pkg_postrm() {
