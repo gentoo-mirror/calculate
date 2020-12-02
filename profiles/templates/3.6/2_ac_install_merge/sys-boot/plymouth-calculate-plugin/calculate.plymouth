@@ -1,33 +1,51 @@
-# Calculate format=kde path=/usr/share/plymouth/themes/calculate
+# Calculate format=kde path=/usr/share/plymouth/themes/calculate pkg(sys-boot/plymouth-calculate-plugin)>=0.9.5
 [Plymouth Theme]
 Name=Calculate
-Description=Simple theme that shows progressbar, image and text for shutdown
+Description=Calculate spinner theme
 ModuleName=calculate
 
 [calculate]
 ImageDir=/usr/share/plymouth/themes/calculate
-BootBackgroundStartColor=0x#-ini(theme.splash-silent-background-color-begin)-#
-BootBackgroundEndColor=0x#-ini(theme.splash-silent-background-color-end)-#
-ShutdownBackgroundStartColor=0x#-ini(theme.splash-shutdown-background-color-begin)-#
-ShutdownBackgroundEndColor=0x#-ini(theme.splash-shutdown-background-color-end)-#
-!ShutdownProgressbarColor=
-!BootProgressbarColor=
+
+[boot-up]
+BackgroundStartColor=0x#-ini(theme.splash-silent-background-color-begin)-#
+BackgroundEndColor=0x#-ini(theme.splash-silent-background-color-end)-#
 #?ini(theme.splash-silent-picture)!=&&ini(theme.splash-silent-type)==background#
-BootImage=/usr/share/plymouth/themes/calculate/boot
+WatermarkImage=/usr/share/plymouth/themes/calculate/boot
 #ini#
 #?ini(theme.splash-silent-picture)!=&&ini(theme.splash-silent-type)==logo#
-BootImage=/usr/share/plymouth/themes/calculate/boot.png
+WatermarkImage=/usr/share/plymouth/themes/calculate/boot.png
 #ini#
 #?ini(theme.splash-silent-picture)==||exists(#-ini(theme.splash-silent-picture)-#)==#
-!BootImage=
+!WatermarkImage
 #ini#
+
+[shutdown]
+BackgroundStartColor=0x#-ini(theme.splash-shutdown-background-color-begin)-#
+BackgroundEndColor=0x#-ini(theme.splash-shutdown-background-color-end)-#
 #?ini(theme.splash-shutdown-picture)!=&&ini(theme.splash-shutdown-type)==background#
-ShutdownImage=/usr/share/plymouth/themes/calculate/.shutdown
+WatermarkImage=/usr/share/plymouth/themes/calculate/.shutdown
 #ini#
 #?ini(theme.splash-shutdown-picture)!=&&ini(theme.splash-shutdown-type)==logo#
-ShutdownImage=/usr/share/plymouth/themes/calculate/.shutdown.png
+WatermarkImage=/usr/share/plymouth/themes/calculate/.shutdown.png
 #ini#
 #?ini(theme.splash-shutdown-picture)==||exists(#-ini(theme.splash-shutdown-picture)-#)==#
-!ShutdownImage=
+!WatermarkImage=
 #ini#
-ShutdownTextColor=0x#-ini(theme.splash-shutdown-text-color)-#
+TitleColor=0x#-ini(theme.splash-shutdown-text-color)-#
+Title=S h u t t i n g   d o w n
+
+[reboot]
+BackgroundStartColor=0x#-ini(theme.splash-shutdown-background-color-begin)-#
+BackgroundEndColor=0x#-ini(theme.splash-shutdown-background-color-end)-#
+#?ini(theme.splash-shutdown-picture)!=&&ini(theme.splash-shutdown-type)==background#
+WatermarkImage=/usr/share/plymouth/themes/calculate/.shutdown
+#ini#
+#?ini(theme.splash-shutdown-picture)!=&&ini(theme.splash-shutdown-type)==logo#
+WatermarkImage=/usr/share/plymouth/themes/calculate/.shutdown.png
+#ini#
+#?ini(theme.splash-shutdown-picture)==||exists(#-ini(theme.splash-shutdown-picture)-#)==#
+!WatermarkImage=
+#ini#
+TitleColor=0x#-ini(theme.splash-shutdown-text-color)-#
+Title=S h u t t i n g   d o w n
