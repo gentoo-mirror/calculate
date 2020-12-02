@@ -1,4 +1,4 @@
-# Calculate format=diff pkg(sys-boot/plymouth)>=0.9.5
+# Calculate format=diff merge(sys-boot/plymouth)<0.9.5
 commit c0e512de2352611112c5476e0032514e2b2d713c
 Author: Mir Calculate <support@calculate.ru>
 Date:   Tue Feb 19 12:17:41 2019 +0300
@@ -13,7 +13,7 @@ index f8f980c..c702c10 100644
                  return true;
          }
  
-+        if (ply_kernel_command_line_has_argument ("splash=shutdown") && state->mode == PLY_BOOT_SPLASH_MODE_SHUTDOWN) {
++        if (ply_kernel_command_line_has_argument ("splash=shutdown") && state->mode == PLY_MODE_SHUTDOWN) {
 +                ply_trace ("using default splash because kernel command line has option \"splash=shutdown\"");
 +                return true;
 +        }
