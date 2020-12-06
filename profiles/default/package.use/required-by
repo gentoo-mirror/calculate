@@ -731,3 +731,7 @@ x11-libs/motif xft
 
 # required by sys-apps/fwupd-1.4.6
 dev-libs/libjcat pkcs7 gpg
+
+# required by sys-apps/selinux-python-3.1-r1
+sys-process/audit python
+

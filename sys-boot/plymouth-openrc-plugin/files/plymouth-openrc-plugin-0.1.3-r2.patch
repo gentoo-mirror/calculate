@@ -1,0 +1,172 @@
+commit 18262b0ad15aeef537a55019e059483ae0dba426
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Thu Dec 3 12:13:19 2020 +0300
+
+    Принудительный запуск plymouth через openrc на tty1
+
+commit 564d675e30d49ef38c6cd593d380a32da635b35d
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Thu Dec 3 12:10:44 2020 +0300
+
+    Добавлено переключение на tty1 при остановке службы xdm
+
+commit aaa3f2214e88374475adde0af0a6916f114a0b4d
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Tue Feb 19 11:51:06 2019 +0300
+
+    Изменены условия запуск plymouthd
+
+    Запускать plymouthd при загрузке если есть параметр splash или
+    splash=silent
+    Запускать plymouthd при выключении если есть параметр splash или
+    splash=shutdown
+
+commit ebd632e188b9d647e31989f27c80124a8899cc33
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Wed Feb 13 16:43:33 2019 +0300
+
+    Добавлен перезапуск consolefont в конце загрузки системы
+
+commit a08cdcecbd5fefba0feb5aa96ad908b493e68659
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Wed Feb 13 16:31:33 2019 +0300
+
+    Переключение на tty1 при запуске plymouth во время shutdown
+
+commit a2683bffa4c506fcf2ec440f7b482191ed37fd27
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Wed Feb 13 16:29:33 2019 +0300
+
+    Отключено сообщение о запускаемой/останавливаемой службе
+
+diff --git a/plymouth.c b/plymouth.c
+index e9c925b..f9b6609 100644
+--- a/plymouth.c
++++ b/plymouth.c
+@@ -22,6 +22,8 @@
+ #include <stdarg.h>
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <fcntl.h>
++#include <ctype.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <sys/stat.h>
+@@ -82,10 +84,15 @@ int commandf(const char* cmd, ...)
+     return command(buffer);
+ }
+ 
++void restart_console_font()
++{
++    if(RC_SERVICE_STARTED == rc_service_state("consolefont"))
++        command("/etc/init.d/consolefont restart");
++}
+ 
+ bool ply_message(const char* hook, const char* name)
+ {
+-    return (commandf("/bin/plymouth message --text=\"%s %s\"", hook, name) == 0);
++    return true;
+ }
+ 
+ 
+@@ -125,7 +132,7 @@ bool ply_start(int mode)
+         }
+ 
+ #define PLYD "/sbin/plymouthd --attach-to-session --pid-file=" PID_FILE \
+-    " --mode="
++    " --tty=/dev/tty1 --mode="
+         if(mode == PLY_MODE_BOOT)
+             rv = command(PLYD "boot");
+         else if(mode == PLY_MODE_SHUTDOWN)
+@@ -148,6 +155,30 @@ bool ply_update_status(int hook, const char* name)
+     return (commandf("/bin/plymouth update --status=%d-%s", hook, name) == 0);
+ }
+ 
++bool kernel_command_has_argument(const char *argument)
++{
++    char buf[4096];
++    int fd;
++    fd = open("/proc/cmdline", O_RDONLY);
++    
++    if( fd < 0 ) {
++        return false;
++    }
++    if(read(fd, buf, 4095) < 0) {
++        close(fd);
++        return false;
++    }
++    close(fd);
++    char *found_arg = strstr(buf, argument);
++    if(found_arg == NULL)
++        return false;
++
++    if(found_arg == buf || found_arg[-1] == ' ') {
++        char endch = *(found_arg+strlen(argument));
++        return (isspace(endch) || endch == '\0') ? true : false;
++    }
++    return false;
++}
+ 
+ bool ply_update_rootfs_rw()
+ {
+@@ -210,11 +241,15 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+     case RC_HOOK_RUNLEVEL_STOP_IN:
+         /* Start the Plymouth daemon and show splash when system is being shut
+          * down. */
+-        if(strcmp(name, RC_LEVEL_SHUTDOWN) == 0) {
++        if(strcmp(name, RC_LEVEL_SHUTDOWN) == 0 &&
++            (kernel_command_has_argument("splash") ||
++            kernel_command_has_argument("splash=shutdown")))
++        {
+             DBG("ply_start(PLY_MODE_SHUTDOWN)");
+             if(!ply_start(PLY_MODE_SHUTDOWN)
+                     || !ply_update_rootfs_rw())
+                 rv = 1;
++            command("/usr/bin/chvt 1");
+         }
+         break;
+ 
+@@ -222,7 +257,10 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+         /* Start the Plymouth daemon and show splash when entering the boot
+          * runlevel. Required /proc and /sys should already be mounted in
+          * sysinit runlevel. */
+-        if(strcmp(name, bootlevel) == 0) {
++        if(strcmp(name, bootlevel) == 0 &&
++            (kernel_command_has_argument("splash") ||
++            kernel_command_has_argument("splash=silent")))
++        {
+             DBG("ply_start(PLY_MODE_BOOT)");
+             if(!ply_start(PLY_MODE_BOOT))
+                 rv = 1;
+@@ -235,6 +273,7 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+             DBG("ply_quit(PLY_MODE_BOOT)");
+             if(!ply_quit(PLY_MODE_BOOT))
+                 rv = 1;
++            restart_console_font();
+         }
+         break;
+ 
+@@ -251,8 +290,13 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+     case RC_HOOK_SERVICE_STOP_NOW:
+         if(!ply_message("Stopping service", name))
+             rv = 1;
++        if(strcmp(name, "xdm") == 0)
++            command("/usr/bin/chvt 1");
++        break;
++    case RC_HOOK_SERVICE_STOP_DONE:
++        if(strcmp(name, "xdm") == 0)
++            command("/usr/bin/chvt 1");
+         break;
+-
+     case RC_HOOK_SERVICE_START_NOW:
+         if(!ply_message("Starting service", name))
+             rv = 1;
+@@ -267,7 +311,7 @@ int rc_plugin_hook(RC_HOOK hook, const char *name)
+             if(!ply_update_rootfs_rw())
+                 rv = 1;
+         }
+-	    break;
++        break;
+ 
+     default:
+         break;
