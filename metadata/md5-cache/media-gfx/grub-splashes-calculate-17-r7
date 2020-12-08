@@ -1,11 +1,11 @@
 DEFINED_PHASES=install
 DEPEND=!<sys-apps/calculate-utils-3.5.2.6
 DESCRIPTION=Grub splashes for Calculate Linux
-EAPI=4
+EAPI=5
 HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/grub-splashes-calculate
 KEYWORDS=amd64 x86
 LICENSE=Apache-2.0
 RDEPEND=!<sys-apps/calculate-utils-3.5.2.6 || ( media-gfx/imagemagick media-gfx/graphicsmagick )
 SLOT=0
 SRC_URI=ftp://ftp.calculate-linux.org/calculate/themes/calculate/grub-17-r1.jpg -> grub-splashes-calculate-17.jpg http://mirror.yandex.ru/calculate/themes/calculate/grub-17-r1.jpg -> grub-splashes-calculate-17.jpg
-_md5_=b5511fe78386f0cbfc5b5087bee837b4
+_md5_=7bd4e676099f024b3a4320dac944d9e3
