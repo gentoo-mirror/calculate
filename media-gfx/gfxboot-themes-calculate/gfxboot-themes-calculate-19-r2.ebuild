@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 DESCRIPTION="Gfxboot themes for Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/gfxboot-themes-calculate"
