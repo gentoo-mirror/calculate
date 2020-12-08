@@ -2,11 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 DESCRIPTION="UEFI Shim bootloader for SecureBoot signed by Microsoft"
 HOMEPAGE="http://mjg59.dreamwidth.org/20303.html"
 SRC_URI="http://www.codon.org.uk/~mjg59/${PN}/${P}.tgz"
+SRC_URI="ftp://ftp.calculate-linux.org/calculate/source/${PN}/${P}.tgz
+	http://mirror.yandex.ru/calculate/source/${PN}/${P}.tgz"
 
 LICENSE="as-is"
 SLOT="0"
