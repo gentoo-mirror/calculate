@@ -18,6 +18,9 @@ USE="${USE} -sdl -sdl2 -vaapi -xv"
 # Photo
 USE="${USE} -gimp"
 
+# Python
+USE="${USE} -python_targets_python3_7"
+
 # System
 USE="${USE} -abi_x86_32 -elogind -gnome-keyring -introspection -policykit"
 
