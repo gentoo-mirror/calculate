@@ -28,12 +28,6 @@ games-action/descent3-demo alsa -pulseaudio
 # any-of ( mysql postgres sqlite )
 mail-client/roundcube postgres -sqlite
 
-# any-of ( kvm xen lxc )
-app-emulation/ganeti lxc
-
-# any-of ( b100 b200 e300 mpmd n230 usrp1 usrp2 x300 )
-net-wireless/uhd b100 b200 e300 mpmd n230 usrp1 usrp2 x300
-
 # any-of ( mysql postgres sqlite )
 sys-cluster/placement sqlite
 

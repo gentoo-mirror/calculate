@@ -3,7 +3,7 @@ dev-vcs/git cgi curl perl webdav
 mail-mta/postfix ldap sasl dovecot-sasl
 net-dns/bind ldap sdb-ldap dlz
 net-im/ejabberd ldap sqlite
-net-mail/dovecot pop3d ldap sieve managesieve
+net-mail/dovecot ldap sieve managesieve
 net-nds/openldap syslog -sasl
 net-proxy/squid ldap
 net-ftp/proftpd -ipv6 -acl ldap openssl
@@ -64,9 +64,6 @@ www-client/uget aria2
 # install legacy rule generator rules and support scripts
 sys-fs/eudev rule-generator
 
-# use x86emu for Video BIOS calls (32 bit)
-sys-apps/v86d x86emu
-
 # enable support for Media Transfer Protocol
 kde-apps/kio-extras mtp
 
@@ -94,9 +91,6 @@ net-firewall/ipset -modules
 
 # support/bindings for the Python language
 sys-fs/cryptsetup python
-
-# add support for the postgresql database
-app-backup/holland postgres -mysql
 
 # build for use with thread-capable perl
 www-apache/mod_perl ithreads
@@ -149,11 +143,7 @@ kde-apps/dolphin thumbnail
 kde-apps/gwenview kipi semantic-desktop
 
 # enable support for mobile broadband devices
-kde-misc/plasma-nm modemmanager
 kde-plasma/plasma-nm modemmanager openconnect
-
-# enable support for mobile broadband devices
-net-libs/libnm-qt modemmanager
 
 # add support for access point mode
 net-wireless/wpa_supplicant ap
@@ -218,9 +208,6 @@ media-gfx/ufraw gimp
 # install the sendto-plugin for xfce-base/thunar
 #net-wireless/blueman thunar
 
-# fix crash
-=media-sound/clementine-1.2.3 -udisks
-
 # enable support for Media Transfer Protocol
 media-sound/clementine mtp dropbox googledrive
 
@@ -231,10 +218,6 @@ media-gfx/inkscape cdr inkjar lcms visio wpg
 
 # mikmod? ( mod ) timidity? ( midi )
 media-libs/sdl-mixer mod timidity midi
-
-# the following REQUIRED_USE flag constraints are unsatisfied:
-# theora? ( video ) X? ( video ) v4l? ( video )
-media-libs/mediastreamer video
 
 # enables fuse mount points in $HOME/.gvfs for legacy application access
 # enable storage password
@@ -273,11 +256,6 @@ x11-wm/jwm xpm
 media-video/avidemux qt5
 media-libs/avidemux-plugins qt5
 
-# wine 1.7.x
-# The following REQUIRED_USE flag constraints are unsatisfied:
-# vaapi? ( staging ), at-most-one-of ( gstreamer staging )
-app-emulation/wine -gstreamer staging
-
 # extensions without dependencies
 mate-extra/caja-extensions -cdr image-converter share
 
@@ -288,9 +266,6 @@ app-text/atril epub
 # builds libffmpeg.so to enable media playback in Chromium-based browsers like Opera and Vivaldi
 # xcb for video capture screen monitor
 media-video/ffmpeg openssl chromium xcb libaom
-
-# enable sound support
-games-strategy/0ad sound
 
 # opengl? ( gui widgets ), webkit? ( network printsupport )
 dev-python/PyQt5 gui printsupport network widgets
@@ -320,9 +295,6 @@ media-libs/libsdl2 gles
 
 # support accountservice
 x11-misc/lightdm gnome
-
-# enable support Jabber, vkontakte
-net-im/qutim xmpp vkontakte
 
 # at-most-one-of ( gstreamer ffmpeg )
 app-misc/tracker ffmpeg -gstreamer -cue
@@ -372,14 +344,8 @@ app-backup/backintime qt5
 app-backup/bacula qt5
 net-print/hplip qt5
 
-# support for some plasmoids
-kde-base/plasma-workspace python
-
 # mate-base/mate -> x11-misc/mozo-1.8.0
 mate-base/mate-menus python
-
-# adds support for suspend/resume using sys-power/pm-utils
-sys-auth/consolekit pm-utils
 
 # enable Glamor OpenGL 2D acceleration
 x11-drivers/xf86-video-amdgpu glamor
@@ -389,10 +355,6 @@ app-i18n/fcitx gtk2 gtk3
 
 # add man
 app-emulation/lxc doc
-
-# add support for the postgresql database
-www-apps/nextcloud postgres -sqlite
-www-apps/owncloud postgres -sqlite
 
 # add support for the postgresql database
 net-im/prosody libevent postgres
