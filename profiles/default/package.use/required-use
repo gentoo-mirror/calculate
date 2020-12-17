@@ -96,3 +96,6 @@ games-action/descent3-demo -pulseaudio
 # player? ( exactly-one-of ( alsa oss openal ) )
 media-sound/wildmidi -openal
 
+# X? ( pcf )
+media-fonts/terminus-font pcf
+
