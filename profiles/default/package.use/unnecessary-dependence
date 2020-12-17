@@ -8,12 +8,13 @@ app-editors/nano -spell
 app-emulation/wine -samba
 app-emulation/wine-staging -gstreamer
 app-emulation/wine-vanilla -gstreamer
+app-misc/graphlcd-base -imagemagick
 app-misc/mc -spell
 app-text/evince -nsplugin
 dev-lang/php -imap -spell
 dev-libs/folks -bluetooth
-dev-python/PyQt5 -webengine -webkit
 dev-python/PyQt5-python2 -webengine -webkit
+dev-python/PyQt5 -webengine -webkit
 dev-python/translate-toolkit -html
 dev-qt/qt-creator -qmldesigner
 dev-qt/qtgui -vnc
@@ -24,11 +25,13 @@ kde-apps/kget -bittorrent
 kde-apps/print-manager -gtk
 lxqt-base/lxqt-meta -sddm
 mail-client/roundcube -spell
+mail-filter/opendkim -sasl
 mate-extra/mate-sensors-applet -video_cards_nvidia
 media-fonts/noto -extra
 media-fonts/terminus-font -pcf
 media-gfx/imagemagick -raw
 media-gfx/inkscape -spell
+media-gfx/pstoedit -imagemagick
 media-gfx/sane-backends -sane_backends_escl -zeroconf
 media-video/ffmpeg -samba -video_cards_nvidia
 net-analyzer/net-snmp -X
@@ -53,4 +56,5 @@ www-client/links -X
 x11-drivers/nvidia-drivers -acpi
 x11-misc/xscreensaver -perl
 x11-terms/gnome-terminal -nautilus
+x11-wm/windowmaker -imagemagick
 xfce-extra/xfce4-sensors-plugin -video_cards_nvidia

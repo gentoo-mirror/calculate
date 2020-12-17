@@ -83,3 +83,16 @@ media-libs/libsdl2 gles2
 
 # spell? ( !gtk3 )
 app-misc/emelfm2 -spell
+
+# audiofile? ( oss )
+net-irc/kvirc oss
+
+# exactly-one-of ( alsa oss portaudio pulseaudio )
+app-accessibility/julius -pulseaudio
+
+# at-most-one-of ( alsa pulseaudio )
+games-action/descent3-demo -pulseaudio
+
+# player? ( exactly-one-of ( alsa oss openal ) )
+media-sound/wildmidi -openal
+
