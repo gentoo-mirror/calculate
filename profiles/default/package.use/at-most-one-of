@@ -6,9 +6,3 @@ app-misc/lcd4linux -lcd_devices_hd44780-i2c
 
 # at-most-one-of ( cracklib pam )
 sys-apps/shadow -cracklib
-
-# at-most-one-of ( gles2-only opengl ) wayland? ( !opengl )
-dev-libs/efl -opengl
-
-# at-most-one-of ( cxx mpi ) threads? ( !cxx !mpi !fortran !hl )
-sci-libs/hdf5 -threads
