@@ -1,2 +1,7 @@
+USE=""
+
+# Python
+USE="${USE} python_targets_python3_7 python_targets_python3_8 python_single_target_python3_8"
+
 PORTAGE_NICENESS="19"
 PORTAGE_IONICE_COMMAND="ionice -c 3 -p \${PID}"
