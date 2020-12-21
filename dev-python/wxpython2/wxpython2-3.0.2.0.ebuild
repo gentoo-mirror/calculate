@@ -6,7 +6,7 @@ EAPI=5
 PYTHON_COMPAT=( python2_7 )
 WX_GTK_VER="3.0"
 
-inherit alternatives distutils-r1 eutils fdo-mime flag-o-matic wxwidgets
+inherit alternatives distutils-r1 eutils flag-o-matic wxwidgets
 
 ORIG_PN="wxpython"
 MY_PN="wxPython-src"
@@ -114,6 +114,16 @@ python_install_all() {
 	rm -r ${D}/usr/share
 }
 
+fdo-mime_desktop_database_update() {
+	has "${EAPI:-0}" 0 1 2 && ! use prefix && EPREFIX=
+	has "${EAPI:-0}" 0 1 2 && ! use prefix && EROOT="${ROOT}"
+	if [ -x "${EPREFIX}/usr/bin/update-desktop-database" ]
+	then
+		einfo "Updating desktop mime database ..."
+		"${EPREFIX}/usr/bin/update-desktop-database" -q "${EROOT}usr/share/applications"
+	fi
+}
+
 pkg_postinst() {
 	fdo-mime_desktop_database_update
 
@@ -139,3 +149,4 @@ pkg_postrm() {
 	}
 	python_foreach_impl update_symlinks
 }
+
