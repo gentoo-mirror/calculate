@@ -41,8 +41,9 @@ urandom xml +zlib sdb-ldap"
 # sdb-ldap - patch broken
 # no PKCS11 currently as it requires OpenSSL to be patched, also see bug 409687
 
+# Upstream dropped the old geoip library, but the BIND configuration for using
+# GeoIP remained the same.
 REQUIRED_USE="
-	?? ( geoip geoip2 )
 	postgres? ( dlz )
 	berkdb? ( dlz )
 	mysql? ( dlz )
@@ -64,7 +65,7 @@ DEPEND="
 	postgres? ( dev-db/postgresql:= )
 	caps? ( >=sys-libs/libcap-2.1.0 )
 	xml? ( dev-libs/libxml2 )
-	geoip? ( >=dev-libs/geoip-1.4.6 )
+	geoip? ( dev-libs/libmaxminddb )
 	geoip2? ( dev-libs/libmaxminddb )
 	gssapi? ( virtual/krb5 )
 	json? ( dev-libs/json-c:= )
@@ -84,6 +85,14 @@ RDEPEND="${DEPEND}
 	sys-process/psmisc"
 
 S="${WORKDIR}/${MY_P}"
+
+PATCHES=(
+	# should fix https://bugs.gentoo.org/741162 taken from:
+	# https://gitlab.isc.org/isc-projects/bind9/-/merge_requests/4073
+	"${FILESDIR}/bind-9.16.6-bug-741162.patch"
+
+	"${FILESDIR}/ldap-library-path-on-multilib-machines.patch"
+)
 
 # bug 479092, requires networking
 # bug 710840, cmocka fails LDFLAGS='-Wl,-O1'
@@ -155,9 +164,18 @@ bind_configure() {
 		$(use_with zlib)
 		"${@}"
 	)
-
-	use geoip && myeconfargs+=( --enable-geoip )
-	use geoip2 && myeconfargs+=( --with-maxminddb )
+	# This is for users to start to migrate back to USE=geoip, rather than
+	# USE=geoip2
+	if use geoip ; then
+		myeconfargs+=( $(use_with geoip maxminddb) --enable-geoip )
+	elif use geoip2 ; then
+		# Added 2020/09/30
+		# Remove USE=geoip2 support after 2020/03/01
+		ewarn "USE=geoip2 is deprecated; update your USE flags!"
+		myeconfargs+=( $(use_with geoip2 maxminddb) --enable-geoip )
+	else
+		myeconfargs+=( --without-maxminddb --disable-geoip )
+	fi
 
 	# bug #158664
 #	gcc-specs-ssp && replace-flags -O[23s] -O
