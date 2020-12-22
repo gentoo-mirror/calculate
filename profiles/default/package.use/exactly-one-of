@@ -19,12 +19,6 @@ kde-apps/lokalize -python_single_target_python2_7
 # player? ( exactly-one-of ( alsa oss openal ) )
 media-sound/wildmidi -openal
 
-# exactly-one-of ( python_single_target_python2_7 python_single_target_python3_6)
-app-text/wklej -python_single_target_python2_7 -vim
-
-# exactly-one-of ( l10n_en l10n_fr l10n_it l10n_ja l10n_nl l10n_pl )
-app-doc/kicad-doc -l10n_fr -l10n_it -l10n_nl -l10n_pl
-
 # exactly-one-of ( mysql postgres )
 net-dns/mydns postgres
 

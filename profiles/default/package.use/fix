@@ -1,29 +1,14 @@
-=sys-fs/udisks-1.0.5-r3 -lvm
-
 # random rebuild the package for no reason
 media-libs/babl -cpu_flags_x86_f16c -cpu_flags_x86_sse4_1
 
-# not compiled with app-text/hunspell > 1.3.3
-net-im/qutim -hunspell
-
 # ERROR: net-p2p/mldonkey-3.1.5-r1 failed
 net-p2p/mldonkey -gd
-
-# not compiled with ru_RU
-=media-video/smtube-15.11.0 -linguas_ru_RU -linguas_lt
 
 # not compiled xfsdump on x86
 sys-block/gparted -xfs
 
 # block with imagemagick<7
 media-libs/libopenshot -imagemagick
-
-# dev-libs/libsodium:0/18= required by (net-libs/zeromq-4.2.2-r2:0/5
-# dev-libs/libsodium:0/18 required by (dev-python/pynacl-1.1.2:0/0
-=dev-libs/libsodium-1.0.15
-
-#<www-client/seamonkey-2.49.5.0_p0" is blocking x11-plugins/enigmail-1.9.8.3-r1
-=x11-plugins/enigmail-1.9.8.3-r1
 
 # Missins support for required CPU baseline features. Was tested at the start of the `nomacs`. Also with these options is not going to the virtualbox.
 media-libs/opencv -cpu_flags_x86_f16c -cpu_flags_x86_fma3 -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_avx512f -cpu_flags_x86_popcnt -cpu_flags_x86_sse4_1 -cpu_flags_x86_sse4_2 -cpu_flags_x86_ssse3
@@ -34,21 +19,12 @@ media-libs/openimageio -cpu_flags_x86_f16c -cpu_flags_x86_avx -cpu_flags_x86_avx
 # not compiled
 dev-java/sbt binary
 
-# block with <sci-libs/superlu-5
-sci-chemistry/apbs -fetk
-
-# block with <dev-libs/openssl-1.1
-dev-util/electron -system-ssl
-
 # block <media-gfx/imagemagick-7:=
 media-gfx/inkscape -imagemagick
 app-misc/graphlcd-base -imagemagick
 
 # not compiled
 app-misc/lcd4linux -lcd_devices_curses
-
-# fix dep
-=mate-extra/caja-extensions-1.24.0 -upnp
 
 # binary package causes problems with claws-mail, rdesktop, etc. on CPU without support for this feature
 dev-libs/nettle -cpu_flags_x86_sha
