@@ -1,8 +1,7 @@
+>=dev-qt/qtcore-5.4.2 icu
+
 # required by media-sound/picard-1.3.1
 media-libs/chromaprint tools
-
-# required by media-radio/fldigi-3.22.05
-x11-libs/fltk xft
 
 # required by net-wireless/aircrack-ng-1.2_rc1-r1[airdrop-ng]
 net-wireless/lorcon python
@@ -14,7 +13,6 @@ net-dns/avahi autoipd
 net-dns/avahi mdnsresponder-compat
 
 # required by net-fs/samba-4.2.9
-sys-libs/ntdb python
 sys-libs/tdb python
 sys-libs/tevent python
 
@@ -80,9 +78,6 @@ dev-qt/qtdeclarative xml
 # required by dev-java/netbeans-platform-8.2
 dev-java/junit source
 
-# required by dev-java/netbeans-platform-8.2
-dev-java/oracle-jdk-bin javafx
-
 # required by dev-java/netbeans-websvccommon-8.0.2
 dev-java/swing-layout source
 
@@ -93,16 +88,14 @@ x11-libs/libdrm libkms video_cards_amdgpu video_cards_vmware
 # required by www-client/firefox [apng]
 media-libs/libpng apng
 
-# required by x11-libs/glamor [gdm], x11-drivers/xf86-video-vmware,
-# app-emulation/libvirt-1.2.18-r1::gentoo[qemu]
-# kde-plasma/kwin-5.5.0, virtual/opencl-0-r6
-media-libs/mesa gbm xa gles2 opencl
+# required by kde-plasma/kwin-5.5.0, virtual/opencl-0-r6
+media-libs/mesa xa opencl
 
 # required by www-client/chromium [minizip]
 sys-libs/zlib minizip
 
-# required by www-client/chromium [icu], required by media-libs/mesa [python], app-text/gnome-doc-utils
-dev-libs/libxml2 python icu
+# required by app-text/gnome-doc-utils
+dev-libs/libxml2 icu
 
 # for using dev-libs/libxml2 [icu] - required by www-client/chromium
 dev-qt/qtwebkit icu
@@ -113,23 +106,13 @@ dev-libs/elfutils static-libs
 # required by kde-base/kopete-4.14.3-r1[ssl]
 app-crypt/qca openssl
 
-# [declarative, script, sql] required by kde-base/pykde4
-# [help] required by dev-util/eric
-dev-python/PyQt4 declarative script sql help
-
 # [melt, xml] required by media-video/kdenlive
 # required by media-video/openshot-1.4.3o
 # required by media-video/shotcut
 media-libs/mlt melt xml kdenlive -xine qt5 python frei0r sdl2 jack
 
-# [xmp] required by kde-base/libkexiv2
-media-gfx/exiv2 xmp
-
 # required by kde-apps/libkface-15.08.3
 media-libs/opencv contrib
-
-# required by kde-apps/okteta-15.08.3
->=dev-qt/qtscript-5.5.1 scripttools
 
 # [icu] required by www-client/chromium
 media-libs/harfbuzz icu
@@ -147,10 +130,6 @@ net-libs/telepathy-qt farstream
 # required by media-video/handbrake-1.3.3
 # required by media-video/openshot-1.4.3-r1[-libav,ffmpeg]
 media-video/ffmpeg fdk vpx
-
-# required by www-client/qupzilla-2.0.0
->=dev-qt/qtwebengine-5.6.0 widgets
->=dev-qt/qtdeclarative-5.6.0 widgets
 
 # required by sci-chemistry/chemical-mime-data-0.1.94-r2
 media-gfx/imagemagick xml
@@ -195,13 +174,6 @@ sci-libs/gdal geos
 # required by net-im/psi-0.15::gentoo[crypt]
 app-crypt/qca gpg
 
-# required by media-video/totem-3.14.3
-media-libs/grilo playlist
-
-# required by "net-voip/ekiga-4.0.0-r1
-net-libs/opal sip sipim xml
-net-libs/ptlib wav xml
-
 # required by sci-visualization/qtiplot-0.9.8.9-r2
 dev-qt/qthelp compat
 
@@ -219,9 +191,6 @@ media-libs/libvpx postproc svc
 # required by media-gfx/digikam-4.4.0-r1
 kde-apps/marble plasma
 
-# required by dev-qt/qtwebkit-5.4.2
->=dev-qt/qtcore-5.4.2 icu
-
 # required by dev-qt/qtcore
 dev-libs/libpcre2 pcre16
 dev-libs/libpcre pcre16
@@ -230,12 +199,9 @@ dev-libs/libpcre pcre16
 dev-libs/libpcre pcre32
 dev-libs/libpcre2 pcre32
 
-# required by dev-qt/qtgui-5.4.2::gentoo[xcb]
-x11-libs/libxcb xkb
-
 # required by app-emulation/virt-manager-1.1.0-r2
 # gnome-extra/gnome-boxes-3.30.3
-net-misc/spice-gtk -gstreamer python usbredir gtk3 smartcard vala
+net-misc/spice-gtk usbredir smartcard vala
 
 # required by gnome-extra/gnome-boxes-3.30.3
 app-emulation/spice smartcard
@@ -243,20 +209,8 @@ app-emulation/spice smartcard
 # required by x11-wm/i3-4.8
 x11-libs/cairo xcb
 
-# required by mail-client/geary-0.6.3-r1
-app-crypt/gcr vala
-
 # required by media-tv/kodi-14.1
 net-libs/libmicrohttpd messages
-
-# required by dev-python/PyQt5-5.4.2::gentoo[webkit]
->=dev-qt/qtwebkit-5.4.2 printsupport
-
-# required by app-emulation/docker-1.11.0[device-mapper]
-sys-fs/lvm2 thin
-
-# required by media-gfx/simple-scan-3.18.2
-dev-libs/libgusb vala
 
 # required by kde-plasma/plasma-pa-5.8.3
 media-sound/pulseaudio gnome
@@ -295,26 +249,14 @@ dev-libs/libnl utils
 dev-python/PyQt5 declarative testlib multimedia sql help websockets
 dev-python/PyQt5-python2 declarative testlib multimedia sql help websockets
 
-# required by www-client/qutebrowser-1.5.2-r1
-dev-python/pyyaml libyaml
-
 # required by net-im/pidgin-2.12.0[gadu]
 net-libs/libgadu gnutls
-
-# required by app-emulation/docker-17.03.1[container-init]
-sys-process/tini static
-
-# required by gnome-extra/gnome-builder-3.22.4[git]
-dev-libs/libgit2-glib ssh
 
 # required by gnome-extra/gnome-contacts-3.22.1
 dev-libs/folks eds
 
 # required by dev-libs/folks-0.11.3[eds]
 gnome-extra/evolution-data-server vala
-
-# required by dev-libs/libgit2-glib-0.24.4
-dev-libs/libgit2 ssh
 
 # required by games-action/d1x-rebirth-0.58.1
 dev-games/physfs mvl hog
@@ -357,14 +299,10 @@ media-libs/libsamplerate sndfile
 # required by media-sound/ncmpcpp-0.7.7[unicode]
 dev-libs/boost icu
 
-# [python] required by net-libs/rb_libtorrent
-dev-libs/boost python
-
 # required by sci-electronics/kicad-4.0.7
 dev-libs/boost context
 
 # [python] required by net-p2p/deluge
-net-libs/rb_libtorrent python
 net-libs/libtorrent-rasterbar python
 
 # required by x11-terms/guake-0.5.2
@@ -381,9 +319,6 @@ media-gfx/graphviz python
 
 # required by net-misc/electrum-2.6.4
 dev-libs/protobuf python
-
-# required by dev-python/tlslite-0.4.3-r1
-dev-libs/cryptlib python
 
 # required by dev-util/dput-ng-1.10
 dev-util/distro-info python
@@ -493,12 +428,6 @@ mail-mta/netqmail qmail-spp
 # required by sys-devel/llvmgold-4
 sys-devel/llvm gold
 
-# required by sys-libs/libcxx-3.9.1[libcxxrt]
-sys-libs/libcxxrt -libunwind
-
-# required by dev-python/collectd-rabbitmq-1.19.0
-app-admin/collectd collectd_plugins_python
-
 # required by sci-visualization/mayavi-4.3.0
 sci-libs/vtk python
 
@@ -568,9 +497,6 @@ dev-python/matplotlib wxwidgets
 # required by dev-lua/luvit-0.7.0
 dev-lang/luajit lua52compat
 
-# required by "sci-electronics/kicad-packages3d-5.0.0
-sci-electronics/kicad oce
-
 # required by www-apache/mod_security-2.9.1-r1
 dev-libs/apr-util openssl
 
@@ -581,22 +507,13 @@ dev-util/astyle java
 dev-libs/libgamin python
 
 # required by net-wireless/mousejack-0.0_p20160726-r1
-dev-embedded/sdcc mcs51 sdbinutils device-lib
-
-# required by dev-python/simplesoapy-1.5.1-r1
-net-wireless/soapysdr python
-
-# required by net-wireless/multimode-1.4_p20140831-r1
-net-wireless/gnuradio grc
+dev-embedded/sdcc mcs51 device-lib
 
 # required by www-client/chromium-70.0.3538.67
 net-libs/nodejs inspector
 
 # required by app-crypt/yubikey-manager-qt-1.0.0
 dev-qt/qtquickcontrols2 widgets
-
-# required by games-board/gnome-chess-3.28.1
-gnome-base/librsvg vala
 
 # required by kde-misc/plasma-applet-weather-widget-1.6.10-r1
 dev-qt/qtxmlpatterns qml
@@ -624,12 +541,6 @@ media-gfx/imagemagick -openmp
 
 # required by dev-vcs/gitg-3.32.1
 app-text/gtkspell vala
-
-# required by dev-vcs/gitg-3.32.1
-dev-libs/libdazzle vala
-
-# required by media-tv/kodi-18.4
-net-misc/curl http2
 
 # required by app-portage/kuroo-0.90.5_p20180410
 kde-plasma/kde-cli-tools kdesu
@@ -678,12 +589,6 @@ net-firewall/nftables xtables
 
 # required by dev-libs/Ice-3.6.4
 sys-libs/db cxx
-
-# required by media-gfx/pstoedit-3.70-r1[imagemagick]
-media-gfx/imagemagick cxx
-
-# required by sci-mathematics/cgal-4.11.3[gmp]
-dev-libs/gmp cxx
 
 # required by dev-libs/elfutils-0.177
 sys-libs/zlib static-libs

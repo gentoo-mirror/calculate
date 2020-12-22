@@ -13,16 +13,8 @@ media-video/vlc -svg
 sys-kernel/calculate-sources -themes
 sys-libs/glibc -gd
 
-# required by app-admin/cgmanager-0.41
-sys-libs/libnih dbus
-
 # required by net-misc/networkmanager-1.8.4
 net-wireless/wpa_supplicant dbus
 
 # required by net-misc/networkmanager-1.8.4
 net-dns/dnsmasq dbus
-
-# vala? ( introspection )
-net-libs/libsoup introspection
-media-libs/gexiv2 introspection
-sys-libs/libosinfo introspection

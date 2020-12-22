@@ -71,6 +71,7 @@ L10N="en be bg bs cs da de de-1901 es es-AR es-CL es-ES es-MX et fi fr fr-CA hr 
 
 ACCEPT_LICENSE="*"
 AUTOCLEAN="yes"
+BINPKG_COMPRESS="zstd"
 CAMERAS="*"
 CPU_FLAGS_X86="3dnow 3dnowext mmx sse sse2 *"
 DISTDIR="/var/calculate/remote/distfiles"

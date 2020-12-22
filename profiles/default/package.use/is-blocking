@@ -1,11 +1,5 @@
-# dev-java/oracle-jdk-bin[nsplugin]" is blocking dev-java/icedtea-web-1.6.1-r1
-dev-java/oracle-jdk-bin -nsplugin
-
 # sys-auth/pambase[systemd] have been masked
 x11-terms/gnome-terminal -gnome-shell
-
-# kde-apps/audiocd-kio:4" is blocking kde-apps/audiocd-kio-16.12.0
-media-sound/amarok -cdda
 
 # The following REQUIRED_USE flag constraints are unsatisfied:
 # threads? ( !cxx !fortran )

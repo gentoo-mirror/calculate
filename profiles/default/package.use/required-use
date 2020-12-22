@@ -13,9 +13,6 @@ x11-wm/xpra dec_av2
 # linguas_nl_NL? ( ljr )
 net-p2p/bitcoin-qt ljr
 
-# threads? ( caps )
-net-dns/bind caps
-
 # smtp? ( libuv )
 net-libs/libwebsockets libuv
 
@@ -24,12 +21,6 @@ net-irc/epic5 ruby
 
 # sasl? ( ldap )
 net-fs/autofs ldap
-
-# taglib? ( !id3tag ) id3tag? ( !taglib )
-net-misc/mediatomb -taglib
-
-# opengl? ( plasma )
-kde-frameworks/kdelibs:4 plasma
 
 # qt5? ( !libnotify )
 media-plugins/audacious-plugins -libnotify
@@ -48,23 +39,13 @@ media-libs/sdl2-mixer midi
 
 # vnc? ( fbcon )
 # wayland? ( gles2-only )
-# pulseaudio? ( sound )
-dev-libs/efl fbcon gles2-only sound
+dev-libs/efl fbcon gles2-only
 
 # ogre? ( !opengl ) opengl? ( !ogre )
 dev-games/mygui -ogre
 
 # ssl? ( any-of ( gnutls openssl ) )
 app-admin/rsyslog openssl
-
-# inspector? ( icu )
-net-libs/nodejs icu
-
-# spell? ( client )
-net-im/swift client
-
-# png? ( lcd_devices_glcd )
-app-misc/lcdproc lcd_devices_glcd
 
 # drm? ( gles2 )
 dev-libs/efl gles2
