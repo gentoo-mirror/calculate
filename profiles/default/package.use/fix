@@ -4,9 +4,6 @@ media-libs/babl -cpu_flags_x86_f16c -cpu_flags_x86_sse4_1
 # ERROR: net-p2p/mldonkey-3.1.5-r1 failed
 net-p2p/mldonkey -gd
 
-# not compiled xfsdump on x86
-sys-block/gparted -xfs
-
 # block with imagemagick<7
 media-libs/libopenshot -imagemagick
 
@@ -16,24 +13,21 @@ media-libs/opencv -cpu_flags_x86_f16c -cpu_flags_x86_fma3 -cpu_flags_x86_avx -cp
 # Missins support for required CPU baseline features. Was tested at the start of the `blender`.
 media-libs/openimageio -cpu_flags_x86_f16c -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_avx512f -cpu_flags_x86_avx512f -cpu_flags_x86_f16c
 
-# not compiled
-dev-java/sbt binary
-
 # block <media-gfx/imagemagick-7:=
 media-gfx/inkscape -imagemagick
 app-misc/graphlcd-base -imagemagick
 
-# not compiled
-app-misc/lcd4linux -lcd_devices_curses
 
 # binary package causes problems with claws-mail, rdesktop, etc. on CPU without support for this feature
 dev-libs/nettle -cpu_flags_x86_sha
 
+# not compiled xfsdump on x86
+sys-block/gparted -xfs
+
 # not compiled
 app-arch/brotli python
-
-# not compiled
-media-video/transcode -imagemagick
-
-# not compiled
+app-doc/gnucash-docs -l10n_ru
+app-misc/lcd4linux -lcd_devices_curses
 app-misc/lcdproc -lcd_devices_glcd -png -lcd_devices_g15
+dev-java/sbt binary
+media-video/transcode -imagemagick
