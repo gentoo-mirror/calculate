@@ -646,3 +646,5 @@ net-libs/libwebsockets http-proxy socks5 client
 # required by dev-libs/elfutils-0.182[zstd]
 app-arch/zstd static-libs
 
+# required by net-misc/nextcloud-client-3.0.3
+dev-qt/qtwebengine widgets
