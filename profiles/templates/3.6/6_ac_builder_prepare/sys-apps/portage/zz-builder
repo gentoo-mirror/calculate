@@ -1,7 +1,8 @@
 # Calculate comment=# protected
 MAKEOPTS="#-os_builder_makeopts-#"
-EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --jobs=1"
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --jobs=1 --verbose-conflicts"
 PKGDIR="#-cl_builder_pkgdir-#"
+BINPKG_COMPRESS_FLAGS="-19 -T#-main.hr_cpu_num-#"
 
 #?pkg(dev-util/ccache)!=#
 FEATURES="${FEATURES} ccache"
