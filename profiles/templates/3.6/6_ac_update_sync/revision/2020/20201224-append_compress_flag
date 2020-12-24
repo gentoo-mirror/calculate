@@ -1,0 +1,8 @@
+# Calculate path=/etc/portage/make.conf name=custom append=after ini(overlay-calculate.revision)=>20191116.3,#-cut(0,-,#-cl_pass_file-#)-#&&exists(/etc/portage/make.conf/custom)!=&&grep(/etc/portage/make.conf/custom,BINPKG_COMPRESS_FLAGS)==
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+#?install.os_install_locale_language==ru#
+# Параметры сжатия для бинарных пакетов
+#!install.os_install_locale_language#
+# Compression parameters for binary packages
+#install.os_install_locale_language#
+BINPKG_COMPRESS_FLAGS="-19 -T#-main.hr_cpu_num-#"
