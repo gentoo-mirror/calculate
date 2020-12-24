@@ -1,8 +1,0 @@
-# Calculate run=/bin/bash pkg(app-emulation/lxc)>=4&&ini(merge.lxc)==
-
-#-ini(merge.lxc,4)-#
-
-sed -i 's,/usr/share/lxc/config/gentoo.common.conf,/usr/share/lxc/config/common.conf,' /var/calculate/lxc/*/config
-sed -i 's,/usr/share/lxc/config/gentoo.userns.conf,/usr/share/lxc/config/userns.conf,' /var/calculate/lxc/*/config
-
-exit 0
