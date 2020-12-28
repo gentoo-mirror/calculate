@@ -1,2 +1,3 @@
 lxc.include = LXC_TEMPLATE_CONFIG/common.conf
 lxc.arch = #-os_builder_arch_machine-#
+lxc.mount.entry = none dev/shm tmpfs rw,nosuid,nodev,create=dir
