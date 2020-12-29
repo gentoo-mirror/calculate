@@ -1,0 +1,248 @@
+diff --git a/core/efuse/rtw_efuse.c b/core/efuse/rtw_efuse.c
+index b9a1770..f1b8f9c 100644
+--- a/core/efuse/rtw_efuse.c
++++ b/core/efuse/rtw_efuse.c
+@@ -2375,7 +2375,9 @@ int storeAdaptorInfoFile(char *path, u8 *efuse_data)
+ int retriveAdaptorInfoFile(char *path, u8 *efuse_data)
+ {
+ 	int ret = _SUCCESS;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	mm_segment_t oldfs;
++#endif
+ 	struct file *fp;
+ 
+ 	if (path && efuse_data) {
+diff --git a/core/rtw_btcoex.c b/core/rtw_btcoex.c
+index b835fb5..43e329d 100644
+--- a/core/rtw_btcoex.c
++++ b/core/rtw_btcoex.c
+@@ -1422,7 +1422,9 @@ u8 rtw_btcoex_sendmsgbysocket(_adapter *padapter, u8 *msg, u8 msg_size, bool for
+ {
+ 	u8 error;
+ 	struct msghdr	udpmsg;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	mm_segment_t	oldfs;
++#endif
+ 	struct iovec	iov;
+ 	struct bt_coex_info *pcoex_info = &padapter->coex_info;
+ 
+@@ -1452,15 +1454,19 @@ u8 rtw_btcoex_sendmsgbysocket(_adapter *padapter, u8 *msg, u8 msg_size, bool for
+ 	udpmsg.msg_control	= NULL;
+ 	udpmsg.msg_controllen = 0;
+ 	udpmsg.msg_flags	= MSG_DONTWAIT | MSG_NOSIGNAL;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	oldfs = get_fs();
+ 	set_fs(KERNEL_DS);
++#endif
+ 
+ #if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 1, 0))
+ 	error = sock_sendmsg(pcoex_info->udpsock, &udpmsg);
+ #else
+ 	error = sock_sendmsg(pcoex_info->udpsock, &udpmsg, msg_size);
+ #endif
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	set_fs(oldfs);
++#endif
+ 	if (error < 0) {
+ 		RTW_INFO("Error when sendimg msg, error:%d\n", error);
+ 		return _FAIL;
+diff --git a/core/rtw_ieee80211.c b/core/rtw_ieee80211.c
+index 8a76427..2c4970f 100644
+--- a/core/rtw_ieee80211.c
++++ b/core/rtw_ieee80211.c
+@@ -1303,7 +1303,9 @@ int rtw_get_mac_addr_intel(unsigned char *buf)
+ 	int ret = 0;
+ 	int i;
+ 	struct file *fp = NULL;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	mm_segment_t oldfs;
++#endif
+ 	unsigned char c_mac[MAC_ADDRESS_LEN];
+ 	char fname[] = "/config/wifi/mac.txt";
+ 	int jj, kk;
+diff --git a/core/rtw_wlan_util.c b/core/rtw_wlan_util.c
+index be671d0..292e9d2 100644
+--- a/core/rtw_wlan_util.c
++++ b/core/rtw_wlan_util.c
+@@ -4630,7 +4630,9 @@ int rtw_dev_nlo_info_set(struct pno_nlo_info *nlo_info, pno_ssid_t *ssid,
+ 
+ 	int i = 0;
+ 	struct file *fp;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	mm_segment_t fs;
++#endif
+ 	loff_t pos = 0;
+ 	u8 *source = NULL;
+ 	long len = 0;
+@@ -4667,8 +4669,10 @@ int rtw_dev_nlo_info_set(struct pno_nlo_info *nlo_info, pno_ssid_t *ssid,
+ 		return 0;
+ 	}
+ 
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	fs = get_fs();
+ 	set_fs(KERNEL_DS);
++#endif
+ 
+ 	source = rtw_zmalloc(2048);
+ 
+@@ -4678,7 +4682,9 @@ int rtw_dev_nlo_info_set(struct pno_nlo_info *nlo_info, pno_ssid_t *ssid,
+ 		rtw_mfree(source, 2048);
+ 	}
+ 
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	set_fs(fs);
++#endif
+ 	filp_close(fp, NULL);
+ 
+ 	RTW_INFO("-%s-\n", __func__);
+diff --git a/os_dep/linux/os_intfs.c b/os_dep/linux/os_intfs.c
+index a590b8d..c0f822a 100644
+--- a/os_dep/linux/os_intfs.c
++++ b/os_dep/linux/os_intfs.c
+@@ -3193,7 +3193,9 @@ static int route_dump(u32 *gw_addr , int *gw_index)
+ 	struct msghdr msg;
+ 	struct iovec iov;
+ 	struct sockaddr_nl nladdr;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	mm_segment_t oldfs;
++#endif
+ 	char *pg;
+ 	int size = 0;
+ 
+@@ -3232,14 +3234,18 @@ static int route_dump(u32 *gw_addr , int *gw_index)
+ 	msg.msg_controllen = 0;
+ 	msg.msg_flags = MSG_DONTWAIT;
+ 
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	oldfs = get_fs();
+ 	set_fs(KERNEL_DS);
++#endif
+ #if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 1, 0))
+ 	err = sock_sendmsg(sock, &msg);
+ #else
+ 	err = sock_sendmsg(sock, &msg, sizeof(req));
+ #endif
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	set_fs(oldfs);
++#endif
+ 
+ 	if (err < 0)
+ 		goto out_sock;
+@@ -3264,10 +3270,14 @@ restart:
+ 		iov_iter_init(&msg.msg_iter, READ, &iov, 1, PAGE_SIZE);
+ #endif
+ 
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 		oldfs = get_fs();
+ 		set_fs(KERNEL_DS);
++#endif
+ 		err = sock_recvmsg(sock, &msg, PAGE_SIZE, MSG_DONTWAIT);
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 		set_fs(oldfs);
++#endif
+ 
+ 		if (err < 0)
+ 			goto out_sock_pg;
+@@ -3338,14 +3348,18 @@ done:
+ 		msg.msg_controllen = 0;
+ 		msg.msg_flags = MSG_DONTWAIT;
+ 
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 		oldfs = get_fs();
+ 		set_fs(KERNEL_DS);
++#endif
+ #if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 1, 0))
+ 		err = sock_sendmsg(sock, &msg);
+ #else
+ 		err = sock_sendmsg(sock, &msg, sizeof(req));
+ #endif
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 		set_fs(oldfs);
++#endif
+ 
+ 		if (err > 0)
+ 			goto restart;
+diff --git a/os_dep/osdep_service.c b/os_dep/osdep_service.c
+index e63eaac..676f9c9 100644
+--- a/os_dep/osdep_service.c
++++ b/os_dep/osdep_service.c
+@@ -2077,15 +2077,19 @@ static int isFileReadable(const char *path, u32 *sz)
+ {
+ 	struct file *fp;
+ 	int ret = 0;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	mm_segment_t oldfs;
++#endif
+ 	char buf;
+ 
+ 	fp = filp_open(path, O_RDONLY, 0);
+ 	if (IS_ERR(fp))
+ 		ret = PTR_ERR(fp);
+ 	else {
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 		oldfs = get_fs();
+ 		set_fs(KERNEL_DS);
++#endif
+ 
+ 		if (1 != readFile(fp, &buf, 1))
+ 			ret = PTR_ERR(fp);
+@@ -2098,7 +2102,9 @@ static int isFileReadable(const char *path, u32 *sz)
+ 			#endif
+ 		}
+ 
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 		set_fs(oldfs);
++#endif
+ 		filp_close(fp, NULL);
+ 	}
+ 	return ret;
+@@ -2114,7 +2120,9 @@ static int isFileReadable(const char *path, u32 *sz)
+ static int retriveFromFile(const char *path, u8 *buf, u32 sz)
+ {
+ 	int ret = -1;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	mm_segment_t oldfs;
++#endif
+ 	struct file *fp;
+ 
+ 	if (path && buf) {
+@@ -2122,10 +2130,14 @@ static int retriveFromFile(const char *path, u8 *buf, u32 sz)
+ 		if (0 == ret) {
+ 			RTW_INFO("%s openFile path:%s fp=%p\n", __FUNCTION__, path , fp);
+ 
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 			oldfs = get_fs();
+ 			set_fs(KERNEL_DS);
++#endif
+ 			ret = readFile(fp, buf, sz);
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 			set_fs(oldfs);
++#endif
+ 			closeFile(fp);
+ 
+ 			RTW_INFO("%s readFile, ret:%d\n", __FUNCTION__, ret);
+@@ -2149,7 +2161,9 @@ static int retriveFromFile(const char *path, u8 *buf, u32 sz)
+ static int storeToFile(const char *path, u8 *buf, u32 sz)
+ {
+ 	int ret = 0;
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 	mm_segment_t oldfs;
++#endif
+ 	struct file *fp;
+ 
+ 	if (path && buf) {
+@@ -2157,10 +2171,14 @@ static int storeToFile(const char *path, u8 *buf, u32 sz)
+ 		if (0 == ret) {
+ 			RTW_INFO("%s openFile path:%s fp=%p\n", __FUNCTION__, path , fp);
+ 
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 			oldfs = get_fs();
+ 			set_fs(KERNEL_DS);
++#endif
+ 			ret = writeFile(fp, buf, sz);
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
+ 			set_fs(oldfs);
++#endif
+ 			closeFile(fp);
+ 
+ 			RTW_INFO("%s writeFile, ret:%d\n", __FUNCTION__, ret);
