@@ -19,6 +19,7 @@ dev-ml/extlib 1.7.6-r1: Standard library extensions for O'Caml
 dev-perl/Crypt-Curve25519 0.60.0-r1: Shared secret elliptic-curve Diffie-Hellman generator
 dev-python/PyQt5-python2 5.14.2-r1: Python bindings for the Qt framework
 dev-python/PyQt5-sip-python2 4.19.22: Private sip module for PyQt5
+dev-python/certifi 10001-r2: Thin replacement for certifi using system certificate store
 dev-python/cffi-python2 1.14.0-r3: Foreign Function Interface for Python calling C code
 dev-python/cryptography-python2 2.9-r2: Library providing cryptographic recipes and primitives
 dev-python/dbus-python2 1.2.16: Python bindings for the D-Bus messagebus
@@ -45,6 +46,7 @@ dev-python/python2-ldap 3.2.0: Various LDAP-related Python modules
 dev-python/pytz-python2 2020.1: World timezone definitions for Python
 dev-python/pyxattr 0.6.0-r3: Python interface to xattr
 dev-python/pyxml 0.8.4-r3: A collection of libraries to process XML with Python
+dev-python/setuptools 46.4.0-r3: Collection of extensions to Distutils
 dev-python/sip-python2 4.19.22-r1: Python extension module generator for C and C++ libraries
 dev-python/six-python2 1.15.0: Python 2 and 3 compatibility library
 dev-python/sjcl 0.2.1: Decrypt and encrypt messages compatible to the SJCL message format
@@ -136,7 +138,7 @@ sys-fs/dmraid 1.0.0_rc16-r4: Device-mapper RAID tool and library
 sys-fs/ecryptfs-utils 111_p20170609: eCryptfs userspace utilities
 sys-fs/squashfs-tools 4.3_p6-r1: Tool for creating compressed filesystem type squashfs
 sys-fs/xfsdump 3.1.8-r1: xfs dump/restore utilities
-sys-kernel/calculate-sources 4.19.145 4.19.163 5.4.81 5.4.85 5.10.3: Calculate Linux kernel image
+sys-kernel/calculate-sources 4.19.145 4.19.165 5.4.87 5.10.3 5.10.5: Calculate Linux kernel image
 sys-libs/libcpuid 0.4.1: A small C library for x86 (and x86_64) CPU detection and feature extraction
 sys-process/cpu-x 3.2.4 9999: A Free software that gathers information on CPU, motherboard and more
 virtual/linux-sources 3-r9: Virtual for Linux kernel sources
