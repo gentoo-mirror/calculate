@@ -2,7 +2,6 @@
 ~app-admin/clustershell-1.8.3 amd64
 ~app-admin/elektra-0.8.20 amd64
 ~app-admin/reportmagic-2.21 amd64
-~app-admin/restart-services-0.15.2 amd64
 ~app-admin/socklog-2.1.0 amd64
 ~app-admin/watchfolder-0.3.3 amd64
 ~app-admin/webapp-config-1.55 amd64
@@ -213,7 +212,6 @@
 ~app-misc/yq-2.9.2 amd64
 ~app-mobilephone/gammu-1.38.5 amd64
 ~app-mobilephone/gnokii-0.6.31 amd64
-~app-office/calcurse-4.4.0 amd64
 ~app-portage/deltup-0.4.6 amd64
 ~app-portage/diffmask-0.3.3 amd64
 ~app-portage/distpatch-0.1.2 amd64
@@ -385,7 +383,6 @@
 ~dev-util/intel-ocl-sdk-4.4.0.117 amd64
 ~dev-util/lcov-1.14 amd64
 ~dev-util/lttng-ust-2.12.0 amd64
-~dev-util/netsurf-buildsystem-1.8 amd64
 ~dev-util/nvidia-cuda-sdk-9.2.88 amd64
 ~dev-util/patchbin-20160208 amd64
 ~dev-util/patchelf-0.10 amd64
@@ -412,7 +409,6 @@
 ~media-libs/babl-0.1.78 amd64
 ~media-libs/ctl-1.5.2 amd64
 ~media-libs/elles_icc_profiles-20160501.0932 amd64
-~media-libs/faac-1.29.9.2 amd64
 ~media-libs/fontconfig-ultimate-2015.08.01 amd64
 ~media-libs/gegl-0.4.26 amd64
 ~media-libs/glm-0.9.9.8 amd64
@@ -434,7 +430,6 @@
 ~media-libs/openicc-0.1.0 amd64
 =media-libs/oyranos-0.9.6 amd64
 ~media-libs/qhull-2015.2 amd64
-~media-libs/raul-1.0.0_pre20200718 amd64
 ~media-libs/sdl-pango-0.1.2 amd64
 ~media-libs/speex-1.2.0 amd64
 ~media-libs/speexdsp-1.2_rc3 amd64
@@ -512,7 +507,6 @@
 ~net-p2p/bittornado-0.4.1_p20160925 amd64
 ~net-p2p/deluge-2.0.3 amd64
 ~net-p2p/gtk-gnutella-1.2.0 amd64 
-~net-p2p/ncdc-1.21 amd64
 ~net-print/apsfilter-7.2.8 amd64
 ~net-print/c2esp-27 amd64
 ~net-print/cnijfilter2-5.50 amd64
@@ -524,7 +518,6 @@
 ~net-vpn/i2p-0.9.48 amd64
 ~net-vpn/networkmanager-fortisslvpn-1.2.10 amd64
 ~net-vpn/networkmanager-sstp-1.2.0 amd64
-~net-vpn/networkmanager-wireguard-0_pre20191128 amd64
 <net-vpn/wireguard-modules-9999 amd64
 net-vpn/wireguard-tools amd64
 ~net-wireless/bluez-tools-0_p20161212 amd64
@@ -570,7 +563,6 @@ net-vpn/wireguard-tools amd64
 ~sci-libs/gsl-2.5 amd64
 ~sci-libs/libqalculate-3.15.0 amd64
 ~sci-libs/mkl-2020.4.304 amd64
-~sci-libs/mpfi-1.5.3 amd64
 ~sci-libs/oce-0.18.3 amd64
 ~sci-libs/orocos_kdl-1.3.1 amd64
 ~sci-libs/pastix-5.2.2.22 amd64
@@ -605,7 +597,6 @@ net-vpn/wireguard-tools amd64
 ~sys-firmware/nvidia-firmware-340.32 amd64
 ~sys-firmware/sgabios-0.1_pre8 amd64
 ~sys-firmware/sigrok-firmware-fx2lafw-0.1.6 amd64
-~sys-fs/android-file-transfer-linux-3.9 amd64
 ~sys-fs/archivemount-0.8.12 amd64
 ~sys-fs/autorun-3.17 amd64
 ~sys-fs/bcache-tools-1.0.8_p20140220 amd64
@@ -630,7 +621,7 @@ net-vpn/wireguard-tools amd64
 ~sys-fs/lufis-0.3 amd64
 ~sys-fs/lufs-0.9.7 amd64
 ~sys-fs/quotatool-1.6.2 amd64
-~sys-fs/rar2fs-1.29.1 amd64
+~sys-fs/rar2fs-1.29.3 amd64
 ~sys-fs/reiserfs-defrag-0.2.2 amd64
 ~sys-fs/snapraid-11.5 amd64
 ~sys-fs/squashfuse-0.1.100 amd64
@@ -698,7 +689,6 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/lsw-0.3 amd64
 ~x11-misc/mgm-1.2 amd64
 ~x11-misc/obconf-2.0.4 amd64
-~x11-misc/obmenu-generator-0.88 amd64
 ~x11-misc/oroborus-deskmenu-1.4.5 amd64
 ~x11-misc/oroborus-keylaunch-1.3.9 amd64
 ~x11-misc/peksystray-0.4.0 amd64
@@ -715,7 +705,6 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/sisctrl-0.0.20051202 amd64
 ~x11-misc/sprop-0.1 amd64
 ~x11-misc/superswitcher-0.6 amd64
-~x11-misc/sxhkd-0.6.1 amd64
 ~x11-misc/tabbed-0.6 amd64
 ~x11-misc/tinynotify-send-1.2.1 amd64
 ~x11-misc/unclutter-xfixes-1.5 amd64
@@ -747,7 +736,6 @@ net-vpn/wireguard-tools amd64
 ~x11-terms/lilyterm-0.9.9.4 amd64
 ~x11-themes/clearlooks-phenix-7.0.1 amd64
 ~x11-themes/gartoon-0.5 amd64
-~x11-wm/bspwm-0.9.9 amd64
 ~x11-wm/echinus-0.4.9 amd64
 ~x11-wm/goomwwm-1.0.0 amd64
 ~x11-wm/matwm2-0.1.2_pre3 amd64
