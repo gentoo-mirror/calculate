@@ -5,6 +5,7 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
+DISTUTILS_USE_SETUPTOOLS=manual
 inherit distutils-r1 git-r3
 
 EGIT_REPO_URI="git://git.calculate-linux.org/calculate-2.1/calculate-server.git"
@@ -35,6 +36,7 @@ DEPEND="=sys-apps/calculate-lib-9999
 	>=net-misc/dhcp-3.1.2_p1
 	|| ( media-gfx/imagemagick
 		media-gfx/graphicsmagick )
+	dev-python/setuptools-python2
 	dev-python/pymilter-python2"
 
 RDEPEND="${DEPEND}"
