@@ -6,6 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="threads(+)"
 
+DISTUTILS_USE_SETUPTOOLS=manual
 inherit distutils-r1 flag-o-matic
 MY_PN=cryptography
 MY_P=$MY_PN-$PV
@@ -32,18 +33,14 @@ RDEPEND="
 	!libressl? ( >=dev-libs/openssl-1.0.2o-r6:0= )
 	libressl? ( >=dev-libs/libressl-2.8:0= )
 	idna? ( >=dev-python/idna-2.1[${PYTHON_USEDEP}] )
-	dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/setuptools-python2[${PYTHON_USEDEP}]
 	>=dev-python/six-python2-1.4.1[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		dev-python/enum34[${PYTHON_USEDEP}]
-		dev-python/ipaddress[${PYTHON_USEDEP}]
-	' -2)
-	$(python_gen_cond_dep '
-		>=dev-python/cffi-python2-1.8:=[${PYTHON_USEDEP}]
-	' 'python*')
-	"
+	dev-python/enum34[${PYTHON_USEDEP}]
+	dev-python/ipaddress[${PYTHON_USEDEP}]
+	>=dev-python/cffi-python2-1.8:=[${PYTHON_USEDEP}]
+"
 DEPEND="${RDEPEND}
-	>=dev-python/setuptools-1.0[${PYTHON_USEDEP}]"
+	>=dev-python/setuptools-python2-1.0[${PYTHON_USEDEP}]"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
