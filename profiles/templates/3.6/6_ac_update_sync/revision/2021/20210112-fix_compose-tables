@@ -1,0 +1,5 @@
+# Calculate format=contents ini(overlay-calculate.revision)=>20191116.3,#-cut(0,-,#-cl_pass_file-#)-#
+
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+!x11-libs/libX11 /usr/share/X11/locale/en_US.UTF-8/Compose
+x11-misc/compose-tables /usr/share/X11/locale/en_US.UTF-8/Compose
