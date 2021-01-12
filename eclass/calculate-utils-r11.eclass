@@ -13,6 +13,7 @@
 
 PYTHON_COMPAT=(python2_7)
 
+DISTUTILS_USE_SETUPTOOLS=manual
 inherit distutils-r1 eutils
 
 EXPORTED_FUNCTIONS="src_compile src_install pkg_preinst"
@@ -251,7 +252,9 @@ RDEPEND="
 	backup? ( !sys-apps/calculate-server )
 "
 
-DEPEND="sys-devel/gettext"
+DEPEND="
+	dev-python/setuptools-python2
+	sys-devel/gettext"
 
 REQUIRED_USE="client? ( desktop )"
 

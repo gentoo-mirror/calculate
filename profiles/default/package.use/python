@@ -1,5 +1,7 @@
 app-i18n/ibus -python_targets_python2_7
 dev-python/booleanOperations -python_targets_python2_7
+dev-python/certifi -python_targets_python2_7
+dev-python/certifi-python2 python_targets_python2_7
 dev-python/cffi-python2 python_targets_python2_7
 dev-python/cffi -python_targets_python2_7
 dev-python/cliff -python_targets_python2_7
@@ -7,8 +9,6 @@ dev-python/cmd2 -python_targets_python2_7
 dev-python/cryptography-python2 python_targets_python2_7
 dev-python/cryptography -python_targets_python2_7
 dev-python/dbus-python2 python_targets_python2_7
-dev-python/dbus-python2 python_targets_python2_7
-dev-python/dbus-python -python_targets_python2_7
 dev-python/dbus-python -python_targets_python2_7
 dev-python/defcon -python_targets_python2_7
 dev-python/elasticsearch-py -python_targets_python2_7
@@ -52,6 +52,8 @@ dev-python/python-ldap -python_targets_python2_7
 dev-python/recommonmark -python_targets_python2_7
 dev-python/requests -python_targets_python2_7
 dev-python/secretstorage -python_targets_python2_7
+dev-python/setuptools -python_targets_python2_7
+dev-python/setuptools-python2 python_targets_python2_7
 dev-python/six-python2 python_targets_python2_7
 dev-python/six -python_targets_python2_7
 dev-python/sphinx_celery -python_targets_python2_7
