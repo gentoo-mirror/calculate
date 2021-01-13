@@ -39,8 +39,7 @@ RDEPEND="
 	dev-python/ipaddress[${PYTHON_USEDEP}]
 	>=dev-python/cffi-python2-1.8:=[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}
-	>=dev-python/setuptools-python2-1.0[${PYTHON_USEDEP}]"
+DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
