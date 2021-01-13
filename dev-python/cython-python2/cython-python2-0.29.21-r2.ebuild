@@ -24,6 +24,7 @@ IUSE="emacs"
 RESTRICT="test"
 
 RDEPEND="
+	!dev-python/cython[python_targets_python2_7]
 	emacs? ( >=app-editors/emacs-23.1:* )
 "
 BDEPEND="
