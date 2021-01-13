@@ -13,6 +13,7 @@
 
 PYTHON_COMPAT=(python2_7)
 
+DISTUTILS_USE_SETUPTOOLS=manual
 inherit distutils-r1 eutils
 
 EXPORTED_FUNCTIONS="src_compile src_install pkg_preinst"
@@ -198,14 +199,14 @@ RDEPEND="
 		dev-qt/qdbus:5
 		sys-apps/edid-decode
 		|| (
+			( dev-python/pygobject[python_targets_python3_8]
+			dev-python/dbus-python[python_targets_python3_8]
+			)
 			( dev-python/pygobject[python_targets_python3_7]
 			dev-python/dbus-python[python_targets_python3_7]
 			)
 			( dev-python/pygobject[python_targets_python3_6]
 			dev-python/dbus-python[python_targets_python3_6]
-			)
-			( dev-python/pygobject[python_targets_python3_8]
-			dev-python/dbus-python[python_targets_python3_8]
 			)
 		)
 	)
@@ -251,7 +252,9 @@ RDEPEND="
 	backup? ( !sys-apps/calculate-server )
 "
 
-DEPEND="sys-devel/gettext"
+DEPEND="
+	dev-python/setuptools-python2
+	sys-devel/gettext"
 
 REQUIRED_USE="client? ( desktop )"
 

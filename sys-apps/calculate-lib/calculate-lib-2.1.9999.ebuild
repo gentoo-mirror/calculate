@@ -5,6 +5,7 @@
 EAPI="5"
 PYTHON_COMPAT=(python2_7)
 
+DISTUTILS_USE_SETUPTOOLS=manual
 inherit distutils-r1 git-r3
 
 EGIT_REPO_URI="git://git.calculate-linux.org/calculate-2.1/calculate-lib.git"
@@ -17,5 +18,6 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND=">=dev-python/python2-ldap-2.0[ssl]
-		>=dev-python/pyxml-0.8"
+	dev-python/setuptools-python2[${PYTHON_USEDEP}]
+	>=dev-python/pyxml-0.8"
 RDEPEND="${DEPEND}"

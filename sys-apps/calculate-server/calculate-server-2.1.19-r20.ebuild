@@ -26,7 +26,7 @@ calculate_nosamba
 calculate_noproxy"
 
 DEPEND="=sys-apps/calculate-lib-2.1.12-r6
-	dev-python/setuptools-python2[${PYTHON_USEDEP}]
+	dev-python/setuptools-python2
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
@@ -69,6 +69,7 @@ PATCHES=(
 		"${FILESDIR}"/calculate-server-2.1.19-fix_jabber.patch
 		"${FILESDIR}"/calculate-server-2.1.19-fix_gendh.patch
 		"${FILESDIR}"/calculate-server-2.1.19-fix_samba4.11.patch
+		"${FILESDIR}"/calculate-server-2.1.19-fix_ejabber_20.04.patch
 )
 
 pkg_postinst() {
