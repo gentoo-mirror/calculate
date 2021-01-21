@@ -38,6 +38,11 @@ media-gfx/dm-themes-calculate:splash - Include display manager splash image.
 media-gfx/splash-themes-calculate:silent - Include silent image for boot.
 media-gfx/splash-themes-calculate:silent-shutdown - Include silent image for shutdown.
 media-gfx/splash-themes-calculate:verbose - Include verbose image.
+media-libs/openimageio:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
+media-libs/openimageio:field3d - Enable f3d file (write) support via media-libs/Field3D
+media-libs/openimageio:opencv - Enable OpenCV support via media-libs/opencv
+media-libs/openimageio:openvdb - Enable OpenVDB support via media-gfx/openvdb
+media-libs/openimageio:ptex - Enable Ptex texture mapping system file support via media-libs/ptex
 media-sound/deadbeef:aac - Advanced Audio Coding (AAC) plugin
 media-sound/deadbeef:adplug - Adplug plugin
 media-sound/deadbeef:alac - Apple Lossless Audio Codec (ALAC) plugin
