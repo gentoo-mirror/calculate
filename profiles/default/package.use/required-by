@@ -661,3 +661,9 @@ dev-libs/qtkeychain gnome-keyring
 # required by net-im/dino-0.2.0
 media-libs/libcanberra sound
 
+# required by kde-plasma/plasma-workspace-5.20.5-r1
+kde-frameworks/prison qml
+
+# required by sys-apps/flatpak-1.10.0
+dev-util/ostree curl
+
