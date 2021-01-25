@@ -352,7 +352,8 @@ app-admin/webalizer -nls
 
 # support for the improved mySQL libraries
 # support for process creation functions (nextcloud php occ)
-dev-lang/php mysqli pcntl sqlite
+# nextcloud perfomance (bcmath gmp)
+dev-lang/php mysqli pcntl sqlite bcmath gmp
 
 # enables drawing tool
 x11-misc/shutter drawing
