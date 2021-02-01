@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="threads(+)"
 
 DISTUTILS_USE_SETUPTOOLS=manual
-inherit distutils-r1
+inherit distutils2
 
 MY_PN=pycairo
 MY_P=$MY_PN-$PV
@@ -34,12 +34,12 @@ distutils_enable_sphinx docs \
 distutils_enable_tests setup.py
 
 python_install() {
-	distutils-r1_python_install \
+	distutils2_python_install \
 		install_pkgconfig --pkgconfigdir="${EPREFIX}/usr/$(get_libdir)/pkgconfig"
 }
 
 python_install_all() {
-	distutils-r1_python_install_all
+	distutils2_python_install_all
 	rm -r ${D}/usr/share
 	rm -r ${D}/usr/lib*/pkgconfig
 	rm -r ${D}/usr/include

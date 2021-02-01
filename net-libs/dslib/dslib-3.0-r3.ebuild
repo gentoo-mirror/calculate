@@ -6,7 +6,7 @@ EAPI=5
 PYTHON_COMPAT=( python2_7 )
 
 DISTUTILS_USE_SETUPTOOLS=manual
-inherit distutils-r1
+inherit distutils2
 
 DESCRIPTION="Library to access Czech eGov system \"Datove schranky\""
 HOMEPAGE="http://labs.nic.cz/page/969/datovka/"
