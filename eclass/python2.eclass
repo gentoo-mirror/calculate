@@ -44,7 +44,7 @@ esac
 if [[ ! ${_PYTHON_R1} ]]; then
 
 if [[ ${_PYTHON_SINGLE_R1} ]]; then
-	die 'python2.eclass can not be used with python-single-r1.eclass.'
+	die 'python2.eclass can not be used with python2-single.eclass.'
 elif [[ ${_PYTHON_ANY_R1} ]]; then
 	die 'python2.eclass can not be used with python-any-r1.eclass.'
 fi
@@ -159,7 +159,7 @@ fi
 # implementation. It is set locally for python_check_deps() call.
 #
 # The generated USE-flag list is compatible with packages using
-# python-single-r1 eclass. For python2 dependencies,
+# python2-single eclass. For python2 dependencies,
 # use PYTHON_USEDEP.
 #
 # Example use:
@@ -206,7 +206,7 @@ _python_set_globals() {
 	local flags=( "${_PYTHON_SUPPORTED_IMPLS[@]/#/python_targets_}" )
 	local optflags=${flags[@]/%/(-)?}
 
-	# A nice QA trick here. Since a python-single-r1 package has to have
+	# A nice QA trick here. Since a python2-single package has to have
 	# at least one PYTHON_SINGLE_TARGET enabled (REQUIRED_USE),
 	# the following check will always fail on those packages. Therefore,
 	# it should prevent developers from mistakenly depending on packages

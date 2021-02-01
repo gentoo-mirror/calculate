@@ -71,9 +71,9 @@ esac
 # @DESCRIPTION:
 # If set to a non-null value, the ebuild will support setting a single
 # Python implementation only. It will effectively replace the python2
-# eclass inherit with python-single-r1.
+# eclass inherit with python2-single.
 #
-# Note that inheriting python-single-r1 will cause pkg_setup()
+# Note that inheriting python2-single will cause pkg_setup()
 # to be exported. It must be run in order for the eclass functions
 # to function properly.
 
@@ -104,7 +104,7 @@ inherit multiprocessing toolchain-funcs
 if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
 	inherit python2
 else
-	inherit python-single-r1
+	inherit python2-single
 fi
 
 fi
@@ -1066,7 +1066,7 @@ _distutils2_run_foreach_impl() {
 		python_foreach_impl "${@}"
 	else
 		if [[ ! ${EPYTHON} ]]; then
-			die "EPYTHON unset, python-single-r1_pkg_setup not called?!"
+			die "EPYTHON unset, python2-single_pkg_setup not called?!"
 		fi
 		local BUILD_DIR=${BUILD_DIR:-${S}}
 		BUILD_DIR=${BUILD_DIR%%/}_${EPYTHON}
