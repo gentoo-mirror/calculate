@@ -25,7 +25,6 @@ RESTRICT="test"
 
 RDEPEND="
 	!dev-python/${ORIG_PN}[python_targets_python2_7]
-	dev-lang/python-exec:2[${PYTHON_USEDEP}]
 	>=x11-libs/wxGTK-${PV}:${WX_GTK_VER}=[libnotify=,opengl?,tiff,X]
 	dev-libs/glib:2
 	dev-python/setuptools-python2[${PYTHON_USEDEP}]
@@ -95,7 +94,7 @@ python_install() {
 
 		# wrappers are common to all impls, so a parallel run may
 		# move it for us. ln+rm is more failure-proof.
-		ln -fs ../lib/python-exec/python-exec2 "${ED}usr/bin/${file}-${SLOT}" || die
+		#ln -fs ../lib/python-exec/python-exec2 "${ED}usr/bin/${file}-${SLOT}" || die
 		rm -f "${ED}usr/bin/${file}"
 	done
 }

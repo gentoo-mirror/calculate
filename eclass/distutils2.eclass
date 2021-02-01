@@ -836,8 +836,8 @@ _distutils2_wrap_scripts() {
 			local basename=${f##*/}
 
 			debug-print "${FUNCNAME}: installing wrapper at ${bindir}/${basename}"
-			_python_ln_rel "${path}${EPREFIX}"/usr/lib/python-exec/python-exec2 \
-				"${path}${bindir}/${basename}" || die
+			#_python_ln_rel "${path}${EPREFIX}"/usr/lib/python-exec/python-exec2 \
+			#	"${path}${bindir}/${basename}" || die
 		done
 
 		for f in "${non_python_files[@]}"; do

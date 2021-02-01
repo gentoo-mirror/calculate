@@ -221,7 +221,7 @@ _python_set_globals() {
 	# but no point in making this overcomplex, BDEP doesn't hurt anyone
 	# 2) python-exec should be built with all targets forced anyway
 	# but if new targets were added, we may need to force a rebuild
-	deps+=">=dev-lang/python-exec-2:=[${usedep}]"
+	# deps+=">=dev-lang/python-exec-2:=[${usedep}]"
 
 	if [[ ${PYTHON_DEPS+1} ]]; then
 		# IUSE is magical, so we can't really check it
@@ -856,12 +856,6 @@ python_replicate_script() {
 	local files=( "${@}" )
 	python_foreach_impl _python_replicate_script
 	unset -f _python_replicate_script
-
-	# install the wrappers
-	local f
-	for f; do
-		_python_ln_rel "${ED%/}/usr/lib/python-exec/python-exec2" "${f}" || die
-	done
 }
 
 _PYTHON_R1=1

@@ -422,7 +422,7 @@ _python_export() {
 				;;
 			PYTHON_SCRIPTDIR)
 				local dir
-				export PYTHON_SCRIPTDIR=${EPREFIX}/usr/lib/python-exec/${impl}
+				export PYTHON_SCRIPTDIR=${EPREFIX}/usr/lib/python-exec/python2.7
 				debug-print "${FUNCNAME}: PYTHON_SCRIPTDIR = ${PYTHON_SCRIPTDIR}"
 				;;
 			*)
@@ -711,8 +711,8 @@ python_newexe() {
 	)
 
 	# install the wrapper
-	_python_ln_rel "${ED%/}"/usr/lib/python-exec/python-exec2 \
-		"${ED%/}/${wrapd}/${newfn}" || die
+	#_python_ln_rel "${ED%/}"/usr/lib/python-exec/python-exec2 \
+	#	"${ED%/}/${wrapd}/${newfn}" || die
 
 	# don't use this at home, just call python_doscript() instead
 	if [[ ${_PYTHON_REWRITE_SHEBANG} ]]; then

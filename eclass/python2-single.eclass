@@ -229,10 +229,10 @@ _python_single_set_globals() {
 		# but no point in making this overcomplex, BDEP doesn't hurt anyone
 		# 2) python-exec should be built with all targets forced anyway
 		# but if new targets were added, we may need to force a rebuild
-		deps+="python_single_target_${i}? (
-			${PYTHON_PKG_DEP}
-			>=dev-lang/python-exec-2:=[python_targets_${i}]
-		) "
+		#deps+="python_single_target_${i}? (
+		#	${PYTHON_PKG_DEP}
+		#	>=dev-lang/python-exec-2:=[python_targets_${i}]
+		#) "
 	done
 
 	if [[ ${PYTHON_DEPS+1} ]]; then
