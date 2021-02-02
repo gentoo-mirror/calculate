@@ -15,9 +15,45 @@ dev-java/xjavac 20110814: The implementation of the javac compiler for IBM JDK 1
 dev-libs/klibc 2.0.4-r3 2.0.4-r4: A minimal libc subset for use with initramfs
 dev-ml/extlib 1.7.6-r1: Standard library extensions for O'Caml
 dev-perl/Crypt-Curve25519 0.60.0-r1: Shared secret elliptic-curve Diffie-Hellman generator
+dev-python/PyQt5-python2 5.14.2-r3: Python bindings for the Qt framework
+dev-python/PyQt5-sip-python2 4.19.22-r2: Private sip module for PyQt5
+dev-python/certifi-python2 10001-r1: Thin replacement for certifi using system certificate store
+dev-python/cffi-python2 1.14.0-r5: Foreign Function Interface for Python calling C code
+dev-python/cryptography-python2 2.9-r4: Library providing cryptographic recipes and primitives
+dev-python/cython-python2 0.29.21-r3: A Python to C compiler
+dev-python/dbus-python2 1.2.16-r2: Python bindings for the D-Bus messagebus
+dev-python/enum34 1.1.6-r3: Python 3.4 Enum backported
+dev-python/faulthandler-python2 3.0-r2: functions to dump Python tracebacks explicitly (on fault, user signal, timeout)
 dev-python/flask-cors 2.1.0-r2: A Flask extension for Cross Origin Resource Sharing (CORS)
+dev-python/ipaddress 1.0.23-r2: IPv4/IPv6 manipulation library, backport of the ipaddress module
+dev-python/lxml-python2 4.5.2-r3: A Pythonic binding for the libxml2 and libxslt libraries
+dev-python/m2crypto-python2 0.36.0-r3: A Python crypto and SSL toolkit
 dev-python/nodeenv 1.3.5-r1: Node.js virtual environment builder
+dev-python/numpy-python2 1.16.6-r2: Fast array and numerical python library
+dev-python/pexpect-python2 4.8.0-r2: Python module for spawning child apps and responding to expected patterns
+dev-python/ply-python2 3.11-r2: Python Lex-Yacc library
+dev-python/ptyprocess-python2 0.6.0-r2: Run a subprocess in a pseudo terminal
+dev-python/py-smbpasswd 1.0.2-r2: Module capable of generating both LANMAN and NT password hashes, for e.g. Samba
+dev-python/pyasn1-modules-python2 0.2.8-r2: pyasn1 modules
+dev-python/pyasn1-python2 0.4.8-r2: ASN.1 library for Python
+dev-python/pycairo-python2 1.18.2-r1: Python bindings for the cairo library
+dev-python/pycparser-python2 2.20-r2: C parser and AST generator written in Python
+dev-python/pyinotify-python2 0.9.6-r2: Python module used for monitoring filesystems events
+dev-python/pymilter-python2 0.9.3-r2: The package of Python milters that wraps the C libmilter library.
+dev-python/pyopengl-python2 3.1.0-r3: Python OpenGL bindings
+dev-python/pyopenssl-python2 19.1.0-r3: Python interface to the OpenSSL library
+dev-python/python2-ldap 3.2.0-r2: Various LDAP-related Python modules
+dev-python/pytz-python2 2020.1-r2: World timezone definitions for Python
+dev-python/pyxattr 0.6.0-r5: Python interface to xattr
+dev-python/pyxml 0.8.4-r5: A collection of libraries to process XML with Python
+dev-python/setuptools-python2 46.4.0-r4: Collection of extensions to Distutils
+dev-python/sip-python2 4.19.22-r3: Python extension module generator for C and C++ libraries
+dev-python/six-python2 1.15.0-r2: Python 2 and 3 compatibility library
 dev-python/sjcl 0.2.1: Decrypt and encrypt messages compatible to the SJCL message format
+dev-python/soaplib 1.0.0-r6: A simple library for writing soap web services.
+dev-python/sudsds 1.0.1-r3: Lightweight SOAP client - Czech NIC labs fork
+dev-python/typing-python2 3.7.4.3-r2: Type Hints for Python
+dev-python/wxpython2 3.0.2.0-r2: A blending of the wxWindows C++ class library with Python
 dev-texlive/texlive-luatex 2020-r2: TeXLive LuaTeX packages
 dev-util/eclipse-sdk-bin 4.5.2 4.6.3 4.7.3 4.8.0 4.9.0 4.13.0: Eclipse SDK
 dev-vcs/qgit 2.9-r1: Qt GUI for git repositories
@@ -27,6 +63,7 @@ games-util/steam-launcher 1.0.0.64: Installer, launcher and supplementary files 
 gnome-extra/nemo-fileroller 3.2.0 4.4.0: File Roller integration for Nemo
 media-gfx/calculate-wallpapers 14-r2 15 17-r4 18-r1: Wallpapers for Calculate Linux
 media-gfx/cinnamon-themes-calculate 15: Cinnamon theme for Calculate Linux
+media-gfx/displaycal 3.8.9.3-r4: Display calibration and characterization powered by Argyll CMS
 media-gfx/dm-themes-calculate 13 14-r2 15 17-r5 18-r1: Display manager wallpapers for Calculate Linux
 media-gfx/epson-ds-plugins 1.3.28 3.63.0: Non-free network plugin package for Epson DS line of scanners
 media-gfx/gfxboot 4.4.3 4.4.3-r1: tool to test and create graphical boot logos
@@ -70,6 +107,7 @@ media-sound/deadbeef 0.7.2-r3 1.8.0 9999: foobar2k-like music player
 net-dns/bind 9.16.6-r4: Berkeley Internet Name Domain - Name Server
 net-im/rocketchat-desktop 2.17.11 3.1.1: Desktop application for Rocket.Chat
 net-im/viber 13.3.1.22: Free text and calls
+net-libs/dslib 3.0-r3: Library to access Czech eGov system "Datove schranky"
 net-misc/asterisk-moh-opsound 2.03-r1: asterisk moh music
 net-misc/modem-manager-gui 0.0.17 0.0.17.1 0.0.18 0.0.18-r1: GUI for Modem Manager daemon.
 net-p2p/opentracker 9999 20170428-r1: An open and free bittorrent tracker
@@ -80,10 +118,12 @@ net-wireless/rtl8723de 20200302 20200617 20200914: Realtek RTL8723DE module for 
 net-wireless/rtl8814au 20190710 20200617 20201020 20201228: Realtek 8814AU USB WiFi module for Linux kernel
 net-wireless/rtl8821ce 20191119 20200617 20201216: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 20200302 20200617 20201224: Realtek 8821(*U)/8811CU/8812A/8192E/8814A/8822B/8723(*U)/8188E(**) module for Linux kernel
-sci-chemistry/openbabel 2.4.1-r2: Interconverts file formats used in molecular modeling
 sci-libs/cifparse-obj 7.025-r2: Provides an object-oriented application interface to information in mmCIF format
 sys-apps/calculate-access 0.1.2 9999: Cryptodata management tools
+sys-apps/calculate-lib 2.1.12-r7 2.1.9999: The library for Calculate 2
+sys-apps/calculate-server 2.1.19-r21 2.1.9999: Configuration utility for Linux services
 sys-apps/calculate-toolkit 0.2.1 0.2.2 0.2.3 0.2.5 0.2.6 9999: Collection of administration scripts for Calculate
+sys-apps/calculate-utils 3.6.8.10-r1 3.6.8.11-r1 3.6.8.14-r1 3.6.8.15-r4 3.6.8.16-r1 3.6.8.17-r1 3.6.8.18-r1 3.6.9999: A set of Calculate utilities for system installation, build and upgrade
 sys-apps/keyexec 0.1.2-r4: Runs other programs with the user password, kept in the Linux kernel
 sys-apps/kmod 26-r6 27-r3: library and tools for managing linux kernel modules
 sys-auth/pam_client 0.2.1-r1: Module of the waiting client daemon
@@ -94,8 +134,6 @@ sys-boot/plymouth-calculate-plugin 0.9.4-r3 0.9.5: Calculate plugin for plymouth
 sys-boot/plymouth-openrc-plugin 0.1.3-r1 0.1.3-r2: Plymouth plugin for OpenRC
 sys-firmware/eth-firmware 20181026: Binary firmware for Realtek Ethernet
 sys-fs/dmraid 1.0.0_rc16-r4: Device-mapper RAID tool and library
-sys-fs/squashfs-tools 4.3_p6-r1: Tool for creating compressed filesystem type squashfs
-sys-fs/xfsdump 3.1.8-r1: xfs dump/restore utilities
 sys-kernel/calculate-sources 4.19.145 4.19.170 5.4.92 5.10.9 5.10.10: Calculate Linux kernel image
 sys-libs/libcpuid 0.4.1: A small C library for x86 (and x86_64) CPU detection and feature extraction
 sys-process/cpu-x 3.2.4 9999: A Free software that gathers information on CPU, motherboard and more
