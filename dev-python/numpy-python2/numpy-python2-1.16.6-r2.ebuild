@@ -152,7 +152,4 @@ python_install_all() {
 	fi
 
 	distutils2_python_install_all
-
-	# Let latest version to provide f2py link
-	rm "${ED}"/usr/bin/f2py || die
 }
