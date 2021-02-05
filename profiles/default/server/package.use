@@ -12,6 +12,7 @@ media-video/mediainfo -wxwidgets
 media-video/vlc -svg
 sys-kernel/calculate-sources -themes
 sys-libs/glibc -gd
+x11-drivers/nvidia-drivers -compat -gtk3 -multilib -tools -uvm -wayland -X
 
 # required by net-misc/networkmanager-1.8.4
 net-wireless/wpa_supplicant dbus
