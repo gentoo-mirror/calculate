@@ -135,10 +135,10 @@ sys-boot/plymouth-openrc-plugin 0.1.3-r1 0.1.3-r2: Plymouth plugin for OpenRC
 sys-firmware/eth-firmware 20181026: Binary firmware for Realtek Ethernet
 sys-fs/dmraid 1.0.0_rc16-r4: Device-mapper RAID tool and library
 sys-kernel/calculate-sources 4.19.145 4.19.173 5.4.95 5.10.9 5.10.13: Calculate Linux kernel image
+sys-kernel/fake-sources 0: Stub package for Linux kernel sources dependense
 sys-libs/libcpuid 0.4.1: A small C library for x86 (and x86_64) CPU detection and feature extraction
 sys-process/cpu-x 3.2.4 9999: A Free software that gathers information on CPU, motherboard and more
-virtual/fake-sources 0: Stub package for Linux kernel sources dependense
-virtual/linux-sources 3-r10: Virtual for Linux kernel sources
+virtual/linux-sources 3-r11: Virtual for Linux kernel sources
 virtual/mailx 1-r1: Virtual for mail implementations
 virtual/modutils 0-r1: Virtual for utilities to manage Linux kernel modules
 www-plugins/chrome-freedommarks 0.1.2: Browser extension for Nextcloud Bookmarks
