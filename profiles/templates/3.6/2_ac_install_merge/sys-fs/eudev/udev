@@ -1,0 +1,15 @@
+# Calculate format=patch path=/etc/init.d ini(container.type)==desktop
+<reg># make sure /dev is a mounted devtmpfs
+	if ! mountinfo -q -f devtmpfs /dev; then
+		eerror "Udev requires /dev to be a mounted devtmpfs."
+		eerror "Please reconfigure your system."
+		return 1
+	fi
+</reg>
+<text># make sure /dev is a mounted devtmpfs
+	#if ! mountinfo -q -f devtmpfs /dev; then
+	#	eerror "Udev requires /dev to be a mounted devtmpfs."
+	#	eerror "Please reconfigure your system."
+	#	return 1
+	#fi
+</text>
