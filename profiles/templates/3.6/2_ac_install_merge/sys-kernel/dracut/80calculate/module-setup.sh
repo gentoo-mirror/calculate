@@ -12,7 +12,7 @@ depends() {
 #?pkg(sys-kernel/dracut)<049#
     [[ $hostonly ]] || echo rootfs-block dmsquash-live 
 #!pkg#
-    [[ $hostonly ]] || echo rootfs-block dmsquash-live network-legacy
+    [[ $hostonly ]] || echo rootfs-block dmsquash-live network-legacy network
 #pkg#
     return 0
 }

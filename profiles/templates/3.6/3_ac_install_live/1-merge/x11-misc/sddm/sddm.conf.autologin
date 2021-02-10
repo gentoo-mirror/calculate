@@ -3,7 +3,11 @@
 #?cl_autologin!=#
 [Autologin]
 User=#-cl_autologin-#
+#?desktop.cl_desktop_xsession!=#
 Session=#-desktop.cl_desktop_xsession-#
+#!desktop.cl_desktop_xsession#
+Session=XSession
+#desktop.cl_desktop_xsession#
 #!cl_autologin#
 [Autologin]
 !User=
