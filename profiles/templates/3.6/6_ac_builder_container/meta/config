@@ -1,3 +1,11 @@
 lxc.include = LXC_TEMPLATE_CONFIG/common.conf
 lxc.arch = #-os_builder_arch_machine-#
 lxc.mount.entry = none dev/shm tmpfs rw,nosuid,nodev,create=dir
+#?os_builder_linux_shortname==CCG#
+lxc.mount.auto = cgroup:mixed proc:mixed sys:rw
+lxc.environment = LXC_DESKTOP=1
+
+# Nvidia driver support
+#lxc.cgroup.devices.allow = c 195:* rwm
+#lxc.mount.entry = /usr/src usr/src none bind,create=dir
+#os_builder_linux_shortname#
