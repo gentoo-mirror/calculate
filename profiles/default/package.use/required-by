@@ -109,7 +109,7 @@ app-crypt/qca openssl
 # [melt, xml] required by media-video/kdenlive
 # required by media-video/openshot-1.4.3o
 # required by media-video/shotcut
-media-libs/mlt melt xml kdenlive -xine qt5 python frei0r sdl2 jack
+media-libs/mlt fftw melt xml kdenlive -xine qt5 python frei0r sdl2 jack
 
 # required by kde-apps/libkface-15.08.3
 media-libs/opencv contrib
