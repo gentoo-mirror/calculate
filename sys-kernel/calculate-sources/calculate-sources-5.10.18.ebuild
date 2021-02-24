@@ -13,7 +13,7 @@ HOMEPAGE="http://www.calculate-linux.org"
 
 SRC_URI="${KERNEL_URI} ${ARCH_URI}"
 
-IUSE="fsync uksm"
+IUSE="fsync muqss uksm"
 
 src_unpack() {
 	calculate-kernel-8_src_unpack
