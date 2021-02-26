@@ -8,4 +8,10 @@ lxc.environment = LXC_DESKTOP=1
 # Nvidia driver support
 #lxc.cgroup.devices.allow = c 195:* rwm
 #lxc.mount.entry = /usr/src usr/src none bind,create=dir
+
+# uinput might be needed for gamepad support with streaming
+lxc.mount.entry = /dev/uinput dev/uinput none bind,optional,create=file
+lxc.cgroup.devices.allow = c 10:223 rwm
+lxc.mount.entry = /dev/input dev/input none bind,optional,create=dir
+lxc.cgroup.devices.allow = c 13:* r
 #os_builder_linux_shortname#
