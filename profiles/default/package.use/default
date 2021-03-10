@@ -398,3 +398,6 @@ media-libs/vulkan-loader layers
 # to support patent-encumbered media codecs and closed-source DRM capability
 www-client/vivaldi proprietary-codecs widevine
 www-client/vivaldi-snapshot proprietary-codecs widevine
+
+# WireGuard VPN support
+net-misc/connman wireguard
