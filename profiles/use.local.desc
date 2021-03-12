@@ -43,56 +43,6 @@ media-libs/openimageio:field3d - Enable f3d file (write) support via media-libs/
 media-libs/openimageio:opencv - Enable OpenCV support via media-libs/opencv
 media-libs/openimageio:openvdb - Enable OpenVDB support via media-gfx/openvdb
 media-libs/openimageio:ptex - Enable Ptex texture mapping system file support via media-libs/ptex
-media-sound/deadbeef:aac - Advanced Audio Coding (AAC) plugin
-media-sound/deadbeef:adplug - Adplug plugin
-media-sound/deadbeef:alac - Apple Lossless Audio Codec (ALAC) plugin
-media-sound/deadbeef:cdda - Compact Disc Digital Audio (CDDA) plugin
-media-sound/deadbeef:converter - Support for converting media files
-media-sound/deadbeef:cover - Album artwork plugin
-media-sound/deadbeef:cover-imlib2 - Album artwork (with support for imlib2) plugin
-media-sound/deadbeef:cover-network - Plugin for downloading album artwork from internet
-media-sound/deadbeef:curl - cURL plugin
-media-sound/deadbeef:dts - Digital Theater System (DTS) plugin
-media-sound/deadbeef:dumb - Tracker music (MOD, S3M, XM, IT, STM, 669, PTM, PSM, MTM, DSM, ASYLUM AMF, UMX, J2B) plugin
-media-sound/deadbeef:equalizer - Equalizer plugin
-media-sound/deadbeef:ffmpeg - FFmpeg plugin
-media-sound/deadbeef:flac - Free Lossless Audio Codec (FLAC) plugin
-media-sound/deadbeef:gme - Game Music Emu (NSF, AY and other formats) plugin
-media-sound/deadbeef:gtk2 - GTK2 based user interface
-media-sound/deadbeef:gtk3 - GTK3 based user interface
-media-sound/deadbeef:hotkeys - Hotkeys support plugin
-media-sound/deadbeef:lastfm - Last.fm scrobbling plugin
-media-sound/deadbeef:libav - Libav plugin
-media-sound/deadbeef:libnotify - Notification daemon support plugin
-media-sound/deadbeef:libsamplerate - Sample rate conversion plugin
-media-sound/deadbeef:m3u - m3u playlist plugin
-media-sound/deadbeef:mac - Monkey's Audio plugin
-media-sound/deadbeef:mad - MPEG-1/2/2.5 Layer 3 (MP3) support through mad/libmad
-media-sound/deadbeef:midi - midi support (via timidity) plugin
-media-sound/deadbeef:mms - Microsoft Media Server (MMS) plugin
-media-sound/deadbeef:mono2stereo - mono2stereo plugin
-media-sound/deadbeef:mp3 - MPEG-1/2/2.5 Layer 3 (MP3) support plugin. It is a virtual use for mad/libmad or mpg123/libmpg123 since deadbeef 0.6.3
-media-sound/deadbeef:mpg123 - MPEG-1/2/2.5 Layer 3 (MP3) support through mpg123/libmpg123
-media-sound/deadbeef:nls - Native Language Support (NLS)
-media-sound/deadbeef:nullout - NULL output plugin
-media-sound/deadbeef:opus - Ogg Opus plugin
-media-sound/deadbeef:oss - Open Sound System (OSS) output plugin
-media-sound/deadbeef:playlist-browser - Playlist browser user interface plugin
-media-sound/deadbeef:psf - AOSDK-based PSF(QSF,SSF,DSF) plugin
-media-sound/deadbeef:pulseaudio - PulseAudio output plugin
-media-sound/deadbeef:replaygain-scanner - ReplayGain scanner plugin
-media-sound/deadbeef:sc68 - Atari ST and Amiga music plugin
-media-sound/deadbeef:shell-exec - Support for running shell commands
-media-sound/deadbeef:shn - Shorten (SHN) plugin
-media-sound/deadbeef:sid - Commodore64 SID music player plugin
-media-sound/deadbeef:sndfile - PCM wave support (via libsndfile) plugin
-media-sound/deadbeef:tta - True Audio TTA plugin
-media-sound/deadbeef:unity - Gnome Unity support
-media-sound/deadbeef:vorbis - Ogg Vorbis plugin
-media-sound/deadbeef:vtx - Libayemy VTX ZX-Spectrum music player plugin
-media-sound/deadbeef:wavpack - WavPack plugin
-media-sound/deadbeef:wma - Windows media audio plugin
-media-sound/deadbeef:zip - vfs_zip plugin
 net-misc/asterisk-moh-opsound:alaw - Install the sounds files for the alaw codec.
 net-misc/asterisk-moh-opsound:g722 - Install the sounds files for the g722 codec.
 net-misc/asterisk-moh-opsound:g729 - Install the sounds files for the g729 codec.
