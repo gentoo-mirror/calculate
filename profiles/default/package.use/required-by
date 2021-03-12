@@ -669,3 +669,8 @@ dev-util/ostree curl
 
 # required by app-emulation/lxd-4.0.4-r5
 sys-fs/squashfs-tools lzma
+
+# required by media-tv/dtv-scan-tables-0_p20171003
+media-tv/v4l-utils dvb
+media-libs/libv4l dvb
+
