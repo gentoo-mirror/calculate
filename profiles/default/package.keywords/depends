@@ -2,6 +2,7 @@
 ~app-accessibility/speech-tools-2.5.0 amd64
 ~app-admin/clustershell-1.8.3 amd64
 ~app-admin/elektra-0.8.20 amd64
+~app-admin/mongo-tools-100.3.0 amd64
 ~app-admin/reportmagic-2.21 amd64
 ~app-admin/socklog-2.1.0 amd64
 ~app-admin/watchfolder-0.3.3 amd64
@@ -50,7 +51,6 @@
 ~app-crypt/crackpkcs12-0.2.10 amd64
 ~app-crypt/debian-archive-keyring-2019.1 amd64
 ~app-crypt/dieharder-3.31.1 amd64
-~app-crypt/eid-mw-4.4.27 amd64
 ~app-crypt/ekeyd-1.1.5 amd64
 ~app-crypt/elettra-1.0 amd64
 ~app-crypt/envchain-1.0.0 amd64
@@ -255,7 +255,6 @@
 ~dev-cpp/ms-gsl-3.1.0 amd64
 ~dev-cpp/range-v3-0.10.0 amd64
 ~dev-cpp/websocketpp-0.8.1 amd64
-~dev-db/go-etcd-2.0.0 amd64
 ~dev-db/mysql++-3.2.5 amd64
 ~dev-db/sqlitebrowser-3.11.1 amd64
 ~dev-dotnet/gtk-sharp-2.12.21 amd64
@@ -385,6 +384,7 @@
 ~dev-util/qbs-1.18.0 amd64
 ~dev-util/rats-2.4 amd64
 ~dev-util/shadowman-2 amd64
+~gnome-extra/gnome-shell-extension-gsconnect-44 amd64
 ~gnustep-base/mknfonts-0.5 amd64
 ~gnustep-libs/dbuskit-0.1.1 amd64
 ~mail-client/etpan-ng-0.7.1 amd64
@@ -418,6 +418,7 @@
 ~media-libs/libXcm-0.5.4 amd64
 ~media-libs/openicc-0.1.0 amd64
 =media-libs/oyranos-0.9.6 amd64
+~media-libs/oyranos-0.9.6 amd64
 ~media-libs/qhull-2015.2 amd64
 ~media-libs/sdl-pango-0.1.2 amd64
 ~media-libs/speex-1.2.0 amd64
@@ -592,7 +593,6 @@ net-vpn/wireguard-tools amd64
 ~sys-fs/dislocker-0.7.1 amd64
 ~sys-fs/dmg2img-1.6.7 amd64
 ~sys-fs/ecryptfs-utils-111_p20170609 amd64
-~sys-fs/etcd-fs-0_p20170517 amd64
 ~sys-fs/ext3grep-0.10.2 amd64
 ~sys-fs/fatresize-1.0.4 amd64
 ~sys-fs/fragview-0.1.1 amd64
