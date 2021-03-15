@@ -1,0 +1,78 @@
+commit e2f3486d0fdfed28c4c7ccf71710519d33fa4d40
+Author: Хирецкий Михаил <mh@calculate.ru>
+Date:   Mon Mar 15 15:53:33 2021 +0300
+
+    Удалена логика запаковки профиля при репликации
+
+diff --git a/pym/cl_ldap.py b/pym/cl_ldap.py
+index c4145ea..870d4d2 100644
+--- a/pym/cl_ldap.py
++++ b/pym/cl_ldap.py
+@@ -13120,11 +13120,6 @@ remove user %s in the LDAP branch 'Worked'")%str(userName))
+                     # пользователя
+                     sectionPwd = ["command","passwd_samba"]
+                     varsPwdDict = txtConfig.getAreaVars(sectionPwd)
+-                    # Если включена репликация
+-                    if flagRepl:
+-                        # Команда для упаковки профиля
+-                        sectionPack = ["command","pack"]
+-                        varsPackDict = txtConfig.getAreaVars(sectionPack)
+                     error = txtConfig.getError()
+                     if error:
+                         printErrMessages(error)
+@@ -13155,21 +13150,6 @@ remove user %s in the LDAP branch 'Worked'")%str(userName))
+                             if set(varsPwdDict.keys()) == set(["date",
+                                                                 "status"]):
+                                 supportSections.append(",".join(sectionPwd))
+-                    # Упаковка профиля пользователя
+-                    if flagRepl and varsPackDict:
+-                        # Если run=on выполняем команду
+-                        if varsPackDict.get("run") == "on":
+-                            # Дата новее которой файлы помещаются в архив
+-                            strArchDate = varsPackDict.get("arch_date")
+-                            # Текущее время на клинтском компьютере
+-                            strCurrentTime = varsPackDict.get("curr_time")
+-                            if strArchDate and strCurrentTime:
+-                                # Создаем инкрементный архив
+-                                if not self.packUserProfile(dirLogOut,
+-                                                            strArchDate,
+-                                                            strCurrentTime,
+-                                                            txtConfig):
+-                                    return False
+                     # Удаление секций которые не можем отработать
+                     # и секции для создания архива профиля пользователя
+                     sections = txtConfig.getAllSectionNames()
+@@ -13503,11 +13483,6 @@ remove user %s in the LDAP branch 'Worked'")%str(userName))
+                     # пользователя
+                     sectionPwd = ["command","passwd_samba"]
+                     varsPwdDict = txtConfig.getAreaVars(sectionPwd)
+-                    # Если включена репликация
+-                    if flagRepl:
+-                        # Команда для упаковки профиля
+-                        sectionPack = ["command","pack"]
+-                        varsPackDict = txtConfig.getAreaVars(sectionPack)
+                     error = txtConfig.getError()
+                     if error:
+                         printErrMessages(error)
+@@ -13538,21 +13513,6 @@ remove user %s in the LDAP branch 'Worked'")%str(userName))
+                             if set(varsPwdDict.keys()) == set(["date",
+                                                                 "status"]):
+                                 supportSections.append(",".join(sectionPwd))
+-                    # Упаковка профиля пользователя
+-                    if flagRepl and varsPackDict:
+-                        # Если run=on выполняем команду
+-                        if varsPackDict.get("run") == "on":
+-                            # Дата новее которой файлы помещаются в архив
+-                            strArchDate = varsPackDict.get("arch_date")
+-                            # Текущее время на клинтском компьютере
+-                            strCurrentTime = varsPackDict.get("curr_time")
+-                            if strArchDate and strCurrentTime:
+-                                # Создаем инкрементный архив
+-                                if not self.packUserProfile(dirLogOut,
+-                                                            strArchDate,
+-                                                            strCurrentTime,
+-                                                            txtConfig):
+-                                    return False
+                     # Удаление секций которые не можем отработать
+                     # и секции для создания архива профиля пользователя
+                     sections = txtConfig.getAllSectionNames()
