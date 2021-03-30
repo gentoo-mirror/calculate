@@ -1,4 +1,4 @@
-# Calculate format=diff
+# Calculate format=diff merge(sys-boot/grub)=>2.04,2.05
 Fix locale copy with enabled nls (bug in upstream?)
 diff --git a/util/grub-install-common.c b/util/grub-install-common.c
 index ca0ac61..d6a9da4 100644
