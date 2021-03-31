@@ -1,0 +1,9 @@
+# Calculate exec=/bin/bash ini(overlay-calculate.revision)=>20191116.3,#-cut(0,-,#-cl_pass_file-#)-# merge=sys-libs/glibc
+
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+
+#?cl_chroot_status==on#
+/usr/sbin/locale-gen
+#cl_chroot_status#
+
+exit 0
