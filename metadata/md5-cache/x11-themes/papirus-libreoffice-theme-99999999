@@ -3,9 +3,10 @@ DEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=Papirus icon theme for LibreOffice
 EAPI=6
 HOMEPAGE=https://git.io/papirus-libreoffice-theme
+INHERIT=git-r3
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=|| ( app-office/libreoffice app-office/libreoffice-bin )
 SLOT=0
-_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=de3f8dcbdd45fb2787c23a3fdd7afcf4

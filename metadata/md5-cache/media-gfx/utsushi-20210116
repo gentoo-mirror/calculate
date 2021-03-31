@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=sys-devel/autoconf-archive sys-devel/autoconf-wrapper sys-devel/automake-wrapper sys-devel/gettext media-gfx/imagemagick media-gfx/sane-backends >=dev-libs/libusb-1.0.22 >=dev-libs/boost-1.50.0 gtk? ( dev-cpp/gtkmm:2.4 ) jpeg? ( virtual/jpeg:0 ) tiff? ( media-libs/tiff:0= ) udev? ( virtual/udev ) network? ( media-gfx/epson-ds-plugins )
 SLOT=0
 SRC_URI=https://gitlab.com/utsushi/utsushi/-/archive/ab7063358c9819dd37129c6ba58da1009302bdd7/utsushi-ab7063358c9819dd37129c6ba58da1009302bdd7.tar.gz -> utsushi-20210116.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	4ba6c345bf49883c84d5fa5c9bf40c0b	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	udev	452708c3f55cf6e918b045adb949a9e6
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	6ff8412ccf96444868b310b0a28973ba	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	udev	452708c3f55cf6e918b045adb949a9e6
 _md5_=de52b15a578091387a43ab78e0acc58d

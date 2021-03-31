@@ -3,10 +3,11 @@ DEPEND=>=dev-libs/libowfat-0.27 >=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=An open and free bittorrent tracker
 EAPI=6
 HOMEPAGE=http://erdgeist.org/arts/software/opentracker/
+INHERIT=git-r3
 IUSE=ipv6 blacklist +whitelist debug gzip restrict-stats live-sync log-network
 KEYWORDS=~x86 ~amd64
 LICENSE=BEER-WARE
 PROPERTIES=live
 SLOT=0
-_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=9392b250539626c5854a532983a5debc
