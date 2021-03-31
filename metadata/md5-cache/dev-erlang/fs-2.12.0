@@ -3,6 +3,7 @@ DEPEND=>=dev-erlang/fast_xml-1.1.21 >=dev-lang/erlang-17.1 sys-fs/inotify-tools 
 DESCRIPTION=Erlang File System Listener
 EAPI=6
 HOMEPAGE=https://github.com/synrc/fs
+INHERIT=rebar
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=ISC
