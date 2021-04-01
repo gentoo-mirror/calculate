@@ -277,16 +277,6 @@ sys-libs/libselinux python
 # required by dev-python/sepolgen-1.2.3
 app-admin/setools python
 
-# required by net-analyzer/cacti-0.8.8h
-net-analyzer/rrdtool graph
-dev-lang/php sockets
-
-# required by www-apps/nextcloud-11.0.2
-dev-lang/php xmlwriter zip
-
-# required by www-apps/owncloud-10.0.6-r1
-dev-lang/php intl
-
 # required by dev-texlive/texlive-langcjk-2016
 app-text/texlive-core cjk
 
@@ -346,11 +336,16 @@ media-libs/opencv qt5
 # required by (sys-apps/calculate-server-2.1.16-r17
 net-ftp/proftpd ident
 
-# [gd, xmlreader] required by www-apps/mediawiki-1.23.8
+# [cgi] required by sys-cluster/ganglia-web-3.5.8-r1
 # [fpm] required by virtual/httpd-php-5.6
+# [gd, xmlreader] required by www-apps/mediawiki-1.23.8
+# [intl] required by www-apps/owncloud-10.0.6-r1
 # [pdo] required by www-apps/drupal-8.0.0_beta11
+# [sockets] required by net-analyzer/cacti-0.8.8h
+# [sysvipc] required by net-analyzer/zabbix-5.2.4[frontend]
+# [xmlwriter, zip] required by www-apps/nextcloud-11.0.2
 app-eselect/eselect-php fpm
-dev-lang/php curl fpm gd mysql pdo postgres xmlreader
+dev-lang/php cgi curl fpm gd intl mysql pdo postgres sockets sysvipc xmlreader xmlwriter zip
 
 # required by mail-client/alpine-2.00-r7
 net-libs/c-client chappa
@@ -397,9 +392,6 @@ media-libs/gst-plugins-bad egl
 
 # required by net-vpn/libreswan-3.20
 dev-libs/nss utils
-
-# required by sys-cluster/ganglia-web-3.5.8-r1
-dev-lang/php cgi
 
 # required by games-engines/love-0.8.0
 media-libs/devil mng
