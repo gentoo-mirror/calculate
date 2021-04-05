@@ -2,6 +2,7 @@ sys-apps/calculate-utils -backup -client console -desktop -qt5 pxe
 media-video/ffmpeg -chromium
 
 # Removed unnecessary dependence
+app-emulation/qemu -doc
 app-misc/mc -samba
 dev-lang/erlang -wxwidgets
 dev-lang/mono minimal

@@ -1,5 +1,6 @@
 # Calculate format=openrc path=/etc/default name=grub
 GRUB_DISABLE_RECOVERY=true
+GRUB_DISABLE_OS_PROBER=false
 GRUB_DEFAULT=saved
 GRUB_TIMEOUT=2
 !GRUB_TERMINAL=del
