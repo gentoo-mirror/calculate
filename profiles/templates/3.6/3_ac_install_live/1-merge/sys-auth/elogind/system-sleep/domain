@@ -1,0 +1,49 @@
+# Calculate chmod=0755 module(client)!=&&client.os_remote_auth!=
+#!/bin/bash
+
+DEBUG_LOG=/dev/null
+
+get_userinfo_data() {
+	/usr/libexec/calculate/cl-variable --value desktop.cl_desktop_online_data
+}
+
+remounting() {
+	local userinfo_data="$(get_userinfo_data)"
+	local domain_host="#-client.os_remote_auth-#"
+	OIFS="$IFS"
+	IFS=','
+	for userinfo_row in $userinfo_data
+	do
+		IFS=':'
+		read -a  userinfo <<<${userinfo_row}
+		IFS=','
+		local username="${userinfo[0]}"
+		local domainset="${userinfo[3]}"
+		if [[ ${domainset} == 'on' ]]
+		then
+			echo "Umounting remote resources for ${username}" &>>$DEBUG_LOG
+			umount -l /home/${username}/Home
+			umount -l /home/${username}/Share
+			umount -l /home/${username}/FTP
+
+			for COUNT in $( seq 0 32 )
+			do
+				if ping -w4 -i0.5 -c3 $domain_host &>$DEBUG_LOG
+				then
+					cl-client-sync-login --sync off --unmount-on-error off $username &>>$DEBUG_LOG
+					break
+				else
+					sleep 0.5
+				fi
+			done
+		fi
+	done
+	IFS="$OIFS"
+}
+
+case $1/$2 in
+	post/*)
+		echo "Handle $1/$2 by module domain" >>$DEBUG_LOG
+		remounting &
+		;;
+esac
