@@ -1,4 +1,4 @@
-# Calculate comment=# chmod=0755 protected
+# Calculate comment=# chmod=0755 protected pkg(x11-apps/xinit)<1.4.1-r1&&pkg(gui-libs/display-manager-init)==
 #!/bin/sh
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License, v2
