@@ -1,4 +1,4 @@
-# Calculate comment=# chmod=0755 autoupdate
+# Calculate comment=# chmod=0755 protected
 #!/bin/sh
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License, v2
