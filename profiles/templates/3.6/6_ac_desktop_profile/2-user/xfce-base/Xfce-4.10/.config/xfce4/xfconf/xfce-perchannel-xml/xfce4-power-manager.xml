@@ -6,6 +6,9 @@
     <property name="power-button-action" type="uint" value="3"/>
     <property name="lid-action-on-battery" type="uint" value="1"/>
     <property name="lid-action-on-ac" type="uint" value="1"/>
+#?os_root_type==livecd#
+    <property name="lock-screen-suspend-hibernate" type="bool" value="false"/>
+#os_root_type#
 #?hr_laptop!=#
     <property name="show-tray-icon" type="bool" value="true"/>
 #hr_laptop#
