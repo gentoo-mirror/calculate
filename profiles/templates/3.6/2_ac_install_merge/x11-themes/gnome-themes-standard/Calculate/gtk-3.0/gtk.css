@@ -1,5 +1,13 @@
 @import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained.css");
 
+#login_box infobar box {
+    background-color: white;
+}
+
+#login_box box {
+    border: none;
+}
+
 .panel {
 #?pkg(xfce-base/xfce4-panel)>=4.14#
   background-color: #343938;
