@@ -1,0 +1,28 @@
+diff --git a/src/xfpm-manager.c b/src/xfpm-manager.c
+index e9acaa0..05e9964 100644
+--- a/src/xfpm-manager.c
++++ b/src/xfpm-manager.c
+@@ -441,12 +441,9 @@ xfpm_manager_lid_changed_cb (XfpmPower *power, gboolean lid_is_closed, XfpmManag
+   {
+     XFPM_DEBUG_ENUM (action, XFPM_TYPE_LID_TRIGGER_ACTION, "LID close event");
+ 
+-    if ( action == LID_TRIGGER_NOTHING )
+-    {
+-      if ( !xfpm_is_multihead_connected () )
+-        xfpm_dpms_force_level (manager->priv->dpms, DPMSModeOff);
+-    }
+-    else if ( action == LID_TRIGGER_LOCK_SCREEN )
++    if ( !xfpm_is_multihead_connected () )
++      xfpm_dpms_force_level (manager->priv->dpms, DPMSModeOff);
++    if ( action == LID_TRIGGER_LOCK_SCREEN )
+     {
+       if ( !xfpm_is_multihead_connected () )
+       {
+@@ -466,6 +463,7 @@ xfpm_manager_lid_changed_cb (XfpmPower *power, gboolean lid_is_closed, XfpmManag
+        * user for confirmation in case of an application is inhibiting
+        * the power manager.
+        */
++      g_usleep (1000000);
+       xfpm_manager_sleep_request (manager, action, TRUE);
+     }
+   }
