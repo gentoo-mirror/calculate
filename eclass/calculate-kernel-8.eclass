@@ -101,12 +101,15 @@ vmlinuz_src_install() {
 	INSTALL_MOD_PATH=${D} emake modules_install
 	/sbin/depmod -b ${D} ${KV_FULL}
 
+	cp /etc/dracut.conf dracut.conf
+	echo >>dracut.conf
 	if use themes
 	then
-		PLYMOUTH="-a plymouth"
+		echo add_dracutmodules+=\" plymouth\" >>dracut.conf
 	else
-		PLYMOUTH="-o plymouth"
+		echo omit_dracutmodules+=\" plymouth\" >>dracut.conf
 	fi
+	echo add_dracutmodules+=\" calculate video\" >>dracut.conf
 
 	if grep -q CONFIG_RD_ZSTD=y .config &>/dev/null
 	then
@@ -120,10 +123,11 @@ vmlinuz_src_install() {
 	else
 		RDARCH=""
 	fi
-	/usr/bin/dracut $RDARCH -a calculate $PLYMOUTH -a video -k ${D}/lib/modules/${KV_FULL} \
+	/usr/bin/dracut $RDARCH -c dracut.conf -k ${D}/lib/modules/${KV_FULL} \
 		--kver ${KV_FULL} \
 		${D}/usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL}
 	# move firmware to share, because /lib/firmware installation does collisions
+	rm dracut.conf
 	mv ${D}/lib/firmware ${D}/usr/share/${PN}/${PV}
 	insinto /usr/share/${PN}/${PV}/boot/
 	newins .config config-${KV_FULL}
