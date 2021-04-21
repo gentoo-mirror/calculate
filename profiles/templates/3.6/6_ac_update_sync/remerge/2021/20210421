@@ -1,0 +1,4 @@
+# Calculate format=samba name=ini.env ini(overlay-calculate.remerge)<#-cl_pass_file-# merge=xfce-base/xfce4-session,sys-auth/elogind,x11-themes/gnome-themes-standard,app-shells/bash
+
+[overlay-calculate]
+remerge = #-cl_pass_file-#
