@@ -5,6 +5,9 @@
   <property name="saver" type="empty">
     <property name="mode" type="int" value="0"/>
     <property name="idle-activation" type="empty">
+#?os_root_type==livecd#
+      <property name="enabled" type="bool" value="false"/>
+#os_root_type#
       <property name="delay" type="int" value="15"/>
     </property>
   </property>

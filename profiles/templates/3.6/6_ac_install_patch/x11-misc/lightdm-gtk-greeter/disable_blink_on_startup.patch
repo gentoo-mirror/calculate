@@ -1,0 +1,51 @@
+# Calculate format=diff
+diff --git a/src/greeterbackground.c b/src/greeterbackground.c
+index 9a33b6b..7a81fb6 100644
+--- a/src/greeterbackground.c
++++ b/src/greeterbackground.c
+@@ -22,6 +22,8 @@
+ #include "greeterbackground.h"
+ #include "greeterdeprecated.h"
+ 
++extern int runts;
++
+ typedef enum
+ {
+     /* Broken/uninitialized configuration */
+@@ -1018,6 +1020,10 @@ static void
+ greeter_background_monitors_changed_cb(GdkScreen* screen,
+                                        GreeterBackground* background)
+ {
++    int curts = (int)time(NULL);
++    if(curts > runts && curts - runts < 5) {
++    	return;
++    }
+     g_return_if_fail(GREETER_IS_BACKGROUND(background));
+     greeter_background_connect(background, screen);
+ }
+--- a/src/lightdm-gtk-greeter.c
++++ b/src/lightdm-gtk-greeter.c
+@@ -73,6 +73,7 @@
+ 
+ 
+ static LightDMGreeter *greeter;
++int runts;
+ 
+ /* List of spawned processes */
+ static GSList *pids_to_close = NULL;
+@@ -2857,6 +2858,7 @@ main (int argc, char **argv)
+     GdkRGBA          lightdm_gtk_greeter_override_defaults;
+     guint            fallback_css_priority = GTK_STYLE_PROVIDER_PRIORITY_APPLICATION;
+     GtkIconTheme    *icon_theme;
++    runts = 0;
+ 
+     /* Protect memory from being paged to disk, as we deal with passwords
+ 
+@@ -3433,6 +3435,7 @@ main (int argc, char **argv)
+ 
+     gtk_widget_show (GTK_WIDGET (screen_overlay));
+ 
++    runts = (int)time(NULL);
+     g_debug ("Run Gtk loop...");
+     gtk_main ();
+     g_debug ("Gtk loop exits");
