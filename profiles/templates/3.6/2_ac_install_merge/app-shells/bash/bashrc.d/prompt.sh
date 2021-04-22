@@ -1,8 +1,13 @@
 # Calculate comment=#
 #!/bin/bash
 
+if [[ $- != *i* ]] ; then
+	# Shell is non-interactive.  Be done now!
+	return
+fi
+
 if ${use_color} ; then
-	PS_HOSTNAME=$(hostname -f 2>/dev/null | sed -r "s/(\.[^.]+)?\.[^.]+$//")
+	PS_HOSTNAME=$(timeout 0.5 hostname -f 2>/dev/null | sed -r "s/(\.[^.]+)?\.[^.]+$//")
 	if [[ -z $PS_HOSTNAME ]]
 	then
 		PS_HOSTNAME="$(hostname)"
