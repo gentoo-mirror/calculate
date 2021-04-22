@@ -1,7 +1,6 @@
 ~app-accessibility/caribou-0.4.21 amd64
 ~app-accessibility/speech-tools-2.5.0 amd64
 ~app-admin/clustershell-1.8.3 amd64
-~app-admin/elektra-0.8.20 amd64
 ~app-admin/mongo-tools-100.3.0 amd64
 ~app-admin/reportmagic-2.21 amd64
 ~app-admin/socklog-2.1.0 amd64
@@ -316,7 +315,6 @@
 ~dev-libs/lzo-2.10 amd64
 ~dev-libs/mimetic-0.9.8 amd64
 ~dev-libs/mmtf-cpp-1.0.0 amd64
-~dev-libs/nss-3.63 amd64
 ~dev-libs/poco-1.9.0 amd64
 ~dev-libs/qoauth-2.0.1_pre20160315 amd64
 ~dev-libs/rapidxml-1.13 amd64
@@ -337,7 +335,6 @@
 ~dev-ml/findlib-1.8.1 amd64
 ~dev-ml/jsonm-1.0.1 amd64
 ~dev-ml/labltk-8.06.7 amd64
-~dev-ml/num-1.3 amd64
 ~dev-ml/ocamlbuild-0.14.0 amd64
 ~dev-ml/uchar-0.0.2 amd64
 ~dev-ml/uutf-1.0.1 amd64
@@ -403,11 +400,11 @@
 ~media-gfx/openscad-2019.05 amd64
 ~media-gfx/raw-thumbnailer-0.2.1 amd64
 ~media-gfx/springgraph-88 amd64
-~media-gfx/synnefo-1.1.0 amd64
 ~media-gfx/xpaint-3.1.3 amd64
+~media-libs/babl-0.1.86 amd64
 ~media-libs/ctl-1.5.2 amd64
 ~media-libs/elles_icc_profiles-20160501.0932 amd64
-~media-libs/gegl-0.4.26 amd64
+~media-libs/gegl-0.4.30 amd64
 ~media-libs/glm-0.9.9.8 amd64
 ~media-libs/icc-profiles-basiccolor-printing2009-1.2.0 amd64
 ~media-libs/icc-profiles-openicc-1.3.1 amd64
@@ -422,10 +419,6 @@
 ~media-libs/libsdl2-2.0.12 amd64
 ~media-libs/libtgvoip-2.4.4_p20210302 amd64
 ~media-libs/libwebp-1.1.0 amd64
-~media-libs/libXcm-0.5.4 amd64
-~media-libs/openicc-0.1.0 amd64
-=media-libs/oyranos-0.9.6 amd64
-~media-libs/oyranos-0.9.6 amd64
 ~media-libs/qhull-2015.2 amd64
 ~media-libs/sdl-pango-0.1.2 amd64
 ~media-libs/speex-1.2.0 amd64
@@ -568,7 +561,6 @@ net-vpn/wireguard-tools amd64
 ~sci-mathematics/why3-for-spark-2019 amd64
 ~sci-misc/netlogo-bin-6.0.2 amd64
 ~sci-physics/lammps-20200303 amd64
-~sci-physics/lhapdf-6.2.3 amd64
 ~sci-visualization/opendx-4.4.4 amd64
 ~sci-visualization/xgraph-12.1 amd64
 ~sec-policy/apparmor-profiles-3.0.1 amd64
@@ -618,7 +610,6 @@ net-vpn/wireguard-tools amd64
 ~sys-fs/snapraid-11.5 amd64
 ~sys-fs/squashfuse-0.1.100 amd64
 ~sys-fs/unionfs-fuse-2.1 amd64
-~sys-fs/xwmfs-0.86 amd64
 ~sys-fs/yaffs2utils-0.2.9 amd64
 ~sys-fs/zerofree-1.1.1 amd64
 ~sys-fs/zfs-auto-snapshot-1.2.4 amd64
@@ -699,7 +690,6 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/set_opacity-1.0 amd64
 ~x11-misc/sisctrl-0.0.20051202 amd64
 ~x11-misc/sprop-0.1 amd64
-~x11-misc/superswitcher-0.6 amd64
 ~x11-misc/tabbed-0.6 amd64
 ~x11-misc/tinynotify-send-1.2.1 amd64
 ~x11-misc/unclutter-xfixes-1.5 amd64
@@ -723,7 +713,6 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/xsr-1.0.0 amd64
 ~x11-misc/xss-lock-0.3.0_p20140302 amd64
 ~x11-misc/xssstate-1.1 amd64
-~x11-misc/xstroke-0.6 amd64
 ~x11-misc/xtrace-1.4.0 amd64
 ~x11-misc/xwit-3.4_p16 amd64
 ~x11-plugins/asmon-0.71 amd64
