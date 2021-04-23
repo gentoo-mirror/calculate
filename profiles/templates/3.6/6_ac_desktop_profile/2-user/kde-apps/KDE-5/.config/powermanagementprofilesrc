@@ -1,14 +1,64 @@
-# Calculate format=kde
+# Calculate format=plasma
 # On AC Power
+# Turn off display after 15min
+[AC][DPMSControl]
+idleTime=900
+
+# Dim display after 10min
+[AC][DimDisplay]
+idleTime=600000
+
 [AC][HandleButtonEvents]
 # Lock screen when laptop lid closed
 lidAction=1
 # Prompt log out dialog when power button pressed
 powerButtonAction=16
 
-# On Battery
+#?os_root_type!=livecd#
+[AC][SuspendSession]
+# Lock session after 15min
+idleTime=900000
+suspendType=32
+#os_root_type#
+
+# Turn off display after 15min
+[Battery][DPMSControl]
+idleTime=900
+
+# Dim display after 10min
+[Battery][DimDisplay]
+idleTime=600000
+
 [Battery][HandleButtonEvents]
 # Lock screen when laptop lid closed
 lidAction=1
 # Prompt log out dialog when power button pressed
 powerButtonAction=16
+
+#?os_root_type!=livecd#
+[Battery][SuspendSession]
+# Lock session after 15min
+idleTime=900000
+suspendType=32
+#os_root_type#
+
+# Turn off display after 15min
+[LowBattery][DPMSControl]
+idleTime=900
+
+# Dim display after 10min
+[LowBattery][DimDisplay]
+idleTime=600000
+
+[LowBattery][HandleButtonEvents]
+# Lock screen when laptop lid closed
+lidAction=1
+# Prompt log out dialog when power button pressed
+powerButtonAction=16
+
+#?os_root_type!=livecd#
+[LowBattery][SuspendSession]
+# Lock session after 15min
+idleTime=900000
+suspendType=32
+#os_root_type#
