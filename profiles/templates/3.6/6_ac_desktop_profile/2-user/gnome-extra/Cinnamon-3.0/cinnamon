@@ -75,6 +75,8 @@ font-time='Droid Sans 64'
 font-date='Droid Sans 24'
 #?os_root_type==livecd#
 lock-enabled=false
+#!os_root_type#
+lock-enabled=true
 #os_root_type#
 
 [cinnamon/desktop/wm/preferences]
@@ -112,9 +114,11 @@ three-finger-click=3
 button-power='interactive'
 lid-close-battery-action='suspend'
 lid-close-ac-action='suspend'
-sleep-display-ac=#-sum(sleep,60*#-ini(profile.power-display-sleep)-#)-#
-sleep-display-battery=#-sum(sleep,60*#-ini(profile.power-display-sleep)-#)-#
+sleep-display-ac=900
+sleep-display-battery=900
 #?os_root_type==livecd#
+lock-on-suspend=false
+#!os_root_type#
 lock-on-suspend=true
 #os_root_type#
 
