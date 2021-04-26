@@ -157,12 +157,12 @@ button-lid-ac='suspend'
 button-lid-battery='suspend'
 
 [screensaver]
-#?ini(profile.screensaver-activation)==on&&os_root_type!=livecd#
+#?ini(profile.screensaver-activation)!=off&&os_root_type!=livecd#
 idle-activation-enabled=true
 #!ini#
 idle-activation-enabled=false
 #ini#
-#?ini(profile.screensaver-lock)==on&&os_root_type!=livecd#
+#?ini(profile.screensaver-lock)!=off&&os_root_type!=livecd#
 lock-enabled=true
 #!ini#
 lock-enabled=false
