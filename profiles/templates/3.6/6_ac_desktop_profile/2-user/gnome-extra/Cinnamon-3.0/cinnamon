@@ -114,8 +114,8 @@ three-finger-click=3
 button-power='interactive'
 lid-close-battery-action='suspend'
 lid-close-ac-action='suspend'
-sleep-display-ac=900
-sleep-display-battery=900
+sleep-display-ac=#-sum(sleep,60*#-ini(profile.power-display-sleep)-#)-#
+sleep-display-battery=#-sum(sleep,60*#-ini(profile.power-display-sleep)-#)-#
 #?os_root_type==livecd#
 lock-on-suspend=false
 #!os_root_type#

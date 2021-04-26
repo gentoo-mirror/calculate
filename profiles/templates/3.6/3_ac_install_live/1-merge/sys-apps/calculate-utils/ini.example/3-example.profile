@@ -194,7 +194,7 @@
 #?os_install_locale_language==fr#
 # Mettre en veille après (secondes), '0', ne jamais arrêter
 #os_install_locale_language#
-; power-display-sleep = 30
+; power-display-sleep = 16
 
 #in#
 #?in(os_linux_pkglist, CLDM)!=#
@@ -220,7 +220,7 @@
 #?os_install_locale_language==fr#
 # Économiseur d’écran activé après (minutes)
 #os_install_locale_language#
-; screensaver-delay = 10
+; screensaver-delay = 15
 
 #in#
 #?in(os_linux_pkglist, CLDM)!=#
