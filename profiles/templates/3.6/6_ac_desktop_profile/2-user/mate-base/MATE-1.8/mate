@@ -151,18 +151,18 @@ switch-to-workspace-4='<Primary>F4'
 theme='coco'
 
 [power-manager]
-sleep-computer-ac=#-sum(sleep,60*#-ini(profile.power-computer-sleep)-#)-#
-sleep-display-ac=#-sum(sleep,60*#-ini(profile.power-display-sleep)-#)-#
+sleep-computer-ac=900
+sleep-display-ac=900
 button-lid-ac='suspend'
 button-lid-battery='suspend'
 
 [screensaver]
-#?ini(profile.screensaver-activation)==on&&os_root_type!=livecd#
+#?os_root_type!=livecd#
 idle-activation-enabled=true
 #!ini#
 idle-activation-enabled=false
 #ini#
-#?ini(profile.screensaver-lock)==on&&os_root_type!=livecd#
+#?os_root_type!=livecd#
 lock-enabled=true
 #!ini#
 lock-enabled=false
