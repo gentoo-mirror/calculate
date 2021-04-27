@@ -5,4 +5,7 @@
 #-ini(desktop.textedit, gedit)-#
 
 [Added Associations]
-text/plain=gedit.desktop;
+text/plain=org.gnome.gedit.desktop;
+
+[Default Applications]
+text/plain=org.gnome.gedit.desktop;

@@ -5,4 +5,7 @@
 #-ini(desktop.textedit, kwrite)-#
 
 [Added Associations]
-text/plain=kwrite.desktop;
+text/plain=org.kde.kwrite.desktop;
+
+[Default Applications]
+text/plain=org.kde.kwrite.desktop;
