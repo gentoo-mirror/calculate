@@ -36,3 +36,6 @@ www-servers/nginx-unit python
 
 # any-of ( client server )
 media-plugins/vdr-streamdev server
+
+# any-of ( gnome-keyring pass )
+app-emulation/docker-credential-helpers gnome-keyring
