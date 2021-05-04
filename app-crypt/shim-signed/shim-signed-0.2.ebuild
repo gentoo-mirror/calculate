@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI=7
 
 DESCRIPTION="UEFI Shim bootloader for SecureBoot signed by Microsoft"
 HOMEPAGE="http://mjg59.dreamwidth.org/20303.html"

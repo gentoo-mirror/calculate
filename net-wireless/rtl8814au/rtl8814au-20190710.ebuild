@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 inherit linux-mod
 
 COMMIT="741fa1fb07faf909f53de675a218a886e8dc23cd"
