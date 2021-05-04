@@ -1,7 +1,7 @@
 DEFINED_PHASES=install
 DEPEND=media-gfx/splashutils media-fonts/droid !<sys-apps/calculate-utils-3.5.2.6
 DESCRIPTION=Calculate Linux theme for gensplash
-EAPI=5
+EAPI=7
 HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/calculate-splash-themes
 IUSE=+verbose +silent +silent-shutdown
 KEYWORDS=amd64 x86
@@ -10,4 +10,4 @@ RDEPEND=media-gfx/splashutils media-fonts/droid !<sys-apps/calculate-utils-3.5.2
 REQUIRED_USE=|| ( verbose silent silent-shutdown )
 SLOT=0
 SRC_URI=silent? ( ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-silent-18.jpg -> splash-themes-calculate-silent-18.jpg http://mirror.yandex.ru/calculate/themes/calculate/splash-silent-18.jpg -> splash-themes-calculate-silent-18.jpg ) verbose? ( ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-verbose-18.jpg -> splash-themes-calculate-verbose-18.jpg http://mirror.yandex.ru/calculate/themes/calculate/splash-verbose-18.jpg -> splash-themes-calculate-verbose-18.jpg ) silent-shutdown? ( ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-shutdown-18-r1.jpg -> splash-themes-calculate-shutdown-18-r1.jpg http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-18-r1.jpg -> splash-themes-calculate-shutdown-18-r1.jpg )
-_md5_=12e7a2e6f92bd0488e4bcec76be54f3b
+_md5_=62637f25392478d68ffdb3f09828d51d

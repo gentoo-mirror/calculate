@@ -1,7 +1,7 @@
 DEFINED_PHASES=install
 DEPEND=sys-boot/plymouth-calculate-plugin sys-boot/plymouth-openrc-plugin media-fonts/droid !<sys-apps/calculate-utils-3.5.4
 DESCRIPTION=Calculate Linux theme for gensplash
-EAPI=5
+EAPI=7
 HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/calculate-splash-themes
 IUSE=+silent +silent-shutdown
 KEYWORDS=amd64 x86
@@ -10,4 +10,4 @@ RDEPEND=sys-boot/plymouth-calculate-plugin sys-boot/plymouth-openrc-plugin media
 REQUIRED_USE=|| ( silent silent-shutdown )
 SLOT=0
 SRC_URI=silent? ( ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-silent-19.png -> splash-themes-calculate-silent-19.png http://mirror.yandex.ru/calculate/themes/calculate/splash-silent-19.png -> splash-themes-calculate-silent-19.png ) silent-shutdown? ( ftp://ftp.calculate-linux.org/calculate/themes/calculate/splash-shutdown-19.jpg -> splash-themes-calculate-shutdown-19.jpg http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-19.jpg -> splash-themes-calculate-shutdown-19.jpg )
-_md5_=a7244db8b72b5d39a977434a465442ba
+_md5_=f21c24d878af41750edae591ae67a81d
