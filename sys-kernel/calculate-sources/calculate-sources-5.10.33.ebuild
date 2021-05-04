@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI=6
 ETYPE="sources"
 
 inherit calculate-kernel-8 eutils

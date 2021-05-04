@@ -1,7 +1,7 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
 PYTHON_COMPAT=( python2_7 )
 WX_GTK_VER="3.0"
@@ -49,15 +49,12 @@ DISTUTILS_IN_SOURCE_BUILD=1
 python_prepare_all() {
 	sed -i "s:cflags.append('-O3'):pass:" config.py || die "sed failed"
 
+	echo "DEBUG $S"
 	cd "${S}"
-	local PATCHES=(
-		"${FILESDIR}"/${ORIG_PN}-3.0.0.0-wxversion-scripts.patch
-		# drop editra - we have it as a separate package now
-		"${FILESDIR}"/${ORIG_PN}-2.8.11-drop-editra.patch
-		"${FILESDIR}"/${ORIG_PN}-2.8-no-preservatives-added.patch
-		# fix handling egg_info command
-		"${FILESDIR}"/${ORIG_PN}-2.8.12.1-disable-egging-mode.patch
-	)
+	eapply "${FILESDIR}"/${ORIG_PN}-3.0.0.0-wxversion-scripts.patch
+	eapply "${FILESDIR}"/${ORIG_PN}-2.8.11-drop-editra.patch
+	eapply "${FILESDIR}"/${ORIG_PN}-2.8-no-preservatives-added.patch
+	eapply "${FILESDIR}"/${ORIG_PN}-2.8.12.1-disable-egging-mode.patch
 
 	distutils2_python_prepare_all
 }
@@ -66,7 +63,6 @@ src_configure() {
 	need-wxwidgets unicode
 
 	mydistutilsargs=(
-		WX_CONFIG="${WX_CONFIG}"
 		WXPORT=gtk2
 		UNICODE=1
 		BUILD_GLCANVAS=$(usex opengl 1 0)
@@ -88,14 +84,14 @@ python_install() {
 	for file in "${D}$(python_get_sitedir)"/wx{version.*,.pth}; do
 		mv "${file}" "${file}-${SLOT}" || die
 	done
-	cd "${ED}"usr/lib/python-exec/"${EPYTHON}" || die
+	cd "${ED}"/usr/lib/python-exec/"${EPYTHON}" || die
 	for file in *; do
 		mv "${file}" "${file}-${SLOT}" || die
 
 		# wrappers are common to all impls, so a parallel run may
 		# move it for us. ln+rm is more failure-proof.
 		#ln -fs ../lib/python-exec/python-exec2 "${ED}usr/bin/${file}-${SLOT}" || die
-		rm -f "${ED}usr/bin/${file}"
+		rm -f "${ED}/usr/bin/${file}"
 	done
 }
 

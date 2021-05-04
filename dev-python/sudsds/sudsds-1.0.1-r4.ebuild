@@ -10,7 +10,8 @@ inherit distutils2
 
 DESCRIPTION="Lightweight SOAP client - Czech NIC labs fork"
 HOMEPAGE="https://labs.nic.cz/page/969/"
-SRC_URI="http://www.nic.cz/public_media/datove_schranky/releases/src/${P}.tar.gz"
+SRC_URI="ftp://ftp.calculate-linux.org/calculate/source/${PN}/${P}.tar.gz
+		http://mirror.yandex.ru/calculate/source/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"

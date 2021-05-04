@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/virtual/mailx/mailx-1.ebuild,v 1.2 2014/05/13 06:37:03 naota Exp $
 
-EAPI=5
+EAPI=7
 
 DESCRIPTION="Virtual for mail implementations"
 HOMEPAGE=""

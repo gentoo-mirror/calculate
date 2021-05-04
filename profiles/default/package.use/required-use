@@ -13,8 +13,8 @@ x11-wm/xpra dec_av2
 # linguas_nl_NL? ( ljr )
 net-p2p/bitcoin-qt ljr
 
-# smtp? ( libuv )
-net-libs/libwebsockets libuv
+# smtp? ( libuv ) ssl? ( mbedtls )
+net-libs/libwebsockets libuv mbedtls
 
 # ruby_targets_ruby22? ( ruby )
 net-irc/epic5 ruby
