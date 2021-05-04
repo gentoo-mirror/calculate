@@ -10,7 +10,8 @@ inherit distutils2
 
 DESCRIPTION="Library to access Czech eGov system \"Datove schranky\""
 HOMEPAGE="http://labs.nic.cz/page/969/datovka/"
-SRC_URI="http://www.nic.cz/public_media/datove_schranky/releases//src/${P}.tar.gz"
+SRC_URI="ftp://ftp.calculate-linux.org/calculate/source/${PN}/${P}.tar.gz
+		http://mirror.yandex.ru/calculate/source/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
