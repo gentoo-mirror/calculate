@@ -63,7 +63,6 @@ src_configure() {
 	need-wxwidgets unicode
 
 	mydistutilsargs=(
-		WX_CONFIG="${WX_CONFIG}"
 		WXPORT=gtk2
 		UNICODE=1
 		BUILD_GLCANVAS=$(usex opengl 1 0)
@@ -85,14 +84,14 @@ python_install() {
 	for file in "${D}$(python_get_sitedir)"/wx{version.*,.pth}; do
 		mv "${file}" "${file}-${SLOT}" || die
 	done
-	cd "${ED}"usr/lib/python-exec/"${EPYTHON}" || die
+	cd "${ED}"/usr/lib/python-exec/"${EPYTHON}" || die
 	for file in *; do
 		mv "${file}" "${file}-${SLOT}" || die
 
 		# wrappers are common to all impls, so a parallel run may
 		# move it for us. ln+rm is more failure-proof.
 		#ln -fs ../lib/python-exec/python-exec2 "${ED}usr/bin/${file}-${SLOT}" || die
-		rm -f "${ED}usr/bin/${file}"
+		rm -f "${ED}/usr/bin/${file}"
 	done
 }
 
