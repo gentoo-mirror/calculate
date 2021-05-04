@@ -49,15 +49,12 @@ DISTUTILS_IN_SOURCE_BUILD=1
 python_prepare_all() {
 	sed -i "s:cflags.append('-O3'):pass:" config.py || die "sed failed"
 
+	echo "DEBUG $S"
 	cd "${S}"
-	local PATCHES=(
-		"${FILESDIR}"/${ORIG_PN}-3.0.0.0-wxversion-scripts.patch
-		# drop editra - we have it as a separate package now
-		"${FILESDIR}"/${ORIG_PN}-2.8.11-drop-editra.patch
-		"${FILESDIR}"/${ORIG_PN}-2.8-no-preservatives-added.patch
-		# fix handling egg_info command
-		"${FILESDIR}"/${ORIG_PN}-2.8.12.1-disable-egging-mode.patch
-	)
+	eapply "${FILESDIR}"/${ORIG_PN}-3.0.0.0-wxversion-scripts.patch
+	eapply "${FILESDIR}"/${ORIG_PN}-2.8.11-drop-editra.patch
+	eapply "${FILESDIR}"/${ORIG_PN}-2.8-no-preservatives-added.patch
+	eapply "${FILESDIR}"/${ORIG_PN}-2.8.12.1-disable-egging-mode.patch
 
 	distutils2_python_prepare_all
 }
