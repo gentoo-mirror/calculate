@@ -12,9 +12,9 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6..9} )
+PYTHON_COMPAT=( python3_{7..9} )
 
-inherit python-r1 eutils autotools toolchain-funcs flag-o-matic multilib db-use systemd
+inherit python-r1 autotools toolchain-funcs flag-o-matic multilib db-use systemd
 
 MY_PV="${PV/_p/-P}"
 MY_PV="${MY_PV/_rc/rc}"
@@ -36,7 +36,7 @@ SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux"
 # -berkdb by default re bug 602682
 IUSE="-berkdb +caps dlz dnstap doc dnsrps fixed-rrset geoip geoip2 gssapi
-json ldap libressl lmdb mysql odbc postgres python selinux static-libs
+json ldap lmdb mysql odbc postgres python selinux static-libs
 urandom xml +zlib sdb-ldap"
 # sdb-ldap - patch broken
 # no PKCS11 currently as it requires OpenSSL to be patched, also see bug 409687
@@ -57,8 +57,8 @@ REQUIRED_USE="
 DEPEND="
 	acct-group/named
 	acct-user/named
-	!libressl? ( dev-libs/openssl:=[-bindist] )
-	libressl? ( dev-libs/libressl:= )
+	berkdb? ( sys-libs/db:= )
+	dev-libs/openssl:=[-bindist]
 	mysql? ( dev-db/mysql-connector-c:0= )
 	odbc? ( >=dev-db/unixODBC-2.2.6 )
 	ldap? ( net-nds/openldap )
@@ -87,10 +87,6 @@ RDEPEND="${DEPEND}
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
-	# should fix https://bugs.gentoo.org/741162 taken from:
-	# https://gitlab.isc.org/isc-projects/bind9/-/merge_requests/4073
-	"${FILESDIR}/bind-9.16.6-bug-741162.patch"
-
 	"${FILESDIR}/ldap-library-path-on-multilib-machines.patch"
 )
 
@@ -283,7 +279,7 @@ src_install() {
 	fperms 0770 /var/log/named /var/bind/{,sec,dyn}
 
 	systemd_newunit "${FILESDIR}/named.service-r1" named.service
-	systemd_dotmpfilesd "${FILESDIR}"/named.conf
+	dotmpfilesd "${FILESDIR}"/named.conf
 	exeinto /usr/libexec
 	doexe "${FILESDIR}/generate-rndc-key.sh"
 }
@@ -298,7 +294,8 @@ python_install() {
 }
 
 pkg_postinst() {
-	if [ ! -f '/etc/bind/rndc.key' ]; then
+	tmpfiles_process "${FILESDIR}"/named.conf
+	if [ ! -f '/etc/bind/rndc.key' && ! -f '/etc/bind/rndc.conf' ]; then
 		if use urandom; then
 			einfo "Using /dev/urandom for generating rndc.key"
 			/usr/sbin/rndc-confgen -r /dev/urandom -a
