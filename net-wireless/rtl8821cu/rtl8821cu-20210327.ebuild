@@ -4,7 +4,7 @@
 EAPI=7
 inherit linux-mod
 
-COMMIT="ca0bcba405f8865e6acd6a6d3cacf93f7e1b8a2c"
+COMMIT="f1bc7e86c4a1c67bee04c361dd978683869d2347"
 
 DESCRIPTION="Realtek 8821(*U)/8811CU/8812A/8192E/8814A/8822B/8723(*U)/8188E(**) module for Linux kernel"
 HOMEPAGE="https://github.com/brektrou/rtl8821CU"
@@ -19,10 +19,11 @@ S="${WORKDIR}/rtl8821CU-${COMMIT}"
 
 MODULE_NAMES="8821cu(net/wireless)"
 BUILD_TARGETS="all"
+BUILD_TARGET_ARCH="${ARCH}"
 
 pkg_setup() {
 	linux-mod_pkg_setup
-	BUILD_PARAMS="KERN_DIR=${KV_DIR} KSRC=${KV_DIR} KERN_VER=${KV_FULL} O=${KV_OUT_DIR} V=1 KBUILD_VERBOSE=1"
+	BUILD_PARAMS="KERN_DIR=${KV_DIR} ARCH=x86_64 KSRC=${KV_DIR} KERN_VER=${KV_FULL} O=${KV_OUT_DIR} V=1 KBUILD_VERBOSE=1"
 }
 
 src_compile(){
