@@ -20,9 +20,6 @@ sys-libs/tevent python
 # required by app-emulation/wine-vanilla-2.0.2-r1[samba]
 net-fs/samba client winbind
 
-# required by dev-python/ipython-3.2.1-r1
-dev-lang/python sqlite
-
 # required by media-sound/quodlibet
 media-libs/libgpod python
 
@@ -192,7 +189,6 @@ media-libs/libvpx postproc svc
 kde-apps/marble plasma
 
 # required by dev-qt/qtcore
-dev-libs/libpcre2 pcre16
 dev-libs/libpcre pcre16
 
 # required by app-shells/fish-2.6.0
@@ -588,9 +584,6 @@ sys-libs/zlib static-libs
 # required by dev-libs/elfutils-0.177[bzip2]
 app-arch/bzip2 static-libs
 
-# required by net-vpn/networkmanager-l2tp-1.8.2
-net-dialup/ppp eap-tls
-
 # required by gnome-extra/evolution-data-server-3.34.4[vala]
 dev-libs/libical vala
 
@@ -649,9 +642,6 @@ dev-qt/qtscript scripttools
 
 # required by net-misc/nextcloud-client-3.1.1-r1
 dev-libs/qtkeychain gnome-keyring
-
-# required by net-im/dino-0.2.0
-media-libs/libcanberra sound
 
 # required by kde-plasma/plasma-workspace-5.20.5-r1
 kde-frameworks/prison qml
