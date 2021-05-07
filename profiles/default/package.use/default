@@ -166,9 +166,6 @@ sys-libs/glibc nscd
 # add support for LDAP, PDF, RSS, SMIME, HTML, Xface, sieve filter support
 mail-client/claws-mail ldap pdf rss smime webkit xface sieve
 
-# add file systems and raid support.
-sys-block/gparted btrfs dmraid fat mdadm ntfs reiserfs xfs
-
 # build a Qt4/5 style called GTK+ that mimics the active GTK+ theme
 dev-qt/qtgui gtkstyle
 dev-qt/qtwidgets gtkstyle
