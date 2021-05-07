@@ -43,9 +43,6 @@ app-portage/layman sync-plugin-portage
 
 net-p2p/rtorrent daemon xmlrpc
 
-# the best performance with least CPU usage
-net-vpn/openvpn lz4
-
 # using instead of bzip2
 app-arch/lbzip2 symlink
 
@@ -229,7 +226,7 @@ media-plugins/audacious-plugins http
 kde-plasma/plasma-desktop touchpad
 
 # add modules
-lxqt-base/lxqt-panel colorpicker cpuload dom networkmonitor statusnotifier sysstat tray
+lxqt-base/lxqt-panel colorpicker cpuload dom networkmonitor sysstat tray
 
 # support for XPM graphics format
 x11-wm/jwm xpm
@@ -271,9 +268,6 @@ dev-db/sqlite secure-delete
 
 # include OpenGL ES support
 media-libs/libsdl2 gles
-
-# support accountservice
-x11-misc/lightdm gnome
 
 # at-most-one-of ( gstreamer ffmpeg )
 app-misc/tracker ffmpeg -gstreamer -cue

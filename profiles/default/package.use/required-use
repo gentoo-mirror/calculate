@@ -44,9 +44,6 @@ dev-libs/efl fbcon gles2-only
 # ogre? ( !opengl ) opengl? ( !ogre )
 dev-games/mygui -ogre
 
-# ssl? ( any-of ( gnutls openssl ) )
-app-admin/rsyslog openssl
-
 # drm? ( gles2 )
 dev-libs/efl gles2
 
