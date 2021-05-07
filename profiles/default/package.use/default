@@ -395,3 +395,10 @@ net-misc/connman wireguard
 
 # URL transfer library
 net-analyzer/zabbix curl
+
+# remove the sound when changing volume in pulseaudio
+media-libs/libcanberra -sound
+
+# support accountservice
+x11-misc/lightdm gnome
+
