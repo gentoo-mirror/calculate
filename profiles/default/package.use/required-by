@@ -656,3 +656,8 @@ sys-fs/squashfs-tools lzma
 media-tv/v4l-utils dvb
 media-libs/libv4l dvb
 
+# required by "net-im/dino-0.2.0[notification-sound]
+media-libs/libcanberra sound
+
+# required by "dev-util/gnome-builder-3.38.2[git]
+dev-libs/libgit2 ssh
