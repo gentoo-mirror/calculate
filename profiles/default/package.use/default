@@ -402,3 +402,6 @@ media-libs/libcanberra -sound
 # support accountservice
 x11-misc/lightdm gnome
 
+# net-firewall/nftables-0.9.8 (Change USE: +json +python)
+net-firewall/nftables json python
+
