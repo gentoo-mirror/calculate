@@ -1,0 +1,14 @@
+# Calculate format=diff merge(x11-themes/adwaita-qt)>=1.2.1
+diff --git a/src/lib/adwaita.h b/src/lib/adwaita.h
+index ba8306d..a4aba74 100644
+--- a/src/lib/adwaita.h
++++ b/src/lib/adwaita.h
+@@ -49,7 +49,7 @@ template<typename T> using ScopedPointer = QScopedPointer<T, QScopedPointerPodDe
+ namespace Settings
+ {
+     const bool SingleClick {true};
+-    const bool ShowIconsOnPushButtons {true};
++    const bool ShowIconsOnPushButtons {false};
+     const int ToolButtonStyle {Qt::ToolButtonTextBesideIcon};
+     const bool ShowIconsInMenuItems {true};
+ }
