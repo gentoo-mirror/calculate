@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DEPEND=!build? ( sys-apps/sed >=sys-devel/binutils-2.11.90.0.31 ) vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils ) grub? ( sys-boot/grub ) ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] >=sys-devel/bison-1.875 >=sys-devel/flex-2.5.4 themes? ( || ( media-gfx/splash-themes-calculate sys-boot/plymouth-calculate-plugin ) ) !minimal? ( virtual/pkgconfig )
+DEPEND=!build? ( sys-apps/sed ) vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils ) grub? ( sys-boot/grub ) ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] >=sys-devel/bison-1.875 >=sys-devel/flex-2.5.4 themes? ( || ( media-gfx/splash-themes-calculate sys-boot/plymouth-calculate-plugin ) ) !minimal? ( virtual/pkgconfig )
 DESCRIPTION=Calculate Linux kernel image
 EAPI=6
 HOMEPAGE=http://www.calculate-linux.org
@@ -12,5 +12,5 @@ REQUIRED_USE=minimal? ( vmlinuz )
 RESTRICT=binchecks strip
 SLOT=5.10.32
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.10.32.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.10.tar.xz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	l10n	8cdd85e169b835d518bc2fd59f780d8e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	ltprune	4f3f2db5ce3ccbeeacdf3f94954043aa	preserve-libs	ef207dc62baddfddfd39a164d9797648	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	eapi7-ver	f9ec87e93172b25ce65a85303dc06964	linux-info	30ded7f9adbdd03d3e848cdd74f6c395	calculate	2bc7a337fd5722c6cf4f53aa81f993e2	kernel-2	5354799dd98f51be880d4f658e1bf57b	calculate-kernel-8	4d1bf82296a8bfbe12de00ca22db17b3
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	l10n	8cdd85e169b835d518bc2fd59f780d8e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	ltprune	4f3f2db5ce3ccbeeacdf3f94954043aa	preserve-libs	ef207dc62baddfddfd39a164d9797648	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	eapi7-ver	f9ec87e93172b25ce65a85303dc06964	linux-info	30ded7f9adbdd03d3e848cdd74f6c395	calculate	2bc7a337fd5722c6cf4f53aa81f993e2	kernel-2	5edee241be57139e8d1fb1136f28712d	calculate-kernel-8	4d1bf82296a8bfbe12de00ca22db17b3
 _md5_=6acd2516dd9d1bd0e9de34f2202230c5
