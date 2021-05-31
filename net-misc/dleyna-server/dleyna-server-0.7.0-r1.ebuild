@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PV}-libxml2.patch
+	"${FILESDIR}"/${P}-libxml2.patch
 )
 
 src_prepare() {
