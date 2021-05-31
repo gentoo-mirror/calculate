@@ -176,6 +176,7 @@ RDEPEND="
 		sys-apps/portage[python_targets_python3_7]
 		sys-apps/portage[python_targets_python3_8]
 		sys-apps/portage[python_targets_python3_9]
+		sys-apps/portage[python_targets_python3_10]
 	)
 	>=virtual/udev-197
 	!app-misc/livecd-tools
@@ -201,6 +202,12 @@ RDEPEND="
 		|| (
 			( dev-python/pygobject[python_targets_python3_8]
 			dev-python/dbus-python[python_targets_python3_8]
+			)
+			( dev-python/pygobject[python_targets_python3_10]
+			dev-python/dbus-python[python_targets_python3_10]
+			)
+			( dev-python/pygobject[python_targets_python3_9]
+			dev-python/dbus-python[python_targets_python3_9]
 			)
 			( dev-python/pygobject[python_targets_python3_7]
 			dev-python/dbus-python[python_targets_python3_7]
