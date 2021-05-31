@@ -6,11 +6,8 @@ media-libs/chromaprint tools
 # required by net-wireless/aircrack-ng-1.2_rc1-r1[airdrop-ng]
 net-wireless/lorcon python
 
-# required by net-wireless/blueman-2.0
-net-dns/avahi autoipd
-
-# required by net-ftp/qshare-2.1.5-r1
-net-dns/avahi mdnsresponder-compat
+# required by net-wireless/blueman-2.0, net-ftp/qshare-2.1.5-r1, net-print/hplip-3.21.2-r1[snmp]
+net-dns/avahi autoipd mdnsresponder-compat python
 
 # required by net-fs/samba-4.2.9
 sys-libs/tdb python
@@ -661,3 +658,5 @@ media-libs/libcanberra sound
 
 # required by "dev-util/gnome-builder-3.38.2[git]
 dev-libs/libgit2 ssh
+
+dev-libs/libgdata vala
