@@ -1,0 +1,23 @@
+# Calculate format=diff
+From e2e7456ce3d12c9c9330e615d2c90b3c41a90a67 Mon Sep 17 00:00:00 2001
+From: Andreas Schlick <ioerror@lavabit.com>
+Date: Sun, 9 Jun 2013 19:56:35 +0200
+Subject: [PATCH] Add cast for enum for compilation with -std=c++11.
+
+---
+ src/ActionHandler.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/ActionHandler.cc b/src/ActionHandler.cc
+index 5302e9a1..4d340614 100644
+--- a/src/ActionHandler.cc
++++ b/src/ActionHandler.cc
+@@ -603,7 +603,7 @@ ActionHandler::actionSendToWorkspace(PDecor *decor, int direction)
+         row_min = Workspaces::getRowMin(),
+         row_max = Workspaces::getRowMax();
+ 
+-    switch (direction) {
++    switch (static_cast<WorkspaceChangeType>(direction)) {
+     case WORKSPACE_LEFT:
+     case WORKSPACE_PREV:
+         if (cur_act > row_min) {
