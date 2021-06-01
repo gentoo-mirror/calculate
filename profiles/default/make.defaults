@@ -90,3 +90,6 @@ NPTL_KERN_VER="4.14.0"
 PORTAGE_TMPDIR="/var/calculate/tmp"
 USE_EXPAND="CALCULATE THEMES"
 VIDEO_CARDS="amdgpu fbdev i915 i965 intel nouveau nv nvidia r100 r200 r300 r600 radeon qxl radeonsi vesa virtualbox"
+
+PYTHON_TARGETS="python3_8"
+PYTHON_SINGLE_TARGET="python3_8"
