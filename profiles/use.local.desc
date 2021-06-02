@@ -53,6 +53,17 @@ net-misc/asterisk-moh-opsound:siren7 - Install the sounds files for the siren7 c
 net-misc/asterisk-moh-opsound:sln16 - Install the sounds files for the sln16 codec.
 net-misc/asterisk-moh-opsound:ulaw - Install the sounds files for the ulaw codec.
 net-misc/asterisk-moh-opsound:wav - Install the sounds files for the wav codec.
+sci-chemistry/gromacs:cuda - Enable cuda non-bonded kernels
+sci-chemistry/gromacs:double-precision - More precise calculations at the expense of speed
+sci-chemistry/gromacs:gmxapi - Add support for gmxapi library
+sci-chemistry/gromacs:gmxapi-legacy - Enable installing lagacy headers
+sci-chemistry/gromacs:hwloc - Enable HWLoc lib support
+sci-chemistry/gromacs:lmfit - Use external sci-libs/lmfit
+sci-chemistry/gromacs:mkl - Use sci-libs/mkl for fft, blas, lapack routines
+sci-chemistry/gromacs:offensive - Enable gromacs partly offensive quotes
+sci-chemistry/gromacs:opencl - Enable opencl non-bonded kernels
+sci-chemistry/gromacs:single-precision - Single precision version of gromacs (default)
+sci-chemistry/gromacs:tng - Enable new trajectory format - tng
 sys-apps/calculate-utils:backup - Includes backup module.
 sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain.
 sys-apps/calculate-utils:console - Includes console module.
@@ -63,9 +74,4 @@ sys-apps/calculate-utils:install - Enables support for disk installation.
 sys-apps/calculate-utils:minimal - Use minimal depends for calculate install.
 sys-apps/calculate-utils:pxe - Enables support for PXE installation.
 sys-apps/calculate-utils:qt5 - Include Qt5 gui console
-sys-apps/kmod:lzma - Enable support for XZ compressed modules
-sys-apps/kmod:pkcs7 - Enable PKCS#7 signature parsing for modinfo.
-sys-apps/kmod:tools - Install module loading/unloading tools.
-sys-apps/kmod:zlib - Enable support for gzipped modules
-sys-apps/kmod:zstd - Enable support for ZSTD compressed modules
 sys-kernel/calculate-sources:desktop - Desktop kernel configuration
