@@ -248,9 +248,6 @@ net-libs/libgadu gnutls
 # required by gnome-extra/gnome-contacts-3.22.1
 dev-libs/folks eds
 
-# required by dev-libs/folks-0.11.3[eds]
-gnome-extra/evolution-data-server vala
-
 # required by games-action/d1x-rebirth-0.58.1
 dev-games/physfs mvl hog
 
@@ -580,9 +577,6 @@ sys-libs/zlib static-libs
 
 # required by dev-libs/elfutils-0.177[bzip2]
 app-arch/bzip2 static-libs
-
-# required by gnome-extra/evolution-data-server-3.34.4[vala]
-dev-libs/libical vala
 
 # required by net-misc/econnman-1.1-r1, x11-wm/enlightenment-0.24.2[wayland]
 dev-libs/efl connman drm
