@@ -1,0 +1,28 @@
+diff --git a/outputs/tiff.cpp b/outputs/tiff.cpp
+index c3b8cd1..21e7b74 100644
+--- a/outputs/tiff.cpp
++++ b/outputs/tiff.cpp
+@@ -273,7 +273,7 @@ tiff_odevice::boi (const context& ctx)
+ 
+   TIFFSetField (tiff_, TIFFTAG_SAMPLESPERPIXEL, ctx.comps ());
+ 
+-  uint16 pm = 0;                // uint16 is courtesy of tiffio.h
++  uint16_t pm = 0;                // uint16 is courtesy of tiffio.h
+   if (8 == ctx.depth())
+     {
+       if (3 == ctx.comps())
+diff --git a/outputs/tiff.hpp b/outputs/tiff.hpp
+index 8402174..8fcd30f 100644
+--- a/outputs/tiff.hpp
++++ b/outputs/tiff.hpp
+@@ -53,8 +53,8 @@ protected:
+ 
+ private:
+   TIFF   *tiff_;
+-  uint32  page_;
+-  uint32  row_;
++  uint32_t  page_;
++  uint32_t  row_;
+ 
+   boost::scoped_array< octet > partial_line_;
+   streamsize                   partial_size_;
