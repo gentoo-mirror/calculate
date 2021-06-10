@@ -652,3 +652,7 @@ media-libs/libcanberra sound
 
 # required by "dev-util/gnome-builder-3.38.2[git]
 dev-libs/libgit2 ssh
+
+# required by media-gfx/blender-2.93.0[embree]
+media-libs/embree raymask
+

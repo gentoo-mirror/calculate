@@ -105,6 +105,7 @@
 ~app-emacs/ess-18.10.2 amd64
 ~app-emacs/nxml-svg-schemas-1.1.20081123 amd64
 ~app-emacs/yc-5.2.1 amd64
+~app-emulation/cloud-init-21.2 amd64
 ~app-emulation/coldfire-0.3.1 amd64
 ~app-emulation/containerd-1.4.4 amd64
 ~app-emulation/dlx-1.0.0 amd64
@@ -208,7 +209,7 @@
 ~app-misc/vit-1.3 amd64
 ~app-misc/vittk-1.3 amd64
 ~app-misc/vzstats-0.5.1 amd64
-~app-misc/yq-2.9.2 amd64
+~app-misc/yq-2.12.0 amd64
 ~app-mobilephone/gnokii-0.6.31 amd64
 ~app-portage/deltup-0.4.6 amd64
 ~app-portage/diffmask-0.3.3 amd64
@@ -253,6 +254,7 @@
 ~dev-cpp/glog-0.4.0 amd64
 ~dev-cpp/lucene++-3.0.7 amd64
 ~dev-cpp/ms-gsl-3.1.0 amd64
+~dev-cpp/pystring-1.1.3 amd64
 ~dev-cpp/range-v3-0.10.0 amd64
 ~dev-cpp/websocketpp-0.8.1 amd64
 ~dev-db/mysql++-3.2.5 amd64
@@ -292,6 +294,7 @@
 ~dev-lang/execline-2.3.0.4 amd64
 ~dev-lang/gprolog-1.4.5 amd64
 ~dev-lang/icon-9.5.1 amd64
+~dev-lang/ispc-1.14.1 amd64
 ~dev-lang/jimtcl-0.78 amd64
 ~dev-libs/angelscript-2.34.0 amd64
 ~dev-libs/bglibs-2.04 amd64
@@ -345,7 +348,10 @@
 ~dev-perl/Net-Pcap-0.180.0 amd64
 ~dev-perl/Number-Bytes-Human-0.110.0 amd64
 ~dev-php/phpunit-mock-objects-3.4.3 amd64
+~dev-python/abydos-0.5.0 amd64
+~dev-python/fuse-python-1.0.4 amd64
 ~dev-python/google-pasta-0.2.0 amd64
+~dev-python/ioflo-2.0.2 amd64
 ~dev-python/jedi-0.18.0 amd64
 ~dev-python/lunr-0.5.9 amd64
 ~dev-python/lxml-4.6.3 amd64
@@ -353,12 +359,23 @@
 ~dev-python/mkdocs-1.1.2 amd64
 ~dev-python/mkdocs-bootstrap-1.1 amd64
 ~dev-python/mkdocs-bootswatch-1.1 amd64
+~dev-python/nltk-3.6.2 amd64
 ~dev-python/oct2py-5.2.0 amd64 
 ~dev-python/octave_kernel-0.32.0 amd64 
+~dev-python/pygobject-3.40.0 amd64
 ~dev-python/PyQt5-5.15.2 amd64
 ~dev-python/PySDL2-0.9.7 amd64
+~dev-python/pyside2-5.15.2 amd64
+~dev-python/pyside2-tools-5.15.2 amd64
+~dev-python/raet-0.6.8 amd64
+~dev-python/setuptools-57.0.0 amd64
+~dev-python/shiboken2-5.15.2 amd64
+~dev-python/simpy-4.0.1 amd64
 ~dev-python/sphinx-gallery-0.8.2 amd64
+~dev-python/textdistance-4.2.1 amd64
 ~dev-python/whisper-1.1.5 amd64
+~dev-python/whisper-1.1.7 amd64
+~dev-python/xapp-2.2.0 amd64
 ~dev-python/zstandard-0.15.2 amd64
 ~dev-qt/qtplugininfo-5.15.2 amd64
 ~dev-qt/qtquicktimeline-5.15.2 amd64
@@ -378,6 +395,8 @@
 ~dev-util/rats-2.4 amd64
 ~dev-util/shadowman-2 amd64
 ~games-engines/box2d-2.4.1 amd64
+~games-simulation/singularity-1.0.0 amd64
+~games-simulation/singularity-1.00 amd64
 ~gnustep-base/mknfonts-0.5 amd64
 ~gnustep-libs/dbuskit-0.1.1 amd64
 ~lxde-base/lxappearance-0.6.3 amd64
@@ -399,12 +418,14 @@
 ~media-gfx/farbfeld-4 amd64
 ~media-gfx/gnome-raw-thumbnailer-3.0.0 amd64
 ~media-gfx/librecad-2.1.3 amd64
+~media-gfx/openvdb-8.0.1 amd64
 ~media-gfx/raw-thumbnailer-0.2.1 amd64
 ~media-gfx/springgraph-88 amd64
 ~media-gfx/xpaint-3.1.3 amd64
 ~media-libs/babl-0.1.86 amd64
 ~media-libs/ctl-1.5.2 amd64
 ~media-libs/elles_icc_profiles-20160501.0932 amd64
+~media-libs/embree-3.13.0 amd64
 ~media-libs/gegl-0.4.30 amd64
 ~media-libs/glm-0.9.9.8 amd64
 ~media-libs/icc-profiles-basiccolor-printing2009-1.2.0 amd64
@@ -420,6 +441,9 @@
 ~media-libs/libtgvoip-2.4.4_p20210302 amd64
 ~media-libs/libvpx-1.10.0 amd64
 ~media-libs/libwebp-1.1.0 amd64
+~media-libs/oidn-1.3.0 amd64
+~media-libs/opencolorio-2.0.0 amd64
+~media-libs/osl-1.12.0.2 amd64
 ~media-libs/sdl-pango-0.1.2 amd64
 ~media-libs/speex-1.2.0 amd64
 ~media-libs/speexdsp-1.2_rc3 amd64
@@ -555,6 +579,7 @@ net-vpn/wireguard-tools amd64
 ~sci-libs/gsl-2.5 amd64
 ~sci-libs/mkl-2020.4.304 amd64
 ~sci-libs/oce-0.18.3 amd64
+~sci-libs/scikit-learn-0.24.2 amd64
 ~sci-libs/tamu_anova-0.2 amd64
 ~sci-libs/votca-tools-1.6.4 amd64
 ~sci-libs/vtk-8.2.0 amd64
@@ -632,6 +657,7 @@ net-vpn/wireguard-tools amd64
 ~www-servers/bozohttpd-20190228 amd64
 ~www-servers/fnord-1.11 amd64
 ~www-servers/resin-4.0.48 amd64
+~www-servers/uwsgi-2.0.19.1 amd64
 ~x11-apps/xinput_calibrator-0.7.5 amd64
 ~x11-drivers/xf86-video-vboxvideo-1.0.0 amd64
 ~x11-libs/gdk-pixbuf-xlib-2.40.2 amd64
@@ -644,6 +670,7 @@ net-vpn/wireguard-tools amd64
 ~x11-libs/libtinynotify-systemwide-0.1 amd64
 ~x11-libs/libXaw3dXft-1.6.2h amd64
 ~x11-libs/xapps-2.0.6 amd64
+~x11-libs/xapps-2.2.0 amd64
 ~x11-misc/accessx-0951 amd64
 ~x11-misc/bbacpi-0.1.5 amd64
 ~x11-misc/bbcd-0.3.1 amd64
