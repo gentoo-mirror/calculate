@@ -7,12 +7,13 @@ app-accessibility/speech-dispatcher -espeak
 app-editors/nano -spell
 app-emulation/wine-staging -gstreamer
 app-emulation/wine-vanilla -gstreamer
+app-i18n/uim -anthy -libnotify -ncurses -nls -ssl
 app-misc/mc -spell
 app-text/evince -nsplugin
 dev-lang/php -imap -spell
 dev-libs/folks -bluetooth
-dev-python/PyQt5 -webengine -webkit
 dev-python/PyQt5-python2 -webengine -webkit
+dev-python/PyQt5 -webengine -webkit
 dev-python/translate-toolkit -html
 dev-qt/qt-creator -qmldesigner
 dev-qt/qtgui -vnc
