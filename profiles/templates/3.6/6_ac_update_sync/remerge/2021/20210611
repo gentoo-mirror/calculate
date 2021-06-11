@@ -1,0 +1,4 @@
+# Calculate format=samba name=ini.env ini(overlay-calculate.remerge)<#-cl_pass_file-# merge=x11-libs/libX11,app-i18n/uim
+
+[overlay-calculate]
+remerge = #-cl_pass_file-#
