@@ -329,13 +329,14 @@ net-ftp/proftpd ident
 # [cgi] required by sys-cluster/ganglia-web-3.5.8-r1
 # [fpm] required by virtual/httpd-php-5.6
 # [gd, xmlreader] required by www-apps/mediawiki-1.23.8
+# [imap[ required by www-apps/postfixadmin-3.3.9
 # [intl] required by www-apps/owncloud-10.0.6-r1
 # [pdo] required by www-apps/drupal-8.0.0_beta11
 # [sockets] required by net-analyzer/cacti-0.8.8h
 # [sysvipc] required by net-analyzer/zabbix-5.2.4[frontend]
 # [xmlwriter, zip] required by www-apps/nextcloud-11.0.2
 app-eselect/eselect-php fpm
-dev-lang/php cgi curl fpm gd intl mysql pdo postgres sockets sysvipc xmlreader xmlwriter zip
+dev-lang/php cgi curl fpm gd imap intl mysql pdo postgres sockets sysvipc xmlreader xmlwriter zip
 
 # required by mail-client/alpine-2.00-r7
 net-libs/c-client chappa
