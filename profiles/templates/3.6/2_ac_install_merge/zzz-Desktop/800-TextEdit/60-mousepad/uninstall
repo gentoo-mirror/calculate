@@ -1,0 +1,5 @@
+# Calculate format=samba path=/var/lib/calculate name=ini.env ac_install_unmerge==on&&pkg(app-editors/mousepad)==&&ini(desktop.textedit)==mousepad
+
+[desktop]
+!textedit=
+textedit-removing=on

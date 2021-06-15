@@ -1,0 +1,11 @@
+# Calculate format=compiz protected
+
+# Update info
+#-ini(desktop.updating, on)-#
+#-ini(desktop.textedit, mousepad)-#
+
+[Added Associations]
+text/plain=mousepad.desktop;
+
+[Default Applications]
+text/plain=mousepad.desktop;
