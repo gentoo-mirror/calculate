@@ -1,8 +1,5 @@
 # any-of ( mysql postgres sqlite )
-sys-cluster/cinder postgres
 sys-cluster/csync2 postgres
-sys-cluster/neutron postgres
-sys-cluster/nova postgres
 
 # any-of ( mysql postgres sqlite )
 mail-client/roundcube sqlite
@@ -16,9 +13,6 @@ app-i18n/mozc -ibus fcitx4
 # any-of ( cgi mono perl go lua php pypy python python_asyncio python_gevent ruby )
 www-servers/uwsgi python
 
-# any-of ( proxy account container object )
-sys-cluster/swift container
-
 # any-of ( java lua mono perl php python ruby tcl )
 dev-libs/xapian-bindings python
 
@@ -27,9 +21,6 @@ games-action/descent3-demo alsa -pulseaudio
 
 # any-of ( mysql postgres sqlite )
 mail-client/roundcube postgres -sqlite
-
-# any-of ( mysql postgres sqlite )
-sys-cluster/placement sqlite
 
 # any-of ( perl python ruby php5-6 php7-1 php7-2 )
 www-servers/nginx-unit python
