@@ -300,9 +300,6 @@ media-gfx/graphviz python
 # required by net-misc/electrum-2.6.4
 dev-libs/protobuf python
 
-# required by dev-util/dput-ng-1.10
-dev-util/distro-info python
-
 # required by app-vim/gundo-2.6.1
 app-editors/vim python
 
@@ -648,11 +645,11 @@ media-tv/v4l-utils dvb
 media-libs/libv4l dvb
 
 # required by "net-im/dino-0.2.0[notification-sound]
-media-libs/libcanberra sound
+#media-libs/libcanberra sound
 
 # required by "dev-util/gnome-builder-3.38.2[git]
-dev-libs/libgit2 ssh
+#dev-libs/libgit2 ssh
 
 # required by media-gfx/blender-2.93.0[embree]
-media-libs/embree raymask
+#media-libs/embree raymask
 
