@@ -644,3 +644,5 @@ sys-fs/squashfs-tools lzma
 media-tv/v4l-utils dvb
 media-libs/libv4l dvb
 
+# required by net-fs/cvmfs-2.7.3
+net-misc/curl adns
