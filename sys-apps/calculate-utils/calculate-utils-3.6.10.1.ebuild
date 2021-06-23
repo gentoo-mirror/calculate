@@ -9,6 +9,7 @@ declare -A CALCULATE_MODULES=(
 	["core"]="3.6.10.2"
 	["console"]="3.6.10.1"
 	["console-gui"]="3.6.10.1"
+	["builder"]="3.6.10.1"
 )
 
 inherit calculate-utils-r14
