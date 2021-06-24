@@ -7,6 +7,7 @@ PYTHON_COMPAT=(python2_7)
 
 declare -A CALCULATE_MODULES=(
 	["core"]="3.6.10.2"
+	["i18n"]="3.6.10.1"
 	["console"]="3.6.10.1"
 	["console-gui"]="3.6.10.1"
 	["builder"]="3.6.10.1"
@@ -19,5 +20,4 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS=""
-
+KEYWORDS="~amd64"
