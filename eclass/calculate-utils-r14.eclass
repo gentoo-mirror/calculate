@@ -324,6 +324,7 @@ calculate-utils-r14_pkg_preinst() {
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
+	dosym /usr/lib/python-exec/python2.7/cl-console /usr/bin/cl-console
 	if use qt5
 	then
 		dosym /usr/lib/python-exec/python2.7/cl-console-gui /usr/bin/cl-console-gui
