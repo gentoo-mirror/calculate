@@ -11,7 +11,7 @@ LICENSE=GPL-2
 RDEPEND=!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig ) vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils ) grub? ( sys-boot/grub ) ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] vmlinuz? ( sys-kernel/dracut )
 REQUIRED_USE=minimal? ( vmlinuz )
 RESTRICT=binchecks strip
-SLOT=5.10.45
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.10.45.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.10.tar.xz
+SLOT=5.10.46
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.10.46.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.10.tar.xz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	3c7381c56a184f0dd5ba3fb824808f30	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	9a53f21c753d823ba20a22f857c25cb4	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	calculate	2bc7a337fd5722c6cf4f53aa81f993e2	estack	055c42df72f76a4f45ec92b35e83cd56	kernel-2	66af59cfd68077668c584c41aea800ef	calculate-kernel-8	4d1bf82296a8bfbe12de00ca22db17b3
 _md5_=472c962f081b74aed66627ab9be28914
