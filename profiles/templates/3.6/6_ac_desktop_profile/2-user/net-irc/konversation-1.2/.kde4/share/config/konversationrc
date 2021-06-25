@@ -8,19 +8,19 @@ AliasList=cmd /exec cmd,bug /exec bug,fortune /exec fortune,kdeversion /exec kde
 
 [Channel 0]
 #?in(os_locale_language,es,es_UY)!=#
-Name=#calculate-es
+Name=#chat-es
 #in#
 #?in(os_locale_language,pt,pt_BR)!=#
-Name=#calculate-pt
+Name=#chat-pt
 #in#
 #?os_locale_language==fr#
-Name=#calculate-fr
+Name=#chat-fr
 #os_locale_language#
 #?os_locale_language==ru#
-Name=#calculate-ru
+Name=#chat-ru
 #os_locale_language#
 #?in(os_locale_language,fr,ru,es,es_UY,pt,pt_BR)==#
-Name=#calculate
+Name=#chat
 #in#
 Password=
 
@@ -75,9 +75,9 @@ DccPath=file:///home/#-ur_login-#
 LogfilePath=file:///home/#-ur_login-#/.kde4/share/apps/konversation/logs
 
 [Server 0]
-Port=8001
-SSLEnabled=false
-Server=irc.freenode.net
+Port=6697
+SSLEnabled=true
+Server=irc.calculate.social
 Password=
 
 [Notification Messages]
@@ -92,7 +92,7 @@ AutoJoinChannels=Channel 0
 EnableNotifications=true
 Expanded=true
 Identity=Default Identity
-Name=Freenode
+Name=Calculate
 ServerList=Server 0
 
 [Tab Notifications]
