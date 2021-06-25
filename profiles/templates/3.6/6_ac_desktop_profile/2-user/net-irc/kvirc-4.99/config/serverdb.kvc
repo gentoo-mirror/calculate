@@ -1,19 +1,19 @@
 # Calculate format=kde
 
 #?in(os_locale_language,es,es_UY)!=#
-#-ini(tmp.channel,calculate-es)-#
+#-ini(tmp.channel,chat-es)-#
 #in#
 #?in(os_locale_language,pt,pt_BR)!=#
-#-ini(tmp.channel,calculate-pt)-#
+#-ini(tmp.channel,chat-pt)-#
 #in#
 #?os_locale_language==fr#
-#-ini(tmp.channel,calculate-fr)-#
+#-ini(tmp.channel,chat-fr)-#
 #os_locale_language#
 #?os_locale_language==ru#
-#-ini(tmp.channel,calculate-ru)-#
+#-ini(tmp.channel,chat-ru)-#
 #os_locale_language#
 #?in(os_locale_language,fr,ru,es,es_UY,pt,pt_BR)==#
-#-ini(tmp.channel,calculate)-#
+#-ini(tmp.channel,chat)-#
 #in#
 [Forestnet]
 0_Hostname=irc.forestnet.org
@@ -162,6 +162,21 @@ NServers=1
 NServers=1
 0_Description=Blitzed:%20Random%20server
 0_Id=myserver394396679412
+[CalcualteIRC]
+AutoJoinChannels=##-ini(tmp.channel)-#:
+0_Port=6697
+0_Hostname=irc.calculate.social
+NServers=1
+0_AutoConnect=true
+0_SSL=true
+Encoding=UTF-8
+Current=true
+0_TextEncoding=UTF-8
+0_Proxy=-1
+0_Id=myserver331489983432
+0_Encoding=UTF-8
+0_Current=true
+Description=CalculateIRC
 [DogmNet]
 0_Hostname=irc.chat.uz
 NServers=2
@@ -697,7 +712,6 @@ Current=true
 7_Hostname=irc.freenode.org
 3_Id=myserver3963338810
 6_Description=Oslo,%20Norway
-7_AutoConnect=true
 8_Hostname=kornbluth.freenode.net
 4_Id=myserver396358840778
 7_Description=Main%20freenode%20router
@@ -705,8 +719,6 @@ Current=true
 5_Id=myserver396447125520
 8_Description=Frankfurt,%20Germany
 6_Id=myserver396409840370
-7_AutoJoinChannels=##-ini(tmp.channel)-#:
-#-ini(tmp.channel,)-#
 9_Description=Umea,%20Sweden
 Description=The%20FOSS%20Network
 7_Id=myserver39632021923
@@ -1478,3 +1490,4 @@ NServers=1
 NServers=1
 0_Description=Zurna:%20Random%20server
 0_Id=myserver399412965710
+#-ini(tmp.channel,)-#
