@@ -2,17 +2,17 @@
 
 [Desktop Entry]
 #?in(os_locale_language,es,es_UY)!=#
-Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-es"
+Exec=hexchat "--url=ircs://irc.calculate.social:6697/#chat-es"
 #in#
 #?in(os_locale_language,pt,pt_BR)!=#
-Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-pt"
+Exec=hexchat "--url=ircs://irc.calculate.social:6697/#chat-pt"
 #in#
 #?os_locale_language==fr#
-Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-fr"
+Exec=hexchat "--url=ircs://irc.calculate.social:6697/#chat-fr"
 #os_locale_language#
 #?os_locale_language==ru#
-Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate-ru"
+Exec=hexchat "--url=ircs://irc.calculate.social:6697/#chat-ru"
 #os_locale_language#
 #?in(os_locale_language,fr,ru,es,es_UY,pt,pt_BR)==#
-Exec=hexchat "--url=irc://irc.freenode.net:6667/#calculate"
+Exec=hexchat "--url=ircs://irc.calculate.social:6697/#chat"
 #in#
