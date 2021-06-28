@@ -1,0 +1,20 @@
+# Calculate format=dconf dconf=/org/gnome pkg(net-irc/polari)!=
+
+#?in(os_locale_language,es,es_UY)!=#
+#-ini(tmp.channel,chat-es)-#
+#in#
+#?in(os_locale_language,pt,pt_BR)!=#
+#-ini(tmp.channel,chat-pt)-#
+#in#
+#?os_locale_language==fr#
+#-ini(tmp.channel,chat-fr)-#
+#os_locale_language#
+#?os_locale_language==ru#
+#-ini(tmp.channel,chat-ru)-#
+#os_locale_language#
+#?in(os_locale_language,fr,ru,es,es_UY,pt,pt_BR)==#
+#-ini(tmp.channel,chat)-#
+#in#
+
+[polari]
+saved-channel-list=[{'account': <'/org/freedesktop/Telepathy/Account/idle/irc/#-ur_login-#0'>, 'channel': <'##-ini(tmp.channel)-#'>}]
