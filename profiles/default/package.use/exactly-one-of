@@ -4,9 +4,6 @@ sci-libs/vtk tbb
 # exactly-one-of ( alsa oss portaudio pulseaudio )
 app-accessibility/julius -pulseaudio
 
-# hcache? ( exactly-one-of ( berkdb gdbm lmdb qdbm tokyocabinet )
-mail-client/mutt -gdbm -lmdb
-
 # exactly-one-of ( expat xml )
 media-libs/libmetalink expat
 
