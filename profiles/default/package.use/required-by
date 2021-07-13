@@ -643,3 +643,13 @@ sys-fs/squashfs-tools lzma
 # required by media-tv/dtv-scan-tables-0_p20171003
 media-tv/v4l-utils dvb
 media-libs/libv4l dvb
+
+# required by x11-libs/pango-1.48.7
+media-libs/freetype harfbuzz
+
+# equired by net-misc/rygel-0.40.1
+net-libs/gupnp vala
+net-libs/gssd vala
+net-libs/gssdp vala
+media-libs/libmediaart vala
+
