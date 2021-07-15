@@ -29,3 +29,7 @@ app-misc/lcdproc -lcd_devices_glcd -png -lcd_devices_g15
 dev-java/sbt binary
 media-gfx/krita -color-management
 media-video/transcode -imagemagick
+
+# need for app-emulation/lxd-4.0.6-r1
+=dev-util/xdelta-3.0.11 lzma
+
