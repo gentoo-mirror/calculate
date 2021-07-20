@@ -647,9 +647,11 @@ media-libs/libv4l dvb
 # required by x11-libs/pango-1.48.7
 media-libs/freetype harfbuzz
 
-# equired by net-misc/rygel-0.40.1
+# required by net-misc/rygel-0.40.1
 net-libs/gupnp vala
 net-libs/gssd vala
 net-libs/gssdp vala
 media-libs/libmediaart vala
 
+# required by dev-python/pytest-qt-3.3.0
+dev-python/QtPy widgets
