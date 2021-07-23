@@ -658,3 +658,9 @@ dev-python/QtPy widgets
 
 # required by net-fs/samba-4.13.9-r2
 sys-libs/ldb ldap
+
+# required by media-gfx/freecad-0.19.2-r3
+sci-libs/med python
+sci-libs/opencascade vtk
+sci-libs/vtk boost qt5
+
