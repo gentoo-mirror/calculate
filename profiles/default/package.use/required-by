@@ -664,3 +664,6 @@ sci-libs/med python
 sci-libs/opencascade vtk
 sci-libs/vtk boost qt5
 
+# required by dev-python/pyls-spyder-0.4.0-r1
+dev-python/python-lsp-server all-plugins
+
