@@ -9,3 +9,7 @@ media-sound/audacious -gtk qt5
 
 # Support for DNS Service Discovery
 net-print/cups zeroconf
+
+# Enable support for a graphical user interface
+app-editors/emacs gui
+app-emacs/emacs-common gui
