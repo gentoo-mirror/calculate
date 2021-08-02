@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=7
 DESCRIPTION="Runs other programs with the user password, kept in the Linux kernel"
 HOMEPAGE="http://www.calculate-linux.org/main/en/keyexec"
 SRC_URI="ftp://ftp.calculate-linux.org/calculate/source/${PN}/${P}.tar.bz2
@@ -13,9 +14,11 @@ SLOT="0"
 
 KEYWORDS="amd64 x86"
 
-IUSE="kde"
+IUSE="kde +rdesktop +freerdp"
 
-DEPEND="net-misc/rdesktop
+DEPEND="
+	rdesktop? ( net-misc/rdesktop )
+	freerdp? ( net-misc/freerdp )
 	>=sys-apps/keyutils-1.1
 	>=sys-auth/pam_keystore-0.1
 	kde? ( >=kde-base/kdelibs-4.1.0 )"
