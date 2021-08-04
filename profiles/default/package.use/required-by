@@ -315,7 +315,8 @@ dev-libs/liblouis python
 # required by app-text/qpdfview [pdf]
 # required by kde-apps/okular-15.08.3-r1::gentoo[pdf]
 # required by kde-frameworks/kfilemetadata-5.13.0 [pdf]
-app-text/poppler qt5
+# required by kde-apps/okular-21.04.3-r2[pdf]
+app-text/poppler qt5 nss
 
 # required by media-gfx/nomacs-3.0.0
 media-libs/opencv qt5
@@ -669,7 +670,4 @@ dev-python/python-lsp-server all-plugins
 
 # required by dev-util/dput-ng-1.32
 dev-util/distro-info python
-
-# required by kde-apps/okular-21.04.3-r2[pdf]
-app-text/poppler nss
 
