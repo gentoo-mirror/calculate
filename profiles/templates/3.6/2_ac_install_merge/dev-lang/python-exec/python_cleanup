@@ -1,6 +1,8 @@
 # Calculate exec=/bin/bash
 
+#?pkg(app-eselect/eselect-python)!=#
 eselect python cleanup
 eselect python cleanup
+#pkg#
 
 true
