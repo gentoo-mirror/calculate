@@ -91,9 +91,6 @@ sys-libs/zlib minizip
 # required by app-text/gnome-doc-utils
 dev-libs/libxml2 icu
 
-# for using dev-libs/libxml2 [icu] - required by www-client/chromium
-dev-qt/qtwebkit icu
-
 # required by sys-devel/prelink
 dev-libs/elfutils static-libs
 
@@ -608,9 +605,6 @@ media-libs/opencv contribdnn
 # required by media-gfx/fbida-2.14-r2::gentoo[X]
 x11-libs/motif xft
 
-# required by sys-apps/fwupd-1.4.6
-dev-libs/libjcat pkcs7 gpg
-
 # required by sys-apps/selinux-python-3.1-r1
 sys-process/audit python
 
@@ -650,7 +644,6 @@ media-libs/freetype harfbuzz
 
 # required by net-misc/rygel-0.40.1
 net-libs/gupnp vala
-net-libs/gssd vala
 net-libs/gssdp vala
 media-libs/libmediaart vala
 
