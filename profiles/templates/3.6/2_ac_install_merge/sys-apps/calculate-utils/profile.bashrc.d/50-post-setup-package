@@ -9,7 +9,12 @@
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 CL_UPDATE_PROG=/usr/sbin/cl-core
-RUN_CORE="/usr/bin/python2 ${CL_UPDATE_PROG}"
+if [[ -f /usr/lib64/python2.7/site-packages/calculate/core/wsdl_core.py ]]
+then
+	RUN_CORE="/usr/bin/python2 ${CL_UPDATE_PROG}"
+else
+	RUN_CORE="/usr/bin/python3 ${CL_UPDATE_PROG}"
+fi
 CORE_METHOD="--method core_setup"
 
 post_setup_package() {

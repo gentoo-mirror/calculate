@@ -11,7 +11,6 @@
 # @DESCRIPTION:
 # This eclass use for calculate-utils ebuild
 
-DISTUTILS_USE_SETUPTOOLS=manual
 PYTHON_COMPAT=(python3_9)
 
 inherit distutils-r1 eutils
@@ -57,25 +56,25 @@ declare -g -A CALCULATE_MODULES_=(
 	["core"]="$UTILS_PV"
 	["update"]="$UTILS_PV"
 	["console-gui"]="$UTILS_PV"
+	["builder"]="$UTILS_PV"
+	["i18n"]="$UTILS_PV"
+	["desktop"]="$UTILS_PV"
+	["client"]="$UTILS_PV"
+	["console"]="$UTILS_PV"
 )
-#	["builder"]="$UTILS_PV"
-#	["i18n"]="$UTILS_PV"
-#	["desktop"]="$UTILS_PV"
-#	["client"]="$UTILS_PV"
-#	["console"]="$UTILS_PV"
 #	["server"]="$UTILS_PV"
 #	["ldap"]="$UTILS_PV"
 #	["unix"]="$UTILS_PV"
 
 declare -g -A CALCULATE_MODULES_USE_=(
 	["console-gui"]="qt5"
+	["desktop"]="desktop"
+	["client"]="client"
+	["console"]="console"
 )
-#	["desktop"]="desktop"
-#	["client"]="client"
-#	["console"]="console"
-#	["server"]="server"
-#	["ldap"]="server"
-#	["unix"]="server"
+#["server"]="server"
+#["ldap"]="server"
+#["unix"]="server"
 
 EXPORT_FUNCTIONS ${EXPORTED_FUNCTIONS}
 
@@ -155,18 +154,18 @@ RDEPEND="
 	!minimal? (
 		>=sys-apps/util-linux-2.19.1
 		net-misc/rsync
-		dev-python/lxml
-		dev-python/pyopenssl
-		dev-python/cryptography
+		dev-python/pyopenssl[python_targets_python3_9]
+		dev-python/cryptography[python_targets_python3_9]
 		dev-libs/openssl
-		dev-python/m2crypto
-		dev-python/pytz
+		dev-python/m2crypto[python_targets_python3_9]
+		dev-python/pytz[python_targets_python3_9]
 	)
 	gpg? (
 		app-crypt/gnupg
 		app-crypt/openpgp-keys-calculate-release
 	)
-	>=dev-python/pyxml-0.8
+	dev-python/jaraco-functools[python_targets_python3_9]
+	dev-python/lxml[python_targets_python3_9]
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils
@@ -185,50 +184,48 @@ RDEPEND="
 	!<sys-apps/calculate-server-2.1.18-r1
 
 	qt5? (
-		dev-python/dbus-python
+		dev-python/dbus-python[python_targets_python3_9]
 		media-gfx/imagemagick[jpeg]
-		dev-python/PyQt5
-		dev-python/pyinotify
+		dev-python/PyQt5[python_targets_python3_9]
+		dev-python/pyinotify[python_targets_python3_9]
 	)
 
 	dbus? (
-		dev-python/dbus-python
+		dev-python/dbus-python[python_targets_python3_9]
 	)
 
-	dev-python/pexpect
-"
+	dev-python/pexpect[python_targets_python3_9]
 
+	desktop? (
+		media-gfx/feh
+		x11-apps/xmessage
+		sys-apps/keyutils
+		sys-auth/pam_keystore
+		dev-lang/swig
+		dev-qt/qdbus:5
+		sys-apps/edid-decode
+		dev-python/pygobject[python_targets_python3_9]
+		dev-python/dbus-python[python_targets_python3_9]
+	)
+
+	client? (
+		dev-python/python-ldap[ssl,python_targets_python3_9]
+		sys-auth/pam_client
+		>=sys-auth/pam_ldap-180[ssl]
+		>=sys-auth/nss_ldap-239
+	)
+	backup? ( !sys-apps/calculate-server )
+"
 #	server? (
 #		sys-auth/pam_ldap
 #		sys-auth/nss_ldap
-#		dev-python/python-ldap
+#		dev-python/python-ldap[python_targets_python3_9]
 #	)
 #
-#	desktop? (
-#		media-gfx/feh
-#		x11-apps/xmessage
-#		sys-apps/keyutils
-#		sys-auth/pam_keystore
-#		dev-lang/swig
-#		dev-qt/qdbus:5
-#		sys-apps/edid-decode
-#		dev-python/pygobject[python_targets_python3_9]
-#		dev-python/dbus-python[python_targets_python3_9]
-#	)
-#
-#	client? (
-#		dev-python/py-smbpasswd
-#		dev-python/python-ldap[ssl]
-#		sys-auth/pam_client
-#		>=sys-auth/pam_ldap-180[ssl]
-#		>=sys-auth/nss_ldap-239
-#	)
 #
 #	server? ( !sys-apps/calculate-server )
-#	backup? ( !sys-apps/calculate-server )
 
 DEPEND="
-	dev-python/setuptools
 	sys-devel/gettext"
 
 #REQUIRED_USE="client? ( desktop )"
@@ -297,27 +294,27 @@ python_install() {
 		PYTHON_INSTALL_PARAMS="$PYTHON_INSTALL_PARAMS --dbus"
 	fi
 	distutils-r1_python_install $PYTHON_INSTALL_PARAMS
-	rm -r ${D}/usr/share/calculate
-	rm -r ${D}/usr/share/man
-	rm -r ${D}/usr/share/dbus-1
-	rm -f ${D}/usr/libexec/calculate/cl-video-install
-	rm -f ${D}/usr/libexec/calculate/cl-core-wrapper
-	rm -f ${D}/usr/libexec/calculate/cl-pkg-cache
-	rm -f ${D}/usr/libexec/calculate/cl-check-admin
-	rm -f ${D}/usr/libexec/calculate/cl-variable
-	rm -f ${D}/usr/libexec/calculate/cl-dbus-core.py
-	rm -f ${D}/usr/libexec/calculate/cl-git-wrapper
-	rm -f ${D}/usr/sbin/cl-core
-	rm -f ${D}/bin/bashlogin
-	rm -f ${D}/usr/bin/xautologin
+	#rm -r ${D}/usr/share/calculate
+	#rm -r ${D}/usr/share/man
+	#rm -r ${D}/usr/share/dbus-1
+	#rm -f ${D}/usr/libexec/calculate/cl-video-install
+	#rm -f ${D}/usr/libexec/calculate/cl-core-wrapper
+	#rm -f ${D}/usr/libexec/calculate/cl-pkg-cache
+	#rm -f ${D}/usr/libexec/calculate/cl-check-admin
+	#rm -f ${D}/usr/libexec/calculate/cl-variable
+	#rm -f ${D}/usr/libexec/calculate/cl-dbus-core.py
+	#rm -f ${D}/usr/libexec/calculate/cl-git-wrapper
+	#rm -f ${D}/usr/sbin/cl-core
+	#rm -f ${D}/bin/bashlogin
+	#rm -f ${D}/usr/bin/xautologin
 }
 
 calculate-utils-r15_pkg_preinst() {
-	#dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
-	#dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
-	#dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
-	#dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
-	#dosym /usr/lib/python-exec/python2.7/cl-console /usr/bin/cl-console
+	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
+	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
+	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
+	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
+	dosym /usr/lib/python-exec/python3.9/cl-console /usr/bin/cl-console
 	if use qt5
 	then
 		dosym /usr/lib/python-exec/python3.9/cl-console-gui /usr/bin/cl-console-gui
