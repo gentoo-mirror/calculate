@@ -245,6 +245,11 @@ net-libs/libgadu gnutls
 # required by gnome-extra/gnome-contacts-3.22.1
 dev-libs/folks eds
 
+# required by dev-libs/folks-0.15.3[eds]
+gnome-extra/evolution-data-server vala
+dev-libs/libgdata vala
+dev-libs/libical vala
+
 # required by games-action/d1x-rebirth-0.58.1
 dev-games/physfs mvl hog
 
