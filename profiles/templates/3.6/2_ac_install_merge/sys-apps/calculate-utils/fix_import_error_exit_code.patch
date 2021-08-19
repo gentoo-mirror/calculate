@@ -1,4 +1,4 @@
-# Calculate multiline format=patch os_install_arch_machine==x86_64 path=/usr/lib64/python2.7/site-packages/calculate/core name=core_main.py
+# Calculate multiline format=patch os_install_arch_machine==x86_64 path=/usr/lib64/python2.7/site-packages/calculate/core name=core_main.py pkg(sys-apps/calculate-utils)<3.7
 <reg>^(\s*)(else:
 \s*print e.message)
 (\s*except KeyboardInter)</reg>
