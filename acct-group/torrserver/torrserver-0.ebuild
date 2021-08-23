@@ -6,5 +6,5 @@ EAPI=7
 inherit acct-group
 
 ACCT_GROUP_ID=-1
-DESCRIPTION="Group for www-apps/jackett-bin"
+DESCRIPTION="Group for net-p2p/torrserver-bin"
 KEYWORDS="amd64"

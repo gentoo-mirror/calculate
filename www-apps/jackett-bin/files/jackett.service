@@ -9,7 +9,7 @@ RestartSec=5
 Type=simple
 User=jackett
 Group=jackett
-WorkingDirectory=/var/jackett
+WorkingDirectory=/var/lib/jackett
 ExecStart=/bin/sh "/opt/jackett/jackett_launcher.sh"
 TimeoutStopSec=30
 
