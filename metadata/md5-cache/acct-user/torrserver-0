@@ -1,9 +1,9 @@
 DEFINED_PHASES=install postinst preinst prerm pretend
-DESCRIPTION=User for www-apps/jackett-bin
+DESCRIPTION=User for net-p2p/torrserver-bin
 EAPI=7
 INHERIT=acct-user
 KEYWORDS=amd64
-RDEPEND=acct-group/jackett
+RDEPEND=acct-group/torrserver
 SLOT=0
 _eclasses_=user-info	2e75eaea3582b052ec16d9d5aa74ced3	user	1033b6bed7cf367c4507ea9a3ff503d0	acct-user	b3a6f9d710c598ea09935e86d45fbc36
-_md5_=5a9fe465aeb4dc742d95e07ff4b56b72
+_md5_=1cbe1bd02f8b544e64702f92c8611dd5
