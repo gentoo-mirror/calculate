@@ -9,6 +9,6 @@ DESCRIPTION="User for net-p2p/torrserver-bin"
 KEYWORDS="amd64"
 ACCT_USER_ID=-1
 ACCT_USER_GROUPS=( torrserver )
-ACCT_USER_HOME="/var/calculate/torrserver/"
+ACCT_USER_HOME="/var/lib/torrserver/"
 
 acct-user_add_deps

@@ -9,6 +9,6 @@ DESCRIPTION="User for www-apps/jackett-bin"
 KEYWORDS="amd64"
 ACCT_USER_ID=-1
 ACCT_USER_GROUPS=( jackett )
-ACCT_USER_HOME="/var/jackett/"
+ACCT_USER_HOME="/var/lib/jackett/"
 
 acct-user_add_deps

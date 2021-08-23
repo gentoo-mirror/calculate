@@ -12,7 +12,7 @@ depend() {
 start() {
 	ebegin "Starting $name"
 	start-stop-daemon --start --exec /opt/torrserver/TorrServer-linux-amd64 \
-		--env HOME=/var/calculate/torrserver --chdir /var/calculate/torrserver \
+		--env HOME=/var/lib/torrserver --chdir /var/lib/torrserver \
 		--make-pidfile --pidfile /var/run/torrserver.pid \
 		--background --user torrserver:torrserver 
 	eend $? "Failed to start $name"
