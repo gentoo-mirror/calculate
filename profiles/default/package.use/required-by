@@ -334,8 +334,9 @@ net-ftp/proftpd ident
 # [sockets] required by net-analyzer/cacti-0.8.8h
 # [sysvipc] required by net-analyzer/zabbix-5.2.4[frontend]
 # [xmlwriter, zip] required by www-apps/nextcloud-11.0.2
+# [xslt] required by "www-apps/phpsysinfo-3.3.4
 app-eselect/eselect-php fpm
-dev-lang/php cgi curl fpm gd intl mysql pdo postgres sockets sysvipc xmlreader xmlwriter zip
+dev-lang/php cgi curl fpm gd intl mysql pdo postgres sockets sysvipc xmlreader xmlwriter xslt zip
 
 # required by mail-client/alpine-2.00-r7
 net-libs/c-client chappa
