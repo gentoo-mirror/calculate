@@ -9,7 +9,7 @@ SRC_URI="
 	amd64? ( https://github.com/YouROK/TorrServer/releases/download/MatriX.${PV}/TorrServer-linux-amd64 -> TorrServer-linux-amd64-${PV} )
 "
 
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 LICENSE="GPL-3"
 SLOT="0"
 RESTRICT="strip"
