@@ -6,7 +6,7 @@ EAPI=7
 DESCRIPTION="TorrServer, stream torrent to http"
 HOMEPAGE="https://github.com/YouROK/TorrServer"
 SRC_URI="
-	amd64? ( https://github.com/YouROK/TorrServer/releases/download/MatriX.${PV}/TorrServer-linux-amd64 )
+	amd64? ( https://github.com/YouROK/TorrServer/releases/download/MatriX.${PV}/TorrServer-linux-amd64 -> TorrServer-linux-amd64-${PV} )
 "
 
 KEYWORDS="~amd64"
@@ -28,7 +28,7 @@ src_unpack() {
 
 src_install() {
 	dodir /opt/torrserver
-	cp "${S}"/TorrServer-linux-amd64 "${ED}"/opt/torrserver || die
+	cp "${S}"/TorrServer-linux-amd64-${PV} "${ED}"/opt/torrserver/TorrServer-linux-amd64 || die
 	fperms 0755 /opt/torrserver/TorrServer-linux-amd64
 	newinitd "${FILESDIR}"/torrserver.initd torrserver
 	doenvd "${FILESDIR}"/99torrserver
