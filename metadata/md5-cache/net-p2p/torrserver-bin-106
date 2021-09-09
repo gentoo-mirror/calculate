@@ -1,0 +1,11 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=TorrServer, stream torrent to http
+EAPI=7
+HOMEPAGE=https://github.com/YouROK/TorrServer
+KEYWORDS=amd64
+LICENSE=GPL-3
+RDEPEND=acct-user/torrserver
+RESTRICT=strip
+SLOT=0
+SRC_URI=amd64? ( https://github.com/YouROK/TorrServer/releases/download/MatriX.106/TorrServer-linux-amd64 -> TorrServer-linux-amd64-106 )
+_md5_=a4dbfc5d75d68ef678f630f10ca51a2c
