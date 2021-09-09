@@ -3,18 +3,23 @@
 # $Header: $
 
 EAPI="7"
-PYTHON_COMPAT=(python2_7)
+PYTHON_COMPAT=(python3_9)
 
 declare -A CALCULATE_MODULES=(
-	["client"]="3.6.9.1"
+	["lib"]="3.7.1.4"
+	["install"]="3.7.1.3"
+	["core"]="3.7.1.2"
+	["console"]="3.7.1.1"
+	["console-gui"]="3.7.1.2"
+	["builder"]="3.7.1.1"
 )
 
-inherit calculate-utils-r12
+inherit calculate-utils-r15
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
