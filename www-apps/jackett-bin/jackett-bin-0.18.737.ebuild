@@ -11,7 +11,7 @@ SRC_URI="
 	amd64? ( https://github.com/Jackett/Jackett/releases/download/v${PV}/Jackett.Binaries.LinuxAMDx64.tar.gz -> ${P}-amd64.tar.gz )
 "
 
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 LICENSE="GPL-2"
 SLOT="0"
 RESTRICT="strip"
