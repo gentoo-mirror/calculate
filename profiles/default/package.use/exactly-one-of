@@ -34,3 +34,7 @@ mail-filter/rspamd lua_single_target_luajit -lua_single_target_lua5-1
 
 # exactly-one-of ( lua_single_target_lua5-2 lua_single_target_lua5-3 )
 #app-admin/lsyncd lua_single_target_lua5-3
+
+# exactly-one-of ( mariadb mysql )
+dev-ruby/mysql2 mariadb
+
