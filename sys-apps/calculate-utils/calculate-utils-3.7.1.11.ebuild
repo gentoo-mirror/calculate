@@ -6,12 +6,12 @@ EAPI="7"
 PYTHON_COMPAT=(python3_9)
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.7.1.7"
+	["lib"]="3.7.1.9"
 	["install"]="3.7.1.3"
-	["core"]="3.7.1.2"
+	["core"]="3.7.1.3"
 	["console"]="3.7.1.1"
 	["console-gui"]="3.7.1.2"
-	["builder"]="3.7.1.1"
+	["builder"]="3.7.1.2"
 )
 
 inherit calculate-utils-r15

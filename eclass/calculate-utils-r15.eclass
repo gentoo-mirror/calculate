@@ -62,9 +62,6 @@ declare -g -A CALCULATE_MODULES_=(
 	["client"]="$UTILS_PV"
 	["console"]="$UTILS_PV"
 )
-#	["server"]="$UTILS_PV"
-#	["ldap"]="$UTILS_PV"
-#	["unix"]="$UTILS_PV"
 
 declare -g -A CALCULATE_MODULES_USE_=(
 	["console-gui"]="qt5"
@@ -72,9 +69,6 @@ declare -g -A CALCULATE_MODULES_USE_=(
 	["client"]="client"
 	["console"]="console"
 )
-#["server"]="server"
-#["ldap"]="server"
-#["unix"]="server"
 
 EXPORT_FUNCTIONS ${EXPORTED_FUNCTIONS}
 
@@ -294,19 +288,6 @@ python_install() {
 		PYTHON_INSTALL_PARAMS="$PYTHON_INSTALL_PARAMS --dbus"
 	fi
 	distutils-r1_python_install $PYTHON_INSTALL_PARAMS
-	#rm -r ${D}/usr/share/calculate
-	#rm -r ${D}/usr/share/man
-	#rm -r ${D}/usr/share/dbus-1
-	#rm -f ${D}/usr/libexec/calculate/cl-video-install
-	#rm -f ${D}/usr/libexec/calculate/cl-core-wrapper
-	#rm -f ${D}/usr/libexec/calculate/cl-pkg-cache
-	#rm -f ${D}/usr/libexec/calculate/cl-check-admin
-	#rm -f ${D}/usr/libexec/calculate/cl-variable
-	#rm -f ${D}/usr/libexec/calculate/cl-dbus-core.py
-	#rm -f ${D}/usr/libexec/calculate/cl-git-wrapper
-	#rm -f ${D}/usr/sbin/cl-core
-	#rm -f ${D}/bin/bashlogin
-	#rm -f ${D}/usr/bin/xautologin
 }
 
 calculate-utils-r15_pkg_preinst() {
