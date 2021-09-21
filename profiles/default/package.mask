@@ -5,7 +5,6 @@
 sys-libs/db:6.0
 
 # not compiled
-=media-libs/allegro-4.4.3.1
 =sci-libs/cifparse-obj-7.105
 =sec-policy/selinux-ccs-2.20210203-r1
 =sec-policy/selinux-clockspeed-2.20210203-r1
@@ -23,9 +22,3 @@ sys-libs/db:6.0
 
 # no support in CDS yet
 =net-dns/bind-9.16.12
-
-# bug ebuild
-=x11-misc/mozo-1.24.1
-
-# calculate-server 2.1.21 (python3.9)
-=sys-apps/calculate-server-2.1.22
