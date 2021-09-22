@@ -134,7 +134,10 @@ prepare_module_info() {
 
 prepare_variables
 
+# dev-libs/libbsd need to automagic depends of sys-fs/mtools
+
 RDEPEND="
+	dev-libs/libbsd
 	install? ( >=app-cdr/cdrtools-3.01_alpha13
 		>=sys-boot/grub-2.00-r3
 		>=sys-boot/syslinux-5
