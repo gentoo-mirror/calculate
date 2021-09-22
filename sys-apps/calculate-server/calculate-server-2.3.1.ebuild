@@ -2,11 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
-PYTHON_COMPAT=(python2_7)
+EAPI="7"
+PYTHON_COMPAT=(python3_9)
 
-DISTUTILS_USE_SETUPTOOLS=manual
-inherit distutils2 eutils
+inherit distutils-r1
 
 SRC_URI="ftp://ftp.calculate-linux.org/calculate/source/calculate2/${PN}/${P}.tar.bz2
 	http://mirror.yandex.ru/calculate/source/calculate2/${PN}/${P}.tar.bz2"
@@ -15,7 +14,7 @@ DESCRIPTION="Configuration utility for Linux services"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64"
 
 IUSE="calculate_nomail
 calculate_nodhcp
@@ -25,8 +24,9 @@ calculate_nonamed
 calculate_nosamba
 calculate_noproxy"
 
-DEPEND="=sys-apps/calculate-lib-2.1.12-r7
-	dev-python/setuptools-python2
+DEPEND="!sys-apps/calculate-lib
+	acct-group/ldap
+	acct-user/ldap
 	>=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
@@ -42,7 +42,7 @@ DEPEND="=sys-apps/calculate-lib-2.1.12-r7
 			>=net-mail/dovecot-1.2.0[ldap,pam,ssl(+)]
 		)
 		>=mail-filter/procmail-3.22
-		dev-python/pymilter-python2
+		dev-python/pymilter[python_targets_python3_9]
 		>=mail-mta/postfix-2.2[ldap,pam,ssl,sasl,dovecot-sasl]
 	)
 	!calculate_noftp? (
@@ -58,14 +58,13 @@ DEPEND="=sys-apps/calculate-lib-2.1.12-r7
 	)
 	!calculate_nonamed? ( >=net-dns/bind-9.6.1_p1[sdb-ldap] )
 	!calculate_noproxy? ( >=net-proxy/squid-3.0.14[ldap,pam,ssl] )
-	!calculate_nodhcp? ( >=net-misc/dhcp-3.1.2_p1 )"
+	!calculate_nodhcp? ( >=net-misc/dhcp-3.1.2_p1 )
+	dev-python/python-ldap[ssl,python_targets_python3_9]
+	dev-python/lxml[python_targets_python3_9]
+"
 
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/calculate-server-2.1.20-remove_profile_pack.patch
-	"${FILESDIR}"/calculate-server-2.1.20-remove_min_version.patch
-)
 
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \
