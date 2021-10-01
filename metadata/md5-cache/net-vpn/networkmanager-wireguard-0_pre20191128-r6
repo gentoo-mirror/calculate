@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=>=net-misc/networkmanager-1.7.0 net-vpn/wireguard-tools[wg-quick] >=dev-libs/glib-2.32:2 gtk? ( >=x11-libs/gtk+-3.4:3 >=net-libs/libnma-1.7.0 >=app-crypt/libsecret-0.18 )
 SLOT=0
 SRC_URI=https://github.com/max-moser/network-manager-wireguard/archive/0e1124df9e97129c5e0d9996a2c3876ae18f01c4.tar.gz -> networkmanager-wireguard-0_pre20191128.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
 _md5_=3b78231c29dbeb8b2f3b823d7c53b8b1
