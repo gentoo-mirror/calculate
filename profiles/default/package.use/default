@@ -398,3 +398,8 @@ net-firewall/nftables json python
 
 # gtk2 support
 app-i18n/uim gtk2
+
+# Enable WebRTC-based echo canceller, pw-cat/pw-play/pw-record,
+# replace PulseAudio's ALSA plugin with PipeWire's plugin
+media-video/pipewire extra echo-cancel pipewire-alsa
+

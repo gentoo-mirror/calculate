@@ -1,7 +1,7 @@
 USE=""
 
 # Audio
-USE="${USE} alsa amr -arts audiofile cdda cue id3tag flac gstreamer lame mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr opus pulseaudio taglib wavpack vorbis vpx"
+USE="${USE} alsa amr -arts audiofile cdda cue id3tag flac gstreamer lame mad mikmod mp3 mpeg ogg oggvorbis openal opencore-amr opus pipewire pulseaudio taglib wavpack vorbis vpx"
 
 # CD and DVD
 USE="${USE} cdparanoia css dvd dvdr dvdread vcd"
@@ -58,7 +58,7 @@ USE="${USE} python_targets_python2_7"
 USE="${USE} caps cgroups elogind introspection logrotate lz4 lzo networkmanager nsplugin pgo policykit threads udisks zstd"
 
 # Video
-USE="${USE} a52 aac -aalib avi cddb dav1d dv encode faac ffmpeg flash matroska mplayer musepack real sdl speex srt -svga tga quicktime theora vaapi v4l v4l2 vidix win32codecs xanim x264 x265 xinerama xv xvid xvmc"
+USE="${USE} a52 aac -aalib avi cddb dav1d dv encode faac ffmpeg flash matroska mplayer musepack real sdl speex srt screencast -svga tga quicktime theora vaapi v4l v4l2 vidix win32codecs xanim x264 x265 xinerama xv xvid xvmc"
 
 # Web
 #USE="${USE} -apache apache2 javascript"
