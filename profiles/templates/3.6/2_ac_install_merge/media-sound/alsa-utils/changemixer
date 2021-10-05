@@ -1,6 +1,6 @@
 # Calculate path=/usr/bin comment=# chmod=755 
 #!/bin/sh
-if grep -q "os_audio = pulse" /var/lib/calculate/calculate.env 2>/dev/null
+if grep -q "os_audio = pipewire" /var/lib/calculate/calculate.env 2>/dev/null
 then
 	pavucontrol
 else
