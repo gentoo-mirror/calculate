@@ -1,7 +1,7 @@
 # Calculate chmod=0755
 #!/bin/sh
 
-if grep -q "os_audio = pulseaudio" /var/lib/calculate/calculate.env 2>/dev/null
+if grep -q "os_audio = pipewire" /var/lib/calculate/calculate.env 2>/dev/null
 then
 	exec /opt/viber/viber-bin "$@"
 else
