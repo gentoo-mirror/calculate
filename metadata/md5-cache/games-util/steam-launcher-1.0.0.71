@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst postrm preinst prepare setup
+DESCRIPTION=Installer, launcher and supplementary files for Valve's Steam client
+EAPI=8
+HOMEPAGE=https://steampowered.com
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop linux-info prefix xdg
+IUSE=+joystick +steamruntime +udev kernel_linux
+KEYWORDS=~amd64
+LICENSE=ValveSteamLicense MIT
+RDEPEND=app-arch/tar app-shells/bash net-misc/curl || ( >=gnome-extra/zenity-3 x11-terms/xterm ) joystick? ( udev? ( games-util/game-device-udev-rules ) ) steamruntime? ( virtual/opengl[abi_x86_32] x11-libs/libX11[abi_x86_32] x11-libs/libXau[abi_x86_32] x11-libs/libxcb[abi_x86_32] x11-libs/libXdmcp[abi_x86_32] ) !steamruntime? ( >=games-util/steam-client-meta-0-r20210608[steamruntime?] ) amd64? ( >=sys-devel/gcc-4.6.0[multilib] >=sys-libs/glibc-2.15[multilib] ) x86? ( >=sys-devel/gcc-4.6.0 >=sys-libs/glibc-2.15 )
+RESTRICT=bindist mirror test
+SLOT=0
+SRC_URI=https://repo.steampowered.com/steam/archive/stable/steam_1.0.0.71.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	0979a3f84b9948fbe2a553beb6b5f505	prefix	d04f14b297013ad1410550c0757f14f8	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
+_md5_=eabaf3d9e13c79664a4ac2fded2bf6ad
