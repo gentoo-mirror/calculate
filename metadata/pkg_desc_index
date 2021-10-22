@@ -4,8 +4,6 @@ acct-user/jackett 0: User for www-apps/jackett-bin
 acct-user/torrserver 0: User for net-p2p/torrserver-bin
 app-crypt/openpgp-keys-calculate-release 20180827: OpenPGP keys used for Calculate binary packages
 app-crypt/shim-signed 0.2: UEFI Shim bootloader for SecureBoot signed by Microsoft
-app-dicts/stardict-calculate-ru 1.0: The collection of Russian-English dictionaries
-app-editors/featherpad 0.9.1 9999: Lightweight Qt5 Plain-Text Editor for Linux
 app-eselect/eselect-blas 0.2-r1: BLAS/CBLAS module for eselect
 app-eselect/eselect-lapack 0.2-r1: LAPACK module for eselect
 app-eselect/eselect-oodict 20100228: Manages configuration of dictionaries for OpenOffice.Org
@@ -16,14 +14,10 @@ dev-java/jamvm 2.0.0-r2: An extremely small and specification-compliant virtual 
 dev-libs/olm 3.2.4: An implementation of the Double Ratchet cryptographic ratchet in C++
 dev-ml/extlib 1.7.6-r1: Standard library extensions for O'Caml
 dev-perl/Crypt-Curve25519 0.60.0-r1: Shared secret elliptic-curve Diffie-Hellman generator
-dev-python/flask-cors 2.1.0-r2: A Flask extension for Cross Origin Resource Sharing (CORS)
 dev-python/sjcl 0.2.1: Decrypt and encrypt messages compatible to the SJCL message format
-dev-texlive/texlive-luatex 2020-r2: TeXLive LuaTeX packages
 dev-util/eclipse-sdk-bin 4.5.2 4.6.3 4.7.3 4.8.0 4.9.0 4.13.0: Eclipse SDK
 dev-vcs/qgit 2.9-r1: Qt GUI for git repositories
-games-engines/love 0.7.2-r3 0.8.0-r3: A framework for 2D games in Lua
 games-util/steam-launcher 1.0.0.71: Installer, launcher and supplementary files for Valve's Steam client
-gnome-extra/nemo-fileroller 3.2.0 4.4.0: File Roller integration for Nemo
 media-fonts/noto-emoji 20200317-r1: Google Noto Emoji fonts
 media-gfx/calculate-wallpapers 14-r2 15 17-r4 18-r1 21: Wallpapers for Calculate Linux
 media-gfx/cinnamon-themes-calculate 15: Cinnamon theme for Calculate Linux
@@ -40,8 +34,6 @@ media-gfx/plasma-themes-calculate 15 17 17-r1: Plasma theme for Calculate Linux
 media-gfx/splash-themes-calculate 15-r3 17-r3 18-r3 19-r1: Calculate Linux theme for gensplash
 media-gfx/utsushi 20210116 20210526: SANE backend driver for newer Epson scanners (DS, ET, PX, etc)
 media-gfx/xfce-themes-calculate 18: XFCE theme for Calculate Linux
-media-libs/freeimage 3.15.4-r2: Image library supporting many formats
-media-libs/openimageio 2.2.9.0-r2: A library for reading and writing images
 net-dns/bind 9.16.12-r1: Berkeley Internet Name Domain - Name Server
 net-im/rocketchat-desktop 2.17.11 3.1.1: Desktop application for Rocket.Chat
 net-im/viber 13.3.1.22: Free text and calls
@@ -54,7 +46,6 @@ net-vpn/networkmanager-wireguard 0_pre20191128-r6: NetworkManager WireGuard plug
 net-wireless/rtl8814au 20201228 20210331 20210429: Realtek 8814AU USB WiFi module for Linux kernel
 net-wireless/rtl8821ce 20201216 20210321: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 20201224 20210327 20210506: Realtek 8821(*U)/8811CU/8812A/8192E/8814A/8822B/8723(*U)/8188E(**) module for Linux kernel
-sci-chemistry/gromacs 2020.4-r1: The ultimate molecular dynamics simulation package
 sci-libs/cifparse-obj 7.025-r2: Provides an object-oriented application interface to information in mmCIF format
 sys-apps/calculate-access 0.1.2 9999: Cryptodata management tools
 sys-apps/calculate-server 2.3.1 2.3.2 2.3.3 2.3.4 2.3.5 2.3.6 2.3.7 2.3.9999: Configuration utility for Linux services
@@ -85,6 +76,5 @@ x11-themes/claws-mail-theme-calculate 20120129: Iconset Calculate for Claws Mail
 x11-themes/claws-mail-theme-papirus 20181024: Iconset Papirus for Claws Mail
 x11-themes/elementary-icon-theme 2.7.1-r4 2.7.1-r5: Elementary icon theme is designed to be smooth, sexy, clear, and efficient
 x11-themes/elementary-xfce-icon-theme 0.13.1: Elementary icons forked from upstream, extended and maintained for Xfce
-x11-themes/papirus-icon-theme 20181120-r2 99999999: Papirus icon theme for GTK and KDE
 x11-themes/papirus-libreoffice-theme 20170228 99999999: Papirus icon theme for LibreOffice
 x11-themes/papirus-smplayer-theme 20170119 99999999: Papirus icon themes for SMPlayer

@@ -13,11 +13,6 @@ media-gfx/dm-themes-calculate:splash - Include display manager splash image.
 media-gfx/splash-themes-calculate:silent - Include silent image for boot.
 media-gfx/splash-themes-calculate:silent-shutdown - Include silent image for shutdown.
 media-gfx/splash-themes-calculate:verbose - Include verbose image.
-media-libs/openimageio:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
-media-libs/openimageio:field3d - Enable f3d file (write) support via media-libs/Field3D
-media-libs/openimageio:opencv - Enable OpenCV support via media-libs/opencv
-media-libs/openimageio:openvdb - Enable OpenVDB support via media-gfx/openvdb
-media-libs/openimageio:ptex - Enable Ptex texture mapping system file support via media-libs/ptex
 net-misc/asterisk-moh-opsound:alaw - Install the sounds files for the alaw codec.
 net-misc/asterisk-moh-opsound:g722 - Install the sounds files for the g722 codec.
 net-misc/asterisk-moh-opsound:g729 - Install the sounds files for the g729 codec.
@@ -27,17 +22,6 @@ net-misc/asterisk-moh-opsound:siren7 - Install the sounds files for the siren7 c
 net-misc/asterisk-moh-opsound:sln16 - Install the sounds files for the sln16 codec.
 net-misc/asterisk-moh-opsound:ulaw - Install the sounds files for the ulaw codec.
 net-misc/asterisk-moh-opsound:wav - Install the sounds files for the wav codec.
-sci-chemistry/gromacs:cuda - Enable cuda non-bonded kernels
-sci-chemistry/gromacs:double-precision - More precise calculations at the expense of speed
-sci-chemistry/gromacs:gmxapi - Add support for gmxapi library
-sci-chemistry/gromacs:gmxapi-legacy - Enable installing lagacy headers
-sci-chemistry/gromacs:hwloc - Enable HWLoc lib support
-sci-chemistry/gromacs:lmfit - Use external sci-libs/lmfit
-sci-chemistry/gromacs:mkl - Use sci-libs/mkl for fft, blas, lapack routines
-sci-chemistry/gromacs:offensive - Enable gromacs partly offensive quotes
-sci-chemistry/gromacs:opencl - Enable opencl non-bonded kernels
-sci-chemistry/gromacs:single-precision - Single precision version of gromacs (default)
-sci-chemistry/gromacs:tng - Enable new trajectory format - tng
 sys-apps/calculate-utils:backup - Includes backup module.
 sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain.
 sys-apps/calculate-utils:console - Includes console module.
