@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 97b60d7..5f50ff7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -45,7 +45,7 @@ vocabulary.h: mk_vocabulary
+ 	./mk_vocabulary -c >$@
+ 
+ jpeg.o: jpeg.S
+-	as --32 -ahlsn=jpeg.lst -o $@ $<
++	as --32 -mx86-used-note=no -ahlsn=jpeg.lst -o $@ $<
+ 
+ install: all
+ 	install -d -m 755 $(DESTDIR)/usr/sbin

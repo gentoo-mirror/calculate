@@ -10,7 +10,7 @@ SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/gfxboot/${PV
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 
 IUSE=""
 
@@ -26,7 +26,7 @@ RESTRICT="mirror"
 
 PATCHES=(
 	"${FILESDIR}/gfxboot-fix_warning.patch"
-	"${FILESDIR}/gfxboot-fix_freetype.patch"
+	"${FILESDIR}/gfxboot-fix_bigsize.patch"
 )
 
 src_install() {
