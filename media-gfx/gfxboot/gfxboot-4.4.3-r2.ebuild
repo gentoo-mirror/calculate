@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header:
 
-EAPI=5
+EAPI=7
 
 DESCRIPTION="tool to test and create graphical boot logos"
 HOMEPAGE="http://www.calculate-linux.org"
