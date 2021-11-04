@@ -32,3 +32,6 @@ media-video/transcode -imagemagick
 
 # need for app-emulation/lxd-4.0.6-r1
 =dev-util/xdelta-3.0.11 lzma
+
+# not compile media-libs/osl
+media-gfx/blender -osl
