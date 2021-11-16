@@ -4,7 +4,7 @@ ID="calculate"
 ID_LIKE="gentoo"
 #?os_install_linux_subname!=#
 PRETTY_NAME="#-os_install_linux_name-# #-os_install_linux_ver-# #-os_install_linux_subname-#"
-VERSION="#-os_install_linux_ver-# #-os_install_linux_subname-#"
+VERSION="#-os_install_linux_ver-# (#-os_install_linux_subname-#")
 #!os_install_linux_subname#
 PRETTY_NAME="#-os_install_linux_name-# #-os_install_linux_ver-#"
 #os_install_linux_subname#
@@ -12,6 +12,7 @@ VERSION_ID=#-os_install_linux_ver-#
 BUILD_ID=#-os_linux_build-#
 ANSI_COLOR="1;32"
 HOME_URL="https://www.calculate-linux.org"
+DOCUMENTATION_URL="https://wiki.calculate-linux.org"
 SUPPORT_URL="https://chat.calculate-linux.org"
 BUG_REPORT_URL="https://forum.calculate-linux.org"
 VARIANT_ID=#-os_linux_system-#
