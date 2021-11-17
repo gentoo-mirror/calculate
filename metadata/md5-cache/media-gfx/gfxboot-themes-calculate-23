@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install
+DEPEND=media-gfx/gfxboot !<sys-apps/calculate-utils-3.5.2.6
+DESCRIPTION=Gfxboot themes for Calculate Linux
+EAPI=7
+HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/gfxboot-themes-calculate
+KEYWORDS=amd64 x86
+LICENSE=Apache-2.0
+RDEPEND=media-gfx/gfxboot !<sys-apps/calculate-utils-3.5.2.6
+SLOT=0
+SRC_URI=https://mirror.calculate-linux.org/themes/gfxboot/gfxboot-themes-calculate-23.tar.bz2 https://mirror.yandex.ru/calculate/themes/gfxboot/gfxboot-themes-calculate-23.tar.bz2
+_md5_=f8e641c3c2fdf8ff4b4f73b1a7821296
