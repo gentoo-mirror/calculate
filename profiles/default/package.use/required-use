@@ -28,9 +28,6 @@ net-misc/bfgminer opencl
 # spell? ( exactly-one-of ( aspell enchant hunspell ) )
 net-im/vacuum -enchant
 
-# X? ( python )
-sci-geosciences/gpsd python
-
 # timidity? ( midi )
 media-libs/sdl2-mixer midi
 
@@ -61,6 +58,3 @@ app-misc/emelfm2 -spell
 
 # pulseaudio? ( qt5 )
 media-libs/libprojectm qt5
-
-# required by @selected
-dev-ml/stdlib-shims ocamlopt

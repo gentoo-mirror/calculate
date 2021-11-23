@@ -377,9 +377,6 @@ media-fonts/culmus fancy
 # required by dev-qt/qt-creator-4.4.1[cmake]
 dev-util/cmake server
 
-# required by net-libs/webkit-gtk-2.18.2[gstreamer]
-media-libs/gst-plugins-bad egl
-
 # required by net-vpn/libreswan-3.20
 dev-libs/nss utils
 
@@ -406,9 +403,6 @@ dev-libs/gmime smime
 
 # required by net-mail/vchkuser-0.4
 mail-mta/netqmail qmail-spp
-
-# required by sys-devel/llvmgold-4
-sys-devel/llvm gold
 
 # required by sci-visualization/mayavi-4.3.0
 sci-libs/vtk python
