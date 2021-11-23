@@ -1,7 +1,5 @@
 ~app-accessibility/caribou-0.4.21 amd64
 ~app-accessibility/speech-tools-2.5.0 amd64
-~app-admin/mongo-tools-100.3.0 amd64
-~app-admin/reportmagic-2.21 amd64
 ~app-admin/salt-3003 amd64
 ~app-admin/socklog-2.1.0 amd64
 ~app-admin/watchfolder-0.3.3 amd64
@@ -25,9 +23,7 @@
 ~app-backup/rdumpfs-0.1 amd64
 ~app-backup/rdup-1.1.15 amd64
 ~app-backup/simplebackup-1.8.1 amd64
-~app-backup/snapper-0.8.15 amd64
 ~app-backup/tarsnap-1.0.39 amd64
-~app-backup/untangle-https-backup-0.0.10 amd64
 ~app-backup/untangle-https-backup-0.1.0 amd64
 ~app-backup/vzdump-1.2 amd64
 ~app-benchmarks/bootchart2-0.14.8 amd64
@@ -212,7 +208,6 @@
 ~app-shells/ksh-2020.0.0 amd64
 ~app-text/cherrytree-0.99.0_p20200523 amd64
 ~app-text/languagetool-4.5 amd64
-~app-text/rpl-1.6.7 amd64
 ~app-text/rpl-1.9.1 amd64
 ~app-text/xiphos-4.2.1 amd64
 ~app-text/zathura-pdf-mupdf-0.3.6 amd64
@@ -267,7 +262,6 @@
 ~dev-java/error-prone-annotations-2.0.14 amd64
 ~dev-java/guava-20.0 amd64
 ~dev-java/j2objc-annotations-1.2 amd64
-~dev-java/jackson-2.9.10 amd64
 ~dev-java/jackson-annotations-2.9.10 amd64
 ~dev-java/javacc-5.0 amd64
 ~dev-java/jchart2d-3.2.2 amd64
@@ -283,14 +277,12 @@
 ~dev-lang/elixir-1.12.3 amd64
 ~dev-lang/execline-2.3.0.4 amd64
 ~dev-lang/gprolog-1.4.5 amd64
-~dev-lang/ispc-1.16.0 amd64
 ~dev-lang/jimtcl-0.78 amd64
 ~dev-libs/angelscript-2.35.1 amd64
 ~dev-libs/bglibs-2.04 amd64
 ~dev-libs/cppcodec-0.2 amd64
 ~dev-libs/crossguid-0_pre20150817 amd64
 ~dev-libs/ding-libs-0.6.1 amd64
-~dev-libs/go-fuse-0_p20150422 amd64
 ~dev-libs/icu-layoutex-69.1 amd64
 ~dev-libs/iniparser-4.1 amd64
 ~dev-libs/injeqt-1.2.0 amd64
@@ -323,8 +315,6 @@
 ~dev-lisp/uiop-3.3.2 amd64
 ~dev-ml/base_quickcheck-0.14.1 amd64
 ~dev-ml/jsonm-1.0.1 amd64
-~dev-ml/ppxlib-0.18.0 amd64
-~dev-ml/ppxlib-0.21.0 amd64
 ~dev-perl/Net-Pcap-0.180.0 amd64
 ~dev-perl/Number-Bytes-Human-0.110.0 amd64
 ~dev-php/phpunit-mock-objects-3.4.3 amd64
@@ -335,13 +325,11 @@
 ~dev-python/google-pasta-0.2.0 amd64
 ~dev-python/ioflo-2.0.2 amd64
 ~dev-python/jedi-0.18.0 amd64
-~dev-python/jinja-3.0.1 amd64
 ~dev-python/lxml-4.6.3 amd64
 ~dev-python/markupsafe-2.0.1 amd64
 ~dev-python/metakernel-0.27.5 amd64 
 ~dev-python/mkdocs-bootstrap-1.1 amd64
 ~dev-python/mkdocs-bootswatch-1.1 amd64
-~dev-python/mkdocs_pymdownx_material_extras-1.4.0 amd64
 ~dev-python/nltk-3.6.2 amd64
 ~dev-python/oct2py-5.2.0 amd64 
 ~dev-python/octave_kernel-0.32.0 amd64 
@@ -355,10 +343,8 @@
 ~dev-python/sip-5.5.0 amd64
 ~dev-python/sphinx_rtd_theme-1.0.0 amd64
 ~dev-python/textdistance-4.2.1 amd64
-~dev-python/werkzeug-2.0.1 amd64
 ~dev-python/whisper-1.1.7 amd64
 ~dev-python/xapp-2.2.1 amd64
-~dev-python/zstandard-0.15.2 amd64
 ~dev-qt/qtplugininfo-5.15.2 amd64
 ~dev-qt/qtquicktimeline-5.15.2 amd64
 ~dev-qt/qtserialbus-5.15.2 amd64
@@ -372,7 +358,6 @@
 ~dev-util/cookiecutter-1.7.3 amd64
 ~dev-util/intel-ocl-sdk-4.4.0.117 amd64
 ~dev-util/lcov-1.15 amd64
-~dev-util/maturin-0.11.1 amd64
 ~dev-util/patchbin-20160208 amd64
 ~dev-util/patchelf-0.10 amd64
 ~dev-util/premake-5.0.0_alpha12 amd64
@@ -423,8 +408,6 @@
 ~media-libs/libtgvoip-2.4.4_p20210302 amd64
 ~media-libs/libvpx-1.10.0 amd64
 ~media-libs/libwebp-1.1.0 amd64
-~media-libs/oidn-1.3.0 amd64
-~media-libs/opencolorio-2.0.0 amd64
 ~media-libs/rnnoise-0.4.1_p20210122 amd64
 ~media-libs/sdl-pango-0.1.2 amd64
 ~media-libs/speex-1.2.0 amd64
@@ -449,7 +432,6 @@
 ~media-sound/qmidiroute-0.4.0 amd64
 ~media-sound/qtagger-1.0.1_p20150402 amd64
 ~media-sound/snd-17.4 amd64
-~media-sound/terminatorx-4.0.1 amd64
 ~media-sound/umurmur-0.2.17 amd64
 ~media-tv/linuxtv-dvb-apps-1.1.1.20140321 amd64
 ~media-video/baka-mplayer-2.0.4 amd64
@@ -495,7 +477,6 @@
 ~net-misc/l7-protocols-2009.05.28 amd64
 ~net-misc/netsed-0.01b amd64
 ~net-misc/ofono-1.31 amd64
-~net-misc/s3cmd-2.1.0 amd64
 ~net-misc/sstp-client-1.0.12 amd64
 ~net-nds/ldapvi-1.7_p20101214 amd64
 ~net-p2p/bittornado-0.4.1_p20160925 amd64
@@ -508,7 +489,6 @@
 ~net-print/sshlpr-1 amd64
 ~net-proxy/squirm-1.26 amd64
 ~net-vpn/i2p-0.9.48 amd64
-~net-vpn/networkmanager-fortisslvpn-1.2.10 amd64
 ~net-vpn/networkmanager-sstp-1.2.0 amd64
 <net-vpn/wireguard-modules-9999 amd64
 net-vpn/wireguard-tools amd64
@@ -518,7 +498,6 @@ net-vpn/wireguard-tools amd64
 ~sci-astronomy/pyephem-3.7.7.1 amd64
 ~sci-biology/fasttree-2.1.11 amd64
 ~sci-calculators/grpn-1.4.0 amd64
-~sci-chemistry/pymol-2.4.0 amd64
 ~sci-chemistry/votca-csg-1.6.4 amd64
 ~sci-chemistry/votca-csgapps-1.6.4 amd64
 ~sci-chemistry/votca-xtp-1.6.4 amd64
@@ -531,7 +510,6 @@ net-vpn/wireguard-tools amd64
 ~sci-geosciences/gshhs-data-2.2.0 amd64
 ~sci-geosciences/mc2bsbh-0.0.9 amd64
 ~sci-geosciences/opencpn-5.2.4 amd64
-~sci-geosciences/opencpn-plugin-br24radar-2.1 amd64
 ~sci-geosciences/opencpn-plugin-climatology-1.4.32.0 amd64
 ~sci-geosciences/opencpn-plugin-dr-1.1 amd64
 ~sci-geosciences/opencpn-plugin-findit-1.1007 amd64
@@ -576,7 +554,6 @@ net-vpn/wireguard-tools amd64
 ~sys-apps/apparmor-3.0.1 amd64
 ~sys-apps/apparmor-utils-3.0.1 amd64
 ~sys-apps/fix-gnustack-0.1 amd64
-~sys-apps/hwloc-2.3.0 amd64
 ~sys-apps/man-pages-5.12 amd64
 ~sys-apps/miscfiles-1.5 amd64
 ~sys-apps/s6-2.6.1.1 amd64
