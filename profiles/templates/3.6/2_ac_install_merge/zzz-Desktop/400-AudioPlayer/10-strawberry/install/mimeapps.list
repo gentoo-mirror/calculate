@@ -1,0 +1,19 @@
+# Calculate format=compiz protected
+
+# Update info
+#-ini(desktop.updating, on)-#
+#-ini(desktop.audioplayer, strawberry)-#
+
+[Added Associations]
+audio/mp4=org.strawberrymusicplayer.strawberry.desktop;
+audio/mpeg=org.strawberrymusicplayer.strawberry.desktop;
+audio/x-flac=org.strawberrymusicplayer.strawberry.desktop;
+audio/x-ms-wma=org.strawberrymusicplayer.strawberry.desktop;
+audio/x-wav=org.strawberrymusicplayer.strawberry.desktop;
+
+[Default Applications]
+audio/mp4=org.strawberrymusicplayer.strawberry.desktop;
+audio/mpeg=org.strawberrymusicplayer.strawberry.desktop;
+audio/x-flac=org.strawberrymusicplayer.strawberry.desktop;
+audio/x-ms-wma=org.strawberrymusicplayer.strawberry.desktop;
+audio/x-wav=org.strawberrymusicplayer.strawberry.desktop;
