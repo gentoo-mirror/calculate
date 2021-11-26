@@ -12,8 +12,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-SRC_URI="https://mirror.calculate-linux.org/themes/grub/grub-14-r1.tar.bz2
-	http://mirror.yandex.ru/calculate/themes/grub/grub-14-r1.tar.bz2"
+SRC_URI="https://mirror.calculate-linux.org/themes/grub/grub-14-r1.tar.bz2"
+
 RDEPEND="!<sys-boot/calcboot-4.05.0-r1"
 
 DEPEND="${RDEPEND}"

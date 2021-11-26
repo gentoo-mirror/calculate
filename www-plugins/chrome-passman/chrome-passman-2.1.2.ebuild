@@ -6,8 +6,7 @@ EAPI="7"
 
 inherit eutils
 
-SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2
-	http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2"
+SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="Passman - The password manager for NextCloud / ownCloud"
 HOMEPAGE="https://chrome.google.com/webstore/detail/hlpjhlifkgmoibhollggngbbhbejecph"

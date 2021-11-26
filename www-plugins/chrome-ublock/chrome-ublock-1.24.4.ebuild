@@ -6,8 +6,7 @@ EAPI="7"
 
 inherit eutils
 
-SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2
-	http://mirror.yandex.ru/calculate/${PN}/${P}.tar.bz2"
+SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="An efficient blocker for Chromium"
 HOMEPAGE="https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm"
