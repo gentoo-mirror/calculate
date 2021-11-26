@@ -18,7 +18,7 @@ inherit distutils-r1 eutils
 EXPORTED_FUNCTIONS="src_compile src_install pkg_preinst"
 
 CALCULATE_URI="https://mirror.calculate-linux.org/source/calculate3"
-MIRROR_URI="https://mirror.yandex.ru/calculate/source/calculate3"
+MIRROR_URI=
 
 # @ECLASS-VARIABLE: CALCULATE_MODULES
 # @DESCRIPTION:

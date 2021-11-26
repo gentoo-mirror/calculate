@@ -12,8 +12,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
 
-SRC_URI="https://mirror.calculate-linux.org/themes/gfxboot/gfxboot-themes-calculate-${PVR}.tar.bz2
-	https://mirror.yandex.ru/calculate/themes/gfxboot/gfxboot-themes-calculate-${PVR}.tar.bz2"
+SRC_URI="https://mirror.calculate-linux.org/themes/gfxboot/gfxboot-themes-calculate-${PVR}.tar.bz2"
 
 DEPEND="media-gfx/gfxboot
 	!<sys-apps/calculate-utils-3.5.2.6"

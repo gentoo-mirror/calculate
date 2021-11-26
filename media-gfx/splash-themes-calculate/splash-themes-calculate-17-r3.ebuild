@@ -16,13 +16,11 @@ REQUIRED_USE="|| ( verbose silent silent-shutdown )"
 
 SRC_URI="silent? ( 
 		https://mirror.calculate-linux.org/themes/calculate/splash-silent-17.jpg -> ${PN}-silent-17.jpg
-		http://mirror.yandex.ru/calculate/themes/calculate/splash-silent-17.jpg -> ${PN}-silent-17.jpg )
 	verbose? (
 		https://mirror.calculate-linux.org/themes/calculate/splash-verbose-17-r1.jpg -> ${PN}-verbose-17-r1.jpg
-		http://mirror.yandex.ru/calculate/themes/calculate/splash-verbose-17-r1.jpg -> ${PN}-verbose-17-r1.jpg )
 	silent-shutdown? (
 		https://mirror.calculate-linux.org/themes/calculate/splash-shutdown-17.jpg -> ${PN}-shutdown-17.jpg
-		http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-17.jpg -> ${PN}-shutdown-17.jpg )"
+	)"
 
 DEPEND="media-gfx/splashutils
 	media-fonts/droid

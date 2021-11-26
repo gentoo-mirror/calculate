@@ -15,18 +15,14 @@ IUSE="+CL11 +CL12 +CL13"
 
 SRC_URI="
 	https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-14-r1.tar.bz2
-	http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-14-r1.tar.bz2
 	CL11? (
 		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-11.tar.bz2
-		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-11.tar.bz2
 	)
 	CL12? (
 		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-12.tar.bz2
-		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-12.tar.bz2
 	)
 	CL13? (
 		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-13.tar.bz2
-		http://mirror.yandex.ru/calculate/themes/wallpapers/wallpapers-13.tar.bz2
 	)
 	"
 
