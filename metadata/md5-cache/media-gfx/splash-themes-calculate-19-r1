@@ -9,5 +9,5 @@ LICENSE=Apache-2.0
 RDEPEND=sys-boot/plymouth-calculate-plugin sys-boot/plymouth-openrc-plugin media-fonts/droid !<sys-apps/calculate-utils-3.5.4 || ( media-gfx/imagemagick media-gfx/graphicsmagick )
 REQUIRED_USE=|| ( silent silent-shutdown )
 SLOT=0
-SRC_URI=silent? ( https://mirror.calculate-linux.org/themes/calculate/splash-silent-19.png -> splash-themes-calculate-silent-19.png http://mirror.yandex.ru/calculate/themes/calculate/splash-silent-19.png -> splash-themes-calculate-silent-19.png ) silent-shutdown? ( https://mirror.calculate-linux.org/themes/calculate/splash-shutdown-19.jpg -> splash-themes-calculate-shutdown-19.jpg http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-19.jpg -> splash-themes-calculate-shutdown-19.jpg )
-_md5_=08e746416c102ad52932d6f32cd47a9e
+SRC_URI=silent? ( https://mirror.calculate-linux.org/themes/calculate/splash-silent-19.png -> splash-themes-calculate-silent-19.png ) silent-shutdown? ( https://mirror.calculate-linux.org/themes/calculate/splash-shutdown-19.jpg -> splash-themes-calculate-shutdown-19.jpg )
+_md5_=d143b514c4bf615df614635606813bef

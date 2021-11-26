@@ -9,5 +9,5 @@ LICENSE=Apache-2.0
 RDEPEND=media-gfx/splashutils media-fonts/droid !<sys-apps/calculate-utils-3.5.2.6 || ( media-gfx/imagemagick media-gfx/graphicsmagick )
 REQUIRED_USE=|| ( verbose silent silent-shutdown )
 SLOT=0
-SRC_URI=silent? ( https://mirror.calculate-linux.org/themes/calculate/splash-silent-17.jpg -> splash-themes-calculate-silent-17.jpg http://mirror.yandex.ru/calculate/themes/calculate/splash-silent-17.jpg -> splash-themes-calculate-silent-17.jpg ) verbose? ( https://mirror.calculate-linux.org/themes/calculate/splash-verbose-17-r1.jpg -> splash-themes-calculate-verbose-17-r1.jpg http://mirror.yandex.ru/calculate/themes/calculate/splash-verbose-17-r1.jpg -> splash-themes-calculate-verbose-17-r1.jpg ) silent-shutdown? ( https://mirror.calculate-linux.org/themes/calculate/splash-shutdown-17.jpg -> splash-themes-calculate-shutdown-17.jpg http://mirror.yandex.ru/calculate/themes/calculate/splash-shutdown-17.jpg -> splash-themes-calculate-shutdown-17.jpg )
-_md5_=c6b4555351a968a16b4687f8e93859ac
+SRC_URI=silent? ( https://mirror.calculate-linux.org/themes/calculate/splash-silent-17.jpg -> splash-themes-calculate-silent-17.jpg verbose? ( https://mirror.calculate-linux.org/themes/calculate/splash-verbose-17-r1.jpg -> splash-themes-calculate-verbose-17-r1.jpg silent-shutdown? ( https://mirror.calculate-linux.org/themes/calculate/splash-shutdown-17.jpg -> splash-themes-calculate-shutdown-17.jpg )
+_md5_=1e5aeb87c3bc18f1fdc82c4134ff35f4
