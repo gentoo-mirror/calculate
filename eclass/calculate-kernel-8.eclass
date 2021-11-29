@@ -171,6 +171,7 @@ clean_for_minimal() {
 		scripts/Makefile.modbuiltin scripts/Makefile.fwinst \
 		scripts/Makefile.modfinal \
 		scripts/Makefile.compiler \
+		scripts/modules-check.sh \
 		scripts/Makefile.extrawarn scripts/Makefile.kasan \
 		scripts/depmod.sh scripts/Makefile.host \
 		scripts/Makefile.gcc-plugins \
