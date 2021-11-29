@@ -4,11 +4,11 @@
 EAPI=7
 inherit linux-mod
 
-COMMIT="a333b6a2b091efc90cbb3946c27fb93f638dcbb4"
+COMMIT="6d49275ba594ce7a1593851d17b97beddbb5179b"
 
 DESCRIPTION="Realtek 8814AU USB WiFi module for Linux kernel"
-HOMEPAGE="https://github.com/aircrack-ng/rtl8814au"
-SRC_URI="https://github.com/aircrack-ng/rtl8814au/archive/${COMMIT}.zip -> rtl8814au-${PV}.zip"
+HOMEPAGE="https://github.com/morrownr/8814au"
+SRC_URI="https://github.com/morrownr/8814au/archive/${COMMIT}.zip -> rtl8814au-${PV}.zip"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64"
@@ -17,7 +17,7 @@ DEPEND="virtual/linux-sources
 	app-arch/unzip"
 RDEPEND=""
 
-S="${WORKDIR}/rtl8814au-${COMMIT}"
+S="${WORKDIR}/8814au-${COMMIT}"
 
 MODULE_NAMES="8814au(net/wireless)"
 BUILD_TARGETS="all"
