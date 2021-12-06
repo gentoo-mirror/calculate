@@ -1,10 +1,13 @@
 # Calculate format=json path=~/.config/chromium 
 {
-#?pkg(www-client/chromium)>=83#
+#?pkg(www-client/chromium)=>96,97&&main.hr_virtual!=#
+     "hardware_acceleration_mode":{
+         "enabled":false
+     },
+#pkg#
      "browser": {
         "enabled_labs_experiments":["omnibox-context-menu-show-full-urls@1"]
      },
-#pkg#
      "background_mode": {
         "enabled": false
      }
