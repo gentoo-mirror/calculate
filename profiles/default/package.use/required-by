@@ -669,3 +669,6 @@ dev-embedded/libftdi:1 cxx
 # required by "app-emacs/libegit2-0.0.20200515-r1
 app-editors/emacs dynamic-loading
 
+# required by "media-gfx/blender-3.0.0"
+media-libs/opencolorio -opengl
+
