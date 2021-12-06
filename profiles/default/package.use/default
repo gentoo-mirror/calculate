@@ -52,9 +52,6 @@ app-arch/pigz symlink
 # add plugin aria2
 www-client/uget aria2
 
-# install legacy rule generator rules and support scripts
-sys-fs/eudev rule-generator
-
 # enable support for Media Transfer Protocol
 kde-apps/kio-extras mtp
 
@@ -95,7 +92,6 @@ app-arch/engrampa caja
 # use the system components instead of bundled
 # bug firefox http://www.calculate-linux.org/issues/851
 mail-client/thunderbird -system-libvpx
-media-sound/clementine system-sqlite
 
 # use streaming
 media-video/smplayer autoshutdown streaming
@@ -180,9 +176,6 @@ net-print/gutenprint gimp ppds
 
 # install the sendto-plugin for xfce-base/thunar
 #net-wireless/blueman thunar
-
-# enable support for Media Transfer Protocol
-media-sound/clementine mtp dropbox googledrive
 
 # enable support for CorelDRAW files
 # support for OpenOffice.org SVG jar files, color management engine,
