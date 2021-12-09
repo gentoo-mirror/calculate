@@ -1,0 +1,17 @@
+BDEPEND=!build? ( sys-apps/sed )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DEPEND=vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils ) grub? ( sys-boot/grub ) ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] >=sys-devel/bison-1.875 >=sys-devel/flex-2.5.4 themes? ( || ( media-gfx/splash-themes-calculate sys-boot/plymouth-calculate-plugin ) ) !minimal? ( virtual/pkgconfig )
+DESCRIPTION=Calculate Linux kernel image
+EAPI=7
+HOMEPAGE=http://www.calculate-linux.org
+INHERIT=calculate-kernel-8 eutils
+IUSE=fsync muqss uksm kernel_linux symlink build +vmlinuz desktop minimal themes firmware +grub
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig ) vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils ) grub? ( sys-boot/grub ) ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] vmlinuz? ( sys-kernel/dracut )
+REQUIRED_USE=minimal? ( vmlinuz )
+RESTRICT=binchecks strip
+SLOT=5.10.84
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.10.84.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.10.tar.xz
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	6b67971d8a0a029d13181f2cfb9f5fa9	calculate	2bc7a337fd5722c6cf4f53aa81f993e2	estack	055c42df72f76a4f45ec92b35e83cd56	kernel-2	558643172ab02bb7cb88b95070b91f12	calculate-kernel-8	e37a8c351743e472d2302df08d6c48b6
+_md5_=472c962f081b74aed66627ab9be28914
