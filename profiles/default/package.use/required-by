@@ -79,9 +79,6 @@ dev-java/swing-layout source
 # required by media-libs/mesa-11.0.6 [video_cards_radeonsi]
 x11-libs/libdrm libkms video_cards_amdgpu video_cards_vmware
 
-# required by www-client/firefox [apng]
-media-libs/libpng apng
-
 # required by kde-plasma/kwin-5.5.0, virtual/opencl-0-r6
 media-libs/mesa xa opencl
 
@@ -675,3 +672,5 @@ kde-frameworks/sonnet qml
 # required by dev-perl/Template-Plugin-Latex-3.120.0-r1
 app-text/texlive xetex
 
+# required by www-client/chromium-96.0.4664.110
+media-libs/libpng -apng
