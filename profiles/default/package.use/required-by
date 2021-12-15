@@ -138,9 +138,6 @@ sys-devel/gcc graphite objc
 # required by media-gfx/freecad-0.15.4671
 dev-libs/xerces-c icu
 
-# required by dev-texlive/texlive-langczechslovak-2014
-app-text/texlive-core xetex
-
 # required by gnome-base/gnome-keyring-3.16.0-r1
 app-crypt/pinentry gnome-keyring
 
@@ -268,8 +265,8 @@ sys-libs/libselinux python
 # required by dev-python/sepolgen-1.2.3
 app-admin/setools python
 
-# required by dev-texlive/texlive-langcjk-2016
-app-text/texlive-core cjk
+# required by dev-texlive/texlive-langcjk-2016, dev-texlive/texlive-langczechslovak-2014
+app-text/texlive-core cjk xetex
 
 # required by www-apache/mod_perl-2.0.10
 dev-lang/perl ithreads berkdb
@@ -674,3 +671,7 @@ media-libs/opencolorio -opengl
 
 # required by kde-frameworks/qqc2-desktop-style-5.88.0
 kde-frameworks/sonnet qml
+
+# required by dev-perl/Template-Plugin-Latex-3.120.0-r1
+app-text/texlive xetex
+
