@@ -1,5 +1,7 @@
 # Calculate format=procmail
 #?os_audio==alsa#
 SDL_AUDIODRIVER=#-os_audio-#
+#!os_audio#
+!SDL_AUDIODRIVER=
 #os_audio#
 AUDIODEV=default
