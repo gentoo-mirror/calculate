@@ -72,7 +72,7 @@ DEPEND="
 	zlib? ( sys-libs/zlib )
 	dnstap? ( dev-libs/fstrm dev-libs/protobuf-c )
 	python? (
-		${PYTiHON_DEPS}
+		${PYTHON_DEPS}
 		dev-python/ply[${PYTHON_USEDEP}]
 	)
 	dev-libs/libuv:=
