@@ -21,6 +21,6 @@ src_unpack() {
 	do
 		MODULE_DATA=( $MODULE )
 		MODULE_PN=${MODULE_DATA[0]/calculate-/}
-		EGIT_CHECKOUT_DIR=${WORKDIR}/${MODULE_PN}-${PV} EGIT_REPO_URI=git://git.calculate-linux.org/calculate/calculate-utils-3-${MODULE_PN}.git git-r3_src_unpack
+		EGIT_CHECKOUT_DIR=${WORKDIR}/${MODULE_PN}-${PV} EGIT_REPO_URI=https://git.calculate-linux.org/calculate/calculate-utils-3-${MODULE_PN}.git git-r3_src_unpack
 	done
 }
