@@ -1,4 +1,4 @@
-# Calculate format=samba name=ini.env ini(overlay-calculate.remerge)<#-cl_pass_file-# merge=app-emulation/lxc
+# Calculate format=samba name=ini.env ini(overlay-calculate.remerge)<#-cl_pass_file-# merge=app-containers/lxc
 
 [overlay-calculate]
 remerge = #-cl_pass_file-#
