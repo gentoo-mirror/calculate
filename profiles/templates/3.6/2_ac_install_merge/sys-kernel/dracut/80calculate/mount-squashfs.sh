@@ -11,7 +11,7 @@ live_dir=$(getarg rd.live.dir -d live_dir )
 squash_image=$(getarg rd.live.squashimg -d loop)
 [ -z "$squash_image" ] && squash_image="livecd.squashfs"
 
-getargbool 0 rd.live.ram -d -y live_ram -d -y docache && live_ram="yes"
+getargbool 0 rd.live.ram -d -y live_ram -d -y rd.live.ram=1 && live_ram="yes"
 
 # we might have an embedded fs image on squashfs (compressed live)
 if [ -e /run/initramfs/live/${live_dir}/${squash_image} ]; then
