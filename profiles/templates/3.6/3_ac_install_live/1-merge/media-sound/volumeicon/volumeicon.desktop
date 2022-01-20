@@ -4,7 +4,7 @@
 Name=VolumeIcon
 Comment=A lightweight volume control that sits in your systray
 #?os_audio!=alsa#
-Exec=/bin/bash -c "sleep 7;volumeicon"
+Exec=volumeicon -d hw:0
 #!os_audio#
 Exec=volumeicon
 #os_audio#
