@@ -674,3 +674,6 @@ app-text/texlive xetex
 
 # required by www-client/chromium-96.0.4664.110
 media-libs/libpng -apng
+
+# masked by: use flag configuration mismatch
+net-dns/bind-tools gssapi
