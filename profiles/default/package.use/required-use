@@ -58,3 +58,10 @@ app-misc/emelfm2 -spell
 
 # pulseaudio? ( qt5 )
 media-libs/libprojectm qt5
+
+# ads? ( python )
+net-fs/samba python
+
+# required by "net-fs/samba-4.15.3-r1
+sys-libs/ldb python
+
