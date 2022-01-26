@@ -28,11 +28,9 @@ www-servers/nginx-unit python
 # any-of ( client server )
 media-plugins/vdr-streamdev server
 
-# any-of ( gnome-keyring pass )
-app-emulation/docker-credential-helpers gnome-keyring
-
 # connection-sharing? ( any-of ( iptables nftables ) )
 net-misc/networkmanager iptables
 
 # any-of ( gnome-keyring pass )
 app-containers/docker-credential-helpers gnome-keyring
+

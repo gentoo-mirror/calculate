@@ -1,12 +1,6 @@
 # random rebuild the package for no reason
 media-libs/babl -cpu_flags_x86_f16c -cpu_flags_x86_sse4_1
 
-# ERROR: net-p2p/mldonkey-3.1.5-r1 failed
-net-p2p/mldonkey -gd
-
-# block with imagemagick<7
-media-libs/libopenshot -imagemagick
-
 # Missins support for required CPU baseline features. Was tested at the start of the `nomacs`. Also with these options is not going to the virtualbox.
 media-libs/opencv -cpu_flags_x86_f16c -cpu_flags_x86_fma3 -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_avx512f -cpu_flags_x86_popcnt -cpu_flags_x86_sse4_1 -cpu_flags_x86_sse4_2 -cpu_flags_x86_ssse3
 
@@ -14,31 +8,17 @@ media-libs/opencv -cpu_flags_x86_f16c -cpu_flags_x86_fma3 -cpu_flags_x86_avx -cp
 media-libs/openimageio -cpu_flags_x86_f16c -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_avx512f -cpu_flags_x86_avx512f -cpu_flags_x86_f16c
 
 # block <media-gfx/imagemagick-7:=
-media-gfx/inkscape -imagemagick
 app-misc/graphlcd-base -imagemagick
-
 
 # binary package causes problems with claws-mail, rdesktop, etc. on CPU without support for this feature
 dev-libs/nettle -cpu_flags_x86_sha
 
 # not compiled
 app-arch/brotli python
-app-doc/gnucash-docs -l10n_ru
 app-misc/lcd4linux -lcd_devices_curses
 app-misc/lcdproc -lcd_devices_g15
 dev-java/sbt binary
 =dev-lang/python-3.10.0_p1-r1 -pgo
-media-gfx/krita -color-management
-media-video/transcode -imagemagick
-
-# need for app-emulation/lxd-4.0.6-r1
-=dev-util/xdelta-3.0.11 lzma
 
 # not compile media-libs/osl
 media-gfx/blender -osl
-
-# not compiled
-=media-gfx/darktable-3.6.1 -openexr
-
-# build chromium without conflict with pipewire 0.3.42
-www-client/chromium -screencast

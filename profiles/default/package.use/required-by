@@ -23,9 +23,6 @@ media-libs/libgpod python
 # required by app-forensics/rkhunter-1.4.2
 sys-process/lsof rpc
 
-# required by app-emulation/lxd-2.0.1[daemon]
-app-emulation/lxc cgmanager
-
 # required by media-sound/amarok
 virtual/mysql embedded
 dev-db/mariadb embedded
