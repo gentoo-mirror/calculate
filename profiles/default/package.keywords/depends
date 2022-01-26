@@ -51,7 +51,6 @@
 ~app-crypt/gpgstats-0.5 amd64
 ~app-crypt/hashcat-6.2.1 amd64
 ~app-crypt/hashcat-utils-1.9 amd64
-~app-crypt/hmaccalc-0.9.14 amd64
 ~app-crypt/ima-evm-utils-1.1 amd64
 ~app-crypt/jetring-0.27 amd64
 ~app-crypt/kbfs-2.11.0 amd64
@@ -98,23 +97,18 @@
 ~app-emulation/coldfire-0.3.1 amd64
 ~app-emulation/dlx-1.0.0 amd64
 ~app-emulation/docker-machine-0.13.0 amd64
-~app-emulation/docker-registry-2.7.1 amd64
-~app-emulation/docker-swarm-1.2.9 amd64
 ~app-emulation/dynamips-0.2.21 amd64
-~app-emulation/edumips64-1.2 amd64
 ~app-emulation/gxemul-0.6.2 amd64
 ~app-emulation/hyperd-0.7.0 amd64
 ~app-emulation/libspectrum-1.5.0 amd64
 ~app-emulation/qemu-init-scripts-0.3.0 amd64
 ~app-emulation/runv-0.7.0 amd64
-~app-emulation/s6-overlay-1.18.1.3 amd64
 ~app-emulation/ski-1.3.2 amd64
 ~app-emulation/softgun-0.22 amd64
 ~app-emulation/virtio-win-0.1.190.1 amd64
 ~app-emulation/wine-gecko-2.47.2 amd64
 ~app-emulation/wine-mono-5.1.1 amd64
 ~app-emulation/wine-mono-6.2.0 amd64
-~app-emulation/wine-mono-6.3.0 amd64
 ~app-emulation/wine-mono-6.4.0 amd64
 ~app-emulation/wine-mono-7.0.0 amd64
 ~app-emulation/xen-4.15.1 amd64
@@ -182,7 +176,6 @@
 ~app-misc/pet-0.3.6 amd64
 ~app-misc/physlock-13 amd64
 ~app-misc/razertool-0.0.7 amd64
-~app-misc/rlwrap-0.43 amd64
 ~app-misc/rundeck-cli-bin-0.1.11 amd64
 ~app-misc/selecta-0.0.7 amd64
 ~app-misc/sonypid-1.9 amd64
@@ -203,12 +196,11 @@
 ~app-portage/distpatch-0.1.2 amd64
 ~app-portage/g-octave-0.4.1 amd64
 ~app-portage/repo-commit-0.4.1 amd64
-~app-shells/ksh-2020.0.0 amd64
+~app-shells/ksh-1.0.0_beta2 amd64
 ~app-text/cherrytree-0.99.0_p20200523 amd64
 ~app-text/languagetool-4.5 amd64
 ~app-text/rpl-1.9.1 amd64
 ~app-text/xiphos-4.2.1 amd64
-~app-text/zathura-pdf-mupdf-0.3.6 amd64
 ~app-vim/csound-syntax-20160804 amd64
 ~app-vim/curcmdmode-1.0 amd64
 ~app-vim/exheres-syntax-20090310 amd64
@@ -232,7 +224,6 @@
 ~app-vim/vim-r-1.2.6 amd64
 ~app-vim/vim-rest-console-2.6.0 amd64
 ~app-vim/vim-spell-da-20060116 amd64
-~dev-cpp/abseil-cpp-20210324.2 amd64
 ~dev-cpp/cpp-hocon-0.3.0 amd64
 ~dev-cpp/glog-0.4.0 amd64
 ~dev-cpp/lucene++-3.0.7 amd64
@@ -250,7 +241,6 @@
 ~dev-games/physfs-3.0.2 amd64
 ~dev-games/t4k-common-0.1.1 amd64
 ~dev-go/go-sqlite3-1.1.0_p20160307 amd64
-~dev-go/go-text-0.3.0 amd64
 ~dev-go/go-tools-0.1.4 amd64
 ~dev-java/animal-sniffer-annotations-1.15 amd64
 ~dev-java/ant-contrib-1.0_beta6_pre20201123 amd64
@@ -267,14 +257,12 @@
 ~dev-java/jna-4.2.2 amd64
 ~dev-java/protobuf-java-3.19.1 amd64
 ~dev-java/resin-servlet-api-4.0.46 amd64
-~dev-java/sun-jaf-1.1.1 amd64
 ~dev-java/swing-layout-1.0.4 amd64
 ~dev-java/swingx-1.6.4 amd64
 ~dev-java/swingx-beaninfo-1.6.4 amd64
 ~dev-java/swingx-ws-1.0_p20110515 amd64
 ~dev-java/upnplib-1.0.7 amd64
 ~dev-lang/elixir-1.12.3 amd64
-~dev-lang/execline-2.3.0.4 amd64
 ~dev-lang/gprolog-1.4.5 amd64
 ~dev-lang/jimtcl-0.78 amd64
 ~dev-libs/angelscript-2.35.1 amd64
@@ -306,7 +294,6 @@
 ~dev-libs/OpenNI2-2.2_beta2 amd64
 ~dev-libs/qoauth-2.0.1_pre20160315 amd64
 ~dev-libs/sink-0.8.0 amd64
-~dev-libs/skalibs-2.6.3.0 amd64
 ~dev-libs/spsdeclib-5.1 amd64
 ~dev-libs/tinyxml-2.6.2 amd64
 ~dev-libs/trio-1.16 amd64 amd64
@@ -327,13 +314,13 @@
 ~dev-python/google-pasta-0.2.0 amd64
 ~dev-python/ioflo-2.0.2 amd64
 ~dev-python/jedi-0.18.0 amd64
-~dev-python/lxml-4.6.3 amd64
 ~dev-python/markupsafe-2.0.1 amd64
 ~dev-python/metakernel-0.27.5 amd64 
 ~dev-python/mkdocs-bootstrap-1.1 amd64
 ~dev-python/mkdocs-bootswatch-1.1 amd64
 ~dev-python/oct2py-5.2.0 amd64 
 ~dev-python/octave_kernel-0.32.0 amd64 
+~dev-python/pydot-1.4.2 amd64
 ~dev-python/pyflakes-2.4.0 amd64
 ~dev-python/PyQt5-sip-12.9.0 amd64
 ~dev-python/PySDL2-0.9.9 amd64
@@ -345,7 +332,6 @@
 ~dev-python/sip-5.5.0 amd64
 ~dev-python/sphinx_rtd_theme-1.0.0 amd64
 ~dev-python/whisper-1.1.7 amd64
-~dev-python/xapp-2.2.1 amd64
 ~dev-qt/qtplugininfo-5.15.2 amd64
 ~dev-qt/qtquicktimeline-5.15.2 amd64
 ~dev-qt/qtserialbus-5.15.2 amd64
@@ -365,7 +351,6 @@
 ~dev-util/premake-5.0.0_alpha12 amd64
 ~dev-util/qbs-1.18.0 amd64
 ~dev-util/rats-2.4 amd64
-~dev-util/shadowman-2 amd64
 ~games-engines/box2d-2.4.1 amd64
 ~games-simulation/singularity-1.00 amd64
 ~games-util/game-device-udev-rules-20201228 amd64
@@ -417,7 +402,6 @@
 ~media-libs/vigra-1.11.1 amd64
 ~media-libs/x265-3.4 amd64
 ~media-libs/zmusic-1.1.4 amd64
-~media-plugins/live-2021.05.22 amd64
 ~media-plugins/vdr-dvbhddevice-2.2.0_p20180420 amd64
 ~media-plugins/vdr-ttxtsubs-0.3.0 amd64
 ~media-plugins/vdr-vompserver-0.5.1 amd64
@@ -457,7 +441,6 @@
 ~net-firewall/arptables-0.0.5 amd64
 ~net-firewall/pglinux-2.3.1_p20171006 amd64
 ~net-firewall/xtables-addons-3.18 amd64
-~net-im/toxic-0.8.3 amd64
 ~net-irc/irssi-xmpp-0.54 amd64
 ~net-libs/cvm-0.97 amd64
 ~net-libs/gloox-1.0.24 amd64
@@ -550,7 +533,6 @@ net-vpn/wireguard-tools amd64
 ~sci-libs/xdrfile-1.1.4 amd64
 ~sci-mathematics/num-utils-0.5 amd64
 ~sci-mathematics/why3-for-spark-2019 amd64
-~sci-misc/netlogo-bin-6.0.2 amd64
 ~sci-physics/lammps-20200303 amd64
 ~sci-visualization/opendx-4.4.4 amd64
 ~sci-visualization/xgraph-12.1 amd64
@@ -558,10 +540,8 @@ net-vpn/wireguard-tools amd64
 ~sys-apps/apparmor-3.0.1 amd64
 ~sys-apps/apparmor-utils-3.0.1 amd64
 ~sys-apps/fix-gnustack-0.1 amd64
-~sys-apps/flatpak-1.12.2 amd64
 ~sys-apps/man-pages-5.12 amd64
 ~sys-apps/miscfiles-1.5 amd64
-~sys-apps/s6-2.6.1.1 amd64
 ~sys-apps/s6-portable-utils-2.2.1.3 amd64
 ~sys-apps/sg3_utils-1.46 amd64
 ~sys-apps/ucspi-proxy-1.1 amd64
@@ -618,7 +598,6 @@ net-vpn/wireguard-tools amd64
 ~www-client/httrack-3.49.2 amd64
 ~www-client/w3mmee-0.3.2_p24 amd64
 ~www-servers/boa-0.94.14_rc21 amd64
-~www-servers/bozohttpd-20190228 amd64
 ~www-servers/fnord-1.11 amd64
 ~www-servers/uwsgi-2.0.19.1 amd64
 ~x11-apps/xinput_calibrator-0.7.5 amd64
@@ -632,7 +611,6 @@ net-vpn/wireguard-tools amd64
 ~x11-libs/libtinynotify-cli-1.2.1 amd64
 ~x11-libs/libtinynotify-systemwide-0.1 amd64
 ~x11-libs/libXaw3dXft-1.6.2h amd64
-~x11-libs/xapps-2.2.1 amd64
 ~x11-misc/accessx-0951 amd64
 ~x11-misc/bbacpi-0.1.5 amd64
 ~x11-misc/bbcd-0.3.1 amd64
