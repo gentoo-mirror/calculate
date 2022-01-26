@@ -7,6 +7,9 @@ media-libs/opencv -cpu_flags_x86_f16c -cpu_flags_x86_fma3 -cpu_flags_x86_avx -cp
 # Missins support for required CPU baseline features. Was tested at the start of the `blender`.
 media-libs/openimageio -cpu_flags_x86_f16c -cpu_flags_x86_avx -cpu_flags_x86_avx2 -cpu_flags_x86_avx512f -cpu_flags_x86_avx512f -cpu_flags_x86_f16c
 
+# block <media-gfx/imagemagick-7:=
+app-misc/graphlcd-base -imagemagick
+
 # binary package causes problems with claws-mail, rdesktop, etc. on CPU without support for this feature
 dev-libs/nettle -cpu_flags_x86_sha
 
