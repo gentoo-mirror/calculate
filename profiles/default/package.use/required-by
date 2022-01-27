@@ -674,3 +674,6 @@ media-libs/libpng -apng
 
 # masked by: use flag configuration mismatch
 net-dns/bind-tools gssapi
+
+# required by x11-misc/urxvt-perls-2.3-r1
+x11-terms/rxvt-unicode perl fading-colors
