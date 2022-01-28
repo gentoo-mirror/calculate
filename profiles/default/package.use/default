@@ -393,3 +393,5 @@ app-i18n/uim gtk2
 # replace PulseAudio's ALSA plugin with PipeWire's plugin
 media-video/pipewire extra echo-cancel pipewire-alsa
 
+# disabling unmanaged changes in device access rights
+sys-auth/elogind -acl
