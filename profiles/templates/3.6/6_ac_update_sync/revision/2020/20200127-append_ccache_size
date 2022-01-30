@@ -1,8 +1,0 @@
-# Calculate path=/etc/portage/make.conf name=custom append=after ini(overlay-calculate.revision)=>20191116.3,#-cut(0,-,#-cl_pass_file-#)-#&&exists(/etc/portage/make.conf/custom)!=&&grep(/etc/portage/make.conf/custom,CCACHE_SIZE)==
-#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
-#?install.os_install_locale_language==ru#
-# Максимальный размер ccache
-#!install.os_install_locale_language#
-# Maximum size of the ccache.
-#install.os_install_locale_language#
-#CCACHE_SIZE="5G"

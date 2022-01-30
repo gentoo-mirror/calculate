@@ -1,7 +1,0 @@
-# Calculate format=contents ini(overlay-calculate.revision)=>20191116.3,#-cut(0,-,#-cl_pass_file-#)-#
-
-#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
-!sys-apps/portage /var/calculate/custom-overlay
-!sys-apps/portage /var/calculate/custom-overlay/*
-!sys-apps/portage /var/calculate/custom-overlay/metadata/*
-!sys-apps/portage /var/calculate/custom-overlay/profiles/*
