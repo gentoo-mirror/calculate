@@ -1,18 +1,19 @@
-# Calculate format=diff
+# Calculate format=diff merge(net-irc/hexchat)>=2.16
 diff --git a/src/common/servlist.c b/src/common/servlist.c
-index dd427a5..543b3ed 100644
+index a203e70..d6eb0b0 100644
 --- a/src/common/servlist.c
 +++ b/src/common/servlist.c
-@@ -96,6 +96,8 @@ static const struct defaultserver def[] =
- 	{0,			"irc.betachat.net"},
- 	{"BuddyIM", 0, 0, 0, LOGIN_SASL, 0, TRUE},
- 	{0,			"irc.buddy.im"},
+@@ -82,6 +82,9 @@ static const struct defaultserver def[] =
+ 	{"AzzurraNet",	0},
+ 	{0,			"irc.azzurra.org"},
+ 
 +	{"CalculateIRC", 0, 0, 0, LOGIN_SASL, 0, TRUE},
-+	{0,			"irc.calculate.social"},
++	{0,                     "irc.calculate.social"},
++
  	{"Canternet", 0, 0, 0, LOGIN_SASL, 0, TRUE},
  	{0,			"irc.canternet.org"},
  
-@@ -933,7 +935,7 @@ servlist_load_defaults (void)
+@@ -902,7 +905,7 @@ servlist_load_defaults (void)
  {
  	int i = 0, j = 0;
  	ircnet *net = NULL;
