@@ -13,7 +13,8 @@ if [[ ${PV} == 9999 ]]; then
 else
 	PRE_RELEASE_SHA="5b91b9ed84cc91759c986634a4d64d474e6092cf"
 	SRC_URI="${SRC_URI} https://gitlab.freedesktop.org/${MY_PN}/${MY_PN}/-/archive/${PRE_RELEASE_SHA}/${MY_PN}-${PRE_RELEASE_SHA}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~ia64 ppc ppc64 ~riscv sparc x86"
+	#KEYWORDS="~alpha amd64 arm arm64 ~ia64 ppc ppc64 ~riscv sparc x86"
+	KEYWORDS="~amd64"
 	S="${WORKDIR}/${MY_PN}-${PRE_RELEASE_SHA}"
 fi
 
