@@ -12,7 +12,7 @@ SRC_URI="https://gitlab.com/${PN}/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86 amd64"
+KEYWORDS="~x86 ~amd64"
 IUSE="gtk jpeg +network nls openmp tiff udev"
 
 # These are needed by utsushi's 'bootstrap':
