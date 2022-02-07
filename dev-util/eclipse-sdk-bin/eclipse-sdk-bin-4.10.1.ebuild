@@ -7,19 +7,17 @@ EAPI=6
 inherit eutils versionator
 
 SR="R"
-RNAME="2018-09"
+RNAME="2018-12"
 
-SRC_BASE="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/${RNAME}/${SR}/eclipse-java-${RNAME}-linux-gtk"
+SRC_BASE="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/${RNAME}/${SR}/eclipse-java-${RNAME}-${SR}-linux-gtk"
 
 DESCRIPTION="Eclipse SDK"
 HOMEPAGE="http://www.eclipse.org"
-SRC_URI="
-	amd64? ( ${SRC_BASE}-x86_64.tar.gz&r=1 -> eclipse-java-${RNAME}-${SR}-linux-gtk-x86_64-${PV}.tar.gz )
-	x86? ( ${SRC_BASE}.tar.gz&r=1 -> eclipse-java-${RNAME}-${SR}-linux-gtk-${PV}.tar.gz )"
+SRC_URI="${SRC_BASE}-x86_64.tar.gz&r=1 -> eclipse-java-${RNAME}-${SR}-linux-gtk-x86_64-${PV}.tar.gz"
 
 LICENSE="EPL-1.0"
-SLOT="4.9"
-KEYWORDS="~x86 ~amd64"
+SLOT="4.10"
+KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=6
+EAPI=5
 
 inherit eutils versionator
 
@@ -19,7 +19,7 @@ SRC_URI="
 
 LICENSE="EPL-1.0"
 SLOT="4.5"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 IUSE=""
 
 RDEPEND="
