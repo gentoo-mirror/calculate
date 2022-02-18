@@ -677,3 +677,7 @@ net-dns/bind-tools gssapi
 
 # required by x11-misc/urxvt-perls-2.3-r1
 x11-terms/rxvt-unicode perl fading-colors
+
+# required by app-containers/lxd-4.0.8-r3
+dev-util/xdelta lzma
+

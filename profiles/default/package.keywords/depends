@@ -27,6 +27,7 @@
 ~app-backup/vzdump-1.2 amd64
 ~app-benchmarks/bootchart2-0.14.8 amd64
 ~app-cdr/dumpet-2.1_p20140601 amd64
+~app-containers/crun-1.4.2 amd64
 ~app-crypt/acme-sh-3.0.2 amd64
 ~app-crypt/acr38u-1.7.11 amd64
 ~app-crypt/aescrypt-3.14 amd64
@@ -394,14 +395,14 @@
 ~media-libs/libggimisc-2.2.2 amd64
 ~media-libs/liblingoteach-0.2.3 amd64
 ~media-libs/libnsgif-0.2.1 amd64
-~media-libs/libtgvoip-2.4.4_p20211129 amd64
+~media-libs/libtgvoip-2.4.4_p20220117 amd64
 ~media-libs/libvpx-1.10.0 amd64
 ~media-libs/libwebp-1.2.1 amd64
 ~media-libs/opencv-4.5.4 amd64
 ~media-libs/rnnoise-0.4.1_p20210122 amd64
 ~media-libs/sdl-pango-0.1.2 amd64
 ~media-libs/speex-1.2.0 amd64
-~media-libs/tg_owt-0_pre20211207 amd64
+~media-libs/tg_owt-0_pre20220209 amd64
 ~media-libs/vigra-1.11.1 amd64
 ~media-libs/x265-3.4 amd64
 ~media-libs/zmusic-1.1.4 amd64
@@ -447,6 +448,7 @@
 ~net-irc/irssi-xmpp-0.54 amd64
 ~net-libs/cvm-0.97 amd64
 ~net-libs/gloox-1.0.24 amd64
+~net-libs/grpc-1.43.0 amd64
 ~net-libs/kdav2-0.3.0 amd64
 ~net-libs/kimap2-0.3.0 amd64
 ~net-libs/libgadu-1.12.2 amd64
@@ -468,6 +470,7 @@
 ~net-misc/ofono-1.31 amd64
 ~net-misc/sstp-client-1.0.12 amd64
 ~net-nds/ldapvi-1.7_p20101214 amd64
+~net-news/snownews-1.9 amd64
 ~net-p2p/bittornado-0.4.1_p20160925 amd64
 ~net-p2p/deluge-2.0.5 amd64
 ~net-print/apsfilter-7.2.8 amd64
@@ -542,6 +545,7 @@ net-vpn/wireguard-tools amd64
 ~sec-policy/apparmor-profiles-3.0.1 amd64
 ~sys-apps/apparmor-3.0.1 amd64
 ~sys-apps/apparmor-utils-3.0.1 amd64
+~sys-apps/firejail-0.9.68 amd64
 ~sys-apps/fix-gnustack-0.1 amd64
 ~sys-apps/man-pages-5.12 amd64
 ~sys-apps/miscfiles-1.5 amd64
