@@ -192,7 +192,6 @@
 ~app-misc/vit-1.3 amd64
 ~app-misc/vittk-1.3 amd64
 ~app-misc/vzstats-0.5.1 amd64
-~app-misc/yq-2.12.0 amd64
 ~app-mobilephone/gnokii-0.6.31 amd64
 ~app-portage/diffmask-0.3.3 amd64
 ~app-portage/distpatch-0.1.2 amd64
@@ -200,7 +199,6 @@
 ~app-portage/repo-commit-0.4.1 amd64
 ~app-shells/ksh-1.0.0_beta2 amd64
 ~app-text/cherrytree-0.99.0_p20200523 amd64
-~app-text/languagetool-4.5 amd64
 ~app-text/rpl-1.9.1 amd64
 ~app-text/xiphos-4.2.1 amd64
 ~app-vim/csound-syntax-20160804 amd64
@@ -247,10 +245,7 @@
 ~dev-java/animal-sniffer-annotations-1.15 amd64
 ~dev-java/ant-contrib-1.0_beta6_pre20201123 amd64
 ~dev-java/browserlauncher2-1.3 amd64
-~dev-java/commons-collections-4.1 amd64
 ~dev-java/commons-imaging-1.0_alpha2 amd64
-~dev-java/error-prone-annotations-2.0.14 amd64
-~dev-java/guava-20.0 amd64
 ~dev-java/j2objc-annotations-1.2 amd64
 ~dev-java/jackson-annotations-2.13.0 amd64
 ~dev-java/javacc-5.0 amd64
@@ -263,7 +258,6 @@
 ~dev-java/swingx-1.6.4 amd64
 ~dev-java/swingx-beaninfo-1.6.4 amd64
 ~dev-java/swingx-ws-1.0_p20110515 amd64
-~dev-java/upnplib-1.0.7 amd64
 ~dev-lang/elixir-1.12.3 amd64
 ~dev-lang/execline-2.8.2.0 amd64
 ~dev-lang/gprolog-1.4.5 amd64
@@ -291,10 +285,10 @@
 ~dev-libs/lzo-2.10 amd64
 ~dev-libs/mimetic-0.9.8 amd64
 ~dev-libs/mmtf-cpp-1.0.0 amd64
-~dev-libs/nspr-4.32 amd64
 ~dev-libs/nss-3.75 amd64
 ~dev-libs/ocl-icd-2.3.0 amd64
 ~dev-libs/OpenNI2-2.2_beta2 amd64
+~dev-libs/pegtl-2.8.3 amd64
 ~dev-libs/qoauth-2.0.1_pre20160315 amd64
 ~dev-libs/sink-0.8.0 amd64
 ~dev-libs/skalibs-2.11.1.0 amd64
@@ -302,9 +296,7 @@
 ~dev-libs/tinyxml-2.6.2 amd64
 ~dev-libs/trio-1.16 amd64 amd64
 ~dev-lisp/alexandria-20171029 amd64
-~dev-lisp/asdf-3.3.2 amd64
 ~dev-lisp/clx-0.7.5 amd64
-~dev-lisp/uiop-3.3.2 amd64
 ~dev-ml/base_quickcheck-0.14.1 amd64
 ~dev-ml/jsonm-1.0.1 amd64
 ~dev-perl/Net-Pcap-0.180.0 amd64
@@ -396,15 +388,12 @@
 ~media-libs/liblingoteach-0.2.3 amd64
 ~media-libs/libnsgif-0.2.1 amd64
 ~media-libs/libtgvoip-2.4.4_p20220117 amd64
-~media-libs/libvpx-1.10.0 amd64
-~media-libs/libwebp-1.2.1 amd64
 ~media-libs/opencv-4.5.4 amd64
 ~media-libs/rnnoise-0.4.1_p20210122 amd64
 ~media-libs/sdl-pango-0.1.2 amd64
 ~media-libs/speex-1.2.0 amd64
 ~media-libs/tg_owt-0_pre20220209 amd64
 ~media-libs/vigra-1.11.1 amd64
-~media-libs/x265-3.4 amd64
 ~media-libs/zmusic-1.1.4 amd64
 ~media-plugins/vdr-dvbhddevice-2.2.0_p20180420 amd64
 ~media-plugins/vdr-ttxtsubs-0.3.0 amd64
@@ -427,7 +416,6 @@
 ~media-video/baka-mplayer-2.0.4 amd64
 ~media-video/ffdiaporama-2.2_pre20140701 amd64
 ~media-video/subliminal-2.1.0 amd64
-~media-video/subtitleeditor-0.54.0 amd64
 ~media-video/vcdimager-2.0.1 amd64
 ~media-video/webcamoid-8.7.1 amd64
 ~media-video/wireplumber-0.4.8 amd64
@@ -467,7 +455,6 @@
 ~net-misc/l7-filter-userspace-0.12_beta1 amd64
 ~net-misc/l7-protocols-2009.05.28 amd64
 ~net-misc/netsed-0.01b amd64
-~net-misc/ofono-1.31 amd64
 ~net-misc/sstp-client-1.0.12 amd64
 ~net-nds/ldapvi-1.7_p20101214 amd64
 ~net-news/snownews-1.9 amd64
@@ -528,13 +515,12 @@ net-vpn/wireguard-tools amd64
 ~sci-libs/flann-1.9.1 amd64
 ~sci-libs/med-4.1.0 amd64
 ~sci-libs/mkl-2020.4.304 amd64
-~sci-libs/oce-0.18.3 amd64
-~sci-libs/opencascade-7.5.2 amd64
+~sci-libs/opencascade-7.6.0 amd64
 ~sci-libs/orocos_kdl-1.5.0 amd64
 ~sci-libs/scikit-learn-0.24.2 amd64
 ~sci-libs/tamu_anova-0.2 amd64
 ~sci-libs/votca-tools-1.6.4 amd64
-~sci-libs/vtk-8.2.0 amd64
+~sci-libs/vtk-9.1.0 amd64
 ~sci-libs/xdmf2-1.0_p141226 amd64
 ~sci-libs/xdrfile-1.1.4 amd64
 ~sci-mathematics/num-utils-0.5 amd64
@@ -550,7 +536,6 @@ net-vpn/wireguard-tools amd64
 ~sys-apps/man-pages-5.12 amd64
 ~sys-apps/miscfiles-1.5 amd64
 ~sys-apps/s6-2.11.0.1 amd64
-~sys-apps/s6-portable-utils-2.2.3.0 amd64
 ~sys-apps/s6-portable-utils-2.2.3.4 amd64
 ~sys-apps/sg3_utils-1.46 amd64
 ~sys-apps/ucspi-proxy-1.1 amd64
@@ -590,7 +575,6 @@ net-vpn/wireguard-tools amd64
 ~sys-fs/snapraid-11.5 amd64
 ~sys-fs/squashfuse-0.1.100 amd64
 ~sys-fs/unionfs-fuse-2.1 amd64
-~sys-fs/vhba-20211023 amd64
 ~sys-fs/yaffs2utils-0.2.9 amd64
 ~sys-fs/zerofree-1.1.1 amd64
 ~sys-fs/zfs-auto-snapshot-1.2.4 amd64
@@ -630,7 +614,6 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/devilspie-0.23 amd64
 ~x11-misc/dex-0.8.0 amd64
 ~x11-misc/dxpc-3.9.2 amd64
-~x11-misc/easystroke-0.6.0 amd64
 ~x11-misc/flow-pomodoro-1.2.0 amd64
 ~x11-misc/fracplanet-0.5.1 amd64
 ~x11-misc/fraqtive-0.4.8 amd64
@@ -639,7 +622,6 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/genmenu-1.1.0 amd64
 ~x11-misc/gromit-20041213 amd64
 ~x11-misc/grub2-theme-preview-2.3.0 amd64
-~x11-misc/gtk2fontsel-0.1 amd64
 ~x11-misc/iconbox-0.2 amd64
 ~x11-misc/kapow-1.5.10 amd64
 ~x11-misc/kaqaz-1.2.0 amd64
@@ -664,7 +646,6 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/seetxt-0.72 amd64
 ~x11-misc/sent-1 amd64
 ~x11-misc/set_opacity-1.0 amd64
-~x11-misc/sisctrl-0.0.20051202 amd64
 ~x11-misc/sprop-0.1 amd64
 ~x11-misc/tabbed-0.6 amd64
 ~x11-misc/tinynotify-send-1.2.1 amd64

@@ -395,9 +395,6 @@ dev-libs/gmime smime
 # required by net-mail/vchkuser-0.4
 mail-mta/netqmail qmail-spp
 
-# required by sci-visualization/mayavi-4.3.0
-sci-libs/vtk python
-
 # required by sci-visualization/mayavi-4.5.0
 sci-libs/vtk rendering
 
@@ -680,4 +677,3 @@ x11-terms/rxvt-unicode perl fading-colors
 
 # required by app-containers/lxd-4.0.8-r3
 dev-util/xdelta lzma
-
