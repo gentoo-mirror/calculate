@@ -25,3 +25,7 @@ media-gfx/blender -osl
 
 # Xorg crashes in QEMU
 x11-base/xorg-drivers -video_cards_qxl
+
+# incorrect dependencies
+media-gfx/digikam -panorama
+
