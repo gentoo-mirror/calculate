@@ -5,23 +5,17 @@
 sys-libs/db:6.0
 
 # not compiled
-#=app-misc/lcdproc-0.5.9_p20211220
-#=net-libs/libtorrent-rasterbar-1.2.14
-#=sci-libs/cifparse-obj-7.105
-#=sec-policy/selinux-ccs-2.20210203-r1
-#=sec-policy/selinux-clockspeed-2.20210203-r1
-#=sec-policy/selinux-dcc-2.20210203-r1
-#=sec-policy/selinux-ddcprobe-2.20210203-r1
-#=sec-policy/selinux-denyhosts-2.20210203-r1
-#=sec-policy/selinux-howl-2.20210203-r1
-#=sec-policy/selinux-imaze-2.20210203-r1
-#=sec-policy/selinux-lockdev-2.20210203-r1
-#=sec-policy/selinux-pyicqt-2.20210203-r1
-#=sec-policy/selinux-rgmanager-2.20210203-r1
-#=xfce-base/exo-4.16.3
+=sci-libs/cifparse-obj-7.105
+=sec-policy/selinux-ccs-2.20210203-r1
+=sec-policy/selinux-clockspeed-2.20210203-r1
+=sec-policy/selinux-dcc-2.20210203-r1
+=sec-policy/selinux-ddcprobe-2.20210203-r1
+=sec-policy/selinux-denyhosts-2.20210203-r1
+=sec-policy/selinux-howl-2.20210203-r1
+=sec-policy/selinux-imaze-2.20210203-r1
+=sec-policy/selinux-lockdev-2.20210203-r1
+=sec-policy/selinux-pyicqt-2.20210203-r1
+=sec-policy/selinux-rgmanager-2.20210203-r1
 
 # removed cool emoji
 >media-fonts/noto-emoji-20200317-r1
-
-# fix dep
-=media-libs/vigra-1.11.1-r6
