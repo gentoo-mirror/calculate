@@ -7,9 +7,9 @@ EAPI="5"
 inherit git-r3
 
 DESCRIPTION="Collection of administration scripts for Calculate"
-HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_toolkit"
+HOMEPAGE="https://www.calculate-linux.org/main/en/calculate_toolkit"
 SRC_URI=""
-EGIT_REPO_URI="git://git.calculate-linux.org/calculate-toolkit.git"
+EGIT_REPO_URI="https://git.calculate-linux.org/calculate/calculate-toolkit"
 
 LICENSE="Apache-2.0"
 SLOT="0"

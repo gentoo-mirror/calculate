@@ -8,7 +8,7 @@ PYTHON_COMPAT=(python3_9)
 SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${PF}.tar.bz2"
 
 DESCRIPTION="Collection of administration scripts for Calculate"
-HOMEPAGE="http://www.calculate-linux.org"
+HOMEPAGE="https://www.calculate-linux.org"
 
 LICENSE="Apache-2.0"
 SLOT="0"
