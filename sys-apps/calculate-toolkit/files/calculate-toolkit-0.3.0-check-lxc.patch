@@ -1,0 +1,16 @@
+diff --git a/cl-lxc b/cl-lxc
+index 2a13436..9aaa10f 100755
+--- a/cl-lxc
++++ b/cl-lxc
+@@ -163,7 +163,10 @@ print_distro(){
+ set_vars(){
+ 	lxc_release=22.0.1
+ 	net_domain=$(hostname -f)
+-	path_def=$(lxc-config lxc.lxcpath)
++	path_def=$(lxc-config lxc.lxcpath 2>/dev/null) || (
++		printf $"To run the script, install the '%s' package.\n" app-containers/lxc >&2
++		exit 1
++	)
+ 
+ 	if ! [[ $prepare_ == 1 || $upgrade_ == 1 ]]
+ 	then
