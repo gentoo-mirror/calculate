@@ -2,11 +2,11 @@ DEFINED_PHASES=unpack
 DEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=Collection of administration scripts for Calculate
 EAPI=5
-HOMEPAGE=http://www.calculate-linux.org/main/en/calculate_toolkit
+HOMEPAGE=https://www.calculate-linux.org/main/en/calculate_toolkit
 INHERIT=git-r3
 LICENSE=Apache-2.0
 PROPERTIES=live
 RDEPEND=>=sys-apps/calculate-utils-3.3.0.10
 SLOT=0
 _eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=c52106844e1bdd4dd1b897b1792c8961
+_md5_=123a2bb74c4155e20e143592d7594003
