@@ -22,4 +22,5 @@ RDEPEND=">=sys-apps/calculate-utils-3.6
 
 PATCHES=(
 	"${FILESDIR}"/${P}-check-lxc.patch
+	"${FILESDIR}"/${P}-wan.patch
 )
