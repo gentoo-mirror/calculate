@@ -1,0 +1,42 @@
+diff --git a/cl-lxc b/cl-lxc
+index 9aaa10f..db548eb 100755
+--- a/cl-lxc
++++ b/cl-lxc
+@@ -209,8 +209,17 @@ set_vars(){
+ 	if [ $path_def = "$path_work" ]
+ 	then
+ 		path_change=
++		if [ ! -d $path_work ]
++		then
++			mkdir -p $path_work
++		fi
+ 	else
+ 		path_change=$path_work
++		if [ ! -d $path_work ]
++		then
++			printf $"Directory '%s' is not found.\n" $path_work >&2
++			exit 1
++		fi
+ 	fi
+ 
+ 	type_fs=$(df -Th $path_work | awk 'NR==2 {print $2}')
+@@ -448,7 +457,7 @@ create_lxc() {
+ 		local random_mac=$(echo -n '02:'; hexdump -n5 -e '/1 ":%02X"' /dev/random | sed s/^://g)
+ 		network_conf="lxc.net.0.type = veth
+ lxc.net.0.flags = up
+-lxc.net.0.name = eth0
++lxc.net.0.name = wan0
+ lxc.net.0.link = br0
+ lxc.net.0.hwaddr = ${random_mac}
+ lxc.net.0.veth.pair = lxc-${name_lxc}"
+@@ -494,8 +503,8 @@ EOL
+ EOL
+ 	if [ $net_conf == veth ]
+ 	then
+-		cat << EOL > ${calculate_dir}/templates/default/runlevel.eth0
+-# Calculate mergepkg(sys-apps/openrc)!= path=/etc/runlevels/default name=net.eth0 protected link=/etc/init.d/net.lo symbolic
++		cat << EOL > ${calculate_dir}/templates/default/runlevel.wan0
++# Calculate mergepkg(sys-apps/openrc)!= path=/etc/runlevels/default name=net.wan0 protected link=/etc/init.d/net.lo symbolic
+ EOL
+ 	fi
+ 	cat << EOL > ${calculate_dir}/templates/default/portage.binhost
