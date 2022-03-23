@@ -124,8 +124,8 @@ kde-apps/gwenview kipi semantic-desktop
 # enable support for mobile broadband devices
 kde-plasma/plasma-nm modemmanager openconnect
 
-# add support for access point mode
-net-wireless/wpa_supplicant ap
+# add support for access point mode, support for WPA TKIP
+net-wireless/wpa_supplicant ap tkip
 
 # disable Xorg dependence, large number of supported fonts reduces productivity
 media-fonts/terminus-font -X
