@@ -1,0 +1,22 @@
+diff --git a/cl-lxc b/cl-lxc
+index 9aaa10f..db548eb 100755
+--- a/cl-lxc
++++ b/cl-lxc
+@@ -209,8 +209,17 @@ set_vars(){
+ 	if [ $path_def = "$path_work" ]
+ 	then
+ 		path_change=
++		if [ ! -d $path_work ]
++		then
++			mkdir -p $path_work
++		fi
+ 	else
+ 		path_change=$path_work
++		if [ ! -d $path_work ]
++		then
++			printf $"Directory '%s' is not found.\n" $path_work >&2
++			exit 1
++		fi
+ 	fi
+ 
+ 	type_fs=$(df -Th $path_work | awk 'NR==2 {print $2}')
