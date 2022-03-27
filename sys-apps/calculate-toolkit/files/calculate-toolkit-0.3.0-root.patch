@@ -1,0 +1,16 @@
+diff --git a/cl-lxc b/cl-lxc
+index 98b73a9..0ab9dd5 100755
+--- a/cl-lxc
++++ b/cl-lxc
+@@ -600,6 +600,11 @@ upgrade_lxc() {
+ 	   $path_work/$name_upgrading/rootfs$num_next/etc/conf.d/net
+ 	eend
+ 
++	ebegin $"Copying hash of root password"
++	root=$(grep '^root:' $path_work/$name_upgrading/rootfs$num_cur/etc/shadow | sed 's/:/\\:/g')
++	sed -i "s:^root\:.*$:$root:" $path_work/$name_upgrading/rootfs$num_next/etc/shadow
++	eend
++
+ 	ebegin $"Preparing first boot setup script"
+ cat << EOL > $path_work/$name_upgrading/rootfs$num_next/etc/local.d/firststart.start
+ cl-core --method setup_system --no-progress --usenew-conf --network on
