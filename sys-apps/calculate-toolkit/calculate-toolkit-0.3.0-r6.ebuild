@@ -12,7 +12,7 @@ HOMEPAGE="https://www.calculate-linux.org"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 S=${WORKDIR}/${PN}
 
@@ -25,4 +25,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-workdir.patch
 	"${FILESDIR}"/${P}-no-validate.patch
 	"${FILESDIR}"/${P}-root.patch
+	"${FILESDIR}"/${P}-var.patch
 )
