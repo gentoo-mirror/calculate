@@ -25,4 +25,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-workdir.patch
 	"${FILESDIR}"/${P}-no-validate.patch
 	"${FILESDIR}"/${P}-root.patch
+	"${FILESDIR}"/${P}-var.patch
 )
