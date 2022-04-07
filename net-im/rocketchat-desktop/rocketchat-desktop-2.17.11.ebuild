@@ -20,7 +20,8 @@ REQUIRED_USE=""
 
 RESTRICT="network-sandbox"
 
-RDEPEND="app-accessibility/at-spi2-atk:2
+RDEPEND="!net-im/rocketchat-desktop-bin:0
+	app-accessibility/at-spi2-atk:2
 	dev-db/sqlcipher
 	dev-libs/atk
 	dev-libs/expat
