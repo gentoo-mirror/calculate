@@ -199,7 +199,7 @@ RDEPEND="
 		sys-apps/keyutils
 		sys-auth/pam_keystore
 		dev-lang/swig
-		dev-qt/qdbus:5
+		dev-qt/qdbus
 		sys-apps/edid-decode
 		dev-python/pygobject[python_targets_python3_9]
 		dev-python/dbus-python[python_targets_python3_9]
