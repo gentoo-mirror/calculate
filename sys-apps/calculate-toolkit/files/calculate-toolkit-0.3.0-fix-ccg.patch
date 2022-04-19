@@ -1,0 +1,12 @@
+diff --git a/cl-lxc b/cl-lxc
+index 96135d9..bc19594 100755
+--- a/cl-lxc
++++ b/cl-lxc
+@@ -466,6 +466,7 @@ lxc.net.0.veth.pair = lxc-${name_lxc}"
+ 	# перенесем базовый config удалив настройку сети
+ 	cp $path_cache/$lxc_distro/config ${path_lxc}/config
+ 	sed -i '/lxc.net.0.type = empty/d' ${path_lxc}/config
++	sed -i -r 's/(lxc.mount.auto)/#\1/g' ${path_lxc}/config
+ 	sed -i "s/${lxc_distro}/${name_lxc}/g" ${path_lxc}/config
+ 
+ 	cat << EOL >> ${path_lxc}/config
