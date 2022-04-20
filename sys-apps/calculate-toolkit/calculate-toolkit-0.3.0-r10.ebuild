@@ -29,4 +29,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-clear.patch
 	"${FILESDIR}"/${P}-restore-init.patch
 	"${FILESDIR}"/${P}-skipcom.patch
+	"${FILESDIR}"/${P}-fix-ccg.patch
 )
