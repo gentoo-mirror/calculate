@@ -4,16 +4,16 @@
 EAPI=7
 
 inherit flag-o-matic
-# SRC_URI="https://dev.gentoo.org/~aidecoe/distfiles/${CATEGORY}/${PN}/gentoo-logo.png"
-
+MY_P=plymouth-${PV}
+MY_PN=plymouth
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://gitlab.freedesktop.org/plymouth/plymouth"
+	EGIT_REPO_URI="https://anongit.freedesktop.org/git/plymouth"
 else
 	PRE_RELEASE_SHA="5b91b9ed84cc91759c986634a4d64d474e6092cf"
-	SRC_URI="${SRC_URI} https://gitlab.freedesktop.org/${PN}/${PN}/-/archive/${PRE_RELEASE_SHA}/${PN}-${PRE_RELEASE_SHA}.tar.gz"
+	SRC_URI="${SRC_URI} https://gitlab.freedesktop.org/${MY_PN}/${MY_PN}/-/archive/${PRE_RELEASE_SHA}/${MY_PN}-${PRE_RELEASE_SHA}.tar.gz"
 	KEYWORDS="~alpha amd64 arm arm64 ~ia64 ppc ppc64 ~riscv sparc x86"
-	S="${WORKDIR}/${PN}-${PRE_RELEASE_SHA}"
+	S="${WORKDIR}/${MY_PN}-${PRE_RELEASE_SHA}"
 fi
 
 inherit autotools readme.gentoo-r1 systemd
@@ -111,12 +111,4 @@ src_install() {
 	doins throbber-00*.png
 
 	newins ${FILESDIR}/0.9.6_pre20211225-calculate.plymouth calculate.plymouth
-}
-
-pkg_postinst() {
-	readme.gentoo_print_elog
-	if ! has_version "sys-kernel/dracut" && ! has_version "sys-kernel/genkernel-next[plymouth]"; then
-		ewarn "If you want initramfs builder with plymouth support, please emerge"
-		ewarn "sys-kernel/dracut or sys-kernel/genkernel-next[plymouth]."
-	fi
 }
