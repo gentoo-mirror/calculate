@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="7"
-PYTHON_COMPAT=(python3_9)
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit calculate-utils-r15 git-r3
 
