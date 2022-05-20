@@ -32,4 +32,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-fix-ccg.patch
 	"${FILESDIR}"/${P}-check_mkdir.patch
 	"${FILESDIR}"/${P}-ssh_keys.patch
+	"${FILESDIR}"/${P}-check_files.patch
 )
