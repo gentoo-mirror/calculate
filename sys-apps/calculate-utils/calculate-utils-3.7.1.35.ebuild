@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="7"
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=(python3_9)
 
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.7.1.23"
