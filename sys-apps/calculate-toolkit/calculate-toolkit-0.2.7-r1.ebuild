@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="7"
-PYTHON_COMPAT=(python3_9)
+PYTHON_COMPAT=( python3_{9..10} )
 
 SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${PF}.tar.bz2"
 
