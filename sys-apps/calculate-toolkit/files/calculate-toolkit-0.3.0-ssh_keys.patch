@@ -1,0 +1,16 @@
+diff --git a/cl-lxc b/cl-lxc
+index 2cdcc11..8c29bde 100755
+--- a/cl-lxc
++++ b/cl-lxc
+@@ -614,6 +614,11 @@ upgrade_lxc() {
+ 	sed -i "s:^root\:.*$:$root:" $path_work/$name_upgrading/rootfs$num_next/etc/shadow
+ 	eend
+ 
++	ebegin $"Copying ssh keys"
++	cp $path_work/$name_upgrading/rootfs$num_cur/etc/ssh/*_key* \
++	   $path_work/$name_upgrading/rootfs$num_next/etc/ssh
++	eend
++
+ 	ebegin $"Preparing first boot setup script"
+ cat << EOL > $path_work/$name_upgrading/rootfs$num_next/etc/local.d/firststart.start
+ cl-core --method setup_system --no-progress --usenew-conf --network on
