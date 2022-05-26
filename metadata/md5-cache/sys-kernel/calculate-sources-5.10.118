@@ -5,13 +5,13 @@ DESCRIPTION=Calculate Linux kernel image
 EAPI=7
 HOMEPAGE=http://www.calculate-linux.org
 INHERIT=calculate-kernel-8 eutils
-IUSE=uksm symlink build +vmlinuz desktop minimal themes firmware +grub
+IUSE=fsync muqss uksm symlink build +vmlinuz desktop minimal themes firmware +grub
 KEYWORDS=~amd64
 LICENSE=GPL-2
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig ) vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils ) grub? ( sys-boot/grub ) ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] vmlinuz? ( sys-kernel/dracut )
 REQUIRED_USE=minimal? ( vmlinuz )
 RESTRICT=binchecks strip
-SLOT=5.17.9
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.17.9.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.17.tar.xz
+SLOT=5.10.118
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.10.118.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.10.tar.xz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	calculate	2bc7a337fd5722c6cf4f53aa81f993e2	estack	055c42df72f76a4f45ec92b35e83cd56	kernel-2	7243c5ee4d1a26f42930f137a20ed659	calculate-kernel-8	e37a8c351743e472d2302df08d6c48b6
-_md5_=4d40a6c075a35e88e3200c63b1e30383
+_md5_=472c962f081b74aed66627ab9be28914
