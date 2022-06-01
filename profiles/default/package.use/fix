@@ -32,3 +32,6 @@ media-gfx/digikam -panorama
 
 # media-video/vlc 3.0.16-r7, 3.0.17.3 not compile with media-libs/dav1d-1.0.0
 www-client/firefox -system-av1
+
+# not compile, bug: https://bugs.gentoo.org/837365
+net-vpn/networkmanager-vpnc gtk
