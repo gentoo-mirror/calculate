@@ -10,7 +10,7 @@ HOMEPAGE="http://libcpuid.sourceforge.net"
 SRC_URI="https://github.com/anrieff/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD-2"
 SLOT="0/14"
-KEYWORDS="-* amd64 x86"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE="test"
 RESTRICT="primaryuri"
 
