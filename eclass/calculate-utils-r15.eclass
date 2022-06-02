@@ -153,6 +153,7 @@ RDEPEND="
 		net-misc/rsync
 		dev-python/pyopenssl[python_targets_python3_9]
 		dev-python/cryptography[python_targets_python3_9]
+		dev-python/cffi[python_targets_python3_9]
 		dev-libs/openssl
 		dev-python/m2crypto[python_targets_python3_9]
 		dev-python/pytz[python_targets_python3_9]
