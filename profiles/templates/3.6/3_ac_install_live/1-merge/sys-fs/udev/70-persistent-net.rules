@@ -16,3 +16,11 @@ SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_instal
 # #-list(os_install_net_name,3)-#
 SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,3)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,3)-#"
 #list#
+#?list(os_install_net_interfaces,4)!=&&list(os_install_net_mac_type,4)==OUI#
+# #-list(os_install_net_name,4)-#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,4)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,4)-#"
+#list#
+#?list(os_install_net_interfaces,5)!=&&list(os_install_net_mac_type,5)==OUI#
+# #-list(os_install_net_name,5)-#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,5)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,5)-#"
+#list#
