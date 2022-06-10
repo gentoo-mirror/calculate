@@ -1,6 +1,8 @@
---- /usr/sbin/cl-lxc	2022-05-20 16:31:25.002164959 +0300
-+++ cl-lxc	2022-06-10 14:10:04.093641549 +0300
-@@ -128,7 +128,7 @@
+diff --git a/usr/sbin/cl-lxc b/cl-lxc
+index 4fc3ac1..0a32014 100755
+--- a/usr/sbin/cl-lxc
++++ b/cl-lxc
+@@ -128,7 +128,7 @@ get_args(){
  	elif (( $# == 1 ))
  	then
  		lxc_=$1
@@ -9,7 +11,7 @@
  		then
  			echo $"Container name contains wrong characters." >&2
  			exit 1
-@@ -146,6 +146,7 @@
+@@ -146,6 +146,7 @@ print_distro(){
  	then
  		echo $"Distributive:
    [CCS]		Calculate Container Scratch (by default)
@@ -17,7 +19,7 @@
    [CCG]		Calculate Container Games"
    		return
    	fi
-@@ -154,6 +155,9 @@
+@@ -154,6 +155,9 @@ print_distro(){
  	CCS)
  		echo "Calculate Container Scratch"
  		;;
