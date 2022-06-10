@@ -1,0 +1,29 @@
+--- /usr/sbin/cl-lxc	2022-05-20 16:31:25.002164959 +0300
++++ cl-lxc	2022-06-10 14:10:04.093641549 +0300
+@@ -128,7 +128,7 @@
+ 	elif (( $# == 1 ))
+ 	then
+ 		lxc_=$1
+-		if [[ $lxc_ =~ [^A-Za-z0-9_\.] ]]
++		if [[ $lxc_ =~ [^A-Za-z0-9_\._\-] ]]
+ 		then
+ 			echo $"Container name contains wrong characters." >&2
+ 			exit 1
+@@ -146,6 +146,7 @@
+ 	then
+ 		echo $"Distributive:
+   [CCS]		Calculate Container Scratch (by default)
++  [CDC]		Calculate Directory Container
+   [CCG]		Calculate Container Games"
+   		return
+   	fi
+@@ -154,6 +155,9 @@
+ 	CCS)
+ 		echo "Calculate Container Scratch"
+ 		;;
++	CDC)
++		echo "Calculate Directory Container"
++		;;
+ 	CCG)
+ 		echo "Calculate Container Games"
+ 		;;
