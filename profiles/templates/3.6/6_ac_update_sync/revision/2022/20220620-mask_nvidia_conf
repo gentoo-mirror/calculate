@@ -1,0 +1,7 @@
+# Calculate exec=/bin/bash ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#
+
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+
+grep nvidia /etc/X11/xorg.conf >/dev/null && cl-setup-video
+
+exit 0
