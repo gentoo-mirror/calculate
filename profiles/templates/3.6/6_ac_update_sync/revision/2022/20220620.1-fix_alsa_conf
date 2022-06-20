@@ -1,0 +1,10 @@
+# Calculate exec=/bin/bash ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#
+
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+
+if [ -e /etc/asound.conf ]
+then
+	grep defaults.pcm /etc/asound.conf >/dev/null && cl-setup-audio
+fi
+
+exit 0
