@@ -34,4 +34,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-ssh_keys.patch
 	"${FILESDIR}"/${P}-check_files.patch
 	"${FILESDIR}"/${P}-cdc.patch
+	"${FILESDIR}"/${P}-cdc_support.patch
 )
