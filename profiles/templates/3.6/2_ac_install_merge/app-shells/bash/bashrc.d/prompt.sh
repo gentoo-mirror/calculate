@@ -7,9 +7,12 @@ if [[ $- != *i* ]] ; then
 fi
 
 if ${use_color} ; then
-	PS_HOSTNAME=$(timeout 0.5 hostname -f 2>/dev/null | sed -r "s/(\.[^.]+)?\.[^.]+$//")
-	if [[ -z $PS_HOSTNAME ]]
+	PS_HOSTNAME=$(timeout 0.5 hostname -f 2>/dev/null)
+	if [[ $PS_HOSTNAME ]]
 	then
+		PS_HOSTNAME=${PS_HOSTNAME%.*}
+		PS_HOSTNAME=${PS_HOSTNAME%.*}
+	else
 		PS_HOSTNAME="$(hostname)"
 	fi
 	if [[ ${EUID} == 0 ]] ; then
