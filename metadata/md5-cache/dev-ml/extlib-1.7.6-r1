@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare test
-DEPEND=>=dev-lang/ocaml-3.10.2:=[ocamlopt?] dev-ml/cppo >=dev-ml/findlib-1.0.4-r1
+DEPEND=>=dev-lang/ocaml-3.10.2:=[ocamlopt?] dev-ml/cppo >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Standard library extensions for O'Caml
 EAPI=7
 HOMEPAGE=https://github.com/ygrek/ocaml-extlib
@@ -10,5 +10,5 @@ LICENSE=LGPL-2.1
 RDEPEND=>=dev-lang/ocaml-3.10.2:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
 SLOT=0/1.7.6
 SRC_URI=https://github.com/ygrek/ocaml-extlib/archive/1.7.6.tar.gz -> extlib-1.7.6.tar.gz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff
+_eclasses_=findlib	6afd368dc89c3b53f6686e5752caf50d	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff
 _md5_=26a3ed11e30590c58200ec4834d4054b
