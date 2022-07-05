@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="7"
-PYTHON_COMPAT=(python3_9)
+PYTHON_COMPAT=(python3_10)
 
 UTILS_PV="3.7.2.1"
 
