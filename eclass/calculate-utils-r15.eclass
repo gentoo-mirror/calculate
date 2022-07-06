@@ -300,12 +300,12 @@ calculate-utils-r15_pkg_preinst() {
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
-	dosym /usr/lib/python-exec/python3.9/cl-console /usr/bin/cl-console
+	dosym /usr/lib/python-exec/python3.10/cl-console /usr/bin/cl-console
 	if use qt5
 	then
-		dosym /usr/lib/python-exec/python3.9/cl-console-gui /usr/bin/cl-console-gui
-		dosym /usr/lib/python-exec/python3.9/cl-console-gui /usr/bin/cl-console-gui-install
-		dosym /usr/lib/python-exec/python3.9/cl-console-gui /usr/bin/cl-console-gui-update
-		dosym /usr/lib/python-exec/python3.9/cl-update-checker /usr/bin/cl-update-checker
+		dosym /usr/lib/python-exec/python3.10/cl-console-gui /usr/bin/cl-console-gui
+		dosym /usr/lib/python-exec/python3.10/cl-console-gui /usr/bin/cl-console-gui-install
+		dosym /usr/lib/python-exec/python3.10/cl-console-gui /usr/bin/cl-console-gui-update
+		dosym /usr/lib/python-exec/python3.10/cl-update-checker /usr/bin/cl-update-checker
 	fi
 }
