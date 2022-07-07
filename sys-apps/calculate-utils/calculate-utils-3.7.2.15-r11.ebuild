@@ -3,13 +3,13 @@
 # $Header: $
 
 EAPI="7"
-PYTHON_COMPAT=(python3_9)
+PYTHON_COMPAT=(python3_10)
 
 UTILS_PV="3.7.2.1"
 
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.7.2.19"
+	["lib"]="3.7.2.20"
 	["install"]="3.7.2.11"
 	["core"]="3.7.2.3"
 	["i18n"]="3.7.2.10"

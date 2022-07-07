@@ -39,7 +39,7 @@ DEPEND="!sys-apps/calculate-lib
 			>=net-mail/dovecot-1.2.0[ldap,pam,ssl(+)]
 		)
 		>=mail-filter/procmail-3.22
-		|| ( dev-python/pymilter[python_targets_python3_9]
+		|| ( dev-python/pymilter[python_targets_python3_10]
 			dev-python/pymilter[python_targets_python3_10] )
 		>=mail-mta/postfix-2.2[ldap,pam,ssl,sasl,dovecot-sasl]
 	)
@@ -57,9 +57,9 @@ DEPEND="!sys-apps/calculate-lib
 	!calculate_nonamed? ( >=net-dns/bind-9.6.1_p1[sdb-ldap] )
 	!calculate_noproxy? ( >=net-proxy/squid-3.0.14[ldap,pam,ssl] )
 	!calculate_nodhcp? ( >=net-misc/dhcp-3.1.2_p1 )
-	|| ( dev-python/python-ldap[ssl,python_targets_python3_9]
+	|| ( dev-python/python-ldap[ssl,python_targets_python3_10]
 		dev-python/python-ldap[ssl,python_targets_python3_10] )
-	|| ( dev-python/lxml[python_targets_python3_9]
+	|| ( dev-python/lxml[python_targets_python3_10]
 		dev-python/lxml[python_targets_python3_10] )
 "
 

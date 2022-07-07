@@ -3,17 +3,19 @@
 # $Header: $
 
 EAPI="7"
-PYTHON_COMPAT=(python3_9)
+PYTHON_COMPAT=(python3_10)
+
+UTILS_PV="3.7.2.1"
+
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.7.2.16"
-	["install"]="3.7.2.9"
+	["lib"]="3.7.2.19"
+	["install"]="3.7.2.11"
 	["core"]="3.7.2.3"
 	["i18n"]="3.7.2.10"
-	["client"]="3.7.2.3"
+	["client"]="3.7.2.4"
 	["console"]="3.7.2.2"
-	["console-gui"]="3.7.2.1"
-	["update"]="3.7.2.23"
+	["update"]="3.7.2.24"
 	["builder"]="3.7.2.7"
 )
 
