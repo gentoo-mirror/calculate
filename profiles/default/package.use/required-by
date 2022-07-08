@@ -684,3 +684,6 @@ dev-util/xdelta lzma
 media-libs/qhull static-libs
 
 app-crypt/gpgme python
+
+# required by "dev-cpp/folly-2022.03.28.00-r1
+dev-cpp/glog gflags
