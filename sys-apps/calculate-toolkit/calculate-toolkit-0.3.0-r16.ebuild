@@ -35,4 +35,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-check_files.patch
 	"${FILESDIR}"/${P}-cdc.patch
 	"${FILESDIR}"/${P}-cdc_support.patch
+	"${FILESDIR}"/${P}-gentoo.patch
 )

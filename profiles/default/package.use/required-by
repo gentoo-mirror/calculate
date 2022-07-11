@@ -687,3 +687,6 @@ app-crypt/gpgme python
 
 # required by "dev-cpp/folly-2022.03.28.00-r1
 dev-cpp/glog gflags
+
+# required by net-im/cawbird-1.5-r2[gstreamer]
+media-plugins/gst-plugins-meta http
