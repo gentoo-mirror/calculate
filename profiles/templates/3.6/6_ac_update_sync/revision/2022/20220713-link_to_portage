@@ -1,0 +1,11 @@
+# Calculate exec=/bin/bash ini(overlay-calculate.revision)<#-cut(0,-,#-cl_pass_file-#)-#
+
+#-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
+
+if [ ! -e /var/db/repos/gentoo ]
+do
+	mv /usr/portage /var/db/repos/gentoo
+	ln -s /var/db/repos/gentoo /usr/portage
+done
+
+exit 0
