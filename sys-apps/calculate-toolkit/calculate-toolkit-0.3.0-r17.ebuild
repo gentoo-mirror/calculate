@@ -36,4 +36,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-cdc.patch
 	"${FILESDIR}"/${P}-cdc_support.patch
 	"${FILESDIR}"/${P}-gentoo.patch
+	"${FILESDIR}"/${P}-pruning.patch
 )
