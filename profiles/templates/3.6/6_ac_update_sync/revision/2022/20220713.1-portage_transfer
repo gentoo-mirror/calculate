@@ -2,10 +2,10 @@
 
 #-ini(overlay-calculate.revision,#-cut(0,-,#-cl_pass_file-#)-#)-#
 
-if [ ! -e /var/db/repos/gentoo ]
-then
-	mv /usr/portage /var/db/repos/gentoo
-	ln -s /var/db/repos/gentoo /usr/portage
-fi
+#if [ ! -e /var/db/repos/gentoo ]
+#then
+#	mv /usr/portage /var/db/repos/gentoo
+#	ln -s /var/db/repos/gentoo /usr/portage
+#fi
 
 exit 0
