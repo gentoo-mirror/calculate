@@ -24,3 +24,15 @@ SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_instal
 # #-list(os_install_net_name,5)-#
 SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,5)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,5)-#"
 #list#
+# #-list(os_install_net_name,6)-#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,6)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,6)-#"
+#list#
+# #-list(os_install_net_name,7)-#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,7)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,7)-#"
+#list#
+# #-list(os_install_net_name,8)-#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,8)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,8)-#"
+#list#
+# #-list(os_install_net_name,9)-#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="#-list(os_install_net_mac,9)-#", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="#-list(os_install_net_interfaces,9)-#"
+#list#
