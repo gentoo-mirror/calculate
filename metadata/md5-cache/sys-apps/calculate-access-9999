@@ -1,7 +1,7 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install unpack
-DEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=Cryptodata management tools
-EAPI=5
+EAPI=7
 HOMEPAGE=http://www.calculate-linux.org/main/en/calculate_access
 INHERIT=git-r3
 IUSE=+client server
@@ -10,4 +10,4 @@ PROPERTIES=live
 REQUIRED_USE=|| ( client server )
 SLOT=0
 _eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=dd02720fa76bce0febd13a48b0f56db1
+_md5_=340f5f10366d02e69e3b3fca5cf17a2b

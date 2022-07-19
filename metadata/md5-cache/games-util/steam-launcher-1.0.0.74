@@ -5,11 +5,11 @@ HOMEPAGE=https://steampowered.com
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop linux-info prefix xdg
 IUSE=+joystick +steamruntime +udev
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=ValveSteamLicense MIT
 RDEPEND=app-arch/tar app-shells/bash net-misc/curl || ( >=gnome-extra/zenity-3 x11-terms/xterm ) joystick? ( udev? ( games-util/game-device-udev-rules ) ) steamruntime? ( virtual/opengl[abi_x86_32] x11-libs/libX11[abi_x86_32] x11-libs/libXau[abi_x86_32] x11-libs/libxcb[abi_x86_32] x11-libs/libXdmcp[abi_x86_32] ) !steamruntime? ( >=games-util/steam-client-meta-0-r20210608[steamruntime?] ) amd64? ( >=sys-devel/gcc-4.6.0[multilib] >=sys-libs/glibc-2.15[multilib] ) x86? ( >=sys-devel/gcc-4.6.0 >=sys-libs/glibc-2.15 )
 RESTRICT=bindist mirror test
 SLOT=0
-SRC_URI=https://repo.steampowered.com/steam/archive/stable/steam_1.0.0.71.tar.gz
+SRC_URI=https://repo.steampowered.com/steam/archive/stable/steam_1.0.0.74.tar.gz
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	prefix	eab3c99d77fe00506c109c8a736186f7	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=eabaf3d9e13c79664a4ac2fded2bf6ad
+_md5_=f86a14c79706c68aca1ede00487be66e
