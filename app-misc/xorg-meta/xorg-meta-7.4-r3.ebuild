@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI=7
 
 DESCRIPTION="Calculate Linux (Xorg meta package)"
 HOMEPAGE="http://www.calculate-linux.org/"
