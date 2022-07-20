@@ -391,3 +391,6 @@ media-video/pipewire extra echo-cancel pipewire-alsa
 
 # disabling unmanaged changes in device access rights
 sys-auth/elogind -acl
+
+# add support for sqlite
+www-apps/gitea sqlite
