@@ -15,7 +15,7 @@ declare -A CALCULATE_MODULES=(
 	["i18n"]="3.7.2.10"
 	["client"]="3.7.2.4"
 	["console"]="3.7.2.2"
-	["console-gui"]="3.7.2.4"
+	["console-gui"]="3.7.2.5"
 	["update"]="3.7.2.28"
 	["builder"]="3.7.2.11"
 )
