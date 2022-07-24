@@ -1,0 +1,8 @@
+# Calculate comment=# ini(container.type)==host path=/lib/udev/rules.d
+
+ENV{ID_LXC}=="", GOTO="lxc_end" 
+
+ACTION=="add", PROGRAM="/bin/bash /usr/libexec/lxc-udev-trigger add '$env{DEVNAME}' '$env{MAJOR}' '$env{MINOR}' '$env{SUBSYSTEM}' '$env{ID_LXC}'" 
+ACTION=="remove", PROGRAM="/bin/bash /usr/libexec/lxc-udev-trigger remove $env{DEVNAME} $env{MAJOR} $env{MINOR} $env{SUBSYSTEM} $env{ID_LXC}" 
+
+LABEL="lxc_end"

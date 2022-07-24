@@ -1,0 +1,23 @@
+# Calculate comment=# ini(container.type)==host path=/lib/udev/rules.d
+
+# VirtualBox
+ACTION=="add|remove", DEVPATH=="/devices/virtual/misc/vbox*", ENV{ID_LXC}="all"
+
+# PS/2 keyboard and mouse
+ACTION=="add|remove", DEVPATH=="/devices/platform/i8042/*", ENV{ID_LXC}="all"
+
+# USB devices
+ACTION=="add|remove", ENV{ID_BUS}=="usb", ENV{ID_LXC}="all"
+
+# Audio devices
+ACTION=="add|remove", SUBSYSTEM=="sound", ENV{ID_LXC}="all"
+# tty0 for chvt and lightdm
+ACTION=="add|remove", KERNEL=="tty0", ENV{ID_LXC}="all"
+# tty7-10 for xorg-server
+ACTION=="add|remove", KERNEL=="tty7", ENV{ID_LXC}="all"
+ACTION=="add|remove", KERNEL=="tty8", ENV{ID_LXC}="all"
+ACTION=="add|remove", KERNEL=="tty9", ENV{ID_LXC}="all"
+ACTION=="add|remove", KERNEL=="tty10", ENV{ID_LXC}="all"
+
+# Video devices
+ACTION=="add|remove", SUBSYSTEM=="drm", ENV{ID_LXC}="all"

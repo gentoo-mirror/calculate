@@ -1,0 +1,61 @@
+# Calculate comment=# ini(container.type)==host path=/usr/libexec chmod=0755
+#!/bin/bash
+
+ACTION="$1" 
+DEVNAME="$2" 
+MAJOR="$3" 
+MINOR="$4" 
+SUBSYSTEM="$5" 
+
+if [[ -z $MINOR ]] || [[ -z $DEVNAME ]]
+then
+	exit 0
+fi
+
+shift 5
+COMPS="$*"
+
+process_device() {
+	local comp=$1
+	if [[ "$ACTION" == "add" ]]
+	then
+		lxc-device -n ${comp} -- add $DEVNAME
+		lxc-attach -n ${comp} $(stat -L -c "chmod %a %n" $DEVNAME)
+		lxc-attach -n ${comp} $(stat -L -c "chown %u:%g %n" $DEVNAME)
+		udevadm trigger --action=change --name-match=$DEVNAME
+	fi
+	if [[ "$ACTION" == "remove" ]]
+	then
+		lxc-attach -n ${comp} -- rm $DEVNAME
+		if [[ -n $MAJOR ]] && [[ -n $MINOR ]]
+		then
+			if [[ $SUBSYSTEM == "block" ]]
+			then
+				lxc-cgroup -n ${comp} devices.deny "b $MAJOR:$MINOR rwm" 
+			else
+				lxc-cgroup -n ${comp} devices.deny "c $MAJOR:$MINOR rwm" 
+			fi
+		fi
+		udevadm trigger --action=remove --name-match=$DEVNAME
+	fi
+}
+
+if [[ $COMPS == "all" ]]
+then
+	for COMP in $(lxc-ls -1q 2>/dev/null)
+	do
+		if lxc-info -n $COMP -c lxc.environment | grep LXC_DESKTOP=1 &>/dev/null
+		then
+			process_device $COMP
+		fi
+	done
+else
+	for COMP in $COMPS
+	do
+		if [[ -n $(lxc-info -pH -n $COMP) ]]
+		then
+			process_device $COMP
+		fi
+	done
+fi
+
