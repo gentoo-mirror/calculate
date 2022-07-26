@@ -12,7 +12,7 @@ HOMEPAGE="https://www.calculate-linux.org"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 S=${WORKDIR}/${PN}
 
@@ -38,4 +38,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-gentoo.patch
 	"${FILESDIR}"/${P}-pruning.patch
 	"${FILESDIR}"/${P}-clear_cache.patch
+	"${FILESDIR}"/${P}-mac.patch
 )
