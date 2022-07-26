@@ -1,0 +1,133 @@
+diff --git a/cl-lxc b/cl-lxc
+index 9a53c2d..70a965e 100755
+--- a/cl-lxc
++++ b/cl-lxc
+@@ -330,17 +330,17 @@ check_vars(){
+ 		if [ ! -e $path_lxc ]
+ 		then
+ 			printf $"No operation specified. Call %s to create a container.\n" \
+-				"'$program_name --create $name_lxc'" >&2
++				"'$program_name -c $name_lxc'" >&2
+ 			exit 1
+ 		elif [ ! -d $path_lxc_prepare ]
+ 		then
+ 			printf $"No operation specified. Call %s to prepare an update image for the container.\n" \
+-				"'$program_name --prepare $name_lxc'" >&2
++				"'$program_name -p $name_lxc'" >&2
+ 			exit 1
+ 		elif [ -d $path_lxc_prepare ]
+ 		then
+ 			printf $"No operation specified. Call %s to update the container.\n" \
+-				"'$program_name --upgrade $name_lxc'" >&2
++				"'$program_name -u $name_lxc'" >&2
+ 			exit 1
+ 		else
+ 			print_help "usage" >&2
+@@ -368,13 +368,6 @@ create_base() {
+ 			mkdir $path_cache
+ 		fi
+ 	fi
+-
+-	# Удалим кэш LXC
+-	if [ $clear_ == 1 ]
+-	then
+-		rm -rf /var/cache/lxc/download/$lxc_distro
+-	fi
+-
+ 	lxc-create -n $lxc_distro -t download -- --server $mirror_ \
+ 			--arch x86_64 --dist $lxc_distro --release $lxc_release &>/dev/null || {
+ 		eend $? || true
+@@ -617,7 +610,7 @@ update_prepare() {
+ 
+ 	[ $diff_ == 1 ] && diff_pkg
+ 
+-	einfo $"Image for update ready. Now you can run '$program_name --upgrade $name_upgrading' to update."
++	einfo $"Image for update ready. Now you can run '$program_name -u $name_upgrading' to update."
+ 	return
+ 
+ }
+@@ -723,6 +716,45 @@ diff_pkg() {
+ 	true
+ }
+ 
++clear_cache(){
++	ebegin $"Clearing cache"
++	rm -rf /var/cache/lxc/download/*
++
++	if [[ -e /var/calculate/lxc/.cache ]]
++	then
++		if [[ $(df -Th /var/calculate/lxc | awk 'NR==2 {print $2}') == btrfs ]]
++		then
++			btrfs subvolume delete /var/calculate/lxc/.cache > /dev/null
++		else
++			rm -rf /var/calculate/lxc/.cache
++		fi
++	fi
++
++	for i in /var/calculate/lxc/*
++	do
++		if [[ $i == /var/calulate/lxc/* ]]
++		then
++			break
++		fi
++		# разыменуем символические ссылки чтобы почистить кэши на других разделах
++		if [[ -L $i ]]
++		then
++			cache_dir=$(realpath $i)
++			cache_dir=${cache_dir%/*}
++			if [[ -e $cache_dir/.cache ]]
++			then
++				if [[ $(df -Th $cache_dir | awk 'NR==2 {print $2}') == btrfs ]]
++				then
++					btrfs subvolume delete $cache_dir/.cache > /dev/null
++				else
++					rm -rf $cache_dir/.cache
++				fi
++			fi
++		fi
++	done
++	eend
++}
++
+ 
+ # Проверка одновременного запуска
+ check_simultaneous_run
+@@ -742,18 +774,15 @@ debug_vars
+ # Проверка параметров запуска
+ check_vars
+ 
+-# Чистка кэша базового контейнера
++# Чистка кэша
+ # пустой файл partial когда lxc-create был прерван
+-if [[ $clear_ == 1 && -d "$path_cache/$lxc_distro" ]]
++if [[ $clear_ == 1 ]]
+ then
+-	ebegin $"Clearing Calculate Container cache"
+-	rm -rf "$path_cache/$lxc_distro"
+-	eend
++	clear_cache
+ fi
+ 
+ # Создание базового контейнера
+-if [[ $create_ == 1 || $prepare_ == 1 || $clear_ == 1 ]] &&
+-   [ ! -d "$path_cache/$lxc_distro" ]
++if [[ $create_ == 1 || $prepare_ == 1 ]] && [ ! -d "$path_cache/$lxc_distro" ]
+ then
+ 	create_base
+ fi
+@@ -761,15 +790,6 @@ fi
+ # Создание контейнера 
+ if [[ $create_ == 1 || $prepare_ == 1 ]]
+ then
+-	if [ -d "$path_lxc_prepare" ]
+-	then
+-		if [ $clear_ == 1 ]
+-		then
+-			ebegin $"Clearing container cache"
+-			rm -r "$path_lxc_prepare"
+-			eend
+-		fi
+-	fi
+ 	create_lxc
+ fi
+ 
