@@ -62,3 +62,5 @@ net-fs/samba python
 # required by "net-fs/samba-4.15.3-r1
 sys-libs/ldb python
 
+# !sound-server? ( !pipewire-alsa )
+media-video/pipewire sound-server
