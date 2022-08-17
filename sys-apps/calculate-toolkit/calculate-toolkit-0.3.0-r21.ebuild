@@ -40,4 +40,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-clear_cache.patch
 	"${FILESDIR}"/${P}-mac.patch
 	"${FILESDIR}"/${P}-unique_veth_pair.patch
+	"${FILESDIR}"/${P}-noop_net.patch
 )
