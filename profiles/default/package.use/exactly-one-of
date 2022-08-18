@@ -43,3 +43,6 @@ sci-mathematics/polymake nauty
 
 # exactly-one-of ( apache2-server nginx )
 www-apps/icingaweb2 nginx
+
+# exactly-one-of ( git gitea gitolite )
+acct-user/git gitea
