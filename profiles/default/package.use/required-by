@@ -697,3 +697,6 @@ kde-frameworks/kconfig qml
 # required by dev-util/pwndbg-20220105
 dev-util/unicorn python
 
+# required by app-containers/lxc-5.0.1[tools,caps]
+sys-libs/libcap static-libs
+
