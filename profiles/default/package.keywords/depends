@@ -42,7 +42,7 @@
 ~app-crypt/dieharder-3.31.1 amd64
 ~app-crypt/ekeyd-1.1.5 amd64
 ~app-crypt/elettra-1.0 amd64
-~app-crypt/envchain-1.0.0 amd64
+~app-crypt/envchain-1.0.1 amd64
 ~app-crypt/fcrackzip-1.0 amd64
 ~app-crypt/gifshuffle-2.0 amd64
 ~app-crypt/gnupg-pkcs11-scd-0.9.2 amd64
@@ -54,7 +54,7 @@
 ~app-crypt/kbfs-2.11.0 amd64
 ~app-crypt/kencfs-plasma-2.0.2_alpha amd64
 ~app-crypt/keybase-5.1.1 amd64
-~app-crypt/loop-aes-losetup-2.28.2 amd64
+~app-crypt/loop-aes-losetup-2.35.2 amd64
 ~app-crypt/md4sum-0.02.03 amd64
 ~app-crypt/nasty-0.6 amd64
 ~app-crypt/onak-0.5.0 amd64
@@ -92,7 +92,7 @@
 ~app-emacs/emacs-common-1.8 amd64
 ~app-emacs/ess-18.10.2 amd64
 ~app-emulation/coldfire-0.3.1 amd64
-~app-emulation/dlx-1.0.0 amd64
+~app-emulation/dlx-1.5.20 amd64
 ~app-emulation/docker-machine-0.13.0 amd64
 ~app-emulation/dynamips-0.2.21 amd64
 ~app-emulation/gxemul-0.6.2 amd64
@@ -103,7 +103,7 @@
 ~app-emulation/ski-1.3.2 amd64
 ~app-emulation/softgun-0.22 amd64
 ~app-emulation/virtio-win-0.1.190.1 amd64
-~app-emulation/wine-gecko-2.47.2 amd64
+~app-emulation/wine-gecko-2.47.3 amd64
 ~app-emulation/wine-mono-5.1.1 amd64
 ~app-emulation/wine-mono-6.2.0 amd64
 ~app-emulation/wine-mono-6.4.0 amd64
@@ -171,7 +171,7 @@
 ~app-misc/physlock-13 amd64
 ~app-misc/qtxdg-tools-3.9.1 amd64
 ~app-misc/razertool-0.0.7 amd64
-~app-misc/rundeck-cli-bin-0.1.11 amd64
+~app-misc/rundeck-cli-bin-2.0.1 amd64
 ~app-misc/selecta-0.0.7 amd64
 ~app-misc/sonypid-1.9 amd64
 ~app-misc/taskd-1.1.0 amd64
@@ -259,6 +259,7 @@
 ~dev-libs/libdbusmenu-qt-0.9.3_pre20160218 amd64
 ~dev-libs/libdispatch-5.3.3 amd64
 ~dev-libs/libdynd-0.7.2 amd64
+~dev-libs/libfmt-8.0.1 amd64
 ~dev-libs/libindicator-12.10.1 amd64
 ~dev-libs/libkpass-6 amd64
 ~dev-libs/libplatform-2.1.0.1 amd64
@@ -268,8 +269,8 @@
 ~dev-libs/lzo-2.10 amd64
 ~dev-libs/mimetic-0.9.8 amd64
 ~dev-libs/mmtf-cpp-1.0.0 amd64
-~dev-libs/nspr-4.34 amd64
-~dev-libs/nss-3.81 amd64
+~dev-libs/nspr-4.34.1 amd64
+~dev-libs/nss-3.82 amd64
 ~dev-libs/ocl-icd-2.3.0 amd64
 ~dev-libs/OpenNI2-2.2_beta2 amd64
 ~dev-libs/pegtl-2.8.3 amd64
@@ -303,13 +304,14 @@
 ~dev-util/anjuta-3.34.0 amd64
 ~dev-util/bdelta-0.3.1 amd64
 ~dev-util/btyacc-3.0 amd64
-~dev-util/intel-graphics-compiler-1.0.11485 amd64
+~dev-util/intel-graphics-compiler-1.0.11702.1 amd64
 ~dev-util/intel-ocl-sdk-4.4.0.117 amd64
 ~dev-util/lcov-1.15 amd64
 ~dev-util/patchbin-20160208 amd64
 ~dev-util/premake-5.0.0_alpha12 amd64
 ~dev-util/qbs-1.18.0 amd64
 ~dev-util/rats-2.4 amd64
+~dev-util/rizin-0.4.0 amd64
 ~dev-util/watchman-2022.07.04.00 amd64
 ~gnustep-base/mknfonts-0.5 amd64
 ~gnustep-libs/dbuskit-0.1.1 amd64
@@ -431,7 +433,7 @@
 ~net-print/splix-2.0.0_p20130826 amd64
 ~net-print/sshlpr-1 amd64
 ~net-proxy/squirm-1.26 amd64
-~net-vpn/networkmanager-sstp-1.2.0 amd64
+~net-vpn/networkmanager-sstp-1.3.0 amd64
 <net-vpn/wireguard-modules-9999 amd64
 net-vpn/wireguard-tools amd64
 ~net-wireless/bluez-tools-0_p20201025 amd64
@@ -474,7 +476,7 @@ net-vpn/wireguard-tools amd64
 ~sci-geosciences/opencpn-plugin-weatherfax-1.3.20180316 amd64
 ~sci-geosciences/opencpn-plugin-weather_routing-1.13.1 amd64
 ~sci-geosciences/qmapshack-1.16.1 amd64
-~sci-geosciences/readosm-1.0.0e amd64
+~sci-geosciences/readosm-1.1.0a amd64
 ~sci-libs/flann-1.9.1 amd64
 ~sci-libs/med-4.1.0 amd64
 ~sci-libs/mkl-2020.4.304 amd64
@@ -525,8 +527,8 @@ net-vpn/wireguard-tools amd64
 ~sys-fs/quotatool-1.6.2 amd64
 ~sys-fs/rar2fs-1.29.5 amd64
 ~sys-fs/reiserfs-defrag-0.2.2 amd64
-~sys-fs/snapraid-11.5 amd64
-~sys-fs/squashfuse-0.1.100 amd64
+~sys-fs/snapraid-12.2 amd64
+~sys-fs/squashfuse-0.1.103 amd64
 ~sys-fs/unionfs-fuse-2.1 amd64
 ~sys-fs/yaffs2utils-0.2.9 amd64
 ~sys-fs/zerofree-1.1.1 amd64
