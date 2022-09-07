@@ -1,0 +1,16 @@
+DEFINED_PHASES=install postinst postrm preinst prepare unpack
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Free text and calls
+EAPI=7
+HOMEPAGE=http://www.viber.com
+INHERIT=desktop multilib-build pax-utils unpacker xdg
+IUSE=+abi_x86_64 apulse +pulseaudio abi_x86_64
+KEYWORDS=-* ~amd64
+LICENSE=viber
+RDEPEND=app-arch/brotli dev-libs/expat[abi_x86_64(-)?] dev-libs/glib:2[abi_x86_64(-)?] dev-libs/nspr[abi_x86_64(-)?] dev-libs/nss[abi_x86_64(-)?] dev-libs/openssl-compat[abi_x86_64(-)?] dev-libs/wayland[abi_x86_64(-)?] media-libs/alsa-lib[abi_x86_64(-)?] media-libs/fontconfig:1.0[abi_x86_64(-)?] media-libs/freetype:2[abi_x86_64(-)?] media-libs/gst-plugins-base:1.0[abi_x86_64(-)?] media-libs/gstreamer:1.0[abi_x86_64(-)?] net-print/cups[abi_x86_64(-)?] sys-apps/dbus[abi_x86_64(-)?] sys-libs/zlib:0/1[abi_x86_64(-)?] x11-libs/libdrm[abi_x86_64(-)?] x11-libs/libICE[abi_x86_64(-)?] x11-libs/libSM[abi_x86_64(-)?] x11-libs/libX11[abi_x86_64(-)?] x11-libs/libxcb:0/1.12[abi_x86_64(-)?] x11-libs/libXcomposite[abi_x86_64(-)?] x11-libs/libXcursor[abi_x86_64(-)?] x11-libs/libXdamage[abi_x86_64(-)?] x11-libs/libXext[abi_x86_64(-)?] x11-libs/libXfixes[abi_x86_64(-)?] x11-libs/libXi[abi_x86_64(-)?] x11-libs/libXrandr[abi_x86_64(-)?] x11-libs/libXrender[abi_x86_64(-)?] x11-libs/libXScrnSaver[abi_x86_64(-)?] x11-libs/libXtst[abi_x86_64(-)?] x11-libs/xcb-util-image[abi_x86_64(-)?] x11-libs/xcb-util-keysyms[abi_x86_64(-)?] x11-libs/xcb-util-renderutil[abi_x86_64(-)?] x11-libs/xcb-util-wm[abi_x86_64(-)?] apulse? ( media-sound/apulse[abi_x86_64(-)?] ) pulseaudio? ( media-sound/pulseaudio[abi_x86_64(-)?] )
+REQUIRED_USE=^^ ( apulse pulseaudio ) || ( abi_x86_64 )
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb -> viber-18.2.0.2.deb
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib-build	87f1b83e21a473787b821ef3d0437bf3	pax-utils	91d47e5d20627c717aa878b9167c62a8	unpacker	697382d119fd3d195f110b7979184285	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=53c24b125eb7240f5bdf882f3cb3920d
