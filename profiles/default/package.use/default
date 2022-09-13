@@ -43,12 +43,6 @@ app-portage/layman sync-plugin-portage
 
 net-p2p/rtorrent daemon xmlrpc
 
-# using instead of bzip2
-app-arch/lbzip2 symlink
-
-# using instead of gzip
-app-arch/pigz symlink
-
 # add plugin aria2
 www-client/uget aria2
 
