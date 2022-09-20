@@ -3,20 +3,21 @@
 # $Header: $
 
 EAPI="7"
-PYTHON_COMPAT=(python3_10)
+PYTHON_COMPAT=(python3_9)
 
 UTILS_PV="3.7.2.1"
 
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.7.2.22"
-	["install"]="3.7.2.12"
-	["core"]="3.7.2.4"
+	["lib"]="3.7.2.29"
+	["install"]="3.7.2.14"
+	["core"]="3.7.2.7"
 	["i18n"]="3.7.2.10"
 	["client"]="3.7.2.4"
 	["console"]="3.7.2.2"
-	["update"]="3.7.2.25"
-	["builder"]="3.7.2.8"
+	["console-gui"]="3.7.2.5"
+	["update"]="3.7.2.28"
+	["builder"]="3.7.2.11"
 )
 
 inherit calculate-utils-r15
