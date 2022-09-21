@@ -700,3 +700,6 @@ dev-util/unicorn python
 # required by app-containers/lxc-5.0.1[tools,caps]
 sys-libs/libcap static-libs
 
+# required by media-sound/ardour-6.9-r2
+media-libs/suil gtk2
+
