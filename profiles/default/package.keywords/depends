@@ -9,7 +9,6 @@
 ~app-arch/plzip-1.10 amd64
 ~app-arch/vimball-0.5.1 amd64
 ~app-backup/amanda-3.5.1 amd64
-~app-backup/attic-0.16 amd64
 ~app-backup/borgweb-0.2.0 amd64
 ~app-backup/cdbackup-0.7.1 amd64
 ~app-backup/cpdup-1.18 amd64
@@ -49,11 +48,8 @@
 ~app-crypt/gpgstats-0.5 amd64
 ~app-crypt/hashcat-6.2.1 amd64
 ~app-crypt/hashcat-utils-1.9 amd64
-~app-crypt/ima-evm-utils-1.1 amd64
 ~app-crypt/jetring-0.27 amd64
-~app-crypt/kbfs-2.11.0 amd64
 ~app-crypt/kencfs-plasma-2.0.2_alpha amd64
-~app-crypt/keybase-5.1.1 amd64
 ~app-crypt/loop-aes-losetup-2.35.2 amd64
 ~app-crypt/md4sum-0.02.03 amd64
 ~app-crypt/nasty-0.6 amd64
@@ -63,7 +59,6 @@
 ~app-crypt/pkcrack-1.2.2 amd64
 ~app-crypt/pkcs11-data-0.7.4 amd64
 ~app-crypt/pkcs11-dump-0.3.4 amd64
-~app-crypt/signify-30 amd64
 ~app-crypt/tc-play-2.0 amd64
 ~app-crypt/tpm-emulator-0.7.5 amd64
 ~app-crypt/ubuntu-keyring-2020.06.17.1 amd64
@@ -104,12 +99,7 @@
 ~app-emulation/softgun-0.22 amd64
 ~app-emulation/virtio-win-0.1.190.1 amd64
 ~app-emulation/wine-gecko-2.47.3 amd64
-~app-emulation/wine-mono-5.1.1 amd64
-~app-emulation/wine-mono-6.2.0 amd64
-~app-emulation/wine-mono-6.4.0 amd64
 ~app-emulation/wine-mono-7.0.0 amd64
-~app-emulation/wine-mono-7.1.1 amd64
-~app-emulation/wine-mono-7.2.0 amd64
 ~app-emulation/wine-mono-7.3.0 amd64
 ~app-eselect/eselect-opencascade-1 amd64
 ~app-forensics/libewf-20171104 amd64
@@ -132,10 +122,8 @@
 ~app-misc/blink1-1.98 amd64
 ~app-misc/brewtarget-2.3.1 amd64
 ~app-misc/btail-0.3 amd64
-~app-misc/cadubi-1.3 amd64
 ~app-misc/carbon-c-relay-3.7.2 amd64
 ~app-misc/cbview-0.06 amd64
-~app-misc/ckb-0.4.4 amd64
 ~app-misc/ckermit-9.0.302 amd64
 ~app-misc/crunch-3.6 amd64
 ~app-misc/ddccontrol-0.6.0 amd64
@@ -220,10 +208,8 @@
 ~dev-cpp/lucene++-3.0.7 amd64
 ~dev-cpp/pystring-1.1.3 amd64
 ~dev-db/pgrouting-3.1.3 amd64
-~dev-db/pgtap-1.1.0 amd64
 ~dev-db/postgis-3.1.5 amd64
 ~dev-db/sqlitebrowser-3.12.2 amd64
-~dev-embedded/gpsim-0.30.0 amd64
 ~dev-erlang/meck-0.8.12 amd64
 ~dev-games/cegui-0.8.7 amd64
 ~dev-games/irrlicht-1.8.4 amd64
@@ -235,7 +221,6 @@
 ~dev-java/ant-contrib-1.0_beta6_pre20201123 amd64
 ~dev-java/browserlauncher2-1.3 amd64
 ~dev-java/commons-imaging-1.0_alpha3 amd64
-~dev-java/j2objc-annotations-1.2 amd64
 ~dev-java/javacc-5.0 amd64
 ~dev-java/jchart2d-3.2.2 amd64
 ~dev-java/jide-oss-3.7.12 amd64
@@ -252,7 +237,6 @@
 ~dev-libs/cppcodec-0.2 amd64
 ~dev-libs/crossguid-0_pre20150817 amd64
 ~dev-libs/dietlibc-0.34 amd64
-~dev-libs/ding-libs-0.6.1 amd64
 ~dev-libs/icu-71.1 amd64
 ~dev-libs/icu-layoutex-71.1 amd64
 ~dev-libs/iniparser-4.1 amd64
@@ -260,7 +244,6 @@
 ~dev-libs/libdbusmenu-qt-0.9.3_pre20160218 amd64
 ~dev-libs/libdispatch-5.3.3 amd64
 ~dev-libs/libdynd-0.7.2 amd64
-~dev-libs/libfmt-8.0.1 amd64
 ~dev-libs/libindicator-12.10.1 amd64
 ~dev-libs/libkpass-6 amd64
 ~dev-libs/libplatform-2.1.0.1 amd64
@@ -310,14 +293,10 @@
 ~dev-util/lcov-1.15 amd64
 ~dev-util/patchbin-20160208 amd64
 ~dev-util/premake-5.0.0_alpha12 amd64
-~dev-util/qbs-1.18.0 amd64
 ~dev-util/rats-2.4 amd64
-~dev-util/rizin-0.4.0 amd64
 ~dev-util/watchman-2022.09.12.00 amd64
 ~gnustep-base/mknfonts-0.5 amd64
 ~gnustep-libs/dbuskit-0.1.1 amd64
-~gui-libs/wlroots-0.14.1 amd64
-~gui-libs/wlroots-0.15.0 amd64
 ~gui-libs/wlroots-0.15.1 amd64
 ~gui-libs/xdg-desktop-portal-lxqt-0.2.0 amd64
 ~lxde-base/lxappearance-0.6.3 amd64
@@ -348,7 +327,6 @@
 ~media-libs/glm-0.9.9.8 amd64
 ~media-libs/icc-profiles-basiccolor-printing2009-1.2.0 amd64
 ~media-libs/icc-profiles-openicc-1.3.1 amd64
-~media-libs/libaacplus-2.0.2 amd64
 ~media-libs/libcdaudio-0.99.12 amd64
 ~media-libs/libdvdnav-6.1.1 amd64
 ~media-libs/libdvdread-6.1.2 amd64
@@ -361,7 +339,6 @@
 ~media-libs/mlt-7.8.0 amd64
 ~media-libs/rnnoise-0.4.1_p20210122 amd64
 ~media-libs/sdl-pango-0.1.2 amd64
-~media-libs/speex-1.2.0 amd64
 ~media-libs/tg_owt-0_pre20220507 amd64
 ~media-libs/vigra-1.11.1 amd64
 ~media-libs/zmusic-1.1.4 amd64
@@ -401,7 +378,6 @@
 ~net-dns/dnstop-20140915 amd64
 ~net-firewall/arptables-0.0.5 amd64
 ~net-firewall/pglinux-2.3.1_p20171006 amd64
-~net-firewall/xtables-addons-3.18 amd64
 ~net-irc/irssi-xmpp-0.54 amd64
 ~net-libs/cvm-0.97 amd64
 ~net-libs/gloox-1.0.24 amd64
@@ -482,7 +458,6 @@ net-vpn/wireguard-tools amd64
 ~sci-libs/flann-1.9.1 amd64
 ~sci-libs/med-4.1.0 amd64
 ~sci-libs/mkl-2020.4.304 amd64
-~sci-libs/opencascade-7.6.1 amd64
 ~sci-libs/scikit-learn-0.24.2 amd64
 ~sci-libs/tamu_anova-0.2 amd64
 ~sci-libs/votca-tools-1.6.4 amd64
@@ -492,9 +467,7 @@ net-vpn/wireguard-tools amd64
 ~sci-mathematics/num-utils-0.5 amd64
 ~sci-mathematics/why3-for-spark-2019 amd64
 ~sci-physics/lammps-20200303 amd64
-~sci-visualization/opendx-4.4.4 amd64
 ~sci-visualization/xgraph-12.1 amd64
-~sys-apps/firejail-0.9.68 amd64
 ~sys-apps/fix-gnustack-0.1 amd64
 ~sys-apps/miscfiles-1.5 amd64
 ~sys-apps/ucspi-proxy-1.1 amd64
