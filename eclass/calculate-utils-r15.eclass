@@ -168,6 +168,7 @@ RDEPEND="
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils
+	app-portage/eix
 
 	app-eselect/eselect-repository
 	>=virtual/udev-197
