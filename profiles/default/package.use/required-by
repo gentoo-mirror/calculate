@@ -711,3 +711,6 @@ kde-plasma/kwin lock
 
 # required by sci-libs/vtk-9.1.0-r3
 sci-libs/cgnslib hdf5
+
+# required by app-containers/apptainer-1.1.2
+sys-fs/e2fsprogs fuse
