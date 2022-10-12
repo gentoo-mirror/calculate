@@ -9,7 +9,7 @@ UTILS_PV="3.7.2.1"
 
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.7.2.29"
+	["lib"]="3.7.2.30"
 	["install"]="3.7.2.14"
 	["core"]="3.7.2.7"
 	["i18n"]="3.7.2.10"
@@ -17,7 +17,7 @@ declare -A CALCULATE_MODULES=(
 	["console"]="3.7.2.2"
 	["console-gui"]="3.7.2.5"
 	["update"]="3.7.2.28"
-	["builder"]="3.7.2.11"
+	["builder"]="3.7.2.12"
 )
 
 inherit calculate-utils-r15
