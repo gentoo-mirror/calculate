@@ -14,7 +14,7 @@ start() {
 	ebegin "Update packages"
 	cl-update -f &>>/dev/tty12
 	res=$?
-	LANG=en_US.utf8 rc-update del update-pkg default
-	LANG=en_US.utf8 /sbin/rc-update --update
+	LANG=en_US.UTF-8 rc-update del update-pkg default
+	LANG=en_US.UTF-8 /sbin/rc-update --update
 	eend $res
 }
