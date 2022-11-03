@@ -1,4 +1,4 @@
-# Calculate append=skip
+# Calculate append=skip cl_name==
 
 В этой директории находятся шаблоны для новых утилит Calculate, разработанных
 для дистрибутивов Calculate Linux.
