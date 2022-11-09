@@ -43,4 +43,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-noop_net.patch
 	"${FILESDIR}"/${P}-bash.patch
 	"${FILESDIR}"/${P}-encoding.patch
+	"${FILESDIR}"/${P}-container-overlay.patch
 )
