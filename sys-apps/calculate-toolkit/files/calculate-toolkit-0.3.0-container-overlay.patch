@@ -1,0 +1,78 @@
+--- /tmp/cl-lxc	2022-11-08 13:40:00.612782840 +0300
++++ /usr/sbin/cl-lxc	2022-11-08 17:16:25.381542190 +0300
+@@ -457,17 +457,25 @@
+ 	fi
+ 	portage_mount="lxc.mount.entry = ${gentoo_from} ${gentoo_to} none ro,bind 0 0"
+ 
+-	local container_mount=
+-	if [ -d /var/db/repos/container ]
++	if [ ! -e /var/db/repos/container ]
+ 	then
+-		rm -rf $path_lxc/rootfs/var/db/repos/container
++		mv $path_lxc/rootfs/var/db/repos/container /var/db/repos
+ 		mkdir $path_lxc/rootfs/var/db/repos/container
+-		container_mount="lxc.mount.entry = /var/db/repos/container var/db/repos/container none ro,bind 0 0
+-"
+-	else
+-		ewarn $"Skipping mounting Container overlay"
+-		container_mount="#lxc.mount.entry = /var/db/repos/container var/db/repos/container none ro,bind 0 0
+-"
++
++		if grep -q github.com $path_lxc/rootfs/etc/portage/repos.conf/zz-calculate.conf
++		then
++			local repo_container='https://github.com/calculatelinux/container'
++		else
++			local repo_container='https://git.calculate-linux.org/calculate/container-overlay'
++		fi
++		cat <<- EOF > /etc/portage/repos.conf/cl-lxc.conf
++		[container]
++		priority = 50
++		sync-uri = $repo_container
++		location = /var/db/repos/container
++		auto-sync = Yes
++		sync-type = git
++		EOF
+ 	fi
+ 
+ 	ebegin $"Running container setup"
+@@ -488,12 +496,15 @@
+ 			# исключим настройку сетевого имени, если такое уже используется
+ 			veth_pair="#${veth_pair}"
+ 		fi
+-		network_conf="lxc.net.0.type = veth
+-lxc.net.0.flags = up
+-lxc.net.0.name = eth0
+-lxc.net.0.link = br0
+-lxc.net.0.hwaddr = ${random_mac}
+-${veth_pair}"
++		network_conf=$(cat <<- EOF
++			lxc.net.0.type = veth
++			lxc.net.0.flags = up
++			lxc.net.0.name = eth0
++			lxc.net.0.link = br0
++			lxc.net.0.hwaddr = ${random_mac}
++			${veth_pair}
++			EOF
++		)
+ 	fi
+ 
+ 	# перенесем базовый config удалив настройку сети
+@@ -506,7 +517,8 @@
+ 	${network_conf}
+ 	${calculate_mount}${portage_mount}
+ 	lxc.mount.entry = /var/db/repos/calculate var/db/repos/calculate none ro,bind 0 0
+-	${container_mount}lxc.mount.entry = /var/cache/edb/binhost var/cache/edb/binhost none ro,bind 0 0
++	lxc.mount.entry = /var/db/repos/container var/db/repos/container none ro,bind 0 0
++	lxc.mount.entry = /var/cache/edb/binhost var/cache/edb/binhost none ro,bind 0 0
+ 	lxc.mount.entry = /var/calculate/packages var/calculate/packages none rw,bind 0 0
+ 	lxc.mount.entry = /var/calculate/distfiles var/calculate/distfiles none rw,bind 0 0
+ 	EOF
+@@ -541,7 +553,7 @@
+ 	fi
+ 	cat <<- EOF > ${calculate_dir}/templates/default/portage.binhost
+ 	# Calculate mergepkg(sys-apps/portage)!= path=/etc/portage/make.conf name=binhost protected comment=#
+-	$(emerge --info | grep PORTAGE_BINHOST)
++	$(emerge --info 2>/dev/null | grep PORTAGE_BINHOST)
+ 	EOF
+ 	eend
+ 	[ -z "$name_upgrading" ] && printf $"Your container is ready. To start it, please run 'lxc-start %s'.\n" $name_lxc
