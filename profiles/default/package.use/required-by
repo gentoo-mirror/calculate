@@ -714,3 +714,9 @@ sci-libs/cgnslib hdf5
 
 # required by app-containers/apptainer-1.1.2
 sys-fs/e2fsprogs fuse
+
+# required by gnome-base/gnome-control-center-43.1
+media-libs/libcanberra sound
+
+# required by app-text/bibletime-3.0.3-r4
+app-text/sword curl icu
