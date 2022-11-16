@@ -23,4 +23,5 @@ RDEPEND=">=sys-apps/calculate-utils-3.6
 PATCHES=(
 	"${FILESDIR}"/${P}-rmdir.patch
 	"${FILESDIR}"/${P}-scratch.patch
+	"${FILESDIR}"/${P}-fix_net_start.patch
 )
