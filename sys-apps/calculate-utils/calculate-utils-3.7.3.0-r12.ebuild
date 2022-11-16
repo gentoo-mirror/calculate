@@ -17,7 +17,7 @@ declare -A CALCULATE_MODULES=(
 	["console"]="3.7.2.2"
 	["console-gui"]="3.7.2.5"
 	["update"]="3.7.2.43"
-	["builder"]="3.7.2.12"
+	["builder"]="3.7.2.45"
 )
 
 inherit calculate-utils-r15
