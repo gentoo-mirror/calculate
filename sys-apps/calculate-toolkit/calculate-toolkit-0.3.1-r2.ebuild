@@ -19,3 +19,8 @@ S=${WORKDIR}/${PN}
 RDEPEND=">=sys-apps/calculate-utils-3.6
 	app-arch/zstd
 	app-arch/xz-utils"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-rmdir.patch
+	"${FILESDIR}"/${P}-scratch.patch
+)
