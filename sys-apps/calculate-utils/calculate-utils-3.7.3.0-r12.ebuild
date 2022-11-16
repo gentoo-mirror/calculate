@@ -12,12 +12,12 @@ declare -A CALCULATE_MODULES=(
 	["lib"]="3.7.2.35"
 	["install"]="3.7.2.14"
 	["core"]="3.7.2.7"
-	["i18n"]="3.7.2.13"
-	["client"]="3.7.2.4"
+	["i18n"]="3.7.2.16"
+	["client"]="3.7.2.5"
 	["console"]="3.7.2.2"
 	["console-gui"]="3.7.2.5"
-	["update"]="3.7.2.34"
-	["builder"]="3.7.2.12"
+	["update"]="3.7.2.43"
+	["builder"]="3.7.2.45"
 )
 
 inherit calculate-utils-r15
