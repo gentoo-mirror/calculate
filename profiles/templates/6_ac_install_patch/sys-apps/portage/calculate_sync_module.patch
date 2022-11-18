@@ -81,7 +81,7 @@ index 0000000..d3152f6
 +
 +		#calculate update
 +		exitcode = portage.process.spawn_bash(
-+                    "/usr/sbin/cl-core --method update --rep %s "
++                    "/usr/sbin/cl-core --method update --repositories %s "
 +                    "--sync-only on --skip-eix-update -T none" % self.repo.name)
 +		if exitcode != os.EX_OK:
 +			msg = "!!! calculate update error; exiting."
