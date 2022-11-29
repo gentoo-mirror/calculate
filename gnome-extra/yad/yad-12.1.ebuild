@@ -15,14 +15,17 @@ KEYWORDS="amd64"
 
 IUSE="nls spell webkit"
 
-DEPEND="
+RDEPEND="
 	>=x11-libs/gtk+-3.22.0:3=
 	spell? ( app-text/gspell:0 )
 	webkit? ( net-libs/webkit-gtk:4 )
-	>=dev-util/intltool-0.40.0
 "
 
-RDEPEND="${DEPEND}"
+DEPEND="${DEPEND}"
+
+BDEPEND="
+	>=dev-util/intltool-0.40.0
+"
 
 src_configure() {
 	gnome2_src_configure \
