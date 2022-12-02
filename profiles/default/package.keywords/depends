@@ -255,6 +255,8 @@
 ~dev-libs/libtecla-1.6.3 amd64
 ~dev-libs/libtimezonemap-0.4.6 amd64
 ~dev-libs/libtommath-1.2.0 amd64
+~dev-libs/libtraceevent-1.6.3 amd64
+~dev-libs/libtracefs-1.6.1 amd64
 ~dev-libs/lzo-2.10 amd64
 ~dev-libs/mimetic-0.9.8 amd64
 ~dev-libs/mmtf-cpp-1.0.0 amd64
@@ -278,10 +280,12 @@
 ~dev-php/phpunit-mock-objects-3.4.3 amd64
 ~dev-php/swoole-4.5.9 amd64
 ~dev-python/alagitpull-0.0.23 amd64
+~dev-python/grpcio-1.51.0 amd64
 ~dev-python/pikepdf-6.2.1 amd64
 ~dev-python/pycxx-7.1.5 amd64
 ~dev-python/thrift-0.16.0 amd64
 ~dev-python/tomli-2.0.1 amd64
+~dev-python/virtualenvwrapper-4.8.4 amd64
 ~dev-qt/qtplugininfo-5.15.5 amd64
 ~dev-qt/qtquicktimeline-5.15.5 amd64
 ~dev-qt/qtserialbus-5.15.5 amd64
@@ -300,13 +304,13 @@
 ~dev-util/patchbin-20160208 amd64
 ~dev-util/premake-5.0.0_alpha16 amd64
 ~dev-util/rats-2.4 amd64
+~dev-util/trace-cmd-3.1.4 amd64
 ~dev-util/watchman-2022.09.12.00 amd64
 ~gnustep-base/mknfonts-0.5 amd64
 ~gnustep-libs/dbuskit-0.1.1 amd64
 ~gui-libs/egl-wayland-1.1.11 amd64
 ~gui-libs/wlroots-0.15.1 amd64
 ~gui-libs/xdg-desktop-portal-lxqt-0.2.0 amd64
-~kde-misc/colord-kde-0.5.0_p20220907 amd64
 ~lxde-base/lxappearance-0.6.3 amd64
 ~lxde-base/lxappearance-obconf-0.2.3 amd64
 ~lxde-base/lxde-common-0.99.2 amd64
@@ -514,7 +518,7 @@ net-vpn/wireguard-tools amd64
 ~sys-fs/reiserfs-defrag-0.2.2 amd64
 ~sys-fs/snapraid-12.2 amd64
 ~sys-fs/squashfuse-0.1.103 amd64
-~sys-fs/unionfs-fuse-2.1 amd64
+~sys-fs/unionfs-fuse-3.2 amd64
 ~sys-fs/yaffs2utils-0.2.9 amd64
 ~sys-fs/zerofree-1.1.1 amd64
 ~sys-fs/zfs-auto-snapshot-1.2.4 amd64
@@ -560,7 +564,7 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/gbdfed-1.6 amd64
 ~x11-misc/genmenu-1.1.0 amd64
 ~x11-misc/gromit-20041213 amd64
-~x11-misc/grub2-theme-preview-2.6.0 amd64
+~x11-misc/grub2-theme-preview-2.7.0 amd64
 ~x11-misc/iconbox-0.2 amd64
 ~x11-misc/kapow-1.5.10 amd64
 ~x11-misc/kaqaz-1.2.0 amd64
