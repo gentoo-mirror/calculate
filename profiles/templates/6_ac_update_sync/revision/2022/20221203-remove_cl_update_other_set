@@ -1,0 +1,6 @@
+# Calculate exec=/bin/bash ini(overlay-calculate.revision)<#-cut(0)-#
+
+#-ini(overlay-calculate.revision,#-cut(0)-#)-#
+
+sed -i '/cl_update_other_set/d' /var/lib/calculate/calculate.env
+exit 0
