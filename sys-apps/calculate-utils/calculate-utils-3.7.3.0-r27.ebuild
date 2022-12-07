@@ -12,11 +12,11 @@ declare -A CALCULATE_MODULES=(
 	["lib"]="3.7.2.36"
 	["install"]="3.7.2.16"
 	["core"]="3.7.2.8"
-	["i18n"]="3.7.2.19"
+	["i18n"]="3.7.2.20"
 	["client"]="3.7.2.6"
 	["console"]="3.7.2.2"
 	["console-gui"]="3.7.2.5"
-	["update"]="3.7.2.56"
+	["update"]="3.7.2.57"
 	["builder"]="3.7.2.47"
 )
 
