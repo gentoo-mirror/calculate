@@ -388,3 +388,6 @@ sys-auth/elogind -acl
 
 # add support for sqlite
 www-apps/gitea sqlite
+
+# l2tp+ipsec support
+net-vpn/strongswan strongswan_plugins_ipseckey
