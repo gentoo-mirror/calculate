@@ -16,8 +16,8 @@ declare -A CALCULATE_MODULES=(
 	["client"]="3.7.2.6"
 	["console"]="3.7.2.2"
 	["console-gui"]="3.7.2.5"
-	["update"]="3.7.2.61"
-	["builder"]="3.7.2.48"
+	["update"]="3.7.2.62"
+	["builder"]="3.7.2.49"
 )
 
 inherit calculate-utils-r16
@@ -27,5 +27,5 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
 SLOT="3"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
