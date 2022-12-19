@@ -9,12 +9,12 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64"
 VERSION_IUSE="CL11 CL12 CL13 CL14 CL15 CL17 CL21"
 IUSE="+CL11 +CL12 +CL13 +CL14 +CL15 +CL17 +CL21"
 
 SRC_URI="
-	https://mirror.calculate-linux.org/themes/calculate/wallpaper-22.jpg -> ${PF}.jpg
+	https://mirror.calculate-linux.org/themes/wallpaper-22.jpg -> ${PF}.jpg
 	CL21? (
 		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-21.tar.bz2
 	)
@@ -37,8 +37,6 @@ SRC_URI="
 		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-11.tar.bz2
 	)
 	"
-
-DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
 # need for templates
 RDEPEND="${DEPEND}

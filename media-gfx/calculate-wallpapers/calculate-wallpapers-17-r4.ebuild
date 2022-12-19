@@ -9,12 +9,12 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64"
 VERSION_IUSE="CL11 CL12 CL13 CL14 CL15"
 IUSE="+CL11 +CL12 +CL13 +CL14 +CL15"
 
 SRC_URI="
-	https://mirror.calculate-linux.org/themes/calculate/wallpaper-17.jpg -> ${PF}.jpg
+	https://mirror.calculate-linux.org/themes/wallpaper-17.jpg -> ${PF}.jpg
 	CL15? (
 		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-15.tar.bz2
 	)
