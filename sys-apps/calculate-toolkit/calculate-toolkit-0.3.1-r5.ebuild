@@ -25,4 +25,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-scratch.patch
 	"${FILESDIR}"/${P}-fix_net_start.patch
 	"${FILESDIR}"/${P}-preset_config.patch
+	"${FILESDIR}"/${P}-fix_path.patch
 )
