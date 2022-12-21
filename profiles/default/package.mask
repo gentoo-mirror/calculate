@@ -13,3 +13,6 @@ sys-libs/db:6.0
 
 # downgrades version net-libs/libtorrent-rasterbar
 =net-p2p/qbittorrent-4.4.5-r2
+
+# a bug in this version - crashes out of the user's session
+~media-libs/libva-2.16.0
