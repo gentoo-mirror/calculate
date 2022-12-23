@@ -6,9 +6,7 @@ then
 	cd "#-ini(resource.desktop)-#"
 	for i in *.desktop
 	do
-		gio_rules+="gio set -t string '#-ini(resource.desktop)-#/$i' \
-			metadata::xfce-exe-checksum \
-			$(sha256sum $i | awk '{print $1}'); "
+		gio_rules+="gio set -t string '#-ini(resource.desktop)-#/$i' metadata::xfce-exe-checksum $(sha256sum $i | awk '{print $1}'); "
 	done
 fi
 gio_rules+="rm $file_exec"
