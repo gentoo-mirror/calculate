@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyritght 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,11 +10,17 @@ HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64"
-VERSION_IUSE="CL11 CL12 CL13 CL14 CL15 CL17"
-IUSE="+CL11 +CL12 +CL13 +CL14 +CL15 +CL17"
+VERSION_IUSE="CL11 CL12 CL13 CL14 CL15 CL17 CL21 CL22"
+IUSE="+CL11 +CL12 +CL13 +CL14 +CL15 +CL17 +CL21 +CL22"
 
 SRC_URI="
-	https://mirror.calculate-linux.org/themes/wallpaper-18.jpg -> ${PF}.jpg
+	https://mirror.calculate-linux.org/themes/calculate/wallpaper-23.jpg -> ${PF}.jpg
+	CL22? (
+		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-22.tar.bz2
+	)
+	CL21? (
+		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-21.tar.bz2
+	)
 	CL17? (
 		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-17.tar.bz2
 	)
@@ -24,18 +30,16 @@ SRC_URI="
 	CL14? (
 		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-14-r1.tar.bz2
 	)
-	CL11? (
-		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-11.tar.bz2
+	CL13? (
+		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-13.tar.bz2
 	)
 	CL12? (
 		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-12.tar.bz2
 	)
-	CL13? (
-		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-13.tar.bz2
+	CL11? (
+		https://mirror.calculate-linux.org/themes/wallpapers/wallpapers-11.tar.bz2
 	)
 	"
-
-DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
 # need for templates
 RDEPEND="${DEPEND}
@@ -54,17 +58,25 @@ src_install() {
 		if use $useflag
 		then
 			cd $WORKDIR/calculate-wallpapers-${useflag//CL}
-			if [[ $useflag == CL14 ]]
+			if [[ $useflag == CL22 ]]
 			then
-				mv usr/share/wallpapers/Calculate_Linux usr/share/wallpapers/Calculate_Linux_14
+				mv usr/share/wallpapers/Calculate_Linux usr/share/wallpapers/Calculate_Linux_22
+			fi
+			if [[ $useflag == CL21 ]]
+			then
+				mv usr/share/wallpapers/Calculate_Linux usr/share/wallpapers/Calculate_Linux_21
+			fi
+			if [[ $useflag == CL17 ]]
+			then
+				mv usr/share/wallpapers/Calculate_Linux usr/share/wallpapers/Calculate_Linux_17
 			fi
 			if [[ $useflag == CL15 ]]
 			then
 				mv usr/share/wallpapers/Calculate_Linux usr/share/wallpapers/Calculate_Linux_15
 			fi
-			if [[ $useflag == CL17 ]]
+			if [[ $useflag == CL14 ]]
 			then
-				mv usr/share/wallpapers/Calculate_Linux usr/share/wallpapers/Calculate_Linux_17
+				mv usr/share/wallpapers/Calculate_Linux usr/share/wallpapers/Calculate_Linux_14
 			fi
 			doins -r usr
 		fi
