@@ -14,7 +14,6 @@ IUSE=""
 
 SRC_URI="https://mirror.calculate-linux.org/themes/plasma/plasma-calculate-${PV}.tar.bz2"
 
-
 src_install() {
 	insinto /
 	doins -r .
