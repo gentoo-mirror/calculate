@@ -53,7 +53,7 @@ kde-apps/kio-extras mtp
 sys-libs/ncurses tinfo
 
 # i386 support, TLS support for the VNC console server, VirtFS
-app-emulation/qemu gnutls spice sdl2 usbredir xfs qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 virtfs
+app-emulation/qemu gnutls spice usbredir qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 virtfs
 
 # use dev-libs/libnatspec to correctly decode non-ascii file names
 app-arch/zip natspec
