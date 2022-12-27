@@ -20,7 +20,7 @@ declare -A CALCULATE_MODULES=(
 	["builder"]="3.7.2.50"
 )
 
-inherit calculate-utils-r15
+inherit calculate-utils-r16
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
