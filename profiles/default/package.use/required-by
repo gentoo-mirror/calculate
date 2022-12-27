@@ -362,17 +362,14 @@ dev-libs/libgpg-error static-libs
 # required by sys-power/suspend-1.0_p20150810[lzo]
 dev-libs/lzo static-libs
 
-# required by dev-vcs/git-cola-2.11, dev-vcs/git-cola-3.12.0, dev-python/qtconsole-4.7.5, dev-python/pytest-qt-3.3.0
-dev-python/QtPy gui network printsupport testlib
+# required by dev-python/qtconsole-4.7.5, dev-python/pytest-qt-3.3.0
+dev-python/QtPy printsupport testlib
 
 # required by dev-tex/culmus-latex-0.7
 media-fonts/culmus fancy
 
 # required by dev-qt/qt-creator-4.4.1[cmake]
 dev-util/cmake server
-
-# required by net-vpn/libreswan-3.20
-dev-libs/nss utils
 
 # required by games-engines/love-0.8.0
 media-libs/devil mng
@@ -397,9 +394,6 @@ dev-libs/gmime smime
 
 # required by net-mail/vchkuser-0.4
 mail-mta/netqmail qmail-spp
-
-# required by sci-visualization/mayavi-4.5.0
-sci-libs/vtk rendering
 
 # required by app-text/llpp-26b_p20180114
 dev-ml/lablgl glut
@@ -619,9 +613,6 @@ dev-libs/qtkeychain gnome-keyring
 # required by kde-plasma/plasma-workspace-5.20.5-r1
 kde-frameworks/prison qml
 
-# required by sys-apps/flatpak-1.10.0
-dev-util/ostree curl
-
 # required by app-emulation/lxd-4.0.4-r5
 sys-fs/squashfs-tools lzma
 
@@ -633,13 +624,8 @@ media-libs/libv4l dvb
 media-libs/freetype harfbuzz
 
 # required by net-misc/rygel-0.40.1
-net-libs/gupnp vala
-net-libs/gssdp vala
 media-libs/libmediaart vala
 net-libs/gupnp-av vala
-
-# required by dev-python/pytest-qt-3.3.0
-dev-python/QtPy widgets
 
 # required by net-fs/samba-4.13.9-r2
 sys-libs/ldb ldap
@@ -647,7 +633,7 @@ sys-libs/ldb ldap
 # required by media-gfx/freecad-0.19.2-r3
 sci-libs/med python
 sci-libs/opencascade vtk
-sci-libs/vtk boost qt5
+sci-libs/vtk qt5
 
 # required by dev-python/pyls-spyder-0.4.0-r1
 dev-python/python-lsp-server all-plugins
@@ -716,9 +702,6 @@ sci-libs/cgnslib hdf5
 
 # required by app-containers/apptainer-1.1.2
 sys-fs/e2fsprogs fuse
-
-# required by gnome-base/gnome-control-center-43.1
-media-libs/libcanberra sound
 
 # required by app-text/bibletime-3.0.3-r4
 app-text/sword curl icu
