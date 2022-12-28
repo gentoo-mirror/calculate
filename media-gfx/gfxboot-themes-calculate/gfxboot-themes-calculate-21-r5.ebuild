@@ -21,7 +21,6 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/gfxboot-themes-calculate-${PVR}"
 
-
 src_compile() {
 	emake -j1
 }

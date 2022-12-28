@@ -22,4 +22,3 @@ src_install() {
 	insinto /
 	doins -r .
 }
-
