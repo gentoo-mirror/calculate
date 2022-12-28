@@ -10,7 +10,7 @@ SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="x86 amd64"
+KEYWORDS="amd64 x86"
 IUSE="+client server"
 REQUIRED_USE="|| ( client server )"
 RDEPEND="sys-apps/openrc

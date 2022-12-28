@@ -13,7 +13,7 @@ EGIT_COMMIT="9c7be324f5a4306dd81eab2f982f87e2c42ffdf1"
 
 LICENSE="BEER-WARE"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="ipv6 blacklist +whitelist debug gzip restrict-stats live-sync log-network"
 
 RDEPEND=""
