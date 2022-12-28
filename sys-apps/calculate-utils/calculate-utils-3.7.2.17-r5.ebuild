@@ -7,7 +7,6 @@ PYTHON_COMPAT=(python3_9)
 
 UTILS_PV="3.7.2.1"
 
-
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.7.2.34"
 	["install"]="3.7.2.14"

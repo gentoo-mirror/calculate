@@ -4,7 +4,7 @@
 
 EAPI=7
 
-inherit gnome2-utils
+inherit gnome2
 
 DESCRIPTION="Icons theme for Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/packages/x11-themes/calculate-icon-theme"
@@ -46,4 +46,3 @@ pkg_postinst() {
 pkg_postrm() {
 	gnome2_icon_cache_update
 }
-

@@ -4,7 +4,7 @@
 
 EAPI=7
 
-inherit gnome2-utils
+inherit gnome2
 
 DESCRIPTION="Icons theme for Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/packages/x11-themes/calculate-icon-theme"
@@ -18,7 +18,7 @@ SRC_URI="https://mirror.calculate-linux.org/themes/icon/icon-calculate-15-r6.tar
 
 REQUIRED_USE=""
 
-RDEPEND="|| ( 
+RDEPEND="|| (
 		x11-themes/adwaita-icon-theme
 		kde-plasma/breeze
 		kde-frameworks/oxygen-icons
@@ -45,4 +45,3 @@ pkg_postinst() {
 pkg_postrm() {
 	gnome2_icon_cache_update
 }
-

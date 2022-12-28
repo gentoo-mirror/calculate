@@ -53,11 +53,11 @@ src_install() {
 	newins "${DISTDIR}"/${PF}.jpg wallpaper.jpg
 
 	insinto /
-	for useflag in $VERSION_IUSE
+	for useflag in ${VERSION_IUSE}
 	do
 		if use $useflag
 		then
-			cd $WORKDIR/calculate-wallpapers-${useflag//CL}
+			cd "$WORKDIR/calculate-wallpapers-${useflag//CL}"
 			if [[ $useflag == CL22 ]]
 			then
 				mv usr/share/wallpapers/Calculate_Linux usr/share/wallpapers/Calculate_Linux_22

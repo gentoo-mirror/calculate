@@ -4,7 +4,7 @@
 
 EAPI=7
 
-inherit gnome2-utils
+inherit gnome2
 
 DESCRIPTION="Elementary icon theme is designed to be smooth, sexy, clear, and efficient"
 HOMEPAGE="https://launchpad.net/elementaryicons"

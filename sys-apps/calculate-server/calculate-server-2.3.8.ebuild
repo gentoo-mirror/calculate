@@ -31,12 +31,12 @@ DEPEND="!sys-apps/calculate-lib
 	>=sys-auth/nss_ldap-239
 	!<sys-apps/calculate-utils-3.5.0_alpha44
 	!calculate_nosamba? (
-		|| ( 
+		|| (
 			<net-fs/samba-4[acl,client,cups,ldap,netapi,pam,server,smbclient]
 			>=net-fs/samba-4[acl,client,cups,ldap,pam]
 		)
 	)
-	!calculate_nomail? ( 
+	!calculate_nomail? (
 		|| ( <net-mail/dovecot-1.2.0[pop3d,ldap,pam,ssl]
 			>=net-mail/dovecot-1.2.0[ldap,pam,ssl(+)]
 		)
@@ -66,7 +66,6 @@ DEPEND="!sys-apps/calculate-lib
 "
 
 RDEPEND="${DEPEND}"
-
 
 pkg_postinst() {
 	if [ -d /var/calculate/server-data/mail/imap ] || \
