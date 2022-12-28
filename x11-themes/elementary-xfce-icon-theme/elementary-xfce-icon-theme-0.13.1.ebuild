@@ -1,8 +1,8 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit gnome2-utils
+inherit xdg-utils
 
 MY_PN="${PN/-icon-theme/}"
 
@@ -13,7 +13,6 @@ SRC_URI="https://github.com/shimmerproject/${MY_PN}/archive/v${PV}.tar.gz -> ${P
 LICENSE="public-domain GPL-1 GPL-2 GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
 
 RDEPEND=""
 DEPEND="media-gfx/optipng"
@@ -35,6 +34,6 @@ src_install() {
 	done
 }
 
-pkg_preinst() { gnome2_icon_savelist; }
-pkg_postinst() { gnome2_icon_cache_update; }
-pkg_postrm() { gnome2_icon_cache_update; }
+pkg_preinst() { xdg_icon_savelist; }
+pkg_postinst() { xdg_icon_cache_update; }
+pkg_postrm() { xdg_icon_cache_update; }
