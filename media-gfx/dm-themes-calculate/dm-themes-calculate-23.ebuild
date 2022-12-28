@@ -37,4 +37,3 @@ src_install() {
 	use login && newins "${DISTDIR}"/${PN}-login-${PVR}.jpg dm-login.jpg
 	use splash && newins "${DISTDIR}"/${PN}-splash-${PVR}.jpg dm-splash.jpg
 }
-

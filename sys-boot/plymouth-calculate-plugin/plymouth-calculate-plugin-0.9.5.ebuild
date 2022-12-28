@@ -51,7 +51,6 @@ src_prepare() {
 	eautoreconf
 }
 
-
 src_configure() {
 	local myconf=(
 		--with-system-root-install=no
