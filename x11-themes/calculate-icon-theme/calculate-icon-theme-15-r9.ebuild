@@ -1,10 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=7
+EAPI=8
 
-inherit gnome2-utils
+inherit xdg-utils
 
 DESCRIPTION="Icons theme for Calculate Linux"
 HOMEPAGE="http://www.calculate-linux.org/packages/x11-themes/calculate-icon-theme"
@@ -15,8 +15,6 @@ KEYWORDS="amd64 x86"
 IUSE="+qt5"
 
 SRC_URI="https://mirror.calculate-linux.org/themes/icon/icon-calculate-15-r6.tar.bz2"
-
-REQUIRED_USE=""
 
 RDEPEND="|| (
 		x11-themes/adwaita-icon-theme
@@ -36,14 +34,13 @@ src_install() {
 }
 
 pkg_preinst() {
-	gnome2_icon_savelist
+	xdg_icon_savelist
 }
 
 pkg_postinst() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }
-

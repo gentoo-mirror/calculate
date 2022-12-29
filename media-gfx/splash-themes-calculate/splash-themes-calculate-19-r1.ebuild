@@ -14,7 +14,7 @@ IUSE="+silent +silent-shutdown"
 
 REQUIRED_USE="|| ( silent silent-shutdown )"
 
-SRC_URI="silent? ( 
+SRC_URI="silent? (
 		https://mirror.calculate-linux.org/themes/calculate/splash-silent-${PV}.png -> ${PN}-silent-${PV}.png
 	)
 	silent-shutdown? (
@@ -44,4 +44,3 @@ src_install() {
 		newins "${DISTDIR}"/${PN}-shutdown-${PV}.jpg splash-shutdown.jpg
 	fi
 }
-

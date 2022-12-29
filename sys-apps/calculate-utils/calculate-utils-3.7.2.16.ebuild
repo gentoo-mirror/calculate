@@ -7,7 +7,6 @@ PYTHON_COMPAT=(python3_10)
 
 UTILS_PV="3.7.2.1"
 
-
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.7.2.22"
 	["install"]="3.7.2.12"
@@ -27,4 +26,3 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 LICENSE="Apache-2.0"
 SLOT="3"
 KEYWORDS="amd64"
-

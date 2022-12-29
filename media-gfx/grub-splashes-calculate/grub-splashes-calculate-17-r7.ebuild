@@ -27,4 +27,3 @@ src_install() {
 	insinto /usr/share/themes/Calculate/
 	newins "${DISTDIR}"/${P}.jpg grub.jpg
 }
-

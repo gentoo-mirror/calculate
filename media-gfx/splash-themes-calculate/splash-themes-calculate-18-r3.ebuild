@@ -14,7 +14,7 @@ IUSE="+verbose +silent +silent-shutdown"
 
 REQUIRED_USE="|| ( verbose silent silent-shutdown )"
 
-SRC_URI="silent? ( 
+SRC_URI="silent? (
 		https://mirror.calculate-linux.org/themes/calculate/splash-silent-18.jpg -> ${PN}-silent-18.jpg
 	verbose? (
 		https://mirror.calculate-linux.org/themes/calculate/splash-verbose-18.jpg -> ${PN}-verbose-18.jpg
@@ -48,4 +48,3 @@ src_install() {
 		newins "${DISTDIR}"/${PN}-verbose-${PV}.jpg splash-verbose.jpg
 	fi
 }
-

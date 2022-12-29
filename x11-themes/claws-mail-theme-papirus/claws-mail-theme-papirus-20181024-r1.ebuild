@@ -14,7 +14,8 @@ KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="mail-client/claws-mail"
-DEPEND=""
+DEPEND="!>=x11-themes/claws-mail-themes-20221017"
+
 S="${WORKDIR}/papirus-claws-mail-theme-${COMMIT}"
 
 src_install() {
