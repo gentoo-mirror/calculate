@@ -5,7 +5,7 @@
 EAPI=7
 ETYPE="sources"
 
-inherit calculate-kernel-8 eutils
+inherit calculate-kernel-8
 
 DESCRIPTION="Calculate Linux kernel image"
 KEYWORDS="~amd64"
