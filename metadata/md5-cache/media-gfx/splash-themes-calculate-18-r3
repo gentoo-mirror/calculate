@@ -10,4 +10,4 @@ RDEPEND=media-gfx/splashutils media-fonts/droid !<sys-apps/calculate-utils-3.5.2
 REQUIRED_USE=|| ( verbose silent silent-shutdown )
 SLOT=0
 SRC_URI=silent? ( https://mirror.calculate-linux.org/themes/calculate/splash-silent-18.jpg -> splash-themes-calculate-silent-18.jpg verbose? ( https://mirror.calculate-linux.org/themes/calculate/splash-verbose-18.jpg -> splash-themes-calculate-verbose-18.jpg silent-shutdown? ( https://mirror.calculate-linux.org/themes/calculate/splash-shutdown-18-r1.jpg -> splash-themes-calculate-shutdown-18-r1.jpg )
-_md5_=b20619568ecdf775e5137a9d6d54e5e5
+_md5_=373c21033fce4e2730016d2ab2c002fd

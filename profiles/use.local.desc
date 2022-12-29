@@ -16,6 +16,13 @@ media-gfx/dm-themes-calculate:splash - Include display manager splash image.
 media-gfx/splash-themes-calculate:silent - Include silent image for boot.
 media-gfx/splash-themes-calculate:silent-shutdown - Include silent image for shutdown.
 media-gfx/splash-themes-calculate:verbose - Include verbose image.
+sys-apps/calculate-server:calculate_nodhcp - without DHCP
+sys-apps/calculate-server:calculate_noftp - without FTP
+sys-apps/calculate-server:calculate_nojabber - without jabber server
+sys-apps/calculate-server:calculate_nomail - without mail
+sys-apps/calculate-server:calculate_nonamed - without DNS
+sys-apps/calculate-server:calculate_noproxy - without proxy
+sys-apps/calculate-server:calculate_nosamba - without Samba fileserver
 sys-apps/calculate-utils:backup - Includes backup module.
 sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain.
 sys-apps/calculate-utils:console - Includes console module.
@@ -30,3 +37,10 @@ sys-apps/keyexec:freerdp - Include net-misc/freerdp package.
 sys-apps/keyexec:kde - Use KDE libs.
 sys-apps/keyexec:rdesktop - Include net-misc/rdesktop package.
 sys-kernel/calculate-sources:desktop - Desktop kernel configuration
+sys-kernel/calculate-sources:firmware - Install linux kernel firmware
+sys-kernel/calculate-sources:fsync - Build kernel with futex-wait-multiple patchset
+sys-kernel/calculate-sources:grub - Adds sys-boot/grub dependence
+sys-kernel/calculate-sources:muqss - Build kernel with MuQSS
+sys-kernel/calculate-sources:themes - Adds Calculate themes dependence
+sys-kernel/calculate-sources:uksm - Build kernel with UKSM
+sys-kernel/calculate-sources:vmlinuz - Build kernel, modules and initramfs

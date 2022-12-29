@@ -1,4 +1,5 @@
 DEFINED_PHASES=install
+DEPEND=!>=x11-themes/claws-mail-themes-20221017
 DESCRIPTION=Iconset Papirus for Claws Mail
 EAPI=6
 HOMEPAGE=https://github.com/PapirusDevelopmentTeam/papirus-claws-mail-theme
@@ -7,4 +8,4 @@ LICENSE=GPL-3
 RDEPEND=mail-client/claws-mail
 SLOT=0
 SRC_URI=https://github.com/PapirusDevelopmentTeam/papirus-claws-mail-theme/archive/7d02981d23ecfc279c87ff6c172ba09314940352.zip -> claws-mail-theme-papirus-20181024.zip
-_md5_=30e027e17b9b2ed540f9dd41f454b17f
+_md5_=8105f3570b8825ae02af4e43f4aaf659

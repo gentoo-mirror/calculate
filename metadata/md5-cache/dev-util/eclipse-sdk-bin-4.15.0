@@ -3,10 +3,10 @@ DESCRIPTION=Eclipse SDK
 EAPI=7
 HOMEPAGE=http://www.eclipse.org
 INHERIT=eutils desktop
-KEYWORDS=~x86 amd64
+KEYWORDS=amd64 ~x86
 LICENSE=EPL-1.0
 RDEPEND=>=virtual/jdk-1.8 x11-libs/gtk+:2
 SLOT=4.15
 SRC_URI=amd64? ( https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-03/R/eclipse-java-2020-03-R-linux-gtk-x86_64.tar.gz&r=1 -> eclipse-java-2020-03-R-linux-gtk-x86_64-4.15.0.tar.gz )
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	desktop	7eb20ad915a0a318176d51bc2508ff5c
-_md5_=f936135a95e8a306e40f84b19a952327
+_md5_=8094452186f68e2077ab495c7884f774
