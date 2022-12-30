@@ -391,3 +391,8 @@ www-apps/gitea sqlite
 
 # l2tp+ipsec support
 net-vpn/strongswan strongswan_plugins_ipseckey
+
+# use parallel (de)compressor
+app-alternatives/bzip2 lbzip2 -reference
+app-alternatives/gzip pigz -reference
+
