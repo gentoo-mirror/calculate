@@ -15,15 +15,15 @@
 # @DESCRIPTION:
 # This eclass use for calculate-sources ebuild
 
-inherit calculate eutils kernel-2
+inherit calculate kernel-2
 EXPORT_FUNCTIONS pkg_setup src_unpack src_compile src_install pkg_postinst
 
 
 REQUIRED_USE="minimal? ( vmlinuz )"
 
-CDEPEND="vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils )
-		grub? ( sys-boot/grub )
-	)
+CDEPEND="
+	vmlinuz? ( app-arch/xz-utils )
+	grub? ( sys-boot/grub )
 	firmware? ( || ( sys-kernel/linux-firmware
 		sys-firmware/eth-firmware ) )
 	sys-apps/kmod[zstd]"
@@ -63,7 +63,7 @@ calculate-kernel-8_pkg_setup() {
 
 calculate-kernel-8_src_unpack() {
 	kernel-2_src_unpack
-	cd ${S}
+	cd "${S}"
 	local GENTOOARCH="${ARCH}"
 	unset ARCH
 	emake defconfig || die "kernel configure failed"
@@ -80,7 +80,7 @@ vmlinuz_src_compile() {
 	# disable sandbox
 	local GENTOOARCH="${ARCH}"
 	unset ARCH
-	cd ${S}
+	cd "${S}"
 	vmlinuz_clean_localversion
 	emake olddefconfig || die "kernel configure failed"
 	emake && emake modules || die "kernel build failed"
@@ -95,11 +95,11 @@ calculate-kernel-8_src_compile() {
 vmlinuz_src_install() {
 	# dracut change this files in chroot of ramdisk
 	SANDBOX_WRITE="${SANDBOX_WRITE}:/run/blkid:/etc/ld.so.cache~:/etc/ld.so.cache:/etc/mtab"
-	cd ${S}
+	cd "${S}"
 	dodir /usr/share/${PN}/${PV}/boot
 	INSTALL_PATH=${D}/usr/share/${PN}/${PV}/boot emake install
 	INSTALL_MOD_PATH=${D} emake modules_install
-	/sbin/depmod -b ${D} ${KV_FULL}
+	/sbin/depmod -b "${D}" "${KV_FULL}"
 
 	cp /etc/dracut.conf dracut.conf
 	echo >>dracut.conf
@@ -123,18 +123,18 @@ vmlinuz_src_install() {
 	else
 		RDARCH=""
 	fi
-	/usr/bin/dracut $RDARCH -c dracut.conf -k ${D}/lib/modules/${KV_FULL} \
+	/usr/bin/dracut "${RDARCH}" -c dracut.conf -k "${D}/lib/modules/${KV_FULL}" \
 		--kver ${KV_FULL} \
-		${D}/usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL}
+		"${D}/usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL}"
 	# move firmware to share, because /lib/firmware installation does collisions
 	rm dracut.conf
-	mv ${D}/lib/firmware ${D}/usr/share/${PN}/${PV}
-	insinto /usr/share/${PN}/${PV}/boot/
+	mv "${D}/lib/firmware" "${D}/usr/share/${PN}/${PV}"
+	insinto "/usr/share/${PN}/${PV}/boot/"
 	newins .config config-${KV_FULL}
 
 	# recreate symlink in /lib/modules because symlink point to tmp/portage after make install
-	rm ${D}/lib/modules/${KV_FULL}/build
-	rm ${D}/lib/modules/${KV_FULL}/source
+	rm "${D}/lib/modules/${KV_FULL}/build"
+	rm "${D}/lib/modules/${KV_FULL}/source"
 	dosym /usr/src/linux-${KV_FULL} \
 		"/lib/modules/${KV_FULL}/source" ||
 		die "cannot install source symlink"
@@ -206,7 +206,7 @@ calculate-kernel-8_src_install() {
 		insinto /usr/share/${PN}/${PV}/boot
 		newins .config config-${KV_FULL}
 	fi
-	use vmlinuz && touch ${D}/usr/src/linux-${KV_FULL}/.calculate
+	use vmlinuz && touch "${D}/usr/src/linux-${KV_FULL}/.calculate"
 }
 
 vmlinuz_pkg_postinst() {
@@ -216,8 +216,8 @@ vmlinuz_pkg_postinst() {
 	calculate_update_ver /boot initramfs ${KV_FULL} /usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL} .img
 	calculate_update_ver /boot System.map ${KV_FULL} /usr/share/${PN}/${PV}/boot/System.map-${KV_FULL}
 	# install firmware into /
-	mkdir -p ${ROOT}/lib/firmware
-	cp -a ${ROOT}/usr/share/${PN}/${PV}/firmware/* ${ROOT}/lib/firmware/
+	mkdir -p "${ROOT}/lib/firmware"
+	cp -a "${ROOT}/usr/share/${PN}/${PV}/firmware/*" "${ROOT}/lib/firmware/"
 	calculate_update_depmod
 	calculate_update_modules
 }
@@ -226,7 +226,7 @@ calculate-kernel-8_pkg_postinst() {
 	kernel-2_pkg_postinst
 
 	KV_OUT_DIR=${ROOT}/usr/src/linux-${KV_FULL}
-	use vmlinuz && cp -p /usr/share/${PN}/${PV}/boot/System.map* ${KV_OUT_DIR}/System.map
+	use vmlinuz && cp -p "/usr/share/${PN}/${PV}/boot/System.map*" "${KV_OUT_DIR}/System.map"
 
 	if ! use minimal
 	then

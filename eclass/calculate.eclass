@@ -11,7 +11,7 @@
 # @DESCRIPTION:
 # This eclass use for calculate-utils and calculate-sources ebuilds
 
-inherit eutils linux-info
+inherit linux-info
 
 EXPORT_FUNCTIONS pkg_postinst
 
@@ -95,7 +95,7 @@ update_file() {
 # @DESCRIPTION:
 # Detect calculate linux shortname by /etc/make.profile
 detect_linux_shortname() {
-	local makeprofile=$(readlink ${ROOT}/etc/make.profile)
+	local makeprofile=$(readlink "${ROOT}/etc/make.profile")
 	local profile=
 	local system=
 	local shortname=
@@ -137,8 +137,8 @@ calculate_update_kernel() {
 
 	ebegin "Trying to optimize initramfs"
 	( which calculate &>/dev/null && calculate --initrd ) && eend 0 || eend 1
-	if [[ "$(md5sum ${ROOT}/boot/initrd | awk '{print $1}')" == \
-		"$(md5sum ${ROOT}/boot/initrd-install | awk '{print $1}')" ]]
+	if [[ "$(md5sum "${ROOT}/boot/initrd" | awk '{print $1}')" == \
+		"$(md5sum "${ROOT}/boot/initrd-install" | awk '{print $1}')" ]]
 	then
 		ewarn
 		ewarn "Perform command after reboot for optimization initramfs:"
@@ -221,18 +221,18 @@ initramfs_change_spalsh() {
 	then
 		# get silentpic param
 		SILENTPIC=$( sed -nr '/^silentpic/ s/^[^=]+=(.*)$/\1/p' \
-			${ROOT}${SPLASH_DESCRIPTOR} )
+			"${ROOT}${SPLASH_DESCRIPTOR}" )
 		# get pic param
 		PIC=$( sed -nr '/^pic/ s/^[^=]+=(.*)$/\1/p' \
-			${ROOT}${SPLASH_DESCRIPTOR} )
+			"${ROOT}${SPLASH_DESCRIPTOR}" )
 		if [ -f ${ROOT}${SILENTPIC} ] && [ -f ${ROOT}${PIC} ]
 		then
-			cp ${ROOT}${SPLASH_DESCRIPTOR} \
-					${TMP_INITRAMFS}${SPLASH_DESCRIPTOR} &&
+			cp "${ROOT}${SPLASH_DESCRIPTOR}" \
+					"${TMP_INITRAMFS}${SPLASH_DESCRIPTOR}" &&
 				mkdir -p ${TMP_INITRAMFS}${SILENTPIC%$(basename $SILENTPIC)} &&
-				cp ${ROOT}${SILENTPIC} ${TMP_INITRAMFS}${SILENTPIC} &&
+				cp "${ROOT}${SILENTPIC}" "${TMP_INITRAMFS}${SILENTPIC}" &&
 				mkdir -p ${TMP_INITRAMFS}${PIC%$(basename $PIC)} &&
-				cp ${ROOT}$PIC ${TMP_INITRAMFS}${PIC}
+				cp "${ROOT}$PIC" "${TMP_INITRAMFS}${PIC}"
 			return $?
 		fi
 	else
@@ -387,7 +387,7 @@ ROOTDEV=
 # @DESCRIPTION:
 # Change version in /etc/issue
 change_issue() {
-	sed -ri "s/${LINUXVER}/${PV}/" ${ROOT}/etc/issue
+	sed -ri "s/${LINUXVER}/${PV}/" "${ROOT}/etc/issue"
 }
 
 # @FUNCTION: change_grub
@@ -499,10 +499,10 @@ calculate_pkg_postinst() {
 			local initrdfile=$(calculate_get_current_initrd )
 			local initrdinstallfile=$(calculate_get_current_initrd -install)
 			[[ -f ${ROOT}${initrdfile} ]] &&
-				calculate_update_splash ${ROOT}${initrdfile}
+				calculate_update_splash "${ROOT}${initrdfile}"
 			[[ -f ${ROOT}${initrdinstallfile} &&
 				"${ROOT}${initrdinstallfile}" != "${ROOT}${initrdfile}" ]] &&
-				calculate_update_splash ${ROOT}${initrdinstallfile}
+				calculate_update_splash "${ROOT}${initrdinstallfile}"
 			;;
 	esac
 }

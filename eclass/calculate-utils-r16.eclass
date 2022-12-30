@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# @ECLASS: calculate-utils-r15.eclass
+# @ECLASS: calculate-utils-r16.eclass
 # @MAINTAINER:
 # support@calculate.ru
 # @AUTHOR:
@@ -20,7 +20,7 @@ EXPORTED_FUNCTIONS="src_compile src_install pkg_preinst"
 CALCULATE_URI="https://mirror.calculate-linux.org/source/calculate3"
 MIRROR_URI=
 
-# @ECLASS-VARIABLE: CALCULATE_MODULES
+# @ECLASS_VARIABLE: CALCULATE_MODULES
 # @DESCRIPTION:
 # Associative array module names and versions
 # Example:
@@ -28,7 +28,7 @@ MIRROR_URI=
 #   ["console-gui"]="3.2.3.4"
 # )
 
-# @ECLASS-VARIABLE: CALCULATE_MODULES_USE
+# @ECLASS_VARIABLE: CALCULATE_MODULES_USE
 # @DESCRIPTION:
 # Associative array module names and use for IUSE
 # Example:
@@ -36,13 +36,13 @@ MIRROR_URI=
 #   ["console-gui"]=""
 # )
 
-# @ECLASS-VARIABLE: CALCULATE_TARBALL
+# @ECLASS_VARIABLE: CALCULATE_TARBALL
 # @DESCRIPTION:
 # Associative array module names and tarball archive name
 # Example:
 # declare -A CALCULATE_TARBALL=( ["lib"]="calculate-lib-3.2.3-r1.tar.bz2" )
 
-# @ECLASS-VARIABLE: UTILS_PV
+# @ECLASS_VARIABLE: UTILS_PV
 # @DESCRIPTION:
 # Default version of all components
 # Example:
@@ -253,7 +253,7 @@ calculate-utils-r16_src_compile() {
 		else
 			S="${WORKDIR}/${MODULE_PN}-${MODULE_PV}"
 		fi
-		cd $S
+		cd "$S"
 		if [[ $MODULE_PN == "calculate-lib" ]]
 		then
 			sed -ri "/class VariableClVer/{N;N;N;N;s/value = \".*?\"/value = \"${PV}\"/;}" \
@@ -279,7 +279,7 @@ calculate-utils-r16_src_install() {
 		else
 			S="${WORKDIR}/${MODULE_PN}-${MODULE_PV}"
 		fi
-		cd $S
+		cd "$S"
 		distutils-r1_src_install
 	done
 }
