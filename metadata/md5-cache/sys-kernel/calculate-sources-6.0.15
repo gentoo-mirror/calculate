@@ -1,16 +1,16 @@
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DEPEND=vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils ) grub? ( sys-boot/grub ) ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] >=sys-devel/bison-1.875 >=sys-devel/flex-2.5.4 themes? ( || ( media-gfx/splash-themes-calculate sys-boot/plymouth-calculate-plugin ) ) !minimal? ( virtual/pkgconfig )
+DEPEND=vmlinuz? ( app-arch/xz-utils ) grub? ( sys-boot/grub ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] >=sys-devel/bison-1.875 >=sys-devel/flex-2.5.4 themes? ( || ( media-gfx/splash-themes-calculate sys-boot/plymouth-calculate-plugin ) ) !minimal? ( virtual/pkgconfig )
 DESCRIPTION=Calculate Linux kernel image
 EAPI=7
 HOMEPAGE=http://www.calculate-linux.org
-INHERIT=calculate-kernel-8 eutils
+INHERIT=calculate-kernel-8
 IUSE=symlink build +vmlinuz desktop minimal themes firmware +grub
 KEYWORDS=~amd64
 LICENSE=GPL-2
-RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig ) vmlinuz? ( || ( app-arch/xz-utils app-arch/lzma-utils ) grub? ( sys-boot/grub ) ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] vmlinuz? ( sys-kernel/dracut )
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig ) vmlinuz? ( app-arch/xz-utils ) grub? ( sys-boot/grub ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] vmlinuz? ( sys-kernel/dracut )
 REQUIRED_USE=minimal? ( vmlinuz )
 RESTRICT=binchecks strip
 SLOT=6.0.15
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/patch-6.0.15.xz https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.0.tar.xz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22	calculate	7d2af0810d4071be14230762b7f9723f	estack	055c42df72f76a4f45ec92b35e83cd56	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	kernel-2	12a98c718ba8260077000c13b965ba1b	calculate-kernel-8	e37a8c351743e472d2302df08d6c48b6
-_md5_=31d2fcee50b97199b36e7b5003fa4ace
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22	calculate	4ee842ff3ece9e4878ba9ea5b1485da0	estack	055c42df72f76a4f45ec92b35e83cd56	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	kernel-2	12a98c718ba8260077000c13b965ba1b	calculate-kernel-8	3f7ec34cbcd9be8622d16241ac0e5e4f
+_md5_=536c4eb4b52d9547bffe9c47dfbd4b21
