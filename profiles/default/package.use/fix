@@ -36,3 +36,8 @@ www-client/firefox -system-av1
 
 # not compiled kde-apps/cantor-22.08.3
 kde-apps/kdeedu-meta -webengine
+
+# berkdb requires db-4.8
+net-p2p/bitcoin-qt sqlite -berkdb
+net-p2p/bitcoind sqlite -berkdb
+
