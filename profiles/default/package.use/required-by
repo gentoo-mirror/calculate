@@ -712,3 +712,9 @@ net-wireless/wpa_supplicant p2p
 # required by sys-fs/dmraid-1.0.0_rc16-r6
 sys-fs/lvm2 lvm
 
+# required by "media-gfx/blender-3.3.2
+media-libs/freetype brotli
+
+# required by dev-util/ropper-1.13.8
+dev-libs/keystone python
+
