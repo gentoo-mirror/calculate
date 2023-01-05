@@ -67,9 +67,3 @@ media-video/pipewire sound-server
 
 # libnotify? ( gui )
 net-p2p/deluge gui
-
-#  The above constraints are a subset of the following complete expression:
-#      sqlite? ( wallet ) berkdb? ( wallet ) wallet? ( any-of ( berkdb sqlite ) )
-net-p2p/bitcoin-qt wallet sqlite -berkdb
-net-p2p/bitcoind wallet sqlite -berkdb
-
