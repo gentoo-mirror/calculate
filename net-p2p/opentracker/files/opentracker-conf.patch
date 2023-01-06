@@ -1,0 +1,32 @@
+diff --git a/opentracker.conf.sample b/opentracker.conf.sample
+index db45122..f847080 100644
+--- a/opentracker.conf.sample
++++ b/opentracker.conf.sample
+@@ -34,11 +34,11 @@
+ # II)  If opentracker runs in a non-open mode, point it to files containing
+ #      all torrent hashes that it will serve (shell option -w)
+ #
+-# access.whitelist /path/to/whitelist
++# access.whitelist /var/lib/opentracker/access.whitelist
+ #
+ #      or, if opentracker was compiled to allow blacklisting (shell option -b)
+ #
+-# access.blacklist ./blacklist
++# access.blacklist /var/lib/opentracker/access.blacklist
+ #
+ #      It is pointless and hence not possible to compile black AND white
+ #      listing, so choose one of those options at compile time. File format
+@@ -93,11 +93,11 @@
+ #      list files must be put in that directory (shell option -d).
+ #
+ #
+-# tracker.rootdir /usr/local/etc/opentracker
++# tracker.rootdir /var/lib/opentracker
+ #
+ #      Tell opentracker which user to setuid to.
+ #
+-# tracker.user    nobody
++# tracker.user   opentracker 
+ #
+ 
+ # VI)  opentracker can be told to answer to a "GET / HTTP"-request with a
