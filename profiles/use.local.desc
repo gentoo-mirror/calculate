@@ -16,6 +16,19 @@ media-gfx/dm-themes-calculate:splash - Include display manager splash image.
 media-gfx/splash-themes-calculate:silent - Include silent image for boot.
 media-gfx/splash-themes-calculate:silent-shutdown - Include silent image for shutdown.
 media-gfx/splash-themes-calculate:verbose - Include verbose image.
+net-p2p/opentracker:blacklist - Make use of a torrents black-list
+net-p2p/opentracker:fullscrapes-modest - Enable limiting fullscrapes to only every 5 minutes per IP
+net-p2p/opentracker:gzip-always - Enforce gzip compressed full scrapes even if client did not request it
+net-p2p/opentracker:ip-from-proxy - Accept source IP from proxy
+net-p2p/opentracker:ip-from-query - Accept source IP only from query (debugging purposes only)
+net-p2p/opentracker:live-sync - Allow synchronisation between several instances through multicast
+net-p2p/opentracker:live-sync-unicast - Allow synchronisation between several instances through unicast
+net-p2p/opentracker:log-networks-full - Add some subnet debugging features
+net-p2p/opentracker:log-numwant - Log amount of numwants
+net-p2p/opentracker:persistence - Allow saving torrents and peers information on disk
+net-p2p/opentracker:restrict-stats - Restrict statistics to the tracker owner
+net-p2p/opentracker:spot-woodpeckers - Enable tracking of abusing peers
+net-p2p/opentracker:whitelist - Make use of a torrents white-list
 sys-apps/calculate-server:calculate_nodhcp - without DHCP
 sys-apps/calculate-server:calculate_noftp - without FTP
 sys-apps/calculate-server:calculate_nojabber - without jabber server

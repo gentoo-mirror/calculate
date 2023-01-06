@@ -1,6 +1,8 @@
 acct-group/jackett 0: Group for www-apps/jackett-bin
+acct-group/opentracker 0: System group: opentracker
 acct-group/torrserver 0: Group for net-p2p/torrserver-bin
 acct-user/jackett 0: User for www-apps/jackett-bin
+acct-user/opentracker 0: System user: opentracker
 acct-user/torrserver 0: User for net-p2p/torrserver-bin
 app-crypt/openpgp-keys-calculate-release 20180827: OpenPGP keys used for Calculate binary packages
 app-crypt/shim-signed 0.2: UEFI Shim bootloader for SecureBoot signed by Microsoft
@@ -31,7 +33,7 @@ net-dns/bind 9.16.22-r9: Berkeley Internet Name Domain - Name Server
 net-im/rocketchat-desktop 2.17.11: Desktop application for Rocket.Chat
 net-im/viber 16.1.0.37 18.2.0.2: Free text and calls
 net-misc/modem-manager-gui 0.0.17 0.0.17.1 0.0.18 0.0.18-r1: GUI for Modem Manager daemon.
-net-p2p/opentracker 9999 20170428-r1: An open and free bittorrent tracker
+net-p2p/opentracker 20210823: An open and free bittorrent tracker
 net-p2p/torrserver-bin 117 118: TorrServer, stream torrent to http
 net-vpn/networkmanager-wireguard 0_pre20191128-r6: NetworkManager WireGuard plugin
 net-wireless/rtl8814au 20210429 20211122: Realtek 8814AU USB WiFi module for Linux kernel
