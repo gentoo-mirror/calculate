@@ -1,12 +1,12 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=8
+
 inherit git-r3
 
 DESCRIPTION="An open and free bittorrent tracker"
-HOMEPAGE="http://erdgeist.org/arts/software/opentracker/"
+HOMEPAGE="https://erdgeist.org/arts/software/opentracker/"
 
 EGIT_REPO_URI="git://erdgeist.org/opentracker"
 EGIT_COMMIT="110868ec4ebe60521d5a4ced63feca6a1cf0aa2a"
