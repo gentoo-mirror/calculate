@@ -170,6 +170,7 @@ RDEPEND="
 	sys-apps/pciutils
 	app-arch/xz-utils
 	app-portage/eix
+        app-portage/portage-utils
 
 	app-eselect/eselect-repository
 	>=virtual/udev-197
