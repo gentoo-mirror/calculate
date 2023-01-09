@@ -1,4 +1,35 @@
 calc_repo_dirs(){
+	declare -A repos_location
+	import_repos_conf(){
+		local repos_conf
+		local conf_file=/etc/portage/repos.conf
+		if [[ -d $conf_file ]]
+		then
+			repos_conf=$conf_file/*
+		else
+			repos_conf=$conf_file
+		fi
+		local sec
+		while IFS= read -r line
+		do
+			if [[ $line =~ ^[[:blank:]]*\[ ]]
+			then
+				line=${line#*[}
+				line=${line%%]*}
+				sec=$line
+				continue
+			fi
+			if [[ $line =~ ^[[:blank:]]*location ]]
+			then
+				local val=${line#*=}
+				# remove leading whitespace characters
+				val=${val#${val%%[![:space:]]*}}
+				# remove trailing whitespace characters
+				val=${val%${val##*[![:space:]]}}
+				repos_location[$sec]=$val
+			fi
+		done <<< $(cat $repos_conf)
+	}
 	get_list(){
 		local path=$1
 		local next
@@ -8,7 +39,7 @@ calc_repo_dirs(){
 			do
 				if [[ $line =~ ^[a-z0-9]+: ]]
 				then
-					next=$(realpath /var/db/repos/${line%%:*}/profiles/${line#*:})
+					next=$(realpath ${repos_location[${line%%:*}]}/profiles/${line#*:})
 				elif [[ ${line:0:1} == / ]]
 				then
 					next=$(realpath $line)
@@ -20,6 +51,7 @@ calc_repo_dirs(){
 			done < $1/parent
 		fi
 	}
+	import_repos_conf
 	get_list $(realpath /etc/portage/make.profile)
 }
 
@@ -47,7 +79,7 @@ get_ini(){
 	do
 		while IFS= read -r line
 		do
-		        if [[ $line == *"["* ]]
+		        if [[ $line =~ ^[[:blank:]]*\[ ]]
 		        then
 		                line=${line#*[}
 		                line=${line%%]*}
@@ -58,12 +90,18 @@ get_ini(){
 			then
 				continue
 			fi
-			local var=${sec}.${line%%=*}
+			local var=${line%%=*}
+			# remove leading whitespace characters
+			var=${var#${var%%[![:space:]]*}}
 			# remove trailing whitespace characters
 			var=${var%${var##*[![:space:]]}}
+			var=${sec}.${var}
+
 			local val=${line#*=}
 			# remove leading whitespace characters
 			val=${val#${val%%[![:space:]]*}}
+			# remove trailing whitespace characters
+			val=${val%${val##*[![:space:]]}}
 
 			ini[$var]=$val
 		done < $ini_file
