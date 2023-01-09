@@ -396,3 +396,5 @@ net-vpn/strongswan strongswan_plugins_ipseckey
 app-alternatives/bzip2 lbzip2 -reference
 app-alternatives/gzip pigz -reference
 
+# required by www-servers/nginx-1.23.2-r3
+app-misc/mime-types nginx
