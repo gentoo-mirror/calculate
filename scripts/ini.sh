@@ -1,3 +1,5 @@
+declare -A ini
+
 calc_repo_dirs(){
 	declare -A repos_location
 	import_repos_conf(){
@@ -72,7 +74,6 @@ calc_ini_files(){
 }
 
 # The function reads values from all ini.env files into the ini array
-# Create an array before calling `declare -A ini; get_ini`
 get_ini(){
 	local line sec ini_file
 	for ini_file in $(calc_ini_files)
@@ -107,4 +108,6 @@ get_ini(){
 		done < $ini_file
 	done
 }
+
+get_ini
 
