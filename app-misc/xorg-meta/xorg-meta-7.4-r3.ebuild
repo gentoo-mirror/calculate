@@ -5,7 +5,7 @@
 EAPI=7
 
 DESCRIPTION="Calculate Linux (Xorg meta package)"
-HOMEPAGE="http://www.calculate-linux.org/"
+HOMEPAGE="https://www.calculate-linux.org/"
 SRC_URI=""
 
 LICENSE="GPL-2"

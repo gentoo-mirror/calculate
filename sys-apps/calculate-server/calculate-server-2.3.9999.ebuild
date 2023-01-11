@@ -10,7 +10,7 @@ inherit distutils-r1 git-r3
 EGIT_REPO_URI="git://git.calculate-linux.org/calculate-2.1/calculate-server.git"
 
 DESCRIPTION="Configuration utility for Linux services"
-HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
+HOMEPAGE="https://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS=""

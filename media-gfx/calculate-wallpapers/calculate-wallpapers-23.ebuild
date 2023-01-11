@@ -5,7 +5,7 @@
 EAPI=7
 
 DESCRIPTION="Wallpapers for Calculate Linux"
-HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers"
+HOMEPAGE="https://www.calculate-linux.org/packages/media-gfx/calculate-wallpapers"
 
 LICENSE="Apache-2.0"
 SLOT="0"

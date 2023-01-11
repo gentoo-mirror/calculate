@@ -10,7 +10,7 @@ inherit distutils-r1
 SRC_URI="https://mirror.calculate-linux.org/source/calculate2/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="Configuration utility for Linux services"
-HOMEPAGE="http://www.calculate-linux.org/main/en/calculate2"
+HOMEPAGE="https://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64"

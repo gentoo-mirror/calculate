@@ -5,7 +5,7 @@
 EAPI=8
 
 DESCRIPTION="tool to test and create graphical boot logos"
-HOMEPAGE="http://www.calculate-linux.org"
+HOMEPAGE="https://www.calculate-linux.org/"
 SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/gfxboot/${PV}-1/${PN}_${PV}.orig.tar.gz"
 
 LICENSE="GPL-2"
