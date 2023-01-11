@@ -12,7 +12,7 @@ DESCRIPTION="Installer, launcher and supplementary files for Valve's Steam clien
 HOMEPAGE="https://steampowered.com"
 SRC_URI="https://repo.steampowered.com/steam/archive/stable/steam_${PV}.tar.gz"
 
-LICENSE="ValveSteamLicense MIT"
+LICENSE="Steam MIT"
 SLOT="0"
 KEYWORDS="amd64"
 IUSE="+joystick +steamruntime +udev"
@@ -36,9 +36,6 @@ RDEPEND="
 			x11-libs/libXau[abi_x86_32]
 			x11-libs/libxcb[abi_x86_32]
 			x11-libs/libXdmcp[abi_x86_32]
-			)
-		!steamruntime? (
-			>=games-util/steam-client-meta-0-r20210608[steamruntime?]
 			)
 
 		amd64? (
