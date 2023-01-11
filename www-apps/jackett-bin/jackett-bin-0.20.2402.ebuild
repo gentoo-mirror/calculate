@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ SRC_URI="
 "
 
 KEYWORDS="amd64"
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 RESTRICT="strip"
 
