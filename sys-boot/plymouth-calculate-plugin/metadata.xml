@@ -7,4 +7,8 @@
         <description>Calculate Overlay</description>
     </maintainer>
     <upstream><remote-id type="freedesktop-gitlab">plymouth/plymouth</remote-id></upstream>
+    <use>
+	    <flag name="drm">Use direct rendering</flag>
+	    <flag name="pango">Use pango</flag>
+    </use>
 </pkgmetadata>

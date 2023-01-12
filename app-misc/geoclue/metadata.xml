@@ -7,4 +7,5 @@
         <description>Calculate Overlay</description>
     </maintainer>
     <upstream><remote-id type="freedesktop-gitlab">geoclue/geoclue</remote-id></upstream>
+    <use><flag name="modemmanager">Use 3G modems fo geolocation</flag></use>
 </pkgmetadata>
