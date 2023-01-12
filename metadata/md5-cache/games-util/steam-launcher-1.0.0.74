@@ -6,10 +6,10 @@ IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop linux-info prefix xdg
 IUSE=+joystick +steamruntime +udev
 KEYWORDS=amd64
-LICENSE=ValveSteamLicense MIT
-RDEPEND=app-arch/tar app-shells/bash net-misc/curl || ( >=gnome-extra/zenity-3 x11-terms/xterm ) joystick? ( udev? ( games-util/game-device-udev-rules ) ) steamruntime? ( virtual/opengl[abi_x86_32] x11-libs/libX11[abi_x86_32] x11-libs/libXau[abi_x86_32] x11-libs/libxcb[abi_x86_32] x11-libs/libXdmcp[abi_x86_32] ) !steamruntime? ( >=games-util/steam-client-meta-0-r20210608[steamruntime?] ) amd64? ( >=sys-devel/gcc-4.6.0[multilib] >=sys-libs/glibc-2.15[multilib] ) x86? ( >=sys-devel/gcc-4.6.0 >=sys-libs/glibc-2.15 )
+LICENSE=Steam MIT
+RDEPEND=app-arch/tar app-shells/bash net-misc/curl || ( >=gnome-extra/zenity-3 x11-terms/xterm ) joystick? ( udev? ( games-util/game-device-udev-rules ) ) steamruntime? ( virtual/opengl[abi_x86_32] x11-libs/libX11[abi_x86_32] x11-libs/libXau[abi_x86_32] x11-libs/libxcb[abi_x86_32] x11-libs/libXdmcp[abi_x86_32] ) amd64? ( >=sys-devel/gcc-4.6.0[multilib] >=sys-libs/glibc-2.15[multilib] ) x86? ( >=sys-devel/gcc-4.6.0 >=sys-libs/glibc-2.15 )
 RESTRICT=bindist mirror test
 SLOT=0
 SRC_URI=https://repo.steampowered.com/steam/archive/stable/steam_1.0.0.74.tar.gz
 _eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22	prefix	eab3c99d77fe00506c109c8a736186f7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=f86a14c79706c68aca1ede00487be66e
+_md5_=0b436d5109b276bd97dcc9e7177f540c

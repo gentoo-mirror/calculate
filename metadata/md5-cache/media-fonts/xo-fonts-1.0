@@ -1,0 +1,13 @@
+BDEPEND=app-arch/unzip X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm setup
+DESCRIPTION=Free XO cyrillic fonts from MyOffice
+EAPI=8
+HOMEPAGE=https://myoffice.ru/products/fonts/
+INHERIT=font
+IUSE=X
+KEYWORDS=amd64 x86
+LICENSE=open-xo-fonts
+SLOT=0
+SRC_URI=https://myoffice.ru/files/fonts/all_fonts_myoffice.zip
+_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60
+_md5_=bfd8b81d283aebf05e0e2dfa805448e6
