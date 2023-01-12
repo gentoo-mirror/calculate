@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="OpenPGP keys used for Calculate binary packages"
-HOMEPAGE="http://www.calculate-linux.org"
+HOMEPAGE="https://www.calculate-linux.org/"
 SRC_URI="https://mirror.calculate-linux.org/source/openpgp-keys/calculate-release.asc.${PV}.gz"
 
 LICENSE="public-domain"

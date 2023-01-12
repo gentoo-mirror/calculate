@@ -18,7 +18,7 @@ fi
 inherit autotools readme.gentoo-r1 systemd toolchain-funcs
 
 DESCRIPTION="Calculate plugin for plymouth"
-HOMEPAGE="https://www.calculate-linux.org"
+HOMEPAGE="https://www.calculate-linux.org/"
 
 LICENSE="GPL-2"
 SLOT="0"

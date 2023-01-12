@@ -7,7 +7,7 @@ EAPI=7
 inherit calculate
 
 DESCRIPTION="Calculate Linux theme for gensplash"
-HOMEPAGE="http://www.calculate-linux.org/packages/media-gfx/calculate-splash-themes"
+HOMEPAGE="https://www.calculate-linux.org/packages/media-gfx/calculate-splash-themes"
 
 LICENSE="Apache-2.0"
 SLOT="0"
