@@ -21,11 +21,10 @@
         <flag name="restrict-stats">Restrict statistics to the tracker owner</flag>
         <flag name="whitelist">Make use of a torrents white-list</flag>
     </use>
-    <longdescription lang="en">Opentracker is a open and free bittorrent tracker. 
+    <longdescription lang="en">Opentracker is a open and free bittorrent tracker.
     It aims for minimal resource usage and is capable to serve multiple thousands of requests.</longdescription>
     <upstream>
-        <doc>http://erdgeist.org/arts/software/opentracker/</doc>
         <bugs-to>mailto:erdgeist@erdgeist.org</bugs-to>
-        <remote-id type="github">flygoast/opentracker</remote-id>
+        <doc lang="en">https://erdgeist.org/arts/software/opentracker/</doc>
     </upstream>
 </pkgmetadata>

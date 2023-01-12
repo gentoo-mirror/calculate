@@ -1,8 +1,8 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 # $Header:
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="tool to test and create graphical boot logos"
 HOMEPAGE="http://www.calculate-linux.org"
@@ -12,17 +12,15 @@ LICENSE="GPL-2"
 SLOT="4"
 KEYWORDS="amd64 x86"
 
-IUSE=""
-
 DEPEND="app-arch/cpio
-	dev-lang/nasm
-	>=media-libs/freetype-2
-	app-text/xmlto
-	dev-libs/libxslt
 	app-text/docbook-xml-dtd:4.1.2
-	dev-perl/HTML-Parser"
+	app-text/xmlto
+	dev-lang/nasm
+	dev-libs/libxslt
+	dev-perl/HTML-Parser
+	>=media-libs/freetype-2"
+
 RDEPEND="${DEPEND}"
-RESTRICT="mirror"
 
 PATCHES=(
 	"${FILESDIR}/gfxboot-fix_warning.patch"

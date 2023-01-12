@@ -61,6 +61,7 @@ calc_ini_files(){
 	local path
 	for path in $(calc_repo_dirs) \
 		/var/lib/calculate/calculate-update \
+		"$HOME/.calculate" \
 		/var/lib/calculate \
 		/etc/calculate \
 		/var/calculate \

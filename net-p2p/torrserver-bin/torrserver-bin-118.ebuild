@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,7 +10,7 @@ SRC_URI="
 "
 
 KEYWORDS="amd64"
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 RESTRICT="strip"
 
@@ -23,7 +23,7 @@ QA_PREBUILT="*"
 S="${WORKDIR}"
 
 src_unpack() {
-	cp -v ${DISTDIR}/${A} ${S}
+	cp -v "${DISTDIR}"/"${A}" "${S}"
 }
 
 src_install() {
