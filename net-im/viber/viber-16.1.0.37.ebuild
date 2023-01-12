@@ -17,7 +17,7 @@ DESCRIPTION="Free text and calls"
 HOMEPAGE="http://www.viber.com"
 SRC_URI="http://download.cdn.viber.com/cdn/desktop/Linux/${PN}.deb -> ${P}.deb"
 
-LICENSE="viber"
+LICENSE="Viber-TOS"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 IUSE="+abi_x86_64 apulse +pulseaudio"
