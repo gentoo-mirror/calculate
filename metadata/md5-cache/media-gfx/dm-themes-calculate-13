@@ -1,11 +1,11 @@
 DEFINED_PHASES=install
 DESCRIPTION=Wallpapers for Calculate Linux
 EAPI=7
-HOMEPAGE=http://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate
+HOMEPAGE=https://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate
 IUSE=themes_CLD themes_CLDX themes_CLS themes_CLDG
 KEYWORDS=amd64 x86
 LICENSE=Apache-2.0
 REQUIRED_USE=^^ ( themes_CLD themes_CLDX themes_CLS themes_CLDG )
 SLOT=0
 SRC_URI=themes_CLD? ( https://mirror.calculate-linux.org/themes/dm/dm-cld-13.tar.bz2 ) themes_CLDX? ( https://mirror.calculate-linux.org/themes/dm/dm-cldx-13.tar.bz2 ) themes_CLDG? ( https://mirror.calculate-linux.org/themes/dm/dm-cldg-13.tar.bz2 ) themes_CLS? ( https://mirror.calculate-linux.org/themes/dm/dm-cls-13.tar.bz2 )
-_md5_=9386a2de717c9301492b145202c28e43
+_md5_=e443ca4597e71fd728a123786435b043

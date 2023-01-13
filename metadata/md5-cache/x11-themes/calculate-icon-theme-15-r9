@@ -1,8 +1,8 @@
-DEFINED_PHASES=install postinst postrm preinst
+DEFINED_PHASES=install postinst postrm
 DEPEND=|| ( x11-themes/adwaita-icon-theme kde-plasma/breeze kde-frameworks/oxygen-icons x11-themes/elementary-icon-theme x11-themes/mate-icon-theme x11-themes/papirus-icon-theme ) qt5? ( dev-qt/qtsvg:5 )
 DESCRIPTION=Icons theme for Calculate Linux
 EAPI=8
-HOMEPAGE=http://www.calculate-linux.org/packages/x11-themes/calculate-icon-theme
+HOMEPAGE=https://www.calculate-linux.org/packages/x11-themes/calculate-icon-theme
 INHERIT=xdg-utils
 IUSE=+qt5
 KEYWORDS=amd64 x86
@@ -11,4 +11,4 @@ RDEPEND=|| ( x11-themes/adwaita-icon-theme kde-plasma/breeze kde-frameworks/oxyg
 SLOT=0
 SRC_URI=https://mirror.calculate-linux.org/themes/icon/icon-calculate-15-r6.tar.bz2
 _eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a
-_md5_=1b5b5e349db345e559943f8356b96db6
+_md5_=9714259f3d05b74ac0abe8cde2fa8ad9

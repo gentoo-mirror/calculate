@@ -2,10 +2,10 @@ DEFINED_PHASES=install
 DEPEND=app-arch/cpio app-text/docbook-xml-dtd:4.1.2 app-text/xmlto dev-lang/nasm dev-libs/libxslt dev-perl/HTML-Parser >=media-libs/freetype-2
 DESCRIPTION=tool to test and create graphical boot logos
 EAPI=8
-HOMEPAGE=http://www.calculate-linux.org
+HOMEPAGE=https://www.calculate-linux.org/
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=app-arch/cpio app-text/docbook-xml-dtd:4.1.2 app-text/xmlto dev-lang/nasm dev-libs/libxslt dev-perl/HTML-Parser >=media-libs/freetype-2
 SLOT=4
 SRC_URI=https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/gfxboot/4.4.3-1/gfxboot_4.4.3.orig.tar.gz
-_md5_=070239bd13058a304fc45eaab3121a0a
+_md5_=202c1a5d7433bbf4bb2daada9977ce43

@@ -1,4 +1,4 @@
-DEFINED_PHASES=install postinst postrm preinst
+DEFINED_PHASES=install postinst postrm
 DESCRIPTION=Elementary icon theme is designed to be smooth, sexy, clear, and efficient
 EAPI=8
 HOMEPAGE=https://launchpad.net/elementaryicons
@@ -10,4 +10,4 @@ RESTRICT=binchecks strip
 SLOT=0
 SRC_URI=https://mirror.calculate-linux.org/themes/elementary/elementary-icon-theme-2.7.1-r4.tar.bz2
 _eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a
-_md5_=5cefba2fcb086385a65c2c508ba24e25
+_md5_=37289dabb61706e5bdca2476768bccd5
