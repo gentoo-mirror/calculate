@@ -14,7 +14,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit python-r1 autotools toolchain-funcs flag-o-matic multilib db-use systemd tmpfiles
+inherit autotools db-use flag-o-matic python-r1 systemd tmpfiles toolchain-funcs
 
 MY_PV="${PV/_p/-P}"
 MY_PV="${MY_PV/_rc/rc}"
@@ -35,20 +35,20 @@ LICENSE="Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
 # -berkdb by default re bug 602682
-IUSE="berkdb +caps dlz dnstap doc dnsrps fixed-rrset geoip geoip2 gssapi
-json ldap lmdb mysql odbc postgres python selinux static-libs xml +zlib sdb-ldap"
+IUSE="berkdb +caps dlz dnsrps dnstap doc fixed-rrset geoip geoip2 gssapi
+json ldap lmdb mysql odbc postgres python sdb-ldap selinux static-libs xml +zlib"
 # sdb-ldap - patch broken
 # no PKCS11 currently as it requires OpenSSL to be patched, also see bug 409687
 
 # Upstream dropped the old geoip library, but the BIND configuration for using
 # GeoIP remained the same.
 REQUIRED_USE="
-	postgres? ( dlz )
 	berkdb? ( dlz )
+	dnsrps? ( dlz )
+	ldap? ( dlz )
 	mysql? ( dlz )
 	odbc? ( dlz )
-	ldap? ( dlz )
-	dnsrps? ( dlz )
+	postgres? ( dlz )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	sdb-ldap? ( dlz )
 "
@@ -56,27 +56,27 @@ REQUIRED_USE="
 DEPEND="
 	acct-group/named
 	acct-user/named
-	berkdb? ( sys-libs/db:= )
+	dev-libs/libuv:=
 	dev-libs/openssl:=[-bindist(-)]
-	mysql? ( dev-db/mysql-connector-c:0= )
-	odbc? ( >=dev-db/unixODBC-2.2.6 )
-	ldap? ( net-nds/openldap )
-	postgres? ( dev-db/postgresql:= )
+	berkdb? ( sys-libs/db:= )
 	caps? ( >=sys-libs/libcap-2.1.0 )
-	xml? ( dev-libs/libxml2 )
-	geoip? ( dev-libs/libmaxminddb )
+	dnstap? ( dev-libs/fstrm dev-libs/protobuf-c )
 	geoip2? ( dev-libs/libmaxminddb )
+	geoip? ( dev-libs/libmaxminddb )
 	gssapi? ( virtual/krb5 )
 	json? ( dev-libs/json-c:= )
+	ldap? ( net-nds/openldap )
 	lmdb? ( dev-db/lmdb )
-	zlib? ( sys-libs/zlib )
-	dnstap? ( dev-libs/fstrm dev-libs/protobuf-c )
+	mysql? ( dev-db/mysql-connector-c:0= )
+	odbc? ( >=dev-db/unixODBC-2.2.6 )
+	postgres? ( dev-db/postgresql:= )
 	python? (
 		${PYTHON_DEPS}
 		dev-python/ply[${PYTHON_USEDEP}]
 	)
-	dev-libs/libuv:=
 	sdb-ldap? ( net-nds/openldap )
+	xml? ( dev-libs/libxml2 )
+	zlib? ( sys-libs/zlib )
 "
 
 RDEPEND="${DEPEND}

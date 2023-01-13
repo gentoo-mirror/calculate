@@ -5,9 +5,9 @@ EAPI=8
 
 inherit acct-user
 
+DESCRIPTION="User for net-p2p/opentracker"
 ACCT_USER_ID=-1
 ACCT_USER_GROUPS=( opentracker )
 ACCT_USER_HOME="/var/lib/opentracker"
-ACCT_USER_HOME_OWNER="opentracker:opentracker"
 
 acct-user_add_deps

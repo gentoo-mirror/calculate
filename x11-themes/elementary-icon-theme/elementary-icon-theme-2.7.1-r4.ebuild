@@ -25,10 +25,6 @@ src_install() {
 	doins -r elementary
 }
 
-pkg_preinst() {
-	xdg_icon_savelist
-}
-
 pkg_postinst() {
 	xdg_icon_cache_update
 }

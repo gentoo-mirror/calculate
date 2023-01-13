@@ -21,7 +21,7 @@ declare -A CALCULATE_MODULES=(
 inherit calculate-utils-r15
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
-HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
+HOMEPAGE="https://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
 SLOT="3"

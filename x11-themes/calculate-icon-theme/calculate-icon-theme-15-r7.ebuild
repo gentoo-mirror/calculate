@@ -7,7 +7,7 @@ EAPI=8
 inherit xdg-utils
 
 DESCRIPTION="Icons theme for Calculate Linux"
-HOMEPAGE="http://www.calculate-linux.org/packages/x11-themes/calculate-icon-theme"
+HOMEPAGE="https://www.calculate-linux.org/packages/x11-themes/calculate-icon-theme"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -30,10 +30,6 @@ DEPEND="${RDEPEND}"
 src_install() {
 	insinto /
 	doins -r .
-}
-
-pkg_preinst() {
-	xdg_icon_savelist
 }
 
 pkg_postinst() {

@@ -8,7 +8,7 @@ PYTHON_COMPAT=(python3_10)
 inherit calculate-utils-r15 git-r3
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
-HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
+HOMEPAGE="https://www.calculate-linux.org/main/en/calculate_utilities"
 SRC_URI=""
 
 LICENSE="Apache-2.0"

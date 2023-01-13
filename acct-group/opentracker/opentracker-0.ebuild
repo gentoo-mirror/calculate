@@ -5,4 +5,5 @@ EAPI=8
 
 inherit acct-group
 
+DESCRIPTION="Group for net-p2p/opentracker"
 ACCT_GROUP_ID=-1

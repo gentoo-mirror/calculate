@@ -5,7 +5,7 @@
 EAPI="7"
 
 DESCRIPTION="Cryptodata management tools"
-HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_access"
+HOMEPAGE="https://www.calculate-linux.org/main/en/calculate_access"
 SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
