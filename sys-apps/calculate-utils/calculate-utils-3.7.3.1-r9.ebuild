@@ -10,7 +10,7 @@ UTILS_PV="3.7.2.1"
 
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.7.2.38"
-	["install"]="3.7.2.18"
+	["install"]="3.7.2.19"
 	["core"]="3.7.2.8"
 	["i18n"]="3.7.2.22"
 	["client"]="3.7.2.6"
