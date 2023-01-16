@@ -13,7 +13,7 @@ DESCRIPTION="Configuration utility for Linux services"
 HOMEPAGE="https://www.calculate-linux.org/main/en/calculate2"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 IUSE="calculate_nomail
 calculate_nodhcp
@@ -27,6 +27,7 @@ DEPEND="!sys-apps/calculate-lib
 	acct-group/ldap
 	acct-user/ldap
 	>=net-nds/openldap-2.3[-minimal]
+	<net-nds/openldap-2.6
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
 	!<sys-apps/calculate-utils-3.5.0_alpha44
