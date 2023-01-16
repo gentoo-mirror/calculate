@@ -9,6 +9,7 @@ then
 	sed -i -E 's/^(checkpoint)/#\1/g' /etc/openldap/slapd.conf
 	sed -i -E 's/^(cachesize)/#\1/g' /etc/openldap/slapd.conf
 	slapadd -l /var/calculate/tmp/migrate_data.ldif
+	chown ldap:ldap /var/lib/openldap-data/*
 	/etc/init.d/slapd start
 fi
 
