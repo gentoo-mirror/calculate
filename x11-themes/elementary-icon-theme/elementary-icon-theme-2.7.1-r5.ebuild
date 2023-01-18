@@ -11,7 +11,7 @@ SRC_URI="https://mirror.calculate-linux.org/themes/elementary/${PF}.tar.bz2"
 
 RESTRICT="binchecks strip"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
