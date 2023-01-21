@@ -46,3 +46,7 @@ www-apps/icingaweb2 nginx
 
 # exactly-one-of ( git gitea gitolite )
 acct-user/git gitea
+
+# exactly-one-of ( lua_single_target_luajit lua_single_target_lua5-3 lua_single_target_lua5-4 )
+dev-lang/fennel lua_single_target_lua5-4
+
