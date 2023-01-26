@@ -19,7 +19,7 @@ SRC_URI="http://download.cdn.viber.com/cdn/desktop/Linux/${PN}.deb -> ${P}.deb"
 
 LICENSE="Viber-TOS"
 SLOT="0"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* amd64"
 IUSE="+abi_x86_64 apulse +pulseaudio"
 REQUIRED_USE="^^ ( apulse pulseaudio )"
 RESTRICT="bindist mirror"
