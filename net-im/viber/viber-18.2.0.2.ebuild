@@ -13,9 +13,9 @@ QA_PREBUILT="/opt/viber/Viber
 	/opt/viber/lib/*
 	/opt/viber/qml/*"
 
-DESCRIPTION="Free text and calls"
-HOMEPAGE="http://www.viber.com"
-SRC_URI="http://download.cdn.viber.com/cdn/desktop/Linux/${PN}.deb -> ${P}.deb"
+DESCRIPTION="Free and secure calls and messages to anyone, anywhere"
+HOMEPAGE="https://www.viber.com/"
+SRC_URI="https://download.cdn.viber.com/cdn/desktop/Linux/${PN}.deb -> ${P}.deb"
 
 LICENSE="Viber"
 SLOT="0"
