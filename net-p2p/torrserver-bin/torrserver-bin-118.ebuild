@@ -1,7 +1,7 @@
 # Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="TorrServer, stream torrent to http"
 HOMEPAGE="https://github.com/YouROK/TorrServer"
@@ -23,12 +23,12 @@ QA_PREBUILT="*"
 S="${WORKDIR}"
 
 src_unpack() {
-	cp -v "${DISTDIR}"/"${A}" "${S}"
+	cp -v "${DISTDIR}/${A}" "${S}"
 }
 
 src_install() {
 	dodir /opt/torrserver
-	cp "${S}"/TorrServer-linux-amd64-${PV} "${ED}"/opt/torrserver/TorrServer-linux-amd64 || die
+	cp "${S}/TorrServer-linux-amd64-${PV}" "${ED}"/opt/torrserver/TorrServer-linux-amd64 || die
 	fperms 0755 /opt/torrserver/TorrServer-linux-amd64
 	newinitd "${FILESDIR}"/torrserver.initd torrserver
 	doenvd "${FILESDIR}"/99torrserver
