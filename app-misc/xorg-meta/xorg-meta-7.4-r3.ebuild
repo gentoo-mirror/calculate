@@ -1,19 +1,17 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Calculate Linux (Xorg meta package)"
 HOMEPAGE="https://www.calculate-linux.org/"
 SRC_URI=""
 
-LICENSE="GPL-2"
+LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
 
-RDEPEND="${RDEPEND}
+RDEPEND="
 	!x11-base/xorg-x11
 "
 
