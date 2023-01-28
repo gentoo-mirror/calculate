@@ -1,60 +1,97 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MULTILIB_COMPAT=( abi_x86_64 )
 
 inherit desktop multilib-build pax-utils unpacker xdg
 
-QA_PREBUILT="/opt/viber/Viber
-	/opt/viber/libexec/QtWebEngineProcess
-	/opt/viber/plugins/*/*.so
-	/opt/viber/lib/*
-	/opt/viber/qml/*"
-
 DESCRIPTION="Free and secure calls and messages to anyone, anywhere"
 HOMEPAGE="https://www.viber.com/"
-SRC_URI="https://download.cdn.viber.com/cdn/desktop/Linux/${PN}.deb -> ${P}.deb"
+SRC_URI="
+	amd64? (
+		https://download.cdn.viber.com/cdn/desktop/Linux/${PN}.deb -> ${P}.deb
+	)
+"
+
+QA_PRESTRIPPED="
+	opt/viber/Viber
+	opt/viber/libexec/QtWebEngineProcess
+	opt/viber/lib/libicudata.so.66
+	opt/viber/lib/libssl.so.1.1
+	opt/viber/lib/libcrypto.so.1.1
+	opt/viber/lib/libXcomposite.so.1
+	opt/viber/lib/libwebp.so.6
+	opt/viber/lib/libicui18n.so.66
+	opt/viber/lib/libqrencode.so
+	opt/viber/lib/libViberRTC.so
+	opt/viber/lib/libminizip.so.1
+	opt/viber/lib/libdouble-conversion.so.3
+	opt/viber/lib/libicuuc.so.66
+	opt/viber/lib/libpng16.so.16
+	opt/viber/lib/libXdamage.so.1
+	opt/viber/lib/libb2.so.1
+	opt/viber/lib/libjpeg.so.8
+	opt/viber/lib/libpcre2-16.so.0
+	opt/viber/lib/libre2.so.5"
 
 LICENSE="Viber"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 IUSE="+abi_x86_64 apulse +pulseaudio"
-REQUIRED_USE="^^ ( apulse pulseaudio )"
+REQUIRED_USE="
+	^^ ( apulse pulseaudio )
+"
 RESTRICT="bindist mirror"
 
+IDEPEND="
+	sys-apps/fix-gnustack
+"
 RDEPEND="
-	app-arch/brotli
+	app-arch/brotli[${MULTILIB_USEDEP}]
+	app-arch/snappy[${MULTILIB_USEDEP}]
+	app-arch/zstd[${MULTILIB_USEDEP}]
+	app-crypt/mit-krb5[${MULTILIB_USEDEP}]
 	dev-libs/expat[${MULTILIB_USEDEP}]
 	dev-libs/glib:2[${MULTILIB_USEDEP}]
+	dev-libs/libxml2[${MULTILIB_USEDEP}]
+	dev-libs/libxslt[${MULTILIB_USEDEP}]
 	dev-libs/nspr[${MULTILIB_USEDEP}]
 	dev-libs/nss[${MULTILIB_USEDEP}]
-	dev-libs/openssl-compat[${MULTILIB_USEDEP}]
 	dev-libs/wayland[${MULTILIB_USEDEP}]
 	media-libs/alsa-lib[${MULTILIB_USEDEP}]
 	media-libs/fontconfig:1.0[${MULTILIB_USEDEP}]
 	media-libs/freetype:2[${MULTILIB_USEDEP}]
+	media-libs/gst-plugins-bad:1.0[${MULTILIB_USEDEP}]
 	media-libs/gst-plugins-base:1.0[${MULTILIB_USEDEP}]
 	media-libs/gstreamer:1.0[${MULTILIB_USEDEP}]
+	media-libs/harfbuzz[${MULTILIB_USEDEP}]
+	media-libs/lcms:2[${MULTILIB_USEDEP}]
+	media-libs/libglvnd[${MULTILIB_USEDEP}]
+	media-libs/libmng[${MULTILIB_USEDEP}]
+	media-libs/libwebp[${MULTILIB_USEDEP}]
+	media-libs/opus[${MULTILIB_USEDEP}]
+	media-libs/tiff[${MULTILIB_USEDEP}]
 	net-print/cups[${MULTILIB_USEDEP}]
 	sys-apps/dbus[${MULTILIB_USEDEP}]
+	sys-apps/systemd-utils[${MULTILIB_USEDEP}]
+	sys-libs/mtdev
 	sys-libs/zlib:0/1[${MULTILIB_USEDEP}]
 	x11-libs/libdrm[${MULTILIB_USEDEP}]
 	x11-libs/libICE[${MULTILIB_USEDEP}]
 	x11-libs/libSM[${MULTILIB_USEDEP}]
 	x11-libs/libX11[${MULTILIB_USEDEP}]
 	x11-libs/libxcb:0/1.12[${MULTILIB_USEDEP}]
-	x11-libs/libXcomposite[${MULTILIB_USEDEP}]
-	x11-libs/libXcursor[${MULTILIB_USEDEP}]
-	x11-libs/libXdamage[${MULTILIB_USEDEP}]
 	x11-libs/libXext[${MULTILIB_USEDEP}]
 	x11-libs/libXfixes[${MULTILIB_USEDEP}]
-	x11-libs/libXi[${MULTILIB_USEDEP}]
+	x11-libs/libxkbcommon[${MULTILIB_USEDEP}]
+	x11-libs/libxkbfile[${MULTILIB_USEDEP}]
 	x11-libs/libXrandr[${MULTILIB_USEDEP}]
-	x11-libs/libXrender[${MULTILIB_USEDEP}]
 	x11-libs/libXScrnSaver[${MULTILIB_USEDEP}]
+	x11-libs/libxshmfence[${MULTILIB_USEDEP}]
 	x11-libs/libXtst[${MULTILIB_USEDEP}]
+	x11-libs/tslib[${MULTILIB_USEDEP}]
 	x11-libs/xcb-util-image[${MULTILIB_USEDEP}]
 	x11-libs/xcb-util-keysyms[${MULTILIB_USEDEP}]
 	x11-libs/xcb-util-renderutil[${MULTILIB_USEDEP}]
@@ -96,8 +133,12 @@ src_install() {
 	pax-mark -m "${ED}"/opt/viber/Viber \
 			"${ED}"/opt/viber/QtWebEngineProcess
 
-	fperms -R +x /opt/viber/Viber \
-		/opt/viber/libexec
+	fix-gnustack -f "${ED}"/opt/viber/lib/libQt6WebEngineCore.so.6 > /dev/null \
+		|| die "removing execstack flag failed"
+
+	fperms +x /opt/viber/Viber \
+		/opt/viber/lib/libQt6Core.so.6 \
+		/opt/viber/libexec/QtWebEngineProcess
 
 	dosym ../../opt/viber/Viber /usr/bin/Viber
 }
