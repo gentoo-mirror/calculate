@@ -2,6 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+# NOTE: This is a version of `app-misc/geoclue-2.6.0::gentoo` allowed to install in Calculate
+
 PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="xml(+)"
 
@@ -66,6 +69,8 @@ src_configure() {
 
 		-Dmozilla-api-key=f57afde7-113f-4e8f-96d1-62be64a0273c
 	)
+
+	# NOTE: Removed a check here
 
 	meson_src_configure
 }
