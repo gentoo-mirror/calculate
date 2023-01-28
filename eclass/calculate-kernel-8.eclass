@@ -165,29 +165,31 @@ clean_for_minimal() {
 	done
 	mv backup/Module.symvers .
 	rmdir backup
-	KEEPLIST="scripts/Makefile.lib scripts/module-common.lds \
-		scripts/gcc-version.sh scripts/Makefile.help \
-		scripts/Makefile.modinst scripts/Makefile.asm-generic \
-		scripts/Makefile.modbuiltin scripts/Makefile.fwinst \
-		scripts/Makefile.modfinal \
-		scripts/Makefile.compiler \
-		scripts/modules-check.sh \
-		scripts/Makefile.extrawarn scripts/Makefile.kasan \
-		scripts/depmod.sh scripts/Makefile.host \
-		scripts/Makefile.gcc-plugins \
+	KEEPLIST="arch/x86/Makefile_32.cpu arch/x86/Makefile \
+		include/config/kernel.release include/config/auto.conf \
 		Module.symvers \
-		scripts/Makefile.ubsan \
-		scripts/Makefile.kcov \
-		scripts/module.lds \
-		scripts/subarch.include \
-		scripts/Kbuild.include scripts/Makefile.modpost \
+		scripts/check-local-export \
+		scripts/depmod.sh scripts/Makefile.host \
 		scripts/gcc-goto.sh scripts/Makefile.headersinst \
+		scripts/gcc-version.sh scripts/Makefile.help \
+		scripts/Kbuild.include scripts/Makefile.modpost \
 		scripts/Makefile.build scripts/basic/fixdep \
 		scripts/Makefile.clean scripts/mod/modpost \
-		tools/objtool/objtool \
-		include/config/kernel.release include/config/auto.conf \
-		arch/x86/Makefile_32.cpu arch/x86/Makefile \
-		System.map Kconfig Makefile Kbuild"
+		scripts/Makefile.compiler \
+		scripts/Makefile.extrawarn scripts/Makefile.kasan \
+		scripts/Makefile.gcc-plugins \
+		scripts/Makefile.kcov \
+		scripts/Makefile.lib scripts/module-common.lds \
+		scripts/Makefile.modbuiltin scripts/Makefile.fwinst \
+		scripts/Makefile.modfinal \
+		scripts/Makefile.modinst scripts/Makefile.asm-generic \
+		scripts/Makefile.ubsan \
+		scripts/module.lds \
+		scripts/modules-check.sh \
+		scripts/pahole-flags.sh \
+		scripts/subarch.include \
+		System.map Kconfig Makefile Kbuild \
+		tools/objtool/objtool"
 	find . -type f -a \! -wholename ./.config \
 		$(echo $KEEPLIST | sed -r 's/(\S+)(\s|$)/-a \! -wholename .\/\1 /g') \
 		-a \! -name "*.h" -delete
