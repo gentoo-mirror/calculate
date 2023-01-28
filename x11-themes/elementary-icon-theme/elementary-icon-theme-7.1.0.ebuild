@@ -20,7 +20,9 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 "
-RDEPEND="x11-themes/hicolor-icon-theme"
+RDEPEND="
+	x11-themes/hicolor-icon-theme
+"
 
 S="${WORKDIR}/icons-${PV}"
 
