@@ -30,7 +30,7 @@ calc_repo_dirs(){
 				val=${val%${val##*[![:space:]]}}
 				repos_location[$sec]=$val
 			fi
-		done <<< $(cat $repos_conf)
+		done <<< "$(cat $repos_conf)"
 	}
 	get_list(){
 		local path=$1
