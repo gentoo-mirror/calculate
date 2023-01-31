@@ -722,3 +722,8 @@ dev-libs/keystone python
 # required by app-admin/mongosh-bin-1.3.1
 dev-libs/cyrus-sasl kerberos
 
+# required by "dev-libs/papi-6.0.0.1-r1
+dev-libs/libpfm static-libs
+
+# required by games-arcade/performous-1.2.0
+media-libs/aubio fftw
