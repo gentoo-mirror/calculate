@@ -630,10 +630,11 @@ net-libs/gupnp-av vala
 # required by net-fs/samba-4.13.9-r2
 sys-libs/ldb ldap
 
-# required by media-gfx/freecad-0.19.2-r3
+# required by media-gfx/freecad-0.20.1
+dev-python/pyside2 positioning qml quick webchannel webengine
 sci-libs/med python
-sci-libs/opencascade vtk
-sci-libs/vtk qt5
+sci-libs/opencascade json vtk
+sci-libs/vtk boost python qt5
 
 # required by dev-python/pyls-spyder-0.4.0-r1
 dev-python/python-lsp-server all-plugins
@@ -721,3 +722,8 @@ dev-libs/keystone python
 # required by app-admin/mongosh-bin-1.3.1
 dev-libs/cyrus-sasl kerberos
 
+# required by "dev-libs/papi-6.0.0.1-r1
+dev-libs/libpfm static-libs
+
+# required by games-arcade/performous-1.2.0
+media-libs/aubio fftw
