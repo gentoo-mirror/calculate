@@ -34,7 +34,8 @@ QA_PRESTRIPPED="
 	opt/viber/lib/libb2.so.1
 	opt/viber/lib/libjpeg.so.8
 	opt/viber/lib/libpcre2-16.so.0
-	opt/viber/lib/libre2.so.5"
+	opt/viber/lib/libre2.so.5
+"
 
 LICENSE="Viber"
 SLOT="0"
@@ -45,7 +46,7 @@ REQUIRED_USE="
 "
 RESTRICT="bindist mirror"
 
-IDEPEND="
+BDEPEND="
 	sys-apps/fix-gnustack
 "
 RDEPEND="
@@ -75,7 +76,10 @@ RDEPEND="
 	media-libs/tiff[${MULTILIB_USEDEP}]
 	net-print/cups[${MULTILIB_USEDEP}]
 	sys-apps/dbus[${MULTILIB_USEDEP}]
-	sys-apps/systemd-utils[${MULTILIB_USEDEP}]
+	|| (
+		sys-apps/systemd[${MULTILIB_USEDEP}]
+		sys-apps/systemd-utils[udev,${MULTILIB_USEDEP}]
+	)
 	sys-libs/mtdev
 	sys-libs/zlib:0/1[${MULTILIB_USEDEP}]
 	x11-libs/libdrm[${MULTILIB_USEDEP}]
