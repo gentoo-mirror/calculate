@@ -25,6 +25,7 @@ RDEPEND="
 "
 
 S="${WORKDIR}/icons-${PV}"
+DOCS=( README.md COPYING CONTRIBUTING.md )
 
 src_configure() {
 	local emesonargs=(
@@ -35,9 +36,9 @@ src_configure() {
 }
 
 src_install() {
+	# https://github.com/elementary/icons/pull/1177
+	find . -type f -name '*.svg' -exec chmod -x "{}" ";"
 	meson_src_install
-
-	dodoc README.md COPYING CONTRIBUTING.md
 }
 
 pkg_postinst() {
