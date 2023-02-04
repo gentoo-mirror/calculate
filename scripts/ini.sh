@@ -1,6 +1,6 @@
 declare -A ini
 
-calc_repo_dirs(){
+ini_repo_dirs(){
 	declare -A repos_location
 	import_repos_conf(){
 		local repos_conf
@@ -57,9 +57,9 @@ calc_repo_dirs(){
 	get_list $(realpath /etc/portage/make.profile)
 }
 
-calc_ini_files(){
+ini_list_files(){
 	local path
-	for path in $(calc_repo_dirs) \
+	for path in $(ini_repo_dirs) \
 		/var/lib/calculate/calculate-update \
 		"$HOME/.calculate" \
 		/var/lib/calculate \
@@ -77,7 +77,7 @@ calc_ini_files(){
 # The function reads values from all ini.env files into the ini array
 get_ini(){
 	local line sec ini_file
-	for ini_file in $(calc_ini_files)
+	for ini_file in $(ini_list_files)
 	do
 		while IFS= read -r line
 		do
