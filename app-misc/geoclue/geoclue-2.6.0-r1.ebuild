@@ -1,14 +1,17 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{8..10} )
+
+# NOTE: This is a version of `app-misc/geoclue-2.6.0::gentoo` allowed to install in Calculate
+
+PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit meson python-any-r1 systemd vala xdg
 
 DESCRIPTION="A location information D-Bus service"
-HOMEPAGE="https://gitlab.freedesktop.org/geoclue/geoclue/wikis/home"
+HOMEPAGE="https://gitlab.freedesktop.org/geoclue/geoclue/-/wikis/home"
 SRC_URI="https://gitlab.freedesktop.org/geoclue/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1+ GPL-2+"
@@ -66,6 +69,8 @@ src_configure() {
 
 		-Dmozilla-api-key=f57afde7-113f-4e8f-96d1-62be64a0273c
 	)
+
+	# NOTE: Removed a check here
 
 	meson_src_configure
 }
