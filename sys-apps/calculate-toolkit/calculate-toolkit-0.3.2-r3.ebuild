@@ -21,7 +21,5 @@ RDEPEND=">=sys-apps/calculate-utils-3.6
 	app-arch/xz-utils"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-lxc-create.patch
-	"${FILESDIR}"/${P}-container_path.patch
-	"${FILESDIR}"/${P}-fix_path.patch
+	"${FILESDIR}"/${P}-20230215.patch
 )
