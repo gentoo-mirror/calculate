@@ -23,4 +23,5 @@ RDEPEND=">=sys-apps/calculate-utils-3.6
 PATCHES=(
 	"${FILESDIR}"/${P}-20230215.patch
 	"${FILESDIR}"/${P}-fix_message.patch
+	"${FILESDIR}"/${P}-start_services.patch
 )
