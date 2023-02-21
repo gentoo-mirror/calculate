@@ -7,17 +7,16 @@ PYTHON_COMPAT=(python3_9)
 
 UTILS_PV="3.7.3"
 
-
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.7.3"
-	["install"]="3.7.3"
+	["lib"]="3.7.3.1"
+	["install"]="3.7.3.1"
 	["core"]="3.7.3"
-	["i18n"]="3.7.3"
-	["client"]="3.7.3"
+	["i18n"]="3.7.3.1"
+	["client"]="3.7.3.2"
 	["console"]="3.7.3"
 	["console-gui"]="3.7.3"
-	["update"]="3.7.3.3"
-	["builder"]="3.7.3"
+	["update"]="3.7.3.5"
+	["builder"]="3.7.3.3"
 )
 
 inherit calculate-utils-r16
