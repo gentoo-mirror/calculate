@@ -74,9 +74,6 @@ sys-fs/cryptsetup python
 # build for use with thread-capable perl
 www-apache/mod_perl ithreads
 
-# use ipv4 instead of ipv6
-net-p2p/opentracker -ipv6
-
 # include backup, client, desktop, console and console-gui modules
 sys-apps/calculate-utils backup client desktop console qt5
 
