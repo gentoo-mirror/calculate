@@ -1,4 +1,4 @@
-# Calculate format=kernel name=.config os_install_arch_machine==x86_64&&merge(sys-kernel/calculate-sources)>=6.1
+# Calculate format=kernel name=.config
 CONFIG_CRYPTO_ZSTD=y
 CONFIG_DEFAULT_HOSTNAME="calculate"
 # CONFIG_KERNEL_GZIP is not set
