@@ -1,0 +1,9 @@
+# Calculate format=xml_xfce path=~/.config/xfce4/xfconf/xfce-perchannel-xml
+<?xml version="1.0" encoding="UTF-8"?>
+<channel name="displays" version="1.0">
+  <property name="plugins" type="empty">
+    <property name="plugin-5" type="string" value="clock">
+    <property name="digital-time-font" type="string" value="Sans 18"/>
+    <property name="digital-layout" type="uint" value="3"/>
+  </property>
+</channel>
