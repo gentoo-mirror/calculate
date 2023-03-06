@@ -727,3 +727,6 @@ dev-libs/libpfm static-libs
 
 # required by games-arcade/performous-1.2.0
 media-libs/aubio fftw
+
+# required by dev-lang/crystal-1.5.0
+dev-libs/boehm-gc static-libs
