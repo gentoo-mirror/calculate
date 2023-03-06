@@ -105,11 +105,11 @@ vmlinuz_src_install() {
 	echo >>dracut.conf
 	if use themes
 	then
-		echo add_dracutmodules+=\" plymouth\" >>dracut.conf
+		echo add_dracutmodules+=\" plymouth \" >>dracut.conf
 	else
-		echo omit_dracutmodules+=\" plymouth\" >>dracut.conf
+		echo omit_dracutmodules+=\" plymouth \" >>dracut.conf
 	fi
-	echo add_dracutmodules+=\" calculate video\" >>dracut.conf
+	echo add_dracutmodules+=\" calculate video \" >>dracut.conf
 
 	if grep -q CONFIG_RD_ZSTD=y .config &>/dev/null
 	then
