@@ -219,7 +219,7 @@ vmlinuz_pkg_postinst() {
 	calculate_update_ver /boot System.map ${KV_FULL} /usr/share/${PN}/${PV}/boot/System.map-${KV_FULL}
 	# install firmware into /
 	mkdir -p "${ROOT}/lib/firmware"
-	cp -a "${ROOT}/usr/share/${PN}/${PV}/firmware/*" "${ROOT}/lib/firmware/"
+	cp -a ${ROOT}/usr/share/${PN}/${PV}/firmware/* "${ROOT}/lib/firmware/"
 	calculate_update_depmod
 	calculate_update_modules
 }
@@ -228,7 +228,7 @@ calculate-kernel-8_pkg_postinst() {
 	kernel-2_pkg_postinst
 
 	KV_OUT_DIR=${ROOT}/usr/src/linux-${KV_FULL}
-	use vmlinuz && cp -p "/usr/share/${PN}/${PV}/boot/System.map*" "${KV_OUT_DIR}/System.map"
+	use vmlinuz && cp -p /usr/share/${PN}/${PV}/boot/System.map* "${KV_OUT_DIR}/System.map"
 
 	if ! use minimal
 	then
