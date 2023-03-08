@@ -9,11 +9,7 @@ SRC_URI=""
 
 LICENSE="metapackage"
 SLOT="0"
-KEYWORDS="amd64 x86"
-
-RDEPEND="
-	!x11-base/xorg-x11
-"
+KEYWORDS="amd64"
 
 # Server
 RDEPEND="${RDEPEND}
@@ -22,7 +18,6 @@ RDEPEND="${RDEPEND}
 
 #Applications
 RDEPEND="${RDEPEND}
-	!x11-apps/xsetmode
 	x11-apps/appres
 	x11-apps/bitmap
 	x11-apps/iceauth
@@ -39,7 +34,6 @@ RDEPEND="${RDEPEND}
 	x11-apps/xdpyinfo
 	x11-apps/xdriinfo
 	x11-apps/xev
-	x11-apps/xf86dga
 	x11-apps/xgamma
 	x11-apps/xhost
 	x11-apps/xinput
@@ -81,6 +75,7 @@ RDEPEND="${RDEPEND}
 	media-fonts/dejavu
 	media-fonts/droid
 "
+
 # Other
 RDEPEND="${RDEPEND}
 	x11-apps/mesa-progs
