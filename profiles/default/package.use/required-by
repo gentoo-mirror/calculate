@@ -730,3 +730,6 @@ media-libs/aubio fftw
 
 # required by dev-lang/crystal-1.5.0
 dev-libs/boehm-gc static-libs
+
+# required by virtual/lapacke
+sci-libs/lapack lapacke
