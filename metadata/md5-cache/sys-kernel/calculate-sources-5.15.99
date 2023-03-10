@@ -10,7 +10,7 @@ LICENSE=GPL-2
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig ) vmlinuz? ( app-arch/xz-utils ) grub? ( sys-boot/grub ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] vmlinuz? ( sys-kernel/dracut )
 REQUIRED_USE=minimal? ( vmlinuz )
 RESTRICT=binchecks strip
-SLOT=5.15.98
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.15.98.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.15.tar.xz
+SLOT=5.15.99
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.15.99.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.15.tar.xz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	calculate	4ee842ff3ece9e4878ba9ea5b1485da0	estack	055c42df72f76a4f45ec92b35e83cd56	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	kernel-2	1e55bee3f3081b16ebc1ca0cf1264f6c	calculate-kernel-8	22dfbd04ebdb1b4775dcd4f1b617983e
 _md5_=3b4047e575cd9b00e6f7f2317b41137e
