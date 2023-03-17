@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=acct-user/opentracker dev-libs/libowfat sys-libs/zlib
 REQUIRED_USE=^^ ( blacklist whitelist ) live-sync-unicast? ( live-sync ) persistence? ( !ipv6 )
 SLOT=0
-_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=git-r3	c57c50c922e121043788de0b40ada60a
 _md5_=ac9911510eb5899c4190be5059a62724
