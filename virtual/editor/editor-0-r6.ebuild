@@ -18,11 +18,11 @@ RDEPEND="|| (
 	app-editors/dav
 	app-editors/e3
 	app-editors/ee
-	app-editors/elvis
 	app-editors/emacs:*
 	app-editors/emact
 	app-editors/ersatz-emacs
 	app-editors/fe
+	app-editors/helix
 	app-editors/jasspa-microemacs
 	app-editors/jed
 	app-editors/joe
