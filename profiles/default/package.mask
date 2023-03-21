@@ -5,15 +5,6 @@
 sys-libs/db:6.0
 
 # not compiled
-=net-vpn/libreswan-4.7
 =sci-libs/cifparse-obj-7.105
 =sys-apps/ucspi-tcp-0.88-r19
 =dev-libs/log4cxx-1.0.0
-
-# downgrades version net-libs/libtorrent-rasterbar
-=net-p2p/qbittorrent-4.4.5-r2
-
-# a bug in this version - crashes out of the user's session
-#~media-libs/libva-2.16.0
-#~media-libs/libva-2.17.0
-#~media-video/libva-utils-2.16.0
