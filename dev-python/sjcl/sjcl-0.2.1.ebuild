@@ -19,3 +19,8 @@ IUSE=""
 
 RDEPEND="dev-python/pycryptodome"
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	distutils-r1_python_prepare_all
+	sed -e "s:description-:description_:" -i setup.cfg
+}
