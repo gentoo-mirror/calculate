@@ -1,8 +1,8 @@
-# Calculate format=diff
-diff --git a/etc/init.d/root b/etc/init.d/root
-index 79b747d..27aa847 100755
---- a/etc/init.d/root
-+++ b/etc/init.d/root
+# Calculate format=patch
+diff --git a/init.d/root.in b/init.d/root.in
+index 2f7d82f..e72be52 100644
+--- a/init.d/root.in
++++ b/init.d/root.in
 @@ -49,6 +49,8 @@ start()
  	local mountpoint
  	for mountpoint in $(fstabinfo); do
