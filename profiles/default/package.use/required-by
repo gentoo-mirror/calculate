@@ -642,8 +642,8 @@ dev-python/python-lsp-server all-plugins
 # required by dev-embedded/ponyprog-3.1.2
 dev-embedded/libftdi:1 cxx
 
-# required by "app-emacs/libegit2-0.0.20200515-r1
-app-editors/emacs dynamic-loading
+# required by "app-emacs/libegit2-0.0.20200515-r1 app-emacs/osm-0.10
+app-editors/emacs dynamic-loading json
 
 # required by "media-gfx/blender-3.0.0"
 media-libs/opencolorio -opengl
@@ -733,3 +733,6 @@ dev-libs/boehm-gc static-libs
 
 # required by virtual/lapacke
 sci-libs/lapack lapacke
+
+#
+dev-python/pyzmq drafts
