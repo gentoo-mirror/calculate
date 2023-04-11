@@ -219,7 +219,7 @@ vmlinuz_pkg_postinst() {
 	calculate_update_ver /boot System.map ${KV_FULL} /usr/share/${PN}/${PV}/boot/System.map-${KV_FULL}
 	# install firmware into /
 	mkdir -p "${ROOT}/lib/firmware"
-	cp -a ${ROOT}/usr/share/${PN}/${PV}/firmware/* "${ROOT}/lib/firmware/"
+	cp -a "${ROOT}/usr/share/${PN}/${PV}/firmware/"* "${ROOT}/lib/firmware/"
 	calculate_update_depmod
 	calculate_update_modules
 }
