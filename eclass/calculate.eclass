@@ -146,6 +146,11 @@ calculate_update_kernel() {
 	fi
 }
 
+# @FUNCTION: is_broken_link
+# @INTERNAL
+# @USAGE: [filename]
+# @DESCRIPTION:
+# Check symlink broken
 is_broken_link() {
 	fname=$1
 	[[ -n $( file $fname | grep "broken symbolic link" ) ]] &&
@@ -172,7 +177,13 @@ calculate_restore_kernel() {
 		mv ${dir}/System.map.old ${dir}/System.map
 }
 
+# @VARIABLE: TMP_INITRAMFS
+# @DESCRIPTION:
+# Path to initramfs
 TMP_INITRAMFS=${T}/initramfs
+# @VARIABLE: SPLASH_DESCRIPTOR
+# @DESCRIPTION:
+# Path to splash image
 SPLASH_DESCRIPTOR=/etc/splash/tty1/1024x768.cfg
 
 # @FUNCTION: calculate_rm_modules_dir
@@ -205,6 +216,10 @@ calculate_rm_modules_dir() {
 	fi
 }
 
+# @FUNCTION: initramfs_unpack
+# @USAGE: [initramfs_unpack]
+# @DESCRIPTION:
+# Unpack initramfs
 initramfs_unpack() {
 	mkdir -p ${TMP_INITRAMFS}
 	cd ${TMP_INITRAMFS}
@@ -240,6 +255,10 @@ initramfs_change_spalsh() {
 	fi
 }
 
+# @FUNCTION: initramfs_pack
+# @USAGE: [initramfs_pack]
+# @DESCRIPTION:
+# Pack initramfs
 initramfs_pack() {
 	# pack new initramfs
 	cd ${TMP_INITRAMFS}
@@ -507,21 +526,21 @@ calculate_pkg_postinst() {
 	esac
 }
 
-# @FUNCTION: calculate_update_ver (/boot vmlinuz
+# @FUNCTION: calculate_update_ver
 # @USAGE: boot_dir file_basename version source_file [suffix]
 # @DESCRIPTION:
 # Create backups of older versions before installing
 calculate_update_ver() {
-  local dir=$1
-  local fn=$2
-  local ver=$3
-  local src=$4
-  local suffix="$5"
-  if [ -f "$dir/$fn-$ver$suffix" ] ; then
-    mv "$dir/$fn-$ver$suffix" "$dir/$fn-$ver$suffix.old"
-  fi
+	local dir=$1
+	local fn=$2
+	local ver=$3
+	local src=$4
+	local suffix="$5"
+	if [ -f "$dir/$fn-$ver$suffix" ] ; then
+		mv "$dir/$fn-$ver$suffix" "$dir/$fn-$ver$suffix.old"
+	fi
 
-  cat "$src" > "$dir/$fn-$ver$suffix"
+	cat "$src" > "$dir/$fn-$ver$suffix"
 }
 
 # @FUNCTION: calculate_fix_lib_modules_contents
@@ -529,7 +548,7 @@ calculate_update_ver() {
 # @DESCRIPTION:
 # Unlink /lib/modules files from CONTENTS
 calculate_fix_lib_modules_contents() {
-    local vardb=/var/db/pkg
-    local content="${vardb}/${CATEGORY}/${PF}/CONTENTS"
-    sed -i '/ \/lib\/modules/d' $content
+	local vardb=/var/db/pkg
+	local content="${vardb}/${CATEGORY}/${PF}/CONTENTS"
+	sed -i '/ \/lib\/modules/d' $content
 }
