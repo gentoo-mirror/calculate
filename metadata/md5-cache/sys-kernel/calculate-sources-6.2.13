@@ -4,13 +4,13 @@ DESCRIPTION=Calculate Linux kernel image
 EAPI=7
 HOMEPAGE=https://www.calculate-linux.org/
 INHERIT=calculate-kernel-8
-IUSE=fsync muqss uksm symlink build +vmlinuz desktop minimal themes firmware +grub
+IUSE=symlink build +vmlinuz desktop minimal themes firmware +grub
 KEYWORDS=~amd64
 LICENSE=GPL-2
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig ) vmlinuz? ( app-arch/xz-utils ) grub? ( sys-boot/grub ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] vmlinuz? ( sys-kernel/dracut )
 REQUIRED_USE=minimal? ( vmlinuz )
 RESTRICT=binchecks strip
-SLOT=5.10.178
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.10.178.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.10.tar.xz
+SLOT=6.2.13
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/patch-6.2.13.xz https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.2.tar.xz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	calculate	af98cf4f9bd0f498f4bc8b4b9314e25f	estack	055c42df72f76a4f45ec92b35e83cd56	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	kernel-2	5ec69098eb726d07eec2cf05ce4fbdfe	calculate-kernel-8	9620b9ecb942aba7e92a0a34f649af45
-_md5_=e60abc2a8fb96cb9fda8aa032c8e226b
+_md5_=e28719d52c2b530d1cd8cf1c7aa00fd8
