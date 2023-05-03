@@ -3491,7 +3491,7 @@ index 0000000..2e1db12
 +      isc_result_check (result, "dns_dbiterator_current");
 +
 +      riter = NULL;
-+      result = dns_db_allrdatasets (db, node, NULL, 0, &riter);
++      result = dns_db_allrdatasets (db, node, NULL, 0, 0, &riter);
 +      isc_result_check (result, "dns_db_allrdatasets");
 +
 +      result = dns_rdatasetiter_first (riter);

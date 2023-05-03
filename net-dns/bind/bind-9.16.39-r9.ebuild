@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Re dlz/mysql and threads, needs to be verified..
@@ -10,11 +10,11 @@
 # Because of this BIND MUST only run with a single thread when
 # using the MySQL driver.
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{9..11} )
 
-inherit autotools db-use flag-o-matic python-r1 systemd tmpfiles toolchain-funcs
+inherit python-r1 autotools multiprocessing toolchain-funcs flag-o-matic db-use systemd tmpfiles
 
 MY_PV="${PV/_p/-P}"
 MY_PV="${MY_PV/_rc/rc}"
@@ -27,71 +27,73 @@ RRL_PV="${MY_PV}"
 # SDB-LDAP: http://bind9-ldap.bayour.com/
 
 DESCRIPTION="Berkeley Internet Name Domain - Name Server"
-HOMEPAGE="https://www.isc.org/software/bind"
+HOMEPAGE="https://www.isc.org/software/bind https://gitlab.isc.org/isc-projects/bind9"
 SRC_URI="https://downloads.isc.org/isc/bind9/${PV}/${P}.tar.xz
 	doc? ( mirror://gentoo/dyndns-samples.tbz2 )"
 
 LICENSE="Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
-# -berkdb by default re bug 602682
-IUSE="berkdb +caps dlz dnsrps dnstap doc fixed-rrset geoip geoip2 gssapi
-json ldap lmdb mysql odbc postgres python sdb-ldap selinux static-libs xml +zlib"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+# -berkdb by default re bug #602682
+IUSE="berkdb +caps +dlz dnstap doc dnsrps fixed-rrset geoip geoip2 gssapi
+json ldap lmdb mysql odbc postgres python selinux static-libs test xml +zlib sdb-ldap"
 # sdb-ldap - patch broken
 # no PKCS11 currently as it requires OpenSSL to be patched, also see bug 409687
+RESTRICT="!test? ( test )"
 
 # Upstream dropped the old geoip library, but the BIND configuration for using
 # GeoIP remained the same.
 REQUIRED_USE="
+	postgres? ( dlz )
 	berkdb? ( dlz )
-	dnsrps? ( dlz )
-	ldap? ( dlz )
 	mysql? ( dlz )
 	odbc? ( dlz )
-	postgres? ( dlz )
+	ldap? ( dlz )
+	dnsrps? ( dlz )
 	python? ( ${PYTHON_REQUIRED_USE} )
-	sdb-ldap? ( dlz )
 "
 
 DEPEND="
 	acct-group/named
 	acct-user/named
-	dev-libs/libuv:=
-	dev-libs/openssl:=[-bindist(-)]
 	berkdb? ( sys-libs/db:= )
-	caps? ( >=sys-libs/libcap-2.1.0 )
-	dnstap? ( dev-libs/fstrm dev-libs/protobuf-c )
-	geoip2? ( dev-libs/libmaxminddb )
-	geoip? ( dev-libs/libmaxminddb )
-	gssapi? ( virtual/krb5 )
-	json? ( dev-libs/json-c:= )
-	ldap? ( net-nds/openldap )
-	lmdb? ( dev-db/lmdb )
+	dev-libs/openssl:=[-bindist(-)]
 	mysql? ( dev-db/mysql-connector-c:0= )
 	odbc? ( >=dev-db/unixODBC-2.2.6 )
+	ldap? ( net-nds/openldap:= )
 	postgres? ( dev-db/postgresql:= )
+	caps? ( >=sys-libs/libcap-2.1.0 )
+	xml? ( dev-libs/libxml2 )
+	geoip? ( dev-libs/libmaxminddb:= )
+	geoip2? ( dev-libs/libmaxminddb:= )
+	gssapi? ( virtual/krb5 )
+	json? ( dev-libs/json-c:= )
+	lmdb? ( dev-db/lmdb:= )
+	zlib? ( sys-libs/zlib )
+	dnstap? ( dev-libs/fstrm dev-libs/protobuf-c:= )
 	python? (
 		${PYTHON_DEPS}
 		dev-python/ply[${PYTHON_USEDEP}]
 	)
-	sdb-ldap? ( net-nds/openldap )
-	xml? ( dev-libs/libxml2 )
-	zlib? ( sys-libs/zlib )
+	dev-libs/libuv:=
 "
 
 RDEPEND="${DEPEND}
 	selinux? ( sec-policy/selinux-bind )
 	sys-process/psmisc"
 
+BDEPEND="
+	test? (
+		dev-util/cmocka
+		dev-util/kyua
+	)
+"
+
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
 	"${FILESDIR}/ldap-library-path-on-multilib-machines.patch"
 )
-
-# bug 479092, requires networking
-# bug 710840, cmocka fails LDFLAGS='-Wl,-O1'
-#RESTRICT="test"
 
 src_prepare() {
 	default
@@ -102,18 +104,15 @@ src_prepare() {
 		# Upstream URL: http://bind9-ldap.bayour.com/
 		# New patch take from bug 302735
 		if use sdb-ldap; then
-			eapply "${FILESDIR}"/bind-9.16.22-r1-sdb-ldap.patch
+			eapply "${FILESDIR}"/bind-9.16.39-r9-sdb-ldap.patch
 			cp -fp contrib/sdb/ldap/ldapdb.[ch] bin/named/
 			cp -fp contrib/sdb/ldap/{ldap2zone.1,ldap2zone.c} bin/tools/
 			cp -fp contrib/sdb/ldap/{zone2ldap.1,zone2ldap.c} bin/tools/
 		fi
 	fi
 
-	# should be installed by bind-tools
+	# Should be installed by bind-tools
 	sed -i -r -e "s:(nsupdate|dig|delv) ::g" bin/Makefile.in || die
-
-	# Disable tests for now, bug 406399
-	sed -i '/^SUBDIRS/s:tests::' bin/Makefile.in lib/Makefile.in || die
 
 	# bug #220361
 	rm aclocal.m4 || die
@@ -138,14 +137,13 @@ bind_configure() {
 		--enable-full-report
 		--without-readline
 		--with-openssl="${ESYSROOT}"/usr
-		--without-cmocka
+		$(use_with test cmocka)
 		# Removed in 9.17, drags in libunwind dependency too
 		--disable-backtrace
 		$(use_enable caps linux-caps)
 		$(use_enable dnsrps)
 		$(use_enable dnstap)
 		$(use_enable fixed-rrset)
-		# $(use_enable static-libs static)
 		$(use_with berkdb dlz-bdb "${ESYSROOT}"/usr)
 		$(use_with dlz dlopen)
 		$(use_with dlz dlz-filesystem)
@@ -161,6 +159,7 @@ bind_configure() {
 		$(use_with zlib)
 		"${@}"
 	)
+
 	# This is for users to start to migrate back to USE=geoip, rather than
 	# USE=geoip2
 	if use geoip ; then
@@ -175,7 +174,7 @@ bind_configure() {
 	fi
 
 	# bug #158664
-#	gcc-specs-ssp && replace-flags -O[23s] -O
+	#gcc-specs-ssp && replace-flags -O[23s] -O
 
 	# To include db.h from proper path
 	use berkdb && append-flags "-I$(db_includedir)"
@@ -184,7 +183,7 @@ bind_configure() {
 	econf "${myeconfargs[@]}"
 
 	# bug #151839
-	echo '#undef SO_BSDCOMPAT' >> config.h
+	echo '#undef SO_BSDCOMPAT' >> config.h || die
 }
 
 python_configure() {
@@ -202,6 +201,12 @@ python_compile() {
 	pushd "${BUILD_DIR}"/bin/python >/dev/null || die
 	emake
 	popd >/dev/null || die
+}
+
+src_test() {
+	# system tests ('emake test') require network configuration for IPs etc
+	# so we run the unit tests instead.
+	TEST_PARALLEL_JOBS="$(makeopts_jobs)" emake unit
 }
 
 src_install() {
@@ -277,9 +282,7 @@ src_install() {
 	fperms 0770 /var/log/named /var/bind/{,sec,dyn}
 
 	systemd_newunit "${FILESDIR}/named.service-r1" named.service
-	dotmpfilesd "${FILESDIR}"/named.conf
-	# d? typo or not?
-	#dotmpfiles "${FILESDIR}"/named.conf
+	dotmpfiles "${FILESDIR}"/named.conf
 	exeinto /usr/libexec
 	doexe "${FILESDIR}/generate-rndc-key.sh"
 }
