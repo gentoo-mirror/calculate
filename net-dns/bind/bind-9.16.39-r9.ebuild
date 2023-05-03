@@ -12,7 +12,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit python-r1 autotools multiprocessing toolchain-funcs flag-o-matic db-use systemd tmpfiles
 
@@ -33,7 +33,7 @@ SRC_URI="https://downloads.isc.org/isc/bind9/${PV}/${P}.tar.xz
 
 LICENSE="Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 # -berkdb by default re bug #602682
 IUSE="berkdb +caps +dlz dnstap doc dnsrps fixed-rrset geoip geoip2 gssapi
 json ldap lmdb mysql odbc postgres python selinux static-libs test xml +zlib sdb-ldap"
@@ -104,12 +104,13 @@ src_prepare() {
 		# Upstream URL: http://bind9-ldap.bayour.com/
 		# New patch take from bug 302735
 		if use sdb-ldap; then
-			eapply "${FILESDIR}"/bind-9.16.36-r9-sdb-ldap.patch
+			eapply "${FILESDIR}"/bind-9.16.39-r9-sdb-ldap.patch
 			cp -fp contrib/sdb/ldap/ldapdb.[ch] bin/named/
 			cp -fp contrib/sdb/ldap/{ldap2zone.1,ldap2zone.c} bin/tools/
 			cp -fp contrib/sdb/ldap/{zone2ldap.1,zone2ldap.c} bin/tools/
 		fi
 	fi
+
 	# Should be installed by bind-tools
 	sed -i -r -e "s:(nsupdate|dig|delv) ::g" bin/Makefile.in || die
 
