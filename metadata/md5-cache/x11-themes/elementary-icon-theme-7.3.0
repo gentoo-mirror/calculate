@@ -1,0 +1,14 @@
+BDEPEND=gnome-base/librsvg x11-apps/xcursorgen sys-devel/gettext virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm test
+DESCRIPTION=Named, vector icons for elementary OS
+EAPI=8
+HOMEPAGE=https://github.com/elementary/icons
+INHERIT=meson xdg-utils
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=x11-themes/hicolor-icon-theme
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=https://github.com/elementary/icons/archive/refs/tags/7.3.0.tar.gz -> elementary-icon-theme-7.3.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	4544ab96b58e177dc52d75e42f5ee307	meson	915ec7c25e08d7886558215e6809ca1e	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=1f1d2025023f64381b4a0b054606d6b5
