@@ -1,0 +1,22 @@
+diff --git a/setup.py b/setup.py
+index ee7a13f..549ecbd 100644
+--- a/setup.py
++++ b/setup.py
+@@ -29,7 +29,7 @@ import os
+ import sys
+ import fnmatch
+ import subprocess
+-from setuptools import setup
++from setuptools import setup, find_namespace_packages
+ from shutil import copytree, rmtree, copy
+ 
+ 
+@@ -105,7 +105,7 @@ package_data["openshot_qt"] = src_files
+ # Call the main Distutils setup command
+ # -------------------------------------
+ dist = setup(
+-    packages=[('openshot_qt')],
++    packages=find_namespace_packages(include=[('openshot_qt*')]),
+     package_data=package_data,
+     data_files=os_files,
+     include_package_data=True,
