@@ -11,7 +11,7 @@
 # @DESCRIPTION:
 # This eclass use for calculate-utils ebuild
 
-PYTHON_COMPAT=(python3_10)
+PYTHON_COMPAT=(python3_11)
 
 inherit distutils-r1 eutils
 
@@ -151,26 +151,26 @@ RDEPEND="
 	!minimal? (
 		>=sys-apps/util-linux-2.19.1
 		net-misc/rsync
-		dev-python/pyopenssl[python_targets_python3_10]
-		dev-python/cryptography[python_targets_python3_10]
-		dev-python/cffi[python_targets_python3_10]
-		dev-python/six[python_targets_python3_10]
+		dev-python/pyopenssl[python_targets_python3_11]
+		dev-python/cryptography[python_targets_python3_11]
+		dev-python/cffi[python_targets_python3_11]
+		dev-python/six[python_targets_python3_11]
 		dev-libs/openssl
-		dev-python/m2crypto[python_targets_python3_10]
-		dev-python/pytz[python_targets_python3_10]
+		dev-python/m2crypto[python_targets_python3_11]
+		dev-python/pytz[python_targets_python3_11]
 	)
 	gpg? (
 		app-crypt/gnupg
 		app-crypt/openpgp-keys-calculate-release
 	)
-	dev-python/jaraco-functools[python_targets_python3_10]
-	dev-python/lxml[python_targets_python3_10]
-        dev-python/aiohttp
+	dev-python/jaraco-functools[python_targets_python3_11]
+	dev-python/lxml[python_targets_python3_11]
+	dev-python/aiohttp
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils
 	app-portage/eix
-        app-portage/portage-utils
+	app-portage/portage-utils
 
 	app-eselect/eselect-repository
 	>=virtual/udev-197
@@ -186,17 +186,17 @@ RDEPEND="
 	!<sys-apps/calculate-server-2.1.18-r1
 
 	qt5? (
-		dev-python/dbus-python[python_targets_python3_10]
+		dev-python/dbus-python[python_targets_python3_11]
 		media-gfx/imagemagick[jpeg]
-		dev-python/PyQt5[python_targets_python3_10]
-		dev-python/pyinotify[python_targets_python3_10]
+		dev-python/PyQt5[python_targets_python3_11]
+		dev-python/pyinotify[python_targets_python3_11]
 	)
 
 	dbus? (
-		dev-python/dbus-python[python_targets_python3_10]
+		dev-python/dbus-python[python_targets_python3_11]
 	)
 
-	dev-python/pexpect[python_targets_python3_10]
+	dev-python/pexpect[python_targets_python3_11]
 
 	desktop? (
 		media-gfx/feh
@@ -206,12 +206,12 @@ RDEPEND="
 		dev-lang/swig
 		dev-qt/qdbus
 		sys-apps/edid-decode
-		dev-python/pygobject[python_targets_python3_10]
-		dev-python/dbus-python[python_targets_python3_10]
+		dev-python/pygobject[python_targets_python3_11]
+		dev-python/dbus-python[python_targets_python3_11]
 	)
 
 	client? (
-		dev-python/python-ldap[ssl,python_targets_python3_10]
+		dev-python/python-ldap[ssl,python_targets_python3_11]
 		sys-auth/pam_client
 		>=sys-auth/pam_ldap-180[ssl]
 		>=sys-auth/nss_ldap-239
@@ -221,7 +221,7 @@ RDEPEND="
 #	server? (
 #		sys-auth/pam_ldap
 #		sys-auth/nss_ldap
-#		dev-python/python-ldap[python_targets_python3_10]
+#		dev-python/python-ldap[python_targets_python3_11]
 #	)
 #
 #
