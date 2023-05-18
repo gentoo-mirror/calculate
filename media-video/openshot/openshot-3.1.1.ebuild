@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_REQ_USE=xml
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1 xdg
 
