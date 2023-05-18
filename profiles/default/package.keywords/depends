@@ -86,6 +86,7 @@
 ~app-emacs/emacs-common-1.8 amd64
 ~app-emacs/ess-18.10.2 amd64
 ~app-emulation/coldfire-0.3.1 amd64
+~app-emulation/diskimage-builder-3.30.0 amd64
 ~app-emulation/docker-machine-0.13.0 amd64
 ~app-emulation/dynamips-0.2.23 amd64
 ~app-emulation/gxemul-0.6.2 amd64
@@ -170,7 +171,6 @@
 ~app-portage/g-octave-0.4.1 amd64
 ~app-portage/repo-commit-0.4.1 amd64
 ~app-text/cherrytree-0.99.53 amd64
-~app-text/rpl-1.9.1 amd64
 ~app-text/tree-2.1.0 amd64
 ~app-text/xiphos-4.2.1 amd64
 ~app-vim/csound-syntax-20160804 amd64
@@ -226,6 +226,7 @@
 ~dev-lang/gprolog-1.4.5 amd64
 ~dev-lang/ocaml-4.10.2 amd64
 ~dev-lang/ocaml-4.12.1 amd64
+~dev-lang/ocaml-4.13.1 amd64
 ~dev-libs/angelscript-2.35.1 amd64
 ~dev-libs/atk-2.46.0 amd64
 ~dev-libs/bglibs-2.04 amd64
@@ -260,6 +261,9 @@
 ~dev-lisp/alexandria-1.4 amd64
 ~dev-lisp/clx-0.7.5 amd64
 ~dev-ml/base_quickcheck-0.14.1 amd64
+~dev-ml/camlp4-4.12 amd64
+~dev-ml/camlp4-4.13 amd64
+~dev-ml/camlp4-4.14 amd64
 ~dev-ml/jsonm-1.0.1 amd64
 ~dev-perl/Net-Pcap-0.180.0 amd64
 ~dev-perl/Number-Bytes-Human-0.110.0 amd64
@@ -267,6 +271,9 @@
 ~dev-php/phpunit-mock-objects-3.4.3 amd64
 ~dev-php/swoole-4.5.9 amd64
 ~dev-python/grpcio-1.51.0 amd64
+~dev-python/inflect-6.0.4 amd64
+~dev-python/markdown-3.4.3 amd64
+~dev-python/setuptools-67.7.2 amd64
 ~dev-python/thrift-0.16.0 amd64
 ~dev-python/tomli-2.0.1 amd64
 ~dev-python/virtualenvwrapper-4.8.4 amd64
@@ -278,6 +285,7 @@
 ~dev-util/anjuta-3.34.0 amd64
 ~dev-util/bdelta-0.3.1 amd64
 ~dev-util/btyacc-3.0 amd64
+~dev-util/cucumber-html-formatter-19.2.0 amd64
 ~dev-util/intel-graphics-compiler-1.0.12260.1 amd64
 ~dev-util/lcov-1.15 amd64
 ~dev-util/premake-5.0.0_beta2 amd64
