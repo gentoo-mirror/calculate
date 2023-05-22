@@ -133,9 +133,6 @@ sys-devel/gcc graphite objc
 # required by media-gfx/freecad-0.15.4671
 dev-libs/xerces-c icu
 
-# required by gnome-base/gnome-keyring-3.16.0-r1
-app-crypt/pinentry gnome-keyring
-
 # required by media-video/plasma-mediacenter-5.4.0, net-irc/kvirc-5.0_pre20160201053254
 dev-qt/qtmultimedia qml widgets
 
@@ -606,9 +603,6 @@ dev-libs/boost python
 
 # required by x11-misc/qterm-0.7.3
 dev-qt/qtscript scripttools
-
-# required by net-misc/nextcloud-client-3.1.1-r1
-dev-libs/qtkeychain gnome-keyring
 
 # required by kde-plasma/plasma-workspace-5.20.5-r1
 kde-frameworks/prison qml

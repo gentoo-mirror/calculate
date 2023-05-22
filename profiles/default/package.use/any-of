@@ -28,8 +28,8 @@ media-plugins/vdr-streamdev server
 # connection-sharing? ( any-of ( iptables nftables ) )
 net-misc/networkmanager iptables
 
-# any-of ( gnome-keyring pass )
-app-containers/docker-credential-helpers gnome-keyring
+# any-of ( keyring pass )
+app-containers/docker-credential-helpers keyring
 
 # any-of ( qt5 qt6 )
 dev-libs/qxlsx qt5
