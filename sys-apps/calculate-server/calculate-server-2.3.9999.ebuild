@@ -4,6 +4,7 @@
 
 EAPI="7"
 PYTHON_COMPAT=( python3_11 )
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 git-r3
 
@@ -23,40 +24,27 @@ calculate_nonamed
 calculate_nosamba
 calculate_noproxy"
 
-DEPEND="!sys-apps/calculate-lib
-	>=net-nds/openldap-2.3[-minimal]
+DEPEND=">=net-nds/openldap-2.3[-minimal]
 	>=sys-auth/pam_ldap-180[ssl]
 	>=sys-auth/nss_ldap-239
-	!<sys-apps/calculate-utils-3.5.0_alpha44
-	!calculate_nosamba? (
-		|| (
-			<net-fs/samba-4[acl,client,cups,ldap,netapi,pam,server,smbclient]
-			>=net-fs/samba-4[acl,client,cups,ldap,pam]
-		)
-	)
-	!calculate_nomail? (
-		|| ( <net-mail/dovecot-1.2.0[pop3d,ldap,pam,ssl]
-			>=net-mail/dovecot-1.2.0[ldap,pam,ssl(+)]
-		)
+	sys-apps/calculate-utils:3
+	!calculate_nosamba?  ( net-fs/samba[acl,client,cups,ldap,pam] )
+	!calculate_nomail?   (
+		net-mail/dovecot[ldap,pam,ssl(+)]
 		>=mail-filter/procmail-3.22
 		|| ( dev-python/pymilter[python_targets_python3_11]
 			dev-python/pymilter[python_targets_python3_11] )
 		>=mail-mta/postfix-2.2[ldap,pam,ssl,sasl,dovecot-sasl]
 	)
-	!calculate_noftp? (
-		|| ( <net-ftp/proftpd-1.3.3[-acl,ldap,ncurses,nls,pam,ssl]
-			>=net-ftp/proftpd-1.3.3[-acl,ident,ldap,ncurses,nls,pam,ssl]
-		)
-	)
+	!calculate_noftp?    ( net-ftp/proftpd[-acl,ident,ldap,ncurses,nls,pam,ssl] )
 	!calculate_nojabber? (
-		|| ( >=net-im/ejabberd-2.1.8[mod_pubsub,ldap]
-			>=net-im/ejabberd-16.04-r1[ldap] )
+		>=net-im/ejabberd-16.04-r1[ldap]
 		|| ( media-gfx/imagemagick
 			media-gfx/graphicsmagick )
 	)
-	!calculate_nonamed? ( >=net-dns/bind-9.6.1_p1[sdb-ldap] )
-	!calculate_noproxy? ( >=net-proxy/squid-3.0.14[ldap,pam,ssl] )
-	!calculate_nodhcp? ( >=net-misc/dhcp-3.1.2_p1 )
+	!calculate_nonamed?  ( net-dns/bind[sdb-ldap] )
+	!calculate_noproxy?  ( >=net-proxy/squid-3.0.14[ldap,pam,ssl] )
+	!calculate_nodhcp?   ( >=net-misc/dhcp-3.1.2_p1 )
 	|| ( dev-python/python-ldap[ssl,python_targets_python3_11]
 		dev-python/python-ldap[ssl,python_targets_python3_11] )
 	|| ( dev-python/lxml[python_targets_python3_11]
