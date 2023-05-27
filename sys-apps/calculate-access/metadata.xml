@@ -6,4 +6,8 @@
         <name>Mir Calculate</name>
         <description>Calculate Overlay</description>
     </maintainer>
+    <use>
+        <flag name="client">Calculate-access client</flag>
+        <flag name="server">Calculate-access server</flag>
+    </use>
 </pkgmetadata>
