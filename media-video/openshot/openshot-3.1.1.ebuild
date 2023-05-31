@@ -23,12 +23,13 @@ IUSE="doc"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="${PYTHON_DEPS}
-	dev-python/httplib2[${PYTHON_SINGLE_USEDEP}]
-	dev-python/PyQt5[${PYTHON_SINGLE_USEDEP},gui,svg,widgets]
-	dev-python/PyQtWebEngine[${PYTHON_SINGLE_USEDEP}]
-	dev-python/pyzmq[${PYTHON_SINGLE_USEDEP}]
-	dev-python/requests[${PYTHON_SINGLE_USEDEP}]
+RDEPEND="$(python_gen_cond_dep '
+	dev-python/httplib2[${PYTHON_USEDEP}]
+	dev-python/PyQt5[${PYTHON_USEDEP},gui,svg,widgets]
+	dev-python/PyQtWebEngine[${PYTHON_USEDEP}]
+	dev-python/pyzmq[${PYTHON_USEDEP}]
+	dev-python/requests[${PYTHON_USEDEP}]
+	')
 	>=media-libs/libopenshot-0.3.2:0=[python,${PYTHON_SINGLE_USEDEP}]"
 DEPEND=""
 BDEPEND="$(python_gen_cond_dep '
