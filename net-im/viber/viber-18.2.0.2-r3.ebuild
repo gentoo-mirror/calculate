@@ -66,6 +66,7 @@ RDEPEND="
 	media-libs/freetype:2[${MULTILIB_USEDEP}]
 	media-libs/gst-plugins-bad:1.0[${MULTILIB_USEDEP}]
 	media-libs/gst-plugins-base:1.0[${MULTILIB_USEDEP}]
+	media-libs/gst-plugins-good:1.0[${MULTILIB_USEDEP}]
 	media-libs/gstreamer:1.0[${MULTILIB_USEDEP}]
 	media-libs/harfbuzz[${MULTILIB_USEDEP}]
 	media-libs/lcms:2[${MULTILIB_USEDEP}]
