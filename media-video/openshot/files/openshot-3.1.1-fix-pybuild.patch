@@ -11,6 +11,15 @@ index ee7a13f..549ecbd 100644
  from shutil import copytree, rmtree, copy
  
  
+@@ -54,7 +54,7 @@
+ log.info("Execution path: %s" % os.path.abspath(__file__))
+ 
+ # Boolean: running as root?
+-ROOT = os.geteuid() == 0
++ROOT = False
+ # For Debian packaging it could be a fakeroot so reset flag to prevent execution of
+ # system update services for Mime and Desktop registrations.
+ # The debian/openshot.postinst script must do those.
 @@ -105,7 +105,7 @@ package_data["openshot_qt"] = src_files
  # Call the main Distutils setup command
  # -------------------------------------
