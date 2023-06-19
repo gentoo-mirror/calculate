@@ -235,7 +235,7 @@ DEPEND="
 # @FUNCTION: calculate-utils-r15_src_compile
 # @DESCRIPTION:
 # Compile all modules of calculate utils
-calculate-utils-r16_src_compile() {
+calculate-utils-r17_src_compile() {
 	if ! use backup
 	then
 		sed -ir "s/'cl-backup'/None/" calculate-core-*/pym/core/wsdl_core.py
@@ -267,7 +267,7 @@ calculate-utils-r16_src_compile() {
 # @FUNCTION: calculate-utils-r15_src_install
 # @DESCRIPTION:
 # Install all modules of calculate utils
-calculate-utils-r16_src_install() {
+calculate-utils-r17_src_install() {
 	prepare_module_info
 	for MODULE in "${MODULE_INFO[@]}"
 	do
@@ -298,7 +298,7 @@ python_install() {
 	distutils-r1_python_install $PYTHON_INSTALL_PARAMS
 }
 
-calculate-utils-r16_pkg_preinst() {
+calculate-utils-r17_pkg_preinst() {
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
