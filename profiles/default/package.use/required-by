@@ -740,3 +740,8 @@ app-misc/tracker vala
 # required by dev-util/librnp-0.17.0
 dev-libs/sexp static-libs
 
+# required by net-im/neochat-23.04.2
+kde-frameworks/knotifications qml
+dev-qt/qtcharts qml
+dev-qt/qtpositioning geoclue
+
