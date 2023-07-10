@@ -133,8 +133,8 @@ sys-devel/gcc graphite objc
 # required by media-gfx/freecad-0.15.4671
 dev-libs/xerces-c icu
 
-# required by media-video/plasma-mediacenter-5.4.0, net-irc/kvirc-5.0_pre20160201053254
-dev-qt/qtmultimedia qml widgets
+# required by media-video/plasma-mediacenter-5.4.0, net-irc/kvirc-5.0_pre20160201053254, net-news/rssguard-4.3.4
+dev-qt/qtmultimedia qml widgets gstreamer
 
 # required by media-gfx/graphviz-2.26.3-r4
 media-libs/gd fontconfig
