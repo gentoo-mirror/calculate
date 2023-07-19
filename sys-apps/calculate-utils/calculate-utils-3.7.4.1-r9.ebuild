@@ -7,18 +7,18 @@ EAPI="7"
 UTILS_PV="3.7.3"
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.7.3.20"
+	["lib"]="3.7.3.22"
 	["install"]="3.7.3.8"
-	["core"]="3.7.3.1"
-	["i18n"]="3.7.3.5"
+	["core"]="3.7.3.3"
+	["i18n"]="3.7.3.6"
 	["client"]="3.7.3.4"
-	["console"]="3.7.3"
+	["console"]="3.7.3.1"
 	["console-gui"]="3.7.3.1"
-	["update"]="3.7.3.8"
+	["update"]="3.7.3.9"
 	["builder"]="3.7.3.7"
 )
 
-inherit calculate-utils-r16
+inherit calculate-utils-r17
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"

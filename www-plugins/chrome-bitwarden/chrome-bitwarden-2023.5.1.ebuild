@@ -6,8 +6,8 @@ EAPI=8
 
 SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="Passman - The password manager for NextCloud / ownCloud"
-HOMEPAGE="https://chrome.google.com/webstore/detail/hlpjhlifkgmoibhollggngbbhbejecph"
+DESCRIPTION="Bitwarden - The password manager"
+HOMEPAGE="https://chrome.google.com/webstore/detail/nngceckbapebfimnlniiiahkandclblb"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
