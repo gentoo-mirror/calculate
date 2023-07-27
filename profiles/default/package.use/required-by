@@ -434,9 +434,6 @@ sci-visualization/gnuplot wxwidgets
 # required by sci-mathematics/coq-8.6[gtk], dev-ml/ocamlgraph [gtk]
 dev-ml/lablgtk sourceview gnomecanvas
 
-# required by sci-chemistry/votca-xtp-1.4
-sci-libs/votca-tools sqlite
-
 # required by sci-misc/nco-4.5.1-r2
 sci-libs/netcdf tools -dap
 
@@ -736,9 +733,6 @@ x11-libs/wxGTK curl
 
 # required by sys-process/gnome-usage-3.38.1-r2
 app-misc/tracker vala
-
-# required by dev-util/librnp-0.17.0
-dev-libs/sexp static-libs
 
 # required by net-im/neochat-23.04.2
 kde-frameworks/knotifications qml

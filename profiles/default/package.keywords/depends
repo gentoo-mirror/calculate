@@ -20,7 +20,6 @@
 ~app-backup/rdumpfs-0.1 amd64
 ~app-backup/rdup-1.1.15 amd64
 ~app-backup/simplebackup-1.8.1 amd64
-~app-backup/tarsnap-1.0.39 amd64
 ~app-backup/untangle-https-backup-0.1.0 amd64
 ~app-backup/vzdump-1.2 amd64
 ~app-benchmarks/bootchart2-0.14.9 amd64
@@ -94,7 +93,6 @@
 ~app-emulation/runv-0.7.0 amd64
 ~app-emulation/ski-1.3.2 amd64
 ~app-emulation/softgun-0.22 amd64
-~app-emulation/virtio-win-0.1.225.2 amd64
 ~app-emulation/wine-gecko-2.47.4 amd64
 ~app-emulation/wine-mono-7.4.0 amd64
 ~app-emulation/wine-mono-8.0.0 amd64
@@ -124,7 +122,6 @@
 ~app-misc/crunch-3.6 amd64
 ~app-misc/ddccontrol-0.6.0 amd64
 ~app-misc/ddccontrol-db-20230223 amd64
-~app-misc/ddcutil-1.2.2 amd64
 ~app-misc/egads-0.9.5 amd64
 ~app-misc/enum-1.1 amd64
 ~app-misc/faq-0.0.7 amd64
@@ -134,7 +131,6 @@
 ~app-misc/g15stats-1.9.7 amd64
 ~app-misc/gcal-4.1 amd64
 ~app-misc/glastree-1.04_p20150525 amd64
-~app-misc/grabcartoons-2.8.4_p20141112 amd64
 ~app-misc/gtk-sunlight-0.4.2 amd64
 ~app-misc/hddled-0.3 amd64
 ~app-misc/hexcompare-1.0.4 amd64
@@ -150,7 +146,6 @@
 ~app-misc/nnn-4.8 amd64
 ~app-misc/notary-0.7.0 amd64
 ~app-misc/nullmodem-0.0.6 amd64
-~app-misc/pet-0.3.6 amd64
 ~app-misc/physlock-13 amd64
 ~app-misc/razertool-0.0.7 amd64
 ~app-misc/rundeck-cli-bin-2.0.1 amd64
@@ -191,15 +186,11 @@
 ~app-vim/vim-r-1.2.6 amd64
 ~app-vim/vim-rest-console-2.6.0 amd64
 ~app-vim/vim-spell-da-20060116 amd64
-~dev-cpp/cppgir-0_p20230606 amd64
 ~dev-cpp/cpp-hocon-0.3.0 amd64
-~dev-cpp/edencommon-2023.02.06.00 amd64
 ~dev-cpp/expected-lite-0.6.3 amd64
-~dev-cpp/folly-2023.02.06.00 amd64
 ~dev-cpp/glibmm-2.76.0 amd64
 ~dev-cpp/lucene++-3.0.7 amd64
 ~dev-cpp/pystring-1.1.3 amd64
-~dev-cpp/tbb-2021.7.0 amd64
 ~dev-db/mariadb-connector-odbc-3.1.18 amd64
 ~dev-db/postgis-3.3.3 amd64
 ~dev-db/sqlitebrowser-3.12.2 amd64
@@ -222,12 +213,10 @@
 ~dev-java/swingx-1.6.4 amd64
 ~dev-java/swingx-beaninfo-1.6.4 amd64
 ~dev-java/swingx-ws-1.0_p20110515 amd64
-~dev-lang/erlang-25.1.1 amd64
 ~dev-lang/gprolog-1.4.5 amd64
 ~dev-lang/ocaml-4.10.2 amd64
 ~dev-lang/ocaml-4.12.1 amd64
 ~dev-lang/ocaml-4.13.1 amd64
-~dev-libs/angelscript-2.35.1 amd64
 ~dev-libs/atk-2.46.0 amd64
 ~dev-libs/bglibs-2.04 amd64
 ~dev-libs/cglm-0.8.9 amd64
@@ -263,16 +252,13 @@
 ~dev-ml/camlp4-4.14 amd64
 ~dev-ml/jsonm-1.0.1 amd64
 ~dev-perl/Number-Bytes-Human-0.110.0 amd64
-~dev-perl/Sereal-Decoder-4.23.0 amd64
 ~dev-php/pecl-event-3.0.8 amd64
 ~dev-php/phpunit-mock-objects-3.4.3 amd64
-~dev-php/swoole-4.5.9 amd64
 ~dev-python/grpcio-1.51.0 amd64
 ~dev-python/inflect-6.0.4 amd64
 ~dev-python/markdown-3.4.3 amd64
 ~dev-python/pyside2-5.15.9 amd64
 ~dev-python/pyside2-tools-5.15.9 amd64
-~dev-python/setuptools-67.7.2 amd64
 ~dev-python/thrift-0.16.0 amd64
 ~dev-python/tomli-2.0.1 amd64
 ~dev-python/virtualenvwrapper-4.8.4 amd64
@@ -290,7 +276,6 @@
 ~dev-util/premake-5.0.0_beta2 amd64
 ~dev-util/pwntools-4.11.0_beta0 amd64
 ~dev-util/rats-2.4 amd64
-~dev-util/watchman-2023.02.06.00 amd64
 ~games-action/spacearyarya-kxl-1.0.3 amd64
 ~games-arcade/performous-1.2.0 amd64
 ~gnustep-base/mknfonts-0.5 amd64
@@ -379,7 +364,6 @@
 ~net-libs/libgadu-1.12.2 amd64
 ~net-libs/libircclient-1.10 amd64
 ~net-libs/libiscsi-1.19.0 amd64
-~net-libs/libtorrent-rasterbar-1.2.18 amd64
 ~net-libs/netwib-5.39.0 amd64
 ~net-libs/usrsctp-0.9.5.0 amd64
 ~net-libs/wvstreams-4.6.1_p14 amd64
@@ -410,7 +394,6 @@ net-vpn/wireguard-tools amd64
 ~sci-biology/fasttree-2.1.11 amd64
 ~sci-electronics/espresso-ab-1.0 amd64
 ~sci-geosciences/bt747-2.1.7 amd64
-~sci-geosciences/gmt-5.4.4 amd64
 ~sci-geosciences/gpscorrelate-2.0 amd64
 ~sci-geosciences/gpx-viewer-0.4.0 amd64
 ~sci-geosciences/gshhs-1.13 amd64
@@ -450,7 +433,6 @@ net-vpn/wireguard-tools amd64
 ~sys-apps/fix-gnustack-0.1 amd64
 ~sys-apps/miscfiles-1.5 amd64
 ~sys-apps/ucspi-proxy-1.1 amd64
-~sys-auth/munge-0.5.13 amd64
 ~sys-auth/ykpers-1.20.0 amd64
 ~sys-cluster/kronosnet-1.25 amd64
 ~sys-cluster/mpich-3.4.3 amd64
@@ -481,7 +463,6 @@ net-vpn/wireguard-tools amd64
 ~sys-fs/rar2fs-1.29.5 amd64
 ~sys-fs/reiserfs-defrag-0.2.2 amd64
 ~sys-fs/snapraid-12.2 amd64
-~sys-fs/squashfuse-0.1.103 amd64
 ~sys-fs/unionfs-fuse-3.2 amd64
 ~sys-fs/yaffs2utils-0.2.9 amd64
 ~sys-fs/zerofree-1.1.1 amd64
@@ -499,7 +480,6 @@ net-vpn/wireguard-tools amd64
 ~www-client/httrack-3.49.2 amd64
 ~www-client/w3mmee-0.3.2_p24 amd64
 ~www-servers/fnord-1.11 amd64
-~www-servers/uwsgi-2.0.19.1 amd64
 ~x11-apps/xinput_calibrator-0.7.5 amd64
 ~x11-drivers/xf86-video-vboxvideo-1.0.0 amd64
 ~x11-libs/gdk-pixbuf-xlib-2.40.2 amd64
@@ -511,7 +491,6 @@ net-vpn/wireguard-tools amd64
 ~x11-libs/libtinynotify-systemwide-0.1 amd64
 ~x11-libs/libXaw3dXft-1.6.2h amd64
 ~x11-libs/wxGTK-3.2.2.1 amd64
-~x11-libs/xapp-2.4.2 amd64
 ~x11-misc/accessx-0951 amd64
 ~x11-misc/bbacpi-0.1.5 amd64
 ~x11-misc/bbcd-0.3.1 amd64
