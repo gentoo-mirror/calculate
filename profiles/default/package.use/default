@@ -38,9 +38,6 @@ net-misc/rsync xattr
 sys-apps/coreutils xattr
 sys-fs/squashfs-tools xattr
 
-# support layman sync for portage repositories
-app-portage/layman sync-plugin-portage
-
 net-p2p/rtorrent daemon xmlrpc
 
 # add plugin aria2
@@ -321,9 +318,6 @@ media-tv/kodi webserver
 
 # Support for .ape files
 media-sound/deadbeef mac
-
-# Add xface support used
-mail-client/sylpheed ldap xface
 
 # The following REQUIRED_USE flag constraints are unsatisfied:
 # egl gles
