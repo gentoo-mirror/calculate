@@ -8,6 +8,8 @@ app-crypt/libmd abi_x86_32
 app-crypt/p11-kit abi_x86_32
 app-emulation/vkd3d abi_x86_32
 app-emulation/wine-gecko abi_x86_32
+dev-cpp/glibmm abi_x86_32
+dev-cpp/libxmlpp abi_x86_32
 dev-db/mysql-connector-c abi_x86_32
 dev-db/sqlite abi_x86_32
 dev-lang/orc abi_x86_32
@@ -21,6 +23,7 @@ dev-libs/gmp abi_x86_32
 dev-libs/icu abi_x86_32
 dev-libs/json-c abi_x86_32
 dev-libs/libbsd abi_x86_32
+dev-libs/libconfig abi_x86_32
 dev-libs/libcroco abi_x86_32
 dev-libs/libevent abi_x86_32
 dev-libs/libffi abi_x86_32
@@ -31,6 +34,7 @@ dev-libs/libltdl abi_x86_32
 dev-libs/libpcre2 abi_x86_32
 dev-libs/libpcre abi_x86_32
 dev-libs/libpthread-stubs abi_x86_32
+dev-libs/libsigc++ abi_x86_32
 dev-libs/libtasn1 abi_x86_32
 dev-libs/libunistring abi_x86_32
 dev-libs/libusb abi_x86_32
@@ -83,9 +87,11 @@ media-libs/libdvdnav abi_x86_32
 media-libs/libdvdread abi_x86_32
 media-libs/libepoxy abi_x86_32
 media-libs/libexif abi_x86_32
+media-libs/libffado abi_x86_32
 media-libs/libglvnd abi_x86_32
 media-libs/libgphoto2 abi_x86_32
 media-libs/libheif abi_x86_32
+media-libs/libiec61883 abi_x86_32
 media-libs/libjpeg-turbo abi_x86_32
 media-libs/libmad abi_x86_32
 media-libs/libmikmod abi_x86_32
@@ -184,6 +190,7 @@ sys-libs/cracklib abi_x86_32
 sys-libs/db abi_x86_32
 sys-libs/gdbm abi_x86_32
 sys-libs/gpm abi_x86_32
+sys-libs/libavc1394 abi_x86_32
 sys-libs/libcap abi_x86_32
 sys-libs/libieee1284 abi_x86_32
 sys-libs/libraw1394 abi_x86_32

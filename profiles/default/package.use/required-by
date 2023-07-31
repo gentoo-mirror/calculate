@@ -744,3 +744,7 @@ mail-client/neomutt notmuch
 
 # required by dev-python/wxpython-4.2.0
 x11-libs/wxGTK gstreamer
+
+# required by  mail-filter/rspamd-3.5-r1
+dev-lua/lua-argparse lua_targets_luajit
+dev-lua/LuaBitOp lua_targets_luajit
