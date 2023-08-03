@@ -47,7 +47,7 @@ def authorization(password,login):
     Авторизация и получение данных
     """
 
-    global Key, PrivateKey, hashKey, access_token, refresh_token, userId
+    global url, Key, PrivateKey, hashKey, access_token, refresh_token, userId
 
     url = "https://vw.calculate.ru"
     pre_login_url = url + "/identity/accounts/prelogin"
@@ -111,15 +111,18 @@ def update_json(data_list):
     id = data_list[f'{userId}']
     keys = id['keys']
     profile = id['profile']
+    settings = id['settings']
+    environmentUrls = settings['environmentUrls']
     tokens = id['tokens']
     keys['cryptoSymmetricKey']['encrypted'] = Key
     keys['privateKey']['encrypted'] = PrivateKey
     profile['userId'] = userId
+    environmentUrls['base'] = url
     tokens['accessToken'] = access_token
     tokens['refreshToken'] = refresh_token
+    data_list[f'{userId_masterkey_auto}'] = hashKey
     data_list['activeUserId'] = userId
     data_list['authenticatedAccounts'] = [userId]
-    data_list[f'{userId_masterkey_auto}'] = hashKey
 
     data_list[f'{userId}'] = json.dumps(id)
     data_list[f'{userId_masterkey_auto}'] = json.dumps(data_list[f'{userId_masterkey_auto}'])
@@ -143,7 +146,11 @@ authorization(password,login)
 update_json(data_list)
 
 db_path = path.join(chrome_dir,"Default/Local Extension Settings", ext_id)
-db = plyvel.DB(db_path, create_if_missing=True)
+try:
+    db = plyvel.DB(db_path, create_if_missing=True)
+except IOError:
+    sys.stderr.write("Закройте браузер!")
+    sys.exit(1)
 
 for k, v in data_list.items():
     db.put(bytes(k,encoding='utf-8'), bytes(str(v),encoding='utf-8'))
