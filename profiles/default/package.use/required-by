@@ -748,3 +748,8 @@ x11-libs/wxGTK gstreamer
 # required by  mail-filter/rspamd-3.5-r1
 dev-lua/lua-argparse lua_targets_luajit
 dev-lua/LuaBitOp lua_targets_luajit
+
+# required by dev-util/bindgen-0.62.0
+virtual/rust rustfmt
+dev-lang/rust rustfmt
+
