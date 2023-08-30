@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DESCRIPTION=Eclipse SDK
+EAPI=8
+HOMEPAGE=http://www.eclipse.org
+INHERIT=desktop
+KEYWORDS=~x86 amd64
+LICENSE=EPL-1.0
+RDEPEND=>=virtual/jdk-1.8 x11-libs/gtk+:2
+SLOT=4.24
+SRC_URI=amd64? ( https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2022-06/R/eclipse-java-2022-06-R-linux-gtk-x86_64.tar.gz&r=1 -> eclipse-java-2022-06-R-linux-gtk-x86_64-4.24.0.tar.gz )
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d
+_md5_=4a0330920fb57674e7bd362ecce1606e
