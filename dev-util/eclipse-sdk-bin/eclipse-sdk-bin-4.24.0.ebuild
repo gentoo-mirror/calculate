@@ -1,13 +1,13 @@
-# Copyright 1999-2020 Gentoo Foundation
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=7
+EAPI=8
 
-inherit eutils desktop
+inherit desktop
 
 SR="R"
-RNAME="2020-03"
+RNAME="2022-06"
 
 SRC_BASE="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/${RNAME}/${SR}/eclipse-java-${RNAME}-${SR}-linux-gtk"
 
@@ -16,8 +16,9 @@ HOMEPAGE="http://www.eclipse.org"
 SRC_URI="amd64? ( ${SRC_BASE}-x86_64.tar.gz&r=1 -> eclipse-java-${RNAME}-${SR}-linux-gtk-x86_64-${PV}.tar.gz )"
 
 LICENSE="EPL-1.0"
-SLOT="4.15"
-KEYWORDS="amd64 ~x86"
+SLOT="$(ver_cut 1-2)"
+KEYWORDS="~x86 amd64"
+IUSE=""
 
 RDEPEND="
 	>=virtual/jdk-1.8
