@@ -13,7 +13,7 @@
 
 PYTHON_COMPAT=(python3_11)
 
-inherit distutils-r1 eutils
+inherit distutils-r1
 
 EXPORTED_FUNCTIONS="src_compile src_install pkg_preinst"
 
