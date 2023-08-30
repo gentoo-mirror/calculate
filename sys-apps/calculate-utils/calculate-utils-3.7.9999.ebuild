@@ -4,7 +4,7 @@
 
 EAPI="8"
 
-inherit calculate-utils-r16 git-r3
+inherit calculate-utils-r17 git-r3
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="https://www.calculate-linux.org/main/en/calculate_utilities"
