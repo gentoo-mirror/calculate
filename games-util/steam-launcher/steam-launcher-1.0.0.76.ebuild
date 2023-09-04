@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,9 +12,9 @@ DESCRIPTION="Installer, launcher and supplementary files for Valve's Steam clien
 HOMEPAGE="https://steampowered.com"
 SRC_URI="https://repo.steampowered.com/steam/archive/stable/steam_${PV}.tar.gz"
 
-LICENSE="Steam MIT"
+LICENSE="ValveSteamLicense MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="amd64 ~x86"
 IUSE="+joystick +steamruntime +udev"
 RESTRICT="bindist mirror test"
 
@@ -25,11 +25,6 @@ RDEPEND="
 
 		sys-libs/libudev-compat
 
-		|| (
-			>=gnome-extra/zenity-3
-			x11-terms/xterm
-			)
-
 		joystick? (
 			udev? ( games-util/game-device-udev-rules )
 		)
@@ -39,6 +34,9 @@ RDEPEND="
 			x11-libs/libXau[abi_x86_32]
 			x11-libs/libxcb[abi_x86_32]
 			x11-libs/libXdmcp[abi_x86_32]
+			)
+		!steamruntime? (
+			>=games-util/steam-client-meta-0-r20230513[steamruntime?]
 			)
 
 		amd64? (
@@ -72,8 +70,7 @@ path_entries() {
 	shift
 
 	while true; do
-		echo -n ${EPREFIX}/usr/$(get_libdir)/${1}$(${multilib} \
-			&& use amd64 && echo :${EPREFIX}/usr/$(ABI=x86 get_libdir)/${1})
+		echo -n ${EPREFIX}/usr/$(get_libdir)/${1}$(${multilib} && use amd64 && echo :${EPREFIX}/usr/$(ABI=x86 get_libdir)/${1})
 		shift
 
 		if [[ -n ${1} ]]; then
