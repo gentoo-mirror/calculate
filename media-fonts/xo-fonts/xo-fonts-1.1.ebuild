@@ -7,7 +7,7 @@ inherit font
 
 DESCRIPTION="Free XO cyrillic fonts from MyOffice"
 HOMEPAGE="https://myoffice.ru/products/fonts/"
-SRC_URI="https://myoffice.ru/files/fonts/all_fonts_myoffice.zip"
+SRC_URI="https://myoffice.ru/files/fonts/MyOffice_XO_Fonts_${PV}.zip"
 
 LICENSE="open-xo-fonts"
 SLOT="0"
@@ -17,7 +17,7 @@ BDEPEND="app-arch/unzip"
 
 S="${WORKDIR}"
 
-#FONT_CONF=( "${FILESDIR}/60-xo-fonts.conf" )
+FONT_CONF=( "${FILESDIR}/60-xo-fonts.conf" )
 
 src_install() {
 	insinto /usr/share/fonts/${PN}
