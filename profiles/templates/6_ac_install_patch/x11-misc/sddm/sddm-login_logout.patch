@@ -102,8 +102,7 @@ index becf54b..f61e19d 100644
 +            displayStopScript->setProcessEnvironment(env);
 +            // start script
 +            displayStopScript->start(command);
-+            if(!displayStopScript->waitForFinished(-1) || 
-+                displayStopScript->exitCode() != 0) {
++            if(!displayStopScript->waitForFinished(-1) || displayStopScript->exitCode() != 0) {
 +                ret = false;
 +            }
 +            displayStopScript->deleteLater();
