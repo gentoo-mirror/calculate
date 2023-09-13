@@ -47,6 +47,7 @@ RDEPEND="|| (
 	app-misc/mc[edit]
 	dev-lisp/cmucl
 	mail-client/alpine[-onlyalpine]
+	sys-apps/busybox
 )"
 
 # Packages outside app-editors providing an editor:
