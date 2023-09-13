@@ -10,7 +10,7 @@ inherit distutils-r1 pypi
 
 DESCRIPTION="Decrypt and encrypt messages compatible to the SJCL message format"
 HOMEPAGE="https://github.com/berlincode/sjcl"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="$(pypi_sdist_url --no-normalize ${PN} ${PV})"
 
 LICENSE="MIT"
 SLOT="0"
