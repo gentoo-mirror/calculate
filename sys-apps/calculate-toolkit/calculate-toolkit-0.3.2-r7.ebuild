@@ -25,4 +25,5 @@ PATCHES=(
 	"${FILESDIR}"/${P}-fix_message.patch
 	"${FILESDIR}"/${P}-start_services.patch
 	"${FILESDIR}"/${P}-update_overlay.patch
+	"${FILESDIR}"/${P}-fix_dir.patch
 )
