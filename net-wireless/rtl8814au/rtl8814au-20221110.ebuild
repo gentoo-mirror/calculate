@@ -11,7 +11,8 @@ HOMEPAGE="https://github.com/morrownr/8814au"
 SRC_URI="https://github.com/morrownr/8814au/archive/${COMMIT}.tar.gz -> rtl8814au-${PV}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
+SLOT="0"
 
 DEPEND="virtual/linux-sources"
 
