@@ -7,7 +7,7 @@ EAPI=8
 SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
 
 DESCRIPTION="Sync your bookmarks privately across browsers an devices"
-HOMEPAGE="https://chrome.google.com/webstore/detail/nngceckbapebfimnlniiiahkandclblb"
+HOMEPAGE="https://chrome.google.com/webstore/detail/fnaicdffflnofjppbagibeoednhnbjhg"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
