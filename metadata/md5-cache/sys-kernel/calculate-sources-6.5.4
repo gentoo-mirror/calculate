@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DEPEND=vmlinuz? ( app-arch/xz-utils ) grub? ( sys-boot/grub ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] >=sys-devel/bison-1.875 >=sys-devel/flex-2.5.4 themes? ( || ( media-gfx/splash-themes-calculate sys-boot/plymouth-calculate-plugin ) ) !minimal? ( virtual/pkgconfig )
+DESCRIPTION=Calculate Linux kernel image
+EAPI=7
+HOMEPAGE=https://www.calculate-linux.org/
+INHERIT=calculate-kernel-8
+IUSE=symlink build +vmlinuz desktop minimal themes firmware +grub
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig ) vmlinuz? ( app-arch/xz-utils ) grub? ( sys-boot/grub ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] vmlinuz? ( sys-kernel/dracut )
+REQUIRED_USE=minimal? ( vmlinuz )
+RESTRICT=binchecks strip
+SLOT=6.5.4
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/patch-6.5.4.xz https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.5.tar.xz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	calculate	af98cf4f9bd0f498f4bc8b4b9314e25f	crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	kernel-2	a3163a42392ff0db3797c69f4990c38f	calculate-kernel-8	9620b9ecb942aba7e92a0a34f649af45
+_md5_=e28719d52c2b530d1cd8cf1c7aa00fd8
