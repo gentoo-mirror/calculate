@@ -6,7 +6,7 @@ EAPI=8
 
 SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
 
-DESCRIPTION="Bitwarden - The password manager"
+DESCRIPTION="Sync your bookmarks privately across browsers an devices"
 HOMEPAGE="https://chrome.google.com/webstore/detail/nngceckbapebfimnlniiiahkandclblb"
 LICENSE="GPL-3"
 SLOT="0"
