@@ -753,3 +753,6 @@ dev-lua/LuaBitOp lua_targets_luajit
 virtual/rust rustfmt
 dev-lang/rust rustfmt
 
+# required by dev-qt/qt-creator-11.0.2[designer,help]
+dev-qt/qttools assistant designer qml
+
