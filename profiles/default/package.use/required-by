@@ -756,3 +756,6 @@ dev-lang/rust rustfmt
 # required by dev-qt/qt-creator-11.0.2[designer,help]
 dev-qt/qttools assistant designer qml
 
+# required by www-client/qutebrowser-3.0.0
+dev-qt/qtbase icu
+
