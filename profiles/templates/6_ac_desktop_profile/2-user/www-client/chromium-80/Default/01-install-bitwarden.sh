@@ -1,4 +1,4 @@
-# Calculate pkg(www-plugins/chrome-bitwarden)!= run=/bin/bash
+# Calculate pkg(www-plugins/chrome-bitwarden)!=&&ini(user_credentials.bitwarden_login)!=&&ini(user_credentials.bitwarden_pw)!= run=/bin/bash
 
 plugin_id="nngceckbapebfimnlniiiahkandclblb"
 mkdir -p #-ur_home_path-#/.config/chromium/Default/Extensions/${plugin_id}
