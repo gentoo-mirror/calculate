@@ -44,8 +44,6 @@ except IOError:
     sys.stderr.write("Закройте браузер!\n")
     sys.exit(1)
 
-print(data_list)
-
 for k, v in data_list.items():
     db.put(bytes(k,encoding='utf-8'), bytes(str(v),encoding='utf-8'))
 db.close()
