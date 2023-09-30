@@ -757,5 +757,6 @@ dev-lang/rust rustfmt
 dev-qt/qttools assistant designer qml
 
 # required by www-client/qutebrowser-3.0.0
-dev-qt/qtbase icu
+dev-python/PyQt6 qml webchannel
 dev-qt/qt5compat icu
+dev-qt/qtbase icu
