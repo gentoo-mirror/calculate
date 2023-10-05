@@ -3,9 +3,3 @@
 
 # prevent automagic depends
 sys-libs/db:6.0
-
-# not compiled
-=sci-libs/cifparse-obj-7.105
-
-# temporary mask for fix patch
-=sys-apps/portage-3.0.51
