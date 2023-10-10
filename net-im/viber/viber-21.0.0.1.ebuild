@@ -102,7 +102,7 @@ RDEPEND="
 	x11-libs/xcb-util-renderutil[${MULTILIB_USEDEP}]
 	x11-libs/xcb-util-wm[${MULTILIB_USEDEP}]
 	apulse? ( media-sound/apulse[${MULTILIB_USEDEP}] )
-	pulseaudio? ( media-sound/pulseaudio[${MULTILIB_USEDEP}] )
+	pulseaudio? ( media-libs/libpulse[glib,${MULTILIB_USEDEP}] )
 "
 
 S="${WORKDIR}"
