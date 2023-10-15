@@ -24,7 +24,7 @@ cp -r /usr/share/chrome-floccus/* #-ur_home_path-#/.config/chromium/Default/Exte
 	    "nestedSync": true
 	}
     },
-    "currentVersion": "#-pkg(www-plugins/chrome-floccus)-#"
+    "currentVersion": "4.19.1"
 }
 EOF
 
