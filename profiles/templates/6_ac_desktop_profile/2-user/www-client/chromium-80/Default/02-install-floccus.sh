@@ -13,7 +13,7 @@ cp -r /usr/share/chrome-floccus/* #-ur_home_path-#/.config/chromium/Default/Exte
 	    "url": "#-ini(user_credentials.nextcloud_url)-#",
 	    "username": "#-ini(user_credentials.nextcloud_login)-#",
 	    "password": "#-ini(user_credentials.nextcloud_pw)-#",
-	    "serverRoot": "/apps/bookmarks",
+	    "serverRoot": "",
 	    "includeCredentials": false,
 	    "allowRedirects": false,
 	    "allowNetwork": false,

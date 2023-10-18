@@ -1,11 +1,11 @@
-# Calculate pkg(www-plugins/chrome-bitwarden)!=&&ini(user_credentials.bitwarden_login)!=&&ini(user_credentials.bitwarden_pw)!= run=/bin/bash
+# Calculate pkg(www-plugins/chrome-bitwarden)!=&&ini(user_credentials.vaultwarden_login)!=&&ini(user_credentials.vaultwarden_pw)!= run=/bin/bash
 
 plugin_id="nngceckbapebfimnlniiiahkandclblb"
 mkdir -p #-ur_home_path-#/.config/chromium/Default/Extensions/${plugin_id}
 mkdir -p "#-ur_home_path-#/.config/chromium/Default/Local Extension Settings" &>/dev/null
 cp -r /usr/share/chrome-bitwarden/* #-ur_home_path-#/.config/chromium/Default/Extensions/$plugin_id
 
-/usr/share/chrome-bitwarden/configure.py #-ur_home_path-#/.config/chromium $plugin_id "#-ini(user_credentials.bitwarden_login)-#" "#-ini(user_credentials.bitwarden_pw)-#" &>/dev/null <<EOF
+/usr/share/chrome-bitwarden/configure.py #-ur_home_path-#/.config/chromium $plugin_id "#-ini(user_credentials.vaultwarden_login)-#" "#-ini(user_credentials.vaultwarden_pw)-#" &>/dev/null <<EOF
 {
     "userId": {
 	"data": {
