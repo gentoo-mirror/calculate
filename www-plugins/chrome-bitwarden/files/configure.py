@@ -42,14 +42,13 @@ def hash_password(password, salt=None, iterations=600000):
     return password_hash
 
 
-def authorization(password,login):
+def authorization(password,login,url):
     """
     Авторизация и получение данных
     """
 
     global url, Key, PrivateKey, hashKey, access_token, refresh_token, userId
 
-    url = "https://vw.calculate.ru"
     pre_login_url = url + "/identity/accounts/prelogin"
     login_url = url + "/identity/connect/token"
     profile_url = url + "/api/accounts/profile"
@@ -141,8 +140,9 @@ chrome_dir = sys.argv[1]
 ext_id = sys.argv[2]
 login = sys.argv[3]
 password = sys.argv[4]
+url = sys.argv[5]
 
-authorization(password,login)
+authorization(password,login,url)
 update_json(data_list)
 
 db_path = path.join(chrome_dir,"Default/Local Extension Settings", ext_id)
