@@ -12,7 +12,7 @@
 +SIZE_orgru="100000 100%kB"
 +REGEX_URL_orgru="s|<a href=\"\(/\?.*\)\">refresh</a>|http://paste.org.ru\1|p"
 +REGEX_RAW_orgru="s|<a href=\"\(/\?.*\)\">refresh</a>|http://paste.org.ru\1|"
-+DEFAULT_LANGUAGE_orgru="1"
++DEFAULT_LANGUAGE_orgru="AutoDetect"
  # calculate
  ENGINE_calculate=calculate
  if [[ "$LANG" =~ 'ru_RU' ]]; then
