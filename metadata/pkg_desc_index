@@ -9,7 +9,7 @@ app-crypt/shim-signed 0.2: UEFI Shim bootloader for SecureBoot signed by Microso
 app-misc/geoclue 2.6.0-r1 2.7.0-r1: A location information D-Bus service
 app-misc/mnemosyne 2.9: Efficient learning tool with powerful digital flash-cards
 app-misc/xorg-meta 7.4-r5: Calculate Linux (Xorg meta package)
-app-text/wgetpaste 2.25-r4: Command-line interface to various pastebins
+app-text/wgetpaste 2.33-r0: Command-line interface to various pastebins
 dev-python/sjcl 0.2.1: Decrypt and encrypt messages compatible to the SJCL message format
 dev-util/eclipse-sdk-bin 4.24.0: Eclipse SDK
 games-util/steam-launcher 1.0.0.74 1.0.0.76: Installer, launcher and supplementary files for Valve's Steam client
@@ -32,7 +32,7 @@ media-gfx/xfce-themes-calculate 18: XFCE theme for Calculate Linux
 media-libs/libjpeg8 2.1.4: MMX, SSE, and SSE2 SIMD accelerated JPEG library
 net-dns/bind 9.16.39-r9: Berkeley Internet Name Domain - Name Server
 net-im/rocketchat-desktop 2.17.11: Desktop application for Rocket.Chat
-net-im/viber 21.0.0.1: Free and secure calls and messages to anyone, anywhere
+net-im/viber 21.0.0.1 21.0.0.1-r1: Free and secure calls and messages to anyone, anywhere
 net-p2p/opentracker 20210823: An open and free bittorrent tracker
 net-print/pantum 1.1.94 1.1.106: CUPS and SANE drivers for Pantum series printer and scanner.
 net-vpn/networkmanager-wireguard 0_pre20191128-r6: NetworkManager WireGuard plugin
@@ -49,7 +49,7 @@ sys-auth/pam_update 0.1.3-r1: System authentification update checkup tool
 sys-boot/plymouth-calculate-plugin 0.9.4-r3 0.9.5 0.9.6_pre20211225 0.9.6_pre20211225-r1 22.02.122-r1: Graphical boot animation (splash) and logger
 sys-boot/plymouth-openrc-plugin 0.1.3-r1 0.1.3-r2: Plymouth plugin for OpenRC
 sys-firmware/eth-firmware 20181026: Binary firmware for Realtek Ethernet
-sys-kernel/calculate-sources 5.10.199 5.15.137 6.1.39 6.1.61 6.5.10: Calculate Linux kernel image
+sys-kernel/calculate-sources 5.10.200 5.15.138 6.1.39 6.1.62 6.5.11: Calculate Linux kernel image
 sys-kernel/fake-sources 0: Stub package for Linux kernel sources dependense
 virtual/editor 0-r6: Virtual for editor
 virtual/linux-sources 3-r12: Virtual for Linux kernel sources
