@@ -12,7 +12,7 @@ DESCRIPTION="Installer, launcher and supplementary files for Valve's Steam clien
 HOMEPAGE="https://steampowered.com"
 SRC_URI="https://repo.steampowered.com/steam/archive/stable/steam_${PV}.tar.gz"
 
-LICENSE="ValveSteamLicense MIT"
+LICENSE="Steam MIT"
 SLOT="0"
 KEYWORDS="amd64 ~x86"
 IUSE="+joystick +steamruntime +udev"
