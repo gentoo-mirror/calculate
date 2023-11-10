@@ -760,3 +760,6 @@ dev-qt/qttools assistant designer qml
 dev-python/PyQt6 qml webchannel
 dev-qt/qt5compat icu
 dev-qt/qtbase icu
+
+# required by kde-apps/akonadi-23.04.3
+dev-qt/qtsql postgres
