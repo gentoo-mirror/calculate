@@ -1,6 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# NOTE: This is a version of `app-text/wgetpaste-2.33-r3::gentoo` with additional services
+
+# NOTE: This is a version of `app-text/wgetpaste-2.33-r4::gentoo` with additional services
 
 EAPI=8
 
@@ -26,6 +27,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.33-tests.patch
 	"${FILESDIR}"/${PN}-2.33-disable-sprunge.patch
 	"${FILESDIR}"/${PN}-2.33-add-paste-gentoo-zip.patch
+	"${FILESDIR}"/${PN}-2.33-added-quiet-flag.patch
 	"${FILESDIR}"/${PN}-2.33-add-paste-calculate.patch
 	"${FILESDIR}"/${PN}-2.33-add-paste-orgru.patch
 )
