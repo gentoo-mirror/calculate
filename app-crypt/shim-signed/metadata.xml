@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
     <maintainer type="project">
         <email>support@calculate.ru</email>
@@ -8,5 +8,8 @@
     </maintainer>
     <longdescription lang="en">
         UEFI Shim bootloader for SecureBoot signed by Microsoft.
+    </longdescription>
+    <longdescription lang="ru">
+        Загрузчик UEFI Shim для SecureBoot, подписанный Microsoft.
     </longdescription>
 </pkgmetadata>

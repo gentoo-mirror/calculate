@@ -3,21 +3,19 @@
 
 EAPI=8
 
-DESCRIPTION="Calculate Linux (Xorg meta package)"
+DESCRIPTION="Xorg meta package for Calculate Linux"
 HOMEPAGE="https://www.calculate-linux.org/"
-SRC_URI=""
 
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="amd64"
 
 # Server
-RDEPEND="${RDEPEND}
+RDEPEND="
 	x11-base/xorg-server[-minimal]
 "
-
 #Applications
-RDEPEND="${RDEPEND}
+RDEPEND="
 	x11-apps/appres
 	x11-apps/bitmap
 	x11-apps/iceauth
@@ -56,28 +54,24 @@ RDEPEND="${RDEPEND}
 	x11-apps/xwininfo
 	x11-apps/xwud
 "
-
 # Data
-RDEPEND="${RDEPEND}
+RDEPEND="
 	x11-misc/xbitmaps
 	x11-themes/xcursor-themes
 "
-
 # Utilities
 RDEPEND="${RDEPEND}
 	x11-misc/makedepend
 	x11-misc/util-macros
 "
-
 # Fonts
-RDEPEND="${RDEPEND}
+RDEPEND="
 	media-fonts/corefonts
 	media-fonts/dejavu
 	media-fonts/droid
 "
-
 # Other
-RDEPEND="${RDEPEND}
+RDEPEND="
 	x11-apps/mesa-progs
 	x11-apps/xmessage
 	x11-misc/xbindkeys

@@ -6,9 +6,13 @@
         <name>Mir Calculate</name>
         <description>Calculate Overlay</description>
     </maintainer>
-    <longdescription>
+    <longdescription lang="en">
         Geoclue is a D-Bus geoinformation service. The goal of the Geoclue project is to make creating location-aware
         applications as simple as possible.
+    </longdescription>
+    <longdescription lang="ru">
+        Geoclue - это геоинформационный сервис для D-Bus. Цель проекта Geoclue - сделать создание геоинформационного
+        сервиса с учётом местоположения приложения максимально простым.
     </longdescription>
     <use lang="en">
         <flag name="modemmanager">Enable geolocation through 3G or GPS enabled hardware through <pkg>net-misc/modemmanager</pkg></flag>
