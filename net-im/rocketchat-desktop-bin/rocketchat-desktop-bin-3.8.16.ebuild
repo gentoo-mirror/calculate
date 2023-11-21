@@ -1,6 +1,8 @@
 # Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# NOTE: This is a version of `net-im/rocketchat-desktop-bin-3.8.16::gentoo` was got rid of `dev-libs/libayatana-appindicator` rdepend
+
 EAPI=8
 
 CHROMIUM_LANGS="
