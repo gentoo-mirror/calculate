@@ -760,3 +760,7 @@ dev-qt/qttools assistant designer qml
 dev-python/PyQt6 qml webchannel
 dev-qt/qt5compat icu
 dev-qt/qtbase icu
+
+# required by dev-python/cypari2-2.1.4-r1
+sci-mathematics/pari doc gmp
+
