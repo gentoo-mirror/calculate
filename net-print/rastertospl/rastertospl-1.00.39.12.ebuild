@@ -8,7 +8,7 @@ SRC_URI="https://ftp.hp.com/pub/softlib/software13/printers/CLP150/uld-hp_V1.00.
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 DEPEND="net-print/hplip"
 RDEPEND="${DEPEND}"
