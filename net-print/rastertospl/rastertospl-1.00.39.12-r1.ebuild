@@ -26,10 +26,10 @@ src_install() {
 	    dobin "${S}/x86_64/${binary}"
 	done
 
-	dolib.so "${S}"/x86_64/libscmssc.so
+	dolib.so "${S}/x86_64/libscmssc.so"
 
 	insinto "${ppd_dir}"
-	doins -r "${S}"/noarch/share/ppd/cms/
+	doins -r "${S}/noarch/share/ppd/cms/"
 
 	mkdir "${S}"/ppd
 	for ppd in	HP_Color_Laser_15x_Series.ppd \
