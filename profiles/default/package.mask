@@ -6,3 +6,6 @@ sys-libs/db:6.0
 
 # some bugs
 =x11-misc/sddm-0.20.0-r1
+
+# until cyclic dependencies are eliminated
+=sys-apps/portage-3.0.56-r1
