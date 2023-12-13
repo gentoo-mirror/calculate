@@ -68,5 +68,5 @@ src_configure() {
 
 src_install() {
 	dolib.so "${WORKDIR}/libjpeg-turbo-${PV}_build/libjpeg.so.8.3.2"
-	dosym libjpeg.so.8.2.2 /usr/$(get_libdir)/libjpeg.so.8
+	dosym libjpeg.so.8.3.2 /usr/$(get_libdir)/libjpeg.so.8
 }
