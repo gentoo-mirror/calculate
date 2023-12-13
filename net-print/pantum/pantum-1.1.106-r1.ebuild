@@ -53,9 +53,9 @@ src_prepare() {
 src_install() {
 	insinto /etc/sane.d
 	doins etc/sane.d/*
+	insinto "/usr/$(get_libdir)/sane"
+	doins usr/lib/x86_64-linux-gnu/sane/libsane-pantum*.so*
 	udev_dorules etc/udev/rules.d/*.rules
-	insinto /usr/$(get_libdir)/sane/
-	dolib.so usr/lib/x86_64-linux-gnu/sane/libsane-pantum*.so*
 
 	exeinto /opt/pantum/bin
 	doexe opt/pantum/bin/ptqpdf
