@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="lto"
 
-DEPEND="dev-libs/libunibreak
-	media-libs/libsdl2[X]
+BDEPEND="dev-libs/libunibreak"
+DEPEND="media-libs/libsdl2[X]
 	media-video/ffmpeg
 	virtual/libusb:1"
 # Manual install for ppc64 until bug #723528 is fixed
