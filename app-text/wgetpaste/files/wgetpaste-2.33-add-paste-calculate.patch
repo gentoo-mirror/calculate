@@ -44,6 +44,7 @@
  	local filename="${2}"
  	local content="${6}" boundary="WGETPASTE-yuLr+iHOSQ+trEgDcj9UVq5R302bid"
 @@ -562,6 +589,8 @@
+     -q, --quiet                   show the url only
      -v, --verbose                 show wget stderr output if no url is received
          --completions             emit output suitable for shell completions (only affects --list-*)
          --debug                   be *very* verbose (implies -v)
@@ -51,8 +52,7 @@
 +    -P, --private PRIVATE         [service calculate only!] set private status as -P <seed>
  
      -h, --help                    show this help
-     -g, --ignore-configs          ignore ""/etc/wgetpaste.conf, ~/.wgetpaste.conf etc.
-@@ -843,6 +872,17 @@
+@@ -847,6 +876,17 @@
  		-C | --xclippaste )
  		XCLIPPASTE=0
  		;;
