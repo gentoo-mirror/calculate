@@ -1,25 +1,22 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# NOTE: This is a version of `media-libs/libjpeg-turbo-2.1.4::gentoo` with slot and dependencies edits
+# NOTE: This is a version of `media-libs/libjpeg-turbo-3.0.0::gentoo` with slot and dependencies edits
 
 EAPI=8
 
 inherit cmake
 
-PN=libjpeg-turbo
-P=
+MY_P=libjpeg-turbo
 
 DESCRIPTION="MMX, SSE, and SSE2 SIMD accelerated JPEG library"
 HOMEPAGE="https://libjpeg-turbo.org/ https://sourceforge.net/projects/libjpeg-turbo/"
-SRC_URI="mirror://sourceforge/${PN}/${PN}-${PV}.tar.gz
+SRC_URI="mirror://sourceforge/${MY_P}/${MY_P}-${PV}.tar.gz
 	mirror://gentoo/libjpeg8_8d-2.debian.tar.gz"
 
 LICENSE="BSD IJG ZLIB"
-SLOT="0/0.2"
-if [[ $(ver_cut 3) -lt 90 ]] ; then
-	KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
-fi
+SLOT="0"
+KEYWORDS="~amd64"
 IUSE="cpu_flags_arm_neon"
 
 ASM_DEPEND="|| ( dev-lang/nasm dev-lang/yasm )"
@@ -27,38 +24,20 @@ DEPEND=""
 RDEPEND=""
 BDEPEND="
 	amd64? ( ${ASM_DEPEND} )
-	x86? ( ${ASM_DEPEND} )
-	amd64-linux? ( ${ASM_DEPEND} )
-	x86-linux? ( ${ASM_DEPEND} )
 "
 
-S="${WORKDIR}"/${PN}-${PV}
+S=${WORKDIR}/${MY_P}-${PV}
 
 MULTILIB_WRAPPED_HEADERS=( /usr/include/jconfig.h )
-
-src_prepare() {
-	local FILE
-	ln -snf ../debian/extra/*.c . || die
-
-	for FILE in ../debian/extra/*.c; do
-		FILE=${FILE##*/}
-		cat >> CMakeLists.txt <<EOF || die
-add_executable(${FILE%.c} ${FILE})
-install(TARGETS ${FILE%.c})
-EOF
-	done
-
-	cmake_src_prepare
-}
 
 src_configure() {
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_DEFAULT_DOCDIR="${EPREFIX}/usr/share/doc/${PF}"
+		-DCMAKE_SKIP_RPATH=YES
 		-DENABLE_STATIC=OFF
 		-DWITH_JAVA=OFF
 		-DWITH_JPEG8=1
-		-DWITH_MEM_SRCDST=ON
 	)
 
 	# Avoid ARM ABI issues by disabling SIMD for CPUs without NEON, bug #792810
@@ -90,7 +69,6 @@ src_configure() {
 }
 
 src_install() {
-	insinto /usr/lib64/
-	doins "${WORKDIR}/libjpeg-turbo-${PV}_build/libjpeg.so.8.2.2"
-	doins "${WORKDIR}/libjpeg-turbo-${PV}_build/libjpeg.so.8"
+	dolib.so "${WORKDIR}/libjpeg-turbo-${PV}_build/libjpeg.so.8.3.2"
+	dosym libjpeg.so.8.3.2 /usr/$(get_libdir)/libjpeg.so.8
 }

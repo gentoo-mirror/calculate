@@ -515,8 +515,8 @@ app-i18n/scim gtk3
 # required by app-i18n/dbskkd-cdb-2.00
 app-i18n/skk-jisyo cdb
 
-# required by media-sound/teamspeak-client-3.3.2
-dev-qt/qtwebengine geolocation
+# required by media-sound/teamspeak-client-3.3.2, dev-qt/qtwebview-6.6.1, net-misc/nextcloud-client-3.0.3
+dev-qt/qtwebengine geolocation qml widgets
 
 # required by @selected
 dev-python/pallets-sphinx-themes -python_targets_python2_7
@@ -591,9 +591,6 @@ net-libs/libwebsockets http-proxy socks5 client
 
 # required by dev-libs/elfutils-0.182[zstd]
 app-arch/zstd static-libs
-
-# required by net-misc/nextcloud-client-3.0.3
-dev-qt/qtwebengine widgets
 
 # required by net-libs/libtorrent-rasterbar-1.2.6
 dev-libs/boost python

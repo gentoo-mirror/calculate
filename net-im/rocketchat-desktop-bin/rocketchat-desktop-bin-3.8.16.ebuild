@@ -1,6 +1,8 @@
 # Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# NOTE: This is a version of `net-im/rocketchat-desktop-bin-3.8.16::gentoo` was got rid of `dev-libs/libayatana-appindicator` rdepend
+
 EAPI=8
 
 CHROMIUM_LANGS="
@@ -12,7 +14,7 @@ CHROMIUM_LANGS="
 inherit chromium-2 desktop rpm xdg
 
 DESCRIPTION="The Ultimate Open Source Web Chat Platform"
-HOMEPAGE="https://rocket.chat"
+HOMEPAGE="https://www.rocket.chat/"
 SRC_URI="https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/${PV}/rocketchat-${PV}-linux-x86_64.rpm"
 S="${WORKDIR}"
 
