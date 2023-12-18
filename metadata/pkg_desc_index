@@ -1,14 +1,12 @@
 acct-group/jackett 0: Group for www-apps/jackett-bin
 acct-group/opentracker 0: Group for net-p2p/opentracker
-acct-group/torrserver 0: Group for net-p2p/torrserver-bin
 acct-user/jackett 0: User for www-apps/jackett-bin
 acct-user/opentracker 0: User for net-p2p/opentracker
-acct-user/torrserver 0: User for net-p2p/torrserver-bin
 app-crypt/openpgp-keys-calculate-release 20180827: OpenPGP keys used for Calculate binary packages
 app-crypt/shim-signed 0.2: UEFI Shim bootloader for SecureBoot signed by Microsoft
 app-misc/geoclue 2.6.0-r1 2.7.0-r1: A location information D-Bus service
 app-misc/mnemosyne 2.9: Efficient learning tool with powerful digital flash-cards
-app-misc/xorg-meta 7.4-r5: Calculate Linux (Xorg meta package)
+app-misc/xorg-meta 7.4-r5: Xorg meta package for Calculate Linux
 app-mobilephone/scrcpy 2.3.1: Display and control your Android device
 app-text/wgetpaste 2.33-r0: Command-line interface to various pastebins
 dev-python/sjcl 0.2.1: Decrypt and encrypt messages compatible to the SJCL message format
@@ -30,14 +28,13 @@ media-gfx/mate-themes-calculate 17 18-r6: Mate theme for Calculate Linux
 media-gfx/plasma-themes-calculate 17 17-r1: Plasma theme for Calculate Linux
 media-gfx/splash-themes-calculate 17-r3 18-r3 19-r1: Calculate Linux theme for gensplash
 media-gfx/xfce-themes-calculate 18: XFCE theme for Calculate Linux
-media-libs/libjpeg8 2.1.4: MMX, SSE, and SSE2 SIMD accelerated JPEG library
+media-libs/libjpeg8 2.1.4 3.0.0: MMX, SSE, and SSE2 SIMD accelerated JPEG library
 net-dns/bind 9.16.39-r9: Berkeley Internet Name Domain - Name Server
 net-im/rocketchat-desktop-bin 3.8.16 3.9.10: The Ultimate Open Source Web Chat Platform
 net-im/viber 21.0.0.1 21.0.0.1-r1: Free and secure calls and messages to anyone, anywhere
 net-p2p/opentracker 20210823: An open and free bittorrent tracker
-net-print/pantum 1.1.94 1.1.106: CUPS and SANE drivers for Pantum series printer and scanner.
+net-print/pantum 1.1.94 1.1.106 1.1.106-r1: CUPS and SANE drivers for Pantum series printer and scanner.
 net-print/rastertospl 1.00.39.12-r1: 
-net-vpn/networkmanager-wireguard 0_pre20191128-r6: NetworkManager WireGuard plugin
 net-wireless/rtl8814au 20221110 20230321 20230623: Realtek 8814AU USB WiFi module for Linux kernel
 net-wireless/rtl8821cu 20210506 20230427 20230910: Realtek USB WiFi Adapters based on 8811CU/8821CU/8821CUH/8731AU Chipsets
 sys-apps/calculate-access 0.1.2 9999: Cryptodata management tools
