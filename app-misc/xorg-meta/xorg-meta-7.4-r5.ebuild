@@ -11,11 +11,11 @@ SLOT="0"
 KEYWORDS="amd64"
 
 # Server
-RDEPEND="
+RDEPEND="${RDEPEND}
 	x11-base/xorg-server[-minimal]
 "
 #Applications
-RDEPEND="
+RDEPEND="${RDEPEND}
 	x11-apps/appres
 	x11-apps/bitmap
 	x11-apps/iceauth
@@ -55,7 +55,7 @@ RDEPEND="
 	x11-apps/xwud
 "
 # Data
-RDEPEND="
+RDEPEND="${RDEPEND}
 	x11-misc/xbitmaps
 	x11-themes/xcursor-themes
 "
@@ -65,13 +65,13 @@ RDEPEND="${RDEPEND}
 	x11-misc/util-macros
 "
 # Fonts
-RDEPEND="
+RDEPEND="${RDEPEND}
 	media-fonts/corefonts
 	media-fonts/dejavu
 	media-fonts/droid
 "
 # Other
-RDEPEND="
+RDEPEND="${RDEPEND}
 	x11-apps/mesa-progs
 	x11-apps/xmessage
 	x11-misc/xbindkeys
