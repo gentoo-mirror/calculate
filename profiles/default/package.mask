@@ -8,7 +8,6 @@ sys-libs/db:6.0
 =x11-misc/sddm-0.20.0-r1
 
 # until cyclic dependencies are eliminated
-#~sys-apps/portage-3.0.56
-#~sys-apps/portage-3.0.57
-#~app-portage/gentoolkit-0.6.3
-#~app-portage/portpeek-3.2.4
+>sys-apps/portage-3.0.51
+~app-portage/gentoolkit-0.6.3
+~app-portage/portpeek-3.2.4
