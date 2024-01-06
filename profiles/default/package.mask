@@ -7,6 +7,9 @@ sys-libs/db:6.0
 # some bugs
 =x11-misc/sddm-0.20.0-r1
 
+# does not play after a pause in smplayer
+=media-video/mpv-0.37.0
+
 # until cyclic dependencies are eliminated
 >sys-apps/portage-3.0.51
 ~app-portage/gentoolkit-0.6.3
