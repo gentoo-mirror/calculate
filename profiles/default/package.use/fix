@@ -22,7 +22,7 @@ app-misc/lcd4linux -lcd_devices_curses
 app-misc/lcdproc -lcd_devices_g15
 dev-java/sbt binary
 dev-lang/python -pgo
-~media-video/vlc-3.0.18 -vdpau
+media-video/vlc -vdpau
 
 # not compile media-libs/osl
 media-gfx/blender -osl
