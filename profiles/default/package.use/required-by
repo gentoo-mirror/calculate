@@ -775,3 +775,5 @@ x11-base/xwayland libei
 # required by app-emacs/pinentry-0.1_p20231126
 app-crypt/pinentry emacs
 
+# required by sys-kernel/gentoo-kernel-bin-6.7.1[initramfs]
+sys-kernel/installkernel dracut
