@@ -68,3 +68,9 @@ sys-apps/texinfo -nsl
 #    (sys-devel/gettext-0.22.4:0/0::gentoo, ebuild scheduled for merge) (buildtime)
 #     (dev-libs/expat-2.5.0:0/0::gentoo, ebuild scheduled for merge) (buildtime)
 sys-apps/help2man -nls
+
+#(media-libs/harfbuzz-8.3.0:0/6.0.0::gentoo, binary scheduled for merge) depends on
+# (media-libs/freetype-2.13.2:2/2::gentoo, binary scheduled for merge) (runtime_slot_op)
+#  (media-libs/harfbuzz-8.3.0:0/6.0.0::gentoo, binary scheduled for merge) (runtime)
+media-libs/freetype -harfbuzz
+
