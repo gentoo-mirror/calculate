@@ -10,10 +10,5 @@ sys-libs/db:6.0
 # does not play after a pause in smplayer
 =media-video/mpv-0.37.0
 
-# until cyclic dependencies are eliminated
->sys-apps/portage-3.0.51
-~app-portage/gentoolkit-0.6.3
-~app-portage/portpeek-3.2.4
-
 # not compiled
 =gnome-base/gnome-panel-3.50.0
