@@ -28,19 +28,6 @@ net-dns/bind:json - Enable JSON statistics channel
 net-dns/bind:lmdb - Enable LMDB support to store configuration for 'addzone' zones
 net-dns/bind:sdb-ldap - Use LDAP backend
 net-im/viber:apulse - Support for PulseAudio emulation for ALSA
-net-p2p/opentracker:blacklist - Make use of a torrents black-list
-net-p2p/opentracker:fullscrapes-modest - Enable limiting fullscrapes to only every 5 minutes per IP
-net-p2p/opentracker:gzip-always - Enforce gzip compressed full scrapes even if client did not request it
-net-p2p/opentracker:ip-from-proxy - Accept source IP from proxy
-net-p2p/opentracker:ip-from-query - Accept source IP only from query (debugging purposes only)
-net-p2p/opentracker:live-sync - Allow synchronisation between several instances through multicast
-net-p2p/opentracker:live-sync-unicast - Allow synchronisation between several instances through unicast
-net-p2p/opentracker:log-networks-full - Add some subnet debugging features
-net-p2p/opentracker:log-numwant - Log amount of numwants
-net-p2p/opentracker:persistence - Allow saving torrents and peers information on disk
-net-p2p/opentracker:restrict-stats - Restrict statistics to the tracker owner
-net-p2p/opentracker:spot-woodpeckers - Enable tracking of abusing peers
-net-p2p/opentracker:whitelist - Make use of a torrents white-list
 net-vpn/ocserv:otp - Enable support for one-time passwords
 sys-apps/calculate-access:client - Calculate-access client
 sys-apps/calculate-access:server - Calculate-access server
