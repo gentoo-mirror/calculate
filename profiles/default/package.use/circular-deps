@@ -3,11 +3,6 @@
 #  (sys-apps/attr-2.5.1-r2:0/0::gentoo, ebuild scheduled for merge) (buildtime)
 sys-apps/attr -nls
 
-#(sys-libs/gpm-1.20.7-r5:0/0::gentoo, binary scheduled for merge) depends on
-# (sys-libs/ncurses-6.4_p20230401:0/6::gentoo, ebuild scheduled for merge) (runtime_slot_op)
-#   (sys-libs/gpm-1.20.7-r5:0/0::gentoo, binary scheduled for merge) (buildtime)
-sys-libs/ncurses -gpm
-
 #(media-libs/freetype-2.13.2:2/2::gentoo, ebuild scheduled for merge) depends on
 # (media-libs/harfbuzz-8.2.0:0/6.0.0::gentoo, binary scheduled for merge) (buildtime)
 #   (media-libs/freetype-2.13.2:2/2::gentoo, ebuild scheduled for merge) (runtime_slot_op)
