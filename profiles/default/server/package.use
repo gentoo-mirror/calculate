@@ -20,3 +20,6 @@ net-wireless/wpa_supplicant dbus
 
 # required by net-misc/networkmanager-1.8.4
 net-dns/dnsmasq dbus
+
+# required by sys-process/iotop-0.6_p20230124
+dev-lang/python ncurses
