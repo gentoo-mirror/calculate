@@ -7,7 +7,6 @@ PYTHON_COMPAT=(python3_11)
 
 declare -A CALCULATE_MODULES=(
 	["install"]="3.7.5.1"
-	["i18n"]=""
 	["builder"]="3.7.5.2"
 )
 
