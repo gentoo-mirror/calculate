@@ -777,3 +777,7 @@ app-crypt/pinentry emacs
 
 # required by sys-kernel/gentoo-kernel-bin-6.7.1[initramfs]
 sys-kernel/installkernel dracut
+
+# required by www-client/chromium-121.0.6167.139
+dev-lang/rust profiler
+
