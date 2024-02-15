@@ -784,5 +784,9 @@ dev-lang/rust profiler
 # required by dev-python/PyQt6-6.6.1
 dev-python/PyQt6 quick
 
-# required by "net-misc/tuba-0.6.2
+# required by net-misc/tuba-0.6.2
 gui-libs/gtk gstreamer
+
+# required by net-im/fractal-6_rc
+media-video/pipewire gstreamer
+
