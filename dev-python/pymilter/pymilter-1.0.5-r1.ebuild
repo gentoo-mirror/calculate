@@ -19,7 +19,6 @@ SLOT="0"
 KEYWORDS="amd64 ~x86"
 
 RDEPEND="
-	dev-python/bsddb3[${PYTHON_USEDEP}]
 	mail-filter/libmilter:=
 "
 DEPEND="${RDEPEND}"
