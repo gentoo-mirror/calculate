@@ -162,9 +162,6 @@ dev-qt/qthelp compat
 # required by sys-power/apcupsd-3.14.8-r2
 sys-apps/util-linux static-libs tty-helpers
 
-# required by media-sound/picard-2.0.0_beta3 kde-apps/kopete-4.14.3-r1:4/4.14
-dev-qt/qtgui accessibility mng
-
 # required by www-client/chromium-43.0.2357.130 (https://bugs.gentoo.org/show_bug.cgi?id=553502)
 # required by www-client/firefox-46.0 [system-libvpx]
 media-libs/libvpx postproc svc
@@ -203,9 +200,6 @@ dev-python/numpy lapack
 
 # required by dev-python/pytables-3.1.1-r2
 dev-libs/c-blosc hdf5
-
-# required by dev-qt/qtwayland-5.6.1
-dev-qt/qtgui:5 egl
 
 # required by kde-frameworks/kwayland-5.28.0
 dev-qt/qtwayland egl
@@ -558,8 +552,8 @@ dev-libs/efl connman drm
 # required by sci-chemistry/votca-xtp-1.6
 sci-libs/hdf5 cxx
 
-# required by net-im/telegram-desktop-2.1.20
-dev-qt/qtgui wayland
+# required by media-sound/picard-2.0.0_beta3, dev-qt/qtwayland-5.6.1, app-office/onlyoffice-bin-8.0.0, kde-apps/kopete-4.14.3-r1:4/4.14, net-im/telegram-desktop-2.1.20
+dev-qt/qtgui accessibility egl eglfs mng wayland
 
 # required by sys-auth/AusweisApp2-1.20.1
 dev-qt/qtwebsockets qml
