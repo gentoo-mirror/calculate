@@ -236,12 +236,6 @@ dev-libs/libical vala
 # required by games-action/d1x-rebirth-0.58.1
 dev-games/physfs mvl hog
 
-# required by games-arcade/smc-1.9
-dev-games/cegui devil
-
-# required by games-rpg/sumwars-0.5.8
-dev-games/cegui ogre
-
 # required by app-emulation/docker-1.11.0[device-mapper]
 sys-libs/libseccomp static-libs
 
@@ -359,9 +353,6 @@ dev-python/QtPy printsupport testlib
 
 # required by dev-tex/culmus-latex-0.7
 media-fonts/culmus fancy
-
-# required by dev-qt/qt-creator-4.4.1[cmake]
-dev-build/cmake server
 
 # required by games-engines/love-0.8.0
 media-libs/devil mng
