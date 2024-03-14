@@ -64,8 +64,8 @@ sys-process/audit static-libs
 # required by x11-misc/shutter-0.93.1-r3
 virtual/imagemagick-tools perl
 
-# required by kde-misc/plasma-applet-weather-widget-1.6.8
-dev-qt/qtdeclarative xml
+# required by x11-terms/cool-retro-term-1.2.0, kde-misc/plasma-applet-weather-widget-1.6.8
+dev-qt/qtdeclarative localstorage xml
 
 # required by dev-java/netbeans-platform-8.2
 dev-java/junit source
