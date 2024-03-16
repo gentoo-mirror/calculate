@@ -171,6 +171,7 @@ RDEPEND="
 	app-arch/xz-utils
 	app-portage/eix
 	app-portage/portage-utils
+	sys-apps/debianutils
 
 	app-eselect/eselect-repository
 	>=virtual/udev-197
