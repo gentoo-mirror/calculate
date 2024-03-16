@@ -777,3 +777,7 @@ media-video/pipewire gstreamer
 
 # required by media-libs/libsvgtiny-0.1.8
 net-libs/libdom xml
+
+# required by dev-db/pg-gvm-22.6.4
+dev-db/postgresql uuid
+
