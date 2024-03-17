@@ -15,7 +15,6 @@ SRC_URI="$(pypi_sdist_url --no-normalize ${PN} ${PV})"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
 
 RDEPEND="dev-python/pycryptodome"
 DEPEND="${RDEPEND}"
