@@ -16,8 +16,8 @@ net-analyzer/ossec-hids hybrid postgres
 # exactly-one-of ( iptables nftables )
 net-misc/connman -nftables
 
-# exactly-one-of ( gbm raspberry-pi wayland X )
-media-tv/kodi -wayland
+# exactly-one-of ( gbm raspberry-pi wayland X ) ( gbm wayland X ) vdpau? ( !gbm )
+media-tv/kodi -gbm -wayland
 
 # jit? ( lua_single_target_luajit )
 # exactly-one-of ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3 )
