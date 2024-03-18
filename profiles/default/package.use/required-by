@@ -591,7 +591,7 @@ kde-frameworks/prison qml
 sys-fs/squashfs-tools lzma
 
 # required by media-tv/dtv-scan-tables-0_p20171003
-media-tv/v4l-utils dvb
+media-tv/v4l-utils -bpf dvb
 media-libs/libv4l dvb
 
 # required by x11-libs/pango-1.48.7
@@ -780,4 +780,7 @@ net-libs/libdom xml
 
 # required by dev-db/pg-gvm-22.6.4
 dev-db/postgresql uuid
+
+# dependency required by dev-util/bcc-0.29.1-r1
+dev-libs/libbpf static-libs
 
