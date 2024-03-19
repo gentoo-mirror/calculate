@@ -20,8 +20,6 @@ KEYWORDS="~amd64"
 IUSE="cpu_flags_arm_neon"
 
 ASM_DEPEND="|| ( dev-lang/nasm dev-lang/yasm )"
-DEPEND=""
-RDEPEND=""
 BDEPEND="
 	amd64? ( ${ASM_DEPEND} )
 "
