@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MULTILIB_COMPAT=( abi_x86_64 )
 
-inherit desktop multilib-build pax-utils unpacker xdg
+inherit desktop multilib-build optfeature pax-utils unpacker xdg
 
 DESCRIPTION="Free and secure calls and messages to anyone, anywhere"
 HOMEPAGE="https://www.viber.com/"
@@ -35,6 +35,7 @@ QA_PRESTRIPPED="
 	opt/viber/lib/libjpeg.so.8
 	opt/viber/lib/libpcre2-16.so.0
 	opt/viber/lib/libre2.so.5
+	opt/viber/lib/libxcb-cursor.so.0
 "
 
 LICENSE="Viber"
@@ -102,7 +103,6 @@ RDEPEND="
 	x11-libs/libXtst[${MULTILIB_USEDEP}]
 	x11-libs/pango[${MULTILIB_USEDEP}]
 	x11-libs/tslib[${MULTILIB_USEDEP}]
-	x11-libs/xcb-util-cursor[${MULTILIB_USEDEP}]
 	x11-libs/xcb-util-image[${MULTILIB_USEDEP}]
 	x11-libs/xcb-util-keysyms[${MULTILIB_USEDEP}]
 	x11-libs/xcb-util-renderutil[${MULTILIB_USEDEP}]
@@ -155,4 +155,8 @@ src_install() {
 		/opt/viber/libexec/QtWebEngineProcess
 
 	dosym ../../opt/viber/Viber /usr/bin/Viber
+}
+
+pkg_postinst() {
+	optfeature "ffmpeg backend", media-video/ffmpeg:0/56.58.58[${MULTILIB_USEDEP}]
 }

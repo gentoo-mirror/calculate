@@ -18,7 +18,6 @@ SRC_URI="amd64? ( ${SRC_BASE}-x86_64.tar.gz&r=1 -> eclipse-java-${RNAME}-${SR}-l
 LICENSE="EPL-1.0"
 SLOT="$(ver_cut 1-2)"
 KEYWORDS="~x86 amd64"
-IUSE=""
 
 RDEPEND="
 	>=virtual/jdk-1.8
