@@ -6,9 +6,9 @@ EAPI="8"
 PYTHON_COMPAT=(python3_11)
 
 declare -A CALCULATE_MODULES=(
-	["install"]="3.7.4.1"
-	["i18n"]="3.7.4.1"
-	["builder"]="3.7.4.1"
+	["lib"]="3.7.5.3"
+	["install"]="3.7.5.2"
+	["builder"]="3.7.5.2"
 )
 
 inherit calculate-utils-r17
