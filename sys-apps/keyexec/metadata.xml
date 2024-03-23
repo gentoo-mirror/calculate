@@ -8,12 +8,20 @@
     </maintainer>
     <longdescription lang="en">
         Help to run programs like rdesktop, xfreerdp and KDE kstart with the user password,
-        kept in the Linux kernel
+        kept in the Linux kernel.
     </longdescription>
-    <use>
-        <flag name="kde">Use KDE libs.</flag>
-        <flag name="rdesktop">Include net-misc/rdesktop package.</flag>
-        <flag name="freerdp">Include net-misc/freerdp package.</flag>
+    <upstream>
+        <bugs-to>mailto:support@calculate.ru</bugs-to>
+    </upstream>
+    <use lang="en">
+        <flag name="kde">Use KDE libs</flag>
+        <flag name="rdesktop">Include net-misc/rdesktop package</flag>
+        <flag name="freerdp">Include net-misc/freerdp package</flag>
+    </use>
+    <use lang="ru">
+        <flag name="kde">Использовать библиотеки KDE</flag>
+        <flag name="rdesktop">Включить пакет net-misc/rdesktop</flag>
+        <flag name="freerdp">Включить пакет net-misc/freerdp</flag>
     </use>
 </pkgmetadata>
 
