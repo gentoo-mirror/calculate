@@ -29,6 +29,10 @@ DialogWidth=640
 [Containments][1][Applets][44][Configuration][General]
 appNameFormat=2
 favoriteApps=preferred://browser,systemsettings.desktop
+#?pkg(x11-themes/calculate-icon-theme)!=#
+customButtonImage=/usr/share/pixmaps/calculate/start-here-blue.svg
+useCustomButtonImage=true
+#pkg#
 #showRecentApps=false
 #showRecentDocs=false
 
