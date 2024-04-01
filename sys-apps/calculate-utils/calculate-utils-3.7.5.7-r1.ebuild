@@ -9,7 +9,7 @@ declare -A CALCULATE_MODULES=(
 	["lib"]="3.7.5.6"
 	["install"]="3.7.5.2"
 	["i18n"]="3.7.5.5"
-	["builder"]="3.7.5.3"
+	["builder"]="3.7.5.4"
 )
 
 inherit calculate-utils-r17
