@@ -784,3 +784,8 @@ dev-db/postgresql uuid
 # dependency required by dev-util/bcc-0.29.1-r1
 dev-libs/libbpf static-libs
 
+# required by dev-python/pyarrow-15.0.2
+dev-libs/apache-arrow compute dataset re2
+
+www-apps/ttyd mbedtls
+
