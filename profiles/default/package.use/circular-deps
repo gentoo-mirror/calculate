@@ -75,3 +75,10 @@ app-emulation/spice -smartcard
 #      (app-alternatives/gzip-1:0/0::gentoo, ebuild scheduled for merge) (buildtime)
 #          (app-arch/pigz-2.8:0/0::gentoo, ebuild scheduled for merge) (runtime)
 app-arch/pigz static
+
+#(media-video/pipewire-1.0.3:0/0.4::gentoo, binary scheduled for merge) depends on
+# (media-video/ffmpeg-6.0.1-r4:0/58.60.60::gentoo, binary scheduled for merge) (runtime_slot_op)
+#  (media-libs/openal-1.23.1-r1:0/0::gentoo, binary scheduled for merge) (runtime)
+#   (media-video/pipewire-1.0.3:0/0.4::gentoo, binary scheduled for merge) (runtime)
+media-video/pipewire -ffmpeg
+
