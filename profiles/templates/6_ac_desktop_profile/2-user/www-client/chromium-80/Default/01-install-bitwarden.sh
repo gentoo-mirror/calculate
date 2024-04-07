@@ -39,7 +39,6 @@ cp -r /usr/share/chrome-bitwarden/* #-ur_home_path-#/.config/chromium/Default/Ex
 	"settings": {
 	    "avatarColor": null,
 	    "defaultUriMatch": 1,
-	    "enableAutoFillOnPageLoad": true,
 	    "environmentUrls": {
 		"api": null,
 		"base": {},
@@ -65,6 +64,8 @@ cp -r /usr/share/chrome-bitwarden/* #-ur_home_path-#/.config/chromium/Default/Ex
 	"stateVersion":7,
 	"theme":"system"
     }
+    "user_userId_autofillSettings_autofillOnPageLoad": true,
+    "user_userId_autofillSettings_autofillOnPageLoadDefault": true
 }
 EOF
 

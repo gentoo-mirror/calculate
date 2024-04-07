@@ -104,9 +104,16 @@ def update_json(data_list):
     Заполнение конфигурационного файла json
     """
 
+    # Замена Key
+    user_userId_autofillSettings_autofillOnPageLoad = f'{"user_" + userId + "_autofillSettings_autofillOnPageLoad"}'
+    user_userId_autofillSettings_autofillOnPageLoadDefault = f'{"user_" + userId + "_autofillSettings_autofillOnPageLoadDefault"}'
     userId_masterkey_auto = f'{userId + "_masterkey_auto"}'
+    data_list[f'{user_userId_autofillSettings_autofillOnPageLoad}'] = data_list.pop('user_userId_autofillSettings_autofillOnPageLoad')
+    data_list[f'{user_userId_autofillSettings_autofillOnPageLoadDefault}'] = data_list.pop('user_userId_autofillSettings_autofillOnPageLoadDefault')
     data_list[f'{userId_masterkey_auto}'] = data_list.pop('userId_masterkey_auto')
     data_list[f'{userId}'] = data_list.pop('userId')
+
+    # Замена Value
     id = data_list[f'{userId}']
     keys = id['keys']
     profile = id['profile']
@@ -123,11 +130,14 @@ def update_json(data_list):
     data_list['activeUserId'] = userId
     data_list['authenticatedAccounts'] = [userId]
 
+    # Заполнение data_list
     data_list[f'{userId}'] = json.dumps(id)
     data_list[f'{userId_masterkey_auto}'] = json.dumps(data_list[f'{userId_masterkey_auto}'])
     data_list['activeUserId'] = json.dumps(data_list['activeUserId'])
     data_list['authenticatedAccounts'] = json.dumps(data_list['authenticatedAccounts'])
     data_list['global'] = json.dumps(data_list['global'])
+    data_list[f'{user_userId_autofillSettings_autofillOnPageLoad}'] = json.dumps(data_list[f'{user_userId_autofillSettings_autofillOnPageLoad}'])
+    data_list[f'{user_userId_autofillSettings_autofillOnPageLoadDefault}'] = json.dumps(data_list[f'{user_userId_autofillSettings_autofillOnPageLoadDefault}'])
 
 
 data_list = json.load(sys.stdin)
