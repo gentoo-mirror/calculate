@@ -23,4 +23,5 @@ RDEPEND="
 		sys-kernel/gentoo-kernel
 		sys-kernel/gentoo-kernel-bin
 		sys-kernel/vanilla-kernel
+		sys-kernel/fake-sources
 	)"
