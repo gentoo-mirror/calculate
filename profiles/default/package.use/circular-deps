@@ -82,3 +82,8 @@ app-arch/pigz static
 #   (media-video/pipewire-1.0.3:0/0.4::gentoo, binary scheduled for merge) (runtime)
 media-video/pipewire -ffmpeg
 
+#(media-libs/harfbuzz-8.3.0:0/6.0.0::gentoo, binary scheduled for merge) depends on
+# (media-libs/freetype-2.13.2:2/2::gentoo, binary scheduled for merge) (runtime_slot_op)
+#  (media-libs/harfbuzz-8.3.0:0/6.0.0::gentoo, binary scheduled for merge) (runtime)
+media-libs/freetype -harfbuzz
+media-libs/sdl2-ttf -harfbuzz
