@@ -394,3 +394,6 @@ app-emulation/virt-manager gui
 
 # enable terminal emulation support (needed for vimspector)
 app-editors/vim terminal
+
+# the "svg" USE flag only has effect when the "utils" USE flag
+media-libs/freetype utils
