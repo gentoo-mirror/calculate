@@ -353,24 +353,6 @@ genericName[fr]=#-grep(/usr/share/applications/calculate-chat.desktop,\nGenericN
 iconName=#-grep(/usr/share/applications/calculate-chat.desktop,\nIcon=(.*))-#
 url=file:///usr/share/applications/calculate-chat.desktop
 
-[Containments][2][Applets][74]
-immutability=1
-plugin=org.kde.plasma.icon
-
-[Containments][2][Applets][74][Configuration][General]
-applicationName=#-grep(/usr/share/applications/calculate-im.desktop,\nName=(.*))-#
-#?grep(/usr/share/applications/calculate-im.desktop,\nGenericName=(.*))!=#
-genericName=#-grep(/usr/share/applications/calculate-im.desktop,\nGenericName=(.*))-#
-#grep#
-#?grep(/usr/share/applications/calculate-im.desktop,\nGenericName\[ru\]=(.*))!=#
-genericName[ru]=#-grep(/usr/share/applications/calculate-im.desktop,\nGenericName\[ru\]=(.*))-#
-#grep#
-#?grep(/usr/share/applications/calculate-im.desktop,\nGenericName\[fr\]=(.*))!=#
-genericName[fr]=#-grep(/usr/share/applications/calculate-im.desktop,\nGenericName\[fr\]=(.*))-#
-#grep#
-iconName=#-grep(/usr/share/applications/calculate-im.desktop,\nIcon=(.*))-#
-url=file:///usr/share/applications/calculate-im.desktop
-
 [Containments][2][Applets][75]
 immutability=1
 plugin=org.kde.plasma.icon
@@ -539,7 +521,7 @@ DialogHeight=81
 DialogWidth=#-os_x11_width-#
 
 [Containments][2][General]
-AppletOrder=71,72,73,74,75,76,77,78,80,81,82,83
+AppletOrder=71,72,73,75,76,77,78,80,81,82,83
 
 [General]
 immutability=2
