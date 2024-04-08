@@ -63,7 +63,7 @@ cp -r /usr/share/chrome-bitwarden/* #-ur_home_path-#/.config/chromium/Default/Ex
     "global": {
 	"stateVersion":7,
 	"theme":"system"
-    }
+    },
     "user_userId_autofillSettings_autofillOnPageLoad": true,
     "user_userId_autofillSettings_autofillOnPageLoadDefault": true
 }
