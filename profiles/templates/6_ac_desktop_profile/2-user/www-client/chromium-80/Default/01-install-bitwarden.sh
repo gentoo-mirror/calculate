@@ -39,6 +39,7 @@ cp -r /usr/share/chrome-bitwarden/* #-ur_home_path-#/.config/chromium/Default/Ex
 	"settings": {
 	    "avatarColor": null,
 	    "defaultUriMatch": 1,
+	    "enableAutoFillOnPageLoad": true,
 	    "environmentUrls": {
 		"api": null,
 		"base": {},
