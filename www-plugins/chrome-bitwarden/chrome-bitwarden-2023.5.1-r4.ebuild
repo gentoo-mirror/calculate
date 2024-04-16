@@ -10,7 +10,7 @@ DESCRIPTION="Bitwarden - The password manager"
 HOMEPAGE="https://chrome.google.com/webstore/detail/nngceckbapebfimnlniiiahkandclblb"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 RDEPEND="dev-python/plyvel
 	dev-python/sjcl"
