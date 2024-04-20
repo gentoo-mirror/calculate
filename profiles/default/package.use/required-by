@@ -789,3 +789,9 @@ www-apps/ttyd mbedtls
 # required by www-client/chromium-123.0.6312.105[system-toolchain]
 virtual/rust profiler
 
+# required by dev-python/pikepdf-8.14.0-r1
+dev-python/pillow lcms
+
+# required by dev-python/pyside6-tools-6.7.0
+dev-python/pyside6 quick qml
+
