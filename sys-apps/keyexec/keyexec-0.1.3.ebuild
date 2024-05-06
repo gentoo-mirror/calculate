@@ -17,7 +17,7 @@ IUSE="kde +rdesktop +freerdp"
 
 DEPEND="
 	rdesktop? ( net-misc/rdesktop )
-	freerdp? ( net-misc/freerdp )
+	freerdp? ( net-misc/freerdp:0 )
 	>=sys-apps/keyutils-1.1
 	>=sys-auth/pam_keystore-0.1
 	kde? ( kde-plasma/kde-cli-tools:5 )"
