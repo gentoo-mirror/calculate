@@ -18,13 +18,13 @@ cp -r /usr/share/chrome-floccus/* #-ur_home_path-#/.config/chromium/Default/Exte
 	    "allowRedirects": false,
 	    "allowNetwork": false,
 	    "enabled": true,
-	    "localRoot": "1",
+	    "localRoot": "0",
 	    "syncInterval": 15,
 	    "strategy": "default",
-	    "nestedSync": true
+	    "nestedSync": true,
+	    "failsafe": true
 	}
-    },
-    "currentVersion": "4.19.1"
+    }
 }
 EOF
 
