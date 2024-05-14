@@ -201,8 +201,8 @@ dev-python/numpy lapack
 # required by dev-python/pytables-3.1.1-r2
 dev-libs/c-blosc hdf5
 
-# required by kde-frameworks/kwayland-5.28.0
-dev-qt/qtwayland egl
+# required by net-im/telegram-desktop-5.0.1[-qt6,webkit], kde-frameworks/kwayland-5.28.0
+dev-qt/qtwayland compositor egl
 
 # required by www-client/firefox-50.0.2[pgo]
 x11-base/xorg-server xvfb
