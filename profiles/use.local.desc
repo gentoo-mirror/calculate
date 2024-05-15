@@ -4,7 +4,11 @@
 
 app-misc/geoclue:modemmanager - Enable geolocation through 3G or GPS enabled hardware through net-misc/modemmanager
 app-misc/geoclue:zeroconf - Enable retrieval of GPS location from Android devices with GeoclueShare
-games-util/steam-launcher:steamruntime - Use the official steam runtime libraries
+games-util/steam-launcher:desktop-portal - Enable desktop integration, e.g. for file pickers
+games-util/steam-launcher:dialogs - Support additional dialogs before the client starts
+games-util/steam-launcher:steamruntime - Use the official Steam runtime libraries
+games-util/steam-launcher:steamvr - Enable SteamVR virtual reality support
+games-util/steam-launcher:trayicon - Enable system tray icon
 media-gfx/calculate-wallpapers:CL11 - Include Calculate Linux 11 wallpapers.
 media-gfx/calculate-wallpapers:CL12 - Include Calculate Linux 12 wallpapers.
 media-gfx/calculate-wallpapers:CL13 - Include Calculate Linux 13 wallpapers.
