@@ -19,7 +19,7 @@ cp -r /usr/share/chrome-floccus/* #-ur_home_path-#/.config/chromium/Default/Exte
 	    "allowNetwork": false,
 	    "enabled": true,
 	    "localRoot": "0",
-	    "syncInterval": 15,
+	    "syncInterval": 1,
 	    "strategy": "default",
 	    "nestedSync": true,
 	    "failsafe": true
