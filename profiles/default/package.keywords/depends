@@ -141,6 +141,10 @@
 ~app-misc/vittk-1.3 amd64
 ~app-misc/vzstats-0.5.1 amd64
 ~app-mobilephone/gnokii-0.6.31 amd64
+~app-pda/libimobiledevice-1.3.0_p20240201 amd64
+~app-pda/libimobiledevice-glue-1.1.0 amd64
+~app-pda/libplist-2.3.0 amd64
+~app-pda/usbmuxd-1.1.1_p20231011 amd64
 ~app-portage/diffmask-0.3.3 amd64
 ~app-portage/g-octave-0.4.1 amd64
 ~app-portage/repo-commit-0.4.1 amd64
@@ -197,6 +201,7 @@
 ~dev-java/swingx-ws-1.0_p20110515 amd64
 ~dev-lang/elixir-1.15.7 amd64
 ~dev-lang/gnat-gpl-2021 amd64
+~dev-lang/scala-2.12.10 amd64
 ~dev-libs/angelscript-2.36.1 amd64
 ~dev-libs/atk-2.46.0 amd64
 ~dev-libs/bglibs-2.04 amd64
@@ -227,6 +232,8 @@ dev-libs/nss amd64
 ~dev-ml/jsonm-1.0.1 amd64
 ~dev-perl/Net-CUPS-0.640.0 amd64
 ~dev-perl/Number-Bytes-Human-0.110.0 amd64
+~dev-perl/OpenGL-GLUT-0.720.0 amd64
+~dev-perl/PDL-2.89.0 amd64
 ~dev-php/pecl-event-3.0.8 amd64
 ~dev-python/omemo-dr-1.0.1 amd64
 ~dev-python/protobuf-python-4.23.3 amd64
@@ -281,14 +288,17 @@ dev-libs/nss amd64
 ~media-libs/icc-profiles-openicc-1.3.1 amd64
 ~media-libs/iir1-1.9.3 amd64
 ~media-libs/jasper-4.0.0 amd64
+~media-libs/libaom-3.9.0 amd64
 ~media-libs/libcdaudio-0.99.12 amd64
 ~media-libs/libdvdnav-6.1.1 amd64
 ~media-libs/libepoxy-1.5.10 amd64
 ~media-libs/libggigcp-1.0.2 amd64
 ~media-libs/libggimisc-2.2.2 amd64
+~media-libs/libgpod-0.8.3 amd64
 ~media-libs/liblingoteach-0.2.3 amd64
 ~media-libs/libtgvoip-2.4.4_p20221208 amd64
 ~media-libs/libv4l-1.26.1 amd64
+~media-libs/libvpx-1.14.1 amd64
 ~media-libs/oidn-2.2.2 amd64
 ~media-libs/openexr-3.2.3 amd64
 ~media-libs/openimageio-2.5.9.0 amd64
@@ -360,6 +370,7 @@ dev-libs/nss amd64
 ~net-misc/netsed-0.01b amd64
 ~net-nds/ldapvi-1.7_p20101214 amd64
 ~net-news/snownews-1.9 amd64
+~net-p2p/retroshare-0.6.7 amd64
 ~net-print/c2esp-27 amd64
 ~net-print/dymo-cups-drivers-1.4.0 amd64
 ~net-print/pnm2ppa-1.13 amd64
