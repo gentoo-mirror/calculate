@@ -46,7 +46,7 @@ DEPEND="${CDEPEND}
 # Block due bug #383067
 RDEPEND="${CDEPEND}
 	udev? ( virtual/udev )
-	!<sys-kernel/dracut-0.37-r3
+	sys-kernel/dracut
 "
 
 DOC_CONTENTS="
