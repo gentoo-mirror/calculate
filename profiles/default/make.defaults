@@ -21,7 +21,7 @@ USE="${USE} 3dnow 3dnowext aes avx fma3 fma4 lm-sensors mmx mmxext padlock popcn
 USE="${USE} gadu irc jabber oscar"
 
 # Image support
-USE="${USE} dftk exif fexif gd gif heif imagemagick jpeg jpeg2k -mng openexr pdf png raw svg tiff webp wmf wxwindows xmp"
+USE="${USE} dftk exif fexif gd gif heif imagemagick jpeg jpeg2k -mng openexr pdf png raw svg tiff wmf wxwindows xmp"
 
 # Locale and Fonts
 USE="${USE} spell truetype userlocales"
