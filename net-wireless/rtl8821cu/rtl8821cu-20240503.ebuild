@@ -10,13 +10,13 @@ DESCRIPTION="Realtek USB WiFi Adapters based on 8811CU/8821CU/8821CUH/8731AU Chi
 HOMEPAGE="https://github.com/morrownr/8821cu-20210916"
 SRC_URI="https://github.com/morrownr/8821cu-20210916/archive/${COMMIT}.tar.gz -> rtl8821cu-${PV}.tar.gz"
 
+S="${WORKDIR}/8821cu-20210916-${COMMIT}"
+
 LICENSE="GPL-2"
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND="virtual/linux-sources"
-
-S="${WORKDIR}/8821cu-20210916-${COMMIT}"
 
 src_compile() {
 	local modlist=( 8821cu=net/wireless )
