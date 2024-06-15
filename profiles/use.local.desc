@@ -33,8 +33,8 @@ net-dns/bind:lmdb - Enable LMDB support to store configuration for 'addzone' zon
 net-dns/bind:sdb-ldap - Use LDAP backend
 net-im/viber:apulse - Support for PulseAudio emulation for ALSA
 net-vpn/ocserv:otp - Enable support for one-time passwords
-sys-apps/calculate-access:client - Calculate-access client
-sys-apps/calculate-access:server - Calculate-access server
+sys-apps/calculate-access:client - calculate-access client
+sys-apps/calculate-access:server - calculate-access server
 sys-apps/calculate-server:calculate_nodhcp - without DHCP
 sys-apps/calculate-server:calculate_noftp - without FTP
 sys-apps/calculate-server:calculate_nojabber - without jabber server
@@ -52,9 +52,9 @@ sys-apps/calculate-utils:install - Enables support for disk installation.
 sys-apps/calculate-utils:minimal - Use minimal depends for calculate install.
 sys-apps/calculate-utils:pxe - Enables support for PXE installation.
 sys-apps/calculate-utils:qt5 - Include Qt5 gui console
-sys-apps/keyexec:freerdp - Include net-misc/freerdp package.
-sys-apps/keyexec:kde - Use KDE libs.
-sys-apps/keyexec:rdesktop - Include net-misc/rdesktop package.
+sys-apps/keyexec:freerdp - Include net-misc/freerdp package
+sys-apps/keyexec:kde - Use KDE libs
+sys-apps/keyexec:rdesktop - Include net-misc/rdesktop package
 sys-boot/plymouth-calculate-plugin:drm - Use direct rendering
 sys-boot/plymouth-calculate-plugin:pango - Use pango
 sys-kernel/calculate-sources:desktop - Desktop kernel configuration
