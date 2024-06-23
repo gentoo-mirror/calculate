@@ -9,11 +9,7 @@ inherit desktop multilib-build optfeature pax-utils unpacker xdg
 
 DESCRIPTION="Free and secure calls and messages to anyone, anywhere"
 HOMEPAGE="https://www.viber.com/"
-SRC_URI="
-	amd64? (
-		https://download.cdn.viber.com/cdn/desktop/Linux/${PN}.deb -> ${P}.deb
-	)
-"
+SRC_URI="https://download.cdn.viber.com/cdn/desktop/Linux/${PN}.deb -> ${P}.deb"
 
 QA_PRESTRIPPED="
 	opt/viber/Viber
