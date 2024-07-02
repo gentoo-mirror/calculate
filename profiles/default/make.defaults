@@ -24,7 +24,7 @@ USE="${USE} gadu irc jabber oscar"
 USE="${USE} dftk exif fexif gd gif heif imagemagick jpeg jpeg2k -mng openexr pdf png raw svg tiff webp wmf wxwindows xmp"
 
 # Locale and Fonts
-USE="${USE} spell truetype userlocales"
+USE="${USE} truetype userlocales"
 
 # Mail
 USE="${USE} mimap box smtp"
@@ -36,7 +36,7 @@ USE="${USE} bittorrent ftp idn imap nfs rdesktop samba sasl vnc"
 USE="${USE} ppp upnp"
 
 # Office
-USE="${USE} -aspell -spell hunspell spell"
+USE="${USE} -aspell hunspell spell"
 
 # Photo
 USE="${USE} gphoto2"
