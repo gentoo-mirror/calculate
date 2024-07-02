@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2024 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -238,7 +238,7 @@ DEPEND="
 # @FUNCTION: calculate-utils-r15_src_compile
 # @DESCRIPTION:
 # Compile all modules of calculate utils
-calculate-utils-r17_src_compile() {
+calculate-utils-r18_src_compile() {
 	if ! use backup
 	then
 		sed -ir "s/'cl-backup'/None/" calculate-core-*/pym/core/wsdl_core.py
@@ -270,7 +270,7 @@ calculate-utils-r17_src_compile() {
 # @FUNCTION: calculate-utils-r15_src_install
 # @DESCRIPTION:
 # Install all modules of calculate utils
-calculate-utils-r17_src_install() {
+calculate-utils-r18_src_install() {
 	prepare_module_info
 	for MODULE in "${MODULE_INFO[@]}"
 	do
@@ -301,17 +301,17 @@ python_install() {
 	distutils-r1_python_install $PYTHON_INSTALL_PARAMS
 }
 
-calculate-utils-r17_pkg_preinst() {
+calculate-utils-r18_pkg_preinst() {
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
-	dosym /usr/lib/python-exec/python3.11/cl-console /usr/bin/cl-console
+	dosym /usr/lib/python-exec/python3.12/cl-console /usr/bin/cl-console
 	if use qt5
 	then
-		dosym /usr/lib/python-exec/python3.11/cl-console-gui /usr/bin/cl-console-gui
-		dosym /usr/lib/python-exec/python3.11/cl-console-gui /usr/bin/cl-console-gui-install
-		dosym /usr/lib/python-exec/python3.11/cl-console-gui /usr/bin/cl-console-gui-update
-		dosym /usr/lib/python-exec/python3.11/cl-update-checker /usr/bin/cl-update-checker
+		dosym /usr/lib/python-exec/python3.12/cl-console-gui /usr/bin/cl-console-gui
+		dosym /usr/lib/python-exec/python3.12/cl-console-gui /usr/bin/cl-console-gui-install
+		dosym /usr/lib/python-exec/python3.12/cl-console-gui /usr/bin/cl-console-gui-update
+		dosym /usr/lib/python-exec/python3.12/cl-update-checker /usr/bin/cl-update-checker
 	fi
 }
