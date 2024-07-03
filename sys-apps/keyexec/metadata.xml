@@ -10,9 +10,10 @@
         Help to run programs like rdesktop, xfreerdp and KDE kstart with the user password,
         kept in the Linux kernel.
     </longdescription>
-    <upstream>
-        <bugs-to>mailto:support@calculate.ru</bugs-to>
-    </upstream>
+    <longdescription lang="ru">
+        Помогает запускать такие программы как rdesktop, xfreerdp и KDE kstart с пользовательским паролем,
+        хранимым в ядре Linux.
+    </longdescription>
     <use lang="en">
         <flag name="kde">Use KDE libs</flag>
         <flag name="rdesktop">Include net-misc/rdesktop package</flag>
@@ -23,5 +24,8 @@
         <flag name="rdesktop">Включить пакет net-misc/rdesktop</flag>
         <flag name="freerdp">Включить пакет net-misc/freerdp</flag>
     </use>
+    <upstream>
+        <bugs-to>mailto:support@calculate.ru</bugs-to>
+    </upstream>
 </pkgmetadata>
 
