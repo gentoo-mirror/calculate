@@ -1,20 +1,19 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 2007-2024 Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI="7"
+EAPI=7
+
 PYTHON_COMPAT=( python3_12 )
 
 inherit distutils-r1
 
-SRC_URI="https://mirror.calculate-linux.org/source/calculate2/${PN}/${P}.tar.bz2"
-
 DESCRIPTION="Configuration utility for Linux services"
 HOMEPAGE="https://www.calculate-linux.org/main/en/calculate2"
+SRC_URI="https://mirror.calculate-linux.org/source/calculate2/${PN}/${P}.tar.bz2"
+
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64"
-
 IUSE="calculate_nomail
 calculate_nodhcp
 calculate_noftp
@@ -64,7 +63,6 @@ DEPEND="!sys-apps/calculate-lib
 	|| ( dev-python/lxml[python_targets_python3_12]
 		dev-python/lxml[python_targets_python3_12] )
 "
-
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {
