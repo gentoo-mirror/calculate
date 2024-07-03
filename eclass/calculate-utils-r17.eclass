@@ -1,8 +1,7 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 2007-2024 Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-# @ECLASS: calculate-utils-r16.eclass
+# @ECLASS: calculate-utils-r17.eclass
 # @MAINTAINER:
 # support@calculate.ru
 # @AUTHOR:
@@ -235,7 +234,7 @@ DEPEND="
 
 #REQUIRED_USE="client? ( desktop )"
 
-# @FUNCTION: calculate-utils-r15_src_compile
+# @FUNCTION: calculate-utils-r17_src_compile
 # @DESCRIPTION:
 # Compile all modules of calculate utils
 calculate-utils-r17_src_compile() {
@@ -267,7 +266,7 @@ calculate-utils-r17_src_compile() {
 	done
 }
 
-# @FUNCTION: calculate-utils-r15_src_install
+# @FUNCTION: calculate-utils-r17_src_install
 # @DESCRIPTION:
 # Install all modules of calculate utils
 calculate-utils-r17_src_install() {

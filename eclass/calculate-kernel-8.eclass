@@ -1,6 +1,5 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 2007-2024 Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 #
 # Original Author: © 2007-2009 Mir Calculate, Ltd. 
@@ -143,8 +142,8 @@ vmlinuz_src_install() {
 		die "cannot install build symlink"
 }
 
-# FUNCTION: clean_for_minimal
-# DESCRIPTION:
+# @FUNCTION: clean_for_minimal
+# @DESCRIPTION:
 # Clear kernel sources, keeping only need for custom modules compilation
 clean_for_minimal() {
 	local GENTOOARCH="${ARCH}"
