@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=(python3_12)
+PYTHON_COMPAT=(python3_11)
 
 declare -A CALCULATE_MODULES=(
 	["lib"]="3.7.6.5"
@@ -13,7 +13,7 @@ declare -A CALCULATE_MODULES=(
 	["builder"]="3.7.6.8"
 )
 
-inherit calculate-utils-r18
+inherit calculate-utils-r17
 
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
 HOMEPAGE="https://www.calculate-linux.org/main/en/calculate_utilities"
