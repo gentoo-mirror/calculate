@@ -165,7 +165,7 @@ RDEPEND="
 	)
 	dev-python/jaraco-functools[python_targets_python3_12]
 	dev-python/lxml[python_targets_python3_12]
-	dev-python/aiohttp
+	dev-python/aiohttp[python_targets_python3_12]
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils
