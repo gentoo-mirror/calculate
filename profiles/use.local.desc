@@ -35,13 +35,13 @@ net-im/viber:apulse - Support for PulseAudio emulation for ALSA
 net-vpn/ocserv:otp - Enable support for one-time passwords
 sys-apps/calculate-access:client - calculate-access client
 sys-apps/calculate-access:server - calculate-access server
-sys-apps/calculate-server:calculate_nodhcp - without DHCP
-sys-apps/calculate-server:calculate_noftp - without FTP
-sys-apps/calculate-server:calculate_nojabber - without jabber server
-sys-apps/calculate-server:calculate_nomail - without mail
-sys-apps/calculate-server:calculate_nonamed - without DNS
-sys-apps/calculate-server:calculate_noproxy - without proxy
-sys-apps/calculate-server:calculate_nosamba - without Samba fileserver
+sys-apps/calculate-server:calculate_nodhcp - Disable DHCP support
+sys-apps/calculate-server:calculate_noftp - Disable FTP support
+sys-apps/calculate-server:calculate_nojabber - Disable Jabber server support
+sys-apps/calculate-server:calculate_nomail - Disable e-mail support
+sys-apps/calculate-server:calculate_nonamed - Disable DNS support
+sys-apps/calculate-server:calculate_noproxy - Disable proxy support
+sys-apps/calculate-server:calculate_nosamba - Disable Samba fileserver support
 sys-apps/calculate-utils:backup - Includes backup module.
 sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain.
 sys-apps/calculate-utils:console - Includes console module.
