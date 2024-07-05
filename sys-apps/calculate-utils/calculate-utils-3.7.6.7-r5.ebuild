@@ -6,10 +6,10 @@ EAPI="8"
 PYTHON_COMPAT=(python3_11)
 
 declare -A CALCULATE_MODULES=(
-	["lib"]="3.7.6.7"
+	["lib"]="3.7.6.8"
 	["install"]="3.7.6.2"
 	["core"]="3.7.6.1"
-	["i18n"]="3.7.6.2"
+	["i18n"]="3.7.6.4"
 	["update"]="3.7.6.3"
 	["builder"]="3.7.6.8"
 )
