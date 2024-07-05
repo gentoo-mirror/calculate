@@ -1,20 +1,19 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 2007-2024 Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI="7"
+EAPI=7
+
 PYTHON_COMPAT=( python3_11 )
 
 inherit distutils-r1
 
-SRC_URI="https://mirror.calculate-linux.org/source/calculate2/${PN}/${P}.tar.bz2"
-
 DESCRIPTION="Configuration utility for Linux services"
 HOMEPAGE="https://www.calculate-linux.org/main/en/calculate2"
+SRC_URI="https://mirror.calculate-linux.org/source/calculate2/${PN}/${P}.tar.bz2"
+
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64"
-
 IUSE="calculate_nomail
 calculate_nodhcp
 calculate_noftp
@@ -31,24 +30,17 @@ DEPEND="!sys-apps/calculate-lib
 	>=sys-auth/nss_ldap-239
 	!<sys-apps/calculate-utils-3.5.0_alpha44
 	!calculate_nosamba? (
-		|| (
-			<net-fs/samba-4[acl,client,cups,ldap,netapi,pam,server,smbclient]
-			>=net-fs/samba-4[acl,client,cups,ldap,pam]
-		)
+		>=net-fs/samba-4[acl,client,cups,ldap,pam]
 	)
 	!calculate_nomail? (
-		|| ( <net-mail/dovecot-1.2.0[pop3d,ldap,pam,ssl]
-			>=net-mail/dovecot-1.2.0[ldap,pam,ssl(+)]
-		)
+		>=net-mail/dovecot-1.2.0[ldap,pam,ssl(+)]
 		>=mail-filter/procmail-3.22
 		|| ( dev-python/pymilter[python_targets_python3_11]
 			dev-python/pymilter[python_targets_python3_11] )
 		>=mail-mta/postfix-2.2[ldap,pam,ssl,sasl,dovecot-sasl]
 	)
 	!calculate_noftp? (
-		|| ( <net-ftp/proftpd-1.3.3[-acl,ldap,ncurses,nls,pam,ssl]
-			>=net-ftp/proftpd-1.3.3[-acl,ident,ldap,ncurses,nls,pam,ssl]
-		)
+		>=net-ftp/proftpd-1.3.3[-acl,ident,ldap,ncurses,nls,pam,ssl]
 	)
 	!calculate_nojabber? (
 		|| ( >=net-im/ejabberd-2.1.8[mod_pubsub,ldap]
@@ -64,7 +56,6 @@ DEPEND="!sys-apps/calculate-lib
 	|| ( dev-python/lxml[python_targets_python3_11]
 		dev-python/lxml[python_targets_python3_11] )
 "
-
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {

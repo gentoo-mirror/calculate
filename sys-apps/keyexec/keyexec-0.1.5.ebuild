@@ -1,16 +1,15 @@
-# Copyright 2008-2022 Mir Calculate
+# Copyright 2007-2024 Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Runs other programs with the user password, kept in the Linux kernel"
 HOMEPAGE="https://www.calculate-linux.org/main/en/keyexec"
-
 SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
-KEYWORDS="amd64 x86"
 
 LICENSE="Apache-2.0"
 SLOT="0"
+KEYWORDS="amd64"
 IUSE="kde +rdesktop +freerdp"
 
 DEPEND="
