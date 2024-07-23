@@ -4,7 +4,7 @@ ini_repo_dirs(){
 	declare -A repos_location
 	import_repos_conf(){
 		local repos_conf
-		local conf_file=/etc/portage/repos.conf
+		local conf_file=${1:-/etc/portage/repos.conf}
 		if [[ -d $conf_file ]]
 		then
 			repos_conf=$conf_file/*
@@ -24,10 +24,8 @@ ini_repo_dirs(){
 			if [[ $line =~ ^[[:blank:]]*location ]]
 			then
 				local val=${line#*=}
-				# remove leading whitespace characters
-				val=${val#${val%%[![:space:]]*}}
-				# remove trailing whitespace characters
-				val=${val%${val##*[![:space:]]}}
+				val=${val#${val%%[![:space:]]*}} # remove leading whitespace characters
+				val=${val%${val##*[![:space:]]}} # remove trailing whitespace characters
 				repos_location[$sec]=$val
 			fi
 		done <<< "$(cat $repos_conf)"
@@ -54,12 +52,13 @@ ini_repo_dirs(){
 		fi
 	}
 	import_repos_conf
-	get_list $(realpath /etc/portage/make.profile)
+	get_list $(realpath ${1:-/etc/portage/make.profile})
+	echo $(realpath ${1:-/etc/portage/make.profile})
 }
 
 ini_list_files(){
 	local path
-	for path in $(ini_repo_dirs) \
+	for path in $(ini_repo_dirs ${1:-}) \
 		/var/lib/calculate/calculate-update \
 		"$HOME/.calculate" \
 		/var/lib/calculate \
@@ -75,9 +74,9 @@ ini_list_files(){
 }
 
 # The function reads values from all ini.env files into the ini array
-get_ini(){
+ini_get(){
 	local line sec ini_file
-	for ini_file in $(ini_list_files)
+	for ini_file in $(ini_list_files ${1:-})
 	do
 		while IFS= read -r line
 		do
@@ -104,11 +103,7 @@ get_ini(){
 			val=${val#${val%%[![:space:]]*}}
 			# remove trailing whitespace characters
 			val=${val%${val##*[![:space:]]}}
-
 			ini[$var]=$val
 		done < $ini_file
 	done
 }
-
-get_ini
-
