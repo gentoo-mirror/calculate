@@ -75,6 +75,7 @@ ini_list_files(){
 
 # The function reads values from all ini.env files into the ini array
 ini_get(){
+	ini=()
 	local line sec ini_file
 	for ini_file in $(ini_list_files ${1:-})
 	do
