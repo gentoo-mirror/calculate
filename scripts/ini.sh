@@ -58,9 +58,10 @@ ini_repo_dirs(){
 
 ini_list_files(){
 	local path
+	[[ -n ${HOME:-} ]] && local home="$HOME/.calculate"
 	for path in $(ini_repo_dirs ${1:-}) \
 		/var/lib/calculate/calculate-update \
-		"$HOME/.calculate" \
+		${home:-} \
 		/var/lib/calculate \
 		/etc/calculate \
 		/var/calculate \
