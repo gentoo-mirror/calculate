@@ -12,8 +12,7 @@ ini_repo_dirs(){
 			repos_conf=$conf_file
 		fi
 		local sec
-		while IFS= read -r line
-		do
+		while IFS= read -r line; do
 			if [[ $line =~ ^[[:blank:]]*\[ ]]
 			then
 				line=${line#*[}
@@ -35,8 +34,7 @@ ini_repo_dirs(){
 		local next
 		if [[ -e $path/parent ]]
 		then
-			while IFS= read -r line
-			do
+			while IFS= read -r line; do
 				if [[ $line =~ ^[a-z0-9]+: ]]
 				then
 					next=$(realpath ${repos_location[${line%%:*}]}/profiles/${line#*:})
@@ -58,15 +56,17 @@ ini_repo_dirs(){
 
 ini_list_files(){
 	local path
-	[[ -n ${HOME:-} ]] && local home="$HOME/.calculate"
-	for path in $(ini_repo_dirs ${1:-}) \
-		/var/lib/calculate/calculate-update \
-		${home:-} \
-		/var/lib/calculate \
-		/etc/calculate \
-		/var/calculate \
-		/var/calculate/remote
-	do
+	if [[ -z ${1:-} ]]; then
+		[[ -n ${HOME:-} ]] && local home="$HOME/.calculate"
+		local default_path="/var/lib/calculate/calculate-update \
+			${home:-} \
+			/var/lib/calculate \
+			/etc/calculate \
+			/var/calculate \
+			/var/calculate/remote"
+	fi
+
+	for path in $(ini_repo_dirs ${1:-}) ${default_path:-}; do
 		if [[ -e $path/ini.env ]]
 		then
 			echo $path/ini.env
@@ -78,10 +78,8 @@ ini_list_files(){
 ini_get(){
 	ini=()
 	local line sec ini_file
-	for ini_file in $(ini_list_files ${1:-})
-	do
-		while IFS= read -r line
-		do
+	for ini_file in $(ini_list_files ${1:-}); do
+		while IFS= read -r line; do
 		        if [[ $line =~ ^[[:blank:]]*\[ ]]
 		        then
 		                line=${line#*[}
