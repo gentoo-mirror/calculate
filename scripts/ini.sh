@@ -5,23 +5,20 @@ ini_repo_dirs(){
 	import_repos_conf(){
 		local repos_conf
 		local conf_file=${1:-/etc/portage/repos.conf}
-		if [[ -d $conf_file ]]
-		then
+		if [[ -d $conf_file ]]; then
 			repos_conf=$conf_file/*
 		else
 			repos_conf=$conf_file
 		fi
 		local sec
 		while IFS= read -r line; do
-			if [[ $line =~ ^[[:blank:]]*\[ ]]
-			then
+			if [[ $line =~ ^[[:blank:]]*\[ ]]; then
 				line=${line#*[}
 				line=${line%%]*}
 				sec=$line
 				continue
 			fi
-			if [[ $line =~ ^[[:blank:]]*location ]]
-			then
+			if [[ $line =~ ^[[:blank:]]*location ]]; then
 				local val=${line#*=}
 				val=${val#${val%%[![:space:]]*}} # remove leading whitespace characters
 				val=${val%${val##*[![:space:]]}} # remove trailing whitespace characters
@@ -32,14 +29,11 @@ ini_repo_dirs(){
 	get_list(){
 		local path=$1
 		local next
-		if [[ -e $path/parent ]]
-		then
+		if [[ -e $path/parent ]]; then
 			while IFS= read -r line; do
-				if [[ $line =~ ^[a-z0-9]+: ]]
-				then
+				if [[ $line =~ ^[a-z0-9]+: ]]; then
 					next=$(realpath ${repos_location[${line%%:*}]}/profiles/${line#*:})
-				elif [[ ${line:0:1} == / ]]
-				then
+				elif [[ ${line:0:1} == / ]]; then
 					next=$(realpath $line)
 				else
 					next=$(realpath $path/$line)
@@ -55,20 +49,21 @@ ini_repo_dirs(){
 }
 
 ini_list_files(){
-	local path
 	if [[ -z ${1:-} ]]; then
 		[[ -n ${HOME:-} ]] && local home="$HOME/.calculate"
+		local script_dir="$(cd "$(dirname "$0")" && pwd)"
 		local default_path="/var/lib/calculate/calculate-update \
 			${home:-} \
 			/var/lib/calculate \
 			/etc/calculate \
 			/var/calculate \
-			/var/calculate/remote"
+			/var/calculate/remote \
+			${script_dir}"
 	fi
 
+	local path
 	for path in $(ini_repo_dirs ${1:-}) ${default_path:-}; do
-		if [[ -e $path/ini.env ]]
-		then
+		if [[ -e $path/ini.env ]]; then
 			echo $path/ini.env
 		fi
 	done
@@ -80,15 +75,13 @@ ini_get(){
 	local line sec ini_file
 	for ini_file in $(ini_list_files ${1:-}); do
 		while IFS= read -r line; do
-		        if [[ $line =~ ^[[:blank:]]*\[ ]]
-		        then
+		        if [[ $line =~ ^[[:blank:]]*\[ ]]; then
 		                line=${line#*[}
 		                line=${line%%]*}
 		                sec=$line
 		                continue
 		        fi
-			if [[ $line =~ ^[[:blank:]]*[#\;] || $line == '' ]]
-			then
+			if [[ $line =~ ^[[:blank:]]*[#\;] || $line == '' ]]; then
 				continue
 			fi
 			local var=${line%%=*}
