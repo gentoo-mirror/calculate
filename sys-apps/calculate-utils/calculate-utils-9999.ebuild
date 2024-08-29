@@ -12,7 +12,7 @@ DESCRIPTION="A set of Calculate utilities for system installation, build and upg
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="3"
 
 inherit distutils-r1
 
@@ -108,7 +108,6 @@ python_install() {
 
 	distutils-r1_python_install
 
-	keepdir /etc/calculate
 	keepdir /var/log/calculate
 }
 
@@ -128,6 +127,8 @@ pkg_preinst() {
 
 	mv ${D}/usr/usr/* ${D}/usr && rm -rf ${D}/usr/usr/
 	einfo "mv files from /usr/usr/ to /usr and remove /usr/usr"
+
+	keepdir /etc/calculate
 
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
 	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
