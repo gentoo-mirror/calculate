@@ -97,7 +97,7 @@ app-crypt/qca openssl
 # [melt, xml] required by media-video/kdenlive
 # required by media-video/openshot-1.4.3o
 # required by media-video/shotcut
-media-libs/mlt fftw melt xml kdenlive -xine qt5 python frei0r sdl2 jack
+media-libs/mlt fftw melt xml kdenlive -xine python frei0r sdl2 jack
 
 # required by kde-apps/libkface-15.08.3
 media-libs/opencv contrib
@@ -209,9 +209,6 @@ dev-qt/qtwayland compositor egl qml
 # required by www-client/firefox-50.0.2[pgo]
 x11-base/xorg-server xvfb
 
-# required by kde-apps/libkleo-16.12.0
-app-crypt/gpgme qt5
-
 # required by app-office/calligra-3.0.0[calligra_features_karbon]
 media-gfx/pstoedit plotutils
 
@@ -298,10 +295,7 @@ dev-libs/liblouis python
 # required by kde-apps/okular-15.08.3-r1::gentoo[pdf]
 # required by kde-frameworks/kfilemetadata-5.13.0 [pdf]
 # required by kde-apps/okular-21.04.3-r2[pdf]
-app-text/poppler qt5 nss
-
-# required by media-gfx/nomacs-3.0.0
-media-libs/opencv qt5
+app-text/poppler nss
 
 # required by (sys-apps/calculate-server-2.1.16-r17
 net-ftp/proftpd ident
@@ -406,9 +400,6 @@ dev-libs/libappindicator python
 
 # required by sys-boot/os-prober-1.76-r1
 sys-boot/grub mount
-
-# webkit? ( qt5 )
-sys-libs/gwenhywfar qt5
 
 # required by sys-apps/gptfdisk-1.0.1
 dev-libs/popt static-libs
@@ -607,7 +598,7 @@ sys-libs/ldb ldap
 dev-python/pyside2 positioning qml quick webchannel webengine
 sci-libs/med python
 sci-libs/opencascade json vtk
-sci-libs/vtk boost python qt5
+sci-libs/vtk boost python
 
 # required by dev-python/pyls-spyder-0.4.0-r1
 dev-python/python-lsp-server all-plugins
@@ -740,7 +731,7 @@ dev-lang/rust-bin rustfmt
 dev-qt/qttools assistant designer qml
 
 # required by www-client/qutebrowser-3.0.0, kde-frameworks/kirigami-6.5.0, kde-frameworks/kio-6.5.0, kde-apps/akonadi-24.05.2
-dev-qt/qt5compat icu qmi
+dev-qt/qt5compat icu qml
 dev-python/PyQt6 qml webchannel
 dev-qt/qtbase icu libproxy postgres
 
