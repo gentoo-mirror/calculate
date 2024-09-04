@@ -72,7 +72,7 @@ sys-fs/cryptsetup python
 www-apache/mod_perl ithreads
 
 # include backup, client, desktop, console and console-gui modules
-sys-apps/calculate-utils backup client desktop console qt5
+sys-apps/calculate-utils backup client desktop console
 
 # support caja
 app-arch/engrampa caja
@@ -197,10 +197,6 @@ lxqt-base/lxqt-panel colorpicker cpuload dom networkmonitor sysstat tray
 # support for XPM graphics format
 x11-wm/jwm xpm
 
-# support GUI/Application
-media-video/avidemux qt5
-media-libs/avidemux-plugins qt5
-
 # extensions without dependencies
 mate-extra/caja-extensions -cdr image-converter share
 
@@ -272,11 +268,6 @@ x11-drivers/xf86-video-intel dri3 uxa
 
 # enable face detection and recognition
 media-gfx/kphotoalbum face
-
-# support for the Qt GUI/Application
-app-backup/backintime qt5
-app-backup/bacula qt5
-net-print/hplip qt5
 
 # mate-base/mate -> x11-misc/mozo-1.8.0
 mate-base/mate-menus python
