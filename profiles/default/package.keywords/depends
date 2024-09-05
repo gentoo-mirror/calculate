@@ -22,9 +22,7 @@
 ~app-backup/vzdump-1.2 amd64
 ~app-benchmarks/bootchart2-0.14.9 amd64
 ~app-cdr/dumpet-2.1_p20140601 amd64
-~app-containers/lxd-5.20 amd64
 ~app-crypt/acr38u-1.7.11 amd64
-~app-crypt/aescrypt-3.14 amd64
 ~app-crypt/asedriveiiie-serial-3.5 amd64
 ~app-crypt/asedriveiiie-usb-3.5 amd64
 ~app-crypt/asekey-3.7 amd64
@@ -40,7 +38,6 @@
 ~app-crypt/envchain-1.0.1 amd64
 ~app-crypt/fcrackzip-1.0 amd64
 ~app-crypt/gifshuffle-2.0 amd64
-~app-crypt/gnupg-pkcs11-scd-0.9.2 amd64
 ~app-crypt/gpgstats-0.5 amd64
 ~app-crypt/hashcat-utils-1.9 amd64
 ~app-crypt/jetring-0.27 amd64
@@ -74,7 +71,6 @@
 ~app-emulation/coldfire-0.3.1 amd64
 ~app-emulation/dynamips-0.2.23 amd64
 ~app-emulation/gxemul-0.6.2 amd64
-~app-emulation/hyperd-0.7.0 amd64
 ~app-emulation/libspectrum-1.5.0 amd64
 ~app-emulation/qemu-init-scripts-0.3.0 amd64
 ~app-emulation/ski-1.3.2 amd64
@@ -85,7 +81,6 @@
 ~app-emulation/wine-mono-9.1.0 amd64
 ~app-emulation/wine-mono-9.2.0 amd64
 ~app-i18n/ibus-cangjie-2.4 amd64
-~app-i18n/ibus-pinyin-1.5.0 amd64
 ~app-i18n/ibus-table-chinese-1.8.3 amd64
 ~app-i18n/librime-1.9.0 amd64
 ~app-i18n/scim-1.4.18 amd64
@@ -173,7 +168,7 @@
 ~app-vim/vim-r-1.2.6 amd64
 ~app-vim/vim-rest-console-2.6.0 amd64
 ~app-vim/vim-spell-da-20060116 amd64
-~dev-cpp/abseil-cpp-20230802.0 amd64
+~dev-cpp/ada-2.9.1 amd64
 ~dev-cpp/cppgir-2.0_p20240315 amd64
 ~dev-cpp/cpp-hocon-0.3.0 amd64
 ~dev-cpp/edencommon-2023.06.19.00 amd64
@@ -181,9 +176,7 @@
 ~dev-cpp/lucene++-3.0.7 amd64
 ~dev-cpp/pystring-1.1.3 amd64
 ~dev-db/mariadb-connector-odbc-3.1.18 amd64
-~dev-db/mysql-8.0.34 amd64
 ~dev-db/mysql-connector-c++-8.0.33 amd64
-~dev-db/postgis-3.3.3 amd64
 ~dev-db/sqlitebrowser-3.12.2 amd64
 ~dev-games/irrlicht-1.8.4 amd64
 ~dev-games/irrlicht-headers-1.8.4 amd64
@@ -198,14 +191,11 @@
 ~dev-java/jchart2d-3.2.2 amd64
 ~dev-java/jide-oss-3.7.12 amd64
 ~dev-java/miglayout-5.3 amd64
-~dev-java/openjdk-bin-21.0.3_p9 amd64
 ~dev-java/swing-layout-1.0.4 amd64
 ~dev-java/swingx-1.6.4 amd64
 ~dev-java/swingx-beaninfo-1.6.4 amd64
 ~dev-java/swingx-ws-1.0_p20110515 amd64
-~dev-lang/elixir-1.15.7 amd64
 ~dev-lang/gnat-gpl-2021 amd64
-~dev-lang/scala-2.12.10 amd64
 ~dev-lang/spidermonkey-115.13.0 amd64
 ~dev-libs/angelscript-2.36.1 amd64
 ~dev-libs/atk-2.46.0 amd64
@@ -218,7 +208,6 @@
 ~dev-libs/libcpuid-0.6.4 amd64
 ~dev-libs/libdbusmenu-qt-0.9.3_pre20160218 amd64
 ~dev-libs/libdynd-0.7.2 amd64
-~dev-libs/libindicator-12.10.1 amd64
 ~dev-libs/libkpass-6 amd64
 ~dev-libs/libmcfp-1.2.3 amd64
 ~dev-libs/libplatform-2.1.0.1 amd64
@@ -244,15 +233,11 @@ dev-libs/nss amd64
 ~dev-python/miniupnpc-2.2.8 amd64
 ~dev-python/numpy-2.1.0 amd64
 ~dev-python/omemo-dr-1.0.1 amd64
-~dev-python/protobuf-python-4.23.3 amd64
 ~dev-python/quantities-0.16.0 amd64
-~dev-python/setuptools-70.1.1 amd64
-~dev-python/thrift-0.16.0 amd64
 ~dev-python/tomli-2.0.1 amd64
 ~dev-python/trove-classifiers-2024.7.2 amd64
 ~dev-ruby/minitar-0.9 amd64
 ~dev-ruby/optimist-3.1.0 amd64
-~dev-ruby/yard-0.9.34 amd64
 ~dev-tcltk/expect-5.45.4 amd64
 ~dev-tex/bibtex2html-1.99 amd64
 ~dev-util/anjuta-3.34.0 amd64
@@ -260,11 +245,9 @@ dev-libs/nss amd64
 ~dev-util/bear-3.1.3 amd64
 ~dev-util/btyacc-3.0 amd64
 ~dev-util/cbindgen-0.26.0 amd64
-~dev-util/cucumber-html-formatter-19.2.0 amd64
 ~dev-util/premake-5.0.0_beta2 amd64
 ~dev-util/rats-2.4 amd64
 ~dev-util/shellcheck-0.9.0 amd64
-~dev-util/spirv-llvm-translator-17.0.0 amd64
 ~dev-util/watchman-2023.06.19.00 amd64
 ~games-action/spacearyarya-kxl-1.0.3 amd64
 ~games-arcade/performous-1.2.0 amd64
@@ -273,7 +256,6 @@ dev-libs/nss amd64
 ~gnustep-libs/dbuskit-0.1.1 amd64
 ~gnustep-libs/pantomime-1.4.0 amd64
 ~gui-apps/waybar-0.10.3 amd64
-~kde-apps/krdc-24.08.0 amd64
 ~lxde-base/lxappearance-0.6.3 amd64
 ~lxde-base/lxappearance-obconf-0.2.3 amd64
 ~lxde-base/lxde-common-0.99.2 amd64
@@ -289,7 +271,6 @@ dev-libs/nss amd64
 ~mail-filter/mailfilter-0.8.9 amd64
 ~mail-filter/spampd-2.61 amd64
 ~mail-mta/netqmail-1.06 amd64
-~mate-base/mate-control-center-1.26.1 amd64
 ~media-gfx/farbfeld-4 amd64
 ~media-gfx/fig2dev-3.2.9 amd64
 ~media-gfx/openvdb-11.0.0 amd64
@@ -301,7 +282,6 @@ dev-libs/nss amd64
 ~media-libs/icc-profiles-basiccolor-printing2009-1.2.0 amd64
 ~media-libs/icc-profiles-openicc-1.3.1 amd64
 ~media-libs/iir1-1.9.3 amd64
-~media-libs/jasper-4.0.0 amd64
 ~media-libs/libaom-3.9.0 amd64
 ~media-libs/libcdaudio-0.99.12 amd64
 ~media-libs/libdvdnav-6.1.1 amd64
@@ -310,7 +290,7 @@ dev-libs/nss amd64
 ~media-libs/libggimisc-2.2.2 amd64
 ~media-libs/libgpod-0.8.3 amd64
 ~media-libs/liblingoteach-0.2.3 amd64
-~media-libs/libtgvoip-2.4.4_p20221208 amd64
+~media-libs/libtgvoip-2.4.4_p20240706 amd64
 ~media-libs/libv4l-1.26.1 amd64
 ~media-libs/libvpx-1.14.1 amd64
 ~media-libs/oidn-2.2.2 amd64
@@ -320,8 +300,7 @@ dev-libs/nss amd64
 ~media-libs/opensubdiv-3.6.0 amd64
 ~media-libs/rnnoise-0.4.1_p20210122 amd64
 ~media-libs/sdl-pango-0.1.2 amd64
-~media-libs/tg_owt-0_pre20230921 amd64
-~media-libs/vigra-1.11.1 amd64
+~media-libs/tg_owt-0_pre20240804 amd64
 ~media-libs/zmusic-1.1.4 amd64
 ~media-plugins/imlib2_loaders-1.11.0 amd64
 ~media-plugins/vdr-dvbhddevice-2.2.0_p20180420 amd64
@@ -331,7 +310,6 @@ dev-libs/nss amd64
 ~media-sound/baudline-1.08 amd64
 ~media-sound/bpmdetect-0.7.0_pre20170810 amd64
 ~media-sound/dcadec-0.2.0 amd64
-~media-sound/herrie-2.2 amd64
 ~media-sound/jamin-0.98.9_pre20170111 amd64
 ~media-sound/mixxx-2.3.6 amd64
 ~media-sound/mp3splt-2.6.2 amd64
@@ -341,11 +319,8 @@ dev-libs/nss amd64
 ~media-sound/qtagger-1.0.1_p20150402 amd64
 ~media-sound/snd-22.9 amd64
 ~media-tv/linuxtv-dvb-apps-1.1.1.20140321 amd64
-~media-tv/v4l-utils-1.26 amd64
 ~media-video/baka-mplayer-2.0.4 amd64
-~media-video/ffmpeg-chromium-124 amd64
 ~media-video/mpv-0.38.0 amd64
-~media-video/subliminal-2.1.0 amd64
 ~media-video/vcdimager-2.0.1 amd64
 ~media-video/webcamoid-9.1.1 amd64
 ~net-analyzer/argus-clients-3.0.8.4 amd64
@@ -355,7 +330,6 @@ dev-libs/nss amd64
 ~net-analyzer/nagios-check_multiple-0.0.1 amd64
 ~net-analyzer/nagios-icinga-openvpn-0.0.1 amd64
 ~net-analyzer/netwatch-1.3.0.1 amd64
-~net-analyzer/ospd-openvas-22.7.0 amd64
 ~net-analyzer/sbd-1.37 amd64
 ~net-analyzer/scanlogd-2.2.8 amd64
 ~net-analyzer/ttcp-1.12 amd64
@@ -434,12 +408,10 @@ net-vpn/wireguard-tools amd64
 ~sci-libs/cgnslib-4.3.0 amd64
 ~sci-libs/flann-1.9.1 amd64
 ~sci-libs/libcifpp-7.0.4 amd64
-~sci-libs/linux-gpib-modules-4.3.5 amd64
 ~sci-libs/mkl-2020.4.304 amd64
 ~sci-libs/opencascade-7.7.2 amd64
 ~sci-libs/pcl-1.14.1 amd64
 ~sci-libs/tamu_anova-0.2 amd64
-~sci-libs/vtk-9.2.6 amd64
 ~sci-libs/xdmf2-1.0_p141226 amd64
 ~sci-mathematics/num-utils-0.5 amd64
 ~sci-visualization/xgraph-12.1 amd64
@@ -456,7 +428,6 @@ net-vpn/wireguard-tools amd64
 ~sys-firmware/sigrok-firmware-fx2lafw-0.1.7 amd64
 ~sys-fs/archivemount-0.9.1 amd64
 ~sys-fs/autorun-3.17 amd64
-~sys-fs/clamfs-1.2.0 amd64
 ~sys-fs/copyfs-1.0.1 amd64
 ~sys-fs/ecryptfs-utils-111_p20170609 amd64
 ~sys-fs/ext3grep-0.10.2 amd64
@@ -479,7 +450,6 @@ net-vpn/wireguard-tools amd64
 ~sys-libs/libstdc++-v3-3.3.6 amd64
 ~sys-libs/libudev-compat-186 amd64
 ~sys-libs/liburing-2.3 amd64
-~sys-power/powernowd-1.00 amd64
 ~sys-process/acct-6.6.4 amd64
 ~sys-process/bcron-0.11 amd64
 ~sys-process/memwatch-0.3.3 amd64
@@ -497,7 +467,6 @@ net-vpn/wireguard-tools amd64
 ~x11-libs/libtinynotify-cli-1.2.1 amd64
 ~x11-libs/libXaw3dXft-1.6.2h amd64
 ~x11-libs/wxGTK-3.2.2.1 amd64
-~x11-libs/xapp-2.8.2 amd64
 ~x11-misc/accessx-0951 amd64
 ~x11-misc/bbacpi-0.1.5 amd64
 ~x11-misc/bbcd-0.3.1 amd64
@@ -520,7 +489,6 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/kaqaz-1.2.0 amd64
 ~x11-misc/kbdd-0.7.1 amd64
 ~x11-misc/libinput-gestures-2.73 amd64
-~x11-misc/lightdm-gtk-greeter-2.0.8 amd64
 ~x11-misc/lightdm-mini-greeter-0.4.0 amd64
 ~x11-misc/light-locker-1.9.0 amd64
 ~x11-misc/lineak-defaultplugin-0.9.0 amd64
