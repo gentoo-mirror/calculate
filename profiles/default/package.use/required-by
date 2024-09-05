@@ -494,8 +494,8 @@ app-i18n/scim gtk3
 # required by app-i18n/dbskkd-cdb-2.00
 app-i18n/skk-jisyo cdb
 
-# required by media-sound/teamspeak-client-3.3.2, dev-qt/qtwebview-6.6.1, net-misc/nextcloud-client-3.0.3
-dev-qt/qtwebengine geolocation qml widgets
+# required by media-sound/teamspeak-client-3.3.2, dev-qt/qtwebview-6.6.1, net-misc/nextcloud-client-3.0.3, media-gfx/skanpage-24.05.2
+dev-qt/qtwebengine geolocation qml widgets pdfium
 
 # required by @selected
 dev-python/pallets-sphinx-themes -python_targets_python2_7
@@ -730,10 +730,10 @@ dev-lang/rust-bin rustfmt
 # required by dev-qt/qt-creator-11.0.2[designer,help]
 dev-qt/qttools assistant designer qml
 
-# required by www-client/qutebrowser-3.0.0, kde-frameworks/kirigami-6.5.0, kde-frameworks/kio-6.5.0, kde-apps/akonadi-24.05.2
+# required by www-client/qutebrowser-3.0.0, kde-frameworks/kirigami-6.5.0, kde-frameworks/kio-6.5.0
 dev-qt/qt5compat icu qml
 dev-python/PyQt6 qml webchannel
-dev-qt/qtbase icu libproxy postgres
+dev-qt/qtbase icu libproxy
 
 # required by dev-python/cypari2-2.1.4-r1
 sci-mathematics/pari doc gmp
@@ -796,3 +796,6 @@ dev-java/ant junit
 
 # required by kde-plasma/krdp-6.1.4
 net-misc/freerdp server
+
+# required by media-radio/wsjtx-2.6.1
+sci-libs/fftw fortran
