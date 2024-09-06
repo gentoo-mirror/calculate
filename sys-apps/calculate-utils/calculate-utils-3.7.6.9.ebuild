@@ -12,7 +12,7 @@ DESCRIPTION="A set of Calculate utilities for system installation, build and upg
 HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 
 LICENSE="Apache-2.0"
-SLOT="3"
+SLOT="0"
 
 inherit distutils-r1
 
