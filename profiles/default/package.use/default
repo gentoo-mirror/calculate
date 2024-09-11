@@ -206,7 +206,7 @@ app-text/atril epub
 # openssl support needed for mpv, to play over ssh
 # builds libffmpeg.so to enable media playback in Chromium-based browsers like Opera and Vivaldi
 # xcb for video capture screen monitor
-media-video/ffmpeg openssl chromium xcb libaom
+media-video/ffmpeg openssl chromium xcb libaom svt-av1
 
 # opengl? ( gui widgets ), webkit? ( network printsupport )
 dev-python/PyQt5 gui printsupport network widgets
