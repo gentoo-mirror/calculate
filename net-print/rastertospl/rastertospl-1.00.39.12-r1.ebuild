@@ -3,13 +3,13 @@
 
 EAPI=8
 
-DESCRIPTION=""
+DESCRIPTION="HP drivers for MFP 13x, 17x (Color) series, Laser 10x, 15x (Color) series"
 HOMEPAGE="https://ftp.hp.com"
 SRC_URI="https://ftp.hp.com/pub/softlib/software13/printers/CLP150/uld-hp_V1.00.39.12_00.15.tar.gz -> ${P}.tar.gz"
 
 S="$WORKDIR/"${P}""
 
-LICENSE=""
+LICENSE="HP-EULA"
 SLOT="0"
 KEYWORDS="amd64"
 
