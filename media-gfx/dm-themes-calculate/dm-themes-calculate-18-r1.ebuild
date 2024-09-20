@@ -6,6 +6,14 @@ EAPI=7
 
 DESCRIPTION="Display manager wallpapers for Calculate Linux"
 HOMEPAGE="https://www.calculate-linux.org/packages/media-gfx/dm-themes-calculate"
+SRC_URI="login? (
+		https://mirror.calculate-linux.org/themes/calculate/dm-login-${PV}.jpg -> ${PN}-login-${PVR}.jpg
+	)
+	splash? (
+		https://mirror.calculate-linux.org/themes/calculate/dm-splash-${PV}.jpg -> ${PN}-splash-${PVR}.jpg
+	)"
+
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -14,21 +22,12 @@ IUSE="+splash +login"
 
 REQUIRED_USE="|| ( splash login )"
 
-SRC_URI="login? (
-		https://mirror.calculate-linux.org/themes/calculate/dm-login-${PV}.jpg -> ${PN}-login-${PVR}.jpg
-	)
-	splash? (
-		https://mirror.calculate-linux.org/themes/calculate/dm-splash-${PV}.jpg -> ${PN}-splash-${PVR}.jpg
-	)"
-
 DEPEND="!<sys-apps/calculate-utils-3.5.2.6"
 
 # need for templates
 RDEPEND="${DEPEND}
 	|| ( media-gfx/imagemagick
 	media-gfx/graphicsmagick )"
-
-S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/themes/Calculate/
