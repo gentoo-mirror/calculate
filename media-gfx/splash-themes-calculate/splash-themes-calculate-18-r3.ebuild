@@ -6,14 +6,6 @@ EAPI=7
 
 DESCRIPTION="Calculate Linux theme for gensplash"
 HOMEPAGE="https://www.calculate-linux.org/packages/media-gfx/calculate-splash-themes"
-
-LICENSE="Apache-2.0"
-SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="+verbose +silent +silent-shutdown"
-
-REQUIRED_USE="|| ( verbose silent silent-shutdown )"
-
 SRC_URI="silent? (
 		https://mirror.calculate-linux.org/themes/calculate/splash-silent-18.jpg -> ${PN}-silent-18.jpg
 	verbose? (
@@ -21,6 +13,15 @@ SRC_URI="silent? (
 	silent-shutdown? (
 		https://mirror.calculate-linux.org/themes/calculate/splash-shutdown-18-r1.jpg -> ${PN}-shutdown-18-r1.jpg
 	)"
+
+S="${WORKDIR}"
+
+LICENSE="Apache-2.0"
+SLOT="0"
+KEYWORDS="amd64 x86"
+IUSE="+verbose +silent +silent-shutdown"
+
+REQUIRED_USE="|| ( verbose silent silent-shutdown )"
 
 DEPEND="media-gfx/splashutils
 	media-fonts/droid
@@ -30,8 +31,6 @@ DEPEND="media-gfx/splashutils
 RDEPEND="${DEPEND}
 	|| ( media-gfx/imagemagick
 	media-gfx/graphicsmagick )"
-
-S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/themes/Calculate/

@@ -2,9 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 DESCRIPTION=""
 HOMEPAGE="https://ftp.hp.com"
 SRC_URI="https://ftp.hp.com/pub/softlib/software13/printers/CLP150/uld-hp_V1.00.39.12_00.15.tar.gz -> ${P}.tar.gz"
+
+S="$WORKDIR/"${P}""
 
 LICENSE=""
 SLOT="0"
@@ -12,7 +15,7 @@ KEYWORDS="amd64"
 
 DEPEND="net-print/cups"
 RDEPEND="${DEPEND}"
-S="$WORKDIR/"${P}""
+
 src_unpack() {
 default && mv uld "${P}"
 }

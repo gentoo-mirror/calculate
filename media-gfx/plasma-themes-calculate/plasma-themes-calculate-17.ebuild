@@ -6,12 +6,11 @@ EAPI=7
 
 DESCRIPTION="Plasma theme for Calculate Linux"
 HOMEPAGE="https://www.calculate-linux.org/packages/media-gfx/plasma-themes-calculate"
+SRC_URI="https://mirror.calculate-linux.org/themes/plasma/plasma-calculate-${PV}.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
-
-SRC_URI="https://mirror.calculate-linux.org/themes/plasma/plasma-calculate-${PV}.tar.bz2"
 
 src_install() {
 	insinto /
