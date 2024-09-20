@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 COMMIT="31a6f80784d289d2faa8c4ca4788409c83b3ea14"
 
@@ -15,15 +15,12 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64"
 
-DEPEND=""
-RDEPEND=""
-
 src_compile() {
 	:
 }
 
 src_install() {
-	dodir /usr/share/edid
 	insinto /usr/share/edid
+	dodir /usr/share/edid
 	doins *.bin
 }
