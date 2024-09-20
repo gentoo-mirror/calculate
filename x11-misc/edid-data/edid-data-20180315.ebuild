@@ -8,15 +8,15 @@ COMMIT="31a6f80784d289d2faa8c4ca4788409c83b3ea14"
 DESCRIPTION="EDID binary files"
 HOMEPAGE="https://github.com/akatrevorjay/edid-generator"
 SRC_URI="https://github.com/akatrevorjay/edid-generator/archive/${COMMIT}.tar.gz -> edid-data-${PV}.tar.gz"
-SLOT="0"
+
+S="${WORKDIR}/edid-generator-${COMMIT}"
 
 LICENSE="GPL-2"
+SLOT="0"
 KEYWORDS="amd64"
 
 DEPEND=""
 RDEPEND=""
-
-S="${WORKDIR}/edid-generator-${COMMIT}"
 
 src_compile() {
 	:
