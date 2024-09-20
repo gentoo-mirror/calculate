@@ -4,17 +4,17 @@
 
 EAPI="7"
 
-SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
-
 DESCRIPTION="An efficient blocker for Chromium"
 HOMEPAGE="https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm"
+SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
+
+S="${WORKDIR}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
 RDEPEND="dev-python/plyvel"
-
-S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/chrome-ublock

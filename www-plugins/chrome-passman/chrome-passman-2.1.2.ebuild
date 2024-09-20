@@ -4,18 +4,18 @@
 
 EAPI=8
 
-SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
-
 DESCRIPTION="Passman - The password manager for NextCloud / ownCloud"
 HOMEPAGE="https://chrome.google.com/webstore/detail/hlpjhlifkgmoibhollggngbbhbejecph"
+SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
+
+S="${WORKDIR}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
 RDEPEND="dev-python/plyvel
 	dev-python/sjcl"
-
-S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/${PN}
