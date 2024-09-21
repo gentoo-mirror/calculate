@@ -11,8 +11,7 @@ MY_PN=libjpeg-turbo
 
 DESCRIPTION="MMX, SSE, and SSE2 SIMD accelerated JPEG library"
 HOMEPAGE="https://libjpeg-turbo.org/ https://sourceforge.net/projects/libjpeg-turbo/"
-#SRC_URI="https://sourceforge.net/projects/libjpeg-turbo/files/${PV}/${MY_PN}-${PV}.tar.gz/download
-SRC_URI="https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/${PV}.tar.gz
+SRC_URI="https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	mirror://gentoo/libjpeg8_8d-2.debian.tar.gz"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
@@ -52,7 +51,7 @@ EOF
 src_configure() {
 
 	local mycmakeargs=(
-        -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
+		-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
 		-DCMAKE_INSTALL_DEFAULT_DOCDIR="${EPREFIX}/usr/share/doc/${PF}"
 		-DENABLE_SHARED=ON
 		-DENABLE_STATIC=OFF
