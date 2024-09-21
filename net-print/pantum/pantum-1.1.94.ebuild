@@ -16,16 +16,17 @@ KEYWORDS="amd64"
 IUSE="scanner"
 
 COMMON_DEPEND="
+	media-libs/libjpeg-turbo
 	media-libs/libjpeg8
 	net-print/cups
-	sys-apps/dbus
-	virtual/jpeg:0
 	net-print/cups-filters
+	sys-apps/dbus
 	scanner? (
 		media-gfx/sane-backends
 	)
 "
 BDEPEND="
+	app-arch/unzip
 	virtual/pkgconfig
 "
 DEPEND="
@@ -46,7 +47,7 @@ src_install(){
 		rm -rf "${D}/usr/lib/x86_64-linux-gnu"
 		rm -rf "${D}/usr/local"
 	fi
-	mv ${D}/usr/lib ${D}/usr/libexec
+	mv "${D}"/usr/lib "${D}"/usr/libexec
 	mkdir "${D}/etc/ld.so.conf.d/"
 	echo /opt/pantum/lib >> "${D}/etc/ld.so.conf.d/pantum.conf"
 }

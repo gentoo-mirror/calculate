@@ -20,16 +20,17 @@ RESTRICT="bindist mirror strip"
 
 COMMON_DEPEND="
 	>=sys-libs/glibc-2.0.0
-	sys-apps/dbus
+	media-libs/libjpeg-turbo
 	media-libs/libjpeg8
 	net-print/cups
 	net-print/cups-filters
-	virtual/jpeg:0
+	sys-apps/dbus
 	scanner? (
 		media-gfx/sane-backends
 	)
 "
 BDEPEND="
+	app-arch/unzip
 	virtual/pkgconfig
 "
 DEPEND="
@@ -51,7 +52,7 @@ src_install() {
 		rm -rf "${D}/usr/lib/x86_64-linux-gnu" || die
 		rm -rf "${D}/usr/local" || die
 	fi
-	mv ${D}/usr/lib ${D}/usr/libexec || die
+	mv "${D}"/usr/lib "${D}"/usr/libexec || die
 	mkdir -p "${D}/etc/ld.so.conf.d/" || die
 	echo "/opt/pantum/lib" >> "${D}/etc/ld.so.conf.d/pantum.conf" || die
 }
