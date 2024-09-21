@@ -100,7 +100,6 @@ install_openrc_daemons() {
 install_xdm() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-
 	local xdm_pth="/usr/share/calculate/xdm"
 	exeinto ${xdm_pth}
 	insinto ${xdm_pth}
@@ -125,7 +124,6 @@ install_xdm() {
 
 install_sbin() {
 	debug-print-function ${FUNCNAME} "${@}"
-
 
 	dosbin $(find "resources/scripts/sbin" -maxdepth 1 -type f)
 	use client && dosbin resources/scripts/sbin/client/*
