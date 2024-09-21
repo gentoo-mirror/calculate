@@ -7,13 +7,15 @@ EAPI=8
 
 inherit cmake
 
-PN=libjpeg-turbo
-P=
+MY_PN=libjpeg-turbo
 
 DESCRIPTION="MMX, SSE, and SSE2 SIMD accelerated JPEG library"
 HOMEPAGE="https://libjpeg-turbo.org/ https://sourceforge.net/projects/libjpeg-turbo/"
-SRC_URI="mirror://sourceforge/${PN}/${PN}-${PV}.tar.gz
+#SRC_URI="https://sourceforge.net/projects/libjpeg-turbo/files/${PV}/${MY_PN}-${PV}.tar.gz/download
+SRC_URI="https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/${PV}.tar.gz
 	mirror://gentoo/libjpeg8_8d-2.debian.tar.gz"
+
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="BSD IJG ZLIB"
 SLOT="0/0.2"
@@ -29,8 +31,6 @@ BDEPEND="
 	amd64-linux? ( ${ASM_DEPEND} )
 	x86-linux? ( ${ASM_DEPEND} )
 "
-
-S="${WORKDIR}"/${PN}-${PV}
 
 MULTILIB_WRAPPED_HEADERS=( /usr/include/jconfig.h )
 
@@ -52,7 +52,9 @@ EOF
 src_configure() {
 
 	local mycmakeargs=(
+        -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
 		-DCMAKE_INSTALL_DEFAULT_DOCDIR="${EPREFIX}/usr/share/doc/${PF}"
+		-DENABLE_SHARED=ON
 		-DENABLE_STATIC=OFF
 		-DWITH_JAVA=OFF
 		-DWITH_JPEG8=1
