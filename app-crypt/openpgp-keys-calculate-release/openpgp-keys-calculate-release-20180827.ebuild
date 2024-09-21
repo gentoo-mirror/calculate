@@ -7,11 +7,11 @@ DESCRIPTION="OpenPGP keys used for Calculate binary packages"
 HOMEPAGE="https://www.calculate-linux.org/"
 SRC_URI="https://mirror.calculate-linux.org/source/openpgp-keys/calculate-release.asc.${PV}.gz"
 
+S="${WORKDIR}"
+
 LICENSE="public-domain"
 SLOT="0"
 KEYWORDS="amd64 x86"
-
-S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/openpgp-keys

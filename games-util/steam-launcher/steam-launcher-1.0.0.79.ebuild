@@ -12,6 +12,8 @@ DESCRIPTION="Installer, launcher and supplementary files for Valve's Steam clien
 HOMEPAGE="https://store.steampowered.com"
 SRC_URI="https://repo.steampowered.com/steam/archive/stable/steam_${PV}.tar.gz"
 
+S="${WORKDIR}/${PN}"
+
 LICENSE="ValveSteamLicense MIT"
 SLOT="0"
 KEYWORDS="amd64"
@@ -110,8 +112,6 @@ RDEPEND="
 		>=sys-libs/glibc-2.15
 	)
 "
-
-S="${WORKDIR}/${PN}"
 
 pkg_setup() {
 	linux-info_pkg_setup

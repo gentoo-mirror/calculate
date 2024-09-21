@@ -8,13 +8,12 @@ inherit xdg-utils
 
 DESCRIPTION="Icons theme for Calculate Linux"
 HOMEPAGE="https://www.calculate-linux.org/packages/x11-themes/calculate-icon-theme"
+SRC_URI="https://mirror.calculate-linux.org/themes/icon/icon-calculate-15-r6.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="+qt5"
-
-SRC_URI="https://mirror.calculate-linux.org/themes/icon/icon-calculate-15-r6.tar.bz2"
 
 RDEPEND="|| (
 		x11-themes/adwaita-icon-theme

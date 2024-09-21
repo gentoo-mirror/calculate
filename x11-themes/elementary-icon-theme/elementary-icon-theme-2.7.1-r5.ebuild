@@ -9,17 +9,17 @@ DESCRIPTION="Elementary icon theme is designed to be smooth, sexy, clear, and ef
 HOMEPAGE="https://launchpad.net/elementaryicons"
 SRC_URI="https://mirror.calculate-linux.org/themes/elementary/${PF}.tar.bz2"
 
-RESTRICT="binchecks strip"
+S="${WORKDIR}"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
+RESTRICT="binchecks strip"
+
 RDEPEND="
 	x11-themes/hicolor-icon-theme
 "
-
-S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/icons

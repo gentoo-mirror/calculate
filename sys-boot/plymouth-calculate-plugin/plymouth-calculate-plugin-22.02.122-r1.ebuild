@@ -13,16 +13,15 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://gitlab.freedesktop.org/plymouth/plymouth"
 else
 	SRC_URI="${SRC_URI} https://www.freedesktop.org/software/plymouth/releases/${MY_P}.tar.xz"
-#	KEYWORDS="~alpha amd64 arm arm64 ~ia64 ppc ~ppc64 ~riscv sparc x86"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
-
-S="${WORKDIR}/${MY_P}"
 
 inherit autotools readme.gentoo-r1 systemd
 
 DESCRIPTION="Graphical boot animation (splash) and logger"
 HOMEPAGE="https://cgit.freedesktop.org/plymouth/"
+
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -62,9 +61,9 @@ PATCHES=(
 src_prepare() {
 	use elibc_musl && append-ldflags -lrpmatch
 	default
-	cp ${FILESDIR}/0.9.6_pre20211225-plugin.c ${S}/src/plugins/splash/two-step/plugin.c
-	sed -i 's/two-step/calculate/g' ${S}/src/plugins/splash/two-step/Makefile.*
-	sed -i 's/two_step/calculate/g' ${S}/src/plugins/splash/two-step/Makefile.*
+	cp "${FILESDIR}/0.9.6_pre20211225-plugin.c" "${S}/src/plugins/splash/two-step/plugin.c"
+	sed -i 's/two-step/calculate/g' "${S}"/src/plugins/splash/two-step/Makefile.*
+	sed -i 's/two_step/calculate/g' "${S}"/src/plugins/splash/two-step/Makefile.*
 	eautoreconf
 }
 
@@ -123,16 +122,16 @@ src_compile() {
 # }
 
 src_install() {
-	cd ${S}/src/plugins/splash/two-step
+	cd "${S}/src/plugins/splash/two-step"
 	emake DESTDIR="${D}" install
 
-	cd ${S}/themes/spinfinity
+	cd "${S}/themes/spinfinity"
 
 	insinto /usr/share/plymouth/themes/calculate
 	doins box.png bullet.png entry.png lock.png
 
-	cd ${S}/themes/spinner
+	cd "${S}/themes/spinner"
 	doins throbber-00*.png
 
-	newins ${FILESDIR}/0.9.6_pre20211225-calculate.plymouth calculate.plymouth
+	newins "${FILESDIR}/0.9.6_pre20211225-calculate.plymouth" calculate.plymouth
 }

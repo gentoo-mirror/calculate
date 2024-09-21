@@ -4,18 +4,18 @@
 
 EAPI=8
 
-SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
-
 DESCRIPTION="Sync your bookmarks privately across browsers an devices"
 HOMEPAGE="https://chrome.google.com/webstore/detail/fnaicdffflnofjppbagibeoednhnbjhg"
+SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
+
+S="${WORKDIR}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
 RDEPEND="dev-python/plyvel
 	dev-python/sjcl"
-
-S="${WORKDIR}"
 
 src_install() {
 	insinto /usr/share/${PN}
