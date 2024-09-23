@@ -10,4 +10,4 @@ RDEPEND=!<sys-apps/calculate-utils-3.5.2.6 || ( media-gfx/imagemagick media-gfx/
 REQUIRED_USE=|| ( splash login )
 SLOT=0
 SRC_URI=login? ( https://mirror.calculate-linux.org/themes/calculate/dm-login-22.jpg -> dm-themes-calculate-login-22.jpg ) splash? ( https://mirror.calculate-linux.org/themes/calculate/dm-splash-22.jpg -> dm-themes-calculate-splash-22.jpg )
-_md5_=b47ba01d34696002411a98489850a857
+_md5_=8ad7cb40b8d642579ed7ef5de2ff9a83

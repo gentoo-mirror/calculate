@@ -1,9 +1,11 @@
 DEFINED_PHASES=install unpack
 DEPEND=net-print/cups
+DESCRIPTION=HP drivers for MFP 13x, 17x (Color) series, Laser 10x, 15x (Color) series
 EAPI=8
 HOMEPAGE=https://ftp.hp.com
 KEYWORDS=amd64
+LICENSE=HP-EULA
 RDEPEND=net-print/cups
 SLOT=0
 SRC_URI=https://ftp.hp.com/pub/softlib/software13/printers/CLP150/uld-hp_V1.00.39.12_00.15.tar.gz -> rastertospl-1.00.39.12.tar.gz
-_md5_=7f078a1057437237a5be70cc2bf7db8b
+_md5_=ef2576fa339dfe21152b0dfba57cd22c
