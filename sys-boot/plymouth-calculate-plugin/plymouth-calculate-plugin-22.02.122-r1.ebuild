@@ -19,7 +19,7 @@ fi
 inherit autotools readme.gentoo-r1 systemd
 
 DESCRIPTION="Graphical boot animation (splash) and logger"
-HOMEPAGE="https://cgit.freedesktop.org/plymouth/"
+HOMEPAGE="https://www.freedesktop.org/wiki/Software/Plymouth/"
 
 S="${WORKDIR}/${MY_P}"
 
