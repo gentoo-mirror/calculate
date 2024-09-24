@@ -46,7 +46,7 @@ DEPEND="${CDEPEND}
 # Block due bug #383067
 RDEPEND="${CDEPEND}
 	udev? ( virtual/udev )
-	!<sys-kernel/dracut-0.37-r3
+	sys-kernel/dracut
 "
 
 DOC_CONTENTS="
@@ -61,9 +61,9 @@ PATCHES=(
 src_prepare() {
 	use elibc_musl && append-ldflags -lrpmatch
 	default
-	cp ${FILESDIR}/0.9.6_pre20211225-plugin.c ${S}/src/plugins/splash/two-step/plugin.c
-	sed -i 's/two-step/calculate/g' ${S}/src/plugins/splash/two-step/Makefile.*
-	sed -i 's/two_step/calculate/g' ${S}/src/plugins/splash/two-step/Makefile.*
+	cp "${FILESDIR}"/plugin.c "${S}"/src/plugins/splash/two-step/plugin.c
+	sed -i 's/two-step/calculate/g' "${S}"/src/plugins/splash/two-step/Makefile.am
+	sed -i 's/two_step/calculate/g' "${S}"/src/plugins/splash/two-step/Makefile.am
 	eautoreconf
 }
 
@@ -98,16 +98,20 @@ src_compile() {
 }
 
 src_install() {
-	cd ${S}/src/plugins/splash/two-step
+	cd "${S}"/src/plugins/splash/two-step/
 	emake DESTDIR="${D}" install
 
-	cd ${S}/themes/spinfinity
+	if ! use static-libs; then
+		rm "${D}"/usr/$(get_libdir)/plymouth/calculate.la
+	fi
+
+	cd "${S}"/themes/spinfinity
 
 	insinto /usr/share/plymouth/themes/calculate
 	doins box.png bullet.png entry.png lock.png
 
-	cd ${S}/themes/spinner
+	cd "${S}"/themes/spinner
 	doins throbber-00*.png
 
-	newins ${FILESDIR}/0.9.6_pre20211225-calculate.plymouth calculate.plymouth
+	newins "${FILESDIR}"/calculate.plymouth calculate.plymouth
 }
