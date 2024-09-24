@@ -14,9 +14,8 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 LICENSE="Apache-2.0"
 SLOT="0"
 
-inherit distutils-r1
-
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+inherit distutils-r1
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
@@ -100,7 +99,6 @@ install_openrc_daemons() {
 install_xdm() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-
 	local xdm_pth="/usr/share/calculate/xdm"
 	exeinto ${xdm_pth}
 	insinto ${xdm_pth}
@@ -125,7 +123,6 @@ install_xdm() {
 
 install_sbin() {
 	debug-print-function ${FUNCNAME} "${@}"
-
 
 	dosbin $(find "resources/scripts/sbin" -maxdepth 1 -type f)
 	use client && dosbin resources/scripts/sbin/client/*
@@ -226,11 +223,13 @@ python_install() {
 }
 
 pkg_preinst() {
-	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
-	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
-	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
-	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
+	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
+	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
+	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
+	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
 }
+
+BDEPEND="$(python_gen_cond_dep 'dev-python/setuptools-scm[${PYTHON_USEDEP}]')"
 
 RDEPEND="
 	dev-libs/libbsd
@@ -312,7 +311,6 @@ RDEPEND="
 	client? (
 		dev-python/python-ldap[ssl,${PYTHON_USEDEP}]
 		sys-auth/pam_client
-		>=sys-auth/pam_ldap-180[ssl]
 		>=sys-auth/nss_ldap-239
 	)
 	backup? ( !sys-apps/calculate-server )
@@ -325,6 +323,7 @@ RDEPEND="
 #
 #
 #	server? ( !sys-apps/calculate-server )
+#   >=sys-auth/pam_ldap-180[ssl]
 
 DEPEND="
 	sys-devel/gettext"

@@ -1,34 +1,36 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DESCRIPTION="CUPS and SANE drivers for Pantum series printer and scanner."
-HOMEPAGE="https://www.pantum.ru/support/download/driver/"
-
-IUSE="scanner"
-
 MY_PV=${PV//./_}
 
+DESCRIPTION="CUPS and SANE drivers for Pantum series printer and scanner."
+HOMEPAGE="https://www.pantum.ru/support/download/driver/"
 SRC_URI="https://drivers.pantum.ru/userfiles/files/download/drive/2013/0619/Pantum%20Ubuntu%20Driver%20V${MY_PV}(1).zip"
+
+S="${WORKDIR}/Pantum Ubuntu Driver V${PV}"
 
 LICENSE="AS-IS"
 SLOT="0"
 KEYWORDS="amd64"
+
+IUSE="scanner"
 RESTRICT="bindist mirror strip"
 
 COMMON_DEPEND="
 	>=sys-libs/glibc-2.0.0
-	sys-apps/dbus
+	media-libs/libjpeg-turbo
 	media-libs/libjpeg8
 	net-print/cups
 	net-print/cups-filters
-	virtual/jpeg:0
+	sys-apps/dbus
 	scanner? (
 		media-gfx/sane-backends
 	)
 "
 BDEPEND="
+	app-arch/unzip
 	virtual/pkgconfig
 "
 DEPEND="
@@ -38,8 +40,6 @@ RDEPEND="
 	${COMMON_DEPEND}
 	app-text/ghostscript-gpl
 "
-
-S="${WORKDIR}/Pantum Ubuntu Driver V${PV}"
 
 src_prepare() {
 	eapply_user
@@ -52,7 +52,7 @@ src_install() {
 		rm -rf "${D}/usr/lib/x86_64-linux-gnu" || die
 		rm -rf "${D}/usr/local" || die
 	fi
-	mv ${D}/usr/lib ${D}/usr/libexec || die
+	mv "${D}"/usr/lib "${D}"/usr/libexec || die
 	mkdir -p "${D}/etc/ld.so.conf.d/" || die
 	echo "/opt/pantum/lib" >> "${D}/etc/ld.so.conf.d/pantum.conf" || die
 }

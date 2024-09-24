@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # NOTE: This is a version of `media-libs/libjpeg-turbo-2.1.4::gentoo` with slot and dependencies edits
@@ -7,13 +7,14 @@ EAPI=8
 
 inherit cmake
 
-PN=libjpeg-turbo
-P=
+MY_PN=libjpeg-turbo
 
 DESCRIPTION="MMX, SSE, and SSE2 SIMD accelerated JPEG library"
 HOMEPAGE="https://libjpeg-turbo.org/ https://sourceforge.net/projects/libjpeg-turbo/"
-SRC_URI="mirror://sourceforge/${PN}/${PN}-${PV}.tar.gz
+SRC_URI="https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	mirror://gentoo/libjpeg8_8d-2.debian.tar.gz"
+
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="BSD IJG ZLIB"
 SLOT="0/0.2"
@@ -29,8 +30,6 @@ BDEPEND="
 	amd64-linux? ( ${ASM_DEPEND} )
 	x86-linux? ( ${ASM_DEPEND} )
 "
-
-S="${WORKDIR}"/${PN}-${PV}
 
 MULTILIB_WRAPPED_HEADERS=( /usr/include/jconfig.h )
 
@@ -52,7 +51,9 @@ EOF
 src_configure() {
 
 	local mycmakeargs=(
+		-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
 		-DCMAKE_INSTALL_DEFAULT_DOCDIR="${EPREFIX}/usr/share/doc/${PF}"
+		-DENABLE_SHARED=ON
 		-DENABLE_STATIC=OFF
 		-DWITH_JAVA=OFF
 		-DWITH_JPEG8=1

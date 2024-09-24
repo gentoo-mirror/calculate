@@ -14,9 +14,8 @@ HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
 LICENSE="Apache-2.0"
 SLOT="0"
 
-inherit distutils-r1
-
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+inherit distutils-r1
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
@@ -24,15 +23,11 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://git.calculate-linux.org/calculate/calculate-utils.git"
 else
 	SRC_URI="https://git.calculate-linux.org/calculate/calculate-utils/archive/${PV}.tar.gz -> calculate-utils-${PV}.tar.gz"
-	if [[ ${PR} == "r0" ]]; then
-		KEYWORDS="amd64"
-	else
-		KEYWORDS="~amd64"
-	fi
+	KEYWORDS="amd64"
 	S="${WORKDIR}/${PN}"
 fi
 
-IUSE="backup client console dbus desktop +gpg +install minimal pxe qt5"
+IUSE="backup client console dbus desktop +gpg +install minimal pxe qt6"
 distutils_enable_tests unittest
 
 CALCULATE_MODULES_=(
@@ -45,7 +40,7 @@ CALCULATE_MODULES_=(
 )
 
 declare -g -A CALCULATE_MODULES_USE_=(
-	["console-gui"]="qt5"
+	["console-gui"]="qt6"
 	["desktop"]="desktop"
 	["client"]="client"
 	["console"]="console"
@@ -60,7 +55,7 @@ python_prepare_all() {
 		sed -ir "s/'cl-backup-restore'/None/" $core_file_path
 		sed -ir "s/__('Backup')/None/g" $core_file_path
 
-		einfo "Do something with calculate/core/wsdl_core.py"
+		einfo "Disable backups in core module"
 	fi
 
 	local lib_file_path="src/calculate/lib/variables/__init__.py"
@@ -94,51 +89,147 @@ python_configure() {
 	esetup.py build_mo
 }
 
-python_configure_all() {
-	if use dbus; then
-		DISTUTILS_ARGS=(install_data --uses dbus)
+install_openrc_daemons() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	doinitd $(find "resources/scripts/openrc_daemon" -maxdepth 1 -type f)
+	use client && doinitd resources/scripts/openrc_daemon/client/*
+}
+
+install_xdm() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local xdm_pth="/usr/share/calculate/xdm"
+	exeinto ${xdm_pth}
+	insinto ${xdm_pth}
+	if use desktop; then
+		doexe $(find "resources/scripts/xdm_files/desktop" -executable -type f)
+		doins $(find "resources/scripts/xdm_files/desktop" ! -executable -type f)
 	fi
+
+	use client && doexe resources/scripts/xdm_files/client/wait_domain
+
+	insinto /usr/share/calculate/xdm/login.d
+	if use desktop; then
+		doins resources/scripts/xdm_files/login.d/desktop/*
+	fi
+
+	use client && doins resources/scripts/xdm_files/login.d/client/*
+
+	insinto /usr/share/calculate/xdm/logout.d
+	use desktop && doins resources/scripts/xdm_files/logout.d/desktop/*
+	use client && doins resources/scripts/xdm_files/logout.d/client/*
+}
+
+install_sbin() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	dosbin $(find "resources/scripts/sbin" -maxdepth 1 -type f)
+	use client && dosbin resources/scripts/sbin/client/*
+}
+
+install_man() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	doman -i18n=ru resources/man/ru/*.1
+	doman resources/man/*.1
+}
+
+install_libexec() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	exeinto /usr/libexec/calculate
+
+	use dbus && doexe resources/scripts/libexec/dbus/*
+	doexe $(find "resources/scripts/libexec" -maxdepth 1 -type f)
+}
+
+install_doc() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	dodoc -r resources/*.html
+}
+
+install_bin() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	exeinto /bin
+	doexe resources/scripts/bin/*
+	exeinto /usr/bin
+	doexe resources/scripts/usr/bin/*
+}
+
+install_data_images() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local themes=("gnome" "hicolor")
+
+	insinto /usr/share/icons/Calculate/16x16/client-gui
+	doins -r resources/data/images/*
+
+	insinto /usr/share/
+	doins -r resources/data/pixmaps
+	doins -r resources/data/applications
+
+	insinto /usr/share/calculate/themes/
+	doins -r resources/data/install
+
+	for theme in ${themes[@]}; do
+		insinto /usr/share/icons/${theme}
+		doins -r resources/data/non_scalable/*
+
+		insinto /usr/share/icons/${theme}/scalable/apps
+		doins -r resources/data/scalable/*
+	done
 }
 
 python_install() {
-	if use qt5; then
+	if use qt6; then
 		local scriptdir=${EPREFIX}/usr/bin
 		local root=${BUILD_DIR}/install
 		local reg_scriptdir=${root}/${scriptdir}
 
 		python_newscript ${reg_scriptdir}/cl-console-gui cl-console-gui-install
 		python_newscript ${reg_scriptdir}/cl-console-gui cl-console-gui-update
+
+		install_data_images
+
+		insinto /etc/xdg/autostart
+		doins resources/data/cl-update-checker.desktop
 	fi
 
 	distutils-r1_python_install
 
+	install_openrc_daemons
+	install_libexec
+	install_xdm
+	install_sbin
+	install_man
+	install_doc
+	install_bin
+
+	if use dbus; then
+		insinto /usr/share/dbus-1/system.d
+		doins resources/configs/conf/*
+
+		insinto /usr/share/dbus-1/system-services
+		doins resources/configs/service/*
+	fi
+
+	# domo "${S}"/src/calculate/locale/**/LC_MESSAGES/*.mo
+
+	keepdir /etc/calculate
 	keepdir /var/log/calculate
 }
 
-python_install_all() {
-	debug-print-function ${FUNCNAME} "${@}"
-	_distutils-r1_check_all_phase_mismatch
-}
-
 pkg_preinst() {
-	mv ${D}/usr/etc ${D}/ || die "Can't find /usr/etc directory"
-	einfo "mv files from ${D}/usr/etc to ${D}/"
-
-	mkdir ${D}/bin || die
-	mv ${D}/usr/bin/bashlogin ${D}/bin || die
-	einfo "Change path for bashlogin script."
-	einfo "from ${D}/usr/bin/bashlogin to ${D}/bin"
-
-	mv ${D}/usr/usr/* ${D}/usr && rm -rf ${D}/usr/usr/
-	einfo "mv files from /usr/usr/ to /usr and remove /usr/usr"
-
-	keepdir /etc/calculate
-
-	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
-	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
-	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
-	dosym /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
+	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-setup
+	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-core-patch
+	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update
+	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
 }
+
+BDEPEND="$(python_gen_cond_dep 'dev-python/setuptools-scm[${PYTHON_USEDEP}]')"
 
 RDEPEND="
 	dev-libs/libbsd
@@ -192,10 +283,10 @@ RDEPEND="
 
 	!<sys-apps/calculate-server-2.1.18-r1
 
-	qt5? (
+	qt6? (
 		dev-python/dbus-python[${PYTHON_USEDEP}]
 		media-gfx/imagemagick[jpeg]
-		dev-python/PyQt5[${PYTHON_USEDEP}]
+		dev-python/PyQt6[${PYTHON_USEDEP}]
 		dev-python/pyinotify[${PYTHON_USEDEP}]
 	)
 
@@ -220,7 +311,6 @@ RDEPEND="
 	client? (
 		dev-python/python-ldap[ssl,${PYTHON_USEDEP}]
 		sys-auth/pam_client
-		>=sys-auth/pam_ldap-180[ssl]
 		>=sys-auth/nss_ldap-239
 	)
 	backup? ( !sys-apps/calculate-server )
@@ -233,6 +323,7 @@ RDEPEND="
 #
 #
 #	server? ( !sys-apps/calculate-server )
+#   >=sys-auth/pam_ldap-180[ssl]
 
 DEPEND="
 	sys-devel/gettext"

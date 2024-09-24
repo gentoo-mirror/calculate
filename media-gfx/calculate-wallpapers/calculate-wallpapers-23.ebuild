@@ -42,7 +42,6 @@ KEYWORDS="amd64"
 VERSION_IUSE="CL11 CL12 CL13 CL14 CL15 CL17 CL21 CL22"
 IUSE="+CL11 +CL12 +CL13 +CL14 +CL15 +CL17 +CL21 +CL22"
 
-
 # need for templates
 RDEPEND="${DEPEND}
 	|| ( media-gfx/imagemagick
