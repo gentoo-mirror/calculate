@@ -11,8 +11,10 @@ MY_P=libjpeg-turbo
 
 DESCRIPTION="MMX, SSE, and SSE2 SIMD accelerated JPEG library"
 HOMEPAGE="https://libjpeg-turbo.org/ https://sourceforge.net/projects/libjpeg-turbo/"
-SRC_URI="mirror://sourceforge/${MY_P}/${MY_P}-${PV}.tar.gz
+SRC_URI="https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	mirror://gentoo/libjpeg8_8d-2.debian.tar.gz"
+
+S="${WORKDIR}"/${MY_P}-${PV}
 
 LICENSE="BSD IJG ZLIB"
 SLOT="0"
@@ -24,8 +26,6 @@ BDEPEND="
 		|| ( dev-lang/nasm dev-lang/yasm )
 	)
 "
-
-S="${WORKDIR}"/${MY_P}-${PV}
 
 MULTILIB_WRAPPED_HEADERS=( /usr/include/jconfig.h )
 
