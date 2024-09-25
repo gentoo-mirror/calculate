@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,11 +8,10 @@ inherit gnome2
 DESCRIPTION="Display GTK+ dialog boxes from command line or shell scripts"
 HOMEPAGE="https://github.com/v1cont/yad"
 SRC_URI="https://github.com/v1cont/${PN}/releases/download/v${PV}/${P}.tar.xz"
+
 LICENSE="GPL-3"
 SLOT="0"
-
 KEYWORDS="amd64"
-
 IUSE="nls spell webkit"
 
 RDEPEND="
@@ -20,9 +19,7 @@ RDEPEND="
 	spell? ( app-text/gspell:0 )
 	webkit? ( net-libs/webkit-gtk:4 )
 "
-
-DEPEND="${DEPEND}"
-
+DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-util/intltool-0.40.0
 "

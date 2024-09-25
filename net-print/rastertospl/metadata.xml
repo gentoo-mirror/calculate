@@ -2,16 +2,11 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
     <maintainer type="project">
-        <email>kernel@gentoo.org</email>
-        <name>Gentoo Kernel Project</name>
-    </maintainer>
-    <maintainer type="project">
         <email>support@calculate.ru</email>
         <name>Mir Calculate</name>
         <description>Calculate Overlay</description>
     </maintainer>
-    <use>
-        <flag name="firmware">Install linux kernel firmware</flag>
-    </use>
-    <stabilize-allarches/>
+    <longdescription>
+        HP drivers for MFP 13x, 17x (Color) series, Laser 10x, 15x (Color) series.
+    </longdescription>
 </pkgmetadata>

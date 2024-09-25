@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors, Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
 
-# NOTE: This is a version of `app-misc/geoclue-2.7.1::gentoo` allowed to install in Calculate
+# NOTE: This is the modification of `app-misc/geoclue-2.7.1::gentoo` allowed to be installed in Calculate
 
 EAPI=8
 PYTHON_COMPAT=( python3_{10..11} )

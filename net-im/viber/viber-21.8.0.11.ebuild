@@ -10,6 +10,7 @@ inherit desktop multilib-build optfeature pax-utils unpacker xdg
 DESCRIPTION="Free and secure calls and messages to anyone, anywhere"
 HOMEPAGE="https://www.viber.com/"
 SRC_URI="https://download.cdn.viber.com/cdn/desktop/Linux/${PN}.deb -> ${P}.deb"
+S="${WORKDIR}"
 
 QA_PRESTRIPPED="
 	opt/viber/Viber
@@ -109,8 +110,6 @@ RDEPEND="
 		media-plugins/gst-plugins-pulse:1.0[${MULTILIB_USEDEP}]
 	)
 "
-
-S="${WORKDIR}"
 
 src_prepare() {
 	default
