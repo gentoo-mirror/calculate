@@ -1,20 +1,21 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-MY_VERSION="${PV}-1"
+MY_VER="${PV}-1"
 
 DESCRIPTION="Epson scanner management utility"
 HOMEPAGE="https://support.epson.net/linux/en/epsonscan2.php"
-SRC_URI="https://support.epson.net/linux/src/scanner/${PN}/${PN}-${MY_VERSION}.src.tar.gz"
-S="${WORKDIR}/${PN}-${MY_VERSION}"
+SRC_URI="https://download3.ebz.epson.net/dsc/f/03/00/16/14/37/7577ee65efdad48ee2d2f38d9eda75418e490552/${PN}-${MY_VER}.src.tar.gz"
+
+S="${WORKDIR}/${PN}-${MY_VER}"
 
 inherit cmake desktop udev
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="
 	dev-libs/boost
@@ -30,14 +31,14 @@ DEPEND="
 	sys-libs/zlib
 	virtual/libusb:1
 "
+
 RDEPEND="${DEPEND}"
+
+PATCHES="${FILESDIR}/${P}-cmake-and-desktop.patch"
 
 src_prepare() {
 	cmake_src_prepare
-	sed -i \
-		-e '/\(execute_process.*\)${EPSON_INSTALL_ROOT}/d' \
-		-e "s|^\(set(EPSON_VERSION \).*|\1-${PV})|g" \
-		CMakeLists.txt || die
+	rm -rf CMakeCache.txt
 	# Force usage of system libraries
 	rm -rf thirdparty/{HaruPDF,rapidjson,zlib}
 	sed -i \
@@ -47,12 +48,17 @@ src_prepare() {
 		src/Controller/CMakeLists.txt || die
 }
 
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
+		-DEPSON_INSTALL_ROOT="${EPREFIX}"
+		-DCMAKE_CXX_STANDARD=11 )
+	cmake_src_configure
+}
+
 src_install() {
 	cmake_src_install
-	# Sane symlinks
-	dosym ../epsonscan2/libsane-epsonscan2.so /usr/$(get_libdir)/sane/libsane-epsonscan2.so.1
-	dosym ../epsonscan2/libsane-epsonscan2.so /usr/$(get_libdir)/sane/libsane-epsonscan2.so.1.0.0
-	# Desktop icon
+#	# Desktop icon
 	domenu desktop/rpm/x86_64/epsonscan2.desktop
 }
 
