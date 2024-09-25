@@ -311,6 +311,7 @@ RDEPEND="
 	client? (
 		dev-python/python-ldap[ssl,${PYTHON_USEDEP}]
 		sys-auth/pam_client
+		>=sys-auth/pam_ldap-180[ssl]
 		>=sys-auth/nss_ldap-239
 	)
 	backup? ( !sys-apps/calculate-server )
@@ -323,7 +324,6 @@ RDEPEND="
 #
 #
 #	server? ( !sys-apps/calculate-server )
-#   >=sys-auth/pam_ldap-180[ssl]
 
 DEPEND="
 	sys-devel/gettext"
