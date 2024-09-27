@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 1997-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ DEPEND="net-print/cups"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-default && mv uld "${P}"
+	default && mv uld "${P}"
 }
 
 src_install() {
@@ -39,7 +39,7 @@ src_install() {
 				HP_Laser_10x_Series.ppd \
 				HP_Laser_MFP_13x_Series.ppd
 	do
-	    gzip -c "${S}/noarch/share/ppd/${ppd}" > "${S}/ppd/${ppd}".gz
+		gzip -c "${S}/noarch/share/ppd/${ppd}" > "${S}/ppd/${ppd}".gz
 		doins "${S}/ppd/${ppd}".gz
 	done
 

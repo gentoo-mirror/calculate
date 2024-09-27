@@ -1,0 +1,46 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a9daee7..6a6f845 100755
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -36,14 +36,9 @@ endif()
+ 
+ if (DEFINED ENV{EPSON_VERSION})
+ else ()
+-set(EPSON_VERSION -1.0.0.0-1)
++set(EPSON_VERSION -6.7.70.0)
+ endif()
+ 
+-SET(CMAKE_C_FLAGS_DEBUG "-g -O0")
+-SET(CMAKE_CXX_FLAGS_DEBUG "-g -std=c++11 -O0")
+-SET(CMAKE_C_FLAGS_RELEASE "-O3")
+-SET(CMAKE_CXX_FLAGS_RELEASE "-O3 -std=c++11")
+-
+ ### Boost settings ########
+ 
+ set(Boost_USE_STATIC_LIBS        OFF)
+@@ -115,9 +110,9 @@ install(DIRECTORY Resources DESTINATION ${EPSON_INSTALL_ROOT}${EPSON_INSTALL_PAT
+ 
+ install(FILES epsonscan2.rules DESTINATION ${EPSON_INSTALL_ROOT}/lib/udev/rules.d/ RENAME 60-epsonscan2.rules)
+ install(FILES epsonscan2 DESTINATION ${EPSON_INSTALL_ROOT}/etc/sane.d/dll.d)
+-install(CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${EPSON_INSTALL_ROOT}${CMAKE_INSTALL_FULL_LIBDIR}/sane/)")
+-install(CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ../epsonscan2/libsane-epsonscan2.so ${EPSON_INSTALL_ROOT}${CMAKE_INSTALL_FULL_LIBDIR}/sane/libsane-epsonscan2.so.1)")
+-install(CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ../epsonscan2/libsane-epsonscan2.so ${EPSON_INSTALL_ROOT}${CMAKE_INSTALL_FULL_LIBDIR}/sane/libsane-epsonscan2.so.1.0.0)")
++install(DIRECTORY DESTINATION ${EPSON_INSTALL_ROOT}${CMAKE_INSTALL_FULL_LIBDIR}/sane/)
++install(CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ../epsonscan2/libsane-epsonscan2.so \$ENV{DESTDIR}${CMAKE_INSTALL_FULL_LIBDIR}/sane/libsane-epsonscan2.so.1)")
++install(CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ../epsonscan2/libsane-epsonscan2.so \$ENV{DESTDIR}${CMAKE_INSTALL_FULL_LIBDIR}/sane/libsane-epsonscan2.so.1.0.0)")
+ 
+ install(FILES changelog.Debian DESTINATION ${EPSON_INSTALL_ROOT}${CMAKE_INSTALL_PREFIX}/share/doc/epsonscan2${EPSON_VERSION})
+ 
+diff --git a/desktop/rpm/x86_64/epsonscan2.desktop b/desktop/rpm/x86_64/epsonscan2.desktop
+index 79deb94..ea95bd0 100644
+--- a/desktop/rpm/x86_64/epsonscan2.desktop
++++ b/desktop/rpm/x86_64/epsonscan2.desktop
+@@ -1,7 +1,7 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+ Type=Application
+-Categories=Application;Graphics;RasterGraphics;Scanning;GTK;
++Categories=Graphics;RasterGraphics;Scanning;GTK;
+ 
+ Name=Epson Scan 2
+ GenericName=Epson Scan 2
