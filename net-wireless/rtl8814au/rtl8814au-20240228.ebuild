@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 inherit linux-mod-r1
 
 COMMIT="df500c5c91397fe9239be9c4bf38ca5ca1947b43"
