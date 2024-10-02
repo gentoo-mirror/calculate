@@ -1,8 +1,8 @@
-# Copyright 2019-2024 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # NOTE: This is the 4.1.1 version of Rocket Chat Desktop,
-# based on `net-im/rocketchat-desktop-bin-3.9.10::gentoo` but was got rid of `dev-libs/libayatana-appindicator` rdepend
+# based on `net-im/rocketchat-desktop-bin-3.9.10::gentoo` but got rid of `dev-libs/libayatana-appindicator` rdepend
 
 EAPI=8
 
@@ -23,7 +23,7 @@ S="${WORKDIR}"
 # Electron bundles a bunch of things
 LICENSE="
 	MIT BSD BSD-2 BSD-4 AFL-2.1 Apache-2.0 Ms-PL GPL-2 LGPL-2.1 APSL-2
-	unRAR OFL CC-BY-SA-3.0 MPL-2.0 android public-domain all-rights-reserved
+	unRAR OFL-1.1 CC-BY-SA-3.0 MPL-2.0 android public-domain all-rights-reserved
 "
 SLOT="0"
 KEYWORDS="-* amd64"

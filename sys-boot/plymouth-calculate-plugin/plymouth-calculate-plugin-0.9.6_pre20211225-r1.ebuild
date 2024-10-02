@@ -25,7 +25,6 @@ HOMEPAGE="https://cgit.freedesktop.org/plymouth/"
 
 LICENSE="GPL-2"
 SLOT="0"
-# IUSE="debug gdm +gtk +libkms +pango +split-usr static-libs +udev"
 IUSE="debug +drm +gtk +pango +split-usr static-libs +udev"
 
 CDEPEND="
@@ -58,8 +57,6 @@ DOC_CONTENTS="
 PATCHES=(
 	"${FILESDIR}"/0.9.3-glibc-sysmacros.patch
 )
-
-#S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	use elibc_musl && append-ldflags -lrpmatch

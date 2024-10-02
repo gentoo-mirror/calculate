@@ -10,6 +10,7 @@ inherit desktop multilib-build optfeature pax-utils unpacker xdg
 DESCRIPTION="Free and secure calls and messages to anyone, anywhere"
 HOMEPAGE="https://www.viber.com/"
 SRC_URI="https://download.cdn.viber.com/cdn/desktop/Linux/${PN}.deb -> ${P}.deb"
+S="${WORKDIR}"
 
 QA_PRESTRIPPED="
 	opt/viber/Viber
@@ -110,8 +111,6 @@ RDEPEND="
 	)
 "
 
-S="${WORKDIR}"
-
 src_prepare() {
 	default
 
@@ -130,12 +129,12 @@ src_install() {
 	newicon -s scalable usr/share/icons/hicolor/scalable/apps/Viber.svg \
 		viber.svg
 
-        for icon in "usr/share/viber/"*.png; do
-                size=${icon##*/${PN}\/}
-                size=${size%.png}
-                dodir "usr/share/icons/hicolor/${size}/apps"
-                newicon -s ${size%%x*} "$icon" ${PN}.png
-        done
+	for icon in "usr/share/viber/"*.png; do
+		size=${icon##*/${PN}\/}
+		size=${size%.png}
+		dodir "usr/share/icons/hicolor/${size}/apps"
+		newicon -s ${size%%x*} "$icon" ${PN}.png
+	done
 
 	dosym ../icons/hicolor/96x96/apps/viber.png \
 		/usr/share/pixmaps/viber.png

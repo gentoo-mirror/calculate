@@ -1,6 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# NOTE: This is a version of `virtual/editor-0-r6::gentoo` with additional editors allowed
+
+# NOTE: This is the modification of `virtual/editor-0-r6::gentoo` with additional editors allowed
 
 EAPI=8
 
