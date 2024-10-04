@@ -3,7 +3,7 @@ DEFINED_PHASES=compile config configure install postinst prepare test
 DEPEND=acct-group/named acct-user/named berkdb? ( sys-libs/db:= ) dev-libs/openssl:=[-bindist(-)] mysql? ( dev-db/mysql-connector-c:0= ) odbc? ( >=dev-db/unixODBC-2.2.6 ) ldap? ( net-nds/openldap:= ) postgres? ( dev-db/postgresql:= ) caps? ( >=sys-libs/libcap-2.1.0 ) xml? ( dev-libs/libxml2 ) geoip? ( dev-libs/libmaxminddb:= ) geoip2? ( dev-libs/libmaxminddb:= ) gssapi? ( virtual/krb5 ) json? ( dev-libs/json-c:= ) lmdb? ( dev-db/lmdb:= ) zlib? ( sys-libs/zlib ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-python/ply[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) dev-libs/libuv:=
 DESCRIPTION=Berkeley Internet Name Domain - Name Server
 EAPI=8
-HOMEPAGE=https://www.isc.org/software/bind https://gitlab.isc.org/isc-projects/bind9
+HOMEPAGE=https://www.isc.org/bind/ https://gitlab.isc.org/isc-projects/bind9
 INHERIT=python-r1 autotools multiprocessing toolchain-funcs flag-o-matic db-use systemd tmpfiles
 IUSE=berkdb +caps +dlz dnstap doc dnsrps fixed-rrset geoip geoip2 gssapi json ldap lmdb mysql odbc postgres python selinux static-libs test xml +zlib sdb-ldap python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.isc.org/isc/bind9/9.16.39/bind-9.16.39.tar.xz doc? ( mirror://gentoo/dyndns-samples.tbz2 )
 _eclasses_=out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-r1	c1fc393cd1e72f093b4838e29d27918c	gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	systemd	0f241b5c9f3758c3d3423df59a7f655a	tmpfiles	abdfd90f8841c1cb4b94575d5d109952
-_md5_=b2a28f7f2185b993cdf45e188cb163a8
+_md5_=6469aba51eeb8efe67f4177cdd7b3951

@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install
 DEPEND=net-nds/openldap
-DESCRIPTION=Module of the waiting client daemon
+DESCRIPTION=PAM Module of the waiting client daemon
 EAPI=7
 HOMEPAGE=https://www.calculate-linux.org/main/en/calculate2
 INHERIT=pam
-KEYWORDS=amd64 x86
+KEYWORDS=amd64
 LICENSE=Apache-2.0
 RDEPEND=net-nds/openldap
 SLOT=0
 SRC_URI=https://mirror.calculate-linux.org/source/pam_client/pam_client-0.2.1.tar.bz2
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	pam	b56d0c9c20fc5b553f13c8ae165a10a5
-_md5_=b3dbf42de896a0c55a3f28e85c8f3b97
+_md5_=b9bdaa547e4764f95d8371f5b271fe93

@@ -2,11 +2,11 @@ BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install unpack
 DESCRIPTION=Papirus icon theme for LibreOffice
 EAPI=8
-HOMEPAGE=https://git.io/papirus-libreoffice-theme
+HOMEPAGE=https://github.com/PapirusDevelopmentTeam/papirus-libreoffice-theme
 INHERIT=git-r3
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=|| ( app-office/libreoffice app-office/libreoffice-bin )
 SLOT=0
 _eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=6255bac7f86764dbbe5642e118ae4283
+_md5_=09009ac862f070e4b591cdf5797b3c27

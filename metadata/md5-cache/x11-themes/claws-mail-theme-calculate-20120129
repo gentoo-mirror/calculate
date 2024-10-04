@@ -2,12 +2,12 @@ DEFINED_PHASES=install postinst postrm preinst prepare
 DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Iconset Calculate for Claws Mail
 EAPI=7
-HOMEPAGE=http://www.claws-mail.org/
+HOMEPAGE=https://www.claws-mail.org/
 INHERIT=xdg
-KEYWORDS=alpha amd64 ppc ppc64 x86
+KEYWORDS=amd64
 LICENSE=CC-BY-SA-2.5
 RDEPEND=mail-client/claws-mail
 SLOT=0
-SRC_URI=http://www.claws-mail.org/download.php?file=themes/png/claws-mail-theme_Tango_1.2.1.tar.gz
+SRC_URI=https://www.claws-mail.org/download.php?file=themes/png/claws-mail-theme_Tango_1.2.1.tar.gz
 _eclasses_=xdg-utils	5465aed08f1dfc2a75f14cbea4272961	xdg	854eae304447322625df5991e20ed18f
-_md5_=2a12bb1e3a655d1f67e2b27edcd06d54
+_md5_=c89af4b13438ba45b8d81d22ec9832a5
