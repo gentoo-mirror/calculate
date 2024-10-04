@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# NOTE: This is a version of `app-text/wgetpaste-2.33-r4::gentoo` with additional services
+# NOTE: This is the modification of `app-text/wgetpaste-2.33-r4::gentoo` with additional services
 
 EAPI=8
 
