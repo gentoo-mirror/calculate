@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic
 
@@ -19,7 +19,7 @@ fi
 inherit autotools readme.gentoo-r1 systemd
 
 DESCRIPTION="Graphical boot animation (splash) and logger"
-HOMEPAGE="https://cgit.freedesktop.org/plymouth/"
+HOMEPAGE="https://www.freedesktop.org/wiki/Software/Plymouth/"
 
 S="${WORKDIR}/${MY_P}"
 
@@ -46,7 +46,7 @@ DEPEND="${CDEPEND}
 # Block due bug #383067
 RDEPEND="${CDEPEND}
 	udev? ( virtual/udev )
-	!<sys-kernel/dracut-0.37-r3
+	sys-kernel/dracut
 "
 
 DOC_CONTENTS="
@@ -61,7 +61,7 @@ PATCHES=(
 src_prepare() {
 	use elibc_musl && append-ldflags -lrpmatch
 	default
-	cp "${FILESDIR}/0.9.6_pre20211225-plugin.c" "${S}/src/plugins/splash/two-step/plugin.c"
+	cp "${FILESDIR}"/plugin.c "${S}"/src/plugins/splash/two-step/plugin.c
 	sed -i 's/two-step/calculate/g' "${S}"/src/plugins/splash/two-step/Makefile.*
 	sed -i 's/two_step/calculate/g' "${S}"/src/plugins/splash/two-step/Makefile.*
 	eautoreconf
@@ -97,33 +97,13 @@ src_compile() {
 	emake
 }
 
-# src_install() {
-# 	default
-
-# 	insinto /usr/share/plymouth
-# 	newins "${DISTDIR}"/gentoo-logo.png bizcom.png
-
-# 	if use split-usr ; then
-# 		# Install compatibility symlinks as some rdeps hardcode the paths
-# 		dosym ../usr/bin/plymouth /bin/plymouth
-# 		dosym ../usr/sbin/plymouth-set-default-theme /sbin/plymouth-set-default-theme
-# 		dosym ../usr/sbin/plymouthd /sbin/plymouthd
-# 	fi
-
-# 	readme.gentoo_create_doc
-
-# 	# looks like make install create /var/run/plymouth
-# 	# this is not needed for systemd, same should hold for openrc
-# 	# so remove
-# 	rm -rf "${D}"/var/run
-
-# 	# fix broken symlink
-# 	dosym ../../bizcom.png /usr/share/plymouth/themes/spinfinity/header-image.png
-# }
-
 src_install() {
 	cd "${S}/src/plugins/splash/two-step"
 	emake DESTDIR="${D}" install
+
+	if ! use static-libs; then
+		rm "${D}"/usr/$(get_libdir)/plymouth/calculate.la
+	fi
 
 	cd "${S}/themes/spinfinity"
 
@@ -133,5 +113,5 @@ src_install() {
 	cd "${S}/themes/spinner"
 	doins throbber-00*.png
 
-	newins "${FILESDIR}/0.9.6_pre20211225-calculate.plymouth" calculate.plymouth
+	newins "${FILESDIR}/calculate.plymouth" calculate.plymouth
 }
