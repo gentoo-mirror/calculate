@@ -1,4 +1,4 @@
-# Copyright 2007-2023 Mir Calculate
+# Copyright 2007-2024 Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,11 +10,10 @@ SRC_URI="https://ftp.hp.com/pub/softlib/software13/printers/CLP150/uld-hp_V1.00.
 LICENSE="HP-EULA"
 SLOT="0"
 KEYWORDS="amd64"
+RESTRICT="bindist mirror"
 
 DEPEND="net-print/cups"
 RDEPEND="${DEPEND}"
-
-RESTRICT="bindist mirror"
 
 src_unpack() {
 	default
