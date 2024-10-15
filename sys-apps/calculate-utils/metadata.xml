@@ -21,6 +21,7 @@
         <flag name="minimal">Use minimal depends for Calculate install</flag>
         <flag name="pxe">Enable support for PXE installation</flag>
         <flag name="dbus">Enable ability to run core server by DBus</flag>
+        <flag name="qt6">Include Qt6 gui console</flag>
         <flag name="gpg">Enable the signature checking</flag>
     </use>
     <use lang="ru">
@@ -32,6 +33,7 @@
         <flag name="minimal">Использовать минимальный набор зависимостей при установке Calculate</flag>
         <flag name="pxe">Включить поддержку PXE установки</flag>
         <flag name="dbus">Включить возможность запуска сервера по DBus</flag>
+        <flag name="qt6">Установить Gui приложение для console</flag>
         <flag name="gpg">Включить проверку сигнатур</flag>
     </use>
     <upstream>

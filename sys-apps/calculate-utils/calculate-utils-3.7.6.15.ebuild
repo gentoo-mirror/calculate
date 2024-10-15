@@ -3,7 +3,6 @@
 
 EAPI=8
 
-# FIXME: На Python 3.13 же не тестировали?
 PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
@@ -86,13 +85,9 @@ python_prepare_all() {
 	EOF
 }
 
-# FIXME: Может, `python_configure_all`?
-# https://projects.gentoo.org/python/guide/distutils.html#sub-phase-functions
-python_configure() {
-	# FIXME: Это точно в `python_configure`?
-	# Это же этап компиляции. Может, python_compile_all`?
-	# https://projects.gentoo.org/python/guide/distutils.html#sub-phase-functions
+python_compile() {
 	esetup.py build_mo
+    distutils-r1_python_compile
 }
 
 install_openrc_daemons() {
@@ -235,9 +230,7 @@ pkg_preinst() {
 	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
 }
 
-# FIXME: В данном случае, вроде, `python_gen_cond_dep` не нужен
-BDEPEND="
-	dev-python/setuptools-scm[${PYTHON_USEDEP}]"
+BDEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]"
 
 RDEPEND="
 	dev-libs/libbsd
