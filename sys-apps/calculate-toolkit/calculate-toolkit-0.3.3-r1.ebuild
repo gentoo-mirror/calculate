@@ -27,4 +27,3 @@ RDEPEND=">=sys-apps/calculate-utils-3.6
 PATCHES=(
 	"${FILESDIR}"/${P}-new_conf.patch
 )
-
