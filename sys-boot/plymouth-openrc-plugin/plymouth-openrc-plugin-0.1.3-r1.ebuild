@@ -9,16 +9,18 @@ SRC_URI="https://github.com/Kangie/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="amd64"
 
 DEPEND="sys-apps/openrc:="
 RDEPEND="${DEPEND}
 	sys-boot/plymouth
 	!sys-apps/systemd"
 
-PATCHES=( "${FILESDIR}/${P}-disable-messages.patch"
-	"${FILESDIR}/${P}-restart-consolefont.patch"
-	"${FILESDIR}/${P}-silent-shutdown.patch" )
+PATCHES=(
+	"${FILESDIR}"/${P}-disable-messages.patch
+	"${FILESDIR}"/${P}-restart-consolefont.patch
+	"${FILESDIR}"/${P}-silent-shutdown.patch
+)
 
 src_install() {
 	insinto /$(get_libdir)/rc/plugins

@@ -27,7 +27,7 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug +drm +gtk +pango +split-usr static-libs +udev"
 
-CDEPEND="
+COMMON_DEPEND="
 	>=media-libs/libpng-1.2.16:=
 	drm? ( x11-libs/libdrm )
 	gtk? (
@@ -37,14 +37,14 @@ CDEPEND="
 	)
 	pango? ( >=x11-libs/pango-1.21 )
 "
-DEPEND="${CDEPEND}
+DEPEND="${COMMON_DEPEND}
 	elibc_musl? ( sys-libs/rpmatch-standalone )
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
 	virtual/pkgconfig
 "
 # Block due bug #383067
-RDEPEND="${CDEPEND}
+RDEPEND="${COMMON_DEPEND}
 	udev? ( virtual/udev )
 	sys-kernel/dracut
 "
