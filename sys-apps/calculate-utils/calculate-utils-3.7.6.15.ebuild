@@ -26,8 +26,7 @@ fi
 LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="backup client console dbus desktop +gpg +install minimal pxe qt6"
-# FIXME: Закомментировано?
-# REQUIRED_USE="client? ( desktop )"
+REQUIRED_USE="client? ( desktop )"
 
 distutils_enable_tests unittest
 
@@ -87,7 +86,7 @@ python_prepare_all() {
 
 python_compile() {
 	esetup.py build_mo
-    distutils-r1_python_compile
+	distutils-r1_python_compile
 }
 
 install_openrc_daemons() {
