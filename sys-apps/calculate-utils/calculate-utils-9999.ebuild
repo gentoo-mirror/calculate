@@ -3,16 +3,12 @@
 
 EAPI=8
 
+PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 
-PYTHON_COMPAT=( python3_{11..13} )
-
 DESCRIPTION="A set of Calculate utilities for system installation, build and upgrade"
-HOMEPAGE="http://www.calculate-linux.org/main/en/calculate_utilities"
-
-LICENSE="Apache-2.0"
-SLOT="0"
+HOMEPAGE="https://www.calculate-linux.org/main/en/calculate_utilities"
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 inherit distutils-r1
@@ -27,7 +23,11 @@ else
 	S="${WORKDIR}/${PN}"
 fi
 
+LICENSE="Apache-2.0"
+SLOT="0"
 IUSE="backup client console dbus desktop +gpg +install minimal pxe qt6"
+REQUIRED_USE="client? ( desktop )"
+
 distutils_enable_tests unittest
 
 CALCULATE_MODULES_=(
@@ -38,7 +38,6 @@ CALCULATE_MODULES_=(
 	"lib"
 	"install"
 )
-
 declare -g -A CALCULATE_MODULES_USE_=(
 	["console-gui"]="qt6"
 	["desktop"]="desktop"
@@ -51,25 +50,25 @@ python_prepare_all() {
 
 	local core_file_path="src/calculate/core/wsdl_core.py"
 	if ! use backup; then
-		sed -ir "s/'cl-backup'/None/" $core_file_path
-		sed -ir "s/'cl-backup-restore'/None/" $core_file_path
-		sed -ir "s/__('Backup')/None/g" $core_file_path
+		sed -ir "s/'cl-backup'/None/" "${core_file_path}"
+		sed -ir "s/'cl-backup-restore'/None/" "${core_file_path}"
+		sed -ir "s/__('Backup')/None/g" "${core_file_path}"
 
 		einfo "Disable backups in core module"
 	fi
 
 	local lib_file_path="src/calculate/lib/variables/__init__.py"
 	sed -ri "/class VariableClVer/{N;N;N;N;s/value = \".*?\"/value = \"${PV}\"/;}" \
-		$lib_file_path || die
-	einfo "Change version in $lib_file_path => $PV"
+		"${lib_file_path}" || die
+	einfo "Change version in \"${lib_file_path}\" => \"${PV}\""
 
 	use_flags=()
 	for exc_module in ${!CALCULATE_MODULES_USE_[@]}; do
-		use_flag=${CALCULATE_MODULES_USE_[$exc_module]}
+		use_flag=${CALCULATE_MODULES_USE_[${exc_module}]}
 		if ! use $use_flag; then
-			[[ $exc_module == "console-gui" ]] && exc_module="consolegui"
+			[[ ${exc_module} == "console-gui" ]] && exc_module="consolegui"
 			remove_path="src/calculate/${exc_module}"
-			rm -rf ${remove_path} || die "Can't remove module from path: ${remove_path}"
+			rm -rf "${remove_path}" || die "Can't remove module from path: \"${remove_path}\""
 			elog "Module calculate.${exc_module} removed."
 		else
 			[[ $exc_module == "console-gui" ]] && use_flag="console-gui"
@@ -85,14 +84,15 @@ python_prepare_all() {
 	EOF
 }
 
-python_configure() {
+python_compile() {
 	esetup.py build_mo
+	distutils-r1_python_compile
 }
 
 install_openrc_daemons() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	doinitd $(find "resources/scripts/openrc_daemon" -maxdepth 1 -type f)
+	doinitd $(find resources/scripts/openrc_daemon -maxdepth 1 -type f)
 	use client && doinitd resources/scripts/openrc_daemon/client/*
 }
 
@@ -100,8 +100,8 @@ install_xdm() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	local xdm_pth="/usr/share/calculate/xdm"
-	exeinto ${xdm_pth}
-	insinto ${xdm_pth}
+	exeinto "${xdm_pth}"
+	insinto "${xdm_pth}"
 	if use desktop; then
 		doexe $(find "resources/scripts/xdm_files/desktop" -executable -type f)
 		doins $(find "resources/scripts/xdm_files/desktop" ! -executable -type f)
@@ -124,7 +124,7 @@ install_xdm() {
 install_sbin() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	dosbin $(find "resources/scripts/sbin" -maxdepth 1 -type f)
+	dosbin $(find resources/scripts/sbin -maxdepth 1 -type f)
 	use client && dosbin resources/scripts/sbin/client/*
 }
 
@@ -141,7 +141,7 @@ install_libexec() {
 	exeinto /usr/libexec/calculate
 
 	use dbus && doexe resources/scripts/libexec/dbus/*
-	doexe $(find "resources/scripts/libexec" -maxdepth 1 -type f)
+	doexe $(find resources/scripts/libexec -maxdepth 1 -type f)
 }
 
 install_doc() {
@@ -185,12 +185,12 @@ install_data_images() {
 
 python_install() {
 	if use qt6; then
-		local scriptdir=${EPREFIX}/usr/bin
-		local root=${BUILD_DIR}/install
-		local reg_scriptdir=${root}/${scriptdir}
+		local scriptdir="${EPREFIX}"/usr/bin
+		local root="${BUILD_DIR}"/install
+		local reg_scriptdir="${root}/${scriptdir}"
 
-		python_newscript ${reg_scriptdir}/cl-console-gui cl-console-gui-install
-		python_newscript ${reg_scriptdir}/cl-console-gui cl-console-gui-update
+		python_newscript "${reg_scriptdir}"/cl-console-gui cl-console-gui-install
+		python_newscript "${reg_scriptdir}"/cl-console-gui cl-console-gui-update
 
 		install_data_images
 
@@ -229,7 +229,7 @@ pkg_preinst() {
 	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
 }
 
-BDEPEND="$(python_gen_cond_dep 'dev-python/setuptools-scm[${PYTHON_USEDEP}]')"
+BDEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]"
 
 RDEPEND="
 	dev-libs/libbsd
@@ -281,8 +281,6 @@ RDEPEND="
 		net-fs/nfs-utils
 	)
 
-	!<sys-apps/calculate-server-2.1.18-r1
-
 	qt6? (
 		dev-python/dbus-python[${PYTHON_USEDEP}]
 		media-gfx/imagemagick[jpeg]
@@ -322,10 +320,6 @@ RDEPEND="
 #		dev-python/python-ldap[${PYTHON_USEDEP}]
 #	)
 #
-#
 #	server? ( !sys-apps/calculate-server )
 
-DEPEND="
-	sys-devel/gettext"
-
-#REQUIRED_USE="client? ( desktop )"
+DEPEND="sys-devel/gettext"
