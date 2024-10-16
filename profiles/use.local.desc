@@ -41,16 +41,16 @@ sys-apps/calculate-server:calculate_nomail - Disable e-mail support
 sys-apps/calculate-server:calculate_nonamed - Disable DNS support
 sys-apps/calculate-server:calculate_noproxy - Disable proxy support
 sys-apps/calculate-server:calculate_nosamba - Disable Samba fileserver support
-sys-apps/calculate-utils:backup - Includes backup module.
-sys-apps/calculate-utils:client - Includes module for setting and storing the user accounts in the domain.
-sys-apps/calculate-utils:console - Includes console module.
-sys-apps/calculate-utils:dbus - Enables ability to run core server by dbus.
-sys-apps/calculate-utils:desktop - Includes module for desktop configuration.
-sys-apps/calculate-utils:gpg - Enables the signature checking
-sys-apps/calculate-utils:install - Enables support for disk installation.
-sys-apps/calculate-utils:minimal - Use minimal depends for calculate install.
-sys-apps/calculate-utils:pxe - Enables support for PXE installation.
-sys-apps/calculate-utils:qt5 - Include Qt5 gui console
+sys-apps/calculate-utils:backup - Include backup module
+sys-apps/calculate-utils:client - Include module for setting and storing the user accounts in the domain
+sys-apps/calculate-utils:console - Include console module
+sys-apps/calculate-utils:dbus - Enable ability to run core server by DBus
+sys-apps/calculate-utils:desktop - Include module for desktop configuration
+sys-apps/calculate-utils:gpg - Enable the signature checking
+sys-apps/calculate-utils:install - Enable support for disk installation
+sys-apps/calculate-utils:minimal - Use minimal depends for Calculate install
+sys-apps/calculate-utils:pxe - Enable support for PXE installation
+sys-apps/calculate-utils:qt6 - Include Qt 6 GUI console
 sys-apps/keyexec:freerdp - Include net-misc/freerdp package
 sys-apps/keyexec:kde - Use KDE libs
 sys-apps/keyexec:rdesktop - Include net-misc/rdesktop package
