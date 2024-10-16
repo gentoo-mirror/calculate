@@ -286,9 +286,11 @@
 	    ,
 #exists#
 #?exists(~/.config/chromium/Default/Extensions/nngceckbapebfimnlniiiahkandclblb)!=#
-           "nngceckbapebfimnlniiiahkandclblb": {
+        "nngceckbapebfimnlniiiahkandclblb": {
             "active_permissions": {
                 "api": [
+                    "activeTab",
+                    "alarms",
                     "clipboardRead",
                     "clipboardWrite",
                     "contextMenus",
@@ -296,26 +298,32 @@
                     "storage",
                     "tabs",
                     "unlimitedStorage",
+                    "webNavigation",
                     "webRequest",
-                    "webRequestBlocking"
+                    "scripting",
+                    "offscreen",
+                    "webRequestAuthProvider"
                 ],
                 "explicit_host": [
-                    "*://*/*",
-                    "<all_urls>",
-                    "chrome://favicon/*"
+                    "http://*/*",
+                    "https://*/*"
                 ],
                 "manifest_permissions": [],
                 "scriptable_host": [
                     "*://*/*",
                     "file:///*",
-                    "https://*/*",
                     "https://lastpass.com/export.php"
                 ]
             },
             "commands": {
-                "_execute_browser_action": {
-                    "suggested_key": "Ctrl+Shift+U",
+                "_execute_action": {
                     "was_assigned": true
+                },
+                "autofill_card": {
+                    "suggested_key": ""
+                },
+                "autofill_identity": {
+                    "suggested_key": ""
                 },
                 "autofill_login": {
                     "suggested_key": "Ctrl+Shift+L",
@@ -332,10 +340,12 @@
             "content_settings": [],
             "creation_flags": 9,
             "events": [],
-            "first_install_time": "13358702574263915",
+            "first_install_time": "13373540258971782",
             "from_webstore": true,
             "granted_permissions": {
                 "api": [
+                    "activeTab",
+                    "alarms",
                     "clipboardRead",
                     "clipboardWrite",
                     "contextMenus",
@@ -343,33 +353,34 @@
                     "storage",
                     "tabs",
                     "unlimitedStorage",
+                    "webNavigation",
                     "webRequest",
-                    "webRequestBlocking"
+                    "scripting",
+                    "offscreen",
+                    "webRequestAuthProvider"
                 ],
                 "explicit_host": [
-                    "*://*/*",
-                    "<all_urls>",
-                    "chrome://favicon/*"
+                    "http://*/*",
+                    "https://*/*"
                 ],
                 "manifest_permissions": [],
                 "scriptable_host": [
                     "*://*/*",
                     "file:///*",
-                    "https://*/*",
                     "https://lastpass.com/export.php"
                 ]
             },
             "incognito_content_settings": [],
             "incognito_preferences": {},
-            "last_update_time": "13358702574263915",
+            "last_update_time": "13373540258971782",
             "location": 1,
             "manifest": {
                 "author": "Bitwarden Inc.",
                 "background": {
-                    "page": "background.html",
-                    "persistent": true
+                    "service_worker": "background.js",
+                    "type": "module"
                 },
-                "browser_action": {
+                "action": {
                     "default_icon": {
                         "19": "images/icon19.png",
                         "38": "images/icon38.png"
@@ -378,15 +389,21 @@
                     "default_title": "Bitwarden"
                 },
                 "commands": {
-                    "_execute_browser_action": {
+                    "_execute_action": {
                         "description": "\u041e\u0442\u043a\u0440\u044b\u0442\u044c \u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0435 \u0432\u043e \u0432\u0441\u043f\u043b\u044b\u0432\u0430\u044e\u0449\u0435\u043c \u043e\u043a\u043d\u0435",
                         "suggested_key": {
                             "default": "Ctrl+Shift+Y",
                             "linux": "Ctrl+Shift+U"
                         }
                     },
+                    "autofill_card": {
+                        "description": "\u0410\u0432\u0442\u043e\u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0439 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u043d\u043e\u0439 \u043a\u0430\u0440\u0442\u044b \u0434\u043b\u044f \u0442\u0435\u043a\u0443\u0449\u0435\u0433\u043e \u0441\u0430\u0439\u0442\u0430"
+                    },
+                    "autofill_identity": {
+                        "description": "\u0410\u0432\u0442\u043e\u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0439 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u043d\u043e\u0439 \u043b\u0438\u0447\u043d\u043e\u0441\u0442\u0438 \u0434\u043b\u044f \u0442\u0435\u043a\u0443\u0449\u0435\u0433\u043e \u0441\u0430\u0439\u0442\u0430"
+                    },
                     "autofill_login": {
-                        "description": "\u0410\u0432\u0442\u043e\u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0433\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u043d\u043e\u0433\u043e \u043b\u043e\u0433\u0438\u043d\u0430 \u0434\u043b\u044f \u0442\u0435\u043a\u0443\u0449\u0435\u0433\u043e \u0441\u0430\u0439\u0442\u0430.",
+                        "description": "\u0410\u0432\u0442\u043e\u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0433\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u043d\u043e\u0433\u043e \u043b\u043e\u0433\u0438\u043d\u0430 \u0434\u043b\u044f \u0442\u0435\u043a\u0443\u0449\u0435\u0433\u043e \u0441\u0430\u0439\u0442\u0430",
                         "suggested_key": {
                             "default": "Ctrl+Shift+L"
                         }
@@ -419,19 +436,6 @@
                     },
                     {
                         "all_frames": true,
-                        "exclude_matches": [
-                            "https://*/*.xml*"
-                        ],
-                        "js": [
-                            "content/fido2/trigger-fido2-content-script-injection.js"
-                        ],
-                        "matches": [
-                            "https://*/*"
-                        ],
-                        "run_at": "document_start"
-                    },
-                    {
-                        "all_frames": true,
                         "css": [
                             "content/autofill.css"
                         ],
@@ -440,7 +444,8 @@
                             "file:///*.xml*"
                         ],
                         "js": [
-                            "content/trigger-autofill-script-injection.js"
+                            "content/trigger-autofill-script-injection.js",
+                            "content/misc-utils.js"
                         ],
                         "matches": [
                             "*://*/*",
@@ -459,11 +464,18 @@
                         "run_at": "document_start"
                     }
                 ],
-                "content_security_policy": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'",
+                "content_security_policy": {
+                    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'",
+                    "sandbox": "sandbox allow-scripts; script-src 'self'"
+                },
                 "current_locale": "ru",
                 "default_locale": "en",
-                "description": "\u0417\u0430\u0449\u0438\u0449\u0435\u043d\u043d\u044b\u0439 \u0438 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u044b\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u0430\u0440\u043e\u043b\u0435\u0439 \u0434\u043b\u044f \u0432\u0441\u0435\u0445 \u0432\u0430\u0448\u0438\u0445 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432.",
+                "description": "\u0414\u043e\u043c\u0430, \u043d\u0430 \u0440\u0430\u0431\u043e\u0442\u0435 \u0438\u043b\u0438 \u0432 \u043f\u0443\u0442\u0438 - Bitwarden \u0432\u0441\u0435\u0433\u0434\u0430 \u0437\u0430\u0449\u0438\u0442\u0438\u0442 \u0432\u0430\u0448\u0438 \u043f\u0430\u0440\u043e\u043b\u0438, passkeys \u0438 \u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u0443\u044e \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044e",
                 "homepage_url": "https://bitwarden.com",
+                "host_permissions": [
+                    "https://*/*",
+                    "http://*/*"
+                ],
                 "icons": {
                     "128": "images/icon128.png",
                     "16": "images/icon16.png",
@@ -472,15 +484,15 @@
                     "96": "images/icon96.png"
                 },
                 "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmqKbvreshyXRuN2gikeR1idqR6KL0Di89JZcMyD4bjJRZVmQO7aznSGSALIHzSAUGYocUYBNDOP5QAhImxXyQ1qG8+goXs93v9GzrNJETdVuCEhqBggC4/DFabryJZDiKvZ2Jl0DM7MsWdoybZPwrj70V3aJ/nVNOMkf868scNTMliwitCqqjT5baTANsG0DkZWQExD4lSXzSZHH9MEO8q0iZ7RRlNuGRBAkZgNV8FwZRsPKm/rwQ9dy3VpgLcmLp5GiMt+kAEncqKAkuRYnhVXXBsKqIyYTMjHSLkLnpfFySyOPLBdS617i/PGNiP/MT6Xy6z//v5NozUgaAZ4gJQIDAQAB",
-                "manifest_version": 2,
-                "name": "Bitwarden - \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u044b\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u0430\u0440\u043e\u043b\u0435\u0439",
+                "manifest_version": 3,
+                "minimum_chrome_version": "102.0",
+                "name": "Bitwarden - \u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u0430\u0440\u043e\u043b\u0435\u0439",
                 "optional_permissions": [
                     "nativeMessaging",
                     "privacy"
                 ],
                 "permissions": [
-                    "<all_urls>",
-                    "*://*/*",
+                    "activeTab",
                     "tabs",
                     "contextMenus",
                     "storage",
@@ -488,12 +500,17 @@
                     "clipboardRead",
                     "clipboardWrite",
                     "idle",
+                    "alarms",
+                    "scripting",
+                    "offscreen",
                     "webRequest",
-                    "webRequestBlocking"
+                    "webRequestAuthProvider",
+                    "webNavigation"
                 ],
                 "sandbox": {
-                    "content_security_policy": "sandbox allow-scripts; script-src 'self'",
                     "pages": [
+                        "overlay/menu-button.html",
+                        "overlay/menu-list.html",
                         "overlay/button.html",
                         "overlay/list.html"
                     ]
@@ -505,25 +522,54 @@
                 "update_url": "https://clients2.google.com/service/update2/crx",
                 "version": "#-pkg(www-plugins/chrome-bitwarden)-#",
                 "web_accessible_resources": [
-                    "content/fido2/page-script.js",
-                    "content/lp-suppress-import-download.js",
-                    "notification/bar.html",
-                    "images/icon38.png",
-                    "images/icon38_locked.png",
-                    "overlay/button.html",
-                    "overlay/list.html",
-                    "popup/fonts/*"
+                    {
+                        "matches": [
+                            "<all_urls>"
+                        ],
+                        "resources": [
+                            "content/fido2-page-script.js",
+                            "notification/bar.html",
+                            "images/icon38.png",
+                            "images/icon38_locked.png",
+                            "overlay/menu-button.html",
+                            "overlay/menu-list.html",
+                            "overlay/menu.html",
+                            "overlay/button.html",
+                            "overlay/list.html",
+                            "popup/fonts/*"
+                        ]
+                    }
                 ]
             },
             "needs_sync": true,
             "path": "nngceckbapebfimnlniiiahkandclblb/#-pkg(www-plugins/chrome-bitwarden)-#_0",
+            "persistent_script_url_patterns": [
+                "http://localhost/*",
+                "https://*/*"
+            ],
             "preferences": {},
             "regular_only_preferences": {},
+            "service_worker_registration_info": {
+                "version": "2024.10.0"
+            },
+            "serviceworkerevents": [
+                "alarms.onAlarm",
+                "commands.onCommand",
+                "contextMenus.onClicked",
+                "idle.onStateChanged",
+                "permissions.onAdded",
+                "runtime.onInstalled",
+                "storage.local.onChanged",
+                "tabs.onActivated",
+                "webRequest.onAuthRequired/s1",
+                "webRequest.onCompleted/s2",
+                "webRequest.onErrorOccurred/s3"
+            ],
             "state": 1,
             "was_installed_by_default": false,
             "was_installed_by_oem": false,
             "withholding_permissions": false
-            }
+        }
 #exists#
 	},
         "toolbar": [
@@ -537,7 +583,7 @@
                 "settings": {
                     "cjpalhdlnbpafiamejdnhcphjbkeiagm": "4013706C949FD89AD1F588F32A08A9656D83C0A61DB56C141341E60CF4404C95",
                     "fnaicdffflnofjppbagibeoednhnbjhg": "8CD963F9765D0603AD154C7D14611AC1EBAC635E5306FE23E4614A506D1BCB19",
-                    "nngceckbapebfimnlniiiahkandclblb": "352693DBB8EA3CBB866B78C7FB53632DE87AAA0D81D56A18752D2C858284FB9D"
+                    "nngceckbapebfimnlniiiahkandclblb": "A819A6FDDE8FD1404F197920AC1CD1296A092DACE30C8FDE72586F066C7EBEDD"
                 }
             }
         }
