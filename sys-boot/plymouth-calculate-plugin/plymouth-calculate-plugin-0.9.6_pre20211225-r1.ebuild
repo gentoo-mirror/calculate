@@ -13,7 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://anongit.freedesktop.org/git/plymouth"
 else
 	PRE_RELEASE_SHA="5b91b9ed84cc91759c986634a4d64d474e6092cf"
-	SRC_URI="${SRC_URI} https://gitlab.freedesktop.org/${MY_PN}/${MY_PN}/-/archive/${PRE_RELEASE_SHA}/${MY_PN}-${PRE_RELEASE_SHA}.tar.gz"
+	SRC_URI="${SRC_URI} https://gitlab.freedesktop.org/${MY_PN}/${MY_PN}/-/archive/${PRE_RELEASE_SHA}/${MY_PN}-${PRE_RELEASE_SHA}.tar.bz2"
 	KEYWORDS="~alpha amd64 arm arm64 ppc ppc64 ~riscv sparc x86"
 	S="${WORKDIR}/${MY_PN}-${PRE_RELEASE_SHA}"
 fi
@@ -21,7 +21,7 @@ fi
 inherit autotools readme.gentoo-r1 systemd
 
 DESCRIPTION="Graphical boot animation (splash) and logger"
-HOMEPAGE="https://cgit.freedesktop.org/plymouth/"
+HOMEPAGE="https://www.freedesktop.org/wiki/Software/Plymouth/"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -46,7 +46,7 @@ DEPEND="${CDEPEND}
 # Block due bug #383067
 RDEPEND="${CDEPEND}
 	udev? ( virtual/udev )
-	!<sys-kernel/dracut-0.37-r3
+	sys-kernel/dracut
 "
 
 DOC_CONTENTS="
@@ -61,9 +61,9 @@ PATCHES=(
 src_prepare() {
 	use elibc_musl && append-ldflags -lrpmatch
 	default
-	cp ${FILESDIR}/0.9.6_pre20211225-plugin.c ${S}/src/plugins/splash/two-step/plugin.c
-	sed -i 's/two-step/calculate/g' ${S}/src/plugins/splash/two-step/Makefile.*
-	sed -i 's/two_step/calculate/g' ${S}/src/plugins/splash/two-step/Makefile.*
+	cp "${FILESDIR}"/plugin.c "${S}"/src/plugins/splash/two-step/plugin.c
+	sed -i 's/two-step/calculate/g' "${S}"/src/plugins/splash/two-step/Makefile.am
+	sed -i 's/two_step/calculate/g' "${S}"/src/plugins/splash/two-step/Makefile.am
 	eautoreconf
 }
 
@@ -98,16 +98,20 @@ src_compile() {
 }
 
 src_install() {
-	cd ${S}/src/plugins/splash/two-step
+	cd "${S}"/src/plugins/splash/two-step/
 	emake DESTDIR="${D}" install
 
-	cd ${S}/themes/spinfinity
+	if ! use static-libs; then
+		rm "${D}"/usr/$(get_libdir)/plymouth/calculate.la
+	fi
+
+	cd "${S}"/themes/spinfinity
 
 	insinto /usr/share/plymouth/themes/calculate
 	doins box.png bullet.png entry.png lock.png
 
-	cd ${S}/themes/spinner
+	cd "${S}"/themes/spinner
 	doins throbber-00*.png
 
-	newins ${FILESDIR}/0.9.6_pre20211225-calculate.plymouth calculate.plymouth
+	newins "${FILESDIR}"/calculate.plymouth calculate.plymouth
 }
