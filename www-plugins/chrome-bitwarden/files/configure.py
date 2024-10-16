@@ -9,6 +9,7 @@ import uuid
 from dataclasses import dataclass
 from os import path
 from typing import Any
+from time import time
 
 import plyvel
 import requests
@@ -34,11 +35,18 @@ class Value:
 
 
 class ExtendedEncoder(json.JSONEncoder):
+    "Кодирование dict в формат json, который используется в leveldb"
+
     def default(self, o):
         if isinstance(o, Value):
             return {"__json__": True, "value": json.dumps(o.value)}
         else:
             return super().default(o)
+
+
+def get_timestamp() -> int:
+    "Вернуть timestamp в миллисекундах"
+    return int(time() * 1000)
 
 
 def getMasterKey(password, salt=None, iterations=600000):
@@ -281,26 +289,25 @@ def update_json(data_list):
     data_list[f"user_{userId}_domainSettings_defaultUriMatchStrategy"] = Value(1)
     data_list[f"user_{userId}_vaultTimeoutSettings_vaultTimeout"] = Value("never")
 
-
-data_list = json.load(sys.stdin)
-
-if len(sys.argv) < 5:
-    sys.stderr.write("configure.py chrome-dir ext-id login password url")
-    sys.exit(1)
-
-chrome_dir = sys.argv[1]
-ext_id = sys.argv[2]
-login = sys.argv[3]
-password = sys.argv[4]
-url = sys.argv[5]
-
-authorization(password, login)
-update_json(data_list)
-
-data_list = json.dumps(data_list, cls=ExtendedEncoder)
+    data_list["global_taskScheduler_activeAlarms"] = Value(
+        [
+            {
+                "alarmName": "vaultTimeoutCheckInterval__3",
+                "startTime": get_timestamp(),
+                "createInfo": {"periodInMinutes": 0.6666666666666666, "delayInMinutes": 1},
+            },
+            {
+                "alarmName": "scheduleNextSyncInterval",
+                "startTime": get_timestamp(),
+                "createInfo": {"periodInMinutes": 5, "delayInMinutes": 5},
+            },
+        ]
+    )
 
 
 def show_database_json(db: plyvel.DB) -> None:
+    "Dump базы данных расширения в формате json"
+
     def as_json(obj):
         if "__json__" in obj:
             if obj["__json__"]:
@@ -313,18 +320,36 @@ def show_database_json(db: plyvel.DB) -> None:
     )
 
 
-try:
-    with plyvel.DB(
-        path.join(chrome_dir, "Default/Local Extension Settings", ext_id), create_if_missing=True
-    ) as db:
-        for k, v in json.loads(data_list).items():
-            db.put(k.encode("utf-8"), json.dumps(v).encode("utf-8"))
+if __name__ == "__main__":
+    data_list = json.load(sys.stdin)
 
-        # show_database_json(db)
+    if len(sys.argv) < 5:
+        sys.stderr.write("configure.py chrome-dir ext-id login password url")
+        sys.exit(1)
 
+    chrome_dir = sys.argv[1]
+    ext_id = sys.argv[2]
+    login = sys.argv[3]
+    password = sys.argv[4]
+    url = sys.argv[5]
 
-except IOError as e:
-    print(f"""
-          Закройте браузер!
-          Сообщение ошибки: {e}
-          """)
+    authorization(password, login)
+    update_json(data_list)
+
+    data_list = json.dumps(data_list, cls=ExtendedEncoder)
+
+    try:
+        with plyvel.DB(
+            path.join(chrome_dir, "Default/Local Extension Settings", ext_id),
+            create_if_missing=True,
+        ) as db:
+            for k, v in json.loads(data_list).items():
+                db.put(k.encode("utf-8"), json.dumps(v).encode("utf-8"))
+
+            # show_database_json(db)
+
+    except IOError as e:
+        print(f"""
+              Закройте браузер!
+              Сообщение ошибки: {e}
+              """)
