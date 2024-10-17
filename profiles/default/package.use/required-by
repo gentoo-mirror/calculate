@@ -799,3 +799,6 @@ net-misc/freerdp server
 
 # required by media-radio/wsjtx-2.6.1
 sci-libs/fftw fortran
+
+# required by "dev-db/redis-7.4.0[jemalloc]
+dev-libs/jemalloc stats
