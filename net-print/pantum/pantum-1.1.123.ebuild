@@ -47,7 +47,7 @@ src_prepare() {
 
 src_install() {
 	insinto /etc/sane.d
-	doins etc/sane.d/*
+	doins -r etc/sane.d/*
 	insinto "/usr/$(get_libdir)/sane"
 	doins usr/lib/x86_64-linux-gnu/sane/libsane-pantum*.so*
 	udev_dorules etc/udev/rules.d/*.rules
