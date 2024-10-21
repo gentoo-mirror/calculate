@@ -121,8 +121,8 @@ media-fonts/terminus-font -X
 # SMplayer support, streaming media support
 media-video/mplayer bidi live -video_cards_tdfx
 
-# support modemmanager, select dhcp client
-net-misc/networkmanager connection-sharing dhcpcd
+# support modemmanager, select dhclient
+net-misc/networkmanager connection-sharing dhclient
 
 # enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
 net-print/hplip hpijs -X
