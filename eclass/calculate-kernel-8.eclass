@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 #
-# Original Author: © 2007-2009 Mir Calculate, Ltd. 
-# Purpose: Installing linux-desktop, linux-server. 
+# Original Author: © 2007-2009 Mir Calculate, Ltd.
+# Purpose: Installing linux-desktop, linux-server.
 # Build the kernel from source.
 # @ECLASS: calculate-kernel-8.eclass
 # @MAINTAINER:
@@ -30,12 +30,21 @@ CDEPEND="
 DEPEND="${CDEPEND}
 	>=sys-devel/bison-1.875
 	>=sys-devel/flex-2.5.4
-	themes? ( || ( media-gfx/splash-themes-calculate
-		sys-boot/plymouth-calculate-plugin ) )
+	themes? (
+		|| (
+			media-gfx/splash-themes-calculate
+			sys-boot/plymouth-calculate-plugin
+		)
+	)
 	!minimal? ( virtual/pkgconfig )
 	"
 
-RDEPEND="${CDEPEND} vmlinuz? ( sys-kernel/dracut )"
+RDEPEND="
+	${CDEPEND}
+	vmlinuz? (
+		sys-kernel/dracut
+		net-misc/dhcp
+	)"
 
 detect_version
 detect_arch
@@ -124,9 +133,10 @@ vmlinuz_src_install() {
 	fi
 	/usr/bin/dracut "${RDARCH}" -c dracut.conf -k "${D}/lib/modules/${KV_FULL}" \
 		--kver ${KV_FULL} \
-		"${D}/usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL}"
+		"${D}/usr/share/${PN}/${PV}/boot/initramfs-${KV_FULL}" || die "Dracut bulid no_host_only falied."
 	# move firmware to share, because /lib/firmware installation does collisions
 	rm dracut.conf
+
 	mv "${D}/lib/firmware" "${D}/usr/share/${PN}/${PV}"
 	insinto "/usr/share/${PN}/${PV}/boot/"
 	newins .config config-${KV_FULL}
@@ -138,8 +148,9 @@ vmlinuz_src_install() {
 		"/lib/modules/${KV_FULL}/source" ||
 		die "cannot install source symlink"
 	dosym /usr/src/linux-${KV_FULL} \
-		"/lib/modules/${KV_FULL}/build" || 
+		"/lib/modules/${KV_FULL}/build" ||
 		die "cannot install build symlink"
+
 }
 
 # @FUNCTION: clean_for_minimal
