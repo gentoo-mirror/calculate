@@ -1,10 +1,10 @@
 DEFINED_PHASES=install
-DESCRIPTION=Bitwarden - The password manager
+DESCRIPTION=Bitwarden - The password manager (Chrome plugin)
 EAPI=8
-HOMEPAGE=https://chrome.google.com/webstore/detail/nngceckbapebfimnlniiiahkandclblb
+HOMEPAGE=https://bitwarden.com/ https://chrome.google.com/webstore/detail/nngceckbapebfimnlniiiahkandclblb
 KEYWORDS=amd64
 LICENSE=GPL-3
 RDEPEND=dev-python/plyvel dev-python/sjcl
 SLOT=0
 SRC_URI=https://mirror.calculate-linux.org/source/chrome-bitwarden/chrome-bitwarden-2024.10.0.tar.bz2
-_md5_=dfb02c9b90a37b5a7f7856f521c3f3c7
+_md5_=64bc15086f1b35c65780cd749296f260
