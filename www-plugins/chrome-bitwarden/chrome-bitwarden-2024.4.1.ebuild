@@ -1,11 +1,10 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 2007-2024 Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=8
 
-DESCRIPTION="Bitwarden - The password manager"
-HOMEPAGE="https://chrome.google.com/webstore/detail/nngceckbapebfimnlniiiahkandclblb"
+DESCRIPTION="Bitwarden - The password manager (Chrome plugin)"
+HOMEPAGE="https://bitwarden.com/ https://chrome.google.com/webstore/detail/nngceckbapebfimnlniiiahkandclblb"
 SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
 
 S="${WORKDIR}"
@@ -19,7 +18,7 @@ RDEPEND="dev-python/plyvel
 
 src_install() {
 	insinto /usr/share/${PN}
-	doins -r *
+	doins -r * .*
 	doins "${FILESDIR}"/configure.py
 	fperms 755 /usr/share/$PN/configure.py
 }
