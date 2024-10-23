@@ -1,4 +1,4 @@
-# Calculate format=kernel name=.config os_install_arch_machine==x86_64&&merge(sys-kernel/calculate-sources)>=6.11
+# Calculate format=kernel name=.config os_install_arch_machine==x86_64
 CONFIG_BLK_DEV_LOOP=y
 CONFIG_CRYPTO_ZSTD=y
 CONFIG_DEFAULT_HOSTNAME="calculate"
@@ -13,3 +13,4 @@ CONFIG_ZRAM_DEF_COMP_ZSTD=y
 # CONFIG_ZSWAP_COMPRESSOR_DEFAULT_LZO is not set
 CONFIG_ZSWAP_COMPRESSOR_DEFAULT="zstd"
 CONFIG_ZSWAP_COMPRESSOR_DEFAULT_ZSTD=y
+CONFIG_MODULE_SIG_KEY="certs/signing_key.pem"
