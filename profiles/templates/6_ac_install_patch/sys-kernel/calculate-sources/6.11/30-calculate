@@ -1,4 +1,4 @@
-# Calculate format=kernel name=.config os_install_arch_machine==x86_64
+# Calculate format=kernel name=.config
 CONFIG_BLK_DEV_LOOP=y
 CONFIG_CRYPTO_ZSTD=y
 CONFIG_DEFAULT_HOSTNAME="calculate"
@@ -14,5 +14,3 @@ CONFIG_ZRAM_DEF_COMP_ZSTD=y
 CONFIG_ZSWAP_COMPRESSOR_DEFAULT="zstd"
 CONFIG_ZSWAP_COMPRESSOR_DEFAULT_ZSTD=y
 # CONFIG_MODULE_SIG_KEY is not set
-
-# CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT is not set
