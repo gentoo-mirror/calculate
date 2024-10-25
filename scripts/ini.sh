@@ -51,7 +51,7 @@ ini_repo_dirs(){
 ini_list_files(){
 	if [[ -z ${1:-} ]]; then
 		[[ -n ${HOME:-} ]] && local home="$HOME/.calculate"
-		local script_dir="$(cd "$(dirname "$0")" && pwd)"
+		local script_dir="$(dirname "$(readlink -f "$0")")"
 		local default_path="/var/lib/calculate/calculate-update \
 			${home:-} \
 			/var/lib/calculate \
