@@ -14,6 +14,8 @@ KEYWORDS="amd64"
 DEPEND="net-print/cups"
 RDEPEND="${DEPEND}"
 
+RESTRICT="bindist mirror"
+
 src_unpack() {
 	default
 
