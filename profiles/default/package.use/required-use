@@ -79,3 +79,6 @@ media-video/vlc archive
 
 # qt6? ( gui )
 dev-util/cppcheck gui
+
+# gui? ( exactly-one-of ( gtk2 gtk qt5 qt6 ) )
+dev-lang/lazarus -gtk

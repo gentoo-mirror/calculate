@@ -802,3 +802,9 @@ sci-libs/fftw fortran
 
 # required by "dev-db/redis-7.4.0[jemalloc]
 dev-libs/jemalloc stats
+
+# required by sci-geosciences/qgis-3.38.3
+sci-libs/gdal spatialite sqlite
+
+# required by sci-geosciences/qgis-3.38.3
+x11-libs/qwt polar
