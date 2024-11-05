@@ -48,3 +48,6 @@ net-misc/freerdp -fuse
 
 # without this flag, it requires graphicsmagick
 sci-mathematics/octave -imagemagick
+
+# tries to disable this flag despite the global option
+media-video/ffmpeg abi_x86_32
