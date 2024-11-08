@@ -121,8 +121,8 @@ media-fonts/terminus-font -X
 # SMplayer support, streaming media support
 media-video/mplayer bidi live -video_cards_tdfx
 
-# support modemmanager, select dhclient
-net-misc/networkmanager connection-sharing dhclient
+# support modemmanager, select dhclient, use net-firewall/nftables for connection sharing
+net-misc/networkmanager connection-sharing dhclient nftables -iptables
 
 # enable fax, support work over networks, IJS driver for cups, exclude scanner GUI (use XSane)
 net-print/hplip hpijs -X
@@ -137,9 +137,6 @@ x11-base/xorg-drivers -video_cards_nvidia -video_cards_vmware -video_cards_glint
 
 # remove the sound when changing volume in pulseaudio
 media-libs/libcanberra -sound
-
-# add functionality
-net-wireless/blueman network
 
 # support for encrypted user directories
 sys-fs/ecryptfs-utils suid
@@ -325,9 +322,6 @@ xfce-extra/xfce4-sensors-plugin lm-sensors
 
 # Enable monitoring of hdd temperature (app-admin/hddtemp)
 sys-apps/inxi hddtemp
-
-# Enable nm-applet support
-net-vpn/networkmanager-l2tp gnome
 
 # Unsupported closed-source DRM capability (required by Netflix VOD)
 www-client/chromium widevine
