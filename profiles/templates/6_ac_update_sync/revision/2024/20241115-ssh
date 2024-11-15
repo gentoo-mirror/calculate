@@ -7,7 +7,7 @@ if [[ -e /var/lib/calculate/calculate.env ]]; then
 	ver=${ver##* }
 fi
 
-if (( ver >= 20241007 )); then
+if (( ver >= 20241007 )) && [[ -e /etc/ssh/ssh_host_ed25519_key.pub ]]; then
 	if grep -q root@sandbox /etc/ssh/ssh_host_ed25519_key.pub; then
 		rm -r /etc/ssh/ssh_host_*
 		rc-service -q --ifstarted --nodeps sshd restart
