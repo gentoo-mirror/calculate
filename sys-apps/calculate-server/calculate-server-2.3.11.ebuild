@@ -1,7 +1,7 @@
 # Copyright 2007-2024 Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_11 )
 
@@ -35,8 +35,8 @@ DEPEND="!sys-apps/calculate-lib
 	!calculate_nomail? (
 		>=net-mail/dovecot-1.2.0[ldap,pam,ssl(+)]
 		>=mail-filter/procmail-3.22
-		|| ( dev-python/pymilter[python_targets_python3_11]
-			dev-python/pymilter[python_targets_python3_11] )
+		|| ( dev-python/pymilter[${PYTHON_USEDEP}]
+			dev-python/pymilter[${PYTHON_USEDEP}] )
 		>=mail-mta/postfix-2.2[ldap,pam,ssl,sasl,dovecot-sasl]
 	)
 	!calculate_noftp? (
@@ -51,10 +51,10 @@ DEPEND="!sys-apps/calculate-lib
 	!calculate_nonamed? ( >=net-dns/bind-9.6.1_p1[sdb-ldap(-)] )
 	!calculate_noproxy? ( >=net-proxy/squid-3.0.14[ldap,pam,ssl] )
 	!calculate_nodhcp? ( >=net-misc/dhcp-3.1.2_p1 )
-	|| ( dev-python/python-ldap[ssl,python_targets_python3_11]
-		dev-python/python-ldap[ssl,python_targets_python3_11] )
-	|| ( dev-python/lxml[python_targets_python3_11]
-		dev-python/lxml[python_targets_python3_11] )
+	|| ( dev-python/python-ldap[ssl,${PYTHON_USEDEP}]
+		dev-python/python-ldap[ssl,${PYTHON_USEDEP}] )
+	|| ( dev-python/lxml[${PYTHON_USEDEP}]
+		dev-python/lxml[${PYTHON_USEDEP}] )
 "
 RDEPEND="${DEPEND}"
 
