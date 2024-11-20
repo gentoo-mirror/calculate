@@ -17,7 +17,7 @@ LICENSE="Pantum-EULA"
 SLOT="0"
 KEYWORDS="amd64"
 IUSE="scanner"
-RESTRICT="bindist mirror strip"
+RESTRICT="bindist fetch mirror strip"
 
 DEPEND="
 	media-libs/libjpeg8
@@ -39,8 +39,18 @@ RDEPEND="
 	app-text/ghostscript-gpl
 "
 
+pkg_nofetch() {
+	einfo "Please visit ${HOMEPAGE},"
+	einfo "use filter 	МФУ -> Серия M6800 -> M6800FDW"
+	einfo "  Драйвер для Pantum M6800FDW Linux"
+	einfo "  Версия:V1.1.123"
+	einfo "  Размер файла:9.72MB"
+	einfo "Move downloaded Pantum%20Ubuntu%20Driver%20V${MY_PV}(1).zip to distfile directory"
+}
+
 src_prepare() {
-	eapply_user
+	default
+
 	unpack "${S}/Resources/pantum_${PV}-1_amd64.deb" || die
 	tar -xvf "${S}/data.tar.xz" || die
 }
