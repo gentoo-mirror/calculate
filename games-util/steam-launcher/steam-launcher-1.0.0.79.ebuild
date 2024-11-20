@@ -17,7 +17,7 @@ S="${WORKDIR}/${PN}"
 LICENSE="ValveSteamLicense MIT"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="+desktop-portal +dialogs +joystick +pulseaudio +steamruntime steamvr trayicon +udev video_cards_nvidia wayland"
+IUSE="+desktop-portal +dialogs +joystick +pulseaudio +steamruntime steamvr +udev video_cards_nvidia wayland"
 RESTRICT="bindist mirror test"
 
 # This can help to determine the dependencies:
@@ -83,8 +83,6 @@ RDEPEND="
 			>=gnome-extra/zenity-3
 			x11-terms/xterm
 		) )
-
-		trayicon? ( dev-libs/libappindicator:2[abi_x86_32] )
 	)
 
 	desktop-portal? ( sys-apps/xdg-desktop-portal )
