@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors, Mir Calculate
+# Copyright 1999-2024 Gentoo Authors, Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
 
 # NOTE: This is the modification of `app-misc/geoclue-2.7.1::gentoo` allowed to be installed in Calculate
@@ -15,7 +15,7 @@ SRC_URI="https://gitlab.freedesktop.org/geoclue/${PN}/-/archive/${PV}/${P}.tar.b
 
 LICENSE="LGPL-2.1+ GPL-2+"
 SLOT="2.0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="+introspection gtk-doc modemmanager vala zeroconf"
 REQUIRED_USE="vala? ( introspection )"
 
