@@ -11,7 +11,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	SRC_URI="https://git.calculate-linux.org/calculate/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}"
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Collection of administration scripts for Calculate"

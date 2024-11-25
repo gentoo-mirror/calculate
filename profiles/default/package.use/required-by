@@ -91,8 +91,8 @@ dev-libs/libxml2 icu
 # required by sys-devel/prelink
 dev-libs/elfutils static-libs
 
-# required by kde-base/kopete-4.14.3-r1[ssl]
-app-crypt/qca openssl
+# required by net-im/psi-0.15::gentoo[crypt], dev-libs/qoauth-2.0.1_pre20160315-r3
+app-crypt/qca gpg qt5
 
 # [melt, xml] required by media-video/kdenlive
 # required by media-video/openshot-1.4.3o
@@ -153,9 +153,6 @@ dev-libs/libdbusmenu gtk3
 
 # required by sci-geosciences/qgis-1.8.0
 sci-libs/gdal geos
-
-# required by net-im/psi-0.15::gentoo[crypt]
-app-crypt/qca gpg
 
 # required by sci-visualization/qtiplot-0.9.8.9-r2
 dev-qt/qthelp compat
