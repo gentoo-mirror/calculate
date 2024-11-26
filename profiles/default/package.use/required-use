@@ -82,3 +82,6 @@ dev-util/cppcheck gui
 
 # gui? ( exactly-one-of ( gtk2 gtk qt5 qt6 ) )
 dev-lang/lazarus -gtk
+
+# bluetooth? opengl? ( widgets ) svg? ( widgets )
+dev-python/pyqt5 widgets

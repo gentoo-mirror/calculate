@@ -530,8 +530,8 @@ app-arch/bzip2 static-libs
 # required by net-misc/econnman-1.1-r1, x11-wm/enlightenment-0.24.2[wayland]
 dev-libs/efl connman drm
 
-# required by sci-chemistry/votca-xtp-1.6
-sci-libs/hdf5 cxx
+# required by sci-chemistry/votca-xtp-1.6, media-gfx/freecad-1.0.0
+sci-libs/hdf5 cxx fortran
 
 # required by media-sound/picard-2.0.0_beta3, dev-qt/qtwayland-5.6.1, app-office/onlyoffice-bin-8.0.0, kde-apps/kopete-4.14.3-r1:4/4.14, net-im/telegram-desktop-2.1.20
 dev-qt/qtgui accessibility egl eglfs mng wayland
@@ -779,8 +779,8 @@ virtual/rust profiler
 # required by dev-python/pikepdf-8.14.0-r1
 dev-python/pillow lcms
 
-# required by dev-python/pyside6-tools-6.7.0
-dev-python/pyside6 quick qml
+# required by dev-python/pyside6-tools-6.7.0, media-gfx/freecad-1.0.0
+dev-python/pyside6 quick qml webchannel
 
 # required by app-editors/qxmledit-0.9.18-r1
 dev-qt/qtimageformats mng
@@ -802,3 +802,6 @@ sci-libs/gdal spatialite sqlite
 
 # required by sci-geosciences/qgis-3.38.3
 x11-libs/qwt polar
+
+# required by app-i18n/fcitx-chinese-addons-5.1.7[gui,qt5]
+app-i18n/fcitx-qt qt5

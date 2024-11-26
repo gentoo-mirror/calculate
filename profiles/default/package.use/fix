@@ -50,3 +50,6 @@ net-misc/freerdp -fuse
 sci-mathematics/octave -imagemagick
 
 media-video/ffmpeg abi_x86_32
+
+# app-misc/yq[yq-symlink is soft blocking app-misc/yq-go-4.44.3
+app-misc/yq -yq-symlink
