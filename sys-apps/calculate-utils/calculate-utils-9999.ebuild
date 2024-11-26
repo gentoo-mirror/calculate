@@ -284,7 +284,7 @@ RDEPEND="
 	qt6? (
 		dev-python/dbus-python[${PYTHON_USEDEP}]
 		media-gfx/imagemagick[jpeg]
-		dev-python/PyQt6[${PYTHON_USEDEP}]
+		dev-python/pyqt6[${PYTHON_USEDEP}]
 		dev-python/pyinotify[${PYTHON_USEDEP}]
 	)
 

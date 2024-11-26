@@ -216,7 +216,7 @@ app-text/xmlto text
 dev-libs/libnl utils
 
 # required by www-client/qutebrowser-0.9.1, dev-python/pytest-qt-2.3.0-r2, dev-util/eric-17.04, net-misc/gns3-gui-2.1.21
-dev-python/PyQt5 declarative testlib multimedia sql help websockets
+dev-python/pyqt5 declarative testlib multimedia sql help websockets
 
 # required by net-im/pidgin-2.12.0[gadu]
 net-libs/libgadu gnutls
@@ -729,7 +729,7 @@ dev-qt/qttools assistant designer qml
 
 # required by www-client/qutebrowser-3.0.0, kde-frameworks/kirigami-6.5.0, kde-frameworks/kio-6.5.0
 dev-qt/qt5compat icu qml
-dev-python/PyQt6 qml webchannel
+dev-python/pyqt6 qml quick webchannel
 dev-qt/qtbase icu libproxy
 
 # required by dev-python/cypari2-2.1.4-r1
@@ -752,9 +752,6 @@ sys-kernel/installkernel dracut
 
 # required by www-client/chromium-121.0.6167.139
 dev-lang/rust profiler
-
-# required by dev-python/PyQt6-6.6.1
-dev-python/PyQt6 quick
 
 # required by net-misc/tuba-0.6.2
 gui-libs/gtk gstreamer
