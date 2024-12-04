@@ -780,7 +780,7 @@ virtual/rust profiler
 dev-python/pillow lcms
 
 # required by dev-python/pyside6-tools-6.7.0, media-gfx/freecad-1.0.0
-dev-python/pyside6 quick qml webchannel
+dev-python/pyside6 quick qml webchannel designer
 
 # required by app-editors/qxmledit-0.9.18-r1
 dev-qt/qtimageformats mng
@@ -805,3 +805,6 @@ x11-libs/qwt polar
 
 # required by app-i18n/fcitx-chinese-addons-5.1.7[gui,qt5]
 app-i18n/fcitx-qt qt5
+
+# required by app-crypt/yubikey-manager-qt-1.2.5
+dev-python/pyotherside qt5
