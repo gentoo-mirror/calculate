@@ -260,7 +260,7 @@ RDEPEND="
 	)
 	dev-python/jaraco-functools[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
-	dev-python/aiohttp
+	dev-python/aiohttp[${PYTHON_USEDEP}]
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils
