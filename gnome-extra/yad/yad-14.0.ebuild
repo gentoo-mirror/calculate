@@ -11,7 +11,7 @@ SRC_URI="https://github.com/v1cont/${PN}/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="nls spell webkit"
 
 RDEPEND="

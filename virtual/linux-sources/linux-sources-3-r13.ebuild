@@ -7,7 +7,7 @@ EAPI=7
 
 DESCRIPTION="Virtual for Linux kernel sources in Calculate Linux"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="firmware"
 
 RDEPEND="
