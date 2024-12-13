@@ -4,7 +4,8 @@
 # NOTE: This is the modification of `app-misc/geoclue-2.7.1::gentoo` allowed to be installed in Calculate
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..11} )
+
+PYTHON_COMPAT=( python3_{10,11} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit meson python-any-r1 systemd vala xdg
