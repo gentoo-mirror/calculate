@@ -194,6 +194,7 @@ clean_for_minimal() {
 		scripts/Makefile.modfinal \
 		scripts/Makefile.modinst scripts/Makefile.asm-generic \
 		scripts/Makefile.ubsan \
+		scripts/module-common.c \
 		scripts/module.lds \
 		scripts/modules-check.sh \
 		scripts/pahole-flags.sh \
