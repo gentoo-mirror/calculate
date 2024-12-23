@@ -24,5 +24,7 @@ net-dns/dnsmasq dbus
 
 # required by app-emulation/virt-manager-4.1.0-r1
 app-emulation/libvirt-glib introspection
-sys-libs/libosinfo introspection
 net-libs/libsoup introspection
+sys-libs/libosinfo introspection
+
+dev-libs/glib introspection
