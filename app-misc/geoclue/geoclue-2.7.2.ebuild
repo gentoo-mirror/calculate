@@ -1,31 +1,28 @@
-# Copyright 1999-2024 Gentoo Authors, Mir Calculate
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-
-# NOTE: This is the modification of `app-misc/geoclue-2.7.1::gentoo` allowed to be installed in Calculate
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10,11} )
+PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="xml(+)"
-
 inherit meson python-any-r1 systemd vala xdg
 
-DESCRIPTION="A location information D-Bus service"
+DESCRIPTION="Location information D-Bus service"
 HOMEPAGE="https://gitlab.freedesktop.org/geoclue/geoclue/-/wikis/home"
 SRC_URI="https://gitlab.freedesktop.org/geoclue/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1+ GPL-2+"
 SLOT="2.0"
-KEYWORDS="amd64"
+KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
 IUSE="+introspection gtk-doc modemmanager vala zeroconf"
 REQUIRED_USE="vala? ( introspection )"
 
 DEPEND="
-	>=dev-libs/glib-2.68:2
+	>=dev-libs/glib-2.74:2
 	>=dev-libs/json-glib-0.14.0
 	>=net-libs/libsoup-3.0.0:3.0
 	introspection? ( >=dev-libs/gobject-introspection-1.54:= )
-	modemmanager? ( >=net-misc/modemmanager-1.6 )
+	modemmanager? ( >=net-misc/modemmanager-1.12 )
 	zeroconf? ( >=net-dns/avahi-0.6.10[dbus] )
 	x11-libs/libnotify
 "
@@ -33,8 +30,7 @@ RDEPEND="${DEPEND}
 	acct-user/geoclue
 	sys-apps/dbus
 "
-BDEPEND="
-	${PYTHON_DEPS}
+BDEPEND="${PYTHON_DEPS}
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	gtk-doc? (
@@ -66,9 +62,6 @@ src_configure() {
 		-Ddemo-agent=true
 		-Dsystemd-system-unit-dir="$(systemd_get_systemunitdir)"
 		-Ddbus-srv-user=geoclue
-
-		-Dmozilla-api-key=f57afde7-113f-4e8f-96d1-62be64a0273c
 	)
-
 	meson_src_configure
 }
