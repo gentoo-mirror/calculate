@@ -808,3 +808,10 @@ app-i18n/fcitx-qt qt5
 
 # required by app-crypt/yubikey-manager-qt-1.2.5
 dev-python/pyotherside qt5
+
+# required by net-wireless/gnuradio-3.10.9.2-r6
+dev-python/pyqtgraph qt5
+
+# required by dev-libs/gobject-introspection-1.80.1-r3
+dev-libs/glib introspection
+

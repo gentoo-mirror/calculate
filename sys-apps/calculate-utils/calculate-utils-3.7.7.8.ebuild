@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11,12} )
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 
@@ -19,7 +19,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://git.calculate-linux.org/calculate/calculate-utils.git"
 else
 	SRC_URI="https://git.calculate-linux.org/calculate/calculate-utils/archive/${PV}.tar.gz -> calculate-utils-${PV}.tar.gz"
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}"
 fi
 
@@ -229,8 +229,12 @@ pkg_preinst() {
 	dosym -r /usr/libexec/calculate/cl-core-wrapper /usr/bin/cl-update-profile
 }
 
-BDEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]"
-
+DEPEND="
+	sys-devel/gettext
+"
+BDEPEND="
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
+"
 RDEPEND="
 	dev-libs/libbsd
 	install? ( >=app-cdr/cdrtools-3.01_alpha13
@@ -321,5 +325,3 @@ RDEPEND="
 #	)
 #
 #	server? ( !sys-apps/calculate-server )
-
-DEPEND="sys-devel/gettext"
