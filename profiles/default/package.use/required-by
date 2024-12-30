@@ -815,3 +815,5 @@ dev-python/pyqtgraph qt5
 # required by dev-libs/gobject-introspection-1.80.1-r3
 dev-libs/glib introspection
 
+# required by media-gfx/freecad-1.0.0-r2[gui,python_single_target_python3_12]
+dev-python/pyside6 uitools
