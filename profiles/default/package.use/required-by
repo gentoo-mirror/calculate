@@ -440,8 +440,8 @@ dev-libs/libgamin python
 # required by net-wireless/mousejack-0.0_p20160726-r1
 dev-embedded/sdcc mcs51 device-lib
 
-# required by www-client/chromium-70.0.3538.67
-net-libs/nodejs inspector
+# required by www-client/chromium-70.0.3538.67, dev-python/jupyterlab-4.3.2
+net-libs/nodejs inspector npm
 
 # required by app-crypt/yubikey-manager-qt-1.0.0
 dev-qt/qtquickcontrols2 widgets
