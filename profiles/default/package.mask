@@ -1,19 +1,8 @@
-# mask portage wgetpaste
->=app-text/wgetpaste-2.35
-
 # prevent automagic depends
 sys-libs/db:6.0
-
-
-=media-video/ffmpeg-6.1.1-r8
 
 =net-dns/bind-tools-9.18.0
 =net-dns/bind-9.18.29-r2
 
-# not compiled
-=games-board/stockfish-17
-
-
 =gnome-base/gnome-panel-3.54.0
 
-=dev-python/pyopenssl-24.3.0
