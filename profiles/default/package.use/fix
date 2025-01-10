@@ -51,3 +51,6 @@ sci-mathematics/octave -imagemagick
 
 # app-misc/yq[yq-symlink is soft blocking app-misc/yq-go-4.44.3
 app-misc/yq -yq-symlink
+
+# not compiled
+games-board/stockfish -cpu_flags_x86_avx512dq -cpu_flags_x86_avx512f
