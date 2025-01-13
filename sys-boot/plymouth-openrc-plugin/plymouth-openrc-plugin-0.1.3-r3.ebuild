@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # NOTE: This is the modification of `sys-boot/plymouth-openrc-plugin-0.1.3::gentoo` patched for Calculate

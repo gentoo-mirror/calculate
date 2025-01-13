@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # NOTE: This is the modification of `virtual/linux-sources-3-r8::gentoo` adopted to Calculate Linux
