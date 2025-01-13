@@ -1,33 +1,23 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 2007-2024 Mir Calculate
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit flag-o-matic
+inherit autotools flag-o-matic readme.gentoo-r1 systemd
 
 MY_P=plymouth-${PV}
-MY_PN=plymouth
-
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://gitlab.freedesktop.org/plymouth/plymouth"
-else
-	SRC_URI="${SRC_URI} https://www.freedesktop.org/software/plymouth/releases/${MY_P}.tar.xz"
-	KEYWORDS="amd64"
-fi
-
-inherit autotools readme.gentoo-r1 systemd
 
 DESCRIPTION="Graphical boot animation (splash) and logger"
 HOMEPAGE="https://www.freedesktop.org/wiki/Software/Plymouth/"
-
+SRC_URI="${SRC_URI} https://www.freedesktop.org/software/plymouth/releases/${MY_P}.tar.xz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="amd64"
 IUSE="debug +drm +gtk +pango +split-usr static-libs +udev"
 
-CDEPEND="
+COMMON_DEPEND="
 	>=media-libs/libpng-1.2.16:=
 	drm? ( x11-libs/libdrm )
 	gtk? (
@@ -37,14 +27,14 @@ CDEPEND="
 	)
 	pango? ( >=x11-libs/pango-1.21 )
 "
-DEPEND="${CDEPEND}
+DEPEND="${COMMON_DEPEND}
 	elibc_musl? ( sys-libs/rpmatch-standalone )
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
 	virtual/pkgconfig
 "
 # Block due bug #383067
-RDEPEND="${CDEPEND}
+RDEPEND="${COMMON_DEPEND}
 	udev? ( virtual/udev )
 	sys-kernel/dracut
 "
