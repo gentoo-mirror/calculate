@@ -304,7 +304,7 @@ RDEPEND="
 		sys-apps/keyutils
 		sys-auth/pam_keystore
 		dev-lang/swig
-		dev-qt/qdbus
+		dev-qt/qttools[qdbus]
 		sys-apps/edid-decode
 		dev-python/pygobject[${PYTHON_USEDEP}]
 		dev-python/dbus-python[${PYTHON_USEDEP}]
