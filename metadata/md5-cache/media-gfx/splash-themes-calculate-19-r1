@@ -10,4 +10,4 @@ RDEPEND=sys-boot/plymouth-calculate-plugin sys-boot/plymouth-openrc-plugin media
 REQUIRED_USE=|| ( silent silent-shutdown )
 SLOT=0
 SRC_URI=silent? ( https://mirror.calculate-linux.org/themes/calculate/splash-silent-19.png -> splash-themes-calculate-silent-19.png ) silent-shutdown? ( https://mirror.calculate-linux.org/themes/calculate/splash-shutdown-19.jpg -> splash-themes-calculate-shutdown-19.jpg )
-_md5_=6a5b9eaf48ee2f8e4e580598d496961b
+_md5_=b925a224d163b0fd91fc83e5472e9227
