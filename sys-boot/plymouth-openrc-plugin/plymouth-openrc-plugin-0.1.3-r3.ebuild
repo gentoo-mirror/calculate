@@ -19,7 +19,7 @@ RDEPEND="${DEPEND}
 	!sys-apps/systemd"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-r2.patch
+	"${FILESDIR}"/${PF}.patch
 )
 
 src_install() {
