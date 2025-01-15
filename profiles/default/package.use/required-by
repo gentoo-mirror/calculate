@@ -138,6 +138,9 @@ net-misc/remmina ssh rdp vte
 # required by net-misc/remmina-1.2.0_rc3-r1, x11-drivers/xf86-video-ati-7.6.1
 x11-base/xorg-server kdrive glamor
 
+# required by dev-libs/libappindicator-12.10.0-r300
+dev-libs/libdbusmenu gtk3
+
 # required by sci-geosciences/qgis-1.8.0
 sci-libs/gdal geos
 
