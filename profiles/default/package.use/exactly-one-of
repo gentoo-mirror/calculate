@@ -4,9 +4,6 @@ sci-libs/vtk tbb
 # exactly-one-of ( expat xml )
 media-libs/libmetalink expat
 
-# exactly-one-of ( mysql postgres )
-net-dns/mydns postgres
-
 # exactly-one-of ( agent hybrid local server ) at-most-one-of ( mysql postgres )
 net-analyzer/ossec-hids hybrid postgres
 
@@ -40,9 +37,6 @@ acct-user/git gitea
 
 # exactly-one-of ( lua_single_target_luajit lua_single_target_lua5-3 lua_single_target_lua5-4 )
 dev-lang/fennel lua_single_target_lua5-4
-
-# exactly-one-of ( apulse pulseaudio )
-net-im/viber -apulse
 
 # exactly-one-of ( guile_single_target_2-2 )
 media-sound/denemo guile_single_target_2-2
