@@ -1,8 +1,6 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# NOTE: This is the modification of `sys-boot/plymouth-openrc-plugin-0.1.3::gentoo` patched for Calculate
-
 EAPI=7
 
 DESCRIPTION="Plymouth plugin for OpenRC"
@@ -13,13 +11,15 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64"
 
-DEPEND="sys-apps/openrc"
+DEPEND="sys-apps/openrc:="
 RDEPEND="${DEPEND}
 	sys-boot/plymouth
 	!sys-apps/systemd"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-r2.patch
+	"${FILESDIR}"/${P}-disable-messages.patch
+	"${FILESDIR}"/${P}-restart-consolefont.patch
+	"${FILESDIR}"/${P}-silent-shutdown.patch
 )
 
 src_install() {
