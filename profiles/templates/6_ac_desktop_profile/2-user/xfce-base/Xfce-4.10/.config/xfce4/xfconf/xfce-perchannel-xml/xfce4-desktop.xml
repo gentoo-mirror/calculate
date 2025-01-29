@@ -29,14 +29,12 @@
     <property name="screen0" type="empty">
       <property name="monitor#-xfcedisplay()-#" type="empty">
         <property name="workspace0" type="empty">
-#?ini(profile.appearance-wallpaper)!=#
-          <property name="last-image" type="string" value="#-ini(profile.appearance-wallpaper)-#"/>
-#!ini#
-          <property name="last-image" type="string" value="#-wallpaper(#-os_x11_resolution-#,/usr/share/wallpapers/Calculate_Linux/contents/images)-#"/>
-#ini#
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/Calculate Linux"/>
         </property>
       </property>
     </property>
+    <property name="single-workspace-mode" type="bool" value="true"/>
+    <property name="single-workspace-number" type="int" value="0"/>
   </property>
   <property name="desktop-menu" type="empty">
     <property name="show" type="bool" value="false"/>
