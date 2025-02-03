@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DEPEND=vmlinuz? ( app-arch/xz-utils ) grub? ( sys-boot/grub ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] >=sys-devel/bison-1.875 >=sys-devel/flex-2.5.4 themes? ( || ( media-gfx/splash-themes-calculate sys-boot/plymouth-calculate-plugin ) ) !minimal? ( virtual/pkgconfig )
+DESCRIPTION=Calculate Linux kernel image
+EAPI=7
+HOMEPAGE=https://www.calculate-linux.org/
+INHERIT=calculate-kernel-8
+IUSE=symlink build +vmlinuz desktop minimal themes firmware +grub
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=!build? ( app-alternatives/cpio dev-lang/perl app-alternatives/bc dev-build/make sys-devel/bison sys-devel/flex >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig ) vmlinuz? ( app-arch/xz-utils ) grub? ( sys-boot/grub ) firmware? ( || ( sys-kernel/linux-firmware sys-firmware/eth-firmware ) ) sys-apps/kmod[zstd] vmlinuz? ( sys-kernel/dracut net-misc/dhcp )
+REQUIRED_USE=minimal? ( vmlinuz )
+RESTRICT=binchecks strip
+SLOT=6.13.1
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/patch-6.13.1.xz https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.13.tar.xz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	calculate	0c49fced0f077b1bdf00d0201cf54d29	crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	1e32df7deee68372153dca65f4a7c21f	optfeature	538bce96e5589935b57e178e8635f301	kernel-2	0e01377cce73a7a06321d0ef97388d31	calculate-kernel-8	b34fe04ed334d6f7a5e0bcf36a369ae9
+_md5_=cae72411efe5b11f76a6c279759a14c1
