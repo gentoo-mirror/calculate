@@ -148,8 +148,8 @@ install_doc() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	dodir /usr/share/calculate/doc
-    insinto /usr/share/calculate/doc/
-    doins resources/*.html
+	insinto /usr/share/calculate/doc/
+	doins resources/*.html
 }
 
 install_bin() {
@@ -267,7 +267,7 @@ RDEPEND="
 	dev-python/jaraco-functools[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/aiohttp[${PYTHON_USEDEP}]
-    dev-python/watchdog
+	dev-python/watchdog[${PYTHON_USEDEP}]
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils

@@ -19,7 +19,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://git.calculate-linux.org/calculate/calculate-utils.git"
 else
 	SRC_URI="https://git.calculate-linux.org/calculate/calculate-utils/archive/${PV}.tar.gz -> calculate-utils-${PV}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="amd64"
 	S="${WORKDIR}/${PN}"
 fi
 
@@ -147,7 +147,9 @@ install_libexec() {
 install_doc() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	dodoc -r resources/*.html
+	dodir /usr/share/calculate/doc
+	insinto /usr/share/calculate/doc/
+	doins resources/*.html
 }
 
 install_bin() {
@@ -265,6 +267,7 @@ RDEPEND="
 	dev-python/jaraco-functools[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/aiohttp[${PYTHON_USEDEP}]
+	dev-python/watchdog[${PYTHON_USEDEP}]
 	sys-apps/iproute2[-minimal]
 	sys-apps/pciutils
 	app-arch/xz-utils
@@ -289,7 +292,7 @@ RDEPEND="
 		dev-python/dbus-python[${PYTHON_USEDEP}]
 		media-gfx/imagemagick[jpeg]
 		dev-python/pyqt6[${PYTHON_USEDEP}]
-		dev-python/watchdog[${PYTHON_USEDEP}]
+		dev-python/pyinotify[${PYTHON_USEDEP}]
 	)
 
 	dbus? (
@@ -304,7 +307,7 @@ RDEPEND="
 		sys-apps/keyutils
 		sys-auth/pam_keystore
 		dev-lang/swig
-		dev-qt/qdbus
+		dev-qt/qttools[qdbus]
 		sys-apps/edid-decode
 		dev-python/pygobject[${PYTHON_USEDEP}]
 		dev-python/dbus-python[${PYTHON_USEDEP}]
