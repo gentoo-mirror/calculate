@@ -5,5 +5,6 @@ EAPI=7
 
 DESCRIPTION="Stub package for Linux kernel sources dependense"
 
+LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="amd64"
