@@ -194,11 +194,9 @@
 ~dev-libs/cppcodec-0.2 amd64
 ~dev-libs/cxxtools-3.0 amd64
 ~dev-libs/dietlibc-0.34 amd64
-~dev-libs/iniparser-4.1 amd64
 ~dev-libs/libcpuid-0.6.4 amd64
 ~dev-libs/libdbusmenu-qt-0.9.3_pre20160218 amd64
 ~dev-libs/libdynd-0.7.2 amd64
-~dev-libs/libgit2-1.8.4 amd64
 ~dev-libs/libkpass-6 amd64
 ~dev-libs/libmcfp-1.2.3 amd64
 ~dev-libs/libplatform-2.1.0.1 amd64
@@ -212,7 +210,6 @@ dev-libs/opencl-clang:19 amd64
 ~dev-libs/OpenNI2-2.2_beta2 amd64
 ~dev-libs/protobuf-28.0 amd64
 ~dev-libs/protobuf-c-1.5.0 amd64
-~dev-libs/qoauth-2.0.1_pre20160315 amd64
 ~dev-libs/spsdeclib-5.1 amd64
 ~dev-libs/tinyxml-2.6.2 amd64
 ~dev-lisp/alexandria-1.4 amd64
@@ -220,7 +217,6 @@ dev-libs/opencl-clang:19 amd64
 ~dev-perl/Net-CUPS-0.640.0 amd64
 ~dev-perl/Number-Bytes-Human-0.110.0 amd64
 ~dev-perl/OpenGL-GLUT-0.720.0 amd64
-~dev-python/miniupnpc-2.2.8 amd64
 ~dev-python/omemo-dr-1.0.1 amd64
 ~dev-python/pyotherside-1.6.1 amd64
 ~dev-python/pysdl2-0.9.16 amd64
@@ -237,7 +233,6 @@ dev-libs/opencl-clang:19 amd64
 ~dev-util/vint-0.3.21 amd64
 ~dev-util/watchman-2024.11.04.00 amd64
 ~dev-vcs/python-gitlab-4.6.0 amd64
-~dev-vcs/stgit-2.4.12 amd64
 ~games-action/spacearyarya-kxl-1.0.3 amd64
 ~games-arcade/performous-1.2.0 amd64
 ~games-util/qstat-2.17 amd64
@@ -280,7 +275,6 @@ dev-libs/opencl-clang:19 amd64
 ~media-libs/liblingoteach-0.2.3 amd64
 ~media-libs/libtgvoip-2.4.4_p20240706 amd64
 ~media-libs/libvpx-1.14.1 amd64
-~media-libs/openimageio-2.5.9.0 amd64
 ~media-libs/opensubdiv-3.6.0 amd64
 ~media-libs/rnnoise-0.4.1_p20210122 amd64
 ~media-libs/sdl-pango-0.1.2 amd64
@@ -317,7 +311,6 @@ dev-libs/opencl-clang:19 amd64
 ~net-analyzer/sbd-1.37 amd64
 ~net-analyzer/scanlogd-2.2.8 amd64
 ~net-analyzer/ttcp-1.12 amd64
-~net-dialup/ppp-2.5.0 amd64
 ~net-dns/dnssec-tools-2.2.3 amd64
 ~net-dns/dnstop-20140915 amd64
 ~net-firewall/arptables-0.0.5 amd64
@@ -338,7 +331,6 @@ dev-libs/opencl-clang:19 amd64
 ~net-misc/gofish-1.2 amd64
 ~net-misc/l7-filter-userspace-0.12_beta1 amd64
 ~net-misc/l7-protocols-2009.05.28 amd64
-~net-misc/netsed-0.01b amd64
 ~net-nds/ldapvi-1.7_p20101214 amd64
 ~net-news/snownews-1.9 amd64
 ~net-p2p/retroshare-0.6.7 amd64
@@ -355,7 +347,6 @@ net-vpn/wireguard-tools amd64
 ~net-wireless/portapack-firmware-20190405 amd64
 ~sci-astronomy/pyephem-4.1.5 amd64
 ~sci-biology/fasttree-2.1.11 amd64
-~sci-chemistry/dssp-4.4.7 amd64
 ~sci-electronics/espresso-ab-1.0 amd64
 ~sci-geosciences/bt747-2.1.7 amd64
 ~sci-geosciences/gpscorrelate-2.0 amd64
@@ -410,7 +401,6 @@ net-vpn/wireguard-tools amd64
 ~sys-process/memwatch-0.3.3 amd64
 ~virtual/opencl-3 amd64
 ~virtual/perl-Compress-Raw-Zlib-2.213.0 amd64
-~virtual/perl-Term-Table-0.22.0 amd64
 ~www-client/w3mmee-0.3.2_p24 amd64
 ~www-servers/fnord-1.11 amd64
 ~x11-libs/gdk-pixbuf-xlib-2.40.2 amd64
@@ -438,7 +428,6 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/grub2-theme-preview-2.8.0 amd64
 ~x11-misc/iconbox-0.2 amd64
 ~x11-misc/kapow-1.5.10 amd64
-~x11-misc/kaqaz-1.2.0 amd64
 ~x11-misc/kbdd-0.7.1 amd64
 ~x11-misc/kronometer-2.3.70_pre20240906 amd64
 ~x11-misc/light-locker-1.9.0 amd64
@@ -451,14 +440,12 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/peksystray-0.4.0 amd64
 ~x11-misc/piedock-1.6.9 amd64
 ~x11-misc/primus-0.2 amd64
-~x11-misc/qarma-1 amd64
 ~x11-misc/quitcount-3.1.4 amd64
 ~x11-misc/screen-message-0.26 amd64
 ~x11-misc/seetxt-0.72 amd64
 ~x11-misc/sent-1 amd64
 ~x11-misc/set_opacity-1.0 amd64
 ~x11-misc/tinynotify-send-1.2.1 amd64
-~x11-misc/urxvtconfig-1.0 amd64
 ~x11-misc/vym-2.7.1 amd64
 ~x11-misc/wayv-0.3 amd64
 ~x11-misc/whaw-0.2 amd64
