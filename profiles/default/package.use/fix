@@ -50,3 +50,6 @@ app-misc/yq -yq-symlink
 
 # not compiled
 games-board/stockfish -cpu_flags_x86_avx512f
+
+# not working
+sys-cluster/glusterfs -ipv6

@@ -1,4 +1,0 @@
-# Calculate path=/etc/glusterfs comment=# format=patch multiline
-<reg>^    type mgmt/glusterd$</reg>
-<text>    type mgmt/glusterd
-    option transport.address-family inet</text>
