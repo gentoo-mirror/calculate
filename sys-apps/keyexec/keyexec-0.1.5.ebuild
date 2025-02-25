@@ -10,7 +10,7 @@ SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="kde +rdesktop +freerdp"
+IUSE="kde rdesktop +freerdp"
 
 DEPEND="
 	rdesktop? ( net-misc/rdesktop )
