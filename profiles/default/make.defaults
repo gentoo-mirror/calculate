@@ -30,7 +30,7 @@ USE="${USE} truetype userlocales"
 USE="${USE} mimap box smtp"
 
 # Net protocols
-USE="${USE} bittorrent ftp idn imap nfs rdesktop samba sasl vnc"
+USE="${USE} bittorrent ftp idn imap nfs samba sasl vnc"
 
 # Network connections
 USE="${USE} ppp upnp"
