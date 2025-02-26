@@ -1,9 +1,9 @@
 # Calculate format=kernel name=.config os_install_arch_machine==x86_64
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 6.6.70 Kernel Configuration
+# Linux/x86 6.6.79 Kernel Configuration
 #
-CONFIG_CC_VERSION_TEXT="x86_64-pc-linux-gnu-gcc (Gentoo 14.2.1_p20241116 p3) 14.2.1 20241116"
+CONFIG_CC_VERSION_TEXT="x86_64-pc-linux-gnu-gcc (Gentoo 14.2.1_p20241221 p7) 14.2.1 20241221"
 CONFIG_CC_IS_GCC=y
 CONFIG_GCC_VERSION=140201
 CONFIG_CLANG_VERSION=0
@@ -9821,9 +9821,9 @@ CONFIG_TMPFS_XATTR=y
 CONFIG_TMPFS_INODE64=y
 CONFIG_TMPFS_QUOTA=y
 CONFIG_HUGETLBFS=y
+# CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON is not set
 CONFIG_HUGETLB_PAGE=y
 CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP=y
-# CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON is not set
 CONFIG_ARCH_HAS_GIGANTIC_PAGE=y
 CONFIG_CONFIGFS_FS=y
 CONFIG_EFIVAR_FS=y
@@ -10435,7 +10435,7 @@ CONFIG_SIGNED_PE_FILE_VERIFICATION=y
 #
 # Certificates for signature checking
 #
-CONFIG_MODULE_SIG_KEY="/var/tmp/portage/sys-kernel/gentoo-kernel-6.6.70/temp/kernel_key.pem"
+CONFIG_MODULE_SIG_KEY="/var/tmp/portage/sys-kernel/gentoo-kernel-6.6.79/temp/kernel_key.pem"
 CONFIG_MODULE_SIG_KEY_TYPE_RSA=y
 # CONFIG_MODULE_SIG_KEY_TYPE_ECDSA is not set
 CONFIG_SYSTEM_TRUSTED_KEYRING=y
