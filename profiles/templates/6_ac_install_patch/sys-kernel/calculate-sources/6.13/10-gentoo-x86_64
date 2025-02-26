@@ -1,7 +1,7 @@
 # Calculate format=kernel name=.config os_install_arch_machine==x86_64
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 6.13.3 Kernel Configuration
+# Linux/x86 6.13.4 Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="x86_64-pc-linux-gnu-gcc (Gentoo 14.2.1_p20241221 p7) 14.2.1 20241221"
 CONFIG_CC_IS_GCC=y
@@ -12,8 +12,8 @@ CONFIG_AS_VERSION=24200
 CONFIG_LD_IS_BFD=y
 CONFIG_LD_VERSION=24200
 CONFIG_LLD_VERSION=0
-CONFIG_RUSTC_VERSION=108300
-CONFIG_RUSTC_LLVM_VERSION=190101
+CONFIG_RUSTC_VERSION=108401
+CONFIG_RUSTC_LLVM_VERSION=190105
 CONFIG_CC_CAN_LINK=y
 CONFIG_CC_CAN_LINK_STATIC=y
 CONFIG_CC_HAS_ASM_GOTO_OUTPUT=y
@@ -10939,7 +10939,7 @@ CONFIG_SIGNED_PE_FILE_VERIFICATION=y
 #
 # Certificates for signature checking
 #
-CONFIG_MODULE_SIG_KEY="/var/tmp/portage/sys-kernel/gentoo-kernel-6.13.3/temp/kernel_key.pem"
+CONFIG_MODULE_SIG_KEY="/var/tmp/portage/sys-kernel/gentoo-kernel-6.13.4/temp/kernel_key.pem"
 CONFIG_MODULE_SIG_KEY_TYPE_RSA=y
 # CONFIG_MODULE_SIG_KEY_TYPE_ECDSA is not set
 CONFIG_SYSTEM_TRUSTED_KEYRING=y
