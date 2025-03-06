@@ -568,6 +568,439 @@
             "withholding_permissions": false
         }
 #exists#
+#?exists(~/.config/chromium/Default/Extensions/ddkjiahejlhfcafbddmgiahcphecmpfh)!= exists(~/.config/chromium/Default/Extensions/nngceckbapebfimnlniiiahkandclblb)!=||exists(~/.config/chromium/Default/Extensions/fnaicdffflnofjppbagibeoednhnbjhg)!=||exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=#
+        ,
+#exists#
+#?exists(~/.config/chromium/Default/Extensions/ddkjiahejlhfcafbddmgiahcphecmpfh)!=#
+		    {
+        "account_extension_type": 0,
+        "active_bit": false,
+        "active_permissions": {
+            "api": [
+                "activeTab",
+                "storage",
+                "declarativeNetRequest",
+                "scripting"
+            ],
+            "explicit_host": [],
+            "manifest_permissions": [],
+            "scriptable_host": []
+        },
+        "allowlist": 1,
+        "commands": {},
+        "content_settings": [],
+        "creation_flags": 9,
+        "dnr_dynamic_ruleset": {
+            "checksum": 1141569535
+        },
+        "dnr_enabled_ruleset_ids": [
+            1,
+            2,
+            11,
+            12,
+            39
+        ],
+        "dnr_static_ruleset": {
+            "1": {
+                "checksum": 113388263,
+                "ignore_ruleset": false
+            },
+            "11": {
+                "checksum": 147483167,
+                "ignore_ruleset": false
+            },
+            "12": {
+                "checksum": 507499947,
+                "ignore_ruleset": false
+            },
+            "2": {
+                "checksum": 650286096,
+                "ignore_ruleset": false
+            },
+            "39": {
+                "checksum": 1459310023
+            }
+        },
+        "dnr_use_action_count_as_badge_text": true,
+        "first_install_time": "13385735146217956",
+        "from_webstore": true,
+        "granted_permissions": {
+            "api": [
+                "activeTab",
+                "storage",
+                "declarativeNetRequest",
+                "scripting"
+            ],
+            "explicit_host": [],
+            "manifest_permissions": [],
+            "scriptable_host": []
+        },
+        "incognito_content_settings": [],
+        "incognito_preferences": {},
+        "last_update_time": "13385735146217956",
+        "location": 1,
+        "manifest": {
+            "action": {
+                "default_icon": {
+                    "16": "img/icon_16.png",
+                    "32": "img/icon_32.png",
+                    "64": "img/icon_64.png"
+                },
+                "default_popup": "popup.html"
+            },
+            "author": "Raymond Hill",
+            "background": {
+                "service_worker": "/js/background.js",
+                "type": "module"
+            },
+            "current_locale": "ru",
+            "declarative_net_request": {
+                "rule_resources": [
+                    {
+                        "enabled": true,
+                        "id": "default",
+                        "path": "/rulesets/main/default.json"
+                    },
+                    {
+                        "enabled": true,
+                        "id": "badware",
+                        "path": "/rulesets/main/badware.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "block-lan",
+                        "path": "/rulesets/main/block-lan.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "dpollock-0",
+                        "path": "/rulesets/main/dpollock-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "adguard-spyware-url",
+                        "path": "/rulesets/main/adguard-spyware-url.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "annoyances-cookies",
+                        "path": "/rulesets/main/annoyances-cookies.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "annoyances-overlays",
+                        "path": "/rulesets/main/annoyances-overlays.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "annoyances-social",
+                        "path": "/rulesets/main/annoyances-social.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "annoyances-widgets",
+                        "path": "/rulesets/main/annoyances-widgets.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "annoyances-others",
+                        "path": "/rulesets/main/annoyances-others.json"
+                    },
+                    {
+                        "enabled": true,
+                        "id": "urlhaus-full",
+                        "path": "/rulesets/main/urlhaus-full.json"
+                    },
+                    {
+                        "enabled": true,
+                        "id": "openphish-domains",
+                        "path": "/rulesets/main/openphish-domains.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "stevenblack-hosts",
+                        "path": "/rulesets/main/stevenblack-hosts.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "alb-0",
+                        "path": "/rulesets/main/alb-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "bgr-0",
+                        "path": "/rulesets/main/bgr-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "chn-0",
+                        "path": "/rulesets/main/chn-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "cze-0",
+                        "path": "/rulesets/main/cze-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "deu-0",
+                        "path": "/rulesets/main/deu-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "fin-0",
+                        "path": "/rulesets/main/fin-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "fra-0",
+                        "path": "/rulesets/main/fra-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "grc-0",
+                        "path": "/rulesets/main/grc-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "hrv-0",
+                        "path": "/rulesets/main/hrv-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "hun-0",
+                        "path": "/rulesets/main/hun-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "idn-0",
+                        "path": "/rulesets/main/idn-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "ind-0",
+                        "path": "/rulesets/main/ind-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "irn-0",
+                        "path": "/rulesets/main/irn-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "isl-0",
+                        "path": "/rulesets/main/isl-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "isr-0",
+                        "path": "/rulesets/main/isr-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "ita-0",
+                        "path": "/rulesets/main/ita-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "jpn-1",
+                        "path": "/rulesets/main/jpn-1.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "kor-1",
+                        "path": "/rulesets/main/kor-1.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "ltu-0",
+                        "path": "/rulesets/main/ltu-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "lva-0",
+                        "path": "/rulesets/main/lva-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "mkd-0",
+                        "path": "/rulesets/main/mkd-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "nld-0",
+                        "path": "/rulesets/main/nld-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "nor-0",
+                        "path": "/rulesets/main/nor-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "pol-0",
+                        "path": "/rulesets/main/pol-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "rou-1",
+                        "path": "/rulesets/main/rou-1.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "rus-0",
+                        "path": "/rulesets/main/rus-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "rus-1",
+                        "path": "/rulesets/main/rus-1.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "spa-0",
+                        "path": "/rulesets/main/spa-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "spa-1",
+                        "path": "/rulesets/main/spa-1.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "svn-0",
+                        "path": "/rulesets/main/svn-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "swe-1",
+                        "path": "/rulesets/main/swe-1.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "tha-0",
+                        "path": "/rulesets/main/tha-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "tur-0",
+                        "path": "/rulesets/main/tur-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "ukr-0",
+                        "path": "/rulesets/main/ukr-0.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "vie-1",
+                        "path": "/rulesets/main/vie-1.json"
+                    },
+                    {
+                        "enabled": false,
+                        "id": "est-0",
+                        "path": "/rulesets/main/est-0.json"
+                    }
+                ]
+            },
+            "default_locale": "en",
+            "description": "\u0411\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u0449\u0438\u043a \u043a\u043e\u043d\u0442\u0435\u043d\u0442\u0430, \u043d\u0435 \u0442\u0440\u0435\u0431\u0443\u044e\u0449\u0438\u0439 \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0438\u0439. \u0421\u0440\u0430\u0437\u0443 \u043f\u043e\u0441\u043b\u0435 \u0438\u043d\u0441\u0442\u0430\u043b\u043b\u044f\u0446\u0438\u0438 \u0431\u043b\u043e\u043a\u0438\u0440\u0443\u0435\u0442 \u0440\u0435\u043a\u043b\u0430\u043c\u0443, \u0442\u0440\u0435\u043a\u0435\u0440\u044b, \u043c\u0430\u0439\u043d\u0435\u0440\u044b \u0438 \u043c\u043d\u043e\u0433\u043e\u0435 \u0434\u0440\u0443\u0433\u043e\u0435.",
+            "icons": {
+                "128": "img/icon_128.png",
+                "16": "img/icon_16.png",
+                "32": "img/icon_32.png",
+                "64": "img/icon_64.png"
+            },
+            "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqJE6DLdtfHXfeaGDSKdUuCvvb3pYEpH7jsuYMdExgIqmKRux2dknlJAnYkamBMcirGBfwCFjqE++TAkCs8AcrYLOGRRMt8oa7DXuFWzgtQpkwigI1+dnIuYLzERLQx/O02/p//fHdDQfxWKvySnN+VHdINOHsUD6OcoC5I7CXIBSrateRpRGpFxxR6F4nWvK3aq2j3L6A/qRg+pr0QVqL8p1TOJG+vSh234YHnsO9Dsys+VNbT0k0n8enCm/VsOCMjihgHpmftd1bSfSr8s1IwBuFdaLVQKghyDn1PvhFNBkuAXu+J/z0/o5Nio+/bIz406ECI9Qtkr9kqVboFDtzwIDAQAB",
+            "manifest_version": 3,
+            "minimum_chrome_version": "122.0",
+            "name": "uBlock Origin Lite",
+            "optional_host_permissions": [
+                "<all_urls>"
+            ],
+            "options_page": "dashboard.html",
+            "permissions": [
+                "activeTab",
+                "declarativeNetRequest",
+                "scripting",
+                "storage"
+            ],
+            "short_name": "uBO Lite",
+            "storage": {
+                "managed_schema": "managed_storage.json"
+            },
+            "update_url": "https://clients2.google.com/service/update2/crx",
+            "version": "2025.3.2.1298",
+            "web_accessible_resources": [
+                {
+                    "matches": [
+                        "<all_urls>"
+                    ],
+                    "resources": [
+                        "/strictblock.html"
+                    ],
+                    "use_dynamic_url": true
+                },
+                {
+                    "matches": [
+                        "<all_urls>"
+                    ],
+                    "resources": [
+                        "/web_accessible_resources/noop.js",
+                        "/web_accessible_resources/google-ima.js",
+                        "/web_accessible_resources/noop.txt",
+                        "/web_accessible_resources/noop-1s.mp4",
+                        "/web_accessible_resources/noop.css",
+                        "/web_accessible_resources/1x1.gif",
+                        "/web_accessible_resources/2x2.png",
+                        "/web_accessible_resources/32x32.png",
+                        "/web_accessible_resources/empty",
+                        "/web_accessible_resources/noop.html",
+                        "/web_accessible_resources/nofab.js",
+                        "/web_accessible_resources/hd-main.js",
+                        "/web_accessible_resources/popads.js",
+                        "/web_accessible_resources/googlesyndication_adsbygoogle.js",
+                        "/web_accessible_resources/google-analytics_analytics.js",
+                        "/web_accessible_resources/prebid-ads.js",
+                        "/web_accessible_resources/amazon_apstag.js",
+                        "/web_accessible_resources/doubleclick_instream_ad_status.js",
+                        "/web_accessible_resources/google-analytics_cx_api.js",
+                        "/web_accessible_resources/googletagservices_gpt.js",
+                        "/web_accessible_resources/scorecardresearch_beacon.js",
+                        "/web_accessible_resources/google-analytics_ga.js",
+                        "/web_accessible_resources/outbrain-widget.js",
+                        "/web_accessible_resources/fingerprint2.js",
+                        "/web_accessible_resources/amazon_ads.js",
+                        "/web_accessible_resources/chartbeat.js",
+                        "/web_accessible_resources/noop-vmap1.xml",
+                        "/web_accessible_resources/noop-vast3.xml",
+                        "/web_accessible_resources/noop-0.1s.mp3",
+                        "/web_accessible_resources/nobab2.js",
+                        "/web_accessible_resources/noop.json",
+                        "/web_accessible_resources/click2load.html",
+                        "/web_accessible_resources/noeval-silent.js"
+                    ],
+                    "use_dynamic_url": true
+                }
+            ]
+        },
+        "needs_sync": true,
+        "path": "ddkjiahejlhfcafbddmgiahcphecmpfh/2025.3.2.1298_0",
+        "preferences": {},
+        "regular_only_preferences": {},
+        "service_worker_registration_info": {
+            "version": "2025.3.2.1298"
+        },
+        "serviceworkerevents": [
+            "permissions.onAdded",
+            "permissions.onRemoved"
+        ],
+        "state": 1,
+        "was_installed_by_default": false,
+        "was_installed_by_oem": false,
+        "withholding_permissions": false
+    }
+#exists#
 	},
         "toolbar": [
             "cjpalhdlnbpafiamejdnhcphjbkeiagm",
