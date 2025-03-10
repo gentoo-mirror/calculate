@@ -568,7 +568,7 @@
             "withholding_permissions": false
         }
 #exists#
-#?exists(~/.config/chromium/Default/Extensions/ddkjiahejlhfcafbddmgiahcphecmpfh)!= exists(~/.config/chromium/Default/Extensions/nngceckbapebfimnlniiiahkandclblb)!=||exists(~/.config/chromium/Default/Extensions/fnaicdffflnofjppbagibeoednhnbjhg)!=||exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=#
+#?exists(~/.config/chromium/Default/Extensions/ddkjiahejlhfcafbddmgiahcphecmpfh)!=&&exists(~/.config/chromium/Default/Extensions/fnaicdffflnofjppbagibeoednhnbjhg)!=||exists(~/.config/chromium/Default/Extensions/ddkjiahejlhfcafbddmgiahcphecmpfh)!=&&exists(~/.config/chromium/Default/Extensions/nngceckbapebfimnlniiiahkandclblb)!=||exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=&&exists(~/.config/chromium/Default/Extensions/ddkjiahejlhfcafbddmgiahcphecmpfh)!=#
         ,
 #exists#
 #?exists(~/.config/chromium/Default/Extensions/ddkjiahejlhfcafbddmgiahcphecmpfh)!=#
