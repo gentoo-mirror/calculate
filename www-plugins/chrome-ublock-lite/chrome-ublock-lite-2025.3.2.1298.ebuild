@@ -16,8 +16,8 @@ KEYWORDS="amd64"
 RDEPEND="dev-python/plyvel"
 
 src_install() {
-	insinto /usr/share/chrome-ublocki-lite
+	insinto /usr/share/chrome-ublock-lite
 	doins -r * .*
 	doins "${FILESDIR}"/configure.py
-	fperms 755 /usr/share/chrome-ublock/configure.py
+	fperms 755 /usr/share/chrome-ublock-lite/configure.py
 }
