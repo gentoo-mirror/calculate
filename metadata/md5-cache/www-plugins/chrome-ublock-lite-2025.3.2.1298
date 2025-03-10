@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=Free, open-source ad content blocker (Chrome plugin)
+EAPI=8
+HOMEPAGE=https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh
+KEYWORDS=amd64
+LICENSE=GPL-3
+RDEPEND=dev-python/plyvel
+SLOT=0
+SRC_URI=https://mirror.calculate-linux.org/source/chrome-ublock-lite/chrome-ublock-lite-2025.3.2.1298.tar.bz2
+_md5_=a1849829d329a20e5cc733776167f487
