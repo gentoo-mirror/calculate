@@ -795,3 +795,7 @@ dev-libs/glib introspection
 
 # required by media-gfx/freecad-1.0.0-r2[gui,python_single_target_python3_12]
 dev-python/pyside uitools
+
+# dependency required by www-apps/icingaweb2-2.12.1-r2
+acct-user/nginx icingaweb2
+
