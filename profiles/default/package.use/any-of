@@ -27,3 +27,6 @@ app-containers/docker-credential-helpers keyring
 
 # opengl? ( any-of ( fltk gui ) )
 sci-mathematics/octave gui
+
+# any-of ( mysql postgres sqlite )
+kde-apps/akonadi-config -mysql sqlite
