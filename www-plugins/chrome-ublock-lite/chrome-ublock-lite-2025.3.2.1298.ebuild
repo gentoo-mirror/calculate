@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Free, open-source ad content blocker (Chrome plugin)"
+DESCRIPTION="Free, open-source permission-less ad content blocker (Chrome plugin)"
 HOMEPAGE="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh"
 SRC_URI="https://mirror.calculate-linux.org/source/${PN}/${P}.tar.bz2"
 
@@ -17,7 +17,7 @@ RDEPEND="dev-python/plyvel"
 
 src_install() {
 	insinto /usr/share/chrome-ublock-lite
-	doins -r * 
+	doins -r *
 	doins "${FILESDIR}"/configure.py
 	fperms 755 /usr/share/chrome-ublock-lite/configure.py
 }
