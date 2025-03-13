@@ -22,7 +22,6 @@ DEPEND="
 	libevent? ( dev-libs/libevent )
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 REQUIRED_USE="
 	test? ( ssl )
