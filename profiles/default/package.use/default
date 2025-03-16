@@ -322,7 +322,8 @@ xfce-extra/xfce4-sensors-plugin lm-sensors
 sys-apps/inxi hddtemp
 
 # Unsupported closed-source DRM capability (required by Netflix VOD)
-www-client/chromium widevine
+# Add kerberos support
+www-client/chromium widevine kerberos
 
 # Enable display of detailed memory information using dev-qt/qtwebengine
 kde-plasma/libksysguard webengine
