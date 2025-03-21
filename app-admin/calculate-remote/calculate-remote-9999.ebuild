@@ -5,7 +5,7 @@ EAPI=8
 
 inherit git-r3
 
-DESCRIPTION="Automation of command execution on remote workstations for Calculate Linux"
+DESCRIPTION="Fast parallel execution of shell scripts and commands over SSH on multiple hosts"
 HOMEPAGE="https://git.calculate-linux.org/calculate/calculate-remote"
 
 if [[ ${PV} == 9999 ]]; then
