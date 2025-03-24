@@ -5,7 +5,7 @@ EAPI=8
 
 inherit git-r3
 
-DESCRIPTION="Fast parallel execution of shell scripts and commands over SSH on multiple hosts"
+DESCRIPTION="Parallel SSH execution of shell scripts on multiple hosts"
 HOMEPAGE="https://git.calculate-linux.org/calculate/calculate-remote"
 
 if [[ ${PV} == 9999 ]]; then
@@ -38,8 +38,8 @@ src_compile() {
 }
 
 src_install() {
-	emake install DESTDIR="${D}" || die
-	dodoc README.md || die
+	emake install DESTDIR="${D}"
+	dodoc README.md
 }
 
 src_unpack() {
