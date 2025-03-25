@@ -3,12 +3,11 @@
 
 EAPI=8
 
-inherit git-r3
-
 DESCRIPTION="Parallel SSH execution of shell scripts on multiple hosts"
 HOMEPAGE="https://git.calculate-linux.org/calculate/calculate-remote"
 
 if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
 	EGIT_REPO_URI="https://git.calculate-linux.org/calculate/${PN}.git"
 else
 	SRC_URI="https://git.calculate-linux.org/calculate/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
@@ -40,12 +39,4 @@ src_compile() {
 src_install() {
 	emake install DESTDIR="${D}"
 	dodoc README.md
-}
-
-src_unpack() {
-	if [[ ${PV} == 9999 ]]; then
-		git-r3_src_unpack
-	else
-		default
-	fi
 }
