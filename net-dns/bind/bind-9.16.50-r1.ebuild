@@ -1,4 +1,4 @@
-# Copyright 2008-2024 Mir Calculate
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # NOTE: This is the modification of `net-dns/bind-9.16.50::gentoo` with the SDB-LDAP patch
