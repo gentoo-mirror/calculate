@@ -1,9 +1,10 @@
 # prevent automagic depends
 sys-libs/db:6.0
 
-=net-dns/bind-tools-9.18.0
-=net-dns/bind-9.18.29-r2
+~net-dns/bind-tools-9.18.0
+~net-dns/bind-9.18.29
 
 =gnome-base/gnome-panel-3.54.0
 
 =app-accessibility/emacspeak-60.0-r1
+
