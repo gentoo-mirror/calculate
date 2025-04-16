@@ -22,9 +22,10 @@ DEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
-	net-misc/openssh
 	net-dns/bind-tools
 	net-misc/iputils
+	net-misc/openssh
+	net-misc/sshpass
 	sys-apps/coreutils
 	sys-apps/iproute2
 	sys-process/procps
