@@ -314,17 +314,12 @@ RDEPEND="
 	)
 
 	client? (
+		app-crypt/adcli
 		dev-python/python-ldap[ssl,${PYTHON_USEDEP}]
+		>=sys-auth/nss_ldap-239
 		sys-auth/pam_client
 		>=sys-auth/pam_ldap-180[ssl]
-		>=sys-auth/nss_ldap-239
+		sys-auth/sssd
 	)
 	backup? ( !sys-apps/calculate-server )
 "
-#	server? (
-#		sys-auth/pam_ldap
-#		sys-auth/nss_ldap
-#		dev-python/python-ldap[${PYTHON_USEDEP}]
-#	)
-#
-#	server? ( !sys-apps/calculate-server )
