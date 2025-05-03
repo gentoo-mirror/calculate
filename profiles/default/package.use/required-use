@@ -85,3 +85,9 @@ dev-lang/lazarus -gtk
 
 # bluetooth? opengl? ( widgets ) svg? ( widgets )
 dev-python/pyqt5 widgets
+
+# p2p? ( ap wps )
+net-wireless/wpa_supplicant wps
+
+# dbus? ( gui )
+media-video/mkvtoolnix gui

@@ -806,3 +806,18 @@ media-libs/gegl lcms
 
 # required by dev-python/qpageview-1.0.0
 dev-python/pyqt6 pdfium
+
+# required by media-gfx/photoqt-4.8.1[imagemagick,-graphicsmagick]
+media-gfx/imagemagick hdri
+
+# required by dev-cpp/prometheus-cpp-1.2.4
+www-servers/civetweb cxx
+
+# required by sys-auth/sssd-2.9.6-r3
+net-dns/bind gssapi
+
+# required by app-crypt/certbot-nginx-3.2.0-r100
+app-crypt/certbot certbot-nginx
+
+# required by app-crypt/certbot-dns-nsone-3.2.0-r100
+app-crypt/certbot certbot-dns-nsone
