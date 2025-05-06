@@ -383,3 +383,6 @@ media-sound/picard fingerprints
 
 # enable support for georeplication
 sys-cluster/glusterfs georeplication xml
+
+# Provides OpenRC versions of reboot/halt/poweroff/shutdown
+sys-apps/openrc sysv-utils
