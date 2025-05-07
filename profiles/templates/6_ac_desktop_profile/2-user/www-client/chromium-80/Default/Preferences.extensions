@@ -170,7 +170,11 @@
                 "state": 1,
                 "was_installed_by_default": false,
                 "was_installed_by_oem": false,
-                "withholding_permissions": false
+                "withholding_permissions": false,
+				"mv2_deprecation_did_disable": true,
+		        "mv2_deprecation_disabled_dialog_ack": true,
+        		"mv2_deprecation_user_re_enabled": true
+
             }
 #exists#
 #?exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=&&exists(~/.config/chromium/Default/Extensions/fnaicdffflnofjppbagibeoednhnbjhg)!=||exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=&&exists(~/.config/chromium/Default/Extensions/nngceckbapebfimnlniiiahkandclblb)!=#
@@ -279,7 +283,10 @@
                 "state": 1,
                 "was_installed_by_default": false,
                 "was_installed_by_oem": false,
-                "withholding_permissions": false
+                "withholding_permissions": false,
+				"mv2_deprecation_did_disable": true,
+		        "mv2_deprecation_disabled_dialog_ack": true,
+        		"mv2_deprecation_user_re_enabled": true
             }
 #exists#
 #?exists(~/.config/chromium/Default/Extensions/fnaicdffflnofjppbagibeoednhnbjhg)!=&&exists(~/.config/chromium/Default/Extensions/nngceckbapebfimnlniiiahkandclblb)!=#
@@ -568,7 +575,10 @@
             "state": 1,
             "was_installed_by_default": false,
             "was_installed_by_oem": false,
-            "withholding_permissions": false
+            "withholding_permissions": false,
+			"mv2_deprecation_did_disable": true,
+	        "mv2_deprecation_disabled_dialog_ack": true,
+    	    "mv2_deprecation_user_re_enabled": true
         }
 #exists#
 #?exists(~/.config/chromium/Default/Extensions/ddkjiahejlhfcafbddmgiahcphecmpfh)!=&&exists(~/.config/chromium/Default/Extensions/fnaicdffflnofjppbagibeoednhnbjhg)!=||exists(~/.config/chromium/Default/Extensions/ddkjiahejlhfcafbddmgiahcphecmpfh)!=&&exists(~/.config/chromium/Default/Extensions/nngceckbapebfimnlniiiahkandclblb)!=||exists(~/.config/chromium/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm)!=&&exists(~/.config/chromium/Default/Extensions/ddkjiahejlhfcafbddmgiahcphecmpfh)!=#
@@ -1001,7 +1011,10 @@
         "state": 1,
         "was_installed_by_default": false,
         "was_installed_by_oem": false,
-        "withholding_permissions": false
+        "withholding_permissions": false,
+		"mv2_deprecation_did_disable": true,
+        "mv2_deprecation_disabled_dialog_ack": true,
+        "mv2_deprecation_user_re_enabled": true
     }
 #exists#
 	},
