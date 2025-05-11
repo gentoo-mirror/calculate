@@ -30,6 +30,7 @@
         <value type="int" value="9"/>
         <value type="int" value="6"/>
         <value type="int" value="10"/>
+        <value type="int" value="11"/>
         <value type="int" value="5"/>
         <value type="int" value="7"/>
         <value type="int" value="2"/>
@@ -264,6 +265,9 @@
     <property name="plugin-12" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-11" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
     </property>
   </property>
 </channel>
