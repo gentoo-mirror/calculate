@@ -18,7 +18,7 @@ fi
 LICENSE="Apache-2.0"
 SLOT="0"
 
-DEPEND="
+BDEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
@@ -28,9 +28,9 @@ RDEPEND="
 	net-misc/sshpass
 	sys-apps/coreutils
 	sys-apps/iproute2
+	sys-devel/gettext
 	sys-process/procps
 "
-BDEPEND="${DEPEND}"
 
 src_compile() {
 	emake VERSION="${PV}"
