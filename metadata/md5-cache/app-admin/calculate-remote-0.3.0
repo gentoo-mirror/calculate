@@ -1,12 +1,11 @@
 BDEPEND=sys-devel/gettext
 DEFINED_PHASES=compile install
-DEPEND=sys-devel/gettext
 DESCRIPTION=Parallel SSH execution of shell scripts on multiple hosts
 EAPI=8
 HOMEPAGE=https://git.calculate-linux.org/calculate/calculate-remote
 KEYWORDS=amd64
 LICENSE=Apache-2.0
-RDEPEND=net-dns/bind-tools net-misc/iputils net-misc/openssh net-misc/sshpass sys-apps/coreutils sys-apps/iproute2 sys-process/procps
+RDEPEND=net-dns/bind-tools net-misc/iputils net-misc/openssh net-misc/sshpass sys-apps/coreutils sys-apps/iproute2 sys-devel/gettext sys-process/procps
 SLOT=0
 SRC_URI=https://git.calculate-linux.org/calculate/calculate-remote/archive/v0.3.0.tar.gz -> calculate-remote-0.3.0.tar.gz
-_md5_=1696a4fe86758cb835477a1253b53ecf
+_md5_=8154273edea74c0fc3966f3c277ab779
