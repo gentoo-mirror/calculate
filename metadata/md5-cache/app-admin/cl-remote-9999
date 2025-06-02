@@ -2,11 +2,11 @@ BDEPEND=sys-devel/gettext >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install unpack
 DESCRIPTION=Parallel SSH execution of shell scripts on multiple hosts
 EAPI=8
-HOMEPAGE=https://git.calculate-linux.org/calculate/calculate-remote
+HOMEPAGE=https://git.calculate-linux.org/calculate/cl-remote
 INHERIT=git-r3
 LICENSE=Apache-2.0
 PROPERTIES=live
 RDEPEND=net-dns/bind-tools net-misc/iputils net-misc/openssh net-misc/sshpass sys-apps/coreutils sys-apps/iproute2 sys-devel/gettext sys-process/procps
 SLOT=0
 _eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=0a76d0efa5872bb7cdf525c60c12b529
+_md5_=49f93a1753a692f64e70a5f379fbc4f6
