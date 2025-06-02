@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="Parallel SSH execution of shell scripts on multiple hosts"
-HOMEPAGE="https://git.calculate-linux.org/calculate/calculate-remote"
+HOMEPAGE="https://git.calculate-linux.org/calculate/cl-remote"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -22,9 +22,10 @@ BDEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
-	net-misc/openssh
 	net-dns/bind-tools
 	net-misc/iputils
+	net-misc/openssh
+	net-misc/sshpass
 	sys-apps/coreutils
 	sys-apps/iproute2
 	sys-devel/gettext
