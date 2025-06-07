@@ -1,3 +1,4 @@
+#
 >=dev-qt/qtcore-5.4.2 icu
 ~dev-perl/Alien-wxWidgets-0.690.0 gstreamer
 sys-cluster/openmpi romio fortran cxx
@@ -821,3 +822,6 @@ app-crypt/certbot certbot-nginx
 
 # required by app-crypt/certbot-dns-nsone-3.2.0-r100
 app-crypt/certbot certbot-dns-nsone
+
+# required by net-misc/tuba-0.9.2-r2[spell]
+app-text/libspelling vala
