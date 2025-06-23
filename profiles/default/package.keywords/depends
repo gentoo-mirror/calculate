@@ -19,6 +19,7 @@
 ~app-backup/untangle-https-backup-0.1.0 amd64
 ~app-backup/vzdump-1.2 amd64
 ~app-benchmarks/bootchart2-0.14.9 amd64
+~app-benchmarks/iozone-3.506 amd64
 ~app-cdr/dumpet-2.1_p20140601 amd64
 ~app-cdr/kcdemu-0.9 amd64
 ~app-crypt/acr38u-1.7.11 amd64
@@ -301,6 +302,7 @@ dev-libs/opencl-clang:19 amd64
 ~net-firewall/arptables-0.0.5 amd64
 ~net-firewall/pglinux-2.3.1_p20171006 amd64
 ~net-firewall/xtables-addons-3.27 amd64
+~net-im/telegram-desktop-5.14.3 amd64
 ~net-im/telepathy-logger-0.8.2_p4 amd64
 ~net-irc/irssi-xmpp-0.54 amd64
 ~net-libs/cvm-0.97 amd64
@@ -312,6 +314,7 @@ dev-libs/opencl-clang:19 amd64
 ~net-libs/llhttp-9.2.1 amd64
 ~net-libs/mbedtls-3.6.3.1 amd64
 ~net-libs/netwib-5.39.0 amd64
+~net-libs/tdlib-1.8.49_p20250510 amd64
 ~net-libs/usrsctp-0.9.5.0 amd64
 ~net-libs/wvstreams-4.6.1_p14 amd64
 ~net-mail/dbmail-3.2.5 amd64
@@ -432,7 +435,7 @@ net-vpn/wireguard-tools amd64
 ~x11-misc/tinynotify-send-1.2.1 amd64
 ~x11-misc/wayv-0.3 amd64
 ~x11-misc/whaw-0.2 amd64
-~x11-misc/xcalib-0.10 amd64
+x11-misc/xcalib amd64
 ~x11-misc/xcape-1.2 amd64
 ~x11-misc/xcave-2.5.1 amd64
 ~x11-misc/xdo-0.5.7 amd64
