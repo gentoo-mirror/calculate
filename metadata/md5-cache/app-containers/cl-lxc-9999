@@ -1,0 +1,12 @@
+BDEPEND=sys-devel/gettext >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=Automates creation and upgrade of Calculate Linux LXC containers
+EAPI=8
+HOMEPAGE=https://git.lautre.me/alex/cl-lxc
+INHERIT=git-r3
+LICENSE=Apache-2.0
+PROPERTIES=live
+RDEPEND=app-containers/lxc app-shells/bash dev-vcs/git sys-apps/openrc sys-apps/util-linux sys-devel/gettext
+SLOT=0
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=c535455959e1222d7f82665db6de9d72
