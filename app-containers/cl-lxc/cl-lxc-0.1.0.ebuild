@@ -4,7 +4,6 @@
 EAPI=8
 
 DESCRIPTION="Automates creation and upgrade of Calculate Linux LXC containers"
-
 HOMEPAGE="https://git.lautre.me/alex/cl-lxc"
 
 if [[ ${PV} == 9999 ]]; then
