@@ -1,30 +1,23 @@
 # Calculate chmod=0755 comment=#
 #!/bin/sh
 
-if [[ -z "$(/usr/libexec/calculate/cl-variable --value desktop.cl_desktop_online_user)" ]]
-then
-	source /etc/conf.d/acpid
+if [[ -z "$(/usr/libexec/calculate/cl-variable --value desktop.cl_desktop_online_user)" ]]; then
+
+	# Load configuration variables for acpid
+	. /etc/conf.d/acpid
+
 	case "${LID_CLOSE_ACTION}" in
 		suspend)
-#?pkg(sys-auth/elogind)!=#
-			loginctl suspend
-#!pkg#
-			pm-suspend
-#pkg#
+			# Check if AC adapter is offline
+			if ! grep -qE '1' /sys/class/power_supply/AC/online; then
+				loginctl suspend
+			fi
 			;;
 		hibernate)
-#?pkg(sys-auth/elogind)!=#
 			loginctl hibernate
-#!pkg#
-			pm-hibernate
-#pkg#
 			;;
 		suspend-hybrid)
-#?pkg(sys-auth/elogind)!=#
 			loginctl hybrid-sleep
-#!pkg#
-			pm-suspend-hybrid
-#pkg#
 			;;
 		shutdown)
 			halt

@@ -1,0 +1,8 @@
+# Calculate format=xml_xfce pkg(xfce-base/xfwm4)!= path=~/.config/xfce4/xfconf/xfce-perchannel-xml                 
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-session" version="1.0">
+  <property name="xfce4-power-manager" type="empty">
+    <property name="lid-action-on-battery" type="uint" value="4"/>
+  </property>
+</channel>
