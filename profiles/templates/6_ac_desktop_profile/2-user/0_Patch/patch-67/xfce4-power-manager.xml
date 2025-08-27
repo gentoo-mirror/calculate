@@ -3,6 +3,7 @@
 
 <channel name="xfce4-session" version="1.0">
   <property name="xfce4-power-manager" type="empty">
-    <property name="lid-action-on-battery" type="uint" value="4"/>
+    <property name="lid-action-on-battery" type="uint" value="1"/>
+    <property name="lid-action-on-ac" type="uint" value="4"/>
   </property>
 </channel>
