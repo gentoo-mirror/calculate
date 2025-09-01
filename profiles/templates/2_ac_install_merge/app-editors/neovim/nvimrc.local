@@ -1,0 +1,30 @@
+# Calculate path=/etc/vim comment="
+"------------------------------------------------------------------------------
+" UI and behavior
+"------------------------------------------------------------------------------
+" Disable mouse
+set mouse=
+
+" Enable 24-bit colors
+set termguicolors
+
+" Set colorscheme
+colorscheme gruvbox	
+
+" Highlight current line
+set cursorline
+
+"------------------------------------------------------------------------------
+" Indentation
+"------------------------------------------------------------------------------
+" Tab width
+set tabstop=4
+
+" Indent width
+set shiftwidth=4
+
+"------------------------------------------------------------------------------
+" Key mappings
+"------------------------------------------------------------------------------
+" Clear search highlight on Esc
+nnoremap <silent> <Esc> :nohlsearch<CR>
