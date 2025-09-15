@@ -696,9 +696,10 @@ x11-libs/wxGTK gstreamer
 dev-lua/lua-argparse lua_targets_luajit
 dev-lua/LuaBitOp lua_targets_luajit
 
-# required by dev-util/bindgen-0.62.0
-dev-lang/rust rustfmt
+# required by dev-util/bindgen-0.62.0, www-client/chromium-121.0.6167.139, dev-util/bpf-linker-0.9.14
+dev-lang/rust rustfmt profiler llvm_targets_BPF rust-src
 dev-lang/rust-bin rustfmt
+
 
 # required by dev-qt/qt-creator-11.0.2[designer,help]
 dev-qt/qttools assistant designer qml
@@ -725,9 +726,6 @@ app-crypt/pinentry emacs
 
 # required by sys-kernel/gentoo-kernel-bin-6.7.1[initramfs]
 sys-kernel/installkernel dracut
-
-# required by www-client/chromium-121.0.6167.139
-dev-lang/rust profiler
 
 # required by net-misc/tuba-0.6.2
 gui-libs/gtk gstreamer
