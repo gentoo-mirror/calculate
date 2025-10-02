@@ -381,3 +381,6 @@ sys-cluster/glusterfs georeplication xml
 
 # Provides OpenRC versions of reboot/halt/poweroff/shutdown
 sys-apps/openrc sysv-utils
+
+# Add kerberos support
+net-misc/freerdp kerberos
