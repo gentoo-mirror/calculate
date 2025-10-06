@@ -22,7 +22,7 @@ BDEPEND="
 	sys-devel/gettext
 "
 RDEPEND="
-	net-dns/bind-tools
+	net-dns/bind
 	net-misc/iputils
 	net-misc/openssh
 	net-misc/sshpass
