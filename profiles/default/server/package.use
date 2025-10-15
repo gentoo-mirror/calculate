@@ -1,9 +1,6 @@
 sys-apps/calculate-utils -backup -client console -desktop -qt5 pxe
 media-video/ffmpeg -chromium
 
-# circular-deps
-media-libs/freetype -harfbuzz
-
 # Removed unnecessary dependence
 app-emulation/qemu -doc
 dev-lang/erlang -wxwidgets
