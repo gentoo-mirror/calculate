@@ -20,7 +20,6 @@ IUSE="calculate_nomail
 calculate_nodhcp
 calculate_noftp
 calculate_nojabber
-calculate_nonamed
 calculate_nosamba
 calculate_noproxy"
 
@@ -50,7 +49,6 @@ DEPEND="!sys-apps/calculate-lib
 		|| ( media-gfx/imagemagick
 			media-gfx/graphicsmagick )
 	)
-	!calculate_nonamed? ( >=net-dns/bind-9.6.1_p1[sdb-ldap(-)] )
 	!calculate_noproxy? ( >=net-proxy/squid-3.0.14[ldap,pam,ssl] )
 	!calculate_nodhcp? ( >=net-misc/dhcp-3.1.2_p1 )
 	|| ( dev-python/python-ldap[ssl,${PYTHON_USEDEP}]
