@@ -82,8 +82,8 @@ media-libs/mesa xa opencl
 # required by www-client/chromium [minizip]
 sys-libs/zlib minizip
 
-# required by app-text/gnome-doc-utils
-dev-libs/libxml2 icu
+# required by app-text/gnome-doc-utils, dev-util/itstool-2.0.7-r2
+dev-libs/libxml2 icu python
 
 # required by dev-util/libabigail-2.7-r2
 dev-libs/elfutils lzma
@@ -791,8 +791,8 @@ acct-user/nginx icingaweb2
 media-libs/babl lcms
 media-libs/gegl lcms
 
-# required by dev-python/qpageview-1.0.0
-dev-python/pyqt6 pdfium
+# required by dev-python/qpageview-1.0.0, net-misc/electrum-4.6.2
+dev-python/pyqt6 pdfium multimedia
 
 # required by media-gfx/photoqt-4.8.1[imagemagick,-graphicsmagick]
 media-gfx/imagemagick hdri
