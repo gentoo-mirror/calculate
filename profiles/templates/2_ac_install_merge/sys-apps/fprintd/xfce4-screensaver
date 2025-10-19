@@ -1,0 +1,2 @@
+# Calculate path=/etc/pam.d append=before pkg(xfce-extra/xfce4-screensaver)!= grep(/etc/pam.d/xfce4-screensaver,pam_fprintd.so)== comment=#
+auth sufficient pam_fprintd.so
