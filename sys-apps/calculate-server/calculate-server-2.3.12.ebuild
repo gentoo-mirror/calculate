@@ -51,10 +51,8 @@ DEPEND="!sys-apps/calculate-lib
 	)
 	!calculate_noproxy? ( >=net-proxy/squid-3.0.14[ldap,pam,ssl] )
 	!calculate_nodhcp? ( >=net-misc/dhcp-3.1.2_p1 )
-	|| ( dev-python/python-ldap[ssl,${PYTHON_USEDEP}]
-		dev-python/python-ldap[ssl,${PYTHON_USEDEP}] )
-	|| ( dev-python/lxml[${PYTHON_USEDEP}]
-		dev-python/lxml[${PYTHON_USEDEP}] )
+	dev-python/python-ldap[ssl,${PYTHON_USEDEP}]
+	dev-python/lxml[${PYTHON_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 
