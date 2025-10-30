@@ -1,4 +1,7 @@
 # Calculate path=/etc/docker exists(/etc/docker/daemon.json)!=&&exists(/var/lib/docker)!=
 {
-  "data-root": "/var/calculate/docker"
+  "data-root": "/var/calculate/docker",
+    "default-address-pools": [
+    { "base": "172.16.0.0/12", "size": 24 }
+  ]
 }
